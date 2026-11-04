@@ -22,48 +22,7 @@ Il fenomeno frontaliero in Ticino ha raggiunto dimensioni senza precedenti. Seco
 
 La tendenza è in crescita costante dal 2015, trainata dalla differenza salariale (il rapporto stipendio CH/IT è circa 2,3:1 per posizioni equivalenti), dalla vicinanza geografica e dalla qualità della vita nelle province di confine italiane.`,
 
- 'blog.article.guida-completa-frontaliere.body2': `## Capitolo 1: La decisione — Conviene diventare frontaliere?
-
-La domanda più frequente è anche la più complessa: **conviene economicamente lavorare in Svizzera e vivere in Italia?** La risposta dipende da almeno sei variabili: stipendio lordo, stato civile, numero di figli, comune di residenza, costi di pendolarismo e tasso di cambio CHF/EUR.
-
-### Permesso G vs Permesso B: la scelta fondamentale
-
-Il primo bivio è tra due modelli di vita completamente diversi:
-
-| Aspetto | **Permesso G** (frontaliere) | **Permesso B** (residente) |
-|---|---|---|
-| **Residenza** | Italia (entro fascia frontaliera) | Svizzera |
-| **Tassazione** | Imposta alla fonte CH + IRPEF IT | Solo fiscalità svizzera |
-| **Costo della vita** | Italiano (più basso) | Svizzero (più alto) |
-| **Pendolarismo** | Quotidiano, 30-90 min/tratta | Nessuno o breve |
-| **Assicurazione sanitaria** | Scelta: LAMal o SSN | LAMal obbligatoria |
-| **Previdenza** | AVS + LPP in CH, coordinamento INPS | AVS + LPP in CH |
-| **Qualità della vita** | Casa italiana, stipendio svizzero | Piena integrazione in CH |
-
-Per un'analisi dettagliata delle differenze, consulta il nostro [confronto permessi G vs B](nav:permit-compare).
-
-### Una simulazione rapida
-
-Prendiamo un caso tipico: stipendio lordo CHF 5.500/mese, persona sola senza figli, residente a Como.
-
-**Con Permesso G (frontaliere):**
-- Contributi sociali CH (AVS, AC, LPP): ~CHF 660/mese
-- Imposta alla fonte Ticino (tabella A): ~CHF 440/mese
-- Netto mensile CH: ~CHF 4.400
-- IRPEF italiana (con franchigia €10.000): ~€ 280/mese
-- Netto finale: ~**€ 3.700/mese** (al cambio 0,94)
-
-**Con Permesso B (residente in Ticino):**
-- Contributi sociali CH: ~CHF 660/mese
-- Imposta alla fonte: ~CHF 440/mese
-- Netto mensile: ~CHF 4.400
-- Affitto monolocale Lugano: ~CHF 1.200/mese
-- LAMal: ~CHF 380/mese
-- Netto dopo spese fisse: ~**CHF 2.820/mese** (~€ 2.650)
-
-> «La differenza netta tra vivere in Italia e vivere in Svizzera, a parità di stipendio, si aggira tra i 500 e i 1.200 euro mensili a favore del frontaliere. Ma bisogna includere i costi di pendolarismo, che possono erodere fino al 40% di quel vantaggio.» — Dott.ssa Elena Colombo, Commercialista specializzata in fiscalità internazionale
-
-Per calcolare la tua situazione specifica, usa il nostro [calcolatore stipendio netto](nav:calculator) che tiene conto di tutte le variabili: stato civile, figli, comune di residenza, spese di pendolarismo e tasso di cambio attuale.`,
+ 'blog.article.guida-completa-frontaliere.body2': `## Capitolo 1: La decisione — Conviene diventare frontaliere?\n\nLa domanda più frequente è anche la più complessa: **conviene economicamente lavorare in Svizzera e vivere in Italia?** La risposta dipende da almeno sei variabili: stipendio lordo, stato civile, numero di figli, comune di residenza, costi di pendolarismo e tasso di cambio CHF/EUR.\n\n### Permesso G vs Permesso B: la scelta fondamentale\n\nIl primo bivio è tra due modelli di vita completamente diversi:\n\n| Aspetto | **Permesso G** (frontaliere) | **Permesso B** (residente) |\n|---|---|---|\n| **Residenza** | Italia (entro fascia frontaliera) | Svizzera |\n| **Tassazione** | Imposta alla fonte CH + IRPEF IT | Solo fiscalità svizzera |\n| **Costo della vita** | Italiano (più basso) | Svizzero (più alto) |\n| **Pendolarismo** | Quotidiano, 30-90 min/tratta | Nessuno o breve |\n| **Assicurazione sanitaria** | Scelta: LAMal o SSN | LAMal obbligatoria |\n| **Previdenza** | AVS + LPP in CH, coordinamento INPS | AVS + LPP in CH |\n| **Qualità della vita** | Casa italiana, stipendio svizzero | Piena integrazione in CH |\n\nPer un'analisi dettagliata delle differenze, consulta il nostro [confronto permessi G vs B](nav:permit-compare).\n\n### Una simulazione rapida\n\nPrendiamo un caso tipico: stipendio lordo CHF 5.500/mese, persona sola senza figli, residente a Como.\n\n**Con Permesso G (frontaliere):**\n- Contributi sociali CH (AVS, AC, LPP): ~CHF 660/mese\n- Imposta alla fonte Ticino (tabella A): ~CHF 440/mese\n- Netto mensile CH: ~CHF 4.400\n- La soglia di 10.000 euro dell’art. 4 della L. 83/2023 riguarda esclusivamente i redditi da lavoro dipendente svolto all’estero, in una zona di frontiera o in un Paese limitrofo, in modo continuativo ed esclusivo, da persone residenti in Italia, richiamati dall’art. 1, comma 175, della L. 147/2013; non è una franchigia generale né un’esenzione dall’imposta svizzera alla fonte.\n- Netto finale: ~**€ 3.700/mese** (al cambio 0,94)\n\n**Con Permesso B (residente in Ticino):**\n- Contributi sociali CH: ~CHF 660/mese\n- Imposta alla fonte: ~CHF 440/mese\n- Netto mensile: ~CHF 4.400\n- Affitto monolocale Lugano: ~CHF 1.200/mese\n- LAMal: ~CHF 380/mese\n- Netto dopo spese fisse: ~**CHF 2.820/mese** (~€ 2.650)\n\n> «La differenza netta tra vivere in Italia e vivere in Svizzera, a parità di stipendio, si aggira tra i 500 e i 1.200 euro mensili a favore del frontaliere. Ma bisogna includere i costi di pendolarismo, che possono erodere fino al 40% di quel vantaggio.» — Dott.ssa Elena Colombo, Commercialista specializzata in fiscalità internazionale\n\nPer calcolare la tua situazione specifica, usa il nostro [calcolatore stipendio netto](nav:calculator) che tiene conto di tutte le variabili: stato civile, figli, comune di residenza, spese di pendolarismo e tasso di cambio attuale.`,
 
  'blog.article.guida-completa-frontaliere.body3': `## Capitolo 2: Trovare lavoro in Ticino
 
@@ -133,7 +92,7 @@ Il **permesso G** (permesso per frontalieri) è il documento che autorizza un ci
 |---|---|---|
 | Firma del contratto | — | Lavoratore + datore |
 | Richiesta del permesso | Entro l'inizio dell'attività | Datore di lavoro (solitamente) |
-| Rilascio del permesso G | 2-4 settimane | Ufficio della migrazione cantonale |
+| Rilascio del permesso G | 2-4 settimane | [Ufficio della migrazione](https://www4.ti.ch/index.php?id=122090) cantonale |
 | Validità iniziale | 5 anni (se contratto indeterminato) | Automatico |
 | Rinnovo | Ogni 5 anni, automatico | Ufficio della migrazione |
 
@@ -151,55 +110,7 @@ Il permesso G si rinnova automaticamente ogni 5 anni, purché sussista un rappor
 
 Per approfondire le tutele in caso di disoccupazione, consulta la nostra [guida alla disoccupazione per frontalieri](nav:unemployment).`,
 
- 'blog.article.guida-completa-frontaliere.body5': `## Capitolo 4: Tassazione — Il cuore della questione
-
-La fiscalità è l'aspetto più complesso e più importante per un frontaliere. Dal 2023, il regime fiscale è cambiato radicalmente con l'entrata in vigore del **Nuovo Accordo Italia-Svizzera sulla tassazione dei frontalieri**.
-
-### Il vecchio regime (lavoratori pre-luglio 2023)
-
-Chi ha iniziato a lavorare come frontaliere **prima del 17 luglio 2023** gode di un regime transitorio che durerà fino al 2033:
-
-- **Solo imposta alla fonte svizzera** (nessuna tassazione in Italia)
-- L'imposta alla fonte viene trattenuta dal datore di lavoro
-- Il 40% dell'imposta alla fonte viene retrocesso ai comuni italiani di confine (i cosiddetti **ristorni**)
-- Nessun obbligo di dichiarazione dei redditi in Italia per il reddito da lavoro svizzero
-
-### Il Nuovo Accordo 2020 (lavoratori dal 17 luglio 2023)
-
-Per i **nuovi frontalieri** (assunti dal 17 luglio 2023), il regime è radicalmente diverso:
-
-| Elemento | Dettaglio |
-|---|---|
-| **Imposta alla fonte CH** | Trattenuta dal datore, aliquota progressiva per cantone |
-| **Tassazione in Italia** | Il reddito svizzero va dichiarato in Italia |
-| **Franchigia** | €10.000 di esenzione per evitare la doppia imposizione |
-| **Credito d'imposta** | L'imposta pagata in CH si detrae dall'IRPEF italiana |
-| **Ristorni** | Aboliti per i nuovi frontalieri |
-
-### L'imposta alla fonte in Ticino: tabelle A, B, C, H
-
-L'imposta alla fonte cantonale si applica in base allo stato civile e alla situazione familiare:
-
-- **Tabella A**: Persona sola senza figli
-- **Tabella B**: Coniugato/a, coniuge non lavora o reddito inferiore
-- **Tabella C**: Coniugato/a, entrambi i coniugi lavorano
-- **Tabella H**: Famiglia monoparentale
-
-L'aliquota è progressiva e varia dal 2,5% (redditi bassi) al 30%+ (redditi oltre CHF 15.000/mese). Include imposta federale, cantonale e comunale.
-
-### La dichiarazione dei redditi in Italia
-
-Per i nuovi frontalieri, la dichiarazione dei redditi diventa obbligatoria:
-
-1. **Convertire il reddito** da CHF a EUR al cambio medio annuale (pubblicato dall'Agenzia delle Entrate)
-2. **Applicare la franchigia** di €10.000 (deduzione dal reddito imponibile)
-3. **Calcolare l'IRPEF** sugli scaglioni italiani 2026 (23% fino a €28.000, 33% fino a €50.000, 43% oltre)
-4. **Detrarre il credito d'imposta** per le imposte pagate in Svizzera
-5. **Aggiungere l'addizionale regionale** e comunale
-
-> «Con il Nuovo Accordo, la pianificazione fiscale diventa fondamentale. Un frontaliere che non ottimizza la propria situazione può pagare fino al 15% in più di tasse rispetto a chi pianifica correttamente. La chiave è capire l'interazione tra franchigia, credito d'imposta e deduzioni italiane.» — Dott.ssa Elena Colombo, Commercialista specializzata in fiscalità internazionale
-
-Per simulare la tua situazione fiscale completa — vecchio e nuovo regime — usa il nostro [calcolatore fiscale](nav:calculator), che applica le tabelle aggiornate 2026 e calcola automaticamente IRPEF, credito d'imposta e netto finale. Per la dichiarazione annuale, consulta la [guida alla dichiarazione dei redditi](nav:tax-return) e il [calendario fiscale](nav:calendar) per non perdere nessuna scadenza.`,
+ 'blog.article.guida-completa-frontaliere.body5': `## Capitolo 4: Tassazione — Il cuore della questione\n\nLa fiscalità è l'aspetto più complesso e più importante per un frontaliere. Dal 2023, il regime fiscale è cambiato radicalmente con l'entrata in vigore del **Nuovo Accordo Italia-Svizzera sulla tassazione dei frontalieri**.\n\n### Il vecchio regime (lavoratori pre-luglio 2023)\n\nChi ha iniziato a lavorare come frontaliere **prima del 17 luglio 2023** resta nel regime dell'art. 9 dell'Accordo:\n\n- **Solo imposta alla fonte svizzera**: niente IRPEF su questo reddito per i vecchi frontalieri\n- L'imposta alla fonte viene trattenuta dal datore di lavoro\n- Il 40% dell'imposta alla fonte viene retrocesso ai comuni italiani di confine (i cosiddetti **ristorni**)\n- Nessun obbligo di dichiarazione dei redditi in Italia per il reddito da lavoro svizzero\n\n### Il Nuovo Accordo 2020 (lavoratori dal 17 luglio 2023)\n\nPer i **nuovi frontalieri** (assunti dal 17 luglio 2023), il regime è radicalmente diverso:\n\n| Elemento | Dettaglio |\n|---|---|\n| **Imposta alla fonte CH** | Trattenuta dal datore, aliquota progressiva per cantone |\n| **Tassazione in Italia** | Il reddito svizzero va dichiarato in Italia |\n| **Franchigia** |La soglia di 10.000 euro dell’art. 4 della L. 83/2023 riguarda esclusivamente i redditi da lavoro dipendente svolto all’estero, in una zona di frontiera o in un Paese limitrofo, in modo continuativo ed esclusivo, da persone residenti in Italia, richiamati dall’art. 1, comma 175, della L. 147/2013; non è una franchigia generale né un’esenzione dall’imposta svizzera alla fonte.|\n| **Credito d'imposta** | L'imposta pagata in CH si detrae dall'IRPEF italiana |\n| **Ristorni** | Aboliti per i nuovi frontalieri |\n\n### L'imposta alla fonte in Ticino: tabelle A, B, C, H\n\nL'imposta alla fonte cantonale si applica in base allo stato civile e alla situazione familiare:\n\n- **Tabella A**: Persona sola senza figli\n- **Tabella B**: Coniugato/a, coniuge non lavora o reddito inferiore\n- **Tabella C**: Coniugato/a, entrambi i coniugi lavorano\n- **Tabella H**: Famiglia monoparentale\n\nL'aliquota è progressiva e varia dal 2,5% (redditi bassi) al 30%+ (redditi oltre CHF 15.000/mese). Include imposta federale, cantonale e comunale.\n\n### La dichiarazione dei redditi in Italia\n\nPer i nuovi frontalieri, la dichiarazione dei redditi diventa obbligatoria:\n\n1. **Convertire il reddito** da CHF a EUR al cambio medio annuale (pubblicato dall'Agenzia delle Entrate)\n2. La soglia di 10.000 euro dell’art. 4 della L. 83/2023 riguarda esclusivamente i redditi da lavoro dipendente svolto all’estero, in una zona di frontiera o in un Paese limitrofo, in modo continuativo ed esclusivo, da persone residenti in Italia, richiamati dall’art. 1, comma 175, della L. 147/2013; non è una franchigia generale né un’esenzione dall’imposta svizzera alla fonte.\n3. **Calcolare l'IRPEF** sugli scaglioni italiani 2026 (23% fino a €28.000, 33% fino a €50.000, 43% oltre)\n4. **Detrarre il credito d'imposta** per le imposte pagate in Svizzera\n5. **Aggiungere l'addizionale regionale** e comunale\n\n> «Con il Nuovo Accordo, la pianificazione fiscale diventa fondamentale. Un frontaliere che non ottimizza la propria situazione può pagare fino al 15% in più di tasse rispetto a chi pianifica correttamente. La chiave è capire l'interazione tra franchigia, credito d'imposta e deduzioni italiane.» — Dott.ssa Elena Colombo, Commercialista specializzata in fiscalità internazionale\n\nPer simulare la tua situazione fiscale completa — vecchio e nuovo regime — usa il nostro [calcolatore fiscale](nav:calculator), che applica le tabelle aggiornate 2026 e calcola automaticamente IRPEF, credito d'imposta e netto finale. Per la dichiarazione annuale, consulta la [guida alla dichiarazione dei redditi](nav:tax-return) e il [calendario fiscale](nav:calendar) per non perdere nessuna scadenza.`,
 
  'blog.article.guida-completa-frontaliere.body6': `## Capitolo 5: Previdenza sociale — AVS, LPP e 3° pilastro
 
@@ -375,44 +286,7 @@ Il rinnovo è generalmente automatico, ma è buona prassi:
 
 Per non perdere nessuna scadenza, consulta il nostro [calendario fiscale interattivo](nav:calendar) che ti avvisa automaticamente delle date importanti e ti permette di esportare le scadenze nel tuo calendario personale.`,
 
- 'blog.article.guida-completa-frontaliere.body10': `## Domande frequenti (FAQ)
-
-### 1. Posso diventare frontaliere se vivo a Milano?
-
-Dipende dal regime. Con il **vecchio regime** (pre-luglio 2023), la fascia frontaliera era limitata a 20 km dal confine. Con il **Nuovo Accordo**, la definizione è più flessibile ma richiede comunque il rientro settimanale. Milano (80 km dal confine) è tecnicamente fuori dalla fascia tradizionale, ma con un contratto dal 2023 in poi e la nuova normativa, potresti comunque qualificarti come "lavoratore frontaliere" ai fini fiscali se rientri quotidianamente. Consulta un tributarista per il tuo caso specifico.
-
-### 2. Quanto guadagna in media un frontaliere?
-
-Lo stipendio mediano dei frontalieri in Ticino è di **CHF 5.400/mese lordi** (UST, 2025). Tuttavia, la variabilità è ampia: si va da CHF 3.800 per posizioni nel commercio a CHF 9.000+ per ruoli specializzati in IT e finanza. Usa il [confronto stipendi](nav:salary-compare) per vedere i dati del tuo settore.
-
-### 3. La franchigia di €10.000 si applica a tutti?
-
-No. La franchigia di €10.000 si applica **solo ai nuovi frontalieri** (assunti dal 17 luglio 2023 in poi). I frontalieri con il vecchio regime non pagano IRPEF in Italia e quindi la franchigia non è rilevante per loro.
-
-### 4. Posso dedurre le spese di pendolarismo?
-
-**In Svizzera**: sì, è possibile dedurre le spese di trasporto dall'imposta alla fonte (fino a CHF 3.200/anno con il trasporto pubblico, per gli spostamenti in auto si calcola in base ai km). La deduzione va richiesta con la rettifica dell'imposta alla fonte.
-**In Italia**: le spese di trasporto non sono direttamente deducibili dall'IRPEF, ma rientrano nel calcolo complessivo della convenienza fiscale.
-
-### 5. Cosa succede alla mia LPP se torno in Italia definitivamente?
-
-Se lasci la Svizzera per un paese UE, hai due opzioni per il 2° pilastro:
-- **Lasciare il capitale** in un conto di libero passaggio svizzero fino all'età pensionabile
-- **Prelevare la parte sovraobbligatoria** in contanti (la parte obbligatoria resta in Svizzera se il paese di destinazione ha un sistema pensionistico equivalente — l'Italia lo ha)
-
-Dal 2025, la giurisprudenza ha chiarito che il capitale obbligatorio LPP **non può essere prelevato** in contanti se si torna in un paese UE con sistema previdenziale equivalente. Pianifica con il [pianificatore pensionistico](nav:pension).
-
-### 6. LAMal o SSN: posso cambiare idea dopo?
-
-In linea di principio, **no**. La scelta fatta entro i 3 mesi dall'assunzione è definitiva per tutta la durata del rapporto di lavoro con lo stesso datore. Tuttavia, un cambio di datore di lavoro (anche breve) può tecnicamente riaprire il diritto di opzione. È un'area grigia: consulta la nostra [guida all'assicurazione sanitaria](nav:health).
-
-### 7. I ristorni verranno aboliti?
-
-Per i frontalieri con il **vecchio regime**, i ristorni (retrocessione del 40% dell'imposta alla fonte ai comuni italiani) sono garantiti fino al **2033**, dopodiché verranno gradualmente ridotti. Per i **nuovi frontalieri** (dal luglio 2023), i ristorni non si applicano poiché il meccanismo fiscale è diverso (doppia imposizione con credito). Monitora i cambiamenti con il nostro [tracker ristorni](nav:ristorni).
-
-### 8. Quanto tempo ci vuole per ottenere il permesso G?
-
-Con un contratto di lavoro firmato, il permesso G viene rilasciato in **2-4 settimane**. Il datore di lavoro generalmente si occupa della pratica. In alcuni periodi dell'anno (settembre, gennaio) i tempi possono allungarsi. Il permesso è valido 5 anni e si rinnova automaticamente.`,
+ 'blog.article.guida-completa-frontaliere.body10': `## Domande frequenti (FAQ)\n\n### 1. Posso diventare frontaliere se vivo a Milano?\n\nDipende dal regime. Con il **vecchio regime** (pre-luglio 2023), la fascia frontaliera era limitata a 20 km dal confine. Con il **Nuovo Accordo**, la definizione è più flessibile ma richiede comunque il rientro settimanale. Milano (80 km dal confine) è tecnicamente fuori dalla fascia tradizionale, ma con un contratto dal 2023 in poi e la nuova normativa, potresti comunque qualificarti come "lavoratore frontaliere" ai fini fiscali se rientri quotidianamente. Consulta un tributarista per il tuo caso specifico.\n\n### 2. Quanto guadagna in media un frontaliere?\n\nLo stipendio mediano dei frontalieri in Ticino è di **CHF 5.400/mese lordi** (UST, 2025). Tuttavia, la variabilità è ampia: si va da CHF 3.800 per posizioni nel commercio a CHF 9.000+ per ruoli specializzati in IT e finanza. Usa il [confronto stipendi](nav:salary-compare) per vedere i dati del tuo settore.\n\n### 3. La soglia di 10.000 euro dell’art. 4 della L. 83/2023 riguarda esclusivamente i redditi da lavoro dipendente svolto all’estero, in una zona di frontiera o in un Paese limitrofo, in modo continuativo ed esclusivo, da persone residenti in Italia, richiamati dall’art. 1, comma 175, della L. 147/2013; non è una franchigia generale né un’esenzione dall’imposta svizzera alla fonte.\n\nLa soglia di 10.000 euro dell’art. 4 della L. 83/2023 riguarda esclusivamente i redditi da lavoro dipendente svolto all’estero, in una zona di frontiera o in un Paese limitrofo, in modo continuativo ed esclusivo, da persone residenti in Italia, richiamati dall’art. 1, comma 175, della L. 147/2013; non è una franchigia generale né un’esenzione dall’imposta svizzera alla fonte. I frontalieri con il vecchio regime non pagano IRPEF in Italia e quindi la franchigia non è rilevante per loro.\n\n### 4. Posso dedurre le spese di pendolarismo?\n\n**In Svizzera**: sì, è possibile dedurre le spese di trasporto dall'imposta alla fonte (fino a CHF 3.200/anno con il trasporto pubblico, per gli spostamenti in auto si calcola in base ai km). La deduzione va richiesta con la rettifica dell'imposta alla fonte.\n**In Italia**: le spese di trasporto non sono direttamente deducibili dall'IRPEF, ma rientrano nel calcolo complessivo della convenienza fiscale.\n\n### 5. Cosa succede alla mia LPP se torno in Italia definitivamente?\n\nSe lasci la Svizzera per un paese UE, hai due opzioni per il 2° pilastro:\n- **Lasciare il capitale** in un conto di libero passaggio svizzero fino all'età pensionabile\n- **Prelevare la parte sovraobbligatoria** in contanti (la parte obbligatoria resta in Svizzera se il paese di destinazione ha un sistema pensionistico equivalente — l'Italia lo ha)\n\nDal 2025, la giurisprudenza ha chiarito che il capitale obbligatorio LPP **non può essere prelevato** in contanti se si torna in un paese UE con sistema previdenziale equivalente. Pianifica con il [pianificatore pensionistico](nav:pension).\n\n### 6. LAMal o SSN: posso cambiare idea dopo?\n\nIn linea di principio, **no**. La scelta fatta entro i 3 mesi dall'assunzione è definitiva per tutta la durata del rapporto di lavoro con lo stesso datore. Tuttavia, un cambio di datore di lavoro (anche breve) può tecnicamente riaprire il diritto di opzione. È un'area grigia: consulta la nostra [guida all'assicurazione sanitaria](nav:health).\n\n### 7. I ristorni verranno aboliti?\n\nPer i frontalieri con il **vecchio regime**, i ristorni (retrocessione del 40% dell'imposta alla fonte ai comuni italiani) sono garantiti fino al **2033**, dopodiché verranno gradualmente ridotti. Per i **nuovi frontalieri** (dal luglio 2023), i ristorni non si applicano poiché il meccanismo fiscale è diverso (doppia imposizione con credito). Monitora i cambiamenti con il nostro [tracker ristorni](nav:ristorni).\n\n### 8. Quanto tempo ci vuole per ottenere il permesso G?\n\nCon un contratto di lavoro firmato, il permesso G viene rilasciato in **2-4 settimane**. Il datore di lavoro generalmente si occupa della pratica. In alcuni periodi dell'anno (settembre, gennaio) i tempi possono allungarsi. Il permesso è valido 5 anni e si rinnova automaticamente.`,
 
  'blog.article.guida-completa-frontaliere.body11': '## Conclusione: il frontaliere come professionista binazionale\n\nEssere frontaliere nel 2026 non è semplicemente "lavorare in Svizzera e vivere in Italia". È una scelta di vita che richiede competenze di **pianificazione finanziaria, conoscenza normativa e organizzazione quotidiana** che pochi altri lavoratori devono possedere.\n\nIl frontaliere moderno è un **professionista binazionale** che naviga tra due sistemi fiscali, due regimi previdenziali, due sistemi sanitari e due mercati. È una complessità che, se gestita bene, si traduce in un vantaggio competitivo significativo: stipendi svizzeri con costo della vita italiano, previdenza tra le più solide al mondo e accesso a due mercati del lavoro.\n\n> «Il frontaliere del futuro non è più il pendolare passivo degli anni \'80. È un professionista consapevole che sceglie strategicamente dove vivere, dove lavorare, dove pagare le tasse e dove costruire la propria pensione. Chi comprende questa complessità e la gestisce attivamente ha un vantaggio enorme rispetto a chi subisce il sistema.» — Prof. Roberto Bentivoglio, Professore di Diritto del Lavoro, USI\n\n### I nostri strumenti per ogni fase del tuo percorso\n\n| Fase | Strumento | Link |\n|---|---|---|\n| **Decisione iniziale** | Calcolatore stipendio netto | [Calcola ora](nav:calculator) |\n| **Confronto G vs B** | Comparatore permessi | [Confronta](nav:permit-compare) |\n| **Ricerca lavoro** | Job board con 4.000+ offerte | [Cerca lavoro](nav:jobs) |\n| **Fiscalità** | Simulatore fiscale + calendario | [Simula tasse](nav:calculator) |\n| **Dichiarazione redditi** | Guida passo-passo | [Leggi la guida](nav:tax-return) |\n| **Previdenza** | Pianificatore pensionistico | [Pianifica](nav:pension) |\n| **3° pilastro** | Simulatore investimento | [Simula](nav:pillar3) |\n| **Assicurazione** | Comparatore 14 casse malati | [Confronta](nav:health) |\n| **Pendolarismo** | Calcolatore trasporto | [Calcola](nav:transport) |\n| **Cambio valuta** | Convertitore CHF/EUR live | [Monitora](nav:exchange) |\n| **Banche** | Confronto banche frontaliere | [Confronta](nav:banks) |\n| **Costo vita** | Comparatore CH vs IT | [Confronta](nav:cost-of-living) |\n\n---\n\nQuesta guida viene aggiornata regolarmente per riflettere le modifiche normative e fiscali. Ultimo aggiornamento: luglio 2025. Fonti principali: Ufficio federale di statistica (UST), Segreteria di Stato della migrazione (SEM), Dipartimento delle finanze e dell\'economia del Canton Ticino (DFE), Agenzia delle Entrate, INPS, UFSP.\n\n📌 **Hai trovato utile questa guida?** Condividila con altri frontalieri e usa i nostri [strumenti gratuiti](nav:calculator) per ottimizzare la tua situazione. Iscriviti alla newsletter settimanale per ricevere aggiornamenti su normative, tasso di cambio e offerte di lavoro.',
     'blog.article.guida-completa-frontaliere.faq': '[{"q":"Quanti frontalieri italiani lavorano in Ticino e che impatto hanno sull\'economia?","a":"I frontalieri italiani in Ticino sono 79.207 (Q4 2025), rappresentando il 28,3% della forza lavoro cantonale. Questo fenomeno è un pilastro economico, con una crescita del 15,2% negli ultimi 5 anni, trainata dalla differenza salariale e dalla vicinanza geografica. Il settore manifatturiero è il più rappresentato con il 31%."},{"q":"Qual è lo stipendio mediano per un frontaliere in Ticino?","a":"Lo stipendio mediano per i lavoratori frontalieri in Ticino è di CHF 5.400 al mese, secondo la rilevazione svizzera della struttura dei salari. Questo valore è significativamente più alto rispetto agli stipendi italiani, con un rapporto di circa 2,3:1 per posizioni equivalenti, rendendo il lavoro transfrontaliero economicamente vantaggioso."},{"q":"Quali sono le principali differenze tra il Permesso G (frontaliere) e il Permesso B (residente in Svizzera)?","a":"Il Permesso G prevede la residenza in Italia e tassazione mista (Svizzera + IRPEF italiana), con costi di vita italiani e pendolarismo quotidiano. Il Permesso B implica la residenza in Svizzera, solo fiscalità svizzera, costi di vita svizzeri e nessuna o breve pendolarismo. Anche l\'assicurazione sanitaria differisce: scelta per G, LAMal obbligatoria per B."},{"q":"Conviene economicamente diventare frontaliere con Permesso G rispetto a risiedere in Svizzera con Permesso B?","a":"Per un single con stipendio lordo di CHF 5.500/mese, un frontaliere con Permesso G residente a Como può ottenere un netto finale di circa € 3.700/mese. Un residente in Ticino con Permesso B, a parità di stipendio, dopo affitto e LAMal, avrebbe circa € 2.650/mese. Il vantaggio del frontaliere può variare tra 500 e 1.200 euro mensili, ma i costi di pendolarismo lo riducono."},{"q":"Quali sono i settori lavorativi con maggiori opportunità per i frontalieri in Ticino nel 2025?","a":"I settori con più opportunità in Ticino per il 2025-2026 sono l\'Informatica/IT (22% delle offerte, CHF 7.200/mese), l\'Industria manifatturiera (18%, CHF 5.100/mese) e la Sanità e pharma (14%, CHF 6.800/mese). Anche Edilizia e costruzioni mostra una tendenza in crescita."}]',

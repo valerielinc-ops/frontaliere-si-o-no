@@ -1,0 +1,670 @@
+{
+  "_doc": "Articoli pubblicati ma ritirati dall'indice per mancanza di nesso con frontalieri, Ticino, Svizzera, confine o lavoro. Generato da scripts/audit-article-relevance.mjs (--write): non modificare `excluded` a mano, le decisioni editoriali stanno in `manualExclusions` e `manualKeeps`. Letto da engine/shared/articleIndexExclusions.mjs (noindex,follow e RSS) e da scripts/build-api.mjs (sitemap, quindi sitemap-news e llms). Le pagine restano vive.",
+  "manualExclusions": [],
+  "manualKeeps": [],
+  "excluded": [
+    {
+      "section": "frontaliere",
+      "id": "adv-varese-trieste-basket",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "basket"
+    },
+    {
+      "section": "frontaliere",
+      "id": "agrivarese-angera-ottobre-2026",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "aic-lombardia-varese-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "attentato-washington-trump-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "attentato-washington-trump-2026-analisi",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "attivisti-flotilla-israele-interrogati",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "israel"
+    },
+    {
+      "section": "frontaliere",
+      "id": "azalee-calcio-campo-pradisera",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "calcio"
+    },
+    {
+      "section": "frontaliere",
+      "id": "basket-openjobmetis-bologna-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "basket"
+    },
+    {
+      "section": "frontaliere",
+      "id": "basket-varese-bologna-esordio-lba",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "basket"
+    },
+    {
+      "section": "frontaliere",
+      "id": "bayern-bayer-differenze-champions-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "champions"
+    },
+    {
+      "section": "frontaliere",
+      "id": "belotti-sport-test-scarpe-trail-running-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "blackout-internet-iran-70-giorni",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "frontaliere",
+      "id": "bossi-commemorazione-bagarrata",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "burraco-solidale-buguggiate",
+      "rule": "fuori-tema",
+      "family": "giochi",
+      "term": "burraco"
+    },
+    {
+      "section": "frontaliere",
+      "id": "calcio-dnb-belli-crisi",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "calcio"
+    },
+    {
+      "section": "frontaliere",
+      "id": "cane-morto-binarie-campo-calcio",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "calcio"
+    },
+    {
+      "section": "frontaliere",
+      "id": "cbt-italia-ciclisti-mercato",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "cena-spring-avsi-libano-castiglione",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "libano"
+    },
+    {
+      "section": "frontaliere",
+      "id": "chef-nazionale-ristoratori-de-filippi",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "como-gera-lario-nuoto-record",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "nuoto"
+    },
+    {
+      "section": "frontaliere",
+      "id": "como-napoli-pareggio-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "pareggi"
+    },
+    {
+      "section": "frontaliere",
+      "id": "como-nuoto-750mila-euro-tribunale",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "nuoto"
+    },
+    {
+      "section": "frontaliere",
+      "id": "como-roma-serie-a-orario",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "serie a"
+    },
+    {
+      "section": "frontaliere",
+      "id": "contratto-polizia-silp-cgil-critiche",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "della-valle-lesione-varese",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "pallacanestro"
+    },
+    {
+      "section": "frontaliere",
+      "id": "derby-varesina-pro-patria-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "derby"
+    },
+    {
+      "section": "frontaliere",
+      "id": "festa-zucca-gavirate-weekend-ottobre",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "formazione-ferrero-ministero-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "formula-1-riparte-rischi-polemiche",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "formula 1"
+    },
+    {
+      "section": "frontaliere",
+      "id": "futura-volley-roma-vittoria",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "volley"
+    },
+    {
+      "section": "frontaliere",
+      "id": "gare-ciclismo-varese-ottobre",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "ciclism"
+    },
+    {
+      "section": "frontaliere",
+      "id": "gianpaolo-calzi-solbiatese",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "calcio"
+    },
+    {
+      "section": "frontaliere",
+      "id": "giro-ditalia-magnier-froidevaux-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "giro d italia"
+    },
+    {
+      "section": "frontaliere",
+      "id": "giro-ditalia-silva-maglia-rosa",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "giro d italia"
+    },
+    {
+      "section": "frontaliere",
+      "id": "guerra-iran-industria-alimentare-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "frontaliere",
+      "id": "inchiesta-arbitri-roccchi-inter-roma",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "integrazione-studenti-gaza-italia-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "gaza"
+    },
+    {
+      "section": "frontaliere",
+      "id": "inter-scudetto-chivu-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "scudetto"
+    },
+    {
+      "section": "frontaliere",
+      "id": "ippodromo-varese-svicc-allenatori",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "allenator"
+    },
+    {
+      "section": "frontaliere",
+      "id": "iran-tajani-non-tratta-navi",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "frontaliere",
+      "id": "irania-nazionale-italia-riqualifica-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "frontaliere",
+      "id": "ispra-pranzo-solidale-oratorio-2026",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "kastritis-varese-bologna-assenze",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "kastritis"
+    },
+    {
+      "section": "frontaliere",
+      "id": "kastritis-varese-momento-difficile",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "kastritis"
+    },
+    {
+      "section": "frontaliere",
+      "id": "kick-cocaine-gazzada-evento",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "luci-masnago-terza-puntata",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "basket"
+    },
+    {
+      "section": "frontaliere",
+      "id": "luigi-bignami-insubria-scienza-2026",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "lula-trump-riunione-democrazia-sovranita",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "maratona-laghi-varese-2027",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "maratona"
+    },
+    {
+      "section": "frontaliere",
+      "id": "mastini-fassa-hockey-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "campionat"
+    },
+    {
+      "section": "frontaliere",
+      "id": "mercati-predittivi-business-trump",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "mondiali-2026-iran-italia-fifa",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "frontaliere",
+      "id": "morto-andena-varese",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "calcio"
+    },
+    {
+      "section": "frontaliere",
+      "id": "negoziati-falliti-stretto-hormuz-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "hormuz"
+    },
+    {
+      "section": "frontaliere",
+      "id": "negoziati-stallo-iran-usa-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "frontaliere",
+      "id": "novantaquattro-scatti-varese",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "ciclism"
+    },
+    {
+      "section": "frontaliere",
+      "id": "olgiate-presidio-vivo-mercato",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "openjobmetis-scafati-vittoria-basket",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "basket"
+    },
+    {
+      "section": "frontaliere",
+      "id": "openjobmetis-trieste-vittoria-kastritis",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "kastritis"
+    },
+    {
+      "section": "frontaliere",
+      "id": "pro-patria-varese-5-2-coppa-italia",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "coppa italia"
+    },
+    {
+      "section": "frontaliere",
+      "id": "radio-materia-volontari-banca-etica-libri-sport",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "ragazza-morta-campo-perquisita-casa-amico",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "real-madrid-caos-rissa-tchouameni-valverde",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "roberto-gatti-11-promozioni-podcast",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "gol"
+    },
+    {
+      "section": "frontaliere",
+      "id": "robot-umanoidi-maratona-fascinazione",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "maratona"
+    },
+    {
+      "section": "frontaliere",
+      "id": "scommesse-guerra-trump-prediction-market",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "solaro-chiude-ambulatorio-medico",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "solaro-rifiuti-differenziata-tariffazione-puntuale",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "spring-giubiasco-sport-convivialita-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "stefania-filetti-cgil-nazionale",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "stop-milioni-casse-malati-club-sportivi",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "teheran-proposta-pakistan-mediatori",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "teheran"
+    },
+    {
+      "section": "frontaliere",
+      "id": "tre-valli-varesine-7-posto-mondiale",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "batte"
+    },
+    {
+      "section": "frontaliere",
+      "id": "tregua-ucraina-improbabile-cremlino",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "ucraina"
+    },
+    {
+      "section": "frontaliere",
+      "id": "trump-cina-russia-patto-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "trump-dazi-corte-commercio-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "trump-export-limits-petrol-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "trump-intesa-o-inferno",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "trump-riduce-truppe-italia-spagna",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "trump-ue-accordo-commerciale-4-luglio",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "frontaliere",
+      "id": "ucraina-russia-droni-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "ucraina"
+    },
+    {
+      "section": "frontaliere",
+      "id": "uisp-scuola-dante-varese-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "sport"
+    },
+    {
+      "section": "frontaliere",
+      "id": "usa-iran-nucleare-sanzioni-2026",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "frontaliere",
+      "id": "uyba-sconfitta-conegliano",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "pallavolo"
+    },
+    {
+      "section": "frontaliere",
+      "id": "varese-arrampicata-salewa-cube-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "coppa italia"
+    },
+    {
+      "section": "frontaliere",
+      "id": "varese-lentigione-pareggio-mangano",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "pareggi"
+    },
+    {
+      "section": "frontaliere",
+      "id": "varese-playoff-lavagnese-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "playoff"
+    },
+    {
+      "section": "frontaliere",
+      "id": "varese-trento-playoff-basket-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "playoff"
+    },
+    {
+      "section": "frontaliere",
+      "id": "vbs-pink-cup-ragazze",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "basket"
+    },
+    {
+      "section": "frontaliere",
+      "id": "venezia-serie-a-promozione-2026",
+      "rule": "fuori-tema",
+      "family": "sport",
+      "term": "serie a"
+    },
+    {
+      "section": "frontaliere",
+      "id": "vertice-provinciale-beko-astuti",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
+      "id": "von-der-leyen-ue-energia-500-milioni-giorno",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "frontaliere",
+      "id": "whisky-scozzese-dazi-trump-carlo-camilla",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    },
+    {
+      "section": "svizzera",
+      "id": "formulario-averi-iran-ottobre",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "svizzera",
+      "id": "neutralita-voto-27-settembre-amato",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "russ"
+    },
+    {
+      "section": "svizzera",
+      "id": "ordinanza-iran-formulari-agosto",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "svizzera",
+      "id": "prezzo-olio-riscaldamento-alle-stelle-usa-iran",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "iran"
+    },
+    {
+      "section": "svizzera",
+      "id": "trump-ora-legale-senato-usa",
+      "rule": "fuori-tema",
+      "family": "esteri",
+      "term": "trump"
+    }
+  ]
+}

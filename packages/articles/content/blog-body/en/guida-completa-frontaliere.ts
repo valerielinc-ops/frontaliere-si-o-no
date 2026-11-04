@@ -22,48 +22,7 @@ The cross-border worker phenomenon in Ticino has reached unprecedented dimension
 
 The trend has been steadily rising since 2015, driven by the salary differential (the CH/IT pay ratio is approximately 2.3:1 for equivalent positions), geographic proximity and quality of life in the Italian border provinces.`,
 
- 'blog.article.guida-completa-frontaliere.body2': `## Chapter 1: The decision — Is it worth becoming a cross-border worker?
-
-The most frequently asked question is also the most complex: **is it financially worthwhile to work in Switzerland while living in Italy?** The answer depends on at least six variables: gross salary, marital status, number of children, municipality of residence, commuting costs and the CHF/EUR exchange rate.
-
-### G Permit vs B Permit: the fundamental choice
-
-The first fork in the road is between two completely different lifestyles:
-
-| Aspect | **G Permit** (cross-border) | **B Permit** (resident) |
-|---|---|---|
-| **Residence** | Italy (within border zone) | Switzerland |
-| **Taxation** | Swiss withholding tax + Italian IRPEF | Swiss taxation only |
-| **Cost of living** | Italian (lower) | Swiss (higher) |
-| **Commuting** | Daily, 30-90 min each way | None or short |
-| **Health insurance** | Choice: LAMal or Italian NHS | LAMal mandatory |
-| **Pensions** | AVS + LPP in CH, coordination with INPS | AVS + LPP in CH |
-| **Quality of life** | Italian home, Swiss salary | Full integration in CH |
-
-For a detailed analysis of the differences, see our [G vs B permit comparison](nav:permit-compare).
-
-### A quick simulation
-
-Consider a typical case: gross salary CHF 5,500/month, single person with no children, resident in Como.
-
-**With G Permit (cross-border worker):**
-- Swiss social contributions (AVS, AC, LPP): ~CHF 660/month
-- Ticino withholding tax (table A): ~CHF 440/month
-- Net monthly in CH: ~CHF 4,400
-- Italian IRPEF (with €10,000 exemption): ~€280/month
-- Final net: ~**€3,700/month** (at 0.94 exchange rate)
-
-**With B Permit (resident in Ticino):**
-- Swiss social contributions: ~CHF 660/month
-- Withholding tax: ~CHF 440/month
-- Net monthly: ~CHF 4,400
-- Studio apartment rent in Lugano: ~CHF 1,200/month
-- LAMal: ~CHF 380/month
-- Net after fixed costs: ~**CHF 2,820/month** (~€2,650)
-
-> "The net difference between living in Italy and living in Switzerland, for the same salary, ranges from €500 to €1,200 per month in favour of the cross-border worker. But you must include commuting costs, which can erode up to 40% of that advantage." — Dr Elena Colombo, Tax Accountant specialising in international taxation
-
-To calculate your specific situation, use our [net salary calculator](nav:calculator) which accounts for all variables: marital status, children, municipality of residence, commuting costs and current exchange rate.`,
+ 'blog.article.guida-completa-frontaliere.body2': `## Chapter 1: The decision — Is it worth becoming a cross-border worker?\n\nThe most frequently asked question is also the most complex: **is it financially worthwhile to work in Switzerland while living in Italy?** The answer depends on at least six variables: gross salary, marital status, number of children, municipality of residence, commuting costs and the CHF/EUR exchange rate.\n\n### G Permit vs B Permit: the fundamental choice\n\nThe first fork in the road is between two completely different lifestyles:\n\n| Aspect | **G Permit** (cross-border) | **B Permit** (resident) |\n|---|---|---|\n| **Residence** | Italy (within border zone) | Switzerland |\n| **Taxation** | Swiss withholding tax + Italian IRPEF | Swiss taxation only |\n| **Cost of living** | Italian (lower) | Swiss (higher) |\n| **Commuting** | Daily, 30-90 min each way | None or short |\n| **Health insurance** | Choice: LAMal or Italian NHS | LAMal mandatory |\n| **Pensions** | AVS + LPP in CH, coordination with INPS | AVS + LPP in CH |\n| **Quality of life** | Italian home, Swiss salary | Full integration in CH |\n\nFor a detailed analysis of the differences, see our [G vs B permit comparison](nav:permit-compare).\n\n### A quick simulation\n\nConsider a typical case: gross salary CHF 5,500/month, single person with no children, resident in Como.\n\n**With G Permit (cross-border worker):**\n- Swiss social contributions (AVS, AC, LPP): ~CHF 660/month\n- Ticino withholding tax (table A): ~CHF 440/month\n- Net monthly in CH: ~CHF 4,400\n- The €10,000 threshold in Article 4 of Italian Law No. 83/2023 applies exclusively to employment income earned continuously and exclusively by Italian residents in a foreign border area or neighbouring country, as referred to in Article 1(175) of Law No. 147/2013; it is neither a general allowance nor an exemption from Swiss withholding tax.\n- Final net: ~**€3,700/month** (at 0.94 exchange rate)\n\n**With B Permit (resident in Ticino):**\n- Swiss social contributions: ~CHF 660/month\n- Withholding tax: ~CHF 440/month\n- Net monthly: ~CHF 4,400\n- Studio apartment rent in Lugano: ~CHF 1,200/month\n- LAMal: ~CHF 380/month\n- Net after fixed costs: ~**CHF 2,820/month** (~€2,650)\n\n> "The net difference between living in Italy and living in Switzerland, for the same salary, ranges from €500 to €1,200 per month in favour of the cross-border worker. But you must include commuting costs, which can erode up to 40% of that advantage." — Dr Elena Colombo, Tax Accountant specialising in international taxation\n\nTo calculate your specific situation, use our [net salary calculator](nav:calculator) which accounts for all variables: marital status, children, municipality of residence, commuting costs and current exchange rate.`,
 
  'blog.article.guida-completa-frontaliere.body3': `## Chapter 2: Finding work in Ticino
 
@@ -151,55 +110,7 @@ The G Permit is automatically renewed every 5 years, provided employment continu
 
 For more on unemployment protections, see our [unemployment guide for cross-border workers](nav:unemployment).`,
 
- 'blog.article.guida-completa-frontaliere.body5': `## Chapter 4: Taxation — The heart of the matter
-
-Taxation is the most complex and most important aspect for a cross-border worker. Since 2023, the tax regime has changed radically with the entry into force of the **New Italy-Switzerland Agreement on cross-border worker taxation**.
-
-### The old regime (workers pre-July 2023)
-
-Those who started working as cross-border workers **before 17 July 2023** benefit from a transitional regime lasting until 2033:
-
-- **Swiss withholding tax only** (no Italian taxation)
-- The withholding tax is deducted by the employer
-- 40% of the withholding tax is transferred back to Italian border municipalities (the so-called **ristorni**)
-- No obligation to file an Italian tax return for Swiss employment income
-
-### The 2020 New Agreement (workers from 17 July 2023)
-
-For **new cross-border workers** (hired from 17 July 2023), the regime is radically different:
-
-| Element | Detail |
-|---|---|
-| **Swiss withholding tax** | Deducted by employer, progressive rate by canton |
-| **Italian taxation** | Swiss income must be declared in Italy |
-| **Exemption** | €10,000 deduction to avoid double taxation |
-| **Tax credit** | Tax paid in CH is deducted from Italian IRPEF |
-| **Ristorni** | Abolished for new cross-border workers |
-
-### Ticino withholding tax: tables A, B, C, H
-
-The cantonal withholding tax is applied based on marital status and family situation:
-
-- **Table A**: Single person without children
-- **Table B**: Married, spouse not working or lower income
-- **Table C**: Married, both spouses working
-- **Table H**: Single parent
-
-The rate is progressive and ranges from 2.5% (low incomes) to over 30% (incomes above CHF 15,000/month). It includes federal, cantonal and municipal tax.
-
-### Italian tax return
-
-For new cross-border workers, the tax return becomes mandatory:
-
-1. **Convert income** from CHF to EUR at the annual average rate (published by Agenzia delle Entrate)
-2. **Apply the €10,000 exemption** (deduction from taxable income)
-3. **Calculate IRPEF** on 2026 Italian brackets (23% up to €28,000, 33% up to €50,000, 43% above)
-4. **Deduct the tax credit** for taxes paid in Switzerland
-5. **Add regional and municipal surcharges**
-
-> "With the New Agreement, tax planning becomes fundamental. A cross-border worker who doesn't optimise their situation can pay up to 15% more in taxes compared to someone who plans properly. The key is understanding the interaction between the exemption, tax credit and Italian deductions." — Dr Elena Colombo, Tax Accountant specialising in international taxation
-
-To simulate your complete tax situation — old and new regime — use our [tax calculator](nav:calculator), which applies the updated 2026 tables and automatically calculates IRPEF, tax credit and final net. For the annual return, consult the [tax return guide](nav:tax-return) and the [tax calendar](nav:calendar) to never miss a deadline.`,
+ 'blog.article.guida-completa-frontaliere.body5': `## Chapter 4: Taxation — The heart of the matter\n\nTaxation is the most complex and most important aspect for a cross-border worker. Since 2023, the tax regime has changed radically with the entry into force of the **New Italy-Switzerland Agreement on cross-border worker taxation**.\n\n### The old regime (workers pre-July 2023)\n\nThose who started working as cross-border workers **before 17 July 2023** remain in the Art. 9 regime of the Agreement:\n\n- **Swiss withholding tax only** (no Italian taxation)\n- The withholding tax is deducted by the employer\n- 40% of the withholding tax is transferred back to Italian border municipalities (the so-called **ristorni**)\n- No obligation to file an Italian tax return for Swiss employment income\n\n### The 2020 New Agreement (workers from 17 July 2023)\n\nFor **new cross-border workers** (hired from 17 July 2023), the regime is radically different:\n\n| Element | Detail |\n|---|---|\n| **Swiss withholding tax** | Deducted by employer, progressive rate by canton |\n| **Italian taxation** | Swiss income must be declared in Italy |\n| **Exemption** |The €10,000 threshold in Article 4 of Italian Law No. 83/2023 applies exclusively to employment income earned continuously and exclusively by Italian residents in a foreign border area or neighbouring country, as referred to in Article 1(175) of Law No. 147/2013; it is neither a general allowance nor an exemption from Swiss withholding tax.|\n| **Tax credit** | Tax paid in CH is deducted from Italian IRPEF |\n| **Ristorni** | Abolished for new cross-border workers |\n\n### Ticino withholding tax: tables A, B, C, H\n\nThe cantonal withholding tax is applied based on marital status and family situation:\n\n- **Table A**: Single person without children\n- **Table B**: Married, spouse not working or lower income\n- **Table C**: Married, both spouses working\n- **Table H**: Single parent\n\nThe rate is progressive and ranges from 2.5% (low incomes) to over 30% (incomes above CHF 15,000/month). It includes federal, cantonal and municipal tax.\n\n### Italian tax return\n\nFor new cross-border workers, the tax return becomes mandatory:\n\n1. **Convert income** from CHF to EUR at the annual average rate (published by Agenzia delle Entrate)\n2. The €10,000 threshold in Article 4 of Italian Law No. 83/2023 applies exclusively to employment income earned continuously and exclusively by Italian residents in a foreign border area or neighbouring country, as referred to in Article 1(175) of Law No. 147/2013; it is neither a general allowance nor an exemption from Swiss withholding tax.\n3. **Calculate IRPEF** on 2026 Italian brackets (23% up to €28,000, 33% up to €50,000, 43% above)\n4. **Deduct the tax credit** for taxes paid in Switzerland\n5. **Add regional and municipal surcharges**\n\n> "With the New Agreement, tax planning becomes fundamental. A cross-border worker who doesn't optimise their situation can pay up to 15% more in taxes compared to someone who plans properly. The key is understanding the interaction between the exemption, tax credit and Italian deductions." — Dr Elena Colombo, Tax Accountant specialising in international taxation\n\nTo simulate your complete tax situation — old and new regime — use our [tax calculator](nav:calculator), which applies the updated 2026 tables and automatically calculates IRPEF, tax credit and final net. For the annual return, consult the [tax return guide](nav:tax-return) and the [tax calendar](nav:calendar) to never miss a deadline.`,
 
  'blog.article.guida-completa-frontaliere.body6': `## Chapter 5: Social security — AVS, LPP and 3rd pillar
 
@@ -375,46 +286,9 @@ Renewal is generally automatic, but good practice includes:
 
 To never miss a deadline, use our [interactive tax calendar](nav:calendar) which automatically reminds you of important dates and lets you export deadlines to your personal calendar.`,
 
- 'blog.article.guida-completa-frontaliere.body10': `## Frequently asked questions (FAQ)
+ 'blog.article.guida-completa-frontaliere.body10': `## Frequently asked questions (FAQ)\n\n### 1. Can I become a cross-border worker if I live in Milan?\n\nIt depends on the regime. Under the **old regime** (pre-July 2023), the border zone was limited to 20 km from the border. Under the **New Agreement**, the definition is more flexible but still requires a weekly return. Milan (80 km from the border) is technically outside the traditional border zone, but with a contract from 2023 onwards and the new regulations, you may still qualify as a "cross-border worker" for tax purposes if you commute daily. Consult a tax advisor for your specific case.\n\n### 2. How much does a cross-border worker earn on average?\n\nThe median salary for cross-border workers in Ticino is **CHF 5,400/month gross** (FSO, 2025). However, the range is wide: from CHF 3,800 for retail positions to CHF 9,000+ for specialised IT and finance roles. Use the [salary comparison](nav:salary-compare) to see data for your sector.\n\n### 3. The €10,000 threshold in Article 4 of Italian Law No. 83/2023 applies exclusively to employment income earned continuously and exclusively by Italian residents in a foreign border area or neighbouring country, as referred to in Article 1(175) of Law No. 147/2013; it is neither a general allowance nor an exemption from Swiss withholding tax.\n\nThe €10,000 threshold in Article 4 of Italian Law No. 83/2023 applies exclusively to employment income earned continuously and exclusively by Italian residents in a foreign border area or neighbouring country, as referred to in Article 1(175) of Law No. 147/2013; it is neither a general allowance nor an exemption from Swiss withholding tax. Workers under the old regime do not pay IRPEF in Italy, so the exemption is not relevant for them.\n\n### 4. Can I deduct commuting expenses?\n\n**In Switzerland**: yes, transport costs can be deducted from withholding tax (up to CHF 3,200/year for public transport; for car commutes, it's calculated by km). The deduction must be claimed through a withholding tax correction.\n**In Italy**: commuting expenses are not directly deductible from IRPEF, but they factor into the overall financial calculation.\n\n### 5. What happens to my LPP if I return to Italy permanently?\n\nIf you leave Switzerland for an EU country, you have two options for the 2nd pillar:\n- **Leave the capital** in a Swiss vested benefits account until retirement age\n- **Withdraw the supra-mandatory portion** in cash (the mandatory portion stays in Switzerland if the destination country has an equivalent pension system — Italy does)\n\nSince 2025, case law has clarified that mandatory LPP capital **cannot be withdrawn** in cash when returning to an EU country with an equivalent pension system. Plan ahead with the [pension planner](nav:pension).\n\n### 6. LAMal or NHS: can I change my mind afterwards?\n\nIn principle, **no**. The choice made within 3 months of starting employment is final for the duration of the contract with the same employer. However, a change of employer (even brief) can technically reopen the right of option. It's a grey area: check our [health insurance guide](nav:health).\n\n### 7. Will the ristorni be abolished?\n\nFor workers under the **old regime**, the ristorni (40% withholding tax transfer to Italian border municipalities) are guaranteed until **2033**, after which they will be gradually reduced. For **new cross-border workers** (from July 2023), ristorni do not apply as the tax mechanism is different (double taxation with credit). Track changes with our [ristorni tracker](nav:ristorni).\n\n### 8. How long does it take to get a G Permit?\n\nWith a signed employment contract, the G Permit is issued in **2-4 weeks**. The employer generally handles the application. At certain times of year (September, January) processing times may be longer. The permit is valid for 5 years and renews automatically.`,
 
-### 1. Can I become a cross-border worker if I live in Milan?
-
-It depends on the regime. Under the **old regime** (pre-July 2023), the border zone was limited to 20 km from the border. Under the **New Agreement**, the definition is more flexible but still requires a weekly return. Milan (80 km from the border) is technically outside the traditional border zone, but with a contract from 2023 onwards and the new regulations, you may still qualify as a "cross-border worker" for tax purposes if you commute daily. Consult a tax advisor for your specific case.
-
-### 2. How much does a cross-border worker earn on average?
-
-The median salary for cross-border workers in Ticino is **CHF 5,400/month gross** (FSO, 2025). However, the range is wide: from CHF 3,800 for retail positions to CHF 9,000+ for specialised IT and finance roles. Use the [salary comparison](nav:salary-compare) to see data for your sector.
-
-### 3. Does the €10,000 exemption apply to everyone?
-
-No. The €10,000 exemption applies **only to new cross-border workers** (hired from 17 July 2023 onwards). Workers under the old regime do not pay IRPEF in Italy, so the exemption is not relevant for them.
-
-### 4. Can I deduct commuting expenses?
-
-**In Switzerland**: yes, transport costs can be deducted from withholding tax (up to CHF 3,200/year for public transport; for car commutes, it's calculated by km). The deduction must be claimed through a withholding tax correction.
-**In Italy**: commuting expenses are not directly deductible from IRPEF, but they factor into the overall financial calculation.
-
-### 5. What happens to my LPP if I return to Italy permanently?
-
-If you leave Switzerland for an EU country, you have two options for the 2nd pillar:
-- **Leave the capital** in a Swiss vested benefits account until retirement age
-- **Withdraw the supra-mandatory portion** in cash (the mandatory portion stays in Switzerland if the destination country has an equivalent pension system — Italy does)
-
-Since 2025, case law has clarified that mandatory LPP capital **cannot be withdrawn** in cash when returning to an EU country with an equivalent pension system. Plan ahead with the [pension planner](nav:pension).
-
-### 6. LAMal or NHS: can I change my mind afterwards?
-
-In principle, **no**. The choice made within 3 months of starting employment is final for the duration of the contract with the same employer. However, a change of employer (even brief) can technically reopen the right of option. It's a grey area: check our [health insurance guide](nav:health).
-
-### 7. Will the ristorni be abolished?
-
-For workers under the **old regime**, the ristorni (40% withholding tax transfer to Italian border municipalities) are guaranteed until **2033**, after which they will be gradually reduced. For **new cross-border workers** (from July 2023), ristorni do not apply as the tax mechanism is different (double taxation with credit). Track changes with our [ristorni tracker](nav:ristorni).
-
-### 8. How long does it take to get a G Permit?
-
-With a signed employment contract, the G Permit is issued in **2-4 weeks**. The employer generally handles the application. At certain times of year (September, January) processing times may be longer. The permit is valid for 5 years and renews automatically.`,
-
- 'blog.article.guida-completa-frontaliere.body11': '## Conclusion: the cross-border worker as a binational professional\n\nBeing a cross-border worker in 2026 is not simply "working in Switzerland and living in Italy." It is a life choice that requires **financial planning skills, regulatory knowledge and daily organisation** that few other workers need to possess.\n\nThe modern cross-border worker is a **binational professional** navigating between two tax systems, two pension regimes, two healthcare systems and two markets. This complexity, when managed well, translates into a significant competitive advantage: Swiss salaries with Italian cost of living, one of the world\'s most robust pension systems, and access to two labour markets.\n\n> "The cross-border worker of the future is no longer the passive commuter of the 1980s. They are a conscious professional who strategically chooses where to live, where to work, where to pay taxes and where to build their pension. Those who understand this complexity and actively manage it have an enormous advantage over those who simply accept the system as it is." — Prof. Roberto Bentivoglio, Professor of Labour Law, USI\n\n### Our tools for every stage of your journey\n\n| Stage | Tool | Link |\n|---|---|---|\n| **Initial decision** | Net salary calculator | [Calculate now](nav:calculator) |\n| **G vs B comparison** | Permit comparator | [Compare](nav:permit-compare) |\n| **Job search** | Job board with 4,000+ listings | [Search jobs](nav:jobs) |\n| **Taxation** | Tax simulator + calendar | [Simulate taxes](nav:calculator) |\n| **Tax return** | Step-by-step guide | [Read the guide](nav:tax-return) |\n| **Pensions** | Pension planner | [Plan](nav:pension) |\n| **3rd pillar** | Investment simulator | [Simulate](nav:pillar3) |\n| **Insurance** | 14 health fund comparator | [Compare](nav:health) |\n| **Commuting** | Transport calculator | [Calculate](nav:transport) |\n| **Currency exchange** | Live CHF/EUR converter | [Monitor](nav:exchange) |\n| **Banks** | Cross-border bank comparison | [Compare](nav:banks) |\n| **Cost of living** | CH vs IT comparator | [Compare](nav:cost-of-living) |\n\n---\n\nThis guide is regularly updated to reflect regulatory and tax changes. Last update: July 2025. Main sources: Federal Statistical Office (FSO), State Secretariat for Migration (SEM), Ticino Department of Finance and the Economy (DFE), Agenzia delle Entrate, INPS, FOPH.\n\n📌 **Found this guide useful?** Share it with fellow cross-border workers and use our [free tools](nav:calculator) to optimise your situation. Subscribe to the weekly newsletter for updates on regulations, exchange rates and job opportunities.',
+ 'blog.article.guida-completa-frontaliere.body11': '## Conclusion: the cross-border worker as a binational professional\n\nBeing a cross-border worker in 2026 is not simply "working in Switzerland and living in Italy." It is a life choice that requires **financial planning skills, regulatory knowledge and daily organisation** that few other workers need to possess.\n\nThe modern cross-border worker is a **binational professional** navigating between two tax systems, two pension regimes, two healthcare systems and two markets. This complexity, when managed well, translates into a significant competitive advantage: Swiss salaries with Italian cost of living, one of the world\'s most robust pension systems, and access to two labour markets.\n\n> "The cross-border worker of the future is no longer the passive commuter of the 1980s. They are a conscious professional who strategically chooses where to live, where to work, where to pay taxes and where to build their pension. Those who understand this complexity and actively manage it have an enormous advantage over those who simply accept the system as it is." — Prof. Roberto Bentivoglio, Professor of Labour Law, USI\n\n### Our tools for every stage of your journey\n\n| Stage | Tool | Link |\n|---|---|---|\n| **Initial decision** | Net salary calculator | [Calculate now](nav:calculator) |\n| **G vs B comparison** | Permit comparator | [Compare](nav:permit-compare) |\n| **Job search** | Job board with 4,000+ listings | [Search jobs](nav:jobs) |\n| **Taxation** | Tax simulator + calendar | [Simulate taxes](nav:calculator) |\n| **Tax return** | Step-by-step guide | [Read the guide](nav:tax-return) |\n| **Pensions** | Pension planner | [Plan](nav:pension) |\n| **3rd pillar** | Investment simulator | [Simulate](nav:pillar3) |\n| **Insurance** | 14 health fund comparator | [Compare](nav:health) |\n| **Commuting** | Transport calculator | [Calculate](nav:transport) |\n| **Currency exchange** | Live CHF/EUR converter | [Monitor](nav:exchange) |\n| **Banks** | Cross-border bank comparison | [Compare](nav:banks) |\n| **Cost of living** | CH vs IT comparator | [Compare](nav:cost-of-living) |\n\n---\n\nThis guide is regularly updated to reflect regulatory and tax changes. Last update: July 2025. Main sources: Federal Statistical Office (FSO), State Secretariat for Migration (SEM), Ticino Department of Finance and the Economy (DFE), Agenzia delle Entrate, INPS, FOPH.\n\n📌 **Found this guide useful?** Share it with fellow cross-border workers and use our [free tools](nav:calculator) to optimise your situation. Subscribe to the weekly newsletter for updates on regulations, exchange rates and job opportunities.\n\nOfficial sources: [Old-age insurance system (FSIO)](https://www.bsv.admin.ch/en/old-age-insurance-system)',
     'blog.article.guida-completa-frontaliere.faq': '[{"q":"How many Italian border workers work in Ticino and what impact do they have on the economy?","a":"There are 79,207 Italian border workers in Ticino (Q4 2025), representing 28.3% of the cantonal workforce. This phenomenon is an economic pillar, with a growth of 15.2% in the last 5 years, driven by the wage gap and geographical proximity. The manufacturing sector is the most represented with 31%."},{"q":"What is the median salary for a border worker in Ticino?","a":"The median wage for frontier workers in Ticino is CHF 5,400 per month, according to the Swiss survey of the wage structure. This value is significantly higher than Italian salaries, with a ratio of about 2.3:1 for equivalent positions, making cross-border work economically advantageous."},{"q":"What are the main differences between Permit G (border) and Permit B (resident in Switzerland)?","a":"Permit G provides for residence in Italy and mixed taxation (Switzerland + Italian personal income tax), with Italian living costs and daily commuting. Permit B implies residence in Switzerland, Swiss taxation only, Swiss living costs and no or short commuting. Health insurance also differs: choice for G, mandatory LAMal for B."},{"q":"Is it economically convenient to become a border worker with a G Permit compared to residing in Switzerland with a B Permit?","a":"For a single person with a gross salary of CHF 5.500/mese, a border worker with a G Permit residing in Como can obtain a final net of approximately € 3.700/mese. A resident in Ticino with Permit B, with the same salary, after rent and LAMal, would have about € 2.650/mese. The advantage of the border crossing can vary between 500 and 1,200 euros per month, but the costs of commuting reduce it."},{"q":"What are the job sectors with the greatest opportunities for border workers in Ticino in 2025?","a":"The sectors with the most opportunities in Ticino for 2025-2026 are IT (22% of offers, CHF 7.200/mese), Manufacturing (18%, CHF 5.100/mese) and Healthcare and Pharma (14%, CHF 6.800/mese). Construction and construction also shows a growing trend."}]',
 };
 

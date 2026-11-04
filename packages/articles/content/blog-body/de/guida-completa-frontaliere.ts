@@ -22,48 +22,7 @@ Das Grenzgänger-Phänomen im Tessin hat beispiellose Dimensionen erreicht. Laut
 
 Der Trend steigt seit 2015 stetig, getrieben durch das Lohngefälle (das Verhältnis CH/IT-Gehalt beträgt etwa 2,3:1 für vergleichbare Positionen), die geografische Nähe und die Lebensqualität in den italienischen Grenzprovinzen.`,
 
- 'blog.article.guida-completa-frontaliere.body2': `## Kapitel 1: Die Entscheidung — Lohnt es sich, Grenzgänger zu werden?
-
-Die am häufigsten gestellte Frage ist zugleich die komplexeste: **Lohnt es sich finanziell, in der Schweiz zu arbeiten und in Italien zu leben?** Die Antwort hängt von mindestens sechs Variablen ab: Bruttolohn, Familienstand, Kinderzahl, Wohngemeinde, Pendelkosten und CHF/EUR-Wechselkurs.
-
-### G-Bewilligung vs. B-Bewilligung: die grundlegende Wahl
-
-Die erste Weggabelung führt zwischen zwei völlig unterschiedlichen Lebensmodellen:
-
-| Aspekt | **G-Bewilligung** (Grenzgänger) | **B-Bewilligung** (Aufenthalt) |
-|---|---|---|
-| **Wohnsitz** | Italien (innerhalb der Grenzzone) | Schweiz |
-| **Besteuerung** | Quellensteuer CH + IRPEF IT | Nur Schweizer Steuern |
-| **Lebenshaltungskosten** | Italienisch (günstiger) | Schweizerisch (höher) |
-| **Pendeln** | Täglich, 30-90 Min. pro Weg | Keines oder kurz |
-| **Krankenversicherung** | Wahl: KVG oder ital. SSN | KVG obligatorisch |
-| **Vorsorge** | AHV + BVG in CH, Koordination INPS | AHV + BVG in CH |
-| **Lebensqualität** | Italienisches Zuhause, Schweizer Gehalt | Volle Integration in CH |
-
-Für eine detaillierte Analyse der Unterschiede, siehe unseren [Vergleich G- vs. B-Bewilligung](nav:permit-compare).
-
-### Eine schnelle Simulation
-
-Betrachten wir einen typischen Fall: Bruttolohn CHF 5.500/Monat, ledig, ohne Kinder, wohnhaft in Como.
-
-**Mit G-Bewilligung (Grenzgänger):**
-- Schweizer Sozialabzüge (AHV, ALV, BVG): ~CHF 660/Monat
-- Tessiner Quellensteuer (Tabelle A): ~CHF 440/Monat
-- Netto monatlich in CH: ~CHF 4.400
-- Italienische IRPEF (mit Freibetrag €10.000): ~€280/Monat
-- Endgültiges Netto: ~**€3.700/Monat** (bei Kurs 0,94)
-
-**Mit B-Bewilligung (Wohnsitz Tessin):**
-- Schweizer Sozialabzüge: ~CHF 660/Monat
-- Quellensteuer: ~CHF 440/Monat
-- Netto monatlich: ~CHF 4.400
-- 1-Zimmer-Wohnung Lugano: ~CHF 1.200/Monat
-- KVG: ~CHF 380/Monat
-- Netto nach Fixkosten: ~**CHF 2.820/Monat** (~€2.650)
-
-> «Der Nettounterschied zwischen dem Leben in Italien und dem Leben in der Schweiz liegt bei gleichem Gehalt zwischen €500 und €1.200 pro Monat zugunsten des Grenzgängers. Allerdings müssen die Pendelkosten eingerechnet werden, die bis zu 40% dieses Vorteils aufzehren können.» — Dott.ssa Elena Colombo, Steuerberaterin spezialisiert auf internationale Besteuerung
-
-Um Ihre spezifische Situation zu berechnen, nutzen Sie unseren [Nettolohn-Rechner](nav:calculator), der alle Variablen berücksichtigt: Familienstand, Kinder, Wohngemeinde, Pendelkosten und aktuellen Wechselkurs.`,
+ 'blog.article.guida-completa-frontaliere.body2': `## Kapitel 1: Die Entscheidung — Lohnt es sich, Grenzgänger zu werden?\n\nDie am häufigsten gestellte Frage ist zugleich die komplexeste: **Lohnt es sich finanziell, in der Schweiz zu arbeiten und in Italien zu leben?** Die Antwort hängt von mindestens sechs Variablen ab: Bruttolohn, Familienstand, Kinderzahl, Wohngemeinde, Pendelkosten und CHF/EUR-Wechselkurs.\n\n### G-Bewilligung vs. B-Bewilligung: die grundlegende Wahl\n\nDie erste Weggabelung führt zwischen zwei völlig unterschiedlichen Lebensmodellen:\n\n| Aspekt | **G-Bewilligung** (Grenzgänger) | **B-Bewilligung** (Aufenthalt) |\n|---|---|---|\n| **Wohnsitz** | Italien (innerhalb der Grenzzone) | Schweiz |\n| **Besteuerung** | Quellensteuer CH + IRPEF IT | Nur Schweizer Steuern |\n| **Lebenshaltungskosten** | Italienisch (günstiger) | Schweizerisch (höher) |\n| **Pendeln** | Täglich, 30-90 Min. pro Weg | Keines oder kurz |\n| **Krankenversicherung** | Wahl: KVG oder ital. SSN | KVG obligatorisch |\n| **Vorsorge** | AHV + BVG in CH, Koordination INPS | AHV + BVG in CH |\n| **Lebensqualität** | Italienisches Zuhause, Schweizer Gehalt | Volle Integration in CH |\n\nFür eine detaillierte Analyse der Unterschiede, siehe unseren [Vergleich G- vs. B-Bewilligung](nav:permit-compare).\n\n### Eine schnelle Simulation\n\nBetrachten wir einen typischen Fall: Bruttolohn CHF 5.500/Monat, ledig, ohne Kinder, wohnhaft in Como.\n\n**Mit G-Bewilligung (Grenzgänger):**\n- Schweizer Sozialabzüge (AHV, ALV, BVG): ~CHF 660/Monat\n- Tessiner Quellensteuer (Tabelle A): ~CHF 440/Monat\n- Netto monatlich in CH: ~CHF 4.400\n- Die Grenze von 10.000 Euro nach Art. 4 des italienischen Gesetzes Nr. 83/2023 gilt ausschließlich für Einkünfte aus unselbständiger Arbeit, die in Italien ansässige Personen dauerhaft und ausschließlich in einem ausländischen Grenzgebiet oder Nachbarstaat erzielen und die in Art. 1 Abs. 175 des Gesetzes Nr. 147/2013 genannt sind; sie ist kein allgemeiner Freibetrag und befreit nicht von der Schweizer Quellensteuer.\n- Endgültiges Netto: ~**€3.700/Monat** (bei Kurs 0,94)\n\n**Mit B-Bewilligung (Wohnsitz Tessin):**\n- Schweizer Sozialabzüge: ~CHF 660/Monat\n- Quellensteuer: ~CHF 440/Monat\n- Netto monatlich: ~CHF 4.400\n- 1-Zimmer-Wohnung Lugano: ~CHF 1.200/Monat\n- KVG: ~CHF 380/Monat\n- Netto nach Fixkosten: ~**CHF 2.820/Monat** (~€2.650)\n\n> «Der Nettounterschied zwischen dem Leben in Italien und dem Leben in der Schweiz liegt bei gleichem Gehalt zwischen €500 und €1.200 pro Monat zugunsten des Grenzgängers. Allerdings müssen die Pendelkosten eingerechnet werden, die bis zu 40% dieses Vorteils aufzehren können.» — Dott.ssa Elena Colombo, Steuerberaterin spezialisiert auf internationale Besteuerung\n\nUm Ihre spezifische Situation zu berechnen, nutzen Sie unseren [Nettolohn-Rechner](nav:calculator), der alle Variablen berücksichtigt: Familienstand, Kinder, Wohngemeinde, Pendelkosten und aktuellen Wechselkurs.`,
 
  'blog.article.guida-completa-frontaliere.body3': `## Kapitel 2: Arbeit im Tessin finden
 
@@ -133,7 +92,7 @@ Die **G-Bewilligung** (Grenzgängerbewilligung) ist das Dokument, das einen EU/E
 |---|---|---|
 | Vertragsunterzeichnung | — | Arbeitnehmer + Arbeitgeber |
 | Bewilligungsantrag | Vor Arbeitsbeginn | Arbeitgeber (in der Regel) |
-| Ausstellung G-Bewilligung | 2-4 Wochen | Kantonales Migrationsamt |
+| Ausstellung G-Bewilligung | 2-4 Wochen | Kantonales [Migrationsamt](https://www4.ti.ch/index.php?id=122090) |
 | Erstgültigkeit | 5 Jahre (bei unbefristetem Vertrag) | Automatisch |
 | Erneuerung | Alle 5 Jahre, automatisch | Migrationsamt |
 
@@ -151,55 +110,7 @@ Die G-Bewilligung wird alle 5 Jahre automatisch erneuert, sofern ein Arbeitsverh
 
 Für mehr Informationen zu Schutzmaßnahmen bei Arbeitslosigkeit, siehe unseren [Leitfaden zur Arbeitslosigkeit für Grenzgänger](nav:unemployment).`,
 
- 'blog.article.guida-completa-frontaliere.body5': `## Kapitel 4: Besteuerung — Das Herzstück der Frage
-
-Die Besteuerung ist der komplexeste und wichtigste Aspekt für einen Grenzgänger. Seit 2023 hat sich das Steuerregime durch das Inkrafttreten des **Neuen Abkommens Italien-Schweiz zur Besteuerung der Grenzgänger** grundlegend verändert.
-
-### Das alte Regime (Arbeitende vor Juli 2023)
-
-Wer **vor dem 17. Juli 2023** als Grenzgänger zu arbeiten begann, profitiert von einem Übergangsregime bis 2033:
-
-- **Nur Schweizer Quellensteuer** (keine italienische Besteuerung)
-- Die Quellensteuer wird vom Arbeitgeber abgezogen
-- 40% der Quellensteuer wird an die italienischen Grenzgemeinden zurückerstattet (die sogenannten **Ristorni**)
-- Keine Pflicht zur italienischen Steuererklärung für das Schweizer Erwerbseinkommen
-
-### Das Neue Abkommen 2020 (Arbeitende ab 17. Juli 2023)
-
-Für **neue Grenzgänger** (eingestellt ab 17. Juli 2023) ist das Regime grundlegend anders:
-
-| Element | Detail |
-|---|---|
-| **Schweizer Quellensteuer** | Vom Arbeitgeber abgezogen, progressiver Satz nach Kanton |
-| **Italienische Besteuerung** | Schweizer Einkommen muss in Italien deklariert werden |
-| **Freibetrag** | €10.000 Abzug zur Vermeidung der Doppelbesteuerung |
-| **Steueranrechnung** | In CH gezahlte Steuern werden von der ital. IRPEF abgezogen |
-| **Ristorni** | Für neue Grenzgänger abgeschafft |
-
-### Tessiner Quellensteuer: Tabellen A, B, C, H
-
-Die kantonale Quellensteuer wird nach Familienstand und familiärer Situation angewandt:
-
-- **Tabelle A**: Alleinstehend ohne Kinder
-- **Tabelle B**: Verheiratet, Ehegatte nicht erwerbstätig oder geringeres Einkommen
-- **Tabelle C**: Verheiratet, beide Ehegatten erwerbstätig
-- **Tabelle H**: Alleinerziehend
-
-Der Satz ist progressiv und reicht von 2,5% (niedrige Einkommen) bis über 30% (Einkommen über CHF 15.000/Monat). Er umfasst Bundes-, Kantons- und Gemeindesteuern.
-
-### Die italienische Steuererklärung
-
-Für neue Grenzgänger wird die Steuererklärung obligatorisch:
-
-1. **Einkommen umrechnen** von CHF in EUR zum Jahresdurchschnittskurs (veröffentlicht von der Agenzia delle Entrate)
-2. **Freibetrag von €10.000 anwenden** (Abzug vom steuerpflichtigen Einkommen)
-3. **IRPEF berechnen** nach italienischen Stufen 2026 (23% bis €28.000, 33% bis €50.000, 43% darüber)
-4. **Steueranrechnung abziehen** für in der Schweiz gezahlte Steuern
-5. **Regionale und kommunale Zuschläge hinzufügen**
-
-> «Mit dem Neuen Abkommen wird die Steuerplanung grundlegend. Ein Grenzgänger, der seine Situation nicht optimiert, kann bis zu 15% mehr Steuern zahlen als jemand, der korrekt plant. Der Schlüssel liegt im Verständnis des Zusammenspiels von Freibetrag, Steueranrechnung und italienischen Abzügen.» — Dott.ssa Elena Colombo, Steuerberaterin spezialisiert auf internationale Besteuerung
-
-Um Ihre steuerliche Gesamtsituation zu simulieren — altes und neues Regime — nutzen Sie unseren [Steuerrechner](nav:calculator), der die aktualisierten Tabellen 2026 anwendet und IRPEF, Steueranrechnung und Endnetto automatisch berechnet. Für die jährliche Erklärung konsultieren Sie den [Leitfaden zur Steuererklärung](nav:tax-return) und den [Steuerkalender](nav:calendar), um keine Frist zu versäumen.`,
+ 'blog.article.guida-completa-frontaliere.body5': `## Kapitel 4: Besteuerung — Das Herzstück der Frage\n\nDie Besteuerung ist der komplexeste und wichtigste Aspekt für einen Grenzgänger. Seit 2023 hat sich das Steuerregime durch das Inkrafttreten des **Neuen Abkommens Italien-Schweiz zur Besteuerung der Grenzgänger** grundlegend verändert.\n\n### Das alte Regime (Arbeitende vor Juli 2023)\n\nWer **vor dem 17. Juli 2023** als Grenzgänger zu arbeiten begann, bleibt in der Regelung von Art. 9 des Abkommens:\n\n- **Nur Schweizer Quellensteuer** (keine italienische Besteuerung)\n- Die Quellensteuer wird vom Arbeitgeber abgezogen\n- 40% der Quellensteuer wird an die italienischen Grenzgemeinden zurückerstattet (die sogenannten **Ristorni**)\n- Keine Pflicht zur italienischen Steuererklärung für das Schweizer Erwerbseinkommen\n\n### Das Neue Abkommen 2020 (Arbeitende ab 17. Juli 2023)\n\nFür **neue Grenzgänger** (eingestellt ab 17. Juli 2023) ist das Regime grundlegend anders:\n\n| Element | Detail |\n|---|---|\n| **Schweizer Quellensteuer** | Vom Arbeitgeber abgezogen, progressiver Satz nach Kanton |\n| **Italienische Besteuerung** | Schweizer Einkommen muss in Italien deklariert werden |\n| **Freibetrag** |Die Grenze von 10.000 Euro nach Art. 4 des italienischen Gesetzes Nr. 83/2023 gilt ausschließlich für Einkünfte aus unselbständiger Arbeit, die in Italien ansässige Personen dauerhaft und ausschließlich in einem ausländischen Grenzgebiet oder Nachbarstaat erzielen und die in Art. 1 Abs. 175 des Gesetzes Nr. 147/2013 genannt sind; sie ist kein allgemeiner Freibetrag und befreit nicht von der Schweizer Quellensteuer.|\n| **Steueranrechnung** | In CH gezahlte Steuern werden von der ital. IRPEF abgezogen |\n| **Ristorni** | Für neue Grenzgänger abgeschafft |\n\n### Tessiner Quellensteuer: Tabellen A, B, C, H\n\nDie kantonale Quellensteuer wird nach Familienstand und familiärer Situation angewandt:\n\n- **Tabelle A**: Alleinstehend ohne Kinder\n- **Tabelle B**: Verheiratet, Ehegatte nicht erwerbstätig oder geringeres Einkommen\n- **Tabelle C**: Verheiratet, beide Ehegatten erwerbstätig\n- **Tabelle H**: Alleinerziehend\n\nDer Satz ist progressiv und reicht von 2,5% (niedrige Einkommen) bis über 30% (Einkommen über CHF 15.000/Monat). Er umfasst Bundes-, Kantons- und Gemeindesteuern.\n\n### Die italienische Steuererklärung\n\nFür neue Grenzgänger wird die Steuererklärung obligatorisch:\n\n1. **Einkommen umrechnen** von CHF in EUR zum Jahresdurchschnittskurs (veröffentlicht von der Agenzia delle Entrate)\n2. Die Grenze von 10.000 Euro nach Art. 4 des italienischen Gesetzes Nr. 83/2023 gilt ausschließlich für Einkünfte aus unselbständiger Arbeit, die in Italien ansässige Personen dauerhaft und ausschließlich in einem ausländischen Grenzgebiet oder Nachbarstaat erzielen und die in Art. 1 Abs. 175 des Gesetzes Nr. 147/2013 genannt sind; sie ist kein allgemeiner Freibetrag und befreit nicht von der Schweizer Quellensteuer.\n3. **IRPEF berechnen** nach italienischen Stufen 2026 (23% bis €28.000, 33% bis €50.000, 43% darüber)\n4. **Steueranrechnung abziehen** für in der Schweiz gezahlte Steuern\n5. **Regionale und kommunale Zuschläge hinzufügen**\n\n> «Mit dem Neuen Abkommen wird die Steuerplanung grundlegend. Ein Grenzgänger, der seine Situation nicht optimiert, kann bis zu 15% mehr Steuern zahlen als jemand, der korrekt plant. Der Schlüssel liegt im Verständnis des Zusammenspiels von Freibetrag, Steueranrechnung und italienischen Abzügen.» — Dott.ssa Elena Colombo, Steuerberaterin spezialisiert auf internationale Besteuerung\n\nUm Ihre steuerliche Gesamtsituation zu simulieren — altes und neues Regime — nutzen Sie unseren [Steuerrechner](nav:calculator), der die aktualisierten Tabellen 2026 anwendet und IRPEF, Steueranrechnung und Endnetto automatisch berechnet. Für die jährliche Erklärung konsultieren Sie den [Leitfaden zur Steuererklärung](nav:tax-return) und den [Steuerkalender](nav:calendar), um keine Frist zu versäumen.`,
 
  'blog.article.guida-completa-frontaliere.body6': `## Kapitel 5: Sozialversicherung — AHV, BVG und 3. Säule
 
@@ -375,44 +286,7 @@ Die Erneuerung erfolgt in der Regel automatisch, aber bewährte Praxis umfasst:
 
 Um keine Frist zu verpassen, nutzen Sie unseren [interaktiven Steuerkalender](nav:calendar), der Sie automatisch an wichtige Termine erinnert und Ihnen den Export in Ihren persönlichen Kalender ermöglicht.`,
 
- 'blog.article.guida-completa-frontaliere.body10': `## Häufig gestellte Fragen (FAQ)
-
-### 1. Kann ich Grenzgänger werden, wenn ich in Mailand wohne?
-
-Das hängt vom Regime ab. Beim **alten Regime** (vor Juli 2023) war die Grenzzone auf 20 km vom Grenzübergang beschränkt. Beim **Neuen Abkommen** ist die Definition flexibler, erfordert aber weiterhin eine wöchentliche Rückkehr. Mailand (80 km von der Grenze) liegt technisch ausserhalb der traditionellen Grenzzone, aber mit einem Vertrag ab 2023 und der neuen Regelung könnten Sie steuerlich trotzdem als «Grenzgänger» gelten, wenn Sie täglich pendeln. Konsultieren Sie einen Steuerberater für Ihren konkreten Fall.
-
-### 2. Wie viel verdient ein Grenzgänger im Durchschnitt?
-
-Der Medianlohn für Grenzgänger im Tessin beträgt **CHF 5.400/Monat brutto** (BFS, 2025). Die Spannbreite ist jedoch gross: von CHF 3.800 für Positionen im Handel bis CHF 9.000+ für spezialisierte IT- und Finanzrollen. Nutzen Sie den [Lohnvergleich](nav:salary-compare), um Daten für Ihre Branche zu sehen.
-
-### 3. Gilt der Freibetrag von €10.000 für alle?
-
-Nein. Der Freibetrag von €10.000 gilt **nur für neue Grenzgänger** (eingestellt ab 17. Juli 2023). Grenzgänger unter dem alten Regime zahlen keine IRPEF in Italien, daher ist der Freibetrag für sie nicht relevant.
-
-### 4. Kann ich Pendelkosten absetzen?
-
-**In der Schweiz**: Ja, Transportkosten können von der Quellensteuer abgezogen werden (bis CHF 3.200/Jahr für ÖV; bei Autofahrten wird nach km berechnet). Der Abzug muss über eine Quellensteuerkorrektur beantragt werden.
-**In Italien**: Pendelkosten sind nicht direkt von der IRPEF absetzbar, fliessen aber in die finanzielle Gesamtberechnung ein.
-
-### 5. Was passiert mit meiner BVG, wenn ich definitiv nach Italien zurückkehre?
-
-Verlassen Sie die Schweiz in ein EU-Land, haben Sie zwei Optionen für die 2. Säule:
-- **Kapital belassen** auf einem Schweizer Freizügigkeitskonto bis zum Rentenalter
-- **Überobligatorischen Anteil** bar auszahlen (der obligatorische Teil verbleibt in der Schweiz, wenn das Zielland ein gleichwertiges Rentensystem hat — Italien hat eines)
-
-Seit 2025 hat die Rechtsprechung klargestellt, dass das obligatorische BVG-Kapital bei Rückkehr in ein EU-Land mit gleichwertigem Vorsorgesystem **nicht bar ausgezahlt** werden kann. Planen Sie voraus mit dem [Vorsorgeplaner](nav:pension).
-
-### 6. KVG oder SSN: Kann ich meine Entscheidung später ändern?
-
-Grundsätzlich **nein**. Die innerhalb von 3 Monaten nach Stellenantritt getroffene Wahl ist für die gesamte Vertragsdauer beim selben Arbeitgeber endgültig. Ein Arbeitgeberwechsel (auch ein kurzer) kann jedoch technisch das Optionsrecht erneut eröffnen. Es ist eine Grauzone: prüfen Sie unseren [Leitfaden Krankenversicherung](nav:health).
-
-### 7. Werden die Ristorni abgeschafft?
-
-Für Grenzgänger unter dem **alten Regime** sind die Ristorni (Rückerstattung von 40% der Quellensteuer an italienische Grenzgemeinden) bis **2033** garantiert, danach werden sie schrittweise reduziert. Für **neue Grenzgänger** (ab Juli 2023) gelten die Ristorni nicht, da der Steuermechanismus anders ist (Doppelbesteuerung mit Anrechnung). Verfolgen Sie Änderungen mit unserem [Ristorni-Tracker](nav:ristorni).
-
-### 8. Wie lange dauert es, die G-Bewilligung zu erhalten?
-
-Mit einem unterschriebenen Arbeitsvertrag wird die G-Bewilligung in **2-4 Wochen** ausgestellt. Der Arbeitgeber kümmert sich in der Regel um den Antrag. Zu bestimmten Jahreszeiten (September, Januar) können die Bearbeitungszeiten länger sein. Die Bewilligung ist 5 Jahre gültig und wird automatisch verlängert.`,
+ 'blog.article.guida-completa-frontaliere.body10': `## Häufig gestellte Fragen (FAQ)\n\n### 1. Kann ich Grenzgänger werden, wenn ich in Mailand wohne?\n\nDas hängt vom Regime ab. Beim **alten Regime** (vor Juli 2023) war die Grenzzone auf 20 km vom Grenzübergang beschränkt. Beim **Neuen Abkommen** ist die Definition flexibler, erfordert aber weiterhin eine wöchentliche Rückkehr. Mailand (80 km von der Grenze) liegt technisch ausserhalb der traditionellen Grenzzone, aber mit einem Vertrag ab 2023 und der neuen Regelung könnten Sie steuerlich trotzdem als «Grenzgänger» gelten, wenn Sie täglich pendeln. Konsultieren Sie einen Steuerberater für Ihren konkreten Fall.\n\n### 2. Wie viel verdient ein Grenzgänger im Durchschnitt?\n\nDer Medianlohn für Grenzgänger im Tessin beträgt **CHF 5.400/Monat brutto** (BFS, 2025). Die Spannbreite ist jedoch gross: von CHF 3.800 für Positionen im Handel bis CHF 9.000+ für spezialisierte IT- und Finanzrollen. Nutzen Sie den [Lohnvergleich](nav:salary-compare), um Daten für Ihre Branche zu sehen.\n\n### 3. Die Grenze von 10.000 Euro nach Art. 4 des italienischen Gesetzes Nr. 83/2023 gilt ausschließlich für Einkünfte aus unselbständiger Arbeit, die in Italien ansässige Personen dauerhaft und ausschließlich in einem ausländischen Grenzgebiet oder Nachbarstaat erzielen und die in Art. 1 Abs. 175 des Gesetzes Nr. 147/2013 genannt sind; sie ist kein allgemeiner Freibetrag und befreit nicht von der Schweizer Quellensteuer.\n\nNein. Die Grenze von 10.000 Euro nach Art. 4 des italienischen Gesetzes Nr. 83/2023 gilt ausschließlich für Einkünfte aus unselbständiger Arbeit, die in Italien ansässige Personen dauerhaft und ausschließlich in einem ausländischen Grenzgebiet oder Nachbarstaat erzielen und die in Art. 1 Abs. 175 des Gesetzes Nr. 147/2013 genannt sind; sie ist kein allgemeiner Freibetrag und befreit nicht von der Schweizer Quellensteuer. Juli 2023). Grenzgänger unter dem alten Regime zahlen keine IRPEF in Italien, daher ist der Freibetrag für sie nicht relevant.\n\n### 4. Kann ich Pendelkosten absetzen?\n\n**In der Schweiz**: Ja, Transportkosten können von der Quellensteuer abgezogen werden (bis CHF 3.200/Jahr für ÖV; bei Autofahrten wird nach km berechnet). Der Abzug muss über eine Quellensteuerkorrektur beantragt werden.\n**In Italien**: Pendelkosten sind nicht direkt von der IRPEF absetzbar, fliessen aber in die finanzielle Gesamtberechnung ein.\n\n### 5. Was passiert mit meiner BVG, wenn ich definitiv nach Italien zurückkehre?\n\nVerlassen Sie die Schweiz in ein EU-Land, haben Sie zwei Optionen für die 2. Säule:\n- **Kapital belassen** auf einem Schweizer Freizügigkeitskonto bis zum Rentenalter\n- **Überobligatorischen Anteil** bar auszahlen (der obligatorische Teil verbleibt in der Schweiz, wenn das Zielland ein gleichwertiges Rentensystem hat — Italien hat eines)\n\nSeit 2025 hat die Rechtsprechung klargestellt, dass das obligatorische BVG-Kapital bei Rückkehr in ein EU-Land mit gleichwertigem Vorsorgesystem **nicht bar ausgezahlt** werden kann. Planen Sie voraus mit dem [Vorsorgeplaner](nav:pension).\n\n### 6. KVG oder SSN: Kann ich meine Entscheidung später ändern?\n\nGrundsätzlich **nein**. Die innerhalb von 3 Monaten nach Stellenantritt getroffene Wahl ist für die gesamte Vertragsdauer beim selben Arbeitgeber endgültig. Ein Arbeitgeberwechsel (auch ein kurzer) kann jedoch technisch das Optionsrecht erneut eröffnen. Es ist eine Grauzone: prüfen Sie unseren [Leitfaden Krankenversicherung](nav:health).\n\n### 7. Werden die Ristorni abgeschafft?\n\nFür Grenzgänger unter dem **alten Regime** sind die Ristorni (Rückerstattung von 40% der Quellensteuer an italienische Grenzgemeinden) bis **2033** garantiert, danach werden sie schrittweise reduziert. Für **neue Grenzgänger** (ab Juli 2023) gelten die Ristorni nicht, da der Steuermechanismus anders ist (Doppelbesteuerung mit Anrechnung). Verfolgen Sie Änderungen mit unserem [Ristorni-Tracker](nav:ristorni).\n\n### 8. Wie lange dauert es, die G-Bewilligung zu erhalten?\n\nMit einem unterschriebenen Arbeitsvertrag wird die G-Bewilligung in **2-4 Wochen** ausgestellt. Der Arbeitgeber kümmert sich in der Regel um den Antrag. Zu bestimmten Jahreszeiten (September, Januar) können die Bearbeitungszeiten länger sein. Die Bewilligung ist 5 Jahre gültig und wird automatisch verlängert.`,
 
  'blog.article.guida-completa-frontaliere.body11': '## Fazit: Der Grenzgänger als binationaler Fachmann\n\nGrenzgänger zu sein im Jahr 2026 bedeutet nicht einfach «in der Schweiz arbeiten und in Italien leben». Es ist eine Lebensentscheidung, die **Kompetenzen in Finanzplanung, Kenntnis der Vorschriften und tägliche Organisation** erfordert, die nur wenige andere Arbeitnehmer besitzen müssen.\n\nDer moderne Grenzgänger ist ein **binationaler Fachmann**, der zwischen zwei Steuersystemen, zwei Vorsorgeregimen, zwei Gesundheitssystemen und zwei Märkten navigiert. Diese Komplexität, gut gemanagt, wird zu einem bedeutenden Wettbewerbsvorteil: Schweizer Gehälter mit italienischen Lebenshaltungskosten, eines der solidesten Vorsorgesysteme der Welt und Zugang zu zwei Arbeitsmärkten.\n\n> «Der Grenzgänger der Zukunft ist nicht mehr der passive Pendler der 1980er Jahre. Er ist ein bewusster Fachmann, der strategisch wählt, wo er lebt, wo er arbeitet, wo er Steuern zahlt und wo er seine Rente aufbaut. Wer diese Komplexität versteht und aktiv steuert, hat einen enormen Vorteil gegenüber denen, die das System einfach hinnehmen.» — Prof. Roberto Bentivoglio, Professor für Arbeitsrecht, USI\n\n### Unsere Werkzeuge für jede Phase Ihres Wegs\n\n| Phase | Werkzeug | Link |\n|---|---|---|\n| **Anfangsentscheidung** | Nettolohn-Rechner | [Jetzt berechnen](nav:calculator) |\n| **G vs. B Vergleich** | Bewilligungsvergleich | [Vergleichen](nav:permit-compare) |\n| **Jobsuche** | Jobbörse mit 4.000+ Stellen | [Jobs suchen](nav:jobs) |\n| **Besteuerung** | Steuersimulator + Kalender | [Steuern simulieren](nav:calculator) |\n| **Steuererklärung** | Schritt-für-Schritt-Anleitung | [Anleitung lesen](nav:tax-return) |\n| **Vorsorge** | Vorsorgeplaner | [Planen](nav:pension) |\n| **3. Säule** | Anlagesimulator | [Simulieren](nav:pillar3) |\n| **Versicherung** | 14-Krankenkassen-Vergleich | [Vergleichen](nav:health) |\n| **Pendeln** | Transportkostenrechner | [Berechnen](nav:transport) |\n| **Wechselkurs** | CHF/EUR-Umrechner live | [Überwachen](nav:exchange) |\n| **Banken** | Grenzgängerbanken-Vergleich | [Vergleichen](nav:banks) |\n| **Lebenshaltungskosten** | CH vs. IT Vergleich | [Vergleichen](nav:cost-of-living) |\n\n---\n\nDieser Leitfaden wird regelmässig aktualisiert, um Gesetzes- und Steueränderungen zu berücksichtigen. Letzte Aktualisierung: Juli 2025. Hauptquellen: Bundesamt für Statistik (BFS), Staatssekretariat für Migration (SEM), Departement für Finanzen und Wirtschaft des Kantons Tessin (DFE), Agenzia delle Entrate, INPS, BAG.\n\n📌 **Fanden Sie diesen Leitfaden nützlich?** Teilen Sie ihn mit anderen Grenzgängern und nutzen Sie unsere [kostenlosen Werkzeuge](nav:calculator), um Ihre Situation zu optimieren. Abonnieren Sie den wöchentlichen Newsletter für Updates zu Vorschriften, Wechselkursen und Stellenangeboten.',
     'blog.article.guida-completa-frontaliere.faq': '[{"q":"Wie viele italienische Grenzgänger arbeiten im Tessin und welche Auswirkungen haben sie auf die Wirtschaft?","a":"Im Tessin gibt es 79.207 italienische Grenzgänger (Q4 2025), die 28,3% der kantonalen Arbeitskräfte ausmachen. Dieses Phänomen ist eine wirtschaftliche Säule, mit einem Wachstum von 15,2% in den letzten 5 Jahren, getrieben von der Lohndifferenz und der geografischen Nähe. Das verarbeitende Gewerbe ist mit 31% am stärksten vertreten."},{"q":"Wie hoch ist der Medianlohn für einen Grenzgänger im Tessin?","a":"Der Medianlohn für Grenzgänger im Tessin beträgt nach der schweizerischen Lohnstrukturerhebung CHF 5 \'400 pro Monat. Dieser Wert ist deutlich höher als bei den italienischen Gehältern, mit einem Verhältnis von etwa 2,3:1 für gleichwertige Positionen, was die grenzüberschreitende Arbeit wirtschaftlich rentabel macht."},{"q":"Was sind die Hauptunterschiede zwischen der Genehmigung G (Grenzgänger) und der Genehmigung B (Wohnsitz in der Schweiz)?","a":"Die Genehmigung G sieht den Wohnsitz in Italien und eine gemischte Besteuerung (Schweiz + italienische Einkommensteuer) mit italienischen Lebenshaltungskosten und täglichem Pendeln vor. Die B-Bewilligung beinhaltet den Wohnsitz in der Schweiz, nur schweizerische Steuern, schweizerische Lebenshaltungskosten und keine oder kurze Pendelfahrten. Auch die Krankenversicherung unterscheidet sich: Wahl für G, obligatorisches KVG für B."},{"q":"Lohnt es sich, Grenzgänger mit G-Bewilligung zu werden, anstatt in der Schweiz mit B-Bewilligung zu wohnen?","a":"Für einen Single mit einem Bruttogehalt von CHF 5.500/mese kann ein Grenzgänger mit G-Bewilligung mit Wohnsitz in Como ein Netto-Endgehalt von ca. € 3.700/mese erhalten. Eine im Tessin wohnhafte Person mit B-Bewilligung, bei gleichem Lohn, nach Miete und KVG, hätte etwa € 2.650/mese. Der Vorteil des Grenzgängers kann zwischen 500 und 1.200 Euro pro Monat liegen, aber die Kosten des Pendelns reduzieren ihn."},{"q":"Welche Arbeitsbereiche bieten den Grenzgängern im Tessin im Jahr 2025 die grössten Chancen?","a":"Die Branchen mit den meisten Chancen im Tessin für 2025-2026 sind die Informatik/IT (22% der Angebote, CHF 7.200/mese), die verarbeitende Industrie (18%, CHF 5.100/mese) und das Gesundheitswesen und die Pharma (14%, CHF 6.800/mese). Auch Hoch- und Tiefbau zeigt einen wachsenden Trend."}]',

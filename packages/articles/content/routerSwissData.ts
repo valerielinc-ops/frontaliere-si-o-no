@@ -248,7 +248,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-alla-fonte-ticino-calcolatore': { it: 'imposte-alla-fonte-ticino-calcolatore', en: 'withholding-tax-ticino-calculator', de: 'quellensteuer-tessin-rechner', fr: 'impot-source-tessin-calculateur' },
  'pensione-frontaliere-avs-inps-2026': { it: 'pensione-frontaliere-avs-inps-2026', en: 'frontier-worker-pension-avs-inps-2026', de: 'grenzarbeiter-rente-avs-inps-2026', fr: 'pension-travailleur-frontalier-avs-inps-2026' },
  'richiesta-permesso-g-step': { it: 'richiesta-permesso-g-step', en: 'g-permit-application-step-by-step', de: 'g-bewilligung-beantragen-schritt-fuer-schritt', fr: 'demande-permis-g-etape-par-etape' },
- 'imposte-alla-fonte-ticino': { it: 'imposte-alla-fonte-ticino', en: 'ticino-withholding-tax-calculator', de: 'quellensteuer-ticino-rechner', fr: 'impot-a-la-source-tessin-calculateur' },
+ 'imposte-alla-fonte-ticino': { it: 'imposte-alla-fonte-ticino', en: 'ticino-withholding-tax-calculator', de: 'quellensteuer-tessin-leitfaden', fr: 'impot-a-la-source-tessin-calculateur' },
  'aufenthaltsbewilligung-b-quellensteuer': { it: 'aufenthaltsbewilligung-b-quellensteuer', en: 'residence-permit-b-withholding-tax-2026', de: 'aufenthaltsbewilligung-b-quellensteuer-2026', fr: 'autorisation-de-sejour-b-impot-a-la-source-2026' },
  'quellensteuer-tarife-svizzera-2026': { it: 'quellensteuer-tarife-svizzera-2026', en: 'quellensteuer-switzerland-rates-2026', de: 'quellensteuer-tarife-schweiz-2026', fr: 'quellensteuer-tarifs-suisse-2026' },
  'g-bewilligung-antrag-2026-step': { it: 'g-bewilligung-antrag-2026-step', en: 'g-permit-application-2026', de: 'g-bewilligung-antrag-2026', fr: 'demande-permis-g-2026' },
@@ -2908,7 +2908,13 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'farmaci-riserve-finanziamento': { it: 'farmaci-riserve-finanziamento', en: 'medicine-stock-funding', de: 'medikamente-reserven-finanzierung', fr: 'medicaments-reserves-financement' },
  'svizzera-rischi-climatici-strumenti': { it: 'svizzera-rischi-climatici-strumenti', en: 'switzerland-climate-risk-tools', de: 'schweiz-klima-risiken-werkzeuge', fr: 'suisse-risques-climatiques-outils' },
  'scontro-fiscale-coppie-atto': { it: 'scontro-fiscale-coppie-atto', en: 'tax-conflict-couples-act', de: 'steuerkonflikt-paare-akt', fr: 'conflit-fiscal-couples-acte' },
- 'sospensione-lavori-muro-anti-migranti-big-bend-texas': { it: 'sospensione-lavori-muro-anti-migranti-big-bend-texas', en: 'suspension-of-work-on-anti-migrant-wall-in-big-bend-texas', de: 'arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen', fr: 'suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas' },
+ 'startup-innovazione-sociale-open-call': { it: 'startup-innovazione-sociale-open-call', en: 'startup-social-innovation-open-call', de: 'startup-soziales-innovations-open-call', fr: 'startup-innovation-sociale-open-call' },
+ 'premi-mercato-idroelettrico-2026': { it: 'premi-mercato-idroelettrico-2026', en: 'hydroelectric-market-premiums-2026', de: 'marktpraemien-wasserkraft-2026', fr: 'primes-marche-hydroelectrique-2026' },
+ 'mercato-lavoro-prospettive-offuscate': { it: 'mercato-lavoro-prospettive-offuscate', en: 'labor-market-prospects-clouding', de: 'arbeitsmarkt-prospekte-truben', fr: 'perspectives-marche-travail-nuageants' },
+ 'inflazione-ottobre-1-5-percento': { it: 'inflazione-ottobre-1-5-percento', en: 'october-inflation-1-5-percent', de: 'inflations-oktober-1-5-prozent', fr: 'inflation-octobre-1-5-pourcent' },
+ 'swissport-zurigo-trattative-ccl': { it: 'swissport-zurigo-trattative-ccl', en: 'swissport-zurich-cba-negotiations', de: 'swissport-zuerich-gav-verhandlungen', fr: 'swissport-zurich-negociations-cct' },
+ 'voto-iva-13esima-avs-novembre': { it: 'voto-iva-13esima-avs-novembre', en: 'vote-vat-13th-avs-november', de: 'abstimmung-mwst-13-ahv-november', fr: 'vote-tva-13eme-avs-novembre' },
+ 'cdf-critica-armasuisse-immobili': { it: 'cdf-critica-armasuisse-immobili', en: 'cdf-criticizes-armasuisse-real-estate', de: 'cdf-kritisiert-armasuisse-immobilien', fr: 'cdf-critique-armasuisse-immobilier' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
