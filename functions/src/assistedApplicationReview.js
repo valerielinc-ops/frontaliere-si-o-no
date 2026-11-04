@@ -705,7 +705,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
   const flowRef = flowRefFor(db, orderId);
   const filesOf = (current) => documentFilesOf(current, orderId, requested.id);
   if (action === 'document_upload') {
-    if (requested.delivery !== 'upload') throw new ReviewError('not_allowed', 409);
+    if ((requested.delivery || 'upload') !== 'upload') throw new ReviewError('not_allowed', 409);
     const base64 = String(body.contentBase64 || '');
     if (base64.length > Math.ceil(MAX_DOCUMENT_BYTES / 3) * 4 + 4) throw new ReviewError('file_too_large', 413);
     const buffer = Buffer.from(base64, 'base64');
@@ -735,7 +735,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     return;
   }
   if (action === 'document_remove') {
-    if (requested.delivery !== 'upload') throw new ReviewError('not_allowed', 409);
+    if ((requested.delivery || 'upload') !== 'upload') throw new ReviewError('not_allowed', 409);
     const fileId = String(body.fileId || '');
     let removed = null;
     await db.runTransaction(async (transaction) => {
@@ -763,7 +763,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
   }
   if (action === 'document_set_exemption') {
     const exemption = String(body.exemption || '');
-    if (exemption && !requested.exemptions.includes(exemption)) throw new ReviewError('invalid_exemption');
+    if (exemption && !(requested.exemptions || []).includes(exemption)) throw new ReviewError('invalid_exemption');
     let removed = [];
     await db.runTransaction(async (transaction) => {
       const current = (await transaction.get(flowRef)).data() || {};

@@ -94,7 +94,7 @@ export function documentsView(draft, flow, fileUrls = {}) {
         clientCheck: sanitizeClientCheck(file.clientCheck),
       })),
       preparedAt: Number(given.preparedAt) || null,
-      exemption: document.exemptions.includes(given.exemption) ? given.exemption : null,
+      exemption: (document.exemptions || []).includes(given.exemption) ? given.exemption : null,
     };
   });
 }
@@ -127,6 +127,11 @@ export function requiredDocumentsOf(draft) {
     const label = text(item?.label, 160);
     if (!id || !label || seen.has(id)) continue;
     seen.add(id);
+    const instructions = text(item.instructions, 500);
+    const delivery = item.delivery === 'offline' ? 'offline'
+      : item.delivery === 'service' && id === 'curriculum_vitae' ? 'service' : null;
+    const exemptions = [...new Set((Array.isArray(item.exemptions) ? item.exemptions : [])
+      .filter((reason) => ['municipal_resident', 'municipal_employee'].includes(reason)))].slice(0, 2);
     out.push({
       id,
       label,
@@ -136,14 +141,12 @@ export function requiredDocumentsOf(draft) {
       keywords: (Array.isArray(item.keywords) ? item.keywords : []).map((word) => text(word, 40)).filter(Boolean).slice(0, 12),
       required: item.required !== false,
       quote: text(item.quote, 300),
-      instructions: text(item.instructions, 500),
       // Official or sensitive records can be requested in the interface as
       // a paper task. Their contents stay with the candidate and are not
       // uploaded to the service.
-      delivery: item.delivery === 'offline' ? 'offline'
-        : item.delivery === 'service' && id === 'curriculum_vitae' ? 'service' : 'upload',
-      exemptions: [...new Set((Array.isArray(item.exemptions) ? item.exemptions : [])
-        .filter((reason) => ['municipal_resident', 'municipal_employee'].includes(reason)))].slice(0, 2),
+      ...(instructions ? { instructions } : {}),
+      ...(delivery ? { delivery } : {}),
+      ...(exemptions.length ? { exemptions } : {}),
     });
     if (out.length >= MAX_REQUIRED_DOCUMENTS) break;
   }
@@ -210,7 +213,7 @@ export function openRequiredDocuments(draft, documents = {}, flow = null) {
     .filter((document) => document.required)
     .filter((document) => {
       const given = documents?.[document.id];
-      if (given?.exemption && document.exemptions.includes(given.exemption)) return false;
+      if (given?.exemption && (document.exemptions || []).includes(given.exemption)) return false;
       if (document.delivery === 'offline') return !Number(given?.preparedAt);
       if (document.delivery === 'service') return false;
       return !(Array.isArray(given?.files) && given.files.length);
@@ -222,10 +225,20 @@ export function openRequiredDocuments(draft, documents = {}, flow = null) {
 export function documentFilesOf(flow, orderId, id) {
   const files = flow?.documents?.[id]?.files;
   const prefix = `assisted-application-uploads/${orderId}/doc-${String(id || '').slice(0, 30)}-`;
+  const orderPrefix = `assisted-application-uploads/${orderId}/`;
   return (Array.isArray(files) ? files : [])
-    .filter((file) => isAssistedApplicationCvKey(orderId, file?.key)
-      && String(file?.key || '').startsWith(prefix)
-      && DOCUMENT_TYPES.includes(file?.detectedType))
+    .filter((file) => {
+      const key = String(file?.key || '');
+      const name = key.startsWith(orderPrefix) ? key.slice(orderPrefix.length) : '';
+      // New uploads include their document id in the filename, so they cannot
+      // be reassigned between slots. Older files used a plain basename; keep
+      // those readable for existing flows while rejecting nested paths and
+      // another slot's new-style key.
+      const belongsToDocument = key.startsWith(prefix) || (name && !name.includes('/') && !name.startsWith('doc-'));
+      return isAssistedApplicationCvKey(orderId, key)
+        && belongsToDocument
+        && DOCUMENT_TYPES.includes(file?.detectedType);
+    })
     .slice(0, MAX_FILES_PER_DOCUMENT);
 }
 
@@ -252,7 +265,7 @@ export function enclosedDocumentLabels(draft, flow, orderId) {
     return requiredDocumentsFor(draft, flow)
       .filter((document) => {
         const given = flow?.documents?.[document.id] || {};
-        if (given.exemption && document.exemptions.includes(given.exemption)) return false;
+        if (given.exemption && (document.exemptions || []).includes(given.exemption)) return false;
         return document.required || given.preparedAt || (Array.isArray(given.files) && given.files.length > 0);
       })
       .map((document) => document.label);

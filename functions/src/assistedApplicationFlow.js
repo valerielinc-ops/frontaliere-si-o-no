@@ -716,7 +716,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         break;
       }
       if (state === 'candidate_review' && deadline && nowMs >= deadline) {
-        if (flags.owner.length) {
+        if (flags.owner.includes('postal_submission_missing')) {
           effects = enterOwnerReview(next, flags, nowMs);
           break;
         }
@@ -851,7 +851,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       break;
     case 'candidate_approve':
       if (state !== 'candidate_review') return ignore('not_candidate_review');
-      if (flags.owner.length) {
+      if (flags.owner.includes('postal_submission_missing')) {
         effects = enterOwnerReview(next, flags, nowMs);
         break;
       }
@@ -863,7 +863,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     case 'candidate_answers':
       if (state !== 'candidate_review' && state !== 'needs_candidate_action') return ignore('not_waiting_for_candidate');
       if (state === 'needs_candidate_action') {
-        if (flags.owner.length) {
+        if (flags.owner.includes('postal_submission_missing')) {
           effects = enterOwnerReview(next, flags, nowMs);
           break;
         }
