@@ -21,7 +21,7 @@ const CATEGORY_PATTERNS = Object.freeze({
   'fisco-previdenza': /(?<![\p{L}\p{M}\p{N}\p{Cf}_])(?:tass\p{L}*|fisc\p{L}*|impost\p{L}*|dichiarazion\p{L}*|pension\p{L}*|avs|inps|retrait\p{L}*|steuer\p{L}*|ahv|imp[oô]t\p{L}*|tax\p{L}*)(?![\p{L}\p{M}\p{N}\p{Cf}_])/iu,
   'assicurazione-salute': /(?<![\p{L}\p{M}\p{N}\p{Cf}_])(?:assicurazion\p{L}*\s+(?:malatt\p{L}*|sanitari\p{L}*)|cassa\s+malat\p{L}*|lamal|krankenkass\p{L}*|krankenversicherung\p{L}*|assurance\s+maladie|health\s+insurance|sick\s+fund)(?![\p{L}\p{M}\p{N}\p{Cf}_])/iu,
   'permessi-amministrazione': /(?<![\p{L}\p{M}\p{N}\p{Cf}_])(?:permess\p{L}*|document\p{L}*|autorizzazion\p{L}*|residenz\p{L}*|bewilligung\p{L}*|aufenthalt\p{L}*|permis|autorisation\p{L}*|permit\p{L}*|residence\s+card)(?![\p{L}\p{M}\p{N}\p{Cf}_])/iu,
-  'mobilita-valichi': /(?<![\p{L}\p{M}\p{N}\p{Cf}_])(?:traffico\p{L}*|valich\p{L}*|frontier\p{L}*|dogan\p{L}*|pendolar\p{L}*|mobilit\p{L}*|trasport\p{L}*|grenz\p{L}*|stau\p{L}*|douan\p{L}*|trajet\p{L}*|commut\p{L}*|border\s+cross\p{L}*|transport\p{L}*)(?![\p{L}\p{M}\p{N}\p{Cf}_])/iu,
+  'mobilita-valichi': /(?<![\p{L}\p{M}\p{N}\p{Cf}_])(?:traffico\p{L}*|traffic|valich\p{L}*|frontier\p{L}*|dogan\p{L}*|pendolar\p{L}*|mobilit\p{L}*|trasport\p{L}*|grenz\p{L}*|stau\p{L}*|douan\p{L}*|trajet\p{L}*|commut\p{L}*|border\s+cross\p{L}*|transport\p{L}*)(?![\p{L}\p{M}\p{N}\p{Cf}_])/iu,
   'vita-famiglia': /(?<![\p{L}\p{M}\p{N}\p{Cf}_])(?:famigli\p{L}*|figli\p{L}*|scuol\p{L}*|asil\p{L}*|famil\p{L}*|kind\p{L}*|schul\p{L}*|enfant\p{L}*|école\p{L}*|ecole\p{L}*|child\p{L}*|school\p{L}*)(?![\p{L}\p{M}\p{N}\p{Cf}_])/iu,
 });
 

@@ -38,6 +38,8 @@ describe('privacy-safe Instagram community topic signals', () => {
     expect(classifyInstagramCommunityQuestion('Dove c\'è traffico?'))
       .toBe('mobilita-valichi');
     expect(classifyInstagramCommunityQuestion('Is there traffic?'))
+      .toBe('mobilita-valichi');
+    expect(classifyInstagramCommunityQuestion('Is there trafficjam?'))
       .toBeNull();
     expect(classifyInstagramCommunityQuestion('Dove\u200bma fisco'))
       .toBeNull();
