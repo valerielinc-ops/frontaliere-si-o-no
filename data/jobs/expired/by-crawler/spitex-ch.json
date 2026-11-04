@@ -1267,7 +1267,7 @@
       "sante-professionnelle-fage-efz-40-100-spitex-mutschellen-reusstal-bremgarten-09f5f374",
       "sante-professionnelle-fage-efz-40-100-spitex-mutschellen-reusstal-bremgarten-d4f2be0e",
       "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal",
-      "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg",
+      "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg-80fe89ac",
       "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-adliswil",
       "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-adliswil",
       "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten-b36bf2e7",
@@ -1287,6 +1287,8 @@
       "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten-562ae9d9",
       "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten-cdcc7d5b",
       "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten-b46029c1",
+      "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg-7350e8fe",
+      "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg",
       "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
     ],
     "previousSlugsByLocale": {
@@ -1324,6 +1326,7 @@
         "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
         "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg-aaac0725",
         "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil",
+        "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg-7350e8fe",
         "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
       ],
       "fr": [
@@ -7253,17 +7256,23 @@
     "expiredAt": "2026-10-06T09:18:42.891Z",
     "previousSlugs": [
       "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg-306f9c66",
-      "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+      "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg-4e943645",
       "professionista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
       "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil-8503d59e",
-      "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+      "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil-6e55c7eb",
       "professionista-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
       "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil-ccadd21f",
-      "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
+      "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil-3c506e59",
       "care-professional-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
       "care-professional-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
       "professionnel-de-soins-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
       "professionnel-de-soins-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
+      "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg-bf05c897",
+      "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil-22526d2a",
+      "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil-9c304d35",
+      "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+      "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+      "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
       "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
       "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
       "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil"
@@ -7271,34 +7280,48 @@
     "previousSlugsByLocale": {
       "it": [
         "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg-306f9c66",
-        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg-4e943645",
         "professionista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil-8503d59e",
-        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil-6e55c7eb",
         "professionista-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
         "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil-ccadd21f",
+        "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil-3c506e59",
+        "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg-bf05c897",
+        "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil-22526d2a",
+        "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil-9c304d35",
+        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
         "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
         "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
         "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil"
       ],
       "en": [
-        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg-4e943645",
         "care-professional-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
-        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil-6e55c7eb",
         "care-professional-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
+        "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil-3c506e59",
+        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil"
       ],
       "fr": [
-        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg-4e943645",
         "professionnel-de-soins-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
-        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil-6e55c7eb",
         "professionnel-de-soins-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
+        "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil-3c506e59",
+        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil"
       ],
       "de": [
         "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil-8503d59e",
         "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil-ccadd21f",
+        "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil-22526d2a",
+        "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil-9c304d35",
         "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
         "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil"
       ]
@@ -7376,7 +7399,7 @@
     "sourceIdentity": "url:https://www.spitexjobs.ch/job/pflegefachfrau-mann-hf-40-60-prozent-im-spaetdienst-fuer-das-zentrum-hinwil/j965669"
   },
   {
-    "slug": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis",
+    "slug": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-73c384cf",
     "title": "Fachfrau/-mann Gesundheit EFZ 50-70% - mit Option Zusatzrolle als Praxisausbildner: in",
     "titleByLocale": {
       "it": "Fachfrau/-mann Gesundheit CFC 50-70% - con Option Zusatzrolle come Praxisausbildner: in",
@@ -7395,7 +7418,7 @@
       "fr": "Spitex Zimmerberg AG ist als Non-Profit Organisation verantwortlich für die Pflege, Beratung, Betreuung und Unterstützung von Menschen verschiedener Altersgruppen, die aufgrund gesundheitlicher Einschränkungen auf externe Hilfe angewiesen sind. Wir ermöglichen den Einwohnerinnen und Einwohnern von Adliswil, Thalwil, Kilchberg, Rüschlikon und Langnau am Albis ein selbstbestimmtes Leben in ihrem gewohnten Umfeld. Spitex Zimmerberg AG hat rund 160 Mitarbeitende, verteilt auf vier Standorte und ist damit eine der grössten Spitex-Organisationen im Kanton Zürich.\nWir suchen dich! Zur Unterstützung unserer Teams suchen wir ab sofort oder nach Vereinbarung:\nFachfrau/-mann Gesundheit EFZ 50-70% - mit Option Zusatzrolle als Praxisausbildner: in\nDeine Aufgaben\n\n• Grund- und Behandlungspflege in einfachen Kundensituationen in stabilem Umfeld\n\n• Erbringung von bedarfs- und situationsgerechten Pflegeverrichtun­gen nach der Pflegeplanung in allen Bereichen der Aktivitäten des täglichen Lebens (ATL)\n\n• Eigenständige und delegierte Tätigkeiten im Bereich Administration\n\n• Einsatz in komplexen Kundensituationen mit Unterstützung der Pflegefachperson durchführen\n\n• Situationsgerechter Miteinbezug von Angehörigen in die Pflege und Betreuung\n\n• Datenerfassung (Kundendokumentation, Pflegeberichte, Leistungs­erfassung)\nDeine zusätzliche Aufgaben als Praxisausbildner:in\n\n• Verantwortung für die praktische Ausbildung und Begleitung von Lernenden FaGe\n\n• Reflexion der Lernergebnisse gemeinsam mit den Lernenden\n\n• Gestaltung und Planung der Lernbegleitungen von Lernenden in der Pflege und Förderung von fachlichen, sozialen und persönlichen Kompetenzen\n\n• Abnahme von Kompetenznachweisen und Auswertung des Bildungsberichtes gemäss Bildungsverordnung\nAnforderungsprofil\n\n• eine abgeschlossene Ausbildung als Fachperson Gesundheit EFZ\n\n• Berufserfahrung in der Pflege und Betreuung von Menschen aller Altersstufen sowie in der Haushaltführung\n\n• professionelle, selbständige Arbeitsweise\n\n• Sozialkompetenz, Belastbarkeit\n\n• Flexibilität, insbesondere bezüglich Einsatzzeiten\n\n• gute PC Kenntnisse RAI-HC Anwendung von Vorteil\n\n• Bereitschaft für Abend- und Wochenendeinsätze\n\n• Fahrausweis Kat. B\nZusätzliches Anforderungsprofil\n\n• Eidg. anerkannter Kursausweis für Berufsbildner:innen oder Bereitschaft sich dahingehend weiterzubilden\nDas bieten wir dir\n\n• Ferien: 27 Tage Ferien (ab 50 Jahren 32 Tage)\n\n• BVG: Flexible Wahl zwischen den Vorsorgeplänen «Mini» und «Maxi» (AXA)\n\n• Vielseitigkeit: Eine verantwortungsvolle, abwechslungsreiche und selbstständige Tätigkeit\n\n• Arbeitsumfeld: Ein dynamisches, wachsendes Umfeld mit einem motivierten und kollegialen Team\n\n• Weiterentwicklung: Unterstützung bei Weiterbildungen und weitere attraktive Vorteile\n\n• Anlässe: Zweimal jährlich grosses Mitarbeiterfest\nFür Fragen steht dir Frau Tamina Segginger, Bildungsverantwortliche | Stv. Leitung Pflege und Betreuung , unter der Nummer 044 711 99 11 gerne zur Verfügung.\nBewirb dich jetzt ganz einfach direkt über unser Online-Formular\n\nBenefits\n\n• Work-Life Balance: Work-Life-Balance ist fest in unserer Kultur verankert\n\n• Ferien Plus: 27 Tage Ferien, ab 50. Lebensjahr 32 Tage Ferien\n\n• Vorsorge Plus: Flexible Wahl zwischen zwei Vorsorgeplänen «Mini» und «Maxi»\n\n• Aus- und Weiterbildung: Unterstützung von externen Aus- und Weiterbildungen\n\n• Förderung Mitarbeitende: Angebot von internen Schulungen\n\n• Gratis Getränke: Gratis Kaffee und Tee\n\n• Gratis Snacks: Gratis Früchte und Snacks\n\n• Events für Mitarbeitende: Firmenevents im Sommer und im Winter sowie Teamevents im Herbst\n\n• Geschenke: Geburtstagsgeschenk und Dienstaltersgeschenk ab 5. Dienstjahr\n\n• Vergünstigungen: Vergünstigungen bei Apotheken/Drogerien am Standort Unfallversicherung Zusatz privat versichert Flottenrabatt für Autos\n\n• Unbezahlte Ferien: Möglichkeit für unbezahlten Urlaub"
     },
     "slugByLocale": {
-      "it": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis",
+      "it": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-73c384cf",
       "en": "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex-aaa5df65",
       "de": "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex-aaa5df65",
       "fr": "sante-professionnelle-efz-50-70-avec-option-de-role-supplementaire-en-tant-que-formateur-de-pratique-spitex-zimmerberg"
@@ -7404,16 +7427,16 @@
     "expiredAt": "2026-10-05T10:31:07.190Z",
     "previousSlugs": [
       "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex-aaa5df65",
-      "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
+      "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex-7dcbd424"
     ],
     "previousSlugsByLocale": {
       "it": [
         "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex-aaa5df65",
-        "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
+        "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex-7dcbd424"
       ],
       "fr": [
         "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex-aaa5df65",
-        "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
+        "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex-7dcbd424"
       ]
     },
     "postalCode": "8135",
