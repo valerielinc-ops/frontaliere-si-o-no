@@ -110,9 +110,9 @@ describe('event description publication policy', () => {
 
   it('invalidates event-fact validation when the event facts change', () => {
     const event = { ...EVENT };
-    const description = 'The event takes place in Lugano. The listing keeps the declared local information.';
+    const description = 'The event takes place at the Civic Museum. The listing keeps the declared local information.';
     expect(isDescriptionSupportedByEventFacts(description, event)).toBe(true);
-    event.comune = 'Bellinzona';
+    event.venue = 'New Palace';
     expect(isDescriptionSupportedByEventFacts(description, event)).toBe(false);
   });
 
