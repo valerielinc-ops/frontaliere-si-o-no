@@ -32,6 +32,37 @@ describe('hub corpus-main registry drift decisions', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 
+  it('retries a transient manifest body failure before returning the commit', async () => {
+    vi.useFakeTimers();
+    const random = vi.spyOn(Math, 'random').mockReturnValue(0);
+    try {
+      let bodyAttempts = 0;
+      const commit = 'b'.repeat(40);
+      const fetchImpl = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        json: async () => {
+          bodyAttempts += 1;
+          if (bodyAttempts === 1) throw new TypeError('fetch failed while reading manifest');
+          return { commit };
+        },
+      }));
+
+      const pending = fetchPublishedCorpusCommit({
+        manifestUrl: 'https://example.invalid/manifest.json',
+        fetchImpl,
+      });
+      await vi.runAllTimersAsync();
+
+      await expect(pending).resolves.toBe(commit);
+      expect(fetchImpl).toHaveBeenCalledTimes(2);
+      expect(bodyAttempts).toBe(2);
+    } finally {
+      random.mockRestore();
+      vi.useRealTimers();
+    }
+  });
+
   const cases = [
     {
       name: 'converged registries proceed',

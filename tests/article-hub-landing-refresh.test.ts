@@ -147,6 +147,45 @@ describe('refreshArticleHubLandings', () => {
     }
   });
 
+  it('retries a transient live-shell body failure before writing the landing', async () => {
+    vi.useFakeTimers();
+    const random = vi.spyOn(Math, 'random').mockReturnValue(0);
+    const root = mkdtempSync(join(tmpdir(), 'article-hub-landing-body-retry-'));
+    try {
+      writeFixture(root);
+      let bodyAttempts = 0;
+      const fetchImpl = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        text: async () => {
+          bodyAttempts += 1;
+          if (bodyAttempts === 1) throw new TypeError('fetch failed while reading shell');
+          return SHELL;
+        },
+      }));
+
+      const pending = refreshArticleHubLandings({
+        rootDir: root,
+        distDir: join(root, 'dist'),
+        section: 'frontaliere',
+        locales: ['it'],
+        siteBase: 'https://example.test',
+        fetchImpl,
+      });
+      await vi.runAllTimersAsync();
+      const result = await pending;
+
+      expect(result.errors).toEqual([]);
+      expect(result.written).toBe(1);
+      expect(fetchImpl).toHaveBeenCalledTimes(2);
+      expect(bodyAttempts).toBe(2);
+    } finally {
+      random.mockRestore();
+      vi.useRealTimers();
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('creates and refreshes all localized root grids, then returns their push paths', async () => {
     const root = mkdtempSync(join(tmpdir(), 'article-hub-landing-'));
     const dist = join(root, 'dist');

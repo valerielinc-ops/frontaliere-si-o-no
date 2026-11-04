@@ -4,6 +4,7 @@ import {
   isConnectionLevelFetchError,
   isConnectionLevelFetchResult,
   fetchWithRetry,
+  httpFetchAndReadWithRetry,
   httpFetchWithRetry,
   isRetryBudgetExhausted,
   markRetryExhaustedError,
@@ -357,6 +358,61 @@ describe('httpFetchWithRetry', () => {
     // body read would survive instead of throwing AbortError.
     await new Promise((r) => setTimeout(r, 40));
     expect(captured?.aborted ?? false).toBe(false);
+  });
+});
+
+describe('httpFetchAndReadWithRetry', () => {
+  it('retries a transient body rejection inside the fetch attempt', async () => {
+    let bodyAttempts = 0;
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      json: async () => {
+        bodyAttempts += 1;
+        if (bodyAttempts === 1) throw new TypeError('fetch failed while reading body');
+        return { value: 'recovered' };
+      },
+    }));
+
+    await expect(httpFetchAndReadWithRetry('https://x.test', {}, {
+      fetchImpl,
+      retries: 1,
+      retryBaseMs: 0,
+      readResponse: (response) => response.json(),
+    })).resolves.toEqual({ value: 'recovered' });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(bodyAttempts).toBe(2);
+  });
+
+  it('bounds a stalled body, retries it, and fails closed after exhaustion', async () => {
+    vi.useFakeTimers();
+    try {
+      const fetchImpl = vi.fn(async (_url: unknown, options: { signal?: AbortSignal } = {}) => ({
+        ok: true,
+        status: 200,
+        text: () => new Promise((_, reject) => {
+          options.signal?.addEventListener('abort', () => {
+            reject(Object.assign(new Error('body aborted'), { name: 'AbortError' }));
+          }, { once: true });
+        }),
+      }));
+
+      const pending = httpFetchAndReadWithRetry('https://x.test', {}, {
+        fetchImpl,
+        timeout: 20,
+        retries: 1,
+        retryBaseMs: 0,
+        readResponse: (response) => response.text(),
+      });
+      await vi.runAllTimersAsync();
+
+      await expect(pending).rejects.toMatchObject({
+        name: expect.stringMatching(/TimeoutError|AbortError/),
+      });
+      expect(fetchImpl).toHaveBeenCalledTimes(2);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });
 

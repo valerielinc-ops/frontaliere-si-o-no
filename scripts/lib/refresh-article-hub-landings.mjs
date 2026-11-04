@@ -39,7 +39,7 @@ import {
   articleCountMeasurement,
   formatArticleCountEvidence,
 } from '../../build-plugins/shared/publishedMeasurements.mjs';
-import { httpFetchWithRetry } from './transient-fetch.mjs';
+import { httpFetchAndReadWithRetry } from './transient-fetch.mjs';
 
 export const ARTICLE_HUB_LANDING_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const ARTICLE_HUB_LANDING_TIMEOUT_MS = 20_000;
@@ -295,17 +295,14 @@ export async function refreshArticleHubLandings(opts) {
     const url = `${normalizedSiteBase}${urlPath}`;
     let liveHtml;
     try {
-      const response = await httpFetchWithRetry(url, { headers: FETCH_HEADERS }, {
+      liveHtml = stripCloudflareJsDetection(await httpFetchAndReadWithRetry(url, { headers: FETCH_HEADERS }, {
         timeout: timeoutMs,
         retries: ARTICLE_HUB_LANDING_FETCH_RETRIES,
         retryBaseMs: ARTICLE_HUB_LANDING_RETRY_BASE_MS,
         label: `${localeLanding} live shell ${url}`,
         fetchImpl,
-      });
-      if (!response?.ok) {
-        throw new Error(`HTTP ${response?.status ?? 'unknown'}`);
-      }
-      liveHtml = stripCloudflareJsDetection(await response.text());
+        readResponse: (response) => response.text(),
+      }));
     } catch (err) {
       result.errors.push(`${localeLanding}: live shell unavailable (${err.message})`);
       continue;
