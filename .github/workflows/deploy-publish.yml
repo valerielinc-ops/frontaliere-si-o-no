@@ -1294,7 +1294,11 @@ jobs:
           # per il perche' del trap EXIT. Il trap non altera l'exit code dello
           # script, che resta quello dello step.
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          GITHUB_SHA="$DEPLOY_HEAD_SHA" bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+          # This tail can publish an artifact whose source checkout predates a
+          # helper fix. Keep the payload checkout immutable, but pass an
+          # absolute dist path so older helpers remain valid after cd-ing into
+          # their staging clone.
+          GITHUB_SHA="$DEPLOY_HEAD_SHA" bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} "$GITHUB_WORKSPACE/dist"
 
       # This is written immediately after the locale push, not after the
       # aggregate publish workflow. A later retry can therefore skip this
