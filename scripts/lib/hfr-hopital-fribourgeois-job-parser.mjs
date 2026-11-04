@@ -9,7 +9,7 @@
  * candidate-experience SPA shell.
  */
 import { createHash } from 'node:crypto';
-import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
+import { sourcePostingDateCandidatesFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify } from './slugify.mjs';
@@ -100,6 +100,7 @@ export function isTrustedDomain(rawUrl = '') {
 
 function buildOracleDetailUrl(requisitionId) {
   const id = String(requisitionId || '').trim();
+  // locale-segment-ok: Oracle HCM site CX_1 exposes this external candidate-detail route at its fixed French portal; it is not a Frontaliere locale route.
   return `${HFR_ORACLE_BASE}/hcmUI/CandidateExperience/fr/sites/${HFR_ORACLE_SITE}/job/${encodeURIComponent(id)}`;
 }
 
@@ -373,12 +374,12 @@ function buildJob(requisition, detail) {
     sector: 'Sanità / Ospedali',
     currency: 'CHF',
     featured: false,
-    ...sourcePostingDateCandidatesFields([
-      requisition.PostedDate,
-      requisition.postedDate,
+    ...withLegacyPostingDay(sourcePostingDateCandidatesFields([
       detail?.ExternalPostedStartDate,
       detail?.PostedDate,
-    ]),
+      requisition.PostedDate,
+      requisition.postedDate,
+    ])),
     applyUrl: publicUrl,
     jobReqId: reqId,
     externalId: reqId,
