@@ -103,6 +103,7 @@ describe('event description publication policy', () => {
     };
 
     expect(factsForPrompt(event).price).toBeUndefined();
+    expect(isValidRewriteCacheEntry(entry, { id: event.id, sourceHash: hash })).toBe(true);
     expect(applyDescriptionRewrite(event, { entries: { [rewriteCacheKey(event.id, hash)]: entry } }).descriptionRewriteValidated).toBeUndefined();
     expect(isDescriptionSupportedByEventFacts(descriptions.it, event)).toBe(false);
   });

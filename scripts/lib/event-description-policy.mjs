@@ -426,12 +426,13 @@ export function isValidRewriteCacheEntry(entry, { id, sourceHash } = {}) {
   if (!usableText(entry.rewrittenAt) || Number.isNaN(Date.parse(entry.rewrittenAt))) return false;
   const descriptions = cacheEntryDescriptions(entry);
   if (!descriptions || normalizeDescriptionText(entry.description) !== descriptions.it) return false;
-  // The publication gate has no private source export to compare against.
-  // Reuse the candidate as factual context only for structural checks (length,
-  // markup and promotional language); source-overlap and new-fact checks run
-  // at generation time while the private input is still available.
+  // The publication gate has no private source export or current structured
+  // event facts to compare against. Reuse the candidate as context for cache
+  // structure checks; applyDescriptionRewrite rechecks factual claims against
+  // the current event before a cached description can be used.
   return EVENT_DESCRIPTION_LOCALES.every((locale) => validateRewriteDescription(descriptions[locale], {
     factTexts: [descriptions[locale]],
+    requireStructuredPriceEvidence: false,
   }).ok);
 }
 
@@ -993,7 +994,11 @@ function sentenceCount(text) {
  * Validate one generated locale without ever returning source prose in the
  * diagnostic. Error codes are safe for logs and retry prompts.
  */
-export function validateRewriteDescription(candidate, { sourceTexts = [], factTexts = [] } = {}) {
+export function validateRewriteDescription(candidate, {
+  sourceTexts = [],
+  factTexts = [],
+  requireStructuredPriceEvidence = true,
+} = {}) {
   const text = normalizeDescriptionText(candidate);
   if (!text) return { ok: false, code: 'empty' };
   if (text.length < EVENT_DESCRIPTION_MIN_CHARS) return { ok: false, code: 'too-short' };
@@ -1018,18 +1023,20 @@ export function validateRewriteDescription(candidate, { sourceTexts = [], factTe
     return { ok: false, code: 'new-date-or-price' };
   }
 
-  const trustedPrices = trustedStructuredPrices(factTexts);
-  if ([...admissionPriceAmounts(text)].some(({ amount, isFromClaim }) => (
-    !trustedPrices.some((price) => price.amount === amount && (!price.isFrom || isFromClaim))
-  ))) {
-    return { ok: false, code: 'new-date-or-price' };
-  }
-  const freeAdmissionClaim = hasFreeAdmissionLanguage(text);
-  if (freeAdmissionClaim && !trustedPrices.some((price) => price.isFree)) {
-    return { ok: false, code: 'new-date-or-price' };
-  }
-  if (hasAdmissionPriceLanguage(text) && trustedPrices.length === 0) {
-    return { ok: false, code: 'new-date-or-price' };
+  if (requireStructuredPriceEvidence) {
+    const trustedPrices = trustedStructuredPrices(factTexts);
+    if ([...admissionPriceAmounts(text)].some(({ amount, isFromClaim }) => (
+      !trustedPrices.some((price) => price.amount === amount && (!price.isFrom || isFromClaim))
+    ))) {
+      return { ok: false, code: 'new-date-or-price' };
+    }
+    const freeAdmissionClaim = hasFreeAdmissionLanguage(text);
+    if (freeAdmissionClaim && !trustedPrices.some((price) => price.isFree)) {
+      return { ok: false, code: 'new-date-or-price' };
+    }
+    if (hasAdmissionPriceLanguage(text) && trustedPrices.length === 0) {
+      return { ok: false, code: 'new-date-or-price' };
+    }
   }
 
   const names = allowedNamePhrases(sourceTexts, factTexts);
@@ -1040,12 +1047,20 @@ export function validateRewriteDescription(candidate, { sourceTexts = [], factTe
   return { ok: true };
 }
 
-export function validateRewriteBundle(descriptions, { sourceTexts = [], factTexts = [] } = {}) {
+export function validateRewriteBundle(descriptions, {
+  sourceTexts = [],
+  factTexts = [],
+  requireStructuredPriceEvidence = true,
+} = {}) {
   if (!descriptions || typeof descriptions !== 'object') return { ok: false, errors: { bundle: 'missing' } };
   const errors = {};
   const details = {};
   for (const locale of EVENT_DESCRIPTION_LOCALES) {
-    const result = validateRewriteDescription(descriptions[locale], { sourceTexts, factTexts });
+    const result = validateRewriteDescription(descriptions[locale], {
+      sourceTexts,
+      factTexts,
+      requireStructuredPriceEvidence,
+    });
     if (!result.ok) {
       errors[locale] = result.code;
       if (result.detail) details[locale] = result.detail;
