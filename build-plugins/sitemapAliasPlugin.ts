@@ -152,6 +152,8 @@ async function reconcileSitemapFamilyWithDist(
   options: {
     foreignDirectoryIndex?: ForeignDirectoryIndex;
     keepMissing?: boolean;
+    /** Static sitemap families may advertise present non-HTML assets. */
+    keepPresentNonHtmlFiles?: boolean;
     ignoreShardOwnership?: boolean;
   } = {},
 ): Promise<number> {
@@ -174,6 +176,7 @@ async function reconcileSitemapFamilyWithDist(
   const kept = new Set(await dropOverwrittenLocs(distDir, locs, {
     inspectForeignPresent: true,
     keepMissing: options.keepMissing ?? true,
+    keepPresentNonHtmlFiles: options.keepPresentNonHtmlFiles,
     ignoreShardOwnership: options.ignoreShardOwnership,
     preserveCanonicalExemptions: true,
     foreignDirectoryIndex: options.foreignDirectoryIndex,
@@ -246,7 +249,7 @@ export async function reconcileRemainingSitemapsWithDist(
       !isJobSitemapFilename(file) &&
       !isFuelSitemapFile(file),
     'static sitemap',
-    options,
+    { ...options, keepPresentNonHtmlFiles: true },
   );
 }
 
