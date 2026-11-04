@@ -757,7 +757,7 @@ describe('submit mode', () => {
     });
     const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
     const submit = (draft: any) => submitApplication({
-      order, orderId: ORDER_ID, draft, cvBuffer: cvPdf(), cvType: 'pdf', flow: { answers: { salary_expectation: 'CHF 80k' } },
+      order: { ...order, jobUrl: posting }, orderId: ORDER_ID, draft, cvBuffer: cvPdf(), cvType: 'pdf', flow: { answers: { salary_expectation: 'CHF 80k' } },
       bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
     });
     // A draft made before the redirect was resolved: resolved at submit time.
