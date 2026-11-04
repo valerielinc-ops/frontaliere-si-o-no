@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siemens-healthineers",
-  "assembledAt": "2026-11-03T21:30:24.499Z",
-  "runId": "41720644141",
+  "assembledAt": "2026-11-04T21:32:38.280Z",
+  "runId": "41914815346",
   "jobs": [
     {
       "id": "siemens-healthineers-235b60d2d69a",
@@ -35,7 +35,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-31190-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:30:14.052Z",
+      "crawledAt": "2026-11-04T21:32:28.044Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:30:14.052Z",
+      "validThrough": "2027-01-10T21:32:28.044Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-Staff-Systems-Engineer_R-29913-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:30:13.388Z",
+      "crawledAt": "2026-11-04T21:32:27.392Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:30:13.388Z",
+      "validThrough": "2027-01-12T21:32:27.392Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Systems-Verification-Engineer_R-31378-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:30:12.706Z",
+      "crawledAt": "2026-11-04T21:32:26.745Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:30:12.706Z",
+      "validThrough": "2027-01-25T21:32:26.745Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Product-Verification-Engineer_R-31529-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:30:12.046Z",
+      "crawledAt": "2026-11-04T21:32:25.703Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -308,7 +308,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-31529",
-      "firstSeenAt": "2026-11-03T09:44:39.158Z",
+      "previousSlugs": [
+        "product-verification-engineer-siemens-healthineers-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "product-verification-engineer-siemens-healthineers-ch"
@@ -320,9 +322,7 @@
           "product-verification-engineer-siemens-healthineers-ch"
         ]
       },
-      "previousSlugs": [
-        "product-verification-engineer-siemens-healthineers-ch"
-      ],
+      "firstSeenAt": "2026-11-03T09:44:39.158Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -339,7 +339,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:30:12.046Z",
+      "validThrough": "2027-02-01T21:32:25.703Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -374,7 +374,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Product-Verification-Engineer_R-31669",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:30:11.376Z",
+      "crawledAt": "2026-11-04T21:32:25.054Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -418,7 +418,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:30:11.376Z",
+      "validThrough": "2027-02-01T21:32:25.054Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -453,7 +453,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Product-Verification-Engineer_R-31496-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:30:10.675Z",
+      "crawledAt": "2026-11-04T21:32:24.376Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -497,41 +497,42 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:30:10.675Z",
+      "validThrough": "2027-02-01T21:32:24.376Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "siemens-healthineers-075dcab4682d",
-      "slug": "senior-software-engineer-siemens-healthineers-ch",
+      "slug": "senior-software-ingegnere-siemens-healthineers-baden",
       "slugByLocale": {
+        "it": "senior-software-ingegnere-siemens-healthineers-baden",
         "en": "senior-software-engineer-siemens-healthineers-ch",
-        "it": "senior-software-engineer-siemens-healthineers-ch",
-        "de": "senior-software-engineer-siemens-healthineers-ch",
-        "fr": "senior-software-engineer-siemens-healthineers-ch"
+        "de": "senior-software-ingenieur-siemens-healthineers-baden",
+        "fr": "senior-software-ingenieur-siemens-healthineers-baden"
       },
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
       "companyDomain": "siemens-healthineers.com",
       "title": "Senior Software Engineer",
       "titleByLocale": {
-        "en": "Senior Software Engineer",
         "it": "Senior Software Ingegnere",
+        "en": "Senior Software Engineer",
         "de": "Senior Software Ingenieur",
         "fr": "Senior Software Ingénieur"
       },
       "description": "Join us in pioneering breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nOur inspiring and caring environment forms a global community that celebrates diversity and individuality. We encourage you to step beyond your comfort zone, offering resources and flexibility to foster your professional and personal growth, all while valuing your unique contributions.\n\nIn this position, you will become member of a passionate team of highly competent software engineers and scientists developing next-generation products which will further increase the accuracy and confidence during radiation treatment targeting anatomies undergoing physiological motion. Responsibilities\n\n• Develop and maintain algorithms for tissue tracking, patient positioning, and motion estimation in radiotherapy.\n\n• Design and evaluate conventional and AI-based methods for medical image analysis and tracking.\n\n• Optimize algorithms for clinical deployment using C++, CUDA, C# and Python.\n\n• Create realistic simulation of synthetic ground-truth data for quantitative algorithm validation.\n\n• Contribute to a shared codebase through code reviews, pull requests, testing, and documentation.\n\n• Collaborate with multidisciplinary teams to bring innovative algorithms into clinical products.\n\nQualifications\n\n• MSc or PhD in Computer Science, Biomedical Engineering, Applied Mathematics, Physics, or a related field.\n\n• Strong software engineering skills and experience developing production-quality code in a team environment.\n\n• Excellent programming skills in Python, C++, and CUDA.\n\n• Strong background in algorithm development and numerical methods.\n\n• Experience with modern software development practices, including Git, code reviews, and CI/CD workflows.\n\n• Experience with machine learning and deep learning frameworks is a plus.\n\n• Background in medical imaging, computer vision, image registration, tracking, or computational modeling is advantageous.\n\n• Analytical mindset, scientific curiosity, and excellent communication skills.\n\n• Fluent in English.\n\nWhat We Value\n\n• Scientific thinking and evidence-based problem solving.\n\n• Passion for developing innovative algorithms that improve patient care.\n\n• Ownership, code quality, and teamwork.\n\n#LI-OS1\n\nWho we are : We are a team of more than 72,000 highly dedicated Healthineers in more than 70 countries. As a leader in medical technology, we constantly push the boundaries to create better outcomes and experiences for patients, no matter where they live or what health issues they are facing. Our portfolio is crucial for clinical decision-making and treatment pathways.\n\nHow we work : When you join Siemens Healthineers, you become one in a global team of scientists, clinicians, developers, researchers, professionals, and skilled specialists, who believe in each individual’s potential to contribute with diverse ideas. We are from different backgrounds, cultures, religions, political and/or sexual orientations, and work together, to fight the world’s most threatening diseases and enable access to care, united by one purpose: to pioneer breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nTo find out more about Healthineers’ specific businesses, please visit our company page here .\n\nAs an equal opportunity employer, we welcome applications from individuals with disabilities.\n\nData Privacy : We care about your data privacy and take compliance with GDPR as well as other data protection legislation seriously. For this reason, we ask you not to send us your CV or resume by email. We ask instead that you create a profile where you can upload your CV. Setting up a profile also lets us know you are interested in career opportunities with us and makes it easy for us to send you an alert when relevant positions become open. Register here to get started.\n\nBeware of Job Scams: Please beware of potentially fraudulent job postings or suspicious recruiting activity by persons that are currently posing as Siemens Healthineers recruiters/employees.  These scammers may attempt to collect your confidential personal or financial information.  If you are concerned that an offer of employment with Siemens Healthineers might be a scam or that the recruiter is not legitimate, please verify by searching for the posting on the Siemens Healthineers career site.\n\nTo all recruitment agencies : Siemens Healthineers does not accept agency resumes. Please do not forward resumes to our jobs alias, employees, or any other company location. Siemens Healthineers is not responsible for any fees related to unsolicited resumes. As an equal opportunity employer, we welcome applications from individuals with disabilities.",
       "descriptionByLocale": {
-        "en": "Join us in pioneering breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nOur inspiring and caring environment forms a global community that celebrates diversity and individuality. We encourage you to step beyond your comfort zone, offering resources and flexibility to foster your professional and personal growth, all while valuing your unique contributions.\n\nIn this position, you will become member of a passionate team of highly competent software engineers and scientists developing next-generation products which will further increase the accuracy and confidence during radiation treatment targeting anatomies undergoing physiological motion. Responsibilities\n\n• Develop and maintain algorithms for tissue tracking, patient positioning, and motion estimation in radiotherapy.\n\n• Design and evaluate conventional and AI-based methods for medical image analysis and tracking.\n\n• Optimize algorithms for clinical deployment using C++, CUDA, C# and Python.\n\n• Create realistic simulation of synthetic ground-truth data for quantitative algorithm validation.\n\n• Contribute to a shared codebase through code reviews, pull requests, testing, and documentation.\n\n• Collaborate with multidisciplinary teams to bring innovative algorithms into clinical products.\n\nQualifications\n\n• MSc or PhD in Computer Science, Biomedical Engineering, Applied Mathematics, Physics, or a related field.\n\n• Strong software engineering skills and experience developing production-quality code in a team environment.\n\n• Excellent programming skills in Python, C++, and CUDA.\n\n• Strong background in algorithm development and numerical methods.\n\n• Experience with modern software development practices, including Git, code reviews, and CI/CD workflows.\n\n• Experience with machine learning and deep learning frameworks is a plus.\n\n• Background in medical imaging, computer vision, image registration, tracking, or computational modeling is advantageous.\n\n• Analytical mindset, scientific curiosity, and excellent communication skills.\n\n• Fluent in English.\n\nWhat We Value\n\n• Scientific thinking and evidence-based problem solving.\n\n• Passion for developing innovative algorithms that improve patient care.\n\n• Ownership, code quality, and teamwork.\n\n#LI-OS1\n\nWho we are : We are a team of more than 72,000 highly dedicated Healthineers in more than 70 countries. As a leader in medical technology, we constantly push the boundaries to create better outcomes and experiences for patients, no matter where they live or what health issues they are facing. Our portfolio is crucial for clinical decision-making and treatment pathways.\n\nHow we work : When you join Siemens Healthineers, you become one in a global team of scientists, clinicians, developers, researchers, professionals, and skilled specialists, who believe in each individual’s potential to contribute with diverse ideas. We are from different backgrounds, cultures, religions, political and/or sexual orientations, and work together, to fight the world’s most threatening diseases and enable access to care, united by one purpose: to pioneer breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nTo find out more about Healthineers’ specific businesses, please visit our company page here .\n\nAs an equal opportunity employer, we welcome applications from individuals with disabilities.\n\nData Privacy : We care about your data privacy and take compliance with GDPR as well as other data protection legislation seriously. For this reason, we ask you not to send us your CV or resume by email. We ask instead that you create a profile where you can upload your CV. Setting up a profile also lets us know you are interested in career opportunities with us and makes it easy for us to send you an alert when relevant positions become open. Register here to get started.\n\nBeware of Job Scams: Please beware of potentially fraudulent job postings or suspicious recruiting activity by persons that are currently posing as Siemens Healthineers recruiters/employees.  These scammers may attempt to collect your confidential personal or financial information.  If you are concerned that an offer of employment with Siemens Healthineers might be a scam or that the recruiter is not legitimate, please verify by searching for the posting on the Siemens Healthineers career site.\n\nTo all recruitment agencies : Siemens Healthineers does not accept agency resumes. Please do not forward resumes to our jobs alias, employees, or any other company location. Siemens Healthineers is not responsible for any fees related to unsolicited resumes. As an equal opportunity employer, we welcome applications from individuals with disabilities.",
         "it": "Unisciti a noi in innovazioni pionieristiche nella sanità. Per tutti. Ovunque. Sostenibile.\n\nIl nostro ambiente stimolante e attento forma una comunità globale che celebra la diversità e l'individualità. Vi invitiamo a superare la vostra zona di comfort, offrendo risorse e flessibilità per favorire la vostra crescita professionale e personale, il tutto valutando i vostri contributi unici.\n\nIn questa posizione, diventerai membro di un team appassionato di ingegneri e scienziati software altamente competenti che sviluppano prodotti di nuova generazione che aumenteranno ulteriormente l'accuratezza e la fiducia durante il trattamento delle radiazioni che mirano anatomie sottoposte a movimento fisiologico. responsabilità\n\n• Sviluppare e mantenere algoritmi per il monitoraggio dei tessuti, il posizionamento dei pazienti e la stima del movimento in radioterapia.\n\n• Progettare e valutare metodi convenzionali e basati su AI per l'analisi e il monitoraggio delle immagini mediche.\n\n• Ottimizzare gli algoritmi per la distribuzione clinica utilizzando C++, CUDA, C# e Python.\n\n• Crea una simulazione realistica dei dati sintetici della base per la validazione quantitativa dell'algoritmo.\n\n• Contribuisci a una base di codice condivisa attraverso le recensioni dei codici, estrarre richieste, test e documentazione.\n\n• Collabora con team multidisciplinari per portare algoritmi innovativi in prodotti clinici.\n\nQualifiche\n\n• MSc o PhD in Informatica, Ingegneria biomedica, Matematica applicata, Fisica, o un campo correlato.\n\n• Forte capacità di ingegneria del software e l'esperienza di sviluppare codice di qualità della produzione in un ambiente di squadra.\n\n• Eccellente capacità di programmazione in Python, C++ e CUDA.\n\n• Forte sfondo nello sviluppo di algoritmi e metodi numerici.\n\n• Esperienza con pratiche di sviluppo software moderne, tra cui Git, recensioni di codice e flussi di lavoro CI/CD.\n\n• L'esperienza con l'apprendimento automatico e le strutture di apprendimento profondo è un vantaggio.\n\n• Sfondo in imaging medico, visione del computer, registrazione dell'immagine, monitoraggio o modellazione computazionale è vantaggioso.\n\n• Mindset analitico, curiosità scientifica e eccellenti capacità di comunicazione.\n\n• Fluente in inglese.\n\nCosa apprezziamo\n\n• Il pensiero scientifico e la risoluzione dei problemi basata sulle prove.\n\n• Passione per lo sviluppo di algoritmi innovativi che migliorano la cura del paziente.\n\n• Proprietà, qualità del codice e lavoro di squadra.\n\n#LI-OS1\n\nChi siamo: Siamo un team di oltre 72.000 operatori sanitari altamente specializzati in oltre 70 paesi. Come leader nella tecnologia medica, spingiamo costantemente i confini per creare migliori risultati ed esperienze per i pazienti, non importa dove vivono o quali problemi di salute stanno affrontando. Il nostro portafoglio è cruciale per il processo decisionale clinico e le vie di trattamento.\n\nCome lavoriamo? Quando si entra in Siemens Healthineers, si diventa uno in un team globale di scienziati, medici, sviluppatori, ricercatori, professionisti e specialisti esperti, che credono nel potenziale di ogni individuo di contribuire con idee diverse. Siamo provenienti da diversi background, culture, religioni, orientamenti politici e/o sessuali, e lavoriamo insieme, per combattere le malattie più minacciose del mondo e consentire l’accesso alla cura, unito da un unico scopo: alle scoperte pionieristiche nella sanità. Per tutti. Ovunque. Sostenibile.\n\nPer saperne di più sulle attività specifiche di Healthineers, visita la nostra pagina aziendale qui .\n\nCome datore di lavoro di pari opportunità, accogliamo le applicazioni da persone con disabilità.\n\nPrivacy: Ci preoccupiamo della privacy dei tuoi dati e prendiamo seriamente il rispetto del GDPR e di altre leggi sulla protezione dei dati. Per questo motivo, vi chiediamo di non inviarci il vostro CV o il curriculum via e-mail. Chiediamo invece di creare un profilo in cui è possibile caricare il tuo CV. Impostare un profilo ci fa anche sapere che siete interessati a opportunità di carriera con noi e rende facile per noi di inviare un avviso quando le posizioni rilevanti diventano aperti. Registrati qui per iniziare.\n\nAttenzione alle truffe di lavoro: Si prega di prestare attenzione a post di lavoro potenzialmente fraudolenti o attività di reclutamento sospetto da parte di persone che sono attualmente in posa come reclutatori / dipendenti Siemens Healthineers. Questi truffatori possono tentare di raccogliere le informazioni personali o finanziarie riservate. Se siete preoccupati che un'offerta di lavoro con Siemens Healthineers potrebbe essere una truffa o che il reclutatore non è legittimo, si prega di verificare cercando la pubblicazione sul sito di carriera Siemens Healthineers.\n\nA tutte le agenzie di reclutamento: Siemens Healthineers non accetta il curriculum dell'agenzia. Si prega di non inoltrare curriculum per il nostro lavoro alias, dipendenti, o qualsiasi altra sede aziendale. Siemens Healthineers non è responsabile per eventuali tasse relative a curriculum non richiesti. Come datore di lavoro di pari opportunità, accogliamo le applicazioni da persone con disabilità.",
+        "en": "Join us in pioneering breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nOur inspiring and caring environment forms a global community that celebrates diversity and individuality. We encourage you to step beyond your comfort zone, offering resources and flexibility to foster your professional and personal growth, all while valuing your unique contributions.\n\nIn this position, you will become member of a passionate team of highly competent software engineers and scientists developing next-generation products which will further increase the accuracy and confidence during radiation treatment targeting anatomies undergoing physiological motion. Responsibilities\n\n• Develop and maintain algorithms for tissue tracking, patient positioning, and motion estimation in radiotherapy.\n\n• Design and evaluate conventional and AI-based methods for medical image analysis and tracking.\n\n• Optimize algorithms for clinical deployment using C++, CUDA, C# and Python.\n\n• Create realistic simulation of synthetic ground-truth data for quantitative algorithm validation.\n\n• Contribute to a shared codebase through code reviews, pull requests, testing, and documentation.\n\n• Collaborate with multidisciplinary teams to bring innovative algorithms into clinical products.\n\nQualifications\n\n• MSc or PhD in Computer Science, Biomedical Engineering, Applied Mathematics, Physics, or a related field.\n\n• Strong software engineering skills and experience developing production-quality code in a team environment.\n\n• Excellent programming skills in Python, C++, and CUDA.\n\n• Strong background in algorithm development and numerical methods.\n\n• Experience with modern software development practices, including Git, code reviews, and CI/CD workflows.\n\n• Experience with machine learning and deep learning frameworks is a plus.\n\n• Background in medical imaging, computer vision, image registration, tracking, or computational modeling is advantageous.\n\n• Analytical mindset, scientific curiosity, and excellent communication skills.\n\n• Fluent in English.\n\nWhat We Value\n\n• Scientific thinking and evidence-based problem solving.\n\n• Passion for developing innovative algorithms that improve patient care.\n\n• Ownership, code quality, and teamwork.\n\n#LI-OS1\n\nWho we are : We are a team of more than 72,000 highly dedicated Healthineers in more than 70 countries. As a leader in medical technology, we constantly push the boundaries to create better outcomes and experiences for patients, no matter where they live or what health issues they are facing. Our portfolio is crucial for clinical decision-making and treatment pathways.\n\nHow we work : When you join Siemens Healthineers, you become one in a global team of scientists, clinicians, developers, researchers, professionals, and skilled specialists, who believe in each individual’s potential to contribute with diverse ideas. We are from different backgrounds, cultures, religions, political and/or sexual orientations, and work together, to fight the world’s most threatening diseases and enable access to care, united by one purpose: to pioneer breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nTo find out more about Healthineers’ specific businesses, please visit our company page here .\n\nAs an equal opportunity employer, we welcome applications from individuals with disabilities.\n\nData Privacy : We care about your data privacy and take compliance with GDPR as well as other data protection legislation seriously. For this reason, we ask you not to send us your CV or resume by email. We ask instead that you create a profile where you can upload your CV. Setting up a profile also lets us know you are interested in career opportunities with us and makes it easy for us to send you an alert when relevant positions become open. Register here to get started.\n\nBeware of Job Scams: Please beware of potentially fraudulent job postings or suspicious recruiting activity by persons that are currently posing as Siemens Healthineers recruiters/employees. These scammers may attempt to collect your confidential personal or financial information. If you are concerned that an offer of employment with Siemens Healthineers might be a scam or that the recruiter is not legitimate, please verify by searching for the posting on the Siemens Healthineers career site.\n\nTo all recruitment agencies : Siemens Healthineers does not accept agency resumes. Please do not forward resumes to our jobs alias, employees, or any other company location. Siemens Healthineers is not responsible for any fees related to unsolicited resumes. As an equal opportunity employer, we welcome applications from individuals with disabilities.",
         "de": "Begleiten Sie uns bei bahnbrechenden Durchbrüchen im Gesundheitswesen. Für alle. Überall. Nachhaltig.\n\nUnsere inspirierende und fürsorgliche Umgebung bildet eine globale Gemeinschaft, die Vielfalt und Individualität feiert. Wir empfehlen Ihnen, über Ihre Komfortzone hinauszugehen und bieten Ressourcen und Flexibilität, um Ihr berufliches und persönliches Wachstum zu fördern und gleichzeitig Ihre einzigartigen Beiträge zu bewerten.\n\nIn dieser Position werden Sie Mitglied eines leidenschaftlichen Teams von hochkompetenten Software-Ingenieuren und Wissenschaftlern, die Produkte der nächsten Generation entwickeln, die die Genauigkeit und das Vertrauen bei der Strahlenbehandlung, die auf Anatomien abzielt, die physiologische Bewegungen durchlaufen, weiter erhöhen. Zuständigkeiten\n\n• Entwicklung und Pflege von Algorithmen zur Gewebeverfolgung, Patientenpositionierung und Bewegungsschätzung in der Strahlentherapie.\n\n• Konzipieren und bewerten Sie konventionelle und KI-basierte Methoden für die medizinische Bildanalyse und -verfolgung.\n\n• Optimieren Sie Algorithmen für den klinischen Einsatz mit C++, CUDA, C# und Python.\n\n• Erstellen Sie eine realistische Simulation synthetischer Bodenwahrheitsdaten für die quantitative Algorithmusvalidierung.\n\n• Tragen Sie zu einer freigegebenen Codebasis durch Code Reviews, Pull Requests, Tests und Dokumentation bei.\n\n• Arbeiten Sie mit multidisziplinären Teams zusammen, um innovative Algorithmen in klinische Produkte zu integrieren.\n\nQualifikationen\n\n• MSc oder PhD in Informatik, Biomedical Engineering, Angewandte Mathematik, Physik oder einem verwandten Bereich.\n\n• Starke Software-Engineering-Fähigkeiten und Erfahrung in der Entwicklung von Code in Produktionsqualität in einer Teamumgebung.\n\n• Hervorragende Programmierkenntnisse in Python, C++ und CUDA.\n\n• Starker Hintergrund in der Entwicklung von Algorithmen und numerischen Methoden.\n\n• Erfahrung mit modernen Softwareentwicklungspraktiken, einschließlich Git, Code Reviews und CI / CD-Workflows.\n\n• Erfahrung mit Machine Learning und Deep Learning Frameworks ist ein Plus.\n\n• Hintergrund in der medizinischen Bildgebung, Computer Vision, Bildregistrierung, Tracking oder Computermodellierung ist vorteilhaft.\n\n• Analytische Denkweise, wissenschaftliche Neugier und ausgezeichnete Kommunikationsfähigkeiten.\n\n• fließend in Englisch.\n\nWas wir schätzen\n\n• Wissenschaftliches Denken und evidenzbasierte Problemlösung.\n\n• Leidenschaft für die Entwicklung innovativer Algorithmen, die die Patientenversorgung verbessern.\n\n• Eigentum, Codequalität und Teamwork.\n\n#LI-OS1\n\nWer wir sind: Wir sind ein Team von mehr als 72.000 hoch engagierten Healthineers in mehr als 70 Ländern. Als führendes Unternehmen in der Medizintechnik erweitern wir ständig die Grenzen, um bessere Ergebnisse und Erfahrungen für Patienten zu erzielen, unabhängig davon, wo sie leben oder mit welchen Gesundheitsproblemen sie konfrontiert sind. Unser Portfolio ist entscheidend für klinische Entscheidungsfindung und Behandlungswege.\n\nWie wir arbeiten : Wenn Sie zu Siemens Healthineers kommen, werden Sie eins in einem globalen Team von Wissenschaftlern, Klinikern, Entwicklern, Forschern, Fachleuten und qualifizierten Spezialisten, die an das Potenzial jedes Einzelnen glauben, mit verschiedenen Ideen beizutragen. Wir haben unterschiedliche Hintergründe, Kulturen, Religionen, politische und / oder sexuelle Orientierungen und arbeiten zusammen, um die bedrohlichsten Krankheiten der Welt zu bekämpfen und den Zugang zu medizinischer Versorgung zu ermöglichen, vereint durch ein Ziel: Pioniere im Gesundheitswesen zu sein. Für alle. Überall. Nachhaltig.\n\nUm mehr über die spezifischen Unternehmen von Healthineers zu erfahren, besuchen Sie bitte unsere Unternehmensseite hier .\n\nAls Arbeitgeber für Chancengleichheit begrüßen wir Bewerbungen von Menschen mit Behinderungen.\n\nDatenschutz: Wir kümmern uns um Ihren Datenschutz und nehmen die Einhaltung der DSGVO sowie anderer Datenschutzgesetze ernst. Aus diesem Grund bitten wir Sie, uns Ihren Lebenslauf oder Lebenslauf nicht per E-Mail zu senden. Wir bitten Sie stattdessen, ein Profil zu erstellen, in dem Sie Ihren Lebenslauf hochladen können. Die Einrichtung eines Profils lässt uns auch wissen, dass Sie an Karrieremöglichkeiten bei uns interessiert sind, und macht es uns leicht, Ihnen eine Benachrichtigung zu senden, wenn relevante Positionen geöffnet werden. Registrieren Sie sich hier, um zu beginnen.\n\nHüten Sie sich vor Jobbetrug: Bitte hüten Sie sich vor potenziell betrügerischen Stellenausschreibungen oder verdächtigen Rekrutierungsaktivitäten von Personen, die sich derzeit als Personalvermittler / Mitarbeiter von Siemens Healthineers ausgeben. Diese betrüger können versuchen, ihre vertraulichen persönlichen oder finanziellen informationen zu sammeln. Wenn Sie befürchten, dass ein Beschäftigungsangebot bei Siemens Healthineers ein Betrug sein könnte oder dass der Personalvermittler nicht legitim ist, überprüfen Sie dies bitte, indem Sie nach dem Posting auf der Karriereseite von Siemens Healthineers suchen.\n\nAn alle Personalvermittlungsagenturen : Siemens Healthineers akzeptiert keine Lebensläufe von Agenturen. Bitte geben sie keine lebensläufe an unsere jobs alias, mitarbeiter oder einen anderen unternehmensstandort weiter. Siemens Healthineers haftet nicht für Gebühren im Zusammenhang mit unaufgeforderten Lebensläufen. Als Arbeitgeber für Chancengleichheit begrüßen wir Bewerbungen von Menschen mit Behinderungen.",
         "fr": "Joignez-vous à nous pour faire des percées dans le domaine des soins de santé. Pour tout le monde. Partout. Oui.\n\nNotre environnement inspirant et bienveillant forme une communauté mondiale qui célèbre la diversité et l'individualité. Nous vous encourageons à dépasser votre zone de confort, en offrant des ressources et de la flexibilité pour favoriser votre croissance professionnelle et personnelle, tout en valorisant vos contributions uniques.\n\nDans cette position, vous deviendrez membre d'une équipe passionnée d'ingénieurs logiciels et de scientifiques hautement compétents développant des produits de nouvelle génération qui augmenteront encore la précision et la confiance pendant le traitement des radiations ciblant les anatomies en mouvement physiologique. Responsabilités\n\n• Élaborer et maintenir des algorithmes pour le suivi des tissus, le positionnement des patients et l'estimation des mouvements en radiothérapie.\n\n• Concevoir et évaluer des méthodes conventionnelles et basées sur l'IA pour l'analyse et le suivi de l'image médicale.\n\n• Optimiser les algorithmes pour le déploiement clinique en utilisant C++, CUDA, C# et Python.\n\n• Créer une simulation réaliste des données de vérité au sol synthétiques pour la validation quantitative de l'algorithme.\n\n• Contribuer à une base de code partagée par des examens de code, des demandes de tirage, des tests et de la documentation.\n\n• Collaborer avec des équipes multidisciplinaires pour introduire des algorithmes innovants dans les produits cliniques.\n\nCompétences\n\n• Maîtrise ou doctorat en informatique, génie biomédical, mathématiques appliquées, physique ou un domaine connexe.\n\n• Fortes compétences en génie logiciel et expérience en développement de code de qualité de production dans un environnement d'équipe.\n\n• Excellentes compétences en programmation en Python, C++ et CUDA.\n\n• Fond solide dans le développement d'algorithmes et les méthodes numériques.\n\n• Expérience des pratiques modernes de développement de logiciels, y compris Git, les examens de codes et les flux de travail CI/CD.\n\n• L'expérience de l'apprentissage automatique et des cadres d'apprentissage profond est un atout.\n\n• Le contexte dans l'imagerie médicale, la vision par ordinateur, l'enregistrement d'images, le suivi ou la modélisation informatique est avantageux.\n\n• Un état d'esprit analytique, une curiosité scientifique et d'excellentes compétences en communication.\n\n• En anglais.\n\nCe que nous valorisons\n\n• Pensée scientifique et résolution de problèmes fondée sur des données probantes.\n\n• Passionné de développer des algorithmes innovants qui améliorent les soins aux patients.\n\n• Propriété, qualité du code et travail d'équipe.\n\nLa réponse est:\n\nQui nous sommes : Nous sommes une équipe de plus de 72.000 Healthiners hautement dévoués dans plus de 70 pays. En tant que leader de la technologie médicale, nous repoussons constamment les frontières pour créer de meilleurs résultats et expériences pour les patients, peu importe où ils vivent ou quels problèmes de santé ils rencontrent. Notre portefeuille est crucial pour la prise de décisions cliniques et les voies de traitement.\n\nComment nous travaillons : Lorsque vous rejoignez Siemens Healthineers, vous devenez une équipe mondiale de scientifiques, de cliniciens, de développeurs, de chercheurs, de professionnels et de spécialistes qualifiés, qui croient en le potentiel de chaque individu de contribuer avec diverses idées. Nous sommes de différents horizons, cultures, religions, orientation politique et/ou sexuelle, et travaillons ensemble, pour lutter contre les maladies les plus menaçantes du monde et permettre l'accès aux soins, unis par un seul but : faire des percées dans les soins de santé. Pour tout le monde. Partout. Oui.\n\nPour en savoir plus sur les entreprises spécifiques de Santé, veuillez visiter notre page d'entreprise ici .\n\nEn tant qu'employeur à égalité des chances, nous accueillons favorablement les demandes des personnes handicapées.\n\nConfidentialité des données : Nous nous soucions de votre confidentialité des données et prenons au sérieux le respect du RGPD ainsi que d'autres lois sur la protection des données. Pour cette raison, nous vous demandons de ne pas nous envoyer votre CV ou CV par courriel. Nous vous demandons plutôt de créer un profil où vous pouvez télécharger votre CV. La mise en place d'un profil nous permet également de savoir que vous êtes intéressé par les opportunités de carrière avec nous et nous permet de vous envoyer facilement une alerte lorsque des postes pertinents deviennent ouverts. Inscrivez-vous ici pour commencer.\n\nMéfiez-vous de l'escroquerie d'emploi : Veuillez vous méfier des offres d'emploi potentiellement frauduleuses ou de l'activité de recrutement suspecte par des personnes qui se présentent actuellement comme des recruteurs/employés de Siemens Healthineers. Ces fraudeurs peuvent tenter de recueillir vos renseignements personnels ou financiers confidentiels. Si vous craignez qu'une offre d'emploi chez Siemens Healthineers soit une arnaque ou que le recruteur ne soit pas légitime, veuillez vérifier en cherchant l'affichage sur le site de carrière de Siemens Healthineers.\n\nÀ toutes les agences de recrutement : Siemens Healthineers n'accepte pas les curriculum vitae de l'agence. Veuillez ne pas envoyer de curriculum vitae à nos alias, employés, ou tout autre emplacement de l'entreprise. Siemens Healthineers n'est pas responsable des frais liés aux curriculum vitae non sollicités. En tant qu'employeur à égalité des chances, nous accueillons favorablement les demandes des personnes handicapées."
       },
+      "needsRetranslation": false,
       "location": "Baden",
       "canton": "AG",
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Senior-Software-Engineer_R-31541",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:30:09.987Z",
+      "crawledAt": "2026-11-04T21:32:23.612Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -548,10 +549,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Senior-Software-Engineer_R-31541",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R-31541",
+      "firstSeenAt": "2026-11-03T21:30:09.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-engineer-siemens-healthineers-ch"
+        ],
+        "de": [
+          "senior-software-engineer-siemens-healthineers-ch"
+        ],
+        "fr": [
+          "senior-software-engineer-siemens-healthineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-software-engineer-siemens-healthineers-ch"
+      ],
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -568,9 +582,8 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:30:09.987Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:30:09.987Z"
+      "validThrough": "2027-02-01T21:32:23.612Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "siemens-healthineers-f64c15516f90",
@@ -656,7 +669,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:42.137Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
