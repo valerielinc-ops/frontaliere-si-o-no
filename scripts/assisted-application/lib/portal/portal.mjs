@@ -1696,6 +1696,7 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
       ...(item.section ? { section: String(item.section).slice(0, 240) } : {}),
       ...(item.autocomplete ? { autocomplete: String(item.autocomplete).slice(0, 100) } : {}),
+      ...(item.candidateQuestionLocale ? { candidateQuestionLocale: String(item.candidateQuestionLocale).slice(0, 8) } : {}),
       ...addressMetadata(item),
       ...portalQuestionMetadata(item),
       why: item.why || '',
@@ -1797,7 +1798,26 @@ function fallbackOption(option, language) {
   if (/^(?:yes|ja|si|sì|oui|vero|true)$/.test(normalized)) return fallback.yes;
   if (/^(?:no|nein|non|falso|false)$/.test(normalized)) return fallback.no;
   if (/^(?:select|seleziona|selezionare|please select|bitte wahlen|bitte waehlen|auswahlen|auswaehlen|choisir|selectionner|choose|select an option)$/.test(normalized)) return fallback.placeholder;
+  const salutation = {
+    male: /^(?:herr|mr|mister|monsieur|signor|signore|sig)$/,
+    female: /^(?:frau|mrs|ms|miss|madame|mme|mademoiselle|signora|sig ra)$/,
+    other: /^(?:other|altro|altra|andere|autre|divers|diverse|non binary|nonbinary)$/,
+  };
+  const salutationLabels = {
+    it: { male: 'Signor', female: 'Signora', other: 'Altro' },
+    de: { male: 'Herr', female: 'Frau', other: 'Andere' },
+    fr: { male: 'Monsieur', female: 'Madame', other: 'Autre' },
+    en: { male: 'Mr', female: 'Ms', other: 'Other' },
+  };
+  for (const [kind, pattern] of Object.entries(salutation)) {
+    if (pattern.test(normalized)) return salutationLabels[language]?.[kind] || salutationLabels.it[kind];
+  }
   return text;
+}
+
+function isDeterministicallyLocalizableOption(option) {
+  const normalized = normalizedQuestionText(option);
+  return /^(?:yes|ja|si|sì|oui|vero|true|no|nein|non|falso|false|select|seleziona|selezionare|please select|bitte wahlen|bitte waehlen|auswahlen|auswaehlen|choisir|selectionner|choose|select an option|herr|mr|mister|monsieur|signor|signore|sig|frau|mrs|ms|miss|madame|mme|mademoiselle|signora|sig ra|other|altro|altra|andere|autre|divers|diverse|non binary|nonbinary|\d+)$/.test(normalized);
 }
 
 function nativePortalQuestion(item) {
@@ -1850,26 +1870,60 @@ export class PortalQuestionLocalizationError extends Error {
  * retain the native label and mark it for an explicit warning in candidate review.
  */
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
+  const candidateCopies = new Map();
   const items = (Array.isArray(questions) ? questions : []).map((item) => {
     const sourceQuestion = nativePortalQuestion(item);
+    const candidateCopy = {
+      locale: localeCode(item?.candidateQuestionLocale),
+      question: readablePortalQuestionText(item?.question),
+    };
     const applicationOptions = (Array.isArray(item?.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item?.options || []).map((option) => String(option || '').trim()).filter(Boolean);
-    return {
+    const normalized = {
       ...item,
       question: sourceQuestion,
       applicationQuestion: sourceQuestion,
       ...(applicationOptions.length ? { applicationOptions, options: applicationOptions } : {}),
     };
+    delete normalized.candidateQuestionLocale;
+    candidateCopies.set(normalized, candidateCopy);
+    return normalized;
   });
   if (items.some(item => !item.question)) throw new Error('portal_question_unreadable');
   const candidateLanguage = localeCode(candidateLocale);
   const applicationLanguageHint = localeCode(applicationLocale);
   if (!items.length || !candidateLanguage) return items;
+  const deterministic = new Map();
+  for (const item of items) {
+    const copy = candidateCopies.get(item);
+    if (!copy?.question || copy.locale !== candidateLanguage
+      || normalizedQuestionText(copy.question) === normalizedQuestionText(item.question)) continue;
+    const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
+      ? item.applicationOptions
+      : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    if (applicationOptions.some(option => !isDeterministicallyLocalizableOption(option))) continue;
+    const candidateOptions = applicationOptions.map((option) => fallbackOption(option, candidateLanguage));
+    const optionMap = portalOptionMap({
+      options: candidateOptions,
+      applicationOptions,
+      optionMap: candidateOptions.map((candidate, index) => ({ candidate, application: applicationOptions[index] })),
+    });
+    if (applicationOptions.length && optionMap.length !== applicationOptions.length) continue;
+    deterministic.set(item, {
+      ...item,
+      question: copy.question,
+      ...(applicationOptions.length ? { options: candidateOptions, applicationOptions, optionMap } : {}),
+      applicationQuestionLocale: null,
+      localizationStatus: 'deterministic',
+    });
+  }
+  const itemsToLocalize = items.filter(item => !deterministic.has(item));
+  if (!itemsToLocalize.length) return items.map(item => deterministic.get(item));
   // Posting/letter language is only a hint. An ATS may render a German form
   // for an Italian-language job, so compare against the native question text.
-  if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
-  const input = items.map((item) => ({
+  if (typeof codex !== 'function') return items.map((item) => deterministic.get(item) || fallbackLocalizedQuestion(item, candidateLanguage));
+  const input = itemsToLocalize.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
     why: String(item.why || ''),
@@ -1891,10 +1945,10 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     });
   } catch (error) {
     log(`portal question localization skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
+    return items.map((item) => deterministic.get(item) || fallbackLocalizedQuestion(item, candidateLanguage));
   }
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
-  const localizedQuestions = items.map((item) => {
+  const localizedQuestions = itemsToLocalize.map((item) => {
     const copy = byId.get(String(item.id || ''));
     const sourceLocale = localeCode(copy?.sourceLocale);
     if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
@@ -1949,7 +2003,8 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       localizationStatus: 'translated',
     };
   });
-  return localizedQuestions;
+  const localizedByItem = new Map(itemsToLocalize.map((item, index) => [item, localizedQuestions[index]]));
+  return items.map((item) => deterministic.get(item) || localizedByItem.get(item));
 }
 
 /** A zeroed portal requirement must stop automation instead of looking absent. */
@@ -3985,7 +4040,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired);
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
@@ -4095,7 +4150,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const repairSnapshot = accountRegistrationSnapshot({ ...after, fields: after.fields.filter((field) => field.inputType !== 'password') });
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
-      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
+      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired, { candidate });
       if (repairedRequirements.unreadableFields?.length) {
         await ctx.accounts.mark(host, { status: 'unanswered' });
         return noted({ handoff: 'question_label_unreadable' });
@@ -4393,7 +4448,7 @@ function missingCandidatePortalRequirements(fields, candidate) {
     const fieldId = String(field?.id || '').trim();
     const applicationQuestion = String(field?.label || '').trim();
     if (!fieldId && !applicationQuestion) return;
-    missing.push({ ...(fieldId ? { fieldId } : {}), applicationQuestion, question, why, required: true, ...extra });
+    missing.push({ ...(fieldId ? { fieldId } : {}), applicationQuestion, question, why, required: true, candidateQuestionLocale: 'it', ...extra });
     if (fieldId) stableQuestionIds.set(fieldId, id);
     stableQuestionIds.set(`label:${applicationQuestion}`, id);
   };
@@ -4565,7 +4620,9 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           required: true,
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
-          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions.length ? applicationOptions : item.options || [] : item.options,
+          options: field
+            ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions.length ? applicationOptions : editableCombobox ? item.options || [] : []
+            : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),

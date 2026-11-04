@@ -173,4 +173,74 @@ describe('portal candidate question contract', () => {
       codex: async () => { throw new Error('unavailable'); },
     })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
   });
+
+  it('does not trust unverified planner copy when localization is unavailable', async () => {
+    const native = { id: 'start-date', kind: 'text', label: 'Wann können Sie anfangen?', required: true, options: [] };
+    const requirements = portalRequirementsFromMissingRequired([native], [{
+      fieldId: native.id,
+      question: 'Da quando puoi iniziare?',
+      why: 'Il portale richiede una data di inizio.',
+      type: 'text',
+      options: [],
+    }]);
+    let localizationCalls = 0;
+    const codex = async () => { localizationCalls += 1; throw new Error('localization unavailable'); };
+
+    await expect(portalRequirementsForCandidate(requirements, {
+      candidateLocale: 'it', applicationLocale: 'de', codex,
+    })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
+    expect(localizationCalls).toBe(1);
+  });
+
+  it('handles the Yellowshark Anrede radio and address fields without a translation call', async () => {
+    const fields = [
+      { id: 'first-name', kind: 'text', label: 'Vorname', required: true },
+      { id: 'last-name', kind: 'text', label: 'Nachname', required: true },
+      { id: 'email', kind: 'text', label: 'E-Mail', required: true },
+      { id: 'street', kind: 'text', label: 'Strasse', required: true },
+      { id: 'house-number', kind: 'text', label: 'Hausnummer', required: true },
+      { id: 'postal-code', kind: 'text', label: 'PLZ', required: true },
+      { id: 'city', kind: 'text', label: 'Ort', required: true },
+      { id: 'country', kind: 'select', label: 'Land', required: true, options: [{ label: 'Italien' }, { label: 'Schweiz' }] },
+      { id: 'nationality', kind: 'select', label: 'Nationalität', required: true, options: [{ label: 'Italien' }, { label: 'Schweiz' }] },
+      { id: 'mobile', kind: 'text', label: 'Mobile', required: true },
+      { id: 'phone', kind: 'text', label: 'Telefon (optional)', required: false },
+      { id: 'birth-day', kind: 'select', label: 'Geburtstag', required: true, options: [{ label: '1' }, { label: '2' }] },
+      { id: 'birth-month', kind: 'select', label: 'Monat', required: true, options: [{ label: 'Januar' }, { label: 'Februar' }] },
+      { id: 'birth-year', kind: 'select', label: 'Jahr', required: true, options: [{ label: '1990' }, { label: '1991' }] },
+      { id: 'privacy', kind: 'checkbox', label: 'Ich akzeptiere die Datenschutzerklärung', required: true },
+      { id: 'salutation', kind: 'radio', label: 'Anrede', required: true, options: [{ label: 'Herr' }, { label: 'Frau' }] },
+    ];
+    const candidate = { identity: {}, profile: {}, answers: {} };
+    const requirements = portalRequirementsFromMissingRequired(fields, [], { candidate });
+    let localizationCalls = 0;
+    const codex = async () => { localizationCalls += 1; throw new Error('localization unavailable'); };
+
+    const request = await portalRequirementsForCandidate(requirements, {
+      candidateLocale: 'it', applicationLocale: 'de', codex,
+    });
+
+    expect(request?.questions).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        question: 'Quale appellativo vuoi usare nei moduli di candidatura?',
+        applicationQuestion: 'Anrede',
+        localizationStatus: 'deterministic',
+        options: ['Signor', 'Signora'],
+        applicationOptions: ['Herr', 'Frau'],
+      }),
+      expect.objectContaining({
+        question: 'Qual è la via del tuo indirizzo di residenza?',
+        applicationQuestion: 'Strasse',
+        localizationStatus: 'deterministic',
+      }),
+      expect.objectContaining({
+        question: 'Qual è il numero civico del tuo indirizzo di residenza?',
+        applicationQuestion: 'Hausnummer',
+        localizationStatus: 'deterministic',
+      }),
+    ]));
+    const salutation = request?.questions.find((question) => question.id === 'salutation');
+    expect(portalAnswerForApplication(salutation, 'Signora')).toBe('Frau');
+    expect(localizationCalls).toBe(0);
+  });
 });
