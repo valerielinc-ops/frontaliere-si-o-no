@@ -448,17 +448,21 @@ describe('adoptStaticFallbackIntoRoot — #8868', () => {
 });
 
 describe('static job-board root visibility — issue 13044', () => {
-  it('recognizes only the prerendered JobBoard main already owned by #root', () => {
+  it('recognizes the prerendered JobBoard snapshot inside or outside #root', () => {
     document.body.innerHTML = JOB_BOARD_ROOT_HUB_BODY;
-    const root = document.getElementById('root')!;
     const fallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
 
-    expect(shouldKeepStaticRootVisible(root, fallback)).toBe(true);
+    expect(shouldKeepStaticRootVisible(fallback)).toBe(true);
+
+    document.body.innerHTML = `
+      <div id="root"><div class="ft-hdr-reserve"></div></div>
+      <main class="seo-static-content job-board-static-hub job-board-static-content"></main>`;
+    const outsideFallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
+    expect(shouldKeepStaticRootVisible(outsideFallback)).toBe(true);
 
     document.body.innerHTML = JOB_BOARD_HUB_BODY;
-    const outsideRoot = document.getElementById('root')!;
-    const outsideFallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
-    expect(shouldKeepStaticRootVisible(outsideRoot, outsideFallback)).toBe(false);
+    const genericFallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
+    expect(shouldKeepStaticRootVisible(genericFallback)).toBe(false);
   });
 
   it('reserves the painted height without applying the opacity crossfade', () => {
@@ -477,7 +481,7 @@ describe('static job-board root visibility — issue 13044', () => {
 
   it('keeps the JobBoard root visible through mobile and desktop handoff', () => {
     const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
-    expect(entry).toContain('keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(rootElement, fallback)');
+    expect(entry).toContain('keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(fallback)');
     expect(entry).toContain('staticHandoff.preserveRootForPaint(rootElement)');
     expect(entry).toContain('if (keepStaticRootVisible) {');
     expect(entry).toContain('staticHandoff.hideRootForCrossfade(rootElement)');
@@ -518,13 +522,14 @@ describe('static → SPA job-board geometry — #9815', () => {
     expect(hubSource).toContain("isJobBoardHub ? 'job-board' : 'default'");
   });
 
-  it('emits the job-board static hub main inside #root', () => {
+  it('keeps the job-board static hub main outside #root until results are ready', () => {
     const bodySection = hubSource.slice(hubSource.indexOf('const bodySection ='));
-    expect(bodySection).toContain('rootShell(hasSpaBundle, staticHubMainHtml)');
-    expect(bodySection).toMatch(/isJobBoardHub\s*\n\s*\? `\$\{rootShell\(hasSpaBundle, staticHubMainHtml\)\}/);
+    expect(bodySection).toContain('${rootShell(hasSpaBundle)}\n${staticHubMainHtml}');
+    expect(bodySection).not.toContain('rootShell(hasSpaBundle, staticHubMainHtml)');
     const jobBoardBranch = bodySection.slice(bodySection.indexOf('isJobBoardHub'));
     const nonJobBranch = jobBoardBranch.indexOf(': `${rootShell(hasSpaBundle)}');
     expect(jobBoardBranch.slice(0, nonJobBranch)).not.toContain("${isJobBoardHub ? '' : railGridOpen}");
+    expect(hubSource).toContain("'seo-static-content job-board-static-hub job-board-static-content'");
   });
 
   it('derives the static cap and centering from the hydrated job-board main contract', () => {
