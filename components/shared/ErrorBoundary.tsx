@@ -69,7 +69,7 @@ interface State {
  * plugs directly into the shared hook's per-side handlers.
  */
 const ErrorPageRailGrid: React.FC<{ children: ReactNode }> = ({ children }) => {
- const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse({ collapseOnEmpty: true });
  return (
  <div className={RAIL_GRID_CLASS_X} style={railStyle}>
  <aside className={RAIL_ASIDE_CLASS_X}>

@@ -271,7 +271,7 @@ export default function JobOrphanView({ slug, findActiveJob, onBack, hasAccess: 
  // Collapses the 300px xlw rail gutter when ArticleRailAdStack resolves an
  // all-empty verdict per side — shared with JobBoard/JobExpiredView/
  // BlogArticles (issue 4830).
- const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse({ collapseOnEmpty: true });
 
  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
  const isCrawlerVisitor = isCrawlerVisitorAgent(navigator.userAgent || '');
