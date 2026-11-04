@@ -186,16 +186,17 @@ function buildRecentPublisherNewsCategories({ experimentalCandidatesPath, asOfMs
     if (!topicText) continue;
     const category = classifyByRegex(topicText);
     if (!DEMAND_CLUSTERS.has(category) || category === 'generic') continue;
-    const itemKey = createHash('sha256').update(topicText.toLowerCase()).digest('hex');
-    if (seenItems.has(itemKey)) continue;
-    seenItems.add(itemKey);
     let bucket = buckets.get(category);
     if (!bucket) {
       bucket = { items: 0, domains: new Set() };
       buckets.set(category, bucket);
     }
-    bucket.items += 1;
+    // Count each normalized topic once, but retain every publisher that independently reported it.
     bucket.domains.add(host);
+    const itemKey = createHash('sha256').update(topicText.toLowerCase()).digest('hex');
+    if (seenItems.has(itemKey)) continue;
+    seenItems.add(itemKey);
+    bucket.items += 1;
   }
 
   const categories = [...buckets.entries()]

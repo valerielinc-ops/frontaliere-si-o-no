@@ -69,6 +69,37 @@ describe('private social native insights store', () => {
     expect(snapshots[0]).toMatchObject({ storyId: publication.storyId, metrics: { views: 20 } });
   });
 
+  it('keeps bounded Story snapshots aligned with the retained publication identities', () => {
+    const asOf = new Date('2026-11-03T12:00:00.000Z');
+    const firstPublishedMs = Date.parse('2026-10-01T12:00:00.000Z');
+    const publications = Array.from({ length: 401 }, (_, index) => ({
+      storyId: `story-${String(index).padStart(3, '0')}`,
+      publishedAt: new Date(firstPublishedMs + index * 60 * 60 * 1000).toISOString(),
+    }));
+    const retainedPublications = mergePrivateInstagramStoryPublications([], publications, { asOf });
+    const snapshots = publications.map((publication, index) => {
+      const snapshotAgeHours = index === 0 ? 23 : 0.5;
+      return {
+        ...publication,
+        snapshotAt: new Date(Date.parse(publication.publishedAt) + snapshotAgeHours * 60 * 60 * 1000).toISOString(),
+        snapshotAgeHours,
+        measurementWindow: index === 0 ? 'near-24h' : 'first-hour',
+        metrics: {},
+        availableMetrics: [],
+        metricStatus: {},
+      };
+    });
+    const retainedStoryIds = new Set(retainedPublications.map(({ storyId }) => storyId));
+    const retainedSnapshots = mergePrivateInstagramStorySnapshots([], snapshots, {
+      asOf,
+      publicationIds: retainedStoryIds,
+    });
+
+    expect(retainedPublications).toHaveLength(400);
+    expect(retainedSnapshots).toHaveLength(400);
+    expect(retainedSnapshots.every(({ storyId }) => retainedStoryIds.has(storyId))).toBe(true);
+  });
+
   it('reads and writes the private Firestore document without exposing per-post data in its result', async () => {
     let stored: Record<string, unknown> | null = null;
     let path = '';

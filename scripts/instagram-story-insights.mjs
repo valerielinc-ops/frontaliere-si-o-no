@@ -74,6 +74,17 @@ export async function runInstagramStoryInsights({
     const retainPreviousFailure = result.status === 'no-ready-stories'
       && ['credentials-missing', 'metrics-unavailable', 'partial-metrics'].includes(previousState.status);
     persistedStatus = retainPreviousFailure ? previousState.status : result.status;
+    const instagramStoryPublications = mergePrivateInstagramStoryPublications(
+      current.instagramStoryPublications,
+      [],
+      { asOf },
+    );
+    const retainedStoryIds = new Set(instagramStoryPublications.map(({ storyId }) => storyId));
+    const instagramStorySnapshots = mergePrivateInstagramStorySnapshots(
+      current.instagramStorySnapshots,
+      additions,
+      { asOf, publicationIds: retainedStoryIds },
+    );
     return {
       ...current,
       sources: {
@@ -87,16 +98,8 @@ export async function runInstagramStoryInsights({
           ...(additions.length ? { latestSnapshotAt: attemptedAt } : {}),
         },
       },
-      instagramStoryPublications: mergePrivateInstagramStoryPublications(
-        current.instagramStoryPublications,
-        [],
-        { asOf },
-      ),
-      instagramStorySnapshots: mergePrivateInstagramStorySnapshots(
-        current.instagramStorySnapshots,
-        additions,
-        { asOf },
-      ),
+      instagramStoryPublications,
+      instagramStorySnapshots,
     };
   }, { updatedAt: asOf });
   return {
