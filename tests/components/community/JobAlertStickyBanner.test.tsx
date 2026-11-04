@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import JobAlertStickyBanner from '@/components/community/JobAlertStickyBanner';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
@@ -156,7 +156,7 @@ describe('JobAlertStickyBanner', () => {
  render(
   <JobAlertStickyBanner
    userId="user-1"
-   email="user@example.com"
+   email="sticky-user-email"
    locale="it"
    keyword="infermiere"
    subscribe={subscribeJobAlertOneTap}
@@ -164,10 +164,13 @@ describe('JobAlertStickyBanner', () => {
  );
  readAndScroll();
 
- fireEvent.click(screen.getByRole('button', { name: 'Crea alert gratis' }));
+ await act(async () => {
+  fireEvent.click(screen.getByRole('button', { name: 'Crea alert gratis' }));
+  await Promise.resolve();
+ });
 
- await waitFor(() => expect(screen.getByRole('status')).toBeTruthy());
- expect(subscribeJobAlertOneTap).toHaveBeenCalledWith('user-1', 'user@example.com', 'infermiere', 'it');
+ expect(screen.getByRole('status')).toBeTruthy();
+ expect(subscribeJobAlertOneTap).toHaveBeenCalledWith('user-1', 'sticky-user-email', 'infermiere', 'it');
  expect(trackJobAlertCreated).toHaveBeenCalledWith(expect.objectContaining({
   keywords: 'infermiere',
   frequency: 'weekly',
@@ -182,16 +185,19 @@ describe('JobAlertStickyBanner', () => {
  render(
   <JobAlertStickyBanner
    userId="user-1"
-   email="user@example.com"
+   email="sticky-user-email"
    keyword="infermiere"
    subscribe={subscribeJobAlertOneTap}
   />,
  );
  readAndScroll();
 
- fireEvent.click(screen.getByRole('button', { name: 'Crea alert gratis' }));
+ await act(async () => {
+  fireEvent.click(screen.getByRole('button', { name: 'Crea alert gratis' }));
+  await Promise.resolve();
+ });
 
- await waitFor(() => expect(screen.getByRole('alert')).toBeTruthy());
+ expect(screen.getByRole('alert')).toBeTruthy();
  expect(trackJobAlertCtaClick).toHaveBeenCalledWith('sticky_banner', 'error', 'infermiere');
  expect(screen.getByRole('button', { name: 'Crea alert gratis' })).toBeEnabled();
  });
