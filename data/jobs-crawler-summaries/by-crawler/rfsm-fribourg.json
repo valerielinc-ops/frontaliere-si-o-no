@@ -1,7 +1,7 @@
 {
   "key": "rfsm-fribourg",
   "label": "RFSM - Réseau fribourgeois santé mentale",
-  "generatedAt": "2026-11-04T09:32:15.822Z",
+  "generatedAt": "2026-11-04T21:42:18.497Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 11555,
-  "avgDurationMs": 11555,
+  "durationMs": 15103,
+  "avgDurationMs": 15103,
   "durationHistory": [
-    11555
+    15103
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Oberarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350362257/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:31:58.026Z",
+      "crawledAt": "2026-11-04T21:41:54.457Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Marsens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:31:58.026Z",
+      "validThrough": "2026-12-04T21:41:54.457Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistenzarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350361957/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:31:57.275Z",
+      "crawledAt": "2026-11-04T21:41:53.669Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Marsens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:31:57.275Z",
+      "validThrough": "2026-12-04T21:41:53.669Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Pflegefachperson-FNPG-Marsens-und-Villars-sur-Gl%C3%A2ne-f%C3%BCr-Spontanbewerbungen-Grey/1349950857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:31:56.402Z",
+      "crawledAt": "2026-11-04T21:41:52.860Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "salarySource": "estimated",
       "streetAddress": "Marsens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:31:56.402Z",
+      "validThrough": "2026-12-04T21:41:52.860Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -175,7 +175,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-%C3%89ducateur-trice-ou-intervenant-e-social-e%2C-RFSM-Givisiez%2C-Clinique-p%C3%A9dopsy_-Sari/1376232857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:55.656Z",
+      "crawledAt": "2026-11-04T21:41:52.061Z",
       "addressLocality": "Givisiez",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "salarySource": "estimated",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:31:55.656Z",
+      "validThrough": "2027-01-28T21:41:52.061Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Givisiez%2C-Clinique-p%C3%A9dopsy_-Sari/1376278757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:54.918Z",
+      "crawledAt": "2026-11-04T21:41:51.251Z",
       "addressLocality": "Givisiez",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       "salarySource": "estimated",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:31:54.918Z",
+      "validThrough": "2027-01-28T21:41:51.251Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -266,7 +266,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Psychologue-psychoth%C3%A9rapeute%2C-RFSM-Givisiez-CPP-Clinique-de-jour-Sari/1374701757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:54.172Z",
+      "crawledAt": "2026-11-04T21:41:50.434Z",
       "addressLocality": "Givisiez",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "salarySource": "estimated",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:31:54.172Z",
+      "validThrough": "2027-01-14T21:41:50.434Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -312,7 +312,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Ergoth%C3%A9rapeute%2C-RFSM-Givisiez%2C-Clinique-p%C3%A9dopsy_-Sari/1376279857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:53.433Z",
+      "crawledAt": "2026-11-04T21:41:49.634Z",
       "addressLocality": "Givisiez",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "salarySource": "estimated",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:31:53.433Z",
+      "validThrough": "2027-01-28T21:41:49.634Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -358,7 +358,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350362157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:52.693Z",
+      "crawledAt": "2026-11-04T21:41:48.818Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -381,7 +381,7 @@
       "salarySource": "estimated",
       "streetAddress": "Marsens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:31:52.693Z",
+      "validThrough": "2026-12-04T21:41:48.818Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -403,7 +403,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350361857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:51.936Z",
+      "crawledAt": "2026-11-04T21:41:48.003Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -426,7 +426,7 @@
       "salarySource": "estimated",
       "streetAddress": "Marsens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:31:51.936Z",
+      "validThrough": "2026-12-04T21:41:48.003Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -449,7 +449,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Marsens-et-Villars-sur-Gl%C3%A2ne-pour-les-candidatures-spontan%C3%A9es-Gruy/1349950757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:51.198Z",
+      "crawledAt": "2026-11-04T21:41:47.193Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -472,7 +472,7 @@
       "salarySource": "estimated",
       "streetAddress": "Marsens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:31:51.198Z",
+      "validThrough": "2026-12-04T21:41:47.193Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -483,5 +483,5 @@
       }
     }
   ],
-  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

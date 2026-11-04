@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hrc",
-  "assembledAt": "2026-11-04T09:30:43.134Z",
-  "runId": "41806833423",
+  "assembledAt": "2026-11-04T21:40:48.519Z",
+  "runId": "41915347941",
   "jobs": [
     {
       "id": "hrc-206aba495c80",
@@ -35,7 +35,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/3-apprenti-logisticien-hf-cfc-option-stockage-660",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.139Z",
+      "crawledAt": "2026-11-04T21:40:41.606Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:30:36.139Z",
+      "validThrough": "2027-01-10T21:40:41.606Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/agent-dexploitation-hf-a-100-664",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.137Z",
+      "crawledAt": "2026-11-04T21:40:41.604Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:30:36.137Z",
+      "validThrough": "2027-01-17T21:40:41.604Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/apprenties-assistantes-en-soins-et-sante-communautaire-assc-cfc-656",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.134Z",
+      "crawledAt": "2026-11-04T21:40:41.601Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:30:36.134Z",
+      "validThrough": "2027-01-17T21:40:41.601Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +286,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-aux-permanences-medicales-a-60-100-666",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.130Z",
+      "crawledAt": "2026-11-04T21:40:41.599Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:30:36.130Z",
+      "validThrough": "2027-01-21T21:40:41.599Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-en-readaptation-geriatrique-a-80-669",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.127Z",
+      "crawledAt": "2026-11-04T21:40:41.596Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -421,41 +421,42 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:30:36.127Z",
+      "validThrough": "2027-01-27T21:40:41.596Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hrc-5b605d9d591f",
       "slug": "ufficiale-medico-specialista-clinico-m-f-in-ematologia-fmh-o-equivalente-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "fr": "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz",
         "it": "ufficiale-medico-specialista-clinico-m-f-in-ematologia-fmh-o-equivalente-hopital-riviera-chablais-hrc-rennaz",
         "en": "medical-officer-clinical-specialist-m-f-in-hematology-fmh-or-equivalent-hopital-riviera-chablais-hrc-rennaz",
-        "de": "medical-officer-clinical-specialist-m-w-in-hamatologie-fmh-oder-gleichwertig-hopital-riviera-chablais-hrc-rennaz"
+        "de": "medical-officer-clinical-specialist-m-w-in-hamatologie-fmh-oder-gleichwertig-hopital-riviera-chablais-hrc-rennaz",
+        "fr": "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
       "companyDomain": "hopitalrivierachablais.ch",
       "title": "Médecin chef de clinique spécialiste H/F en hématologie (FMH ou équivalent)",
       "titleByLocale": {
-        "fr": "Médecin chef de clinique spécialiste H/F en hématologie (FMH ou équivalent)",
         "it": "Ufficiale medico specialista clinico M/F in ematologia (FMH o equivalente)",
         "en": "Medical Officer Clinical Specialist M/F in Hematology (FMH or equivalent)",
-        "de": "Medical Officer Clinical Specialist M/W in Hämatologie (FMH oder gleichwertig)"
+        "de": "Medical Officer Clinical Specialist M/W in Hämatologie (FMH oder gleichwertig)",
+        "fr": "Médecin chef de clinique spécialiste H/F en hématologie (FMH ou équivalent)"
       },
       "description": "L’Hôpital Riviera-Chablais, Vaud-Valais (HRC), est un hôpital intercantonal de référence réunissant plus de 2’000 collaboratrices et collaborateurs. Son Centre hospitalier de Rennaz, inauguré fin 2019, dispose de plus de 350 lits de soins aigus. Il est complété par deux cliniques de gériatrie et réadaptation ainsi que deux permanences médicales.\n\nL’HRC offre un environnement de travail moderne, dynamique et multidisciplinaire, favorisant une prise en charge de qualité et de proximité, dans le respect des valeurs institutionnelles : authenticité, exemplarité et innovation.\n\nAfin de renforcer et de développer notre activité d’hématologie au sein du Service d’oncologie-hématologie, nous recherchons un·e :\n\nMédecin chef de clinique H/F spécialiste en hématologie (FMH ou équivalent)\n\nLes missions principales de ce poste sont\n\n• Assurer la prise en charge diagnostique, thérapeutique et le suivi des patient·e·s présentant des pathologies hématologiques bénignes et malignes, dans le cadre d’une activité principalement ambulatoire.\n\n• Participer activement au développement de l’activité d’hématologie au sein de l’HRC.\n\n• Collaborer étroitement avec les médecins oncologues, internistes et les autres spécialistes de l’établissement afin de garantir une prise en charge multidisciplinaire et coordonnée.\n\n• Participer aux colloques multidisciplinaires et contribuer aux décisions thérapeutiques.\n\n• Contribuer à l’amélioration continue de la qualité des soins et au développement de projets cliniques.\n\n• Participer à la formation et à l’encadrement des médecins assistants et des autres professionnels de santé.\n\nNous demandons\n\n• Diplôme fédéral de médecin ou diplôme étranger reconnu par l’Office fédéral de la santé publique (MEBEKO).\n\n• Titre FMH de spécialiste en hématologie ou formation équivalente reconnue en Suisse.\n\n• Expérience clinique dans la prise en charge des pathologies hématologiques bénignes et malignes.\n\n• Intérêt marqué pour le travail multidisciplinaire et le développement d’une activité spécialisée au sein d’un hôpital régional.\n\n• Excellentes compétences relationnelles, esprit d’équipe et sens des responsabilités.\n\n• Personnalité dynamique, autonome et motivée, souhaitant s’investir durablement dans une équipe en développement.\n\nNous offrons\n\n• L’opportunité de participer activement au développement de l’hématologie au sein de l’HRC, avec une réelle possibilité de contribuer à l’organisation et à l’évolution de cette activité.\n\n• Une activité clinique variée, associant consultations ambulatoires et prise en charge hospitalière.\n\n• Une collaboration étroite avec une équipe d’oncologie dynamique et engagée.\n\n• Un environnement multidisciplinaire stimulant, favorisant les échanges entre spécialités.\n\n• Des infrastructures modernes au sein du Centre hospitalier de Rennaz.\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Des conditions de travail attractives au sein d’un établissement hospitalier reconnu.\n\nDes renseignement peuvent être pris auprès la Dre Emanuela Salati , cheffe de service d’oncologie au centreducancer@hopitalrivierachabalis.ch , par téléphone au 058.773.2724.\n\nDélai de postulation : 30 novembre 2026",
       "descriptionByLocale": {
-        "fr": "L’Hôpital Riviera-Chablais, Vaud-Valais (HRC), est un hôpital intercantonal de référence réunissant plus de 2’000 collaboratrices et collaborateurs. Son Centre hospitalier de Rennaz, inauguré fin 2019, dispose de plus de 350 lits de soins aigus. Il est complété par deux cliniques de gériatrie et réadaptation ainsi que deux permanences médicales.\n\nL’HRC offre un environnement de travail moderne, dynamique et multidisciplinaire, favorisant une prise en charge de qualité et de proximité, dans le respect des valeurs institutionnelles : authenticité, exemplarité et innovation.\n\nAfin de renforcer et de développer notre activité d’hématologie au sein du Service d’oncologie-hématologie, nous recherchons un·e :\n\nMédecin chef de clinique H/F spécialiste en hématologie (FMH ou équivalent)\n\nLes missions principales de ce poste sont\n\n• Assurer la prise en charge diagnostique, thérapeutique et le suivi des patient·e·s présentant des pathologies hématologiques bénignes et malignes, dans le cadre d’une activité principalement ambulatoire.\n\n• Participer activement au développement de l’activité d’hématologie au sein de l’HRC.\n\n• Collaborer étroitement avec les médecins oncologues, internistes et les autres spécialistes de l’établissement afin de garantir une prise en charge multidisciplinaire et coordonnée.\n\n• Participer aux colloques multidisciplinaires et contribuer aux décisions thérapeutiques.\n\n• Contribuer à l’amélioration continue de la qualité des soins et au développement de projets cliniques.\n\n• Participer à la formation et à l’encadrement des médecins assistants et des autres professionnels de santé.\n\nNous demandons\n\n• Diplôme fédéral de médecin ou diplôme étranger reconnu par l’Office fédéral de la santé publique (MEBEKO).\n\n• Titre FMH de spécialiste en hématologie ou formation équivalente reconnue en Suisse.\n\n• Expérience clinique dans la prise en charge des pathologies hématologiques bénignes et malignes.\n\n• Intérêt marqué pour le travail multidisciplinaire et le développement d’une activité spécialisée au sein d’un hôpital régional.\n\n• Excellentes compétences relationnelles, esprit d’équipe et sens des responsabilités.\n\n• Personnalité dynamique, autonome et motivée, souhaitant s’investir durablement dans une équipe en développement.\n\nNous offrons\n\n• L’opportunité de participer activement au développement de l’hématologie au sein de l’HRC, avec une réelle possibilité de contribuer à l’organisation et à l’évolution de cette activité.\n\n• Une activité clinique variée, associant consultations ambulatoires et prise en charge hospitalière.\n\n• Une collaboration étroite avec une équipe d’oncologie dynamique et engagée.\n\n• Un environnement multidisciplinaire stimulant, favorisant les échanges entre spécialités.\n\n• Des infrastructures modernes au sein du Centre hospitalier de Rennaz.\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Des conditions de travail attractives au sein d’un établissement hospitalier reconnu.\n\nDes renseignement peuvent être pris auprès la Dre Emanuela Salati , cheffe de service d’oncologie au centreducancer@hopitalrivierachabalis.ch , par téléphone au 058.773.2724.\n\nDélai de postulation : 30 novembre 2026",
         "it": "L'Ospedale Riviera-Chablais, Vaud-Valais (HRC), è un ospedale intercantone di riferimento con oltre 2.000 collaboratori. Il suo Ospedale Rennaz, inaugurato a fine 2019, ha oltre 350 letti acuti. È completato da due cliniche geriatriche e riabilitative e due cliniche mediche.\n\nL'HRC offre un ambiente di lavoro moderno, dinamico e multidisciplinare, promuovendo la gestione della qualità e della prossimità, nel rispetto dei valori istituzionali: autenticità, esemplarità e innovazione.\n\nAl fine di rafforzare e sviluppare la nostra attività di ematologia all'interno del Dipartimento di Oncologia ed Ematologia, stiamo cercando:\n\nClinical Chief Medical Officer M/F Specialist (FMH o equivalente)\n\nI compiti principali di questo post sono:\n\n• Fornire cure diagnostiche, terapeutiche e di follow-up per i pazienti con patologie ematologiche benigne e maligne come parte di un'attività prevalentemente ambulatoriale.\n\n• Partecipa attivamente allo sviluppo dell'attività di ematologia all'interno del HRC.\n\n• Lavorare a stretto contatto con oncologi, internisti e altri specialisti istituzionali per garantire la gestione multidisciplinare e coordinata.\n\n• Partecipare a simposi multidisciplinari e contribuire a decisioni terapeutiche.\n\n• Contribuire al miglioramento continuo della qualità della cura e dello sviluppo dei progetti clinici.\n\n• Partecipare alla formazione e supervisione di assistenti medici e di altri operatori sanitari.\n\nChiediamo\n\n• Diploma federale di dottore o diploma straniero riconosciuto dall'Ufficio federale della sanità pubblica (MEBEKO).\n\n• Titolo FMH di specialista in ematologia o formazione equivalente riconosciuta in Svizzera.\n\n• Esperienza clinica nella gestione di patologie ematologiche benigne e maligne.\n\n• Interessi nel lavoro multidisciplinare e nello sviluppo di un'attività specializzata all'interno di un ospedale regionale.\n\n• Eccellente capacità di relazione, spirito di squadra e senso di responsabilità.\n\n• Una persona dinamica, autosufficiente e motivata che vuole investire in modo sostenibile in un team in via di sviluppo.\n\nOffriamo\n\n• L'opportunità di partecipare attivamente allo sviluppo di ematologia all'interno della HRC, con una reale opportunità di contribuire all'organizzazione e all'evoluzione di questa attività.\n\n• Una variegata attività clinica, combinando consultazioni e cure ospedaliere.\n\n• Chiudi la collaborazione con un team di oncologia dinamico e impegnato.\n\n• Un ambiente stimolante multidisciplinare, incoraggiando scambi tra specialità.\n\n• Moderna infrastruttura all'interno dell'ospedale Rennaz.\n\n• Opportunità di formazione continua e sviluppo professionale.\n\n• Condizioni di lavoro interessanti all'interno di un ospedale riconosciuto.\n\nLe informazioni possono essere ottenute dal Dott. Emanuela Salati, Capo di Oncologia presso il Centreducancer@hopitalvierachabalis.ch, per telefono al 058.773.2724.\n\nTermine ultimo per l'applicazione: 30 novembre 2026",
         "en": "The Riviera-Chablais Hospital, Vaud-Valais (HRC), is a reference intercantonal hospital with more than 2,000 collaborators. Its Rennaz Hospital, inaugurated in late 2019, has over 350 acute care beds. It is complemented by two geriatric and rehabilitation clinics and two medical clinics.\n\nThe HRC offers a modern, dynamic and multidisciplinary working environment, promoting quality and proximity management, while respecting institutional values: authenticity, exemplaryness and innovation.\n\nIn order to strengthen and develop our hematology activity within the Department of Oncology and Hematology, we are looking for:\n\nClinical Chief Medical Officer M/F Hematology Specialist (FMH or equivalent)\n\nThe main tasks of this post are:\n\n• To provide diagnostic, therapeutic and follow-up care for patients with benign and malignant haematological pathologies as part of a mainly outpatient activity.\n\n• Actively participate in the development of haematology activity within the HRC.\n\n• Work closely with oncologists, internists and other institutional specialists to ensure multidisciplinary and coordinated management.\n\n• Participate in multidisciplinary symposia and contribute to therapeutic decisions.\n\n• Contribute to continuous improvement in quality of care and development of clinical projects.\n\n• Participate in the training and supervision of medical assistants and other health professionals.\n\nWe ask\n\n• Federal diploma of doctor or foreign diploma recognized by the Federal Office of Public Health (MEBEKO).\n\n• FMH title of specialist in haematology or equivalent training recognized in Switzerland.\n\n• Clinical experience in the management of benign and malignant haematological pathologies.\n\n• Interest in multidisciplinary work and the development of a specialised activity within a regional hospital.\n\n• Excellent relationship skills, team spirit and sense of responsibility.\n\n• A dynamic, self-sustaining and motivated person who wants to invest sustainably in a developing team.\n\nWe offer\n\n• The opportunity to participate actively in the development of haematology within the HRC, with a real opportunity to contribute to the organisation and evolution of this activity.\n\n• A varied clinical activity, combining outpatient consultations and hospital care.\n\n• Close collaboration with a dynamic and committed oncology team.\n\n• A stimulating multidisciplinary environment, encouraging exchanges between specialties.\n\n• Modern infrastructure within the Rennaz Hospital.\n\n• Opportunities for continuing training and professional development.\n\n• Attractive working conditions within a recognised hospital.\n\nInformation can be obtained from Dr. Emanuela Salati, Head of Oncology at the centreducancer@hopitalvierachabalis.ch, by telephone at 058.773.2724.\n\nDeadline for application: 30 November 2026",
-        "de": "Das Riviera-Chablais Hospital, Waadt-Valais (HRC), ist ein interkantonales Referenzkrankenhaus mit mehr als 2.000 Mitarbeitern. Das Ende 2019 eingeweihte Krankenhaus Rennaz verfügt über mehr als 350 Akutbetten. Ergänzt wird es durch zwei geriatrische und Rehabilitationskliniken sowie zwei medizinische Kliniken.\n\nDer HRC bietet ein modernes, dynamisches und multidisziplinäres Arbeitsumfeld, das Qualitäts- und Näherungsmanagement fördert und gleichzeitig die institutionellen Werte Authentizität, Vorbildlichkeit und Innovation respektiert.\n\nUm unsere Hämatologie-Aktivität in der Abteilung für Onkologie und Hämatologie zu stärken und zu entwickeln, suchen wir:\n\nClinical Chief Medical Officer M/W Hematology Specialist (FMH oder gleichwertig)\n\nDie Hauptaufgaben dieses Postens sind:\n\n• Diagnostische, therapeutische und Nachsorge für Patienten mit gutartigen und malignen hämatologischen Pathologien als Teil einer hauptsächlich ambulanten Tätigkeit.\n\n• Aktive Teilnahme an der Entwicklung der hämatologischen Aktivität innerhalb des HRC.\n\n• Arbeiten Sie eng mit Onkologen, Internisten und anderen institutionellen Spezialisten zusammen, um ein multidisziplinäres und koordiniertes Management zu gewährleisten.\n\n• Nehmen Sie an multidisziplinären Symposien teil und tragen Sie zu therapeutischen Entscheidungen bei.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualität der Versorgung und Entwicklung klinischer Projekte.\n\n• Beteiligen Sie sich an der Ausbildung und Aufsicht von medizinischen Assistenten und anderen medizinischen Fachkräften.\n\nWir fragen\n\n• Bundesarztdiplom oder vom Bundesamt für Gesundheit (MEBEKO) anerkanntes Auslandsdiplom.\n\n• FMH Titel des Spezialisten für Hämatologie oder gleichwertige Ausbildung in der Schweiz anerkannt.\n\n• Klinische Erfahrung im Umgang mit gutartigen und malignen hämatologischen Pathologien.\n\n• Interesse an multidisziplinärer Arbeit und der Entwicklung einer spezialisierten Tätigkeit in einem regionalen Krankenhaus.\n\n• Hervorragende Beziehungsfähigkeiten, Teamgeist und Verantwortungsbewusstsein.\n\n• Eine dynamische, autarke und motivierte Person, die nachhaltig in ein sich entwickelndes Team investieren möchte.\n\nWir bieten\n\n• Die Möglichkeit, sich aktiv an der Entwicklung der Hämatologie innerhalb des MRK zu beteiligen, mit einer echten Gelegenheit, zur Organisation und Entwicklung dieser Aktivität beizutragen.\n\n• Eine abwechslungsreiche klinische Tätigkeit, die ambulante Konsultationen und Krankenhausversorgung kombiniert.\n\n• Enge Zusammenarbeit mit einem dynamischen und engagierten Onkologie-Team.\n\n• Ein stimulierendes multidisziplinäres Umfeld, das den Austausch zwischen Spezialitäten fördert.\n\n• Moderne Infrastruktur im Rennaz Hospital.\n\n• Möglichkeiten zur Weiterbildung und beruflichen Weiterentwicklung.\n\n• Attraktive Arbeitsbedingungen in einem anerkannten Krankenhaus.\n\nInformationen erhalten Sie bei Dr. Emanuela Salati, Leiterin Onkologie, unter centerducancer@hopitalvierachabalis.ch, telefonisch unter 058.773.2724.\n\nAntragsfrist: 30. November 2026"
+        "de": "Das Riviera-Chablais Hospital, Waadt-Valais (HRC), ist ein interkantonales Referenzkrankenhaus mit mehr als 2.000 Mitarbeitern. Das Ende 2019 eingeweihte Krankenhaus Rennaz verfügt über mehr als 350 Akutbetten. Ergänzt wird es durch zwei geriatrische und Rehabilitationskliniken sowie zwei medizinische Kliniken.\n\nDer HRC bietet ein modernes, dynamisches und multidisziplinäres Arbeitsumfeld, das Qualitäts- und Näherungsmanagement fördert und gleichzeitig die institutionellen Werte Authentizität, Vorbildlichkeit und Innovation respektiert.\n\nUm unsere Hämatologie-Aktivität in der Abteilung für Onkologie und Hämatologie zu stärken und zu entwickeln, suchen wir:\n\nClinical Chief Medical Officer M/W Hematology Specialist (FMH oder gleichwertig)\n\nDie Hauptaufgaben dieses Postens sind:\n\n• Diagnostische, therapeutische und Nachsorge für Patienten mit gutartigen und malignen hämatologischen Pathologien als Teil einer hauptsächlich ambulanten Tätigkeit.\n\n• Aktive Teilnahme an der Entwicklung der hämatologischen Aktivität innerhalb des HRC.\n\n• Arbeiten Sie eng mit Onkologen, Internisten und anderen institutionellen Spezialisten zusammen, um ein multidisziplinäres und koordiniertes Management zu gewährleisten.\n\n• Nehmen Sie an multidisziplinären Symposien teil und tragen Sie zu therapeutischen Entscheidungen bei.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualität der Versorgung und Entwicklung klinischer Projekte.\n\n• Beteiligen Sie sich an der Ausbildung und Aufsicht von medizinischen Assistenten und anderen medizinischen Fachkräften.\n\nWir fragen\n\n• Bundesarztdiplom oder vom Bundesamt für Gesundheit (MEBEKO) anerkanntes Auslandsdiplom.\n\n• FMH Titel des Spezialisten für Hämatologie oder gleichwertige Ausbildung in der Schweiz anerkannt.\n\n• Klinische Erfahrung im Umgang mit gutartigen und malignen hämatologischen Pathologien.\n\n• Interesse an multidisziplinärer Arbeit und der Entwicklung einer spezialisierten Tätigkeit in einem regionalen Krankenhaus.\n\n• Hervorragende Beziehungsfähigkeiten, Teamgeist und Verantwortungsbewusstsein.\n\n• Eine dynamische, autarke und motivierte Person, die nachhaltig in ein sich entwickelndes Team investieren möchte.\n\nWir bieten\n\n• Die Möglichkeit, sich aktiv an der Entwicklung der Hämatologie innerhalb des MRK zu beteiligen, mit einer echten Gelegenheit, zur Organisation und Entwicklung dieser Aktivität beizutragen.\n\n• Eine abwechslungsreiche klinische Tätigkeit, die ambulante Konsultationen und Krankenhausversorgung kombiniert.\n\n• Enge Zusammenarbeit mit einem dynamischen und engagierten Onkologie-Team.\n\n• Ein stimulierendes multidisziplinäres Umfeld, das den Austausch zwischen Spezialitäten fördert.\n\n• Moderne Infrastruktur im Rennaz Hospital.\n\n• Möglichkeiten zur Weiterbildung und beruflichen Weiterentwicklung.\n\n• Attraktive Arbeitsbedingungen in einem anerkannten Krankenhaus.\n\nInformationen erhalten Sie bei Dr. Emanuela Salati, Leiterin Onkologie, unter centerducancer@hopitalvierachabalis.ch, telefonisch unter 058.773.2724.\n\nAntragsfrist: 30. November 2026",
+        "fr": "L’Hôpital Riviera-Chablais, Vaud-Valais (HRC), est un hôpital intercantonal de référence réunissant plus de 2’000 collaboratrices et collaborateurs. Son Centre hospitalier de Rennaz, inauguré fin 2019, dispose de plus de 350 lits de soins aigus. Il est complété par deux cliniques de gériatrie et réadaptation ainsi que deux permanences médicales.\n\nL’HRC offre un environnement de travail moderne, dynamique et multidisciplinaire, favorisant une prise en charge de qualité et de proximité, dans le respect des valeurs institutionnelles : authenticité, exemplarité et innovation.\n\nAfin de renforcer et de développer notre activité d’hématologie au sein du Service d’oncologie-hématologie, nous recherchons un·e :\n\nMédecin chef de clinique H/F spécialiste en hématologie (FMH ou équivalent)\n\nLes missions principales de ce poste sont\n\n• Assurer la prise en charge diagnostique, thérapeutique et le suivi des patient·e·s présentant des pathologies hématologiques bénignes et malignes, dans le cadre d’une activité principalement ambulatoire.\n\n• Participer activement au développement de l’activité d’hématologie au sein de l’HRC.\n\n• Collaborer étroitement avec les médecins oncologues, internistes et les autres spécialistes de l’établissement afin de garantir une prise en charge multidisciplinaire et coordonnée.\n\n• Participer aux colloques multidisciplinaires et contribuer aux décisions thérapeutiques.\n\n• Contribuer à l’amélioration continue de la qualité des soins et au développement de projets cliniques.\n\n• Participer à la formation et à l’encadrement des médecins assistants et des autres professionnels de santé.\n\nNous demandons\n\n• Diplôme fédéral de médecin ou diplôme étranger reconnu par l’Office fédéral de la santé publique (MEBEKO).\n\n• Titre FMH de spécialiste en hématologie ou formation équivalente reconnue en Suisse.\n\n• Expérience clinique dans la prise en charge des pathologies hématologiques bénignes et malignes.\n\n• Intérêt marqué pour le travail multidisciplinaire et le développement d’une activité spécialisée au sein d’un hôpital régional.\n\n• Excellentes compétences relationnelles, esprit d’équipe et sens des responsabilités.\n\n• Personnalité dynamique, autonome et motivée, souhaitant s’investir durablement dans une équipe en développement.\n\nNous offrons\n\n• L’opportunité de participer activement au développement de l’hématologie au sein de l’HRC, avec une réelle possibilité de contribuer à l’organisation et à l’évolution de cette activité.\n\n• Une activité clinique variée, associant consultations ambulatoires et prise en charge hospitalière.\n\n• Une collaboration étroite avec une équipe d’oncologie dynamique et engagée.\n\n• Un environnement multidisciplinaire stimulant, favorisant les échanges entre spécialités.\n\n• Des infrastructures modernes au sein du Centre hospitalier de Rennaz.\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Des conditions de travail attractives au sein d’un établissement hospitalier reconnu.\n\nDes renseignement peuvent être pris auprès la Dre Emanuela Salati , cheffe de service d’oncologie au centreducancer@hopitalrivierachabalis.ch , par téléphone au 058.773.2724.\n\nDélai de postulation : 30 novembre 2026"
       },
+      "needsRetranslation": false,
       "location": "Rennaz",
       "canton": "VD",
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.106Z",
+      "crawledAt": "2026-11-04T21:40:41.576Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -473,9 +474,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
+        ],
+        "en": [
+          "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
+        ],
+        "de": [
+          "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
+        ]
       },
+      "firstSeenAt": "2026-11-04T09:30:36.106Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -491,23 +505,8 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:30:36.106Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:30:36.106Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
-        ],
-        "en": [
-          "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
-        ],
-        "de": [
-          "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
-      ]
+      "validThrough": "2027-02-02T21:40:41.576Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
