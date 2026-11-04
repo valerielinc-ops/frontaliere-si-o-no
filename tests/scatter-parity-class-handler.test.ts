@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
   applyAssembledToSliceJob,
-  classifyScatterParityChanges,
   diagnoseScatterParity,
   scatterParityClassHandler,
 } from '../scripts/scatter-jobs-to-slices.mjs';
@@ -20,14 +19,7 @@ describe('scatter parity class handling', () => {
     const assembled = { ...baseJob(), needsRetranslation: true };
     const projectedJob = applyAssembledToSliceJob(sliceJob, assembled).job;
 
-    const directProjection = baseJob();
-    expect(scatterParityClassHandler('retranslation', {
-      job: directProjection,
-      assembled,
-    })).toBe(true);
-    expect(directProjection.needsRetranslation).toBe(true);
-
-    expect(classifyScatterParityChanges({ sliceJob, projectedJob })).toEqual({
+    expect(scatterParityClassHandler({ sliceJob, projectedJob })).toEqual({
       classes: ['retranslation'],
       changes: {
         retranslation: { before: false, after: true },
