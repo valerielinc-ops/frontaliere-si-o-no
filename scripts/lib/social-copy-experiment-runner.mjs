@@ -12,6 +12,7 @@ import {
   socialExperimentBaselinePopulationScope,
 } from './social-experiment-protocol.mjs';
 import {
+  SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION,
   socialCopyExperimentRegistrationId,
   socialCopyExperimentTreatmentFingerprint,
 } from './social-copy-pack.mjs';
@@ -28,7 +29,7 @@ export const SOCIAL_COPY_EXPERIMENT_ASSIGNMENT_COLLECTION = 'social_copy_assignm
 export const SOCIAL_COPY_EXPERIMENT_PARAM = 'SOCIAL_COPY_EXPERIMENT_CONFIG';
 export const SOCIAL_COPY_EXPERIMENT_ID = 'social-copy-angle-matched-v3';
 export const SOCIAL_COPY_EXPERIMENT_SCHEMA_VERSION = 4;
-export const SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION = 'social-copy-angle-matched-block-v3';
+export { SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION };
 export const SOCIAL_COPY_EXPERIMENT_SOURCE_MAX_AGE_DAYS = 14;
 
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -129,12 +130,18 @@ export function summarizeSocialAudienceSafety(audienceSnapshots, channel, asOf =
   }
   const netChange = latest.value - rows[0].value;
   return {
-    status: netChange < 0 ? 'declining' : 'non-declining',
+    status: netChange < 0 ? 'declining' : netChange === 0 ? 'flat' : 'growing',
     metric,
     observations: coverageDays,
     spanDays,
     netChange,
   };
+}
+
+function decisionMetricClass(registration) {
+  return ['follows', 'follower_gained_from_content'].includes(registration?.metric?.numerator)
+    ? 'post-attributed-follower-growth'
+    : 'engagement';
 }
 
 export function socialExperimentPlatformPolicyClear(
@@ -538,23 +545,27 @@ export async function runSocialCopyExperimentProtocol({
       registration.measurementChannel,
       current,
     );
-    if (result.status === 'winner' && audienceSafety.status !== 'non-declining') {
+    const metricClass = decisionMetricClass(registration);
+    if (result.status === 'winner' && metricClass === 'engagement' && audienceSafety.status !== 'growing') {
       result = {
         ...result,
         status: 'hold',
         reason: audienceSafety.status === 'declining'
           ? 'qualified account-level audience declined over 30 days; engagement winner held'
-          : 'account-level audience safety is unqualified; engagement winner held',
+          : audienceSafety.status === 'flat'
+            ? 'qualified account-level audience was flat over 30 days; engagement winner held'
+            : 'account-level audience safety is unqualified; engagement winner held',
       };
     }
     const evaluation = {
-      schemaVersion: 1,
+      schemaVersion: 2,
       registrationId: registration.registrationId,
       registrationHash: registration.registrationHash,
       packId: registration.packId,
       channel: registration.channel,
       slot: registration.slot,
       objective: registration.objective,
+      decisionMetricClass: metricClass,
       baselinePopulationScope: registration.baselinePopulationScope,
       status: result.status,
       reason: result.reason,

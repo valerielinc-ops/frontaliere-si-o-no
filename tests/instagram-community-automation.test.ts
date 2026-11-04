@@ -28,7 +28,7 @@ function response(body: unknown, status = 200) {
   };
 }
 
-function fakeInstagramFetch() {
+function fakeInstagramFetch({ comments = [{ id: 'comment-1', text: '1', from: { id: 'person-1' }, timestamp: '2026-10-10T11:00:00.000Z' }] } = {}) {
   const calls: { url: string; options: any }[] = [];
   const fetchImpl = async (url: string, options: any = {}) => {
     calls.push({ url, options });
@@ -44,7 +44,7 @@ function fakeInstagramFetch() {
       }] });
     }
     if (method === 'GET' && parsed.pathname.endsWith('/media-1/comments')) {
-      return response({ data: [{ id: 'comment-1', text: '1', from: { id: 'person-1' }, timestamp: '2026-10-10T11:00:00.000Z' }] });
+      return response({ data: comments });
     }
     if (method === 'GET' && parsed.pathname.endsWith('/account-1/conversations')) {
       return response({ data: [{ id: 'conversation-1' }] });
@@ -226,6 +226,45 @@ describe('Instagram community automation', () => {
     expect(second.calls.filter(({ options }) => options.method === 'POST')).toHaveLength(0);
 
     expect(loadCommunityState(statePath).actions).toHaveLength(4);
+    rmSync(temp, { recursive: true, force: true });
+  });
+
+  it('stores only hashed topic categories from public questions and applies the ten-comment floor', async () => {
+    const temp = mkdtempSync(path.join(os.tmpdir(), 'instagram-community-topics-'));
+    const statePath = path.join(temp, 'state.json');
+    const question = 'Quali documenti servono per il permesso G?';
+    const comments = Array.from({ length: 10 }, (_, index) => ({
+      id: `topic-comment-${index}`,
+      text: question,
+      from: { id: `person-${index}` },
+      timestamp: '2026-10-10T11:00:00.000Z',
+    }));
+    const run = fakeInstagramFetch({ comments });
+    const result = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'token-never-printed',
+      pageId: '',
+      pageAccessToken: '',
+      ledger: ledger(),
+      statePath,
+      mode: 'live',
+      now: NOW,
+      fetchImpl: run.fetchImpl,
+      sleepImpl: async () => {},
+      log: { log: () => {}, warn: () => {} },
+      socialPublishReservations: storyReservationClient().client,
+    });
+    const persisted = readFileSync(statePath, 'utf8');
+
+    expect(result.outcomes.questionTopicDemand).toMatchObject({
+      status: 'available',
+      categories: [{ category: 'permessi-amministrazione', countBand: '10-24' }],
+    });
+    expect(loadCommunityState(statePath).topicSignals).toHaveLength(10);
+    expect(persisted).not.toContain(question);
+    expect(persisted).not.toContain('topic-comment-0');
+    expect(persisted).not.toContain('person-0');
+    expect(JSON.stringify(result.outcomes.questionTopicDemand)).not.toContain('topic-comment');
     rmSync(temp, { recursive: true, force: true });
   });
 

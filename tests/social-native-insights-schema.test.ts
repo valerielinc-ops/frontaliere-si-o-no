@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import { validateSocialNativeInsightsDocument } from '../scripts/lib/social-native-insights-schema.mjs';
+import { buildInstagramCommunityOutcomeSnapshot } from '../scripts/lib/instagram-community-outcomes.mjs';
+import { instagramCommunityTopicSignalKey } from '../scripts/lib/instagram-community-topics.mjs';
 import { INSTAGRAM_STORY_METRICS } from '../scripts/lib/instagram-story-contract.mjs';
 
 const AS_OF = new Date('2026-11-02T12:00:00.000Z');
@@ -278,5 +280,48 @@ describe('social native insights persistence contract', () => {
       ...doc,
       followerGainSnapshots: [{ ...doc.followerGainSnapshots[0], metric: 'followers' }],
     }, { asOf: AS_OF })).toThrow(/invalid LinkedIn follower-gain row/);
+  });
+
+  it('accepts only thresholded closed-category community demand in outcome schema v2', () => {
+    const communityOutcomes = buildInstagramCommunityOutcomeSnapshot({
+      asOf: AS_OF,
+      source: 'graph',
+      coverage: 'graph-bounded-pages-and-recent-media',
+      trackingStartedAt: AS_OF,
+      interactions: [{
+        surface: 'comments',
+        source: 'graph',
+        receivedAt: '2026-11-02T11:00:00.000Z',
+        observedAt: '2026-11-02T11:30:00.000Z',
+        status: 'delivery-uncertain',
+        responseAt: null,
+        escalationReason: 'delivery-uncertain',
+      }],
+      questionTopicSignals: Array.from({ length: 10 }, (_, index) => ({
+        key: instagramCommunityTopicSignalKey(`comment-${index}`),
+        category: 'permessi-amministrazione',
+        receivedAt: '2026-11-01T10:00:00.000Z',
+      })),
+    });
+    const document = { schemaVersion: 1, sources: {}, posts: [], communityOutcomes };
+    expect(validateSocialNativeInsightsDocument(document, { asOf: AS_OF })).toMatchObject({
+      communityOutcomes: {
+        schemaVersion: 2,
+        questionTopicDemand: {
+          status: 'available',
+          categories: [{ category: 'permessi-amministrazione', countBand: '10-24' }],
+        },
+      },
+    });
+    expect(() => validateSocialNativeInsightsDocument({
+      ...document,
+      communityOutcomes: {
+        ...communityOutcomes,
+        questionTopicDemand: {
+          ...communityOutcomes.questionTopicDemand,
+          categories: [{ category: 'permessi-amministrazione', countBand: '10-24', text: 'raw comment' }],
+        },
+      },
+    }, { asOf: AS_OF })).toThrow(/invalid Instagram community question category/);
   });
 });

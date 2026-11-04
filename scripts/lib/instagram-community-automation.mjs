@@ -21,6 +21,13 @@ import path from 'node:path';
 
 import { GRAPH_API } from './instagram-graph-constants.mjs';
 import { buildInstagramCommunityOutcomeSnapshot } from './instagram-community-outcomes.mjs';
+import {
+  INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES,
+  INSTAGRAM_COMMUNITY_TOPIC_MAX_SIGNALS,
+  classifyInstagramCommunityQuestion,
+  instagramCommunityTopicSignalKey,
+  normalizeInstagramCommunityTopicSignals,
+} from './instagram-community-topics.mjs';
 import { matchInstagramMedia } from './instagram-media-matching.mjs';
 import { isAmbiguousSocialPublishResponse } from './social-publish-outcome.mjs';
 import { socialCopyRevisionId } from './social-copy-revision.mjs';
@@ -342,6 +349,7 @@ export function emptyCommunityState() {
     actions: [],
     interactions: [],
     interactionsTruncated: false,
+    topicSignals: [],
   };
 }
 
@@ -386,6 +394,7 @@ export function loadCommunityState(file) {
         .filter(validCommunityInteraction)
         .slice(-MAX_STORED_COMMUNITY_INTERACTIONS),
       interactionsTruncated: parsed.interactionsTruncated === true,
+      topicSignals: normalizeInstagramCommunityTopicSignals(parsed.topicSignals),
     };
   } catch {
     return fallback;
@@ -481,6 +490,27 @@ export function recordCommunityInteraction(state, file, {
   state.updatedAt = observedAtIso;
   saveCommunityState(file, state);
   return event;
+}
+
+/** Store only a one-way key, closed topic ID, and timestamp for a public comment. */
+export function recordCommunityQuestionTopicSignal(state, {
+  platformId,
+  category,
+  receivedAt,
+  observedAt = new Date(),
+} = {}) {
+  const key = instagramCommunityTopicSignalKey(platformId);
+  const receivedAtMs = timestamp(receivedAt);
+  const observedAtMs = timestamp(observedAt);
+  if (!key || !INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES.includes(category)
+    || receivedAtMs === null || observedAtMs === null || receivedAtMs > observedAtMs) return false;
+  const current = Array.isArray(state.topicSignals) ? state.topicSignals : [];
+  if (current.some((signal) => signal.key === key)) return false;
+  state.topicSignals = normalizeInstagramCommunityTopicSignals([
+    ...current,
+    { key, category, receivedAt: new Date(receivedAtMs).toISOString() },
+  ], { asOf: new Date(observedAtMs) }).slice(-INSTAGRAM_COMMUNITY_TOPIC_MAX_SIGNALS);
+  return true;
 }
 
 const recordAction = recordCommunityAction;
@@ -712,6 +742,15 @@ export async function runInstagramCommunityAutomation({
       const receivedAtCandidate = timestamp(comment.timestamp || comment.created_time);
       const receivedAtMs = receivedAtCandidate !== null && receivedAtCandidate <= nowMs ? receivedAtCandidate : null;
       const receivedAt = receivedAtMs === null ? null : new Date(receivedAtMs).toISOString();
+      const topicCategory = receivedAt
+        ? classifyInstagramCommunityQuestion(String(comment.text || ''))
+        : null;
+      if (topicCategory) recordCommunityQuestionTopicSignal(state, {
+        platformId: commentId,
+        category: topicCategory,
+        receivedAt,
+        observedAt: new Date(nowMs),
+      });
       const classification = classifyInstagramCommunityInteraction({ surface: 'comments', text: comment.text });
       const publicKey = hashAction('comment-reply', commentId);
       const privateKey = hashAction('comment-private-reply', commentId);
@@ -1152,6 +1191,7 @@ export async function runInstagramCommunityAutomation({
   saveCommunityState(statePath, state);
   result.outcomes = buildInstagramCommunityOutcomeSnapshot({
     interactions: state.interactions,
+    questionTopicSignals: state.topicSignals,
     asOf: new Date(nowMs),
     source: 'graph',
     runStatus: result.status,

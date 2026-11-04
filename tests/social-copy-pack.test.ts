@@ -12,6 +12,7 @@ import {
   selectSocialCopy,
   selectSocialCopyForPublish,
   SOCIAL_COPY_INSTAGRAM_OBJECTIVES,
+  SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION,
   socialCopyExperimentRegistrationId,
   socialCopyExperimentTreatmentFingerprint,
   socialCopyTemplateCount,
@@ -101,7 +102,7 @@ function registeredExperiment(pack: { packId: string }, channel: string, slot: s
     schemaVersion: 4,
     experimentId,
     enabled: true,
-    protocolVersion: 'social-copy-angle-matched-block-v3',
+    protocolVersion: SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION,
     registrations: { [registrationId]: 'a'.repeat(64) },
     registrationDeadlines: { [registrationId]: '2099-01-01T00:00:00.000Z' },
     winners: {},
@@ -587,7 +588,7 @@ describe('social copy pack', () => {
         schemaVersion: 4,
         experimentId: 'social-copy-angle-matched-v3',
         enabled: true,
-        protocolVersion: 'social-copy-angle-matched-block-v3',
+        protocolVersion: SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION,
         registrations: { [registrationId]: registrationHash },
         registrationDeadlines: { [registrationId]: '2026-11-02T00:00:00.000Z' },
         winners: { [registrationId]: { registrationHash, angleId: template?.angleId } },
@@ -642,6 +643,31 @@ describe('social copy pack', () => {
       kind: 'article',
       expectedObjective: 'share',
       assignmentKey: 'article:legacy-config',
+      blockContext: buildSocialCopyBlockContext({ sourceClass: 'article', scheduledDate: '2026-11-03' }),
+      asOf: new Date('2026-11-03T12:00:00.000Z'),
+      experimentConfig,
+      assignBalancedImpl: async () => {
+        assigned = true;
+        return { armId: 'unexpected' };
+      },
+    });
+
+    expect(assigned).toBe(false);
+    expect(selected).not.toHaveProperty('copyRegistrationHash');
+    expect(selected).not.toHaveProperty('copyBlockId');
+  });
+
+  it('fails closed on the previous promotion protocol after the growth guard changes', async () => {
+    const pack = normalizeSocialCopyPack(packInput());
+    const experimentConfig = registeredExperiment(pack, 'instagram', 'article', 'share');
+    experimentConfig.protocolVersion = 'social-copy-angle-matched-block-v3';
+    let assigned = false;
+    const selected = await selectSocialCopyForPublish({
+      pack,
+      channel: 'instagram',
+      kind: 'article',
+      expectedObjective: 'share',
+      assignmentKey: 'article:previous-promotion-protocol',
       blockContext: buildSocialCopyBlockContext({ sourceClass: 'article', scheduledDate: '2026-11-03' }),
       asOf: new Date('2026-11-03T12:00:00.000Z'),
       experimentConfig,

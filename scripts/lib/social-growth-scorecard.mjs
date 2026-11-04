@@ -22,10 +22,11 @@ export const SOCIAL_GROWTH_TARGET_POLICY_VERSION = 2;
 export const SOCIAL_GROWTH_TARGET_HORIZON_DAYS = 90;
 export const SOCIAL_BUSINESS_OUTCOME_TARGET_RELATIVE_LIFT = 0.25;
 export const SOCIAL_BUSINESS_OUTCOME_TARGET_RATE_RETENTION = 0.9;
-export const SOCIAL_CHANNEL_PILOT_CONTRACT_VERSION = 4;
+export const SOCIAL_CHANNEL_PILOT_CONTRACT_VERSION = 5;
 
 const CHANNEL_PILOT_CONTRACTS = Object.freeze({
   instagram: Object.freeze({
+    deliveryState: 'live',
     deliveryPath: 'existing Graph API and Mac-host robot/queue',
     cadenceCap: 'shared atomic cap: feed/Reels 2/day, Stories 6/day across Graph API, Reels, and robot; normal schedule keeps the existing slots; no automated cadence increase',
     dailyCap: 2,
@@ -37,6 +38,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['policy-or-scope-change', 'source-stale-for-two-intervals', 'exact-post-id-coverage-incomplete', 'confirmed-duplicate-or-reservation-leak', 'existing-publisher-cap-exceeded']),
   }),
   tiktok: Object.freeze({
+    deliveryState: 'draft-only',
     deliveryPath: 'held pending eligible creator-facing use case',
     cadenceCap: 'no-publishing-route-while-policy-held',
     audienceKey: 'tiktok',
@@ -46,6 +48,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['policy-review-required', 'scope-change', 'exact-post-id-coverage-incomplete', 'source-stale-for-two-intervals']),
   }),
   facebook: Object.freeze({
+    deliveryState: 'live',
     deliveryPath: 'existing Graph API schedulers',
     cadenceCap: 'shared atomic Page cap 144/day across scheduled jobs, articles, events, and manual posts; configured job schedules and batch limits remain unchanged',
     dailyCap: 144,
@@ -57,6 +60,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['policy-or-scope-change', 'source-stale-for-two-intervals', 'existing-publisher-cap-exceeded']),
   }),
   linkedinMember: Object.freeze({
+    deliveryState: 'live',
     deliveryPath: 'existing LinkedIn member publisher',
     cadenceCap: 'shared atomic member cap 2/day across one article and one job slot; no cadence increase',
     dailyCap: 2,
@@ -68,6 +72,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['policy-or-scope-change', 'source-stale-for-two-intervals', 'exact-post-id-coverage-incomplete', 'existing-publisher-cap-exceeded']),
   }),
   telegram: Object.freeze({
+    deliveryState: 'live',
     deliveryPath: 'existing Telegram Bot API publisher',
     cadenceCap: 'daily jobs digest; weekly border ranking; no increase',
     dailyCap: 2,
@@ -79,6 +84,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['policy-or-scope-change', 'source-stale-for-two-intervals', 'existing-publisher-cap-exceeded']),
   }),
   reddit: Object.freeze({
+    deliveryState: 'draft-only',
     deliveryPath: 'held pending Devvit review and domain access',
     cadenceCap: 'no-publishing-route-while-review-blocked',
     audienceKey: 'reddit',
@@ -87,6 +93,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['review-or-domain-grant-missing', 'policy-change', 'exact-post-id-contract-unavailable']),
   }),
   youtubeShorts: Object.freeze({
+    deliveryState: 'not-inventoried',
     deliveryPath: 'candidate; no account or OAuth configured',
     cadenceCap: 'no-publishing-route-before-account-probe',
     audienceKey: 'youtubeShorts',
@@ -95,6 +102,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['account-or-scope-missing', 'metric-definition-changed', 'exact-post-id-coverage-incomplete']),
   }),
   threads: Object.freeze({
+    deliveryState: 'not-inventoried',
     deliveryPath: 'candidate; no account or OAuth configured',
     cadenceCap: 'no-publishing-route-before-account-probe',
     audienceKey: 'threads',
@@ -103,6 +111,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['account-or-scope-missing', 'metric-contract-changed', 'exact-post-id-coverage-incomplete']),
   }),
   linkedinCompanyPage: Object.freeze({
+    deliveryState: 'blocked',
     deliveryPath: 'held pending organization-social permission',
     cadenceCap: 'no-publishing-route-before-organization-grant',
     audienceKey: 'linkedinCompanyPage',
@@ -111,6 +120,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['organization-social-grant-missing', 'account-or-scope-missing', 'exact-post-id-coverage-incomplete']),
   }),
   x: Object.freeze({
+    deliveryState: 'not-inventoried',
     deliveryPath: 'candidate; no account or OAuth configured',
     cadenceCap: 'no-publishing-route-before-account-probe',
     audienceKey: 'x',
@@ -119,6 +129,7 @@ const CHANNEL_PILOT_CONTRACTS = Object.freeze({
     stopCriteria: Object.freeze(['account-or-scope-missing', 'metric-contract-changed', 'exact-post-id-coverage-incomplete']),
   }),
   whatsappChannels: Object.freeze({
+    deliveryState: 'not-inventoried',
     deliveryPath: 'candidate; no account or API use case configured',
     cadenceCap: 'no-publishing-route-before-account-and-api-probe',
     audienceKey: 'whatsappChannels',
@@ -890,6 +901,7 @@ function buildChannelPilotObservability({ audienceGrowth, sources, publicationLe
           ? 'measurement-building' : 'exact-post-evidence-incomplete';
     return [key, {
       contractVersion: SOCIAL_CHANNEL_PILOT_CONTRACT_VERSION,
+      deliveryState: contract.deliveryState,
       readinessStatus,
       sourceStatus,
       deliveryPath: contract.deliveryPath,
@@ -1877,8 +1889,8 @@ export function renderSocialGrowthScorecard(scorecard) {
     '',
     '## Pilot readiness by channel',
     '',
-    '| Canale | Stato | Percorso | Cadenza/dispatch | Sforamenti cap 30g | Post 30g | ID nativi | Copertura ID | Elegibili alla finestra | Join metriche esatto | Promozione |',
-    '|---|---|---|---:|---:|---:|---:|---:|---:|---:|---|',
+    '| Canale | Consegna | Prontezza misure | Percorso | Cadenza/dispatch | Sforamenti cap 30g | Post 30g | ID nativi | Copertura ID | Elegibili alla finestra | Join metriche esatto | Promozione |',
+    '|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---|',
   );
   for (const [channelName, pilot] of Object.entries(scorecard.channelPilots || {})) {
     const coverage = pilot.postIdCoverage || {};
@@ -1890,7 +1902,7 @@ export function renderSocialGrowthScorecard(scorecard) {
     const overrun = Number.isSafeInteger(cadence.overrunDays)
       ? `${cadence.overrunDays} giorni (max ${cadence.maximumPostsPerDay}/${cadence.capPerDay})`
       : cadence.status || '—';
-    lines.push(`| ${channelName} | ${pilot.readinessStatus} | ${pilot.deliveryPath} | ${pilot.cadenceCap || '—'} | ${overrun} | ${coverage.publishedPosts30d ?? '—'} | ${coverage.exactPostIds30d ?? '—'} | ${idRate} | ${coverage.eligibleForMetrics ?? '—'} | ${joinRate} | ${pilot.promotionStatus} |`);
+    lines.push(`| ${channelName} | ${pilot.deliveryState} | ${pilot.readinessStatus} | ${pilot.deliveryPath} | ${pilot.cadenceCap || '—'} | ${overrun} | ${coverage.publishedPosts30d ?? '—'} | ${coverage.exactPostIds30d ?? '—'} | ${idRate} | ${coverage.eligibleForMetrics ?? '—'} | ${joinRate} | ${pilot.promotionStatus} |`);
   }
   lines.push('', 'La cadenza descrive i job pianificati e le opzioni di dispatch; i cap atomici sono applicati al confine comune dei publisher abilitati. Gli sforamenti confrontano i ledger aggregati con i cap dichiarati sugli ultimi 30 giorni Europe/Zurich; Telegram storico usa raggruppamento conservativo dei digest, Facebook misura gli slot pianificati, e Instagram Stories resta non osservabile nel ledger. Le stop rule governano il pilot. La copertura mostra solo conteggi aggregati; nessun ID nativo viene incluso nel report.');
   if (String(scorecard.channelPilots?.telegram?.postIdCoverage?.publicationCountBasis || '')

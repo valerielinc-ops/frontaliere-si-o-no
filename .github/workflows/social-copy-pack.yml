@@ -166,7 +166,10 @@ jobs:
             diagnosis only and is not a winner signal. Instagram Story metrics
             use a recent 30-day baseline, separate early and near-24h windows,
             and per-1,000-reach rates only when reach is positive; no Story IDs
-            enter this brief:
+            enter this brief. The brief also contains only thresholded closed-category
+            themes from public Instagram comments; it excludes comment text, usernames,
+            identifiers, and all DMs. Use these categories only to prioritize explainers,
+            never as trend claims, audience-size estimates, or factual sources:
             ${{ steps.native.outputs.brief }}
             Current dated rolling 30-day descriptive scorecard with source coverage.
             Its default objective is net audience growth per channel, with qualified

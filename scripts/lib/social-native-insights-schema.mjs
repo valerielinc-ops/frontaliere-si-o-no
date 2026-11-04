@@ -11,6 +11,13 @@ import {
   INSTAGRAM_STORY_MEASUREMENT_WINDOWS,
   INSTAGRAM_STORY_METRICS,
 } from './instagram-story-contract.mjs';
+import {
+  INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES,
+  INSTAGRAM_COMMUNITY_TOPIC_COUNT_BANDS,
+  INSTAGRAM_COMMUNITY_TOPIC_MINIMUM,
+  INSTAGRAM_COMMUNITY_TOPIC_SOURCE,
+  INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS,
+} from './instagram-community-topics.mjs';
 
 const CHANNELS = new Set(['instagram', 'tiktok', 'linkedin-member', 'facebook']);
 const FACEBOOK_METRICS = new Set(['mediaViews', 'uniqueViewers', 'reactions', 'clicks']);
@@ -46,9 +53,11 @@ const COMMUNITY_COVERAGE = new Set([
 ]);
 const COMMUNITY_ESCALATIONS = Object.freeze([
   'personal-or-sensitive', 'source-required', 'outside-window', 'timestamp-unavailable',
-  'delivery-failed', 'reply-limit-reached', 'empty-or-unreadable',
+  'delivery-failed', 'delivery-uncertain', 'reply-limit-reached', 'empty-or-unreadable',
 ]);
 const COMMUNITY_LATENCY_BUCKETS = Object.freeze(['under1h', 'oneToFourHours', 'fourTo24Hours', 'over24Hours']);
+const COMMUNITY_TOPIC_CATEGORIES = new Set(INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES);
+const COMMUNITY_TOPIC_COUNT_BANDS = new Set(INSTAGRAM_COMMUNITY_TOPIC_COUNT_BANDS);
 const AUDIENCE_METRICS = Object.freeze({
   instagram: new Set(['followers']),
   tiktok: new Set(['followers']),
@@ -484,10 +493,39 @@ function validateCommunitySurface(surface, path) {
   }
 }
 
+function validateCommunityQuestionDemand(demand) {
+  if (!hasExactKeys(demand, ['status', 'source', 'windowDays', 'minimumPerCategory', 'categories'])
+    || !['available', 'suppressed'].includes(demand.status)
+    || demand.source !== INSTAGRAM_COMMUNITY_TOPIC_SOURCE
+    || demand.windowDays !== INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS
+    || demand.minimumPerCategory !== INSTAGRAM_COMMUNITY_TOPIC_MINIMUM
+    || !Array.isArray(demand.categories) || demand.categories.length > COMMUNITY_TOPIC_CATEGORIES.size) {
+    throw new Error('invalid Instagram community question demand');
+  }
+  if ((demand.status === 'available') !== (demand.categories.length > 0)) {
+    throw new Error('inconsistent Instagram community question demand status');
+  }
+  const seen = new Set();
+  let previous = '';
+  for (const [index, row] of demand.categories.entries()) {
+    if (!hasExactKeys(row, ['category', 'countBand'])
+      || !COMMUNITY_TOPIC_CATEGORIES.has(row.category)
+      || !COMMUNITY_TOPIC_COUNT_BANDS.has(row.countBand)
+      || seen.has(row.category) || (previous && row.category <= previous)) {
+      throw new Error(`invalid Instagram community question category at categories[${index}]`);
+    }
+    seen.add(row.category);
+    previous = row.category;
+  }
+}
+
 function validateCommunityOutcomes(outcomes, nowMs) {
   if (outcomes === undefined) return;
-  if (!hasExactKeys(outcomes, ['schemaVersion', 'generatedAt', 'latestRun', 'trackedFrom', 'trackingStartedAt', 'eventsTruncated', 'coverageGap', 'weeks'])
-    || outcomes.schemaVersion !== 1
+  const outcomeKeys = outcomes?.schemaVersion === 2
+    ? ['schemaVersion', 'generatedAt', 'latestRun', 'trackedFrom', 'trackingStartedAt', 'eventsTruncated', 'coverageGap', 'questionTopicDemand', 'weeks']
+    : ['schemaVersion', 'generatedAt', 'latestRun', 'trackedFrom', 'trackingStartedAt', 'eventsTruncated', 'coverageGap', 'weeks'];
+  if (!hasExactKeys(outcomes, outcomeKeys)
+    || ![1, 2].includes(outcomes.schemaVersion)
     || !validTimestamp(outcomes.generatedAt)
     || !isUtcMonday(outcomes.trackedFrom)
     || !validTimestamp(outcomes.trackingStartedAt)
@@ -500,6 +538,7 @@ function validateCommunityOutcomes(outcomes, nowMs) {
     || !Array.isArray(outcomes.weeks) || outcomes.weeks.length > 26) {
     throw new Error('invalid Instagram community outcome history');
   }
+  if (outcomes.schemaVersion === 2) validateCommunityQuestionDemand(outcomes.questionTopicDemand);
   if (Date.parse(outcomes.generatedAt) > nowMs || Date.parse(outcomes.trackingStartedAt) > nowMs) {
     throw new Error('Instagram community outcome timestamp is in the future');
   }

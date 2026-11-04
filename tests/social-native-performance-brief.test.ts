@@ -299,6 +299,37 @@ describe('native social copy performance brief', () => {
     });
   });
 
+  it('passes only thresholded public-comment category bands into Codex briefs', () => {
+    const brief = buildNativeSocialPerformanceBrief({
+      asOf: AS_OF,
+      nativeInsights: {
+        communityOutcomes: {
+          questionTopicDemand: {
+            status: 'available',
+            source: 'public-instagram-comments-local-closed-taxonomy',
+            windowDays: 30,
+            minimumPerCategory: 10,
+            categories: [{
+              category: 'permessi-amministrazione',
+              countBand: '10-24',
+              text: 'Private comment text must be dropped',
+              key: 'private-comment-hash',
+            }],
+          },
+        },
+      },
+    });
+
+    expect(brief.instagramCommunityQuestionDemand).toEqual({
+      status: 'available',
+      windowDays: 30,
+      minimumPerCategory: 10,
+      categories: [{ category: 'permessi-amministrazione', countBand: '10-24' }],
+    });
+    expect(JSON.stringify(brief.instagramCommunityQuestionDemand)).not.toContain('Private comment text');
+    expect(JSON.stringify(brief.instagramCommunityQuestionDemand)).not.toContain('private-comment-hash');
+  });
+
   it('keeps exact hook/CTA revisions diagnostic and does not expose their text', () => {
     const rows = [
       { postId: 'copy-a', copyHook: 'Traffico al valico', copyCta: 'Controlla ora' },

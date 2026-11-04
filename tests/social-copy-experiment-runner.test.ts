@@ -3,11 +3,13 @@ import { describe, expect, it } from 'vitest';
 
 import {
   listSocialCopyExperimentCohorts,
+  SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION,
   runSocialCopyExperimentProtocol,
   socialCopyExperimentPostIdHash,
   summarizeSocialAudienceSafety,
   socialExperimentPlatformPolicyClear,
 } from '../scripts/lib/social-copy-experiment-runner.mjs';
+import { SOCIAL_EXPERIMENT_PROTOCOL_VERSION } from '../scripts/lib/social-experiment-protocol.mjs';
 import {
   socialCopyExperimentRegistrationId,
   socialCopyExperimentTreatmentFingerprint,
@@ -216,7 +218,7 @@ function experimentRows(registration: any, asOf: Date, { winner = true } = {}) {
 }
 
 describe('social-copy experiment runner', () => {
-  it('qualifies a 30-day account trend and marks declines as a promotion hold signal', () => {
+  it('requires positive 30-day account growth and distinguishes flat and declining signals', () => {
     const asOf = new Date('2026-12-15T12:00:00.000Z');
     const snapshots = Array.from({ length: 30 }, (_, index) => ({
       channel: 'instagram',
@@ -235,6 +237,11 @@ describe('social-copy experiment runner', () => {
     expect(summarizeSocialAudienceSafety(snapshots.slice(5), 'instagram', asOf)).toMatchObject({
       status: 'unqualified',
       netChange: null,
+    });
+    const flatSnapshots = snapshots.map((row) => ({ ...row, value: 1000 }));
+    expect(summarizeSocialAudienceSafety(flatSnapshots, 'instagram', asOf)).toMatchObject({
+      status: 'flat',
+      netChange: 0,
     });
   });
 
@@ -332,9 +339,40 @@ describe('social-copy experiment runner', () => {
 
     expect(promoted.evaluations[0]).toMatchObject({
       status: 'winner',
-      audienceSafety: { status: 'non-declining', observations: 30 },
+      schemaVersion: 2,
+      decisionMetricClass: 'post-attributed-follower-growth',
+      audienceSafety: { status: 'growing', observations: 30 },
     });
     expect(promoted.config.winners).toHaveProperty(registration.registrationId);
+
+    const flatFollowerSnapshots = Array.from({ length: 30 }, (_, index) => ({
+      channel: 'linkedin-member',
+      metric: 'followers',
+      value: 1000,
+      snapshotAt: new Date(runAt.getTime() - (29 - index) * 86400000).toISOString(),
+      status: 'available',
+    }));
+    const exactFollowerGrowthWinner = await runSocialCopyExperimentProtocol({
+      db,
+      pack: linkedInPack,
+      insights: {
+        ...initialInsights,
+        sources: {
+          linkedinMember: { ...linkedinSource, lastSuccessAt: runAt.toISOString() },
+        },
+        posts: [...linkedInBaseline, ...observations],
+        audienceSnapshots: flatFollowerSnapshots,
+      },
+      asOf: runAt,
+      linkedinPostAnalyticsStorageApproved: true,
+      setRemoteConfig: async () => ({ ok: true, changed: true }),
+    });
+    expect(exactFollowerGrowthWinner.evaluations[0]).toMatchObject({
+      status: 'winner',
+      decisionMetricClass: 'post-attributed-follower-growth',
+      audienceSafety: { status: 'flat', netChange: 0 },
+    });
+    expect(exactFollowerGrowthWinner.config.winners).toHaveProperty(registration.registrationId);
   });
 
   it('limits experiments to exact-ID supported publisher formats', () => {
@@ -491,10 +529,11 @@ describe('social-copy experiment runner', () => {
 
     expect(first.status).toBe('reconciled');
     expect(first.calibration.status).toBe('passed');
+    expect(first.config.protocolVersion).toBe(SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION);
     expect(first.config.registrations[registrationId]).toBe(registration?.registrationHash);
     expect(first.config.registrationDeadlines[registrationId]).toBe('2027-11-03T12:00:00.000Z');
     expect(registration).toMatchObject({
-      protocolVersion: 'social-copy-angle-matched-block-v3',
+      protocolVersion: SOCIAL_EXPERIMENT_PROTOCOL_VERSION,
       baselinePopulationScope: 'same-slot-metric-across-objectives',
       parentFamilySize: 2,
       baseline: { observations: 30 },
@@ -569,6 +608,28 @@ describe('social-copy experiment runner', () => {
     });
     expect(heldPromotion.config.winners).not.toHaveProperty(registrationId);
 
+    const flatAudienceSnapshots = Array.from({ length: 30 }, (_, index) => ({
+      channel: 'instagram',
+      metric: 'followers',
+      value: 1000,
+      snapshotAt: new Date(runAt.getTime() - (29 - index) * 24 * 60 * 60 * 1000).toISOString(),
+      status: 'available',
+    }));
+    const flatPromotion = await runSocialCopyExperimentProtocol({
+      db,
+      pack: refreshedPack,
+      insights: { ...measured, audienceSnapshots: flatAudienceSnapshots },
+      asOf: runAt,
+      setRemoteConfig: async (config: any) => { configs.push(config); return { ok: true, changed: true }; },
+    });
+    expect(flatPromotion.evaluations[0]).toMatchObject({
+      status: 'hold',
+      decisionMetricClass: 'engagement',
+      audienceSafety: { status: 'flat', netChange: 0 },
+      reason: expect.stringContaining('audience was flat'),
+    });
+    expect(flatPromotion.config.winners).not.toHaveProperty(registrationId);
+
     const unknownAudiencePromotion = await runSocialCopyExperimentProtocol({
       db,
       pack: refreshedPack,
@@ -596,6 +657,6 @@ describe('social-copy experiment runner', () => {
     expect(rolledBack.config.enabled).toBe(false);
     expect(rolledBack.config.winners).toEqual({});
     expect(rolledBack.evaluations[0].status).toBe('hold');
-    expect(configs).toHaveLength(5);
+    expect(configs).toHaveLength(6);
   });
 });
