@@ -224,12 +224,25 @@
     return true;
   }
 
-  /** File inputs may live in CSS-hidden upload wrappers; explicit inactive steps still stay out. */
+  function isRecognizedHiddenUploadMode(element) {
+    const wrapper = element.closest('#resumator-resume-upload-wrapper');
+    if (!wrapper || element.id !== 'resumator-resume-value') return false;
+    const scope = wrapper.closest('.form-group, fieldset, [role="group"]');
+    return Boolean(scope?.querySelector('#resumator-choose-upload'));
+  }
+
+  /** Keep recognized upload-mode inputs while excluding CSS-hidden future steps. */
   function isMountedFileInput(element) {
     const view = element.ownerDocument.defaultView;
+    const uploadWrapper = isRecognizedHiddenUploadMode(element)
+      ? element.closest('#resumator-resume-upload-wrapper')
+      : null;
     for (let node = element.parentElement; node && node.nodeType === 1; node = node.parentElement) {
       if (node.hidden || node.hasAttribute('inert') || String(node.getAttribute('aria-hidden') || '').toLowerCase() === 'true') return false;
       const style = view.getComputedStyle(node);
+      if (style.display === 'none' || style.visibility === 'hidden') {
+        if (!uploadWrapper?.contains(node)) return false;
+      }
       if (style.visibility === 'collapse') return false;
     }
     return true;

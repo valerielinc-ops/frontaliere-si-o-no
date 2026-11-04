@@ -92,6 +92,19 @@ it('keeps styled upload inputs but excludes controls under collapsed future step
   window.close();
 });
 
+it('keeps the recognized Fincons upload mode but excludes CSS-hidden future-step files', () => {
+  const { window, document, F } = page(`<form>
+    <section style="display:none"><label for="future-cv">Later CV *</label><input id="future-cv" type="file" required></section>
+    <div class="form-group">
+      <label for="resumator-resume-value">Resume *</label>
+      <div id="resumator-resume-options"><a id="resumator-choose-upload" href="#">Attach resume</a></div>
+      <div id="resumator-resume-upload-wrapper" style="display:none"><input id="resumator-resume-value" type="file"></div>
+    </div>
+  </form>`, 'https://fincons.applytojob.com/apply/example');
+  expect(F.collect(document).map((entry: any) => entry.element.id)).toEqual(['resumator-resume-value']);
+  window.close();
+});
+
 // JOIN's markup, as saved from the trial posting (classes and icons left out).
 const continueButtons = '<button type="button"><span>Indietro</span></button><button type="button" disabled=""><span>Continua</span></button>';
 const ariaChoices = (question: string, options: string[]) => `<form><h2>${question}</h2><div>${options
