@@ -37,6 +37,7 @@ import {
   candidateQuestionAnswerKey,
   candidateWithEdits,
   ORDER_QUESTION_ANSWER_EVIDENCE_VERSION,
+  requiredPortalConsentAffirmed,
   questionsForCandidate,
 } from './assistedApplicationCandidateEdits.js';
 
@@ -162,7 +163,8 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
   const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
   const candidate = questions
-    .filter((question) => question.required && !String(projected?.[question.id] ?? '').trim())
+    .filter((question) => question.required
+      && (!String(projected?.[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, projected?.[question.id])))
     .map((question) => question.id);
   // A required document (school reports, a test result…) the candidate has not given yet.
   return { owner, candidate, documents: openRequiredDocuments(draft, documents) };
