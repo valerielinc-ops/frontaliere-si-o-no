@@ -1671,9 +1671,11 @@ export function zurichOffset(isoDate: string): string {
  * schema.org/Event object for one agenda entry.
  *
  * A validated rewrite is used only while its facts still agree with the
- * structured event record. Unknown location, price, organizer and performer
- * facts stay absent. Google Event markup is reserved for one specific
- * occurrence; recurring listings do not describe a single event page.
+ * structured event record. Unknown location, price and organizer facts stay
+ * absent. Google Event markup requires a source-backed performer so pages
+ * without one do not create Search Console's missing-performer issue. Markup
+ * is also reserved for one specific occurrence; recurring listings do not
+ * describe a single event page.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> | null {
   if (event.recurring === true) return null;
@@ -1717,6 +1719,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const eventWithPeople = withoutAddressPeople({ ...event, title, venue: venueName }, eventSource) as SiteEvent;
   const organizer = normalizeEventPeople(eventWithPeople.organizer, sourceUrl, event.url);
   const performer = normalizeEventPeople(eventWithPeople.performer, sourceUrl, event.url);
+  if (!performer) return null;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
   const confidentlyFree = confidentPrice && (
