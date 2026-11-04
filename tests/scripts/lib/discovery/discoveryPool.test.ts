@@ -54,14 +54,32 @@ const stubSuggest = async () => [
   { headline: 'permesso b cantone ticino', url: null, source: 'suggest' as const, meta: { seed: 'permesso B', rank: 0, normalizedKeyword: 'permesso b cantone ticino' } },
 ];
 
-const stubNews = async () => [
-  {
-    headline: 'frontalieri ticino',
-    url: 'https://example.com/a',
-    source: 'news' as const,
-    meta: { ageHours: 2, sourceUrl: 'https://example.com/a', sourceName: 'tio.ch', pubDate: null, seed: 'frontalieri' },
-  },
-];
+const stubNews = async (_evidence: unknown, opts: { seeds?: string[]; nowMs?: number } = {}) => {
+  if (Array.isArray(opts.seeds)) {
+    const nowMs = Number.isFinite(opts.nowMs) ? Number(opts.nowMs) : Date.now();
+    return opts.seeds.map((seed, index) => ({
+      headline: `Notizia: ${seed}`,
+      url: `https://news.google.com/rss/articles/trend-${index}`,
+      source: 'news' as const,
+      meta: {
+        ageHours: 2,
+        sourceUrl: `https://news.google.com/rss/articles/trend-${index}`,
+        sourceName: 'RSI',
+        publisherHost: 'rsi.ch',
+        pubDate: new Date(nowMs - 2 * 60 * 60 * 1000).toUTCString(),
+        seed,
+      },
+    }));
+  }
+  return [
+    {
+      headline: 'frontalieri ticino',
+      url: 'https://example.com/a',
+      source: 'news' as const,
+      meta: { ageHours: 2, sourceUrl: 'https://example.com/a', sourceName: 'tio.ch', pubDate: null, seed: 'frontalieri' },
+    },
+  ];
+};
 
 const stubTrends = async () => [
   {
@@ -80,6 +98,61 @@ describe('fetchAll', () => {
     expect(out.perSource.suggest).toBe(2);
     expect(out.perSource.news).toBe(1);
     expect(out.perSource.trends).toBe(1);
+    expect(out.perSource.trendSignals).toBe(1);
+    const trendArticle = out.candidates.find((candidate) => candidate.source === 'trends');
+    expect(trendArticle?.url).toMatch(/^https:\/\//);
+    expect(trendArticle?.meta.signalProvider).toBe('google-trends');
+    expect(trendArticle?.meta.signalHeadline).toBe('telelavoro frontalieri svizzera italia');
+    expect(Date.parse(trendArticle?.meta.signalCollectedAt)).toBeGreaterThan(0);
+    expect(trendArticle?.meta.evidenceProvider).toBe('google-news-rss');
+    expect(trendArticle?.meta.evidencePublisher).toBe('rsi.ch');
+  });
+
+  it('does not pass a trend query to article generation without recent HTTPS news evidence', async () => {
+    const nowMs = Date.now();
+    const noEvidence = async (_evidence: unknown, opts: { seeds?: string[] } = {}) => {
+      if (!opts.seeds) return [];
+      return [
+        {
+          headline: 'Notizia vecchia frontalieri Ticino',
+          url: 'https://news.google.com/rss/articles/old',
+          source: 'news' as const,
+          meta: {
+            seed: opts.seeds[0],
+            pubDate: new Date(nowMs - 15 * 24 * 60 * 60 * 1000).toUTCString(),
+            sourceName: 'RSI',
+          },
+        },
+        {
+          headline: 'Notizia futura frontalieri Ticino',
+          url: 'https://news.google.com/rss/articles/future',
+          source: 'news' as const,
+          meta: { seed: opts.seeds[0], pubDate: new Date(nowMs + 24 * 60 * 60 * 1000).toUTCString() },
+        },
+        {
+          headline: 'Notizia non HTTPS frontalieri Ticino',
+          url: 'http://news.google.com/rss/articles/insecure',
+          source: 'news' as const,
+          meta: { seed: opts.seeds[0], pubDate: new Date(nowMs - 2 * 60 * 60 * 1000).toUTCString() },
+        },
+        {
+          headline: 'Notizia senza data frontalieri Ticino',
+          url: 'https://news.google.com/rss/articles/no-date',
+          source: 'news' as const,
+          meta: { seed: opts.seeds[0], pubDate: 'not-a-date' },
+        },
+      ];
+    };
+    const out = await fetchAll(evidence, {
+      suggestFn: async () => [],
+      newsFn: noEvidence,
+      trendsFn: stubTrends,
+      nowMs,
+    });
+
+    expect(out.perSource.trendSignals).toBe(1);
+    expect(out.perSource.trends).toBe(0);
+    expect(out.candidates.filter((candidate) => candidate.source === 'trends')).toEqual([]);
   });
 
   it('honors DISABLE_DISCOVERY_ORPHAN env flag', async () => {
@@ -89,6 +162,7 @@ describe('fetchAll', () => {
     expect(out.perSource.suggest).toBe(2);
     expect(out.perSource.news).toBe(1);
     expect(out.perSource.trends).toBe(1);
+    expect(out.perSource.trendSignals).toBe(1);
   });
 
   it('honors DISABLE_DISCOVERY_TRENDS env flag', async () => {
@@ -172,6 +246,7 @@ describe('buildDiscoveryPool', () => {
     // perSource counts the PRE-dedup totals; postDedupCount reflects what survived.
     expect(out.perSource.news).toBe(1);
     expect(out.perSource.trends).toBe(1);
+    expect(out.perSource.trendSignals).toBe(1);
     expect(out.postDedupCount).toBe(out.candidates.length);
     // Sort order desc.
     for (let i = 1; i < out.candidates.length; i += 1) {

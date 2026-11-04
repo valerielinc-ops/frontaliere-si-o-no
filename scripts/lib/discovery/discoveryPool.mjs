@@ -20,6 +20,9 @@ import { discoveryScore } from './discoveryScore.mjs';
 import { isNearDuplicate, SLUG_SIMILARITY_THRESHOLD } from '../scheduler/slugSimilarity.mjs';
 
 const ENV_TRUE = (val) => val === '1' || val === 'true';
+const MAX_TREND_EVIDENCE_SEEDS = 3;
+const MAX_TREND_EVIDENCE_ARTICLES_PER_SEED = 2;
+const MAX_TREND_EVIDENCE_AGE_HOURS = 14 * 24;
 
 function isOrphanDisabled() {
   return ENV_TRUE(process.env.DISABLE_DISCOVERY_ORPHAN);
@@ -32,6 +35,81 @@ function isNewsDisabled() {
 }
 function isTrendsDisabled() {
   return ENV_TRUE(process.env.DISABLE_DISCOVERY_TRENDS);
+}
+
+function evidenceAgeHours(pubDate, nowMs) {
+  if (typeof pubDate !== 'string' || !pubDate.trim()) return null;
+  const publishedAtMs = Date.parse(pubDate);
+  if (!Number.isFinite(publishedAtMs)) return null;
+  const ageHours = (nowMs - publishedAtMs) / (60 * 60 * 1000);
+  if (ageHours > MAX_TREND_EVIDENCE_AGE_HOURS) return null;
+  if (ageHours < 0) return null;
+  return Math.max(0, ageHours);
+}
+
+function isSecureHttpUrl(value) {
+  if (typeof value !== 'string' || !value.trim()) return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && Boolean(url.hostname) && !url.username && !url.password;
+  } catch {
+    return false;
+  }
+}
+
+function buildTrendEvidenceCandidates(trendSignals, newsEvidence, nowMs) {
+  if (!Array.isArray(trendSignals) || !Array.isArray(newsEvidence)) return [];
+
+  const newsBySeed = new Map();
+  for (const item of newsEvidence) {
+    const seed = String(item?.meta?.seed || '').trim();
+    if (!seed || !isSecureHttpUrl(item?.url)) continue;
+    const ageHours = evidenceAgeHours(item?.meta?.pubDate, nowMs);
+    if (ageHours === null) continue;
+    if (!newsBySeed.has(seed)) newsBySeed.set(seed, []);
+    newsBySeed.get(seed).push({ item, ageHours });
+  }
+  for (const matches of newsBySeed.values()) {
+    matches.sort((a, b) => a.ageHours - b.ageHours);
+  }
+
+  const out = [];
+  const seenUrls = new Set();
+  const seenHeadlines = new Set();
+  for (const signal of trendSignals) {
+    const signalHeadline = String(signal?.headline || '').trim();
+    if (!signalHeadline) continue;
+    const matches = newsBySeed.get(signalHeadline) || [];
+    let keptForSignal = 0;
+    for (const { item, ageHours } of matches) {
+      const evidenceHeadline = String(item?.headline || '').trim();
+      if (!evidenceHeadline) continue;
+      const headlineKey = evidenceHeadline.toLowerCase().replace(/\s+/g, ' ');
+      if (seenUrls.has(item.url) || seenHeadlines.has(headlineKey)) continue;
+      seenUrls.add(item.url);
+      seenHeadlines.add(headlineKey);
+      keptForSignal += 1;
+      out.push({
+        headline: evidenceHeadline,
+        url: item.url,
+        source: 'trends',
+        meta: {
+          ...signal.meta,
+          signalHeadline,
+          signalProvider: 'google-trends',
+          signalCollectedAt: new Date(nowMs).toISOString(),
+          evidenceProvider: 'google-news-rss',
+          evidenceUrl: item.url,
+          evidenceHeadline,
+          evidencePublisher: item.meta?.publisherHost || item.meta?.sourceName || null,
+          evidencePublishedAt: item.meta?.pubDate || null,
+          evidenceAgeHours: ageHours,
+        },
+      });
+      if (keptForSignal >= MAX_TREND_EVIDENCE_ARTICLES_PER_SEED) break;
+    }
+  }
+  return out;
 }
 
 /**
@@ -60,6 +138,7 @@ function isTrendsDisabled() {
  *   suggestFn?: Function,
  *   newsFn?: Function,
  *   trendsFn?: Function,
+ *   nowMs?: number,
  * }} [opts]
  * @returns {Promise<{ candidates: DiscoveryCandidate[], perSource: Record<string, number> }>}
  */
@@ -68,7 +147,7 @@ export async function fetchAll(evidence, opts = {}) {
   const suggestFn = opts.suggestFn || fetchSuggestDiscoveryCandidates;
   const newsFn = opts.newsFn || fetchNewsRssDiscoveryCandidates;
   const trendsFn = opts.trendsFn || fetchTrendsDiscoveryCandidates;
-  const perSource = { orphan: 0, suggest: 0, news: 0, trends: 0 };
+  const perSource = { orphan: 0, suggest: 0, news: 0, trends: 0, trendSignals: 0 };
   const merged = [];
 
   // Orphan — synchronous (reads from evidence in-memory).
@@ -116,10 +195,64 @@ export async function fetchAll(evidence, opts = {}) {
   }
 
   const remoteResults = await Promise.all(remoteJobs);
+  const byKind = new Map();
   for (const r of remoteResults) {
-    perSource[r.kind] = r.arr.length;
-    for (const c of r.arr) merged.push(c);
+    byKind.set(r.kind, r.arr);
   }
+
+  const suggestions = byKind.get('suggest') || [];
+  const news = byKind.get('news') || [];
+  const trendSignals = byKind.get('trends') || [];
+  perSource.suggest = suggestions.length;
+  perSource.trendSignals = trendSignals.length;
+
+  // Trends supplies demand signals, not article evidence. Search Google News
+  // for the top three distinct trend queries and admit up to two matching
+  // articles per query (at most six candidates) when recent Google News
+  // results provide HTTPS URLs. This keeps bare queries from becoming
+  // synthetic discovery:// URLs in create-article.
+  let trendBackedCandidates = [];
+  if (!isNewsDisabled() && !isTrendsDisabled() && trendSignals.length > 0) {
+    const seenSignalHeadlines = new Set();
+    const topTrendSignals = trendSignals
+      .slice()
+      .sort((a, b) => (Number(b?.meta?.score) || 0) - (Number(a?.meta?.score) || 0))
+      .filter((candidate) => {
+        const key = String(candidate?.headline || '').trim().toLowerCase().replace(/\s+/g, ' ');
+        if (!key || seenSignalHeadlines.has(key)) return false;
+        seenSignalHeadlines.add(key);
+        return true;
+      })
+      .slice(0, MAX_TREND_EVIDENCE_SEEDS);
+    try {
+      const seeds = topTrendSignals.map((candidate) => candidate.headline);
+      const result = await newsFn(evidence, {
+        fetchImpl: opts.fetchImpl,
+        seeds,
+        nowMs: opts.nowMs,
+      });
+      const newsEvidence = Array.isArray(result) ? result : [];
+      trendBackedCandidates = buildTrendEvidenceCandidates(
+        topTrendSignals,
+        newsEvidence,
+        Number.isFinite(opts.nowMs) ? Number(opts.nowMs) : Date.now(),
+      );
+    } catch (err) {
+      console.warn(`[discovery/trends] evidence search failed: ${err?.message || err}`);
+    }
+  }
+
+  // When the same Google News item appears in both the regular news pool and
+  // the trend-seeded search, retain the trend-backed row so the article keeps
+  // its originating signal in the report and sidecar.
+  const trendUrls = new Set(trendBackedCandidates.map((candidate) => candidate.url));
+  const uniqueNews = news.filter((candidate) => !trendUrls.has(candidate?.url));
+  perSource.news = uniqueNews.length;
+  perSource.trends = trendBackedCandidates.length;
+
+  for (const candidate of suggestions) merged.push(candidate);
+  for (const candidate of uniqueNews) merged.push(candidate);
+  for (const candidate of trendBackedCandidates) merged.push(candidate);
 
   return { candidates: merged, perSource };
 }
@@ -184,7 +317,7 @@ export function scoreCandidates(candidates, evidence) {
  * One-shot convenience: fetch + dedup + score. Returns the sorted list.
  *
  * @param {object} evidence
- * @param {{ provenHeadlines?: string[], fetchImpl?: Function, orphanFn?: Function, suggestFn?: Function, newsFn?: Function, trendsFn?: Function, dedupThreshold?: number }} [opts]
+ * @param {{ provenHeadlines?: string[], fetchImpl?: Function, orphanFn?: Function, suggestFn?: Function, newsFn?: Function, trendsFn?: Function, dedupThreshold?: number, nowMs?: number }} [opts]
  * @returns {Promise<{ candidates: ScoredDiscoveryCandidate[], perSource: Record<string, number>, postDedupCount: number }>}
  */
 export async function buildDiscoveryPool(evidence, opts = {}) {
