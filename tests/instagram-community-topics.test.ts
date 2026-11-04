@@ -51,6 +51,12 @@ describe('privacy-safe Instagram community topic signals', () => {
       .toBeNull();
     expect(classifyInstagramCommunityQuestion('How is traffic to a website?'))
       .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How much traffic on our website?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How much traffic to our site?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How is traffic on the road?'))
+      .toBe('mobilita-valichi');
     expect(classifyInstagramCommunityQuestion('How is traffic and tax?'))
       .toBeNull();
     expect(classifyInstagramCommunityQuestion('Dove\u200bma fisco'))
