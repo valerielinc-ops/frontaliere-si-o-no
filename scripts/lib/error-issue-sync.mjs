@@ -122,7 +122,6 @@ export const ISSUE_DENY_PATTERNS = [
   //   Chrome:  TypeError: Failed to fetch
   //   Firefox: TypeError: NetworkError when attempting to fetch resource.
   /^(?:TypeError: )?Load failed$/i,
-  /^(?:TypeError: )?cancelled$/i,
   /^(?:TypeError: )?Failed to fetch$/i,
   /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
   // WebKit/iOS emits this bare cancellation wording for an in-flight fetch
