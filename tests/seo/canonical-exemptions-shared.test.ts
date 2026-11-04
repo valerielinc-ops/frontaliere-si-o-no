@@ -103,6 +103,39 @@ describe('canonical exemptions — legitimate non-self canonicals', () => {
         slug,
       ).toBe(false);
     }
+
+    const routeLandings = [
+      'ricerca',
+      'search',
+      'suche',
+      'recherche',
+      'lavoro-part-time',
+      'part-time-jobs',
+      'teilzeit-jobs',
+      'emploi-temps-partiel',
+      'lavoro-infermieri-ticino',
+      'offerte-di-lavoro-ticino-oggi',
+      'foglio-ufficiale-offerte-di-lavoro-ticino',
+      'cliniche-ticino',
+      'ultimi-3-giorni',
+      'infermieri',
+    ];
+    for (const slug of routeLandings) {
+      expect(
+        isLegitJobCanonicalConsolidation(
+          `${H}/cerca-lavoro-ticino/${slug}/`,
+          `${H}/cerca-lavoro-ticino/lavoro-infermieri-ticino/`,
+        ),
+        slug,
+      ).toBe(false);
+    }
+
+    expect(
+      isLegitJobCanonicalConsolidation(
+        `${H}/cerca-lavoro-ticino/lavoro-part-time/`,
+        `${H}/cerca-lavoro-ticino/lavoro-infermieri-ticino/`,
+      ),
+    ).toBe(false);
   });
 });
 

@@ -41,6 +41,8 @@
 
 import { readFileSync } from 'node:fs';
 import { getJobBoardSectionPrefix } from './jobBoardSections.mjs';
+import { JOB_BOARD_DETAIL_PATH_RE } from './job-board-detail-path.mjs';
+import { SECTOR_HUB_SLUG } from '../../build-plugins/shared/jobSectorSlugs.mjs';
 
 const CANONICAL_SITE_ORIGIN = 'https://frontaliereticino.ch';
 
@@ -94,15 +96,39 @@ export const LEGACY_ALIAS_CANONICALS = new Map([
   ['/privacy-policy', '/en/privacy/'],
 ]);
 
-// The one-segment job-board shape is shared by job details and a few landing
-// pages, but search/category/company/pagination routes are different route
-// contracts. A same-section canonical between those families is not a job
-// slug consolidation and must remain actionable.
-const NON_DETAIL_JOB_BOARD_SLUG_RE = /^(?:azienda|company|unternehmen|entreprise|ricerca|search|suche|recherche|categoria|category|kategorie|categorie|pagina|page|seite)-/i;
+// The one-segment job-board shape is shared by job details and several landing
+// pages. Keep the route contracts explicit: a same-section canonical between
+// those non-detail families is not a job slug consolidation and must remain
+// actionable.
+const NON_DETAIL_JOB_BOARD_SLUG_RE = /^(?:tutti|all|alle|tous|aziende|company|companies|unternehmen|entreprise|entreprises|settori|sectors|branchen|secteurs|categoria|category|kategorie|categorie|ricerca|search|suche|recherche|azienda|pagina|page|seite)(?:-|$)/i;
+const EDITORIAL_JOB_BOARD_SLUG_RES = [
+  /^(?:oggi|today|heute|aujourdhui|infermieri|nurses|pflege-jobs|infirmiers|lavoro-infermieri|cliniche|clinics|kliniken|cliniques|case-anziani|care-homes|altersheime|maisons-retraite|oss|educatori|educators|paedagogen|educateurs)$/i,
+  /^(?:offerte-di-lavoro-[a-z0-9-]+-oggi|[a-z0-9-]+-jobs-today|jobs-[a-z0-9-]+-heute|offres-emploi-[a-z0-9-]+-aujourdhui)$/i,
+  /^(?:infermieri-in|nurses-in|pflege-jobs-(?:im|in)|infirmiers-(?:a|au|aux|en)|lavoro-infermieri)-[a-z0-9-]+$/i,
+  /^(?:lavoro-part-time|part-time-jobs|teilzeit-jobs|emploi-temps-partiel)(?:-[a-z0-9-]+)?$/i,
+  /^(?:cliniche|case-anziani|oss|educatori)-[a-z0-9-]+$/i,
+  /^(?:clinics|care-homes|healthcare-assistants|educators|kliniken|altersheime|pflegeassistenz|paedagogen)-[a-z0-9-]+-jobs$/i,
+  /^(?:cliniques|maisons-retraite|educateurs)-[a-z0-9-]+$/i,
+  /^(?:foglio-ufficiale-offerte-di-lavoro-[a-z0-9-]+|official-gazette-[a-z0-9-]+-jobs|amtsblatt-stellen-[a-z0-9-]+|feuille-officielle-emplois-[a-z0-9-]+)$/i,
+  /^(?:ultimi-3-giorni|da-ieri|last-3-days|since-yesterday|letzte-3-tage|seit-gestern|derniers-3-jours|depuis-hier)$/i,
+  /^(?:lavoro-tedesco-ticino|lavoro-senza-esperienza-ticino|german-speaking-jobs-ticino|jobs-without-experience-ticino|deutschsprachige-jobs-tessin|jobs-ohne-erfahrung-tessin|emplois-germanophones-tessin|emplois-sans-experience-tessin)$/i,
+];
+const JOB_BOARD_SECTOR_SLUGS = new Set(
+  Object.values(SECTOR_HUB_SLUG)
+    .flatMap((localeSlugs) => Object.values(localeSlugs))
+    .map((slug) => slug.toLowerCase()),
+);
 
 function isAllowedJobBoardLeaf(path, section) {
-  const suffix = path.slice(section.length).replace(/\/$/, '');
-  return suffix.length > 0 && !suffix.includes('/') && !NON_DETAIL_JOB_BOARD_SLUG_RE.test(suffix);
+  const normalizedPath = path.endsWith('/') ? path : `${path}/`;
+  if (!JOB_BOARD_DETAIL_PATH_RE.test(normalizedPath)) return false;
+
+  const suffix = normalizedPath.slice(section.length).replace(/\/$/, '');
+  return suffix.length > 0
+    && !suffix.includes('/')
+    && !NON_DETAIL_JOB_BOARD_SLUG_RE.test(suffix)
+    && !EDITORIAL_JOB_BOARD_SLUG_RES.some((pattern) => pattern.test(suffix))
+    && !JOB_BOARD_SECTOR_SLUGS.has(suffix.toLowerCase());
 }
 
 /**
