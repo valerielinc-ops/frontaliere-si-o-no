@@ -17,7 +17,6 @@ import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
 import { detectLocale } from './detectLocale.mjs';
 import { launchChromium } from '../ensure-chromium.mjs';
-import { normalizeDeadlineMs, timeoutWithinDeadline } from '../deadline.mjs';
 
 // Soft-bias for Lombardia cross-tagging: independent of FRONTALIERI_DOMAIN_RE
 // because we want to surface "auto in Varese" / "Como confine" even when
@@ -385,6 +384,19 @@ export function parseTrendsRss(xml) {
 // IT-25 geo bucket via cross-tagging. Rough but free.
 const LOMBARDIA_HINT_RE =
   /\b(lombard|varese|como|milano|gallarate|busto|tradate|cantello|ponte\s*tresa|chiasso|luino|val\s*ceresio|bregaglia)\b/i;
+
+function normalizeDeadlineMs(value) {
+  if (value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function timeoutWithinDeadline(value, maximumMs) {
+  const maxMs = Math.max(0, Math.floor(Number(maximumMs) || 0));
+  const deadlineMs = normalizeDeadlineMs(value);
+  if (deadlineMs === null) return maxMs;
+  return Math.min(maxMs, Math.max(0, Math.floor(deadlineMs - Date.now())));
+}
 
 /**
  * @param {object} [opts]

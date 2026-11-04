@@ -19,7 +19,6 @@
 //   - Malformed JSON → empty result for that seed with `reason`.
 
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
-import { hasDeadlineWindow, normalizeDeadlineMs, timeoutWithinDeadline } from '../deadline.mjs';
 
 // DENYLIST: Google Suggest sometimes autocompletes a seed into the wrong
 // sense — e.g. seed "permesso G" returns "permesso gratuito pesca in
@@ -216,6 +215,27 @@ export function parseSuggestPayload(text) {
   return completions
     .map((c) => (typeof c === 'string' ? c.trim() : null))
     .filter((c) => !!c);
+}
+
+function normalizeDeadlineMs(value) {
+  if (value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function hasDeadlineWindow(value, minimumMs = 0) {
+  const deadlineMs = normalizeDeadlineMs(value);
+  if (deadlineMs === null) return true;
+  const minimum = Number(minimumMs);
+  const safeMinimumMs = Number.isFinite(minimum) && minimum > 0 ? minimum : 0;
+  return deadlineMs - Date.now() >= safeMinimumMs;
+}
+
+function timeoutWithinDeadline(value, maximumMs) {
+  const maxMs = Math.max(0, Math.floor(Number(maximumMs) || 0));
+  const deadlineMs = normalizeDeadlineMs(value);
+  if (deadlineMs === null) return maxMs;
+  return Math.min(maxMs, Math.max(0, Math.floor(deadlineMs - Date.now())));
 }
 
 async function fetchOneSeed(seed, fetchImpl, deadlineMs) {

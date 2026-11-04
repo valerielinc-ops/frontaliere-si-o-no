@@ -21,12 +21,6 @@
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
 import { detectLocale } from './detectLocale.mjs';
-import {
-  hasDeadlineWindow,
-  normalizeNonNegativeDeadlineMs,
-  remainingDeadlineMs,
-  timeoutWithinDeadline,
-} from '../deadline.mjs';
 
 // Lombardia frontier-cities. Cross-border-relevant news from Varese/Como
 // is welcome even when the title doesn't contain explicit frontaliere
@@ -296,6 +290,30 @@ async function fetchOneSeed(seed, fetchImpl, timeoutMs, deadlineMs = null) {
     }
   }
   return { ok: false, items: [], reason: lastReason ?? 'unknown error' };
+}
+
+function normalizeNonNegativeDeadlineMs(value) {
+  if (value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? Math.max(0, number) : null;
+}
+
+function remainingDeadlineMs(value) {
+  if (value === null) return null;
+  return Math.floor(value - Date.now());
+}
+
+function timeoutWithinDeadline(value, maximumMs) {
+  const maxMs = Math.max(0, Math.floor(Number(maximumMs) || 0));
+  const remainingMs = remainingDeadlineMs(value);
+  return remainingMs === null ? maxMs : Math.min(maxMs, Math.max(0, remainingMs));
+}
+
+function hasDeadlineWindow(value, minimumMs = 0) {
+  if (value === null) return true;
+  const minimum = Number(minimumMs);
+  const safeMinimumMs = Number.isFinite(minimum) && minimum > 0 ? minimum : 0;
+  return value - Date.now() >= safeMinimumMs;
 }
 
 /**

@@ -19,7 +19,6 @@ import {
   NEWS_RSS_MAX_SEED_DURATION_MS,
 } from './sources/googleNewsRssSource.mjs';
 import { fetchTrendsDiscoveryCandidates } from './sources/googleTrendsSource.mjs';
-import { effectiveDeadlineMs, hasDeadlineWindow } from '../deadline.mjs';
 import { discoveryScore } from './discoveryScore.mjs';
 import { isNearDuplicate, SLUG_SIMILARITY_THRESHOLD } from '../scheduler/slugSimilarity.mjs';
 
@@ -28,6 +27,28 @@ const MAX_TREND_EVIDENCE_SEEDS = 3;
 const MAX_TREND_EVIDENCE_ARTICLES_PER_SEED = 2;
 const MAX_TREND_EVIDENCE_AGE_HOURS = 14 * 24;
 const MIN_TREND_EVIDENCE_WINDOW_MS = MAX_TREND_EVIDENCE_SEEDS * NEWS_RSS_MAX_SEED_DURATION_MS;
+
+function normalizeDeadlineMs(value) {
+  if (value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function effectiveDeadlineMs(value, reserveValue = 0) {
+  const deadlineMs = normalizeDeadlineMs(value);
+  if (deadlineMs === null) return null;
+  const reserveMs = Number(reserveValue);
+  const safeReserveMs = Number.isFinite(reserveMs) && reserveMs > 0 ? reserveMs : 0;
+  return Math.max(0, deadlineMs - safeReserveMs);
+}
+
+function hasDeadlineWindow(value, minimumMs = 0) {
+  const deadlineMs = normalizeDeadlineMs(value);
+  if (deadlineMs === null) return true;
+  const minimum = Number(minimumMs);
+  const safeMinimumMs = Number.isFinite(minimum) && minimum > 0 ? minimum : 0;
+  return deadlineMs - Date.now() >= safeMinimumMs;
+}
 
 function isOrphanDisabled() {
   return ENV_TRUE(process.env.DISABLE_DISCOVERY_ORPHAN);
