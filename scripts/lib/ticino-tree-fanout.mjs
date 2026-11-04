@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { mkdirSync, readFileSync, readdirSync, realpathSync, renameSync, rmdirSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, renameSync, rmdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { ticinoTreeBucket } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
+import { isInvokedDirectly } from './is-invoked-directly.mjs';
 
 export function ticinoTreePhysicalPath(relativePath) {
   if (relativePath === 'index.html') return relativePath;
@@ -67,16 +67,7 @@ function mapPathStream() {
   process.stdout.write(output ? `${output}\0` : '');
 }
 
-function isInvokedDirectly() {
-  if (!process.argv[1]) return false;
-  try {
-    return realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
-  } catch {
-    return false;
-  }
-}
-
-if (isInvokedDirectly()) {
+if (isInvokedDirectly(import.meta.url)) {
   const [command, root] = process.argv.slice(2);
   try {
     if (command === 'map-paths') {
