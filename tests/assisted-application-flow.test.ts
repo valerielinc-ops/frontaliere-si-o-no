@@ -683,6 +683,13 @@ describe('CAPTCHA provider stops are handed to Valerie', () => {
     expect(result.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: null });
     expect(result.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover', reason: 'portal:captcha_provider_unavailable' })]);
   });
+  it.each(['portal_antibot_ambiguous', 'portal:portal_antibot_ambiguous'])('keeps legacy invisible CAPTCHA reason %s with Valerie', reason => {
+    const draft = { ...cleanDraft, round: 1 };
+    const held = { state: 'owner_takeover', round: 1, heldBy: [reason], dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    expect(canOwnerHandoffToCandidate(held)).toBe(false);
+    expect(transition(held, { type: 'owner_handoff' }, { draft, nowMs: T0 }).ignored).toBe('captcha_requires_owner');
+    expect(transition(held, { type: 'owner_retry_submit' }, { draft, nowMs: T0 }).ignored).toBe('captcha_requires_owner');
+  });
   it('does not retry a draft that the candidate has not approved', () => {
     const now = Date.now();
     const result = transition({ state: 'owner_takeover', round: 1, heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: now - 1, dispatch: { mode: 'draft', round: 1 } }, { type: 'portal_auto_retry' }, { draft: { ...cleanDraft, round: 1 }, nowMs: now });
