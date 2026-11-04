@@ -169,7 +169,11 @@ describe('reported GSC event archive coverage', () => {
         const hasSupportedLocation = Boolean(
           event.comune || event.address?.locality || event.address?.street || event.address?.postalCode,
         );
-        const cleanedPeople = withoutAddressPeople(event, { label: event.sourceName });
+        const locality = event.address?.locality?.trim() || event.comune?.trim() || '';
+        const cleanedPeople = withoutAddressPeople({
+          ...event,
+          venue: event.venue?.trim() || locality,
+        }, { label: event.sourceName });
         const hasSourceBackedPerformer = Boolean(
           normalizeEventPeople(cleanedPeople.performer, event.url, event.url),
         );
