@@ -137,6 +137,10 @@ describe('Stadtspital Zürich crawler parser', () => {
       { id: '70002', unit: 'Stadtspital Zürich' },
       { id: '70003', unit: 'Verkehrsbetriebe' },
     ]);
+    const currentPortalAdFor = (ref: string) => ({
+      html: '',
+      descriptionHtml: officialAdFor(ref),
+    });
 
     function stubFetchWith(html: string, {
       index = INDEX,
@@ -266,9 +270,22 @@ describe('Stadtspital Zürich crawler parser', () => {
       expect(jobs[0].description).not.toContain('Nur ein kurzer Eintrag');
     });
 
-    it('fails the run when the official ad index cannot be read', async () => {
+    it('falls back to hydrated current portal details when the official ad index cannot be read', async () => {
       stubFetchWith(FIXTURE, { index: null });
-      await expect(fetchAllStadtspitalZuerichJobs()).rejects.toThrow(/official ad index unavailable/);
+      const detailCalls: string[] = [];
+      const jobs = await fetchAllStadtspitalZuerichJobs({
+        fetchCurrentDetailPage: async (url: string, row: { ref?: string }) => {
+          detailCalls.push(url);
+          return currentPortalAdFor(String(row.ref || ''));
+        },
+      });
+
+      expect(jobs).toHaveLength(2);
+      expect(jobs.every((job: any) => job.description.includes('Aufgaben'))).toBe(true);
+      expect(detailCalls).toEqual([
+        'https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-Chirurgie-AB2-mit-WAIDsicht/1358220057/',
+        'https://jobs.stadt-zuerich.ch/job/Assistenz%C3%A4rztin-Gastroenterologie-&amp;-Hepatologie/733045302/',
+      ]);
     });
 
     it('produces required fields, safe structured-data defaults and 50+ word descriptions', async () => {

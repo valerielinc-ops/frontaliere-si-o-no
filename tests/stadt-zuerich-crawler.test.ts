@@ -200,8 +200,9 @@ describe('parseOfficialAdPage', () => {
 // Referenz-Nr. has no official ad page used to go out as a synthetic tile
 // summary ("{title} bei der Stadtverwaltung Zürich … Weitere Details … finden
 // Sie auf der offiziellen Stellenplattform"); it is not published any more.
-// Without either the portal index or a matching current detail page no tile
-// has its text, so the run fails instead of emptying the board.
+// If the legacy portal index is unavailable, the parser falls back to the
+// hydrated current detail pages without inventing text for a tile whose body
+// is still absent.
 describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
   const fixture = fs.readFileSync(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'stadt-zuerich-official-ad-gaertner.html'),
@@ -248,9 +249,34 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     expect(jobs[0].description).toContain('Aufgaben');
   }, 20_000);
 
+  it('uses hydrated current detail pages when the official index cannot be read', async () => {
+    mockPortal({ indexOk: false });
+    const detailCalls: string[] = [];
+    const jobs = await fetchAllStadtZuerichJobs({
+      fetchCurrentDetailPage: async (url: string, row: { ref?: string }) => {
+        detailCalls.push(url);
+        return row.ref === '51726'
+          ? { html: '', descriptionHtml: fixture }
+          : { html: '', descriptionHtml: '<p>Nur ein kurzer Eintrag.</p>' };
+      },
+    });
+
+    expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
+    expect(jobs[0].description).toContain('Aufgaben');
+    expect(detailCalls).toEqual([
+      'https://jobs.stadt-zuerich.ch/job/1101/1101/',
+      'https://jobs.stadt-zuerich.ch/job/1102/1102/',
+    ]);
+  }, 20_000);
+
   it('fails the run when neither official source can be read', async () => {
     mockPortal({ indexOk: false });
-    await expect(fetchAllStadtZuerichJobs()).rejects.toThrow(/official ad index unavailable/);
+    await expect(fetchAllStadtZuerichJobs({
+      fetchCurrentDetailPage: async () => ({
+        html: '',
+        descriptionHtml: '<p>Nur ein kurzer Eintrag.</p>',
+      }),
+    })).rejects.toThrow(/current portal detail fallback yielded no vacancy text/);
   }, 20_000);
 
   // 2026-09-29: the same ad re-posted under a second Referenz-Nr. (e.g.
