@@ -946,6 +946,11 @@ describe('renderEventDetailPage', () => {
     expect(generatedPage.html).toContain('/images/events/library/event-musica-ticino-confine-primavera-estate.webp');
     expect(generatedPage.html).toContain('Immagine illustrativa generata con IA');
     expect(generatedPage.html).toContain('https://openai.com/policies/terms-of-use/');
+    expect(generatedPage.html).not.toContain('"@type":"Event"');
+    const imageSchema = [...generatedPage.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]!) as Record<string, any>)
+      .find((schema) => schema['@type'] === 'ImageObject');
+    expect(imageSchema?.license).toBe('https://openai.com/policies/terms-of-use/');
     expect(generatedPage.html).toContain('image/webp');
   });
 

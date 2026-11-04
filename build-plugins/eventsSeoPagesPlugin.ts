@@ -4471,8 +4471,20 @@ export function renderEventDetailPage(params: {
   // remain distinct. Search Console's reported recommended facts are also a
   // publication gate: incomplete source records do not emit partial Event markup.
   const eventSchema = eventLd(event, locale, canonicalUrl);
-  const eventLdScript = eventSchema && hasCompleteGoogleEventData(eventSchema)
+  const hasCompleteEventSchema = eventSchema && hasCompleteGoogleEventData(eventSchema);
+  const eventLdScript = hasCompleteEventSchema
     ? inlineScriptJson(eventSchema)
+    : '';
+  // Image licensing metadata belongs to each page occurrence independently of
+  // Event rich-result eligibility. Keep it as a standalone ImageObject when
+  // the Event node is suppressed, including records that lack a performer.
+  const imageSchema = hasCompleteEventSchema
+    ? null
+    : (eventSchema?.image as ImageObjectLd | undefined)
+      ?? mirroredEventImageObject(event)
+      ?? catalogImageObjectLd(event.category, locale);
+  const imageLdScript = imageSchema
+    ? inlineScriptJson({ '@context': 'https://schema.org', ...imageSchema })
     : '';
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -4528,7 +4540,12 @@ export function renderEventDetailPage(params: {
       }
       : {}),
     bodyHtml,
-    jsonLdScripts: eventLdScript ? [eventLdScript, breadcrumbLd, faqLd] : [breadcrumbLd, faqLd],
+    jsonLdScripts: [
+      ...(eventLdScript ? [eventLdScript] : []),
+      ...(imageLdScript ? [imageLdScript] : []),
+      breadcrumbLd,
+      faqLd,
+    ],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });
