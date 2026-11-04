@@ -47,6 +47,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { launchChromium } from './lib/ensure-chromium.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 // NCore's listing/detail markup is shared with the Sintetica runner. Keep the
 // platform parser in one place while CSC-specific discovery and trust rules
 // remain local to this adapter.
@@ -817,32 +818,45 @@ function parseCscNcoreJobDetail(html, candidateUrl) {
   return { identity: `ncore-job:${id}`, nodeId: '', hasJobPosting: false };
 }
 
-async function fetchCscHtml(url, { fetchImpl, timeoutMs }) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const isNcore = (() => {
-      try { return new URL(url).hostname.toLowerCase() === CSC_NCORE_HOST; } catch { return false; }
-    })();
-    const res = await fetchImpl(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
-        'User-Agent': isNcore ? CSC_NCORE_BROWSER_UA : UA,
-      },
-    });
-    if (!res?.ok) throw new Error(`${url} returned HTTP ${res?.status ?? 'unknown'}`);
-    const contentType = res.headers?.get?.('content-type');
-    if (contentType && !/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(contentType)) {
-      throw new Error(`${url} returned unexpected content-type ${contentType}`);
+async function fetchCscHtml(url, { fetchImpl, timeoutMs, retries, retryBaseMs }) {
+  const isNcore = (() => {
+    try { return new URL(url).hostname.toLowerCase() === CSC_NCORE_HOST; } catch { return false; }
+  })();
+
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetchImpl(url, {
+        signal: controller.signal,
+        headers: {
+          Accept: 'text/html,application/xhtml+xml',
+          'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+          'User-Agent': isNcore ? CSC_NCORE_BROWSER_UA : UA,
+        },
+      });
+      if (!res?.ok) {
+        const error = new Error(`${url} returned HTTP ${res?.status ?? 'unknown'}`);
+        error.status = res?.status;
+        error.retryable = RETRYABLE_STATUS.has(res?.status);
+        error.response = res;
+        throw error;
+      }
+      const contentType = res.headers?.get?.('content-type');
+      if (contentType && !/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(contentType)) {
+        throw new Error(`${url} returned unexpected content-type ${contentType}`);
+      }
+      const responseUrl = typeof res.url === 'string' ? res.url.trim() : '';
+      if (!responseUrl) throw new Error(`${url} returned no final response URL.`);
+      return { html: await res.text(), responseUrl };
+    } finally {
+      clearTimeout(timer);
     }
-    const responseUrl = typeof res.url === 'string' ? res.url.trim() : '';
-    if (!responseUrl) throw new Error(`${url} returned no final response URL.`);
-    return { html: await res.text(), responseUrl };
-  } finally {
-    clearTimeout(timer);
-  }
+  }, {
+    retries,
+    retryBaseMs,
+    label: `CSC ${url}`,
+  });
 }
 
 /**
@@ -884,7 +898,12 @@ export async function verifyCscDetailUrls(urls, options = {}) {
   const verified = [];
   const identities = new Map();
   for (const candidate of candidates) {
-    const { html, responseUrl } = await fetchCscHtml(candidate, { fetchImpl, timeoutMs });
+    const { html, responseUrl } = await fetchCscHtml(candidate, {
+      fetchImpl,
+      timeoutMs,
+      retries: options.retries,
+      retryBaseMs: options.retryBaseMs,
+    });
     if (!cscResponseMatchesCandidate(responseUrl, candidate)) {
       throw new Error(`CSC detail invariant failed: ${candidate} redirected outside its exact detail contract to ${responseUrl}.`);
     }
@@ -951,7 +970,12 @@ export async function fetchCscJobUrls(options = {}) {
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   console.log(`🔍 Fetching CSC careers page: ${CSC_CAREERS_URL}`);
 
-  const { html, responseUrl } = await fetchCscHtml(CSC_CAREERS_URL, { fetchImpl, timeoutMs });
+  const { html, responseUrl } = await fetchCscHtml(CSC_CAREERS_URL, {
+    fetchImpl,
+    timeoutMs,
+    retries: options.retries,
+    retryBaseMs: options.retryBaseMs,
+  });
   if (responseUrl !== CSC_CAREERS_URL) {
     throw new Error(`CSC discovery degraded: careers page redirected to ${responseUrl}.`);
   }
@@ -975,7 +999,12 @@ export async function fetchCscJobUrls(options = {}) {
       parseCscCareersPage(html);
     }
     console.log(`🔗 CSC careers source moved to NCore board: ${boardUrl}`);
-    const boardResponse = await fetchCscHtml(boardUrl, { fetchImpl, timeoutMs });
+    const boardResponse = await fetchCscHtml(boardUrl, {
+      fetchImpl,
+      timeoutMs,
+      retries: options.retries,
+      retryBaseMs: options.retryBaseMs,
+    });
     if (!cscResponseMatchesBoard(boardResponse.responseUrl, boardUrl)) {
       throw new Error(`CSC discovery degraded: NCore board redirected to ${boardResponse.responseUrl}.`);
     }
@@ -1014,6 +1043,8 @@ export async function fetchCscJobUrls(options = {}) {
     fetchImpl,
     renderDetailPage,
     timeoutMs,
+    retries: options.retries,
+    retryBaseMs: options.retryBaseMs,
     structureSnapshotPath: options.structureSnapshotPath,
     detailPageCache: options.detailPageCache,
   });
