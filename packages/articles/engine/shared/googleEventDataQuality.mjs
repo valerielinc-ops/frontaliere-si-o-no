@@ -130,7 +130,7 @@ export function hasCompleteGoogleEventData(event) {
     && attendanceModes.some((value) => EVENT_ATTENDANCE_MODES.has(value))
     && offers.length > 0
     && offers.every((offer) => hasCompleteOffer(offer, event))
-    && (!event.previousStartDate || (
-      status.includes('EventRescheduled') && isValidDateTime(event.previousStartDate)
-    ));
+    && (status.includes('EventRescheduled')
+      ? isValidDateTime(event.previousStartDate)
+      : !event.previousStartDate);
 }

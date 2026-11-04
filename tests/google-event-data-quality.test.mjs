@@ -66,4 +66,13 @@ describe('Google Event data quality publication gate', () => {
     freeEvent.offers.price = 0;
     expect(hasCompleteGoogleEventData(freeEvent)).toBe(false);
   });
+
+  it('requires the previous date when an event is rescheduled', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    event.eventStatus = 'https://schema.org/EventRescheduled';
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
+
+    event.previousStartDate = '2026-11-30';
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+  });
 });
