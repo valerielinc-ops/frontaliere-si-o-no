@@ -388,6 +388,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     return run('photo_upload', { contentBase64: await fileToBase64(file) });
   };
   const removeDocument = (document: { id: string }, fileId: string) => run('document_remove', { documentId: document.id, fileId });
+  const setDocumentPrepared = (document: { id: string }, prepared: boolean) => run('document_set_prepared', { documentId: document.id, prepared });
+  const setDocumentExemption = (document: { id: string }, exemption: string) => run('document_set_exemption', { documentId: document.id, exemption });
 
   // Fields shown to the candidate: an e-mail application uses the letter header and what the tailored CV prints.
   const shownFields = useMemo(
@@ -577,7 +579,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         ) : (
           <div className="flex items-start gap-3 rounded-xl border border-success-border bg-success-subtle p-4" role="status">
             <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
-            <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.submitted')}</p>
+            <p className="text-sm leading-relaxed text-body">{t(data.postalSubmission ? 'jobBoard.assisted.review.postal.submitted' : 'jobBoard.assisted.review.submitted')}</p>
           </div>
         ))}
 
@@ -603,7 +605,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                 ? t('jobBoard.assisted.review.heldByQuestions')
                 : openDocuments.length
                   ? t('jobBoard.assisted.review.heldByDocuments')
-                  : t('jobBoard.assisted.review.autoApproveAt', { deadline: formatDeadline(data.deadlineAt, pageLocale) })}
+                  : t(data.postalSubmission ? 'jobBoard.assisted.review.autoPostalAt' : 'jobBoard.assisted.review.autoApproveAt', { deadline: formatDeadline(data.deadlineAt, pageLocale) })}
             </p>
           </div>
         )}
@@ -652,6 +654,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             disabled={Boolean(busy)}
             onUpload={uploadDocument}
             onRemove={removeDocument}
+            onSetPrepared={setDocumentPrepared}
+            onSetExemption={setDocumentExemption}
           />
         )}
 
@@ -660,13 +664,13 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h2 className="text-base font-bold text-heading">{t('jobBoard.assisted.review.letterTitle')}</h2>
               <div className="flex flex-wrap items-center gap-3">
-                {data.coverLetterUrl && (
+                {data.coverLetterUrl && !data.postalSubmission && (
                   <a href={data.coverLetterUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-semibold text-link hover:underline">
                     <FileText className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.letterPdf')}
                   </a>
                 )}
                 {/* The saved letter, not the edits in progress. */}
-                {data.word?.letter && !editing && <WordCopyLink token={token} file="letter.docx" />}
+                {data.word?.letter && !editing && !data.postalSubmission && <WordCopyLink token={token} file="letter.docx" />}
                 {data.can.edit && !editing && (
                   <button type="button" onClick={startEditing} disabled={Boolean(busy)} className="inline-flex min-h-[36px] items-center gap-1 rounded-lg border border-edge px-3 text-sm font-semibold text-body hover:border-accent hover:text-link disabled:opacity-60">
                     <Pencil className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.edit')}
@@ -749,6 +753,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               </form>
             ) : (
               <>
+                {data.postalSubmission && !data.documents?.some((document) => document.id === 'handwritten_letter' && document.exemption) && <p className="rounded-lg border border-info-border bg-info-subtle/40 px-3 py-2 text-xs text-body">{t('jobBoard.assisted.review.postal.handwriteLetter')}</p>}
                 <div className="max-h-96 overflow-y-auto whitespace-pre-line rounded-xl border border-edge bg-surface-alt p-4 text-sm leading-relaxed text-body">
                   {data.coverLetter.text}
                 </div>
@@ -871,7 +876,61 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           </div>
         )}
 
-        {data && data.state === 'candidate_handoff' && (
+        {data && data.state === 'candidate_handoff' && data.postalSubmission && (
+          <section className="space-y-4 rounded-xl border border-accent-border bg-accent-subtle/40 p-4" aria-labelledby="postal-submission-title">
+            <div>
+              <h2 id="postal-submission-title" className="text-base font-bold text-heading">{t('jobBoard.assisted.review.postal.title')}</h2>
+              <p className="mt-1 text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.postal.body')}</p>
+            </div>
+            <dl className="grid gap-3 rounded-lg border border-edge bg-surface p-3 text-sm sm:grid-cols-2">
+              <div><dt className="text-xs font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.postal.recipient')}</dt><dd className="mt-1 break-words text-body">{data.postalSubmission.recipient}</dd></div>
+              <div><dt className="text-xs font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.postal.deadline')}</dt><dd className="mt-1 break-words text-body">{data.postalSubmission.deadline}</dd></div>
+              <div className="sm:col-span-2"><dt className="text-xs font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.postal.address')}</dt><dd className="mt-1 whitespace-pre-wrap text-body">{data.postalSubmission.address}</dd></div>
+              <div className="sm:col-span-2"><dt className="text-xs font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.postal.envelopeMarking')}</dt><dd className="mt-1 break-words font-medium text-body">{data.postalSubmission.envelopeMarking}</dd></div>
+              <div className="sm:col-span-2"><dt className="text-xs font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.postal.instructions')}</dt><dd className="mt-1 whitespace-pre-wrap text-body">{data.postalSubmission.instructions}</dd></div>
+            </dl>
+            <div className="space-y-2">
+              <h3 className="text-sm font-semibold text-heading">{t('jobBoard.assisted.review.postal.materials')}</h3>
+              <ul className="space-y-2 rounded-lg border border-edge bg-surface p-3 text-sm">
+                {data.coverLetter?.text && !data.documents?.some((document) => document.id === 'handwritten_letter' && document.exemption) && <li><span className="inline-flex min-h-[40px] items-center gap-2 font-medium text-body"><FileText className="h-4 w-4" aria-hidden="true" />{t('jobBoard.assisted.review.postal.coverLetter')}</span><p className="text-xs text-subtle">{t('jobBoard.assisted.review.postal.handwriteLetter')}</p></li>}
+                {!data.documents?.some((document) => document.id === 'curriculum_vitae' && document.exemption) && data.tailoredCv?.url && data.tailoredCv.choice !== 'original' && <li><a href={data.tailoredCv.url} target="_blank" rel="noreferrer" className="inline-flex min-h-[40px] items-center gap-2 text-link hover:underline"><FileText className="h-4 w-4" aria-hidden="true" />{t('jobBoard.assisted.review.postal.tailoredCv')}</a></li>}
+                {!data.documents?.some((document) => document.id === 'curriculum_vitae' && document.exemption) && data.originalCvUrl && (!data.tailoredCv?.url || data.tailoredCv.choice === 'original') && <li><a href={data.originalCvUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-[40px] items-center gap-2 text-link hover:underline"><FileText className="h-4 w-4" aria-hidden="true" />{t('jobBoard.assisted.review.postal.selectedOriginalCv')}</a></li>}
+                {(data.documents || []).flatMap((document) => document.files.filter((file) => file.url).map((file) => ({ document, file }))).map(({ document, file }) => (
+                  <li key={file.id}><a href={file.url || undefined} target="_blank" rel="noreferrer" className="inline-flex min-h-[40px] items-center gap-2 text-link hover:underline"><FileText className="h-4 w-4" aria-hidden="true" />{t('jobBoard.assisted.review.postal.documentFile', { document: document.label, name: file.name })}</a></li>
+                ))}
+                {(data.documents || []).filter((document) => document.delivery === 'offline').map((document) => (
+                  <li key={`offline-${document.id}`} className="flex flex-wrap items-start justify-between gap-2">
+                    <span className="font-medium text-body">{document.label}</span>
+                    <span className="text-xs text-subtle">{document.exemption
+                      ? t('jobBoard.assisted.review.postal.exemptDocument', { reason: t(`jobBoard.assisted.review.documents.exemptions.${document.exemption}`) })
+                      : document.preparedAt ? t('jobBoard.assisted.review.postal.offlinePrepared') : t('jobBoard.assisted.review.postal.offlineNotPrepared')}</span>
+                  </li>
+                ))}
+                {(data.documents || []).filter((document) => document.delivery === 'service').map((document) => (
+                  <li key={`service-${document.id}`} className="flex flex-wrap items-start justify-between gap-2">
+                    <span className="font-medium text-body">{document.label}</span>
+                    <span className="text-xs text-subtle">{document.exemption
+                      ? t('jobBoard.assisted.review.postal.exemptDocument', { reason: t(`jobBoard.assisted.review.documents.exemptions.${document.exemption}`) })
+                      : t('jobBoard.assisted.review.documents.servicePreparedNote')}</span>
+                  </li>
+                ))}
+              </ul>
+              {data.postalSubmission.officialFormUrl && <a href={data.postalSubmission.officialFormUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-[40px] items-center gap-2 text-link hover:underline"><ExternalLink className="h-4 w-4" aria-hidden="true" />{t('jobBoard.assisted.review.postal.officialForm')}</a>}
+              {data.coverLetter?.text && <details className="rounded-lg border border-edge bg-surface p-3"><summary className="cursor-pointer text-sm font-semibold text-heading">{t('jobBoard.assisted.review.postal.letterText')}</summary><p className="mt-2 whitespace-pre-wrap text-sm text-body">{data.coverLetter.text}</p></details>}
+            </div>
+            <button
+              type="button"
+              onClick={() => { void run('confirm_submitted'); }}
+              disabled={Boolean(busy) || !data.can.confirmSubmitted}
+              className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:opacity-60"
+            >
+              {busy === 'confirm_submitted' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <CheckCircle2 className="h-4 w-4" aria-hidden="true" />}
+              {t('jobBoard.assisted.review.postal.confirmMailed')}
+            </button>
+          </section>
+        )}
+
+        {data && data.state === 'candidate_handoff' && !data.postalSubmission && (
           <div className="space-y-4 rounded-xl border border-accent-border bg-accent-subtle/40 p-4">
             <h2 className="text-base font-bold text-heading">{t('jobBoard.assisted.review.handoffTitle')}</h2>
             <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.handoffBody')}</p>
@@ -917,7 +976,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
             >
               {busy === 'approve' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Send className="h-4 w-4" aria-hidden="true" />}
-              {t('jobBoard.assisted.review.approve')}
+              {t(data.postalSubmission ? 'jobBoard.assisted.review.approvePostal' : 'jobBoard.assisted.review.approve')}
             </button>
             {editing && <p className="text-xs text-subtle">{t('jobBoard.assisted.review.finishEditing')}</p>}
             {!showFeedback ? (

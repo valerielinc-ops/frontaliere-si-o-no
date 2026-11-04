@@ -9,6 +9,8 @@ const deWhatsnew: Record<string, string> = {
   'whatsNew.v31002.title': 'Der nächste Schritt ist leichter zu erkennen',
   'whatsNew.v31002.concierge.title': 'Anfragen und Bewerbungen übersichtlich geordnet',
   'whatsNew.v31002.concierge.desc': 'Anfragen nach Informationen stehen an erster Stelle. Bewerbungen sind nach Status in aufklappbaren Abschnitten geordnet.',
+  'whatsNew.v31002.postal.title': 'Unterlagen und Papierbewerbungen auf deiner Bewerbungsseite',
+  'whatsNew.v31002.postal.desc': 'Beantworte Dokumentenanfragen auf der geschützten Seite. Bei Papierbewerbungen findest du dort Unterlagen, Empfänger und Versandhinweise.',
   "whatsNew.v39917.title": "Ein Einstieg über soziale Medien",
   "whatsNew.v39917.socialHub.title": "Wichtige Ressourcen auf einer Seite",
   "whatsNew.v39917.socialHub.desc": "Die Seite bündelt Stellen, Nettolohn-Rechner, Grenzverkehr-Updates, Ratgeber und den Wochenüberblick.",

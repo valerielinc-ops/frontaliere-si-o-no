@@ -7,8 +7,10 @@
  *
  *   draft.requiredDocuments  what the posting asks for, as the draft read it:
  *     [{ id, label, kind, keywords, required, quote }]
+ *   flow.requestedDocuments when requestedDocumentsOverride is true, the
+ *     owner-curated list that the candidate sees in the review interface.
  *   flow.documents           what the candidate gave on the review page:
- *     { [id]: { files: [{ key, name, size, detectedType, uploadedAt, clientCheck }] } }
+ *     { [id]: { preparedAt, files: [{ key, name, size, detectedType, uploadedAt, clientCheck }] } }
  *
  * A required document is uploaded or the application waits (owner decision
  * 2026-10-08): what the posting demands cannot be skipped, and an application
@@ -77,19 +79,22 @@ export function documentFileId(key) {
  * The review page's view of the requested documents: what the posting asks
  * and what the candidate gave (names and browser verdicts).
  */
-export function documentsView(draft, flow) {
-  return requiredDocumentsOf(draft).map((document) => {
+export function documentsView(draft, flow, fileUrls = {}) {
+  return requiredDocumentsFor(draft, flow).map((document) => {
     const given = flow?.documents?.[document.id] || {};
     return {
       ...document,
       files: (Array.isArray(given.files) ? given.files : []).map((file) => ({
         id: documentFileId(file.key),
         name: text(file.name, 120),
+        url: fileUrls[documentFileId(file.key)] || null,
         size: Number(file.size) || 0,
         detectedType: file.detectedType || null,
         uploadedAt: Number(file.uploadedAt) || null,
         clientCheck: sanitizeClientCheck(file.clientCheck),
       })),
+      preparedAt: Number(given.preparedAt) || null,
+      exemption: document.exemptions.includes(given.exemption) ? given.exemption : null,
     };
   });
 }
@@ -131,10 +136,24 @@ export function requiredDocumentsOf(draft) {
       keywords: (Array.isArray(item.keywords) ? item.keywords : []).map((word) => text(word, 40)).filter(Boolean).slice(0, 12),
       required: item.required !== false,
       quote: text(item.quote, 300),
+      instructions: text(item.instructions, 500),
+      // Official or sensitive records can be requested in the interface as
+      // a paper task. Their contents stay with the candidate and are not
+      // uploaded to the service.
+      delivery: item.delivery === 'offline' ? 'offline'
+        : item.delivery === 'service' && id === 'curriculum_vitae' ? 'service' : 'upload',
+      exemptions: [...new Set((Array.isArray(item.exemptions) ? item.exemptions : [])
+        .filter((reason) => ['municipal_resident', 'municipal_employee'].includes(reason)))].slice(0, 2),
     });
     if (out.length >= MAX_REQUIRED_DOCUMENTS) break;
   }
   return out;
+}
+
+/** The operator's list replaces extracted requirements for this order only. */
+export function requiredDocumentsFor(draft, flow) {
+  if (flow?.requestedDocumentsOverride !== true) return requiredDocumentsOf(draft);
+  return requiredDocumentsOf({ ...(draft || {}), requiredDocuments: flow.requestedDocuments });
 }
 
 const GENERIC_DOCUMENT_LABEL_WORDS = new Set([
@@ -186,11 +205,14 @@ export function mergeRequiredDocuments(...sources) {
  * decision 2026-10-08, see the head of this file).
  * @returns {string[]} their ids
  */
-export function openRequiredDocuments(draft, documents = {}) {
-  return requiredDocumentsOf(draft)
+export function openRequiredDocuments(draft, documents = {}, flow = null) {
+  return requiredDocumentsFor(draft, flow)
     .filter((document) => document.required)
     .filter((document) => {
       const given = documents?.[document.id];
+      if (given?.exemption && document.exemptions.includes(given.exemption)) return false;
+      if (document.delivery === 'offline') return !Number(given?.preparedAt);
+      if (document.delivery === 'service') return false;
       return !(Array.isArray(given?.files) && given.files.length);
     })
     .map((document) => document.id);
@@ -199,8 +221,11 @@ export function openRequiredDocuments(draft, documents = {}) {
 /** The files the candidate gave for one document, kept only inside the order's folder. */
 export function documentFilesOf(flow, orderId, id) {
   const files = flow?.documents?.[id]?.files;
+  const prefix = `assisted-application-uploads/${orderId}/doc-${String(id || '').slice(0, 30)}-`;
   return (Array.isArray(files) ? files : [])
-    .filter((file) => isAssistedApplicationCvKey(orderId, file?.key) && DOCUMENT_TYPES.includes(file?.detectedType))
+    .filter((file) => isAssistedApplicationCvKey(orderId, file?.key)
+      && String(file?.key || '').startsWith(prefix)
+      && DOCUMENT_TYPES.includes(file?.detectedType))
     .slice(0, MAX_FILES_PER_DOCUMENT);
 }
 
@@ -210,7 +235,7 @@ export function documentFilesOf(flow, orderId, id) {
  * @returns {Array<{id:string, slot:string, label:string, kind:string, keywords:string[], files:Array<{key:string, name:string, detectedType:string}>}>}
  */
 export function extraDocumentsToSend(draft, flow, orderId) {
-  return requiredDocumentsOf(draft)
+  return requiredDocumentsFor(draft, flow)
     .map((document, index) => ({ ...document, slot: EXTRA_DOCUMENT_SLOTS[index], files: documentFilesOf(flow, orderId, document.id) }))
     .filter((document) => document.files.length > 0)
     .map(({ quote, required, ...document }) => document);
@@ -223,6 +248,15 @@ export function extraDocumentsToSend(draft, flow, orderId) {
  * Without it (the draft's first letter): the documents the posting requires.
  */
 export function enclosedDocumentLabels(draft, flow, orderId) {
+  if (flow?.postalSubmission?.enabled) {
+    return requiredDocumentsFor(draft, flow)
+      .filter((document) => {
+        const given = flow?.documents?.[document.id] || {};
+        if (given.exemption && document.exemptions.includes(given.exemption)) return false;
+        return document.required || given.preparedAt || (Array.isArray(given.files) && given.files.length > 0);
+      })
+      .map((document) => document.label);
+  }
   if (flow) return extraDocumentsToSend(draft, flow, orderId).map((document) => document.label);
   return requiredDocumentsOf(draft).filter((document) => document.required).map((document) => document.label);
 }

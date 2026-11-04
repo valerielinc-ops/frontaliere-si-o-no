@@ -352,6 +352,160 @@ const CANDIDATE_COPY = {
   },
 };
 
+// Postal applications use the same signed candidate page for requests and
+// answers. E-mail only points to that page; it never asks the candidate to
+// send documents or sensitive answers by e-mail.
+const POSTAL_COPY = {
+  it: {
+    review: {
+      subject: 'Rivedi la candidatura cartacea per {job}', hero: 'La candidatura cartacea è pronta per la revisione',
+      preheader: 'Completa la richiesta nella pagina; la busta non parte in automatico.',
+      heldPreheader: 'Completa nella pagina {count} risposte o documenti richiesti.',
+      lead: 'ho preparato la bozza per {job} presso {company}. Apri la pagina per rivederla e rispondere alle richieste di documenti nello stesso spazio: dopo l’approvazione troverai lì i materiali e le istruzioni postali.',
+      auto: 'Entro {deadline} prepara o approva la candidatura nella pagina. Se non intervieni, i materiali e le istruzioni saranno resi disponibili lì, ma la busta non verrà spedita automaticamente.',
+      held: 'Prima di preparare il pacchetto servono alcune risposte o documenti ({count}). Completa la richiesta nella pagina della candidatura; non inviare documenti via e-mail.',
+    },
+    reminder: {
+      subject: 'Promemoria: rivedi i materiali per {job}', hero: 'La candidatura cartacea ti aspetta',
+      preheader: 'Apri la pagina per completare i passaggi; la posta non parte da sola.',
+      lead: 'la candidatura per {job} presso {company} aspetta la tua revisione. Completa le richieste dalla pagina; i materiali e le istruzioni per spedire saranno disponibili lì. La busta non viene inviata automaticamente {deadline}.',
+    },
+    handoff: {
+      subject: 'Materiali e istruzioni postali per {job}', hero: 'Prepara e spedisci la candidatura',
+      preheader: 'Apri la pagina per scaricare i materiali e consultare l’indirizzo.',
+      lead: 'i materiali per la candidatura a {job} presso {company} sono disponibili nella pagina protetta. Aprila per controllare la lista, stampare ciò che serve e leggere destinatario, scadenza e istruzioni.',
+      steps: ['apri la pagina della candidatura;', 'scarica e stampa i materiali indicati;', 'aggiungi gli originali o i moduli che la pagina segnala come da preparare su carta;', 'spedisci la busta all’indirizzo indicato e poi conferma la spedizione nella pagina.'],
+      after: 'La candidatura cartacea risulta spedita solo dopo la tua conferma nella pagina.',
+    },
+    handoffReminder: {
+      subject: 'Promemoria: completa la spedizione per {job}', hero: 'La busta aspetta il tuo invio',
+      preheader: 'Materiali, destinatario e istruzioni sono nella pagina.',
+      lead: 'i materiali per {job} presso {company} sono pronti nella pagina della candidatura. Controlla l’indirizzo e la scadenza, poi spedisci la busta e confermalo lì.',
+    },
+    questionsReminder: {
+      subject: 'Promemoria: completa la richiesta per {job}', hero: 'Mancano risposte o documenti',
+      preheader: 'Completa la richiesta nella pagina della candidatura.',
+      lead: 'per preparare i materiali cartacei di {job} presso {company} mancano alcune risposte o documenti. Apri la pagina e completa la richiesta lì; non inviare documenti via e-mail.',
+    },
+    action: {
+      subject: 'Completa un passaggio per la candidatura a {job}', hero: 'Serve un tuo passaggio',
+      preheader: 'Apri la pagina per vedere cosa manca.',
+      lead: 'per la candidatura a {job} presso {company} serve una tua risposta. Apri la pagina e completa il passaggio richiesto lì.',
+    },
+  },
+  en: {
+    review: {
+      subject: 'Review the paper application for {job}', hero: 'Your paper application is ready to review',
+      preheader: 'Complete requests on the page; the envelope will not be mailed automatically.',
+      heldPreheader: 'Complete {count} requested answers or documents on the page.',
+      lead: 'I have prepared a draft for {job} at {company}. Open the page to review it and respond to document requests there; after approval, the materials and postal instructions will be available in the same place.',
+      auto: 'Please prepare or approve the application by {deadline}. If you do not act, the materials and instructions will be made available on the page, but the envelope will not be mailed automatically.',
+      held: 'A few answers or documents ({count}) are needed before the packet can be prepared. Complete the request on the application page; do not send documents by e-mail.',
+    },
+    reminder: {
+      subject: 'Reminder: review the materials for {job}', hero: 'Your paper application is waiting',
+      preheader: 'Open the page to complete the steps; nothing is mailed automatically.',
+      lead: 'your application for {job} at {company} is waiting for your review. Complete the requests on the page; the materials and mailing instructions will be there. The envelope will not be mailed automatically {deadline}.',
+    },
+    handoff: {
+      subject: 'Postal materials and instructions for {job}', hero: 'Prepare and mail your application',
+      preheader: 'Open the page for the files and mailing address.',
+      lead: 'the materials for your application to {job} at {company} are available on the secure page. Open it to check the list, print what is needed and read the recipient, deadline and instructions.',
+      steps: ['open your application page;', 'download and print the listed materials;', 'add the originals or forms the page says to prepare on paper;', 'mail the envelope to the listed address, then confirm the mailing on the page.'],
+      after: 'The paper application is marked as mailed only after you confirm it on the page.',
+    },
+    handoffReminder: {
+      subject: 'Reminder: finish mailing your application for {job}', hero: 'Your envelope is waiting to be mailed',
+      preheader: 'Materials, recipient and instructions are on the page.',
+      lead: 'the materials for {job} at {company} are ready on your application page. Check the address and deadline, mail the envelope and confirm it there.',
+    },
+    questionsReminder: {
+      subject: 'Reminder: complete the request for {job}', hero: 'Answers or documents are missing',
+      preheader: 'Complete the request on your application page.',
+      lead: 'a few answers or documents are still needed to prepare the paper materials for {job} at {company}. Open the page and complete the request there; do not send documents by e-mail.',
+    },
+    action: {
+      subject: 'Complete a step for your application to {job}', hero: 'We need one step from you',
+      preheader: 'Open the page to see what is missing.',
+      lead: 'your application for {job} at {company} needs an answer from you. Open the page and complete the requested step there.',
+    },
+  },
+  de: {
+    review: {
+      subject: 'Prüfe die Papierbewerbung für {job}', hero: 'Deine Papierbewerbung ist bereit zur Prüfung',
+      preheader: 'Erledige die Anfragen auf der Seite; der Brief wird nicht automatisch versandt.',
+      heldPreheader: 'Beantworte {count} offene Fragen oder Dokumentenanfragen auf der Seite.',
+      lead: 'ich habe den Entwurf für {job} bei {company} vorbereitet. Öffne die Seite, prüfe ihn und beantworte dort die Dokumentenanfragen. Nach deiner Freigabe findest du dort auch die Unterlagen und Versandhinweise.',
+      auto: 'Bitte bereite die Bewerbung bis {deadline} vor oder gib sie frei. Wenn du nichts tust, werden die Unterlagen und Hinweise auf der Seite bereitgestellt; der Brief wird nicht automatisch versandt.',
+      held: 'Vorbereitung und Versandhinweise brauchen noch einige Antworten oder Dokumente ({count}). Erledige die Anfrage auf der Bewerbungsseite und sende keine Dokumente per E-Mail.',
+    },
+    reminder: {
+      subject: 'Erinnerung: Prüfe die Unterlagen für {job}', hero: 'Deine Papierbewerbung wartet',
+      preheader: 'Öffne die Seite; der Brief geht nicht automatisch zur Post.',
+      lead: 'deine Bewerbung für {job} bei {company} wartet auf deine Prüfung. Erledige die Anfragen auf der Seite; dort findest du die Unterlagen und Versandhinweise. Der Brief wird {deadline} nicht automatisch versandt.',
+    },
+    handoff: {
+      subject: 'Unterlagen und Versandhinweise für {job}', hero: 'Bereite deine Bewerbung vor und sende sie ab',
+      preheader: 'Dateien und Postadresse findest du auf der Seite.',
+      lead: 'die Unterlagen für deine Bewerbung auf {job} bei {company} liegen auf der geschützten Seite bereit. Prüfe dort die Liste, drucke die nötigen Unterlagen und lies Empfänger, Frist und Hinweise.',
+      steps: ['öffne deine Bewerbungsseite;', 'lade die aufgeführten Unterlagen herunter und drucke sie;', 'lege Originale oder Formulare bei, die laut Seite auf Papier vorbereitet werden müssen;', 'sende den Umschlag an die angegebene Adresse und bestätige den Versand auf der Seite.'],
+      after: 'Die Papierbewerbung wird erst nach deiner Bestätigung auf der Seite als versandt markiert.',
+    },
+    handoffReminder: {
+      subject: 'Erinnerung: Sende deine Bewerbung für {job} ab', hero: 'Dein Umschlag wartet auf den Versand',
+      preheader: 'Unterlagen, Empfänger und Hinweise findest du auf der Seite.',
+      lead: 'die Unterlagen für {job} bei {company} sind auf deiner Bewerbungsseite bereit. Prüfe Adresse und Frist, sende den Umschlag und bestätige es dort.',
+    },
+    questionsReminder: {
+      subject: 'Erinnerung: Erledige die Anfrage für {job}', hero: 'Antworten oder Dokumente fehlen',
+      preheader: 'Erledige die Anfrage auf deiner Bewerbungsseite.',
+      lead: 'für die Papierunterlagen zu {job} bei {company} fehlen noch Antworten oder Dokumente. Öffne die Seite und erledige die Anfrage dort; sende keine Dokumente per E-Mail.',
+    },
+    action: {
+      subject: 'Erledige einen Schritt für deine Bewerbung auf {job}', hero: 'Dein Schritt ist nötig',
+      preheader: 'Öffne die Seite, um zu sehen, was fehlt.',
+      lead: 'für deine Bewerbung auf {job} bei {company} brauchen wir noch eine Antwort. Öffne die Seite und erledige den angezeigten Schritt dort.',
+    },
+  },
+  fr: {
+    review: {
+      subject: 'Relisez la candidature papier pour {job}', hero: 'Votre candidature papier est prête à relire',
+      preheader: 'Répondez aux demandes sur la page ; l’enveloppe ne sera pas envoyée automatiquement.',
+      heldPreheader: 'Complétez {count} réponses ou demandes de documents sur la page.',
+      lead: 'j’ai préparé un projet pour {job} chez {company}. Ouvrez la page pour le relire et répondre aux demandes de documents au même endroit ; après votre approbation, les documents et les instructions postales y seront disponibles.',
+      auto: 'Veuillez préparer ou approuver la candidature avant {deadline}. Sans action de votre part, les documents et les instructions seront disponibles sur la page, mais l’enveloppe ne sera pas envoyée automatiquement.',
+      held: 'Quelques réponses ou documents ({count}) sont nécessaires avant de préparer le dossier. Complétez la demande sur la page de candidature ; n’envoyez pas de documents par e-mail.',
+    },
+    reminder: {
+      subject: 'Rappel : relisez les documents pour {job}', hero: 'Votre candidature papier vous attend',
+      preheader: 'Ouvrez la page ; le courrier ne part pas automatiquement.',
+      lead: 'votre candidature pour {job} chez {company} attend votre relecture. Complétez les demandes sur la page ; les documents et les instructions d’envoi s’y trouvent. L’enveloppe ne sera pas envoyée automatiquement {deadline}.',
+    },
+    handoff: {
+      subject: 'Documents et instructions postales pour {job}', hero: 'Préparez et envoyez votre candidature',
+      preheader: 'Ouvrez la page pour les fichiers et l’adresse postale.',
+      lead: 'les documents pour votre candidature à {job} chez {company} sont disponibles sur la page sécurisée. Ouvrez-la pour vérifier la liste, imprimer les documents nécessaires et lire le destinataire, le délai et les instructions.',
+      steps: ['ouvrez la page de candidature ;', 'téléchargez et imprimez les documents indiqués ;', 'ajoutez les originaux ou formulaires que la page demande de préparer sur papier ;', 'envoyez l’enveloppe à l’adresse indiquée, puis confirmez l’envoi sur la page.'],
+      after: 'La candidature papier est marquée comme envoyée uniquement après votre confirmation sur la page.',
+    },
+    handoffReminder: {
+      subject: 'Rappel : terminez l’envoi de votre candidature pour {job}', hero: 'Votre enveloppe attend son envoi',
+      preheader: 'Les documents, le destinataire et les instructions sont sur la page.',
+      lead: 'les documents pour {job} chez {company} sont prêts sur votre page de candidature. Vérifiez l’adresse et le délai, envoyez l’enveloppe puis confirmez-le sur la page.',
+    },
+    questionsReminder: {
+      subject: 'Rappel : complétez la demande pour {job}', hero: 'Des réponses ou documents manquent',
+      preheader: 'Complétez la demande sur votre page de candidature.',
+      lead: 'quelques réponses ou documents sont encore nécessaires pour préparer le dossier papier de {job} chez {company}. Ouvrez la page et complétez la demande à cet endroit ; n’envoyez pas de documents par e-mail.',
+    },
+    action: {
+      subject: 'Complétez une étape pour votre candidature à {job}', hero: 'Une étape est nécessaire',
+      preheader: 'Ouvrez la page pour voir ce qui manque.',
+      lead: 'votre candidature pour {job} chez {company} nécessite une réponse de votre part. Ouvrez la page et complétez l’étape demandée à cet endroit.',
+    },
+  },
+};
+
 const OWNER_FLAG_LABELS = {
   fact_check: 'nei testi ci sono numeri, date o contatti che non compaiono nel CV o nell’annuncio',
   no_posting: 'il testo dell’annuncio non è stato recuperato',
@@ -484,7 +638,7 @@ export function buildCandidateAutomationEmail(kind, vars) {
   }
   const locale = CANDIDATE_COPY[vars.locale] ? vars.locale : 'it';
   const copy = CANDIDATE_COPY[locale];
-  const section = {
+  const sectionBase = {
     candidate_review: copy.review,
     candidate_reminder: copy.reminder,
     candidate_handoff: copy.handoff,
@@ -494,6 +648,9 @@ export function buildCandidateAutomationEmail(kind, vars) {
     candidate_posting_closed: copy.closed,
     candidate_followup_review: copy.followup,
   }[kind];
+  const section = sectionBase && vars.postalSubmission === true && POSTAL_COPY[locale]?.[kind]
+    ? { ...sectionBase, ...POSTAL_COPY[locale][kind] }
+    : sectionBase;
   if (!section) throw new Error(`unknown_automation_email:${kind}`);
   const values = {
     job: clean(vars.job, 200) || '—',

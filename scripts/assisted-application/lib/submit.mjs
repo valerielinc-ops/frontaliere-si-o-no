@@ -294,7 +294,7 @@ export async function submitApplication(ctx) {
   // the current form and apply its structural safety checks; if the question
   // is still unanswered, the runner hands it back with its context preserved.
   const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers });
-  const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {});
+  const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {}, submitFlow);
   if (open.length || missingDocuments.length) {
     // Keep the legacy id list for the flow and add the bounded descriptor so
     // the backend can match an answer after an ATS regenerates that id.

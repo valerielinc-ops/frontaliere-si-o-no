@@ -2,9 +2,10 @@
  * Approval flow of the automated assisted application (owner decision
  * 2026-09-30):
  *
- *   draft ready ──► candidate_review ──(candidate approves, or 12 h pass)──► submitting
+ *   draft ready ──► candidate_review ──(candidate approves, or 12 h pass)──► submitting ──► submitted
  *                   (an owner flag keeps it in owner_review until Valerie acts)
- *   candidate_review ──(candidate approves, or 12 h pass)──► submitting ──► submitted
+ *   paper route: candidate_review ──(candidate approves, or 12 h pass)──► candidate_handoff
+ *               ──(candidate confirms mailing)──► submitted
  *   candidate_review ──(candidate rejects with feedback)──► regenerating ──► candidate_review …
  *     (a regenerated draft with an owner flag enters owner_review instead)
  *   after the 3rd rejection ──► owner_takeover (Valerie gets every feedback);
@@ -15,7 +16,8 @@
  *
  * Red flags stop the clocks, they never skip a step:
  *   - owner flags (invented facts in the texts, no posting text, unknown
- *     channel, a suspicious posting) hold `owner_review` until Valerie acts;
+ *     channel, a suspicious posting, or missing paper-mailing instructions)
+ *     hold `owner_review` until Valerie acts;
  *     a profile that is not a full match is no flag: the candidate is told
  *     (assistedApplicationFitNotice.js);
  *   - candidate flags (a required answer only the candidate can give: work
@@ -29,7 +31,7 @@
 
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
-import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
+import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
 import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
@@ -86,11 +88,12 @@ function takeoverEmail(flow, event, stage) {
 }
 
 /*
- * `candidate_handoff` is career-ops' "browser handoff": when a portal needs a
- * step only the candidate can perform (for example, an SMS to their phone),
- * the candidate gets the direct link, the numbered answers and the documents,
- * submits from their own browser and confirms. CAPTCHA stops stay with
- * Valerie, who can finish them with the owner fill extension.
+ * `candidate_handoff` is career-ops' candidate-completed step. For a portal or
+ * WhatsApp handoff, the candidate completes the last step in their browser or
+ * phone. For a paper application, the signed page provides the prepared
+ * materials and mailing instructions; the candidate mails the envelope and
+ * confirms it there. CAPTCHA stops stay with Valerie, who can finish them
+ * with the owner fill extension.
  */
 export const FLOW_STATES = Object.freeze([
   'drafting',
@@ -145,7 +148,7 @@ export function factCheckAcknowledged(draft, factCheck = draft?.factCheck) {
  * @param {object} draft the AI draft (ai_drafts/current)
  * @param {Record<string,string>} answers candidate answers by question id
  */
-export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAnswers = {}) {
+export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAnswers = {}, flow = null) {
   const owner = [];
   // A flag the owner explicitly acknowledged in the queue no longer holds.
   const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
@@ -159,6 +162,8 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
   if ((!draft?.channel || draft.channel.type === 'unknown') && !acknowledged('channel_unknown')) owner.push('channel_unknown');
   // career-ops Block G "Suspicious": the owner looks at the posting first.
   if (draft?.legitimacy?.tier === 'suspicious' && !acknowledged('legitimacy')) owner.push('legitimacy');
+  if (requiredDocumentsFor(draft, flow).some((document) => document.delivery === 'offline')
+    && flow?.postalSubmission?.enabled !== true) owner.push('postal_submission_missing');
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
   const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
@@ -167,7 +172,7 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
       && (!String(projected?.[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, projected?.[question.id])))
     .map((question) => question.id);
   // A required document (school reports, a test result…) the candidate has not given yet.
-  return { owner, candidate, documents: openRequiredDocuments(draft, documents) };
+  return { owner, candidate, documents: openRequiredDocuments(draft, documents, flow) };
 }
 
 /**
@@ -394,6 +399,18 @@ function enterSubmitting(next, reason) {
   return [{ type: 'dispatch', mode: 'submit', reason }];
 }
 
+function enterPostalHandoff(next, nowMs) {
+  next.state = 'candidate_handoff';
+  next.deadlineAt = null;
+  next.reminderAt = nowMs + HANDOFF_REMINDER_MS;
+  next.reminderSentAt = null;
+  next.heldBy = ['postal_application'];
+  next.submittedVia = 'postal';
+  return [{ type: 'email', kind: 'candidate_handoff', reason: 'postal_application' }];
+}
+
+const isPostalSubmission = (flow) => flow?.postalSubmission?.enabled === true;
+
 function hasAnswer(value) {
   return typeof value === 'boolean'
     || (typeof value === 'number' && Number.isFinite(value))
@@ -550,7 +567,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
-  const flags = evaluateRedFlags(draft, answers, documents, flow?.questionAnswers);
+  const flags = evaluateRedFlags(draft, answers, documents, flow?.questionAnswers, flow);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
   if (state === 'withdrawn') return ignore('withdrawn');
   if (TERMINAL_STATES.has(state) && !STOPPED_EXITS.has(event.type)) return ignore('terminal');
@@ -667,7 +684,9 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
           && (draft?.questions || []).some(question => question.id === String(held).slice(9)))
         && flags.owner.length === 0 && candidateHolds(flags).length === 0
         && roundWasSent(flow, current.round)) {
-        effects = enterSubmitting(next, 'resolved_candidate_answers');
+        effects = isPostalSubmission(flow)
+          ? enterPostalHandoff(next, nowMs)
+          : enterSubmitting(next, 'resolved_candidate_answers');
         break;
       }
       if (waitsForCandidate(current) && reminder && nowMs >= reminder) {
@@ -697,6 +716,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         break;
       }
       if (state === 'candidate_review' && deadline && nowMs >= deadline) {
+        if (flags.owner.length) {
+          effects = enterOwnerReview(next, flags, nowMs);
+          break;
+        }
         if (candidateHolds(flags).length) {
           next.heldBy = candidateHolds(flags);
           next.deadlineAt = null;
@@ -704,7 +727,9 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
           effects = [];
           break;
         }
-        effects = enterSubmitting(next, 'auto_approved_12h');
+        effects = isPostalSubmission(flow)
+          ? enterPostalHandoff(next, nowMs)
+          : enterSubmitting(next, 'auto_approved_12h');
         break;
       }
       if (state === 'candidate_review' && reminder && nowMs >= reminder && !current.reminderSentAt) {
@@ -735,6 +760,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // fix, or a portal that was briefly unavailable): only for the round's
       // own draft, which the candidate approved.
       if (!['owner_takeover', 'candidate_handoff'].includes(state)) return ignore('not_retryable');
+      if (isPostalSubmission(flow)) return ignore('postal_submission_requires_candidate');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       if (isCaptchaPortalHold(current)) return ignore('captcha_requires_owner');
       // The robot sends only what the candidate approved. A real order of 2026-10-07 was taken over while
@@ -745,6 +771,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       break;
     case 'portal_auto_retry': {
       if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (isPostalSubmission(flow)) return ignore('postal_submission_requires_candidate');
       if (!isAutoRetryablePortalHold(current)) return ignore('not_auto_retryable');
       const retryAt = portalRetryDueAt(current);
       if (!retryAt || retryAt > nowMs) return ignore('portal_retry_not_due');
@@ -762,6 +789,11 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     case 'owner_handoff':
       // Valerie's choice, for a step only the candidate can do (an SMS to their phone).
       if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (isPostalSubmission(flow)) {
+        if (roundDraftMissing(current, draft) || flow.submittedVia !== 'postal') return ignore('not_approved');
+        effects = enterPostalHandoff(next, nowMs);
+        break;
+      }
       if (!canOwnerHandoffToCandidate(current, event.reason)) return ignore('captcha_requires_owner');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       next.state = 'candidate_handoff';
@@ -777,6 +809,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // hand), after the robot stopped: the candidate paid for the sending,
       // so it is never handed to them (owner decision 2026-10-01).
       if (!['owner_takeover', 'candidate_handoff'].includes(state)) return ignore('not_taken_over');
+      if (isPostalSubmission(flow)) return ignore('postal_submission_requires_candidate');
       next.state = 'submitted';
       next.deadlineAt = null;
       next.reminderAt = null;
@@ -818,14 +851,26 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       break;
     case 'candidate_approve':
       if (state !== 'candidate_review') return ignore('not_candidate_review');
+      if (flags.owner.length) {
+        effects = enterOwnerReview(next, flags, nowMs);
+        break;
+      }
       if (candidateHolds(flags).length) return { flow: current, effects: [], ignored: 'questions_open' };
-      effects = enterSubmitting(next, 'candidate_approved');
+      effects = isPostalSubmission(flow)
+        ? enterPostalHandoff(next, nowMs)
+        : enterSubmitting(next, 'candidate_approved');
       break;
     case 'candidate_answers':
       if (state !== 'candidate_review' && state !== 'needs_candidate_action') return ignore('not_waiting_for_candidate');
       if (state === 'needs_candidate_action') {
+        if (flags.owner.length) {
+          effects = enterOwnerReview(next, flags, nowMs);
+          break;
+        }
         if (candidateHolds(flags).length) return { flow: { ...current }, effects: [], ignored: 'questions_open' };
-        effects = enterSubmitting(next, 'candidate_answered');
+        effects = isPostalSubmission(flow)
+          ? enterPostalHandoff(next, nowMs)
+          : enterSubmitting(next, 'candidate_answered');
         break;
       }
       effects = enterCandidateReview(next, flags, nowMs, { resend: false, keepDeadline: Number(flow?.deadlineAt) || null });

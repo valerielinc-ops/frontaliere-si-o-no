@@ -9,7 +9,7 @@ import type { EmployerResponse } from './assistedApplicationEmployerResponse';
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
 
 export type ReviewAction = 'approve' | 'reject' | 'withdraw' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip'
-  | 'document_upload' | 'document_remove' | 'document_recheck' | 'photo_upload' | 'photo_remove' | 'cv_lines';
+  | 'document_upload' | 'document_remove' | 'document_recheck' | 'document_set_prepared' | 'document_set_exemption' | 'photo_upload' | 'photo_remove' | 'cv_lines';
 
 /** The candidate's choice for one line of the tailored CV (functions/src/assistedApplicationReview.js cvChangesView). */
 export interface ReviewCvLineChoice {
@@ -43,6 +43,12 @@ export interface ReviewDocument {
   required: boolean;
   /** The posting's own words asking for it. */
   quote: string;
+  /** Instructions supplied by the operator, e.g. the six-month issue date. */
+  instructions: string;
+  delivery: 'upload' | 'offline' | 'service';
+  exemptions: Array<'municipal_resident' | 'municipal_employee'>;
+  preparedAt: number | null;
+  exemption: 'municipal_resident' | 'municipal_employee' | null;
   files: Array<{
     id: string;
     name: string;
@@ -50,6 +56,7 @@ export interface ReviewDocument {
     detectedType: string | null;
     uploadedAt: number | null;
     clientCheck: { verdict: 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable' | 'unknown'; matched: string; version?: number };
+    url: string | null;
   }>;
 }
 
@@ -176,11 +183,21 @@ export interface ReviewPayload {
     channel: string | null;
     channelLabel: string | null;
   };
+  /** Postal submission details, visible only on this signed candidate page. */
+  postalSubmission?: {
+    recipient: string;
+    address: string;
+    deadline: string;
+    envelopeMarking: string;
+    instructions: string;
+    officialFormUrl: string | null;
+  } | null;
   /** Sent as a WhatsApp application (PastaHR): the link the candidate opens from the phone. */
   whatsappUrl?: string | null;
   ready: boolean;
   coverLetter: { subject: string; text: string } | null;
   coverLetterUrl: string | null;
+  originalCvUrl?: string | null;
   applicationEmail: { to: string; subject: string; body: string } | null;
   formAnswers: ReviewFormField[];
   /** Opaque HMAC of the exact locale-specific edit contract shown on this review. */
@@ -284,6 +301,8 @@ export async function sendReviewAction(
     contentBase64?: string;
     clientCheck?: { verdict: string; matched: string; version?: number };
     fileId?: string;
+    prepared?: boolean;
+    exemption?: string;
     editSnapshot?: string;
   } = {},
 ): Promise<{ ok: true; state: string }> {

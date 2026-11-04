@@ -90,7 +90,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
             ? { questionAnswers: verifiedQuestionAnswers } : {}),
         };
         if (!operationalPortalRecoveryReady({ order, flow: recoveryFlow, draft })) return false;
-        const flags = evaluateRedFlags(draft, recoveryFlow.answers || {}, flow.documents || {}, recoveryFlow.questionAnswers);
+        const flags = evaluateRedFlags(draft, recoveryFlow.answers || {}, flow.documents || {}, recoveryFlow.questionAnswers, flow);
         if (flags.owner.length || flags.candidate.length || flags.documents.length) return false;
         const receipt = submissionDoc.data()?.portalCodeRecovery;
         if (receipt?.version === version && Number(receipt.round) === Number(flow.round || 1)) return false;
