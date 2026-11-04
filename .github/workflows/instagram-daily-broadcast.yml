@@ -183,6 +183,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(instagram): track posted and queued carousel content [skip ci]"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
           # The stats assembly step can leave an untracked file in the checkout.
           # Preserve it while rebasing, and fail the workflow if the ledger
           # cannot be persisted: a green run with a lost queue hides content.

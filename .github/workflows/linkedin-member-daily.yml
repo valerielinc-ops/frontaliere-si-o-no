@@ -156,6 +156,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(linkedin): track posted member content [skip ci]"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
           # Stats assembly can leave untracked files in the checkout. Preserve
           # them during a retry rebase, and fail if the ledger is not persisted.
           bash scripts/lib/git-push-with-retry.sh \
