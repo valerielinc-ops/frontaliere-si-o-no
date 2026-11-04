@@ -478,7 +478,7 @@ export async function submitApplication(ctx) {
   if (channel.type === 'employer_site' && (postingUrl || applyUrl)) {
     const routeUrl = postingUrl || applyUrl;
     const directChannel = classifyApplicationChannel({ applyUrl: routeUrl }).type;
-    if (WAVE1_CHANNELS.has(directChannel)) {
+    if (directChannel !== 'employer_site' && WAVE1_CHANNELS.has(directChannel)) {
       applyUrl = routeUrl;
       channelType = directChannel;
     } else {
