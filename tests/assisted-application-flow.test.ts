@@ -92,6 +92,18 @@ describe('red flags', () => {
     expect(flags).toEqual({ owner: ['fact_check', 'channel_unknown'], candidate: ['permit'], documents: [] });
   });
 
+  it('keeps required portal consent open until the candidate explicitly agrees', () => {
+    const draft = {
+      ...cleanDraft,
+      questions: [{ id: 'portal_privacy_consent', source: 'portal', question: 'Acconsenti al trattamento dei tuoi dati personali?',
+        required: true, requiresAffirmativeConsent: true }],
+    };
+    for (const answer of ['No', 'I don’t agree', 'I cannot accept']) {
+      expect(evaluateRedFlags(draft, { portal_privacy_consent: answer }).candidate).toEqual(['portal_privacy_consent']);
+    }
+    expect(evaluateRedFlags(draft, { portal_privacy_consent: 'Sì' }).candidate).toEqual([]);
+  });
+
   it('does not hold a legacy draft on a language question already answered by a complete CV list', () => {
     const draft = {
       ...cleanDraft,

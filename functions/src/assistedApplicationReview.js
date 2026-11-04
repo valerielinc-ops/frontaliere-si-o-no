@@ -40,7 +40,7 @@ import { renderCvDocx, renderLetterDocx } from './assistedApplicationDocx.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { applyCvLineChoices, checkTailoredCvFacts, cvChoicesOf, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, requiredPortalConsentAffirmed, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
@@ -146,6 +146,7 @@ function questionView(question, nowMs = Date.now(), cvText = '') {
     type: question.type,
     options: question.options || [],
     required: Boolean(question.required),
+    ...(question.requiresAffirmativeConsent === true ? { requiresAffirmativeConsent: true } : {}),
     minDate: minDateFor(question, nowMs),
     // The rule the page checks while the candidate types (answerRules.js).
     validation: question.validation || null,
@@ -318,7 +319,8 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     answers.work_permit = value;
     return { ...view, options };
   });
-  const openRequired = questions.filter((question) => question.required && !String(answers[question.id] ?? '').trim());
+  const openRequired = questions.filter((question) => question.required
+    && (!String(answers[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, answers[question.id])));
   const suggestedAnswerIds = new Set(questions.filter((question) => question.suggestedAnswer).map((question) => question.id));
   const answerSuggestionDismissals = flow?.answerSuggestionDismissals;
   const dismissedAnswerSuggestionIds = Number(answerSuggestionDismissals?.round) === current

@@ -5,7 +5,7 @@ import path from 'node:path';
 import YAML from 'yaml';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
-import { currentPortalCodeVersion } from '../scripts/assisted-application/lib/portal-code-version.mjs';
+import { currentPortalCodeVersion, portalCodeFingerprintFiles } from '../scripts/assisted-application/lib/portal-code-version.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { operationalPortalRecoveryReady } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
@@ -181,22 +181,7 @@ describe('automatic recovery after a portal fix', () => {
 
   it('changes the fingerprint only for runner sources and covers those files in the workflow trigger', () => {
     const root = mkdtempSync(path.join(tmpdir(), 'portal-source-version-'));
-    const sourceFiles = [
-      'scripts/lib/prospector/public-fetch-policy.mjs',
-      'scripts/assisted-application/verify-portal.mjs',
-      'scripts/assisted-application/reconcile-portal-code.mjs', 'scripts/assisted-application/reconcile-portal-questions.mjs',
-      'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
-      'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
-      'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
-      ...['assistedApplicationConstants.js', 'assistedApplicationPortalSites.js', 'assistedApplicationRetention.js', 'assistedApplicationExtraDocuments.js',
-        'assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
-        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js',
-        'assistedApplicationAutomation.js', 'assistedApplicationAutomationAdmin.js', 'assistedApplicationCvCommit.js', 'assistedApplicationReview.js',
-        'assistedApplicationAnswerEvidence.js', 'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js',
-        'lib/candidateAnswerFacts.js', 'lib/languageFacts.js', 'lib/addressContextContract.js', 'lib/permitStatus.js',
-        'lib/applicationConsent.js', 'lib/portalNativeContract.js', 'lib/answerRules.js', 'lib/portalQuestionText.js',
-        'lib/assistedApplicationQuestionConstraints.js'].map(file => `functions/src/${file}`),
-    ];
+    const sourceFiles = portalCodeFingerprintFiles();
     const write = (file: string, text: string) => { mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); writeFileSync(path.join(root, file), text); };
     try {
       for (const file of sourceFiles) write(file, 'original source');
@@ -206,8 +191,11 @@ describe('automatic recovery after a portal fix', () => {
       write('scripts/assisted-application/lib/portal/fields.mjs', 'fixed selector');
       expect(currentPortalCodeVersion(root)).not.toBe(before);
       const afterFields = currentPortalCodeVersion(root);
-      write('scripts/assisted-application/reconcile-portal-questions.mjs', 'fixed question recovery provenance');
+      write('scripts/assisted-application/lib/draft.mjs', 'fixed candidate requirement collection');
       expect(currentPortalCodeVersion(root)).not.toBe(afterFields);
+      const afterDraft = currentPortalCodeVersion(root);
+      write('scripts/assisted-application/reconcile-portal-questions.mjs', 'fixed question recovery provenance');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterDraft);
       const afterQuestionRecovery = currentPortalCodeVersion(root);
       write('functions/src/lib/portalQuestionText.js', 'fixed question readability');
       expect(currentPortalCodeVersion(root)).not.toBe(afterQuestionRecovery);

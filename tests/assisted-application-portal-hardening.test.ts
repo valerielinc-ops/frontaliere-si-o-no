@@ -187,6 +187,23 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl, postingUrl: 'https://other.example/Vacancies/717' })).toBe(applyUrl);
   });
 
+  it('opens the direct Umantis form when the saved apply URL is the exact vacancy page', () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4';
+    const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Application/New/4';
+    const job = { company: 'EOC', title: 'Assistente sociale (80-100%)' };
+    const verified = isVerifiedPostingEntry({ applyUrl: applicationUrl, postingUrl });
+
+    expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl })).toBe(applicationUrl);
+    expect(verified).toBe(true);
+    expect(formPostingMatch('Assistente sociale - Candidatura | EOC candiDati\nApplication Tracking System', job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applicationUrl,
+    })).toBe('match');
+    expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('/2806/', '/2807/') })).toBe(postingUrl);
+    expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('recruitingapp-2761', 'other') })).toBe(postingUrl);
+  });
+
   it('accepts ALTEN’s generic form only when the matching posting route was the entry', () => {
     const job = { company: 'ALTEN Switzerland', title: 'Project Manager – IT & Banking' };
     const genericForm = [

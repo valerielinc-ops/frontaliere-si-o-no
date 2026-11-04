@@ -44,7 +44,7 @@ import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
-import { residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
+import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
@@ -281,6 +281,36 @@ function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
 }
 
 /**
+ * Umantis vacancy pages use the same tenant and vacancy id for their direct
+ * application form. This route is used only when the saved apply URL is the
+ * exact same posting address; a matching numeric id by itself is not enough.
+ */
+function umantisApplicationEntryUrl({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    if (apply.protocol !== 'https:' || posting.protocol !== 'https:'
+      || !/(?:^|\.)umantis\.com$/i.test(apply.hostname)
+      || apply.origin !== posting.origin
+      || apply.pathname.replace(/\/+$/, '') !== posting.pathname.replace(/\/+$/, '')) return '';
+    const match = /^\/vacancies\/(\d+)\/description\/(\d+)\/?$/i.exec(posting.pathname);
+    if (!match) return '';
+    return `${posting.origin}/Vacancies/${match[1]}/Application/New/${match[2]}`;
+  } catch {
+    return '';
+  }
+}
+
+function verifiedPostingEntryFor(ctx = {}) {
+  if (isVerifiedPostingEntry(ctx)) return true;
+  const applicationUrl = umantisApplicationEntryUrl(ctx);
+  return Boolean(applicationUrl && isVerifiedPostingEntry({
+    applyUrl: applicationUrl,
+    postingUrl: ctx.postingUrl,
+  }));
+}
+
+/**
  * A URL pair that proves the application belongs to the selected posting.
  * This is stronger than the rendered posting text: Umantis can show a generic
  * application form without repeating the employer or vacancy title.
@@ -300,7 +330,7 @@ export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
-  return directUrl;
+  return umantisApplicationEntryUrl({ applyUrl: directUrl, postingUrl }) || directUrl;
 }
 
 function portalChannelType(ctx = {}) {
@@ -1588,7 +1618,7 @@ const portalQuestionMetadata = field => {
 };
 
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
-function questionsFrom(missingRequired) {
+function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
   const questions = [];
   const seen = new Set();
   const readableQuestionCandidate = value => {
@@ -1596,16 +1626,21 @@ function questionsFrom(missingRequired) {
     return text && !machineLabel(text) ? text : '';
   };
   for (const item of missingRequired) {
-    const id = portalQuestionId(item);
+    const stableLabel = String(item?.applicationQuestion || item?.portalQuestion || item?.question || '').trim();
+    const id = stableQuestionIds.get(String(item?.fieldId || ''))
+      || stableQuestionIds.get(`label:${stableLabel}`)
+      || portalQuestionId(item);
     const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
     const applicationQuestion = [item.applicationQuestion, item.portalQuestion, item.question]
       .map(readableQuestionCandidate)
       .find(Boolean)?.slice(0, 300) || '';
-    const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
-      ? item.applicationOptions
-      : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    const applicationOptions = (item.applicationOptionsKnown === true
+      ? item.applicationOptions || []
+      : Array.isArray(item.applicationOptions) && item.applicationOptions.length
+        ? item.applicationOptions
+        : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
     const options = (Array.isArray(item.options) ? item.options : []).map((option) => String(option || '').trim()).filter(Boolean);
     const optionMap = portalOptionMap({ options, applicationOptions, optionMap: item.optionMap });
     questions.push({
@@ -1625,6 +1660,7 @@ function questionsFrom(missingRequired) {
       required: item.required !== false,
       validation: sanitizeValidation(item.validation, { type: item.type }),
       source: 'portal',
+      ...(item.requiresAffirmativeConsent === true ? { requiresAffirmativeConsent: true } : {}),
     });
   }
   return questions;
@@ -4277,10 +4313,118 @@ export function portalRequiredDocumentFromField(field) {
  * question: the review page must show it in the same document picker as the
  * posting's requested documents.
  */
-export function portalRequirementsFromMissingRequired(fields, missingRequired) {
+function missingCandidatePortalRequirements(fields, candidate) {
+  if (!candidate || typeof candidate !== 'object') return { questions: [], stableQuestionIds: new Map() };
+  const requiredFields = (Array.isArray(fields) ? fields : []).filter(field => field?.required === true);
+  const profile = candidate.profile || {};
+  const address = candidate.identity?.address || profile.address || {};
+  const answers = candidate.answers || {};
+  const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+  const fieldText = (field) => [
+    field?.label, field?.ariaLabel, field?.description, field?.ariaDescription,
+    ...(Array.isArray(field?.labels) ? field.labels : []),
+    ...(Array.isArray(field?.options) ? field.options.map(option => typeof option === 'string' ? option : option?.label) : []),
+  ].filter(Boolean).join(' ');
+  const optionLabels = field => (Array.isArray(field?.options) ? field.options : [])
+    .filter(option => option?.placeholder !== true)
+    .map(option => String(typeof option === 'string' ? option : option?.label || '').trim())
+    .filter(Boolean);
+  const missing = [];
+  const stableQuestionIds = new Map();
+  const add = (field, id, question, why, extra = {}) => {
+    const fieldId = String(field?.id || '').trim();
+    const applicationQuestion = String(field?.label || '').trim();
+    if (!fieldId && !applicationQuestion) return;
+    missing.push({ ...(fieldId ? { fieldId } : {}), applicationQuestion, question, why, required: true, ...extra });
+    if (fieldId) stableQuestionIds.set(fieldId, id);
+    stableQuestionIds.set(`label:${applicationQuestion}`, id);
+  };
+  const hasAnswer = id => String(answers[id] ?? '').trim().length > 0;
+  const datePresent = String(profile.dateOfBirth || '').trim().length > 0;
+  const streetPresent = String(address.street || '').trim().length > 0;
+  const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
+  const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
+  const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
+
+  for (const field of requiredFields) {
+    const label = folded(field.label);
+    const allText = folded(fieldText(field));
+    const role = residenceFieldRole(field.label);
+    const isBirthDate = String(field.autocomplete || '').toLowerCase() === 'bday'
+      || /\b(?:date of birth|birth date|geburtsdatum|date de naissance|data di nascita)\b/.test(allText);
+    if (isBirthDate && !datePresent && !hasAnswer('portal_date_of_birth')) {
+      add(field, 'portal_date_of_birth', 'Qual è la tua data di nascita completa?',
+        'Il portale richiede la data di nascita per completare la candidatura.',
+        { type: 'date', forceType: 'date', autocomplete: 'bday' });
+      continue;
+    }
+
+    const isSalutation = /\b(?:appellativo|anrede|salutation|form of address|civilite|titolo)\b/.test(label)
+      || /\b(?:signora|signor|madame|monsieur|herr|frau|mr|mrs|ms|miss)\b/.test(allText);
+    const addressTitleOnly = /^titolo accademico$/.test(label);
+    const salutationOptions = optionLabels(field).filter(option => /^(?:signora|signor(?:e)?|madame|monsieur|herr|frau|mr|mrs|ms|miss)\.?$/i.test(folded(option)));
+    if (isSalutation && !addressTitleOnly && salutationOptions.length >= 2
+      && !explicitSalutationPresent && !hasAnswer('salutation')) {
+      add(field, 'salutation', 'Quale appellativo vuoi usare nei moduli di candidatura?',
+        'Il portale richiede una scelta esplicita. Il valore proposto dal profilo non vale come conferma.',
+        { type: 'choice' });
+      continue;
+    }
+
+    const addressQuestionId = role === 'houseNumber' ? 'portal_residence_house_number'
+      : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address';
+    const addressValuePresent = role === 'houseNumber' ? houseNumberPresent
+      : role === 'street' && separateHouseNumber ? streetPresent
+        : streetPresent && houseNumberPresent;
+    if (['street', 'address', 'houseNumber'].includes(role) && !addressValuePresent && !hasAnswer(addressQuestionId)) {
+      const id = role === 'houseNumber' ? 'portal_residence_house_number'
+        : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address';
+      const question = role === 'houseNumber'
+        ? 'Qual è il numero civico del tuo indirizzo di residenza?'
+        : role === 'street' && separateHouseNumber
+          ? 'Qual è la via del tuo indirizzo di residenza?'
+          : 'Qual è la via e il numero civico del tuo indirizzo di residenza?';
+      add(field, id, question,
+        'Il portale richiede l’indirizzo stradale. CAP, località e Paese vengono letti dai dati già presenti.',
+        { type: 'text' });
+      continue;
+    }
+
+    const retentionPrompt = /\b(?:attivazione dati|data retention|retention period|keep (?:my |your |the )?data|retain (?:my |your |the )?data|delete (?:my |your |the )?data|eliminat\w* dopo la procedura|conserv\w* dopo la candidatura)\b/.test(allText);
+    if (retentionPrompt && !hasAnswer('portal_data_retention')) {
+      add(field, 'portal_data_retention', 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?',
+        'Il portale richiede di scegliere tra la conservazione per future offerte e la cancellazione dopo questa candidatura.',
+        { type: 'choice', forceType: 'choice', requiresNativeOptions: true });
+      continue;
+    }
+
+    const privacyConsent = /\b(?:privacy|data protection|protezione dei dati|protezione dati|datenschutz|confidentialite)\b/.test(allText)
+      && /\b(?:acconsent\w*|consent\w*|accept\w*|agree\w*|einwillig\w*|zustimm\w*)\b/.test(allText)
+      && /\b(?:tratt\w*|process\w*|verarbeit\w*|trait\w*)\b/.test(allText);
+    if (privacyConsent && !hasAnswer('portal_privacy_consent')) {
+      add(field, 'portal_privacy_consent', 'Dopo aver letto la dichiarazione sulla protezione dei dati dell’EOC, acconsenti al trattamento dei tuoi dati personali descritto nel modulo?',
+        'Il portale richiede il tuo consenso per inviare la candidatura. Se non acconsenti, la candidatura non può essere inviata.',
+        { type: 'yes_no', forceType: 'yes_no', options: ['Sì', 'No'], requiresAffirmativeConsent: true });
+    }
+  }
+  return { questions: missing, stableQuestionIds };
+}
+
+export function portalRequirementsFromMissingRequired(fields, missingRequired, { candidate = null } = {}) {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
+  const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate);
+  const mergedRequired = new Map();
+  for (const item of candidateRequirements.questions) {
+    const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
+    if (key) mergedRequired.set(key, item);
+  }
+  for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
+    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
+    if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
+  }
   const fieldFor = (item) => {
     const direct = availableFields.filter(field => field.id && field.id === item?.fieldId);
     if (direct.length === 1) return direct[0];
@@ -4296,7 +4440,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
   const readable = [];
   const unreadableFields = [];
   let reducedRequirement = false;
-  for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
+  for (const item of mergedRequired.values()) {
     const field = fieldFor(item);
     // A planner calling a field missing is not proof that it is mandatory.
     // A rejected live field remains a request even if it lacks a required marker;
@@ -4337,16 +4481,21 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
         const optionMap = portalOptionMap({ options: item.options, applicationOptions, optionMap: item.optionMap });
         let type = item.type;
         if (field) {
-          if (['select', 'radio', 'listbox'].includes(field.kind) || field.selectLike || field.nativeSelectId || applicationOptions.length) type = 'choice';
+          if (item.forceType) type = item.forceType;
+          else if (['select', 'radio', 'listbox'].includes(field.kind) || field.selectLike || field.nativeSelectId || applicationOptions.length) type = 'choice';
           else if (editableCombobox) type = 'text';
           else if (field.kind === 'checkbox') type = 'yes_no';
-          else if (field.kind === 'date' || field.inputType === 'date') type = 'date';
+          else if (field.kind === 'date' || field.inputType === 'date' || field.autocomplete === 'bday') type = 'date';
           else if (field.inputType === 'number') type = 'number';
           else if (['text', 'textarea'].includes(field.kind)) type = 'text';
         }
         // A native choice with no usable catalogue needs another portal read,
         // never a text question whose arbitrary answer the ATS cannot accept.
         if (field && type === 'choice' && !applicationOptions.length) {
+          unreadableFields.push(field.id || item.fieldId || 'unknown');
+          continue;
+        }
+        if (field && item.requiresNativeOptions === true && !applicationOptions.length) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
@@ -4358,7 +4507,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           validation: field && (type !== item.type || ['choice', 'yes_no'].includes(type)) ? {} : item.validation,
           required: true,
           applicationOptions,
-          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,
+          applicationOptionsKnown: Boolean(field),
+          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions.length ? applicationOptions : item.options || [] : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
@@ -4369,7 +4519,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     }
     if (!documents.some((candidate) => candidate.id === document.id)) documents.push(document);
   }
-  const questions = questionsFrom(readable);
+  const questions = questionsFrom(readable, candidateRequirements.stableQuestionIds);
   return {
     questions,
     documents,
@@ -4383,8 +4533,9 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
  * identify ALL the questions before answering), so the candidate answers them
  * on the first review instead of in a second round at submit time. The form
  * is opened and read, never filled, and nothing is pressed but "apply".
- * Never fails the draft: browser failures return no questions. An unreadable
- * required field is a technical handoff, never a question for the candidate.
+ * A supported portal that cannot be read is a technical handoff, never an
+ * empty requirement list. An unreadable required field is not a question for
+ * the candidate.
  * @returns {Promise<{questions:Array<object>,documents:Array<object>,handoff?:string,unreadableFields?:Array<string>}>} requirements for the review page
  */
 export async function readPortalRequirements(ctx) {
@@ -4395,16 +4546,16 @@ export async function readPortalRequirements(ctx) {
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
-  const verifiedPostingEntry = verifiedJobs2WebEntry || isVerifiedPostingEntry(ctx);
+  const verifiedPostingEntry = verifiedJobs2WebEntry || verifiedPostingEntryFor(ctx);
   const readAhead = portalReadAheadCapability({
     channelType,
     entryUrl,
     verifiedPostingEntry,
   });
-  if (!readAhead
-    || !ctx.applyUrl || !ctx.codex) {
+  if (!readAhead || !ctx.applyUrl) {
     return { questions: [], documents: [] };
   }
+  if (!ctx.codex) return { questions: [], documents: [], handoff: 'requirements_unavailable' };
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
   try {
@@ -4435,7 +4586,7 @@ export async function readPortalRequirements(ctx) {
       : NAVIGATION));
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
-    if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };
+    if (snapshot.captcha || !readableApplication) return { questions: [], documents: [], handoff: 'requirements_unavailable' };
     // The live form is authoritative for the selected posting. A verified
     // route is sufficient provenance for a generic ATS form; otherwise a
     // mismatch must stop before any job-specific question reaches the draft.
@@ -4449,7 +4600,7 @@ export async function readPortalRequirements(ctx) {
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
     }
     const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
-    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired);
+    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, { candidate: ctx.candidate });
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
       return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
@@ -4466,7 +4617,7 @@ export async function readPortalRequirements(ctx) {
     return { ...requirements, questions };
   } catch (error) {
     (ctx.log || (() => {}))(`portal pre-read skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return { questions: [], documents: [] };
+    return { questions: [], documents: [], handoff: 'requirements_unavailable' };
   } finally {
     await browser?.close().catch(() => {});
   }
@@ -4525,7 +4676,7 @@ export async function submitViaPortal(ctx) {
   let diagnostics = null;
   let finalClickAttempt = null;
   let activeFinalFormGuard = null;
-  const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
+  const enteredFromMatchingPosting = verifiedPostingEntryFor(ctx);
   const clearActiveFinalFormGuard = async () => {
     if (!activeFinalFormGuard?.token) return;
     if (activeFinalFormGuard.frame?.evaluate) {
