@@ -106,6 +106,34 @@ describe('reconcileSitemapSearchClustersWithDist', () => {
     expect(fs.readFileSync(jobsPath, 'utf-8')).toContain(LATE_NOINDEX);
   });
 
+  it('checks present foreign pages while preserving missing shard ownership', async () => {
+    const clusterPath = path.join(distDir, 'sitemap-search-clusters-001.xml');
+    fs.writeFileSync(
+      clusterPath,
+      urlset([HEALTHY, LATE_NOINDEX, LATE_CANONICAL_DRIFT, ALLOWED_BRIDGE, MISSING_FOREIGN]),
+      'utf-8',
+    );
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'en';
+    vi.resetModules();
+    try {
+      const { reconcileFinalSitemapsWithDist } = await import('../build-plugins/sitemapAliasPlugin');
+      await reconcileFinalSitemapsWithDist(distDir, []);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      vi.resetModules();
+    }
+
+    const first = fs.readFileSync(clusterPath, 'utf-8');
+    expect(first).not.toContain(LATE_NOINDEX);
+    expect(first).not.toContain(LATE_CANONICAL_DRIFT);
+    expect(first).toContain(MISSING_FOREIGN);
+    expect(first).toContain(HEALTHY);
+    expect(first).toContain(ALLOWED_BRIDGE);
+  });
+
   it('applies assembled-dist truth to foreign cluster URLs on a locale shard', async () => {
     const clusterPath = path.join(distDir, 'sitemap-search-clusters-001.xml');
     fs.writeFileSync(
