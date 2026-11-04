@@ -19,22 +19,28 @@ import {
   statSync,
   writeFileSync,
 } from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 import { flatString } from './lib/flat-string.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const ROOT = process.cwd();
+const SCRIPT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
 const BASE_URL = 'https://frontaliereticino.ch';
 const BASE_ORIGIN = new URL(BASE_URL).origin;
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const PAGE_MANIFEST_VERSION = 2;
+const PAGE_VALIDATOR_VERSION = 'publisher-page-index-v2';
 const LOC_ONLY = process.argv.includes('--loc-only');
 const OWNED_LOCALE = flagValue('--owned-locale');
 const MANIFEST_OUT = flagValue('--manifest-out');
 const VERIFY_MANIFEST = flagValue('--verify-manifest');
 const IS_MAIN = isInvokedDirectly(import.meta.url);
+const SECTION_SLUGS = JSON.parse(readFileSync(path.join(SCRIPT_ROOT, 'scripts/lib/section-shard-slugs.json'), 'utf8'));
 
 function flagValue(name) {
   const prefix = `${name}=`;
@@ -154,6 +160,22 @@ function relativeDistPath(file, distDir = DIST) {
   return relative.split(path.sep).join('/');
 }
 
+function sectionForUrl(url, locale) {
+  const pathname = sameOriginPath(url);
+  if (!pathname) return null;
+  for (const [section, locales] of Object.entries(SECTION_SLUGS)) {
+    const slug = locales?.[locale];
+    if (!slug) continue;
+    const prefix = locale === 'it' ? `/${slug}` : `/${locale}/${slug}`;
+    if (pathname === prefix || pathname.startsWith(`${prefix}/`)) return section;
+  }
+  return null;
+}
+
+function sha256File(file) {
+  return createHash('sha256').update(readFileSync(file)).digest('hex');
+}
+
 function localeSitemapFiles(distDir = DIST) {
   return readdirSync(distDir)
     .filter((file) => file.startsWith('sitemap') && file.endsWith('.xml'))
@@ -180,21 +202,50 @@ function collectOwnedLocaleEntries(locale, distDir = DIST) {
   }
 
   const missing = [];
+  const resolvedEntries = [];
   for (const entry of entries.values()) {
     const candidates = urlToDistCandidates(entry.url, distDir);
-    if (!candidates.some(isRegularFile)) {
+    const pageFile = candidates.find(isRegularFile);
+    if (!pageFile) {
       missing.push({ ...entry, candidates: candidates.map((file) => relativeDistPath(file, distDir)).filter(Boolean) });
+      continue;
     }
+    const pagePath = relativeDistPath(pageFile, distDir);
+    resolvedEntries.push({
+      ...entry,
+      path: pagePath,
+      sha256: sha256File(pageFile),
+      locale,
+      section: sectionForUrl(entry.url, locale),
+    });
   }
-  return { entries: [...entries.values()], missing, sitemapFiles };
+  return { entries: resolvedEntries, missing, sitemapFiles };
 }
 
-function writeLocaleManifest(file, locale, entries) {
+function writeLocaleManifest(file, locale, entries, identity = {}) {
   mkdirSync(path.dirname(file), { recursive: true });
   writeFileSync(file, `${JSON.stringify({
-    version: 1,
+    version: PAGE_MANIFEST_VERSION,
+    schemaVersion: PAGE_MANIFEST_VERSION,
+    kind: 'publisher-page-manifest',
+    validatorVersion: PAGE_VALIDATOR_VERSION,
     locale,
-    entries: entries.map(({ sitemap, url }) => ({ sitemap, url })),
+    sourceRunId: String(identity.sourceRunId ?? process.env.SOURCE_RUN_ID ?? process.env.GITHUB_RUN_ID ?? ''),
+    sourceSha: String(identity.sourceSha ?? process.env.SOURCE_SHA ?? process.env.GITHUB_SHA ?? '').toLowerCase(),
+    artifactRunId: String(identity.artifactRunId ?? process.env.ARTIFACT_RUN_ID ?? process.env.GITHUB_RUN_ID ?? ''),
+    artifactName: String(identity.artifactName ?? process.env.BASE_ARTIFACT_NAME ?? ''),
+    artifactDigest: String(identity.artifactDigest ?? process.env.BASE_ARTIFACT_DIGEST ?? '').replace(/^sha256:/u, '').toLowerCase(),
+    requiredSections: Array.isArray(identity.requiredSections)
+      ? identity.requiredSections
+      : String(process.env.LIVE_SHARD_SECTIONS ?? '').split(',').map((value) => value.trim()).filter(Boolean),
+    entries: entries.map((entry) => ({
+      sitemap: entry.sitemap,
+      url: entry.url,
+      path: entry.path,
+      sha256: entry.sha256,
+      locale: entry.locale ?? locale,
+      section: entry.section ?? null,
+    })),
   }, null, 2)}\n`);
 }
 
@@ -207,7 +258,9 @@ function verifyLocaleManifest(file, locale, distDir = DIST) {
   }
 
   const errors = [];
-  if (manifest?.version !== 1) errors.push(`unsupported locale sitemap manifest version: ${String(manifest?.version)}`);
+  if (![1, PAGE_MANIFEST_VERSION].includes(manifest?.version)) {
+    errors.push(`unsupported locale sitemap manifest version: ${String(manifest?.version)}`);
+  }
   if (manifest?.locale !== locale) errors.push(`manifest locale ${JSON.stringify(manifest?.locale)} != ${JSON.stringify(locale)}`);
   if (!Array.isArray(manifest?.entries)) {
     errors.push('locale sitemap manifest entries is not an array');
@@ -226,8 +279,32 @@ function verifyLocaleManifest(file, locale, distDir = DIST) {
       errors.push(`manifest URL is not owned by ${locale}: ${url}`);
       continue;
     }
+    if (manifest.version === PAGE_MANIFEST_VERSION) {
+      const pagePath = typeof entry?.path === 'string' ? entry.path : '';
+      const digest = typeof entry?.sha256 === 'string' ? entry.sha256 : '';
+      if (entry?.locale !== locale) errors.push(`manifest entry locale ${JSON.stringify(entry?.locale)} != ${locale}: ${url}`);
+      if (!/^[0-9a-f]{64}$/u.test(digest)) errors.push(`manifest page digest is missing or malformed: ${url}`);
+      const resolved = path.resolve(distDir, pagePath);
+      const relative = path.relative(distDir, resolved);
+      if (!pagePath || !relative || relative.startsWith('..') || path.isAbsolute(relative)) {
+        errors.push(`manifest page path is missing or escapes dist/: ${url}`);
+      } else if (!urlToDistCandidates(url, distDir).includes(resolved)) {
+        errors.push(`manifest page path does not map to its URL: ${url} (${pagePath})`);
+      } else if (!isRegularFile(resolved)) {
+        errors.push(`manifest page path is absent from extracted dist/: ${url} (${pagePath})`);
+      } else if (/^[0-9a-f]{64}$/u.test(digest) && sha256File(resolved) !== digest) {
+        errors.push(`manifest page digest does not match extracted bytes: ${url} (${pagePath})`);
+      }
+    }
     const candidates = urlToDistCandidates(url, distDir);
-    if (!candidates.some(isRegularFile)) {
+    const pageFile = manifest.version === PAGE_MANIFEST_VERSION
+      ? path.resolve(distDir, entry.path)
+      : null;
+    if (manifest.version === PAGE_MANIFEST_VERSION) {
+      if (!(pageFile && isRegularFile(pageFile))) {
+        errors.push(`manifest URL has no page at its declared path: ${url} (${entry.path})`);
+      }
+    } else if (!candidates.some(isRegularFile)) {
       errors.push(`manifest URL has no extracted page: ${url} (candidates: ${candidates.map((filePath) => relativeDistPath(filePath, distDir)).join(', ') || 'none'})`);
     }
   }
@@ -237,6 +314,7 @@ function verifyLocaleManifest(file, locale, distDir = DIST) {
 export {
   collectOwnedLocaleEntries,
   ownsSitemapUrl,
+  sectionForUrl,
   urlToDistCandidates,
   verifyLocaleManifest,
   writeLocaleManifest,

@@ -656,6 +656,11 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: Run SEO source tests once per build
+        if: matrix.locale == 'it'
+        timeout-minutes: 25
+        run: npm run gate:seo-source
+
       - name: Audit no merge conflict markers
         run: npm run audit:no-merge-markers
 
@@ -1229,20 +1234,60 @@ jobs:
       # its own leg fails to materialize one detail page. Validate the owned
       # URL set before pruning the other locales, then hand the exact set to
       # deploy-publish.yml so an incomplete artifact cannot reach a shard push.
+      - name: Reject generated HTML under dotfile paths
+        run: npm run audit:no-dotfile-html
+
+      # The Pages payload is published by the IT leg. Non-IT locale artifacts
+      # run the same blocking schema check in deploy-publish after finalization,
+      # before any shard push.
+      - name: Validate IT JobPosting schema before artifact upload
+        if: matrix.locale == 'it'
+        run: npm run validate:jobposting-schema
+
       - name: Validate owned sitemap pages before locale prune
         id: validate-owned-sitemap-pages
         env:
           LOCALE_SITEMAP_MANIFEST_OUT: ${{ runner.temp }}/locale-sitemap-manifest-${{ matrix.locale }}.json
+          SOURCE_RUN_ID: ${{ github.run_id }}
+          SOURCE_SHA: ${{ github.sha }}
+          ARTIFACT_RUN_ID: ${{ github.run_id }}
+          BASE_ARTIFACT_NAME: ${{ matrix.locale == 'it' && 'github-pages' || format('locale-shard-source-{0}-{1}', matrix.locale, github.run_id) }}
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -euo pipefail
-          if [ "${{ matrix.locale }}" = "it" ]; then
-            node scripts/validate-sitemap-links.mjs --owned-locale=it
-          else
-            node scripts/validate-sitemap-links.mjs \
-              --owned-locale="${{ matrix.locale }}" \
-              --manifest-out="$LOCALE_SITEMAP_MANIFEST_OUT"
-            test -s "$LOCALE_SITEMAP_MANIFEST_OUT"
-          fi
+          export LIVE_SHARD_SECTIONS="$(node scripts/ci/list-live-shard-sections.mjs --exclude-build-skipped)"
+          node scripts/validate-sitemap-links.mjs \
+            --owned-locale="${{ matrix.locale }}" \
+            --manifest-out="$LOCALE_SITEMAP_MANIFEST_OUT"
+          test -s "$LOCALE_SITEMAP_MANIFEST_OUT"
 
       # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
       # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
@@ -1910,6 +1955,8 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
           # Wall-time della fase (#7301) — vedi lo step di push sopra per il
@@ -1924,6 +1971,9 @@ jobs:
           # (memoised in $RUNNER_TEMP, so this reuses the push step's walk of
           # dist instead of paying for a second one).
           source scripts/lib/bounded-parallel.sh
+          live_sections="$(node scripts/ci/list-live-shard-sections.mjs --exclude-build-skipped)"
+          echo "required_sections=$live_sections" >> "$GITHUB_OUTPUT"
+          mkdir -p "$RUNNER_TEMP/shard-content-manifests/it"
           # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
           # read and completes each staged copy in background. Barrier FIRST,
           # before any live gate — the staged files are hardlinked to
@@ -1995,7 +2045,20 @@ jobs:
             if [ "$packed_n" -ne "$live_src_n" ]; then
               echo "::warning::$section-dist-it.tar file count mismatch (packed=$packed_n src=$live_src_n) — discarding tar, validate-dist will fall back to git-clone"
               rm -f "$RUNNER_TEMP/$section-dist-it.tar"
+              rm -rf "$src"
+              return 1
             fi
+            node scripts/ci/shard-content-manifest.mjs create-section \
+              --root "$src/$sub" \
+              --prefix "$sub" \
+              --locale it \
+              --section "$section" \
+              --source-run-id "$GITHUB_RUN_ID" \
+              --source-sha "$GITHUB_SHA" \
+              --artifact-run-id "$GITHUB_RUN_ID" \
+              --tar "$RUNNER_TEMP/$section-dist-it.tar" \
+              --page-manifest "$RUNNER_TEMP/locale-sitemap-manifest-it.json" \
+              --out "$RUNNER_TEMP/shard-content-manifests/it/$section.json"
             rm -rf "$src"
           }
           # Degrade to the plain list rather than pack nothing: this tar only
@@ -2010,6 +2073,7 @@ jobs:
           bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
       - name: Upload shard batch 1 dist for post-deploy validation
         if: matrix.locale == 'it'
+        id: upload-shard-batch-1
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -2025,6 +2089,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 2 dist for post-deploy validation
         if: matrix.locale == 'it'
+        id: upload-shard-batch-2
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -2040,6 +2105,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 3 dist for post-deploy validation
         if: matrix.locale == 'it'
+        id: upload-shard-batch-3
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -2055,6 +2121,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 4 dist for post-deploy validation
         if: matrix.locale == 'it'
+        id: upload-shard-batch-4
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -2070,6 +2137,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 5 dist for post-deploy validation
         if: matrix.locale == 'it'
+        id: upload-shard-batch-5
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -2085,6 +2153,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 6 dist for post-deploy validation
         if: matrix.locale == 'it'
+        id: upload-shard-batch-6
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -2095,6 +2164,39 @@ jobs:
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
+
+      - name: Finalize IT section content manifests
+        if: matrix.locale == 'it'
+        id: finalize-section-manifests-it
+        env:
+          SOURCE_RUN_ID: ${{ github.run_id }}
+          SOURCE_SHA: ${{ github.sha }}
+          REQUIRED_SECTIONS: ${{ steps.pack-section-shards-it.outputs.required_sections }}
+          SECTION_ARTIFACT_DIGESTS_JSON: >-
+            {"1":"${{ steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6.outputs.artifact-digest }}"}
+        run: |
+          set -euo pipefail
+          digests="$RUNNER_TEMP/it-section-artifact-digests.json"
+          printf '%s\n' "$SECTION_ARTIFACT_DIGESTS_JSON" > "$digests"
+          node scripts/ci/shard-content-manifest.mjs finalize-sections \
+            --input "$RUNNER_TEMP/shard-content-manifests/it" \
+            --locale it \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --artifact-run-id "$SOURCE_RUN_ID" \
+            --artifact-digests "$digests" \
+            --required-sections "$REQUIRED_SECTIONS" \
+            --manifest-artifact-name "section-page-manifest-it-$SOURCE_RUN_ID" \
+            --out "$RUNNER_TEMP/section-page-manifest-it.json"
+
+      - name: Upload IT section content manifest
+        if: matrix.locale == 'it' && steps.finalize-section-manifests-it.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        with:
+          name: section-page-manifest-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/section-page-manifest-it.json
+          retention-days: 8
+          if-no-files-found: error
 
       - name: Strip section subtrees (IT)
         if: matrix.locale == 'it'
@@ -2366,6 +2468,7 @@ jobs:
       # 1.5 GB github-pages artifact entirely.
       - name: Upload sitemaps bundle artifact
         if: matrix.locale == 'it'
+        id: upload-sitemaps-bundle
         uses: actions/upload-artifact@v7
         with:
           name: sitemaps-${{ github.run_id }}
@@ -2812,6 +2915,46 @@ jobs:
       # the large payload artifacts. A missing/invalid receipt is fail-closed
       # in the admission plan, while a failed non-IT leg remains on its
       # last-known-good shard and is explicitly reported as stale.
+      - name: Bind sitemap page manifest to uploaded artifact digests
+        if: always() && steps.validate-owned-sitemap-pages.outcome == 'success'
+        id: bind-sitemap-page-manifest
+        env:
+          SOURCE_RUN_ID: ${{ github.run_id }}
+          SOURCE_SHA: ${{ github.sha }}
+          BASE_ARTIFACT_NAME: ${{ matrix.locale == 'it' && 'github-pages' || format('locale-shard-source-{0}-{1}', matrix.locale, github.run_id) }}
+          BASE_ARTIFACT_DIGEST: ${{ matrix.locale == 'it' && steps.upload-pages-artifact.outputs.artifact-digest || steps.upload-locale-source.outputs.artifact-digest }}
+          SITEMAPS_ARTIFACT_NAME: ${{ matrix.locale == 'it' && format('sitemaps-{0}', github.run_id) || '' }}
+          SITEMAPS_ARTIFACT_DIGEST: ${{ matrix.locale == 'it' && steps.upload-sitemaps-bundle.outputs.artifact-digest || '' }}
+          SECTION_ARTIFACT_DIGESTS_JSON: >-
+            {"1":"${{ steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6.outputs.artifact-digest }}"}
+        run: |
+          set -euo pipefail
+          input="$RUNNER_TEMP/locale-sitemap-manifest-${BUILD_LOCALE}.json"
+          output="$RUNNER_TEMP/sitemap-page-manifest-${BUILD_LOCALE}.json"
+          digests="$RUNNER_TEMP/section-artifact-digests.json"
+          printf '%s\n' "$SECTION_ARTIFACT_DIGESTS_JSON" > "$digests"
+          node scripts/ci/shard-content-manifest.mjs bind-page \
+            --input "$input" \
+            --out "$output" \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --artifact-run-id "$SOURCE_RUN_ID" \
+            --base-artifact-name "$BASE_ARTIFACT_NAME" \
+            --base-artifact-digest "$BASE_ARTIFACT_DIGEST" \
+            --section-artifact-digests "$digests" \
+            --sitemaps-artifact-name "$SITEMAPS_ARTIFACT_NAME" \
+            --sitemaps-artifact-digest "$SITEMAPS_ARTIFACT_DIGEST" \
+            --manifest-artifact-name "sitemap-page-manifest-${BUILD_LOCALE}-${SOURCE_RUN_ID}"
+
+      - name: Upload sitemap page manifest for publisher gate
+        if: always() && steps.bind-sitemap-page-manifest.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        with:
+          name: sitemap-page-manifest-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/sitemap-page-manifest-${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
+
       - name: Write locale publish provenance
         if: always()
         id: write-locale-provenance

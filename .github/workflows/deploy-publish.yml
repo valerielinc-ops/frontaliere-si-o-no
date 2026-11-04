@@ -584,6 +584,13 @@ jobs:
         id: validate-finalized-locale
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
+      # The historical full-dist schema walker is too expensive after shard
+      # publication. Each locale is already materialized here, so validate its
+      # complete JobPosting set before any external shard side effect.
+      - name: Validate non-IT JobPosting schema before shard publication
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true'
+        run: npm run validate:jobposting-schema
+
       - name: Wait for IT CDN push (cross-shard ordering guard)
         id: cdn-gate
         if: always() && env.DURABLE_LOCALE_PUBLISHED != 'true'
@@ -903,6 +910,10 @@ jobs:
         id: pack-section-shards-nonit
         continue-on-error: true
         env:
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
@@ -945,6 +956,9 @@ jobs:
             exit 1
           }
           source scripts/lib/bounded-parallel.sh
+          live_sections="$(node scripts/ci/list-live-shard-sections.mjs --exclude-build-skipped)"
+          echo "required_sections=$live_sections" >> "$GITHUB_OUTPUT"
+          mkdir -p "$RUNNER_TEMP/shard-content-manifests/$loc"
           # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
           # read and completes each staged copy in background. Barrier FIRST,
           # before any live gate — the staged files are hardlinked to
@@ -1009,7 +1023,20 @@ jobs:
             if [ "$packed_n" -ne "$live_src_n" ]; then
               echo "::warning::$section-dist-$loc.tar file count mismatch (packed=$packed_n src=$live_src_n) — discarding tar, validate-dist will fall back to git-clone"
               rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
+              rm -rf "$src"
+              return 1
             fi
+            node scripts/ci/shard-content-manifest.mjs create-section \
+              --root "$src/$sub" \
+              --prefix "$sub" \
+              --locale "$loc" \
+              --section "$section" \
+              --source-run-id "$SOURCE_RUN_ID" \
+              --source-sha "$SOURCE_SHA" \
+              --artifact-run-id "$GITHUB_RUN_ID" \
+              --tar "$RUNNER_TEMP/$section-dist-$loc.tar" \
+              --page-manifest "dist/locale-sitemap-manifest.json" \
+              --out "$RUNNER_TEMP/shard-content-manifests/$loc/$section.json"
             rm -rf "$src"
           }
           # Degrade to the plain list rather than pack nothing — see the IT
@@ -1022,6 +1049,7 @@ jobs:
           bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
       - name: Upload shard batch 1 dist for post-deploy validation
         if: matrix.locale != 'it'
+        id: upload-shard-batch-1
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1037,6 +1065,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 2 dist for post-deploy validation
         if: matrix.locale != 'it'
+        id: upload-shard-batch-2
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1052,6 +1081,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 3 dist for post-deploy validation
         if: matrix.locale != 'it'
+        id: upload-shard-batch-3
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1067,6 +1097,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 4 dist for post-deploy validation
         if: matrix.locale != 'it'
+        id: upload-shard-batch-4
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1082,6 +1113,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 5 dist for post-deploy validation
         if: matrix.locale != 'it'
+        id: upload-shard-batch-5
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1097,6 +1129,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 6 dist for post-deploy validation
         if: matrix.locale != 'it'
+        id: upload-shard-batch-6
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1107,6 +1140,40 @@ jobs:
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
+
+      - name: Finalize non-IT section content manifests
+        if: matrix.locale != 'it'
+        id: finalize-section-manifests-nonit
+        env:
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          REQUIRED_SECTIONS: ${{ steps.pack-section-shards-nonit.outputs.required_sections }}
+          SECTION_ARTIFACT_DIGESTS_JSON: >-
+            {"1":"${{ steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6.outputs.artifact-digest }}"}
+        run: |
+          set -euo pipefail
+          loc="${{ matrix.locale }}"
+          digests="$RUNNER_TEMP/$loc-section-artifact-digests.json"
+          printf '%s\n' "$SECTION_ARTIFACT_DIGESTS_JSON" > "$digests"
+          node scripts/ci/shard-content-manifest.mjs finalize-sections \
+            --input "$RUNNER_TEMP/shard-content-manifests/$loc" \
+            --locale "$loc" \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --artifact-run-id "$GITHUB_RUN_ID" \
+            --artifact-digests "$digests" \
+            --required-sections "$REQUIRED_SECTIONS" \
+            --manifest-artifact-name "section-page-manifest-$loc-$GITHUB_RUN_ID" \
+            --out "$RUNNER_TEMP/section-page-manifest-$loc.json"
+
+      - name: Upload non-IT section content manifest
+        if: matrix.locale != 'it' && steps.finalize-section-manifests-nonit.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        with:
+          name: section-page-manifest-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/section-page-manifest-${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
 
       - name: Strip section subtrees (non-IT)
         if: matrix.locale != 'it'
@@ -1674,6 +1741,66 @@ jobs:
           echo "| locale push | ${TAIL_LOCALE_PUSH_SECONDS:-unknown} |" >> "$GITHUB_STEP_SUMMARY"
           echo "| budget check | ${TAIL_BUDGET_SECONDS:-unknown} |" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Diagnose French tail outcomes
+        if: always() && matrix.locale == 'fr'
+        env:
+          JOB_STATUS: ${{ job.status }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          EXPECTED_BUILD_ID: ${{ steps.cdn-gate.outputs.cdn_expected }}
+          ACTUAL_BUILD_ID: ${{ steps.cdn-gate.outputs.cdn_last_seen }}
+          CDN_WAIT_RESULT: ${{ steps.cdn-gate.outputs.cdn_wait_result }}
+          CDN_WAITED_SECONDS: ${{ steps.cdn-gate.outputs.cdn_waited_s }}
+          CDN_MARGIN_SECONDS: ${{ steps.cdn-gate.outputs.cdn_margin_s }}
+          SECTION_PUSH_OUTCOME: ${{ steps.push-section-shards-nonit.outcome }}
+          SECTION_PACK_OUTCOME: ${{ steps.pack-section-shards-nonit.outcome }}
+          LOCALE_PACK_OUTCOME: ${{ steps.pack-locale-shard.outcome }}
+          LOCALE_PUSH_OUTCOME: ${{ steps.push-shard.outcome }}
+          TAIL_BUDGET_OUTCOME: ${{ steps.tail-budget.outcome }}
+          SECTION_FAIL_FILE: ${{ runner.temp }}/shard-push-failed-fr.txt
+          SHARD_FAIL_REASON_FILE: ${{ runner.temp }}/shard-fail-reason-fr
+        run: |
+          set -euo pipefail
+          rows="$RUNNER_TEMP/fr-tail-diagnostic-steps.txt"
+          cat > "$rows" <<ROWS
+          validate-finalized-locale=${{ steps.validate-finalized-locale.outcome }}
+          cdn-gate=${{ steps.cdn-gate.outcome }}
+          push-section-shards=${SECTION_PUSH_OUTCOME}
+          pack-section-shards=${SECTION_PACK_OUTCOME}
+          upload-batch-1=${{ steps.upload-shard-batch-1.outcome }}
+          upload-batch-2=${{ steps.upload-shard-batch-2.outcome }}
+          upload-batch-3=${{ steps.upload-shard-batch-3.outcome }}
+          upload-batch-4=${{ steps.upload-shard-batch-4.outcome }}
+          upload-batch-5=${{ steps.upload-shard-batch-5.outcome }}
+          upload-batch-6=${{ steps.upload-shard-batch-6.outcome }}
+          tail-budget=${TAIL_BUDGET_OUTCOME}
+          pack-locale=${LOCALE_PACK_OUTCOME}
+          upload-locale=${{ steps.upload-locale-shard.outcome }}
+          push-locale=${LOCALE_PUSH_OUTCOME}
+          ROWS
+          failed=0
+          {
+            echo '### French non-IT tail diagnostic'
+            echo "- Source run: \`$SOURCE_RUN_ID\` @ \`$SOURCE_SHA\`"
+            echo "- CDN marker: expected \`$EXPECTED_BUILD_ID\`, last seen \`$ACTUAL_BUILD_ID\`, result \`$CDN_WAIT_RESULT\`, waited \`${CDN_WAITED_SECONDS:-unknown}s\`, margin \`${CDN_MARGIN_SECONDS:-unknown}s\`."
+            echo "- Tail job status: \`$JOB_STATUS\`."
+            echo '- Step outcomes:'
+            while IFS= read -r row; do
+              echo "  - \`$row\`"
+              case "$row" in *=failure|*=cancelled) failed=1 ;; esac
+            done < "$rows"
+            if [ -s "$SECTION_FAIL_FILE" ]; then
+              echo "- Failed section pushes: \`$(paste -sd, "$SECTION_FAIL_FILE")\`."
+            fi
+            if [ -s "$SHARD_FAIL_REASON_FILE" ]; then
+              reason="$(sed -n '1p' "$SHARD_FAIL_REASON_FILE" | tr -d '\r')"
+              echo "- Locale shard failure reason: $reason"
+            fi
+            if [ "$JOB_STATUS" = failure ] && [ "$failed" -eq 0 ]; then
+              echo '- Unattributed failure: job failed but no recorded tail step reports failure.'
+            fi
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Write non-IT locale publish provenance
         if: always()
         env:
@@ -2137,20 +2264,19 @@ jobs:
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   # ───────────────────────────────────────────────────────────────────────
-  # validate-dist: dist-side gates (bfs-depth, text-html-ratio, ...). Needs
-  # only the build run's artifacts (fetched by deploy_run_id), so it runs in
-  # PARALLEL with deploy — not gated on the live publish.
+  # validate-dist: the short sitemap/page/shard provenance gate. It waits for
+  # the publisher's compact section receipts, and never downloads the full
+  # github-pages or section tar artifacts.
   # ───────────────────────────────────────────────────────────────────────
   validate-dist:
-    needs: [resolve-publish-plan, resolve-nonit-publish]
+    needs: [resolve-publish-plan, resolve-nonit-publish, publish-nonit-shards]
     if: >-
-      ${{ needs.resolve-publish-plan.result == 'success' &&
+      ${{ always() &&
+          needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.resolve-nonit-publish.result == 'success' &&
-          needs.resolve-nonit-publish.outputs.allowed == 'true' }}
-    # This is intentionally a different lock from pages-deploy. The complete
-    # logical-dist rehydrate can use the full 350-minute validator budget; it
-    # must not serialize the Pages upload that already completed for its run.
+          needs.resolve-nonit-publish.outputs.allowed == 'true' &&
+          needs.publish-nonit-shards.result != 'skipped' }}
     concurrency:
       group: ${{ needs.resolve-publish-plan.outputs.allowed == 'true' && 'dist-validation' || format('dist-validation-noop-{0}', github.run_id) }}
       cancel-in-progress: false
@@ -2164,46 +2290,7 @@ jobs:
     permissions:
       contents: read    # checkout
       actions: read     # cross-run download-artifact
-      issues: write     # github-issue-creator on validation failure (must be declared at the caller too or the reusable startup_failures)
-
-  # ───────────────────────────────────────────────────────────────────────
-  # audit-dist-report: quality/BFS audits only. It reuses the build and shard
-  # artifacts, but owns a separate runner and has no edge into `publish`, so
-  # its long report walk never holds the dist-validation concurrency lock.
-  # ───────────────────────────────────────────────────────────────────────
-  audit-dist-report:
-    needs: [resolve-publish-plan, resolve-nonit-publish, publish-nonit-shards]
-    if: >-
-      ${{ always() &&
-          needs.resolve-publish-plan.result == 'success' &&
-          needs.resolve-publish-plan.outputs.allowed == 'true' &&
-          needs.resolve-nonit-publish.result == 'success' &&
-          needs.resolve-nonit-publish.outputs.allowed == 'true' &&
-          needs.publish-nonit-shards.result == 'success' }}
-    uses: ./.github/workflows/audit-dist-from-run.yml
-    with:
-      deploy_run_id: ${{ inputs.source_run_id }}
-      shard_artifact_run_id: ${{ github.run_id }}
-      deploy_ref: ${{ inputs.source_sha }}
-      audit_sample_rate: '0.25'
-      audit_sample_salt: ${{ github.run_number }}
-      audits: >-
-        audit:all,audit:hreflang,audit:max-bfs-depth,
-        audit:orphan-sitemap-pages,validate:jobs-quality,
-        audit:discover-eligibility,report:job-title-locale,
-        report:meta-description,validate:page-seo,validate:og-images,
-        gate:seo-source,gate:dist-quality
-      audit_all_audits: >-
-        text-html-ratio,title-length,title-no-disambig-hash,
-        h1-title-duplicates,content-duplicates,faqpage-validity,
-        image-object-license,
-        no-literal-markdown,breadcrumb-coverage,single-h1-per-page,
-        duplicate-structured-data,link-anchor-text,duplicate-meta-description,
-        information-gain,page-weight,salary-landing-template
-    secrets: inherit
-    permissions:
-      contents: read
-      actions: read
+      issues: write     # validation issue lifecycle reporter
 
   # ───────────────────────────────────────────────────────────────────────
   # validate-live: live-site gates (build-id propagation, live meta). Needs the
@@ -2286,8 +2373,8 @@ jobs:
   #
   # `validate-live` stays a HARD requirement: if the new dist is not actually
   # serving, submitting its URLs is wrong.
-  # `audit-dist-report` and `audit-live-report` intentionally do not appear in
-  # `needs`: they publish evidence, not a publication precondition.
+  # Historical dist audits run from a separate workflow_run workflow and do
+  # not hold this publisher run open.
   # ───────────────────────────────────────────────────────────────────────
   publish:
     needs: [resolve-publish-plan, resolve-nonit-publish, deploy, validate-dist, validate-live]
@@ -2368,7 +2455,7 @@ jobs:
   # The caller run can be red because a reusable validator failed. Reporters
   # inside those callees correctly open their gate-specific issues, but the
   # caller itself was still invisible to scan-unreported-failures: its failed
-  # job is named `validate-dist / validate-dist-postbuild`, not a step in this
+  # job is named `validate-dist / fast-gate`, not a step in this
   # workflow. This post-job observer owns the caller-level canonical issue and
   # fetches the completed nested job log for diagnosis.
   report-failure:
@@ -2467,7 +2554,7 @@ jobs:
           # github.sha riaprirebbe la canonica su codice nuovo anche quando il
           # dist validato precede la fix; il guard vuole lo SHA dell'artifact.
           build-sha: ${{ inputs.source_sha }}
-          log-from-job: validate-dist / validate-dist-postbuild
+          log-from-job: validate-dist / fast-gate
           workflow-file: .github/workflows/post-deploy-validate-dist.yml
           context: |
             - Il job riusabile `validate-dist` è fallito; il suo reporter mantiene anche il dettaglio per-gate `Validation Failure (dist): ...`.
