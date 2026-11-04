@@ -346,12 +346,12 @@ describe('privacy before the registration click', () => {
       <button type="submit" id="create" disabled>Konto anlegen</button>
     </form>${SUCCESS_FACTORS_DIALOG}`;
     const fixture = fakePage([markup], { url: 'https://career5.successfactors.eu/career' });
-    const clicks = wireNotice(fixture);
+    const seen = wireAccount(fixture);
     const result = await preflight(fixture.page);
     expect(result).toMatchObject({ privacy: 'accepted', blocked: false });
     expect(fixture.element('noticeReview').checked).toBe(true);
     expect(fixture.element('noticeAccept').disabled).toBe(false);
-    expect(clicks).toEqual({ other: 0, submit: 0 });
+    expect(seen).toMatchObject({ noticeClicks: 1, accepted: 1, ctaClicks: 0, requests: 0 });
   });
 
   it('gives the CTA a bounded time to become enabled after the acceptance', async () => {
