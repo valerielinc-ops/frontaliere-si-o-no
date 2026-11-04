@@ -4903,6 +4903,8 @@ export async function dropOverwrittenLocs(
   options: {
     inspectForeignPresent?: boolean;
     keepMissing?: boolean;
+    /** Keep a present literal asset (for example a PDF); missing paths still follow keepMissing. */
+    keepPresentNonHtmlFiles?: boolean;
     /** Treat the input as a complete dist assembled from every locale shard. */
     ignoreShardOwnership?: boolean;
     preserveCanonicalExemptions?: boolean;
@@ -5011,7 +5013,9 @@ export async function dropOverwrittenLocs(
             if (path.extname(urlPath).toLowerCase() === '.html') {
               html = await readHeadOrAll(routePath, { throwOnError: true });
             } else {
-              flags[i] = foreignLocale || options.keepMissing ? KEEP : DROP_MISSING;
+              flags[i] = foreignLocale || options.keepPresentNonHtmlFiles || options.keepMissing
+                ? KEEP
+                : DROP_MISSING;
               continue;
             }
           }
@@ -5331,7 +5335,7 @@ export async function reconcileSitemapSearchClustersWithDist(
   if (advertised.length === 0) return 0;
   const kept = new Set(
     (await dropOverwrittenLocs(distDir, advertised, {
-      inspectForeignPresent: options.inspectForeignPresent,
+      inspectForeignPresent: options.inspectForeignPresent ?? true,
       keepMissing: options.keepMissing,
       ignoreShardOwnership: options.ignoreShardOwnership,
       foreignDirectoryIndex: options.foreignDirectoryIndex,
