@@ -344,6 +344,10 @@ describe('fill extension: patterns', () => {
     expect(APPLY_RE.test('candidatura manuale')).toBe(false);
   });
 
+  it('recognizes the EOC formal Italian application link', () => {
+    expect(APPLY_RE.test('Invii la sua candidatura')).toBe(true);
+  });
+
   it('does not mistake a plain «Apply» start link for a final send link', () => {
     const posting = page('<form><a href="/apply">Apply</a></form>');
     expect(posting.F.pageState(posting.document, { sawForm: true }).kind).not.toBe('final');
