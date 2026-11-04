@@ -807,7 +807,17 @@ jobs:
           # on IN-FLIGHT pushes, so peak `stage` usage is what it was.
           # Sliding window + longest-first ordering (issue #5130) — see the
           # IT-leg push step above and scripts/lib/bounded-parallel.sh.
-          source "$PUBLISHER_ROOT/scripts/lib/bounded-parallel.sh"
+          cd "$PUBLISHER_ROOT" || {
+            echo "::error::publisher checkout is unavailable: $PUBLISHER_ROOT"
+            exit 1
+          }
+          source scripts/lib/bounded-parallel.sh
+
+          section_push_script="$PUBLISHER_ROOT/scripts/lib/push-section-shard.sh"
+          if [ ! -f "$section_push_script" ]; then
+            echo "::error::publisher helper is unavailable: $section_push_script"
+            exit 1
+          fi
 
           # bounded-parallel.sh invokes the worker by name.
           # shellcheck disable=SC2329
@@ -821,7 +831,7 @@ jobs:
               echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
               return 0
             fi
-            if bash "$PUBLISHER_ROOT/scripts/lib/push-section-shard.sh" "$section" "$loc" "$PUBLISHER_DIST"; then
+            if bash scripts/lib/push-section-shard.sh "$section" "$loc" "$PUBLISHER_DIST"; then
               return 0
             fi
             echo "::warning::$section-$loc shard push step failed — continuing to the next section"
@@ -929,7 +939,11 @@ jobs:
           # dist" step above for the full rationale. Same shared
           # sliding-window driver and same longest-first order (memoised by
           # the push step, so no second walk of dist).
-          source "$PUBLISHER_ROOT/scripts/lib/bounded-parallel.sh"
+          cd "$PUBLISHER_ROOT" || {
+            echo "::error::publisher checkout is unavailable: $PUBLISHER_ROOT"
+            exit 1
+          }
+          source scripts/lib/bounded-parallel.sh
           # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
           # read and completes each staged copy in background. Barrier FIRST,
           # before any live gate — the staged files are hardlinked to
@@ -1323,7 +1337,16 @@ jobs:
           # helper fix. Keep the payload checkout immutable, but pass an
           # absolute dist path so older helpers remain valid after cd-ing into
           # their staging clone.
-          GITHUB_SHA="$DEPLOY_HEAD_SHA" bash "$PUBLISHER_ROOT/scripts/lib/push-locale-shard.sh" ${{ matrix.locale }} "$PUBLISHER_DIST"
+          locale_push_script="$PUBLISHER_ROOT/scripts/lib/push-locale-shard.sh"
+          if [ ! -f "$locale_push_script" ] || [ ! -d "$PUBLISHER_DIST" ]; then
+            echo "::error::publisher locale helper or artifact root is unavailable"
+            exit 1
+          fi
+          cd "$PUBLISHER_ROOT" || {
+            echo "::error::publisher checkout is unavailable: $PUBLISHER_ROOT"
+            exit 1
+          }
+          GITHUB_SHA="$DEPLOY_HEAD_SHA" bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} "$GITHUB_WORKSPACE/dist"
 
       # This is written immediately after the locale push, not after the
       # aggregate publish workflow. A later retry can therefore skip this
