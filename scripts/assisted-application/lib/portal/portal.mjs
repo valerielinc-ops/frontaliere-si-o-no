@@ -1613,7 +1613,7 @@ export function ownAccountForm(snapshot, channelType = '') {
   const umantisProfileCreatedOnSubmit = channelType === 'umantis'
     && isUmantisApplicationRoute(snapshot.url)
     && hasCvFileField
-    && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || ''));
+    && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || '').replace(/\s+/g, ' '));
   return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot)
     && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit);
 }
