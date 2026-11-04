@@ -140,7 +140,7 @@ export default function JobDetailJobAlertButton({
         ) : (
           <BellRing className="w-4 h-4" aria-hidden="true" />
         )}
-          {label || t('jobAlert.jobDetailButton.cta', 'Avvisami per questo annuncio')}
+        {label || t('jobAlert.jobDetailButton.cta', 'Avvisami per questo annuncio')}
       </button>
       {status === 'error' && (
         <p className="mt-2 text-xs text-danger">

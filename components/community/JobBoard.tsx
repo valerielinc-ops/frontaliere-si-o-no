@@ -4335,7 +4335,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
   ? (t(categoryTranslationKey(selectedJob)) || '').trim()
   : '';
  const detailAlertEligible = useJobAlertEligibility({
-  enabled: enableJobAlerts && Boolean(selectedJob && (isPublisherAd || appliedAlertSurfaceVisible)),
+  enabled: enableJobAlerts && Boolean(
+   selectedJob && (isPublisherAd || (appliedAlertSurfaceVisible && detailAlertKeyword)),
+  ),
   authResolved,
   userId,
   keyword: detailAlertKeyword,
@@ -4345,7 +4347,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   enableJobAlerts
   && isJobDetailView
   && selectedJob
-  && (isPublisherAd || appliedAlertSurfaceVisible)
+  && (isPublisherAd || (appliedAlertSurfaceVisible && detailAlertKeyword))
   && userId
   && userEmail
   && detailAlertEligible === true,
