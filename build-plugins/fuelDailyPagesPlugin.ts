@@ -5700,7 +5700,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       // same emitted, indexable set. `history` is rolling; the durable archive
       // contains older months that are not present in it.
       const archiveSitemapPaths = Object.entries(archives).flatMap(([path, html]) => {
-        if (!htmlHasIndexableRobots(html) || countHtmlBodyWords(html) < MIN_INDEXABLE_WORDS) {
+        if (!(htmlHasIndexableRobots(html) && countHtmlBodyWords(html) >= MIN_INDEXABLE_WORDS)) {
           return [];
         }
         assertFuelSitemapCanonical(path, html, 'archive');
