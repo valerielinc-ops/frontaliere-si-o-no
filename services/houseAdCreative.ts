@@ -90,8 +90,8 @@ a.ft-house-creative[data-house-format][data-house-creative]{color:var(--_heading
 .ft-house-title{font:700 30px/1.04 "Space Grotesk",Inter,system-ui,sans-serif;letter-spacing:-.025em;text-transform:uppercase;text-wrap:balance}
 .ft-house-promise{max-width:100%;padding:3px 6px;background:var(--_danger,FireBrick);color:var(--_surface,Canvas);font-size:20px;line-height:1.12;font-weight:700;text-transform:uppercase;text-wrap:balance}
 .ft-house-body{color:var(--_body,CanvasText);font-size:13px;line-height:1.4}
-.ft-house-cta{display:inline-flex;min-height:44px;align-items:center;justify-content:center;gap:8px;padding:9px 14px;border-radius:5px;background:var(--_heading,CanvasText);color:var(--_surface,Canvas);font-size:13px;font-weight:700;line-height:1.25}
-.ft-house-cta::after{content:'→';font-size:17px}.ft-house-creative:hover .ft-house-cta{background:var(--_danger,FireBrick)}.ft-house-creative:focus-visible{outline:3px solid var(--_accent,Highlight);outline-offset:2px}
+.ft-house-cta{display:inline-flex;min-height:44px;align-items:center;justify-content:center;gap:8px;padding:9px 14px;border-radius:6px;background:var(--_heading,CanvasText);color:var(--_surface,Canvas);font-size:13px;font-weight:700;line-height:1.25}
+.ft-house-creative:hover .ft-house-cta{background:var(--_danger,FireBrick)}.ft-house-creative:focus-visible{outline:3px solid var(--_accent,Highlight);outline-offset:2px}
 .ft-house-creative[data-house-format=rectangle]{grid-template-columns:38% minmax(0,1fr)}
 .ft-house-creative[data-house-format=rectangle] .ft-house-copy{padding:10px;gap:7px}
 .ft-house-creative[data-house-format=rectangle] .ft-house-title{font-size:21px}
@@ -119,13 +119,11 @@ a.ft-house-creative[data-house-format][data-house-creative]{color:var(--_heading
 .ft-house-creative[data-house-format=mobile_large] .ft-house-title{grid-column:1;grid-row:1;font-size:14px}
 .ft-house-creative[data-house-format=mobile_large] .ft-house-body{display:none}
 .ft-house-creative[data-house-format=mobile_large] .ft-house-cta{grid-column:2;grid-row:1;min-height:44px;padding:5px 8px;font-size:11px}
-.ft-house-creative[data-house-format=mobile_large] .ft-house-cta::after{display:none}
 .ft-house-creative[data-house-format=mobile_banner]{grid-template-columns:16% minmax(0,1fr)}
 .ft-house-creative[data-house-format=mobile_banner] .ft-house-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:2px 6px}
 .ft-house-creative[data-house-format=mobile_banner] .ft-house-title{font-size:11px;grid-column:1;line-height:1.05}
 .ft-house-creative[data-house-format=mobile_banner] .ft-house-body{display:none}
 .ft-house-creative[data-house-format=mobile_banner] .ft-house-cta{grid-column:2;grid-row:1;padding:5px 8px;font-size:11px}
-.ft-house-creative[data-house-format=mobile_banner] .ft-house-cta::after{display:none}
 @container(max-width:200px){.ft-house-creative[data-house-format=skyscraper] .ft-house-copy{padding:12px;gap:7px}.ft-house-creative[data-house-format=skyscraper] .ft-house-title{font-size:20px}.ft-house-creative[data-house-format=skyscraper] .ft-house-promise{font-size:16px;padding:3px 4px}.ft-house-creative[data-house-format=skyscraper] .ft-house-body{font-size:12px;line-height:1.35}.ft-house-creative[data-house-format=skyscraper] .ft-house-cta{font-size:12px;padding-inline:8px}}
 @container(min-height:1400px){.ft-house-creative[data-house-format=billboard]{grid-template-columns:1fr;grid-template-rows:60% minmax(0,1fr)}.ft-house-creative[data-house-format=billboard] .ft-house-art{grid-column:1;grid-row:1;object-position:center 22%}.ft-house-creative[data-house-format=billboard] .ft-house-copy{grid-column:1;grid-row:2;padding:36px;gap:16px}.ft-house-creative[data-house-format=billboard] .ft-house-title{font-size:48px}.ft-house-creative[data-house-format=billboard] .ft-house-promise{font-size:32px}.ft-house-creative[data-house-format=billboard] .ft-house-body{font-size:18px}.ft-house-creative[data-house-format=billboard] .ft-house-cta{font-size:18px;padding:14px 22px}}
 @container(max-width:900px){.ft-house-creative[data-house-format=billboard] .ft-house-copy{padding:14px;gap:6px}.ft-house-creative[data-house-format=billboard] .ft-house-title{font-size:28px}.ft-house-creative[data-house-format=billboard] .ft-house-promise{font-size:20px}}
