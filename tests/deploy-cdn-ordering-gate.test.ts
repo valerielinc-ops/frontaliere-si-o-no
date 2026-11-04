@@ -190,6 +190,17 @@ describe('deploy.yml — a timeout and a push failure are told APART (#5251)', (
     ).not.toMatch(/deploy key shard scaduta/);
   });
 
+  it('surfaces the durable push-preflight cause before fallback diagnosis', () => {
+    const s = step('Surface a stale-locale shard push failure (#2658)');
+    expect(s).toMatch(
+      /FAIL_REASON_FILE: \$\{\{ runner\.temp \}\}\/shard-fail-reason-\$\{\{ matrix\.locale \}\}/,
+    );
+    expect(s).toMatch(/if \[ -s "\$FAIL_REASON_FILE" \]/);
+    expect(s).toMatch(/CAUSE_LINE="Causa rilevata dallo step di push: \$PUSH_CAUSE"/);
+    expect(s).toContain("CAUSE_LINE='Causa non classificata dallo step di push'");
+    expect(s).toMatch(/--description[\s\S]*\$\{CAUSE_LINE\}/);
+  });
+
   it('the CDN marker value (remote bytes) never reaches a run: block by interpolation', () => {
     const s = step('Surface an unpublished locale shard (#2569 CDN ordering gate timed out)');
     const runIdx = s.indexOf('\n        run: |');
