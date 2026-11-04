@@ -330,8 +330,12 @@ for (const file of sitemapFiles) {
     // expecting a file in dist/ for them is not.
     if (isExternallyServedUrl(url)) { fileExternal++; continue; }
     totalUrls++;
-    const distPath = urlToDistPath(url);
-    if (!existsSync(distPath)) {
+    // Use the same served-file boundary as the locale-shard manifest check:
+    // a route may be present as either route/index.html or the historical
+    // route.html form after shard assembly.
+    const distCandidates = urlToDistCandidates(url);
+    const distPath = distCandidates[0] ?? urlToDistPath(url);
+    if (!distCandidates.some(isRegularFile)) {
       fileMissing++;
       missingCount++;
       missing.push({ sitemap: file, url, distPath });

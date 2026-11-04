@@ -44,6 +44,33 @@ describe('validate:sitemap-links report scale', () => {
     expect(report.offendersTotalExtrapolated).toBe(1);
   });
 
+  it('accepts the historical flat HTML route shape in the main validator', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'validate-sitemap-links-flat-'));
+    roots.push(root);
+    const dist = path.join(root, 'dist');
+    const reports = path.join(root, 'reports');
+    fs.mkdirSync(dist, { recursive: true });
+    fs.writeFileSync(path.join(dist, 'flat-job.html'), '<!doctype html><title>flat job</title>');
+    fs.writeFileSync(
+      path.join(dist, 'sitemap-jobs-test.xml'),
+      `<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${BASE_URL}/flat-job/</loc></url><url><loc>${BASE_URL}/missing-job/</loc></url></urlset>\n`,
+    );
+
+    expect(() => execFileSync(NODE, [SCRIPT], {
+      cwd: root,
+      env: {
+        ...process.env,
+        AUDIT_REPORTS_DIR: reports,
+      },
+      stdio: 'pipe',
+    })).toThrow();
+
+    const report = JSON.parse(fs.readFileSync(path.join(reports, 'validate-sitemap-links.json'), 'utf8'));
+    expect(report.passed).toBe(false);
+    expect(report.offendersTotal).toBe(1);
+    expect(report.topOffenders[0].path).toBe(`${BASE_URL}/missing-job/`);
+  });
+
   it('checks only the owned locale and carries the route set through extraction', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'validate-locale-sitemap-'));
     roots.push(root);
