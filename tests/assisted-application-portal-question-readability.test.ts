@@ -402,6 +402,15 @@ it('routes unreadable source labels to a technical hold instead of manufacturing
     [{ fieldId: 'f1', question: 'A plausible but invented question?' }])).toMatchObject({ questions: [], unreadableFields: ['f1'] });
 });
 
+it('asks for a separately required house number when the residence street has no number', () => {
+  const result = portalRequirementsFromMissingRequired([
+    { id: 'street', kind: 'text', label: 'Via', required: true },
+    { id: 'house-number', kind: 'text', label: 'Numero civico', required: true },
+  ], [], { candidate: { identity: { address: { street: 'Via Roma' } }, profile: { address: { street: 'Via Roma' } }, answers: {} } });
+
+  expect(result.questions.map((question: any) => question.id)).toContain('portal_residence_house_number');
+});
+
 it('does not create a candidate request when the real reduction contains no questions or documents', async () => {
   const requirements = portalRequirementsFromMissingRequired([{ id: 'cv', kind: 'file', label: 'Resume / CV', required: true }], [{ fieldId: 'cv', type: 'text', question: 'Upload your CV' }]);
   expect(requirements).toMatchObject({ questions: [], documents: [] });

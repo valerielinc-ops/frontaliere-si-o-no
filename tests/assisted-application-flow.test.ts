@@ -98,7 +98,9 @@ describe('red flags', () => {
       questions: [{ id: 'portal_privacy_consent', source: 'portal', question: 'Acconsenti al trattamento dei tuoi dati personali?',
         required: true, requiresAffirmativeConsent: true }],
     };
-    expect(evaluateRedFlags(draft, { portal_privacy_consent: 'No' }).candidate).toEqual(['portal_privacy_consent']);
+    for (const answer of ['No', 'I don’t agree', 'I cannot accept']) {
+      expect(evaluateRedFlags(draft, { portal_privacy_consent: answer }).candidate).toEqual(['portal_privacy_consent']);
+    }
     expect(evaluateRedFlags(draft, { portal_privacy_consent: 'Sì' }).candidate).toEqual([]);
   });
 

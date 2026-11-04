@@ -44,7 +44,7 @@ import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
-import { residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
+import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
@@ -4301,6 +4301,7 @@ function missingCandidatePortalRequirements(fields, candidate) {
   const hasAnswer = id => String(answers[id] ?? '').trim().length > 0;
   const datePresent = String(profile.dateOfBirth || '').trim().length > 0;
   const streetPresent = String(address.street || '').trim().length > 0;
+  const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
   const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
   const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
 
@@ -4329,9 +4330,12 @@ function missingCandidatePortalRequirements(fields, candidate) {
       continue;
     }
 
-    if (['street', 'address', 'houseNumber'].includes(role) && !streetPresent
-      && !hasAnswer(role === 'houseNumber' ? 'portal_residence_house_number'
-        : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address')) {
+    const addressQuestionId = role === 'houseNumber' ? 'portal_residence_house_number'
+      : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address';
+    const addressValuePresent = role === 'houseNumber' ? houseNumberPresent
+      : role === 'street' && separateHouseNumber ? streetPresent
+        : streetPresent && houseNumberPresent;
+    if (['street', 'address', 'houseNumber'].includes(role) && !addressValuePresent && !hasAnswer(addressQuestionId)) {
       const id = role === 'houseNumber' ? 'portal_residence_house_number'
         : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address';
       const question = role === 'houseNumber'

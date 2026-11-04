@@ -322,7 +322,7 @@ export function requiredPortalConsentAffirmed(question, value) {
   if (value === false || value == null) return false;
   const text = (Array.isArray(value) ? value.join(' ') : String(value)).normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim().toLowerCase();
-  if (/\b(?:no|nein|non|not|refus\w*|rifiut\w*)\b/.test(text)) return false;
+  if (/\b(?:no|nein|non|not|never|dont|don t|doesn t|didn t|won t|cannot|can t|unable|refus\w*|rifiut\w*)\b/.test(text)) return false;
   return /^(?:si|yes|ja|oui|true|1)(?:\b|$)/.test(text)
     || /\b(?:acconsent\w*|consent\w*|accett\w*|agree\w*|accept\w*|conferm\w*)\b/.test(text);
 }
