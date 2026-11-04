@@ -41,8 +41,8 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
-import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+import { nationalityLabelOf, nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { countryCodeOfLabel, countryLabelForCode, formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
@@ -1864,6 +1864,16 @@ function deterministicGermanOption(option, entry, language) {
   const normalized = normalizedQuestionText(text);
   const known = DETERMINISTIC_GERMAN_OPTION_COPIES[entry.key]?.[normalized]?.[language];
   if (known) return known;
+  if (entry.key === 'nationality') {
+    const code = nationalityOf(text)?.code;
+    const localized = code ? nationalityLabelOf(code, language) : '';
+    if (localized) return localized;
+  }
+  if (entry.key === 'country') {
+    const code = residenceCountryCode(text) || countryCodeOfLabel(text);
+    const localized = code ? countryLabelForCode(code, language) : '';
+    if (localized) return localized;
+  }
   const booleanOrPlaceholder = fallbackOption(text, language);
   if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
   if (/^\d{1,4}$/.test(text)) return text;

@@ -19,7 +19,14 @@ const yellowsharkSurface = {
     label,
     kind,
     required: true,
-    options: label === 'Anrede' ? [{ label: 'Frau' }, { label: 'Herr' }] : [],
+    options: {
+      Land: [{ label: 'Schweiz' }, { label: 'Italien' }],
+      Nationalität: [{ label: 'Schweiz' }, { label: 'Italien' }],
+      Geburtstag: [{ label: '1' }, { label: '2' }],
+      Monat: [{ label: 'Januar' }, { label: 'Februar' }],
+      Jahr: [{ label: '1990' }, { label: '1991' }],
+      Anrede: [{ label: 'Frau' }, { label: 'Herr' }],
+    }[label] || [],
   })),
 };
 
@@ -61,6 +68,23 @@ describe('portal candidate question contract', () => {
       localizationStatus: 'translated',
     });
     expect(request.questions.find((question) => question.applicationQuestion === 'Vorname')?.question).toBe('Nome');
+    expect(request.questions.find((question) => question.applicationQuestion === 'Land')).toMatchObject({
+      question: 'Paese',
+      options: ['Svizzera', 'Italia'],
+      applicationOptions: ['Schweiz', 'Italien'],
+      localizationStatus: 'translated',
+    });
+    expect(request.questions.find((question) => question.applicationQuestion === 'Nationalität')).toMatchObject({
+      question: 'Nazionalità',
+      options: ['svizzera', 'italiana'],
+      applicationOptions: ['Schweiz', 'Italien'],
+      localizationStatus: 'translated',
+    });
+    expect(request.questions.find((question) => question.applicationQuestion === 'Monat')).toMatchObject({
+      options: ['Gennaio', 'Febbraio'],
+      applicationOptions: ['Januar', 'Februar'],
+      localizationStatus: 'translated',
+    });
   });
 
   it('uses a required live select and its full catalogue even when the planner describes text', () => {
