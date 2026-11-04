@@ -455,6 +455,7 @@ jobs:
             /scripts/lib/
             /scripts/offload-generated-images-cdn.mjs
             /build-plugins/shared/
+            /infra/cloudflare-worker/
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
