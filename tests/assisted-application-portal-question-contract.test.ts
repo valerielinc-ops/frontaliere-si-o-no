@@ -6,7 +6,63 @@ import { validateAnswer } from '../functions/src/lib/answerRules.js';
 const planned = { fieldId: 'source', question: 'Come hai trovato questo lavoro?', type: 'text', options: [], why: '' };
 const field = { id: 'source', kind: 'select', label: 'Wie haben Sie uns gefunden?', required: true, options: [{ label: 'Homepage' }, { label: 'Empfehlung' }] };
 
+const yellowsharkSurface = {
+  buttons: ['JETZT BEWERBEN', 'Italien +39', 'WEITER', 'Manage consent'],
+  fields: [
+    ['Vorname', 'text'], ['Nachname', 'text'], ['E-Mail', 'text'], ['Strasse', 'text'],
+    ['Hausnummer', 'text'], ['PLZ', 'text'], ['Ort', 'text'], ['Land', 'select'],
+    ['Nationalität', 'select'], ['Mobile', 'text'], ['Telefon (optional)', 'text'],
+    ['Geburtstag', 'select'], ['Monat', 'select'], ['Jahr', 'select'],
+    ['Ich akzeptiere die Datenschutzerklärung', 'checkbox'], ['Anrede', 'radio'],
+  ].map(([label, kind], index) => ({
+    id: `yellowshark-${index}`,
+    label,
+    kind,
+    required: true,
+    options: label === 'Anrede' ? [{ label: 'Frau' }, { label: 'Herr' }] : [],
+  })),
+};
+
 describe('portal candidate question contract', () => {
+  it('keeps the Yellowshark standard form candidate-readable during a localization outage', async () => {
+    expect(yellowsharkSurface.buttons).toEqual(['JETZT BEWERBEN', 'Italien +39', 'WEITER', 'Manage consent']);
+    expect(yellowsharkSurface.fields.map((item) => item.label)).toEqual([
+      'Vorname', 'Nachname', 'E-Mail', 'Strasse', 'Hausnummer', 'PLZ', 'Ort', 'Land',
+      'Nationalität', 'Mobile', 'Telefon (optional)', 'Geburtstag', 'Monat', 'Jahr',
+      'Ich akzeptiere die Datenschutzerklärung', 'Anrede',
+    ]);
+    const questions = yellowsharkSurface.fields.map((item) => ({
+      id: item.id,
+      type: item.kind === 'select' || item.kind === 'radio' ? 'choice' : item.kind === 'checkbox' ? 'yes_no' : 'text',
+      required: true,
+      question: item.label,
+      applicationQuestion: item.label,
+      options: item.options.map((option) => option.label),
+      applicationOptions: item.options.map((option) => option.label),
+      why: '',
+    }));
+    const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    });
+
+    expect(request.questions).toHaveLength(yellowsharkSurface.fields.length);
+    expect(request.questions.every((question) => question.localizationStatus !== 'fallback')).toBe(true);
+    expect(request.questions.find((question) => question.applicationQuestion === 'Anrede')).toMatchObject({
+      question: 'Come preferisci essere indicato/a?',
+      options: ['Signora', 'Signor'],
+      applicationOptions: ['Frau', 'Herr'],
+      optionMap: [
+        { candidate: 'Signora', application: 'Frau' },
+        { candidate: 'Signor', application: 'Herr' },
+      ],
+      applicationQuestionLocale: 'de',
+      localizationStatus: 'translated',
+    });
+    expect(request.questions.find((question) => question.applicationQuestion === 'Vorname')?.question).toBe('Nome');
+  });
+
   it('uses a required live select and its full catalogue even when the planner describes text', () => {
     const options = Array.from({ length: 25 }, (_, index) => ({ label: `Source ${index + 1}` }));
     const { questions } = portalRequirementsFromMissingRequired([{ ...field, options }], [{ ...planned, options: ['Invented'] }]);

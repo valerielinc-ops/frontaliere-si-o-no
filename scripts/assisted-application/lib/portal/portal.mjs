@@ -1800,6 +1800,109 @@ function fallbackOption(option, language) {
   return text;
 }
 
+// A provider outage must not strand a standard ATS form whose labels are
+// already part of the portal contract. These are exact German field captions
+// observed on employer-site forms; arbitrary questions still require the
+// translation provider so the candidate never receives an invented meaning.
+const DETERMINISTIC_GERMAN_QUESTION_COPIES = Object.freeze({
+  anrede: { key: 'salutation', it: 'Come preferisci essere indicato/a?', de: 'Anrede', fr: 'Comment souhaitez-vous être appelé·e ?', en: 'How would you like to be addressed?' },
+  vorname: { key: 'first_name', it: 'Nome', de: 'Vorname', fr: 'Prénom', en: 'First name' },
+  nachname: { key: 'last_name', it: 'Cognome', de: 'Nachname', fr: 'Nom de famille', en: 'Last name' },
+  'e mail': { key: 'email', it: 'E-mail', de: 'E-Mail', fr: 'E-mail', en: 'Email' },
+  strasse: { key: 'street', it: 'Via', de: 'Strasse', fr: 'Rue', en: 'Street' },
+  straße: { key: 'street', it: 'Strasse', de: 'Straße', fr: 'Rue', en: 'Street' },
+  hausnummer: { key: 'house_number', it: 'Numero civico', de: 'Hausnummer', fr: 'Numéro', en: 'House number' },
+  plz: { key: 'postal_code', it: 'CAP', de: 'PLZ', fr: 'NPA', en: 'Postal code' },
+  ort: { key: 'city', it: 'Località', de: 'Ort', fr: 'Localité', en: 'City' },
+  land: { key: 'country', it: 'Paese', de: 'Land', fr: 'Pays', en: 'Country' },
+  nationalitat: { key: 'nationality', it: 'Nazionalità', de: 'Nationalität', fr: 'Nationalité', en: 'Nationality' },
+  mobile: { key: 'mobile', it: 'Cellulare', de: 'Mobile', fr: 'Portable', en: 'Mobile phone' },
+  'telefon optional': { key: 'phone_optional', it: 'Telefono (facoltativo)', de: 'Telefon (optional)', fr: 'Téléphone (facultatif)', en: 'Phone (optional)' },
+  geburtstag: { key: 'birth_day', it: 'Giorno di nascita', de: 'Geburtstag', fr: 'Jour de naissance', en: 'Day of birth' },
+  monat: { key: 'birth_month', it: 'Mese di nascita', de: 'Monat', fr: 'Mois de naissance', en: 'Birth month' },
+  jahr: { key: 'birth_year', it: 'Anno di nascita', de: 'Jahr', fr: 'Année de naissance', en: 'Birth year' },
+  'ich akzeptiere die datenschutzerklarung': {
+    key: 'privacy',
+    it: 'Accetto l’informativa sulla privacy',
+    de: 'Ich akzeptiere die Datenschutzerklärung',
+    fr: 'J’accepte la politique de confidentialité',
+    en: 'I accept the privacy policy',
+  },
+});
+
+const DETERMINISTIC_GERMAN_OPTION_COPIES = Object.freeze({
+  salutation: Object.freeze({
+    'bitte wahlen': { it: 'Seleziona', de: 'Bitte wählen', fr: 'Sélectionner', en: 'Select' },
+    frau: { it: 'Signora', de: 'Frau', fr: 'Madame', en: 'Ms' },
+    herr: { it: 'Signor', de: 'Herr', fr: 'Monsieur', en: 'Mr' },
+    divers: { it: 'Diverso/a', de: 'Divers', fr: 'Autre', en: 'Other' },
+    andere: { it: 'Altro', de: 'Andere', fr: 'Autre', en: 'Other' },
+  }),
+  birth_month: Object.freeze({
+    januar: { it: 'Gennaio', de: 'Januar', fr: 'Janvier', en: 'January' },
+    februar: { it: 'Febbraio', de: 'Februar', fr: 'Février', en: 'February' },
+    marz: { it: 'Marzo', de: 'März', fr: 'Mars', en: 'March' },
+    april: { it: 'Aprile', de: 'April', fr: 'Avril', en: 'April' },
+    mai: { it: 'Maggio', de: 'Mai', fr: 'Mai', en: 'May' },
+    juni: { it: 'Giugno', de: 'Juni', fr: 'Juin', en: 'June' },
+    juli: { it: 'Luglio', de: 'Juli', fr: 'Juillet', en: 'July' },
+    august: { it: 'Agosto', de: 'August', fr: 'Août', en: 'August' },
+    september: { it: 'Settembre', de: 'September', fr: 'Septembre', en: 'September' },
+    oktober: { it: 'Ottobre', de: 'Oktober', fr: 'Octobre', en: 'October' },
+    november: { it: 'Novembre', de: 'November', fr: 'Novembre', en: 'November' },
+    dezember: { it: 'Dicembre', de: 'Dezember', fr: 'Décembre', en: 'December' },
+  }),
+});
+
+function deterministicGermanQuestionEntry(item) {
+  const sourceQuestion = nativePortalQuestion(item);
+  return DETERMINISTIC_GERMAN_QUESTION_COPIES[normalizedQuestionText(sourceQuestion)] || null;
+}
+
+function deterministicGermanOption(option, entry, language) {
+  const text = String(option || '').trim();
+  const normalized = normalizedQuestionText(text);
+  const known = DETERMINISTIC_GERMAN_OPTION_COPIES[entry.key]?.[normalized]?.[language];
+  if (known) return known;
+  const booleanOrPlaceholder = fallbackOption(text, language);
+  if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
+  if (/^\d{1,4}$/.test(text)) return text;
+  return null;
+}
+
+function deterministicGermanLocalization(item, language) {
+  const entry = deterministicGermanQuestionEntry(item);
+  if (!entry || !language) return null;
+  const sourceQuestion = nativePortalQuestion(item);
+  const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
+    ? item.applicationOptions
+    : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+  const candidateOptions = applicationOptions.map((option) => deterministicGermanOption(option, entry, language));
+  // A known label is safe to translate, but an unknown option is not: keep
+  // the old fail-closed behavior instead of showing a mixed-language choice.
+  if (candidateOptions.some((option) => !option)) return null;
+  const optionMap = applicationOptions.length
+    ? portalOptionMap({
+      options: candidateOptions,
+      applicationOptions,
+      optionMap: applicationOptions.map((application, index) => ({ candidate: candidateOptions[index], application })),
+    })
+    : [];
+  if (applicationOptions.length && optionMap.length !== applicationOptions.length) return null;
+  const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
+  const sameLanguage = language === 'de';
+  return {
+    ...item,
+    question: entry[language] || entry.en,
+    applicationQuestion: sourceQuestion,
+    applicationQuestionLocale: 'de',
+    why: String(item.why || '').trim() || fallback.why,
+    ...(applicationOptions.length ? { applicationOptions, options: optionMap.map((pair) => pair.candidate), optionMap } : {}),
+    ...(item.validation ? { validation: { ...item.validation, message: String(item.validation.message || '').trim() || fallback.validation } } : {}),
+    localizationStatus: sameLanguage ? 'same_language' : 'translated',
+  };
+}
+
 function nativePortalQuestion(item) {
   return readablePortalQuestionText(item?.applicationQuestion)
     || readablePortalQuestionText(item?.portalQuestion)
@@ -1866,10 +1969,13 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const candidateLanguage = localeCode(candidateLocale);
   const applicationLanguageHint = localeCode(applicationLocale);
   if (!items.length || !candidateLanguage) return items;
+  const deterministic = items.map((item) => deterministicGermanLocalization(item, candidateLanguage));
+  const unresolved = items.filter((_item, index) => !deterministic[index]);
+  if (!unresolved.length) return deterministic;
   // Posting/letter language is only a hint. An ATS may render a German form
   // for an Italian-language job, so compare against the native question text.
-  if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
-  const input = items.map((item) => ({
+  if (typeof codex !== 'function') return items.map((item, index) => deterministic[index] || fallbackLocalizedQuestion(item, candidateLanguage));
+  const input = unresolved.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
     why: String(item.why || ''),
@@ -1891,10 +1997,11 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     });
   } catch (error) {
     log(`portal question localization skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
+    return items.map((item, index) => deterministic[index] || fallbackLocalizedQuestion(item, candidateLanguage));
   }
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
-  const localizedQuestions = items.map((item) => {
+  const localizedQuestions = items.map((item, index) => {
+    if (deterministic[index]) return deterministic[index];
     const copy = byId.get(String(item.id || ''));
     const sourceLocale = localeCode(copy?.sourceLocale);
     if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
@@ -4592,7 +4699,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           required: true,
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
-          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions.length ? applicationOptions : item.options || [] : item.options,
+          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
