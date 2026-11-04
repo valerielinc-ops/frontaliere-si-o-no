@@ -29,6 +29,11 @@ on:
     - cron: '15 * * * *'
   workflow_dispatch:
     inputs:
+      benchmark_only:
+        description: 'Run the PR checkout-materialization comparison only'
+        required: false
+        default: false
+        type: boolean
       window_hours:
         description: 'Polling window in hours (default 24)'
         required: false
@@ -48,7 +53,7 @@ concurrency:
 
 jobs:
   compare-checkout-materialization:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && (inputs.benchmark_only == true || inputs.benchmark_only == 'true'))
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -64,7 +69,7 @@ jobs:
         with:
           # Keep ref, fetch mode, and credentials identical: only the sparse
           # profile changes between the two materialization phases.
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           path: checkout-legacy
           fetch-depth: 1
           filter: blob:none
@@ -93,7 +98,7 @@ jobs:
         id: narrowed_checkout
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           path: checkout-narrowed
           fetch-depth: 1
           filter: blob:none
@@ -115,7 +120,7 @@ jobs:
       - name: Publish linked checkout materialization comparison
         if: always()
         env:
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           LEGACY_OUTCOME: ${{ steps.legacy_checkout.outcome }}
           NARROWED_OUTCOME: ${{ steps.narrowed_checkout.outcome }}
         run: |
@@ -126,7 +131,7 @@ jobs:
             echo "- Runner: \`${RUNNER_NAME}\`"
             echo "- Ref: \`${HEAD_SHA}\`"
             echo "- Phase: \`actions/checkout@v7\` sparse materialization"
-            echo "- Population: the same PR head, fetched shallow and blobless"
+            echo "- Population: the same selected PR-head SHA, fetched shallow and blobless"
             echo "- Legacy profile (root wildcard): \`${LEGACY_OUTCOME}\` (step cap: 7 minutes)"
             echo "- Narrowed profile: \`${NARROWED_OUTCOME}\` (step cap: 7 minutes)"
             echo "- Run: ${run_url}"
@@ -137,7 +142,7 @@ jobs:
           fi
 
   validate-history-fetch:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && (inputs.benchmark_only == true || inputs.benchmark_only == 'true'))
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -146,7 +151,7 @@ jobs:
       - name: Checkout PR head with production checkout settings
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 1
           filter: blob:none
           persist-credentials: false
@@ -170,8 +175,8 @@ jobs:
 
       - name: Measure blobless history fetch
         env:
-          BRANCH: ${{ github.event.pull_request.head.ref }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BRANCH: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$HEAD_SHA"
@@ -192,7 +197,7 @@ jobs:
         timeout-minutes: 5
 
   refresh:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && inputs.benchmark_only != true && inputs.benchmark_only != 'true'
     runs-on: ubuntu-latest
     # Raised 10 -> 20 (issue #5810, chronic recurrence across #4160..#5754):
     # the "Commit if changed" step's fetch+rebase+push retry loop already
