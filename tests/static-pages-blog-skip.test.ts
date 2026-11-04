@@ -198,7 +198,10 @@ describe('static article heroes expose an early LCP preload', () => {
   it('passes the generated glossary hero into the hand-rolled shell preload list', () => {
     expect(source).toContain("const getPagePreloads = (urlPath: string, locale: string, generatedHeroUrl = '')");
     expect(source).toContain('if (generatedHeroUrl)');
-    expect(source).toContain('glossaryHero ? seoHeroImageUrl(glossaryHero) : \'\'');
+    // Guide dossier pages share the same preload argument with their own
+    // photographic hero, so the glossary branch must remain visible while the
+    // guide fallback is preserved.
+    expect(source).toContain("glossaryHero ? seoHeroImageUrl(glossaryHero) : (guideDossierVisual?.src ?? '')");
     expect(source).toContain('<link rel="preload" as="image" fetchpriority="high" href="${generatedHeroUrl}">');
   });
 });
