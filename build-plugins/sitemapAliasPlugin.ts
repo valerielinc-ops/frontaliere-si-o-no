@@ -586,8 +586,18 @@ export async function reconcileFinalSitemapsWithDist(
     distDir,
     options.ignoreShardOwnership ? new Set<string>() : collectForeignDirectoryCandidates(distDir),
   ));
-  await __detail('search-clusters', () => reconcileSitemapSearchClustersWithDist(distDir));
-  await __detail('jobs', () => reconcileSitemapJobsWithDist(distDir, mirrorLocs, { foreignDirectoryIndex }));
+  await __detail('search-clusters', () => reconcileSitemapSearchClustersWithDist(distDir, {
+    ...options,
+    // A locale shard may contain a foreign-locale bridge emitted directly to
+    // dist/. Inspect present pages, but keep genuinely missing foreign pages
+    // until the assembled-dist pass can evaluate them all together.
+    inspectForeignPresent: true,
+    foreignDirectoryIndex,
+  }));
+  await __detail('jobs', () => reconcileSitemapJobsWithDist(distDir, mirrorLocs, {
+    ...options,
+    foreignDirectoryIndex,
+  }));
   await __detail('fuel', () => reconcileSitemapFuelWithDist(distDir, options));
   await __detail('articles', () =>
     reconcileArticleSitemapsWithDist(distDir, { ...options, foreignDirectoryIndex }),
