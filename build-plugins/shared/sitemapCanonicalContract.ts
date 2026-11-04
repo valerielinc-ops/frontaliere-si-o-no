@@ -1,4 +1,4 @@
-import { readAttr, scanMarkupStartTags } from '../../scripts/lib/html-attr.mjs';
+import { readAttr, scanMarkupStartTags, scanMarkupTags } from '../../scripts/lib/html-attr.mjs';
 
 /**
  * Read the first canonical link from the document head.
@@ -9,8 +9,8 @@ import { readAttr, scanMarkupStartTags } from '../../scripts/lib/html-attr.mjs';
  * head boundary from the original source.
  */
 export function canonicalHrefFromHead(html: string): string | null {
-  const headEnd = html.toLowerCase().indexOf('</head');
-  if (headEnd < 0) return null;
+  const headEnd = scanMarkupTags(html, 'head').find(({ closing }) => closing)?.index;
+  if (headEnd === undefined) return null;
 
   for (const { raw, index } of scanMarkupStartTags(html, 'link')) {
     if (index >= headEnd) break;
