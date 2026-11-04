@@ -1,7 +1,7 @@
 name: Topic candidates mining
 
 # Weekly mining of external demand sources (GSC orphans + Google Trends +
-# Reddit + Facebook public pages) into data/topic-candidates.json. Phase 2
+# Reddit Data API (when approved) + Facebook public pages into candidate files. Phase 2
 # of the smarter-article-generator design.
 #
 # Resilience: the script always exits 0 — every external source is wrapped
@@ -58,8 +58,8 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        # Maps SERVER_FB_PAGE_ACCESS_TOKEN (set in Firebase RC) to FB_PAGE_ACCESS_TOKEN
-        # in $GITHUB_ENV. No-op if FIREBASE_SERVICE_ACCOUNT_JSON wasn't set.
+        # Maps approved source credentials and flags from Firebase RC into
+        # $GITHUB_ENV. No-op if FIREBASE_SERVICE_ACCOUNT_JSON wasn't set.
         run: node scripts/load-rc-env.mjs
 
       - name: Mine topic candidates
