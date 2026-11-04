@@ -16,6 +16,7 @@ import {
   portalPasswordLength,
   registrationOutcome,
   sameSite,
+  successFactorsSignInTarget,
   usesOtpAccountCreation,
   verificationOutcome,
   verifiedSignInTarget,
@@ -157,13 +158,31 @@ describe('portal account pages', () => {
     // Coop's career site, 2026-10-02: the link is a question and its answer.
     for (const label of [
       'Konto erstellen', 'Jetzt registrieren', 'Konto anlegen', 'Noch kein Profil? Hier registrieren',
+      'Sie haben noch kein Bewerbungskonto? Melden Sie sich jetzt an.',
       'Crea account', 'Non hai ancora un profilo? Registrati qui', 'Registrati',
       'Create profile', 'Create a profile', 'Profil erstellen', 'Crea un profilo', 'Créer un profil',
       'Créer un compte', "Vous n'avez pas encore de compte? Créez-en un", 'Create an account', 'Sign up',
     ]) expect(CREATE_ACCOUNT_RE.test(label), label).toBe(true);
-    for (const label of ['Edit profile', 'View profile', 'Create profile alert', 'Create job alert', 'Kennwort vergessen?', 'Mit bestehendem Profil anmelden und bewerben', 'Job-Abo hier anlegen', 'Melde dich hier an.', 'Anmelden']) {
+    for (const label of ['Edit profile', 'View profile', 'Create profile alert', 'Create job alert', 'Kennwort vergessen?', 'Mit bestehendem Profil anmelden und bewerben', 'Job-Abo hier anlegen', 'Melde dich hier an.', 'Melden Sie sich jetzt an.', 'Anmelden']) {
       expect(CREATE_ACCOUNT_RE.test(label), label).toBe(false);
     }
+  });
+
+  it('switches only a job-bound SuccessFactors registration route to its sign-in view', () => {
+    expect(successFactorsSignInTarget('https://career5.successfactors.eu/career?company=C0007256361P&career_ns=job_application&career_job_req_id=103967&login_ns=register&jobPipeline=sbbinternet'))
+      .toBe('https://career5.successfactors.eu/career?company=C0007256361P&career_ns=job_application&career_job_req_id=103967&login_ns=login&jobPipeline=sbbinternet');
+    expect(successFactorsSignInTarget('https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20604&login_ns=register&jobPipeline=bundinternetde&lang=de_DE'))
+      .toBe('https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20604&login_ns=login&jobPipeline=bundinternetde&lang=de_DE');
+  });
+
+  it.each([
+    'https://career5.successfactors.eu/career?company=company&login_ns=register',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=register&token=opaque',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=register&login_ns=register',
+    'https://evil.example/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=register',
+    'http://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=register',
+  ])('does not derive a sign-in route from an incomplete or unsafe SuccessFactors URL: %s', (url) => {
+    expect(successFactorsSignInTarget(url)).toBe('');
   });
 
   it('opens a verification link only on the portal’s own site or its ATS family, over https', () => {

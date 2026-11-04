@@ -30,8 +30,11 @@ const VERIFICATION_POLL_MS = 10_000;
 // SuccessFactors (Coop, 2026-10-02) words its link as a question and an
 // answer: «Noch kein Profil? Hier registrieren», «Non hai ancora un profilo?
 // Registrati qui», «Vous n'avez pas encore de compte? Créez-en un»; its
-// button is «Konto anlegen» / «Crea account» / «Créer un compte».
-export const CREATE_ACCOUNT_RE = /^([^?]{0,60}\?\s*)?(hier |jetzt )?((?:konto|profil) (erstellen|anlegen)|neues konto( erstellen| anlegen)?|registrieren|create (an? )?(?:account|profile)|sign up|register|crea (un )?(?:account|profilo)|registrati( qui)?|créer (un )?(?:compte|profil)|créez-en un|s'inscrire)$/i;
+// button is «Konto anlegen» / «Crea account» / «Créer un compte». The Swiss
+// federal portal instead asks «Sie haben noch kein Bewerbungskonto? Melden Sie
+// sich jetzt an.»; the question is required so «Melden Sie sich jetzt an» by
+// itself remains a sign-in action.
+export const CREATE_ACCOUNT_RE = /^(?:sie haben noch kein bewerbungskonto\?\s*melden sie sich jetzt an\.?|(?:[^?]{0,60}\?\s*)?(hier |jetzt )?((?:konto|profil) (erstellen|anlegen)|neues konto( erstellen| anlegen)?|registrieren|create (an? )?(?:account|profile)|sign up|register|crea (un )?(?:account|profilo)|registrati( qui)?|créer (un )?(?:compte|profil)|créez-en un|s'inscrire))$/i;
 export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion|se connecter)$/i;
 const SIGN_IN_NAVIGATION_RE = /(?:^|[^\p{L}\p{N}])(?:sign[\s-]*in|log[\s-]*in|anmelden|einloggen|accedi|connexion|se\s+connecter|connectez[-\s]vous)(?=$|[^\p{L}\p{N}])/iu;
 const ACCOUNT_CREATION_ACTION_RE = /(?:\b(?:create|new)\s+(?:an?\s+)?(?:account|profile)\b|\bneues\s+konto(?:\s+(?:erstellen|anlegen))?\b|\b(?:register|sign\s*up)\b|\b(?:konto|profil)\s+(?:erstellen|anlegen)\b|\bregistrier\w*\b|\bregistrati(?:\s+qui)?\b|\bcrea(?:re)?\s+(?:un\s+)?(?:account|profilo)\b|\bcr[ée]er\s+(?:un\s+)?(?:compte|profil)\b|\bcr[ée]ez[-\s]+en\s+un\b|\bs['’]inscrire\b)/iu;
@@ -162,6 +165,36 @@ export function verifiedSignInTarget(href, currentUrl, portalHost) {
     return target.href;
   } catch {
     return null;
+  }
+}
+
+const SUCCESSFACTORS_AUTH_ROUTE_PARAMS = new Set([
+  'company', 'career_ns', 'career_job_req_id', 'login_ns', 'jobPipeline', 'lang', 'site',
+]);
+
+/**
+ * SuccessFactors can send an existing account back to a job's registration
+ * route without rendering a sign-in link. The `login_ns` switch is a GET-only
+ * auth navigation on that same career route; require the full job-application
+ * context and reject opaque or unrecognized query parameters before deriving
+ * it. This is not used for an unverified account, which must restart OTP.
+ */
+export function successFactorsSignInTarget(currentUrl) {
+  try {
+    const current = new URL(String(currentUrl || ''));
+    if (current.protocol !== 'https:' || current.username || current.password || current.hash
+      || current.pathname !== '/career' || !usesOtpAccountCreation(current.hostname)) return '';
+    const params = current.searchParams;
+    if ([...params.keys()].some(key => !SUCCESSFACTORS_AUTH_ROUTE_PARAMS.has(key))) return '';
+    for (const key of new Set(params.keys())) {
+      if (params.getAll(key).length !== 1) return '';
+    }
+    if (params.get('login_ns') !== 'register' || params.get('career_ns') !== 'job_application'
+      || !params.get('career_job_req_id') || !params.get('company')) return '';
+    params.set('login_ns', 'login');
+    return current.href;
+  } catch {
+    return '';
   }
 }
 

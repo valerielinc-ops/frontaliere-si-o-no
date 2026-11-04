@@ -29,7 +29,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { applicationReceipt, applicationStage } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -3543,6 +3543,28 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     }
     if (finalUrl.protocol !== 'https:' || finalUrl.username || finalUrl.password || !sameSite(finalUrl.href, portalHost)) return false;
     return true;
+  }
+  // SuccessFactors' job-specific registration view can omit the visible
+  // sign-in anchor entirely (SBB's `login_ns=register` page). Reuse only the
+  // same-origin career route with its verified job context, changing the
+  // provider's explicit view parameter; never click an application control.
+  if (Array.isArray(currentSnapshot?.fields) && authPageKind(currentSnapshot) === 'create') {
+    const identity = authFormIdentity(currentSnapshot);
+    const frame = identity && page.frames()[identity.frame];
+    const currentUrl = frame?.url?.() || '';
+    const target = successFactorsSignInTarget(currentUrl);
+    if (frame && target) {
+      let portalHost;
+      try {
+        portalHost = new URL(currentUrl).hostname;
+        await frame.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        const finalUrl = new URL(frame.url());
+        return finalUrl.protocol === 'https:' && !finalUrl.username && !finalUrl.password
+          && sameSite(finalUrl.href, portalHost);
+      } catch {
+        return false;
+      }
+    }
   }
   return false;
 }
