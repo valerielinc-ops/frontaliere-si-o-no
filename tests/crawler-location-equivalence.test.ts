@@ -21,6 +21,13 @@ describe('crawler/published location equivalence', () => {
     })).toBe('same');
   });
 
+  it('keeps a Swiss source rewritten to a concrete foreign city visible', () => {
+    expect(compareCrawlerPublishedLocation({
+      sourceLocation: 'Zurich',
+      publishedLocation: 'Milan, Italy',
+    })).toBe('different');
+  });
+
   it('uses a source postal locality for facility and sub-locality labels', () => {
     expect(compareCrawlerPublishedLocation({
       sourceLocation: 'Hirslanden Salem-Spital',
@@ -41,7 +48,7 @@ describe('crawler/published location equivalence', () => {
 
   it('keeps a concrete source contradiction visible', () => {
     expect(compareCrawlerPublishedLocation({
-      sourceLocation: 'Winterthur, Zürich',
+      sourceLocation: 'Winterthur',
       publishedLocation: 'Zürich',
       sourceCanton: 'ZH',
       publishedCanton: 'ZH',
@@ -75,6 +82,13 @@ describe('crawler/published location equivalence', () => {
       sourceCanton: 'VD',
       publishedCanton: 'ZH',
     })).toBe('unknown');
+    for (const sourceLocation of ['Zurich, Bern', 'Zurich; Bern', 'Zurich | Bern', 'Zurich\nBern']) {
+      expect(canonicalCrawlerLocationKey(sourceLocation)).toBe('');
+      expect(compareCrawlerPublishedLocation({
+        sourceLocation,
+        publishedLocation: 'Basel',
+      }), sourceLocation).toBe('unknown');
+    }
   });
 
   it('uses a postal code to disambiguate a homonym only when the city agrees', () => {

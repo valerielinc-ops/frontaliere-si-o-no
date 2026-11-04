@@ -65,8 +65,13 @@ function municipalityKey(value = '', cantonHint = '') {
   return isKnownSwissMunicipality(text) ? canonicalKeyFromFound(text) : '';
 }
 
+// Dedicated source fields use these separators for a list of sites. Split
+// before calling findSwissCityInText(), whose contract intentionally returns
+// the first matching municipality in free text.
+const CRAWLER_LOCATION_LIST_SEPARATOR_RE = /\s*(?:\/|,|;|\||&|\r?\n)\s*/u;
+
 /**
- * Resolve the first concrete locality in a source field. A slash-separated
+ * Resolve the first concrete locality in a source field. A list-separated
  * field naming multiple concrete municipalities is deliberately ambiguous;
  * choosing its first token would turn a multi-site region into a false
  * contradiction.
@@ -75,9 +80,9 @@ export function canonicalCrawlerLocationKey(value = '', cantonHint = '') {
   const text = String(value || '').trim();
   if (!text) return '';
 
-  const slashParts = text.split(/\s*\/\s*/).map((part) => part.trim()).filter(Boolean);
-  if (slashParts.length > 1) {
-    const keys = [...new Set(slashParts.map((part) => municipalityKey(part, cantonHint)).filter(Boolean))];
+  const listParts = text.split(CRAWLER_LOCATION_LIST_SEPARATOR_RE).map((part) => part.trim()).filter(Boolean);
+  if (listParts.length > 1) {
+    const keys = [...new Set(listParts.map((part) => municipalityKey(part, cantonHint)).filter(Boolean))];
     if (keys.length > 1) return '';
     if (keys.length === 1) return keys[0];
   }
@@ -129,6 +134,11 @@ export function compareCrawlerPublishedLocation({
   const published = String(publishedLocation || '').trim();
   if (!source || !published) return 'unknown';
 
+  const sourcePostal = postalPlace(sourcePostalCode);
+  const publishedPostal = postalPlace(publishedPostalCode);
+  const sourceKey = canonicalCrawlerLocationKey(source, sourceCanton);
+  const publishedKey = canonicalCrawlerLocationKey(published, publishedCanton);
+
   // Do not let a Swiss homonym inside a foreign compound (for example
   // `Baden-Württemberg`) certify the published locality. If both sides are
   // explicitly foreign, the location audit is not the authority that decides
@@ -136,15 +146,16 @@ export function compareCrawlerPublishedLocation({
   const sourceForeign = isLocationExplicitlyForeign(source);
   const publishedForeign = isLocationExplicitlyForeign(published);
   if (sourceForeign && !publishedForeign) return 'different';
+  // Keep the foreign guard symmetric when the source has concrete Swiss
+  // evidence. An explicitly foreign published city is a rewrite, while a
+  // regional/facility label without a municipality or postal place remains
+  // unknown rather than becoming a hard-fail by association.
+  if (publishedForeign && !sourceForeign && (sourceKey || sourcePostal)) return 'different';
 
   if (normalizedRaw(source) === normalizedRaw(published)) return 'same';
 
-  const sourcePostal = postalPlace(sourcePostalCode);
-  const publishedPostal = postalPlace(publishedPostalCode);
   if (sourcePostal && publishedPostal && samePostalPlace(sourcePostal, publishedPostal)) return 'same';
 
-  const sourceKey = canonicalCrawlerLocationKey(source, sourceCanton);
-  const publishedKey = canonicalCrawlerLocationKey(published, publishedCanton);
   if (sourceKey && publishedKey && sourceKey === publishedKey) return 'same';
 
   if (sourcePostal && publishedKey) {
@@ -155,7 +166,7 @@ export function compareCrawlerPublishedLocation({
     // Require the source CAP, the published canton and an unambiguous
     // parent-name token; never use a canton alone as a rescue.
     if (sourcePostal.canton === String(publishedCanton || '').trim().toUpperCase()
-      && !/[,/|;]/.test(source)
+      && !CRAWLER_LOCATION_LIST_SEPARATOR_RE.test(source)
       && mentionsLocationKey(source, publishedKey)) {
       return 'same';
     }
