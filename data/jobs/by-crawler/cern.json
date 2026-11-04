@@ -2752,10 +2752,10 @@
     },
     {
       "id": "cern-dbc940e18741",
-      "slug": "mechanical-technician-be-ea-dc-2026-251-grae-cern-geneva-geneva-switzerland",
+      "slug": "tecnico-meccanico-be-ea-dc-2026-251-grae-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "mechanical-technician-be-ea-dc-2026-251-grae-cern-geneva-geneva-switzerland",
-        "it": "mechanical-technician-be-ea-dc-2026-251-grae-cern-geneva-geneva-switzerland",
+        "it": "tecnico-meccanico-be-ea-dc-2026-251-grae-cern-geneva-geneva-switzerland",
         "de": "mechanical-technician-be-ea-dc-2026-251-grae-cern-geneva-geneva-switzerland",
         "fr": "mechanical-technician-be-ea-dc-2026-251-grae-cern-geneva-geneva-switzerland"
       },
@@ -2820,7 +2820,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:24:19.785Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:24:19.785Z"
+      "firstSeenAt": "2026-11-04T09:24:19.785Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-technician-be-ea-dc-2026-251-grae-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-technician-be-ea-dc-2026-251-grae-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-f3da0a015d08",

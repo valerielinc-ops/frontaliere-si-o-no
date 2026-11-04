@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-855777931532",
-      "slug": "sachbearbeiter-in-patientenabrechnung-100-spital-limmattal-ch",
+      "slug": "impiegato-a-amministrativo-a-per-la-fatturazione-dei-pazienti-100-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenabrechnung-100-spital-limmattal-ch",
-        "it": "sachbearbeiter-in-patientenabrechnung-100-spital-limmattal-ch",
-        "en": "sachbearbeiter-in-patientenabrechnung-100-spital-limmattal-ch",
-        "fr": "sachbearbeiter-in-patientenabrechnung-100-spital-limmattal-ch"
+        "it": "impiegato-a-amministrativo-a-per-la-fatturazione-dei-pazienti-100-spital-limmattal-schlieren",
+        "en": "patient-billing-clerk-100-spital-limmattal-schlieren",
+        "fr": "gestionnaire-de-la-facturation-des-patients-100-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -76,16 +76,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:12:23.975Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:12:23.975Z"
+      "firstSeenAt": "2026-11-04T09:12:23.975Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenabrechnung-100-spital-limmattal-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenabrechnung-100-spital-limmattal-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenabrechnung-100-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenabrechnung-100-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-d1d1535360f2",
-      "slug": "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-80-90-spital-limmattal-schlieren",
+      "slug": "infermiere-a-diplomato-a-hf-fh-per-oncologia-ematologia-80-90-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-90-spital-limmattal-ch",
-        "it": "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-80-90-spital-limmattal-schlieren",
-        "en": "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-90-spital-limmattal-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-90-spital-limmattal-ch"
+        "it": "infermiere-a-diplomato-a-hf-fh-per-oncologia-ematologia-80-90-spital-limmattal-schlieren",
+        "en": "dipl-nurse-hf-fh-for-oncology-hematology-80-90-spital-limmattal-schlieren",
+        "fr": "dipl-infirmiere-hf-fh-en-oncologie-hematologie-80-90-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -136,11 +150,19 @@
       "pensum": "80 - 90%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-90-spital-limmattal-ch",
+          "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-80-90-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-90-spital-limmattal-ch"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-90-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-90-spital-limmattal-ch"
+        "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-90-spital-limmattal-ch",
+        "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-80-90-spital-limmattal-schlieren"
       ],
       "salaryMin": 82400,
       "salaryMax": 115200,
@@ -2739,7 +2761,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -2800,9 +2822,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

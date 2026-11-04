@@ -768,12 +768,12 @@
     },
     {
       "id": "vitrea-gesundheit-739c3f1eeff8",
-      "slug": "physiotherapeut-in-a-60-100-vitrea-gesundheit-dussnang",
+      "slug": "fisioterapista-a-60-100-vitrea-gesundheit-dussnang",
       "slugByLocale": {
         "de": "physiotherapeut-in-a-60-100-vitrea-gesundheit-dussnang",
-        "it": "physiotherapeut-in-a-60-100-vitrea-gesundheit-dussnang",
-        "en": "physiotherapeut-in-a-60-100-vitrea-gesundheit-dussnang",
-        "fr": "physiotherapeut-in-a-60-100-vitrea-gesundheit-dussnang"
+        "it": "fisioterapista-a-60-100-vitrea-gesundheit-dussnang",
+        "en": "physiotherapist-a-60-100-vitrea-gesundheit-dussnang",
+        "fr": "physiotherapeute-a-60-100-vitrea-gesundheit-dussnang"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -836,7 +836,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:17:43.763Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:17:43.763Z"
+      "firstSeenAt": "2026-11-04T09:17:43.763Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeut-in-a-60-100-vitrea-gesundheit-dussnang"
+        ],
+        "en": [
+          "physiotherapeut-in-a-60-100-vitrea-gesundheit-dussnang"
+        ],
+        "fr": [
+          "physiotherapeut-in-a-60-100-vitrea-gesundheit-dussnang"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeut-in-a-60-100-vitrea-gesundheit-dussnang"
+      ]
     }
   ]
 }

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "ipersonal-78559c6f73b8",
-      "slug": "offene-stellen-per-betreuung-medipersonal-schupfen-bern",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-schupfen-bern",
       "slugByLocale": {
         "de": "offene-stellen-fur-betreuung-medipersonal-schupfen-bern",
-        "it": "offene-stellen-per-betreuung-medipersonal-schupfen-bern",
-        "en": "offene-stellen-fur-betreuung-medipersonal-schupfen-bern",
-        "fr": "offene-stellen-fur-betreuung-medipersonal-schupfen-bern"
+        "it": "posizioni-aperte-per-l-assistenza-medipersonal-schupfen-bern",
+        "en": "care-vacancies-medipersonal-schupfen-bern",
+        "fr": "emplois-vacants-medipersonal-schupfen-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -55,12 +55,20 @@
       "previousSlugsByLocale": {
         "it": [
           "offene-stellen-fur-betreuung-medipersonal-schupfen-bern",
-          "offene-stellen-per-betreuung-medipersonal-schupfen"
+          "offene-stellen-per-betreuung-medipersonal-schupfen",
+          "offene-stellen-per-betreuung-medipersonal-schupfen-bern"
+        ],
+        "en": [
+          "offene-stellen-fur-betreuung-medipersonal-schupfen-bern"
+        ],
+        "fr": [
+          "offene-stellen-fur-betreuung-medipersonal-schupfen-bern"
         ]
       },
       "previousSlugs": [
         "offene-stellen-fur-betreuung-medipersonal-schupfen-bern",
-        "offene-stellen-per-betreuung-medipersonal-schupfen"
+        "offene-stellen-per-betreuung-medipersonal-schupfen",
+        "offene-stellen-per-betreuung-medipersonal-schupfen-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -83,12 +91,12 @@
     },
     {
       "id": "ipersonal-906a605eec72",
-      "slug": "offene-stellen-per-pflege-medipersonal-niederbipp-ce54dec2ef",
+      "slug": "posizioni-aperte-per-l-assistenza-infermieristica-medipersonal-berna",
       "slugByLocale": {
         "de": "offene-stellen-fur-pflege-medipersonal-berna",
-        "it": "offene-stellen-per-pflege-medipersonal-niederbipp-ce54dec2ef",
-        "en": "offene-stellen-fur-pflege-medipersonal-berna",
-        "fr": "offene-stellen-fur-pflege-medipersonal-berna"
+        "it": "posizioni-aperte-per-l-assistenza-infermieristica-medipersonal-berna",
+        "en": "care-vacancies-medipersonal-berna",
+        "fr": "emplois-vacants-medipersonal-berna"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -133,22 +141,27 @@
         "it": [
           "offene-stellen-fur-pflege-medipersonal-niederbipp-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "offene-stellen-per-pflege-medipersonal-niederbipp",
-          "offene-stellen-per-pflege-medipersonal-berna"
+          "offene-stellen-per-pflege-medipersonal-berna",
+          "offene-stellen-per-pflege-medipersonal-niederbipp-ce54dec2ef"
         ],
         "en": [
-          "offene-stellen-fur-pflege-medipersonal-niederbipp-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
+          "offene-stellen-fur-pflege-medipersonal-niederbipp-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "offene-stellen-fur-pflege-medipersonal-berna"
         ],
         "de": [
           "offene-stellen-fur-pflege-medipersonal-niederbipp-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
         ],
         "fr": [
-          "offene-stellen-fur-pflege-medipersonal-niederbipp-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
+          "offene-stellen-fur-pflege-medipersonal-niederbipp-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "offene-stellen-fur-pflege-medipersonal-berna"
         ]
       },
       "previousSlugs": [
         "offene-stellen-fur-pflege-medipersonal-niederbipp-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
         "offene-stellen-per-pflege-medipersonal-niederbipp",
-        "offene-stellen-per-pflege-medipersonal-berna"
+        "offene-stellen-per-pflege-medipersonal-berna",
+        "offene-stellen-per-pflege-medipersonal-niederbipp-ce54dec2ef",
+        "offene-stellen-fur-pflege-medipersonal-berna"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -172,12 +185,12 @@
     },
     {
       "id": "ipersonal-b14d0297131a",
-      "slug": "offene-stellen-per-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau",
+      "slug": "posizioni-aperte-per-professionisti-delle-cure-e-dell-assistenza-di-lunga-durata-medipersonal-littenheid-thurgau",
       "slugByLocale": {
         "de": "offene-stellen-fur-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau",
-        "it": "offene-stellen-per-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau",
-        "en": "offene-stellen-fur-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau",
-        "fr": "offene-stellen-fur-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau"
+        "it": "posizioni-aperte-per-professionisti-delle-cure-e-dell-assistenza-di-lunga-durata-medipersonal-littenheid-thurgau",
+        "en": "open-positions-for-specialists-long-term-care-support-medipersonal-littenheid-thurgau",
+        "fr": "postes-ouverts-pour-specialistes-soins-de-longue-duree-soutien-medipersonal-littenheid-thurgau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -222,12 +235,20 @@
       "previousSlugsByLocale": {
         "it": [
           "offene-stellen-fur-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau",
-          "offene-stellen-per-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid"
+          "offene-stellen-per-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid",
+          "offene-stellen-per-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau"
+        ],
+        "en": [
+          "offene-stellen-fur-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau"
+        ],
+        "fr": [
+          "offene-stellen-fur-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau"
         ]
       },
       "previousSlugs": [
         "offene-stellen-fur-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau",
-        "offene-stellen-per-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid"
+        "offene-stellen-per-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid",
+        "offene-stellen-per-fachpersonen-langzeitpflege-betreuung-medipersonal-littenheid-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -250,12 +271,12 @@
     },
     {
       "id": "ipersonal-7508a64b7c43",
-      "slug": "advanced-practice-nurse-apn-medipersonal-sursee-luzern",
+      "slug": "infermiera-di-pratica-avanzata-apn-medipersonal-sursee-luzern",
       "slugByLocale": {
         "de": "advanced-practice-nurse-apn-medipersonal-sursee-luzern",
-        "it": "advanced-practice-nurse-apn-medipersonal-sursee-luzern",
+        "it": "infermiera-di-pratica-avanzata-apn-medipersonal-sursee-luzern",
         "en": "advanced-practice-nurse-apn-medipersonal-sursee-luzern",
-        "fr": "advanced-practice-nurse-apn-medipersonal-sursee-luzern"
+        "fr": "infirmiere-praticienne-avancee-apn-medipersonal-sursee-luzern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -314,16 +335,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:17:18.228Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:17:18.228Z"
+      "firstSeenAt": "2026-11-04T09:17:18.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-medipersonal-sursee-luzern"
+        ],
+        "fr": [
+          "advanced-practice-nurse-apn-medipersonal-sursee-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-medipersonal-sursee-luzern"
+      ]
     },
     {
       "id": "ipersonal-73624a3fc984",
-      "slug": "offene-stellen-per-betreuung-medipersonal-aarberg-bern",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
       "slugByLocale": {
         "de": "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
-        "it": "offene-stellen-per-betreuung-medipersonal-aarberg-bern",
-        "en": "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
-        "fr": "offene-stellen-fur-betreuung-medipersonal-aarberg-bern"
+        "it": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
+        "en": "care-vacancies-medipersonal-aarberg-bern",
+        "fr": "emplois-vacants-medipersonal-aarberg-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -368,12 +400,20 @@
       "previousSlugsByLocale": {
         "it": [
           "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
-          "offene-stellen-per-betreuung-medipersonal-aarberg"
+          "offene-stellen-per-betreuung-medipersonal-aarberg",
+          "offene-stellen-per-betreuung-medipersonal-aarberg-bern"
+        ],
+        "en": [
+          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern"
+        ],
+        "fr": [
+          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern"
         ]
       },
       "previousSlugs": [
         "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
-        "offene-stellen-per-betreuung-medipersonal-aarberg"
+        "offene-stellen-per-betreuung-medipersonal-aarberg",
+        "offene-stellen-per-betreuung-medipersonal-aarberg-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -396,12 +436,12 @@
     },
     {
       "id": "ipersonal-b2b53440c088",
-      "slug": "offene-stellen-per-pflege-medipersonal-langenthal-cee4428b47",
+      "slug": "posizioni-aperte-per-l-assistenza-infermieristica-medipersonal-berna-cd957f",
       "slugByLocale": {
         "de": "offene-stellen-fur-pflege-medipersonal-berna",
-        "it": "offene-stellen-per-pflege-medipersonal-langenthal-cee4428b47",
-        "en": "offene-stellen-fur-pflege-medipersonal-berna",
-        "fr": "offene-stellen-fur-pflege-medipersonal-berna"
+        "it": "posizioni-aperte-per-l-assistenza-infermieristica-medipersonal-berna-cd957f",
+        "en": "care-vacancies-medipersonal-berna-cd957f",
+        "fr": "emplois-vacants-medipersonal-berna-cd957f"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -446,22 +486,27 @@
         "it": [
           "offene-stellen-fur-pflege-medipersonal-langenthal-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "offene-stellen-per-pflege-medipersonal-langenthal",
-          "offene-stellen-per-pflege-medipersonal-berna"
+          "offene-stellen-per-pflege-medipersonal-berna",
+          "offene-stellen-per-pflege-medipersonal-langenthal-cee4428b47"
         ],
         "en": [
-          "offene-stellen-fur-pflege-medipersonal-langenthal-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
+          "offene-stellen-fur-pflege-medipersonal-langenthal-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "offene-stellen-fur-pflege-medipersonal-berna"
         ],
         "de": [
           "offene-stellen-fur-pflege-medipersonal-langenthal-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
         ],
         "fr": [
-          "offene-stellen-fur-pflege-medipersonal-langenthal-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
+          "offene-stellen-fur-pflege-medipersonal-langenthal-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "offene-stellen-fur-pflege-medipersonal-berna"
         ]
       },
       "previousSlugs": [
         "offene-stellen-fur-pflege-medipersonal-langenthal-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
         "offene-stellen-per-pflege-medipersonal-langenthal",
-        "offene-stellen-per-pflege-medipersonal-berna"
+        "offene-stellen-per-pflege-medipersonal-berna",
+        "offene-stellen-per-pflege-medipersonal-langenthal-cee4428b47",
+        "offene-stellen-fur-pflege-medipersonal-berna"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -485,12 +530,12 @@
     },
     {
       "id": "ipersonal-a8dcd0079dc1",
-      "slug": "personalberater-in-per-la-medizinbranche-medipersonal-zurigo",
+      "slug": "consulente-del-personale-per-il-settore-medico-medipersonal-zurigo",
       "slugByLocale": {
         "de": "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo",
-        "it": "personalberater-in-per-la-medizinbranche-medipersonal-zurigo",
-        "en": "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo",
-        "fr": "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo"
+        "it": "consulente-del-personale-per-il-settore-medico-medipersonal-zurigo",
+        "en": "recruitment-consultant-for-the-medical-sector-medipersonal-zurigo",
+        "fr": "conseiller-ere-en-personnel-pour-le-secteur-medical-medipersonal-zurigo"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -534,21 +579,26 @@
       "previousSlugsByLocale": {
         "it": [
           "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
-          "personalberater-in-per-la-medizinbranche-medipersonal-wallisellen"
+          "personalberater-in-per-la-medizinbranche-medipersonal-wallisellen",
+          "personalberater-in-per-la-medizinbranche-medipersonal-zurigo"
         ],
         "en": [
-          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder"
+          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
+          "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo"
         ],
         "de": [
           "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder"
         ],
         "fr": [
-          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder"
+          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
+          "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo"
         ]
       },
       "previousSlugs": [
         "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
-        "personalberater-in-per-la-medizinbranche-medipersonal-wallisellen"
+        "personalberater-in-per-la-medizinbranche-medipersonal-wallisellen",
+        "personalberater-in-per-la-medizinbranche-medipersonal-zurigo",
+        "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -572,12 +622,12 @@
     },
     {
       "id": "ipersonal-b77073a5d5a5",
-      "slug": "fachmann-fachfrau-gesundheit-cfc-medipersonal-san-gallo",
+      "slug": "operatore-sociosanitario-operatrice-sociosanitaria-afc-medipersonal-san-gallo",
       "slugByLocale": {
         "de": "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo",
-        "it": "fachmann-fachfrau-gesundheit-cfc-medipersonal-san-gallo",
-        "en": "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo",
-        "fr": "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo"
+        "it": "operatore-sociosanitario-operatrice-sociosanitaria-afc-medipersonal-san-gallo",
+        "en": "professional-professional-health-efz-medipersonal-san-gallo",
+        "fr": "professionnel-professionnel-sante-efz-medipersonal-san-gallo"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -621,21 +671,26 @@
       "previousSlugsByLocale": {
         "it": [
           "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-          "fachmann-fachfrau-gesundheit-cfc-medipersonal-st-gallen"
+          "fachmann-fachfrau-gesundheit-cfc-medipersonal-st-gallen",
+          "fachmann-fachfrau-gesundheit-cfc-medipersonal-san-gallo"
         ],
         "en": [
-          "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
+          "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo"
         ],
         "de": [
           "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
         ],
         "fr": [
-          "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
+          "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo"
         ]
       },
       "previousSlugs": [
         "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-        "fachmann-fachfrau-gesundheit-cfc-medipersonal-st-gallen"
+        "fachmann-fachfrau-gesundheit-cfc-medipersonal-st-gallen",
+        "fachmann-fachfrau-gesundheit-cfc-medipersonal-san-gallo",
+        "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -659,12 +714,12 @@
     },
     {
       "id": "ipersonal-b6bfedc76300",
-      "slug": "offene-stellen-per-betreuung-medipersonal-bern-bern",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
       "slugByLocale": {
         "de": "offene-stellen-fur-betreuung-medipersonal-bern-bern",
-        "it": "offene-stellen-per-betreuung-medipersonal-bern-bern",
-        "en": "offene-stellen-fur-betreuung-medipersonal-bern-bern",
-        "fr": "offene-stellen-fur-betreuung-medipersonal-bern-bern"
+        "it": "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
+        "en": "care-vacancies-medipersonal-bern-bern",
+        "fr": "emplois-vacants-medipersonal-bern-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -709,12 +764,20 @@
       "previousSlugsByLocale": {
         "it": [
           "offene-stellen-fur-betreuung-medipersonal-bern-bern",
-          "offene-stellen-per-betreuung-medipersonal-bern"
+          "offene-stellen-per-betreuung-medipersonal-bern",
+          "offene-stellen-per-betreuung-medipersonal-bern-bern"
+        ],
+        "en": [
+          "offene-stellen-fur-betreuung-medipersonal-bern-bern"
+        ],
+        "fr": [
+          "offene-stellen-fur-betreuung-medipersonal-bern-bern"
         ]
       },
       "previousSlugs": [
         "offene-stellen-fur-betreuung-medipersonal-bern-bern",
-        "offene-stellen-per-betreuung-medipersonal-bern"
+        "offene-stellen-per-betreuung-medipersonal-bern",
+        "offene-stellen-per-betreuung-medipersonal-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -737,12 +800,12 @@
     },
     {
       "id": "ipersonal-8a7bb81e902f",
-      "slug": "offene-stellen-per-pflege-medipersonal-turgovia",
+      "slug": "posizioni-aperte-per-l-assistenza-infermieristica-medipersonal-turgovia",
       "slugByLocale": {
         "de": "offene-stellen-fur-pflege-medipersonal-turgovia",
-        "it": "offene-stellen-per-pflege-medipersonal-turgovia",
-        "en": "offene-stellen-fur-pflege-medipersonal-turgovia",
-        "fr": "offene-stellen-fur-pflege-medipersonal-turgovia"
+        "it": "posizioni-aperte-per-l-assistenza-infermieristica-medipersonal-turgovia",
+        "en": "care-vacancies-medipersonal-turgovia",
+        "fr": "emplois-vacants-medipersonal-turgovia"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -786,21 +849,26 @@
       "previousSlugsByLocale": {
         "it": [
           "offene-stellen-fur-pflege-medipersonal-frauenfeld-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-          "offene-stellen-per-pflege-medipersonal-frauenfeld"
+          "offene-stellen-per-pflege-medipersonal-frauenfeld",
+          "offene-stellen-per-pflege-medipersonal-turgovia"
         ],
         "en": [
-          "offene-stellen-fur-pflege-medipersonal-frauenfeld-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
+          "offene-stellen-fur-pflege-medipersonal-frauenfeld-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "offene-stellen-fur-pflege-medipersonal-turgovia"
         ],
         "de": [
           "offene-stellen-fur-pflege-medipersonal-frauenfeld-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
         ],
         "fr": [
-          "offene-stellen-fur-pflege-medipersonal-frauenfeld-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung"
+          "offene-stellen-fur-pflege-medipersonal-frauenfeld-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "offene-stellen-fur-pflege-medipersonal-turgovia"
         ]
       },
       "previousSlugs": [
         "offene-stellen-fur-pflege-medipersonal-frauenfeld-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-        "offene-stellen-per-pflege-medipersonal-frauenfeld"
+        "offene-stellen-per-pflege-medipersonal-frauenfeld",
+        "offene-stellen-per-pflege-medipersonal-turgovia",
+        "offene-stellen-fur-pflege-medipersonal-turgovia"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -824,12 +892,12 @@
     },
     {
       "id": "ipersonal-5a0d910b7300",
-      "slug": "pflegefachmann-frau-hf-100-medipersonal-region-bern-be",
+      "slug": "infermiere-a-diplomato-a-sss-100-medipersonal-region-bern-be",
       "slugByLocale": {
         "de": "pflegefachmann-frau-hf-100-medipersonal-region-bern-be",
-        "it": "pflegefachmann-frau-hf-100-medipersonal-region-bern-be",
-        "en": "pflegefachmann-frau-hf-100-medipersonal-region-bern-be",
-        "fr": "pflegefachmann-frau-hf-100-medipersonal-region-bern-be"
+        "it": "infermiere-a-diplomato-a-sss-100-medipersonal-region-bern-be",
+        "en": "nursing-specialist-hf-100-medipersonal-region-bern-be",
+        "fr": "infirmier-ere-diplome-e-es-100-medipersonal-region-bern-be"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -891,21 +959,29 @@
       "firstSeenAt": "2026-11-04T09:17:16.112Z",
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachmann-frau-hf-100-medipersonal-bern"
+          "pflegefachmann-frau-hf-100-medipersonal-bern",
+          "pflegefachmann-frau-hf-100-medipersonal-region-bern-be"
+        ],
+        "en": [
+          "pflegefachmann-frau-hf-100-medipersonal-region-bern-be"
+        ],
+        "fr": [
+          "pflegefachmann-frau-hf-100-medipersonal-region-bern-be"
         ]
       },
       "previousSlugs": [
-        "pflegefachmann-frau-hf-100-medipersonal-bern"
+        "pflegefachmann-frau-hf-100-medipersonal-bern",
+        "pflegefachmann-frau-hf-100-medipersonal-region-bern-be"
       ]
     },
     {
       "id": "ipersonal-46c580292684",
-      "slug": "fachmann-frau-gesundheit-cfc-100-medipersonal-flawil-sg",
+      "slug": "operatore-trice-sociosanitario-a-afc-100-medipersonal-flawil-sg",
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-efz-100-medipersonal-flawil-sg",
-        "it": "fachmann-frau-gesundheit-cfc-100-medipersonal-flawil-sg",
-        "en": "fachmann-frau-gesundheit-efz-100-medipersonal-flawil-sg",
-        "fr": "fachmann-frau-gesundheit-efz-100-medipersonal-flawil-sg"
+        "it": "operatore-trice-sociosanitario-a-afc-100-medipersonal-flawil-sg",
+        "en": "healthcare-specialist-efz-100-medipersonal-flawil-sg",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-100-medipersonal-flawil-sg"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -950,12 +1026,20 @@
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-efz-100-medipersonal-flawil-sg",
-          "fachmann-frau-gesundheit-cfc-100-medipersonal-flawil"
+          "fachmann-frau-gesundheit-cfc-100-medipersonal-flawil",
+          "fachmann-frau-gesundheit-cfc-100-medipersonal-flawil-sg"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-100-medipersonal-flawil-sg"
+        ],
+        "fr": [
+          "fachmann-frau-gesundheit-efz-100-medipersonal-flawil-sg"
         ]
       },
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-100-medipersonal-flawil-sg",
-        "fachmann-frau-gesundheit-cfc-100-medipersonal-flawil"
+        "fachmann-frau-gesundheit-cfc-100-medipersonal-flawil",
+        "fachmann-frau-gesundheit-cfc-100-medipersonal-flawil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

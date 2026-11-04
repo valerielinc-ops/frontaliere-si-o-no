@@ -244,12 +244,12 @@
     },
     {
       "id": "google-switzerland-47cdd4103552",
-      "slug": "staff-software-engineer-aai-research-google-switzerland-zurich",
+      "slug": "staff-software-ingegnere-aai-ricerca-google-switzerland-zurich",
       "slugByLocale": {
         "en": "staff-software-engineer-aai-research-google-switzerland-zurich",
-        "it": "staff-software-engineer-aai-research-google-switzerland-zurich",
-        "de": "staff-software-engineer-aai-research-google-switzerland-zurich",
-        "fr": "staff-software-engineer-aai-research-google-switzerland-zurich"
+        "it": "staff-software-ingegnere-aai-ricerca-google-switzerland-zurich",
+        "de": "staff-software-ingenieur-aai-forschung-google-switzerland-zurich",
+        "fr": "staff-software-ingenieur-aai-recherche-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -318,7 +318,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:15:12.507Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:15:12.507Z"
+      "firstSeenAt": "2026-11-04T09:15:12.507Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "staff-software-engineer-aai-research-google-switzerland-zurich"
+        ],
+        "de": [
+          "staff-software-engineer-aai-research-google-switzerland-zurich"
+        ],
+        "fr": [
+          "staff-software-engineer-aai-research-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "staff-software-engineer-aai-research-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-bae93388287a",

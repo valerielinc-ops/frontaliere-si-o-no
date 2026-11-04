@@ -1874,12 +1874,12 @@
     },
     {
       "id": "asana-spital-1e05988cf560",
-      "slug": "fachspezialist-in-ambulantes-leistungsmanagement-e-patientenabrechnung-80-100-asana-spital-ag-menziken-leuggern",
+      "slug": "specialista-nella-gestione-delle-prestazioni-ambulatoriali-e-nella-fatturazione-ai-pazienti-80-100-asana-spital-ag",
       "slugByLocale": {
         "de": "fachspezialist-in-ambulantes-leistungsmanagement-und-patientenabrechnung-80-100-asana",
-        "it": "fachspezialist-in-ambulantes-leistungsmanagement-e-patientenabrechnung-80-100-asana-spital-ag-menziken-leuggern",
-        "en": "fachspezialist-in-ambulantes-leistungsmanagement-und-patientenabrechnung-80-100-asana",
-        "fr": "fachspezialist-in-ambulantes-leistungsmanagement-und-patientenabrechnung-80-100-asana"
+        "it": "specialista-nella-gestione-delle-prestazioni-ambulatoriali-e-nella-fatturazione-ai-pazienti-80-100-asana-spital-ag",
+        "en": "specialist-in-outpatient-service-management-and-patient-billing-80-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "fr": "specialiste-de-la-gestion-des-prestations-ambulatoires-et-de-la-facturation-des-patients-80-100-asana-spital-ag-menziken"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -1928,11 +1928,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-in-ambulantes-leistungsmanagement-und-patientenabrechnung-80-100-asana",
+          "fachspezialist-in-ambulantes-leistungsmanagement-e-patientenabrechnung-80-100-asana-spital-ag-menziken-leuggern"
+        ],
+        "en": [
+          "fachspezialist-in-ambulantes-leistungsmanagement-und-patientenabrechnung-80-100-asana"
+        ],
+        "fr": [
           "fachspezialist-in-ambulantes-leistungsmanagement-und-patientenabrechnung-80-100-asana"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-ambulantes-leistungsmanagement-und-patientenabrechnung-80-100-asana"
+        "fachspezialist-in-ambulantes-leistungsmanagement-und-patientenabrechnung-80-100-asana",
+        "fachspezialist-in-ambulantes-leistungsmanagement-e-patientenabrechnung-80-100-asana-spital-ag-menziken-leuggern"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1954,12 +1962,12 @@
     },
     {
       "id": "asana-spital-94b4dc50c62f",
-      "slug": "responsabile-patientenadministration-empfang-100-asana-spital-ag-menziken-leuggern",
+      "slug": "responsabile-amministrazione-pazienti-e-accoglienza-100-asana-spital-ag-menziken-leuggern-leuggern",
       "slugByLocale": {
         "de": "leiter-in-patientenadministration-amp-empfang-100-asana-spital-leuggern",
-        "it": "responsabile-patientenadministration-empfang-100-asana-spital-ag-menziken-leuggern",
-        "en": "leiter-in-patientenadministration-amp-empfang-100-asana-spital-leuggern",
-        "fr": "leiter-in-patientenadministration-amp-empfang-100-asana-spital-leuggern"
+        "it": "responsabile-amministrazione-pazienti-e-accoglienza-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "en": "head-of-patient-administration-reception-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "fr": "responsable-de-l-administration-des-patients-de-l-accueil-100-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -2008,11 +2016,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-patientenadministration-amp-empfang-100-asana-spital-leuggern",
+          "responsabile-patientenadministration-empfang-100-asana-spital-ag-menziken-leuggern"
+        ],
+        "en": [
+          "leiter-in-patientenadministration-amp-empfang-100-asana-spital-leuggern"
+        ],
+        "fr": [
           "leiter-in-patientenadministration-amp-empfang-100-asana-spital-leuggern"
         ]
       },
       "previousSlugs": [
-        "leiter-in-patientenadministration-amp-empfang-100-asana-spital-leuggern"
+        "leiter-in-patientenadministration-amp-empfang-100-asana-spital-leuggern",
+        "responsabile-patientenadministration-empfang-100-asana-spital-ag-menziken-leuggern"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,
@@ -2038,8 +2054,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-wascherei-40-asana-spital-leuggern",
         "it": "mitarbeiterin-collaboratore-trice-wascherei-40-asana-spital-ag-menziken-leuggern",
-        "en": "mitarbeiterin-mitarbeiter-wascherei-40-asana-spital-leuggern",
-        "fr": "mitarbeiterin-mitarbeiter-wascherei-40-asana-spital-leuggern"
+        "en": "employee-laundry-40-asana-spital-ag-menziken-leuggern-leuggern",
+        "fr": "blanchisserie-des-employes-40-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -2089,6 +2105,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-wascherei-40-asana-spital-leuggern"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-wascherei-40-asana-spital-leuggern"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-wascherei-40-asana-spital-leuggern"
         ]
       },
       "previousSlugs": [
@@ -2114,12 +2136,12 @@
     },
     {
       "id": "asana-spital-9119893ea606",
-      "slug": "pflegepraktikantin-pflegepraktikant-100-asana-spital-leuggern",
+      "slug": "infermieristica-tirocinante-100-asana-spital-ag-menziken-leuggern-leuggern",
       "slugByLocale": {
         "de": "pflegepraktikantin-pflegepraktikant-100-asana-spital-leuggern",
-        "it": "pflegepraktikantin-pflegepraktikant-100-asana-spital-leuggern",
-        "en": "pflegepraktikantin-pflegepraktikant-100-asana-spital-leuggern",
-        "fr": "pflegepraktikantin-pflegepraktikant-100-asana-spital-leuggern"
+        "it": "infermieristica-tirocinante-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "en": "nursing-intern-nursing-intern-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "fr": "stagiaire-infirmier-stagiaire-infirmier-100-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -2181,7 +2203,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:28:45.893Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:28:45.893Z"
+      "firstSeenAt": "2026-11-04T09:28:45.893Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegepraktikantin-pflegepraktikant-100-asana-spital-leuggern"
+        ],
+        "en": [
+          "pflegepraktikantin-pflegepraktikant-100-asana-spital-leuggern"
+        ],
+        "fr": [
+          "pflegepraktikantin-pflegepraktikant-100-asana-spital-leuggern"
+        ]
+      },
+      "previousSlugs": [
+        "pflegepraktikantin-pflegepraktikant-100-asana-spital-leuggern"
+      ]
     }
   ]
 }

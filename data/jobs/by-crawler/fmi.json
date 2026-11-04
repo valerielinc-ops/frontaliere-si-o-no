@@ -189,7 +189,7 @@
       "slug": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
-        "en": "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
+        "en": "psychiatric-nurse-spitaler-fmi-ag-unterseen",
         "de": "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
         "fr": "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
       },
@@ -243,7 +243,7 @@
         "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
         "psycholog-in-psychiatrie-80-fmi-unterseen",
         "psychologue-en-psychiatrie-80-spitaler-fmi-ag-unterseen",
-        "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+        "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -256,7 +256,7 @@
         ],
         "en": [
           "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
-          "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+          "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "psycholog-in-psychiatrie-80-fmi-unterseen"
@@ -1276,7 +1276,7 @@
       "slug": "personale-di-assistenza-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "personale-di-assistenza-spitaler-fmi-ag-unterseen",
-        "en": "nursing-staff-spitaler-fmi-ag-unterseen",
+        "en": "pflegepersonal-spitaler-fmi-ag-unterseen",
         "de": "pflegepersonal-fmi-unterseen",
         "fr": "personnel-soignant-spitaler-fmi-ag-unterseen"
       },
@@ -1351,7 +1351,7 @@
         "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
         "ergotherapeut-in-60-80-spitaler-fmi-ag-unterseen",
         "therapeute-en-ergotherapie-60-80-spitaler-fmi-ag-unterseen",
-        "pflegepersonal-spitaler-fmi-ag-unterseen"
+        "nursing-staff-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1379,7 +1379,7 @@
           "nutritionist-in-60-80-spitaler-fmi-ag-unterseen",
           "personnel-in-accounting-40-60-spitaler-fmi-ag-unterseen",
           "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
-          "pflegepersonal-spitaler-fmi-ag-unterseen"
+          "nursing-staff-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "ernahrungsberater-in-60-80-fmi-unterseen",
@@ -5543,12 +5543,12 @@
     },
     {
       "id": "fmi-66843d4188f8",
-      "slug": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen",
+      "slug": "fabe-operatrice-socioassistenziale-afc-operatore-socioassistenziale-afc-50-100-spitaler-fmi-ag-frutigen",
       "slugByLocale": {
         "de": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen",
-        "it": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen",
-        "en": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen",
-        "fr": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen"
+        "it": "fabe-operatrice-socioassistenziale-afc-operatore-socioassistenziale-afc-50-100-spitaler-fmi-ag-frutigen",
+        "en": "fabe-specialist-supervision-efz-professional-supervision-efz-50-100-spitaler-fmi-ag-frutigen",
+        "fr": "fabe-surveillance-specialisee-efz-supervision-professionnelle-efz-50-100-spitaler-fmi-ag-frutigen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5611,16 +5611,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:18:41.954Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:18:41.954Z"
+      "firstSeenAt": "2026-11-04T09:18:41.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen"
+        ],
+        "en": [
+          "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen"
+        ],
+        "fr": [
+          "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen"
+        ]
+      },
+      "previousSlugs": [
+        "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen"
+      ]
     },
     {
       "id": "fmi-8481ce5a2a32",
-      "slug": "risorse-umane-projekt-e-prozessmanager-in-80-100-spitaler-fmi-ag-unterseen",
+      "slug": "responsabile-di-progetti-e-processi-hr-80-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "de": "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen",
-        "it": "risorse-umane-projekt-e-prozessmanager-in-80-100-spitaler-fmi-ag-unterseen",
-        "en": "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen",
-        "fr": "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen"
+        "it": "responsabile-di-progetti-e-processi-hr-80-100-spitaler-fmi-ag-unterseen",
+        "en": "hr-project-and-process-manager-80-100-spitaler-fmi-ag-unterseen",
+        "fr": "gestionnaire-de-projets-et-de-processus-rh-80-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5668,11 +5682,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen",
+          "risorse-umane-projekt-e-prozessmanager-in-80-100-spitaler-fmi-ag-unterseen"
+        ],
+        "en": [
+          "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen"
+        ],
+        "fr": [
           "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen"
         ]
       },
       "previousSlugs": [
-        "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen"
+        "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen",
+        "risorse-umane-projekt-e-prozessmanager-in-80-100-spitaler-fmi-ag-unterseen"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -5695,12 +5717,12 @@
     },
     {
       "id": "fmi-3a0e84238823",
-      "slug": "responsabile-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen",
+      "slug": "responsabile-dello-sviluppo-aziendale-80-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "de": "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen",
-        "it": "responsabile-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen",
-        "en": "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen",
-        "fr": "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
+        "it": "responsabile-dello-sviluppo-aziendale-80-100-spitaler-fmi-ag-unterseen",
+        "en": "head-of-corporate-development-80-100-spitaler-fmi-ag-unterseen",
+        "fr": "responsable-du-developpement-de-l-entreprise-80-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5748,11 +5770,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen",
+          "responsabile-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen"
+        ],
+        "en": [
+          "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
+        ],
+        "fr": [
           "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
         ]
       },
       "previousSlugs": [
-        "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
+        "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen",
+        "responsabile-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,

@@ -93,8 +93,8 @@
       "slugByLocale": {
         "de": "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln",
         "it": "assistente-pj-m-f-d-medicina-interna-ameos-schweiz-einsiedeln",
-        "en": "unterassistent-pj-m-w-d-innere-medizin-ameos-schweiz-einsiedeln",
-        "fr": "unterassistent-pj-m-w-d-innere-medizin-ameos-schweiz-einsiedeln"
+        "en": "assistant-pj-m-f-d-internal-medicine-ameos-schweiz-einsiedeln",
+        "fr": "assistant-pj-h-f-d-medecine-interne-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -145,16 +145,15 @@
           "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln"
         ],
         "en": [
-          "assistant-pj-m-f-d-internal-medicine-ameos-schweiz-einsiedeln"
+          "unterassistent-pj-m-w-d-innere-medizin-ameos-schweiz-einsiedeln"
         ],
         "fr": [
-          "assistant-pj-h-f-d-medecine-interne-ameos-schweiz-einsiedeln"
+          "unterassistent-pj-m-w-d-innere-medizin-ameos-schweiz-einsiedeln"
         ]
       },
       "previousSlugs": [
         "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln",
-        "assistant-pj-m-f-d-internal-medicine-ameos-schweiz-einsiedeln",
-        "assistant-pj-h-f-d-medecine-interne-ameos-schweiz-einsiedeln"
+        "unterassistent-pj-m-w-d-innere-medizin-ameos-schweiz-einsiedeln"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -1382,12 +1381,12 @@
     },
     {
       "id": "ameos-ch-485d708af8a8",
-      "slug": "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
+      "slug": "medico-dirigente-m-f-d-e-o-medico-specialista-dirigente-m-f-d-in-psichiatria-e-psicoterapia-ameos-schweiz-brunnen",
       "slugByLocale": {
         "de": "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos",
-        "it": "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
-        "en": "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos",
-        "fr": "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos"
+        "it": "medico-dirigente-m-f-d-e-o-medico-specialista-dirigente-m-f-d-in-psichiatria-e-psicoterapia-ameos-schweiz-brunnen",
+        "en": "senior-physician-m-f-d-and-or-senior-specialist-m-f-d-psychiatry-and-psychotherapy-ameos-schweiz-brunnen",
+        "fr": "medecin-principal-h-f-d-et-ou-specialiste-principal-h-f-d-psychiatrie-et-psychotherapie-ameos-schweiz-brunnen"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1435,11 +1434,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos",
+          "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
+        ],
+        "en": [
+          "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos"
+        ],
+        "fr": [
           "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos"
         ]
       },
       "previousSlugs": [
-        "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos"
+        "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos",
+        "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -1462,12 +1469,12 @@
     },
     {
       "id": "ameos-ch-2b0afdbb9e02",
-      "slug": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-e-o-leitung-psychologie-m-w-d-ameos-schweiz-brunnen",
+      "slug": "psicoterapeuta-riconosciuto-a-livello-federale-m-f-d-e-o-responsabile-del-servizio-di-psicologia-m-f-d-ameos-schweiz",
       "slugByLocale": {
         "de": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-und-oder-leitung-psychologie-m-w-d-ameos",
-        "it": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-e-o-leitung-psychologie-m-w-d-ameos-schweiz-brunnen",
-        "en": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-und-oder-leitung-psychologie-m-w-d-ameos",
-        "fr": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-und-oder-leitung-psychologie-m-w-d-ameos"
+        "it": "psicoterapeuta-riconosciuto-a-livello-federale-m-f-d-e-o-responsabile-del-servizio-di-psicologia-m-f-d-ameos-schweiz",
+        "en": "swiss-recognized-psychotherapist-m-f-d-and-or-head-of-psychology-m-f-d-ameos-schweiz-brunnen",
+        "fr": "psychotherapie-suisse-reconnue-h-f-d-et-ou-chef-de-la-psychologie-h-f-d-ameos-schweiz-brunnen"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1515,11 +1522,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "eidgenossisch-anerkannter-psychotherapeut-m-w-d-und-oder-leitung-psychologie-m-w-d-ameos",
+          "eidgenossisch-anerkannter-psychotherapeut-m-w-d-e-o-leitung-psychologie-m-w-d-ameos-schweiz-brunnen"
+        ],
+        "en": [
+          "eidgenossisch-anerkannter-psychotherapeut-m-w-d-und-oder-leitung-psychologie-m-w-d-ameos"
+        ],
+        "fr": [
           "eidgenossisch-anerkannter-psychotherapeut-m-w-d-und-oder-leitung-psychologie-m-w-d-ameos"
         ]
       },
       "previousSlugs": [
-        "eidgenossisch-anerkannter-psychotherapeut-m-w-d-und-oder-leitung-psychologie-m-w-d-ameos"
+        "eidgenossisch-anerkannter-psychotherapeut-m-w-d-und-oder-leitung-psychologie-m-w-d-ameos",
+        "eidgenossisch-anerkannter-psychotherapeut-m-w-d-e-o-leitung-psychologie-m-w-d-ameos-schweiz-brunnen"
       ],
       "salaryMin": 74500,
       "salaryMax": 127000,

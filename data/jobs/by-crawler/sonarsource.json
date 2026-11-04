@@ -1671,12 +1671,12 @@
     },
     {
       "id": "sonarsource-3b0f6bcba4d5",
-      "slug": "engineering-manager-sonarsource-ch",
+      "slug": "gestione-dell-ingegneria-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "engineering-manager-sonarsource-ch",
-        "it": "engineering-manager-sonarsource-ch",
+        "it": "gestione-dell-ingegneria-sonarsource-sonar-geneva",
         "de": "engineering-manager-sonarsource-ch",
-        "fr": "engineering-manager-sonarsource-ch"
+        "fr": "directeur-technique-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1739,7 +1739,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:26:06.099Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:26:06.099Z"
+      "firstSeenAt": "2026-11-04T09:26:06.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "engineering-manager-sonarsource-ch"
+        ],
+        "fr": [
+          "engineering-manager-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engineering-manager-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-e8e6d77e825d",

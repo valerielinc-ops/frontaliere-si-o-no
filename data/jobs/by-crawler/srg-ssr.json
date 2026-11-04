@@ -4463,12 +4463,12 @@
     },
     {
       "id": "srg-ssr-edf56f27df72",
-      "slug": "expert-e-etat-major-srg-ssr-geneve-8",
+      "slug": "esperto-personale-srg-ssr-geneve-8",
       "slugByLocale": {
         "fr": "expert-e-etat-major-srg-ssr-geneve-8",
-        "it": "expert-e-etat-major-srg-ssr-geneve-8",
-        "en": "expert-e-etat-major-srg-ssr-geneve-8",
-        "de": "expert-e-etat-major-srg-ssr-geneve-8"
+        "it": "esperto-personale-srg-ssr-geneve-8",
+        "en": "expert-e-staff-srg-ssr-geneve-8",
+        "de": "experte-e-personal-srg-ssr-geneve-8"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4553,16 +4553,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:11:41.910Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:11:41.910Z"
+      "firstSeenAt": "2026-11-04T09:11:41.910Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-e-etat-major-srg-ssr-geneve-8"
+        ],
+        "en": [
+          "expert-e-etat-major-srg-ssr-geneve-8"
+        ],
+        "de": [
+          "expert-e-etat-major-srg-ssr-geneve-8"
+        ]
+      },
+      "previousSlugs": [
+        "expert-e-etat-major-srg-ssr-geneve-8"
+      ]
     },
     {
       "id": "srg-ssr-38a6b8ada033",
-      "slug": "fachexpert-in-stab-srg-ssr-geneve-8",
+      "slug": "esperto-nel-personale-srg-ssr-geneve-8",
       "slugByLocale": {
         "de": "fachexpert-in-stab-srg-ssr-geneve-8",
-        "it": "fachexpert-in-stab-srg-ssr-geneve-8",
-        "en": "fachexpert-in-stab-srg-ssr-geneve-8",
-        "fr": "fachexpert-in-stab-srg-ssr-geneve-8"
+        "it": "esperto-nel-personale-srg-ssr-geneve-8",
+        "en": "staff-subject-matter-expert-srg-ssr-geneve-8",
+        "fr": "expert-en-personnel-srg-ssr-geneve-8"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4648,7 +4662,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:11:41.229Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:11:41.229Z"
+      "firstSeenAt": "2026-11-04T09:11:41.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpert-in-stab-srg-ssr-geneve-8"
+        ],
+        "en": [
+          "fachexpert-in-stab-srg-ssr-geneve-8"
+        ],
+        "fr": [
+          "fachexpert-in-stab-srg-ssr-geneve-8"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpert-in-stab-srg-ssr-geneve-8"
+      ]
     }
   ]
 }

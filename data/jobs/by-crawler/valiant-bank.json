@@ -1405,12 +1405,12 @@
     },
     {
       "id": "valiant-bank-2b21cb0e2020",
-      "slug": "assistent-in-unternehmenskunden-60-80-valiant-bern",
+      "slug": "assistente-clienti-aziendali-60-80-valiant-bank-ag-bern",
       "slugByLocale": {
         "de": "assistent-in-unternehmenskunden-60-80-valiant-bern",
-        "it": "assistent-in-unternehmenskunden-60-80-valiant-bern",
-        "en": "assistent-in-unternehmenskunden-60-80-valiant-bern",
-        "fr": "assistent-in-unternehmenskunden-60-80-valiant-bern"
+        "it": "assistente-clienti-aziendali-60-80-valiant-bank-ag-bern",
+        "en": "corporate-customer-assistant-60-80-valiant-bank-ag-bern",
+        "fr": "assistant-e-clientele-entreprises-60-80-valiant-bank-ag-bern"
       },
       "company": "Valiant Bank AG",
       "companyKey": "valiant-bank",
@@ -1474,7 +1474,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:22:46.027Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:22:46.027Z"
+      "firstSeenAt": "2026-11-04T09:22:46.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-unternehmenskunden-60-80-valiant-bern"
+        ],
+        "en": [
+          "assistent-in-unternehmenskunden-60-80-valiant-bern"
+        ],
+        "fr": [
+          "assistent-in-unternehmenskunden-60-80-valiant-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-unternehmenskunden-60-80-valiant-bern"
+      ]
     }
   ]
 }
