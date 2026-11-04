@@ -25,12 +25,20 @@ const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), '
 const DEPLOY_REQUEST_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-request.yml'), 'utf-8');
 const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
 const AUDIT_REPORT_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-dist-from-run.yml'), 'utf-8');
-const AUDIT_SURFACE_YML = `${VALIDATION_YML}\n${AUDIT_REPORT_YML}\n${DEPLOY_PUBLISH_YML}`;
+const AUDIT_PUBLISHED_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-published-dist.yml'), 'utf-8');
+const AUDIT_FULL_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-published-dist-full.yml'), 'utf-8');
+const CRAWLER_CONTENT_AUDIT_YML = readFileSync(resolve(ROOT, '.github/workflows/crawler-content-plausibility-audit.yml'), 'utf-8');
+const EXPIRED_ROUTE_AUDIT_YML = readFileSync(resolve(ROOT, '.github/workflows/backfill-expired-from-history.yml'), 'utf-8');
+const AUDIT_SURFACE_YML = `${DEPLOY_YML}\n${VALIDATION_YML}\n${AUDIT_REPORT_YML}\n${AUDIT_PUBLISHED_YML}\n${AUDIT_FULL_YML}`;
 const DEPLOY_PUBLISH_WORKFLOW = YAML.parse(DEPLOY_PUBLISH_YML) as any;
 const REPORT_AUDIT_NAMES = new Set<string>([
-  ...String(DEPLOY_PUBLISH_WORKFLOW.jobs?.['audit-dist-report']?.with?.audits ?? '')
+  ...String((YAML.parse(AUDIT_PUBLISHED_YML) as any).jobs?.report?.with?.audits ?? '')
     .split(/[\s,]+/).filter(Boolean),
-  ...String(DEPLOY_PUBLISH_WORKFLOW.jobs?.['audit-dist-report']?.with?.audit_all_audits ?? '')
+  ...String((YAML.parse(AUDIT_PUBLISHED_YML) as any).jobs?.report?.with?.audit_all_audits ?? '')
+    .split(/[\s,]+/).filter(Boolean).map((name) => `audit:${name}`),
+  ...String((YAML.parse(AUDIT_FULL_YML) as any).jobs?.['full-audit']?.with?.audits ?? '')
+    .split(/[\s,]+/).filter(Boolean),
+  ...String((YAML.parse(AUDIT_FULL_YML) as any).jobs?.['full-audit']?.with?.audit_all_audits ?? '')
     .split(/[\s,]+/).filter(Boolean).map((name) => `audit:${name}`),
 ]);
 // Every workflow that uploads dist/audit-reports/** as an artifact — the
@@ -61,7 +69,7 @@ const BUILD_LOCALE_ENV = (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].en
 // Direct Pages-artifact extractors must release the source tar before shard
 // rehydration. Keeping both copies is enough to exhaust the hosted runner.
 const PAGES_ARTIFACT_EXTRACTION_WORKFLOWS = [
-  '.github/workflows/post-deploy-validate-dist.yml',
+  '.github/workflows/audit-dist-from-run.yml',
   '.github/workflows/revalidate-dist-from-run.yml',
   '.github/workflows/matrix-equivalence-check.yml',
   '.github/workflows/seed-title-baselines.yml',
@@ -96,8 +104,6 @@ function parseAuditAllRegistry(src: string): Set<string> {
 }
 
 const AUDIT_ALL_WRAPS = parseAuditAllRegistry(AUDIT_ALL_REGISTRY_SRC);
-const POSTBUILD_VALIDATIONS_STEP = (YAML.parse(VALIDATION_YML) as any).jobs['validate-dist-postbuild'].steps
-  .find((step: any) => step.id === 'postbuild_validations');
 
 /**
  * Returns true if the workflow invokes the audit either directly via
@@ -111,207 +117,104 @@ function isInvokedDirectlyOrViaAuditAll(name: string): boolean {
   return AUDIT_ALL_WRAPS.has(name) && /npm run audit:all\b/.test(AUDIT_SURFACE_YML);
 }
 
-describe('post-deploy validation/report surface — audit wiring', () => {
-  it('every audit in the validation/report surface is defined in package.json', () => {
-    const scripts = PACKAGE_JSON.scripts || {};
-    for (const name of AUDIT_SCRIPTS_IN_VALIDATION_SURFACE) {
-      expect(scripts[name], `missing npm script "${name}" referenced by the post-deploy audit surface`).toBeDefined();
-    }
+describe('publisher integrity gate and asynchronous historical audits', () => {
+  it('keeps the blocking publisher gate short and limited to provenance evidence', () => {
+    const workflow = YAML.parse(VALIDATION_YML) as any;
+    const job = workflow.jobs['fast-gate'];
+    const gateStep = job.steps.find((step: any) => step.id === 'publisher-fast-gate');
+    expect(job['timeout-minutes']).toBe(10);
+    expect(job.steps[0].id).toBe('gate-clock');
+    expect(gateStep.env.GATE_START_MS).toContain('steps.gate-clock.outputs.start_ms');
+    expect(gateStep.run).toContain('publisherFastGateDurationMs');
+    expect(gateStep.run).toContain('publisherFastGateBudgetMs: 300000');
+    expect(gateStep.run).toContain('duration_ms=$gate_ms');
+    expect(gateStep.run).toContain('build_skew_guard_run node scripts/ci/publisher-fast-gate.mjs');
+    expect(VALIDATION_YML).toContain('Download source sitemap bundle');
+    expect(VALIDATION_YML).toContain('Download source page manifests');
+    expect(VALIDATION_YML).toContain('Download publisher non-IT section manifests');
+    expect(VALIDATION_YML).not.toContain('rehydrate-locale-shards.sh');
+    expect(VALIDATION_YML).not.toContain('npm run audit:all');
+    expect(VALIDATION_YML).not.toContain('npm run validate:page-seo');
+  });
+
+  it('runs report audits in a separate workflow_run with no publisher dependency edge', () => {
+    const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
+    const publisher = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+    const publishNeeds = publisher.jobs.publish.needs as string[];
+    expect(published.on.workflow_run.workflows).toContain('Publish to GitHub Pages (deploy + validate)');
+    expect(published.jobs.report.uses).toBe('./.github/workflows/audit-dist-from-run.yml');
+    expect(String(published.jobs.report.with.audits)).toContain('validate:page-seo');
+    expect(String(published.jobs.report.with.audits)).toContain('validate:og-images');
+    expect(publisher.jobs['audit-dist-report']).toBeUndefined();
+    expect(publishNeeds).not.toContain('audit-dist-report');
+    expect(publishNeeds).toContain('validate-dist');
+    expect(String(publisher.jobs.publish.if)).toContain("needs.validate-dist.outputs.integrity_ok == 'true'");
+  });
+
+  it('uses manifest-indexed receipts and supports explicit full scans', () => {
+    const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
+    expect(workflow.on.workflow_call.inputs.full_scan.type).toBe('boolean');
+    const steps = workflow.jobs.audit.steps;
+    expect(steps.some((step: any) => step.name === 'Download source page manifests')).toBe(true);
+    expect(steps.some((step: any) => step.name === 'Download publisher non-IT section manifests')).toBe(true);
+    expect(steps.some((step: any) => step.uses === 'actions/cache/restore@v6')).toBe(true);
+    expect(steps.some((step: any) => step.uses === 'actions/cache/save@v6')).toBe(true);
+    const auditStep = steps.find((step: any) => step.id === 'audits');
+    expect(auditStep.env.AUDIT_FORCE_FULL).toContain('inputs.full_scan');
+    expect(auditStep.env.PUBLISHER_PAGE_MANIFEST_DIR).toContain('publisher-audit-manifests/pages');
+    expect(auditStep.env.PUBLISHER_AUDIT_RECEIPT_DIR).toContain('publisher-audit-receipts');
+  });
+
+  it('schedules a periodic full audit outside the publisher workflow', () => {
+    const workflow = YAML.parse(AUDIT_FULL_YML) as any;
+    expect(workflow.on.schedule).toHaveLength(1);
+    expect(workflow.jobs.cadence.outputs.due).toContain('steps.cadence.outputs.due');
+    expect(workflow.jobs.cadence.steps[0].run).toContain('604800');
+    expect(workflow.jobs['full-audit'].with.full_scan).toBe(true);
+    expect(workflow.jobs['full-audit'].with.audit_sample_rate).toBe('1');
+  });
+
+  it('records French tail step outcomes and distinguishes an unattributed job failure', () => {
+    const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+    const steps = workflow.jobs['publish-nonit-shards'].steps;
+    const diagnostic = steps.find((step: any) => step.name === 'Diagnose French tail outcomes');
+    expect(diagnostic.if).toContain('always()');
+    expect(diagnostic.env.CDN_WAIT_RESULT).toContain('steps.cdn-gate.outputs.cdn_wait_result');
+    expect(diagnostic.env.TAIL_BUDGET_OUTCOME).toContain('steps.tail-budget.outcome');
+    expect(diagnostic.run).toContain('Unattributed failure: job failed but no recorded tail step reports failure.');
+  });
+
+  it('runs source SEO tests once in the build workflow', () => {
+    const invocations = DEPLOY_YML.match(/npm run gate:seo-source/g) ?? [];
+    expect(invocations).toHaveLength(1);
+    expect(VALIDATION_YML).not.toContain('gate:seo-source');
   });
 
   it('every audit is reachable from the validation/report surface (directly or via audit:all)', () => {
     for (const name of AUDIT_SCRIPTS_IN_VALIDATION_SURFACE) {
-      expect(
-        isInvokedDirectlyOrViaAuditAll(name),
-        `"${name}" is unreachable from the post-deploy validation/report surface. ` +
-        `Either invoke it directly via \`npm run ${name}\`, or register it in ` +
-        `scripts/audit-all.mjs REGISTRY (audit-all is invoked in workflow). ` +
-        `audit-all currently wraps: ${[...AUDIT_ALL_WRAPS].sort().join(', ')}`,
-      ).toBe(true);
+      expect(isInvokedDirectlyOrViaAuditAll(name), `${name} is not reachable from an async audit workflow`).toBe(true);
     }
   });
 
-  it('parallel block uses spawn_capped for background execution', () => {
-    expect(
-      VALIDATION_YML,
-      'spawn_capped helper missing from post-deploy-validate-dist.yml — parallel execution regressed',
-    ).toContain('spawn_capped()');
-  });
-
-  it('runs the strict JobPosting completeness validator as a blocking serialized full-dist gate', () => {
-    const run = POSTBUILD_VALIDATIONS_STEP?.run as string;
-    expect(PACKAGE_JSON.scripts['validate:jobposting-schema']).toBe('node scripts/validate-jobposting-schema.mjs');
-    const jobPostingInvocation = 'spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema';
-    const poolStart = run.indexOf('# LIGHT POOL');
-    const poolEnd = run.indexOf('wait "$DIST_MULTI_PID" || true');
-    const jobPostingIndex = run.indexOf(jobPostingInvocation);
-    expect(poolStart).toBeGreaterThanOrEqual(0);
-    expect(poolEnd).toBeGreaterThan(poolStart);
-    expect(jobPostingIndex).toBeGreaterThan(poolEnd);
-    expect(run.slice(poolStart, poolEnd)).not.toContain(jobPostingInvocation);
-    expect(run.slice(jobPostingIndex)).toContain(`${jobPostingInvocation}\nwait`);
-    expect(POSTBUILD_VALIDATIONS_STEP?.['continue-on-error']).not.toBe(true);
-    expect(run).toContain('echo "$name $logfile" >> /tmp/post-build-failures.txt');
-    expect(run).toContain('[ $FAIL -eq 0 ] || exit 1');
-  });
-
-  it('dist validation rehydrates once behind one timeout ceiling', () => {
-    const workflow = YAML.parse(VALIDATION_YML) as any;
-    // 350, not 300: on a slow runner the gates alone need ~320 min (run
-    // 37754770528 was cut mid-gate at 300 and `publish` was skipped).
-    expect(workflow.jobs['validate-dist-postbuild']?.['timeout-minutes']).toBe(350);
-    expect(workflow.jobs['validate-dist-source']).toBeUndefined();
-    expect(workflow.jobs['validate-dist-postbuild-bfs']).toBeUndefined();
-    expect(VALIDATION_YML.match(/- name: Rehydrate locale then section shards into dist\//g)).toHaveLength(1);
-    expect(VALIDATION_YML).toContain('collect_failed source /tmp/source-val-results.txt');
-    expect(VALIDATION_YML).not.toContain('collect_failed bfs /tmp/bfs-timings.txt');
-    expect(VALIDATION_YML).not.toContain('BFS-depth + orphan-sitemap-pages audits (serial chain)');
-    expect(VALIDATION_YML).toContain('gate-offenders');
-    expect(VALIDATION_YML).toContain('Fail when a dist validator failed');
-  });
-
-  it('reconciles sitemap XML after shard rehydration and before dist validators', () => {
-    const workflow = YAML.parse(VALIDATION_YML) as any;
-    const steps = workflow.jobs['validate-dist-postbuild']?.steps ?? [];
-    const assertIndex = steps.findIndex((step: any) => step.id === 'assert_dist_complete');
-    const reconcileIndex = steps.findIndex((step: any) => step.id === 'reconcile_rehydrated_sitemaps');
-    const sourceIndex = steps.findIndex((step: any) => step.name === 'Run source validators (parallel — 4 vCPU)');
-
-    expect(PACKAGE_JSON.scripts['validate:rehydrated-sitemaps'])
-      .toBe('npx tsx scripts/ci/reconcile-rehydrated-sitemaps.ts');
-    expect(reconcileIndex).toBeGreaterThan(assertIndex);
-    expect(sourceIndex).toBeGreaterThan(reconcileIndex);
-    expect(steps[reconcileIndex]?.run).toContain(
-      'build_skew_guard_run npm validate:rehydrated-sitemaps npm run validate:rehydrated-sitemaps',
-    );
-  });
-
-  it('keeps report-only dist/live audits out of the publish dependency and lock', () => {
-    const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
-    const reportDist = workflow.jobs['audit-dist-report'];
-    const reportLive = workflow.jobs['audit-live-report'];
-    const publishNeeds = workflow.jobs.publish.needs as string[];
-
-    expect(reportDist?.uses).toBe('./.github/workflows/audit-dist-from-run.yml');
-    expect(reportLive?.uses).toBe('./.github/workflows/post-deploy-audit-live.yml');
-    expect(String(reportDist?.with?.audits)).toContain('validate:page-seo');
-    expect(String(reportDist?.with?.audits)).toContain('audit:max-bfs-depth');
-    expect(String(reportDist?.with?.audits)).toContain('validate:og-images');
-    expect(String(reportDist?.with?.audits)).toContain('gate:seo-source');
-    expect(VALIDATION_YML).not.toContain('npm run validate:og-images');
-    expect(VALIDATION_YML).not.toContain('npm run gate:seo-source');
-    expect(publishNeeds).not.toContain('audit-dist-report');
-    expect(publishNeeds).not.toContain('audit-live-report');
-    expect(workflow.jobs.publish.if).toContain('always()');
-    expect(workflow.jobs.publish.if).not.toContain("needs.validate-dist.result == 'success'");
-    expect(workflow.jobs.publish.if).toContain("needs.validate-dist.outputs.integrity_ok == 'true'");
-    expect(reportDist?.concurrency).toBeUndefined();
-    expect(reportLive?.concurrency).toBeUndefined();
-  });
-
-  it('any new audit:* script added to package.json must be reachable in the post-deploy validation/report surface', () => {
-    // Gates intentionally NOT in the dist-validate parallel block:
-    // - `:rebaseline` variants mutate the checked-in baseline; never CI.
-    // - `audit:title-uniqueness` runs on a separate weekly workflow because
-    //   it OOM-killed the parallel block.
-    // - `audit:dist-multi*` are aggregators that wrap other audits.
-    // - `audit:parser-quality` is a developer self-test, not gated in CI.
-    // - `audit:no-merge-markers` is a source gate wired into tests.yml and deploy.yml,
-    //   not a dist-walking post-deploy gate.
-    // - `audit:active-jobs-regression` is a pre-build data gate in deploy.yml.
-    // - `audit:all` IS the wrapper itself; reachability check would be circular.
-    // - `audit:job-locations` runs on its own separate weekly workflow
-    //   (location-quality-audit.yml) — report-only monitoring, not a
-    //   deploy-blocking dist gate (same pattern as audit:title-uniqueness).
-    // - `audit:slug-prompt-leaks` (issue #5334) reads the article registries and
-    //   the blog sitemaps in the SOURCE tree, never dist/, so it has nothing to
-    //   contribute to a dist-walking block. Its enforcement is not deferred:
-    //   the identical sweep, over the identical sources (it imports
-    //   AUDIT_SOURCES / KNOWN_LEGACY_LEAKS from the script itself), runs on every
-    //   PR in tests/article-slug-prompt-leak-guard.test.ts. This npm alias is
-    //   the operator-facing form — the one that prints which slug and which
-    //   pattern — not a second, weaker copy of the gate.
-    // - `audit:sitemap-canonicals` is invoked THROUGH `validate:sitemap-pages`,
-    //   which is spawn_capped in the same pool. That script is the consolidated
-    //   sitemap validator and its "check 1" IS this audit, over the same
-    //   dist/sitemap-*.xml set — see its own "Differences PRESERVED" header.
-    //   Running the standalone alias too meant re-parsing 89 sitemaps and
-    //   re-reading ~245'000 page <head>s to answer the same question twice
-    //   (127.18 s on run 32261742920, where both reported the same single
-    //   offender under two gate names). The consolidated copy is the
-    //   better-scoped of the two: it excludes URLs served by the article shard
-    //   repos, which is why the standalone reported 85 `missing-html` warnings
-    //   on pages this build does not emit. The alias stays in package.json for
-    //   `audit-dist-from-run.yml` replays and for operators.
-    //   The claim "it still runs" is not left on trust — the assertion below
-    //   this loop pins the consolidated validator's invocation.
-    // - `audit:job-content-plausibility` reads `data/jobs/by-crawler/*.json` in
-    //   the SOURCE tree and never walks dist/ — a dist-walking block has nothing
-    //   to hand it. Same shape as `audit:job-locations`: it runs on its own
-    //   weekly workflow (crawler-content-plausibility-audit.yml), report-only,
-    //   as the cheap pre-filter feeding an LLM verification step. It is
-    //   deliberately NOT deploy-blocking: a defective crawler landing in the
-    //   dataset would otherwise turn every branch red until someone fixed a
-    //   third-party site's markup (AGENTS.md → "main rosso blocca a cascata").
-    //   Enforcement of its logic is not deferred — the recognizer is pinned
-    //   per-rule, on the real incident data, in tests/job-content-plausibility.test.ts,
-    //   which runs on every PR.
-    // - `audit:expired-at-parsable` (issue #7736) reads the expired archive in the
-    //   SOURCE tree — `data/jobs/expired/by-crawler/*.json`, `data/expired-jobs.json`,
-    //   `public/data/expired-jobs.json` — and never walks dist/, so a dist-walking
-    //   block has nothing to hand it. Same shape as `audit:slug-prompt-leaks`, and
-    //   like it the enforcement is not deferred: tests/expired-at-parsable.test.ts
-    //   both SPAWNS this very script and asserts its exit codes, and sweeps the
-    //   committed archive against the same `isParsableExpiredAt` predicate — the
-    //   population a dist gate could never see, since the archive is an input to
-    //   the build, not an output of it. The npm alias is the operator-facing form.
-    const GATES_NOT_IN_DIST_PARALLEL = new Set([
+  it('every audit script added to package.json is reachable or has a declared manual/weekly owner', () => {
+    const manualOrSeparateWorkflow = new Set([
+      'audit:active-jobs-regression', 'audit:job-locations', 'audit:slug-prompt-leaks',
+      'audit:all', 'audit:sitemap-canonicals', 'audit:title-uniqueness',
+      'audit:no-merge-markers', 'audit:parser-quality', 'audit:job-content-plausibility',
       'audit:expired-at-parsable',
-      'audit:job-content-plausibility',
-      'audit:title-uniqueness',
-      'audit:dist-multi',
-      'audit:parser-quality',
-      'audit:no-merge-markers',
-      'audit:active-jobs-regression',
-      'audit:job-locations',
-      'audit:slug-prompt-leaks',
-      'audit:all',
-      'audit:sitemap-canonicals',
     ]);
-    const allAuditScripts = Object.keys(PACKAGE_JSON.scripts || {}).filter((k) => {
-      return /^audit:/.test(k) && !/:rebaseline$/.test(k) && !GATES_NOT_IN_DIST_PARALLEL.has(k);
-    });
-    for (const name of allAuditScripts) {
-      expect(
-        isInvokedDirectlyOrViaAuditAll(name),
-        `package.json defines "${name}" but post-deploy-validate-dist.yml has no reachable invocation — ` +
-        `gate would never run. audit:all currently wraps: ${[...AUDIT_ALL_WRAPS].sort().join(', ')}`,
-      ).toBe(true);
+    const scripts = PACKAGE_JSON.scripts || {};
+    for (const name of Object.keys(scripts).filter((key) => key.startsWith('audit:') && !key.endsWith(':rebaseline'))) {
+      if (manualOrSeparateWorkflow.has(name) || name.startsWith('audit:dist-multi')) continue;
+      expect(isInvokedDirectlyOrViaAuditAll(name), `${name} is not reachable from an audit workflow`).toBe(true);
     }
+    expect(CRAWLER_CONTENT_AUDIT_YML).toContain('node scripts/audit-job-content-plausibility.mjs');
+    expect(EXPIRED_ROUTE_AUDIT_YML).toContain('node scripts/audit-expired-at-parsable.mjs');
   });
 
-  it('the consolidated sitemap validator is invoked — it carries audit:sitemap-canonicals', () => {
-    // `audit:sitemap-canonicals` is excluded from the loop above because
-    // `validate:sitemap-pages` performs the identical check. That exclusion is
-    // only safe while the consolidated validator actually runs, and while it
-    // actually still contains the check. Without this, dropping
-    // `validate:sitemap-pages` from the pool would silently retire BOTH.
-    expect(
-      isInvokedDirectlyOrViaAuditAll('validate:sitemap-pages'),
-      'validate:sitemap-pages is no longer invoked in post-deploy-validate-dist.yml — ' +
-        'audit:sitemap-canonicals is excluded from the reachability loop on the grounds ' +
-        'that this script runs it, so both gates are now dead. Re-add one of them.',
-    ).toBe(true);
-
-    const consolidated = readFileSync(
-      resolve(ROOT, 'scripts/validate-sitemap-pages.mjs'),
-      'utf8',
-    );
-    expect(
-      consolidated.includes('audit-sitemap-canonicals'),
-      'scripts/validate-sitemap-pages.mjs no longer mentions audit-sitemap-canonicals — ' +
-        'the check it was standing in for may have been removed.',
-    ).toBe(true);
+  it('source sitemap page validation remains attached to build output', () => {
+    expect(DEPLOY_YML).toContain('node scripts/validate-sitemap-links.mjs');
+    expect(DEPLOY_YML).toContain('npm run audit:no-dotfile-html');
   });
 });
 
@@ -372,9 +275,9 @@ describe('Pages artifact extraction disk lifetime', () => {
     // The two reds of 2026-10-01 plus the replays that rebuild the same dist.
     expect(rehydrating).toEqual(expect.arrayContaining([
       'cathedral-seo-gates-check.yml → check',
-      'post-deploy-validate-dist.yml → validate-dist-postbuild',
+      'audit-dist-from-run.yml → audit',
     ]));
-    expect(rehydrating.length).toBeGreaterThanOrEqual(9);
+    expect(rehydrating.length).toBeGreaterThanOrEqual(8);
   });
 
   it('the shared cleanup reports blocks AND inodes before and after, and keeps node in the tool cache', () => {
@@ -471,7 +374,7 @@ describe('build-plugins/batchWrite.ts — flush concurrency', () => {
  *      create a partially-populated directory that passes a bare
  *      existence check with no fallback to the safe git-clone path.
  */
-describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast path (#2761)', () => {
+describe('deploy.yml + audit-dist-from-run.yml — tar-pack rehydrate fast path (#2761)', () => {
   it('every "Pack ... shard dist (tar)" step in deploy.yml self-verifies packed vs source file count', () => {
     const packSteps = `${DEPLOY_YML}\n${DEPLOY_PUBLISH_YML}`.match(/- name: Pack [^\n]*shard dist \(tar\)[^\n]*\n(?:.*\n)*?(?=\n {6}- name:|\n {4}- name:)/g) || [];
     expect(packSteps.length, 'expected the IT build pack and deferred non-IT tail pack steps').toBeGreaterThanOrEqual(3);

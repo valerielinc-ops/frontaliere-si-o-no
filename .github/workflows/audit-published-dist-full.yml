@@ -1,0 +1,127 @@
+name: Audit Published Dist (weekly full)
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: published-dist-weekly-full-audit
+  cancel-in-progress: false
+
+jobs:
+  cadence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      due: ${{ steps.cadence.outputs.due }}
+    steps:
+      - name: Check weekly full-audit cadence
+        id: cadence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          runs="$(gh run list --repo "$GH_REPO" --workflow audit-published-dist-full.yml --status completed --limit 100 --json conclusion,createdAt)"
+          last_success="$(jq -r '[.[] | select(.conclusion == "success")][0].createdAt // empty' <<< "$runs")"
+          if [ -z "$last_success" ]; then
+            echo 'due=true' >> "$GITHUB_OUTPUT"
+            echo 'No successful full audit is recorded; running the initial full scan.'
+            exit 0
+          fi
+          last_epoch="$(date -d "$last_success" +%s)"
+          now_epoch="$(date -u +%s)"
+          age_seconds=$((now_epoch - last_epoch))
+          if [ "$age_seconds" -ge 604800 ]; then
+            echo 'due=true' >> "$GITHUB_OUTPUT"
+            echo "Full scan is due; last success was ${age_seconds}s ago."
+          else
+            echo 'due=false' >> "$GITHUB_OUTPUT"
+            echo "Full scan is not due; last success was ${age_seconds}s ago."
+          fi
+
+  source-identity:
+    needs: [cadence]
+    if: ${{ needs.cadence.outputs.due == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      source_run_id: ${{ steps.identity.outputs.source_run_id }}
+      source_sha: ${{ steps.identity.outputs.source_sha }}
+      publisher_run_id: ${{ steps.identity.outputs.publisher_run_id }}
+    steps:
+      - name: Select newest complete publisher artifact set
+        id: identity
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          runs="$(gh run list --repo "$GH_REPO" --workflow deploy-publish.yml --status completed --limit 100 --json databaseId,displayTitle,conclusion,headBranch)"
+          while IFS=$'\t' read -r publisher_id title; do
+            [[ "$title" =~ ^Publish\ Pages\ build\ ([0-9]+)\ @\ ([a-f0-9]{40})$ ]] || continue
+            source_id="${BASH_REMATCH[1]}"
+            source_sha="${BASH_REMATCH[2]}"
+            source_names="$(gh api "repos/$GH_REPO/actions/runs/$source_id/artifacts?per_page=100" --jq '.artifacts[] | select(.expired == false) | .name' 2>/dev/null || true)"
+            publisher_names="$(gh api "repos/$GH_REPO/actions/runs/$publisher_id/artifacts?per_page=100" --jq '.artifacts[] | select(.expired == false) | .name' 2>/dev/null || true)"
+            has_name() { printf '%s\n' "$1" | grep -Fxq -- "$2"; }
+
+            complete=true
+            for name in "github-pages" "sitemaps-$source_id" "jobs-master-$source_id" \
+              "sitemap-page-manifest-it-$source_id" "sitemap-page-manifest-en-$source_id" \
+              "sitemap-page-manifest-de-$source_id" "sitemap-page-manifest-fr-$source_id" \
+              "section-page-manifest-it-$source_id"; do
+              has_name "$source_names" "$name" || complete=false
+            done
+            for batch in 1 2 3 4 5 6; do
+              has_name "$source_names" "shard-batch-$batch-dist-it-$source_id" || complete=false
+            done
+            for locale in en de fr; do
+              has_name "$publisher_names" "locale-dist-$locale-$publisher_id" || complete=false
+              has_name "$publisher_names" "section-page-manifest-$locale-$publisher_id" || complete=false
+              for batch in 1 2 3 4 5 6; do
+                has_name "$publisher_names" "shard-batch-$batch-dist-$locale-$publisher_id" || complete=false
+              done
+            done
+            if [ "$complete" = true ]; then
+              printf 'source_run_id=%s\nsource_sha=%s\npublisher_run_id=%s\n' \
+                "$source_id" "$source_sha" "$publisher_id" >> "$GITHUB_OUTPUT"
+              echo "Selected source run $source_id ($source_sha), publisher run $publisher_id"
+              exit 0
+            fi
+          done < <(jq -r '.[] | select(.conclusion == "success" and .headBranch == "main") | [.databaseId, .displayTitle] | @tsv' <<< "$runs")
+          echo '::error::No successful publisher run has a complete, unexpired source and shard artifact set.'
+          exit 1
+
+  full-audit:
+    needs: [cadence, source-identity]
+    if: ${{ needs.cadence.outputs.due == 'true' && needs.source-identity.result == 'success' }}
+    uses: ./.github/workflows/audit-dist-from-run.yml
+    with:
+      deploy_run_id: ${{ needs.source-identity.outputs.source_run_id }}
+      shard_artifact_run_id: ${{ needs.source-identity.outputs.publisher_run_id }}
+      deploy_ref: ${{ needs.source-identity.outputs.source_sha }}
+      full_scan: true
+      audit_sample_rate: '1'
+      audit_sample_salt: '0'
+      audits: >-
+        audit:all,audit:hreflang,audit:max-bfs-depth,
+        audit:orphan-sitemap-pages,validate:jobs-quality,
+        audit:discover-eligibility,report:job-title-locale,
+        report:meta-description,validate:page-seo,validate:og-images,
+        audit:canonical-trailing-slash,audit:news-sitemap,audit:spa-bundle-injection,gate:dist-quality
+      audit_all_audits: >-
+        text-html-ratio,title-length,title-no-disambig-hash,
+        h1-title-duplicates,content-duplicates,faqpage-validity,
+        image-object-license,no-literal-markdown,breadcrumb-coverage,
+        single-h1-per-page,duplicate-structured-data,link-anchor-text,
+        duplicate-meta-description,information-gain,page-weight,
+        salary-landing-template
+    secrets: inherit
+    permissions:
+      contents: read
+      actions: read

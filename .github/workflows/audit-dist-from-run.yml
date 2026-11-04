@@ -41,6 +41,11 @@ on:
         required: false
         default: '0'
         type: string
+      full_scan:
+        description: 'Force every manifest-indexed validator to scan the complete population.'
+        required: false
+        default: false
+        type: boolean
       audit_all_audits:
         description: 'Optional CSV filter passed to audit:all (used by the publish-side report job to exclude integrity auditors already run by validate-dist).'
         required: false
@@ -91,6 +96,11 @@ on:
         required: false
         default: '0'
         type: string
+      full_scan:
+        description: 'Force every manifest-indexed validator to scan the complete population.'
+        required: false
+        default: false
+        type: boolean
       audit_all_audits:
         description: 'Optional CSV filter passed to audit:all.'
         required: false
@@ -333,6 +343,79 @@ jobs:
           cp -f data/jobs.json public/data/jobs.json
           cp -f /tmp/jobs-master/jobs-crawler-summaries.json data/jobs-crawler-summaries.json
 
+      # Immutable source and publisher receipts provide the bounded page index
+      # for incremental audits. A manual replay without publisher artifacts
+      # still runs against the complete rehydrated dist using the legacy walker.
+      - name: Prepare publisher audit manifest workspace
+        run: mkdir -p "$RUNNER_TEMP/publisher-audit-manifests/pages" "$RUNNER_TEMP/publisher-audit-manifests/sections" .cache/publisher-audit-receipts
+
+      - name: Download source page manifests
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: sitemap-page-manifest-*
+          path: ${{ runner.temp }}/publisher-audit-manifests/pages
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.deploy_run_id }}
+
+      - name: Download source IT section manifest
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: section-page-manifest-it-*
+          path: ${{ runner.temp }}/publisher-audit-manifests/sections
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.deploy_run_id }}
+
+      - name: Download publisher non-IT section manifests
+        if: ${{ inputs.shard_artifact_run_id != '' }}
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: section-page-manifest-*
+          path: ${{ runner.temp }}/publisher-audit-manifests/sections
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.shard_artifact_run_id }}
+
+      - name: Detect a schema v2 publisher page index
+        id: publisher-index
+        env:
+          PAGE_MANIFEST_DIR: ${{ runner.temp }}/publisher-audit-manifests/pages
+        run: |
+          set -euo pipefail
+          if node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          const dir = process.env.PAGE_MANIFEST_DIR;
+          const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter((name) => name.endsWith('.json')) : [];
+          const valid = files.length > 0 && files.every((name) => {
+            try {
+              const manifest = JSON.parse(fs.readFileSync(`${dir}/${name}`, 'utf8'));
+              return manifest?.kind === 'publisher-page-manifest' && manifest.schemaVersion === 2 && Array.isArray(manifest.entries);
+            } catch { return false; }
+          });
+          process.exit(valid ? 0 : 1);
+          NODE
+          then
+            echo 'enabled=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'enabled=false' >> "$GITHUB_OUTPUT"
+            echo 'No schema v2 page index found; this replay uses the full legacy audit path.'
+          fi
+
+      - name: Restore incremental audit receipts
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/publisher-audit-receipts
+          key: publisher-audit-receipts-v1-${{ github.repository_id }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            publisher-audit-receipts-v1-${{ github.repository_id }}-
+
       # The source SEO and OG checks used to prepare these snapshots inside
       # validate-dist. They are report-only now; keep their inputs pinned to
       # this same rehydrated run before invoking the report surface.
@@ -359,6 +442,10 @@ jobs:
           INPUT_AUDIT_ALL: ${{ inputs.audit_all_audits }}
           AUDIT_SAMPLE_RATE: ${{ inputs.audit_sample_rate }}
           AUDIT_SAMPLE_SALT: ${{ inputs.audit_sample_salt }}
+          AUDIT_FORCE_FULL: ${{ inputs.full_scan && '1' || '0' }}
+          PUBLISHER_PAGE_MANIFEST_DIR: ${{ steps.publisher-index.outputs.enabled == 'true' && format('{0}/publisher-audit-manifests/pages', runner.temp) || '' }}
+          PUBLISHER_SECTION_MANIFEST_DIR: ${{ steps.publisher-index.outputs.enabled == 'true' && format('{0}/publisher-audit-manifests/sections', runner.temp) || '' }}
+          PUBLISHER_AUDIT_RECEIPT_DIR: .cache/publisher-audit-receipts
           # Keep audit:all replays equivalent to the post-deploy validator:
           # only its single-H1 auditor reads this flag, and only for the
           # reassembled published corpus.
@@ -571,6 +658,13 @@ jobs:
           echo ""
           echo "── SUMMARY: $FAIL failing audit(s) su $REQ_N richiesti" | tee -a /tmp/summary.txt
           if [ $FAIL -gt 0 ]; then exit 1; fi
+
+      - name: Save incremental audit receipts
+        if: always()
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/publisher-audit-receipts
+          key: publisher-audit-receipts-v1-${{ github.repository_id }}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Upload audit logs + reports
         if: always()

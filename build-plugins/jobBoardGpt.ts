@@ -11,6 +11,7 @@ import {
 } from './constants';
 import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
 import { serializeStaticFunction } from './shared/serializeStaticFunction';
+import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 import { URL as NodeURL } from 'node:url';
 
 /** The GPT library required by Google Ad Manager Offerwall. */
@@ -47,7 +48,7 @@ export function isJobBoardPageUrl(value: string): boolean {
 function isPrimaryJobBoardListingUrl(value: string): boolean {
   try {
     const url = new NodeURL(value, 'https://frontaliereticino.ch');
-    return url.origin === 'https://frontaliereticino.ch' && url.pathname === '/cerca-lavoro-ticino/';
+    return url.origin === 'https://frontaliereticino.ch' && url.pathname === SECTION_LEGACY_TI_PATH.it;
   } catch {
     return false;
   }

@@ -1,112 +1,66 @@
 name: Post-deploy Validate (dist)
 
-# Reusable workflow called from deploy-publish.yml as the `validate-dist` job.
-# It reads the build artifacts, rehydrates the logical dist once, and runs
-# source and post-build integrity validators in bounded phases on that same
-# runner.
-# A phase remains fail-closed: the final job is red and the issue reporter runs.
-# Only dist/source integrity validators live here. Quality and advisory audits
-# run in audit-dist-from-run.yml, outside this job's publish dependency and lock.
-# The blocking path rehydrates once. The independent report workflow consumes
-# the same Pages/shard/jobs artifacts on its own runner because GitHub jobs do
-# not share a filesystem; it never rehydrates an additional copy of an audit
-# tree inside this lock.
+# Fast, fail-closed provenance gate. Historical content-quality audits run in
+# Audit Published Dist, a separate workflow_run workflow with no dependency edge
+# back to the publisher.
 on:
   workflow_call:
     inputs:
       deploy_run_id:
-        description: 'Run ID of the calling deploy workflow run (pass github.run_id from the caller).'
+        description: 'Run ID of the source build that produced the sitemap and locale artifacts.'
         required: true
         type: string
       deploy_event_name:
-        description: 'github.event_name from the caller. Used to gate Facebook/LinkedIn posting and live-meta wait to workflow_dispatch deploys (article publishing pipeline).'
+        description: 'Source build event name, retained for caller compatibility.'
         required: true
         type: string
       deploy_ref:
-        description: 'Commit SHA of the build the artifacts came from. Pass when the caller runs at a different SHA than the build (e.g. deploy-publish.yml on workflow_run) so the validator scripts match the built code. Empty = checkout the caller default.'
+        description: 'Exact source build SHA.'
         required: false
         type: string
         default: ''
       shard_artifact_run_id:
-        description: 'Run ID containing the completed post-build shard artifacts. Empty = use deploy_run_id for the legacy same-run path.'
+        description: 'Publisher run containing the non-IT section receipts.'
         required: false
         type: string
         default: ''
     outputs:
       integrity_ok:
-        description: >-
-          Diagnostic classification of the integrity validator rows. The
-          caller gates publish on this fail-closed output. Named SEO quality
-          rows remain report-only even when this reusable workflow is red;
-          an unknown or unclassified validator still makes this false.
-        value: ${{ jobs.integrity-verdict.outputs.integrity_ok }}
+        description: 'True only when source identity, sitemap coverage, shard layout and artifact digests all match.'
+        value: ${{ jobs.fast-gate.outputs.integrity_ok }}
+
 jobs:
-  validate-dist-postbuild:
+  fast-gate:
+    name: Validate sitemap and shard receipts
     runs-on: ubuntu-latest
-    # Source and integrity post-build phases share this runner and one
-    # rehydrated dist tree. Quality/BFS audits no longer consume this timeout.
-    # 350 stays under the 360-min hosted-runner cap.
-    # Keep VALIDATE_DIST_TIMEOUT_MIN below in step with this number
-    # (tests/validate-dist-report-budget.test.ts).
-    timeout-minutes: 350
+    timeout-minutes: 10
     outputs:
-      failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
+      integrity_ok: ${{ steps.publisher-fast-gate.outputs.integrity_ok }}
+      failed_gates: ${{ steps.publisher-fast-gate.outputs.failed_gates }}
     permissions:
-      actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
+      contents: read
+      actions: read
     steps:
-      - name: Checkout (build SHA via deploy_ref, else caller default)
+      - name: Start publisher gate timing
+        id: gate-clock
+        shell: bash
+        run: echo "start_ms=$(date +%s%3N)" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout source build validators
         uses: actions/checkout@v7
         with:
           ref: ${{ inputs.deploy_ref }}
+          sparse-checkout: |
+            scripts/ci/publisher-fast-gate.mjs
+            scripts/ci/shard-content-manifest.mjs
+            scripts/validate-sitemap-links.mjs
+            scripts/lib/auditReport.mjs
+            scripts/lib/externally-served-paths.mjs
+            scripts/lib/flat-string.mjs
+            scripts/lib/is-invoked-directly.mjs
+            scripts/lib/section-shard-slugs.json
+          sparse-checkout-cone-mode: false
 
-      # Reclaim ~25 GB of preinstalled SDKs we never use (dotnet, android,
-      # haskell, CodeQL, powershell). Run 26287421188 OOM'd the runner mid
-      # artifact-extract because the github-pages tarball (~1.8 GB) + dist
-      # extraction + node_modules + Playwright report leftovers crowded a
-      # 14 GB default partition. Best-effort: `|| true` keeps the build
-      # green if a path was already pruned by a future image refresh.
-      - name: Free disk space on runner
-        # One list for every job that rehydrates the logical dist; it prints
-        # df (blocks AND inodes) before/after. See its header for why.
-        run: bash scripts/ci/free-runner-disk.sh
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-
-      - name: Cache node_modules
-        id: node-modules-cache
-        uses: actions/cache@v6
-        with:
-          path: node_modules
-          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
-
-      - name: Install dependencies
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        run: npm ci
-
-      # DEPLOY_REF/WORKFLOW SKEW GUARD (issues 5833 and 12051). This YAML is
-      # loaded from main at workflow_run time, while the job checks out the
-      # BUILD pinned by deploy_ref: a gate added here together with its npm
-      # script (or its file) meets builds dispatched just before that merge,
-      # and fails with "Missing script" on a page that has nothing wrong.
-      # Measured twice: run 31765361020 (validate:keyword-landing-coverage)
-      # and run 37543977878 (validate:og-images), the second because the
-      # guard existed in two runners and was missing from the third.
-      #
-      # One definition, every runner. Skip only what is absent from this
-      # build AND present on origin/main; absent from both is a real bug
-      # (wrong name, or a deletion) and still runs and fails; an unreadable
-      # origin/main never widens the skip. The skip row carries a literal
-      # rc=0 because the timings parser greps rc=[0-9]+$ and counts anything
-      # else as a failure; the true state stays in the per-gate log.
-      #
-      # The file is materialized by the workflow YAML itself, never read from
-      # the checkout: a helper committed in the repository could be absent in
-      # exactly the window this guard has to cover. (The input is named
-      # without its prefix on purpose: check-workflow-input-injection.mjs
-      # counts references in comments too, and fails closed.)
       - name: Prepare deploy-ref skew guard
         shell: bash
         run: |
@@ -115,11 +69,6 @@ jobs:
           build_skew_guard_main_package="$RUNNER_TEMP/deploy-ref-skew-guard-main-package.json"
           build_skew_guard_main_commit="$RUNNER_TEMP/deploy-ref-skew-guard-main-commit"
 
-          # main is read ONLY from a fetch that succeeded in this invocation
-          # (commit pinned by sha, package.json taken from it): a stale
-          # origin/main ref left by the checkout, or a file left by an earlier
-          # step, must not be able to turn a missing script into a skip. Fetch
-          # or read failed: both files are absent and nothing is skipped.
           build_skew_guard_init() {
             rm -f "$build_skew_guard_main_package" "$build_skew_guard_main_commit"
             if git fetch --depth=1 origin main -q 2>/dev/null; then
@@ -155,848 +104,167 @@ jobs:
             return 1
           }
 
+          build_skew_guard_skip_row() {
+            printf '%s(skipped-deploy_ref-drift)\n' "$1"
+          }
+
           build_skew_guard_run() {
             local kind=$1 target=$2
             shift 2
             BUILD_SKEW_GUARD_SKIPPED=0
             if build_skew_guard_should_skip "$kind" "$target"; then
-              printf '[deploy-ref-skew] skip: %s "%s" is absent from this build but present on origin/main; treating as skip, not fail (skipped-deploy_ref-drift) rc=0\n' "$kind" "$target"
+              printf '[deploy-ref-skew] skip: %s "%s" is absent from this build but present on origin/main; failing closed (skipped-deploy_ref-drift)\n' "$kind" "$target"
               BUILD_SKEW_GUARD_SKIPPED=1
               return 0
             fi
             "$@"
           }
 
-          build_skew_guard_skip_row() {
-            local name=$1
-            awk -v n="${name}(skipped-deploy_ref-drift)" 'BEGIN{printf "%-40s %7.2f rc=0\n", n, 0}'
-          }
           GUARD
           chmod 700 "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
           source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
           build_skew_guard_init
 
-      - name: Prepare Firebase credentials
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          else
-            echo "⚠️ Firebase secrets not set — registry operations will be skipped."
-          fi
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
 
-      # Hydrate the runner env with secrets pulled from Firebase Remote Config
-      # so the social-media post steps below see FB_PAGE_ACCESS_TOKEN /
-      # FB_PAGE_ID / LINKEDIN_POST_* etc. as `process.env.*`. Without this
-      # step, post-to-facebook.mjs reads `process.env.FB_PAGE_ACCESS_TOKEN`,
-      # finds nothing, and silently exits with the "⚠️ FB_PAGE_ACCESS_TOKEN
-      # or FB_PAGE_ID not set — skipping Facebook post" log line. The
-      # `Post to Facebook Page` and `Post to LinkedIn Company Page` steps
-      # appear green in the UI but never publish.
-      #
-      # load-rc-env.mjs is best-effort: if Firebase credentials are missing
-      # or RC fetch fails, it warns and exits 0, leaving env vars unset and
-      # downstream posting steps to perform their own "missing token" skip.
-      # That is the same fail-soft contract the deploy.yml pipeline already
-      # relies on (see deploy.yml step "Load secrets from Remote Config").
-      - name: Load secrets from Remote Config (FB + LinkedIn tokens)
-        run: |
-          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
-          build_skew_guard_run node scripts/load-rc-env.mjs node scripts/load-rc-env.mjs
+      - name: Create receipt workspace
+        run: mkdir -p ${{ runner.temp }}/publisher-fast-gate/{sitemaps,page-manifests,section-manifests}
 
-      # Download GitHub Pages artifact + run the blocking source validators.
-      #
-      # Previously the source validators were launched as `run_bg ... &` in
-      # parallel with the artifact download, to save ~30-60s. That race
-      # caused `validate:translation-completeness` and
-      # `validate:crawler-summaries` (which read `dist/data/jobs.json` and
-      # `data/jobs-crawler-summaries.json` from the unpacked artifact) to
-      # fail in <1s with "file not found" — the tar -xf hadn't run yet.
-      # The whole step exited 1 before the post-build pool could start, the
-      # validate job rolled back, and the BFS-depth gate never got tested.
-      # Run 25419353305 (sha e9f03ab9) was the last to confirm this race
-      # under the previous parallel layout.
-      #
-      # Sequential layout: download → tar → run each validator one at a time
-      # and emit a per-gate ✅/❌ row. Adds ~10-15s wall vs parallel but is
-      # deterministic, easier to reason about, and avoids the race entirely.
-      # Artifact download keyed on `deploy_run_id` (the BUILD run that produced
-      # them). When the caller IS that run (deploy_run_id == github.run_id) this
-      # is a same-run read; when the caller is deploy-publish.yml (workflow_run),
-      # the same `run-id` + token fetches them cross-run from the build run.
-      - name: Download GitHub Pages artifact
+      - name: Download source sitemap bundle
         uses: actions/download-artifact@v8
         with:
-          name: github-pages
-          path: /tmp/github-pages-artifact
+          name: sitemaps-${{ inputs.deploy_run_id }}
+          path: ${{ runner.temp }}/publisher-fast-gate/sitemaps
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
           run-id: ${{ inputs.deploy_run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download pre-deploy sitemap snapshot (optional)
-        uses: actions/download-artifact@v8
-        continue-on-error: true   # snapshot is optional — IndexNow diff falls back gracefully
-        with:
-          name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
-          path: /tmp/pre-deploy-snapshot
-          run-id: ${{ inputs.deploy_run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      # Master jobs.json artifact (uploaded by deploy.yml). The deploy
-      # pipeline strips dist/data/jobs.json via jobsJsonDistCleanupPlugin
-      # (PR #712) to stay under the 10 GB GH Pages cap, but validators
-      # like validate:translation-completeness still need the master file
-      # with titleByLocale / descriptionByLocale. We download it back to
-      # data/jobs.json so the resolve-data-path lookup picks it up.
-      - name: Download master jobs.json
+      - name: Download source page manifests
         uses: actions/download-artifact@v8
         with:
-          name: jobs-master-${{ inputs.deploy_run_id }}
-          path: /tmp/jobs-master
+          pattern: sitemap-page-manifest-*
+          path: ${{ runner.temp }}/publisher-fast-gate/page-manifests
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
           run-id: ${{ inputs.deploy_run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download previous-slug winners (optional)
-        # The build job only uploads `winners-${RUN_ID}` when
-        # `data/previous-slug-winners.json` actually changed in the
-        # build commit. Most builds → no upload → download would emit
-        # a noisy "Artifact not found" annotation if we used
-        # actions/download-artifact (continue-on-error suppresses the
-        # failure but NOT the annotation). `gh run download` fails
-        # silently with a clean stderr message instead.
-        continue-on-error: true
+      - name: Download source IT section manifest
+        uses: actions/download-artifact@v8
+        with:
+          pattern: section-page-manifest-it-*
+          path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.deploy_run_id }}
+
+      - name: Download publisher non-IT section manifests
+        uses: actions/download-artifact@v8
+        with:
+          pattern: section-page-manifest-*
+          path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.shard_artifact_run_id || github.run_id }}
+
+      - name: Read artifact receipts from GitHub
         env:
           GH_TOKEN: ${{ github.token }}
-          # Dispatch/call inputs reach the shell as DATA, never as script text.
-          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          GH_REPO: ${{ github.repository }}
+          SOURCE_RUN_ID: ${{ inputs.deploy_run_id }}
+          PUBLISHER_RUN_ID: ${{ inputs.shard_artifact_run_id || github.run_id }}
         run: |
-          mkdir -p /tmp/winners
-          if gh run download "$INPUT_DEPLOY_RUN_ID" \
-               --name "winners-$INPUT_DEPLOY_RUN_ID" \
-               --dir /tmp/winners 2>/dev/null; then
-            echo "[winners] downloaded artifact for run $INPUT_DEPLOY_RUN_ID"
-          else
-            echo "[winners] artifact not present (file unchanged this build) — skipping"
-          fi
+          set -euo pipefail
+          gh api --paginate --slurp "repos/$GH_REPO/actions/runs/$SOURCE_RUN_ID/artifacts?per_page=100" \
+            | jq '{artifacts: [ .[] | .artifacts[] | {name, digest, expired} ]}' \
+            > "$RUNNER_TEMP/publisher-fast-gate/source-artifacts.json"
+          gh api --paginate --slurp "repos/$GH_REPO/actions/runs/$PUBLISHER_RUN_ID/artifacts?per_page=100" \
+            | jq '{artifacts: [ .[] | .artifacts[] | {name, digest, expired} ]}' \
+            > "$RUNNER_TEMP/publisher-fast-gate/publisher-artifacts.json"
 
-      - name: Extract dist/ + restore data files from artifact
-        run: |
-          # Pages artifact wraps a single artifact.tar — extract into dist/.
-          rm -rf dist && mkdir -p dist
-          tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
-          # The archive is no longer needed after extraction. Remove it before
-          # shard rehydration so the source tar does not double the dist disk
-          # footprint and exhaust the runner.
-          rm -f /tmp/github-pages-artifact/artifact.tar
-
-          # Restore master data/jobs.json from the dedicated artifact
-          # (jobsJsonDistCleanupPlugin strips it from dist/ to clear the
-          # 10 GB GH Pages cap — validators still need the master copy
-          # with titleByLocale / descriptionByLocale).
-          mkdir -p data
-          cp -f /tmp/jobs-master/jobs.json data/jobs.json
-          # Expose jobs.json to scripts that expect public/data/jobs.json.
-          mkdir -p public/data
-          cp -f data/jobs.json public/data/jobs.json
-          # validate:crawler-summaries reads data/jobs-crawler-summaries.json
-          # (gitignored, assembled at build). Its dist/data/ copy is offloaded
-          # to the CDN repo AND deleted from dist by offload-generated-images-
-          # cdn.mjs (PR #1288), so it is NOT in the Pages artifact — restore it
-          # from the jobs-master artifact (same channel as jobs.json above).
-          cp -f /tmp/jobs-master/jobs-crawler-summaries.json data/jobs-crawler-summaries.json
-
-          # Optional artifacts — copy if present.
-          if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
-            cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
-          fi
-          if [ -f /tmp/winners/previous-slug-winners.json ]; then
-            cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
-          fi
-
-      # Locale-shard and section-shard rehydrate merged into ONE step, with
-      # both functions living in shared scripts (scripts/lib/rehydrate-
-      # locale-shards.sh, scripts/lib/rehydrate-section-shards.sh) instead of
-      # inline here — this step used to duplicate the ~90-line rehydrate_locale
-      # bash function byte-for-byte across all 3 jobs in this file, which is
-      # exactly the drift risk AGENTS.md #6 flags; extracted after issues
-      # #3772..#4828 (~20+ recurrences over two months) needed the same
-      # resilience hardening applied in 3 places by hand. See that script for
-      # the retry/timeout hardening added to the git-clone fallback there.
-      # rehydrate_section is deliberately started only AFTER
-      # rehydrate_locale has fully finished — NOT concurrently with it. For
-      # en/de/fr, rehydrate_section writes into `dist/$loc/<section-subpath>`
-      # (e.g. `dist/en/find-jobs-ticino`), a path nested INSIDE `dist/$loc`.
-      # The locale shard artifact/repo does NOT include any section subtree
-      # (stripped separately by that section's strip-<section>-subtree.sh),
-      # so if rehydrate_locale's `rm -rf "dist/$loc"` + repopulate for that
-      # same locale ran while a rehydrate_section call was still writing
-      # there, it would silently wipe whatever section content had just
-      # landed — scheduling-dependent, so it would not reproduce on every
-      # run. Caught in PR #4278 review before merge (originally for the
-      # single Ticino section); sequencing them removes the race while still
-      # collapsing the loops into one step. Each function keeps its ORIGINAL
-      # error-handling contract byte-for-byte: rehydrate_locale is hard-fail
-      # (`set -euo pipefail` — an incomplete/missing shard is a real gate and
-      # must fail the job), rehydrate_section is soft-fail (`set -uo
-      # pipefail`, no `-e` — emits `::warning::` and continues, degrading
-      # coverage for that locale without aborting the run). Ticino, Svizzera
-      # and Zurigo run concurrently WITH EACH OTHER once locale is done —
-      # each writes a disjoint dist/ subtree so there's no cross-section
-      # race — tracked via separate background PIDs the same way LOCALE_PID
-      # is below.
-      # Booleans come in via `env:` (not inlined into the script body via
-      # ${{ }}) to avoid templating untrusted values into bash, matching
-      # the DEPLOY_RUN_ID/GH_TOKEN pattern already used elsewhere in this
-      # file.
-      #
-      # When LOCALE_SHARDS_LIVE is on, the published github-pages artifact has the
-      # en/de/fr subtrees stripped (they're served from the frontaliere-{loc}
-      # shard repos via the Cloudflare Worker, same URLs). The sitemaps, however,
-      # still list /en /de /fr URLs — so the dist-walking audits (orphan-sitemap-
-      # pages, validate:content-quality, audit:hreflang, validate:sitemap-links …)
-      # would flag every locale URL as missing-in-dist. Rehydrate the stripped
-      # locale subtrees from their shard repos so dist/ is the COMPLETE logical
-      # site and every audit keeps FULL coverage (incl. thin-content / hreflang
-      # on locales) — no per-audit special-casing, no lowered gate. The shard was
-      # force-pushed THIS build (deploy.yml shard-push runs before the artifact
-      # upload), so its content matches what the sitemaps reference. Cloned
-      # shallow one-at-a-time and deleted right after the copy to bound peak
-      # disk. Only locales actually absent from the artifact are rehydrated (a
-      # locale whose shard push failed stays in the main artifact and is left
-      # untouched).
-      #
-      # Mirrors the locale rehydrate above for each carved-out section — Ticino
-      # first, then Svizzera and Zurigo added the same way once they too
-      # outgrew the 10GB Pages cap. deploy.yml strips dist/<section-subtree>
-      # from the apex/locale artifacts (strip-<section>-subtree.sh) and
-      # publishes ONE Pages repo PER LOCALE PER SECTION
-      # (frontaliere-<section>-<loc>, push-<section>-shard.sh). Restore each
-      # subtree so validators that walk dist for a section's URLs don't
-      # false-flag them missing. The section→locale→slug map is the single
-      # source of truth at scripts/lib/section-shard-slugs.json, shared with
-      # the push/strip scripts and the Cloudflare Worker's SECTION_ROUTES.
-      # PRIMARY: same-run per-locale tar artifact (`<section>-dist-<loc>-
-      # <run>`, "Pack <section> shard dist" step in deploy.yml) built from
-      # push-<section>-shard.sh's already-offloaded staged copy — byte-
-      # identical to what was force-pushed. Fetched via `gh run download`
-      # (same-run, no API lag). FALLBACK: full `git clone` of the shard repo
-      # when the artifact is missing/corrupt — a locale is NEVER silently
-      # un-validated. Before the tar artifact existed (Ticino era), all 4
-      # legs paid the git-clone path unconditionally: ~12min combined wall on
-      # run 28564001685 (~250k files/clone × 4, sequential).
-      # NO cross-job shard clone cache here — REMOVED deliberately, issue
-      # #5441 (follow-up of #5432 point 6d). An actions/cache restore/save
-      # pair keyed `shard-clone-cache-<run_id>-<job>-<attempt>` used to wrap
-      # this step so that ONE of the three parallel validate-dist jobs would
-      # pay the shard `git clone` fallback on behalf of all three. Measured,
-      # it could not work, and re-adding it in that shape is a net loss:
-      #   • It never hit, structurally — not by bad luck. The restore ran
-      #     BEFORE the rehydrate and the save AFTER it, while the 3 jobs start
-      #     within 7 s of each other (06:50:17/18/24 on run 31296098323) and
-      #     the rehydrate takes 10-25 min: at attempt 1 every job restores
-      #     before any job has saved. Across 7 runs / 20 entries,
-      #     `lastAccessedAt == createdAt` on ALL of them — GitHub stamps that
-      #     field on restore, so not one entry was ever read.
-      #   • Even a 100% hit rate would save 0 s of wall clock. The cache
-      #     branch in scripts/lib/rehydrate-section-shards.sh shortcuts only
-      #     the `git clone` FALLBACK, never the tar-artifact fast path. On run
-      #     31296098323 just 11 of ~90 shards fell back, and all 11 finished
-      #     303-326 s BEFORE the step ended — the critical path is the
-      #     ticino/svizzera tar extraction, which this cache cannot touch by
-      #     construction. The clones sit entirely in its shadow.
-      #   • It cost real time and real quota. `Save` measured 70/70/59 s on
-      #     that run's 3 jobs (199 s per run) and it lands ON the critical
-      #     path, because restore and save are serial steps while the clones
-      #     are not. Entries ran 150-210 MB each: 4.34 GB of a 10 GB repo
-      #     cache that stood at 10.68 GB — over quota, evicting LRU — so
-      #     never-read entries were displacing caches that ARE read (32 of the
-      #     47 non-shard entries had been restored at least once).
-      # Bringing it back needs all three of: (1) a key that survives the run
-      # — and therefore an invalidation bound to the SHARD's head commit,
-      # never to wall-clock age, because serving a stale shard is exactly the
-      # failure class of #5432 point 1, a gate that measures old bytes and
-      # reports a number which does not describe production; (2) a
-      # demonstrated win on the CRITICAL path, i.e. it must shortcut the tar
-      # fast path too, since shortcutting the 11 clone-fallback shards
-      # provably buys nothing; (3) a size budget against the 10 GB cap.
-      # The MECHANISM is not deleted: SHARD_CLONE_CACHE_DIR still works in the
-      # rehydrate scripts and is still used by
-      # scripts/ci/revalidate-dist-locally.sh, where the cache dir lives in a
-      # per-deploy-run WORKDIR on one machine and repeated local runs really
-      # do reuse it, at no upload cost. Only the CI wiring that could never
-      # hit is gone.
-
-      - name: Rehydrate locale then section shards into dist/ (when sharding active)
+      - name: Run fail-closed publisher fast gate
+        id: publisher-fast-gate
         env:
-          GH_TOKEN: ${{ github.token }}
-          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
-          SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
-          LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
-          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
-          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
-          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
-          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
-          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
-          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
-          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
-          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
-          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
-          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
-          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
-          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
-          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
-          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
-          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
-          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
-          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
-          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
-          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
-          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
-          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
-          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
-          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
-          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
-          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
-          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
-          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          SOURCE_RUN_ID: ${{ inputs.deploy_run_id }}
+          SOURCE_SHA: ${{ inputs.deploy_ref }}
+          PUBLISHER_RUN_ID: ${{ inputs.shard_artifact_run_id || github.run_id }}
+          REPORT_OUT: ${{ runner.temp }}/publisher-fast-gate/publisher-fast-gate.json
+          GATE_START_MS: ${{ steps.gate-clock.outputs.start_ms }}
         run: |
-          bash scripts/lib/rehydrate-locale-shards.sh &
-          LOCALE_PID=$!
-
-          LOCALE_RC=0
-          wait "$LOCALE_PID" || LOCALE_RC=$?
-
-          bash scripts/lib/rehydrate-section-shards.sh
-
-          if [ "$LOCALE_RC" -ne 0 ]; then
-            exit "$LOCALE_RC"
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          set +e
+          build_skew_guard_run node scripts/ci/publisher-fast-gate.mjs node scripts/ci/publisher-fast-gate.mjs \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --publisher-run-id "$PUBLISHER_RUN_ID" \
+            --sitemaps-dir "$RUNNER_TEMP/publisher-fast-gate/sitemaps" \
+            --page-manifests-dir "$RUNNER_TEMP/publisher-fast-gate/page-manifests" \
+            --section-manifests-dir "$RUNNER_TEMP/publisher-fast-gate/section-manifests" \
+            --source-artifacts "$RUNNER_TEMP/publisher-fast-gate/source-artifacts.json" \
+            --publisher-artifacts "$RUNNER_TEMP/publisher-fast-gate/publisher-artifacts.json" \
+            --out "$REPORT_OUT"
+          result=$?
+          gate_ms=$(( $(date +%s%3N) - GATE_START_MS ))
+          if [ -s "$REPORT_OUT" ]; then
+            jq --argjson duration "$gate_ms" '. + {publisherFastGateDurationMs: $duration, publisherFastGateBudgetMs: 300000}' \
+              "$REPORT_OUT" > "$REPORT_OUT.tmp"
+            mv "$REPORT_OUT.tmp" "$REPORT_OUT"
+          else
+            jq -n --arg sourceRunId "$SOURCE_RUN_ID" --arg sourceSha "$SOURCE_SHA" \
+              --arg publisherRunId "$PUBLISHER_RUN_ID" --argjson duration "$gate_ms" \
+              '{audit:"publisher-fast-gate", passed:false, sourceRunId:$sourceRunId, sourceSha:$sourceSha, publisherRunId:$publisherRunId, publisherFastGateDurationMs:$duration, publisherFastGateBudgetMs:300000, errorCount:1, errors:["publisher fast gate validator was absent or did not produce a report"]}' \
+              > "$REPORT_OUT"
           fi
-
-      # Precondition for every dist-walking audit/validator in this job. The
-      # section rehydrate above is soft-fail BY CONTRACT (it warns and degrades
-      # rather than aborting), so a shard repo that clones empty leaves dist/
-      # missing an entire subtree — and from there every audit reports the
-      # absent pages as unreachable / thin / orphan content OF THE SITE, not as
-      # a hole in its own input. Issue #4857 is that verdict in its purest form:
-      # an audit replay that never rehydrated at all called ~68k reachable
-      # cluster URLs an entire content tier below crawl depth. Stop here, with
-      # the reason named, instead of shipping a fabricated structural finding.
-      - name: Assert dist/ is the complete logical site
-        id: assert_dist_complete
-        run: |
-          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
-          build_skew_guard_run node scripts/ci/assert-dist-complete.mjs node scripts/ci/assert-dist-complete.mjs
-
-      # The build's sitemap-alias hook runs before locale/section shards are
-      # rehydrated. A shard can therefore replace a listed page with noindex or
-      # a non-self-canonical document after the build-time pass. Re-run the
-      # same final-dist reconciler on the assembled corpus before any validator
-      # reads it; this removes only sitemap XML entries and preserves the HTML.
-      - name: Reconcile rehydrated sitemaps against final dist
-        id: reconcile_rehydrated_sitemaps
-        if: steps.assert_dist_complete.outcome == 'success'
-        run: |
-          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
-          build_skew_guard_run npm validate:rehydrated-sitemaps npm run validate:rehydrated-sitemaps
-
-      # Source validators share the rehydrated dist and still run even when
-      # a previous phase is red, so the report contains the complete verdict.
-      - name: Run source validators (parallel — 4 vCPU)
-        if: always() && steps.assert_dist_complete.outcome == 'success'
-        run: |
-          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
-          RESDIR=/tmp/source-val-results.d
-          rm -rf "$RESDIR"; mkdir -p "$RESDIR"
-
-          # Run ONE validator in the background and record its result row to its
-          # OWN file ("$RESDIR/<name>": "<name>  <wall_s>  rc=<code>"). Each
-          # validator writes a distinct file, so concurrent runs never interleave
-          # into a shared results file (which would corrupt the pass/fail summary
-          # and could MASK a failure — gate must stay exact). The summary below
-          # cats these files; a failing validator's full log is dumped (after the
-          # wait, sequentially) so parallel failures stay readable.
-          run_validator() {
-            local name=$1 logfile=$2 kind=$3 target=$4; shift 4
-            local start end rc skipped
-            start=$(date +%s.%N)
-            set +e
-            build_skew_guard_run "$kind" "$target" "$@" > "$logfile" 2>&1
-            rc=$?
-            skipped=$BUILD_SKEW_GUARD_SKIPPED
-            set -e
-            end=$(date +%s.%N)
-            if [ "$skipped" -eq 1 ]; then
-              build_skew_guard_skip_row "$name" > "$RESDIR/$name"
-            else
-              awk -v n="$name" -v start="$start" -v end="$end" -v rc="$rc" \
-                'BEGIN{printf "%-40s %7.2f rc=%d\n", n, end-start, rc}' \
-                > "$RESDIR/$name"
-            fi
-            return 0   # never let a single fail short-circuit the chain (rc is in the result file)
-          }
-
-          # Pre-seed every validator's result file as FAILED (rc=99). run_validator
-          # OVERWRITES it ("> $RESDIR/$name") with the real row on completion. If a
-          # validator's background subshell is signal-killed AFTER node exits but
-          # BEFORE the awk write (OOM-cgroup kill, runner timeout, /tmp full), the
-          # rc=99 seed survives → the validator counts as FAIL and the gate exits 1,
-          # instead of silently vanishing from the summary (the serial pre-PR code
-          # wrote the row inline, so this kill-window class did not exist — restoring
-          # the "gate exact" guarantee). Format matches the awk row so the summary
-          # parser (grep -oE 'rc=[0-9]+$') reads it.
-          for vn in validate:translation-completeness validate:crawler-summaries \
-                    validate:third-party-secrets; do
-            printf '%-40s %7.2f rc=%d\n' "$vn" 0 99 > "$RESDIR/$vn"
-          done
-
-          # These three validators are independent processes with no shared state
-          # or dependency on one another, so run them CONCURRENTLY on the 4-vCPU runner.
-          # The SEO source and OG image checks are report-only and run in the
-          # independent audit-dist-from-run workflow.
-          pids=()
-          run_validator validate:translation-completeness /tmp/v10.log node scripts/validate-translation-completeness.mjs \
-            node scripts/validate-translation-completeness.mjs & pids+=("$!")
-          run_validator validate:crawler-summaries        /tmp/v11.log npm validate:crawler-summaries \
-            npm run validate:crawler-summaries & pids+=("$!")
-          run_validator validate:third-party-secrets      /tmp/v12.log npm validate:third-party-secrets \
-            npm run validate:third-party-secrets & pids+=("$!")
-          for p in "${pids[@]}"; do wait "$p" || true; done
-
-          # Merge the per-validator result files into the single results file the
-          # summary block consumes (order-independent; sorted below).
-          cat "$RESDIR"/* > /tmp/source-val-results.txt 2>/dev/null || true
-
-          # Dump each FAILED validator's full log sequentially (readable — no
-          # parallel interleave), keyed off the recorded rc.
-          for rf in "$RESDIR"/*; do
-            grep -q 'rc=0$' "$rf" && continue
-            vname=$(basename "$rf")
-            case "$vname" in
-              validate:translation-completeness) vlog=/tmp/v10.log ;;
-              validate:crawler-summaries)        vlog=/tmp/v11.log ;;
-              validate:third-party-secrets)      vlog=/tmp/v12.log ;;
-              *)                                 vlog="" ;;
-            esac
-            echo "──── $vname failed ────"
-            [ -n "$vlog" ] && cat "$vlog" 2>/dev/null || true
-            echo "──── end $vname ────"
-          done
-
-          # ── 3. Print summary table + decide pass/fail ──
-          echo ""
-          echo "══════════════════════════════════════════════════════════════"
-          echo "Source validators — per-gate results"
-          echo "══════════════════════════════════════════════════════════════"
-          SRC_PASS=0
-          SRC_FAIL=0
-          while IFS= read -r line; do
-            # `|| true`: riga malformata (senza rc=N) + set -euo pipefail
-            # ucciderebbe il summary a meta' loop (stessa classe del bug che ha
-            # tenuto rosso gh-pat-expiry-monitor 06-01->06-12); rc vuoto cade
-            # nel ramo FAIL ed e' visibile, niente crash.
-            rc=$(printf '%s' "$line" | { grep -oE 'rc=[0-9]+$' || true; } | sed 's/rc=//')
-            if [ "$rc" = "0" ]; then
-              printf "✅ PASS  %s\n" "$line"
-              SRC_PASS=$((SRC_PASS + 1))
-            else
-              printf "❌ FAIL  %s\n" "$line"
-              SRC_FAIL=$((SRC_FAIL + 1))
-            fi
-          done < <(sort -k2 -gr /tmp/source-val-results.txt)
-          echo "──────────────────────────────────────────────────────────────"
-          echo "Source validators summary: ${SRC_PASS} passed, ${SRC_FAIL} failed"
-          echo "══════════════════════════════════════════════════════════════"
-          echo ""
-
-          if [ "$SRC_FAIL" -gt 0 ]; then
-            echo "::error::${SRC_FAIL} source validator(s) failed — see per-gate output above"
+          echo "duration_ms=$gate_ms" >> "$GITHUB_OUTPUT"
+          gate_seconds=$(awk -v ms="$gate_ms" 'BEGIN { printf "%.2f", ms / 1000 }')
+          if [ "${BUILD_SKEW_GUARD_SKIPPED:-0}" = 1 ]; then
+            build_skew_guard_skip_row scripts/ci/publisher-fast-gate.mjs >> "$GITHUB_STEP_SUMMARY"
+            echo 'integrity_ok=false' >> "$GITHUB_OUTPUT"
+            echo '::error::publisher fast gate is missing from the source build; failing closed'
             exit 1
           fi
-          echo "✅ Source validators complete"
-
-      # Quality audits, including validate:page-seo, run in the
-      # independent audit-dist-from-run.yml report workflow.
-      # Validation pool for document/dist integrity only. Live smoke is in the
-      # separate validate-live workflow; quality audits are in the independent
-      # report workflow.
-      - name: Post-build integrity validations (capped parallel)
-        id: postbuild_validations
-        if: always() && steps.assert_dist_complete.outcome == 'success'
-        env:
-          # Cap each audit's V8 heap at 4 GB. Without this the GitHub
-          # ubuntu-latest free runner (~7 GB usable) was still OOM-killing
-          # `audit:dist-multi-light` and `audit:title-uniqueness` at
-          # rc=134 even after every heavy walker had been moved into the
-          # serial chain. The runner has 7 GB but Node's default
-          # max-old-space-size grows opportunistically under pressure;
-          # capping it forces aggressive GC and prevents single-process
-          # blow-ups when walking ~132k HTML files.
-          NODE_OPTIONS: '--max-old-space-size=4096'
-          # AUDIT_STRICT=1 enables the unified runner's AST mutation
-          # detection: every audit's collect() runs against a frozen html
-          # string; any mutation triggers a fail loud with the auditor's
-          # name. Cheap (single equality check per file per audit) and
-          # catches accidental side-effects during future audit migrations.
-          AUDIT_STRICT: '1'
-        run: |
-          # Four concurrent integrity walkers keep the critical path bounded;
-          # every invocation below keeps its own result row and failure log.
-          MAX_PARALLEL=4
-          : > /tmp/post-build-timings.txt
-          : > /tmp/post-build-failures.txt
-
-          # The sliding-window primitive lives in ONE place since #5130
-          # (scripts/lib/bounded-parallel.sh) — this step is where the idiom
-          # was first proven, and deploy.yml's section fan-outs now use the
-          # same implementation. Keeping a verbatim second copy here is
-          # exactly the duplication AGENTS.md #6 forbids.
-          source scripts/lib/bounded-parallel.sh
-          wait_slot() { bp_wait_slot "$MAX_PARALLEL"; }
-
-          # IMPORTANT: `set +e` inside the subshell. The GH Actions default
-          # shell is `bash -eo pipefail`, which propagates errexit into the
-          # ( ... ) subshell. Without `set +e`, a non-zero rc from "$@" kills
-          # the subshell BEFORE rc=$? runs, so neither the timings file nor
-          # the failures file gets the row — the failed task vanishes and
-          # the parent step prints "✅ All passed". This silently masked
-          # the title-length regression in post-deploy run 25377607613.
-          #
-          # All runners in this step use the one workflow-materialized guard.
-          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
-
-          spawn_capped() {
-            local name=$1; local logfile=$2; shift 2
-            local skipped
-            wait_slot
-            (
-              set +e
-              start=$(date +%s.%N)
-              build_skew_guard_run npm "$name" "$@" > "$logfile" 2>&1
-              rc=$?
-              skipped=$BUILD_SKEW_GUARD_SKIPPED
-              end=$(date +%s.%N)
-              if [ "$skipped" -eq 1 ]; then
-                build_skew_guard_skip_row "$name" >> /tmp/post-build-timings.txt
-              else
-                awk -v n="$name" -v start="$start" -v end="$end" -v rc="$rc" \
-                  'BEGIN{printf "%-40s %7.2f rc=%d\n", n, end-start, rc}' \
-                  >> /tmp/post-build-timings.txt
-              fi
-              if [ "$skipped" -eq 0 ] && [ $rc -ne 0 ]; then
-                echo "$name $logfile" >> /tmp/post-build-failures.txt
-              fi
-            ) &
-          }
-
-          # ── UNIFIED RUNNER (audit:all) + remaining heavy chain ──
-          #
-          # `npm run audit:all` runs the three document-integrity auditors that
-          # remain in this blocking job in ONE Node process. The quality
-          # auditors use the same runner/filter in audit-dist-from-run.yml,
-          # outside the dist-validation lock.
-          # The unified runner walks dist/ once and dispatches the three
-          # document-integrity auditors selected below in one Node process.
-          # Quality auditors use the same filter in audit-dist-from-run.yml;
-          # this job's result file therefore contains only blocking rows.
-          #
-          # The memory-heavy BFS and quality walkers run in the independent
-          # report workflow with their own runner and timeout.
-          (
-            set +e
-            start=$(date +%s.%N)
-            build_skew_guard_run npm audit:all npm run audit:all -- \
-              --audits=footer-root-presence,jsonld-no-nested-scripts,image-object-license > /tmp/g10.log 2>&1
-            rc=$?
-            skipped=$BUILD_SKEW_GUARD_SKIPPED
-            end=$(date +%s.%N)
-            if [ "$skipped" -eq 1 ]; then
-              build_skew_guard_skip_row audit:all >> /tmp/post-build-timings.txt
-            else
-              awk -v n=audit:all -v start="$start" -v end="$end" -v rc="$rc" \
-                'BEGIN{printf "%-40s %7.2f rc=%d\n", n, end-start, rc}' \
-                >> /tmp/post-build-timings.txt
-            fi
-            if [ "$skipped" -eq 0 ] && [ $rc -ne 0 ]; then
-              echo "audit:all /tmp/g10.log" >> /tmp/post-build-failures.txt
-            fi
-          ) &
-          DIST_MULTI_PID=$!
-
-          # LIGHT POOL — only integrity audits that don't require the separate
-          # report workflow's full link graph.
-          spawn_capped validate:sitemap-pages        /tmp/spm.log \
-            npm run validate:sitemap-pages
-          # Issue #5655 item 2: dedicated, UNSAMPLED dist/ coverage gate for
-          # the GSC keyword-landing family (build-plugins/jobsSeoPagesPlugin.ts
-          # KEYWORD_LANDING_MIN_JOBS region). A set-membership check cannot be
-          # sampled (an unsampled URL and an absent one look identical), so it
-          # stays in this full-coverage integrity pool.
-          spawn_capped validate:keyword-landing-coverage /tmp/kwlc.log \
-            npm run validate:keyword-landing-coverage
-          spawn_capped validate:sitemap-links        /tmp/v3.log \
-            npm run validate:sitemap-links
-          # A deploy may add URLs to a sitemap family, but may not lower the
-          # unique URL count for the restored families without an exact,
-          # reasoned declaration. The historical/future event sitemaps count
-          # together so moving past events to their archive preserves coverage.
-          spawn_capped validate:sitemap-family-coverage /tmp/sitemap-family-coverage.log \
-            node scripts/diff-sitemaps.mjs --gate-family-coverage
-          # This full-dist walker keeps its absolute 0-tolerance count and
-          # gets its speed from overlapping syscalls, not from sampling.
-          spawn_capped audit:spa-bundle-injection    /tmp/spa-bundle.log \
-            npm run audit:spa-bundle-injection
-
-          # The following commands are zero-tolerance dist-integrity checks;
-          # report-only quality audits run in audit-dist-from-run.yml instead.
-          # 0-tolerance: dotfile `dist/**\/.html` files mean a plugin produced
-          # `<dir>/.html` via `path + '.html'` where `path` ended in `/`.
-          # GitHub Pages serves these for `/<dir>/` with
-          # content-type=application/octet-stream, masking the real
-          # index.html. See incident 2026-05-28: ogPagesPlugin emitted
-          # ~2 540 of these for articles, AdSense RPM crashed from 3.04 to
-          # 1.74 CHF/day.
-          spawn_capped audit:no-dotfile-html         /tmp/no-dotfile-html.log \
-            npm run audit:no-dotfile-html
-          # audit:sitemap-canonicals NON e' piu' qui: girava DUE volte per
-          # deploy. validate:sitemap-pages sopra lo contiene come check 1,
-          # stesso set di sitemap, stesso job (127 s). Copia consolidata
-          # meglio scoperta: esclude gli URL degli shard articoli.
-          # tests/deploy-workflow.test.ts pinna l'invocazione del consolidato.
-          spawn_capped audit:canonical-trailing-slash /tmp/g15b.log \
-            npm run audit:canonical-trailing-slash
-          spawn_capped audit:news-sitemap            /tmp/g16.log \
-            npm run audit:news-sitemap
-
-          # Quality and BFS reports run in audit-dist-from-run.yml, outside
-          # this blocking runner. The three document-integrity auditors that
-          # remain in audit:all share this one dist walk.
-          # NOTE: live:post-deploy-smoke moved to validate-live workflow.
-          # This validate-dist job runs in parallel with `deploy`, before
-          # the new dist is published — there's nothing live to smoke
-          # yet. The smoke + e2e:live now lives in
-          # post-deploy-validate-live.yml as a dedicated step.
-
-          # Wait for the serialized dist-multi chain explicitly, then the
-          # rest of the spawn_capped pool. Two `wait` calls (one targeted,
-          # one bare) — `wait $PID` returns the chain's rc but we already
-          # captured per-variant rc into /tmp/post-build-failures.txt
-          # inside the subshell, so the FAIL aggregator below sees them.
-          wait "$DIST_MULTI_PID" || true
-          wait
-
-          # FULL-DIST SERIAL PHASE — strict JobPosting completeness is
-          # deliberately unsampled and walks every rehydrated dist/ HTML file.
-          # It must not overlap the light pool's other walkers: keeping the
-          # same spawn_capped helper here preserves the deploy-ref skew guard,
-          # timing row, per-gate log, and blocking failure propagation while
-          # this invocation runs after every pooled job has completed.
-          spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema
-          wait
-
-          echo "Post-build gates — per-gate results (MAX_PARALLEL=$MAX_PARALLEL, sorted DESC)"
-          echo "══════════════════════════════════════════════════════════════════════"
-          PB_PASS=0
-          PB_FAIL=0
-          while IFS= read -r line; do
-            # `|| true`: riga malformata (senza rc=N) + set -euo pipefail
-            # ucciderebbe il summary a meta' loop (stessa classe del bug che ha
-            # tenuto rosso gh-pat-expiry-monitor 06-01->06-12); rc vuoto cade
-            # nel ramo FAIL ed e' visibile, niente crash.
-            rc=$(printf '%s' "$line" | { grep -oE 'rc=[0-9]+$' || true; } | sed 's/rc=//')
-            if [ "$rc" = "0" ]; then
-              printf "✅ PASS  %s\n" "$line"
-              PB_PASS=$((PB_PASS + 1))
-            else
-              printf "❌ FAIL  %s\n" "$line"
-              PB_FAIL=$((PB_FAIL + 1))
-            fi
-          done < <(sort -k2 -gr /tmp/post-build-timings.txt)
-          echo "──────────────────────────────────────────────────────────────────────"
-          echo "Post-build summary: ${PB_PASS} passed, ${PB_FAIL} failed"
-          echo "══════════════════════════════════════════════════════════════════════"
-          echo ""
-
-          FAIL=0
-          if [ -s /tmp/post-build-failures.txt ]; then
-            while read -r name logfile; do
-              echo "::error::$name failed"
-              cat "$logfile"
-              FAIL=1
-            done < /tmp/post-build-failures.txt
+          if [ -s "$REPORT_OUT" ] && jq -e '.passed == true' "$REPORT_OUT" >/dev/null; then
+            echo 'integrity_ok=true' >> "$GITHUB_OUTPUT"
+            echo 'failed_gates=' >> "$GITHUB_OUTPUT"
+            echo "✅ PASS publisher-fast-gate ${gate_seconds}s rc=0"
+          else
+            echo 'integrity_ok=false' >> "$GITHUB_OUTPUT"
+            echo 'failed_gates=publisher-fast-gate' >> "$GITHUB_OUTPUT"
+            echo "❌ FAIL publisher-fast-gate ${gate_seconds}s rc=1"
           fi
+          exit "$result"
 
-          [ $FAIL -eq 0 ] || exit 1
-          echo "✅ All post-build validators + audits passed"
-
-      - name: Build size summary
-        if: always() && steps.assert_dist_complete.outcome == 'success'
-        run: |
-          echo "=== Recovered dist size summary ==="
-          # Was `du -sh dist/` — a full stat-walk of ~1.27M files (~76s) for a
-          # number that is ~27G every build (low signal) and is ALSO printed by
-          # the rehydrate step. Dropped; `df -h` shows the disk headroom that
-          # actually matters here (OOM/disk-full risk) for free.
-          df -h / | tail -1
-          # The per-HTML `find … -exec du -sh {} +` over ~132k+ files (top-10 by
-          # size) was ~2min of pure stat-walk for observability that nothing
-          # consumes — dropped. Per-plugin byte attribution already lives in the
-          # build job's "Audit dist bytes" step. Keep the cheap sitemap listing.
-          #
-          # `find dist -name sitemap*.xml` ALSO walked the full ~1.27M-file tree.
-          # The sitemap index + shards live at the dist root (and one level down
-          # for any per-locale set), so glob those paths directly — no full walk.
-          echo "Sitemaps:"
-          du -sh dist/sitemap*.xml dist/*/sitemap*.xml 2>/dev/null | sort -rh || true
-
-      # On failure, upload structured audit reports + sitemaps so a debug
-      # agent can diagnose without rebuilding dist/. Each audit script writes
-      # to dist/audit-reports/<name>.json via scripts/lib/auditReport.mjs;
-      # sitemaps are bundled because link-graph audits (bfs-depth,
-      # orphan-sitemap-pages, sitemap-canonicals) need them for offline replay.
-      # Retention deliberately short — 7 days is enough to fix the failing PR
-      # without bloating storage on the free-tier account.
-      - name: Upload audit reports + sitemaps on failure
-        if: always() && steps.assert_dist_complete.outcome == 'success' && steps.postbuild_validations.outcome == 'failure'
-        continue-on-error: true
+      - name: Upload fast-gate evidence
+        if: always()
         uses: actions/upload-artifact@v7
         with:
           name: audit-reports-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            dist/audit-reports/**
-            dist/sitemap.xml
-            dist/sitemap-*.xml
-          if-no-files-found: ignore
-          retention-days: 7
-
-      # BFS depth and orphan-page quality audits run in
-      # audit-dist-from-run.yml, outside the dist-validation lock.
-      # Combine the two integrity-validator phases into one fail-closed output.
-      # The phase result files are deliberately separate so a missing file is
-      # an unknown integrity failure.
-      - name: Publish combined gate results
-        id: gate-results
-        if: always()
-        run: |
-          set -uo pipefail
-          FAILED=""
-          add() { if [ -n "$1" ]; then FAILED="${FAILED:+$FAILED,}$1"; fi; }
-
-          collect_failed() {
-            local stage="$1" file="$2"
-            if [ ! -s "$file" ]; then
-              add "__UNKNOWN__:$stage"
-              return
-            fi
-            while IFS= read -r gate; do
-              [ -n "$gate" ] && add "$gate"
-            done < <(awk 'NF && !/rc=0$/ {print $1}' "$file")
-          }
-
-          collect_failed source /tmp/source-val-results.txt
-          collect_failed postbuild /tmp/post-build-timings.txt
-
-          # audit:all is a bundle: expand its failed auditor names so the
-          # default-deny classifier can distinguish quality from structure.
-          # Missing marker stays opaque and therefore blocks publish.
-          if printf '%s' "$FAILED" | tr ',' '\n' | grep -x 'audit:all' >/dev/null; then
-            SUBS="$(sed -n 's/^audit-all: failed-audits=//p' /tmp/g10.log | tail -n1)"
-            if [ -n "${SUBS:-}" ]; then
-              EXPANDED="$(printf '%s' "$SUBS" | tr ',' '\n' \
-                | awk 'NF {printf "%saudit:all/%s", sep, $0; sep=","}')"
-              echo "audit:all expanded to: ${EXPANDED}"
-              FAILED="$(printf '%s' "$FAILED" \
-                | tr ',' '\n' \
-                | awk -v e="$EXPANDED" '{ if ($0=="audit:all") print e; else print }' \
-                | awk 'NF {printf "%s%s", sep, $0; sep=","}')"
-            else
-              echo "audit:all failed but no failed-audits marker in /tmp/g10.log — keeping opaque name (fail-closed)"
-            fi
-          fi
-
-          echo "collected failed gates: ${FAILED:-(none)}"
-          printf 'failed_gates=%s\n' "$FAILED" >> "$GITHUB_OUTPUT"
-
-          # Keep the per-gate offender totals visible on green runs as well as
-          # in the failure dump. The audit reports are written on both paths;
-          # this one-line projection is the durable evidence that a future
-          # speed/coverage change did not silently reduce the denominator.
-          # `|| true`: observability must never change the gate verdict.
-          jq -r '"gate-offenders \(.audit) offendersTotal=\(.offendersTotal) passed=\(.passed)"' dist/audit-reports/*.json 2>/dev/null || true
-
-      # The final step is intentionally separate from output publication so
-      # missing result files fail closed and the reporter can still run.
-      - name: Fail when a dist validator failed
-        if: always()
-        run: |
-          set -uo pipefail
-          FAIL=0
-          for file in /tmp/source-val-results.txt /tmp/post-build-timings.txt; do
-            if [ ! -s "$file" ]; then
-              echo "::error::missing validator result file: $file"
-              FAIL=1
-            elif grep -qv 'rc=0$' "$file"; then
-              echo "::error::validator failure recorded in $file"
-              FAIL=1
-            fi
-          done
-          [ "$FAIL" -eq 0 ] || exit 1
-          echo "✅ All blocking dist integrity validators passed"
-
-      # Informational diff between the live sitemaps (currently deployed) and
-      # the new dist/ that's about to replace them. Helps spot anomalies — a
-      # single deploy adding 5 URLs and removing 500 is almost always a bug
-      # (e.g. an empty data file passed through the build) but the post-build
-      # gates won't always catch it. Always exits 0.
-      - name: Sitemap diff vs live deployed site (informational)
-        if: always()
-        continue-on-error: true
-        run: |
-          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
-          build_skew_guard_run node scripts/diff-sitemaps.mjs node scripts/diff-sitemaps.mjs
+          path: ${{ runner.temp }}/publisher-fast-gate/publisher-fast-gate.json
+          if-no-files-found: warn
+          retention-days: 8
 
   validate-dist-report:
-    # Centralizes GitHub Issues bookkeeping for the single dist validator
-    # job. `if: always()` keeps reporting and resolving deterministic when a
-    # phase fails or is skipped by its rehydrate precondition.
-    # A cancelled run has no failure row to report; the resolve branch remains guarded.
-    needs: [validate-dist-postbuild]
+    needs: [fast-gate]
     if: always()
     runs-on: ubuntu-latest
-    # Il download del log di un job stallato non ha timeout lato gh: senza
-    # questo tetto il job resterebbe appeso al default (360 min) tenendo un
-    # runner E ritardando `publish`, che ha needs su validate-dist.
     timeout-minutes: 15
     permissions:
-      issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
-      actions: read     # jobs API + job logs per il reporter diagnostico (#5414): un blocco permissions esplicito AZZERA gli scope non elencati, quindi senza questa riga ogni gh api actions/... risponde 403 e il reporter degrada a muto
+      contents: read
+      actions: read
+      issues: write
     steps:
-      - name: Checkout (build SHA via deploy_ref, else caller default)
+      - name: Checkout source-side issue reporter
         uses: actions/checkout@v7
         with:
           ref: ${{ inputs.deploy_ref }}
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/docs/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
+            package.json
+            scripts/
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -1004,286 +272,54 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Cache node_modules
-        id: node-modules-cache
-        uses: actions/cache@v6
-        with:
-          path: node_modules
-          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
-
-      - name: Install dependencies
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        run: npm ci
-
-      # The JSON audit reports of this run, so each gate issue carries its
-      # offenders (scripts/ci/lib/gate-issue-offenders.mjs) instead of only a
-      # pointer to a 7-day artifact. Both uploads (postbuild and bfs) land in
-      # one folder; a missing artifact leaves the reporter's "report non
-      # disponibile" line, never a failed step.
-      - name: Download audit reports for the gate issues
-        if: always() && needs.validate-dist-postbuild.result == 'failure'
+      - name: Download fast-gate evidence for issue details
+        if: always() && needs.fast-gate.result == 'failure'
         continue-on-error: true
         uses: actions/download-artifact@v8
         with:
           pattern: audit-reports*-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/validate-dist-artifacts
+          path: ${{ runner.temp }}/validate-dist-artifacts/audit-reports
           merge-multiple: true
 
       - name: Report failure to GitHub Issues
-        if: always() && needs.validate-dist-postbuild.result == 'failure'
+        if: always() && needs.fast-gate.result == 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           VALIDATE_DIST_REPORTS_DIR: ${{ runner.temp }}/validate-dist-artifacts/audit-reports
-          # Dispatch/call inputs reach the shell as DATA, never as script text.
           INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
-          # deploy_ref = workflow_run.head_sha: il commit della BUILD. Prima
-          # qui finiva github.sha, che per un run workflow_run è il commit del
-          # default branch al momento del trigger, NON quello della build
-          # (issue #5414): il reporter lo etichetta come Build SHA nel body.
           INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
           INPUT_DEPLOY_EVENT: ${{ inputs.deploy_event_name }}
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
-          DIST_RESULT: ${{ needs.validate-dist-postbuild.result }}
+          DIST_RESULT: ${{ needs.fast-gate.result }}
+          FAILED_GATES: ${{ needs.fast-gate.outputs.failed_gates }}
         run: |
-          # Reporter diagnostico (#5414 Parte B): legge i job falliti e i loro
-          # log via jobs API e apre UNA issue per gate fallito (titolo stabile
-          # "Validation Failure (dist): <gate>", audit:all espanso nei
-          # sotto-auditor, offender dal report JSON; senza righe gate
-          # riconoscibili, la issue riassuntiva legacy "…: post-deploy"), e
-          # chiude le issue dei gate che in questo run sono passati.
-          # Dedup/reopen invariati: titoli stabili senza run-number (#5121),
-          # reopen-within-hours 6 per il flap rosso→verde→rosso
-          # (#928/#931/#937/#941). Il run-number resta nel body.
-          # Il job fa checkout al SHA della BUILD (deploy_ref), che per un
-          # deploy partito prima del merge di questa PR non contiene ancora il
-          # reporter: senza questa guardia `node` fallirebbe con
-          # ERR_MODULE_NOT_FOUND, continue-on-error lo inghiottirebbe e non si
-          # aprirebbe NESSUNA issue — muto proprio nella finestra transitoria.
-          # Fallback al reporter legacy, che esiste a qualunque SHA.
-          # Il fallback passa `--build-sha "${INPUT_DEPLOY_REF}"` per la stessa
-          # ragione del reporter diagnostico: senza, il guard anti-riapertura
-          # non si attiva su questo ramo e la issue legacy si riapre su build
-          # che precedono la propria fix. È lo STESSO valore che il body qui
-          # sotto stampa come **Build SHA** — il commit della BUILD, non
-          # l'head_sha della validazione. Se l'input `deploy_ref` è vuoto la
-          # CLI riceve una stringa vuota e torna al reopen incondizionato,
-          # che è il fail-safe voluto: mai astenersi su un dato assente.
-          # (Qui e sopra l'input e' nominato senza prefisso di proposito:
-          # check-workflow-input-injection.mjs conta i riferimenti a un input
-          # su TUTTO il testo del run:, commenti compresi, e fallisce CLOSED su
-          # quelli che non trova dentro un'espressione Actions che ha saputo
-          # parsare. Non puo' distinguere la prosa da un'interpolazione sfuggita
-          # al parser, e non deve: un commento non ferma un valore multiriga.)
+          set +e
           if [ -f scripts/ci/report-validate-dist-failure.mjs ]; then
             node scripts/ci/report-validate-dist-failure.mjs --mode report
           else
-            echo "::warning::reporter diagnostico assente al SHA della build — fallback al reporter legacy"
             node scripts/lib/github-issue-creator.mjs \
               --title "Validation Failure (dist): post-deploy" \
-              --description "## Validazione dist fallita
-          **Validation run:** https://github.com/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}
-          **Build run:** https://github.com/${GITHUB_REPOSITORY}/actions/runs/${INPUT_DEPLOY_RUN_ID}
-          **Build SHA:** ${INPUT_DEPLOY_REF}
-          **Job results:** dist=${DIST_RESULT}" \
-              --priority 1 \
-              --reopen-within-hours 6 \
-              --build-sha "${INPUT_DEPLOY_REF}" \
-              --label Bug \
-              --workflow "Post-deploy Validate Dist"
+              --description "Publisher fast gate failed for source run ${INPUT_DEPLOY_RUN_ID} @ ${INPUT_DEPLOY_REF}; see ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}." \
+              --priority 1 --label Bug --workflow "Post-deploy Validate Dist"
           fi
 
       - name: Resolve GitHub Issue on success
-        if: needs.validate-dist-postbuild.result == 'success'
+        if: needs.fast-gate.result == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           RUN_ID: ${{ github.run_id }}
         run: |
-          # Mirror of the failure reporter: the dist job passed, so
-          # close EVERY open "Validation Failure (dist): …" issue — the legacy
-          # "post-deploy" title AND the per-gate ones the reporter above mints.
-          # Without this the issues stay open while the state is already green
-          # (stale-issue churn). Idempotent no-op when nothing is open; the
-          # failure reporter's reopen-within-hours reopens them on a re-flap.
-          # Stessa guardia del reporter: al SHA di una build pre-merge lo
-          # script non esiste e la issue legacy resterebbe aperta sul verde.
           if [ -f scripts/ci/report-validate-dist-failure.mjs ]; then
             node scripts/ci/report-validate-dist-failure.mjs --mode resolve
           else
-            echo "::warning::reporter diagnostico assente al SHA della build — resolve legacy"
             node scripts/lib/github-issue-creator.mjs \
               --resolve \
               --title "Validation Failure (dist): post-deploy" \
               --workflow "Post-deploy Validate Dist" \
-              --run-url "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}"
+              --run-url "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}"
           fi
-
-  # ─────────────────────────────────────────────────────────────────────────
-  # integrity-verdict: classify the validator rows for diagnostics and issue
-  # priority. The caller gates `publish` on this fail-closed output:
-  # report-only quality rows may leave this reusable workflow red, but they do
-  # not sequester post-deploy indexing side effects.
-  #
-  # This job stays green and the script always exits 0 so the verdict travels
-  # as an output rather than as an exit code.
-  #
-  # CORRECTED (#4828, measured — this line used to read "a failed job's outputs
-  # do not cross the reusable-workflow boundary", which is FALSE and was the
-  # stated justification for the whole design). Probe run 31081857672: a job
-  # that wrote an output and THEN exited 1 (conclusion `failure`) still
-  # delivered that output to the caller through the reusable-workflow boundary.
-  # Probe run 31081032808: a reusable workflow whose OVERALL conclusion is
-  # `failure` still delivers outputs set by a green job.
-  #
-  # What actually loses the value is narrower and more mundane: a step that
-  # never runs, or dies BEFORE writing to $GITHUB_OUTPUT, writes nothing. The
-  # explicit fail-closed verdict remains useful to the issue reporter even
-  # when a report-only validator leaves the job red.
-  #
-  # It does NOT make anything green: the dist validator keeps its phase
-  # results, this workflow still reports FAILURE to the caller, and
-  # validate-dist-report still opens the tracking issue (AGENTS.md
-  # non-negotiables #1 and #2 — no threshold widened, no error downgraded).
-  # ─────────────────────────────────────────────────────────────────────────
-
-  # integrity-verdict classifies the red validator rows without changing the
-  # validator job's own failure semantics. The caller consumes only the
-  # fail-closed integrity verdict for publication.
-  integrity-verdict:
-    needs: [validate-dist-postbuild]
-    if: always()
-    runs-on: ubuntu-latest
-    outputs:
-      integrity_ok: ${{ steps.verdict.outputs.integrity_ok }}
-      blocking_gates: ${{ steps.verdict.outputs.blocking_gates }}
-      quality_gates: ${{ steps.verdict.outputs.quality_gates }}
-    steps:
-      # NOT pinned to `deploy_ref`, unlike every other job in this file.
-      #
-      # The gate jobs check out the BUILD's SHA so the validator scripts match
-      # the code that produced dist/. This job validates nothing about dist/ —
-      # it maps gate NAMES emitted by THIS workflow definition onto a
-      # classification table. That table therefore has to come from the same
-      # commit as this workflow file, not from whatever the build happened to
-      # be built from.
-      #
-      # Pinning it to deploy_ref broke production on run 31055982487
-      # (2026-08-05T23:20): the build predated the merge of #5179, so the
-      # checked-out tree had no scripts/ci/classify-validate-dist-failures.mjs,
-      # node exited MODULE_NOT_FOUND, the step died BEFORE writing anything to
-      # $GITHUB_OUTPUT, and `integrity_ok` reached the caller EMPTY — so
-      # `publish` was sequestered with no verdict recorded anywhere. (Not
-      # because the job was red: a failed job's outputs do cross the boundary,
-      # probe run 31081857672. The value was simply never written.)
-      # Any future rename, move or crash of the classifier reproduces it.
-      - name: Checkout (workflow ref — see comment)
-        continue-on-error: true
-        uses: actions/checkout@v7
-        with:
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/docs/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
-
-      - name: Setup Node.js
-        continue-on-error: true
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-
-      - name: Classify gate failures
-        id: verdict
-        if: always()
-        env:
-          # A job that was cancelled or never ran contributes no gate names.
-          # Its `result` is folded in below so "cancelled" cannot read as
-          # "clean" — only `success` and `failure` carry a trustworthy list.
-          DIST_RESULT: ${{ needs.validate-dist-postbuild.result }}
-          DIST_GATES: ${{ needs.validate-dist-postbuild.outputs.failed_gates }}
-        run: |
-          set -euo pipefail
-          FAILED=""
-          # `if` form, not `[ -z "$1" ] && return 0`: under `set -e` that
-          # compound returns 1 for a NON-empty arg and kills the step.
-          add() { if [ -n "$1" ]; then FAILED="${FAILED:+$FAILED,}$1"; fi; }
-
-          # For each gate job: a `failure` with no gate names means it died
-          # outside the gate step (checkout, artifact download, rehydrate,
-          # "Assert dist/ is the complete logical site"). That is a
-          # dist-integrity failure, not a quality one — mark it unknown so
-          # the classifier's default-deny blocks publish.
-          name=dist
-          result="$DIST_RESULT"
-          gates="$DIST_GATES"
-          case "$result" in
-            success) add "$gates" ;;
-            failure) if [ -n "$gates" ]; then add "$gates"; else add "__UNKNOWN__:$name"; fi ;;
-            *)       add "__UNKNOWN__:$name" ;;   # cancelled / skipped
-          esac
-
-          echo "collected failed gates: ${FAILED:-(none)}"
-
-          # The classifier always exits 0 and carries its verdict in
-          # $GITHUB_OUTPUT. If it cannot run AT ALL — file missing, syntax
-          # error, node crash, checkout above skipped — nothing is written and
-          # `integrity_ok` reaches the caller EMPTY (run 31055982487). Emit the
-          # fail-closed verdict ourselves so the issue reporter and summary can
-          # attribute the failure instead of showing an empty value. Publish
-          # independently remains closed only when the classifier cannot prove
-          # that all remaining failures are report-only.
-          if ! node scripts/ci/classify-validate-dist-failures.mjs --failed "$FAILED"; then
-            echo "::error::integrity classifier could not run — failing closed (integrity_ok=false)"
-            {
-              echo "integrity_ok=false"
-              echo "blocking_gates=__CLASSIFIER_UNAVAILABLE__"
-              echo "quality_gates="
-            } >> "$GITHUB_OUTPUT"
-          fi
-
-          # Exit 0 so the diagnostic verdict is unambiguous and the summary
-          # step below renders. A red validator job still reports the failure;
-          # only the classified integrity output decides whether publish may
-          # proceed.
-          # It asserts nothing about dist/ — the dist validator job keep their own
-          # results, validate-dist still reports FAILURE, and
-          # validate-dist-report still opens the tracking issue. Nothing is
-          # downgraded here (AGENTS.md non-negotiables #1, #2); the verdict is
-          # the output, never the exit code.
-          exit 0
-
-      - name: Summary
-        if: always()
-        run: |
-          {
-            echo "### validate-dist integrity verdict"
-            echo ""
-            echo "- \`integrity_ok\`: **${{ steps.verdict.outputs.integrity_ok }}**"
-            echo "- blocking gates: \`${{ steps.verdict.outputs.blocking_gates || '(none)' }}\`"
-            echo "- quality gates: \`${{ steps.verdict.outputs.quality_gates || '(none)' }}\`"
-            echo ""
-            echo "\`publish\` (IndexNow / Indexing API / GSC) consumes the fail-closed"
-            echo "\`integrity_ok\` output; \`deploy\` + \`validate-live\` must also be green."
-            echo "The independent quality report jobs are not publication prerequisites."
-          } >> "$GITHUB_STEP_SUMMARY"
