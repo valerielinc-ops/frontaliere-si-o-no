@@ -81,7 +81,9 @@ export function createHouseAdCreative(options: {
 }
 
 export const HOUSE_AD_CREATIVE_CSS = `
-.ft-house-creative{box-sizing:border-box;container-type:inline-size;display:grid;grid-template-columns:42% minmax(0,1fr);width:100%;height:100%;min-width:0;overflow:hidden;border:1px solid var(--_edge,ButtonBorder);border-radius:6px;background:var(--_surface,Canvas);color:var(--_heading,CanvasText);text-decoration:none;font:400 14px/1.4 Inter,system-ui,sans-serif;text-align:left;isolation:isolate}
+.ft-house-creative{box-sizing:border-box;container-type:inline-size;display:grid;grid-template-columns:42% minmax(0,1fr);width:100%;height:100%;min-width:0;overflow:hidden;border:1px solid var(--_edge,ButtonBorder);border-radius:6px;background:var(--_surface,Canvas);text-align:left;isolation:isolate}
+/* Isolate link typography without raising the specificity of format geometry. */
+a.ft-house-creative[data-house-format][data-house-creative]{color:var(--_heading,CanvasText);text-decoration:none;font:400 14px/1.4 Inter,system-ui,sans-serif}
 .ft-house-creative *{box-sizing:border-box}
 .ft-house-art{grid-column:1;grid-row:1;display:block;width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;object-position:center 28%}
 .ft-house-copy{grid-column:2;grid-row:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;min-width:0;min-height:0;padding:18px}
