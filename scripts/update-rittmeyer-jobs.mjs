@@ -252,6 +252,9 @@ export async function fetchRittmeyerOnlyfyListingSource(source, fetchPage = fetc
       if (pageRows.rittmeyerListingCountConflict === true) {
         throw new Error(`Rittmeyer: Onlyfy listing page ${pageNumber} exposed conflicting usable advertised counts`);
       }
+      if (pageRows.length < firstPageSize && pageRows.rittmeyerListingSkippedMalformedRows > 0) {
+        throw new Error(`Rittmeyer: Onlyfy listing page ${pageNumber} was short after skipping malformed rows`);
+      }
       if (pageRows.length === 0) {
         if (pageRows.rittmeyerListingEmptyStateObserved !== true) {
           throw new Error(`Rittmeyer: Onlyfy listing page ${pageNumber} was empty without an authoritative empty state`);

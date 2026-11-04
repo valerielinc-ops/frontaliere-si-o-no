@@ -129,17 +129,18 @@ function readRittmeyerListingCount(listingText, rowCount) {
     return { count: null, conflict: true };
   }
 
+  const allTotals = [...new Set([...explicitTotals, ...rangeTotals])];
+  if (allTotals.length > 1) {
+    return { count: null, conflict: true };
+  }
+
   // A stale Onlyfy counter can be lower than the cards already rendered on
   // the page (observed as 10 cards / "1 jobs found"). It cannot be used as a
   // page bound, but the cards are still a valid signal that pagination needs
   // to be walked until a terminal page is proven by the caller. Preserve the
   // distinction from a genuinely conflicting set of usable totals.
-  const allTotals = [...new Set([...explicitTotals, ...rangeTotals])];
   if (allTotals.length > 0 && usableTotals.length === 0) {
     return { count: null, conflict: false, stale: true };
-  }
-  if (allTotals.length > 1) {
-    return { count: null, conflict: true };
   }
   return { count: null, conflict: false, stale: false };
 }

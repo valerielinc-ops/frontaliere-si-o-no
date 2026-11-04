@@ -200,6 +200,53 @@ describe('rittmeyer-job-parser', () => {
     expect(rows.rittmeyerListingAdvertisedCount).toBeNull();
   });
 
+  it('fails closed when distinct stale totals conflict', () => {
+    const page = `<p>1 jobs found</p>
+      <p>1-2 out of 2</p>
+      <div class="results">${Array.from({ length: 10 }, (_, i) => `
+        <a data-testid="job-card" aria-label="Rittmeyer role ${i + 1}"
+           href="/en/job/rittmeyer-role-${i + 1}">
+          <h3 data-testid="job-title">Rittmeyer role ${i + 1}</h3>
+          <div data-testid="job-more-info">Baar | Full-time employee</div>
+        </a>`).join('')}</div>`;
+
+    const listings = parseRittmeyerListingsPage(page);
+    expect(listings.rittmeyerListingCountConflict).toBe(true);
+    expect(listings.rittmeyerListingAdvertisedCountStale).toBe(false);
+  });
+
+  it('fails closed instead of terminating on a short page with malformed rows', async () => {
+    const card = (id: number) => `
+      <a data-testid="job-card" aria-label="Rittmeyer role ${id}"
+         href="/en/job/rittmeyer-role-${id}">
+        <h3 data-testid="job-title">Rittmeyer role ${id}</h3>
+        <div data-testid="job-more-info">Camorino | Full-time employee</div>
+      </a>`;
+    const firstUrl = 'https://brugg.onlyfy.jobs/en/';
+    const secondUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 2);
+    const thirdUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 3);
+    const pages = new Map([
+      [firstUrl, `<p>1 jobs found</p><div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1)).join('')}</div>`],
+      [secondUrl, `<p>1 jobs found</p><div class="results">${Array.from({ length: 9 }, (_, i) => card(i + 11)).join('')}
+        <a data-testid="job-card" aria-label="Malformed card">
+          <h3 data-testid="job-title">Malformed card</h3>
+          <div data-testid="job-more-info">Camorino | Full-time employee</div>
+        </a>
+      </div>`],
+      [thirdUrl, `<p>1 jobs found</p><div class="results">${card(20)}</div>`],
+    ]);
+    const requested: string[] = [];
+
+    await expect(fetchRittmeyerOnlyfyListingSource(
+      { url: firstUrl, label: 'Onlyfy employer board' },
+      async (url) => {
+        requested.push(url);
+        return pages.get(url) || '';
+      },
+    )).rejects.toThrow(/short after skipping malformed rows/);
+    expect(requested).toEqual([firstUrl, secondUrl]);
+  });
+
   it('fails closed when structural and pager totals disagree', async () => {
     const page = `<p>10 jobs found</p>
       <p>1-10 out of 21</p>
