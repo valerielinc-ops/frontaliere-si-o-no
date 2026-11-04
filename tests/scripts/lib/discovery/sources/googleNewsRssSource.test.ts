@@ -116,4 +116,19 @@ describe('fetchNewsRssDiscoveryCandidates', () => {
     const out = await fetchNewsRssDiscoveryCandidates({}, { newsFn: throwingFn });
     expect(out).toEqual([]);
   });
+
+  it('forwards an absolute deadline to the RSS fetcher', async () => {
+    const deadlineMs = Date.now() + 60_000;
+    let receivedOptions: any;
+    const out = await fetchNewsRssDiscoveryCandidates({}, {
+      deadlineMs,
+      newsFn: async (options) => {
+        receivedOptions = options;
+        return { candidates: [] };
+      },
+    });
+
+    expect(out).toEqual([]);
+    expect(receivedOptions.deadlineMs).toBe(deadlineMs);
+  });
 });

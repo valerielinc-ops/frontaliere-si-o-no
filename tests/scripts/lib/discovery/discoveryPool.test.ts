@@ -181,6 +181,47 @@ describe('fetchAll', () => {
     // orphan + news still populate.
     expect(out.candidates.length).toBeGreaterThan(0);
   });
+
+  it('passes the reserved run deadline to trend evidence fetches', async () => {
+    const deadlineMs = Date.now() + 60_000;
+    const reserveMs = 5_000;
+    let evidenceOptions: { seeds?: string[]; deadlineMs?: number } | undefined;
+    const newsFn = async (_evidence: unknown, opts: { seeds?: string[]; deadlineMs?: number } = {}) => {
+      if (opts.seeds) evidenceOptions = opts;
+      return stubNews(_evidence, opts);
+    };
+
+    await fetchAll(evidence, {
+      suggestFn: async () => [],
+      newsFn,
+      trendsFn: stubTrends,
+      deadlineMs,
+      deadlineReserveMs: reserveMs,
+    });
+
+    expect(evidenceOptions?.deadlineMs).toBe(deadlineMs - reserveMs);
+  });
+
+  it('skips remote work when the effective deadline is already spent', async () => {
+    let newsCalls = 0;
+    let trendsCalls = 0;
+    const out = await fetchAll(evidence, {
+      suggestFn: async () => [],
+      newsFn: async () => {
+        newsCalls += 1;
+        return [];
+      },
+      trendsFn: async () => {
+        trendsCalls += 1;
+        return [];
+      },
+      deadlineMs: 0,
+    });
+
+    expect(newsCalls).toBe(0);
+    expect(trendsCalls).toBe(0);
+    expect(out.candidates).toEqual([]);
+  });
 });
 
 describe('dedupAgainstProven', () => {
