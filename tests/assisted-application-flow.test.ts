@@ -95,7 +95,8 @@ describe('red flags', () => {
   it('keeps required portal consent open until the candidate explicitly agrees', () => {
     const draft = {
       ...cleanDraft,
-      questions: [{ id: 'portal_privacy_consent', source: 'portal', required: true, requiresAffirmativeConsent: true }],
+      questions: [{ id: 'portal_privacy_consent', source: 'portal', question: 'Acconsenti al trattamento dei tuoi dati personali?',
+        required: true, requiresAffirmativeConsent: true }],
     };
     expect(evaluateRedFlags(draft, { portal_privacy_consent: 'No' }).candidate).toEqual(['portal_privacy_consent']);
     expect(evaluateRedFlags(draft, { portal_privacy_consent: 'Sì' }).candidate).toEqual([]);
