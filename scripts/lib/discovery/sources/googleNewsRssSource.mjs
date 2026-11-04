@@ -9,7 +9,12 @@
 //
 // Spec: docs/superpowers/specs/2026-05-07-traffic-quality-algorithm-design.md § 6.3.3
 
-import { fetchNewsRssCandidates } from '../../topic-sources/googleNewsRss.mjs';
+import {
+  fetchNewsRssCandidates,
+  NEWS_RSS_MAX_SEED_DURATION_MS,
+} from '../../topic-sources/googleNewsRss.mjs';
+
+export { NEWS_RSS_MAX_SEED_DURATION_MS };
 
 const SOURCE_TAG = 'news';
 const FALLBACK_AGE_HOURS = 48;

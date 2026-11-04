@@ -103,7 +103,11 @@ const SEEDS_FALLBACK = [
 
 const REQUEST_TIMEOUT_MS = 15000;
 const RETRY_DELAY_MS = 1500;
+const MAX_REQUEST_ATTEMPTS = 2;
 const DEFAULT_MAX_PER_SEED = 20;
+
+export const NEWS_RSS_MAX_SEED_DURATION_MS =
+  REQUEST_TIMEOUT_MS * MAX_REQUEST_ATTEMPTS + RETRY_DELAY_MS;
 
 const USER_AGENT =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
@@ -257,7 +261,7 @@ async function fetchOneSeed(seed, fetchImpl, timeoutMs, deadlineMs = null) {
     seed,
   )}&hl=it&gl=IT&ceid=IT:it`;
   let lastReason = null;
-  for (let attempt = 0; attempt <= 1; attempt++) {
+  for (let attempt = 0; attempt < MAX_REQUEST_ATTEMPTS; attempt++) {
     const remainingMs = deadlineMs === null ? Infinity : deadlineMs - Date.now();
     if (remainingMs <= 0) {
       return { ok: false, items: [], reason: 'deadline exceeded' };
@@ -282,7 +286,7 @@ async function fetchOneSeed(seed, fetchImpl, timeoutMs, deadlineMs = null) {
     } catch (e) {
       lastReason = `fetch error: ${e?.message ?? String(e)}`;
     }
-    if (attempt === 0) {
+    if (attempt < MAX_REQUEST_ATTEMPTS - 1) {
       const retryWindowMs = deadlineMs === null ? RETRY_DELAY_MS : deadlineMs - Date.now();
       if (retryWindowMs <= 0) break;
       await sleep(Math.min(RETRY_DELAY_MS, retryWindowMs));

@@ -14,7 +14,10 @@
 
 import { fetchOrphanCandidates } from './sources/orphanQuerySource.mjs';
 import { fetchSuggestDiscoveryCandidates } from './sources/googleSuggestSource.mjs';
-import { fetchNewsRssDiscoveryCandidates } from './sources/googleNewsRssSource.mjs';
+import {
+  fetchNewsRssDiscoveryCandidates,
+  NEWS_RSS_MAX_SEED_DURATION_MS,
+} from './sources/googleNewsRssSource.mjs';
 import { fetchTrendsDiscoveryCandidates } from './sources/googleTrendsSource.mjs';
 import { discoveryScore } from './discoveryScore.mjs';
 import { isNearDuplicate, SLUG_SIMILARITY_THRESHOLD } from '../scheduler/slugSimilarity.mjs';
@@ -23,12 +26,12 @@ const ENV_TRUE = (val) => val === '1' || val === 'true';
 const MAX_TREND_EVIDENCE_SEEDS = 3;
 const MAX_TREND_EVIDENCE_ARTICLES_PER_SEED = 2;
 const MAX_TREND_EVIDENCE_AGE_HOURS = 14 * 24;
-const MIN_TREND_EVIDENCE_WINDOW_MS = 1_000;
+const MIN_TREND_EVIDENCE_WINDOW_MS = MAX_TREND_EVIDENCE_SEEDS * NEWS_RSS_MAX_SEED_DURATION_MS;
 
 function normalizeDeadlineMs(value) {
   if (value === null || value === undefined) return null;
   const number = Number(value);
-  return Number.isFinite(number) && number >= 0 ? number : null;
+  return Number.isFinite(number) ? number : null;
 }
 
 function normalizeReserveMs(value) {
