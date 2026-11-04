@@ -798,6 +798,18 @@ describe('JobAlertForm — inline_card impression fires once, on visibility (iss
     expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
   });
 
+  it('keeps a passive utility-card click on the management form, not the create funnel', () => {
+    const onRequireAuth = vi.fn();
+    render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+
+    fireEvent.click(screen.getAllByRole('button')[0]);
+
+    expect(document.getElementById('job-alert-form')).not.toBeNull();
+    expect(analyticsMock.trackJobAlertCtaClick).toHaveBeenCalledWith('inline_card', 'open', '');
+    expect(analyticsMock.trackJobAlertCreated).not.toHaveBeenCalled();
+    expect(onRequireAuth).not.toHaveBeenCalled();
+  });
+
   it('waits for a signed-in user\'s alerts before arming the passive view', async () => {
     render(<JobAlertForm authUser={authUser} />);
     await waitFor(() => expect(FakeIO.instances.length).toBeGreaterThan(0));
