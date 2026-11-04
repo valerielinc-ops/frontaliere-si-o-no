@@ -179,6 +179,76 @@ describe('portal field extraction', () => {
     expect(persistent.buttons.find((button: any) => button.text === 'Customise Cookies')).not.toHaveProperty('cookieSurface');
   });
 
+  it('dismisses Helsana’s generic consent controls before reading the root receipt', async () => {
+    const url = 'https://careers.helsana.ch/';
+    const { window } = new JSDOM(`<!doctype html><html><body><div>
+      <p>Mit der weiteren Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.</p>
+      <button data-aa-id="accept">Akzeptieren</button>
+      <button data-aa-id="close" aria-label="Schließen"></button>
+    </div></body></html>`, { url });
+    vi.stubGlobal('window', window);
+    vi.stubGlobal('document', window.document);
+    let dismissed = false;
+    const banner = {
+      url,
+      text: 'Mit der weiteren Nutzung dieser\nWebsite und der Navigation auf dieser Website stimmen Sie der Verwendung von Cookies zu. Vielen Dank. Wir haben deine Unterlagen erhalten.',
+      fields: [],
+      buttons: [
+        { id: 'accept', text: 'Akzeptieren', disabled: false },
+        { id: 'close', text: '', ariaLabel: 'Schließen', disabled: false },
+      ],
+      dialogs: [],
+      errors: [],
+    };
+    const receipt = { ...banner, buttons: [], text: 'Vielen Dank. Wir haben deine Unterlagen erhalten.' };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function, args: unknown) => evaluateInPage === extractFieldsInPage
+        ? (dismissed ? receipt : banner) : evaluateInPage(args)),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => { expect(selector).toBe('[data-aa-id="accept"]'); dismissed = true; }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, banner as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(dismissed).toBe(true);
+    expect(result.snapshot).toMatchObject({ text: receipt.text, buttons: [] });
+  });
+
+  it('does not pair generic consent copy with controls from another container', async () => {
+    const url = 'https://careers.example/apply';
+    const { window } = new JSDOM(`<!doctype html><html><body>
+      <div><p>Mit der weiteren Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.</p></div>
+      <div><button data-aa-id="accept">Akzeptieren</button><button data-aa-id="close" aria-label="Schließen"></button></div>
+    </body></html>`, { url });
+    vi.stubGlobal('window', window);
+    vi.stubGlobal('document', window.document);
+    const snapshot = {
+      url,
+      text: 'Mit der weiteren Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.',
+      fields: [],
+      buttons: [
+        { id: 'accept', text: 'Akzeptieren', disabled: false },
+        { id: 'close', text: '', ariaLabel: 'Schließen', disabled: false },
+      ],
+      dialogs: [],
+      errors: [],
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function, args: unknown) => evaluateInPage === extractFieldsInPage
+        ? snapshot : evaluateInPage(args)),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+  });
+
   it('opens an active preference center, then applies only its explicit cookie choice', async () => {
     const url = 'https://careers.example/apply';
     let stage = 0;

@@ -951,6 +951,15 @@ const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[s
 const COOKIE_WORD_RE = /\bcookies?\b/i;
 const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
 const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accepter)$/i;
+// Some employer-hosted SuccessFactors pages expose the cookie statement and
+// its generic controls without a cookie-specific landmark. Keep the fallback
+// narrow: a consent sentence must be visible together with a separate close
+// control, so an application privacy dialog cannot borrow a generic "Accept".
+const COOKIE_CONSENT_COPY_RE = /(?:\bcookies?\b.{0,240}\b(?:website|webseite|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b|\b(?:website|webseite|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b.{0,240}\bcookies?\b)/i;
+const COOKIE_DISMISS_RE = /^(?:schlie(?:ß|ss)en|close|dismiss|chiudi|fermer|cerrar|sluiten|fechar)$/i;
+const normalizeCookieText = value => String(value || '').replace(/\s+/g, ' ').trim();
+const cookieControlLabel = (button) => [button?.text, button?.label, button?.ariaLabel, button?.title]
+  .map(value => String(value || '').trim()).find(Boolean) || '';
 const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cookieSupportingContext = (button) => {
   const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
@@ -960,10 +969,99 @@ const cookieSupportingContext = (button) => {
     .map(value => ownLabels.reduce((context, label) => context.replace(new RegExp(escapeRegex(label), 'ig'), ' '), String(value)))
     .join(' ');
 };
+const cookieContextIdentity = (button) => {
+  const frame = Number(button?.frame) || 0;
+  for (const key of [
+    'cookieContainerId', 'cookieSurfaceId', 'cookieContextId', 'containerId', 'containerContext',
+    'overlayId', 'overlayContext', 'surfaceId', 'surfaceContext', 'contextId', 'dialogId',
+  ]) {
+    const value = String(button?.[key] || '').trim();
+    if (value) return `${frame}:${key}:${value}`;
+  }
+  const supportingContext = normalizeCookieText(cookieSupportingContext(button));
+  return supportingContext ? `${frame}:supporting:${supportingContext}` : '';
+};
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
-async function cookieControlHasCookieContext(page, button) {
+async function genericCookieControlsShareContainer(page, button, closeControls) {
+  const scope = cookieContextIdentity(button);
+  const sameScope = closeControls.some(candidate => cookieContextIdentity(candidate) === scope);
+  const frameNumber = Number(button.frame) || 0;
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  const frame = frames[frameNumber]
+    || (frameNumber === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
+  const closeIds = closeControls.map(candidate => String(candidate.id || '').trim()).filter(Boolean);
+  if (button.id && closeIds.length && typeof frame?.evaluate === 'function') {
+    const domResult = await frame.evaluate(({ acceptId, closeIds: ids, copyPattern }) => {
+      const normalize = value => String(value || '').replace(/\s+/g, ' ').trim();
+      const copyRe = new RegExp(copyPattern, 'i');
+      const controlFor = id => [...document.querySelectorAll('[data-aa-id]')]
+        .find(element => element.getAttribute('data-aa-id') === id) || null;
+      const accept = controlFor(acceptId);
+      const closes = ids.map(controlFor).filter(Boolean);
+      if (!accept || !closes.length) return false;
+      const markerRe = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
+      const explicitSurfaceFor = (element) => {
+        for (let node = element; node && node !== document.body; node = node.parentElement) {
+          const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('role'), node.getAttribute('aria-label')]
+            .filter(Boolean).join(' ');
+          if (node.matches('dialog, [role="dialog"], [aria-modal="true"], [role="banner"], [role="region"]')
+            || markerRe.test(marker)) return node;
+        }
+        return null;
+      };
+      const isPageRoot = node => node === document.body || node === document.documentElement
+        || node.matches('main, [role="main"]');
+      const isBoundedGenericSurface = (node, text) => !isPageRoot(node)
+        && !node.matches('form, [role="form"]')
+        && !node.querySelector('form, main, [role="main"]')
+        && node.querySelectorAll('button, input[type="submit"], a[role="button"], a[href], [role="button"]').length <= 12
+        && text.length <= 2_400;
+      const genericSurfaceFor = (element) => {
+        for (let node = element; node && node !== document.body; node = node.parentElement) {
+          const text = normalize(node.innerText || node.textContent || '');
+          if (copyRe.test(text) && isBoundedGenericSurface(node, text)) return node;
+        }
+        return null;
+      };
+      const acceptSurface = explicitSurfaceFor(accept);
+      for (const close of closes) {
+        const closeSurface = explicitSurfaceFor(close);
+        if (acceptSurface || closeSurface) {
+          if (acceptSurface && acceptSurface === closeSurface
+            && copyRe.test(normalize(acceptSurface.innerText || acceptSurface.textContent || ''))) return true;
+          continue;
+        }
+        const acceptGenericSurface = genericSurfaceFor(accept);
+        const closeGenericSurface = genericSurfaceFor(close);
+        if (acceptGenericSurface && acceptGenericSurface === closeGenericSurface) return true;
+      }
+      return false;
+    }, { acceptId: String(button.id), closeIds, copyPattern: COOKIE_CONSENT_COPY_RE.source }).catch(() => null);
+    if (typeof domResult === 'boolean') return domResult;
+  }
+  // Snapshot fixtures and older producers may carry a stable container identity
+  // without exposing the live DOM. Require copy from that same bounded context;
+  // a bare page-wide cookie copy never authorizes a generic control.
+  const scopedCopyEvidence = [button, ...closeControls]
+    .flatMap(candidate => [candidate.cookieContainerText, candidate.cookieContextText, candidate.containerText,
+      candidate.context, candidate.section])
+    .some(value => COOKIE_CONSENT_COPY_RE.test(normalizeCookieText(value)));
+  return Boolean(scope && sameScope && scopedCopyEvidence);
+}
+
+async function isPageCookieConsentControl(page, snapshot, button) {
+  const label = cookieControlLabel(button);
+  if (button.disabled || button.chrome || button.dialog || !COOKIE_ACCEPT_RE.test(label)) return false;
+  const frame = Number(button.frame) || 0;
+  const closeControls = (snapshot?.buttons || []).filter(candidate => (Number(candidate.frame) || 0) === frame
+    && !candidate.disabled && !candidate.chrome && COOKIE_DISMISS_RE.test(cookieControlLabel(candidate)));
+  if (!closeControls.length || !COOKIE_CONSENT_COPY_RE.test(normalizeCookieText(snapshot?.text))) return false;
+  return genericCookieControlsShareContainer(page, button, closeControls);
+}
+
+async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -974,17 +1072,17 @@ async function cookieControlHasCookieContext(page, button) {
     }
   }
   const supportingContext = cookieSupportingContext(button);
-  return button.cookieSurface === 'banner'
-    && COOKIE_WORD_RE.test(`${supportingContext} ${button.text || ''} ${button.label || ''} ${button.ariaLabel || ''}`);
+  if (button.cookieSurface === 'banner'
+    && COOKIE_WORD_RE.test(`${supportingContext} ${button.text || ''} ${button.label || ''} ${button.ariaLabel || ''}`)) return true;
+  return isPageCookieConsentControl(page, snapshot, button);
 }
 
 async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || button.chrome) continue;
-    const label = [button.text, button.label, button.ariaLabel, button.title]
-      .map(value => String(value || '').trim()).find(Boolean) || '';
+    const label = cookieControlLabel(button);
     if (!pattern.test(label) && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))) continue;
-    if (await cookieControlHasCookieContext(page, button)) return button;
+    if (await cookieControlHasCookieContext(page, button, snapshot)) return button;
   }
   return null;
 }
