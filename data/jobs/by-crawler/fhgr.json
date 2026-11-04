@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-11-03T21:57:13.790Z",
-  "runId": "41720478286",
+  "assembledAt": "2026-11-04T09:28:26.713Z",
+  "runId": "41806238925",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -34,7 +34,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:57:08.260Z",
+      "crawledAt": "2026-11-04T09:28:21.216Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T21:57:08.260Z",
+      "validThrough": "2026-12-04T09:28:21.216Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -155,7 +155,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/812/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:57:07.503Z",
+      "crawledAt": "2026-11-04T09:28:20.087Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -191,7 +191,6 @@
           "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -219,7 +218,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T21:57:07.503Z",
+      "validThrough": "2027-02-02T09:28:20.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -253,7 +252,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/805/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:57:06.302Z",
+      "crawledAt": "2026-11-04T09:28:18.951Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -290,7 +289,6 @@
           "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-11-03T09:52:12.722Z",
       "salaryMin": 73000,
       "salaryMax": 135000,
@@ -319,7 +317,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T21:57:06.302Z",
+      "validThrough": "2027-02-02T09:28:18.951Z",
       "validThroughSource": "last-observed-window"
     }
   ]
