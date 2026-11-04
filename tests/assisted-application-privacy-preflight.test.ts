@@ -342,6 +342,7 @@ describe('privacy before the registration click', () => {
       <label for="first">Vorname: *</label><input id="first" name="first" required>
       <label for="last">Nachname: *</label><input id="last" name="last" required>
       <label for="country">Land/Region des Wohnorts:*</label><select id="country" name="country" required><option value="CH" selected>Schweiz</option></select>
+      <input type="hidden" id="consent" value="">
       <label for="notice">Datenschutzerklärung:*</label><a id="notice" role="button" tabindex="0" aria-haspopup="dialog">Lesen und akzeptieren Sie die Datenschutzerklärung.</a>
       <button type="submit" id="create" disabled>Konto anlegen</button>
     </form>${SUCCESS_FACTORS_DIALOG}`;
