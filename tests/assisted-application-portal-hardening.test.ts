@@ -28,6 +28,7 @@ import {
   isSafeEmployerSitePreread,
   readPortalQuestions,
   realisticUserAgent,
+  startsApplication,
   urlConfirms,
 } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalAnswerForApplication, portalOptionMap } from '../scripts/assisted-application/lib/portal/question-key.mjs';
@@ -279,6 +280,10 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch('Concierge - Application | Esempio Resort', job, { postingMatched: true })).toBe('mismatch');
     // …while one that is silent about the employer goes on with the role alone.
     expect(formPostingMatch('Concierge — Application Tracking System', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('match');
+  });
+
+  it('recognizes the EOC formal Italian application link on a Umantis description page', () => {
+    expect(startsApplication('Invii la sua candidatura')).toBe(true);
   });
 
   // Reviews of #11033 on the employer a form names. Their acceptances as written, for
