@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { mkdirSync, readFileSync, readdirSync, renameSync, rmdirSync } from 'node:fs';
+import { once } from 'node:events';
+import { mkdirSync, readdirSync, renameSync, rmdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { ticinoTreeBucket } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
@@ -57,30 +58,59 @@ export function unfanoutTicinoTree(root) {
   rmdirSync(fanoutRoot);
 }
 
-function mapPathStream() {
-  const input = readFileSync(0, 'utf8');
-  const output = input
-    .split('\0')
-    .filter(Boolean)
-    .map(ticinoTreePhysicalPath)
-    .join('\0');
-  process.stdout.write(output ? `${output}\0` : '');
+async function writeStdout(chunk) {
+  if (process.stdout.write(chunk)) return;
+  await once(process.stdout, 'drain');
+}
+
+async function mapPathStream() {
+  let pending = Buffer.alloc(0);
+
+  for await (const chunk of process.stdin) {
+    const input = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+    let start = 0;
+
+    while (start < input.length) {
+      const separator = input.indexOf(0, start);
+      if (separator === -1) {
+        pending = pending.length === 0
+          ? input.subarray(start)
+          : Buffer.concat([pending, input.subarray(start)]);
+        break;
+      }
+
+      const record = pending.length === 0
+        ? input.subarray(start, separator)
+        : Buffer.concat([pending, input.subarray(start, separator)]);
+      pending = Buffer.alloc(0);
+      if (record.length > 0) {
+        await writeStdout(`${ticinoTreePhysicalPath(record.toString('utf8'))}\0`);
+      }
+      start = separator + 1;
+    }
+  }
+
+  if (pending.length > 0) {
+    await writeStdout(`${ticinoTreePhysicalPath(pending.toString('utf8'))}\0`);
+  }
 }
 
 if (isInvokedDirectly(import.meta.url)) {
-  const [command, root] = process.argv.slice(2);
-  try {
-    if (command === 'map-paths') {
-      mapPathStream();
-    } else if (!root || !['fanout', 'unfanout'].includes(command)) {
-      throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout|map-paths> [section-root]');
-    } else if (command === 'fanout') {
-      fanoutTicinoTree(root);
-    } else {
-      unfanoutTicinoTree(root);
+  await (async () => {
+    const [command, root] = process.argv.slice(2);
+    try {
+      if (command === 'map-paths') {
+        await mapPathStream();
+      } else if (!root || !['fanout', 'unfanout'].includes(command)) {
+        throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout|map-paths> [section-root]');
+      } else if (command === 'fanout') {
+        fanoutTicinoTree(root);
+      } else {
+        unfanoutTicinoTree(root);
+      }
+    } catch (error) {
+      console.error(`::error::${error instanceof Error ? error.message : String(error)}`);
+      process.exitCode = 1;
     }
-  } catch (error) {
-    console.error(`::error::${error instanceof Error ? error.message : String(error)}`);
-    process.exitCode = 1;
-  }
+  })();
 }
