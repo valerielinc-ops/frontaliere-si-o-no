@@ -38,6 +38,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 1
+          filter: blob:none
           # This job's runtime closure is limited to the fuel producer and its
           # refresh publisher. Keep the checkout explicit: the generated
           # exclusion profile conservatively sees the whole `scripts/` tree
