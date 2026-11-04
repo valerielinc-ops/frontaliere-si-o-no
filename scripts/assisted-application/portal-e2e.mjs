@@ -162,7 +162,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
+  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, coverLetterUploads: 0, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${receiptQuery(action)}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer, invalidEmail = false } = {}) => {
@@ -637,7 +637,7 @@ function fakePortal() {
             if (response.ok) el('cv-status').textContent = el('cv').files[0].name + ' successfully uploaded';
             else el('cv-status').textContent = el('cv').files[0].name;
           });
-          el('letter').addEventListener('change', async () => {
+          const uploadLetter = async () => {
             const body = new FormData();
             body.append('letter', el('letter').files[0]);
             const request = ${workday.coverLetterUploadFails
@@ -645,8 +645,16 @@ function fakePortal() {
               : "{ method: 'POST', body }"};
             const response = await fetch('/wd/upload-letter', request);
             if (response.ok) el('letter-status').textContent = el('letter').files[0].name + ' successfully uploaded';
-            else el('letter-status').textContent = el('letter').files[0].name;
-          });
+            else {
+              el('letter-status').textContent = el('letter').files[0].name;
+              const previous = el('letter');
+              const replacement = previous.cloneNode(false);
+              replacement.removeAttribute('data-aa-id');
+              replacement.addEventListener('change', uploadLetter);
+              previous.replaceWith(replacement);
+            }
+          };
+          el('letter').addEventListener('change', uploadLetter);
           const addProfileRow = (kind) => {
             const root = el(kind + '-rows');
             const row = document.createElement('fieldset');
@@ -702,6 +710,7 @@ function fakePortal() {
       return res.end();
     }
     if (route === 'POST /wd/upload-letter') {
+      workday.coverLetterUploads += 1;
       await readBody(req);
       res.writeHead(workday.coverLetterUploadFails ? 500 : 204);
       return res.end();
@@ -1178,6 +1187,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
       { section: 'education', added: 2, skipped: 0 },
   ])), profileSections);
   workday.coverLetterUploadFails = true;
+  workday.coverLetterUploads = 0;
   const applicationsBeforeOptionalLetter = state.applications.length;
   state.sessions.clear();
   const optionalLetterFailure = await run(job);
@@ -1187,6 +1197,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
     event: { type: optionalLetterFailure.event.type, reason: optionalLetterFailure.event.reason || null },
     applicationDelta: state.applications.length - applicationsBeforeOptionalLetter,
     submittedHasCv: state.applications.at(-1)?.hasCv === true,
+    coverLetterUploadAttempts: workday.coverLetterUploads,
     uploadDocuments: uploadsAfterOptionalLetterFailure.map((upload) => upload.document),
     failureCodes: optionalLetterFailure.evidence.steps.flatMap((step) => step.failures || []).map((failure) => failure.error).filter((error) => /^[a-z_]{1,80}$/.test(String(error || ''))),
   };
@@ -1194,6 +1205,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
     optionalLetterFailure.event.type === 'submit_succeeded'
     && state.applications.length === applicationsBeforeOptionalLetter + 1
     && state.applications.at(-1)?.hasCv === true
+    && workday.coverLetterUploads === 1
     && uploadsAfterOptionalLetterFailure.some((upload) => upload.document === 'cv')
     && !uploadsAfterOptionalLetterFailure.some((upload) => upload.document === 'cover_letter')
     && optionalLetterFailure.evidence.steps.some((step) => (step.failures || []).some((failure) => failure.error === 'upload_not_confirmed')),

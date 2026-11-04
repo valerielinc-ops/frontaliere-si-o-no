@@ -4703,6 +4703,7 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
+    const selectedFilesThisRun = new Set();
     const privacyAcceptedPages = new Set();
     // Bounded redraw recovery follows the logical wizard page, not the URL or
     // the loop counter (portals often keep one address for every SPA step).
@@ -5023,7 +5024,7 @@ export async function submitViaPortal(ctx) {
       // draft written since (a planner that sees «successfully uploaded» leaves the field alone). What this
       // run uploaded itself stays.
       const sentNow = new Set(evidence.uploads.map((upload) => upload.document));
-      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document))
+      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document) && !selectedFilesThisRun.has(document))
         .flatMap((document) => {
           const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
           const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
@@ -5086,7 +5087,8 @@ export async function submitViaPortal(ctx) {
         const uploadKey = (fieldId) => uploadedPortalFieldKey(
           page.url(), snapshot.fields.find((field) => field.id === fieldId) || { id: fieldId },
         );
-        const actions = plannedActions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
+        const actions = plannedActions.filter((action) => action.action !== 'upload'
+          || (!uploaded.has(uploadKey(action.fieldId)) && !selectedFilesThisRun.has(action.document)));
         const plannedUrl = page.url();
         const redrawKey = `${pageEpoch}|${plannedUrl}`;
         // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
@@ -5115,7 +5117,13 @@ export async function submitViaPortal(ctx) {
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
-          onUploadSelection: (fieldId, paths) => selectedUploads.set(fieldId, paths),
+          onUploadSelection: (fieldId, paths) => {
+            selectedUploads.set(fieldId, paths);
+            if (paths.length) {
+              const selectedAction = actions.find((action) => action.fieldId === fieldId && action.action === 'upload');
+              if (selectedAction?.document) selectedFilesThisRun.add(selectedAction.document);
+            }
+          },
         }));
         if (!redrawn) {
           for (const action of actions.filter((item) => item.action === 'upload')) {
@@ -5131,6 +5139,10 @@ export async function submitViaPortal(ctx) {
               const optionalCoverLetter = action.document === 'cover_letter'
                 && field?.required === false && !field.invalid;
               if (optionalCoverLetter) {
+                // This selection belongs to the current run, even when its
+                // upload receipt is missing. Do not retry it on a redraw or
+                // mistake its still-visible filename for an older upload.
+                uploaded.add(uploadKey(action.fieldId));
                 if (result) {
                   result.ok = false;
                   result.error ||= 'upload_not_confirmed';
