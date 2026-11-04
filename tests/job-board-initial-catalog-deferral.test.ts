@@ -30,6 +30,23 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(JOB_BOARD_SOURCE).toContain('if (jobBoardInteractionSeenRef.current)');
   });
 
+  it('releases the catalog after the triggering input has a paint opportunity', () => {
+    const noteStart = JOB_BOARD_SOURCE.indexOf('const noteJobBoardInteraction = useCallback');
+    const noteEnd = JOB_BOARD_SOURCE.indexOf('useEffect(() => {', noteStart);
+    const note = JOB_BOARD_SOURCE.slice(noteStart, noteEnd);
+
+    expect(noteStart).toBeGreaterThanOrEqual(0);
+    expect(noteEnd).toBeGreaterThan(noteStart);
+    expect(note).toContain('scheduleAfterInteractionPaint');
+    expect(note).toContain('catalogInteractionReadyRef.current = true');
+    expect(note).toContain('setJobBoardInteractionObserved(true)');
+    expect(note.indexOf('scheduleAfterInteractionPaint')).toBeLessThan(
+      note.indexOf('setJobBoardInteractionObserved(true)'),
+    );
+    expect(JOB_BOARD_SOURCE).toContain('requestIdleCallback(run, { timeout: 1000 })');
+    expect(JOB_BOARD_SOURCE).toContain('catalogInteractionReadyRef.current');
+  });
+
   it('shows a resolving state when a filter needs the full catalog', () => {
     expect(JOB_BOARD_SOURCE).toMatch(/fullLoadPending && \(activeFilterCount > 0 \|\| salaryRangeFilter\.min !== null\)/);
   });
