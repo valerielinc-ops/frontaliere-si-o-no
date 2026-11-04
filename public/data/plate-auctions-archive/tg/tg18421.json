@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109911",
+      "sourceKey": "TG",
+      "sourceRecordId": "109911",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "18421",
+      "normalizedPlate": "TG18421",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-11-04T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109911",
+      "sourceFetchedAt": "2026-11-04T14:33:42.278Z",
+      "lastVerifiedAt": "2026-11-04T14:33:42.278Z",
+      "firstSeenAt": "2026-10-28T22:36:03.976Z",
+      "lastSeenAt": "2026-11-04T14:33:42.278Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "a4a2f89a47ad"
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "be-230924",
+      "id": "be-231388",
       "sourceKey": "BE",
-      "sourceRecordId": "230924",
+      "sourceRecordId": "231388",
       "canton": "Berna",
       "platePrefix": "BE",
       "plateNumber": "96469",
@@ -13,17 +13,17 @@
       "vehicleType": "car",
       "auctionStatus": "closed",
       "currentBidChf": 790,
-      "bidCount": 0,
-      "endsAt": "2026-09-30T19:00:00.000Z",
-      "closedAt": "2026-09-30T19:00:00.000Z",
+      "bidCount": 1,
+      "endsAt": "2026-11-04T20:00:00.000Z",
+      "closedAt": "2026-11-04T20:00:00.000Z",
       "officialAuctionUrl": "https://auktion-be.ch/de/",
-      "officialDetailUrl": "https://www.auktion-be.ch/de/auction/230924",
-      "sourceFetchedAt": "2026-09-30T17:47:06.184Z",
-      "lastVerifiedAt": "2026-09-30T17:47:06.184Z",
-      "firstSeenAt": "2026-09-24T11:49:42.835Z",
-      "lastSeenAt": "2026-09-30T17:47:06.184Z",
+      "officialDetailUrl": "https://auktion-be.ch/de/auction/231388",
+      "sourceFetchedAt": "2026-11-04T14:32:36.558Z",
+      "lastVerifiedAt": "2026-11-04T14:32:36.558Z",
+      "firstSeenAt": "2026-10-29T12:59:36.269Z",
+      "lastSeenAt": "2026-11-04T14:32:36.558Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "007f887e99b7"
+      "rawSnapshotHash": "fe1439304312"
     }
   ]
 }

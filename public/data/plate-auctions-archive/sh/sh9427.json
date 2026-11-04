@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "sh-69550",
+      "id": "sh-69710",
       "sourceKey": "SH",
-      "sourceRecordId": "69550",
+      "sourceRecordId": "69710",
       "canton": "Sciaffusa",
       "platePrefix": "SH",
       "plateNumber": "9427",
@@ -13,17 +13,17 @@
       "vehicleType": "car",
       "auctionStatus": "closed",
       "currentBidChf": 750,
-      "bidCount": 0,
-      "endsAt": "2026-10-07T20:00:00.000Z",
-      "closedAt": "2026-10-07T20:00:00.000Z",
+      "bidCount": 1,
+      "endsAt": "2026-11-04T21:00:00.000Z",
+      "closedAt": "2026-11-04T21:00:00.000Z",
       "officialAuctionUrl": "https://www.auktion-stva.sh.ch/de/",
-      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69550",
-      "sourceFetchedAt": "2026-10-07T17:47:05.238Z",
-      "lastVerifiedAt": "2026-10-07T17:47:05.238Z",
-      "firstSeenAt": "2026-10-01T05:59:26.915Z",
-      "lastSeenAt": "2026-10-07T17:47:05.238Z",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69710",
+      "sourceFetchedAt": "2026-11-04T14:33:11.884Z",
+      "lastVerifiedAt": "2026-11-04T14:33:11.884Z",
+      "firstSeenAt": "2026-10-29T05:47:27.965Z",
+      "lastSeenAt": "2026-11-04T14:33:11.884Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "cd8540b491c6"
+      "rawSnapshotHash": "390173f96570"
     }
   ]
 }

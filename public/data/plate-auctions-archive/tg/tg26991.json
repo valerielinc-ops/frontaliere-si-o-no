@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "tg-109813",
+      "id": "tg-109883",
       "sourceKey": "TG",
-      "sourceRecordId": "109813",
+      "sourceRecordId": "109883",
       "canton": "Turgovia",
       "platePrefix": "TG",
       "plateNumber": "26991",
@@ -12,18 +12,18 @@
       "listingType": "auction",
       "vehicleType": "car",
       "auctionStatus": "closed",
-      "currentBidChf": 640,
-      "bidCount": 2,
-      "endsAt": "2026-10-21T17:00:00.000Z",
-      "closedAt": "2026-10-21T17:00:00.000Z",
-      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
-      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109813",
-      "sourceFetchedAt": "2026-10-21T11:49:02.461Z",
-      "lastVerifiedAt": "2026-10-21T11:49:02.461Z",
-      "firstSeenAt": "2026-10-10T21:50:09.175Z",
-      "lastSeenAt": "2026-10-21T11:49:02.461Z",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-11-04T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109883",
+      "sourceFetchedAt": "2026-11-03T23:23:32.391Z",
+      "lastVerifiedAt": "2026-11-03T23:23:32.391Z",
+      "firstSeenAt": "2026-10-22T17:12:02.218Z",
+      "lastSeenAt": "2026-11-03T23:23:32.391Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "6b1f7ea174bd"
+      "rawSnapshotHash": "013abe223977"
     }
   ]
 }
