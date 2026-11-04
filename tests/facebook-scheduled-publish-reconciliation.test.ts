@@ -84,7 +84,7 @@ describe('Facebook scheduled-post reconciliation', () => {
     expect(rows[0].actualPublishedAt).toBe('2026-11-02T23:04:12.000Z');
     expect(log).toHaveBeenCalledWith(
       'ℹ️',
-      'ℹ️ 1 confirmed Facebook scheduled post(s) predate the shared reservation ledger',
+      '1 confirmed Facebook scheduled post(s) predate the shared reservation ledger',
     );
   });
 
