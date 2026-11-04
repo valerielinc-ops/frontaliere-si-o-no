@@ -97,7 +97,7 @@ describe('HFR Oracle HCM crawler parser', () => {
       postingDateSource: 'reported',
     });
     expect(result.jobs[0].description).toBe(SOURCE_DESCRIPTION);
-    expect(result.jobs[0].description.split(/\s+/)).toHaveLength(67);
+    expect(result.jobs[0].description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
     expect(requestedUrls.filter((url) => url.includes('/recruitingCEJobRequisitionDetails/'))).toHaveLength(1);
   });
 

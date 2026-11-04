@@ -12,12 +12,13 @@ import { createHash } from 'node:crypto';
 import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify } from './slugify.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   detectHealthcareCategory,
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
+  htmlToText,
 } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
@@ -326,8 +327,8 @@ function buildJob(requisition, detail) {
   const title = normalizeSpace(requisition.Title || '');
   if (!reqId || title.length < 3) return null;
 
-  const detailDescription = stripHtml(detail?.ExternalDescriptionStr || '');
-  const listingDescription = stripHtml(requisition.ShortDescriptionStr || '');
+  const detailDescription = htmlToText(detail?.ExternalDescriptionStr || '');
+  const listingDescription = htmlToText(requisition.ShortDescriptionStr || '');
   const description = [detailDescription, listingDescription]
     .find((candidate) => meetsSourceBodyFloor(candidate)) || '';
   if (!description) return null;

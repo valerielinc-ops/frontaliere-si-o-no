@@ -21,32 +21,55 @@ function expectPublication(job: Record<string, unknown>, date: string) {
   expect(job.canton).toBeTruthy();
 }
 
-describe('Breezy publication through the real HFR consumer', () => {
+const dateDaysAgo = (days: number) => new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
+const dateDaysAhead = (days: number) => new Date(Date.now() + days * 24 * 60 * 60 * 1000).toISOString();
+const HFR_SOURCE_DESCRIPTION = [
+  'Accompagner les patients et coordonner les soins avec les équipes médicales de notre hôpital.',
+  'Participer aux projets du service, documenter les interventions et respecter les procédures de qualité et de sécurité.',
+  'Collaborer avec les équipes interdisciplinaires dans un environnement bilingue et contribuer à la formation continue.',
+  'Assurer un accueil attentif, transmettre les informations nécessaires et participer aux améliorations continues de la prise en charge.',
+].join(' ');
+
+describe('Oracle publication through the real HFR consumer', () => {
   it.each([
-    ['detail timestamp', '2026-09-20T23:30:00-03:00', undefined, '2026-09-20T23:30:00-03:00'],
-    ['listing timestamp', undefined, '2026-09-24T12:29:43.403Z', '2026-09-24T12:29:43.403Z'],
-    ['older original detail', '2026-06-25', '2026-10-02', '2026-06-25'],
-    ['missing', undefined, undefined, ''],
-    ['invalid calendar', '2026-02-30', 'nonsense', ''],
-    ['future', '2026-10-05', '2026-10-06', ''],
-    ['valid fallback after invalid detail', '2026-02-30', '2026-09-24', '2026-09-24'],
-  ])('%s preserves the atomic evidence fields', async (_label, detailDate, listingDate, expected) => {
-    const listing = [{ id: 'example', friendly_id: 'example', name: 'Infirmier hospitalier',
-      url: 'https://hopital-fribourgeois.breezy.hr/p/example', published_date: listingDate,
-      created_date: '2026-09-01', updated_date: '2026-10-03' }];
-    const detail = `<script type="application/ld+json">${JSON.stringify({
-      '@type': 'JobPosting', title: 'Infirmier hospitalier', datePosted: detailDate,
-      description: 'Accompagner les patients et coordonner les soins avec les équipes médicales de notre hôpital.',
-      jobLocation: { address: { addressLocality: 'Fribourg', addressRegion: 'FR', postalCode: '1708' } },
-      employmentType: 'FULL_TIME',
-    })}</script>`;
-    vi.stubGlobal('fetch', vi.fn(async (url: string) => url.endsWith('/json')
-      ? { ok: true, json: async () => listing }
-      : { ok: true, text: async () => detail }));
-    const jobs = await fetchAllHfrJobs();
-    expect(jobs).toHaveLength(1);
-    expectPublication(jobs[0], expected as string);
-    expect(jobs[0].companyKey).toBe('hfr-hopital-fribourgeois');
+    ['detail timestamp', () => dateDaysAgo(14), undefined, () => dateDaysAgo(14)],
+    ['listing timestamp', undefined, () => dateDaysAgo(10), () => dateDaysAgo(10)],
+    ['older original detail', () => dateDaysAgo(100), () => dateDaysAgo(2), () => dateDaysAgo(100)],
+    ['missing', undefined, undefined, () => ''],
+    ['invalid calendar', '2026-02-30', 'nonsense', () => ''],
+    ['future', () => dateDaysAhead(1), () => dateDaysAhead(2), () => ''],
+    ['valid fallback after invalid detail', '2026-02-30', () => dateDaysAgo(10), () => dateDaysAgo(10)],
+  ])('%s preserves the atomic evidence fields', async (_label, detailValue, listingValue, expectedValue) => {
+    const detailDate = typeof detailValue === 'function' ? detailValue() : detailValue;
+    const listingDate = typeof listingValue === 'function' ? listingValue() : listingValue;
+    const expected = (expectedValue as () => string)();
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.includes('/recruitingCEJobRequisitionDetails/')) {
+        return new Response(JSON.stringify({
+          ExternalDescriptionStr: `<div>${HFR_SOURCE_DESCRIPTION}</div>`,
+          ExternalPostedStartDate: detailDate,
+        }), { status: 200 });
+      }
+      if (url.includes('/recruitingCEJobRequisitions?')) {
+        return new Response(JSON.stringify({
+          items: [{
+            TotalJobsCount: 1,
+            requisitionList: [{
+              Id: 'example',
+              Title: 'Infirmier hospitalier',
+              PrimaryLocation: 'Fribourg, Switzerland',
+              PrimaryLocationCountry: 'CH',
+              PostedDate: listingDate,
+            }],
+          }],
+        }), { status: 200 });
+      }
+      return new Response('', { status: 404 });
+    }));
+    const result = await fetchAllHfrJobs();
+    expect(result.jobs).toHaveLength(1);
+    expectPublication(result.jobs[0], expected);
+    expect(result.jobs[0].companyKey).toBe('hfr-hopital-fribourgeois');
   });
 });
 
