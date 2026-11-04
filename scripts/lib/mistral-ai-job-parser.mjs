@@ -202,14 +202,33 @@ export function isSwissPrimaryAshbyJob(job) {
 }
 
 /**
- * Pick the Swiss location LABEL for a matched posting (prefer the Swiss entry
- * over a non-Swiss primary), falling back to the primary location text.
+ * Pick every advertised Swiss location LABEL for a matched posting, preserving
+ * source order and keeping the primary location first. Ashby can publish one
+ * role for multiple Swiss offices; reducing that list to the first label makes
+ * the detail page's other authoritative office look like a parser mismatch.
+ * A non-Swiss primary is still only a fallback for callers that inspect this
+ * helper directly: publication remains gated by isSwissPrimaryAshbyJob().
  */
 export function pickSwissLocationLabel(job) {
   const entries = ashbyLocationEntries(job);
-  const swiss = entries.find(isSwissLocationEntry);
-  const label = normalizeSpace(swiss?.location || entries[0]?.location || '');
-  return label || 'Zurich';
+  const labels = [];
+  const seen = new Set();
+  for (const entry of entries) {
+    if (!isSwissLocationEntry(entry)) continue;
+    const label = normalizeSpace(
+      entry?.location || entry?.address?.postalAddress?.addressLocality || '',
+    );
+    const key = normalize(label);
+    if (!label || seen.has(key)) continue;
+    seen.add(key);
+    labels.push(label);
+  }
+  if (labels.length > 0) return labels.join(' | ');
+
+  const primaryLabel = normalizeSpace(
+    entries[0]?.location || entries[0]?.address?.postalAddress?.addressLocality || '',
+  );
+  return primaryLabel || 'Zurich';
 }
 
 /* ── Ashby fetcher ─────────────────────────────────────────── */
