@@ -1,7 +1,7 @@
 {
   "crawlerKey": "victorinox",
-  "assembledAt": "2026-11-03T21:30:54.177Z",
-  "runId": "41719156389",
+  "assembledAt": "2026-11-04T09:21:15.430Z",
+  "runId": "41805040562",
   "jobs": [
     {
       "id": "victorinox-c9a73ab3b99d",
@@ -35,7 +35,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-delemont-m-w-d_211.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:30:47.257Z",
+      "crawledAt": "2026-11-04T09:21:08.919Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:30:47.257Z",
+      "validThrough": "2026-12-04T09:21:08.919Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-m-w-d_259.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:30:46.718Z",
+      "crawledAt": "2026-11-04T09:21:08.317Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:30:46.718Z",
+      "validThrough": "2026-12-04T09:21:08.317Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-ibach-m-w-d_209.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:30:46.126Z",
+      "crawledAt": "2026-11-04T09:21:07.706Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -254,7 +254,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:30:46.126Z",
+      "validThrough": "2026-12-04T09:21:07.706Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-planificateur-de-production-60-70-h-f-d_266.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:30:44.914Z",
+      "crawledAt": "2026-11-04T09:21:06.467Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -325,7 +325,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:30:44.914Z",
+      "validThrough": "2027-01-20T09:21:06.467Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +360,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:30:44.406Z",
+      "crawledAt": "2026-11-04T09:21:05.879Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -396,7 +396,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:30:44.406Z",
+      "validThrough": "2026-12-04T09:21:05.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -404,7 +404,7 @@
       "slug": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
         "it": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
-        "en": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
+        "en": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
         "de": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
         "fr": "conseiller-juridique-h-f-d-victorinox-ibach-schwyz"
       },
@@ -431,7 +431,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-legal-counsel-m-w-d_250.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:30:43.813Z",
+      "crawledAt": "2026-11-04T09:21:05.276Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -458,9 +458,6 @@
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-m-w-d-victorinox-ibach-schwyz"
-        ],
-        "en": [
-          "legal-counsel-m-w-d-victorinox-ibach-schwyz"
         ]
       },
       "firstSeenAt": "2026-08-18T09:45:47.035Z",
@@ -478,7 +475,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:30:43.813Z",
+      "validThrough": "2026-12-04T09:21:05.276Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -513,7 +510,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle--senior-product-manager-swiss-army-knife-tools-m-w-d_267.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:30:43.301Z",
+      "crawledAt": "2026-11-04T09:21:04.688Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -549,7 +546,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:30:43.301Z",
+      "validThrough": "2027-01-28T09:21:04.688Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -583,7 +580,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-application-integration-manager-erp-m-w-d_248.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:30:42.790Z",
+      "crawledAt": "2026-11-04T09:21:04.117Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -635,7 +632,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:30:42.790Z",
+      "validThrough": "2026-12-04T09:21:04.117Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -670,7 +667,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-in-schleiftechnik-100-m-w-d_261.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:30:42.261Z",
+      "crawledAt": "2026-11-04T09:21:03.536Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -720,7 +717,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:30:42.261Z",
+      "validThrough": "2026-12-19T09:21:03.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -792,7 +789,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-03T09:24:34.962Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
