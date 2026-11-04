@@ -218,6 +218,11 @@ function experimentRows(registration: any, asOf: Date, { winner = true } = {}) {
 }
 
 describe('social-copy experiment runner', () => {
+  it('keeps Remote Config promotion and matched-block registration protocol versions independent', () => {
+    expect(SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION).toBe('social-copy-angle-matched-block-v4');
+    expect(SOCIAL_EXPERIMENT_PROTOCOL_VERSION).toBe('social-copy-angle-matched-block-v3');
+  });
+
   it('requires positive 30-day account growth and distinguishes flat and declining signals', () => {
     const asOf = new Date('2026-12-15T12:00:00.000Z');
     const snapshots = Array.from({ length: 30 }, (_, index) => ({

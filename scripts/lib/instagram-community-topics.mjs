@@ -17,15 +17,15 @@ export const INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES = Object.freeze([
 export const INSTAGRAM_COMMUNITY_TOPIC_COUNT_BANDS = Object.freeze(['10-24', '25-49', '50+']);
 
 const CATEGORY_PATTERNS = Object.freeze({
-  'lavoro-contratti': /\b(?:lavor\w*|contratt\w*|stipend\w*|salari\w*|frontalier\w*|arbeit\w*|arbeitsvertrag\w*|gehalt\w*|emploi\w*|contrat\w*|salaire\w*|work\b|job\b|salary\b)\b/iu,
-  'fisco-previdenza': /\b(?:tass\w*|fisc\w*|impost\w*|dichiarazion\w*|pension\w*|avs\b|inps\b|retrait\w*|steuer\w*|ahv\b|imp[oô]t\w*|tax\w*)\b/iu,
-  'assicurazione-salute': /\b(?:assicurazion\w*\s+(?:malatt\w*|sanitari\w*)|cassa\s+malat\w*|lamal\b|krankenkass\w*|krankenversicherung\w*|assurance\s+maladie|health\s+insurance|sick\s+fund)\b/iu,
-  'permessi-amministrazione': /\b(?:permess\w*|document\w*|autorizzazion\w*|residenz\w*|bewilligung\w*|aufenthalt\w*|permis\b|autorisation\w*|permit\w*|residence\s+card)\b/iu,
-  'mobilita-valichi': /\b(?:traffico\w*|valich\w*|frontier\w*|dogan\w*|pendolar\w*|mobilit\w*|trasport\w*|grenz\w*|stau\w*|douan\w*|trajet\w*|commut\w*|border\s+cross\w*|commut\w*|transport\w*)\b/iu,
-  'vita-famiglia': /\b(?:famigli\w*|figli\w*|scuol\w*|asilo\w*|famil\w*|kind\w*|schul\w*|enfant\w*|école\w*|ecole\w*|child\w*|school\w*)\b/iu,
+  'lavoro-contratti': /(?<![\p{L}\p{N}_])(?:lavor\p{L}*|contratt\p{L}*|stipend\p{L}*|salari\p{L}*|frontalier\p{L}*|arbeit\p{L}*|arbeitsvertrag\p{L}*|gehalt\p{L}*|emploi\p{L}*|contrat\p{L}*|salaire\p{L}*|work|job|salary)(?![\p{L}\p{N}_])/iu,
+  'fisco-previdenza': /(?<![\p{L}\p{N}_])(?:tass\p{L}*|fisc\p{L}*|impost\p{L}*|dichiarazion\p{L}*|pension\p{L}*|avs|inps|retrait\p{L}*|steuer\p{L}*|ahv|imp[oô]t\p{L}*|tax\p{L}*)(?![\p{L}\p{N}_])/iu,
+  'assicurazione-salute': /(?<![\p{L}\p{N}_])(?:assicurazion\p{L}*\s+(?:malatt\p{L}*|sanitari\p{L}*)|cassa\s+malat\p{L}*|lamal|krankenkass\p{L}*|krankenversicherung\p{L}*|assurance\s+maladie|health\s+insurance|sick\s+fund)(?![\p{L}\p{N}_])/iu,
+  'permessi-amministrazione': /(?<![\p{L}\p{N}_])(?:permess\p{L}*|document\p{L}*|autorizzazion\p{L}*|residenz\p{L}*|bewilligung\p{L}*|aufenthalt\p{L}*|permis|autorisation\p{L}*|permit\p{L}*|residence\s+card)(?![\p{L}\p{N}_])/iu,
+  'mobilita-valichi': /(?<![\p{L}\p{N}_])(?:traffic\p{L}*|valich\p{L}*|frontier\p{L}*|dogan\p{L}*|pendolar\p{L}*|mobilit\p{L}*|trasport\p{L}*|grenz\p{L}*|stau\p{L}*|douan\p{L}*|trajet\p{L}*|commut\p{L}*|border\s+cross\p{L}*|transport\p{L}*)(?![\p{L}\p{N}_])/iu,
+  'vita-famiglia': /(?<![\p{L}\p{N}_])(?:famigli\p{L}*|figli\p{L}*|scuol\p{L}*|asil\p{L}*|famil\p{L}*|kind\p{L}*|schul\p{L}*|enfant\p{L}*|école\p{L}*|ecole\p{L}*|child\p{L}*|school\p{L}*)(?![\p{L}\p{N}_])/iu,
 });
 
-const QUESTION_START_RE = /^(?:come|cosa|che\s+cosa|quale|quali|quanto|quanta|quando|dove|chi|perch[eé]|wie|was|welche|welcher|wann|wo|wer|warum|pourquoi|comment|quel(?:le)?|quand|où|ou|qui|what|how|when|where|which|who)\b/iu;
+const QUESTION_START_RE = /^(?:come|cosa|che\s+cosa|quale|quali|quanto|quanta|quando|dove|chi|perch[eé]|wie|was|welche|welcher|wann|wo|wer|warum|pourquoi|comment|quel(?:le)?|quand|où|ou|qui|what|how|when|where|which|who)(?![\p{L}\p{N}_])/iu;
 const PERSONAL_CASE_RE = /(?:^|[.!?]\s*)(?:io\s+|nel\s+mio\s+caso|per\s+me\b|mi\s+[èe]\s+success\w*|ho\s+(?:avuto|ricevuto|perso|un\b|una\b)|sono\s+(?:stato|stata|un\b|una\b)|meu\s+caso|mon\s+cas|mein\s+fall)\b/iu;
 const CONTACT_OR_IDENTIFIER_RE = /(?:https?:\/\/|www\.|\b[\w.+-]+@[\w.-]+\.[a-z]{2,}\b|(?:\+?\d[\s().-]*){8,})/iu;
 

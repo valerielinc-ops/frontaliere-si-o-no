@@ -28,6 +28,13 @@ describe('privacy-safe Instagram community topic signals', () => {
       .toBeNull();
   });
 
+  it('uses Unicode letter boundaries for accented question words and category terms', () => {
+    expect(classifyInstagramCommunityQuestion("Où trouver l'école"))
+      .toBe('vita-famiglia');
+    expect(classifyInstagramCommunityQuestion('antécole?'))
+      .toBeNull();
+  });
+
   it('deduplicates hashed comment keys, drops expired/unknown records, and suppresses every category below ten', () => {
     const lowVolume = Array.from({ length: INSTAGRAM_COMMUNITY_TOPIC_MINIMUM - 1 }, (_, index) => ({
       key: instagramCommunityTopicSignalKey(`comment-${index}`),
