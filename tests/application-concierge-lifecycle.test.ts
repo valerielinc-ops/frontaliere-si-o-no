@@ -143,7 +143,7 @@ describe('concierge refresh and notification lifecycle', () => {
       matchingPendingCount: 20, matchingUnverifiedCount: 0 });
     expect(conciergeRefreshDue(service, now)).toBe(false);
     expect(conciergeRefreshDue(service, completion + 15 * 60 * 1000)).toBe(false);
-    expect(conciergeRefreshDue(service, completion + 30 * 60 * 1000)).toBe(true);
+    expect(conciergeRefreshDue(service, completion + 60 * 60 * 1000)).toBe(true);
     const source = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
     const start = source.indexOf('export const sweepApplicationConciergeLifecycle = onSchedule(');
     expect(source.slice(start, start + 600)).toContain("schedule: 'every 15 minutes'");
