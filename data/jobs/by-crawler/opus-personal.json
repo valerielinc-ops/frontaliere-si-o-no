@@ -8296,12 +8296,12 @@
     },
     {
       "id": "opus-personal-ee357b8c813d",
-      "slug": "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+      "slug": "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
       "slugByLocale": {
-        "it": "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "it": "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "en": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
         "de": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
-        "fr": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
+        "fr": "menuisier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -8346,9 +8346,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "menuisier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "carpenter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-luzern",
         "carpenter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-luzern",
@@ -8358,16 +8356,17 @@
         "falegname-afc-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "schreiner-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-luzern",
         "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
+        "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
+        "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
           "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
           "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-luzern",
           "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-luzern",
           "falegname-afc-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
+          "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
+          "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
         ],
         "en": [
           "carpenter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
@@ -8375,10 +8374,10 @@
           "schreiner-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-luzern"
         ],
         "fr": [
-          "menuisier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
           "menuisier-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-luzern",
           "schreiner-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-luzern",
-          "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
         ]
       },
       "needsRetranslation": true,
