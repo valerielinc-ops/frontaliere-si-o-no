@@ -613,6 +613,10 @@ export default function JobAlertForm({
  setSaving(true);
  try {
       const created = await persistAlert(authUser.uid, authEmail, config, ctaOrigin, 'direct');
+      // A replay can fail while the authenticated form remains available for
+      // a manual retry. Once that exact config succeeds, consume the parked
+      // intent so a later auth remount cannot create the same alert again.
+      acknowledgePendingJobAlert({ config, origin: ctaOrigin });
       trackCurrentCtaAction('success', ctaKeyword);
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
  resetForm();

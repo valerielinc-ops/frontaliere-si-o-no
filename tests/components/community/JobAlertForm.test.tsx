@@ -593,6 +593,42 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
     expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1);
   });
 
+  it('clears a failed replay after the same config is created manually', async () => {
+    localStorage.setItem(PENDING_KEY, JSON.stringify({
+      value: {
+        origin: 'inline_card',
+        config: {
+          keywords: ['Tecnologia'],
+          locations: [],
+          contractTypes: [],
+          sectors: [],
+          cantonFilter: null,
+          frequency: 'daily',
+          frequencyOverride: true,
+          locale: 'it',
+        },
+      },
+      savedAt: Date.now(),
+    }));
+    createAlertMock
+      .mockRejectedValueOnce(new Error('temporary create failure'))
+      .mockResolvedValueOnce({ id: 'manual-retry-success' });
+
+    render(<JobAlertForm authUser={authUser} />);
+
+    await waitFor(() => expect(analyticsMock.trackJobAlertAuthHandoff).toHaveBeenCalledWith(
+      'inline_card',
+      'replay_failed',
+      'Tecnologia',
+    ));
+
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('Tecnologia');
+
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(2));
+    expect(localStorage.getItem(PENDING_KEY)).toBeNull();
+  });
+
   it('keeps a job-detail handoff origin on a signed-in form create', async () => {
     requestJobAlertOpen('infermiere', 'job_detail_button');
     render(<JobAlertForm authUser={authUser} />);
