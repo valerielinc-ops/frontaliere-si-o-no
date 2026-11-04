@@ -12,7 +12,7 @@ import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 export type JobDetailJobAlertButtonStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 export interface JobDetailJobAlertButtonProps {
-  /** Stable publisher job id; when present the alert is pinned via `specificJobId`. */
+  /** Stable job id; when present the alert is pinned via `specificJobId`. */
   jobId?: string | null;
   /** Category/search keyword for the ordinary post-apply detail path. */
   keyword?: string | null;

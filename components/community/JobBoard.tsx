@@ -4327,9 +4327,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const appliedAlertSurfaceVisible = Boolean(
   appliedJobId && selectedJob && appliedJobId === selectedJob.id,
  );
- // Publisher ads expose a stable `publisherJobId`, which is the only value
- // safe to use as the hard `specificJobId` matcher pin. The same detail CTA is
- // reused after apply; ordinary listings fall back to keyword+canton criteria.
+ // Publisher ads expose a stable job id for the hard `specificJobId` matcher
+ // pin. The same detail CTA is reused after apply; ordinary listings fall back
+ // to keyword+canton criteria.
  const isPublisherAd = Boolean((selectedJob as { publisherJobId?: string | null } | null)?.publisherJobId);
  const detailAlertKeyword = selectedJob
   ? (t(categoryTranslationKey(selectedJob)) || '').trim()
@@ -8746,7 +8746,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // when the receipt appears, while its service branch preserves the job pin,
  // keyword, canton and source provenance at write time.
  const detailAlertJobId = isPublisherAd && selectedJob
-  ? String((selectedJob as { publisherJobId?: string | null }).publisherJobId || '')
+  ? String(selectedJob.id || (selectedJob as { publisherJobId?: string | null }).publisherJobId || '')
   : null;
  const detailAlertButtonJsx = detailAlertButtonVisible && selectedJob ? (
   <Suspense key="job-detail-alert-button" fallback={null}>
