@@ -99,6 +99,24 @@ describe('concierge child query navigation', () => {
   });
 });
 
+it('uses SumUp for a service reopened from the application concierge payment reminder', async () => {
+  window.history.replaceState(null, '', '/automatizza-ricerca-lavoro-svizzera/?application_concierge_service_id=service-test&utm_source=email&utm_medium=payment_reminder&utm_campaign=application_concierge');
+  render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} locationSearch={window.location.search} />);
+
+  await waitFor(() => expect(mocks.checkout).toHaveBeenCalled());
+  expect(mocks.checkout).toHaveBeenCalledWith(expect.objectContaining({
+    serviceId: 'service-test', useSumUpForPaymentReminder: true,
+  }), owner);
+});
+
+it('does not request the reminder provider for an ordinary service link', async () => {
+  window.history.replaceState(null, '', '/automatizza-ricerca-lavoro-svizzera/?application_concierge_service_id=service-test');
+  render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} locationSearch={window.location.search} />);
+
+  await waitFor(() => expect(mocks.checkout).toHaveBeenCalled());
+  expect(mocks.checkout.mock.calls[0][0]).not.toHaveProperty('useSumUpForPaymentReminder');
+});
+
 it('does not let a late profile prefill overwrite a service location loaded by refresh', async () => {
   vi.useFakeTimers();
   const withoutLocation = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'running', applicantLocation: '', applicantLocationCountry: '' };

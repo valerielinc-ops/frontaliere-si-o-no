@@ -6,6 +6,7 @@ export interface ApplicationConciergeCheckoutInput {
   locale: 'it' | 'en' | 'de' | 'fr';
   requestKey?: string;
   serviceId?: string;
+  useSumUpForPaymentReminder?: boolean;
   renewalOfServiceId?: string;
   acceptRenewalTerms?: boolean;
   expectedAmountTotal?: number;
