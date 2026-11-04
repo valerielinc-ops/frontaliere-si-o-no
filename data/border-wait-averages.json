@@ -12,7 +12,7 @@
   },
   "chiasso-strada": {
     "morning": "0-5 min",
-    "evening": "0-3 min"
+    "evening": "0-6 min"
   },
   "ferney-voltaire-grand-saconnex": {
     "morning": "0-8 min",
@@ -20,7 +20,7 @@
   },
   "gaggiolo": {
     "morning": "0-8 min",
-    "evening": "0-3 min"
+    "evening": "0-4 min"
   },
   "meyrin-cern": {
     "evening": "0-3 min"
@@ -38,6 +38,9 @@
   "rheinfelden-rheinfelden-ag-autostrada-a861-a3": {
     "morning": "0-2 min",
     "evening": "0-2 min"
+  },
+  "san-pietro": {
+    "evening": "0-3 min"
   },
   "thonex-vallard": {
     "morning": "0-3 min"
