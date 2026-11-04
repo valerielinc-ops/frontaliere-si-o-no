@@ -124,6 +124,13 @@ describe('deploy.yml — the IT CDN push runs BEFORE anything publishes (#5251)'
     );
     expect(gate, 'near-miss threshold must be configured').toMatch(/CDN_WAIT_MARGIN_WARN_S: \d+/);
   });
+
+  it('passes an absolute artifact root to the locale helper', () => {
+    const push = step('Push locale shard');
+    expect(push).toMatch(
+      /bash scripts\/lib\/push-locale-shard\.sh \$\{\{ matrix\.locale \}\} "\$GITHUB_WORKSPACE\/dist"/,
+    );
+  });
 });
 
 describe('deploy.yml — a timeout and a push failure are told APART (#5251)', () => {
