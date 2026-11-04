@@ -21,6 +21,17 @@ const SOURCE_DESCRIPTION = [
   'et un accompagnement professionnel au sein d’une institution publique engagée dans la santé régionale.',
 ].join(' ');
 
+const oracleRequisition = (id: number) => ({
+  Id: String(id),
+  Title: `HFR requisition ${id}`,
+  PrimaryLocation: 'Fribourg, Switzerland',
+  PrimaryLocationCountry: 'CH',
+});
+
+const oracleOffset = (url: string) => Number(
+  new URL(url).searchParams.get('finder')?.match(/(?:^|,)offset=(\d+)/)?.[1] || 0,
+);
+
 describe('HFR Oracle HCM crawler parser', () => {
   afterEach(() => {
     vi.unstubAllGlobals();
@@ -108,6 +119,59 @@ describe('HFR Oracle HCM crawler parser', () => {
 
     expect(result).toMatchObject({
       jobs: [],
+      fetchOutcome: 'selector_miss',
+    });
+  });
+
+  it.each(['a malformed second page', 'a repeated full second page'])(
+    'fails closed after a full first page followed by %s without a total count',
+    async (secondPageKind) => {
+      const firstPage = Array.from({ length: 50 }, (_, index) => oracleRequisition(index + 1));
+      vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+        const url = String(input);
+        if (!url.includes('/recruitingCEJobRequisitions?')) return new Response('', { status: 404 });
+        if (oracleOffset(url) === 0) {
+          return new Response(JSON.stringify({ items: [{ requisitionList: firstPage }] }), { status: 200 });
+        }
+        const secondPage = secondPageKind === 'a malformed second page'
+          ? { data: [] }
+          : { items: [{ requisitionList: firstPage }] };
+        return new Response(JSON.stringify(secondPage), { status: 200 });
+      }));
+
+      const result = await fetchAllHfrJobs();
+
+      expect(result).toMatchObject({
+        jobs: [],
+        fetchOutcome: 'selector_miss',
+      });
+    },
+  );
+
+  it('fails closed when every discovered requisition lacks a publishable source body', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = String(input);
+      if (url.includes('/recruitingCEJobRequisitionDetails/1001')) {
+        return new Response('', { status: 404 });
+      }
+      if (url.includes('/recruitingCEJobRequisitions?')) {
+        return new Response(JSON.stringify({
+          items: [{
+            requisitionList: [{
+              ...oracleRequisition(1001),
+              ShortDescriptionStr: 'Offerta breve.',
+            }],
+          }],
+        }), { status: 200 });
+      }
+      return new Response('', { status: 404 });
+    }));
+
+    const result = await fetchAllHfrJobs();
+
+    expect(result).toEqual({
+      jobs: [],
+      discoveredCount: 1,
       fetchOutcome: 'selector_miss',
     });
   });

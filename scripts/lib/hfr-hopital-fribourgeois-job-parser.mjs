@@ -172,7 +172,6 @@ async function fetchOracleRequisitions() {
   const seenIds = new Set();
   let offset = 0;
   let totalCount = null;
-  let lastPageSize = 0;
 
   for (let page = 1; page <= ORACLE_MAX_PAGES; page += 1) {
     const data = await fetchJson(buildOracleListingUrl(offset));
@@ -182,10 +181,7 @@ async function fetchOracleRequisitions() {
       rowShapeOk: (row) => row && typeof row === 'object' && !Array.isArray(row),
     });
     if (envelopes.length === 0) {
-      if (page === 1 || (totalCount !== null && requisitions.length < totalCount)) {
-        return selectorMiss(`page ${page} has no Oracle result envelope (offset=${offset})`, totalCount);
-      }
-      break;
+      return selectorMiss(`page ${page} has no Oracle result envelope (offset=${offset})`, totalCount);
     }
 
     const envelope = envelopes[0];
@@ -202,8 +198,6 @@ async function fetchOracleRequisitions() {
       const declaredTotal = Number(envelope.TotalJobsCount ?? envelope.totalJobsCount);
       if (Number.isSafeInteger(declaredTotal) && declaredTotal >= 0) totalCount = declaredTotal;
     }
-    lastPageSize = rawRequisitions.length;
-
     if (rawRequisitions.length === 0) {
       if (page === 1 && totalCount === 0) {
         return { requisitions: [], discoveredCount: 0, fetchOutcome: 'ok' };
@@ -212,15 +206,24 @@ async function fetchOracleRequisitions() {
       return selectorMiss(`page ${page} exposes no requisitions before the declared total`, totalCount);
     }
 
-    if (rawRequisitions.some((row) => !validRequisition(row))) {
-      console.warn(`⚠️ HFR Oracle requisition row shape changed on page ${page}; invalid rows are not publishable.`);
+    const invalidRowCount = rawRequisitions.filter((row) => !validRequisition(row)).length;
+    if (invalidRowCount > 0) {
+      return selectorMiss(
+        `page ${page} contains ${invalidRowCount} requisition row(s) with an invalid shape`,
+        totalCount,
+      );
     }
+
+    const requisitionCountBeforePage = requisitions.length;
     for (const requisition of rawRequisitions) {
-      if (!validRequisition(requisition)) continue;
       const id = String(requisition.Id).trim();
       if (seenIds.has(id)) continue;
       seenIds.add(id);
       requisitions.push(requisition);
+    }
+
+    if (requisitions.length === requisitionCountBeforePage) {
+      return selectorMiss(`page ${page} contributed no new requisition IDs`, totalCount);
     }
 
     offset += rawRequisitions.length;
@@ -234,9 +237,6 @@ async function fetchOracleRequisitions() {
       `pagination ended after ${requisitions.length}/${totalCount} requisitions`,
       totalCount,
     );
-  }
-  if (requisitions.length === 0 && lastPageSize > 0) {
-    return selectorMiss('Oracle returned rows but none had the expected Id/Title fields', totalCount);
   }
   return {
     requisitions,
@@ -436,6 +436,17 @@ export async function fetchAllHfrJobs() {
     `📋 Total ${HFR_COMPANY_NAME} jobs discovered: ${jobs.length}`
     + ` (${skippedForeign} foreign, ${skippedThin} without a source body)`,
   );
+  if (jobs.length === 0 && skippedThin > 0) {
+    console.warn(
+      `⚠️ HFR Oracle discovered ${discovery.requisitions.length} requisition(s), `
+      + 'but none produced a publishable source body; preserving the previous snapshot.',
+    );
+    return {
+      jobs: [],
+      discoveredCount: discovery.discoveredCount,
+      fetchOutcome: 'selector_miss',
+    };
+  }
   return {
     jobs,
     discoveredCount: discovery.discoveredCount,
