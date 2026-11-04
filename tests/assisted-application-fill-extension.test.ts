@@ -78,6 +78,20 @@ const kit = {
 };
 const run = (F: any, document: Document) => F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
 
+it('keeps styled upload inputs but excludes controls under collapsed future steps', () => {
+  const { window, document, F } = page(`<form>
+    <label for="active-answer">Current question *</label><input id="active-answer" required>
+    <label for="active-cv">Upload CV</label><input id="active-cv" type="file" style="display:none" required>
+    <section style="visibility:collapse">
+      <label for="future-answer">Later question *</label><input id="future-answer" required>
+      <label for="future-cv">Later CV *</label><input id="future-cv" type="file" required>
+    </section>
+  </form>`);
+  nativeFieldReading(window);
+  expect(F.collect(document).map((entry: any) => entry.element.id)).toEqual(['active-answer', 'active-cv']);
+  window.close();
+});
+
 // JOIN's markup, as saved from the trial posting (classes and icons left out).
 const continueButtons = '<button type="button"><span>Indietro</span></button><button type="button" disabled=""><span>Continua</span></button>';
 const ariaChoices = (question: string, options: string[]) => `<form><h2>${question}</h2><div>${options

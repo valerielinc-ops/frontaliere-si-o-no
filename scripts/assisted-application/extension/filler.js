@@ -219,7 +219,18 @@
     for (let node = element; node && node.nodeType === 1; node = node.parentElement) {
       if (node.hidden) return false;
       const style = view.getComputedStyle(node);
-      if (style.display === 'none' || style.visibility === 'hidden') return false;
+      if (style.display === 'none' || ['hidden', 'collapse'].includes(style.visibility)) return false;
+    }
+    return true;
+  }
+
+  /** File inputs may be styled behind an upload button, but not inside a hidden wizard step. */
+  function isMountedFileInput(element) {
+    const view = element.ownerDocument.defaultView;
+    for (let node = element.parentElement; node && node.nodeType === 1; node = node.parentElement) {
+      if (node.hidden || node.hasAttribute('inert') || String(node.getAttribute('aria-hidden') || '').toLowerCase() === 'true') return false;
+      const style = view.getComputedStyle(node);
+      if (style.display === 'none' || ['hidden', 'collapse'].includes(style.visibility)) return false;
     }
     return true;
   }
@@ -755,7 +766,7 @@
       const searchSelect = element.getAttribute('data-uxi-widget-type') === 'selectinput';
       if (type === 'search' && !searchSelect) continue;
       if (inPicker(element) || element.disabled || element.readOnly) continue;
-      if (type !== 'file' && !isShown(element)) continue;
+      if (type === 'file' ? !isMountedFileInput(element) : !isShown(element)) continue;
       const requiredByAttribute = isRequiredControl(element);
       if (type === 'radio') {
         const key = element.name || element.closest('[role="radiogroup"], fieldset') || element;
