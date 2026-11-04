@@ -34,12 +34,13 @@ function metricRows(payload) {
 
 function metricValue(item, metric) {
   if (record(item?.total_value)) {
-    const breakdownRows = Array.isArray(item.total_value.breakdowns)
-      ? item.total_value.breakdowns.flatMap((breakdown) => (
-        Array.isArray(breakdown?.results) ? breakdown.results : []
-      ))
-      : [];
-    if (metric === 'navigation' && breakdownRows.length) return breakdownRows;
+    const breakdowns = Array.isArray(item.total_value.breakdowns) ? item.total_value.breakdowns : [];
+    const breakdownRows = breakdowns.flatMap((breakdown) => (
+      Array.isArray(breakdown?.results) ? breakdown.results : []
+    ));
+    const navigationBreakdownPresent = metric === 'navigation'
+      && breakdowns.some((breakdown) => record(breakdown) && Array.isArray(breakdown.results));
+    if (navigationBreakdownPresent) return breakdownRows;
     if (Array.isArray(item?.values)) return item.values.at(-1)?.value;
     if (breakdownRows.length) return breakdownRows;
     if (Object.prototype.hasOwnProperty.call(item.total_value, 'value')) return item.total_value.value;
@@ -54,12 +55,9 @@ function navigationCounts(value) {
     ? value
     : record(value) && Array.isArray(value.results)
       ? value.results
-      : record(value)
-        ? Object.entries(value).map(([key, count]) => ({ key, value: count }))
-        : [];
+      : [];
   let unmappedTotal = 0;
-  let unmappedValid = Array.isArray(value)
-    || (record(value) && (Array.isArray(value.results) || Object.keys(value).length > 0));
+  let unmappedValid = rows.length > 0;
   for (const row of rows) {
     if (!record(row)) {
       unmappedValid = false;
@@ -83,14 +81,14 @@ function navigationCounts(value) {
       swipeforward: 'swipesForward',
       swipesforward: 'swipesForward',
     })[key];
-    if (field && count !== null) {
+    if (!key || count === null) {
+      unmappedValid = false;
+    } else if (field) {
       counts[field] = count;
-    } else if (!field) {
-      if (count === null || !Number.isSafeInteger(unmappedTotal + count)) {
-        unmappedValid = false;
-      } else {
-        unmappedTotal += count;
-      }
+    } else if (!Number.isSafeInteger(unmappedTotal + count)) {
+      unmappedValid = false;
+    } else {
+      unmappedTotal += count;
     }
   }
   if (unmappedValid) counts.unmappedNavigationActions = unmappedTotal;
