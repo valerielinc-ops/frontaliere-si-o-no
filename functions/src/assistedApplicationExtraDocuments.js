@@ -230,11 +230,12 @@ export function documentFilesOf(flow, orderId, id) {
     .filter((file) => {
       const key = String(file?.key || '');
       const name = key.startsWith(orderPrefix) ? key.slice(orderPrefix.length) : '';
+      const slotSpecificName = /^doc-[a-z0-9_]+-\d+-[a-f0-9]{8}\./i.test(name);
       // New uploads include their document id in the filename, so they cannot
       // be reassigned between slots. Older files used a plain basename; keep
       // those readable for existing flows while rejecting nested paths and
       // another slot's new-style key.
-      const belongsToDocument = key.startsWith(prefix) || (name && !name.includes('/') && !name.startsWith('doc-'));
+      const belongsToDocument = key.startsWith(prefix) || (name && !name.includes('/') && !slotSpecificName);
       return isAssistedApplicationCvKey(orderId, key)
         && belongsToDocument
         && DOCUMENT_TYPES.includes(file?.detectedType);
