@@ -164,4 +164,36 @@ describe('reconcileSitemapSearchClustersWithDist', () => {
     expect(first).toContain(HEALTHY);
     expect(first).toContain(ALLOWED_BRIDGE);
   });
+
+  it('checks a present foreign-shard page before keeping its cluster loc', async () => {
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    const foreign = `${BASE}/en/find-jobs-geneva/ricerca-foreign-drift/`;
+    const foreignCanonical = `${BASE}/en/find-jobs-switzerland/ricerca-foreign-drift/`;
+    fs.writeFileSync(
+      path.join(distDir, 'sitemap-search-clusters-001.xml'),
+      urlset([foreign]),
+      'utf-8',
+    );
+    fs.mkdirSync(path.dirname(pagePath(distDir, foreign)), { recursive: true });
+    fs.writeFileSync(
+      pagePath(distDir, foreign),
+      `<html><head><link rel="canonical" href="${foreignCanonical}"></head><body>drift</body></html>`,
+      'utf-8',
+    );
+
+    try {
+      vi.resetModules();
+      const { reconcileSitemapSearchClustersWithDist: reconcile } =
+        await import('../build-plugins/relatedSearchClustersPlugin');
+      await reconcile(distDir);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      vi.resetModules();
+    }
+
+    expect(fs.readFileSync(path.join(distDir, 'sitemap-search-clusters-001.xml'), 'utf-8'))
+      .not.toContain('ricerca-foreign-drift');
+  });
 });

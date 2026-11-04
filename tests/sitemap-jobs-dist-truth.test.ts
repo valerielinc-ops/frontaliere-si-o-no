@@ -178,6 +178,27 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(readSitemap()).not.toContain('ricerca-allianz-job');
   });
 
+  it('does not preserve a same-section search drift or an off-site bridge canonical', async () => {
+    const searchDrift = `${BASE}/cerca-lavoro-ticino/ricerca-lugano/`;
+    const offSiteBridge = `${BASE}/cerca-lavoro-ticino/job-legacy/`;
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([searchDrift, offSiteBridge]), 'utf-8');
+    writePage(
+      searchDrift,
+      `<html><head><link rel="canonical" href="${BASE}/cerca-lavoro-ticino/real-job/"></head></html>`,
+    );
+    writePage(
+      offSiteBridge,
+      '<html><head><link rel="canonical" href="https://evil.example/job-current/"></head>' +
+        '<body>__BRIDGE_TARGET_SLUG__</body></html>',
+    );
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    const out = readSitemap();
+    expect(out).not.toContain('ricerca-lugano');
+    expect(out).not.toContain('job-legacy');
+  });
+
   it('drops a meta-refresh redirect even when its canonical is temporarily self-canonical', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([META_REFRESH]), 'utf-8');
     writePage(META_REFRESH, metaRefreshBridge(META_REFRESH));
