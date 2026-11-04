@@ -16,6 +16,7 @@ import {
   portalPasswordLength,
   registrationOutcome,
   sameSite,
+  successFactorsRegistrationTarget,
   successFactorsSignInTarget,
   usesOtpAccountCreation,
   verificationOutcome,
@@ -173,6 +174,25 @@ describe('portal account pages', () => {
       .toBe('https://career5.successfactors.eu/career?company=C0007256361P&career_ns=job_application&career_job_req_id=103967&login_ns=login&jobPipeline=sbbinternet');
     expect(successFactorsSignInTarget('https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20604&login_ns=register&jobPipeline=bundinternetde&lang=de_DE'))
       .toBe('https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20604&login_ns=login&jobPipeline=bundinternetde&lang=de_DE');
+  });
+
+  it('opens registration only from a job-bound SuccessFactors sign-in route', () => {
+    expect(successFactorsRegistrationTarget('https://career5.successfactors.eu/career?career_job_req_id=20604&career_ns=job_application&company=tenant1&lang=de_CH'))
+      .toBe('https://career5.successfactors.eu/career?career_job_req_id=20604&career_ns=job_application&company=tenant1&lang=de_CH&login_ns=register');
+    expect(successFactorsRegistrationTarget('https://career5.successfactors.eu/career?career_job_req_id=20604&career_ns=job_application&company=tenant1&lang=de_CH&login_ns=login'))
+      .toBe('https://career5.successfactors.eu/career?career_job_req_id=20604&career_ns=job_application&company=tenant1&lang=de_CH&login_ns=register');
+  });
+
+  it.each([
+    'https://career5.successfactors.eu/career?company=company&login_ns=login',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&login_ns=login',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=register',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=login&token=opaque',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=login&login_ns=login',
+    'https://evil.example/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=login',
+    'http://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=login',
+  ])('does not derive a registration route from an incomplete or unsafe SuccessFactors URL: %s', (url) => {
+    expect(successFactorsRegistrationTarget(url)).toBe('');
   });
 
   it.each([

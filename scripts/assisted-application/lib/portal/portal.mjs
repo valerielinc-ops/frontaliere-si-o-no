@@ -29,7 +29,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { applicationReceipt, applicationStage } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -3531,6 +3531,30 @@ async function awaitAuthView(page, before) {
   return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
 
+/** Open only the job-bound SuccessFactors registration view on the same HTTPS origin. */
+async function openSuccessFactorsRegistrationNavigation(page, snapshot) {
+  const identity = authFormIdentity(snapshot);
+  const frame = identity && page.frames()[identity.frame];
+  const currentUrl = frame?.url?.() || '';
+  const target = successFactorsRegistrationTarget(currentUrl);
+  if (!frame || !target) return null;
+  let before;
+  try {
+    before = new URL(currentUrl);
+    await frame.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const after = new URL(frame.url());
+    if (after.protocol !== 'https:' || after.origin !== before.origin || after.pathname !== before.pathname
+      || after.searchParams.get('career_ns') !== before.searchParams.get('career_ns')
+      || after.searchParams.get('career_job_req_id') !== before.searchParams.get('career_job_req_id')
+      || after.searchParams.get('company') !== before.searchParams.get('company')
+      || after.searchParams.get('login_ns') !== 'register') return null;
+  } catch {
+    return null;
+  }
+  const registration = await awaitAuthView(page, snapshot).catch(() => null);
+  return registration && authPageKind(registration) === 'create' ? registration : null;
+}
+
 /** Only classify a dialog as a cookie manager when its live copy and own choice agree. */
 async function knownCookieDialogSnapshot(page, snapshot) {
   for (const dialog of snapshot?.dialogs || []) {
@@ -3680,8 +3704,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   }
 
   if (kind === 'sign_in' && !account) {
-    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account', 'no_create_button', 'login');
-    return { snapshot: await awaitAuthView(page, snapshot) };
+    if (await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { snapshot: await awaitAuthView(page, snapshot) };
+    const registration = await openSuccessFactorsRegistrationNavigation(page, snapshot);
+    return registration
+      ? { snapshot: registration }
+      : accountHandoff('account', 'no_create_button', 'login');
   }
 
   // With SuccessFactors' OTP verification the candidate is not an account

@@ -181,21 +181,38 @@ const SUCCESSFACTORS_AUTH_ROUTE_PARAMS = new Set([
  * it. This is not used for an unverified account, which must restart OTP.
  */
 export function successFactorsSignInTarget(currentUrl) {
+  const current = successFactorsJobApplicationRoute(currentUrl);
+  if (!current || current.searchParams.get('login_ns') !== 'register') return '';
+  current.searchParams.set('login_ns', 'login');
+  return current.href;
+}
+
+/**
+ * A SuccessFactors job route may show only its sign-in form when no
+ * registration link is rendered. The job-bound `login_ns` view switch opens
+ * registration without clicking a guessed control or leaving the same ATS.
+ */
+export function successFactorsRegistrationTarget(currentUrl) {
+  const current = successFactorsJobApplicationRoute(currentUrl);
+  if (!current || (current.searchParams.has('login_ns') && current.searchParams.get('login_ns') !== 'login')) return '';
+  current.searchParams.set('login_ns', 'register');
+  return current.href;
+}
+
+function successFactorsJobApplicationRoute(currentUrl) {
   try {
     const current = new URL(String(currentUrl || ''));
     if (current.protocol !== 'https:' || current.username || current.password || current.hash
-      || current.pathname !== '/career' || !usesOtpAccountCreation(current.hostname)) return '';
+      || current.pathname !== '/career' || !usesOtpAccountCreation(current.hostname)) return null;
     const params = current.searchParams;
-    if ([...params.keys()].some(key => !SUCCESSFACTORS_AUTH_ROUTE_PARAMS.has(key))) return '';
+    if ([...params.keys()].some(key => !SUCCESSFACTORS_AUTH_ROUTE_PARAMS.has(key))) return null;
     for (const key of new Set(params.keys())) {
-      if (params.getAll(key).length !== 1) return '';
+      if (params.getAll(key).length !== 1) return null;
     }
-    if (params.get('login_ns') !== 'register' || params.get('career_ns') !== 'job_application'
-      || !params.get('career_job_req_id') || !params.get('company')) return '';
-    params.set('login_ns', 'login');
-    return current.href;
+    if (params.get('career_ns') !== 'job_application' || !params.get('career_job_req_id') || !params.get('company')) return null;
+    return current;
   } catch {
-    return '';
+    return null;
   }
 }
 
