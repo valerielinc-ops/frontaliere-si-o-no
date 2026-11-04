@@ -776,7 +776,7 @@ describe('renderEventDetailPage', () => {
     expect(new Set(titles).size).toBe(titles.length);
   });
 
-  it('uses a source-provided multi-day range in metadata, Event description and FAQ without changing the start-date URL', () => {
+  it('uses a source-provided multi-day range in metadata and FAQ without partial Event markup', () => {
     const multiDayEvent = {
       ...EVENT,
       id: 'myswitzerland:14afb8e8eff74937bc703ae26d632bdb',
@@ -814,10 +814,8 @@ describe('renderEventDetailPage', () => {
     expect(title).toContain('11–15 nov 2026');
     expect(descriptionTag).toContain('15 nov 2026');
     expect(rendered.html).toContain('href="' + canonicalUrl + '"');
-    expect(eventSchema?.startDate).toBe('2026-11-11');
-    expect(eventSchema?.endDate).toBe('2026-11-15');
-    expect(eventSchema?.url).toBe(canonicalUrl);
-    expect(String(eventSchema?.description)).toContain('15 nov 2026');
+    expect(eventSchema).toBeUndefined();
+    expect(rendered.html).not.toContain('"@type":"Event"');
     expect(String(faqSchema?.mainEntity?.[0]?.acceptedAnswer?.text)).toContain('15 nov 2026');
   });
 
@@ -830,27 +828,19 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('max-image-preview:large');
     expect(page.html).not.toContain('noindex');
   });
-  it('carries the title, an Event JSON-LD with our canonical + sameAs, breadcrumb and FAQ', () => {
+  it('keeps incomplete Event facts out of JSON-LD while preserving canonical, breadcrumb and FAQ', () => {
     // (HTML is minified — JSON-LD has no spaces after colons)
     expect(page.html).toContain('Concerto sinfonico al LAC');
-    expect(page.html).toContain('"@context":"https://schema.org","@type":"Event"');
-    expect(page.html).toContain('"@type":"Event"');
-    expect(page.html).toContain(`"url":"https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/"`);
-    expect(page.html).toContain(`"sameAs":["${EVENT.url}"]`);
-    const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
-      .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
-      .find((schema) => schema['@type'] === 'Event');
-    expect(eventSchema?.offers).toBeUndefined();
-    expect(eventSchema?.isAccessibleForFree).toBeUndefined();
+    expect(page.html).not.toContain('"@type":"Event"');
+    expect(page.html).toContain(`href="https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/"`);
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
   });
   it('keeps the detail page factual and indexable while the rewrite is pending', () => {
-    const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
-      .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
-      .find((schema) => schema['@type'] === 'Event');
-    expect(String(eventSchema?.description)).toContain('Concerto sinfonico al LAC');
-    expect(String(eventSchema?.description).length).toBeGreaterThanOrEqual(30);
+    expect(page.html).not.toContain('"@type":"Event"');
+    const eventSchema = eventLd(EVENT as never, 'it') as Record<string, unknown>;
+    expect(String(eventSchema.description)).toContain('Concerto sinfonico al LAC');
+    expect(String(eventSchema.description).length).toBeGreaterThanOrEqual(30);
     expect(page.html).toContain("Per date e dettagli aggiornati, consulta il sito ufficiale dell'evento.");
     expect(page.html).toContain('LAC Lugano Arte e Cultura');
     expect(page.html).not.toContain('Descrizione reale raccolta dal crawler');
@@ -886,7 +876,9 @@ describe('renderEventDetailPage', () => {
     expect(markedUpPage.html).toContain('L’exposition présente un programme musical. La séance se déroule à Bâle.');
     expect(markedUpPage.html).not.toContain('&lt;b&gt;');
     expect(markedUpPage.html).not.toContain('<b>');
-    expect(markedUpPage.html).toContain('"description":"L’exposition présente un programme musical. La séance se déroule à Bâle.');
+    expect(markedUpPage.html).not.toContain('"@type":"Event"');
+    const candidate = eventLd(markedUpEvent as never, 'fr') as Record<string, unknown>;
+    expect(String(candidate.description)).toContain('L’exposition présente un programme musical. La séance se déroule à Bâle.');
   });
   it('falls back from corrupt venue fields and cleans event markup in visible copy and schema', () => {
     const corruptEvent = {
@@ -907,14 +899,13 @@ describe('renderEventDetailPage', () => {
       distDir,
       detailHref: (() => null) as never,
     });
-    const schema = [...corruptPage.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
-      .map((match) => JSON.parse(match[1]!) as Record<string, any>)
-      .find((entry) => entry['@type'] === 'Event') as Record<string, any>;
+    const schema = eventLd(corruptEvent as never, 'it') as Record<string, any>;
     expect(corruptPage.html).toContain('Braunwald');
     expect(corruptPage.html).toContain('Alpine Gouache');
     expect(corruptPage.html).not.toContain('Ch�mistube');
     expect(corruptPage.html).not.toContain('Grotzenb�el');
     expect(corruptPage.html).not.toContain('*Alpine Gouache*');
+    expect(corruptPage.html).not.toContain('"@type":"Event"');
     expect(schema.location.name).toBe('Braunwald');
     expect(schema.location.address.streetAddress).toBeUndefined();
     expect(schema.location.address.addressLocality).toBe('Braunwald');
@@ -1078,7 +1069,7 @@ describe('renderEventDetailPage', () => {
     expect(guidlePage.html).toContain('/images/events/catalog/');
     expect(guidlePage.html).not.toContain('/images/events/guidle-abc.jpg');
   });
-  it('keeps historical detail pages indexable with honest past Event JSON-LD', () => {
+  it('keeps historical detail pages indexable without incomplete past Event JSON-LD', () => {
     const pastEvent = { ...EVENT, startDate: '2026-05-04', endDate: '2026-05-04' };
     const pastPage = renderEventDetailPage({
       locale: 'it',
@@ -1093,14 +1084,12 @@ describe('renderEventDetailPage', () => {
     });
     expect(pastPage.html).toContain('index, follow');
     expect(pastPage.html).not.toContain('noindex');
-    expect(pastPage.html).toContain('"@context":"https://schema.org","@type":"Event"');
-    const eventSchema = [...pastPage.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
-      .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
-      .find((schema) => schema['@type'] === 'Event');
-    expect(eventSchema?.startDate).toBe('2026-05-04T20:00:00+02:00');
-    expect(eventSchema?.endDate).toBe('2026-05-04');
-    expect(eventSchema?.endDate).not.toBe(eventSchema?.startDate);
-    expect(eventSchema?.eventStatus).toBe('https://schema.org/EventScheduled');
+    expect(pastPage.html).not.toContain('"@type":"Event"');
+    const eventSchema = eventLd(pastEvent as never, 'it') as Record<string, unknown>;
+    expect(eventSchema.startDate).toBe('2026-05-04T20:00:00+02:00');
+    expect(eventSchema.endDate).toBe('2026-05-04');
+    expect(eventSchema.endDate).not.toBe(eventSchema.startDate);
+    expect(eventSchema.eventStatus).toBe('https://schema.org/EventScheduled');
     expect(pastPage.html).toContain('"@type":"BreadcrumbList"');
     expect(pastPage.html).toContain('data-events-lifecycle=past');
     expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}`));
