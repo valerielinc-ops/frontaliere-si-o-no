@@ -19,6 +19,7 @@ import {
   NEWS_RSS_MAX_SEED_DURATION_MS,
 } from './sources/googleNewsRssSource.mjs';
 import { fetchTrendsDiscoveryCandidates } from './sources/googleTrendsSource.mjs';
+import { effectiveDeadlineMs, hasDeadlineWindow } from '../deadline.mjs';
 import { discoveryScore } from './discoveryScore.mjs';
 import { isNearDuplicate, SLUG_SIMILARITY_THRESHOLD } from '../scheduler/slugSimilarity.mjs';
 
@@ -27,28 +28,6 @@ const MAX_TREND_EVIDENCE_SEEDS = 3;
 const MAX_TREND_EVIDENCE_ARTICLES_PER_SEED = 2;
 const MAX_TREND_EVIDENCE_AGE_HOURS = 14 * 24;
 const MIN_TREND_EVIDENCE_WINDOW_MS = MAX_TREND_EVIDENCE_SEEDS * NEWS_RSS_MAX_SEED_DURATION_MS;
-
-function normalizeDeadlineMs(value) {
-  if (value === null || value === undefined) return null;
-  const number = Number(value);
-  return Number.isFinite(number) ? number : null;
-}
-
-function normalizeReserveMs(value) {
-  if (value === null || value === undefined) return 0;
-  const number = Number(value);
-  return Number.isFinite(number) && number > 0 ? number : 0;
-}
-
-function effectiveNewsDeadlineMs(opts) {
-  const deadlineMs = normalizeDeadlineMs(opts.deadlineMs);
-  if (deadlineMs === null) return null;
-  return Math.max(0, deadlineMs - normalizeReserveMs(opts.deadlineReserveMs));
-}
-
-function hasDeadlineWindow(deadlineMs, minimumMs = 0) {
-  return deadlineMs === null || deadlineMs - Date.now() >= minimumMs;
-}
 
 function isOrphanDisabled() {
   return ENV_TRUE(process.env.DISABLE_DISCOVERY_ORPHAN);
@@ -175,7 +154,7 @@ export async function fetchAll(evidence, opts = {}) {
   const suggestFn = opts.suggestFn || fetchSuggestDiscoveryCandidates;
   const newsFn = opts.newsFn || fetchNewsRssDiscoveryCandidates;
   const trendsFn = opts.trendsFn || fetchTrendsDiscoveryCandidates;
-  const newsDeadlineMs = effectiveNewsDeadlineMs(opts);
+  const sourceDeadlineMs = effectiveDeadlineMs(opts.deadlineMs, opts.deadlineReserveMs);
   const perSource = { orphan: 0, suggest: 0, news: 0, trends: 0, trendSignals: 0 };
   const merged = [];
 
@@ -191,12 +170,15 @@ export async function fetchAll(evidence, opts = {}) {
   }
 
   // Remote sources — fetch in parallel; each source already swallows errors.
-  // A caller with a run-wide deadline gets the effective deadline on the RSS
-  // source. Other callers retain the historical unbounded behavior.
+  // A caller with a run-wide deadline passes the effective cutoff through to
+  // every remote source so none can consume the reserved article time.
   const remoteJobs = [];
-  if (hasDeadlineWindow(newsDeadlineMs) && !isSuggestDisabled()) {
+  if (hasDeadlineWindow(sourceDeadlineMs) && !isSuggestDisabled()) {
     remoteJobs.push(
-      suggestFn(evidence, { fetchImpl: opts.fetchImpl })
+      suggestFn(evidence, {
+        fetchImpl: opts.fetchImpl,
+        ...(sourceDeadlineMs !== null ? { deadlineMs: sourceDeadlineMs } : {}),
+      })
         .then((arr) => ({ kind: 'suggest', arr: Array.isArray(arr) ? arr : [] }))
         .catch((err) => {
           console.warn(`[discovery] suggest source failed: ${err?.message || err}`);
@@ -204,9 +186,9 @@ export async function fetchAll(evidence, opts = {}) {
         }),
     );
   }
-  if (hasDeadlineWindow(newsDeadlineMs) && !isNewsDisabled()) {
+  if (hasDeadlineWindow(sourceDeadlineMs) && !isNewsDisabled()) {
     const newsOptions = { fetchImpl: opts.fetchImpl };
-    if (newsDeadlineMs !== null) newsOptions.deadlineMs = newsDeadlineMs;
+    if (sourceDeadlineMs !== null) newsOptions.deadlineMs = sourceDeadlineMs;
     remoteJobs.push(
       newsFn(evidence, newsOptions)
         .then((arr) => ({ kind: 'news', arr: Array.isArray(arr) ? arr : [] }))
@@ -216,9 +198,12 @@ export async function fetchAll(evidence, opts = {}) {
         }),
     );
   }
-  if (hasDeadlineWindow(newsDeadlineMs) && !isTrendsDisabled()) {
+  if (hasDeadlineWindow(sourceDeadlineMs) && !isTrendsDisabled()) {
     remoteJobs.push(
-      trendsFn(evidence, { fetchImpl: opts.fetchImpl })
+      trendsFn(evidence, {
+        fetchImpl: opts.fetchImpl,
+        ...(sourceDeadlineMs !== null ? { deadlineMs: sourceDeadlineMs } : {}),
+      })
         .then((arr) => ({ kind: 'trends', arr: Array.isArray(arr) ? arr : [] }))
         .catch((err) => {
           console.warn(`[discovery] trends source failed: ${err?.message || err}`);
@@ -249,7 +234,7 @@ export async function fetchAll(evidence, opts = {}) {
     !isNewsDisabled()
     && !isTrendsDisabled()
     && trendSignals.length > 0
-    && hasDeadlineWindow(newsDeadlineMs, MIN_TREND_EVIDENCE_WINDOW_MS)
+    && hasDeadlineWindow(sourceDeadlineMs, MIN_TREND_EVIDENCE_WINDOW_MS)
   ) {
     const seenSignalHeadlines = new Set();
     const topTrendSignals = trendSignals
@@ -268,7 +253,7 @@ export async function fetchAll(evidence, opts = {}) {
         fetchImpl: opts.fetchImpl,
         seeds,
         nowMs: opts.nowMs,
-        ...(newsDeadlineMs !== null ? { deadlineMs: newsDeadlineMs } : {}),
+        ...(sourceDeadlineMs !== null ? { deadlineMs: sourceDeadlineMs } : {}),
       });
       const newsEvidence = Array.isArray(result) ? result : [];
       trendBackedCandidates = buildTrendEvidenceCandidates(
@@ -283,7 +268,7 @@ export async function fetchAll(evidence, opts = {}) {
     !isNewsDisabled()
     && !isTrendsDisabled()
     && trendSignals.length > 0
-    && newsDeadlineMs !== null
+    && sourceDeadlineMs !== null
   ) {
     console.error('[discovery/trends] evidence search skipped: insufficient deadline window');
   }

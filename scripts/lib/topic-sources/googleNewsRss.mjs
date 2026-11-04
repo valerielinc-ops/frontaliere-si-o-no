@@ -21,6 +21,12 @@
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
 import { detectLocale } from './detectLocale.mjs';
+import {
+  hasDeadlineWindow,
+  normalizeNonNegativeDeadlineMs,
+  remainingDeadlineMs,
+  timeoutWithinDeadline,
+} from '../deadline.mjs';
 
 // Lombardia frontier-cities. Cross-border-relevant news from Varese/Como
 // is welcome even when the title doesn't contain explicit frontaliere
@@ -250,25 +256,21 @@ export function parseNewsRss(xml) {
   return out;
 }
 
-function normalizeDeadlineMs(value) {
-  if (value === null || value === undefined) return null;
-  const number = Number(value);
-  return Number.isFinite(number) && number >= 0 ? number : null;
-}
-
 async function fetchOneSeed(seed, fetchImpl, timeoutMs, deadlineMs = null) {
   const url = `https://news.google.com/rss/search?q=${encodeURIComponent(
     seed,
   )}&hl=it&gl=IT&ceid=IT:it`;
   let lastReason = null;
   for (let attempt = 0; attempt < MAX_REQUEST_ATTEMPTS; attempt++) {
-    const remainingMs = deadlineMs === null ? Infinity : deadlineMs - Date.now();
-    if (remainingMs <= 0) {
+    if (!hasDeadlineWindow(deadlineMs, 1)) {
       return { ok: false, items: [], reason: 'deadline exceeded' };
     }
     const effectiveTimeoutMs = deadlineMs === null
       ? timeoutMs
-      : Math.max(1, Math.min(timeoutMs, Math.floor(remainingMs)));
+      : timeoutWithinDeadline(deadlineMs, timeoutMs);
+    if (effectiveTimeoutMs <= 0) {
+      return { ok: false, items: [], reason: 'deadline exceeded' };
+    }
     try {
       const { response: res, text: xml } = await fetchTextWithTimeout(
         fetchImpl,
@@ -287,7 +289,8 @@ async function fetchOneSeed(seed, fetchImpl, timeoutMs, deadlineMs = null) {
       lastReason = `fetch error: ${e?.message ?? String(e)}`;
     }
     if (attempt < MAX_REQUEST_ATTEMPTS - 1) {
-      const retryWindowMs = deadlineMs === null ? RETRY_DELAY_MS : deadlineMs - Date.now();
+      const remainingMs = remainingDeadlineMs(deadlineMs);
+      const retryWindowMs = remainingMs === null ? RETRY_DELAY_MS : remainingMs;
       if (retryWindowMs <= 0) break;
       await sleep(Math.min(RETRY_DELAY_MS, retryWindowMs));
     }
@@ -319,7 +322,7 @@ export async function fetchNewsRssCandidates(opts = {}) {
   const timeoutMs = Number.isFinite(opts.timeoutMs) && opts.timeoutMs > 0
     ? opts.timeoutMs
     : REQUEST_TIMEOUT_MS;
-  const deadlineMs = normalizeDeadlineMs(opts.deadlineMs);
+  const deadlineMs = normalizeNonNegativeDeadlineMs(opts.deadlineMs);
   const fetchImpl = opts.fetchImpl ?? globalThis.fetch;
   if (typeof fetchImpl !== 'function') {
     const empty = {};
