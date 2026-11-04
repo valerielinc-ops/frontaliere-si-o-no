@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ch",
-  "assembledAt": "2026-11-03T09:30:45.048Z",
-  "runId": "41608999151",
+  "assembledAt": "2026-11-04T09:32:42.590Z",
+  "runId": "41805482036",
   "jobs": [
     {
       "id": "ch-c130346fd255",
@@ -34,7 +34,7 @@
       "url": "https://ch.talent.com/view?id=620345981570851791&trigger_from=related_jobs",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:30:38.214Z",
+      "crawledAt": "2026-11-04T09:32:36.448Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -68,7 +68,6 @@
           "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-11-02T21:58:55.001Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -86,7 +85,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T09:30:38.214Z",
+      "validThrough": "2027-01-30T09:32:36.448Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +119,7 @@
       "url": "https://ch.talent.com/view?id=612989830165106339&trigger_from=related_jobs",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:30:38.213Z",
+      "crawledAt": "2026-11-04T09:32:36.447Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -169,7 +168,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:30:38.213Z",
+      "validThrough": "2027-01-11T09:32:36.447Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +202,7 @@
       "url": "https://ch.talent.com/view?id=554547064889945322",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:30:38.211Z",
+      "crawledAt": "2026-11-04T09:32:36.446Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -252,7 +251,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:30:38.211Z",
+      "validThrough": "2026-12-04T09:32:36.446Z",
       "validThroughSource": "last-observed-window"
     }
   ]
