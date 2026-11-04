@@ -30,6 +30,19 @@ function indexKey(type, recordId) {
   return `${type}\u0000${recordId}`;
 }
 
+function lifecycleProjection(record) {
+  const candidateId = text(record?.candidateId);
+  const eventType = text(record?.eventType);
+  const occurredAt = text(record?.occurredAt);
+  if (!candidateId || !eventType || !occurredAt) throw new Error('lifecycle index projection is incomplete');
+  return { candidateId, eventType, occurredAt };
+}
+
+function lifecycleConflictDigest(record) {
+  const { recordedAt: _recordedAt, execution: _execution, ...immutable } = record;
+  return digestDocument(immutable);
+}
+
 function assertIndexEntry(entry, label) {
   if (!object(entry)) throw new Error(`${label} must be an object`);
   const type = text(entry.record_type);
@@ -41,7 +54,31 @@ function assertIndexEntry(entry, label) {
     throw new Error(`${label}.file is invalid`);
   }
   if (!DIGEST_RE.test(String(entry.digest || ''))) throw new Error(`${label}.digest is invalid`);
-  return { recordType: type, recordId, file, digest: entry.digest };
+  if (type === 'lifecycle') {
+    if (!object(entry.projection)
+        || !text(entry.projection.candidateId)
+        || !text(entry.projection.eventType)
+        || !text(entry.projection.occurredAt)
+        || !DIGEST_RE.test(String(entry.conflict_digest || ''))) {
+      throw new Error(`${label}.lifecycle projection is invalid`);
+    }
+  } else if (entry.projection !== undefined || entry.conflict_digest !== undefined) {
+    throw new Error(`${label} has unexpected lifecycle projection data`);
+  }
+  return {
+    recordType: type,
+    recordId,
+    file,
+    digest: entry.digest,
+    ...(type === 'lifecycle' ? {
+      projection: {
+        candidateId: entry.projection.candidateId,
+        eventType: entry.projection.eventType,
+        occurredAt: entry.projection.occurredAt,
+      },
+      conflictDigest: entry.conflict_digest,
+    } : {}),
+  };
 }
 
 function assertManifest(manifest) {
@@ -109,6 +146,8 @@ export function addLedgerIndexEntry(state, entry) {
       record_id: entry.recordId,
       file: entry.file,
       digest: entry.digest,
+      projection: entry.projection,
+      conflict_digest: entry.conflictDigest,
     }, 'ledger index entry');
   const key = indexKey(normalized.recordType, normalized.recordId);
   const previous = state.byKey.get(key);
@@ -125,12 +164,21 @@ export function addLedgerIndexEntry(state, entry) {
 export function addLedgerRecordToIndex(state, { type, record, file }) {
   const recordId = text(record?.recordId);
   if (!recordId) throw new Error(`cannot index ${type} record without recordId`);
-  return addLedgerIndexEntry(state, {
+  const entry = {
     recordType: type,
     recordId,
     file: path.basename(file),
-    digest: digestDocument(record),
-  });
+    // The lifecycle writer deliberately treats capture metadata as mutable
+    // evidence about the same event. Keep the index's identity digest aligned
+    // with that contract so a retry can change recordedAt/execution without
+    // becoming a false conflicting duplicate.
+    digest: type === 'lifecycle' ? lifecycleConflictDigest(record) : digestDocument(record),
+  };
+  if (type === 'lifecycle') {
+    entry.projection = lifecycleProjection(record);
+    entry.conflictDigest = lifecycleConflictDigest(record);
+  }
+  return addLedgerIndexEntry(state, entry);
 }
 
 export function ledgerIndexEntry(state, type, recordId) {
@@ -143,6 +191,20 @@ export function ledgerIndexRecordCount(state, type) {
 
 export function ledgerIndexHasFile(state, file) {
   return state.manifest.has(path.basename(file));
+}
+
+export function ledgerIndexLifecycleEvent(entry) {
+  if (entry?.recordType !== 'lifecycle' || !entry.projection) {
+    throw new Error('ledger index lifecycle entry has no projection');
+  }
+  return {
+    recordId: entry.recordId,
+    ...entry.projection,
+  };
+}
+
+export function ledgerLifecycleConflictDigest(record) {
+  return lifecycleConflictDigest(record);
 }
 
 export function setLedgerIndexFile(state, file, oid = null) {
@@ -193,6 +255,10 @@ export function writeLedgerIndex(ledgerDir, state) {
     record_id: entry.recordId,
     file: entry.file,
     digest: entry.digest,
+    ...(entry.recordType === 'lifecycle' ? {
+      projection: entry.projection,
+      conflict_digest: entry.conflictDigest,
+    } : {}),
   }))].join('\n') + '\n';
   writeAtomic(file, content);
   state.exists = true;
@@ -239,4 +305,31 @@ export function ledgerFileOid(ledgerDir, file) {
   } catch {
     return null;
   }
+}
+
+export function loadLedgerIndexForWriter(ledgerDir) {
+  const targetDir = path.resolve(ledgerDir);
+  const index = fs.existsSync(path.join(targetDir, LOOP_FLEET_LEDGER_INDEX_FILE))
+    ? readLedgerIndex(targetDir)
+    : createLedgerIndexState();
+  const trackedFileOids = trackedLedgerFileOids(targetDir);
+  if (index.exists && trackedFileOids === null
+      && [...index.manifest.values()].some((oid) => oid !== null)) {
+    throw new Error('ledger index cannot verify tracked ledger files');
+  }
+  if (trackedFileOids) {
+    for (const [file, oid] of trackedFileOids.entries()) {
+      if (!index.manifest.has(file)) continue;
+      const expected = index.manifest.get(file);
+      if (expected && expected !== oid) throw new Error(`ledger file ${file} changed after it was indexed`);
+      if (expected === null) setLedgerIndexFile(index, file, oid);
+    }
+    for (const [file, expected] of index.manifest.entries()) {
+      if (!trackedFileOids.has(file)) throw new Error(`indexed ledger file ${file} is missing from the worktree`);
+      if (expected && expected !== trackedFileOids.get(file)) {
+        throw new Error(`ledger file ${file} changed after it was indexed`);
+      }
+    }
+  }
+  return { index, trackedFileOids };
 }

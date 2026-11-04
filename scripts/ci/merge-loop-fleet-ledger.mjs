@@ -25,15 +25,12 @@ import {
 import { digestDocument } from '../lib/canonical-json-digest.mjs';
 import {
   addLedgerRecordToIndex,
-  createLedgerIndexState,
   ledgerFileOid,
   ledgerIndexEntry,
   ledgerIndexHasFile,
   ledgerIndexRecordCount,
-  LOOP_FLEET_LEDGER_INDEX_FILE,
-  readLedgerIndex,
+  loadLedgerIndexForWriter,
   setLedgerIndexFile,
-  trackedLedgerFileOids,
   writeLedgerIndex,
 } from '../lib/loop-fleet-ledger-index.mjs';
 import {
@@ -197,7 +194,14 @@ function mergeRecords({
         addLedgerRecordToIndex(index, { type, record, file });
       }
     }
-    setLedgerIndexFile(index, fileNameOnly, trackedFileOids?.get(fileNameOnly) ?? null);
+    // A legacy/unindexed target may legitimately receive its first append in
+    // this run. Leave its manifest slot unset until the final post-append OID
+    // is computed; an already indexed target must still fail closed if it is
+    // rewritten.
+    const manifestOid = fileNameOnly === path.basename(target) && !fileWasIndexed
+      ? null
+      : trackedFileOids?.get(fileNameOnly) ?? null;
+    setLedgerIndexFile(index, fileNameOnly, manifestOid);
   }
   const existing = ledgerIndexRecordCount(index, type);
   let appended = 0;
@@ -258,28 +262,7 @@ export function mergeLoopFleetLedger({
   if (!records.health.length) throw new Error('input artifact has no health records');
 
   const targetDir = path.resolve(ledgerDir);
-  const index = fs.existsSync(path.join(targetDir, LOOP_FLEET_LEDGER_INDEX_FILE))
-    ? readLedgerIndex(targetDir)
-    : createLedgerIndexState();
-  const trackedFileOids = trackedLedgerFileOids(targetDir);
-  if (index.exists && trackedFileOids === null
-      && [...index.manifest.values()].some((oid) => oid !== null)) {
-    throw new Error('ledger index cannot verify tracked ledger files');
-  }
-  if (trackedFileOids) {
-    for (const [file, oid] of trackedFileOids.entries()) {
-      if (!index.manifest.has(file)) continue;
-      const expected = index.manifest.get(file);
-      if (expected && expected !== oid) throw new Error(`ledger file ${file} changed after it was indexed`);
-      if (expected === null) setLedgerIndexFile(index, file, oid);
-    }
-    for (const [file, expected] of index.manifest.entries()) {
-      if (!trackedFileOids.has(file)) throw new Error(`indexed ledger file ${file} is missing from the worktree`);
-      if (expected && expected !== trackedFileOids.get(file)) {
-        throw new Error(`ledger file ${file} changed after it was indexed`);
-      }
-    }
-  }
+  const { index, trackedFileOids } = loadLedgerIndexForWriter(targetDir);
   const results = {};
   for (const [type, fileName] of Object.entries(LEDGER_FILES)) {
     results[type] = mergeRecords({

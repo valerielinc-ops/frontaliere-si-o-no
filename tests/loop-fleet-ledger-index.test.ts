@@ -6,7 +6,9 @@ import {
   addLedgerRecordToIndex,
   createLedgerIndexState,
   ledgerIndexEntry,
+  ledgerIndexLifecycleEvent,
   ledgerIndexRecordCount,
+  ledgerLifecycleConflictDigest,
   readLedgerIndex,
   setLedgerIndexFile,
   writeLedgerIndex,
@@ -57,5 +59,35 @@ describe('loop-fleet durable ledger index', () => {
       file: 'loop-observations-run-2.jsonl',
       record: observation('record-1', 'changed'),
     })).toThrow(/conflicting duplicate/u);
+  });
+
+  it('round-trips lifecycle projections while ignoring retry capture metadata', () => {
+    const ledgerDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-index-lifecycle-'));
+    const state = createLedgerIndexState();
+    const file = path.join(ledgerDir, 'lifecycle-events-run-1.jsonl');
+    const event = {
+      recordId: 'lifecycle-1',
+      candidateId: 'candidate-1',
+      eventType: 'pr_opened',
+      occurredAt: '2026-11-04T12:00:00.000Z',
+      recordedAt: '2026-11-04T12:01:00.000Z',
+      execution: { runId: '1', sha: 'a'.repeat(40) },
+    };
+    addLedgerRecordToIndex(state, { type: 'lifecycle', file, record: event });
+    writeLedgerIndex(ledgerDir, state);
+
+    const reloaded = readLedgerIndex(ledgerDir);
+    const entry = ledgerIndexEntry(reloaded, 'lifecycle', event.recordId);
+    expect(ledgerIndexLifecycleEvent(entry)).toEqual({
+      recordId: event.recordId,
+      candidateId: event.candidateId,
+      eventType: event.eventType,
+      occurredAt: event.occurredAt,
+    });
+    expect(entry?.conflictDigest).toBe(ledgerLifecycleConflictDigest({
+      ...event,
+      recordedAt: '2026-11-04T12:02:00.000Z',
+      execution: { runId: '2', sha: 'b'.repeat(40) },
+    }));
   });
 });
