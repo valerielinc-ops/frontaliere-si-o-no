@@ -962,6 +962,17 @@ function trustedStructuredPrices(factTexts) {
   return prices;
 }
 
+function buildFactValidationContext(factTexts) {
+  const factualContext = factTexts.join(' ');
+  return {
+    allowedNumbers: numericValues(factualContext),
+    allowedStructuredFacts: structuredFactSignatures(factualContext),
+    allowedCurrencies: currencySignatures(factualContext),
+    trustedPrices: trustedStructuredPrices(factTexts),
+    names: allowedNamePhrases([], factTexts),
+  };
+}
+
 function hasAdmissionPriceLanguage(text) {
   return /\b(?:admission|admissions|entry|entrance|ticket|tickets|price|prices|fee|fees|cost|costs|costing|ingresso|ingressi|entrata|entrate|accesso|accessi|biglietto|biglietti|prezzo|prezzi|costo|costi|tariffa|tariffe|eintritt|eintritte|eintrittspreis|preis|preise|kosten|gebühr|gebühren|entrée|entrées|billet|billets|prix|tarif|tarifs|coût|coûts)\b/iu.test(text);
 }
@@ -1006,6 +1017,7 @@ export function validateRewriteDescription(candidate, {
   sourceTexts = [],
   factTexts = [],
   requireStructuredPriceEvidence = true,
+  factValidationContext,
 } = {}) {
   const text = normalizeDescriptionText(candidate);
   if (!text) return { ok: false, code: 'empty' };
@@ -1019,20 +1031,20 @@ export function validateRewriteDescription(candidate, {
   // reduced admission price). Numeric, date, time, and currency claims in a
   // rewrite must be backed by the structured event facts, never by nearby
   // prose alone.
-  const factualContext = factTexts.join(' ');
-  const allowedNumbers = numericValues(factualContext);
+  const validationContext = factValidationContext || buildFactValidationContext(factTexts);
+  const allowedNumbers = validationContext.allowedNumbers;
   if ([...numericValues(text)].some((number) => !allowedNumbers.has(number))) return { ok: false, code: 'new-number' };
-  const allowedStructuredFacts = structuredFactSignatures(factualContext);
+  const allowedStructuredFacts = validationContext.allowedStructuredFacts;
   if ([...structuredFactSignatures(text)].some((signature) => !allowedStructuredFacts.has(signature))) {
     return { ok: false, code: 'new-date-or-price' };
   }
-  const allowedCurrencies = currencySignatures(factualContext);
+  const allowedCurrencies = validationContext.allowedCurrencies;
   if ([...currencySignatures(text)].some((currency) => !allowedCurrencies.has(currency))) {
     return { ok: false, code: 'new-date-or-price' };
   }
 
   if (requireStructuredPriceEvidence) {
-    const trustedPrices = trustedStructuredPrices(factTexts);
+    const trustedPrices = validationContext.trustedPrices;
     if ([...admissionPriceAmounts(text)].some(({ amount, isFromClaim }) => (
       !trustedPrices.some((price) => price.amount === amount && (!price.isFrom || isFromClaim))
     ))) {
@@ -1047,7 +1059,9 @@ export function validateRewriteDescription(candidate, {
     }
   }
 
-  const names = allowedNamePhrases(sourceTexts, factTexts);
+  const names = sourceTexts.length
+    ? allowedNamePhrases(sourceTexts, factTexts)
+    : validationContext.names;
   const invalidNameRun = capitalizedNameRuns(text, { withMetadata: true })
     .find((run) => !containsAllowedNamePhrase(run.text, names) && !isKnownNameVariant(run.text, names));
   if (invalidNameRun) return { ok: false, code: 'new-name', detail: nameFailureDetail(invalidNameRun) };
@@ -1082,8 +1096,39 @@ export function factsForPrompt(event) {
   return descriptionFacts(factual);
 }
 
+const EVENT_DESCRIPTION_SUPPORT_CACHE = new WeakMap();
+
 /** Revalidate stored public prose against the event's current structured facts. */
 export function isDescriptionSupportedByEventFacts(description, event) {
+  const normalizedDescription = normalizeDescriptionText(description);
+  if (!normalizedDescription) return false;
+
+  if (event && typeof event === 'object') {
+    // `descriptionFacts` is the exact input used by `factsForPrompt`, without
+    // re-hashing or carrying any description text. Keeping this signature in
+    // the cache makes the optimization safe if a caller mutates an event
+    // object between renders.
+    const factText = JSON.stringify(descriptionFacts(event));
+    let cached = EVENT_DESCRIPTION_SUPPORT_CACHE.get(event);
+    if (!cached || cached.factText !== factText) {
+      const factTexts = [factText];
+      cached = {
+        factText,
+        factTexts,
+        factValidationContext: buildFactValidationContext(factTexts),
+        results: new Map(),
+      };
+      EVENT_DESCRIPTION_SUPPORT_CACHE.set(event, cached);
+    }
+    if (cached.results.has(normalizedDescription)) return cached.results.get(normalizedDescription);
+    const result = validateRewriteDescription(normalizedDescription, {
+      factTexts: cached.factTexts,
+      factValidationContext: cached.factValidationContext,
+    }).ok;
+    cached.results.set(normalizedDescription, result);
+    return result;
+  }
+
   return validateRewriteDescription(description, {
     factTexts: [JSON.stringify(factsForPrompt(event))],
   }).ok;

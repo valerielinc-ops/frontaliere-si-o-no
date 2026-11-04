@@ -108,6 +108,14 @@ describe('event description publication policy', () => {
     expect(isDescriptionSupportedByEventFacts(descriptions.it, event)).toBe(false);
   });
 
+  it('invalidates event-fact validation when the event facts change', () => {
+    const event = { ...EVENT };
+    const description = 'The event takes place in Lugano. The listing keeps the declared local information.';
+    expect(isDescriptionSupportedByEventFacts(description, event)).toBe(true);
+    event.comune = 'Bellinzona';
+    expect(isDescriptionSupportedByEventFacts(description, event)).toBe(false);
+  });
+
   it('keeps a v1 cache entry valid across the prompt-only policy upgrade', () => {
     const hash = sourceDescriptionHash(EVENT)!;
     const entry = {
