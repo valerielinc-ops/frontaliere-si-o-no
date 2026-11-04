@@ -1179,16 +1179,25 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   ])), profileSections);
   workday.coverLetterUploadFails = true;
   const applicationsBeforeOptionalLetter = state.applications.length;
-  const optionalLetterFailure = await run(job, profileCandidate);
+  state.sessions.clear();
+  const optionalLetterFailure = await run(job);
   workday.coverLetterUploadFails = false;
   const uploadsAfterOptionalLetterFailure = optionalLetterFailure.evidence.uploads || [];
+  const optionalLetterDiagnostics = {
+    event: { type: optionalLetterFailure.event.type, reason: optionalLetterFailure.event.reason || null },
+    applicationDelta: state.applications.length - applicationsBeforeOptionalLetter,
+    submittedHasCv: state.applications.at(-1)?.hasCv === true,
+    uploadDocuments: uploadsAfterOptionalLetterFailure.map((upload) => upload.document),
+    failureCodes: optionalLetterFailure.evidence.steps.flatMap((step) => step.failures || []).map((failure) => failure.error).filter((error) => /^[a-z_]{1,80}$/.test(String(error || ''))),
+  };
   check('Workday: an unconfirmed optional cover letter does not block the required CV or application',
     optionalLetterFailure.event.type === 'submit_succeeded'
     && state.applications.length === applicationsBeforeOptionalLetter + 1
     && state.applications.at(-1)?.hasCv === true
     && uploadsAfterOptionalLetterFailure.some((upload) => upload.document === 'cv')
     && !uploadsAfterOptionalLetterFailure.some((upload) => upload.document === 'cover_letter')
-    && optionalLetterFailure.evidence.steps.some((step) => (step.failures || []).some((failure) => failure.error === 'upload_not_confirmed')));
+    && optionalLetterFailure.evidence.steps.some((step) => (step.failures || []).some((failure) => failure.error === 'upload_not_confirmed')),
+    optionalLetterDiagnostics);
 }
 
 async function main() {
