@@ -1,7 +1,48 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-03T12:01:11.484Z",
-  "findings": {},
-  "cleanRuns": 2,
+  "lastRunAt": "2026-11-04T12:14:42.606Z",
+  "findings": {
+    "sitemap-noindex|https://frontaliereticino.ch/cerca-lavoro-turgovia/apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-daac6e/": {
+      "code": "sitemap-noindex",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-turgovia/apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-daac6e/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-04T12:14:42.606Z",
+      "lastSeenAt": "2026-11-04T12:14:42.606Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-turgovia/apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-daac6e/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-turgovia/apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-daac6e/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-04T12:14:42.606Z",
+      "lastSeenAt": "2026-11-04T12:14:42.606Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-04T12:14:42.606Z",
+      "lastSeenAt": "2026-11-04T12:14:42.606Z",
+      "detail": null
+    },
+    "canonical-missing|https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/": {
+      "code": "canonical-missing",
+      "url": "https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-04T12:14:42.606Z",
+      "lastSeenAt": "2026-11-04T12:14:42.606Z",
+      "detail": null
+    },
+    "sitemap-noindex|https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/": {
+      "code": "sitemap-noindex",
+      "url": "https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-04T12:14:42.606Z",
+      "lastSeenAt": "2026-11-04T12:14:42.606Z",
+      "detail": null
+    }
+  },
+  "cleanRuns": 0,
   "lastActionable": false
 }
