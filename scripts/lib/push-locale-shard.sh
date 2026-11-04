@@ -54,7 +54,12 @@ set -uo pipefail
 # compact-article-shard-history.sh (issue #4881, AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
 
-repo_root="$(pwd)"
+# Resolve repository-owned inputs from this script, not from the caller's cwd.
+# The full-overlay path changes into its staging clone before checking that the
+# source tree was indexed; a relative `dist` argument would otherwise be
+# resolved under `$stage` and make a valid fallback abort before its push.
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd -- "$script_dir/../.." && pwd)"
 SHARD_PUSH_MODE="${SHARD_PUSH_MODE:-full}"
 case "$SHARD_PUSH_MODE" in
   full|delta) ;;
@@ -74,6 +79,12 @@ fi
 case "$loc" in
   en|de|fr) ;;
   *) echo "::error::unsupported locale '$loc' (expected en|de|fr)" >&2; exit 1 ;;
+esac
+# Keep the source tree anchored to the checkout after the staging clone changes
+# the current directory. Absolute caller paths are preserved for local fixtures.
+case "$dist_dir" in
+  /*) ;;
+  *) dist_dir="$repo_root/$dist_dir" ;;
 esac
 if [ ! -d "$dist_dir" ]; then
   echo "::error::locale shard source directory '$dist_dir' does not exist" >&2

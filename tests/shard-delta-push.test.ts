@@ -10,7 +10,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { MANIFEST_VERSION } from '../build-plugins/shared/incrementalManifest.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
@@ -394,6 +394,24 @@ describe('delta push degli shard', () => {
       writePayload(scenario, { 'pages/a': '<html>A</html>' });
       writeManifest(scenario, ['pages/a'], 'v1', 'en', false, ['active-job']);
       const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('delta fallback: fallback reason=current manifest invalid or payload missing');
+      assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('mantiene il fallback full quando la sorgente dist è passata come path relativo', () => {
+    const scenario = createScenario('relative-dist-fallback');
+    try {
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      const result = runPush(scenario, 'delta', {}, {
+        script: PUSH_LOCALE,
+        args: (current) => ['en', relative(ROOT, current.dist)],
+        deployKey: 'SHARD_EN_DEPLOY_KEY',
+        label: 'locale-relative-dist',
+      });
       expect(result.status).toBe(0);
       expect(result.output).toContain('delta fallback: fallback reason=current manifest invalid or payload missing');
       assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
