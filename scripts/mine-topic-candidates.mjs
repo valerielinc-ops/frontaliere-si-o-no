@@ -4,7 +4,8 @@ import { realpathSync } from 'node:fs';
 // scripts/mine-topic-candidates.mjs
 //
 // Phase-2 orchestrator: pulls candidates from GSC orphans + Google Trends +
-// Reddit + Facebook public pages, deduplicates and scores them, then writes
+// Reddit (when the Data API is explicitly approved) + Facebook public pages,
+// deduplicates and scores them, then writes
 // `data/topic-candidates.json`. See spec
 // docs/superpowers/specs/2026-05-06-smarter-article-generator-design.md.
 //
