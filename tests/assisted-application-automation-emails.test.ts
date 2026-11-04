@@ -130,7 +130,7 @@ describe('automation e-mails', () => {
   });
 
   it('explains the portal handoff and the closed-ad refund', () => {
-    for (const reason of ['captcha', 'portal:captcha_provider_unavailable', 'recaptcha', 'hcaptcha', 'turnstile']) {
+    for (const reason of ['captcha', 'portal:captcha_provider_unavailable', 'recaptcha', 'hcaptcha', 'turnstile', 'portal_antibot_ambiguous', 'portal:portal_antibot_ambiguous']) {
       expect(() => buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'de', reason }))
         .toThrow('captcha_requires_owner');
     }
@@ -180,6 +180,11 @@ describe('automation e-mails', () => {
     expect(portal.text).not.toContain('Affida al candidato');
     expect(describeTakeover({ reason: 'portal:captcha_provider_unavailable', stage: 'submit' }).hint)
       .toContain('«Compila con l’estensione»');
+    const legacyAntibot = buildOwnerAutomationEmail('owner_takeover', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: 'portal_antibot_ambiguous', stage: 'submit' });
+    expect(legacyAntibot.text).toContain('Il candidato non deve fare nulla');
+    expect(legacyAntibot.text).toContain('«Compila con l’estensione»');
+    expect(legacyAntibot.text).toContain('risolvi tu il CAPTCHA nella scheda');
+    expect(legacyAntibot.text).toContain('senza reinviarla');
     // JOIN, 2026-10-01: a refusal in words is completed by Valerie (the candidate paid for it), with no check for an ambiguous send.
     const refused = describeTakeover({ reason: 'portal_refused', stage: 'submit', attempts: 1 });
     expect(refused.reason).toContain('NON è partita');
