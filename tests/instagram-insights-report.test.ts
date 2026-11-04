@@ -8,22 +8,23 @@ import {
 } from '../scripts/lib/instagram-insights-report.mjs';
 
 const rows = [
-  { id: 'p1', creativeId: 'proof', kind: 'article', reach: 100, shares: 8, saves: 2, comments: 1 },
-  { id: 'p2', creativeId: 'proof', kind: 'article', reach: 200, shares: 10, saves: 4, comments: 2 },
-  { id: 'p3', creativeId: 'proof', kind: 'article', reach: 100, shares: 7, saves: 1, comments: 1 },
-  { id: 'p4', creativeId: 'save', kind: 'article', reach: 100, shares: 2, saves: 15, comments: 1 },
-  { id: 'p5', creativeId: 'save', kind: 'article', reach: 100, shares: 3, saves: 12, comments: 1 },
+  { id: 'p1', matchMethod: 'ledger-media-id', creativeId: 'proof', kind: 'article', reach: 100, shares: 8, saves: 2, comments: 1 },
+  { id: 'p2', matchMethod: 'ledger-media-id', creativeId: 'proof', kind: 'article', reach: 200, shares: 10, saves: 4, comments: 2 },
+  { id: 'p3', matchMethod: 'ledger-media-id', creativeId: 'proof', kind: 'article', reach: 100, shares: 7, saves: 1, comments: 1 },
+  { id: 'p4', matchMethod: 'ledger-media-id', creativeId: 'save', kind: 'article', reach: 100, shares: 2, saves: 15, comments: 1 },
+  { id: 'p5', matchMethod: 'ledger-media-id', creativeId: 'save', kind: 'article', reach: 100, shares: 3, saves: 12, comments: 1 },
 ];
 
 describe('Instagram Insights creative scorecard', () => {
-  it('parses a Dashboard CSV and joins a queue id to the creative ledger', () => {
-    const csv = '\ufeffPost ID;Reach;Shares;Saves;Comments\narticle-1;120;9;4;3\n';
+  it('parses a Dashboard CSV and joins the exact media ID to the creative ledger', () => {
+    const csv = '\ufeffPost ID;Reach;Shares;Saves;Comments\nig-media-1;120;9;4;3\n';
     const parsed = parseInstagramInsightsCsv(csv);
     const result = normalizeInsightRows(parsed, {
       windowHours: 24,
       ledger: {
         posted: [{
           queueId: 'article-1',
+          instagramMediaId: 'ig-media-1',
           kind: 'article',
           creativeId: 'question-choice',
           creativeObjective: 'conversation',
@@ -35,7 +36,7 @@ describe('Instagram Insights creative scorecard', () => {
 
     expect(result.rejected).toEqual([]);
     expect(result.rows[0]).toMatchObject({
-      postId: 'article-1',
+      postId: 'ig-media-1',
       kind: 'article',
       creativeId: 'question-choice',
       objective: 'conversation',
@@ -59,10 +60,99 @@ describe('Instagram Insights creative scorecard', () => {
     }]);
   });
 
+  it('rejects creative outcomes without an exact ledger media ID', () => {
+    const unlinked = normalizeInsightRows([{
+      id: 'unlinked-post',
+      creativeId: 'proof',
+      reach: 100,
+      shares: 10,
+    }]);
+    const queueOnly = normalizeInsightRows([{
+      id: 'queue-only-post',
+      reach: 100,
+      shares: 10,
+    }], {
+      ledger: { posted: [{ queueId: 'queue-only-post', creativeId: 'proof' }] },
+    });
+    const collidingIdentity = normalizeInsightRows([{
+      id: 'shared-id',
+      reach: 100,
+      shares: 10,
+    }], {
+      ledger: { posted: [{
+        queueId: 'shared-id',
+        instagramMediaId: 'shared-id',
+        creativeId: 'proof',
+      }] },
+    });
+    const missingMediaId = normalizeInsightRows([{
+      matchMethod: 'ledger-media-id',
+      creativeId: 'proof',
+      reach: 100,
+      shares: 10,
+    }]);
+    const conflictingCreative = normalizeInsightRows([{
+      id: 'verified-media-id',
+      creativeId: 'save',
+      reach: 100,
+      shares: 10,
+    }], {
+      ledger: { posted: [{
+        instagramMediaId: 'verified-media-id',
+        creativeId: 'proof',
+        creativeObjective: 'share',
+        primaryMetric: 'shares',
+      }] },
+    });
+    const suppliedMethodWithoutLedgerMatch = normalizeInsightRows([{
+      id: 'unknown-media-id',
+      matchMethod: 'ledger-media-id',
+      creativeId: 'proof',
+      reach: 100,
+      shares: 10,
+    }], { ledger: { posted: [] } });
+    const queueIdCollidesWithMediaId = normalizeInsightRows([{
+      queueId: 'ig-media-1',
+      reach: 100,
+      shares: 10,
+    }], {
+      ledger: { posted: [{
+        queueId: 'article-1',
+        instagramMediaId: 'ig-media-1',
+        creativeId: 'proof',
+      }] },
+    });
+    const queueIdCsv = normalizeInsightRows(parseInstagramInsightsCsv('Queue ID,Reach,Shares\nig-media-1,100,10\n'), {
+      ledger: { posted: [{
+        queueId: 'article-1',
+        instagramMediaId: 'ig-media-1',
+        creativeId: 'proof',
+      }] },
+    });
+
+    expect(unlinked.rows).toEqual([]);
+    expect(unlinked.rejected[0].reason).toBe('copy attribution lacks an exact ledger media ID');
+    expect(queueOnly.rows).toEqual([]);
+    expect(queueOnly.rejected[0].reason).toBe('copy attribution lacks an exact ledger media ID');
+    expect(collidingIdentity.rows).toEqual([]);
+    expect(collidingIdentity.rejected[0].reason).toBe('copy attribution lacks an exact ledger media ID');
+    expect(missingMediaId.rows).toEqual([]);
+    expect(missingMediaId.rejected[0].reason).toBe('media ID missing; exact attribution cannot be proven');
+    expect(conflictingCreative.rows).toEqual([]);
+    expect(conflictingCreative.rejected[0].reason).toBe('creativeId conflicts with the exact ledger media ID');
+    expect(suppliedMethodWithoutLedgerMatch.rows).toEqual([]);
+    expect(suppliedMethodWithoutLedgerMatch.rejected[0].reason).toBe('media ID does not match an exact ledger media ID');
+    expect(queueIdCollidesWithMediaId.rows).toEqual([]);
+    expect(queueIdCollidesWithMediaId.rejected[0].reason).toBe('media ID missing; exact attribution cannot be proven');
+    expect(queueIdCsv.rows).toEqual([]);
+    expect(queueIdCsv.rejected[0].reason).toBe('media ID missing; exact attribution cannot be proven');
+  });
+
   it('normalizes dashboard aliases and derives the treatment objective', () => {
     const result = normalizeInsightRows({ data: [
       {
         media_id: 'media-1',
+        matchMethod: 'ledger-media-id',
         creative_id: 'question-story',
         reach_count: '100',
         shares_count: 4,
@@ -91,6 +181,7 @@ describe('Instagram Insights creative scorecard', () => {
     const result = normalizeInsightRows([
       {
         id: 'media-api-1',
+        matchMethod: 'ledger-media-id',
         creativeId: 'save-checklist',
         kind: 'article',
         insights: {
@@ -120,6 +211,7 @@ describe('Instagram Insights creative scorecard', () => {
   it('preserves an explicitly returned zero from a nested Meta API metric', () => {
     const result = normalizeInsightRows([{
       id: 'media-api-zero-comments',
+      matchMethod: 'ledger-media-id',
       creativeId: 'question-choice',
       kind: 'article',
       insights: {
@@ -142,6 +234,7 @@ describe('Instagram Insights creative scorecard', () => {
   it('uses browser Views as a separately labeled audience base when Reach is not visible', () => {
     const result = normalizeInsightRows([{
       id: 'browser-media-1',
+      matchMethod: 'ledger-media-id',
       creativeId: 'question-choice',
       kind: 'article',
       views: 13,
@@ -160,26 +253,37 @@ describe('Instagram Insights creative scorecard', () => {
     });
   });
 
-  it('rejects timestamp-matched media before attributing creative performance', () => {
-    const result = normalizeInsightRows([{
-      id: 'media-timestamp-match',
-      matchMethod: 'confirmation-timestamp',
-      creativeId: 'question-choice',
-      kind: 'article',
-      reach: 100,
-      comments: 5,
-    }]);
+  it('rejects timestamp and browser-fingerprint matches before creative attribution', () => {
+    const result = normalizeInsightRows([
+      {
+        id: 'media-timestamp-match',
+        matchMethod: 'confirmation-timestamp',
+        creativeId: 'question-choice',
+        kind: 'article',
+        reach: 100,
+        comments: 5,
+      },
+      {
+        id: 'browser-media-match',
+        matchMethod: 'browser-cover-fingerprint',
+        creativeId: 'question-choice',
+        kind: 'article',
+        reach: 100,
+        comments: 5,
+      },
+    ]);
 
     expect(result.rows).toEqual([]);
-    expect(result.rejected).toEqual([{
-      row: 1,
-      reason: 'timestamp-matched media cannot attribute creative performance',
-    }]);
+    expect(result.rejected).toEqual([
+      { row: 1, reason: 'timestamp-matched media cannot attribute creative performance' },
+      { row: 2, reason: 'copy attribution is not an exact media-to-ledger join' },
+    ]);
   });
 
   it('does not turn legacy missing zero metrics into observed zeros and rejects late snapshots', () => {
     const legacyZero = normalizeInsightRows([{
       id: 'legacy-zero',
+      matchMethod: 'ledger-media-id',
       creativeId: 'question-choice',
       kind: 'article',
       views: 100,
@@ -194,6 +298,7 @@ describe('Instagram Insights creative scorecard', () => {
 
     const declaredZero = normalizeInsightRows([{
       id: 'declared-zero',
+      matchMethod: 'ledger-media-id',
       creativeId: 'question-choice',
       kind: 'article',
       views: 100,
@@ -207,6 +312,7 @@ describe('Instagram Insights creative scorecard', () => {
 
     const late = normalizeInsightRows([{
       id: 'late-snapshot',
+      matchMethod: 'ledger-media-id',
       creativeId: 'question-choice',
       kind: 'article',
       views: 100,
@@ -304,6 +410,7 @@ describe('Instagram Insights creative scorecard', () => {
     const report = buildCreativeReport([
       {
         id: 'ig-copy-a',
+        matchMethod: 'ledger-media-id',
         creativeId: 'proof',
         kind: 'article',
         reach: 100,
@@ -314,6 +421,7 @@ describe('Instagram Insights creative scorecard', () => {
       },
       {
         id: 'ig-copy-b',
+        matchMethod: 'ledger-media-id',
         creativeId: 'proof',
         kind: 'article',
         reach: 100,
@@ -339,6 +447,7 @@ describe('Instagram Insights creative scorecard', () => {
     const report = buildCreativeReport([
       {
         id: 'ig-copy-conflict',
+        matchMethod: 'ledger-media-id',
         creativeId: 'proof',
         kind: 'article',
         reach: 100,
@@ -394,8 +503,8 @@ describe('Instagram Insights creative scorecard', () => {
 
   it('separates measurement windows so 24h and 72h are never pooled', () => {
     const normalized = normalizeInsightRows([
-      { creativeId: 'proof', reach: 100, shares: 10, windowHours: 24 },
-      { creativeId: 'proof', reach: 200, shares: 15, windowHours: 72 },
+      { id: 'window-24', matchMethod: 'ledger-media-id', creativeId: 'proof', reach: 100, shares: 10, windowHours: 24 },
+      { id: 'window-72', matchMethod: 'ledger-media-id', creativeId: 'proof', reach: 200, shares: 15, windowHours: 72 },
     ]).rows;
     const report = aggregateCreativePerformance(normalized, { minimumObservations: 1 });
 
@@ -405,10 +514,10 @@ describe('Instagram Insights creative scorecard', () => {
 
   it('does not pool different content kinds into one treatment decision', () => {
     const normalized = normalizeInsightRows([
-      { creativeId: 'proof-local', kind: 'article', reach: 100, shares: 10 },
-      { creativeId: 'proof-local', kind: 'article', reach: 100, shares: 10 },
-      { creativeId: 'proof-local', kind: 'job', reach: 100, shares: 10 },
-      { creativeId: 'proof-local', kind: 'job', reach: 100, shares: 10 },
+      { id: 'article-1', matchMethod: 'ledger-media-id', creativeId: 'proof-local', kind: 'article', reach: 100, shares: 10 },
+      { id: 'article-2', matchMethod: 'ledger-media-id', creativeId: 'proof-local', kind: 'article', reach: 100, shares: 10 },
+      { id: 'job-1', matchMethod: 'ledger-media-id', creativeId: 'proof-local', kind: 'job', reach: 100, shares: 10 },
+      { id: 'job-2', matchMethod: 'ledger-media-id', creativeId: 'proof-local', kind: 'job', reach: 100, shares: 10 },
     ]).rows;
     const report = aggregateCreativePerformance(normalized);
 
@@ -423,6 +532,7 @@ describe('Instagram Insights creative scorecard', () => {
     const normalized = normalizeInsightRows([
       ...Array.from({ length: 3 }, (_, index) => ({
         id: `navy-${index}`,
+        matchMethod: 'ledger-media-id',
         creativeId: 'proof',
         backgroundExperimentId: 'instagram-carousel-background-v1',
         backgroundVariant: 'navy-gradient',
@@ -433,6 +543,7 @@ describe('Instagram Insights creative scorecard', () => {
       })),
       ...Array.from({ length: 3 }, (_, index) => ({
         id: `paper-${index}`,
+        matchMethod: 'ledger-media-id',
         creativeId: 'proof',
         backgroundExperimentId: 'instagram-carousel-background-v1',
         backgroundVariant: 'paper-amber',

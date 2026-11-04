@@ -24,6 +24,7 @@ concurrency:
 jobs:
   publish:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:

@@ -25,6 +25,14 @@ function mediaTimestamp(media) {
   return timestamp(media?.timestamp || media?.created_time);
 }
 
+/** An Instagram copy attribution is exact only when its identity came from the ledger media ID. */
+export function isExactInstagramCopyAttribution(row, { allowMissingStatus = false } = {}) {
+  const method = String(row?.matchMethod ?? row?.match_method ?? '').trim();
+  const status = row?.copyAttributionStatus ?? row?.copy_attribution_status;
+  return method === 'ledger-media-id'
+    && (status === 'exact' || (allowMissingStatus && (status === undefined || status === null || status === '')));
+}
+
 /**
  * Match ledger groups to recent Graph API media. Ties and reused candidates
  * are rejected instead of guessed. Callers may provide a surface-specific

@@ -70,8 +70,9 @@ describe('LinkedIn member access token rotation', () => {
       },
     })).resolves.toBe(true);
     expect(input).toMatchObject({
-      name: 'LINKEDIN_MEMBER_REFRESH_TOKEN',
+      name: 'SERVER_LINKEDIN_MEMBER_REFRESH_TOKEN',
       value: 'rotated-refresh',
+      namespace: 'firebase-server',
       credentials: { project_id: 'test-project' },
     });
   });

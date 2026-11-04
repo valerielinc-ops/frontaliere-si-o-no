@@ -16,6 +16,7 @@ permissions:
 jobs:
   collect:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -81,20 +82,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          only_env_keys='FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN'
+          only_env_keys='FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,FB_USER_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN'
           if [ "$GITHUB_EVENT_NAME" != schedule ] || [ "$(date -u +%H)" = 00 ]; then
             only_env_keys="$only_env_keys,LINKEDIN_MEMBER_CLIENT_ID,LINKEDIN_MEMBER_CLIENT_SECRET,LINKEDIN_MEMBER_ACCESS_TOKEN,LINKEDIN_MEMBER_REFRESH_TOKEN"
           fi
           if [ "${TIKTOK_DISPLAY_ANALYTICS_APPROVED:-}" = true ]; then
             only_env_keys="$only_env_keys,TIKTOK_CLIENT_KEY,TIKTOK_CLIENT_SECRET,TIKTOK_ACCESS_TOKEN,TIKTOK_REFRESH_TOKEN"
           fi
-          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs "--only-env=$only_env_keys")"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs "--only-env=$only_env_keys" --include-social-secrets)"
           eval "$rc_exports"
+          if [ -n "${FB_USER_ACCESS_TOKEN:-}" ]; then printf '::add-mask::%s\n' "$FB_USER_ACCESS_TOKEN"; fi
           if [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$(date -u +%H)" != 00 ]; then
             node scripts/social-native-insights.mjs --skip-linkedin
           else
             node scripts/social-native-insights.mjs
           fi
+          unset FB_PAGE_ID FB_PAGE_ACCESS_TOKEN FB_USER_ACCESS_TOKEN INSTAGRAM_BUSINESS_ACCOUNT_ID INSTAGRAM_ACCESS_TOKEN
 
       - name: Reconcile frozen social-copy registrations and winners
         if: ${{ steps.collect.outcome == 'success' }}

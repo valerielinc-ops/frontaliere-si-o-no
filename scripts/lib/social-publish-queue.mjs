@@ -1,30 +1,19 @@
 /**
- * social-publish-queue.mjs — the ONE queue of ready Instagram/TikTok posts.
+ * social-publish-queue.mjs — the shared legacy queue for TikTok and pre-Graph
+ * Instagram entries. New Instagram feed posts use the Graph API only.
  *
- * The daily posters (scripts/post-to-instagram.mjs, scripts/post-to-tiktok.mjs)
- * pick the carousel, render its slides, upload them to the CDN and, for a
- * queued TikTok post, attach a video made from those slides; then either call
- * the platform API or — when the Playwright robot is the transport — put the
- * finished post here. The robot (scripts/social-robot/) reads this queue
- * from origin/main, publishes from the owner's browser profile on the agents'
- * Mac host, and only after it has SEEN the platform's confirmation does
- * scripts/social-robot/confirm.mjs (run by social-robot-confirm.yml) move the
- * entry into the same ledger the API path writes (data/<channel>-posted.json).
- * So there is one picker, one queue and one ledger; the robot never decides
- * what to post and never writes the ledger itself.
+ * Retained queue records are migration input for the former Playwright
+ * publisher. New Instagram feed/Reel content is delivered by Graph API, while
+ * TikTok and Instagram browser delivery remain held. The robot no longer
+ * publishes queued feed content; the queue helpers stay available so legacy
+ * records can be inspected and safely reconciled.
  *
  * Dependency-free on purpose (node builtins only): the robot runs from a
  * snapshot of scripts/ on the Mac host, without build-plugins/ or data/.
  *
- * The switch between the API pipeline and the robot is the Remote Config
- * parameter SOCIAL_ROBOT_MODE (mapped in scripts/load-rc-env.mjs):
- *   off   the API pipeline only, as before the robot existed
- *   dry   default (absent, empty or unknown value): the posters still use the
- *         API when it has credentials, and otherwise queue the post; the robot
- *         goes up to the publish button and never presses it, even when it is
- *         launched with --publish
- *   live  the posters never call the API and always queue; the robot launched
- *         with --publish presses the button
+ * SOCIAL_ROBOT_MODE is retained for community actions and legacy queue
+ * diagnostics. Instagram feed publishing opts into `apiOnly`; its verified
+ * token/account readiness is never replaced by a browser transport switch.
  * Every value is shorter than six characters on purpose: the loader masks any
  * longer RC value in CI logs (isTrivialSecret), and a masked "publish" would
  * turn every log line containing that word into `***`.
@@ -89,14 +78,15 @@ export function resolveSocialRobotMode(env = process.env) {
 }
 
 /**
- * What a poster does with a finished carousel.
- *   api      call the platform API (only with credentials, never in live mode)
- *   enqueue  put the post in the robot's queue when the API did not publish it
- *   render   whether rendering + uploading the slides is worth doing at all
+ * What a poster does with a finished carousel. New Instagram feed publishing
+ * opts into `apiOnly`; queue behavior remains for legacy callers only.
+ *   api      call the platform API when credentials are present
+ *   enqueue  place a legacy post in the robot queue
+ *   render   whether rendering + uploading slides is useful for this route
  *
- * @param {{ mode: string, apiReady: boolean, apiOnly?: boolean }} opts
+ * @param {{ mode?: string, apiReady: boolean, apiOnly?: boolean }} opts
  */
-export function socialPublishRoute({ mode, apiReady, apiOnly = false }) {
+export function socialPublishRoute({ mode = 'off', apiReady, apiOnly = false }) {
   const ready = Boolean(apiReady);
   if (apiOnly) return { api: ready, enqueue: false, render: ready };
   if (mode === 'off') return { api: ready, enqueue: false, render: ready };

@@ -1,4 +1,5 @@
 const AUTOMATED_DELIVERY_HOLDS = Object.freeze({
+  instagram: 'Instagram browser delivery is held; feed publishing must use the official Graph API route.',
   tiktok: 'TikTok automated delivery is held pending an eligible, policy-compliant publishing use case.',
 });
 

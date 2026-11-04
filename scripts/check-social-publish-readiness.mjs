@@ -32,11 +32,11 @@
  *   node scripts/check-social-publish-readiness.mjs --ready-channels   # names, space-separated
  *   node scripts/check-social-publish-readiness.mjs --action-required-channels
  *   node scripts/check-social-publish-readiness.mjs --reason=tiktok    # one reason line
+ *   node scripts/check-social-publish-readiness.mjs --github-summary   # full report + one-probe workflow outputs
  *
- * The last two exist so .github/workflows/social-publish-readiness-watch.yml
- * can read a verdict without an inline `node -e` reaching into the JSON: an
- * eval one-liner inside YAML inside a shell loop is three layers of quoting to
- * get wrong, and it fails silently by printing nothing.
+ * `--github-summary` lets .github/workflows/social-publish-readiness-watch.yml
+ * write verdicts and reasons from one probe, avoiding repeated platform reads
+ * and inline JSON parsing in shell.
  *
  * Env (all via Firebase Remote Config → scripts/load-rc-env.mjs):
  *   FB_PAGE_ID + FB_USER_ACCESS_TOKEN          Instagram Page-link probe
@@ -51,42 +51,88 @@ import {
   instagramSetupActionChannels,
   READY,
 } from './lib/social-readiness.mjs';
-import { probeInstagramPageLink } from './lib/instagram-page-link-probe.mjs';
+import { appendFileSync } from 'node:fs';
 import {
-  probeInstagramPublishPermission,
-  probeInstagramPublisherToken,
-} from './lib/instagram-publisher-readiness-probes.mjs';
+  buildInstagramCapabilityMonitorOutputs,
+  checkInstagramPublishReadiness,
+} from './lib/instagram-publish-readiness.mjs';
+import { classifyMetaTokenLifecycle } from './lib/meta-token-lifecycle.mjs';
 
 async function main() {
   const args = process.argv.slice(2);
   const asJson = args.includes('--json');
+  const githubSummary = args.includes('--github-summary');
   const actionableOnly = args.includes('--actionable-only');
   const readyOnly = args.includes('--ready-channels');
   const actionRequiredOnly = args.includes('--action-required-channels');
   const reasonFor = args.find((a) => a.startsWith('--reason='))?.split('=')[1];
   const env = process.env;
+  const metaTokenLifecycle = classifyMetaTokenLifecycle({ env });
 
-  const [pageLink, publishPermission, publisherToken] = await Promise.all([
-    probeInstagramPageLink({
-      pageId: env.FB_PAGE_ID,
-      userAccessToken: env.FB_USER_ACCESS_TOKEN,
-      instagramAccountId: env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
-      publisherAccessToken: env.INSTAGRAM_ACCESS_TOKEN,
-    }),
-    probeInstagramPublishPermission({ userAccessToken: env.FB_USER_ACCESS_TOKEN }),
-    probeInstagramPublisherToken({
-      instagramAccountId: env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
-      accessToken: env.INSTAGRAM_ACCESS_TOKEN,
-    }),
-  ]);
-  const instagram = {
-    ...pageLink,
-    ...publishPermission,
-    ...publisherToken,
-    note: [pageLink.note, publishPermission.note, publisherToken.note].filter(Boolean).join('; '),
-  };
-  const probes = { instagram };
+  const { verdict: instagram, probe, capabilities } = await checkInstagramPublishReadiness({ env });
+  const capabilityMonitor = buildInstagramCapabilityMonitorOutputs(capabilities, probe);
+  const probes = { instagram: { ...instagram, ...probe } };
   const all = classifyAll({ env, probes });
+  const capabilityLines = Object.entries(capabilities).map(([name, capability]) => {
+    const key = name.replace(/[A-Z]/gu, (letter) => `_${letter.toLowerCase()}`);
+    return `instagram_capability_${key}=${capability.state}`;
+  });
+  const capabilitySummary = [
+    '### Instagram capability readiness',
+    '',
+    '| Capability | State | Required access | Detail |',
+    '|---|---|---|---|',
+    ...Object.entries(capabilities).map(([name, capability]) => (
+      `| ${name} | ${capability.state} | ${capability.requiredPermissions.join(', ')}${capability.pageTask ? `; Page ${capability.pageTask}` : ''} | ${capability.reason}${capability.eligibilityNote ? `; ${capability.eligibilityNote}` : ''} |`
+    )),
+  ].join('\n');
+  const metaTokenLifecycleSummary = [
+    '### Meta token lifecycle',
+    '',
+    `State: **${metaTokenLifecycle.state}**`,
+    '',
+    metaTokenLifecycle.reason,
+  ].join('\n');
+
+  if (githubSummary) {
+    if (!env.GITHUB_OUTPUT) throw new Error('--github-summary requires GITHUB_OUTPUT');
+    const ready = all.filter((verdict) => verdict.state === READY).map((verdict) => verdict.channel);
+    const actionRequired = instagramSetupActionChannels(all).map((verdict) => verdict.channel);
+    const lines = [
+      `ready=${ready.join(' ')}`,
+      `action_required=${actionRequired.join(' ')}`,
+      `capability_action_required=${capabilityMonitor.actionRequired.join(' ')}`,
+      `capability_ready=${capabilityMonitor.ready.join(' ')}`,
+      `meta_token_lifecycle_state=${metaTokenLifecycle.state}`,
+      `meta_token_lifecycle_action_required=${metaTokenLifecycle.actionRequired}`,
+      `meta_token_lifecycle_reason=${String(metaTokenLifecycle.reason).replace(/[\r\n]+/gu, ' ')}`,
+      ...capabilityLines,
+      ...Object.entries(capabilityMonitor.reasons).map(([name, reason]) => (
+        `reason_capability_${name}=${String(reason).replace(/[\r\n]+/gu, ' ')}`
+      )),
+      ...all.map((verdict) => `reason_${verdict.channel}=${String(verdict.reason).replace(/[\r\n]+/gu, ' ')}`),
+    ];
+    appendFileSync(env.GITHUB_OUTPUT, `${lines.join('\n')}\n`, 'utf8');
+    if (env.GITHUB_STEP_SUMMARY) appendFileSync(env.GITHUB_STEP_SUMMARY, `${capabilitySummary}\n\n${metaTokenLifecycleSummary}\n`, 'utf8');
+    const verdicts = all.map((verdict) => ({
+      ...verdict,
+      probeNote: probes[verdict.channel]?.note ?? null,
+    }));
+    console.log('─── social publish readiness ───');
+    console.log(formatVerdictTable(verdicts));
+    console.log(`\n${capabilitySummary}`);
+    console.log(`\n${metaTokenLifecycleSummary}`);
+    for (const verdict of verdicts) {
+      if (verdict.probeNote) console.log(`  ↳ ${verdict.channel}: ${verdict.probeNote}`);
+    }
+    const actionable = actionableChannels(all);
+    console.log(
+      actionable.length
+        ? `\n⚠️  ${actionable.length} channel(s) need work now: ${actionable.map((verdict) => verdict.channel).join(', ')}`
+        : '\n✅ every channel is waiting on a platform-side review — nothing to do here.',
+    );
+    return;
+  }
 
   if (readyOnly) {
     console.log(all.filter((v) => v.state === READY).map((v) => v.channel).join(' '));
@@ -107,12 +153,20 @@ async function main() {
   }));
 
   if (asJson) {
-    console.log(JSON.stringify({ checkedAt: new Date().toISOString(), verdicts }, null, 2));
+    console.log(JSON.stringify({
+      checkedAt: new Date().toISOString(),
+      verdicts,
+      instagramCapabilities: capabilities,
+      instagramCapabilityMonitor: capabilityMonitor,
+      metaTokenLifecycle,
+    }, null, 2));
     return;
   }
 
   console.log('─── social publish readiness ───');
   console.log(formatVerdictTable(verdicts));
+  console.log(`\n${capabilitySummary}`);
+  console.log(`\n${metaTokenLifecycleSummary}`);
   for (const v of verdicts) {
     if (v.probeNote) console.log(`  ↳ ${v.channel}: ${v.probeNote}`);
   }

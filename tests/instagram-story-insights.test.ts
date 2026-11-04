@@ -9,6 +9,21 @@ import {
 
 const PUBLISHED_AT = '2026-11-03T11:30:00.000Z';
 const AS_OF = new Date('2026-11-03T12:00:00.000Z');
+const grantedInsightsPermission = async () => ({
+  permissionStatuses: { instagram_basic: 'granted', instagram_manage_insights: 'granted' },
+});
+const verifiedStoryPageLink = async () => ({
+  pageLinkStatus: 'matched',
+  publisherTokenSourceStatus: 'matched',
+  pageTaskStatuses: { analyze: 'granted' },
+});
+const verifiedStoryPublisher = async () => ({ publisherTokenStatus: 'matched' });
+const STORY_READY_ENV = {
+  FB_PAGE_ID: 'page-1',
+  FB_USER_ACCESS_TOKEN: 'user-token',
+  INSTAGRAM_BUSINESS_ACCOUNT_ID: 'account-1',
+  INSTAGRAM_ACCESS_TOKEN: 'opaque-token',
+};
 
 function response(body: unknown, status = 200) {
   return {
@@ -648,6 +663,7 @@ describe('Instagram Story insights collector', () => {
     expect(instagramStoryInsightsExitCode({ status: 'no-ready-stories', persistedStatus: 'metrics-unavailable' })).toBe(2);
     expect(instagramStoryInsightsExitCode({ status: 'no-ready-stories', persistedStatus: 'credentials-missing' })).toBe(2);
     expect(instagramStoryInsightsExitCode({ status: 'no-ready-stories' })).toBe(0);
+    expect(instagramStoryInsightsExitCode({ status: 'capability-unavailable' })).toBe(2);
   });
 
   it('retries only transiently unavailable metrics and preserves earlier Story measurements', async () => {
@@ -770,28 +786,21 @@ describe('Instagram Story insights collector', () => {
     });
   });
 
-  it('uses the existing Page token when the dedicated Instagram Insights token is absent', async () => {
-    const authorizationHeaders: string[] = [];
+  it('does not substitute an unverified Page token for the Instagram Graph token', async () => {
+    const updateInsights = vi.fn(async () => ({ changed: true }));
+    const fetchImpl = vi.fn();
     const result = await runInstagramStoryInsights({
       env: { FB_PAGE_ACCESS_TOKEN: 'page-token-from-rc' },
       db: {},
       asOf: AS_OF,
-      loadInsights: async () => ({
-        posts: [],
-        instagramStoryPublications: [{ storyId: 'story-private-id', publishedAt: PUBLISHED_AT }],
-        instagramStorySnapshots: [],
-        sources: {},
-      }),
-      fetchImpl: async (input, options = {}) => {
-        authorizationHeaders.push(String((options.headers as Record<string, string>)?.Authorization || ''));
-        return metricResponse(new URL(String(input)).searchParams.get('metric') || '');
-      },
-      updateInsights: async () => ({ changed: true }),
+      loadInsights: vi.fn(),
+      fetchImpl,
+      updateInsights,
     });
 
-    expect(result).toMatchObject({ status: 'snapshots-added', snapshots: 1, persisted: true });
-    expect(authorizationHeaders).toHaveLength(8);
-    expect(authorizationHeaders.every((value) => value === 'Bearer page-token-from-rc')).toBe(true);
+    expect(result).toMatchObject({ status: 'credentials-missing', persistedStatus: 'credentials-missing', snapshots: 0 });
+    expect(fetchImpl).not.toHaveBeenCalled();
+    expect(updateInsights).toHaveBeenCalledOnce();
     expect(JSON.stringify(result)).not.toContain('page-token-from-rc');
   });
 
@@ -809,12 +818,15 @@ describe('Instagram Story insights collector', () => {
       return { changed: true };
     });
     const failed = await runInstagramStoryInsights({
-      env: { INSTAGRAM_ACCESS_TOKEN: 'opaque-token' },
+      env: STORY_READY_ENV,
       db: {},
       asOf: AS_OF,
       loadInsights,
       updateInsights,
       fetchImpl: async () => response({ error: { code: 4 } }, 400),
+      probePermissions: grantedInsightsPermission,
+      probePageLink: verifiedStoryPageLink,
+      probePublisherToken: verifiedStoryPublisher,
       sleepImpl: async () => {},
     });
     expect(failed).toMatchObject({
@@ -824,12 +836,15 @@ describe('Instagram Story insights collector', () => {
     expect(instagramStoryInsightsExitCode(failed)).toBe(2);
 
     const noReady = await runInstagramStoryInsights({
-      env: { INSTAGRAM_ACCESS_TOKEN: 'opaque-token' },
+      env: STORY_READY_ENV,
       db: {},
       asOf: new Date('2026-11-03T14:00:00.000Z'),
       loadInsights,
       updateInsights,
       fetchImpl: vi.fn(),
+      probePermissions: grantedInsightsPermission,
+      probePageLink: verifiedStoryPageLink,
+      probePublisherToken: verifiedStoryPublisher,
       sleepImpl: async () => {},
     });
     expect(noReady).toMatchObject({
@@ -847,12 +862,15 @@ describe('Instagram Story insights collector', () => {
       publishedAt: '2026-11-03T14:00:00.000Z',
     });
     const recovered = await runInstagramStoryInsights({
-      env: { INSTAGRAM_ACCESS_TOKEN: 'opaque-token' },
+      env: STORY_READY_ENV,
       db: {},
       asOf: new Date('2026-11-03T14:30:00.000Z'),
       loadInsights,
       updateInsights,
       fetchImpl: async (input) => metricResponse(new URL(String(input)).searchParams.get('metric') || ''),
+      probePermissions: grantedInsightsPermission,
+      probePageLink: verifiedStoryPageLink,
+      probePublisherToken: verifiedStoryPublisher,
       sleepImpl: async () => {},
     });
     expect(recovered).toMatchObject({
@@ -872,11 +890,14 @@ describe('Instagram Story insights collector', () => {
     };
     let updated: any;
     const result = await runInstagramStoryInsights({
-      env: { INSTAGRAM_ACCESS_TOKEN: 'opaque-token' },
+      env: STORY_READY_ENV,
       db: {},
       asOf: AS_OF,
       loadInsights: async () => existing,
       fetchImpl: async (input) => metricResponse(new URL(String(input)).searchParams.get('metric') || ''),
+      probePermissions: grantedInsightsPermission,
+      probePageLink: verifiedStoryPageLink,
+      probePublisherToken: verifiedStoryPublisher,
       updateInsights: async (_db, update) => {
         updated = update(existing);
         return { changed: true };
@@ -887,5 +908,60 @@ describe('Instagram Story insights collector', () => {
     expect(updated.instagramStorySnapshots).toHaveLength(1);
     expect(updated.instagramStorySnapshots[0].storyId).toBe('story-private-id');
     expect(JSON.stringify(result)).not.toContain('story-private-id');
+  });
+
+  it('holds Story Insights when the user token does not grant insights and records the capability state', async () => {
+    const loadInsights = vi.fn();
+    let updated: any;
+    const result = await runInstagramStoryInsights({
+      env: { INSTAGRAM_ACCESS_TOKEN: 'opaque-token', FB_USER_ACCESS_TOKEN: 'user-token' },
+      db: {},
+      asOf: AS_OF,
+      loadInsights,
+      fetchImpl: vi.fn(),
+      probePermissions: async () => ({ permissionStatuses: { instagram_manage_insights: 'missing' } }),
+      updateInsights: async (_db, update) => {
+        updated = update({ sources: {}, posts: [] });
+        return { changed: true };
+      },
+    });
+
+    expect(result).toMatchObject({ status: 'permission-missing', persistedStatus: 'permission-missing', permissionStatus: 'missing' });
+    expect(instagramStoryInsightsExitCode(result)).toBe(2);
+    expect(loadInsights).not.toHaveBeenCalled();
+    expect(updated.sources.instagramStoryInsights).toMatchObject({ status: 'permission-missing', lastAttemptStatus: 'permission-missing' });
+  });
+
+  it.each([
+    ['publisher token resolves to a different Instagram account', verifiedStoryPageLink, async () => ({ publisherTokenStatus: 'mismatch' })],
+    ['publisher token is not tied to the verified Page', async () => ({
+      pageLinkStatus: 'matched', publisherTokenSourceStatus: 'mismatch', pageTaskStatuses: { analyze: 'granted' },
+    }), verifiedStoryPublisher],
+    ['the Page does not grant Insights access', async () => ({
+      pageLinkStatus: 'matched', publisherTokenSourceStatus: 'matched', pageTaskStatuses: { analyze: 'missing' },
+    }), verifiedStoryPublisher],
+  ])('holds Story Insights when %s', async (_label, probePageLink, probePublisherToken) => {
+    const loadInsights = vi.fn();
+    const updateInsights = vi.fn(async (_db: unknown, update: (current: any) => any) => {
+      update({ sources: {}, posts: [] });
+      return { changed: true };
+    });
+    const fetchImpl = vi.fn();
+    const result = await runInstagramStoryInsights({
+      env: STORY_READY_ENV,
+      db: {},
+      asOf: AS_OF,
+      loadInsights,
+      updateInsights,
+      fetchImpl,
+      probePermissions: grantedInsightsPermission,
+      probePageLink,
+      probePublisherToken,
+    });
+
+    expect(result.status).toBe('capability-unavailable');
+    expect(instagramStoryInsightsExitCode(result)).toBe(2);
+    expect(loadInsights).not.toHaveBeenCalled();
+    expect(fetchImpl).not.toHaveBeenCalled();
   });
 });

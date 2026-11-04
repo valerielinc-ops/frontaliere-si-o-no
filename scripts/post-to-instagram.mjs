@@ -5,8 +5,8 @@
  *   • yesterday's top-5 most-read ARTICLES  (--only=article, daily)
  *   • this week's top-5 fastest DOGANE      (--only=border, weekly)
  *
- * Same architecture as scripts/post-to-linkedin-member.mjs (GA4-ranked
- * candidates, a 30-day dedup ledger, fail-soft always exit 0) with one
+ * Same candidate selection as scripts/post-to-linkedin-member.mjs (GA4-ranked
+ * content and a 30-day dedup ledger), with one
  * structural difference: Instagram never unfurls a link the way Facebook/
  * LinkedIn/Telegram do, so every post here is an image carousel, never a
  * bare link. That is the one genuinely new piece — see scripts/lib/
@@ -31,25 +31,23 @@
  * links), same split as scripts/post-to-telegram.mjs's border mode.
  *
  * Env (all via Firebase Remote Config → scripts/load-rc-env.mjs):
- *   INSTAGRAM_ACCESS_TOKEN          required — Meta App Review for
- *                                    instagram_content_publish not yet
- *                                    granted, so this is unset today and the
- *                                    poster soft-skips. See CLAUDE.md.
+ *   INSTAGRAM_ACCESS_TOKEN          required for live publishing through
+ *                                    Meta's official Instagram Graph API.
  *   INSTAGRAM_BUSINESS_ACCOUNT_ID   required — already set (17841439417386982)
- *   SOCIAL_ROBOT_MODE               off | dry (default) | live — API or the
- *                                   Playwright robot's queue (data/instagram-queue.json);
- *                                   see scripts/lib/social-publish-queue.mjs
+ *   SOCIAL_ROBOT_MODE               retained for legacy configuration only;
+ *                                   Instagram browser delivery is held and
+ *                                   this publisher always requires Graph API.
  *   INSTAGRAM_CAROUSEL_BACKGROUND_AB_* Firebase-controlled four-arm background
  *                                   test; absent/invalid values keep the navy
  *                                   control and retries keep the same arm
  *   GA4_PROPERTY_ID                 defaults to properties/524485296
  *   R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY / R2_S3_ENDPOINT / R2_BUCKET
- *                                    required to host the carousel images —
- *                                    missing → upload-cdn-file.sh no-ops and
- *                                    this poster soft-skips (no image, no post)
+ *                                    required to host carousel images; missing
+ *                                    credentials fail the live workflow
  *
- * Fail-soft by design, same posture as every other channel in this family:
- * any missing credential, GA4 outage, or Graph API error logs and exits 0.
+ * Live publishing fails visibly when Graph credentials or readiness are
+ * missing, or rendering, CDN upload, or Graph delivery fails. Empty candidate
+ * sets and cadence-cap holds remain ordinary skips.
  */
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -89,16 +87,14 @@ import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
 import { uploadCarouselSlides } from './lib/social-carousel-upload.mjs';
 import {
-  buildQueueEntry,
   deliverSocialPost,
   dequeuePosts,
-  enqueuePost,
   queuePathFor,
-  resolveSocialRobotMode,
   socialPublishRoute,
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishCarousel } from './lib/instagram-publish.mjs';
+import { assertInstagramPublishReady } from './lib/instagram-publish-readiness.mjs';
 import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -147,10 +143,8 @@ function getBusinessAccountId() {
 
 // ─────────────────────────── delivery ───────────────────────────
 //
-// API or the Playwright robot's queue, chosen by the Remote Config switch
-// SOCIAL_ROBOT_MODE — see scripts/lib/social-publish-queue.mjs. The ledger is
-// written here only for an API publish; a queued post reaches the ledger once
-// the robot has seen Instagram's confirmation (scripts/social-robot/confirm.mjs).
+// Official Graph API only. The browser robot is policy-held for Instagram;
+// SOCIAL_ROBOT_MODE cannot route a feed post around the API publisher.
 
 async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish, onAccepted, igUserId }) {
   const publishAt = new Date();
@@ -234,11 +228,7 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
       await onAccepted?.(res, ts);
     },
     enqueue: () => {
-      enqueuePost(
-        QUEUE_PATH,
-        buildQueueEntry({ channel: 'instagram', kind, day, caption, imageUrls: urls, ledgerEntries }),
-      );
-      onAccepted?.();
+      throw new Error('Instagram browser delivery is disabled for feed posts');
     },
     // The API covered this kind: an older queued post of it must not reach the robot.
     dequeue: () => dequeuePosts(QUEUE_PATH, { channel: 'instagram', kind }),
@@ -248,12 +238,17 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
     error.code = 'SOCIAL_PUBLISH_OUTCOME_UNCERTAIN';
     throw error;
   }
+  if (outcome === 'api-failed') {
+    const error = new Error(`Instagram ${kind}-${day} Graph API publish failed`);
+    error.code = 'SOCIAL_PUBLISH_API_FAILED';
+    throw error;
+  }
   return outcome;
 }
 
 // ─────────────────────────── job/article (daily) ───────────────────────────
 
-async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robotMode }) {
+async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId }) {
   const campaign = kind === 'job' ? INSTAGRAM_CAMPAIGN_JOB : INSTAGRAM_CAMPAIGN_ARTICLE;
   const ledger = loadLedger(LEDGER_PATH);
   if (!dryRun && isPublishedForKindDay(ledger, { kind, day })) {
@@ -324,7 +319,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     creativeId: creative.id,
     objective: creative.objective,
   });
-  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
+  const route = socialPublishRoute({ apiReady: Boolean(accessToken && igUserId), apiOnly: true });
   const socialCopy = await selectSocialCopyForPublish({
     pack: SOCIAL_COPY_PACK,
     channel: 'instagram',
@@ -351,8 +346,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     caption: buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative, socialCopy }),
   });
   if (!productionKit.valid) {
-    console.warn('⚠️  Instagram carousel source text does not fit the verified renderer contract — skipping this post');
-    return;
+    throw new Error('Instagram carousel source does not fit the verified renderer contract');
   }
   const caption = productionKit.caption;
 
@@ -362,19 +356,16 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
 
   if (dryRun) return;
   if (!route.render) {
-    console.log('⚠️  no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID — skipping (soft)');
-    return;
+    throw new Error('Instagram Graph API credentials are required for live publishing');
   }
 
   const slides = await renderCarouselSlides(productionKit.renderInput);
   if (!slides) {
-    console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
-    return;
+    throw new Error('Instagram carousel fonts are unavailable');
   }
   const urls = uploadCarouselSlides(slides, { channel: 'instagram', keyPrefix: `${kind}-${day}` });
   if (urls.some((u) => !u)) {
-    console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
-    return;
+    throw new Error('Instagram carousel image upload failed; refusing to publish an incomplete carousel');
   }
 
   const ledgerEntries = picks.map((p) => ({
@@ -428,7 +419,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
 
 // ─────────────────────────── border (weekly) ───────────────────────────
 
-async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) {
+async function postBorderCarousel({ dryRun, accessToken, igUserId }) {
   const { computeRanking, computeWeekWindow } = await import('./lib/border-wait-ranking.mjs');
   const { BORDER_WAIT_CROSSINGS, BORDER_CROSSING_DISPLAY, isTicinoCrossing, buildOggiPath } = await import(
     '../build-plugins/borderWaitData.ts'
@@ -467,7 +458,7 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     creativeId: creative.id,
     objective: creative.objective,
   });
-  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
+  const route = socialPublishRoute({ apiReady: Boolean(accessToken && igUserId), apiOnly: true });
   const socialCopy = await selectSocialCopyForPublish({
     pack: SOCIAL_COPY_PACK,
     channel: 'instagram',
@@ -503,8 +494,7 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     }),
   });
   if (!productionKit.valid) {
-    console.warn('⚠️  Instagram border source text does not fit the verified renderer contract — skipping this post');
-    return;
+    throw new Error('Instagram carousel source does not fit the verified renderer contract');
   }
   const caption = productionKit.caption;
 
@@ -514,19 +504,16 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
 
   if (dryRun) return;
   if (!route.render) {
-    console.log('⚠️  no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID — skipping (soft)');
-    return;
+    throw new Error('Instagram Graph API credentials are required for live publishing');
   }
 
   const slides = await renderCarouselSlides(productionKit.renderInput);
   if (!slides) {
-    console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
-    return;
+    throw new Error('Instagram carousel fonts are unavailable');
   }
   const urls = uploadCarouselSlides(slides, { channel: 'instagram', keyPrefix: `border-${weekStart}` });
   if (urls.some((u) => !u)) {
-    console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
-    return;
+    throw new Error('Instagram carousel image upload failed; refusing to publish an incomplete carousel');
   }
 
   const ledgerEntries = [
@@ -592,11 +579,14 @@ async function main() {
 
   console.log(`─── Instagram daily/weekly — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
-  const robotMode = resolveSocialRobotMode();
-  console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
-
   const accessToken = dryRun ? null : getAccessToken();
   const igUserId = dryRun ? null : getBusinessAccountId();
+  if (!dryRun && (!accessToken || !igUserId)) {
+    const error = new Error('Instagram live publishing is unavailable: configure the approved Graph API token and business account ID in Remote Config');
+    error.code = 'SOCIAL_PUBLISH_CREDENTIALS_REQUIRED';
+    throw error;
+  }
+  if (!dryRun) await assertInstagramPublishReady();
 
   // border is weekly and never runs implicitly — only when explicitly asked
   // for (the dedicated weekly cron passes --only=border).
@@ -604,9 +594,9 @@ async function main() {
 
   for (const kind of kinds) {
     if (kind === 'border') {
-      await postBorderCarousel({ dryRun, accessToken, igUserId, robotMode });
+      await postBorderCarousel({ dryRun, accessToken, igUserId });
     } else if (kind === 'job' || kind === 'article') {
-      await postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robotMode });
+      await postGa4Carousel({ kind, day, dryRun, accessToken, igUserId });
     } else {
       console.warn(`⚠️  unknown --only=${kind} — expected job, article or border`);
     }
@@ -616,9 +606,7 @@ async function main() {
 let exitCode = 0;
 main()
   .catch((err) => {
-    // Preserve the legacy soft-failure behavior except when the shared cap
-    // cannot be verified: an unreserved live post must fail the workflow.
     console.error(`⚠️  post-to-instagram failed: ${err.message}`);
-    if (['SOCIAL_PUBLISH_RESERVATION_REQUIRED', 'SOCIAL_PUBLISH_OUTCOME_UNCERTAIN'].includes(err?.code)) exitCode = 1;
+    exitCode = 1;
   })
   .finally(() => process.exit(exitCode));

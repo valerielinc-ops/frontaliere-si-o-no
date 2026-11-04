@@ -40,6 +40,7 @@ permissions:
 jobs:
   build:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -90,14 +91,45 @@ jobs:
         run: >-
           node scripts/load-rc-env.mjs
           --only-env=INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN,GEMINI_API_KEY,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+          --include-social-secrets
+
+      - name: Require Instagram Graph publishing credentials
+        if: env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          test -n "${INSTAGRAM_ACCESS_TOKEN:-}" || { echo '::error::Instagram Graph token is absent; complete Meta app review and configure SERVER_INSTAGRAM_ACCESS_TOKEN in Remote Config.'; exit 1; }
+          test -n "${INSTAGRAM_BUSINESS_ACCOUNT_ID:-}" || { echo '::error::Instagram business account ID is absent from Remote Config.'; exit 1; }
+
+      - name: Verify Instagram Graph account readiness
+        if: env.DRY_RUN != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Load probe-only credentials into this shell, not later workflow steps.
+          eval "$(GITHUB_ENV= node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN --include-social-secrets)"
+          if [ -n "${FB_USER_ACCESS_TOKEN:-}" ]; then printf '::add-mask::%s\n' "$FB_USER_ACCESS_TOKEN"; fi
+          READY_CHANNELS="$(node scripts/check-social-publish-readiness.mjs --ready-channels)"
+          case " $READY_CHANNELS " in
+            *" instagram "*) echo 'Instagram Graph account readiness verified.' ;;
+            *) echo '::error::Instagram readiness probe did not verify the linked Page, content grant, publisher-token identity, and account ID.'; exit 1 ;;
+          esac
+          unset FB_PAGE_ID FB_USER_ACCESS_TOKEN
 
       - name: Render and publish controlled Reel through Graph API
         run: |
           set -euo pipefail
+          # The publisher repeats the readiness check at its own boundary.
+          # Keep verifier credentials scoped to this shell, and load them only
+          # for a live publish.
+          if [ "$DRY_RUN" != "true" ]; then
+            eval "$(GITHUB_ENV= node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN --include-social-secrets)"
+            if [ -n "${FB_USER_ACCESS_TOKEN:-}" ]; then printf '::add-mask::%s\n' "$FB_USER_ACCESS_TOKEN"; fi
+          fi
           args=("--kind=$KIND")
           if [ -n "$REPORT_DATE" ]; then args+=("--date=$REPORT_DATE"); fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           npx --no-install tsx scripts/post-to-instagram-reel.mjs "${args[@]}"
+          unset FB_PAGE_ID FB_USER_ACCESS_TOKEN
 
       - name: Commit published Reel ledger
         if: env.DRY_RUN != 'true'

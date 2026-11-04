@@ -281,3 +281,70 @@ describe('getRemoteConfigValue — in-flight coalescing', () => {
     await flushMicrotasks();
   });
 });
+
+describe('getServerRemoteConfigValue — private namespace isolation', () => {
+  beforeEach(() => {
+    vi.resetModules();
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-01-01T00:00:00.000Z'));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.restoreAllMocks();
+  });
+
+  it('reads the server template and coalesces concurrent readers', async () => {
+    let clientCalls = 0;
+    let serverCalls = 0;
+    let resolveServerTemplate: (template: unknown) => void;
+    const serverTemplatePromise = new Promise((resolve) => { resolveServerTemplate = resolve; });
+
+    vi.doMock('firebase-admin/remote-config', () => ({
+      getRemoteConfig: () => ({
+        getTemplate: async () => {
+          clientCalls += 1;
+          return { parameters: { SERVER_META_CAPI_ACCESS_TOKEN: { defaultValue: { value: 'client-copy' } } } };
+        },
+        getServerTemplate: () => {
+          serverCalls += 1;
+          return serverTemplatePromise;
+        },
+      }),
+    }));
+
+    const { getServerRemoteConfigValue } = await import('../../functions/src/remoteConfigSecrets.js');
+    const readers = Promise.all([
+      getServerRemoteConfigValue('SERVER_META_CAPI_ACCESS_TOKEN'),
+      getServerRemoteConfigValue('SERVER_META_CAPI_ACCESS_TOKEN'),
+    ]);
+
+    expect(serverCalls).toBe(1);
+    expect(clientCalls).toBe(0);
+    resolveServerTemplate!({
+      evaluate: () => ({ getString: () => 'private-server-token' }),
+    });
+
+    await expect(readers).resolves.toEqual(['private-server-token', 'private-server-token']);
+    expect(serverCalls).toBe(1);
+    expect(clientCalls).toBe(0);
+  });
+
+  it('fails closed instead of falling back to a same-named client parameter', async () => {
+    let clientCalls = 0;
+    vi.doMock('firebase-admin/remote-config', () => ({
+      getRemoteConfig: () => ({
+        getTemplate: async () => {
+          clientCalls += 1;
+          return { parameters: { SERVER_META_CAPI_ACCESS_TOKEN: { defaultValue: { value: 'client-copy' } } } };
+        },
+        getServerTemplate: async () => { throw new Error('private template unavailable'); },
+      }),
+    }));
+
+    const { getServerRemoteConfigValue } = await import('../../functions/src/remoteConfigSecrets.js');
+    await expect(getServerRemoteConfigValue('SERVER_META_CAPI_ACCESS_TOKEN'))
+      .rejects.toThrow('private template unavailable');
+    expect(clientCalls).toBe(0);
+  });
+});

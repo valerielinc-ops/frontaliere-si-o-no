@@ -69,6 +69,7 @@ describe('TikTok access token rotation', () => {
     expect(input).toMatchObject({
       name: 'SERVER_TIKTOK_REFRESH_TOKEN',
       value: 'rotated-refresh',
+      namespace: 'firebase-server',
       credentials: { project_id: 'test-project' },
     });
   });

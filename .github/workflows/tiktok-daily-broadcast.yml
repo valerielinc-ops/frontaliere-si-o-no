@@ -30,6 +30,7 @@ permissions:
 jobs:
   preview:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:

@@ -22,7 +22,7 @@ function usage() {
     '',
     'The input is a JSON array/object or a comma/semicolon-separated Dashboard CSV.',
     'Use one row per post; comparisons stay within objective, background arm, content kind and measurement window (72h by default).',
-    'CSV rows can use a media id or queue id; --ledger supplies the creative metadata.',
+    'Rows need an exact ledger media ID or an explicit ledger-media-id match; a queue ID alone is not enough.',
     'No Meta API call or credential is made by this command.',
   ].join('\n');
 }

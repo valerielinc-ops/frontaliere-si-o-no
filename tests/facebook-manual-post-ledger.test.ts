@@ -18,13 +18,29 @@ describe('manual Facebook article ledger', () => {
   it('uses the shared Meta Graph API base for publishing and token setup', () => {
     const publisher = readFileSync(new URL('../scripts/post-to-facebook.mjs', import.meta.url), 'utf8');
     const setup = readFileSync(new URL('../scripts/setup-facebook-token.mjs', import.meta.url), 'utf8');
+    const setupLib = readFileSync(new URL('../scripts/lib/facebook-token-setup.mjs', import.meta.url), 'utf8');
 
     expect(publisher).toContain("ARTICLE_PLACE_ID, GRAPH_API } from './lib/social-post-utils.mjs'");
     expect(publisher).toContain('${GRAPH_API}/');
     expect(publisher).not.toContain('graph.facebook.com/v21.0');
-    expect(setup).toContain("import { GRAPH_API } from './lib/instagram-graph-constants.mjs'");
-    expect(setup).toContain('${GRAPH_API}/');
-    expect(setup).not.toContain('graph.facebook.com/v21.0');
+    expect(setupLib).toContain("import { GRAPH_API } from './instagram-graph-constants.mjs'");
+    expect(setupLib).toContain('${GRAPH_API}/');
+    expect(setupLib).not.toContain('graph.facebook.com/v21.0');
+  });
+
+  it('provisions Facebook credentials without exposing tokens in argv or output', () => {
+    const setup = readFileSync(new URL('../scripts/setup-facebook-token.mjs', import.meta.url), 'utf8');
+    const setupLib = readFileSync(new URL('../scripts/lib/facebook-token-setup.mjs', import.meta.url), 'utf8');
+
+    expect(setup).not.toContain('process.argv.slice(2)');
+    expect(setup).not.toContain('FB_SHORT_LIVED_USER_TOKEN=');
+    expect(setup).toContain('result.instagramPublisherConfigured');
+    expect(setup).not.toContain('result.instagramBusinessAccountLinked');
+    expect(setupLib).not.toContain('console.log(');
+    expect(setupLib).not.toContain('console.error(');
+    expect(setupLib).not.toContain('gh secret set');
+    expect(setupLib).toContain('SERVER_FB_PAGE_ACCESS_TOKEN');
+    expect(setupLib).toContain('SERVER_FB_USER_ACCESS_TOKEN');
   });
 
   it('keeps the reservation held until the canonical ledger write succeeds', () => {

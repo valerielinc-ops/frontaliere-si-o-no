@@ -14,6 +14,10 @@ adapt every idea to the site's data, audience, publishing code, and platform
 access. The upstream revision and license are recorded in
 docs/third-party/instagram-agent-skill/UPSTREAM.md.
 
+For source-to-format planning, use `ig-repurpose`; for an account-profile audit
+based on owner-supplied material, use `ig-profile`. Neither skill supplies new
+platform facts or changes the scheduled publisher contract.
+
 ## Editorial contract
 
 - Write in natural Italian for people who live or work between Italy and

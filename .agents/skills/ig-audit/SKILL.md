@@ -76,8 +76,10 @@ even a stable descriptive pattern.
 
 Separate distribution, viewing, and profile conversion when the relevant
 metrics are available. Low views alone do not identify a hook problem, and
-low follows do not prove a profile problem. This repository has no
-`ig-profile` or `ig-viral` skill; do not route users to them.
+low follows do not prove a profile problem. When profile material is supplied,
+use `ig-profile` to review the decision path separately. External account
+benchmarking and trend scraping are not part of this repository's evidence
+loop.
 
 ## Output
 

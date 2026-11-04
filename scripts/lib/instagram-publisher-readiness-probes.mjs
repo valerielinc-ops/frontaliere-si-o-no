@@ -2,6 +2,14 @@ import { GRAPH_API } from './instagram-graph-constants.mjs';
 
 const PROBE_TIMEOUT_MS = 15000;
 const REQUIRED_PUBLISH_PERMISSION = 'instagram_content_publish';
+const INSTAGRAM_CAPABILITY_PERMISSIONS = Object.freeze([
+  'instagram_basic',
+  'instagram_content_publish',
+  'instagram_manage_insights',
+  'instagram_manage_comments',
+  'instagram_manage_messages',
+  'pages_manage_metadata',
+]);
 
 async function getGraphJson(url, accessToken, fetchImpl) {
   try {
@@ -25,11 +33,15 @@ async function getGraphJson(url, accessToken, fetchImpl) {
   }
 }
 
-/** Check the Facebook user token's explicit Instagram publishing grant. */
-export async function probeInstagramPublishPermission({ userAccessToken, fetchImpl = fetch } = {}) {
+/** Read the Facebook user token's granted Instagram scopes in one request. */
+export async function probeInstagramPermissions({ userAccessToken, fetchImpl = fetch } = {}) {
+  const unavailablePermissions = Object.fromEntries(
+    INSTAGRAM_CAPABILITY_PERMISSIONS.map((permission) => [permission, 'unavailable']),
+  );
   const token = String(userAccessToken || '').trim();
   if (!token) {
     return {
+      permissionStatuses: unavailablePermissions,
       publishPermissionStatus: 'unavailable',
       note: 'Publish permission probe skipped because FB_USER_ACCESS_TOKEN is missing',
     };
@@ -37,27 +49,44 @@ export async function probeInstagramPublishPermission({ userAccessToken, fetchIm
 
   const url = new URL(`${GRAPH_API}/me/permissions`);
   const result = await getGraphJson(url.toString(), token, fetchImpl);
-  if (!result.ok) return { publishPermissionStatus: 'unavailable', note: result.note };
+  if (!result.ok) {
+    return { permissionStatuses: unavailablePermissions, publishPermissionStatus: 'unavailable', note: result.note };
+  }
 
   const permissions = Array.isArray(result.payload?.data) ? result.payload.data : null;
   if (!permissions) {
     return {
+      permissionStatuses: unavailablePermissions,
       publishPermissionStatus: 'unavailable',
       note: 'Meta permission response did not contain a permissions list',
     };
   }
 
-  const permission = permissions.find((item) => item?.permission === REQUIRED_PUBLISH_PERMISSION);
-  if (permission?.status === 'granted') {
-    return {
-      publishPermissionStatus: 'granted',
-      note: 'Meta reports instagram_content_publish as granted',
-    };
-  }
+  const permissionStatuses = Object.fromEntries(INSTAGRAM_CAPABILITY_PERMISSIONS.map((name) => {
+    const matches = permissions.filter((item) => item?.permission === name);
+    if (matches.length === 0) return [name, 'missing'];
+    const statuses = new Set(matches.map((item) => item?.status));
+    if (statuses.size !== 1 || !['granted', 'declined', 'expired'].includes([...statuses][0])) {
+      return [name, 'unavailable'];
+    }
+    return [name, [...statuses][0] === 'granted' ? 'granted' : 'missing'];
+  }));
+  const publishPermissionStatus = permissionStatuses[REQUIRED_PUBLISH_PERMISSION];
   return {
-    publishPermissionStatus: 'missing',
-    note: 'Meta does not report instagram_content_publish as granted',
+    permissionStatuses,
+    publishPermissionStatus,
+    note: publishPermissionStatus === 'granted'
+      ? 'Meta reports instagram_content_publish as granted'
+      : publishPermissionStatus === 'missing'
+        ? 'Meta does not report instagram_content_publish as granted'
+        : 'Meta publishing permission could not be verified',
   };
+}
+
+/** Check the Facebook user token's explicit Instagram publishing grant. */
+export async function probeInstagramPublishPermission(options = {}) {
+  const result = await probeInstagramPermissions(options);
+  return { publishPermissionStatus: result.publishPermissionStatus, note: result.note };
 }
 
 /** Verify that the configured publisher token can read the exact target account. */

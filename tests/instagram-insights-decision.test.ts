@@ -11,6 +11,8 @@ import { buildCreativeReport } from '../scripts/lib/instagram-insights-report.mj
 function rowsFor(creativeId: string, shares: number[], overrides: Record<string, unknown> = {}) {
   return shares.map((value, index) => ({
     id: `${creativeId}-${index}`,
+    matchMethod: 'ledger-media-id',
+    copyAttributionStatus: 'exact',
     creativeId,
     kind: 'article',
     reach: 100,

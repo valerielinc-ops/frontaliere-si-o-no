@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "criteria": [
+    { "id": "name", "label": "Account name", "maxPoints": 12, "fullCredit": "Clearly identifies the account and its audience without relying on unsupported search claims." },
+    { "id": "identity", "label": "Handle and identity", "maxPoints": 5, "fullCredit": "Handle, avatar, and visible name make the same organization recognizable." },
+    { "id": "audience", "label": "Audience", "maxPoints": 10, "fullCredit": "States who benefits, such as people working or job hunting across the Ticino–Italy border." },
+    { "id": "value", "label": "Practical value", "maxPoints": 12, "fullCredit": "Names the kinds of verified, useful information the account publishes." },
+    { "id": "trust", "label": "Trust and evidence", "maxPoints": 10, "fullCredit": "Uses only verifiable organization details and links to authoritative site sources." },
+    { "id": "link", "label": "Primary destination", "maxPoints": 12, "fullCredit": "The visible link reaches the current canonical page that best matches the profile promise." },
+    { "id": "pinned", "label": "Pinned posts", "maxPoints": 8, "fullCredit": "Visible pins answer distinct first-visit needs with current, source-backed content." },
+    { "id": "highlights", "label": "Highlights", "maxPoints": 6, "fullCredit": "Visible highlights are named clearly, current, and useful to the account's audience." },
+    { "id": "covers", "label": "Cover clarity", "maxPoints": 6, "fullCredit": "Visible covers are legible at profile size and distinguish recurring content types." },
+    { "id": "locale", "label": "Language and local fit", "maxPoints": 6, "fullCredit": "Italian-first wording is natural and local; other languages appear only when the account can serve them." },
+    { "id": "accessibility", "label": "Accessibility", "maxPoints": 5, "fullCredit": "Visible text is readable and image meaning is not carried by color alone." },
+    { "id": "action", "label": "Next action", "maxPoints": 8, "fullCredit": "One clear next action matches a destination or interaction the account can fulfill." }
+  ]
+}

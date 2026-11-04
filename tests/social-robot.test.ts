@@ -71,10 +71,13 @@ describe('Instagram image upload accept guard', () => {
 });
 
 describe('social delivery policy', () => {
-  it('holds TikTok out of automatic browser delivery while retaining other requested platforms', () => {
+  it('holds Instagram and TikTok out of automatic browser delivery', () => {
     expect(filterAutomatedDeliveryPlatforms(['instagram', 'tiktok'])).toEqual({
-      allowed: ['instagram'],
-      held: [{ channel: 'tiktok', reason: expect.stringContaining('eligible') }],
+      allowed: [],
+      held: [
+        { channel: 'instagram', reason: expect.stringContaining('official Graph API') },
+        { channel: 'tiktok', reason: expect.stringContaining('eligible') },
+      ],
     });
   });
 });
@@ -671,6 +674,7 @@ describe('social robot exit status', () => {
   it('fails the unattended run when the community worker returns an API error or partial result', () => {
     expect(runHasErrors({ results: [], community: { status: 'api-error', errors: ['x'] } })).toBe(true);
     expect(runHasErrors({ results: [], community: { status: 'partial', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'capabilities-limited', errors: [], blockedCapabilities: ['directMessages', 'stories'] } })).toBe(false);
     expect(runHasErrors({ results: [], community: { status: 'credentials-missing' } })).toBe(true);
     expect(runHasErrors({ results: [], community: { status: 'completed', errors: [] } })).toBe(false);
   });
@@ -797,6 +801,8 @@ function harness({ queue = { pending: [entry('article')] }, journal = emptyJourn
       calls.order.push('flow');
       return flow(c, e, f, o);
     },
+    // The harness exercises platform flow mechanics; a separate test verifies the default production policy.
+    deliveryPolicy: () => ({ allowed: true, reason: null }),
     dispatchConfirm: async (args: Record<string, unknown>) => { calls.dispatch.push(args); calls.order.push('dispatch'); return { ok: true }; },
     reportIssue: async (issue: { title: string; description: string; labels: string[] }) => { calls.issues.push(issue); },
     log: { log: (message: string) => { calls.logs.push(message); }, warn: () => {}, error: () => {} },
@@ -806,6 +812,23 @@ function harness({ queue = { pending: [entry('article')] }, journal = emptyJourn
 }
 
 describe('runRobot', () => {
+  it('holds direct live Instagram calls at the delivery boundary', async () => {
+    const h = harness();
+    const deps = h.deps();
+    delete deps.deliveryPolicy;
+
+    const result = await runRobot(deps);
+
+    expect(result.results).toEqual([expect.objectContaining({
+      channel: 'instagram',
+      outcome: 'policy-held',
+      reason: expect.stringContaining('official Graph API'),
+    })]);
+    expect(h.calls.flow).toEqual([]);
+    expect(h.calls.reservations).toEqual([]);
+    expect(h.calls.dispatch).toEqual([]);
+  });
+
   it('reserves the shared Instagram cap before downloading and marks a confirmed post', async () => {
     const h = harness();
     const out = await runRobot(h.deps());
@@ -1449,6 +1472,14 @@ describe('Mac host launch agent', () => {
     expect(bad.status).not.toBe(0);
   });
 
+  it('loads only the Mac community worker credentials from Remote Config', () => {
+    const source = fs.readFileSync(script, 'utf8');
+    const loader = source.split('load_rc_environment() {')[1]?.split('\n}')[0] ?? '';
+
+    expect(loader).toMatch(/node "\$runner\/scripts\/load-rc-env\.mjs" \\\s+--only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,FB_USER_ACCESS_TOKEN,INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,SOCIAL_ROBOT_MODE \\\s+--include-social-secrets/u);
+    expect(loader).not.toMatch(/node "\$runner\/scripts\/load-rc-env\.mjs"\s+2>/u);
+  });
+
   it('extracts every relative import of the robot and of the loader into its snapshot', () => {
     const source = fs.readFileSync(script, 'utf8');
     const declared = (source.match(/^snapshot_paths="([^"]+)"/m)?.[1] ?? '').split(/\s+/).filter(Boolean);
@@ -1592,10 +1623,40 @@ describe('workflows', () => {
     }
   });
 
-  it('warns on a token-less Instagram run unless the robot is live', () => {
-    const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; if?: string }>;
-    const warn = steps.find((s) => /credentials are absent/.test(s.name ?? ''));
-    expect(warn?.if).toBe("env.INSTAGRAM_ACCESS_TOKEN == '' && env.SOCIAL_ROBOT_MODE != 'live'");
+  it('requires Graph credentials for every non-dry Instagram publish run', () => {
+    const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; if?: string; run?: string }>;
+    const requireCredentials = steps.find((s) => /Require Instagram Graph publishing credentials/.test(s.name ?? ''));
+    expect(requireCredentials?.if).toContain("inputs.dry_run != 'true'");
+    expect(requireCredentials?.if).toContain("steps.reserve_daily_cadence.outputs.skip != 'true'");
+    expect(requireCredentials?.run).toContain('test -n "${INSTAGRAM_ACCESS_TOKEN:-}"');
+    expect(requireCredentials?.run).toContain('SERVER_INSTAGRAM_ACCESS_TOKEN');
+    expect(requireCredentials?.run).toContain('test -n "${INSTAGRAM_BUSINESS_ACCOUNT_ID:-}"');
+    const reserveCadence = steps.find((s) => /Reserve daily cadence for scheduled Reel slots/.test(s.name ?? ''));
+    expect(reserveCadence?.if).toContain("github.event.schedule == '20 8 * * *'");
+    expect(reserveCadence?.run).toContain("echo 'skip=true' >> \"$GITHUB_OUTPUT\"");
+    expect(reserveCadence?.run).toContain("echo 'article_only=true' >> \"$GITHUB_OUTPUT\"");
+    const readiness = steps.find((s) => /Verify Instagram Graph account readiness/.test(s.name ?? ''));
+    expect(readiness?.if).toContain("steps.reserve_daily_cadence.outputs.skip != 'true'");
+    expect(readiness?.run).toContain('scripts/check-social-publish-readiness.mjs --ready-channels');
+    expect(readiness?.run).toContain('GITHUB_ENV= node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN --include-social-secrets');
+    const loadSecrets = steps.find((s) => /Load secrets from RC/.test(s.name ?? ''));
+    expect(loadSecrets?.run).not.toContain('FB_USER_ACCESS_TOKEN');
+  });
+
+  it('opens and resolves deduplicated follow-ups for optional Instagram capabilities', () => {
+    const steps = wf('social-publish-readiness-watch.yml').jobs.probe.steps as Array<{ name?: string; if?: string; run?: string; env?: Record<string, string> }>;
+    const alert = steps.find((step) => /Alert on missing optional Instagram capabilities/.test(step.name ?? ''));
+    const resolve = steps.find((step) => /Resolve optional Instagram capability issues/.test(step.name ?? ''));
+
+    expect(alert?.if).toContain("steps.probe.outputs.capability_action_required != ''");
+    expect(alert?.run).toContain('Instagram Insights grant needs owner action');
+    expect(alert?.run).toContain('Instagram comments grant needs owner action');
+    expect(alert?.run).toContain('Instagram direct messages grant needs owner action');
+    expect(alert?.env?.INSIGHTS_READINESS_REASON).toContain('reason_capability_insights');
+    expect(alert?.run).toContain('--label follow-up');
+    expect(resolve?.if).toContain('success()');
+    expect(resolve?.run).toContain('CAPABILITY_READY');
+    expect(resolve?.run).toContain('--resolve');
   });
 
   it('reserves the scheduled Instagram Reel cadence before assembling daily-only data', () => {
@@ -1606,12 +1667,21 @@ describe('workflows', () => {
     const post = steps.find((step) => /Post to Instagram/.test(step.name ?? ''));
     expect(reserveIndex).toBeGreaterThanOrEqual(0);
     expect(assembleIndex).toBeGreaterThan(reserveIndex);
-    expect(steps[assembleIndex].if).toContain("env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip'");
-    expect(steps[reserveIndex].run).toContain("1) echo 'INSTAGRAM_DAILY_SLOT_OVERRIDE=skip'");
-    expect(steps[reserveIndex].run).toContain("5) echo 'ONLY=article'");
-    expect(post?.if).toContain("env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip'");
+    expect(steps[assembleIndex].if).toContain("steps.reserve_daily_cadence.outputs.skip != 'true'");
+    expect(steps[assembleIndex].if).toContain("steps.reserve_daily_cadence.outputs.article_only != 'true'");
+    expect(steps[reserveIndex].run).toContain("1) echo 'skip=true' >> \"$GITHUB_OUTPUT\"");
+    expect(steps[reserveIndex].run).toMatch(/5\)\s+echo 'article_only=true' >> "\$GITHUB_OUTPUT"\s+echo 'ONLY=article' >> "\$GITHUB_ENV"/u);
+    expect(post?.if).toContain("steps.reserve_daily_cadence.outputs.skip != 'true'");
 
-    const reelSteps = wf('instagram-reel-experiment.yml').jobs.build.steps as Array<{ name?: string; run?: string }>
+    const reelSteps = wf('instagram-reel-experiment.yml').jobs.build.steps as Array<{ name?: string; if?: string; run?: string }>
+    const reelCredentials = reelSteps.find((step) => /Require Instagram Graph publishing credentials/.test(step.name ?? ''));
+    expect(reelCredentials?.if).toContain("env.DRY_RUN != 'true'");
+    expect(reelCredentials?.run).toContain('SERVER_INSTAGRAM_ACCESS_TOKEN');
+    const reelReadiness = reelSteps.find((step) => /Verify Instagram Graph account readiness/.test(step.name ?? ''));
+    expect(reelReadiness?.run).toContain('scripts/check-social-publish-readiness.mjs --ready-channels');
+    expect(reelReadiness?.run).toContain('GITHUB_ENV= node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN --include-social-secrets');
+    const reelLoadSecrets = reelSteps.find((step) => /Load Remote Config/.test(step.name ?? ''));
+    expect(reelLoadSecrets?.run).not.toContain('FB_USER_ACCESS_TOKEN');
     const publish = reelSteps.find((step) => /Render and publish controlled Reel through Graph API/.test(step.name ?? ''));
     const ledgerCommit = reelSteps.find((step) => /Commit published Reel ledger/.test(step.name ?? ''));
     expect(publish?.run).toContain('scripts/post-to-instagram-reel.mjs');
@@ -1619,13 +1689,11 @@ describe('workflows', () => {
     expect(ledgerCommit?.run).toContain(['data', 'instagram-posted.json'].join('/'));
   });
 
-  it('commits the queue file in the same step that commits the ledger', () => {
-    for (const channel of ['instagram']) {
-      const steps = wf(`${channel}-daily-broadcast.yml`).jobs.post.steps as Array<{ name?: string; run?: string }>;
-      const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
-      expect(commit?.run, channel).toContain(`data/${channel}-queue.json`);
-      expect(commit?.run, channel).toContain(`data/${channel}-posted.json`);
-    }
+  it('commits Instagram published IDs to the ledger without committing a browser queue', () => {
+    const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; run?: string }>;
+    const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
+    expect(commit?.run).toContain('data/instagram-posted.json');
+    expect(commit?.run).not.toContain('data/instagram-queue.json');
   });
 
   it('uses a cached static FFmpeg toolchain instead of an unbounded APT install', () => {

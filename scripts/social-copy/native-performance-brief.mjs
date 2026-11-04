@@ -57,14 +57,19 @@ function copyFields(row) {
   return record(row.copy) ? row.copy : row;
 }
 
-function exactCopyAttribution(row) {
-  if (row.copyAttributionStatus === 'exact') return true;
-  if (row.copyAttributionStatus) return false;
-  return ['ledger-media-id', 'browser-cover-fingerprint'].includes(String(row.matchMethod || '').trim());
+function exactCopyAttribution(row, channel) {
+  const status = String(row.copyAttributionStatus || '').trim();
+  const method = String(row.matchMethod || '').trim();
+  if (channel === 'instagram') {
+    return method === 'ledger-media-id' && (!status || status === 'exact');
+  }
+  if (status === 'exact') return true;
+  if (status) return false;
+  return ['ledger-media-id', 'browser-cover-fingerprint'].includes(method);
 }
 
 function exactCopyVariant(row, channel) {
-  if (!exactCopyAttribution(row)) return null;
+  if (!exactCopyAttribution(row, channel)) return null;
   const copy = copyFields(row);
   const packId = String(copy.copyPackId || '').trim();
   const copySlot = String(copy.copySlot || '').trim();

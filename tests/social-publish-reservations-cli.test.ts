@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { runSocialPublishReservationsCli } from '../scripts/social-publish-reservations.mjs';
+import { loadConfiguredValues, runSocialPublishReservationsCli } from '../scripts/social-publish-reservations.mjs';
 
 function emptyFirestore() {
   return {
@@ -12,6 +12,55 @@ function emptyFirestore() {
 }
 
 describe('social publish reservations aggregate report', () => {
+  it('reads publishing credentials from private server parameters and never falls back to client copies', async () => {
+    const loadTemplates = vi.fn(async () => ({
+      template: {
+        parameters: {
+          FB_PAGE_ID: { defaultValue: { value: 'client-page-id' } },
+          FB_PAGE_ACCESS_TOKEN: { defaultValue: { value: 'legacy-client-token' } },
+          INSTAGRAM_BUSINESS_ACCOUNT_ID: { defaultValue: { value: 'client-instagram-id' } },
+          TELEGRAM_CHANNEL_ID: { defaultValue: { value: 'client-channel-id' } },
+        },
+      },
+      serverTemplate: {
+        parameters: {
+          SERVER_FB_PAGE_ACCESS_TOKEN: { defaultValue: { value: 'private-server-token' } },
+          SERVER_INSTAGRAM_ACCESS_TOKEN: { defaultValue: { value: 'private-instagram-token' } },
+          SERVER_LINKEDIN_MEMBER_URN: { defaultValue: { value: 'urn:li:member:private' } },
+          SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN: { defaultValue: { value: 'private-linkedin-token' } },
+          SERVER_TELEGRAM_BOT_TOKEN: { defaultValue: { value: 'private-telegram-token' } },
+        },
+      },
+      available: true,
+    }));
+
+    const configured = await Promise.all([
+      loadConfiguredValues('facebook', {}, { loadTemplates }),
+      loadConfiguredValues('instagram', {}, { loadTemplates }),
+      loadConfiguredValues('linkedinMember', {}, { loadTemplates }),
+      loadConfiguredValues('telegram', {}, { loadTemplates }),
+    ]);
+
+    expect(configured).toEqual([
+      { accountId: 'client-page-id', accessToken: 'private-server-token' },
+      { accountId: 'client-instagram-id', accessToken: 'private-instagram-token' },
+      { accountId: 'urn:li:member:private', accessToken: 'private-linkedin-token' },
+      { accountId: 'client-channel-id', accessToken: 'private-telegram-token' },
+    ]);
+    await expect(loadConfiguredValues('facebook', {}, {
+      loadTemplates: async () => ({
+        template: {
+          parameters: {
+            FB_PAGE_ID: { defaultValue: { value: 'client-page-id' } },
+            FB_PAGE_ACCESS_TOKEN: { defaultValue: { value: 'legacy-client-token' } },
+          },
+        },
+        serverTemplate: null,
+        available: false,
+      }),
+    })).resolves.toEqual({ accountId: 'client-page-id', accessToken: '' });
+  });
+
   it('reports stale counts for every configured scope without exposing identities or credentials', async () => {
     const log = vi.fn();
     const report = await runSocialPublishReservationsCli(['--summary-all'], {

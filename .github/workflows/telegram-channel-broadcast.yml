@@ -45,6 +45,7 @@ permissions:
 jobs:
   broadcast:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     # Raised from 10 → 20 (#6182): same dataset-growth pattern as
     # fb-jobs-daily-schedule.yml (#4764) and reddit-jobs-daily-schedule.yml —
@@ -82,6 +83,7 @@ jobs:
         run: >-
           node scripts/load-rc-env.mjs
           --only-env=TELEGRAM_BOT_TOKEN,TELEGRAM_CHANNEL_ID,SOCIAL_COPY_EXPERIMENT_CONFIG,GITHUB_PAT
+          --include-social-secrets
 
       # The App identity re-triggers pull-request checks. If the installation
       # is unavailable, the long-lived PAT loaded above remains the fallback.

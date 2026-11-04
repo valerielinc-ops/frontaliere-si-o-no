@@ -4,14 +4,17 @@
 - Pinned revision: d03c56bb598be770c60b201f94237e5d1a4268a6
 - License: MIT; see LICENSE.
 - All thirteen skills at the pinned revision were inspected with the Codex
-  skill-installer. The six relevant source skills (`ig-plan`, `ig-caption`,
-  `ig-carousel`, `ig-reel`, `ig-audit`, and `ig-human`) are versioned in this
-  repository and loaded by the scheduled copy workflow. Their useful writing
-  patterns are adapted into `.agents/skills/social-content/SKILL.md` and the
-  prompt; the English-oriented scripts are not used as Italian pass/fail gates.
+  skill-installer. The scheduled copy workflow reads the six copy skills
+  (`ig-plan`, `ig-caption`, `ig-carousel`, `ig-reel`, `ig-audit`, and
+  `ig-human`) plus the adapted `ig-repurpose` guide. `ig-profile` is available
+  for a separate audit from owner-supplied material; it is not part of the
+  scheduled generation prompt. Their useful patterns are adapted into
+  `.agents/skills/social-content/SKILL.md` and the prompt; the English-oriented
+  scripts are not used as Italian pass/fail gates.
 
 Adapted ideas are platform-specific hooks, one primary action, save/share
-utility, and learning from the account's own insights. The source's humanizer,
+utility, source-to-format planning, a profile decision path, and learning from
+the account's own insights. The source's humanizer,
 third-party-account scraping, auto-comment/follow/cold-DM instructions, and
 unverified trend/limit claims were not imported into the automated publisher.
 The upstream README says the skill itself only drafts content and warns about

@@ -5,11 +5,12 @@ name: Instagram Insights Autonomy
 # loop-clock-health distinguish the clock-owned run from a manual or cron run.
 run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Instagram Insights Autonomy [loop-clock {0}]', inputs.loop_clock) || 'Instagram Insights Autonomy' }}
 
-# Collection is owned by the authenticated Chrome profile on the Mac host.
-# The Mac collector persists the read-only 24h/72h snapshot; this workflow
-# scores it once a day and reports descriptive candidates. Remote Config
-# writes stay held until the qualified preregistered experiment protocol exists.
-# It never asks for a Graph token when the browser source is active.
+# Native collection is owned by the scheduled social-native-insights workflow
+# and the official Graph API. This workflow exports the private Firestore
+# observations to runner temp, scores them once a day, and reports descriptive
+# candidates. It reads no browser profile and makes no Graph request. Remote
+# Config writes stay held until the qualified preregistered experiment protocol
+# exists.
 on:
   schedule:
     - cron: '35 9 * * *'
@@ -47,6 +48,7 @@ permissions:
 jobs:
   report:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:

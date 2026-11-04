@@ -224,6 +224,8 @@ describe('social native insights persistence contract', () => {
       posts: [{
         channel: 'instagram',
         postId: 'media-1',
+        matchMethod: 'ledger-media-id',
+        copyAttributionStatus: 'exact',
         publishedAt: '2026-10-30T12:00:00.000Z',
         snapshotAt: '2026-11-02T12:00:00.000Z',
         snapshotAgeHours: 72,
@@ -237,6 +239,26 @@ describe('social native insights persistence contract', () => {
       sources: { instagram: { status: 'available' } },
       posts: [{ channel: 'instagram', metrics: { reach: 0, saves: null } }],
     });
+  });
+
+  it('rejects exact Instagram copy attribution without ledger media identity', () => {
+    const doc = {
+      schemaVersion: 1,
+      sources: { instagram: { status: 'available' } },
+      posts: [{
+        channel: 'instagram',
+        postId: 'media-1',
+        matchMethod: 'browser-cover-fingerprint',
+        copyAttributionStatus: 'exact',
+        publishedAt: '2026-10-30T12:00:00.000Z',
+        snapshotAt: '2026-11-02T12:00:00.000Z',
+        metrics: { reach: 0 },
+        availableMetrics: ['reach'],
+        metricStatus: { reach: 'available' },
+      }],
+    };
+    expect(() => validateSocialNativeInsightsDocument(doc, { asOf: AS_OF }))
+      .toThrow(/exact Instagram copy attribution requires ledger media ID/);
   });
 
   it('accepts a private LinkedIn member audience snapshot without exposing member identity', () => {

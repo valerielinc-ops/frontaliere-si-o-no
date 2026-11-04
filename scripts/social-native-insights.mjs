@@ -9,6 +9,12 @@ import { collectFacebookAudienceSnapshot } from './lib/facebook-audience-insight
 import { collectFacebookPostInsights } from './lib/facebook-post-insights.mjs';
 import { collectInstagramAudienceSnapshot } from './lib/instagram-audience-insights.mjs';
 import { collectSnapshots as collectInstagramPostInsights } from './lib/instagram-insights-snapshot.mjs';
+import { buildInstagramCapabilityReadiness } from './lib/instagram-publish-readiness.mjs';
+import { probeInstagramPageLink } from './lib/instagram-page-link-probe.mjs';
+import {
+  probeInstagramPermissions,
+  probeInstagramPublisherToken,
+} from './lib/instagram-publisher-readiness-probes.mjs';
 import { getLinkedInMemberAccessToken } from './lib/linkedin-member-access-token.mjs';
 import {
   collectLinkedInMemberAudienceSnapshot,
@@ -278,6 +284,9 @@ export async function collectSocialNativeInsights({
   collectFacebookPosts = collectFacebookPostInsights,
   collectTikTokAudience = collectTikTokAudienceSnapshot,
   fetchFacebook = fetch,
+  probeInstagramPermissionScopes = probeInstagramPermissions,
+  probeInstagramPageAccess = probeInstagramPageLink,
+  probeInstagramPublisher = probeInstagramPublisherToken,
 } = {}) {
   const tiktokLedger = readLedger('tiktok-posted.json');
   const linkedinLedger = readLedger('linkedin-member-posted.json');
@@ -301,6 +310,44 @@ export async function collectSocialNativeInsights({
   const tiktokAudienceDue = tiktokDisplayAnalyticsApproved
     && !hasAudienceSnapshotToday(currentAudience, 'tiktok', 'followers', asOf)
     && !wasAudienceAttemptedToday(existing?.sources?.tiktokAudience, asOf);
+
+  const [instagramPermissionProbe, instagramPageProbe, instagramPublisherProbe] = await Promise.all([
+    probeInstagramPermissionScopes({ userAccessToken: env.FB_USER_ACCESS_TOKEN, fetchImpl: fetchInstagram }),
+    probeInstagramPageAccess({
+      pageId: env.FB_PAGE_ID,
+      userAccessToken: env.FB_USER_ACCESS_TOKEN,
+      instagramAccountId: env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
+      publisherAccessToken: env.INSTAGRAM_ACCESS_TOKEN,
+      fetchImpl: fetchInstagram,
+    }),
+    probeInstagramPublisher({
+      instagramAccountId: env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
+      accessToken: env.INSTAGRAM_ACCESS_TOKEN,
+      fetchImpl: fetchInstagram,
+    }),
+  ]);
+  const requiredInstagramInsightPermissions = [
+    instagramPermissionProbe?.permissionStatuses?.instagram_basic || 'unavailable',
+    instagramPermissionProbe?.permissionStatuses?.instagram_manage_insights || 'unavailable',
+  ];
+  const instagramInsightsPermissionStatus = requiredInstagramInsightPermissions.every((status) => status === 'granted')
+    ? 'granted'
+    : requiredInstagramInsightPermissions.includes('missing') ? 'missing' : 'unavailable';
+  const instagramCapabilities = buildInstagramCapabilityReadiness({
+    permissionStatuses: instagramPermissionProbe?.permissionStatuses,
+    pageTaskStatuses: instagramPageProbe?.pageTaskStatuses,
+    pageLinkStatus: instagramPageProbe?.pageLinkStatus,
+    publisherTokenSourceStatus: instagramPageProbe?.publisherTokenSourceStatus,
+    publisherTokenStatus: instagramPublisherProbe?.publisherTokenStatus,
+  });
+  const instagramInsightsReady = Boolean(String(env.INSTAGRAM_ACCESS_TOKEN || '').trim())
+    && instagramInsightsPermissionStatus === 'granted'
+    && instagramCapabilities.insights.state === 'ready';
+  const instagramInsightsHeldStatus = !String(env.INSTAGRAM_ACCESS_TOKEN || '').trim()
+    ? 'credentials-missing'
+    : instagramInsightsPermissionStatus === 'missing'
+      ? 'permission-missing'
+      : 'capability-unavailable';
 
   const collected = await Promise.allSettled([
     tiktokDisplayAnalyticsApproved
@@ -411,14 +458,14 @@ export async function collectSocialNativeInsights({
         audienceAttempted: false,
         followerGainsAttempted: false,
       }),
-    instagramAudienceDue
+    instagramAudienceDue && instagramInsightsReady
       ? collectInstagramAudience({
         accountId: env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
         accessToken: env.INSTAGRAM_ACCESS_TOKEN,
         asOf,
         fetchImpl: fetchInstagram,
       })
-      : Promise.resolve({ status: 'not-due-today', snapshot: null }),
+      : Promise.resolve({ status: instagramAudienceDue && !instagramInsightsReady ? instagramInsightsHeldStatus : 'not-due-today', snapshot: null }),
     facebookAudienceDue
       ? collectFacebookAudience({
         pageId: env.FB_PAGE_ID,
@@ -427,14 +474,16 @@ export async function collectSocialNativeInsights({
         fetchImpl: fetchFacebook,
       })
       : Promise.resolve({ status: 'not-due-today', snapshot: null }),
-    collectInstagramPosts({
-      accountId: env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
-      accessToken: env.INSTAGRAM_ACCESS_TOKEN,
-      ledger: readLedger('instagram-posted.json'),
-      existing: toInstagramBrowserSnapshotDocument(existing),
-      asOf,
-      fetchImpl: fetchInstagram,
-    }),
+    instagramInsightsReady
+      ? collectInstagramPosts({
+        accountId: env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
+        accessToken: env.INSTAGRAM_ACCESS_TOKEN,
+        ledger: readLedger('instagram-posted.json'),
+        existing: toInstagramBrowserSnapshotDocument(existing),
+        asOf,
+        fetchImpl: fetchInstagram,
+      })
+      : Promise.resolve({ status: instagramInsightsHeldStatus, additions: [], candidates: 0, skipped: [], reasonCode: 'insights-capability-unverified' }),
   ]);
   const [tiktokSettled, linkedinSettled, instagramAudienceSettled, facebookAudienceSettled, instagramPostSettled] = collected;
   const tiktokResult = tiktokSettled.status === 'fulfilled'

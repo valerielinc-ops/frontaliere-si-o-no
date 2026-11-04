@@ -88,11 +88,27 @@ describe('Instagram Insights snapshot collector', () => {
 
     const selected = selectSnapshotCandidates(
       ledger,
-      { posts: [{ queueId: 'article-2026-10-07', windowHours: 72 }] },
+      { posts: [{ queueId: 'article-2026-10-07', windowHours: 72, matchMethod: 'ledger-media-id' }] },
       { asOf: AS_OF, windowHours: 72 },
     );
     expect(selected.candidates).toHaveLength(0);
     expect(selected.skipped).toContainEqual({ reason: 'snapshot-already-recorded' });
+  });
+
+  it('re-collects a Graph snapshot when only a browser-fingerprint snapshot exists', () => {
+    const ledger = { posted: [ledgerEntry({ instagramMediaId: 'ig-media-1' })] };
+    const selected = selectSnapshotCandidates(ledger, {
+      posts: [{
+        queueId: 'article-2026-10-07',
+        mediaId: 'ig-media-1',
+        windowHours: 72,
+        matchMethod: 'browser-cover-fingerprint',
+        copyAttributionStatus: 'inferred',
+      }],
+    }, { asOf: AS_OF, windowHours: 72 });
+
+    expect(selected.candidates).toHaveLength(1);
+    expect(selected.skipped).not.toContainEqual({ reason: 'snapshot-already-recorded' });
   });
 
   it('does not guess when creative metadata conflicts inside one carousel', () => {
@@ -385,6 +401,7 @@ describe('Instagram Insights snapshot collector', () => {
       snapshotAgeHours: 72,
       windowHours: 72,
       mediaType: 'VIDEO',
+      matchMethod: 'ledger-media-id',
       metricStatus: { follows: 'unavailable' },
     };
     const ledger = { posted: [ledgerEntry({ kind: 'reel', instagramMediaId: 'reel-media' })] };

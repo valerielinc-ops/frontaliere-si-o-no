@@ -1,147 +1,65 @@
 #!/usr/bin/env node
 /**
- * Facebook Page Access Token Setup
+ * Safely provision verified Facebook Page credentials into server-side
+ * Firebase Remote Config. Secret values are read from the environment and
+ * never accepted as command-line arguments or printed to output.
  *
- * Generates a non-expiring Page Access Token for automated posting.
- *
- * Prerequisites:
- *   1. Create a Facebook App at https://developers.facebook.com/apps/
- *   2. Add "Facebook Login" product and enable "pages_manage_posts" + "pages_read_engagement"
- *   3. Generate a short-lived User Access Token from Graph API Explorer:
- *      https://developers.facebook.com/tools/explorer/
- *      - Select your app
- *      - Add permissions: pages_manage_posts, pages_read_engagement
- *      - Click "Generate Access Token" and authorize
- *
- * Usage:
- *   node scripts/setup-facebook-token.mjs <SHORT_LIVED_USER_TOKEN> <APP_ID> <APP_SECRET>
- *
- * Flow:
- *   1. Exchange short-lived user token → long-lived user token (60 days)
- *   2. Use long-lived user token to get Page Access Tokens
- *   3. Page Access Tokens obtained this way are NON-EXPIRING
- *
- * Output:
- *   Prints the Page Access Token and Page ID to save as GitHub secrets.
+ * Required environment: FB_SHORT_LIVED_USER_TOKEN, META_APP_ID, META_APP_SECRET,
+ * GOOGLE_APPLICATION_CREDENTIALS. Set META_TARGET_PAGE_ID when the Meta user
+ * manages more than one Page. Use a local secret manager to populate the
+ * environment; do not put credential literals in shell commands/history.
  */
+import { readFileSync } from 'node:fs';
+import { fetchRcTemplate, getRemoteConfig } from './lib/remote-config-admin.mjs';
+import { provisionFacebookPageCredentials } from './lib/facebook-token-setup.mjs';
 
-import { GRAPH_API } from './lib/instagram-graph-constants.mjs';
-
-const [shortToken, appId, appSecret] = process.argv.slice(2);
-
-if (!shortToken || !appId || !appSecret) {
-  console.error(`
-❌ Usage: node scripts/setup-facebook-token.mjs <SHORT_LIVED_TOKEN> <APP_ID> <APP_SECRET>
-
-Steps to get a short-lived token:
-  1. Go to https://developers.facebook.com/tools/explorer/
-  2. Select your app from the dropdown
-  3. Click "Generate Access Token"
-  4. Grant permissions: pages_manage_posts, pages_read_engagement
-  5. Copy the token shown
-
-Steps to get App ID and Secret:
-  1. Go to https://developers.facebook.com/apps/
-  2. Select your app → Settings → Basic
-  3. Copy "App ID" and "App Secret"
-`);
-  process.exit(1);
+function requiredEnv(name) {
+  const value = process.env[name]?.trim();
+  if (!value) throw new Error(`${name} is required`);
+  return value;
 }
 
 async function main() {
-  // ── Step 1: Exchange short-lived → long-lived user token ──
-  console.log('🔄 Step 1: Exchanging short-lived token for long-lived user token...\n');
+  if (process.argv.includes('--help')) {
+    console.log('Provision verified Facebook Page credentials to Firebase Remote Config.');
+    console.log('Supply required credential values through a local secret manager environment.');
+    return;
+  }
+  if (process.argv.length > 2) throw new Error('Credential arguments are disabled; supply them through the environment');
 
-  const llRes = await fetch(
-    `${GRAPH_API}/oauth/access_token?` +
-    new URLSearchParams({
-      grant_type: 'fb_exchange_token',
-      client_id: appId,
-      client_secret: appSecret,
-      fb_exchange_token: shortToken,
-    })
-  );
-
-  const llData = await llRes.json();
-  if (llData.error) {
-    console.error(`❌ Token exchange failed: ${llData.error.message}`);
-    console.error(`   Type: ${llData.error.type}, Code: ${llData.error.code}`);
-    if (llData.error.code === 190) {
-      console.error('\n💡 The short-lived token may be expired. Generate a new one from Graph API Explorer.');
-    }
-    process.exit(1);
+  const credentialPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (!credentialPath) throw new Error('GOOGLE_APPLICATION_CREDENTIALS is required');
+  let firebaseCredentials;
+  try {
+    firebaseCredentials = JSON.parse(readFileSync(credentialPath, 'utf8'));
+  } catch {
+    throw new Error('GOOGLE_APPLICATION_CREDENTIALS could not be read as service-account JSON');
   }
 
-  const longLivedUserToken = llData.access_token;
-  const expiresIn = llData.expires_in;
-  console.log(`✅ Long-lived user token obtained (expires in ${Math.round(expiresIn / 86400)} days)\n`);
+  const clientTemplate = await fetchRcTemplate(await getRemoteConfig());
+  const configuredPageId = String(
+    clientTemplate.parameters?.FB_PAGE_ID?.defaultValue?.value || '',
+  ).trim();
+  const configuredInstagramId = String(
+    clientTemplate.parameters?.INSTAGRAM_BUSINESS_ACCOUNT_ID?.defaultValue?.value || '',
+  ).trim();
 
-  // ── Step 2: Get Page Access Tokens ────────────────────────
-  console.log('🔄 Step 2: Fetching Page Access Tokens...\n');
-
-  const pagesRes = await fetch(
-    `${GRAPH_API}/me/accounts?access_token=${longLivedUserToken}`
-  );
-
-  const pagesData = await pagesRes.json();
-  if (pagesData.error) {
-    console.error(`❌ Failed to list pages: ${pagesData.error.message}`);
-    process.exit(1);
-  }
-
-  if (!pagesData.data?.length) {
-    console.error('❌ No Facebook Pages found for this user.');
-    console.error('   Make sure your Facebook account manages at least one Page.');
-    process.exit(1);
-  }
-
-  console.log(`📋 Found ${pagesData.data.length} page(s):\n`);
-
-  for (const page of pagesData.data) {
-    // ── Step 3: Verify each page token is non-expiring ──────
-    const debugRes = await fetch(
-      `${GRAPH_API}/debug_token?` +
-      new URLSearchParams({
-        input_token: page.access_token,
-        access_token: `${appId}|${appSecret}`,
-      })
-    );
-    const debugData = await debugRes.json();
-    const tokenData = debugData.data || {};
-    const expires = tokenData.expires_at === 0 ? 'NEVER (non-expiring ✅)' : new Date(tokenData.expires_at * 1000).toISOString();
-
-    console.log(`   📄 ${page.name}`);
-    console.log(`      ID:      ${page.id}`);
-    console.log(`      Token:   ${page.access_token.slice(0, 20)}...${page.access_token.slice(-10)}`);
-    console.log(`      Expires: ${expires}`);
-    console.log(`      Scopes:  ${(tokenData.scopes || []).join(', ')}`);
-    console.log();
-  }
-
-  // If only one page, output the GitHub secrets directly
-  if (pagesData.data.length === 1) {
-    const page = pagesData.data[0];
-    console.log('═══════════════════════════════════════════════════');
-    console.log('  Save these as GitHub Repository Secrets:');
-    console.log('═══════════════════════════════════════════════════');
-    console.log();
-    console.log(`  FB_PAGE_ID=${page.id}`);
-    console.log(`  FB_PAGE_ACCESS_TOKEN=${page.access_token}`);
-    console.log();
-    console.log('  Commands to set via gh CLI:');
-    console.log(`  gh secret set FB_PAGE_ID --body "${page.id}"`);
-    console.log(`  gh secret set FB_PAGE_ACCESS_TOKEN --body "${page.access_token}"`);
-    console.log();
-  } else {
-    console.log('═══════════════════════════════════════════════════');
-    console.log('  Multiple pages found. Pick the correct one and save:');
-    console.log('  FB_PAGE_ID=<page-id>');
-    console.log('  FB_PAGE_ACCESS_TOKEN=<page-token>');
-    console.log('═══════════════════════════════════════════════════');
-  }
+  const result = await provisionFacebookPageCredentials({
+    shortLivedUserToken: requiredEnv('FB_SHORT_LIVED_USER_TOKEN'),
+    appId: requiredEnv('META_APP_ID'),
+    appSecret: requiredEnv('META_APP_SECRET'),
+    targetPageId: process.env.META_TARGET_PAGE_ID || process.env.FB_PAGE_ID || configuredPageId,
+    expectedInstagramAccountId: process.env.META_TARGET_INSTAGRAM_ACCOUNT_ID || configuredInstagramId,
+    credentials: firebaseCredentials,
+  });
+  console.log(`Facebook Page ${result.pageId} credentials ${result.changed ? 'updated' : 'already current'} in the private Firebase server template.`);
+  console.log(`Long-lived user token expires at ${result.userTokenExpiresAt}.`);
+  console.log(`Page token expiry: ${result.pageTokenExpiresAt === '0' ? 'Meta reports no scheduled expiry' : result.pageTokenExpiresAt}.`);
+  console.log(`Verified Instagram publisher credential configured: ${result.instagramPublisherConfigured ? 'yes' : 'no'}.`);
+  console.log('No token values were written to output.');
 }
 
-main().catch((err) => {
-  console.error(`❌ Unexpected error: ${err.message}`);
-  process.exit(1);
+main().catch((error) => {
+  console.error(`Facebook token provisioning failed: ${error?.message || 'unknown error'}. No token values were written to output.`);
+  process.exitCode = 1;
 });

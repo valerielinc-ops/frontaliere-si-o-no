@@ -1,30 +1,28 @@
 #!/usr/bin/env node
 /**
- * run.mjs — the Playwright robot that publishes queued Instagram carousels
- * from the owner's browser profile on the agents' Mac host. TikTok delivery
- * is held by the current platform policy guard.
+ * run.mjs — the Mac-host social worker. Instagram browser publishing and
+ * browser Insights are held; eligible Instagram community work uses Graph API.
+ * TikTok delivery is held by the current platform policy guard.
  *
  *   node scripts/social-robot/run.mjs                    # dry run (default)
- *   node scripts/social-robot/run.mjs --publish          # press, if Remote Config says live
+ *   node scripts/social-robot/run.mjs --publish          # eligible Graph community actions, if RC says live
  *   node scripts/social-robot/run.mjs --platform=tiktok  # policy-held, no upload
- *   node scripts/social-robot/run.mjs --login            # owner: log in once, then close the window
+ *   node scripts/social-robot/run.mjs --login            # only opens a browser for an allowed browser channel
  *
- * Instagram's Insights reader uses the authenticated Chrome UI. Business Suite
- * Inbox is read-only because it does not reliably identify inbound direction
- * and message age; permitted community actions and static Stories use the
- * explicitly selected Graph API path. TikTok's current
+ * Instagram feed delivery and Insights never use Chrome. Business Suite Inbox
+ * is not used; eligible community actions and static Stories use Graph API.
+ * TikTok's current
  * Content Sharing Guidelines make this internal team uploader ineligible, so
  * the browser robot skips TikTok even when a pending queue exists.
  *
- * What it publishes: data/<channel>-queue.json on origin/main, filled by the
- * daily posters (see scripts/lib/social-publish-queue.mjs). What it records:
- * nothing in the repository directly — on a confirmed publish it dispatches
- * social-robot-confirm.yml, which writes the ledger on main.
+ * Browser publishing is policy-held. Instagram feed/Reels use their scheduled
+ * Graph publishers; this worker runs permitted Graph community actions and
+ * reconciles historical queue confirmations. It stores its delivery heartbeat
+ * and community outcomes in private Firestore.
  *
- * Effective mode = the command line AND Remote Config: --publish presses the
- * button only when SOCIAL_ROBOT_MODE is `live`; `off` stops the robot; absent
- * or `dry` → dry run. In a dry run it goes up to the publish button, takes a
- * screenshot and stops.
+ * Effective mode = the command line AND Remote Config: --publish enables
+ * permitted Graph community actions only when SOCIAL_ROBOT_MODE is `live`;
+ * `off` stops them; absent or `dry` previews without a browser or publish.
  *
  * Env:
  *   SOCIAL_ROBOT_MODE          off | dry | live (Remote Config; launchd.sh loads it)
@@ -33,26 +31,21 @@
  *   SOCIAL_ROBOT_STATE_DIR     profile, journal, diagnostics
  *                              (default: ~/Library/Application Support/frontaliere/social-robot)
  *   SOCIAL_ROBOT_BROWSER_PATH  browser binary (default: Google Chrome, else cached Chromium)
- *   SOCIAL_ROBOT_INSIGHTS_SOURCE browser (default) | graph | off
- *                              browser Insights; Graph community only if selected
+ *   SOCIAL_ROBOT_INSIGHTS_SOURCE graph | off (legacy `browser` resolves to Graph)
+ *                              native Insights are collected by the Graph workflow
  *   INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID
- *                              optional explicit Graph fallback credentials
+ *                              Graph community credentials, loaded from RC
  *   FB_PAGE_ID / FB_PAGE_ACCESS_TOKEN
  *                              optional Conversations API credentials
  *   TRUSTED_GH_BIN / PATH      `gh` = the workspace coordinator shim
  *
  * Install the twice-a-day launchd job: bash scripts/social-robot/launchd.sh install
  */
-import { existsSync, readFileSync, realpathSync, renameSync, rmSync, writeFileSync, mkdirSync } from 'node:fs';
+import { realpathSync, rmSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
-import {
-  collectInstagramBrowserSnapshots,
-  mergeInstagramBrowserSnapshots,
-} from '../lib/instagram-insights-browser.mjs';
-import { runInstagramCommunityBrowserAutomation } from '../lib/instagram-community-browser.mjs';
 import { resolveInstagramCommunityMode, runInstagramCommunityAutomation } from '../lib/instagram-community-automation.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { mergeInstagramCommunityOutcomeSnapshots } from '../lib/instagram-community-outcomes.mjs';
@@ -60,9 +53,7 @@ import { buildSocialRobotDeliverySnapshot } from '../lib/social-robot-delivery-h
 import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
 import { partitionAutomatedDeliveryChannels } from '../lib/social-automation-policy.mjs';
 import {
-  loadPrivateSocialNativeInsights,
   mergePrivateInstagramStoryState,
-  toInstagramBrowserSnapshotDocument,
   updatePrivateSocialNativeInsights,
 } from '../lib/social-native-insights-store.mjs';
 import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile, pruneRobotState, resolveBrowserLaunch } from './lib/browser.mjs';
@@ -98,6 +89,7 @@ export function runHasErrors({ results = [], confirmationRetries = [], community
     || community?.status === 'api-error'
     || community?.status === 'partial'
     || community?.status === 'credentials-missing'
+    || community?.status === 'capability-unavailable'
     || community?.status === 'login-required'
     || community?.status === 'browser-unavailable'
     || community?.outcomesPersisted === false
@@ -108,118 +100,6 @@ export function runHasErrors({ results = [], confirmationRetries = [], community
 
 export function filterAutomatedDeliveryPlatforms(platforms) {
   return partitionAutomatedDeliveryChannels(platforms);
-}
-
-function readLocalJson(file) {
-  if (!existsSync(file)) return null;
-  try {
-    return JSON.parse(readFileSync(file, 'utf8'));
-  } catch {
-    return null;
-  }
-}
-
-function writeJsonAtomically(file, value) {
-  mkdirSync(path.dirname(file), { recursive: true });
-  const temporary = `${file}.tmp-${process.pid}`;
-  writeFileSync(temporary, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
-  renameSync(temporary, file);
-}
-
-function resolveInsightsSource(env = process.env) {
-  const source = String(env.SOCIAL_ROBOT_INSIGHTS_SOURCE || '').trim().toLowerCase();
-  return ['browser', 'graph', 'off'].includes(source) ? source : 'browser';
-}
-
-function resolveInsightsWindows(env = process.env) {
-  const raw = String(env.INSTAGRAM_INSIGHTS_WINDOWS || '').trim();
-  let values = [];
-  if (raw) {
-    try {
-      const parsed = JSON.parse(raw);
-      values = Array.isArray(parsed) ? parsed : [];
-    } catch {
-      values = raw.split(',');
-    }
-  }
-  const windows = [...new Set(values
-    .map((value) => Number(value))
-    .filter((value) => Number.isInteger(value) && value > 0 && value <= 168))]
-    .sort((a, b) => a - b);
-  return windows.length ? windows : [24, 72];
-}
-
-async function runBrowserInsights({ context, reader, stateDir, mode, log = console }) {
-  if (mode === 'off' || resolveInsightsSource() !== 'browser') {
-    return { status: 'disabled', additions: [], candidates: 0, source: resolveInsightsSource() };
-  }
-  const localPath = path.join(stateDir, 'instagram-insights.json');
-  const page = await context.newPage();
-  try {
-    const privateDocument = await loadPrivateSocialNativeInsights(await getFirestoreDb());
-    const remoteExisting = toInstagramBrowserSnapshotDocument(privateDocument);
-    const localExisting = readLocalJson(localPath);
-    const existing = mergeInstagramBrowserSnapshots(remoteExisting, {
-      additions: localExisting?.posts || [],
-    });
-    const windows = resolveInsightsWindows();
-    const ledger = reader.readLedger('instagram');
-    let document = existing;
-    const passes = [];
-    const additions = [];
-    let candidates = 0;
-    let matched = 0;
-    let cards = 0;
-    let skipped = [];
-    for (const windowHours of windows) {
-      const result = await collectInstagramBrowserSnapshots({
-        page,
-        ledger,
-        existing: document,
-        asOf: new Date(),
-        windowHours,
-        log,
-      });
-      passes.push({
-        windowHours,
-        status: result.status,
-        candidates: result.candidates || 0,
-        matched: result.matched || 0,
-        additions: result.additions?.length || 0,
-      });
-      candidates += result.candidates || 0;
-      matched += result.matched || 0;
-      cards += result.cards || 0;
-      skipped = [...skipped, ...(result.skipped || [])];
-      if (result.additions?.length) {
-        document = mergeInstagramBrowserSnapshots(document, result, { generatedAt: new Date(), windowHours });
-        additions.push(...result.additions);
-        writeJsonAtomically(localPath, document);
-      }
-    }
-    return {
-      status: additions.length ? 'snapshots-added' : 'nothing-collected',
-      source: 'browser',
-      windows,
-      passes,
-      additions,
-      candidates,
-      matched,
-      cards,
-      skipped,
-      output: additions.length ? localPath : undefined,
-    };
-  } catch (error) {
-    return {
-      status: 'page-error',
-      source: 'browser',
-      additions: [],
-      candidates: 0,
-      skipped: [{ reason: 'browser-insights-failed', message: String(error.message || error).slice(0, 180) }],
-    };
-  } finally {
-    await page.close().catch(() => {});
-  }
 }
 
 async function login({ stateDir, platforms }) {
@@ -263,8 +143,8 @@ async function main() {
       throw new Error('social robot state cleanup failed: ' + stateCleanup.errors.join('; '));
     }
     const rcMode = resolveSocialRobotMode();
-    const launch = resolveBrowserLaunch();
-    console.log(`─── social robot — ${opts.mode}, SOCIAL_ROBOT_MODE=${rcMode}, browser ${launch.kind} ───`);
+    const launch = delivery.allowed.length ? resolveBrowserLaunch() : null;
+    console.log(`─── social robot — ${opts.mode}, SOCIAL_ROBOT_MODE=${rcMode}, browser ${launch?.kind || 'disabled by delivery policy'} ───`);
     if (opts.jitter) await new Promise((r) => setTimeout(r, randomBetween(Math.random, { min: 0, max: START_JITTER_MAX_MS })));
 
     const repoDir = process.env.SOCIAL_ROBOT_SITE_REPO || path.resolve(__dirname, '..', '..');
@@ -389,26 +269,20 @@ async function main() {
       }
       let community = null;
       let insights = null;
-      if (opts.platforms.includes('instagram')) {
-        const communityMode = resolveInstagramCommunityMode({ ...process.env, SOCIAL_ROBOT_MODE: rcMode });
-        context ||= await openProfile({ stateDir, launch });
-        if (resolveInsightsSource() === 'graph') {
-          community = await runInstagramCommunityAutomation({
-            accountId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
-            accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
-            ledger: reader.readLedger('instagram'),
-            statePath: path.join(stateDir, 'instagram-community-state.json'),
-            reservationRepoRoot: repoDir,
-            mode: communityMode,
-            log: console,
-          });
-        } else {
-          community = await runInstagramCommunityBrowserAutomation({
-            context,
-            mode: communityMode,
-            log: console,
-          });
-        }
+      if (requestedPlatforms.includes('instagram')) {
+        const configuredCommunityMode = resolveInstagramCommunityMode({ ...process.env, SOCIAL_ROBOT_MODE: rcMode });
+        const communityMode = opts.mode === 'publish' || configuredCommunityMode === 'off'
+          ? configuredCommunityMode
+          : 'dry';
+        community = await runInstagramCommunityAutomation({
+          accountId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
+          accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
+          ledger: reader.readLedger('instagram'),
+          statePath: path.join(stateDir, 'instagram-community-state.json'),
+          reservationRepoRoot: repoDir,
+          mode: communityMode,
+          log: console,
+        });
         const publishedStories = Array.isArray(community?.publishedStories) ? community.publishedStories : [];
         if (community?.outcomes || publishedStories.length > 0) {
           try {
@@ -439,7 +313,7 @@ async function main() {
           community.storyPublicationCount = publishedStories.length;
           delete community.publishedStories;
         }
-        insights = await runBrowserInsights({ context, reader, stateDir, mode: rcMode, log: console });
+        insights = { status: 'disabled', source: 'instagram-graph-native-collector' };
       }
       console.log(JSON.stringify({ results, community, insights, deliveryTelemetry }));
       return runHasErrors({ results, confirmationRetries, community, insights, deliveryTelemetry }) ? 1 : 0;
@@ -456,8 +330,8 @@ function readUsage() {
     'node scripts/social-robot/run.mjs [--dry-run | --publish] [--platform=instagram|tiktok|all] [--jitter]',
     'node scripts/social-robot/run.mjs --login [--platform=...]',
     '',
-    '--publish presses the button only when Remote Config SOCIAL_ROBOT_MODE=live. See scripts/social-robot/README.md.',
-    '--jitter (the launchd job) waits up to 20 minutes first and takes each queue entry to the button once in a dry run.',
+    '--publish enables eligible Graph community actions only when Remote Config SOCIAL_ROBOT_MODE=live. Instagram browser delivery stays held.',
+    '--jitter (the launchd job) waits up to 20 minutes before its scheduled Graph community pass.',
   ].join('\n');
 }
 

@@ -24,6 +24,7 @@ permissions:
 jobs:
   mine:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 25
 
@@ -60,7 +61,7 @@ jobs:
       - name: Load secrets from Remote Config
         # Maps SERVER_FB_PAGE_ACCESS_TOKEN (set in Firebase RC) to FB_PAGE_ACCESS_TOKEN
         # in $GITHUB_ENV. No-op if FIREBASE_SERVICE_ACCOUNT_JSON wasn't set.
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=FB_PAGE_ACCESS_TOKEN --include-social-secrets
 
       - name: Mine topic candidates
         run: node scripts/mine-topic-candidates.mjs

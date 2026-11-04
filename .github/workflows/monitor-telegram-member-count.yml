@@ -38,6 +38,7 @@ permissions:
 jobs:
   monitor:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     # The history commit can wait through the repository's main-writer convoy;
     # 10 minutes cut off a run after 25 retry attempts (#10541).
@@ -99,6 +100,7 @@ jobs:
         run: >-
           node scripts/load-rc-env.mjs
           --only-env=TELEGRAM_BOT_TOKEN,TELEGRAM_CHANNEL_ID,GITHUB_PAT
+          --include-social-secrets
 
       # The App identity re-triggers pull-request checks. If the installation
       # is unavailable, the long-lived PAT loaded above remains the fallback.

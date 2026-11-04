@@ -10,6 +10,7 @@ import {
   groupPostedLedger,
   snapshotRows,
 } from './instagram-insights-snapshot.mjs';
+import { isExactInstagramCopyAttribution } from './instagram-media-matching.mjs';
 
 export const EXPERIMENT_STATUS_SCHEMA_VERSION = 1;
 export const DEFAULT_MINIMUM_OBSERVATIONS = 3;
@@ -20,11 +21,10 @@ const DEFAULT_MISSING_CREDENTIALS = Object.freeze([
   'INSTAGRAM_ACCESS_TOKEN',
 ]);
 
-/** Browser is the Mac-host default; Graph is retained only as an explicit fallback. */
+/** Only the supported Graph collector can qualify native Instagram Insights. */
 export function resolveInstagramInsightsSource(env = process.env) {
   const configured = firstText(env.SOCIAL_ROBOT_INSIGHTS_SOURCE)?.toLowerCase();
-  if (configured === 'graph' || configured === 'browser' || configured === 'off') return configured;
-  return 'browser';
+  return configured === 'off' ? 'off' : 'graph';
 }
 
 function isRecord(value) {
@@ -187,11 +187,7 @@ function insightWindow(row, fallback) {
 }
 
 function exactCopyAttribution(row) {
-  if (row.copyAttributionStatus === 'exact') return true;
-  if (row.copyAttributionStatus) return false;
-  return ['ledger-media-id', 'browser-cover-fingerprint'].includes(
-    firstText(row.matchMethod, row.match_method),
-  );
+  return isExactInstagramCopyAttribution(row, { allowMissingStatus: true });
 }
 
 function cohortKey(group, windowHours) {

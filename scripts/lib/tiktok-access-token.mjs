@@ -1,5 +1,5 @@
 import { readFirebaseServiceAccountCredentials } from './firebase-service-account-credentials.mjs';
-import { setRcParamWithEtag } from './remote-config-admin.mjs';
+import { RC_SERVER_NAMESPACE, setRcParamWithEtag } from './remote-config-admin.mjs';
 import { TIKTOK_API } from './tiktok-publish.mjs';
 
 const TIKTOK_REFRESH_TOKEN_RC_PARAM = 'SERVER_TIKTOK_REFRESH_TOKEN';
@@ -21,6 +21,7 @@ export async function persistTikTokRefreshToken(refreshToken, {
     credentials,
     name: TIKTOK_REFRESH_TOKEN_RC_PARAM,
     value,
+    namespace: RC_SERVER_NAMESPACE,
     description: 'TikTok user refresh token; replaced when TikTok rotates it.',
     versionDescription: 'persist rotated TikTok user refresh token',
   });

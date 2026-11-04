@@ -9,6 +9,10 @@
  * kept soft-skipping is the failure this module exists to make loud.
  */
 import { describe, it, expect } from 'vitest';
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import path from 'node:path';
+import { tmpdir } from 'node:os';
 import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
 
 import {
@@ -29,9 +33,69 @@ import {
   REDDIT_DATA_API_DENIED_ON,
 } from '../scripts/lib/social-readiness.mjs';
 
+describe('readiness workflow summary CLI', () => {
+  it('writes one-probe channel outputs and includes safe probe diagnostics', () => {
+    const root = process.cwd();
+    const temporaryDirectory = mkdtempSync(path.join(tmpdir(), 'social-readiness-cli-'));
+    const outputPath = path.join(temporaryDirectory, 'github-output');
+    try {
+      const result = spawnSync(
+        process.execPath,
+        [path.join(root, 'scripts/check-social-publish-readiness.mjs'), '--github-summary'],
+        {
+          cwd: root,
+          encoding: 'utf8',
+          env: {
+            ...process.env,
+            GITHUB_OUTPUT: outputPath,
+            FB_PAGE_ID: 'test-page',
+            FB_USER_ACCESS_TOKEN: '',
+            INSTAGRAM_BUSINESS_ACCOUNT_ID: 'test-instagram-account',
+            INSTAGRAM_ACCESS_TOKEN: '',
+            REDDIT_CLIENT_ID: '',
+            REDDIT_CLIENT_SECRET: '',
+          },
+        },
+      );
+
+      expect(result.error).toBeUndefined();
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('social publish readiness');
+      expect(result.stdout).toContain('Page link probe skipped because FB_PAGE_ID or FB_USER_ACCESS_TOKEN is missing');
+      expect(result.stdout).toContain('Publish permission probe skipped because FB_USER_ACCESS_TOKEN is missing');
+      const output = readFileSync(outputPath, 'utf8');
+      expect(output).toMatch(/^ready=$/mu);
+      expect(output).toMatch(/^action_required=instagram$/mu);
+      expect(output).toMatch(/^capability_action_required=$/mu);
+      expect(output).toMatch(/^capability_ready=$/mu);
+      expect(output).toContain('reason_instagram=The configured Instagram account cannot be verified against the Facebook Page');
+      expect(output).not.toContain('test-page');
+      expect(output).not.toContain('test-instagram-account');
+    } finally {
+      rmSync(temporaryDirectory, { recursive: true, force: true });
+    }
+  });
+
+  it('loads token expiry metadata privately and creates a deduplicated lifecycle alert', () => {
+    const workflow = readFileSync(new URL('../.github/workflows/social-publish-readiness-watch.yml', import.meta.url), 'utf8');
+
+    expect(workflow).toContain('FB_USER_ACCESS_TOKEN_EXPIRES_AT');
+    expect(workflow).toContain('FB_PAGE_ACCESS_TOKEN_EXPIRES_AT');
+    expect(workflow).toContain('INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT');
+    expect(workflow).toContain('for name in FB_PAGE_ACCESS_TOKEN FB_USER_ACCESS_TOKEN');
+    expect(workflow).toContain('unset FB_PAGE_ID FB_PAGE_ACCESS_TOKEN');
+    expect(workflow).toContain("steps.probe.outputs.meta_token_lifecycle_action_required == 'true'");
+    expect(workflow).toContain('Meta social token expiry needs owner action');
+    expect(workflow).toContain('no token values or account IDs.');
+  });
+});
+
 describe('Instagram — Page link, publisher identity, and Meta publishing grant', () => {
   it('maps the Page-link verifier token only from its server-side Remote Config key', () => {
     expect(RC_TO_ENV.SERVER_FB_USER_ACCESS_TOKEN).toEqual(['FB_USER_ACCESS_TOKEN']);
+    expect(RC_TO_ENV.SERVER_FB_USER_ACCESS_TOKEN_EXPIRES_AT).toEqual(['FB_USER_ACCESS_TOKEN_EXPIRES_AT']);
+    expect(RC_TO_ENV.SERVER_FB_PAGE_ACCESS_TOKEN_EXPIRES_AT).toEqual(['FB_PAGE_ACCESS_TOKEN_EXPIRES_AT']);
+    expect(RC_TO_ENV.SERVER_INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT).toEqual(['INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT']);
   });
 
   it('requires owner action when the Page is linked but Meta has not granted publishing permission', () => {
@@ -41,7 +105,11 @@ describe('Instagram — Page link, publisher identity, and Meta publishing grant
         FB_USER_ACCESS_TOKEN: 'user-token',
         INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig',
       },
-      probe: { pageLinkStatus: 'matched', publishPermissionStatus: 'missing' },
+      probe: {
+        pageLinkStatus: 'matched',
+        permissionStatuses: { instagram_basic: 'granted' },
+        publishPermissionStatus: 'missing',
+      },
     });
     expect(v.state).toBe(ACTION_REQUIRED);
     expect(v.reason).toMatch(/instagram_content_publish permission as granted/);
@@ -57,6 +125,7 @@ describe('Instagram — Page link, publisher identity, and Meta publishing grant
         publisherTokenStatus: 'matched',
         publisherTokenSourceStatus: 'matched',
         pageTaskStatus: 'granted',
+        permissionStatuses: { instagram_basic: 'granted' },
         publishPermissionStatus: 'granted',
       },
     });
@@ -104,6 +173,7 @@ describe('Instagram — Page link, publisher identity, and Meta publishing grant
       probe: {
         pageLinkStatus: 'matched',
         publisherTokenStatus: 'matched',
+        permissionStatuses: { instagram_basic: 'granted' },
         publishPermissionStatus: 'missing',
       },
     });

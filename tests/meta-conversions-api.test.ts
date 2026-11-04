@@ -1,5 +1,12 @@
 import { describe, expect, it, vi } from 'vitest';
 
+const { getServerRemoteConfigValueMock } = vi.hoisted(() => ({
+  getServerRemoteConfigValueMock: vi.fn(async () => 'server-template-capi-token'),
+}));
+vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
+  getServerRemoteConfigValue: (...args: unknown[]) => getServerRemoteConfigValueMock(...args),
+}));
+
 import {
   buildMetaPurchasePayload,
   hasCurrentMetaAdsConsent,
@@ -28,6 +35,22 @@ function paidService(overrides: Record<string, unknown> = {}) {
 describe('Meta Conversions API Purchase events', () => {
   it('reads the token from the server-only Remote Config parameter', () => {
     expect(META_CAPI_ACCESS_TOKEN_RC_KEY).toBe('SERVER_META_CAPI_ACCESS_TOKEN');
+  });
+
+  it('uses the private server-template reader by default', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      json: vi.fn().mockResolvedValue({ events_received: 1 }),
+    }) as unknown as typeof fetch;
+
+    await sendMetaCapiPurchase('service-42', paidService(), {
+      fetchImpl,
+      nowMs: NOW_MS,
+    });
+
+    expect(getServerRemoteConfigValueMock).toHaveBeenCalledWith('SERVER_META_CAPI_ACCESS_TOKEN');
+    const [, options] = vi.mocked(fetchImpl).mock.calls[0];
+    expect(JSON.parse(String(options?.body)).access_token).toBe('server-template-capi-token');
   });
 
   it('builds a pseudonymous Purchase event from a consented verified payment', () => {

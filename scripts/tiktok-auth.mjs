@@ -51,13 +51,10 @@
  *   TIKTOK_SANDBOX_CLIENT_KEY / TIKTOK_SANDBOX_CLIENT_SECRET   (default)
  *   TIKTOK_CLIENT_KEY / TIKTOK_CLIENT_SECRET                   (--prod)
  *
- * What it prints at the end is what to store in Firebase Remote Config —
- * under the RC param names (SERVER_TIKTOK_ACCESS_TOKEN /
- * SERVER_TIKTOK_REFRESH_TOKEN), not the process.env names — ONLY when run
- * with --prod: a sandbox token is for recording the app-review demo video
- * and local testing, not for the daily cron, so storing it in RC would let
- * the poster silently run against sandbox (SELF_ONLY forever) once the app
- * passes audit and nobody remembers to re-run this with --prod.
+ * Tokens are written directly to the private server Remote Config namespace.
+ * Sandbox tokens use separate SERVER_TIKTOK_SANDBOX_* parameters, so they
+ * cannot be consumed by production Insights or publishing workflows.
+ * Token values are never printed. A write preflight runs before OAuth starts.
  *
  * Exit code is 0 on the happy path and 1 only on an explicit auth failure —
  * this is an interactive one-shot tool, not a CI step.
@@ -68,6 +65,11 @@ import { URL } from 'node:url';
 import crypto from 'node:crypto';
 
 import { TIKTOK_API } from './lib/tiktok-publish.mjs';
+import {
+  persistSocialOAuthCredentials,
+  readSocialOAuthStorageCredentials,
+  validateSocialOAuthCredentialStorage,
+} from './lib/social-oauth-credential-store.mjs';
 
 const isProd = process.argv.includes('--prod');
 const urlOnly = process.argv.includes('--url-only');
@@ -149,7 +151,7 @@ async function exchangeCode(code, codeVerifier) {
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok || !data.access_token) {
-    throw new Error(`token exchange failed (${res.status}): ${JSON.stringify(data)}`);
+    throw new Error('TikTok token exchange failed (HTTP ' + res.status + ')');
   }
   return data;
 }
@@ -167,6 +169,16 @@ async function main() {
     );
     console.error('    Run `source bin/rc-env.sh` from the workspace root first.');
     process.exit(1);
+  }
+
+  const platform = isProd ? 'tiktok-production' : 'tiktok-sandbox';
+  let storageCredentials = null;
+  if (!urlOnly) {
+    if (!CLIENT_SECRET) {
+      throw new Error((isProd ? 'TIKTOK_CLIENT_SECRET' : 'TIKTOK_SANDBOX_CLIENT_SECRET') + ' is not set');
+    }
+    storageCredentials = readSocialOAuthStorageCredentials(process.env, platform);
+    await validateSocialOAuthCredentialStorage({ credentials: storageCredentials, platform });
   }
 
   const state = crypto.randomBytes(16).toString('hex');
@@ -238,27 +250,47 @@ async function main() {
   // TikTok's docs note the code should be URL-decoded before exchange;
   // URLSearchParams.get() above already decodes it.
   const tokens = await exchangeCode(code, codeVerifier);
+  const expiresIn = Number(tokens.expires_in);
+  if (!Number.isFinite(expiresIn) || expiresIn <= 0) {
+    throw new Error('TikTok did not return a verifiable access-token lifetime');
+  }
+  const prefix = isProd ? 'SERVER_TIKTOK_' : 'SERVER_TIKTOK_SANDBOX_';
+  const parameters = {
+    [prefix + 'ACCESS_TOKEN']: tokens.access_token,
+    [prefix + 'ACCESS_TOKEN_EXPIRES_AT']: new Date(Date.now() + expiresIn * 1000).toISOString(),
+  };
+  const removeParameters = [];
+  if (tokens.refresh_token) {
+    parameters[prefix + 'REFRESH_TOKEN'] = tokens.refresh_token;
+    const refreshExpiresIn = Number(tokens.refresh_expires_in);
+    if (Number.isFinite(refreshExpiresIn) && refreshExpiresIn > 0) {
+      parameters[prefix + 'REFRESH_TOKEN_EXPIRES_AT'] = new Date(
+        Date.now() + refreshExpiresIn * 1000,
+      ).toISOString();
+    } else {
+      removeParameters.push(prefix + 'REFRESH_TOKEN_EXPIRES_AT');
+    }
+  } else {
+    removeParameters.push(prefix + 'REFRESH_TOKEN', prefix + 'REFRESH_TOKEN_EXPIRES_AT');
+  }
+  const stored = await persistSocialOAuthCredentials({
+    credentials: storageCredentials,
+    platform,
+    parameters,
+    removeParameters,
+  });
 
   console.log('');
   if (isProd) {
     console.log('✅ Store these read-only Insights credentials in Firebase Remote Config:');
-    console.log(`SERVER_TIKTOK_ACCESS_TOKEN=${tokens.access_token}`);
-    console.log(`SERVER_TIKTOK_REFRESH_TOKEN=${tokens.refresh_token || '(none returned)'}`);
+    console.log('Production tokens stored in the private server namespace.');
   } else {
     console.log('✅ Sandbox read-only Insights tokens (for local testing):');
-    console.log(`TIKTOK_ACCESS_TOKEN=${tokens.access_token}`);
-    console.log(`TIKTOK_REFRESH_TOKEN=${tokens.refresh_token || '(none returned)'}`);
-    console.log('');
-    console.log('Do NOT store these under the SERVER_TIKTOK_* RC params — those feed the');
-    console.log('production Insights collector. Export them in your shell instead, e.g.:');
-    console.log('');
-    console.log(`  TIKTOK_ACCESS_TOKEN='${tokens.access_token}' \\`);
-    console.log(`  TIKTOK_CLIENT_KEY='${CLIENT_KEY}' TIKTOK_CLIENT_SECRET='${CLIENT_SECRET}' \\`);
-    console.log(`  TIKTOK_REFRESH_TOKEN='${tokens.refresh_token || ''}' \\`);
-    console.log('  node scripts/social-native-insights.mjs --channel=tiktok --dry-run');
+    console.log('Sandbox tokens stored in separate private parameters.');
   }
   console.log('');
-  console.log(`expires_in: ${tokens.expires_in}s (~${Math.round(tokens.expires_in / 3600)}h)`);
+  console.log('stored fields: ' + stored.parameterCount + '; access token lifetime: ' + expiresIn + 's');
+  console.log('expires_in: ' + expiresIn + 's (~' + Math.round(expiresIn / 3600) + 'h)');
   if (tokens.refresh_expires_in) {
     console.log(
       `refresh_expires_in: ${tokens.refresh_expires_in}s (~${Math.round(tokens.refresh_expires_in / 86400)}d)`,

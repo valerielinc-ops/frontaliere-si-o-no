@@ -1,9 +1,10 @@
 /**
- * Read-only Instagram Insights collector for the authenticated Chrome profile.
+ * Legacy read-only Instagram Insights collector for an authenticated Chrome profile.
+ * The scheduled worker no longer imports or invokes this adapter; active
+ * collection uses the official Graph API collector.
  *
- * The official Insights API is not available in this installation, while the
- * owner already has a valid Professional Dashboard session in Chrome. This
- * adapter deliberately uses the visible dashboard only: it reads the content
+ * This adapter is retained for historical diagnostics and deliberately uses
+ * the visible dashboard only: it reads the content
  * cards, opens each card through the normal UI and parses the visible metric
  * labels. It never reads cookies, localStorage or private Graph requests.
  *
@@ -340,7 +341,7 @@ function snapshotAddition(group, mediaId, metrics, { asOfIso, windowHours, dista
     snapshotAt: asOfIso,
     snapshotAgeHours: Math.round(Number(group.ageHours) * 1000) / 1000,
     matchMethod: 'browser-cover-fingerprint',
-    copyAttributionStatus: 'exact',
+    copyAttributionStatus: 'inferred',
     visualMatchDistance: Math.round(distance * 1_000_000) / 1_000_000,
     ...metrics,
   };

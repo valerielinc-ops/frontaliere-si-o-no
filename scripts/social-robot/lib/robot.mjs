@@ -33,6 +33,7 @@ import {
   parseQueue,
   selectNextPending,
 } from '../../lib/social-publish-queue.mjs';
+import { socialAutomatedDeliveryPolicy } from '../../lib/social-automation-policy.mjs';
 import { buildInstagramEngagementBrief, formatInstagramEngagementBrief } from '../../lib/instagram-engagement.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -256,6 +257,7 @@ export function ghConfirmDispatcher({ ghBin = 'gh', exec = execFileSync, repo = 
  * @param {string} [deps.socialPublishAccountId] Instagram professional account ID used by the shared account-wide cap
  * @param {string} [deps.socialPublishRepoRoot] checkout whose current Instagram ledger is used to seed that cap
  * @param {{ reserveBatch: Function, markPublished: Function, release: Function }} [deps.socialPublishReservations]
+ * @param {(channel: string) => { allowed: boolean, reason?: string|null }} [deps.deliveryPolicy]
  */
 export async function runRobot(deps) {
   const {
@@ -285,6 +287,7 @@ export async function runRobot(deps) {
       markPublished: markSocialPublishReservationPublished,
       release: releaseSocialPublishReservation,
     },
+    deliveryPolicy = socialAutomatedDeliveryPolicy,
   } = deps;
 
   const results = [];
@@ -296,6 +299,17 @@ export async function runRobot(deps) {
   const dryRun = !(cliMode === 'publish' && rcMode === 'live');
   if (cliMode === 'publish' && dryRun) {
     log.log(`ℹ️  --publish asked, but SOCIAL_ROBOT_MODE=${rcMode}: dry run (Remote Config must say "live")`);
+  }
+  const deliveryPlatforms = [];
+  for (const channel of platforms) {
+    const policy = deliveryPolicy(channel);
+    if (!dryRun && !policy?.allowed) {
+      const reason = String(policy.reason || 'automated-delivery-policy-held');
+      log.log(`⏸️  ${channel}: ${reason}`);
+      results.push({ channel, outcome: 'policy-held', reason });
+    } else {
+      deliveryPlatforms.push(channel);
+    }
   }
   const human = {
     pause: () => sleep(randomBetween(rng, HUMAN_DELAY_MS)),
@@ -387,7 +401,7 @@ export async function runRobot(deps) {
 
   let acted = false;
   const resolvedChannels = new Set();
-  for (const channel of platforms) {
+  for (const channel of deliveryPlatforms) {
     const at = now();
     const paused = pausedUntil(journal, channel, at);
     if (paused) {

@@ -50,6 +50,9 @@ const CREDENTIAL_ENVIRONMENTS = new Set([
   // main, nessun reviewer richiesto, altrimenti la rotazione schedulata resta
   // in attesa e il login scade.
   'codex-auth-rotation',
+  // Social publishing/analytics credentials are main-only; this environment
+  // has a branch policy and no required reviewers.
+  'social-production',
 ]);
 
 function workflowFiles(): string[] {

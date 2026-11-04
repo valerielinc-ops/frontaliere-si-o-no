@@ -328,6 +328,58 @@ describe('private social native insights store', () => {
     });
   });
 
+  it('downgrades browser-fingerprint attribution when importing browser Insights', () => {
+    const rows = normalizeInstagramPrivateSnapshots({
+      windowHours: 72,
+      posts: [{
+        mediaId: 'browser-fingerprint-media',
+        snapshotAt: '2026-10-13T12:00:00.000Z',
+        snapshotAgeHours: 72,
+        reach: 100,
+        availableMetrics: ['reach'],
+        matchMethod: 'browser-cover-fingerprint',
+        copyAttributionStatus: 'exact',
+      }],
+    });
+
+    expect(rows[0]).toMatchObject({
+      matchMethod: 'browser-cover-fingerprint',
+      copyAttributionStatus: 'inferred',
+    });
+  });
+
+  it('downgrades historical browser-fingerprint attribution while loading persisted Insights', async () => {
+    const stored = {
+      schemaVersion: 1,
+      sources: { instagram: { status: 'available' } },
+      posts: [{
+        channel: 'instagram',
+        postId: 'legacy-browser-media',
+        publishedAt: '2026-10-10T12:00:00.000Z',
+        snapshotAt: '2026-10-13T12:00:00.000Z',
+        windowHours: 72,
+        snapshotAgeHours: 72,
+        metrics: { reach: 100 },
+        availableMetrics: ['reach'],
+        metricStatus: { reach: 'available' },
+        matchMethod: 'browser-cover-fingerprint',
+        copyAttributionStatus: 'exact',
+      }],
+    };
+    const db = {
+      collection: () => ({
+        doc: () => ({ get: async () => ({ exists: true, data: () => stored }) }),
+      }),
+    };
+
+    const loaded = await loadPrivateSocialNativeInsights(db, { asOf: new Date('2026-11-04T12:00:00.000Z') });
+
+    expect(loaded.posts[0]).toMatchObject({
+      matchMethod: 'browser-cover-fingerprint',
+      copyAttributionStatus: 'inferred',
+    });
+  });
+
   it('preserves exact Reel metrics, decimal watch-time values, and per-metric availability', () => {
     const rows = normalizeInstagramPrivateSnapshots({
       windowHours: 72,

@@ -6,6 +6,7 @@ import {
   INSTAGRAM_STORY_RETENTION_DAYS,
   INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC,
 } from './instagram-story-contract.mjs';
+import { isExactInstagramCopyAttribution } from './instagram-media-matching.mjs';
 
 export { INSTAGRAM_STORY_MAX_ROWS, INSTAGRAM_STORY_RETENTION_DAYS };
 
@@ -41,36 +42,42 @@ function record(value) {
 }
 
 function normalizePersistedSocialNativeInsights(document) {
-  if (!record(document) || document.schemaVersion !== 1 || !Array.isArray(document.instagramStorySnapshots)) {
-    return document;
-  }
+  if (!record(document) || document.schemaVersion !== 1) return document;
   let changed = false;
-  const instagramStorySnapshots = document.instagramStorySnapshots.map((snapshot) => {
-    if (!record(snapshot) || !record(snapshot.metrics) || !record(snapshot.metricStatus)) return snapshot;
-    const hasMetric = Object.prototype.hasOwnProperty.call(
-      snapshot.metrics,
-      INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC,
-    );
-    const hasMetricStatus = Object.prototype.hasOwnProperty.call(
-      snapshot.metricStatus,
-      INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC,
-    );
-    if (hasMetric && hasMetricStatus) return snapshot;
-
+  const posts = Array.isArray(document.posts) ? document.posts.map((post) => {
+    if (!record(post) || post.channel !== 'instagram' || post.copyAttributionStatus !== 'exact'
+      || isExactInstagramCopyAttribution(post)) return post;
     changed = true;
-    return {
-      ...snapshot,
-      metrics: {
-        ...snapshot.metrics,
-        ...(!hasMetric ? { [INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC]: null } : {}),
-      },
-      metricStatus: {
-        ...snapshot.metricStatus,
-        ...(!hasMetricStatus ? { [INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC]: 'unavailable' } : {}),
-      },
-    };
-  });
-  return changed ? { ...document, instagramStorySnapshots } : document;
+    return { ...post, copyAttributionStatus: 'inferred' };
+  }) : document.posts;
+  const instagramStorySnapshots = Array.isArray(document.instagramStorySnapshots)
+    ? document.instagramStorySnapshots.map((snapshot) => {
+      if (!record(snapshot) || !record(snapshot.metrics) || !record(snapshot.metricStatus)) return snapshot;
+      const hasMetric = Object.prototype.hasOwnProperty.call(
+        snapshot.metrics,
+        INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC,
+      );
+      const hasMetricStatus = Object.prototype.hasOwnProperty.call(
+        snapshot.metricStatus,
+        INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC,
+      );
+      if (hasMetric && hasMetricStatus) return snapshot;
+
+      changed = true;
+      return {
+        ...snapshot,
+        metrics: {
+          ...snapshot.metrics,
+          ...(!hasMetric ? { [INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC]: null } : {}),
+        },
+        metricStatus: {
+          ...snapshot.metricStatus,
+          ...(!hasMetricStatus ? { [INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC]: 'unavailable' } : {}),
+        },
+      };
+    })
+    : document.instagramStorySnapshots;
+  return changed ? { ...document, posts, instagramStorySnapshots } : document;
 }
 
 function metric(value, name = '') {
@@ -148,6 +155,9 @@ export function normalizeInstagramPrivateSnapshots(snapshot) {
     const metadata = Object.fromEntries(metadataFields
       .filter((field) => row[field] !== undefined && row[field] !== null && row[field] !== '')
       .map((field) => [field, row[field]]));
+    if (metadata.copyAttributionStatus === 'exact' && !isExactInstagramCopyAttribution(row)) {
+      metadata.copyAttributionStatus = 'inferred';
+    }
     const revisionId = socialCopyRevisionId({ copyHook: row.copyHook, copyCta: row.copyCta });
     if (revisionId) metadata.copyRevisionId ||= revisionId;
     return [{

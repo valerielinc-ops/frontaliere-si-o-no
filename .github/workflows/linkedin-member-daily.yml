@@ -58,6 +58,7 @@ permissions:
 jobs:
   post:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     # Full checkout + assemble-jobs-dataset, same shape and same budget as
     # telegram-channel-broadcast.yml (20 min) — data/jobs/by-crawler alone is
@@ -88,6 +89,7 @@ jobs:
         run: >-
           node scripts/load-rc-env.mjs
           --only-env=LINKEDIN_MEMBER_CLIENT_ID,LINKEDIN_MEMBER_CLIENT_SECRET,LINKEDIN_MEMBER_ACCESS_TOKEN,LINKEDIN_MEMBER_REFRESH_TOKEN,LINKEDIN_MEMBER_URN,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID
+          --include-social-secrets
 
       # The jobs dataset is what separates a real offer from a generated SEO
       # landing page under the same URL shape. Without it the poster skips the

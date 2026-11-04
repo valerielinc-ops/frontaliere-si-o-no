@@ -56,6 +56,7 @@ function blockRows(frozen: ReturnType<typeof registration>, { winner = true, inc
         windowHours: 72,
         metrics: { shares: numerator, reach: 100 },
         availableMetrics: ['shares', 'reach'],
+        matchMethod: 'ledger-media-id',
         copyAttributionStatus: 'exact',
         copyMode: 'codex',
         copyAssignmentMode: 'firebase-balanced',
@@ -192,6 +193,16 @@ describe('matched-block social-copy experiment protocol', () => {
       guardrails: GUARDRAILS,
     });
     expect(invalid.status).toBe('data-integrity-failed');
+
+    const browserAttributed = blockRows(frozen);
+    browserAttributed[0].matchMethod = 'browser-cover-fingerprint';
+    const browserInvalid = evaluateMatchedBlockExperiment({
+      registration: frozen,
+      observations: browserAttributed,
+      asOf: new Date(Date.parse(frozen.startsAt) + (frozen.plannedBlocks + 4) * 86400000),
+      guardrails: GUARDRAILS,
+    });
+    expect(browserInvalid.status).toBe('data-integrity-failed');
   });
 
   it('fails closed when delivery, platform, or measurement guardrails are unhealthy', () => {

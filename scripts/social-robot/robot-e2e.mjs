@@ -27,8 +27,8 @@
  *     cookie banner whose custom element is defined late, one that appears on
  *     the Post hover, one with a zero-size host and fixed shadow content, one
  *     that blocks the optional Post now click, or one with a closed shadow root;
- *   - one whole runRobot() publish through the persistent profile: the confirm
- *     dispatch happens after the confirmation, never in a dry run.
+ *   - a whole runRobot() dry run reaches Instagram, while a live direct call is
+ *     policy-held before the browser flow and cannot dispatch a confirmation.
  */
 import http from 'node:http';
 import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -678,10 +678,10 @@ async function main() {
     let out = await robot('publish', 'dry', `${base}/ig/`);
     check(out.dryRun && out.results[0].outcome === 'dry-run' && dispatched.length === 0 && state.igShares.length === shares, '--publish with Remote Config "dry" stays a dry run');
     out = await robot('publish', 'live', `${base}/ig/`);
-    check(out.results[0].outcome === 'published' && dispatched.length === 1, 'live publish dispatches one confirmation');
-    check(dispatched[0].sharesAtDispatch === shares + 1 && dispatched[0].queueId === entry.id, 'the dispatch follows the confirmed share of that entry');
+    check(out.results[0].outcome === 'policy-held' && dispatched.length === 0, 'direct live Instagram delivery is held at runRobot');
+    check(state.igShares.length === shares, 'the held Instagram delivery never reaches the fake platform');
     out = await robot('publish', 'live', `${base}/ig/`);
-    check(out.results[0].outcome === 'empty' && state.igShares.length === shares + 1, 'the same entry is never pressed twice');
+    check(out.results[0].outcome === 'policy-held' && state.igShares.length === shares, 'a repeated direct live call remains held');
 
     console.log('\n✅ social robot e2e: all scenarios passed');
   } finally {

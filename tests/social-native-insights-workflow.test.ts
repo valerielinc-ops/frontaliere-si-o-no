@@ -108,6 +108,10 @@ describe('social native insights workflow contract', () => {
     expect(credentialsFile).toBeGreaterThanOrEqual(0);
     expect(persistedCredential).toBeGreaterThan(credentialsFile);
     expect(loader).toBeGreaterThanOrEqual(0);
+    expect(collectRun).toContain("only_env_keys='FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,FB_USER_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN'");
+    expect(collectRun).toContain('--include-social-secrets');
+    expect(collectRun).toContain('::add-mask::%s\\n');
+    expect(collectRun).toContain('unset FB_PAGE_ID FB_PAGE_ACCESS_TOKEN FB_USER_ACCESS_TOKEN INSTAGRAM_BUSINESS_ACCOUNT_ID INSTAGRAM_ACCESS_TOKEN');
   });
 
   it('reconciles copy experiment registrations only after the private collector succeeds', () => {
@@ -168,7 +172,7 @@ describe('social native insights workflow contract', () => {
     const collectStart = workflow.indexOf('      - name: Collect private first-hour and near-24h Story metrics');
     const collectEnd = workflow.indexOf('\n      - name:', collectStart + 1);
     const collect = workflow.slice(collectStart, collectEnd < 0 ? undefined : collectEnd);
-    const loadIndex = collect.indexOf('node scripts/load-rc-env.mjs --only-env=INSTAGRAM_ACCESS_TOKEN,FB_PAGE_ACCESS_TOKEN');
+    const loadIndex = collect.indexOf('node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN --include-social-secrets');
     const runIndex = collect.indexOf('node scripts/instagram-story-insights.mjs');
     const analyticsDimensions = readFileSync(resolve(ROOT, 'scripts/analytics-report.mjs'), 'utf8');
 
@@ -177,9 +181,11 @@ describe('social native insights workflow contract', () => {
     expect(collectStart).toBeGreaterThanOrEqual(0);
     expect(loadIndex).toBeGreaterThanOrEqual(0);
     expect(runIndex).toBeGreaterThan(loadIndex);
-    expect(collect).toContain('FB_PAGE_ACCESS_TOKEN');
+    expect(collect).not.toContain('FB_PAGE_ACCESS_TOKEN');
     expect(collect).toContain('eval "$rc_exports"');
     expect(collect).not.toContain('echo "$rc_exports"');
+    expect(collect).toContain('::add-mask::%s\\n');
+    expect(collect).toContain('unset FB_PAGE_ID FB_USER_ACCESS_TOKEN INSTAGRAM_BUSINESS_ACCOUNT_ID INSTAGRAM_ACCESS_TOKEN');
     expect(analyticsDimensions).toContain('FAQ_SEARCH_CATEGORY_GA4_DIMENSION');
     expect(analyticsDimensions).not.toContain("parameterName: 'details'");
   });
@@ -202,6 +208,15 @@ describe('social native insights workflow contract', () => {
     expect(prompt).toContain('topicDiscovery.searchDemand.available');
     expect(prompt).toContain('topicDiscovery.recentPublisherNews.available');
     expect(prompt).toContain('no raw GSC/Suggest query');
+  });
+
+  it('checks the repurpose skill used by the weekly Codex prompt is present in sparse checkout', () => {
+    const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-copy-pack.yml'), 'utf8');
+    const prompt = readFileSync(resolve(ROOT, 'scripts/social-copy/CODEX-PROMPT.md'), 'utf8');
+
+    expect(prompt).toContain('.agents/skills/ig-repurpose/SKILL.md');
+    expect(workflow).toContain('/.agents/skills/');
+    expect(workflow).toContain('test -s .agents/skills/ig-repurpose/SKILL.md');
   });
 
   it('limits credentialed social workflows with manual dispatch to main', () => {
@@ -238,5 +253,49 @@ describe('social native insights workflow contract', () => {
         expect(jobBlock, file).toMatch(/^  [a-z][a-z0-9_-]*:\n    if: github\.ref == 'refs\/heads\/main'\n/mu);
       }
     }
+  });
+
+  it('loads Firebase only through the main-only social-production environment for social credential consumers', () => {
+    const files = [
+      '.github/workflows/fb-articles-daily-schedule.yml',
+      '.github/workflows/fb-events-daily-schedule.yml',
+      '.github/workflows/fb-jobs-daily-schedule.yml',
+      '.github/workflows/instagram-daily-broadcast.yml',
+      '.github/workflows/instagram-insights-snapshot.yml',
+      '.github/workflows/instagram-reel-experiment.yml',
+      '.github/workflows/instagram-story-insights.yml',
+      '.github/workflows/linkedin-member-daily.yml',
+      '.github/workflows/reddit-jobs-daily-schedule.yml',
+      '.github/workflows/social-copy-assignment-cleanup.yml',
+      '.github/workflows/social-copy-experiment-config.yml',
+      '.github/workflows/social-copy-pack.yml',
+      '.github/workflows/social-native-insights.yml',
+      '.github/workflows/social-publish-readiness-watch.yml',
+      '.github/workflows/social-robot-confirm.yml',
+      '.github/workflows/telegram-channel-broadcast.yml',
+      '.github/workflows/tiktok-daily-broadcast.yml',
+      '.github/workflows/monitor-telegram-member-count.yml',
+      '.github/workflows/topic-candidates-mining.yml',
+    ];
+
+    for (const file of files) {
+      const workflow = YAML.parse(readFileSync(resolve(ROOT, file), 'utf8'), { logLevel: 'silent' });
+      const jobs = Object.entries(workflow.jobs || {}).filter(([, job]) => (
+        JSON.stringify(job).includes('secrets.FIREBASE_SERVICE_ACCOUNT_JSON')
+      ));
+
+      expect(jobs, file).not.toHaveLength(0);
+      for (const [jobId, job] of jobs as Array<[string, any]>) {
+        expect(job.if, `${file} :: ${jobId}`).toBe("github.ref == 'refs/heads/main'");
+        expect(job.environment, `${file} :: ${jobId}`).toBe('social-production');
+      }
+    }
+
+    const postDeploy = YAML.parse(readFileSync(resolve(ROOT, '.github/workflows/post-deploy-publish.yml'), 'utf8'), { logLevel: 'silent' });
+    const publishJob = postDeploy.jobs.publish;
+    expect(publishJob.environment).toBe('social-production');
+    expect(publishJob.if).toContain('needs.validate-deploy-publish-caller.result == \'success\'');
+    expect(publishJob.if).toContain("github.workflow_ref == format('{0}/.github/workflows/deploy-publish.yml@refs/heads/main', github.repository)");
+    expect(publishJob.if).toContain("github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository)");
   });
 });

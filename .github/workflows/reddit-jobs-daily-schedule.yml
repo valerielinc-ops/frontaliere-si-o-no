@@ -31,6 +31,7 @@ permissions:
 jobs:
   schedule:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     # Raised from 10 → 20 (#6182): same shape as fb-jobs-daily-schedule.yml
     # (#4764) — full checkout (sparse removed for this job in #6133, above
@@ -62,6 +63,7 @@ jobs:
         run: >-
           node scripts/load-rc-env.mjs
           --only-env=REDDIT_CLIENT_ID,REDDIT_CLIENT_SECRET,REDDIT_USERNAME,REDDIT_PASSWORD,REDDIT_USER_AGENT,REDDIT_DATA_API_APPROVED,SOCIAL_COPY_EXPERIMENT_CONFIG
+          --include-social-secrets
 
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key

@@ -19,10 +19,9 @@
  *   LINKEDIN_MEMBER_CLIENT_ID       app client id      (78ikswckn74d2t)
  *   LINKEDIN_MEMBER_CLIENT_SECRET   app primary secret
  *
- * What it prints at the end is what has to be stored in Remote Config:
- *   LINKEDIN_MEMBER_ACCESS_TOKEN    ~60 days (app is configured for 5184000s)
- *   LINKEDIN_MEMBER_REFRESH_TOKEN   ~1 year, only if the app has refresh enabled
- *   LINKEDIN_MEMBER_URN             urn:li:person:<sub>, see the note below
+ * The helper stores access and refresh credentials in the private server
+ * Remote Config namespace. It never prints token values. A service-account
+ * write preflight runs before the one-use OAuth code is requested.
  *
  * ── The person URN problem, read before running ──────────────────────────
  * Posting as a member requires the author URN `urn:li:person:<id>`. The only
@@ -31,13 +30,10 @@
  * ("Sign In with LinkedIn using OpenID Connect" is not an added product —
  * verified on the app's Products page 2026-08-24).
  *
- * So this helper tries /v2/userinfo opportunistically and, when it 403s as
- * expected, tells the owner to supply LINKEDIN_MEMBER_URN by hand. Two ways
- * to get it without adding a product:
- *   - open your own LinkedIn profile, View source, search "urn:li:fsd_profile:"
- *   - or add the "Sign In with LinkedIn using OpenID Connect" product (self
- *     serve, instant) and re-run this helper with SCOPE including `openid`.
- * The posting script treats a missing URN as a soft skip, never a crash.
+ * This helper tries /v2/userinfo opportunistically. When the app does not
+ * grant a profile-identity scope, it keeps any already configured URN and the
+ * publisher remains held until a trusted member URN is available. Do not infer
+ * an author identity from a different account or scrape a private profile.
  *
  * Exit code is 0 on the happy path and 1 only on an explicit auth failure —
  * this is an interactive one-shot tool, not a CI step.
@@ -46,6 +42,11 @@
 import http from 'node:http';
 import { URL } from 'node:url';
 import crypto from 'node:crypto';
+import {
+  persistSocialOAuthCredentials,
+  readSocialOAuthStorageCredentials,
+  validateSocialOAuthCredentialStorage,
+} from './lib/social-oauth-credential-store.mjs';
 
 const CLIENT_ID = process.env.LINKEDIN_MEMBER_CLIENT_ID || '78ikswckn74d2t';
 const CLIENT_SECRET = process.env.LINKEDIN_MEMBER_CLIENT_SECRET || '';
@@ -80,7 +81,7 @@ async function exchangeCode(code) {
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok || !data.access_token) {
-    throw new Error(`token exchange failed (${res.status}): ${JSON.stringify(data)}`);
+    throw new Error('LinkedIn token exchange failed (HTTP ' + res.status + ')');
   }
   return data;
 }
@@ -100,6 +101,16 @@ async function tryResolveUrn(accessToken) {
 }
 
 async function main() {
+  let storageCredentials = null;
+  if (!urlOnly) {
+    if (!CLIENT_SECRET) throw new Error('LINKEDIN_MEMBER_CLIENT_SECRET is not set');
+    storageCredentials = readSocialOAuthStorageCredentials(process.env, 'linkedin-member');
+    await validateSocialOAuthCredentialStorage({
+      credentials: storageCredentials,
+      platform: 'linkedin-member',
+    });
+  }
+
   const state = crypto.randomBytes(16).toString('hex');
   const authUrl = buildAuthUrl(state);
 
@@ -154,24 +165,39 @@ async function main() {
   const tokens = await exchangeCode(code);
   const urn = await tryResolveUrn(tokens.access_token);
 
-  console.log('');
-  console.log('✅ Store these in Firebase Remote Config:');
-  console.log(`LINKEDIN_MEMBER_ACCESS_TOKEN=${tokens.access_token}`);
-  if (tokens.refresh_token) {
-    console.log(`LINKEDIN_MEMBER_REFRESH_TOKEN=${tokens.refresh_token}`);
-  } else {
-    console.log('# no refresh_token returned — this app tier issues 60-day tokens only;');
-    console.log('# re-run this helper before expiry, or ask LinkedIn to enable refresh.');
+  const expiresIn = Number(tokens.expires_in);
+  if (!Number.isFinite(expiresIn) || expiresIn <= 0) {
+    throw new Error('LinkedIn did not return a verifiable access-token lifetime');
   }
+  const parameters = {
+    SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN: tokens.access_token,
+    SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN_EXPIRES_AT: new Date(Date.now() + expiresIn * 1000).toISOString(),
+  };
+  const removeParameters = [];
+  if (tokens.refresh_token) {
+    parameters.SERVER_LINKEDIN_MEMBER_REFRESH_TOKEN = tokens.refresh_token;
+  } else {
+    removeParameters.push('SERVER_LINKEDIN_MEMBER_REFRESH_TOKEN');
+  }
+  if (urn) parameters.SERVER_LINKEDIN_MEMBER_URN = urn;
+  const stored = await persistSocialOAuthCredentials({
+    credentials: storageCredentials,
+    platform: 'linkedin-member',
+    parameters,
+    removeParameters,
+  });
+
+  console.log('');
+  console.log('✅ LinkedIn member OAuth credentials stored in the private server Remote Config namespace.');
+  console.log('stored fields: ' + stored.parameterCount + '; access token lifetime: ' + expiresIn + 's');
   if (urn) {
-    console.log(`LINKEDIN_MEMBER_URN=${urn}`);
+    console.log('member URN resolved and stored privately.');
   } else {
     console.log('# /v2/userinfo unavailable with w_member_social alone (expected).');
-    console.log('# Set LINKEDIN_MEMBER_URN by hand — see the header of this file.');
+    console.log('# Any existing configured member URN was retained.');
   }
   console.log('');
-  console.log(`expires_in: ${tokens.expires_in}s (~${Math.round(tokens.expires_in / 86400)} days)`);
-  console.log(`scope granted: ${tokens.scope || SCOPE}`);
+  console.log('scope granted: ' + (tokens.scope || SCOPE));
 }
 
 main().catch((err) => {

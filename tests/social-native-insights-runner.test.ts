@@ -2,6 +2,28 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { collectSocialNativeInsights } from '../scripts/social-native-insights.mjs';
 
+function collectWithReadyInstagramInsights(options: Parameters<typeof collectSocialNativeInsights>[0]) {
+  return collectSocialNativeInsights({
+    ...options,
+    env: {
+      FB_PAGE_ID: 'page-1',
+      FB_USER_ACCESS_TOKEN: 'user-token',
+      INSTAGRAM_BUSINESS_ACCOUNT_ID: 'instagram-1',
+      INSTAGRAM_ACCESS_TOKEN: 'page-token',
+      ...options?.env,
+    },
+    probeInstagramPermissionScopes: async () => ({
+      permissionStatuses: { instagram_basic: 'granted', instagram_manage_insights: 'granted' },
+    }),
+    probeInstagramPageAccess: async () => ({
+      pageLinkStatus: 'matched',
+      publisherTokenSourceStatus: 'matched',
+      pageTaskStatuses: { analyze: 'granted' },
+    }),
+    probeInstagramPublisher: async () => ({ publisherTokenStatus: 'matched' }),
+  });
+}
+
 describe('social native insights workflow runner', () => {
   it('collects Instagram post metrics into the private store with exact-ID attribution', async () => {
     const asOf = new Date('2026-11-02T12:00:00.000Z');
@@ -39,7 +61,7 @@ describe('social native insights workflow runner', () => {
         }],
       };
     });
-    const result = await collectSocialNativeInsights({
+    const result = await collectWithReadyInstagramInsights({
       env: {},
       asOf,
       existing: { schemaVersion: 1, posts: [], sources: {} },
@@ -90,7 +112,7 @@ describe('social native insights workflow runner', () => {
       expect(eligibilityStatus).toBe('post-insights-exact-id-probe-required');
       return { status: 'available', posts: [facebookPost], attempted: 1, skipped: 0 };
     });
-    const result = await collectSocialNativeInsights({
+    const result = await collectWithReadyInstagramInsights({
       env: { FB_PAGE_ID: '123456', FB_PAGE_ACCESS_TOKEN: 'private-test-token' },
       asOf,
       existing: {
@@ -114,7 +136,7 @@ describe('social native insights workflow runner', () => {
   it('can skip the LinkedIn API between daily collection windows and retains its last status', async () => {
     const fetchTikTok = vi.fn<typeof fetch>();
     const fetchLinkedIn = vi.fn<typeof fetch>();
-    const result = await collectSocialNativeInsights({
+    const result = await collectWithReadyInstagramInsights({
       env: {
         TIKTOK_ACCESS_TOKEN: 'configured-token-without-approval',
         LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED: 'true',
@@ -140,7 +162,7 @@ describe('social native insights workflow runner', () => {
   it('holds LinkedIn member-post analytics without storage approval and prunes old per-post rows', async () => {
     const asOf = new Date('2026-11-02T00:15:00.000Z');
     const collectLinkedInInsights = vi.fn(async () => ({ status: 'snapshots-added', posts: [], skipped: [] }));
-    const result = await collectSocialNativeInsights({
+    const result = await collectWithReadyInstagramInsights({
       env: {},
       asOf,
       existing: {
@@ -193,7 +215,7 @@ describe('social native insights workflow runner', () => {
       skipped: [],
     }));
     const collectLinkedInFollowerGains = vi.fn(async () => ({ status: 'metric-unavailable', snapshots: [] }));
-    const result = await collectSocialNativeInsights({
+    const result = await collectWithReadyInstagramInsights({
       env: {
         TIKTOK_DISPLAY_ANALYTICS_APPROVED: 'true',
         LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED: 'true',
@@ -261,7 +283,7 @@ describe('social native insights workflow runner', () => {
       requestedRange: { startDate, endDate },
     }));
     const asOf = new Date('2026-11-02T00:15:00.000Z');
-    const result = await collectSocialNativeInsights({
+    const result = await collectWithReadyInstagramInsights({
       env: { LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED: 'true' },
       asOf,
       existing: { schemaVersion: 1, posts: [], sources: {} },
@@ -290,7 +312,7 @@ describe('social native insights workflow runner', () => {
       endDate: '2026-11-02',
     }));
 
-    const sameDay = await collectSocialNativeInsights({
+    const sameDay = await collectWithReadyInstagramInsights({
       env: { LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED: 'true' },
       asOf: new Date('2026-11-02T06:15:00.000Z'),
       existing: result.document,
@@ -311,7 +333,7 @@ describe('social native insights workflow runner', () => {
       data: { videos: [], has_more: false },
       error: { code: 'ok', message: '' },
     }), { status: 200 }));
-    const result = await collectSocialNativeInsights({
+    const result = await collectWithReadyInstagramInsights({
       env: {
         TIKTOK_DISPLAY_ANALYTICS_APPROVED: 'true',
         TIKTOK_ACCESS_TOKEN: 'test-token',
@@ -326,5 +348,72 @@ describe('social native insights workflow runner', () => {
     const requestedPaths = fetchTikTok.mock.calls.map(([input]) => new URL(String(input)).pathname);
     expect(requestedPaths).toEqual(expect.arrayContaining(['/v2/video/list/', '/v2/user/info/']));
     expect(result.sources.tiktok).not.toBe('policy-review-required');
+  });
+
+  it('does not call Instagram Insights collectors when Meta withholds the Insights permission', async () => {
+    const collectInstagramPosts = vi.fn();
+    const collectInstagramAudience = vi.fn();
+    const result = await collectSocialNativeInsights({
+      env: {
+        FB_PAGE_ID: 'page-1',
+        FB_USER_ACCESS_TOKEN: 'user-token',
+        INSTAGRAM_BUSINESS_ACCOUNT_ID: 'instagram-1',
+        INSTAGRAM_ACCESS_TOKEN: 'page-token',
+      },
+      asOf: new Date('2026-11-02T12:00:00.000Z'),
+      existing: { schemaVersion: 1, posts: [], sources: {} },
+      collectInstagramPosts,
+      collectInstagramAudience,
+      collectLinkedIn: false,
+      probeInstagramPermissionScopes: async () => ({
+        permissionStatuses: { instagram_manage_insights: 'missing' },
+      }),
+      probeInstagramPageAccess: async () => ({
+        pageLinkStatus: 'matched',
+        publisherTokenSourceStatus: 'matched',
+        pageTaskStatuses: { analyze: 'granted' },
+      }),
+      probeInstagramPublisher: async () => ({ publisherTokenStatus: 'matched' }),
+    });
+
+    expect(collectInstagramPosts).not.toHaveBeenCalled();
+    expect(collectInstagramAudience).not.toHaveBeenCalled();
+    expect(result.results.instagramPostInsights.status).toBe('permission-missing');
+    expect(result.results.instagramAudience.status).toBe('permission-missing');
+  });
+
+  it.each([
+    ['publisher token resolves to a different Instagram account', 'matched', 'mismatch'],
+    ['publisher token is not tied to the verified Page', 'mismatch', 'matched'],
+  ])('holds Instagram Insights when %s', async (_label, sourceStatus, publisherStatus) => {
+    const collectInstagramPosts = vi.fn();
+    const collectInstagramAudience = vi.fn();
+    const result = await collectSocialNativeInsights({
+      env: {
+        FB_PAGE_ID: 'page-1',
+        FB_USER_ACCESS_TOKEN: 'user-token',
+        INSTAGRAM_BUSINESS_ACCOUNT_ID: 'instagram-1',
+        INSTAGRAM_ACCESS_TOKEN: 'publisher-token',
+      },
+      asOf: new Date('2026-11-02T12:00:00.000Z'),
+      existing: { schemaVersion: 1, posts: [], sources: {} },
+      collectInstagramPosts,
+      collectInstagramAudience,
+      collectLinkedIn: false,
+      probeInstagramPermissionScopes: async () => ({
+        permissionStatuses: { instagram_basic: 'granted', instagram_manage_insights: 'granted' },
+      }),
+      probeInstagramPageAccess: async () => ({
+        pageLinkStatus: 'matched',
+        publisherTokenSourceStatus: sourceStatus,
+        pageTaskStatuses: { analyze: 'granted' },
+      }),
+      probeInstagramPublisher: async () => ({ publisherTokenStatus: publisherStatus }),
+    });
+
+    expect(collectInstagramPosts).not.toHaveBeenCalled();
+    expect(collectInstagramAudience).not.toHaveBeenCalled();
+    expect(result.results.instagramPostInsights.status).toBe('capability-unavailable');
+    expect(result.results.instagramAudience.status).toBe('capability-unavailable');
   });
 });

@@ -40,10 +40,17 @@ describe('reddit-auth.mjs OAuth contract', () => {
     expect(uaUses.length).toBe(fetchCalls.length);
   });
 
-  it('tells the operator the RC-side name (SERVER_ prefix), not the env name', () => {
-    // RC_TO_ENV renames SERVER_REDDIT_REFRESH_TOKEN → REDDIT_REFRESH_TOKEN.
-    // Printing the env name would have the owner store a parameter that no
-    // loader maps, and the token would be inert in Remote Config.
-    expect(SRC).toMatch(/SERVER_REDDIT_REFRESH_TOKEN=/);
+  it('stores refresh credentials privately without printing tokens', () => {
+    expect(SRC).toContain('persistSocialOAuthCredentials');
+    expect(SRC).toContain('SERVER_REDDIT_REFRESH_TOKEN');
+    expect(SRC).not.toContain('SERVER_REDDIT_REFRESH_TOKEN=');
+    expect(SRC).not.toMatch(/console\.log\([^)]*tokens\.(?:access|refresh)_token/);
+    expect(SRC).not.toContain('JSON.stringify(data)');
+  });
+
+  it('checks private credential storage before creating the one-use OAuth listener', () => {
+    expect(SRC).toContain('validateSocialOAuthCredentialStorage');
+    expect(SRC.indexOf('validateSocialOAuthCredentialStorage'))
+      .toBeLessThan(SRC.indexOf('const code = await new Promise'));
   });
 });

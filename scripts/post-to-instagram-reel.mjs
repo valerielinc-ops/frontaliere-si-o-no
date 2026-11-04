@@ -48,6 +48,7 @@ import {
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishReel as publishInstagramReel } from './lib/instagram-publish.mjs';
+import { assertInstagramPublishReady } from './lib/instagram-publish-readiness.mjs';
 import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -415,6 +416,7 @@ async function main() {
   const robotMode = resolveSocialRobotMode();
   console.log(`─── Instagram Reel experiment — day ${args.day}${args.dryRun ? ' (dry run)' : ''} ───`);
   console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode}`);
+  if (!args.dryRun) await assertInstagramPublishReady();
   const status = await publishReelSlot({ ...args, robotMode });
   const failedStatuses = new Set([
     'credentials-missing',

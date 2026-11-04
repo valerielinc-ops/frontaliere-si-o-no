@@ -391,10 +391,18 @@ describe('UTM identity — Instagram and TikTok each get one stable GA4 source r
 
 describe('publisher exit posture', () => {
   const root = path.resolve(__dirname, '..', 'scripts');
-  it('Instagram fails the workflow when reservation or publish outcome is uncertain', () => {
+  it('Instagram fails the workflow on any live publishing error', () => {
     const src = fs.readFileSync(path.join(root, 'post-to-instagram.mjs'), 'utf-8');
-    expect(src).toContain("'SOCIAL_PUBLISH_RESERVATION_REQUIRED', 'SOCIAL_PUBLISH_OUTCOME_UNCERTAIN'");
+    expect(src).toContain("error.code = 'SOCIAL_PUBLISH_OUTCOME_UNCERTAIN'");
+    expect(src).toContain('exitCode = 1;');
     expect(src).toContain('.finally(() => process.exit(exitCode))');
+  });
+
+  it('Instagram reports renderer and CDN failures instead of green-skipping a live post', () => {
+    const src = fs.readFileSync(path.join(root, 'post-to-instagram.mjs'), 'utf-8');
+    expect(src).toContain("throw new Error('Instagram carousel source does not fit the verified renderer contract')");
+    expect(src).toContain("throw new Error('Instagram carousel fonts are unavailable')");
+    expect(src).toContain("throw new Error('Instagram carousel image upload failed; refusing to publish an incomplete carousel')");
   });
 
   it('TikTok retains its fail-soft exit contract', () => {

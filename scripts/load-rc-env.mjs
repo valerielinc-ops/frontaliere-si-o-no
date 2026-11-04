@@ -16,9 +16,13 @@ import { realpathSync } from 'node:fs';
  *     - name: Load secrets from Remote Config
  *       run: node scripts/load-rc-env.mjs
  *
- *   Jobs with least-privilege needs can request only specific mapped env vars:
+ *   Jobs with least-privilege needs can request only specific mapped env vars.
+ *   Social publishers must explicitly include the private server template:
  *
- *     node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN
+ *     node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN --include-social-secrets
+ *   Mixed client-RC jobs can allowlist their private social credentials while
+ *   retaining the existing client-template load:
+ *     node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=LINKEDIN_POST_ACCESS_TOKEN
  *
  * ─── Local mode ──────────────────────────────────────────────────────────
  *   Prints export KEY=VALUE lines to stdout.  Use with eval:
@@ -48,6 +52,41 @@ export const SITE_ONLY_RC_KEYS = new Set([
   'EVENTFROG_ENABLED',
   'EVENTFROG_PUBLIC_API_KEY',
   'EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT',
+]);
+
+// Provider credentials are read only from the separate firebase-server
+// template. This is explicit because all default loads use the client template.
+export const SOCIAL_SERVER_SECRET_RC_KEYS = new Set([
+  'SERVER_FB_PAGE_ACCESS_TOKEN',
+  'SERVER_FB_PAGE_ACCESS_TOKEN_EXPIRES_AT',
+  'SERVER_FB_USER_ACCESS_TOKEN',
+  'SERVER_FB_USER_ACCESS_TOKEN_EXPIRES_AT',
+  'SERVER_INSTAGRAM_ACCESS_TOKEN',
+  'SERVER_INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT',
+  'SERVER_LINKEDIN_POST_CLIENT_SECRET',
+  'SERVER_LINKEDIN_POST_REFRESH_TOKEN',
+  'SERVER_LINKEDIN_POST_ACCESS_TOKEN',
+  'SERVER_LINKEDIN_MEMBER_CLIENT_SECRET',
+  'SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN',
+  'SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN_EXPIRES_AT',
+  'SERVER_LINKEDIN_MEMBER_REFRESH_TOKEN',
+  'SERVER_LINKEDIN_MEMBER_URN',
+  'SERVER_REDDIT_CLIENT_SECRET',
+  'SERVER_REDDIT_PASSWORD',
+  'SERVER_REDDIT_REFRESH_TOKEN',
+  'SERVER_TELEGRAM_BOT_TOKEN',
+  'SERVER_TIKTOK_CLIENT_KEY',
+  'SERVER_TIKTOK_CLIENT_SECRET',
+  'SERVER_TIKTOK_ACCESS_TOKEN',
+  'SERVER_TIKTOK_ACCESS_TOKEN_EXPIRES_AT',
+  'SERVER_TIKTOK_REFRESH_TOKEN',
+  'SERVER_TIKTOK_REFRESH_TOKEN_EXPIRES_AT',
+  'SERVER_TIKTOK_SANDBOX_CLIENT_KEY',
+  'SERVER_TIKTOK_SANDBOX_CLIENT_SECRET',
+  'SERVER_TIKTOK_SANDBOX_ACCESS_TOKEN',
+  'SERVER_TIKTOK_SANDBOX_ACCESS_TOKEN_EXPIRES_AT',
+  'SERVER_TIKTOK_SANDBOX_REFRESH_TOKEN',
+  'SERVER_TIKTOK_SANDBOX_REFRESH_TOKEN_EXPIRES_AT',
 ]);
 
 // ─── RC Param → Env Var Mapping ──────────────────────────────────────────
@@ -223,10 +262,12 @@ export const RC_TO_ENV = {
 
   // Server-only keys (stored with SERVER_ prefix in RC)
   SERVER_FB_PAGE_ACCESS_TOKEN:    ['FB_PAGE_ACCESS_TOKEN'],
+  SERVER_FB_PAGE_ACCESS_TOKEN_EXPIRES_AT: ['FB_PAGE_ACCESS_TOKEN_EXPIRES_AT'],
   // Meta's Page.instagram_business_account read requires a user token whose
   // user can perform the needed tasks on the Page; keep it server-only and
   // load it only in the readiness probe that compares the linked account ID.
   SERVER_FB_USER_ACCESS_TOKEN:    ['FB_USER_ACCESS_TOKEN'],
+  SERVER_FB_USER_ACCESS_TOKEN_EXPIRES_AT: ['FB_USER_ACCESS_TOKEN_EXPIRES_AT'],
   SERVER_PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN: ['PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN'],
   SERVER_GA4_PROPERTY_ID:         ['GA4_PROPERTY_ID'],
   SERVER_GSC_CLIENT_SECRET:       ['GSC_CLIENT_SECRET'],
@@ -260,9 +301,9 @@ export const RC_TO_ENV = {
 
   // LinkedIn auto-posting (Company Page articles)
   LINKEDIN_POST_CLIENT_ID:        ['LINKEDIN_POST_CLIENT_ID'],
-  LINKEDIN_POST_CLIENT_SECRET:    ['LINKEDIN_POST_CLIENT_SECRET'],
-  LINKEDIN_POST_REFRESH_TOKEN:    ['LINKEDIN_POST_REFRESH_TOKEN'],
-  LINKEDIN_POST_ACCESS_TOKEN:     ['LINKEDIN_POST_ACCESS_TOKEN'],
+  SERVER_LINKEDIN_POST_CLIENT_SECRET: ['LINKEDIN_POST_CLIENT_SECRET'],
+  SERVER_LINKEDIN_POST_REFRESH_TOKEN: ['LINKEDIN_POST_REFRESH_TOKEN'],
+  SERVER_LINKEDIN_POST_ACCESS_TOKEN:  ['LINKEDIN_POST_ACCESS_TOKEN'],
   LINKEDIN_ORGANIZATION_ID:       ['LINKEDIN_ORGANIZATION_ID'],
 
   // LinkedIn auto-posting (PERSONAL profile — scripts/post-to-linkedin-member.mjs).
@@ -278,10 +319,12 @@ export const RC_TO_ENV = {
   // _URN is not discoverable at runtime: /v2/userinfo needs a scope this app
   // does not have, so it is configuration. See the auth helper's header.
   LINKEDIN_MEMBER_CLIENT_ID:      ['LINKEDIN_MEMBER_CLIENT_ID'],
-  LINKEDIN_MEMBER_CLIENT_SECRET:  ['LINKEDIN_MEMBER_CLIENT_SECRET'],
-  LINKEDIN_MEMBER_ACCESS_TOKEN:   ['LINKEDIN_MEMBER_ACCESS_TOKEN'],
-  LINKEDIN_MEMBER_REFRESH_TOKEN:  ['LINKEDIN_MEMBER_REFRESH_TOKEN'],
+  SERVER_LINKEDIN_MEMBER_CLIENT_SECRET: ['LINKEDIN_MEMBER_CLIENT_SECRET'],
+  SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN:  ['LINKEDIN_MEMBER_ACCESS_TOKEN'],
+  SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN_EXPIRES_AT: ['LINKEDIN_MEMBER_ACCESS_TOKEN_EXPIRES_AT'],
+  SERVER_LINKEDIN_MEMBER_REFRESH_TOKEN: ['LINKEDIN_MEMBER_REFRESH_TOKEN'],
   LINKEDIN_MEMBER_URN:            ['LINKEDIN_MEMBER_URN'],
+  SERVER_LINKEDIN_MEMBER_URN:     ['LINKEDIN_MEMBER_URN'],
 
   // LinkedIn Sign-In (OAuth2 for user authentication)
   LINKEDIN_SIGNIN_CLIENT_ID:      ['LINKEDIN_SIGNIN_CLIENT_ID'],
@@ -295,7 +338,7 @@ export const RC_TO_ENV = {
   // All three are ABSENT in RC until the owner creates the bot + channel, so
   // they're simply skipped (no-op) — the poster fail-soft-skips and the site
   // link stays hidden until the URL is set.
-  TELEGRAM_BOT_TOKEN:             ['TELEGRAM_BOT_TOKEN'],
+  SERVER_TELEGRAM_BOT_TOKEN:      ['TELEGRAM_BOT_TOKEN'],
   TELEGRAM_CHANNEL_ID:            ['TELEGRAM_CHANNEL_ID'],
   TELEGRAM_CHANNEL_URL:           ['TELEGRAM_CHANNEL_URL', 'VITE_TELEGRAM_CHANNEL_URL'],
 
@@ -310,8 +353,8 @@ export const RC_TO_ENV = {
 
   // Instagram auto-posting (carousel — scripts/post-to-instagram.mjs). Business
   // account created 2026-08-24, linked to the existing FB_PAGE_ID Page. Public
-  // identifiers only until the owner clears Meta App Review for
-  // instagram_content_publish — until then the poster fail-soft-skips.
+  // identifiers only; live publishing requires the approved Graph token and
+  // linked account, and the poster fails visibly while either is unavailable.
   // NOTE: these RC params already existed (scripts/set-instagram-tiktok-rc.mjs)
   // but were never mapped here — this file is the ONLY Remote Config → env
   // bridge, so TIKTOK_ACCESS_TOKEN/INSTAGRAM_ACCESS_TOKEN stayed `undefined`
@@ -319,18 +362,18 @@ export const RC_TO_ENV = {
   INSTAGRAM_USERNAME:                  ['INSTAGRAM_USERNAME'],
   INSTAGRAM_BUSINESS_ACCOUNT_ID:       ['INSTAGRAM_BUSINESS_ACCOUNT_ID'],
   SERVER_INSTAGRAM_ACCESS_TOKEN:       ['INSTAGRAM_ACCESS_TOKEN'],
+  SERVER_INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT: ['INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT'],
   // Four-arm carousel background test. The poster assigns one stable arm per
   // kind/period; absent or invalid values fall back to the navy control.
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED'],
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT'],
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS'],
-  // Insights source: browser uses the authenticated Chrome Professional
-  // Dashboard on the Mac host; graph remains an explicit compatibility path.
+  // Legacy Insights source setting: `off` can suppress status qualification;
+  // browser/unknown values resolve to the supported Graph collector only.
   SOCIAL_ROBOT_INSIGHTS_SOURCE:        ['SOCIAL_ROBOT_INSIGHTS_SOURCE'],
-  // Insights collection and descriptive candidate reporting. The browser
-  // collector uses diagnostic (24h) and decision (72h) windows by default;
-  // the legacy count/lift evaluator cannot promote until the preregistered
-  // statistical decision protocol is implemented.
+  // Insights collection and descriptive candidate reporting. The legacy
+  // count/lift evaluator cannot promote until the preregistered statistical
+  // decision protocol is implemented.
   INSTAGRAM_INSIGHTS_WINDOWS:           ['INSTAGRAM_INSIGHTS_WINDOWS'],
   INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS: ['INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS'],
   INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED: ['INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED'],
@@ -371,16 +414,21 @@ export const RC_TO_ENV = {
   SERVER_TIKTOK_CLIENT_KEY:            ['TIKTOK_CLIENT_KEY'],
   SERVER_TIKTOK_CLIENT_SECRET:         ['TIKTOK_CLIENT_SECRET'],
   SERVER_TIKTOK_ACCESS_TOKEN:          ['TIKTOK_ACCESS_TOKEN'],
+  SERVER_TIKTOK_ACCESS_TOKEN_EXPIRES_AT: ['TIKTOK_ACCESS_TOKEN_EXPIRES_AT'],
   SERVER_TIKTOK_REFRESH_TOKEN:         ['TIKTOK_REFRESH_TOKEN'],
+  SERVER_TIKTOK_REFRESH_TOKEN_EXPIRES_AT: ['TIKTOK_REFRESH_TOKEN_EXPIRES_AT'],
   SERVER_TIKTOK_SANDBOX_CLIENT_KEY:    ['TIKTOK_SANDBOX_CLIENT_KEY'],
   SERVER_TIKTOK_SANDBOX_CLIENT_SECRET: ['TIKTOK_SANDBOX_CLIENT_SECRET'],
+  SERVER_TIKTOK_SANDBOX_ACCESS_TOKEN:  ['TIKTOK_SANDBOX_ACCESS_TOKEN'],
+  SERVER_TIKTOK_SANDBOX_ACCESS_TOKEN_EXPIRES_AT: ['TIKTOK_SANDBOX_ACCESS_TOKEN_EXPIRES_AT'],
+  SERVER_TIKTOK_SANDBOX_REFRESH_TOKEN: ['TIKTOK_SANDBOX_REFRESH_TOKEN'],
+  SERVER_TIKTOK_SANDBOX_REFRESH_TOKEN_EXPIRES_AT: ['TIKTOK_SANDBOX_REFRESH_TOKEN_EXPIRES_AT'],
 
-  // Instagram/TikTok transport switch: off | dry | live (absent or unknown =
-  // dry). Read by the two posters above, which either call the API or queue
-  // the post, and by the Playwright robot on the agents' Mac host
-  // (scripts/social-robot/), which presses the publish button only on `live`.
-  // See scripts/lib/social-publish-queue.mjs. Every value is shorter than six
-  // characters, so isTrivialSecret() never masks it in CI logs.
+  // Legacy TikTok/browser-robot transport switch: off | dry | live (absent or
+  // unknown = dry). Instagram feed publishing is API-only and does not use
+  // this value; the Mac worker still reads it for eligible Graph community
+  // actions. Every value is shorter than six characters, so isTrivialSecret()
+  // never masks it in CI logs.
   SOCIAL_ROBOT_MODE:                   ['SOCIAL_ROBOT_MODE'],
 
   // CODEX_AUTH_JSON lives in Remote Config but is deliberately NOT mapped,
@@ -693,7 +741,7 @@ export const RC_FETCH_TIMEOUT_MS = 30_000;
  * getRcValue() works unchanged. Returns null on any failure — callers fall
  * back to plain env vars, exactly as before.
  */
-async function fetchTemplateViaRest() {
+async function fetchTemplateViaRest(namespace = 'firebase') {
   const { readFileSync } = await import('node:fs');
   const { getServiceAccountAccessToken } = await import('./lib/google-service-account-token.mjs');
 
@@ -704,18 +752,21 @@ async function fetchTemplateViaRest() {
     creds,
     'https://www.googleapis.com/auth/firebase.remoteconfig',
   );
+  const templateUrl = new URL(
+    `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(creds.project_id)}/remoteConfig`,
+  );
+  if (namespace !== 'firebase') {
+    templateUrl.searchParams.set('name', `projects/${creds.project_id}/namespaces/${namespace}/remoteConfig`);
+  }
 
   let lastErr;
   for (let attempt = 1; attempt <= RC_FETCH_ATTEMPTS; attempt++) {
     let rcRes;
     try {
-      rcRes = await fetch(
-        `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(creds.project_id)}/remoteConfig`,
-        {
-          headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' },
-          signal: AbortSignal.timeout(RC_FETCH_TIMEOUT_MS),
-        },
-      );
+      rcRes = await fetch(templateUrl, {
+        headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' },
+        signal: AbortSignal.timeout(RC_FETCH_TIMEOUT_MS),
+      });
     } catch (err) {
       // Same class of bug as the OAuth exchange one hop upstream (see
       // exchangeAssertionForToken in lib/google-service-account-token.mjs):
@@ -745,24 +796,63 @@ async function fetchTemplateViaRest() {
 // ─── Main ────────────────────────────────────────────────────────────────
 
 function parseArgs(argv) {
-  if (!argv.length) return { onlyEnvKeys: null };
-  if (argv.length !== 1 || !argv[0].startsWith('--only-env=')) {
-    throw new Error('usage: load-rc-env.mjs [--only-env=ENV_KEY,ENV_KEY]');
+  let onlyEnvKeys = null;
+  let onlySocialEnvKeys = null;
+  let includeSocialSecrets = false;
+  for (const arg of argv) {
+    if (arg === '--include-social-secrets' && !includeSocialSecrets) {
+      includeSocialSecrets = true;
+      continue;
+    }
+    if (arg.startsWith('--only-env=') && onlyEnvKeys === null) {
+      const raw = arg.slice('--only-env='.length);
+      const names = raw.split(',').map((name) => name.trim()).filter(Boolean);
+      const mappedEnvKeys = new Set(Object.values(RC_TO_ENV).flat());
+      if (!names.length || names.some((name) => !/^[A-Z][A-Z0-9_]*$/u.test(name) || !mappedEnvKeys.has(name))) {
+        throw new Error('`--only-env` must list known uppercase environment keys');
+      }
+      onlyEnvKeys = new Set(names);
+      continue;
+    }
+    if (arg.startsWith('--only-social-env=') && onlySocialEnvKeys === null) {
+      const raw = arg.slice('--only-social-env='.length);
+      const names = raw.split(',').map((name) => name.trim()).filter(Boolean);
+      const serverSecretEnvKeys = new Set(
+        Object.entries(RC_TO_ENV)
+          .filter(([rcKey]) => SOCIAL_SERVER_SECRET_RC_KEYS.has(rcKey))
+          .flatMap(([, envKeys]) => envKeys),
+      );
+      if (!names.length || names.some((name) => !/^[A-Z][A-Z0-9_]*$/u.test(name) || !serverSecretEnvKeys.has(name))) {
+        throw new Error('`--only-social-env` must list known private social environment keys');
+      }
+      onlySocialEnvKeys = new Set(names);
+      continue;
+    }
+    throw new Error('usage: load-rc-env.mjs [--only-env=ENV_KEY,ENV_KEY] [--include-social-secrets] [--only-social-env=ENV_KEY,ENV_KEY]');
   }
-  const raw = argv[0].slice('--only-env='.length);
-  const names = raw.split(',').map((name) => name.trim()).filter(Boolean);
-  const mappedEnvKeys = new Set(Object.values(RC_TO_ENV).flat());
-  if (!names.length || names.some((name) => !/^[A-Z][A-Z0-9_]*$/u.test(name) || !mappedEnvKeys.has(name))) {
-    throw new Error('`--only-env` must list known uppercase environment keys');
+  const serverSecretEnvKeys = new Set(
+    Object.entries(RC_TO_ENV)
+      .filter(([rcKey]) => SOCIAL_SERVER_SECRET_RC_KEYS.has(rcKey))
+      .flatMap(([, envKeys]) => envKeys),
+  );
+  if (onlyEnvKeys && [...onlyEnvKeys].some((name) => serverSecretEnvKeys.has(name)) && !includeSocialSecrets) {
+    throw new Error('social credential env keys require --include-social-secrets');
   }
-  return { onlyEnvKeys: new Set(names) };
+  if (onlySocialEnvKeys && !includeSocialSecrets) {
+    throw new Error('--only-social-env requires --include-social-secrets');
+  }
+  if (includeSocialSecrets && !onlyEnvKeys && !onlySocialEnvKeys) {
+    throw new Error('--include-social-secrets requires --only-env or --only-social-env to limit private credentials');
+  }
+  return { onlyEnvKeys, onlySocialEnvKeys, includeSocialSecrets };
 }
 
-async function main({ onlyEnvKeys = null } = {}) {
+async function main({ onlyEnvKeys = null, onlySocialEnvKeys = null, includeSocialSecrets = false } = {}) {
   const isCI = !!process.env.GITHUB_ENV;
 
   // 1. Check for GOOGLE_APPLICATION_CREDENTIALS
   if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    if (includeSocialSecrets) throw new Error('GOOGLE_APPLICATION_CREDENTIALS is required for private social credentials');
     console.warn('⚠️  GOOGLE_APPLICATION_CREDENTIALS not set — skipping RC secret loading.');
     console.warn('   Secrets must come from environment variables or GH Secrets.');
     process.exit(0);
@@ -799,18 +889,37 @@ async function main({ onlyEnvKeys = null } = {}) {
         console.warn('   Recovered via the REST fallback.');
       } catch (restErr) {
         console.warn(`   REST fallback also failed: ${restErr.message}`);
+        if (includeSocialSecrets) throw new Error('Client Remote Config fetch failed; private social credentials were not loaded');
         console.warn('   Falling back to environment variables / GH Secrets.');
         process.exit(0);
       }
     } else {
+      if (includeSocialSecrets) throw new Error('Client Remote Config fetch failed; private social credentials were not loaded');
       console.warn('   Falling back to environment variables / GH Secrets.');
       process.exit(0);
     }
   }
 
-  const paramCount = Object.keys(template.parameters || {}).length;
+  let socialTemplate = null;
+  if (includeSocialSecrets) {
+    try {
+      socialTemplate = admin
+        ? await admin.remoteConfig().getServerTemplate()
+        : await fetchTemplateViaRest('firebase-server');
+    } catch {
+      // Never fall back to same-named parameters in the client template.
+      try {
+        socialTemplate = await fetchTemplateViaRest('firebase-server');
+      } catch (error) {
+        throw new Error(`Private Firebase server template fetch failed (${String(error?.message || 'unknown error').slice(0, 180)})`);
+      }
+    }
+  }
+
+  const paramCount = Object.keys(template.parameters || {}).length
+    + Object.keys(socialTemplate?.parameters || {}).length;
   const statusLog = isCI ? console.log : console.error;
-  statusLog(`📦 Remote Config: ${paramCount} params available`);
+  statusLog(`📦 Remote Config: ${paramCount} params available${socialTemplate ? ' across client and private server templates' : ' in the client template'}`);
 
   // 4. Map RC values → env vars
   let loaded = 0;
@@ -820,11 +929,20 @@ async function main({ onlyEnvKeys = null } = {}) {
   const queuedEnvKeys = new Set();
 
   for (const [rcKey, mappedEnvKeys] of Object.entries(RC_TO_ENV)) {
-    const envKeys = onlyEnvKeys
+    const selectedEnvKeys = onlyEnvKeys
       ? mappedEnvKeys.filter((envKey) => onlyEnvKeys.has(envKey))
       : mappedEnvKeys;
+    const isPrivateSocialParam = SOCIAL_SERVER_SECRET_RC_KEYS.has(rcKey);
+    const envKeys = isPrivateSocialParam && onlySocialEnvKeys
+      ? selectedEnvKeys.filter((envKey) => onlySocialEnvKeys.has(envKey))
+      : selectedEnvKeys;
     if (!envKeys.length) continue;
-    const value = getRcValue(template, rcKey);
+    if (isPrivateSocialParam && !socialTemplate) {
+      missing += envKeys.length;
+      continue;
+    }
+    const sourceTemplate = isPrivateSocialParam ? socialTemplate : template;
+    const value = getRcValue(sourceTemplate, rcKey);
 
     // See shouldExportRcValue: getRcValue() already distinguishes "absent" (null)
     // from "present but empty" (''), and collapsing the two hid an RC key whose
@@ -898,8 +1016,12 @@ if (directInvocation) {
   if (options) {
     main(options).catch((err) => {
       console.warn(`⚠️  load-rc-env failed: ${err?.message || 'Unknown error'}`);
-      console.warn('   Falling back to environment variables / GH Secrets.');
-      process.exit(0); // Non-blocking — never break the workflow
+      if (options.includeSocialSecrets) {
+        process.exitCode = 1;
+      } else {
+        console.warn('   Falling back to environment variables / GH Secrets.');
+        process.exit(0); // Non-blocking — never break workflows that do not need social secrets
+      }
     });
   }
 }

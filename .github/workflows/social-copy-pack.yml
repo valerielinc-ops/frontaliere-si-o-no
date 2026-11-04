@@ -11,6 +11,7 @@ on:
       - '.agents/skills/ig-plan/**'
       - '.agents/skills/ig-audit/**'
       - '.agents/skills/ig-human/**'
+      - '.agents/skills/ig-repurpose/**'
       - '.github/workflows/social-copy-pack.yml'
       - 'docs/instagram-creative-study.md'
       - 'docs/social-ai-automation.md'
@@ -34,6 +35,7 @@ concurrency:
 jobs:
   generate:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -68,7 +70,13 @@ jobs:
             /docs/instagram-creative-study.md
             /docs/social-ai-automation.md
             /docs/third-party/instagram-agent-skill/UPSTREAM.md
+            /.agents/skills/
           sparse-checkout-cone-mode: false
+      - name: Verify Codex editorial skill inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s .agents/skills/ig-repurpose/SKILL.md
       - uses: actions/setup-node@v7
         with:
           node-version: 22

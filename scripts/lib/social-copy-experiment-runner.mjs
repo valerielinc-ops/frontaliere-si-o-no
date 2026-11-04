@@ -16,6 +16,7 @@ import {
   socialCopyExperimentRegistrationId,
   socialCopyExperimentTreatmentFingerprint,
 } from './social-copy-pack.mjs';
+import { isExactInstagramCopyAttribution } from './instagram-media-matching.mjs';
 import {
   SOCIAL_AUDIENCE_MAX_AGE_HOURS,
   SOCIAL_AUDIENCE_MINIMUM_DAYS,
@@ -61,6 +62,12 @@ function postIdHash(channel, postId) {
 
 function copyOf(row) {
   return isRecord(row?.copy) ? row.copy : row;
+}
+
+function hasExactCopyAttribution(row, measurementChannel) {
+  return measurementChannel === 'instagram'
+    ? isExactInstagramCopyAttribution(row, { allowMissingStatus: true })
+    : String(row?.copyAttributionStatus || '') === 'exact';
 }
 
 function metricValue(row, name) {
@@ -226,7 +233,7 @@ function baselineRows(posts, cohort, asOf) {
       || String(copy.copySlot || '') !== cohort.slot
       || String(copy.copyPackId || '') === ''
       || String(copy.copyTemplateId || '') === ''
-      || String(row.copyAttributionStatus || '') !== 'exact') return [];
+      || !hasExactCopyAttribution(row, cohort.measurementChannel)) return [];
     const objective = String(copy.copyObjective || (cohort.channel === 'linkedin' ? 'overall' : ''));
     const allowedBaselineObjectives = cohort.baselinePopulationScope === 'same-slot-metric-across-objectives'
       ? ['share', 'save', 'conversation']
@@ -300,7 +307,7 @@ async function reconcileAcceptedAssignments(db, registration, assignments, posts
     const rows = (Array.isArray(posts) ? posts : []).filter((row) => {
       const copy = copyOf(row);
       return row?.channel === registration.measurementChannel
-        && String(row.copyAttributionStatus || '') === 'exact'
+        && hasExactCopyAttribution(row, registration.measurementChannel)
         && String(copy.copyAssignmentMode || '') === 'firebase-balanced'
         && String(copy.copyExperimentId || '') === registration.experimentId
         && String(copy.copyRegistrationHash || '') === registration.registrationHash
@@ -398,7 +405,7 @@ function buildEvaluationInputs(registration, assignments, posts, asOf) {
       && metricValue(row, registration.metric.numerator) !== null
       && metricValue(row, registration.metric.denominator) !== null
       && metricValue(row, registration.metric.denominator) > 0
-      && String(row.copyAttributionStatus || '') === 'exact') availableOutcomeCount += 1;
+      && hasExactCopyAttribution(row, registration.measurementChannel)) availableOutcomeCount += 1;
   }
   const duplicatePostIds = [...postIdCounts.values()].reduce((sum, count) => sum + Math.max(0, count - 1), 0);
   const coverage = matureAssignments.length === 0 ? 1 : Math.min(1, availableOutcomeCount / matureAssignments.length);

@@ -8,12 +8,26 @@
  * dependency-free sibling for jobs that run without `npm ci`
  * (codex-auth-rotate.yml): REST + service-account JWT, the same path as
  * load-rc-env.mjs's fetchTemplateViaRest.
+ *
+ * Writes default to the client namespace. Confidential social credentials must
+ * pass RC_SERVER_NAMESPACE explicitly; Firebase server Remote Config is a
+ * Preview feature and this helper addresses it only through the namespaced
+ * REST resource, never by treating a SERVER_ key prefix as access control.
  */
 import { getServiceAccountAccessToken } from './google-service-account-token.mjs';
 
 export const RC_SCOPE = 'https://www.googleapis.com/auth/firebase.remoteconfig';
+export const RC_SERVER_NAMESPACE = 'firebase-server';
 const RC_API = 'https://firebaseremoteconfig.googleapis.com/v1';
 const RC_REQUEST_TIMEOUT_MS = 30_000;
+
+function rcTemplateUrl(projectId, namespace = 'firebase') {
+  const url = new URL(`${RC_API}/projects/${encodeURIComponent(projectId)}/remoteConfig`);
+  if (namespace !== 'firebase') {
+    url.searchParams.set('name', `projects/${projectId}/namespaces/${namespace}/remoteConfig`);
+  }
+  return url;
+}
 
 export async function getRemoteConfig() {
   const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
@@ -26,6 +40,12 @@ export async function getRemoteConfig() {
 
 export async function fetchRcTemplate(rc) {
   const template = await rc.getTemplate();
+  template.parameters = template.parameters || {};
+  return template;
+}
+
+export async function fetchServerRcTemplate(rc) {
+  const template = await rc.getServerTemplate();
   template.parameters = template.parameters || {};
   return template;
 }
@@ -119,6 +139,7 @@ async function rcErrorDetail(response) {
  */
 export async function updateRcTemplateWithEtag({
   credentials, stage, versionDescription = '', dryRun = false, validateOnly = false,
+  namespace = 'firebase',
   attempts = 4, retryDelayMs = 2_000, fetchImpl = fetch, getAccessToken = getServiceAccountAccessToken,
   sleep = defaultSleep, onAccessToken = () => {},
 }) {
@@ -126,7 +147,7 @@ export async function updateRcTemplateWithEtag({
   if (typeof projectId !== 'string' || !projectId) return { ok: false, attempt: 0, detail: 'service account JSON has no project_id' };
   const accessToken = await getAccessToken(credentials, RC_SCOPE);
   onAccessToken(accessToken);
-  const url = `${RC_API}/projects/${encodeURIComponent(projectId)}/remoteConfig`;
+  const url = rcTemplateUrl(projectId, namespace);
   // Without Accept-Encoding: gzip the GET may omit the ETag (REST doc note linked above).
   const headers = { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' };
   let detail = '';
@@ -146,7 +167,9 @@ export async function updateRcTemplateWithEtag({
       if (staged.error) return { ok: false, attempt, detail: staged.error };
       if (!staged.changed) return { ok: true, changed: false, attempt };
       if (dryRun) return { ok: true, changed: true, dryRun: true, attempt };
-      const put = await fetchImpl(validateOnly ? `${url}?validate_only=true` : url, {
+      const putUrl = new URL(url);
+      if (validateOnly) putUrl.searchParams.set('validate_only', 'true');
+      const put = await fetchImpl(putUrl, {
         method: 'PUT',
         headers: { ...headers, 'Content-Type': 'application/json; UTF-8', 'If-Match': etag },
         body: JSON.stringify({
@@ -182,5 +205,34 @@ export async function setRcParamWithEtag({ name, value, description = '', versio
     ...options,
     versionDescription,
     stage: (template) => stageRcParamValue(template, name, value, description),
+  });
+}
+
+/** Remove exact top-level parameters with the same ETag retry contract as a write. */
+export async function removeRcParamsWithEtag({ names, versionDescription = 'remove confidential social parameters', ...options }) {
+  const remove = new Set((Array.isArray(names) ? names : []).filter((name) => typeof name === 'string' && name));
+  if (!remove.size) return { ok: true, changed: false, attempt: 0 };
+  return updateRcTemplateWithEtag({
+    ...options,
+    versionDescription,
+    stage: (template) => {
+      for (const [group, definition] of Object.entries(template?.parameterGroups ?? {})) {
+        if (isPlainObject(definition?.parameters)) {
+          const grouped = [...remove].find((name) => name in definition.parameters);
+          if (grouped) {
+            return { changed: false, error: `${grouped} sits in parameter group ${JSON.stringify(group.slice(0, 60))}; it must be removed there explicitly` };
+          }
+        }
+      }
+      const parameters = isPlainObject(template?.parameters) ? { ...template.parameters } : {};
+      let changed = false;
+      for (const name of remove) {
+        if (Object.hasOwn(parameters, name)) {
+          delete parameters[name];
+          changed = true;
+        }
+      }
+      return { changed, template: changed ? { ...template, parameters } : template };
+    },
   });
 }

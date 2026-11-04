@@ -9,7 +9,7 @@
  * experiment. Ambiguous matches are always skipped.
  */
 import { fetchRetry } from './ga4-service-account.mjs';
-import { matchInstagramMedia } from './instagram-media-matching.mjs';
+import { isExactInstagramCopyAttribution, matchInstagramMedia } from './instagram-media-matching.mjs';
 import { GRAPH_API } from './instagram-graph-constants.mjs';
 
 export const SNAPSHOT_SCHEMA_VERSION = 2;
@@ -241,7 +241,7 @@ export function groupPostedLedger(ledger) {
 function existingSnapshotKeys(existing, windowHours) {
   const keys = new Set();
   for (const row of snapshotRows(existing)) {
-    if (needsOptionalMetricRetry(row)) continue;
+    if (!isExactInstagramCopyAttribution(row, { allowMissingStatus: true }) || needsOptionalMetricRetry(row)) continue;
     for (const key of snapshotIdentities(row, Number(row.windowHours) || windowHours)) keys.add(key);
   }
   return keys;

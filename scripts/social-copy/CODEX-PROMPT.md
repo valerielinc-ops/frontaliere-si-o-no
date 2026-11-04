@@ -9,6 +9,7 @@ Read these files first:
 - .agents/skills/ig-reel/SKILL.md
 - .agents/skills/ig-audit/SKILL.md
 - .agents/skills/ig-human/SKILL.md
+- .agents/skills/ig-repurpose/SKILL.md
 - docs/instagram-creative-study.md
 - docs/social-ai-automation.md
 - scripts/lib/social-copy-pack.mjs
@@ -28,8 +29,10 @@ make the caption's first visible lines useful without a generic preamble. Use
 the audit and humanization references as review prompts only. Do not run their
 English-biased lexical scores as pass/fail gates, rewrite factual copy with
 synonym substitutions, invent spoken audio or subtitle text, or pad a short
-source into a longer storyboard. The publisher may synthesize only its exact,
-verified script; any visible captions must match that script and its timing.
+source into a longer storyboard. Use the repurpose guide only to identify
+distinct reader value from the sanitized source inventory; it is not a source
+of facts. The publisher may synthesize only its exact, verified script; any
+visible captions must match that script and its timing.
 The publisher remains the source of facts and the renderer remains the source
 of final media.
 

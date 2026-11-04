@@ -18,6 +18,7 @@ import {
   INSTAGRAM_COMMUNITY_TOPIC_SOURCE,
   INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS,
 } from './instagram-community-topics.mjs';
+import { isExactInstagramCopyAttribution } from './instagram-media-matching.mjs';
 
 const CHANNELS = new Set(['instagram', 'tiktok', 'linkedin-member', 'facebook']);
 const FACEBOOK_METRICS = new Set(['mediaViews', 'uniqueViewers', 'reactions', 'clicks']);
@@ -661,6 +662,10 @@ export function validateSocialNativeInsightsDocument(document, { asOf = new Date
     if (post.copyAttributionStatus !== undefined
       && !['exact', 'inferred'].includes(post.copyAttributionStatus)) {
       throw new Error(`invalid copy attribution status at posts[${index}]`);
+    }
+    if (post.channel === 'instagram' && post.copyAttributionStatus === 'exact'
+      && !isExactInstagramCopyAttribution(post)) {
+      throw new Error(`exact Instagram copy attribution requires ledger media ID at posts[${index}]`);
     }
     if (post.copyRevisionId !== undefined && !/^[a-f0-9]{16}$/u.test(String(post.copyRevisionId || ''))) {
       throw new Error(`invalid exact-copy revision fingerprint at posts[${index}]`);

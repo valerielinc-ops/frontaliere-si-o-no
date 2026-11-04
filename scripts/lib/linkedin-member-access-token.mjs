@@ -1,7 +1,7 @@
 import { readFirebaseServiceAccountCredentials } from './firebase-service-account-credentials.mjs';
-import { setRcParamWithEtag } from './remote-config-admin.mjs';
+import { RC_SERVER_NAMESPACE, setRcParamWithEtag } from './remote-config-admin.mjs';
 
-const LINKEDIN_MEMBER_REFRESH_TOKEN_RC_PARAM = 'LINKEDIN_MEMBER_REFRESH_TOKEN';
+const LINKEDIN_MEMBER_REFRESH_TOKEN_RC_PARAM = 'SERVER_LINKEDIN_MEMBER_REFRESH_TOKEN';
 
 /** Persist a replacement member refresh token without logging its value. */
 export async function persistLinkedInMemberRefreshToken(refreshToken, {
@@ -20,6 +20,7 @@ export async function persistLinkedInMemberRefreshToken(refreshToken, {
     credentials,
     name: LINKEDIN_MEMBER_REFRESH_TOKEN_RC_PARAM,
     value,
+    namespace: RC_SERVER_NAMESPACE,
     description: 'LinkedIn member refresh token; replaced when LinkedIn rotates it.',
     versionDescription: 'persist rotated LinkedIn member refresh token',
   });

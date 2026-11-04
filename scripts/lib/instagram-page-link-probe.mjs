@@ -26,6 +26,9 @@ export async function probeInstagramPageLink({
       note: 'Page link probe skipped because FB_PAGE_ID or FB_USER_ACCESS_TOKEN is missing',
       publisherTokenSourceStatus: 'unavailable',
       pageTaskStatus: 'unavailable',
+      pageTaskStatuses: {
+        createContent: 'unavailable', analyze: 'unavailable', moderate: 'unavailable', messaging: 'unavailable',
+      },
     };
   }
 
@@ -61,6 +64,12 @@ export async function probeInstagramPageLink({
     : tasks.some((task) => ['CREATE_CONTENT', 'PROFILE_PLUS_CREATE_CONTENT'].includes(task))
       ? 'granted'
       : 'missing';
+  const pageTaskStatuses = Object.freeze({
+    createContent: pageTaskStatus,
+    analyze: tasks === null ? 'unavailable' : tasks.includes('ANALYZE') ? 'granted' : 'missing',
+    moderate: tasks === null ? 'unavailable' : tasks.includes('MODERATE') ? 'granted' : 'missing',
+    messaging: tasks === null ? 'unavailable' : tasks.some((task) => ['MESSAGING', 'MODERATE'].includes(task)) ? 'granted' : 'missing',
+  });
   const publisherTokenSourceStatus = !normalizedPublisherToken || !returnedPageToken
     ? 'unavailable'
     : normalizedPublisherToken === returnedPageToken ? 'matched' : 'mismatch';
@@ -70,6 +79,7 @@ export async function probeInstagramPageLink({
       pageLinkStatus: 'mismatch',
       publisherTokenSourceStatus,
       pageTaskStatus,
+      pageTaskStatuses,
       note: 'Meta returned a different Facebook Page than the configured Page ID',
     };
   }
@@ -78,6 +88,7 @@ export async function probeInstagramPageLink({
       pageLinkStatus: 'unverified',
       publisherTokenSourceStatus,
       pageTaskStatus,
+      pageTaskStatuses,
       note: 'Page response does not expose instagram_business_account; Page linkage and API scopes remain unverified',
     };
   }
@@ -86,6 +97,7 @@ export async function probeInstagramPageLink({
       pageLinkStatus: 'unverified',
       publisherTokenSourceStatus,
       pageTaskStatus,
+      pageTaskStatuses,
       note: 'Page exposes an Instagram account but INSTAGRAM_BUSINESS_ACCOUNT_ID is missing',
     };
   }
@@ -94,6 +106,7 @@ export async function probeInstagramPageLink({
       pageLinkStatus: 'mismatch',
       publisherTokenSourceStatus,
       pageTaskStatus,
+      pageTaskStatuses,
       note: 'Page exposes a different Instagram account than the configured account ID',
     };
   }
@@ -101,6 +114,7 @@ export async function probeInstagramPageLink({
     pageLinkStatus: 'matched',
     publisherTokenSourceStatus,
     pageTaskStatus,
+    pageTaskStatuses,
     note: 'Page exposes the configured Instagram account; publisher token source and content-creation task checked',
   };
 }

@@ -115,6 +115,7 @@ function fixture() {
       windowHours: 72,
       metrics: { shares: numerator, reach: 100 },
       availableMetrics: ['shares', 'reach'],
+      matchMethod: 'ledger-media-id',
       copyAttributionStatus: 'exact',
       copyMode: 'codex',
       copySlot: 'article',
@@ -135,6 +136,7 @@ function fixture() {
       windowHours: 72,
       metrics: { follows: numerator, reach: 100 },
       availableMetrics: ['follows', 'reach'],
+      matchMethod: 'ledger-media-id',
       copyAttributionStatus: 'exact',
       copyMode: 'codex',
       copySlot: 'reel',
@@ -199,6 +201,7 @@ function experimentRows(registration: any, asOf: Date, { winner = true } = {}) {
           [registration.metric.denominator]: 100,
         },
         availableMetrics: [numeratorName, registration.metric.denominator],
+        ...(registration.measurementChannel === 'instagram' ? { matchMethod: 'ledger-media-id' } : {}),
         copyAttributionStatus: 'exact',
         copyMode: 'codex',
         copyAssignmentMode: 'firebase-balanced',
@@ -247,6 +250,103 @@ describe('social-copy experiment runner', () => {
     expect(summarizeSocialAudienceSafety(flatSnapshots, 'instagram', asOf)).toMatchObject({
       status: 'flat',
       netChange: 0,
+    });
+  });
+
+  it('does not register Instagram experiments from historical browser-fingerprint rows', async () => {
+    const { db } = memoryFirestore();
+    const { pack, asOf, insights } = fixture();
+    const browserRows = insights.posts.map((row: any) => ({
+      ...row,
+      matchMethod: 'browser-cover-fingerprint',
+      copyAttributionStatus: 'exact',
+    }));
+
+    const result = await runSocialCopyExperimentProtocol({
+      db,
+      pack,
+      insights: { ...insights, posts: browserRows },
+      asOf,
+      setRemoteConfig: async () => ({ ok: true, changed: true }),
+    });
+
+    expect(result.config.registrations).toEqual({});
+    expect(result.notReady).toHaveLength(2);
+    expect(result.notReady.every((item: any) => item.reason === 'historical-baseline-unqualified')).toBe(true);
+  });
+
+  it('accepts legacy Instagram outcomes with a ledger media ID and no redundant status field', async () => {
+    const { db } = memoryFirestore();
+    const { pack, asOf, insights } = fixture();
+    const legacyRows = insights.posts.map((row: any) => {
+      const { copyAttributionStatus, ...rest } = row;
+      return rest;
+    });
+
+    const result = await runSocialCopyExperimentProtocol({
+      db,
+      pack,
+      insights: { ...insights, posts: legacyRows },
+      asOf,
+      setRemoteConfig: async () => ({ ok: true, changed: true }),
+    });
+
+    expect(Object.keys(result.config.registrations)).toHaveLength(2);
+  });
+
+  it('does not reconcile a published assignment from an exact-labeled browser fingerprint', async () => {
+    const { db, documents } = memoryFirestore();
+    const { pack, asOf, insights } = fixture();
+    await runSocialCopyExperimentProtocol({
+      db,
+      pack,
+      insights,
+      asOf,
+      setRemoteConfig: async () => ({ ok: true, changed: true }),
+    });
+    const registrationId = socialCopyExperimentRegistrationId({
+      experimentId: 'social-copy-angle-matched-v3',
+      treatmentFingerprint: socialCopyExperimentTreatmentFingerprint(pack, {
+        channel: 'instagram', slot: 'article', objective: 'share',
+      }),
+      channel: 'instagram',
+      slot: 'article',
+      objective: 'share',
+    });
+    const registration = documents.get(`social_copy_experiment_registrations/${registrationId}`);
+    const runAt = new Date(Date.parse(registration.startsAt) + 4 * 86400000);
+    const { assignments, observations } = experimentRows(registration, runAt);
+    const active = { ...assignments[0], status: 'active' };
+    const activeId = 'active-assignment';
+    delete active.postIdHash;
+    documents.set(`social_copy_assignment_records/${activeId}`, active);
+    const browserExposure = {
+      ...observations[0],
+      matchMethod: 'browser-cover-fingerprint',
+      copyAttributionStatus: 'exact',
+    };
+
+    const result = await runSocialCopyExperimentProtocol({
+      db,
+      pack,
+      insights: {
+        ...insights,
+        sources: {
+          ...insights.sources,
+          instagram: { status: 'available', latestSnapshotAt: runAt.toISOString() },
+          instagramPostInsights: { status: 'available', latestSnapshotAt: runAt.toISOString() },
+        },
+        posts: [...insights.posts, browserExposure],
+      },
+      asOf: runAt,
+      setRemoteConfig: async () => ({ ok: true, changed: true }),
+    });
+
+    expect(documents.get(`social_copy_assignment_records/${activeId}`)?.status).toBe('active');
+    expect(result.evaluations.find((item: any) => item.registrationId === registrationId)).toMatchObject({
+      status: 'hold',
+      reservationLeaks: 2,
+      exactOutcomes: 0,
     });
   });
 

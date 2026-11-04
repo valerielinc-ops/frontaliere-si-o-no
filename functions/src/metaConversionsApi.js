@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
-import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { getServerRemoteConfigValue } from './remoteConfigSecrets.js';
 
+// Read only from the firebase-server namespace. Do not add a client-template fallback.
 export const META_CAPI_ACCESS_TOKEN_RC_KEY = 'SERVER_META_CAPI_ACCESS_TOKEN';
 
 const META_PIXEL_ID = '1090503593451766';
@@ -109,7 +110,7 @@ export function buildMetaPurchasePayload(serviceId, service, { nowMs = Date.now(
 export async function sendMetaCapiPurchase(
   serviceId,
   service,
-  { readConfig = getRemoteConfigValue, fetchImpl = fetch, nowMs = Date.now(), beforeSend } = {},
+  { readConfig = getServerRemoteConfigValue, fetchImpl = fetch, nowMs = Date.now(), beforeSend } = {},
 ) {
   const built = buildMetaPurchasePayload(serviceId, service, { nowMs });
   if (!built.payload) return { sent: false, reason: built.reason };

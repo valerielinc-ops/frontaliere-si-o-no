@@ -67,6 +67,7 @@ export function classifyInstagram({ env = {}, probe = {} } = {}) {
   const publisherTokenStatus = String(probe?.publisherTokenStatus || 'unavailable');
   const publisherTokenSourceStatus = String(probe?.publisherTokenSourceStatus || 'unavailable');
   const pageTaskStatus = String(probe?.pageTaskStatus || 'unavailable');
+  const basicPermissionStatus = String(probe?.permissionStatuses?.instagram_basic || 'unavailable');
   const publishPermissionStatus = String(probe?.publishPermissionStatus || 'unavailable');
 
   if (pageLinkStatus === 'mismatch') {
@@ -102,6 +103,7 @@ export function classifyInstagram({ env = {}, probe = {} } = {}) {
     && publisherTokenStatus === 'matched'
     && publisherTokenSourceStatus === 'matched'
     && pageTaskStatus === 'granted'
+    && basicPermissionStatus === 'granted'
     && publishPermissionStatus === 'granted') {
     return {
       channel: 'instagram',
@@ -123,6 +125,21 @@ export function classifyInstagram({ env = {}, probe = {} } = {}) {
       channel: 'instagram',
       state: ACTION_REQUIRED,
       reason: 'The configured Instagram account cannot be verified against the Facebook Page; configure FB_USER_ACCESS_TOKEN with the required Page tasks and confirm the exact Page link.',
+    };
+  }
+
+  if (basicPermissionStatus === 'missing') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'Meta does not report the instagram_basic permission as granted; update the user-token grant before enabling publishing.',
+    };
+  }
+  if (basicPermissionStatus !== 'granted') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'The instagram_basic permission could not be verified from the Facebook user token; refresh the token with the granted scope and rerun readiness.',
     };
   }
 

@@ -15,6 +15,7 @@ permissions:
 jobs:
   collect:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -68,6 +69,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=INSTAGRAM_ACCESS_TOKEN,FB_PAGE_ACCESS_TOKEN)"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN --include-social-secrets)"
           eval "$rc_exports"
+          for name in FB_USER_ACCESS_TOKEN INSTAGRAM_ACCESS_TOKEN; do
+            value="${!name:-}"
+            if [ -n "$value" ]; then printf '::add-mask::%s\n' "$value"; fi
+          done
           node scripts/instagram-story-insights.mjs
+          unset FB_PAGE_ID FB_USER_ACCESS_TOKEN INSTAGRAM_BUSINESS_ACCOUNT_ID INSTAGRAM_ACCESS_TOKEN

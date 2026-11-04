@@ -47,6 +47,7 @@ permissions:
 jobs:
   probe:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -88,20 +89,18 @@ jobs:
           echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
-      - name: Load secrets from RC
-        run: >-
-          node scripts/load-rc-env.mjs
-          --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN,INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,REDDIT_DATA_API_APPROVED,REDDIT_CLIENT_ID,REDDIT_CLIENT_SECRET
-
       - name: Probe every channel
         id: probe
         run: |
           set -euo pipefail
-          node scripts/check-social-publish-readiness.mjs | tee readiness.txt
-          READY="$(node scripts/check-social-publish-readiness.mjs --ready-channels)"
-          echo "ready=$READY" >> "$GITHUB_OUTPUT"
-          ACTION_REQUIRED="$(node scripts/check-social-publish-readiness.mjs --action-required-channels)"
-          echo "action_required=$ACTION_REQUIRED" >> "$GITHUB_OUTPUT"
+          # Keep read-only probe credentials in this step's shell only.
+          eval "$(GITHUB_ENV= node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,FB_PAGE_ACCESS_TOKEN_EXPIRES_AT,FB_USER_ACCESS_TOKEN,FB_USER_ACCESS_TOKEN_EXPIRES_AT,INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT,INSTAGRAM_BUSINESS_ACCOUNT_ID,REDDIT_DATA_API_APPROVED,REDDIT_CLIENT_ID,REDDIT_CLIENT_SECRET --include-social-secrets)"
+          for name in FB_PAGE_ACCESS_TOKEN FB_USER_ACCESS_TOKEN INSTAGRAM_ACCESS_TOKEN REDDIT_CLIENT_ID REDDIT_CLIENT_SECRET; do
+            value="${!name:-}"
+            if [ -n "$value" ]; then printf '::add-mask::%s\n' "$value"; fi
+          done
+          node scripts/check-social-publish-readiness.mjs --github-summary | tee readiness.txt
+          unset FB_PAGE_ID FB_PAGE_ACCESS_TOKEN FB_PAGE_ACCESS_TOKEN_EXPIRES_AT FB_USER_ACCESS_TOKEN FB_USER_ACCESS_TOKEN_EXPIRES_AT INSTAGRAM_ACCESS_TOKEN INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT INSTAGRAM_BUSINESS_ACCOUNT_ID REDDIT_DATA_API_APPROVED REDDIT_CLIENT_ID REDDIT_CLIENT_SECRET
 
       # One issue per newly-ready channel. The title's first 60 chars are stable
       # and carry the channel name FIRST, so the dedup key discriminates between
@@ -113,10 +112,18 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           READY_CHANNELS: ${{ steps.probe.outputs.ready }}
+          INSTAGRAM_READINESS_REASON: ${{ steps.probe.outputs.reason_instagram }}
+          TIKTOK_READINESS_REASON: ${{ steps.probe.outputs.reason_tiktok }}
+          REDDIT_READINESS_REASON: ${{ steps.probe.outputs.reason_reddit }}
         run: |
           set -euo pipefail
           for CH in $READY_CHANNELS; do
-            REASON="$(node scripts/check-social-publish-readiness.mjs "--reason=$CH")"
+            case "$CH" in
+              instagram) REASON="$INSTAGRAM_READINESS_REASON" ;;
+              tiktok) REASON="$TIKTOK_READINESS_REASON" ;;
+              reddit) REASON="$REDDIT_READINESS_REASON" ;;
+              *) echo "unknown readiness channel: $CH" >&2; exit 1 ;;
+            esac
             node scripts/lib/github-issue-creator.mjs \
               --title "$CH publishing is unblocked — activate the poster" \
               --description "$(printf '%s\n' \
@@ -127,10 +134,10 @@ jobs:
                 "> ${REASON}" \
                 "" \
                 "### Why this is an alert and not good news on its own" \
-                "The poster fail-soft-skips when a credential is missing and reports success either way, so a channel that becomes able to publish stays silent until somebody looks. That is exactly how the Instagram/TikTok Remote Config values sat unused while \`load-rc-env.mjs\` did not map them." \
+                "The probe marks a channel ready only against the checks configured for it; this does not prove that a post has been sent. Verify that channel's supported publisher workflow and confirm the result is visible on the intended account before treating delivery as operational." \
                 "" \
                 "### What to check" \
-                "- the channel's daily broadcast workflow is no longer logging a soft-skip" \
+                "- the channel's scheduled publishing path completes as expected and the result is visible on the intended account" \
                 "- the follow-up issue that tracked this channel's block can be closed" \
                 "" \
                 "Full probe output:" \
@@ -150,10 +157,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ACTION_REQUIRED_CHANNELS: ${{ steps.probe.outputs.action_required }}
+          INSTAGRAM_READINESS_REASON: ${{ steps.probe.outputs.reason_instagram }}
         run: |
           set -euo pipefail
           for CH in $ACTION_REQUIRED_CHANNELS; do
-            REASON="$(node scripts/check-social-publish-readiness.mjs "--reason=$CH")"
+            case "$CH" in
+              instagram) REASON="$INSTAGRAM_READINESS_REASON" ;;
+              *) echo "unknown setup action channel: $CH" >&2; exit 1 ;;
+            esac
             node scripts/lib/github-issue-creator.mjs \
               --title "$CH publishing setup requires owner action — Meta identity or credentials" \
               --description "$(printf '%s\n' \
@@ -173,6 +184,122 @@ jobs:
               --label follow-up \
               --workflow "Social Publish Readiness Watch" \
               --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          done
+
+      - name: Alert on missing optional Instagram capabilities (dedup, zero-Claude)
+        if: steps.probe.outputs.capability_action_required != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CAPABILITY_ACTION_REQUIRED: ${{ steps.probe.outputs.capability_action_required }}
+          INSIGHTS_READINESS_REASON: ${{ steps.probe.outputs.reason_capability_insights }}
+          COMMENTS_READINESS_REASON: ${{ steps.probe.outputs.reason_capability_comments }}
+          DIRECT_MESSAGES_READINESS_REASON: ${{ steps.probe.outputs.reason_capability_direct_messages }}
+        run: |
+          set -euo pipefail
+          for CAPABILITY in $CAPABILITY_ACTION_REQUIRED; do
+            case "$CAPABILITY" in
+              insights)
+                TITLE='Instagram Insights grant needs owner action'
+                REASON="$INSIGHTS_READINESS_REASON"
+                LABEL='Insights read and measurement'
+                ;;
+              comments)
+                TITLE='Instagram comments grant needs owner action'
+                REASON="$COMMENTS_READINESS_REASON"
+                LABEL='Comment moderation and replies'
+                ;;
+              direct_messages)
+                TITLE='Instagram direct messages grant needs owner action'
+                REASON="$DIRECT_MESSAGES_READINESS_REASON"
+                LABEL='Direct message handling'
+                ;;
+              *) echo "unknown Instagram capability: $CAPABILITY" >&2; exit 1 ;;
+            esac
+            node scripts/lib/github-issue-creator.mjs \
+              --title "$TITLE" \
+              --description "$(printf '%s\n' \
+                "## ⚠️ Instagram $LABEL needs owner action" \
+                "" \
+                "The shared Page link, publisher token identity, and `instagram_basic` checks pass, but this capability is not ready:" \
+                "" \
+                "> $REASON" \
+                "" \
+                "In Meta Business settings, verify App Review access for the listed permission and the matching Page task. Then rerun the read-only Social Publish Readiness Watch. No token or account ID is included in this report." \
+                "" \
+                '```' \
+                "$(cat readiness.txt)" \
+                '```')" \
+              --priority 2 \
+              --label follow-up \
+              --workflow "Social Publish Readiness Watch" \
+              --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          done
+
+      - name: Alert on Meta token expiry or missing lifecycle metadata (dedup, zero-Claude)
+        if: steps.probe.outputs.meta_token_lifecycle_action_required == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          META_TOKEN_LIFECYCLE_REASON: ${{ steps.probe.outputs.meta_token_lifecycle_reason }}
+        run: |
+          set -euo pipefail
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Meta social token expiry needs owner action" \
+            --description "$(printf '%s\n' \
+              '## ⚠️ Meta token lifecycle needs attention' \
+              '' \
+              "$META_TOKEN_LIFECYCLE_REASON" \
+              '' \
+              'Renew or safely re-provision the affected credentials before relying on unattended publishing. The report contains no token values or account IDs.' \
+              '' \
+              'Full read-only probe:' \
+              '' \
+              '```' \
+              "$(cat readiness.txt)" \
+              '```')" \
+            --priority 2 \
+            --label follow-up \
+            --workflow "Social Publish Readiness Watch" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Resolve the Meta token lifecycle issue when metadata is healthy or credentials are absent
+        if: success() && steps.probe.outputs.meta_token_lifecycle_action_required != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Meta social token expiry needs owner action" \
+            --reason completed \
+            --workflow "Social Publish Readiness Watch" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Resolve optional Instagram capability issues when ready
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CAPABILITY_READY: ${{ steps.probe.outputs.capability_ready }}
+        run: |
+          set -euo pipefail
+          for CAPABILITY in insights comments direct_messages; do
+            case "$CAPABILITY" in
+              insights) TITLE='Instagram Insights grant needs owner action' ;;
+              comments) TITLE='Instagram comments grant needs owner action' ;;
+              direct_messages) TITLE='Instagram direct messages grant needs owner action' ;;
+            esac
+            case " $CAPABILITY_READY " in
+              *" $CAPABILITY "*)
+                node scripts/lib/github-issue-creator.mjs --resolve \
+                  --title "$TITLE" \
+                  --reason completed \
+                  --workflow "Social Publish Readiness Watch" \
+                  --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                ;;
+            esac
           done
 
       - name: Resolve the setup issue when Instagram identity is verified

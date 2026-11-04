@@ -102,6 +102,31 @@ function ledger() {
   };
 }
 
+const verifiedPermissionProbe = async () => ({
+  permissionStatuses: {
+    instagram_basic: 'granted',
+    instagram_content_publish: 'granted',
+    instagram_manage_comments: 'granted',
+    instagram_manage_messages: 'granted',
+    pages_manage_metadata: 'granted',
+  },
+});
+const verifiedPageLinkProbe = async () => ({
+  pageLinkStatus: 'matched',
+  publisherTokenSourceStatus: 'matched',
+  pageTaskStatuses: { createContent: 'granted', moderate: 'granted', messaging: 'granted' },
+});
+const verifiedPublisherTokenProbe = async () => ({ publisherTokenStatus: 'matched' });
+
+function runWithVerifiedPermissions(options: Parameters<typeof runInstagramCommunityAutomation>[0]) {
+  return runInstagramCommunityAutomation({
+    ...options,
+    permissionProbe: verifiedPermissionProbe,
+    publisherTokenProbe: verifiedPublisherTokenProbe,
+    pageLinkProbe: verifiedPageLinkProbe,
+  });
+}
+
 function storyReservationClient(allowed = true) {
   const calls: Array<{ action: string; args: Record<string, unknown> }> = [];
   return {
@@ -164,7 +189,7 @@ describe('Instagram community automation', () => {
     const statePath = path.join(temp, 'nested', 'state.json');
     const first = fakeInstagramFetch();
     const reservations = storyReservationClient();
-    const firstResult = await runInstagramCommunityAutomation({
+    const firstResult = await runWithVerifiedPermissions({
       accountId: 'account-1',
       accessToken: 'token-never-printed',
       pageId: '',
@@ -209,7 +234,7 @@ describe('Instagram community automation', () => {
     expect(readFileSync(statePath, 'utf8')).not.toContain('message-1');
 
     const second = fakeInstagramFetch();
-    const secondResult = await runInstagramCommunityAutomation({
+    const secondResult = await runWithVerifiedPermissions({
       accountId: 'account-1',
       accessToken: 'token-never-printed',
       pageId: '',
@@ -241,7 +266,7 @@ describe('Instagram community automation', () => {
       timestamp: '2026-10-10T11:00:00.000Z',
     }));
     const run = fakeInstagramFetch({ comments });
-    const result = await runInstagramCommunityAutomation({
+    const result = await runWithVerifiedPermissions({
       accountId: 'account-1',
       accessToken: 'token-never-printed',
       pageId: '',
@@ -292,7 +317,7 @@ describe('Instagram community automation', () => {
     const statePath = path.join(temp, 'state.json');
     const baseline = fakeInstagramFetch();
     const uncertainCalls: { url: string; options: any }[] = [];
-    const firstResult = await runInstagramCommunityAutomation({
+    const firstResult = await runWithVerifiedPermissions({
       accountId: 'account-1',
       accessToken: 'token-never-printed',
       pageId: '',
@@ -317,7 +342,7 @@ describe('Instagram community automation', () => {
     expect(loadCommunityState(statePath).actions).toContainEqual(expect.objectContaining({ status: 'uncertain' }));
 
     const second = fakeInstagramFetch();
-    const secondResult = await runInstagramCommunityAutomation({
+    const secondResult = await runWithVerifiedPermissions({
       accountId: 'account-1',
       accessToken: 'token-never-printed',
       pageId: '',
@@ -341,7 +366,7 @@ describe('Instagram community automation', () => {
     const statePath = path.join(temp, 'state.json');
     const fetch = fakeInstagramFetch();
     const reservations = storyReservationClient(false);
-    const result = await runInstagramCommunityAutomation({
+    const result = await runWithVerifiedPermissions({
       accountId: 'account-1',
       accessToken: 'token-never-printed',
       pageId: '',
@@ -373,7 +398,7 @@ describe('Instagram community automation', () => {
       }
       return fetch.fetchImpl(url, options);
     };
-    const result = await runInstagramCommunityAutomation({
+    const result = await runWithVerifiedPermissions({
       accountId: 'account-1',
       accessToken: 'token-never-printed',
       pageId: '',
@@ -395,7 +420,7 @@ describe('Instagram community automation', () => {
 
   it('fails closed without credentials and does not call the network', async () => {
     let called = false;
-    const result = await runInstagramCommunityAutomation({
+    const result = await runWithVerifiedPermissions({
       accountId: '',
       accessToken: '',
       pageId: '',
@@ -405,5 +430,86 @@ describe('Instagram community automation', () => {
     });
     expect(result.status).toBe('credentials-missing');
     expect(called).toBe(false);
+  });
+
+  it('holds live community work when no Meta capability is verified', async () => {
+    const fetch = fakeInstagramFetch();
+    const result = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'page-token',
+      pageId: 'page-1',
+      pageAccessToken: 'page-token',
+      mode: 'live',
+      fetchImpl: fetch.fetchImpl,
+      permissionProbe: async () => ({ permissionStatuses: {} }),
+      publisherTokenProbe: async () => ({ publisherTokenStatus: 'matched' }),
+      pageLinkProbe: async () => ({ pageLinkStatus: 'unavailable', pageTaskStatuses: {} }),
+    });
+
+    expect(result).toMatchObject({
+      status: 'capability-unavailable',
+      capabilities: { comments: 'action-required', directMessages: 'action-required', stories: 'action-required' },
+    });
+    expect(fetch.calls).toHaveLength(0);
+  });
+
+  it('runs only the community surface with its own verified permission', async () => {
+    const fetch = fakeInstagramFetch();
+    const result = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'page-token',
+      pageId: 'page-1',
+      pageAccessToken: 'page-token',
+      ledger: ledger(),
+      mode: 'live',
+      now: NOW,
+      fetchImpl: fetch.fetchImpl,
+      permissionProbe: async () => ({
+        permissionStatuses: { instagram_basic: 'granted', instagram_manage_comments: 'granted' },
+      }),
+      publisherTokenProbe: verifiedPublisherTokenProbe,
+      pageLinkProbe: async () => ({
+        pageLinkStatus: 'matched',
+        publisherTokenSourceStatus: 'matched',
+        pageTaskStatuses: { moderate: 'granted' },
+      }),
+      sleepImpl: async () => {},
+      log: { log: () => {}, warn: () => {} },
+    });
+
+    expect(result).toMatchObject({
+      status: 'capabilities-limited',
+      commentsReplied: 1,
+      directMessagesSent: 0,
+      storiesPublished: 0,
+      blockedCapabilities: ['directMessages', 'stories'],
+    });
+    expect(fetch.calls.some(({ url }) => new URL(url).pathname.endsWith('/account-1/conversations'))).toBe(false);
+    expect(fetch.calls.some(({ url, options }) => options.method === 'POST' && new URL(url).pathname.endsWith('/media_publish'))).toBe(false);
+  });
+
+  it.each([
+    ['publisher token resolves to a different Instagram account', 'matched', 'mismatch'],
+    ['publisher token is not tied to the verified Page', 'mismatch', 'matched'],
+  ])('holds every community surface when %s', async (_label, sourceStatus, publisherStatus) => {
+    const fetch = fakeInstagramFetch();
+    const result = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'page-token',
+      pageId: 'page-1',
+      pageAccessToken: 'page-token',
+      mode: 'live',
+      fetchImpl: fetch.fetchImpl,
+      permissionProbe: verifiedPermissionProbe,
+      pageLinkProbe: async () => ({
+        pageLinkStatus: 'matched',
+        publisherTokenSourceStatus: sourceStatus,
+        pageTaskStatuses: { createContent: 'granted', moderate: 'granted', messaging: 'granted' },
+      }),
+      publisherTokenProbe: async () => ({ publisherTokenStatus: publisherStatus }),
+    });
+
+    expect(result.status).toBe('capability-unavailable');
+    expect(fetch.calls).toHaveLength(0);
   });
 });

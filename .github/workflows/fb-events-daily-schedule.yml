@@ -41,6 +41,7 @@ permissions:
 jobs:
   schedule:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -65,6 +66,7 @@ jobs:
         run: >-
           node scripts/load-rc-env.mjs
           --only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,SOCIAL_COPY_EXPERIMENT_CONFIG
+          --include-social-secrets
 
       - name: Post FB events
         if: inputs.dry_run != true && inputs.dry_run != 'true'

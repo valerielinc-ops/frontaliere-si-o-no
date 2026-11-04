@@ -140,10 +140,10 @@ describe('Instagram experiment status', () => {
     ];
     const insights = {
       posts: [
-        { id: 'media-1', queueId: 'article-1', creativeId: 'proof-local', kind: 'article', windowHours: 72, copyAttributionStatus: 'exact' },
-        { id: 'media-1', queueId: 'article-1', creativeId: 'proof-local', kind: 'article', windowHours: 72, copyAttributionStatus: 'exact' },
-        { id: 'media-2', queueId: 'article-2', creativeId: 'proof-local', kind: 'article', windowHours: 72, copyAttributionStatus: 'exact' },
-        { id: 'media-3', queueId: 'article-3', creativeId: 'proof-local', kind: 'article', windowHours: 72, copyAttributionStatus: 'exact' },
+        { id: 'media-1', queueId: 'article-1', creativeId: 'proof-local', kind: 'article', windowHours: 72, matchMethod: 'ledger-media-id', copyAttributionStatus: 'exact' },
+        { id: 'media-1', queueId: 'article-1', creativeId: 'proof-local', kind: 'article', windowHours: 72, matchMethod: 'ledger-media-id', copyAttributionStatus: 'exact' },
+        { id: 'media-2', queueId: 'article-2', creativeId: 'proof-local', kind: 'article', windowHours: 72, matchMethod: 'ledger-media-id', copyAttributionStatus: 'exact' },
+        { id: 'media-3', queueId: 'article-3', creativeId: 'proof-local', kind: 'article', windowHours: 72, matchMethod: 'ledger-media-id', copyAttributionStatus: 'exact' },
       ],
     };
 
@@ -206,7 +206,7 @@ describe('Instagram experiment status', () => {
     expect(status.insights.rejectedRows[0].reason).toBe('copy attribution is not an exact media-to-ledger join');
   });
 
-  it('keeps background arms in separate cohorts for the same creative', () => {
+  it('qualifies Graph media-ID joins and excludes browser cover fingerprints', () => {
     const navy = carouselLedger('article-navy').map((entry) => ({
       ...entry,
       backgroundExperimentId: 'instagram-carousel-background-v1',
@@ -233,7 +233,10 @@ describe('Instagram experiment status', () => {
 
     expect(status.cohorts).toEqual([
       expect.objectContaining({ creativeId: 'proof-local', backgroundVariant: 'navy-gradient', observedPosts: 1 }),
-      expect.objectContaining({ creativeId: 'proof-local', backgroundVariant: 'paper-amber', observedPosts: 1 }),
+      expect.objectContaining({ creativeId: 'proof-local', backgroundVariant: 'paper-amber', observedPosts: 0 }),
+    ]);
+    expect(status.insights.rejectedRows).toEqual([
+      expect.objectContaining({ row: 2, reason: 'copy attribution is not an exact media-to-ledger join' }),
     ]);
   });
 

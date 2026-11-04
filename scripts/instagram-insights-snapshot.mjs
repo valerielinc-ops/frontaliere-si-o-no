@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * Legacy Graph collector for one stable Instagram Insights observation per
- * eligible creative post. The Mac launch agent uses the Chrome collector in
- * scripts/social-robot/run.mjs by default; this command remains available for
- * explicit compatibility and diagnostics.
+ * Graph API collector for one stable Instagram Insights observation per
+ * eligible creative post. The scheduled social-native-insights workflow uses
+ * this collector; the command-line entry point also supports diagnostics.
  */
 import {
   existsSync,

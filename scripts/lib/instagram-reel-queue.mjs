@@ -3,7 +3,7 @@ import { isExpired, parseQueue } from './social-publish-queue.mjs';
 export const INSTAGRAM_REEL_MEASUREMENT_WINDOW_HOURS = 72;
 
 /**
- * Return the active Instagram Reel already waiting for the browser robot.
+ * Return a legacy Instagram Reel queue entry for migration into the Graph publisher.
  *
  * A later experiment must not replace an unpublished treatment: doing so would
  * erase the first cohort before it receives a live observation. Expired queue

@@ -271,6 +271,7 @@ jobs:
        (github.event_name == 'workflow_dispatch' &&
         github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
         needs.validate-recovery-source.result == 'success'))
+    environment: social-production
     runs-on: ubuntu-latest
     env:
       EFFECTIVE_DEPLOY_RUN_ID: >-
@@ -322,11 +323,12 @@ jobs:
             echo "⚠️ Firebase secrets not set — registry operations will be skipped."
           fi
 
-      # Hydrate the runner env with secrets pulled from Firebase Remote
-      # Config so the social-media post steps below see FB / LinkedIn /
-      # Reddit tokens as `process.env.*`.
-      - name: Load secrets from Remote Config (FB + LinkedIn + Reddit tokens)
-        run: node scripts/load-rc-env.mjs
+      # Hydrate the runner with the exact LinkedIn Company and Reddit private
+      # credentials used by the two guarded post-deploy steps below.
+      - name: Load LinkedIn Company and Reddit credentials from Remote Config
+        run: >-
+          node scripts/load-rc-env.mjs --include-social-secrets
+          --only-social-env=LINKEDIN_POST_CLIENT_SECRET,LINKEDIN_POST_REFRESH_TOKEN,LINKEDIN_POST_ACCESS_TOKEN,REDDIT_CLIENT_SECRET,REDDIT_PASSWORD,REDDIT_REFRESH_TOKEN
 
       # Small JSON artifacts only — NO github-pages download here. All keyed on
       # `deploy_run_id` (the BUILD run); run-id + token makes the fetch work both

@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { isExactInstagramCopyAttribution } from './instagram-media-matching.mjs';
 
 export const SOCIAL_EXPERIMENT_PROTOCOL_VERSION = 'social-copy-angle-matched-block-v3';
 export const SOCIAL_EXPERIMENT_FAMILY_ALPHA = 0.05;
@@ -520,8 +521,11 @@ export function evaluateMatchedBlockExperiment({ registration, observations, asO
     if (!Number.isFinite(publishedAt) || publishedAt < Date.parse(frozen.startsAt)
       || publishedAt + metricWindowMs > deadlineAt
       || !measurementMatches(row, frozen.metric)) continue;
+    const exactCopyAttribution = frozen.measurementChannel === 'instagram'
+      ? isExactInstagramCopyAttribution(row, { allowMissingStatus: true })
+      : String(row.copyAttributionStatus || '') === 'exact';
     if (String(copy.copyRegistrationHash || '') !== frozen.registrationHash
-      || String(row.copyAttributionStatus || '') !== 'exact'
+      || !exactCopyAttribution
       || copy.copyAssignmentMode !== 'firebase-balanced') {
       return { status: 'data-integrity-failed', reason: 'registered exposure lacks exact assignment or post attribution', completeBlocks: 0 };
     }

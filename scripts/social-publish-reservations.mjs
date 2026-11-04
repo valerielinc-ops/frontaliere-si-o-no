@@ -2,7 +2,7 @@
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 
-import { fetchRcTemplate, getRemoteConfig } from './lib/remote-config-admin.mjs';
+import { fetchRcTemplate, fetchServerRcTemplate, getRemoteConfig } from './lib/remote-config-admin.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import {
   listStaleSocialPublishReservations,
@@ -12,10 +12,10 @@ import {
 import { verifyExactSocialPublishedPost } from './lib/social-publish-reconciliation.mjs';
 
 const RC_CONFIG = Object.freeze({
-  facebook: { account: ['FB_PAGE_ID', 'FB_PAGE_ID'], token: ['FB_PAGE_ACCESS_TOKEN', 'SERVER_FB_PAGE_ACCESS_TOKEN'] },
-  instagram: { account: ['INSTAGRAM_BUSINESS_ACCOUNT_ID', 'INSTAGRAM_BUSINESS_ACCOUNT_ID'], token: ['INSTAGRAM_ACCESS_TOKEN', 'SERVER_INSTAGRAM_ACCESS_TOKEN'] },
-  linkedinMember: { account: ['LINKEDIN_MEMBER_URN', 'LINKEDIN_MEMBER_URN'], token: ['LINKEDIN_MEMBER_ACCESS_TOKEN', 'LINKEDIN_MEMBER_ACCESS_TOKEN'] },
-  telegram: { account: ['TELEGRAM_CHANNEL_ID', 'TELEGRAM_CHANNEL_ID'], token: ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_BOT_TOKEN'] },
+  facebook: { account: ['FB_PAGE_ID', 'FB_PAGE_ID'], token: ['FB_PAGE_ACCESS_TOKEN', 'SERVER_FB_PAGE_ACCESS_TOKEN', 'server'] },
+  instagram: { account: ['INSTAGRAM_BUSINESS_ACCOUNT_ID', 'INSTAGRAM_BUSINESS_ACCOUNT_ID'], token: ['INSTAGRAM_ACCESS_TOKEN', 'SERVER_INSTAGRAM_ACCESS_TOKEN', 'server'] },
+  linkedinMember: { account: ['LINKEDIN_MEMBER_URN', 'SERVER_LINKEDIN_MEMBER_URN', 'server'], token: ['LINKEDIN_MEMBER_ACCESS_TOKEN', 'SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN', 'server'] },
+  telegram: { account: ['TELEGRAM_CHANNEL_ID', 'TELEGRAM_CHANNEL_ID'], token: ['TELEGRAM_BOT_TOKEN', 'SERVER_TELEGRAM_BOT_TOKEN', 'server'] },
 });
 
 function parseArgs(argv) {
@@ -75,36 +75,57 @@ function rcParameter(template, name) {
 
 async function loadRemoteConfigTemplate() {
   try {
-    return { template: await fetchRcTemplate(await getRemoteConfig()), available: true };
+    const remoteConfig = await getRemoteConfig();
+    let template = null;
+    let serverTemplate = null;
+    try {
+      template = await fetchRcTemplate(remoteConfig);
+    } catch {
+      // Keep resolving environment overrides, but do not claim RC is available.
+    }
+    try {
+      serverTemplate = await fetchServerRcTemplate(remoteConfig);
+    } catch {
+      // Private social parameters remain unknown; never read their client copies.
+    }
+    return {
+      template,
+      serverTemplate,
+      available: Boolean(template && serverTemplate),
+    };
   } catch {
     // Environment values remain usable; callers must distinguish unknown RC state.
-    return { template: null, available: false };
+    return { template: null, serverTemplate: null, available: false };
   }
 }
 
-function configuredValue([envName, rcName], template, env) {
+function configuredValue([envName, rcName, namespace = 'client'], templates, env) {
+  const template = namespace === 'server' ? templates.serverTemplate : templates.template;
   return String(env[envName] || rcParameter(template, rcName) || '').trim();
 }
 
 async function loadConfiguredAccountIds(env = process.env) {
-  const { template, available } = await loadRemoteConfigTemplate();
+  const templates = await loadRemoteConfigTemplate();
   return {
-    remoteConfigAvailable: available,
+    remoteConfigAvailable: templates.available,
     accounts: Object.fromEntries(Object.entries(RC_CONFIG).map(([platform, mapping]) => [
       platform,
-      configuredValue(mapping.account, template, env),
+      configuredValue(mapping.account, templates, env),
     ])),
   };
 }
 
-async function loadConfiguredValues(platform, env = process.env, { includeAccessToken = true } = {}) {
-  const { template } = await loadRemoteConfigTemplate();
+export async function loadConfiguredValues(platform, env = process.env, {
+  includeAccessToken = true,
+  loadTemplates = loadRemoteConfigTemplate,
+} = {}) {
+  const templates = await loadTemplates();
   const mapping = RC_CONFIG[platform];
-  const accountId = configuredValue(mapping.account, template, env);
+  const accountId = configuredValue(mapping.account, templates, env);
   if (!accountId) throw new Error(`configured ${platform} account ID is unavailable`);
   return {
     accountId,
-    accessToken: includeAccessToken ? configuredValue(mapping.token, template, env) : '',
+    accessToken: includeAccessToken ? configuredValue(mapping.token, templates, env) : '',
   };
 }
 

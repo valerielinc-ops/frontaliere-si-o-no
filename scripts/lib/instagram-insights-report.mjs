@@ -8,6 +8,8 @@
  * There is no network access and no credential handling here.
  */
 
+import { isExactInstagramCopyAttribution } from './instagram-media-matching.mjs';
+
 export const DEFAULT_MINIMUM_OBSERVATIONS = 3;
 export const DEFAULT_WINDOW_HOURS = 72;
 export const DEFAULT_WINDOW_TOLERANCE_HOURS = 6;
@@ -47,7 +49,7 @@ const METRIC_ALIASES = Object.freeze({
 });
 
 const CSV_FIELD_ALIASES = Object.freeze({
-  id: ['id', 'mediaid', 'postid', 'queueid'],
+  id: ['id', 'mediaid', 'postid'],
   kind: ['kind', 'contentkind', 'contenttype'],
   creativeId: ['creativeid', 'creative'],
   creativeBaseId: ['creativebaseid'],
@@ -259,6 +261,12 @@ function ledgerEntries(ledger) {
 
 function buildLedgerLookup(ledger) {
   const lookup = new Map();
+  const add = (identity, metadata, matchMethod) => {
+    if (!identity) return;
+    const candidate = { ...metadata, matchMethod };
+    if (!lookup.has(identity)) lookup.set(identity, candidate);
+    else if (JSON.stringify(lookup.get(identity)) !== JSON.stringify(candidate)) lookup.set(identity, null);
+  };
   for (const entry of ledgerEntries(ledger)) {
     if (!isRecord(entry)) continue;
     const creativeId = firstString(entry.creativeId, entry.creative_id);
@@ -266,6 +274,8 @@ function buildLedgerLookup(ledger) {
     const metadata = {
       creativeId,
       kind: firstString(entry.kind, entry.contentKind, entry.content_kind),
+      creativeObjective: firstString(entry.creativeObjective, entry.creative_objective),
+      primaryMetric: firstString(entry.primaryMetric, entry.primary_metric),
       queueId: firstString(entry.queueId, entry.queue_id),
       creativeBaseId: firstString(entry.creativeBaseId, entry.creative_base_id),
       creativeVariant: firstString(entry.creativeVariant, entry.creative_variant),
@@ -293,9 +303,13 @@ function buildLedgerLookup(ledger) {
       copyHook: firstString(entry.copyHook, entry.copy_hook),
       copyCta: firstString(entry.copyCta, entry.copy_cta),
     };
-    for (const key of ['instagramMediaId', 'mediaId', 'media_id', 'queueId', 'queue_id']) {
+    for (const key of ['instagramMediaId', 'mediaId', 'media_id']) {
       const value = firstString(entry[key]);
-      if (value) lookup.set(value, metadata);
+      add(value, metadata, 'ledger-media-id');
+    }
+    for (const key of ['queueId', 'queue_id']) {
+      const value = firstString(entry[key]);
+      add(value, metadata, 'ledger-queue-id');
     }
   }
   return lookup;
@@ -305,10 +319,40 @@ function reject(rejected, index, reason) {
   rejected.push({ row: index + 1, reason });
 }
 
+function ledgerMetadataConflict(raw, ledgerMetadata) {
+  const fields = [
+    ['creativeId', [raw.creativeId, raw.creative_id, raw.creative?.id]],
+    ['kind', [raw.kind, raw.contentKind, raw.content_kind]],
+    ['creativeObjective', [raw.creativeObjective, raw.creative_objective, raw.objective, raw.creative?.objective]],
+    ['primaryMetric', [raw.primaryMetric, raw.primary_metric, raw.creative?.primaryMetric]],
+    ['creativeBaseId', [raw.creativeBaseId, raw.creative_base_id, raw.creative?.baseId]],
+    ['creativeVariant', [raw.creativeVariant, raw.creative_variant, raw.creative?.variant]],
+    ['backgroundExperimentId', [raw.backgroundExperimentId, raw.background_experiment_id, raw.visualExperimentId, raw.visual_experiment_id]],
+    ['backgroundVariant', [raw.backgroundVariant, raw.background_variant, raw.visualVariant, raw.visual_variant, raw.background, raw.creative?.backgroundVariant]],
+    ['safeAreaVersion', [raw.safeAreaVersion, raw.safe_area_version, raw.layoutVersion, raw.layout_version]],
+    ['copyMode', [raw.copyMode, raw.copy_mode]],
+    ['copySlot', [raw.copySlot, raw.copy_slot]],
+    ['copyAssignmentMode', [raw.copyAssignmentMode, raw.copy_assignment_mode]],
+    ['copyExperimentId', [raw.copyExperimentId, raw.copy_experiment_id]],
+    ['copyPackId', [raw.copyPackId, raw.copy_pack_id]],
+    ['copyTemplateId', [raw.copyTemplateId, raw.copy_template_id]],
+    ['copyObjective', [raw.copyObjective, raw.copy_objective]],
+    ['copyAngleId', [raw.copyAngleId, raw.copy_angle_id]],
+    ['copyPillarId', [raw.copyPillarId, raw.copy_pillar_id]],
+    ['copyAngleIntent', [raw.copyAngleIntent, raw.copy_angle_intent]],
+  ];
+  for (const [field, values] of fields) {
+    const supplied = firstString(...values);
+    const canonical = firstString(ledgerMetadata[field]);
+    if (supplied && canonical && supplied !== canonical) return field;
+  }
+  return null;
+}
+
 /**
  * Normalise one export into one row per post at one measurement window.
  * `ledger` is optional; it lets a Meta export identify a treatment through a
- * media/queue id without copying captions or URLs into the export file.
+ * exact media id without copying captions or URLs into the export file.
  */
 export function normalizeInsightRows(input, {
   ledger = null,
@@ -326,19 +370,49 @@ export function normalizeInsightRows(input, {
       return;
     }
 
-    const copyAttributionStatus = firstString(raw.copyAttributionStatus, raw.copy_attribution_status);
-    if (copyAttributionStatus && copyAttributionStatus !== 'exact') {
+    const suppliedAttributionStatus = firstString(raw.copyAttributionStatus, raw.copy_attribution_status);
+    if (suppliedAttributionStatus && suppliedAttributionStatus !== 'exact') {
       reject(rejected, index, 'copy attribution is not an exact media-to-ledger join');
       return;
     }
-    if (firstString(raw.matchMethod, raw.match_method) === 'confirmation-timestamp') {
-      reject(rejected, index, 'timestamp-matched media cannot attribute creative performance');
+    const suppliedMatchMethod = firstString(raw.matchMethod, raw.match_method);
+    if (suppliedMatchMethod && suppliedMatchMethod !== 'ledger-media-id') {
+      if (suppliedMatchMethod === 'confirmation-timestamp') {
+        reject(rejected, index, 'timestamp-matched media cannot attribute creative performance');
+      } else {
+        reject(rejected, index, 'copy attribution is not an exact media-to-ledger join');
+      }
       return;
     }
 
-    const postId = firstString(raw.id, raw.media_id, raw.mediaId, raw.post_id, raw.queueId, raw.queue_id)
-      || `row-${index + 1}`;
+    const postId = firstString(raw.id, raw.media_id, raw.mediaId, raw.post_id)
+    if (!postId) {
+      reject(rejected, index, 'media ID missing; exact attribution cannot be proven');
+      return;
+    }
     const ledgerMetadata = lookup.get(postId);
+    if ((ledger !== null && ledger !== undefined) && suppliedMatchMethod
+      && ledgerMetadata?.matchMethod !== 'ledger-media-id') {
+      reject(rejected, index, 'media ID does not match an exact ledger media ID');
+      return;
+    }
+    const attributionEvidence = suppliedMatchMethod
+      ? { matchMethod: suppliedMatchMethod }
+      : ledgerMetadata;
+    if (!isExactInstagramCopyAttribution({
+      matchMethod: attributionEvidence?.matchMethod,
+      copyAttributionStatus: suppliedAttributionStatus || 'exact',
+    })) {
+      reject(rejected, index, 'copy attribution lacks an exact ledger media ID');
+      return;
+    }
+    if (ledgerMetadata?.matchMethod === 'ledger-media-id') {
+      const conflict = ledgerMetadataConflict(raw, ledgerMetadata);
+      if (conflict) {
+        reject(rejected, index, `${conflict} conflicts with the exact ledger media ID`);
+        return;
+      }
+    }
     const creativeId = firstString(
       raw.creativeId,
       raw.creative_id,
@@ -542,7 +616,8 @@ export function normalizeInsightRows(input, {
       engagementLoop,
       followUpFormat,
       copyMode,
-      copyAttributionStatus,
+      matchMethod: 'ledger-media-id',
+      copyAttributionStatus: 'exact',
       copySlot,
       copyAssignmentMode,
       copyExperimentId,

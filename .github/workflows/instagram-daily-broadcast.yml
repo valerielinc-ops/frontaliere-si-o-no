@@ -9,11 +9,9 @@ name: Instagram Daily/Weekly Broadcast
 #
 # Same dual-cron/mode-select shape as telegram-channel-broadcast.yml.
 #
-# Fail-soft by design: with no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID
-# in Remote Config the poster logs a clean skip and exits 0. The whole
-# pipeline ships and stays GREEN before the owner has completed Meta's App
-# Review for instagram_content_publish — a human, external process this
-# workflow cannot shortcut. See scripts/post-to-instagram.mjs header.
+# Live posts use the official Instagram Graph API only. Missing publishing
+# credentials fail visibly; the old browser queue is policy-held and cannot
+# silently turn a green workflow into a non-publication.
 #
 # workflow_dispatch defaults to dry_run=true (preview only). Scheduled runs
 # post for real, subject to the credentials being present.
@@ -45,12 +43,13 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write  # commit data/instagram-posted.json + data/instagram-queue.json
+  contents: write  # commit data/instagram-posted.json
   issues: write
 
 jobs:
   post:
     if: github.ref == 'refs/heads/main'
+    environment: social-production
     runs-on: ubuntu-latest
     # Same budget as linkedin-member-daily.yml / telegram-channel-broadcast.yml
     # — full checkout + assemble-jobs-dataset for the job slot.
@@ -80,50 +79,62 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: >-
           node scripts/load-rc-env.mjs
-          --only-env=INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,SOCIAL_ROBOT_MODE,INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED,INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT,INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS,INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT,INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS,INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT,INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS,INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
-
-      # Make the soft-skip visible: without INSTAGRAM_ACCESS_TOKEN (RC key
-      # SERVER_INSTAGRAM_ACCESS_TOKEN, pending Meta App Review) every run was
-      # green but posted nothing (data/instagram-posted.json never written).
-      # Without a token nothing reaches Instagram unless the robot publishes,
-      # and it publishes only with SOCIAL_ROBOT_MODE=live: in `off` (no queue)
-      # and in the default `dry` (queued, never pressed) the run stays visible.
-      - name: Warn when Instagram credentials are absent
-        if: env.INSTAGRAM_ACCESS_TOKEN == '' && env.SOCIAL_ROBOT_MODE != 'live'
-        run: |
-          if [ "${SOCIAL_ROBOT_MODE:-}" = "off" ]; then
-            echo "::warning::INSTAGRAM_ACCESS_TOKEN is not set and SOCIAL_ROBOT_MODE=off — nothing will be posted this run (soft-skip)."
-          else
-            echo "::warning::INSTAGRAM_ACCESS_TOKEN is not set — the post is only queued for the Playwright robot, which publishes only with SOCIAL_ROBOT_MODE=live (now: ${SOCIAL_ROBOT_MODE:-absent, read as dry}). Nothing reaches Instagram this run."
-          fi
+          --only-env=INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED,INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT,INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS,INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT,INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS,INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT,INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS,INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+          --include-social-secrets
 
       # Monday reserves the two-post cadence for the weekly border carousel
       # and the scheduled Reel; Friday reserves it for one article carousel
       # and the Reel. Both schedules are UTC and run before this daily job.
       - name: Reserve daily cadence for scheduled Reel slots
+        id: reserve_daily_cadence
         if: github.event_name == 'schedule' && github.event.schedule == '20 8 * * *'
         shell: bash
         run: |
           set -euo pipefail
+          echo 'skip=false' >> "$GITHUB_OUTPUT"
+          echo 'article_only=false' >> "$GITHUB_OUTPUT"
           case "$(date -u +%u)" in
-            1) echo 'INSTAGRAM_DAILY_SLOT_OVERRIDE=skip' >> "$GITHUB_ENV" ;;
-            5) echo 'ONLY=article' >> "$GITHUB_ENV" ;;
+            1) echo 'skip=true' >> "$GITHUB_OUTPUT" ;;
+            5)
+              echo 'article_only=true' >> "$GITHUB_OUTPUT"
+              echo 'ONLY=article' >> "$GITHUB_ENV"
+              ;;
           esac
 
+      - name: Require Instagram Graph publishing credentials
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.reserve_daily_cadence.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          test -n "${INSTAGRAM_ACCESS_TOKEN:-}" || { echo '::error::Instagram Graph token is absent; complete Meta app review and configure SERVER_INSTAGRAM_ACCESS_TOKEN in Remote Config.'; exit 1; }
+          test -n "${INSTAGRAM_BUSINESS_ACCOUNT_ID:-}" || { echo '::error::Instagram business account ID is absent from Remote Config.'; exit 1; }
+
+      - name: Verify Instagram Graph account readiness
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.reserve_daily_cadence.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Load probe-only credentials into this shell, not later workflow steps.
+          eval "$(GITHUB_ENV= node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN --include-social-secrets)"
+          if [ -n "${FB_USER_ACCESS_TOKEN:-}" ]; then printf '::add-mask::%s\n' "$FB_USER_ACCESS_TOKEN"; fi
+          READY_CHANNELS="$(node scripts/check-social-publish-readiness.mjs --ready-channels)"
+          case " $READY_CHANNELS " in
+            *" instagram "*) echo 'Instagram Graph account readiness verified.' ;;
+            *) echo '::error::Instagram readiness probe did not verify the linked Page, content grant, publisher-token identity, and account ID.'; exit 1 ;;
+          esac
+          unset FB_PAGE_ID FB_USER_ACCESS_TOKEN
+
       # Only needed for the job slot — same reasoning as linkedin-member-daily.yml:
-      # without it the poster skips the job slot rather than guessing. Needed
-      # without a token too unless SOCIAL_ROBOT_MODE=off: the post then goes to
-      # the Playwright robot's queue (scripts/lib/social-publish-queue.mjs).
+      # without it the poster skips the job slot rather than guessing.
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
-        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off')
+        if: steps.reserve_daily_cadence.outputs.skip != 'true' && steps.reserve_daily_cadence.outputs.article_only != 'true' && env.ONLY != 'article' && env.ONLY != 'border' && env.INSTAGRAM_ACCESS_TOKEN != ''
         uses: ./.github/actions/assemble-jobs-cache-key
         with:
           args: --no-summaries
 
       - name: Restore assemble-jobs cache
         id: assemble_cache
-        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off') && steps.assemble_cache_key.outputs.key != ''
+        if: steps.reserve_daily_cadence.outputs.skip != 'true' && steps.reserve_daily_cadence.outputs.article_only != 'true' && env.ONLY != 'article' && env.ONLY != 'border' && env.INSTAGRAM_ACCESS_TOKEN != '' && steps.assemble_cache_key.outputs.key != ''
         uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs
@@ -131,11 +142,11 @@ jobs:
 
       - name: Assemble jobs dataset
         id: assemble
-        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off')
+        if: steps.reserve_daily_cadence.outputs.skip != 'true' && steps.reserve_daily_cadence.outputs.article_only != 'true' && env.ONLY != 'article' && env.ONLY != 'border' && env.INSTAGRAM_ACCESS_TOKEN != ''
         run: node scripts/assemble-jobs-dataset.mjs --no-summaries
 
       - name: Save assemble-jobs cache
-        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off') && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        if: steps.reserve_daily_cadence.outputs.skip != 'true' && steps.reserve_daily_cadence.outputs.article_only != 'true' && env.ONLY != 'article' && env.ONLY != 'border' && env.INSTAGRAM_ACCESS_TOKEN != '' && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
@@ -145,32 +156,37 @@ jobs:
       # NB: each flag is appended with an `if`, never with `[ c ] && ARGS+=…`
       # — see linkedin-member-daily.yml's identical comment for why.
       - name: Post to Instagram
-        if: inputs.dry_run != true && inputs.dry_run != 'true' && env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip'
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.reserve_daily_cadence.outputs.skip != 'true'
         env:
           DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
           ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
           EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
         run: |
           set -euo pipefail
+          # The publisher repeats the readiness check at its own boundary.
+          # Keep verifier credentials scoped to this shell, and load them only
+          # for a live publish.
+          if [ "$ALLOW_SIDE_EFFECT" = "true" ] && [ "$EFFECTIVE_DRY_RUN" != "true" ]; then
+            eval "$(GITHUB_ENV= node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN --include-social-secrets)"
+            if [ -n "${FB_USER_ACCESS_TOKEN:-}" ]; then printf '::add-mask::%s\n' "$FB_USER_ACCESS_TOKEN"; fi
+          fi
           ARGS=()
           if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           if [ -n "$ONLY" ]; then ARGS+=("--only=$ONLY"); fi
           if [ -n "$REPORT_DATE" ]; then ARGS+=("--date=$REPORT_DATE"); fi
           npx --no-install tsx scripts/post-to-instagram.mjs ${ARGS[@]+"${ARGS[@]}"}
+          unset FB_PAGE_ID FB_USER_ACCESS_TOKEN
 
       - name: Commit posted ledger
-        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && steps.reserve_daily_cadence.outputs.skip != 'true' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
         run: |
           set -euo pipefail
           # Same fix as linkedin-member-daily.yml (#6424): `git diff --quiet
           # <path>` on a path that has never existed exits 128, not 0/1, so a
           # failed/skipped post (no ledger write yet) fell through into
           # `git add` on a missing pathspec and hard-failed the step.
-          # The queue of the Playwright robot (SOCIAL_ROBOT_MODE dry/live, see
-          # scripts/lib/social-publish-queue.mjs) is written by the same step
-          # as the ledger and committed with it.
           files=()
-          for f in data/instagram-posted.json data/instagram-queue.json; do
+          for f in data/instagram-posted.json; do
             if [ -f "$f" ]; then files+=("$f"); fi
           done
           if [ ${#files[@]} -eq 0 ]; then

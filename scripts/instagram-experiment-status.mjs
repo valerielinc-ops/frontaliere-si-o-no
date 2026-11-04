@@ -97,7 +97,6 @@ function readJson(file, label, { optional = false, fallback = null } = {}) {
 }
 
 function configuredCredentials() {
-  if (resolveInstagramInsightsSource() === 'browser') return true;
   if (resolveInstagramInsightsSource() === 'off') return false;
   return Boolean(
     String(process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || '').trim()

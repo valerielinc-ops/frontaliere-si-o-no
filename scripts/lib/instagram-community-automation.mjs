@@ -20,6 +20,12 @@ import {
 import path from 'node:path';
 
 import { GRAPH_API } from './instagram-graph-constants.mjs';
+import { buildInstagramCapabilityReadiness } from './instagram-publish-readiness.mjs';
+import { probeInstagramPageLink as readInstagramPageLink } from './instagram-page-link-probe.mjs';
+import {
+  probeInstagramPermissions as readInstagramPermissions,
+  probeInstagramPublisherToken as readInstagramPublisherToken,
+} from './instagram-publisher-readiness-probes.mjs';
 import { buildInstagramCommunityOutcomeSnapshot } from './instagram-community-outcomes.mjs';
 import {
   INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES,
@@ -661,6 +667,8 @@ function resultTemplate(mode) {
     storiesPublished: 0,
     storiesSkipped: 0,
     publishedStories: [],
+    capabilities: null,
+    blockedCapabilities: [],
     errors: [],
   };
 }
@@ -684,6 +692,7 @@ export async function runInstagramCommunityAutomation({
   // token already used by the social stack. This fallback is intentionally
   // local to community actions; Insights still requires the Instagram token.
   accessToken = process.env.INSTAGRAM_ACCESS_TOKEN || process.env.FB_PAGE_ACCESS_TOKEN,
+  userAccessToken = process.env.FB_USER_ACCESS_TOKEN,
   pageId = process.env.FB_PAGE_ID,
   pageAccessToken = process.env.FB_PAGE_ACCESS_TOKEN,
   ledger = { posted: [] },
@@ -692,6 +701,9 @@ export async function runInstagramCommunityAutomation({
   now = new Date(),
   clock = () => new Date(),
   fetchImpl = fetch,
+  permissionProbe = readInstagramPermissions,
+  publisherTokenProbe = readInstagramPublisherToken,
+  pageLinkProbe = readInstagramPageLink,
   sleepImpl,
   log = console,
   reservationRepoRoot = process.cwd(),
@@ -709,16 +721,57 @@ export async function runInstagramCommunityAutomation({
     return result;
   }
 
+  const publisherAccessToken = firstText(accessToken, pageAccessToken);
+  const [permissions, pageLink, publisherToken] = await Promise.all([
+    permissionProbe({ userAccessToken, fetchImpl }),
+    pageLinkProbe({
+      pageId,
+      userAccessToken,
+      instagramAccountId: accountId,
+      publisherAccessToken,
+      fetchImpl,
+    }),
+    publisherTokenProbe({ instagramAccountId: accountId, accessToken: publisherAccessToken, fetchImpl }),
+  ]);
+  const permissionStatuses = permissions?.permissionStatuses || {};
+  const pageTaskStatuses = pageLink?.pageTaskStatuses || {};
+  const readiness = buildInstagramCapabilityReadiness({
+    permissionStatuses,
+    pageTaskStatuses,
+    pageLinkStatus: pageLink?.pageLinkStatus,
+    publisherTokenSourceStatus: pageLink?.publisherTokenSourceStatus,
+    publisherTokenStatus: publisherToken?.publisherTokenStatus,
+  });
+  const capabilities = {
+    comments: readiness.comments,
+    directMessages: readiness.directMessages,
+    stories: readiness.stories,
+  };
+  result.capabilities = Object.fromEntries(Object.entries(capabilities).map(([name, value]) => [name, value.state]));
+  result.blockedCapabilities = Object.entries(capabilities)
+    .filter(([, value]) => value.state !== 'ready')
+    .map(([name]) => name);
+  const commentsAllowed = capabilities.comments.state === 'ready';
+  const messagesAllowed = capabilities.directMessages.state === 'ready';
+  const storiesAllowed = capabilities.stories.state === 'ready';
+  if (!commentsAllowed && !messagesAllowed && !storiesAllowed) {
+    result.status = 'capability-unavailable';
+    safeLog(log, 'warn', `⏸️ Instagram community held: no capability has verified Meta permission and Page task`);
+    return result;
+  }
+
   const nowMs = timestamp(now) || Date.now();
   const state = loadCommunityState(statePath);
   state.trackingStartedAt ||= new Date(nowMs).toISOString();
   const persist = (key, kind, status = 'sent', at = nowMs) => recordAction(state, statePath, { key, kind, at, status });
   let media = [];
-  try {
-    media = await listAccountMedia(accountId, graphAccessToken, { fetchImpl });
-  } catch (error) {
-    addError(result, error);
-    safeLog(log, 'warn', `⚠️ Instagram community media sync: ${error.message || error}`);
+  if (commentsAllowed || storiesAllowed) {
+    try {
+      media = await listAccountMedia(accountId, graphAccessToken, { fetchImpl });
+    } catch (error) {
+      addError(result, error);
+      safeLog(log, 'warn', `⚠️ Instagram community media sync: ${error.message || error}`);
+    }
   }
 
   const joined = matchLedgerGroupsToMedia(groupPostedLedgerForAutomation(ledger), media);
@@ -726,7 +779,7 @@ export async function runInstagramCommunityAutomation({
 
   let commentAttempted = 0;
   let privateAttempted = 0;
-  for (const { group, media: mediaItem } of joined.matches.slice(0, MAX_MEDIA_PER_RUN)) {
+  for (const { group, media: mediaItem } of (commentsAllowed ? joined.matches : []).slice(0, MAX_MEDIA_PER_RUN)) {
     let comments;
     try {
       comments = await listMediaComments(mediaItem.id, graphAccessToken, { fetchImpl });
@@ -921,97 +974,123 @@ export async function runInstagramCommunityAutomation({
     }
   }
 
-  try {
-    const conversations = await listConversations(accountId, graphAccessToken, {
-      fetchImpl,
-      pageId,
-      pageAccessToken,
-    });
-    const messageAccessToken = text(pageId) && text(pageAccessToken) ? pageAccessToken : graphAccessToken;
-    const selfIds = new Set([String(accountId), String(pageId || '')].filter(Boolean));
-    for (const conversation of conversations.slice(0, MAX_CONVERSATIONS_PER_RUN)) {
-      const conversationId = id(conversation.id);
-      if (!conversationId) continue;
-      let messages;
-      try {
-        messages = (await listConversationMessages(conversationId, messageAccessToken, { fetchImpl })).sort(compareNewest);
-      } catch (error) {
-        addError(result, error);
-        continue;
-      }
-      result.conversationsSeen += 1;
-      const chronological = messages
-        .map((message) => ({
-          message,
-          senderId: messageAuthorId(message),
-          at: timestamp(message?.created_time || message?.timestamp),
-        }))
-        .sort((left, right) => (left.at || 0) - (right.at || 0));
-      const latestInbound = chronological.filter((entry) => entry.senderId && !selfIds.has(String(entry.senderId))).at(-1);
-      if (!latestInbound || !id(latestInbound.message?.id)) continue;
-      const latest = latestInbound.message;
-      const senderId = latestInbound.senderId;
-      const body = messageText(latest);
-      const messageAt = latestInbound.at !== null && latestInbound.at <= nowMs ? latestInbound.at : null;
-      const receivedAt = messageAt === null ? null : new Date(messageAt).toISOString();
-      const classification = classifyInstagramCommunityInteraction({ surface: 'directMessages', text: body });
-      const messageKey = hashAction('direct-message', latest.id);
-      const responseAfterInbound = messageAt === null ? null : chronological.find((entry) => (
-        entry.senderId && selfIds.has(String(entry.senderId)) && entry.at !== null && entry.at >= messageAt
-      ));
-      if (responseAfterInbound || actionTimestamp(state, messageKey) || (hasAction(state, messageKey) && !hasUncertainAction(state, messageKey))) {
-        recordCommunityInteraction(state, statePath, {
-          platformId: latest.id,
-          source: 'graph',
-          surface: 'directMessages',
-          receivedAt,
-          observedAt: nowMs,
-          classification: classification.classification,
-          status: 'responded',
-          responseAt: responseAfterInbound?.at ? new Date(responseAfterInbound.at).toISOString() : actionTimestamp(state, messageKey),
-        });
-        continue;
-      }
-      if (hasUncertainAction(state, messageKey)) {
-        recordCommunityInteraction(state, statePath, {
-          platformId: latest.id,
-          source: 'graph',
-          surface: 'directMessages',
-          receivedAt,
-          observedAt: nowMs,
-          classification: classification.classification,
-          status: 'delivery-uncertain',
-          escalationReason: 'delivery-uncertain',
-        });
-        continue;
-      }
-      if (messageAt === null || ageHours(messageAt, nowMs) < 0) {
-        recordCommunityInteraction(state, statePath, {
-          platformId: latest.id,
-          source: 'graph',
-          surface: 'directMessages',
-          receivedAt,
-          observedAt: nowMs,
-          classification: classification.classification,
-          status: 'age-unknown',
-          escalationReason: 'timestamp-unavailable',
-        });
-        continue;
-      }
-      if (ageHours(messageAt, nowMs) > DM_RESPONSE_WINDOW_HOURS) {
-        recordCommunityInteraction(state, statePath, {
-          platformId: latest.id,
-          source: 'graph',
-          surface: 'directMessages',
-          receivedAt,
-          observedAt: nowMs,
-          classification: classification.classification,
-          status: 'outside-window',
-          escalationReason: 'outside-window',
-        });
-        continue;
-      }
-      if (classification.classification === 'needs-human') {
+  if (messagesAllowed) {
+    try {
+      const conversations = await listConversations(accountId, graphAccessToken, {
+        fetchImpl,
+        pageId,
+        pageAccessToken,
+      });
+      const messageAccessToken = text(pageId) && text(pageAccessToken) ? pageAccessToken : graphAccessToken;
+      const selfIds = new Set([String(accountId), String(pageId || '')].filter(Boolean));
+      for (const conversation of conversations.slice(0, MAX_CONVERSATIONS_PER_RUN)) {
+        const conversationId = id(conversation.id);
+        if (!conversationId) continue;
+        let messages;
+        try {
+          messages = (await listConversationMessages(conversationId, messageAccessToken, { fetchImpl })).sort(compareNewest);
+        } catch (error) {
+          addError(result, error);
+          continue;
+        }
+        result.conversationsSeen += 1;
+        const chronological = messages
+          .map((message) => ({
+            message,
+            senderId: messageAuthorId(message),
+            at: timestamp(message?.created_time || message?.timestamp),
+          }))
+          .sort((left, right) => (left.at || 0) - (right.at || 0));
+        const latestInbound = chronological.filter((entry) => entry.senderId && !selfIds.has(String(entry.senderId))).at(-1);
+        if (!latestInbound || !id(latestInbound.message?.id)) continue;
+        const latest = latestInbound.message;
+        const senderId = latestInbound.senderId;
+        const body = messageText(latest);
+        const messageAt = latestInbound.at !== null && latestInbound.at <= nowMs ? latestInbound.at : null;
+        const receivedAt = messageAt === null ? null : new Date(messageAt).toISOString();
+        const classification = classifyInstagramCommunityInteraction({ surface: 'directMessages', text: body });
+        const messageKey = hashAction('direct-message', latest.id);
+        const responseAfterInbound = messageAt === null ? null : chronological.find((entry) => (
+          entry.senderId && selfIds.has(String(entry.senderId)) && entry.at !== null && entry.at >= messageAt
+        ));
+        if (responseAfterInbound || actionTimestamp(state, messageKey) || (hasAction(state, messageKey) && !hasUncertainAction(state, messageKey))) {
+          recordCommunityInteraction(state, statePath, {
+            platformId: latest.id,
+            source: 'graph',
+            surface: 'directMessages',
+            receivedAt,
+            observedAt: nowMs,
+            classification: classification.classification,
+            status: 'responded',
+            responseAt: responseAfterInbound?.at ? new Date(responseAfterInbound.at).toISOString() : actionTimestamp(state, messageKey),
+          });
+          continue;
+        }
+        if (hasUncertainAction(state, messageKey)) {
+          recordCommunityInteraction(state, statePath, {
+            platformId: latest.id,
+            source: 'graph',
+            surface: 'directMessages',
+            receivedAt,
+            observedAt: nowMs,
+            classification: classification.classification,
+            status: 'delivery-uncertain',
+            escalationReason: 'delivery-uncertain',
+          });
+          continue;
+        }
+        if (messageAt === null || ageHours(messageAt, nowMs) < 0) {
+          recordCommunityInteraction(state, statePath, {
+            platformId: latest.id,
+            source: 'graph',
+            surface: 'directMessages',
+            receivedAt,
+            observedAt: nowMs,
+            classification: classification.classification,
+            status: 'age-unknown',
+            escalationReason: 'timestamp-unavailable',
+          });
+          continue;
+        }
+        if (ageHours(messageAt, nowMs) > DM_RESPONSE_WINDOW_HOURS) {
+          recordCommunityInteraction(state, statePath, {
+            platformId: latest.id,
+            source: 'graph',
+            surface: 'directMessages',
+            receivedAt,
+            observedAt: nowMs,
+            classification: classification.classification,
+            status: 'outside-window',
+            escalationReason: 'outside-window',
+          });
+          continue;
+        }
+        if (classification.classification === 'needs-human') {
+          recordCommunityInteraction(state, statePath, {
+            platformId: latest.id,
+            source: 'graph',
+            surface: 'directMessages',
+            receivedAt,
+            observedAt: nowMs,
+            classification: classification.classification,
+            status: 'needs-human',
+            escalationReason: classification.escalationReason,
+          });
+          continue;
+        }
+        if (result.directMessagesSent >= MAX_DM_REPLIES_PER_RUN) {
+          recordCommunityInteraction(state, statePath, {
+            platformId: latest.id,
+            source: 'graph',
+            surface: 'directMessages',
+            receivedAt,
+            observedAt: nowMs,
+            classification: classification.classification,
+            status: 'reply-limit-reached',
+            escalationReason: 'reply-limit-reached',
+          });
+          continue;
+        }
         recordCommunityInteraction(state, statePath, {
           platformId: latest.id,
           source: 'graph',
@@ -1020,83 +1099,59 @@ export async function runInstagramCommunityAutomation({
           observedAt: nowMs,
           classification: classification.classification,
           status: 'needs-human',
-          escalationReason: classification.escalationReason,
+          escalationReason: null,
         });
-        continue;
+        const reply = await graphJsonPost(`${encodeId(accountId)}/messages`, {
+          recipient: { id: senderId },
+          message: { text: buildDirectMessageReply({ message: body }) },
+        }, messageAccessToken, { fetchImpl });
+        if (reply.ok) {
+          persist(messageKey, 'direct-message');
+          result.directMessagesSent += 1;
+          recordCommunityInteraction(state, statePath, {
+            platformId: latest.id,
+            source: 'graph',
+            surface: 'directMessages',
+            receivedAt,
+            observedAt: nowMs,
+            classification: classification.classification,
+            status: 'responded',
+            responseAt: nowMs,
+          });
+        } else if (reply.uncertain === true) {
+          persist(messageKey, 'direct-message', 'uncertain');
+          addError(result, reply.error);
+          recordCommunityInteraction(state, statePath, {
+            platformId: latest.id,
+            source: 'graph',
+            surface: 'directMessages',
+            receivedAt,
+            observedAt: nowMs,
+            classification: classification.classification,
+            status: 'delivery-uncertain',
+            escalationReason: 'delivery-uncertain',
+          });
+        } else {
+          addError(result, reply.error);
+          recordCommunityInteraction(state, statePath, {
+            platformId: latest.id,
+            source: 'graph',
+            surface: 'directMessages',
+            receivedAt,
+            observedAt: nowMs,
+            classification: classification.classification,
+            status: 'delivery-failed',
+            escalationReason: 'delivery-failed',
+          });
+        }
       }
-      if (result.directMessagesSent >= MAX_DM_REPLIES_PER_RUN) {
-        recordCommunityInteraction(state, statePath, {
-          platformId: latest.id,
-          source: 'graph',
-          surface: 'directMessages',
-          receivedAt,
-          observedAt: nowMs,
-          classification: classification.classification,
-          status: 'reply-limit-reached',
-          escalationReason: 'reply-limit-reached',
-        });
-        continue;
-      }
-      recordCommunityInteraction(state, statePath, {
-        platformId: latest.id,
-        source: 'graph',
-        surface: 'directMessages',
-        receivedAt,
-        observedAt: nowMs,
-        classification: classification.classification,
-        status: 'needs-human',
-        escalationReason: null,
-      });
-      const reply = await graphJsonPost(`${encodeId(accountId)}/messages`, {
-        recipient: { id: senderId },
-        message: { text: buildDirectMessageReply({ message: body }) },
-      }, messageAccessToken, { fetchImpl });
-      if (reply.ok) {
-        persist(messageKey, 'direct-message');
-        result.directMessagesSent += 1;
-        recordCommunityInteraction(state, statePath, {
-          platformId: latest.id,
-          source: 'graph',
-          surface: 'directMessages',
-          receivedAt,
-          observedAt: nowMs,
-          classification: classification.classification,
-          status: 'responded',
-          responseAt: nowMs,
-        });
-      } else if (reply.uncertain === true) {
-        persist(messageKey, 'direct-message', 'uncertain');
-        addError(result, reply.error);
-        recordCommunityInteraction(state, statePath, {
-          platformId: latest.id,
-          source: 'graph',
-          surface: 'directMessages',
-          receivedAt,
-          observedAt: nowMs,
-          classification: classification.classification,
-          status: 'delivery-uncertain',
-          escalationReason: 'delivery-uncertain',
-        });
-      } else {
-        addError(result, reply.error);
-        recordCommunityInteraction(state, statePath, {
-          platformId: latest.id,
-          source: 'graph',
-          surface: 'directMessages',
-          receivedAt,
-          observedAt: nowMs,
-          classification: classification.classification,
-          status: 'delivery-failed',
-          escalationReason: 'delivery-failed',
-        });
-      }
+    } catch (error) {
+      addError(result, error);
+      safeLog(log, 'warn', `⚠️ Instagram community DM sync: ${error.message || error}`);
     }
-  } catch (error) {
-    addError(result, error);
-    safeLog(log, 'warn', `⚠️ Instagram community DM sync: ${error.message || error}`);
   }
 
-  for (const { group, media: mediaItem } of joined.matches) {
+  for (const { group, media: mediaItem } of (storiesAllowed ? joined.matches : [])) {
     if (!String(group.followUpFormat || '').startsWith('story-')) continue;
     const publishedAt = group.publishedAtMs;
     const age = ageHours(publishedAt, nowMs);
@@ -1184,9 +1239,10 @@ export async function runInstagramCommunityAutomation({
     }
   }
 
+  const deliveredActions = result.commentsReplied + result.privateRepliesSent + result.directMessagesSent + result.storiesPublished;
   result.status = result.errors.length > 0
-    ? result.commentsReplied + result.privateRepliesSent + result.directMessagesSent + result.storiesPublished > 0 ? 'partial' : 'api-error'
-    : 'completed';
+    ? deliveredActions > 0 ? 'partial' : 'api-error'
+    : result.blockedCapabilities.length > 0 ? 'capabilities-limited' : 'completed';
   state.updatedAt = new Date(nowMs).toISOString();
   saveCommunityState(statePath, state);
   result.outcomes = buildInstagramCommunityOutcomeSnapshot({

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * One-shot: publish Instagram/TikTok profile identifiers to Firebase Remote
- * Config. Public account identifiers only. The browser robot publishes
- * through the owner's authenticated Chrome profile; API access tokens remain
- * optional and are not needed for that route.
+ * Config. Public account identifiers and non-secret experiment settings only.
+ * Live Instagram publishing and measurement use Graph API credentials loaded
+ * separately from Remote Config after the required Meta grants are approved.
  *
  * Auth: GOOGLE_APPLICATION_CREDENTIALS → Firebase SA (Remote Config Admin).
  */
@@ -19,9 +19,9 @@ const PARAMS = {
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT: '100',
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS: '["navy-gradient","paper-amber","mint-ink","coral-night"]',
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT: '20',
-  // The authenticated Chrome Professional Dashboard is the current Insights
-  // source; Graph remains an explicit fallback when Meta grants a token.
-  SOCIAL_ROBOT_INSIGHTS_SOURCE: 'browser',
+  // Browser collection is not an authorized fallback. Use the Graph collector;
+  // its readiness remains false until the required account token is available.
+  SOCIAL_ROBOT_INSIGHTS_SOURCE: 'graph',
   INSTAGRAM_INSIGHTS_WINDOWS: '[24,72]',
   INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS: '72',
   // Legacy winner maps stay quarantined in code until the preregistered
@@ -50,7 +50,7 @@ const template = await fetchRcTemplate(rc);
 
 let changed = 0;
 const today = new Date().toISOString().slice(0, 10);
-const description = `Instagram/TikTok browser publishing and native-sound experiment settings (set ${today})`;
+const description = `Instagram Graph publishing and TikTok experiment settings (set ${today})`;
 for (const [key, value] of Object.entries(PARAMS)) {
   if (stageRcParam(template, key, value, description)) changed++;
 }

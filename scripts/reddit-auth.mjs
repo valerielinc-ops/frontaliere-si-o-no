@@ -60,6 +60,11 @@ import { URL } from 'node:url';
 import crypto from 'node:crypto';
 
 import { userAgent } from './lib/reddit-client.mjs';
+import {
+  persistSocialOAuthCredentials,
+  readSocialOAuthStorageCredentials,
+  validateSocialOAuthCredentialStorage,
+} from './lib/social-oauth-credential-store.mjs';
 
 const AUTHORIZE_ENDPOINT = 'https://www.reddit.com/api/v1/authorize';
 const TOKEN_ENDPOINT = 'https://www.reddit.com/api/v1/access_token';
@@ -109,7 +114,7 @@ async function exchangeCode(code) {
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok || !data.access_token) {
-    throw new Error(`token exchange failed (${res.status}): ${JSON.stringify(data)}`);
+    throw new Error('Reddit token exchange failed (HTTP ' + res.status + ')');
   }
   return data;
 }
@@ -136,6 +141,13 @@ async function main() {
     console.error('⚠️  REDDIT_CLIENT_ID is not set.');
     console.error('    Run `source bin/rc-env.sh` from the workspace root first.');
     process.exit(1);
+  }
+
+  let storageCredentials = null;
+  if (!urlOnly) {
+    if (!CLIENT_SECRET) throw new Error('REDDIT_CLIENT_SECRET is not set');
+    storageCredentials = readSocialOAuthStorageCredentials(process.env, 'reddit');
+    await validateSocialOAuthCredentialStorage({ credentials: storageCredentials, platform: 'reddit' });
   }
 
   const state = crypto.randomBytes(16).toString('hex');
@@ -194,26 +206,24 @@ async function main() {
   const tokens = await exchangeCode(code);
   const who = await whoAmI(tokens.access_token);
 
-  console.log('');
-  if (who) console.log(`✅ consented as u/${who}`);
-  console.log('');
-
-  if (tokens.refresh_token) {
-    console.log('✅ Store this in Firebase Remote Config:');
-    console.log(`SERVER_REDDIT_REFRESH_TOKEN=${tokens.refresh_token}`);
-    console.log('');
-    console.log('   (RC_TO_ENV maps SERVER_REDDIT_REFRESH_TOKEN → REDDIT_REFRESH_TOKEN,');
-    console.log('    which is what reddit-client.mjs reads. Store the SERVER_ name.)');
-  } else {
+  if (!tokens.refresh_token) {
     console.error('❌ No refresh_token in the response.');
     console.error('   The grant was almost certainly issued as duration=temporary.');
     console.error('   Re-run this helper — the URL it prints sets duration=permanent.');
     process.exitCode = 1;
+    return;
   }
+  await persistSocialOAuthCredentials({
+    credentials: storageCredentials,
+    platform: 'reddit',
+    parameters: { SERVER_REDDIT_REFRESH_TOKEN: tokens.refresh_token },
+  });
 
   console.log('');
-  console.log(`access_token expires_in: ${tokens.expires_in}s`);
-  console.log(`scope granted: ${tokens.scope || SCOPE}`);
+  console.log('✅ Reddit refresh token stored in the private server Remote Config namespace.');
+  if (who) console.log('consented account verified.');
+  console.log('access_token expires_in: ' + tokens.expires_in + 's');
+  console.log('scope granted: ' + (tokens.scope || SCOPE));
 }
 
 main().catch((err) => {

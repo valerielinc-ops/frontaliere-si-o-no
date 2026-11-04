@@ -1,9 +1,9 @@
 /**
  * remoteConfigSecrets.js — Fetch secrets from Firebase Remote Config (server-side)
  *
- * Uses the Firebase Admin SDK to read Remote Config parameters.
- * This avoids needing Cloud Secret Manager — keys are stored in Remote Config
- * and protected by App Check on callable functions.
+ * Uses the Firebase Admin SDK to read client and private server Remote Config
+ * templates. Credential readers use only the separate server template; they
+ * never fall back to parameters downloadable by application clients.
  *
  * Values are cached for 5 minutes to avoid excessive Remote Config reads. Once
  * that TTL expires, callers can use the cached template while one background
@@ -18,8 +18,11 @@ const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 const CACHE_MAX_STALE_MS = 60 * 60 * 1000; // 60 minutes
 const REMOTE_CONFIG_FETCH_TIMEOUT_MS = 8 * 1000; // 8 seconds
 const REMOTE_CONFIG_FETCH_TIMEOUT_CODE = 'REMOTE_CONFIG_FETCH_TIMEOUT';
+const REMOTE_CONFIG_SERVER_FETCH_TIMEOUT_CODE = 'REMOTE_CONFIG_SERVER_FETCH_TIMEOUT';
 let cachedTemplate = null;
 let cacheTimestamp = 0;
+let cachedServerTemplate = null;
+let serverCacheTimestamp = 0;
 
 // In-flight getTemplate() promise, coalesced across concurrent callers on a
 // cold/too-old cache and across stale-while-revalidate refreshes (#5766).
@@ -31,6 +34,7 @@ let cacheTimestamp = 0;
 // a failed fetch never stays stuck: the next call can retry fresh instead of
 // awaiting a dead promise.
 let fetchPromise = null;
+let serverFetchPromise = null;
 
 function createFetchTimeoutError() {
  const error = new Error(`Remote Config getTemplate timed out after ${REMOTE_CONFIG_FETCH_TIMEOUT_MS}ms`);
@@ -40,6 +44,16 @@ function createFetchTimeoutError() {
 
 function isFetchTimeoutError(error) {
  return error?.code === REMOTE_CONFIG_FETCH_TIMEOUT_CODE;
+}
+
+function createServerFetchTimeoutError() {
+  const error = new Error('Remote Config getServerTemplate timed out after ' + REMOTE_CONFIG_FETCH_TIMEOUT_MS + 'ms');
+  error.code = REMOTE_CONFIG_SERVER_FETCH_TIMEOUT_CODE;
+  return error;
+}
+
+function isServerFetchTimeoutError(error) {
+  return error?.code === REMOTE_CONFIG_SERVER_FETCH_TIMEOUT_CODE;
 }
 
 function startTemplateFetch() {
@@ -70,6 +84,36 @@ function startTemplateFetch() {
 
 function getTemplatePromise() {
  return fetchPromise || startTemplateFetch();
+}
+
+function startServerTemplateFetch() {
+  let remoteConfigPromise;
+  try {
+    remoteConfigPromise = getRemoteConfig().getServerTemplate();
+  } catch (error) {
+    remoteConfigPromise = Promise.reject(error);
+  }
+
+  let timeoutId;
+  const timeoutPromise = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => reject(createServerFetchTimeoutError()), REMOTE_CONFIG_FETCH_TIMEOUT_MS);
+  });
+  const attempt = Promise.race([remoteConfigPromise, timeoutPromise])
+    .then((template) => {
+      cachedServerTemplate = template;
+      serverCacheTimestamp = Date.now();
+      return template;
+    })
+    .finally(() => {
+      clearTimeout(timeoutId);
+      if (serverFetchPromise === attempt) serverFetchPromise = null;
+    });
+  serverFetchPromise = attempt;
+  return attempt;
+}
+
+function getServerTemplatePromise() {
+  return serverFetchPromise || startServerTemplateFetch();
 }
 
 /** Return the cached server-side template without exposing it to the browser. */
@@ -111,6 +155,48 @@ export async function getRemoteConfigTemplate() {
 }
 
 /**
+ * Fetch the private Firebase server template. This reader intentionally has
+ * no fallback to the client template, whose parameters are downloadable by
+ * application clients.
+ */
+export async function getServerRemoteConfigTemplate() {
+  const now = Date.now();
+  const hasCachedTemplate = cachedServerTemplate !== null;
+  if (!hasCachedTemplate) {
+    try {
+      await getServerTemplatePromise();
+    } catch (error) {
+      if (!isServerFetchTimeoutError(error)) throw error;
+      throw new Error(
+        'Remote Config server-template fetch timed out after ' + REMOTE_CONFIG_FETCH_TIMEOUT_MS + 'ms and no cached template is available',
+        { cause: error },
+      );
+    }
+  } else {
+    const age = now - serverCacheTimestamp;
+    if (age > CACHE_TTL_MS && age <= CACHE_MAX_STALE_MS) {
+      if (!serverFetchPromise) {
+        const refreshPromise = startServerTemplateFetch();
+        void refreshPromise.catch((error) => {
+          console.warn(
+            '[remoteConfigSecrets] background server-template refresh failed; keeping cached template:',
+            error?.message || error,
+          );
+        });
+      }
+    } else if (age > CACHE_MAX_STALE_MS) {
+      try {
+        await getServerTemplatePromise();
+      } catch (error) {
+        if (!isServerFetchTimeoutError(error)) throw error;
+        console.warn('[remoteConfigSecrets] server-template refresh timed out; serving cached template beyond max stale age');
+      }
+    }
+  }
+  return cachedServerTemplate;
+}
+
+/**
  * Fetch a Remote Config parameter value by key.
  * Returns empty string if the key doesn't exist.
  */
@@ -129,6 +215,15 @@ function cachedRemoteConfigValue(key) {
 export async function getRemoteConfigValue(key) {
  await getRemoteConfigTemplate();
  return cachedRemoteConfigValue(key);
+}
+
+/**
+ * Read a credential from the private server template, with no client-template
+ * fallback. Callers should use this for server-only social provider tokens.
+ */
+export async function getServerRemoteConfigValue(key) {
+  const template = await getServerRemoteConfigTemplate();
+  return template.evaluate().getString(key);
 }
 
 /** Read a feature-control value only while its cached template is within the stale limit. */

@@ -1,94 +1,79 @@
-# Robot social (Instagram; TikTok in sola lettura)
+# Robot social (Instagram Graph API; TikTok in sola lettura)
 
-Il robot pubblica i caroselli giornalieri su Instagram dal browser del Mac
-agenti. I Reel sperimentali usano la Graph API ufficiale e non passano dal
-browser. TikTok è escluso dalla pubblicazione automatica:
-il workflow `tiktok-daily-broadcast.yml` è ora solo un'anteprima manuale,
-`post-to-tiktok.mjs` blocca ogni invio reale e il robot filtra TikTok anche
-quando viene richiesto esplicitamente. La raccolta TikTok usa un workflow
-separato e di sola lettura per gli Insights autorizzati.
+Il robot Mac non pubblica caroselli né raccoglie Insights Instagram tramite
+browser. Feed, Reel, Stories e attività community usano le route Graph API
+ufficiali, quando grant e token sono pronti. Le vecchie voci in
+`data/instagram-queue.json` restano in hold e non vengono drenate dal browser.
+Senza token Graph il publisher schedulato fallisce in modo visibile; non lascia
+una coda che possa sembrare una pubblicazione riuscita.
 
-La precedente decisione del 2026-10-04 su cadenza e rischio dell'automazione
-descrive il comportamento storico. Non autorizza più l'invio automatico su
-TikTok alla luce delle linee guida correnti per i client di pubblicazione.
+TikTok resta escluso dalla pubblicazione automatica: il workflow
+`tiktok-daily-broadcast.yml` è un'anteprima, `post-to-tiktok.mjs` blocca gli
+invii reali e il robot filtra il canale anche quando viene richiesto. La
+raccolta TikTok usa un workflow separato per gli Insights autorizzati.
 
 ## Come funziona
 
-1. Il poster Instagram (`scripts/post-to-instagram.mjs`, workflow
-   `instagram-daily-broadcast.yml`) sceglie il carosello, genera le slide,
-   le carica sulla CDN e, quando il robot è il
-   trasporto, mettono il post pronto in `data/<canale>-queue.json` su `main`
-   (`scripts/lib/social-publish-queue.mjs`). Il workflow schedulato
-   `instagram-reel-experiment.yml` usa `scripts/post-to-instagram-reel.mjs` per
-   generare cover e MP4, pubblicarli con il container Graph API `REELS`, e
-   registrare l'esatto `mediaId` restituito da Meta. Il workflow rilegge le
-   vecchie voci Reel in coda e, se complete e ancora non pubblicate, le migra
-   alla Graph API. Il workflow TikTok omonimo è solo un'anteprima manuale e
-   non crea code.
-2. Il robot (`run.mjs`) legge la coda Instagram da `origin/main` e pubblica i
-   caroselli dalla pagina web della piattaforma. Eventuali voci Reel legacy
-   restano in hold nel robot e vengono pubblicate solo dal workflow Graph API.
-3. Solo dopo aver **visto la conferma** del carosello nella pagina,
-   lancia `social-robot-confirm.yml`, che sposta il post dalla coda al ledger
-   `data/<canale>-posted.json`. Un clic senza conferma visibile — o seguito da
-   qualunque errore, anche una verifica o un muro di login — resta
-   `unconfirmed`: il robot non lo ripubblica, apre una issue `needs-human` e
-   **si ferma su quella piattaforma** finché un umano non risolve la riga.
-   Non preme nemmeno un post successivo che ripete gli stessi articoli di un
-   clic non ancora arrivato nel ledger. Subito dopo la pubblicazione il
-   worker Chrome apre Inbox Instagram/Business Suite in sola lettura e registra
-   gli Insights leggendo le metriche visibili nel Professional Dashboard. Le
-   risposte community passano solo dal Graph API esplicitamente selezionato.
+1. `instagram-daily-broadcast.yml` seleziona e renderizza i caroselli, quindi
+   li pubblica con Graph API. Il ledger registra il `mediaId` esatto restituito
+   da Meta. Token/account mancanti e rifiuti definitivi fanno fallire il job;
+   uno slot vuoto o un cap raggiunto restano skip espliciti.
+2. `instagram-reel-experiment.yml` pubblica Reel con il container Graph API e
+   registra l'ID nativo. Il worker community usa Graph API per le risposte e le
+   Stories ammesse; non apre Chrome per leggere o pubblicare.
+3. `social-native-insights.yml` raccoglie le metriche native via Graph API e
+   salva dati privati. Le decisioni creative usano il protocollo a campione
+   fisso v4; righe browser o attribuzioni senza ID media esatto non qualificano
+   esperimenti o vincitori.
 
-Non c'è approvazione preventiva per i post ordinari. Un esito browser ambiguo è
-un'eccezione di recupero: mette in pausa Instagram e richiede una verifica
-operativa. Questo percorso non è ancora completamente autonomo. Un run verde
-di `instagram-daily-broadcast.yml` può indicare che il carosello è stato messo
-in coda; la pubblicazione viene registrata soltanto dopo la conferma del robot.
+Non c'è approvazione manuale per ogni post. Se Graph accetta il post e
+restituisce un `mediaId`, il publisher registra il risultato autonomamente.
+Un esito finale ambiguo mantiene la prenotazione e non viene ritentato alla
+cieca; finché non arriva una prova API positiva, il canale resta in hold per
+evitare duplicati. L'abilitazione live dipende da Meta App Review, grant e
+token effettivamente validi.
 
 Le funzioni storiche di riconciliazione TikTok restano nel codice per leggere
 eventuali record preesistenti, ma il robot non avvia più il browser TikTok e
 non cerca né pubblica nuovi contenuti su quel canale.
 
-Risolvere a mano un `unconfirmed` (nel journal
-`~/Library/Application Support/frontaliere/social-robot/journal.json`):
-se il post è online, registrarlo con `gh workflow run social-robot-confirm.yml`
-(il ledger ne contiene allora l'id e il blocco cade da solo); se non lo è,
-aggiungere `"resolvedAt": "<ora ISO>"` alla riga, o cancellarla.
-Questo è solo il recupero di un errore del browser, non un passaggio della
-gestione ordinaria dei contenuti.
+Le vecchie righe `unconfirmed` del journal sono residui del trasporto browser
+precedente. Non vengono ritentate dal publisher Graph e vanno riconciliate con
+la verifica nativa prima di essere archiviate.
 
 ## Interruttore (Firebase Remote Config)
 
-Parametro `SOCIAL_ROBOT_MODE`, letto dai poster in Actions e dal robot sul Mac:
+`SOCIAL_ROBOT_MODE` controlla il worker legacy e le azioni community; non può
+attivare la pubblicazione browser Instagram. Il feed schedulato usa readiness
+e token Graph indipendenti.
 
 | Valore | Caroselli | Reel | Robot |
 |---|---|---|---|
-| `off` | solo API | Graph API se le credenziali sono configurate | non fa nulla |
-| `dry` (default: assente, vuoto o sconosciuto) | API se ha le credenziali, altrimenti coda | Graph API se le credenziali sono configurate | arriva al bottone dei caroselli, screenshot, non preme |
-| `live` | sempre coda | Graph API se le credenziali sono configurate | pubblica solo caroselli Instagram in coda; TikTok è filtrato |
+| `off` | Graph API nel workflow schedulato | Graph API se le credenziali sono configurate | community disattivata |
+| `dry` (default: assente, vuoto o sconosciuto) | Graph API nel workflow schedulato | Graph API se le credenziali sono configurate | community in sola simulazione |
+| `live` | Graph API nel workflow schedulato | Graph API se le credenziali sono configurate | solo azioni Graph consentite; TikTok resta filtrato |
 
-In `live`, la stessa finestra avvia il worker browser di community e Insights.
-Il profilo Chrome persistente è la sola autenticazione necessaria; se la
-sessione mostra login o challenge il worker si ferma senza insistere e apre la
-diagnosi locale. `SOCIAL_ROBOT_INSIGHTS_SOURCE` vale `browser` di default;
-`graph` mantiene il vecchio percorso solo come fallback esplicito per la
-community.
+`SOCIAL_ROBOT_INSIGHTS_SOURCE=browser`, se ancora presente in Remote Config,
+non riattiva l'accesso browser: il worker ignora quel trasporto e il collector
+Graph separato resta l'unica fonte automatica. Il worker non usa il profilo
+Chrome per Instagram.
 
-I valori sono tutti più corti di sei caratteri: il loader di Remote Config non
-li maschera nei log di CI.
+Il launcher Mac importa da Remote Config solo `FB_PAGE_ID`,
+`FB_PAGE_ACCESS_TOKEN`, `FB_USER_ACCESS_TOKEN`, `INSTAGRAM_ACCESS_TOKEN`,
+`INSTAGRAM_BUSINESS_ACCOUNT_ID` e `SOCIAL_ROBOT_MODE`. L'account di servizio
+Firebase resta un file locale separato; il worker non carica nel proprio
+ambiente le altre credenziali configurate dal sito.
+
+I valori consentiti di `SOCIAL_ROBOT_MODE` sono più corti di sei caratteri; il
+loader di Remote Config non li maschera nei log di CI.
 
 ### Meta Insights e decisioni autonome
 
-Il worker legge dal Professional Dashboard autenticato due finestre per ogni
-post eleggibile: 24 ore per la diagnosi dell’hook e 72 ore per la decisione.
-Le righe vengono salvate nella collezione privata Firestore
-`social_native_insights/current`. Il workflow `instagram-insights-snapshot.yml`
-esporta i dati solo in `$RUNNER_TEMP`, stampa uno scorecard descrittivo e mostra
-candidati. `scripts/instagram-insights-decision.mjs` è un reporter legacy: il
-gate `AUTONOMOUS_PROMOTION_PROTOCOL_READY=false` mantiene chiuse le scritture
-Remote Config anche quando riceve `--apply`. Le vecchie soglie di 3
-osservazioni, 15%/0,5 punti percentuali e 20% di esplorazione non sono policy
+Il workflow `instagram-insights-snapshot.yml` esporta le osservazioni native
+solo in `$RUNNER_TEMP`, stampa uno scorecard descrittivo e mostra candidati.
+`scripts/instagram-insights-decision.mjs` è un reporter legacy: il gate
+`AUTONOMOUS_PROMOTION_PROTOCOL_READY=false` mantiene chiuse le scritture
+Remote Config anche quando riceve `--apply`. Le vecchie soglie non sono policy
 di promozione attiva.
 
 Il motore autorevole per gli esperimenti sociali è il protocollo a campione
@@ -100,10 +85,10 @@ non passano quei gate, i candidati restano descrittivi e l'assegnazione resta
 deterministica. Il dettaglio del protocollo è in
 `docs/social-ai-automation.md#learning-cadence-and-data-freshness`.
 
-Il percorso browser è la fonte attualmente configurata per gli Insights del
-robot; Graph API è separata e richiede i grant documentati. Un esito browser
-vuoto, incompleto o ambiguo resta non misurato: non viene convertito in zero e
-non abilita un vincitore.
+Graph API è l'unica fonte automatica di Insights. Le righe storiche browser
+possono restare in archivio, ma non sono prova di crescita né qualificano un
+vincitore; token e grant Meta devono essere verificati prima di chiamare il
+dato live.
 
 ### Esperimento audio TikTok (archiviato)
 
@@ -169,13 +154,13 @@ sia nelle righe del ledger TikTok (`creativeVariant`, `creativeLabel`,
 ## Comandi (sul Mac host agenti, dal checkout del sito)
 
 ```bash
-# Una volta: il proprietario fa il login nel profilo, poi chiude la finestra.
+# Diagnostica i canali browser; Instagram e TikTok in hold non aprono Chrome.
 node scripts/social-robot/run.mjs --login
 
-# Prova a secco (default): fino al bottone di pubblicazione, con screenshot.
+# Preview del worker (nessun browser Instagram e nessun publish Graph).
 node scripts/social-robot/run.mjs --dry-run --platform=instagram
 
-# Pubblicazione: preme solo se Remote Config dice `live`.
+# Community Graph API: le azioni reali richiedono Remote Config `live`.
 node scripts/social-robot/run.mjs --publish --platform=instagram
 
 # Anteprima testuale TikTok: non prepara o carica un contenuto multimediale.
@@ -187,31 +172,27 @@ npx tsx scripts/post-to-instagram-reel.mjs --dry-run --kind=article
 # La pubblicazione del Reel avviene dagli slot schedulati di
 # instagram-reel-experiment.yml via Graph API; non richiede il robot.
 
-# Launch agent: due finestre al giorno (default 11:30 e 18:30 ora locale,
-# SR_WINDOWS="HH:MM HH:MM" per cambiarle), più fino a 20 minuti casuali.
+# Launch agent: due finestre community al giorno (default 11:30 e 18:30 ora
+# locale, SR_WINDOWS="HH:MM HH:MM" per cambiarle), più fino a 20 minuti casuali.
 bash scripts/social-robot/launchd.sh install
 bash scripts/social-robot/launchd.sh status
 bash scripts/social-robot/launchd.sh uninstall
 ```
 
 Il launch agent non esegue il working tree del checkout (che può essere su un
-altro ramo): a ogni finestra estrae i file del robot da `origin/main` in uno
-snapshot nella cartella di stato e usa i `node_modules` del checkout. Serve una
-sessione grafica aperta sul Mac: il browser non è headless.
+altro ramo): a ogni finestra estrae i file del worker da `origin/main` in uno
+snapshot nella cartella di stato e usa i `node_modules` del checkout. Le azioni
+Instagram usano token Graph da Remote Config e non richiedono una sessione
+grafica o un profilo browser.
 
 ## Cadenza (`lib/cadence.mjs`)
 
-- al massimo 2 post al giorno per piattaforma, 1 per finestra;
-- il limite giornaliero somma i post confermati nel ledger remoto e i pressi locali
-  non ancora presenti lì, raggruppando i caroselli per media ID;
+- Instagram feed/Reel restano entro due post al giorno; il limite vive nelle
+  prenotazioni condivise Graph API e non dipende dal robot browser;
 - gli slot Reel Graph API sono coordinati con il broadcast giornaliero, per
   restare entro due pubblicazioni Instagram nei giorni schedulati;
-- 1,2-4,5 s fra un'azione e l'altra, digitazione carattere per carattere;
-- 1,5-6 minuti fra i contenuti Instagram nella stessa finestra;
-- dopo un muro di login o una verifica: piattaforma in pausa 12 ore;
-- dopo un clic senza conferma: piattaforma ferma finché un umano non risolve;
-- nel launch agent (`--jitter`) una sola prova a secco per post in coda, non
-  una per finestra; a mano `--dry-run` la ripete sempre;
+- le pause di battitura e i tempi browser documentano il vecchio trasporto e
+  non vengono applicati ai publisher Graph;
 - i Reel hanno slot schedulati il lunedì e il venerdì; seguono lo stesso tetto
   di 2 post Instagram al giorno;
 - una conferma inviata che dopo 2 ore non è ancora nel ledger viene rinviata
@@ -222,8 +203,8 @@ sessione grafica aperta sul Mac: il browser non è headless.
 | Cosa | Dove |
 |---|---|
 | Log | `~/Library/Logs/frontaliere/social-robot.log` |
-| Profilo, journal, diagnosi | `~/Library/Application Support/frontaliere/social-robot/` |
-| Screenshot e HTML di un errore o di una prova a secco | `.../social-robot/diagnostics/<ora>-<canale>-<id>/` |
+| Journal e stato community | `~/Library/Application Support/frontaliere/social-robot/` |
+| Diagnostica locale di un run browser legacy | `.../social-robot/diagnostics/<ora>-<canale>-<id>/` |
 | Errori | issue «Robot social: pubblicazione Instagram non riuscita» (deduplicata) |
 
 Per ogni voce Instagram con metadati creativi, il log contiene anche una riga
@@ -244,10 +225,8 @@ una fonte verificata restano da gestire da una persona; non fa outreach a
 freddo. Le Stories sono follow-up visuali statici: il worker non finge di poter
 creare sticker interattivi non esposti dal Content Publishing API.
 
-Nessuna credenziale passa dal repository: la sessione web resta solo nel
-profilo del browser sul Mac. Il Graph token opzionale, quando il fallback è
-stato scelto esplicitamente, viene caricato in memoria da Firebase Remote
-Config durante la finestra del launch agent.
+Nessuna credenziale passa dal repository: il token Graph viene caricato in
+memoria da Firebase Remote Config durante la finestra del launch agent.
 
 ## Test
 

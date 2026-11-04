@@ -19,10 +19,13 @@ describe('social automated delivery policy', () => {
     expect(shouldHoldAutomatedSocialDelivery('tiktok', { dryRun: true })).toBe(false);
   });
 
-  it('filters held platforms from a shared browser-robot run', () => {
+  it('holds Instagram browser delivery and TikTok while preserving previews', () => {
     expect(partitionAutomatedDeliveryChannels(['instagram', 'tiktok'])).toEqual({
-      allowed: ['instagram'],
+      allowed: [],
       held: [{
+        channel: 'instagram',
+        reason: expect.stringContaining('official Graph API'),
+      }, {
         channel: 'tiktok',
         reason: expect.stringContaining('eligible'),
       }],
