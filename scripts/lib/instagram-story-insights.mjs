@@ -59,6 +59,25 @@ function metricValue(item, metric) {
   return item?.value;
 }
 
+function navigationRowCount(row) {
+  const candidates = [];
+  for (const key of ['value', 'count']) {
+    const value = row[key];
+    if (value !== null && value !== undefined && value !== '') candidates.push(value);
+  }
+  for (const key of ['metric_values', 'metricValues']) {
+    const metricValues = row[key];
+    if (metricValues === null || metricValues === undefined) continue;
+    if (!Array.isArray(metricValues) || metricValues.length !== 1) return null;
+    const metricValue = metricValues[0];
+    candidates.push(record(metricValue) ? metricValue.value : metricValue);
+  }
+  if (candidates.length === 0) return null;
+  const counts = candidates.map(finiteCount);
+  if (counts.some((count) => count === null) || new Set(counts).size !== 1) return null;
+  return counts[0];
+}
+
 function navigationCounts(value) {
   const counts = {};
   const rows = Array.isArray(value)
@@ -88,10 +107,7 @@ function navigationCounts(value) {
       && uniqueKeys.size === 1
       ? normalizedKeys[0]
       : '';
-    const metricValues = Array.isArray(row.metric_values) ? row.metric_values[0]
-      : Array.isArray(row.metricValues) ? row.metricValues[0]
-        : null;
-    const count = finiteCount(row.value ?? row.count ?? (record(metricValues) ? metricValues.value : metricValues));
+    const count = navigationRowCount(row);
     const field = Object.hasOwn(NAVIGATION_FIELDS, key) ? NAVIGATION_FIELDS[key] : undefined;
     if (!key || count === null) {
       unmappedValid = false;
