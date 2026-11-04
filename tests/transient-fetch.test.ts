@@ -329,6 +329,17 @@ describe('httpFetchWithRetry', () => {
     expect(global.fetch).toHaveBeenCalledTimes(1);
   });
 
+  it('uses an injected fetch implementation when a caller provides one', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(mkResponse(200));
+    const res = await httpFetchWithRetry('https://x.test', {}, {
+      fetchImpl,
+      retryBaseMs: 0,
+    });
+
+    expect(res.status).toBe(200);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
   it('clears the connection-phase timer once headers arrive (body read not aborted)', async () => {
     // Regression: the helper must bound only the connection/header phase, not
     // the body read. An `AbortSignal.timeout` left armed through `.arrayBuffer()`
