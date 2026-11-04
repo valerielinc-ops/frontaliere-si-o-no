@@ -57,6 +57,40 @@ describe('assisted-application liveness active-ID corroboration', () => {
     expect(calls).not.toContain(`HEAD https://cdn.frontaliereticino.ch/data/job-detail/${JOB_ID}.json`);
   });
 
+  it('checks the actual posting page before a stale apply URL that redirects to the homepage', async () => {
+    const applyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/';
+    const postingUrl = 'https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-IT-Management-Assistenz/1426391333/';
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string) => {
+      calls.push(url);
+      if (url === JOB_ACTIVE_IDS_URL) return activeIndex([JOB_ID])();
+      if (url === postingUrl) {
+        const response = new Response(`<html><body>${'Helsana career posting. '.repeat(30)}<a>Jetzt bewerben</a></body></html>`, {
+          status: 200,
+          headers: { 'content-type': 'text/html' },
+        });
+        Object.defineProperty(response, 'url', { value: postingUrl });
+        return response;
+      }
+      if (url === applyUrl) return new Response(null, { status: 301, headers: { location: '/' } });
+      return new Response(null, { status: 404 });
+    });
+    const result = await checkPostingLiveness({
+      order: { jobId: JOB_ID, jobUrl: applyUrl },
+      posting: { postingUrl, applyUrl },
+      fetchImpl,
+      resolve: publicDns,
+    });
+
+    expect(result).toMatchObject({
+      page: { result: 'active' },
+      datasetGone: false,
+      closed: false,
+    });
+    expect(calls).toContain(postingUrl);
+    expect(calls).not.toContain(applyUrl);
+  });
+
   it('fails closed when the ID is active or the membership index is empty, stale, or unavailable', async () => {
     const missingIndex = new Date(Date.now() - 48 * 60 * 60_000).toISOString();
     const responses = [

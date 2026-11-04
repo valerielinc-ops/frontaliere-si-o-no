@@ -413,11 +413,11 @@ export async function buildDraft(ctx) {
   // → SAP SuccessFactors), or expose that ATS in its Jobs2Web boot config
   // (ORIOR): the channel is the ATS's, with its account.
   if (channel.type === 'employer_site') {
-    const target = await resolveApplyUrl(channel.applyUrl, { fetchImpl, resolve: ctx.resolve });
+    const target = await resolveApplyUrl(posting.postingUrl || channel.applyUrl, { fetchImpl, resolve: ctx.resolve });
     if (target.via) {
       channel = {
         ...classifyApplicationChannel({ applyUrl: target.applyUrl, postingText, applicationEmail: requirements.applicationEmail }),
-        postingUrl: channel.applyUrl,
+        postingUrl: posting.postingUrl || channel.applyUrl,
         via: target.via,
       };
       log('apply redirect', target.via, channel.type);
@@ -432,7 +432,7 @@ export async function buildDraft(ctx) {
     const portalResult = await readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
-      postingUrl: order.jobUrl || '',
+      postingUrl: posting.postingUrl || order.jobUrl || '',
       job: { title, company: order.companyName || '' },
       language,
       candidateLocale: locale,
@@ -516,7 +516,12 @@ export async function buildDraft(ctx) {
     completedAt: nowMs,
     language,
     candidateLocale: locale,
-    job: { source: posting.source, title, applyUrl: channel.applyUrl || String(order.jobUrl || '').slice(0, 1000) },
+    job: {
+      source: posting.source,
+      title,
+      postingUrl: posting.postingUrl || order.jobUrl || '',
+      applyUrl: channel.applyUrl || String(order.jobUrl || '').slice(0, 1000),
+    },
     liveness: { result: liveness.page?.result || null, code: liveness.page?.code || null, datasetGone: liveness.datasetGone },
     channel,
     requirementsRaw: requirements,
