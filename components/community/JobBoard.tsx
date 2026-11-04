@@ -4188,7 +4188,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // localStorage gating allows it, AND no existing alert covers this category.
  const isJobDetailView = selectedJob !== null;
  const conciergeAction = useConciergeProposalAction({ user: authUser, authLoading, onRequireAuth, locale, search: locationSearch });
- const userEmail = authUser?.email || null;
+ // Facebook can expose the account address only through providerData. The
+ // alert prompt and every CTA below use this value to decide whether the user
+ // can create directly, so keep the same resolver as JobAlertForm/App.
+ const userEmail = getAuthEmail(authUser);
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
  const assistedApplicationReviewToken = readReviewToken();
