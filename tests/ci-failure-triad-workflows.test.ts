@@ -6,6 +6,19 @@ import { validatePrBody } from '../scripts/ci/pr-body-check-gate.mjs';
 
 const WORKFLOW_DIR = '.github/workflows';
 
+const THIN_PROMOTION_RUNTIME_SPARSE_PATHS = [
+  '/.gitattributes',
+  '/.npmrc',
+  '/data/thin-page-promotions-active.json',
+  '/data/thin-page-promotions.jsonl',
+  '/package-lock.json',
+  '/package.json',
+  '/scripts/ci/',
+  '/scripts/fetch-thin-page-promotions.mjs',
+  '/scripts/lib/',
+  '/scripts/load-rc-env.mjs',
+];
+
 function workflow(name: string): any {
   return YAML.parse(fs.readFileSync(`${WORKFLOW_DIR}/${name}`, 'utf8'));
 }
@@ -69,6 +82,12 @@ describe('CI failure triad workflow regressions (#12926, #12902)', () => {
     expect(checkout?.with?.ref).toBe('${{ github.ref }}');
     expect(checkout?.with?.['fetch-depth']).toBe(1);
     expect(checkout?.with?.filter).toBe('blob:none');
+    const sparsePaths = String(checkout?.with?.['sparse-checkout'] || '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+    expect(sparsePaths).toEqual(THIN_PROMOTION_RUNTIME_SPARSE_PATHS);
+    expect(sparsePaths).not.toContain('/*');
     expect(checkout?.['timeout-minutes']).toBe(7);
     expect(historyIndex).toBeGreaterThan(steps.indexOf(checkout));
     expect(historyIndex).toBeLessThan(setupNodeIndex);
@@ -85,6 +104,10 @@ describe('CI failure triad workflow regressions (#12926, #12902)', () => {
     const steps = validation.steps;
     const checkout = steps.find((step: any) => step.uses?.startsWith('actions/checkout@'));
     const history = steps.find((step: any) => step.name === 'Measure blobless history fetch');
+    const sparsePaths = String(checkout?.with?.['sparse-checkout'] || '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
 
     expect(config.on.pull_request.paths).toContain('.github/workflows/refresh-thin-promotions.yml');
     expect(validation.if).toBe("github.event_name == 'pull_request'");
@@ -94,6 +117,8 @@ describe('CI failure triad workflow regressions (#12926, #12902)', () => {
     expect(checkout?.with?.['fetch-depth']).toBe(1);
     expect(checkout?.with?.filter).toBe('blob:none');
     expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(sparsePaths).toEqual(THIN_PROMOTION_RUNTIME_SPARSE_PATHS);
+    expect(sparsePaths).not.toContain('/*');
     expect(checkout?.['timeout-minutes']).toBe(7);
     expect(history?.env?.BRANCH).toBe('${{ github.event.pull_request.head.ref }}');
     expect(history?.env?.HEAD_SHA).toBe('${{ github.event.pull_request.head.sha }}');

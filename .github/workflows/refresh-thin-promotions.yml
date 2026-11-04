@@ -61,23 +61,21 @@ jobs:
           fetch-depth: 1
           filter: blob:none
           persist-credentials: false
+          # Keep this list equal to the scheduled writer below. The workflow
+          # only needs its runtime closure, not the repository's application
+          # tree; a root `/*` sparse profile still made checkout materialize
+          # almost all source files before this job could measure history.
           sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
+            /.gitattributes
+            /.npmrc
+            /data/thin-page-promotions-active.json
+            /data/thin-page-promotions.jsonl
+            /package-lock.json
+            /package.json
+            /scripts/ci/
+            /scripts/fetch-thin-page-promotions.mjs
+            /scripts/lib/
+            /scripts/load-rc-env.mjs
           sparse-checkout-cone-mode: false
         timeout-minutes: 7
 
@@ -140,24 +138,22 @@ jobs:
           # explicit ruleset bypass actor; do not leave checkout's
           # GITHUB_TOKEN extraheader in front of it.
           persist-credentials: false
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          # Manually curated runtime closure, kept in lockstep with the PR
+          # validation checkout above. The former generated `/*` profile
+          # excluded large data leaves but still materialized almost all code;
+          # run 41792863124 fetched in under a second and then timed out in
+          # this checkout's seven-minute materialization step.
           sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
+            /.gitattributes
+            /.npmrc
+            /data/thin-page-promotions-active.json
+            /data/thin-page-promotions.jsonl
+            /package-lock.json
+            /package.json
+            /scripts/ci/
+            /scripts/fetch-thin-page-promotions.mjs
+            /scripts/lib/
+            /scripts/load-rc-env.mjs
           sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
