@@ -24,6 +24,7 @@ import {
   loadSectionCanonicalOverrides,
   shadowedArticleIds,
 } from '../lib/article-canonical-overrides.mjs';
+import { fullyRetiredArticleIds } from '../lib/sitemap-retired-urls.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..', '..');
@@ -101,22 +102,19 @@ function buildValidSlugSets(slugs) {
 }
 
 // registryLabel is used only in log/error messages (e.g. "BLOG_SLUGS" / "SWISS_SLUGS").
-// shadowedArticleIds (optional Set): article IDs intentionally DROPPED from
-// this sitemap because their IT slug is a canonical-override key (issue
-// #3010 item 1, data/swiss-article-canonical-overrides.json) — same
-// convention as data/job-canonical-overrides.json for jobs. A sitemap <loc>
-// whose own page canonicalizes elsewhere is a hard CI gate failure
-// (audit-sitemap-canonicals.mjs / validate-sitemap-pages.mjs), so these
-// articles are excluded from the forward "must be present" check.
-function checkSitemap(label, xml, slugs, urlBase, locPatterns, registryLabel, shadowedArticleIds = new Set()) {
+// sitemapExcludedArticleIds (optional Set): article IDs intentionally absent
+// from this sitemap because they are canonical-overridden, index-excluded, or
+// fully retired at the edge. A dedicated absence gate covers those omissions;
+// they are excluded from the forward "must be present" check here.
+function checkSitemap(label, xml, slugs, urlBase, locPatterns, registryLabel, sitemapExcludedArticleIds = new Set()) {
   const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
   const validSlugs = buildValidSlugSets(slugs);
   let ok = true;
 
-  // Forward: every non-shadowed registry slug must be in the sitemap
+  // Forward: every non-excluded registry slug must be in the sitemap
   const missing = [];
   for (const [articleId, slugMap] of Object.entries(slugs)) {
-    if (shadowedArticleIds.has(articleId)) continue;
+    if (sitemapExcludedArticleIds.has(articleId)) continue;
     for (const [locale, slug] of Object.entries(slugMap)) {
       const base = urlBase[locale];
       if (!base) continue;
@@ -190,29 +188,33 @@ console.log(`Parsed ${Object.keys(swissSlugs).length} articles from services/rou
 // scripts/lib/article-canonical-overrides.mjs, shared with the engine's own
 // candidate-path literal, so this cannot drift from what the renderer does.
 //
-// Same exemption for the articles the corpus withdrew from the index: their
-// pages are noindex, so the publisher de-lists them from every sitemap.
-const blogShadowedArticleIds = new Set([
+// The same forward exemption also covers corpus rows withdrawn from the index
+// and rows whose four locale URLs are already retired at the edge: the
+// publisher de-lists both classes from every sitemap.
+const blogSitemapExcludedArticleIds = new Set([
   ...shadowedArticleIds(loadSectionCanonicalOverrides(root, 'frontaliere'), blogSlugs),
   ...indexExcludedArticleIds(root, 'frontaliere', blogSlugs),
+  ...fullyRetiredArticleIds(blogSlugs, BLOG_URL_BASE),
 ]);
-const swissShadowedArticleIds = new Set([
+const swissSitemapExcludedArticleIds = new Set([
   ...shadowedArticleIds(loadSectionCanonicalOverrides(root, 'svizzera'), swissSlugs),
   ...indexExcludedArticleIds(root, 'svizzera', swissSlugs),
+  ...fullyRetiredArticleIds(swissSlugs, SWISS_URL_BASE),
 ]);
-if (blogShadowedArticleIds.size || swissShadowedArticleIds.size) {
+if (blogSitemapExcludedArticleIds.size || swissSitemapExcludedArticleIds.size) {
   console.log(
-    `Canonical-override and index-excluded articles exempted: ${blogShadowedArticleIds.size} frontaliere, ${swissShadowedArticleIds.size} svizzera`,
+    `Canonical-override, index-excluded and fully retired articles exempted: `
+      + `${blogSitemapExcludedArticleIds.size} frontaliere, ${swissSitemapExcludedArticleIds.size} svizzera`,
   );
 }
 
 let exitCode = 0;
 
 const blogXml = readFileSync(resolve(root, 'public/sitemap-blog.xml'), 'utf-8');
-if (!checkSitemap('sitemap-blog.xml', blogXml, blogSlugs, BLOG_URL_BASE, BLOG_LOC_PATTERNS, 'BLOG_SLUGS', blogShadowedArticleIds)) exitCode = 1;
+if (!checkSitemap('sitemap-blog.xml', blogXml, blogSlugs, BLOG_URL_BASE, BLOG_LOC_PATTERNS, 'BLOG_SLUGS', blogSitemapExcludedArticleIds)) exitCode = 1;
 
 const swissXml = readFileSync(resolve(root, 'public/sitemap-blog-ch.xml'), 'utf-8');
-if (!checkSitemap('sitemap-blog-ch.xml', swissXml, swissSlugs, SWISS_URL_BASE, SWISS_LOC_PATTERNS, 'SWISS_SLUGS', swissShadowedArticleIds)) exitCode = 1;
+if (!checkSitemap('sitemap-blog-ch.xml', swissXml, swissSlugs, SWISS_URL_BASE, SWISS_LOC_PATTERNS, 'SWISS_SLUGS', swissSitemapExcludedArticleIds)) exitCode = 1;
 
 // sitemap-news.xml is SHARED across both sections — checked backward only,
 // once per registry, against that registry's own hub URL shape.
