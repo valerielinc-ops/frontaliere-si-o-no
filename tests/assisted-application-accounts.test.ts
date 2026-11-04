@@ -157,7 +157,7 @@ describe('portal account pages', () => {
   it('finds the create-account link and button of SuccessFactors in the four languages', () => {
     // Coop's career site, 2026-10-02: the link is a question and its answer.
     for (const label of [
-      'Konto erstellen', 'Jetzt registrieren', 'Konto anlegen', 'Noch kein Profil? Hier registrieren',
+      'Konto erstellen', 'Jetzt registrieren', 'Konto anlegen', 'Bewerbungskonto erstellen', 'Noch kein Profil? Hier registrieren',
       'Sie haben noch kein Bewerbungskonto? Melden Sie sich jetzt an.',
       'Crea account', 'Non hai ancora un profilo? Registrati qui', 'Registrati',
       'Create profile', 'Create a profile', 'Profil erstellen', 'Crea un profilo', 'Créer un profil',

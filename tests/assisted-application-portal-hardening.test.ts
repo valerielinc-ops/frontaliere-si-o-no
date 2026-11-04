@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
+import { CREATE_ACCOUNT_RE, isExplicitSignInNavigationLabel } from '../scripts/assisted-application/lib/portal/account.mjs';
 import {
   candidateForForm,
   COOKIE_ACCEPT_RE,
@@ -505,6 +506,29 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(controls.review?.id).not.toBe('outside-review');
     expect(controls.accept).toMatchObject({ id: 'accept', disabled: true });
     expect(controls.accept?.id).not.toBe('outside-accept');
+  });
+
+  it('binds the career74 registration CTA to its privacy trigger', () => {
+    const snapshot = {
+      url: 'https://career74.sapsf.eu/career',
+      fields: [
+        { id: 'email', kind: 'text', label: 'E-Mail-Adresse: *', form: 0 },
+        { id: 'email-repeat', kind: 'text', label: 'E-Mail-Adresse wiederholen: *', form: 0 },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort *', form: 0 },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Passwort wiederholen: *', form: 0 },
+        { id: 'first-name', kind: 'text', label: 'Vorname: *', form: 0 },
+        { id: 'last-name', kind: 'text', label: 'Nachname: *', form: 0 },
+        { id: 'country', kind: 'select', label: 'Land des Wohnorts:*', form: 0 },
+      ],
+      buttons: [
+        { id: 'privacy', text: 'Lesen und akzeptieren Sie die Datenschutzerklärung', form: 0, disabled: false },
+        { id: 'create', text: 'Bewerbungskonto erstellen', form: 0, disabled: true },
+      ],
+    };
+
+    expect(CREATE_ACCOUNT_RE.test(snapshot.buttons[1].text)).toBe(true);
+    expect(isExplicitSignInNavigationLabel('Anmelden / Bewerbungskonto erstellen')).toBe(false);
+    expect(privacyConsentControls(snapshot).trigger).toMatchObject({ id: 'privacy', form: 0 });
   });
 
   it('prefers the newly opened DPCS dialog when an earlier modal has a matching review', () => {
