@@ -528,9 +528,9 @@ export default function JobAlertForm({
  const pendingReplayInFlightRef = useRef(false);
  useEffect(() => {
     // Firebase may expose a signed-in user before the provider email has been
-    // copied to the top-level user object (notably Facebook). Do not consume
-    // the intent until the shared resolver has a usable address, or the alert
-    // would be lost before `createAlert` can validate it.
+    // copied to the top-level user object (notably Facebook). Do not read the
+    // intent until the shared resolver has a usable address, or the replay
+    // would start before `createAlert` can validate it.
     if (!authUser || !authEmail || pendingReplayInFlightRef.current) return;
     const pending = peekPendingJobAlert();
     if (!pending) return;
