@@ -5,7 +5,7 @@ import { isApplicationConciergeRenewalEnabledFor } from './applicationConciergeR
 import { paymentReminderUrl } from './applicationConciergePaymentReminders.js';
 import { createHash, randomUUID } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
-import { APPLICATION_CONCIERGE_SERVICES_COLLECTION, APPLICATION_CONCIERGE_MAX_POSITIONS, APPLICATION_CONCIERGE_MATCHING_VERSION, acceptedPositionsCount, serviceIsActive, timestampMillis } from './applicationConciergeConstants.js';
+import { APPLICATION_CONCIERGE_SERVICES_COLLECTION, APPLICATION_CONCIERGE_MATCHING_VERSION, acceptedPositionsCount, serviceIsActive, servicePositionLimit, timestampMillis } from './applicationConciergeConstants.js';
 import {
   conciergeMatchingRecoveryContext,
   conciergeMatchingVersionRefreshReady,
@@ -26,7 +26,7 @@ const REFRESH_LEASE_MS = 10 * 60 * 1000;
 // processApplicationConciergeCv is capped at 540s; never reclaim a live worker before that cap.
 const WORKER_LEASE_MS = 10 * 60 * 1000;
 function underCap(service) {
-  return acceptedPositionsCount(service) < (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS);
+  return acceptedPositionsCount(service) < servicePositionLimit(service);
 }
 
 export function isFreshConciergeProposalRefreshRequest(before, after) {

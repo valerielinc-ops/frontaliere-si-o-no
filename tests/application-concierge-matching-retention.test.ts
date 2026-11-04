@@ -103,6 +103,22 @@ function serializeTransactions(store: ReturnType<typeof createMemoryFirestore>) 
 afterEach(() => vi.unstubAllGlobals());
 
 describe('application concierge proposal retention', () => {
+  it('applies the product-wide position cap to legacy services with a larger stored limit', async () => {
+    const store = matchingFixture();
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH), maxPositions: 20, acceptedPositionsCount: 10 });
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(runApplicationConciergeMatching({
+      db: store.db,
+      serviceId: SERVICE_ID,
+      jobIndexUrl: 'https://jobs.example.test/index',
+    })).resolves.toEqual({ status: 'skipped', reason: 'position_limit_reached' });
+
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(store.read(PROPOSAL_PATH)).toMatchObject({ status: 'proposed' });
+  });
+
   it('preserves existing proposals if retrieving the job index fails', async () => {
     const store = matchingFixture();
     vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('job_index_unavailable'); }));
