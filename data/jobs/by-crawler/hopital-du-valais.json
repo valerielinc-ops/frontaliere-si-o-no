@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-11-03T21:29:44.018Z",
-  "runId": "41718826144",
+  "assembledAt": "2026-11-04T09:13:00.424Z",
+  "runId": "41804745135",
   "jobs": [
     {
       "id": "hopital-du-valais-58323e4bcee1",
@@ -47,7 +47,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4efe0cbb87918f54dbd6ebd30cbb35be/ATSANN0004722/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:34.947Z",
+      "crawledAt": "2026-11-04T09:12:55.114Z",
       "_hvsMeta": {
         "number": "ATSANN0004722",
         "sysId": "4efe0cbb87918f54dbd6ebd30cbb35be",
@@ -87,7 +87,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:29:34.947Z",
+      "validThrough": "2026-12-04T09:12:55.114Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/022404fb83d9c39417a39d20ceaad393/ATSANN0004721/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:34.567Z",
+      "crawledAt": "2026-11-04T09:12:54.720Z",
       "_hvsMeta": {
         "number": "ATSANN0004721",
         "sysId": "022404fb83d9c39417a39d20ceaad393",
@@ -174,7 +174,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:29:34.567Z",
+      "validThrough": "2026-12-04T09:12:54.720Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -221,7 +221,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3bc394fb87158f54dbd6ebd30cbb35f1/ATSANN0004725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:34.189Z",
+      "crawledAt": "2026-11-04T09:12:54.317Z",
       "_hvsMeta": {
         "number": "ATSANN0004725",
         "sysId": "3bc394fb87158f54dbd6ebd30cbb35f1",
@@ -261,7 +261,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:29:34.189Z",
+      "validThrough": "2026-12-04T09:12:54.317Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -308,7 +308,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/ATSANN0004728/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:33.812Z",
+      "crawledAt": "2026-11-04T09:12:53.932Z",
       "_hvsMeta": {
         "number": "ATSANN0004728",
         "sysId": "3706103387958f54dbd6ebd30cbb35f5",
@@ -342,7 +342,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:29:33.812Z",
+      "validThrough": "2026-12-04T09:12:53.932Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -389,7 +389,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/470810f387d58f54dbd6ebd30cbb3533/ATSANN0004731/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:33.435Z",
+      "crawledAt": "2026-11-04T09:12:53.542Z",
       "_hvsMeta": {
         "number": "ATSANN0004731",
         "sysId": "470810f387d58f54dbd6ebd30cbb3533",
@@ -429,7 +429,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:29:33.435Z",
+      "validThrough": "2026-12-04T09:12:53.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -476,7 +476,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/efd69cf787958f54dbd6ebd30cbb3575/ATSANN0004729/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:33.047Z",
+      "crawledAt": "2026-11-04T09:12:53.154Z",
       "_hvsMeta": {
         "number": "ATSANN0004729",
         "sysId": "efd69cf787958f54dbd6ebd30cbb3575",
@@ -516,7 +516,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:29:33.047Z",
+      "validThrough": "2026-12-04T09:12:53.154Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -563,7 +563,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:32.668Z",
+      "crawledAt": "2026-11-04T09:12:52.767Z",
       "_hvsMeta": {
         "number": "ATSANN0004869",
         "sysId": "fb1bef51470f8310296bd1eb736d4347",
@@ -600,7 +600,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:29:32.668Z",
+      "validThrough": "2026-12-04T09:12:52.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -647,7 +647,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:32.279Z",
+      "crawledAt": "2026-11-04T09:12:52.373Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -681,7 +681,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:29:32.279Z",
+      "validThrough": "2026-12-07T09:12:52.373Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -728,7 +728,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3925254147538354ff8065f8736d4338/ATSANN0004899/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:31.881Z",
+      "crawledAt": "2026-11-04T09:12:51.979Z",
       "_hvsMeta": {
         "number": "ATSANN0004899",
         "sysId": "3925254147538354ff8065f8736d4338",
@@ -767,7 +767,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:29:31.881Z",
+      "validThrough": "2026-12-10T09:12:51.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -814,7 +814,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6fc6a771971fcb501b87322f2153af21/ATSANN0004900/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:31.504Z",
+      "crawledAt": "2026-11-04T09:12:51.586Z",
       "_hvsMeta": {
         "number": "ATSANN0004900",
         "sysId": "6fc6a771971fcb501b87322f2153af21",
@@ -853,7 +853,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:29:31.504Z",
+      "validThrough": "2026-12-12T09:12:51.586Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -900,7 +900,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cf492ffd971fcb501b87322f2153af75/ATSANN0004902/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:31.122Z",
+      "crawledAt": "2026-11-04T09:12:51.193Z",
       "_hvsMeta": {
         "number": "ATSANN0004902",
         "sysId": "cf492ffd971fcb501b87322f2153af75",
@@ -942,7 +942,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:29:31.122Z",
+      "validThrough": "2026-12-12T09:12:51.193Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -989,7 +989,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9b68ebf9971fcb501b87322f2153af18/ATSANN0004901/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:30.685Z",
+      "crawledAt": "2026-11-04T09:12:50.800Z",
       "_hvsMeta": {
         "number": "ATSANN0004901",
         "sysId": "9b68ebf9971fcb501b87322f2153af18",
@@ -1029,7 +1029,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:29:30.685Z",
+      "validThrough": "2026-12-12T09:12:50.800Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1076,7 +1076,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6456fbb5479f0710ff8065f8736d4368/ATSANN0004904/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:30.306Z",
+      "crawledAt": "2026-11-04T09:12:50.402Z",
       "_hvsMeta": {
         "number": "ATSANN0004904",
         "sysId": "6456fbb5479f0710ff8065f8736d4368",
@@ -1116,7 +1116,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:29:30.306Z",
+      "validThrough": "2026-12-13T09:12:50.402Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1163,7 +1163,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/facd39e6979f839012f9322f2153af5a/ATSANN0004920/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:29.915Z",
+      "crawledAt": "2026-11-04T09:12:50.010Z",
       "_hvsMeta": {
         "number": "ATSANN0004920",
         "sysId": "facd39e6979f839012f9322f2153af5a",
@@ -1197,7 +1197,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:29:29.915Z",
+      "validThrough": "2026-12-14T09:12:50.010Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1244,7 +1244,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/17bdd6924757cb14296bd1eb736d4385/ATSANN0004919/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:29.536Z",
+      "crawledAt": "2026-11-04T09:12:49.601Z",
       "_hvsMeta": {
         "number": "ATSANN0004919",
         "sysId": "17bdd6924757cb14296bd1eb736d4385",
@@ -1284,7 +1284,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:29:29.536Z",
+      "validThrough": "2026-12-14T09:12:49.601Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1331,7 +1331,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f38b372974e0390316bb0b71153afa1/ATSANN0004805/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:29.132Z",
+      "crawledAt": "2026-11-04T09:12:49.210Z",
       "_hvsMeta": {
         "number": "ATSANN0004805",
         "sysId": "8f38b372974e0390316bb0b71153afa1",
@@ -1371,7 +1371,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:29:29.132Z",
+      "validThrough": "2026-12-29T09:12:49.210Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1418,7 +1418,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dd66a35bc3ab0f18a043be4c05013142/ATSANN0004943/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:28.752Z",
+      "crawledAt": "2026-11-04T09:12:48.821Z",
       "_hvsMeta": {
         "number": "ATSANN0004943",
         "sysId": "dd66a35bc3ab0f18a043be4c05013142",
@@ -1458,7 +1458,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:29:28.752Z",
+      "validThrough": "2026-12-30T09:12:48.821Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1505,7 +1505,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/56597bad97b387941b87322f2153affa/ATSANN0004959/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:28.371Z",
+      "crawledAt": "2026-11-04T09:12:48.436Z",
       "_hvsMeta": {
         "number": "ATSANN0004959",
         "sysId": "56597bad97b387941b87322f2153affa",
@@ -1545,7 +1545,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:29:28.371Z",
+      "validThrough": "2027-01-06T09:12:48.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1592,7 +1592,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cf1d6c8a477f8350ff8065f8736d4390/ATSANN0004961/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:27.992Z",
+      "crawledAt": "2026-11-04T09:12:48.020Z",
       "_hvsMeta": {
         "number": "ATSANN0004961",
         "sysId": "cf1d6c8a477f8350ff8065f8736d4390",
@@ -1634,7 +1634,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:29:27.992Z",
+      "validThrough": "2027-01-07T09:12:48.020Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1681,7 +1681,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6f53e9c697bf0b1812f9322f2153af93/ATSANN0004962/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:27.586Z",
+      "crawledAt": "2026-11-04T09:12:47.611Z",
       "_hvsMeta": {
         "number": "ATSANN0004962",
         "sysId": "6f53e9c697bf0b1812f9322f2153af93",
@@ -1721,7 +1721,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:29:27.586Z",
+      "validThrough": "2027-01-07T09:12:47.611Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1768,7 +1768,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:27.209Z",
+      "crawledAt": "2026-11-04T09:12:46.830Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -1802,7 +1802,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:29:27.209Z",
+      "validThrough": "2027-01-11T09:12:46.830Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1849,7 +1849,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/56ad87e347b30f50296bd1eb736d43f8/ATSANN0004967/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:26.827Z",
+      "crawledAt": "2026-11-04T09:12:46.434Z",
       "_hvsMeta": {
         "number": "ATSANN0004967",
         "sysId": "56ad87e347b30f50296bd1eb736d43f8",
@@ -1889,7 +1889,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:29:26.827Z",
+      "validThrough": "2027-01-12T09:12:46.434Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1936,7 +1936,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/315bf223c37b8fd8a043be4c05013174/ATSANN0004966/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:26.448Z",
+      "crawledAt": "2026-11-04T09:12:46.024Z",
       "_hvsMeta": {
         "number": "ATSANN0004966",
         "sysId": "315bf223c37b8fd8a043be4c05013174",
@@ -1962,7 +1962,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:29:26.448Z",
+      "validThrough": "2027-01-12T09:12:46.024Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2009,7 +2009,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6fa87773473bcf50296bd1eb736d4395/ATSANN0004970/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:26.069Z",
+      "crawledAt": "2026-11-04T09:12:45.636Z",
       "_hvsMeta": {
         "number": "ATSANN0004970",
         "sysId": "6fa87773473bcf50296bd1eb736d4395",
@@ -2049,7 +2049,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:29:26.069Z",
+      "validThrough": "2027-01-13T09:12:45.636Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2096,7 +2096,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c81a3ccc47081390296bd1eb736d43cd/ATSANN0004971/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:25.683Z",
+      "crawledAt": "2026-11-04T09:12:45.247Z",
       "_hvsMeta": {
         "number": "ATSANN0004971",
         "sysId": "c81a3ccc47081390296bd1eb736d43cd",
@@ -2136,7 +2136,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:29:25.683Z",
+      "validThrough": "2027-01-13T09:12:45.247Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2183,7 +2183,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c47fc994470cd790ff8065f8736d4339/ATSANN0004972/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:25.281Z",
+      "crawledAt": "2026-11-04T09:12:44.838Z",
       "_hvsMeta": {
         "number": "ATSANN0004972",
         "sysId": "c47fc994470cd790ff8065f8736d4339",
@@ -2223,7 +2223,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:29:25.281Z",
+      "validThrough": "2027-01-14T09:12:44.838Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2270,7 +2270,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/984d5d11470853d0ff8065f8736d4347/ATSANN0004973/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:24.900Z",
+      "crawledAt": "2026-11-04T09:12:44.449Z",
       "_hvsMeta": {
         "number": "ATSANN0004973",
         "sysId": "984d5d11470853d0ff8065f8736d4347",
@@ -2310,7 +2310,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:29:24.900Z",
+      "validThrough": "2027-01-17T09:12:44.449Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2357,7 +2357,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4cd23cbe4747cb90ff8065f8736d43a7/ATSANN0004885/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:24.522Z",
+      "crawledAt": "2026-11-04T09:12:44.040Z",
       "_hvsMeta": {
         "number": "ATSANN0004885",
         "sysId": "4cd23cbe4747cb90ff8065f8736d43a7",
@@ -2394,7 +2394,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:29:24.522Z",
+      "validThrough": "2027-01-17T09:12:44.040Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2441,7 +2441,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:24.143Z",
+      "crawledAt": "2026-11-04T09:12:43.645Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -2492,7 +2492,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:29:24.143Z",
+      "validThrough": "2026-12-14T09:12:43.645Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2539,7 +2539,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/721b233dc348575ca043be4c05013149/ATSANN0004975/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:23.763Z",
+      "crawledAt": "2026-11-04T09:12:43.253Z",
       "_hvsMeta": {
         "number": "ATSANN0004975",
         "sysId": "721b233dc348575ca043be4c05013149",
@@ -2579,7 +2579,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:29:23.763Z",
+      "validThrough": "2027-01-19T09:12:43.253Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2626,7 +2626,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a9b9f7f9c34c575ca043be4c050131f9/ATSANN0004976/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:23.377Z",
+      "crawledAt": "2026-11-04T09:12:42.870Z",
       "_hvsMeta": {
         "number": "ATSANN0004976",
         "sysId": "a9b9f7f9c34c575ca043be4c050131f9",
@@ -2666,7 +2666,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:29:23.377Z",
+      "validThrough": "2027-01-19T09:12:42.870Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2713,7 +2713,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d1a382b397005b1012f9322f2153af1f/ATSANN0004978/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:22.981Z",
+      "crawledAt": "2026-11-04T09:12:42.475Z",
       "_hvsMeta": {
         "number": "ATSANN0004978",
         "sysId": "d1a382b397005b1012f9322f2153af1f",
@@ -2753,7 +2753,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:29:22.981Z",
+      "validThrough": "2027-01-25T09:12:42.475Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2800,7 +2800,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fd6bb74c47dcd750ff8065f8736d43be/ATSANN0004981/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:22.588Z",
+      "crawledAt": "2026-11-04T09:12:42.087Z",
       "_hvsMeta": {
         "number": "ATSANN0004981",
         "sysId": "fd6bb74c47dcd750ff8065f8736d43be",
@@ -2842,7 +2842,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:29:22.588Z",
+      "validThrough": "2027-01-26T09:12:42.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2889,7 +2889,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/136fde4c97549b101b87322f2153af78/ATSANN0004979/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:22.215Z",
+      "crawledAt": "2026-11-04T09:12:41.694Z",
       "_hvsMeta": {
         "number": "ATSANN0004979",
         "sysId": "136fde4c97549b101b87322f2153af78",
@@ -2929,7 +2929,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:29:22.215Z",
+      "validThrough": "2027-01-26T09:12:41.694Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2976,7 +2976,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/39138054971cdb101b87322f2153af70/ATSANN0004982/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:21.835Z",
+      "crawledAt": "2026-11-04T09:12:41.303Z",
       "_hvsMeta": {
         "number": "ATSANN0004982",
         "sysId": "39138054971cdb101b87322f2153af70",
@@ -3018,7 +3018,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:29:21.835Z",
+      "validThrough": "2027-01-26T09:12:41.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3065,7 +3065,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b96018e8c3d45350a043be4c05013111/ATSANN0004983/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:21.457Z",
+      "crawledAt": "2026-11-04T09:12:40.911Z",
       "_hvsMeta": {
         "number": "ATSANN0004983",
         "sysId": "b96018e8c3d45350a043be4c05013111",
@@ -3090,7 +3090,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:29:21.457Z",
+      "validThrough": "2027-01-27T09:12:40.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3137,7 +3137,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/96ae497047d81710ff8065f8736d439b/ATSANN0004985/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:21.069Z",
+      "crawledAt": "2026-11-04T09:12:40.500Z",
       "_hvsMeta": {
         "number": "ATSANN0004985",
         "sysId": "96ae497047d81710ff8065f8736d439b",
@@ -3177,7 +3177,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:29:21.069Z",
+      "validThrough": "2027-01-28T09:12:40.500Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3224,7 +3224,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc4c8a3c47585710ff8065f8736d4317/ATSANN0004986/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:20.200Z",
+      "crawledAt": "2026-11-04T09:12:39.607Z",
       "_hvsMeta": {
         "number": "ATSANN0004986",
         "sysId": "bc4c8a3c47585710ff8065f8736d4317",
@@ -3264,7 +3264,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:29:20.200Z",
+      "validThrough": "2027-01-28T09:12:39.607Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3311,7 +3311,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6a0a7f67c3fbcfd8a043be4c050131fb/ATSANN0004968/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:19.794Z",
+      "crawledAt": "2026-11-04T09:12:39.215Z",
       "_hvsMeta": {
         "number": "ATSANN0004968",
         "sysId": "6a0a7f67c3fbcfd8a043be4c050131fb",
@@ -3351,7 +3351,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:29:19.794Z",
+      "validThrough": "2027-01-12T09:12:39.215Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3398,7 +3398,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d1d61398350171017a39d20ceaad3fc/ATSANN0004988/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:19.415Z",
+      "crawledAt": "2026-11-04T09:12:38.824Z",
       "_hvsMeta": {
         "number": "ATSANN0004988",
         "sysId": "4d1d61398350171017a39d20ceaad3fc",
@@ -3438,7 +3438,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:29:19.415Z",
+      "validThrough": "2027-01-31T09:12:38.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3485,7 +3485,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7d13df21c37fc398a043be4c05013182/ATSANN0004957/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:19.035Z",
+      "crawledAt": "2026-11-04T09:12:38.443Z",
       "_hvsMeta": {
         "number": "ATSANN0004957",
         "sysId": "7d13df21c37fc398a043be4c05013182",
@@ -3525,7 +3525,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:29:19.035Z",
+      "validThrough": "2027-01-05T09:12:38.443Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3572,7 +3572,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:29:18.634Z",
+      "crawledAt": "2026-11-04T09:12:38.055Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -3591,7 +3591,6 @@
           "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-30T11:18:37.490Z",
       "salaryMin": 58300,
       "salaryMax": 81300,
@@ -3610,34 +3609,34 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:29:18.634Z",
+      "validThrough": "2027-02-01T09:12:38.055Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-du-valais-ec0f56e5a396",
       "slug": "un-tirocinante-pre-es-per-l-anno-2027-2028-hopital-du-valais-sierre",
       "slugByLocale": {
-        "fr": "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre",
         "it": "un-tirocinante-pre-es-per-l-anno-2027-2028-hopital-du-valais-sierre",
-        "en": "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre",
-        "de": "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
+        "en": "a-pre-hes-trainee-for-the-year-2027-2028-hopital-du-valais-sierre",
+        "de": "ein-pre-hes-trainee-fur-das-jahr-2027-2028-hopital-du-valais-sierre",
+        "fr": "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Un-e stagiaire pré-HES pour l’année 2027-2028",
       "titleByLocale": {
-        "fr": "Un-e stagiaire pré-HES pour l’année 2027-2028",
         "it": "Un tirocinante pre-ES per l'anno 2027-2028",
         "en": "A pre-HES trainee for the year 2027-2028",
-        "de": "Ein Pre-HES-Trainee für das Jahr 2027-2028"
+        "de": "Ein Pre-HES-Trainee für das Jahr 2027-2028",
+        "fr": "Un-e stagiaire pré-HES pour l’année 2027-2028"
       },
       "description": "L’Hôpital du Valais cherche un-e :\n\nUn-e stagiaire pré-HES pour l’année 2027-2028\n\nIntégrez le centre de formation francophone et devenez membre d’une équipe passionnée et dynamique !\n\nContribuez à l'amélioration continue des compétences de nos collaborateurs et développez vos propres talents dans un environnement enrichissant et humain.\n\nMission:\n• Assurer l’organisation administrative et logistique des formations internes ;\n\n• participer au traitement des demandes de formation des collaborateurs ;\n\n• préparer les entrées des stagiaires ;\n\n• participer à la rédaction, publication et gestion de documents ;\n\n• concevoir les animations de la cérémonie de fin d’apprentissage ;\n\n• participer à l’organisation de divers événements (l’Hôpital Miniature, Your Challenge, Passeport info).\n\nProfil:\n• Maturité gymnasiale ou maturité professionnelle ou formation jugée équivalente ;\n\n• attrait pour le domaine de la formation ;\n\n• esprit de collaboration et autonomie ;\n\n• sens de l’organisation et capacité d’analyse ;\n\n• intérêt pour les tâches liées à l’événementiel ;\n\n• maîtrise des outils informatiques MS-Office.",
       "descriptionByLocale": {
-        "fr": "L’Hôpital du Valais cherche un-e :\n\nUn-e stagiaire pré-HES pour l’année 2027-2028\n\nIntégrez le centre de formation francophone et devenez membre d’une équipe passionnée et dynamique !\n\nContribuez à l'amélioration continue des compétences de nos collaborateurs et développez vos propres talents dans un environnement enrichissant et humain.\n\nMission:\n• Assurer l’organisation administrative et logistique des formations internes ;\n\n• participer au traitement des demandes de formation des collaborateurs ;\n\n• préparer les entrées des stagiaires ;\n\n• participer à la rédaction, publication et gestion de documents ;\n\n• concevoir les animations de la cérémonie de fin d’apprentissage ;\n\n• participer à l’organisation de divers événements (l’Hôpital Miniature, Your Challenge, Passeport info).\n\nProfil:\n• Maturité gymnasiale ou maturité professionnelle ou formation jugée équivalente ;\n\n• attrait pour le domaine de la formation ;\n\n• esprit de collaboration et autonomie ;\n\n• sens de l’organisation et capacité d’analyse ;\n\n• intérêt pour les tâches liées à l’événementiel ;\n\n• maîtrise des outils informatiques MS-Office.",
         "it": "L'Ospedale Vallese sta cercando un:\n\nUn tirocinante pre-ES per l'anno 2027-2028\n\nIntegra il centro di formazione francofono e diventa membro di un team appassionato e dinamico!\n\nContribuisci al continuo miglioramento delle competenze dei nostri dipendenti e sviluppare i tuoi talenti in un ambiente arricchente e umano.\n\nMissione:\n• Assicurare l'organizzazione amministrativa e logistica della formazione interna;\n\n• partecipare al trattamento delle richieste di formazione dei dipendenti;\n\n• preparare gli ingressi dei tirocinanti;\n\n• partecipare alla redazione, pubblicazione e gestione dei documenti;\n\n• progettare le animazioni della cerimonia di fine-di-apprendimento;\n\n• partecipare all'organizzazione di vari eventi (Minature Hospital, Your Challenge, Passport info).\n\nProfilo:\n• maturità ginnica o maturità professionale o formazione considerata equivalente;\n\n• Attrazione alla formazione;\n\n• spirito di collaborazione e autonomia;\n\n• senso organizzativo e capacità analitica;\n\n• interesse nei compiti relativi agli eventi;\n\n• Mastery di strumenti informatici MS-Office.",
         "en": "The Valais Hospital is looking for a:\n\nA pre-HES trainee for the year 2027-2028\n\nIntegrate the Francophone training centre and become a member of a passionate and dynamic team!\n\nContribute to the continuous improvement of our employees' skills and develop your own talents in an enriching and humane environment.\n\nMission:\n• Ensure administrative and logistical organization of in-house training;\n\n• participate in the processing of employee training requests;\n\n• prepare the entrances of trainees;\n\n• participate in the drafting, publication and management of documents;\n\n• design the animations of the end-of-learning ceremony;\n\n• participate in the organisation of various events (Minature Hospital, Your Challenge, Passport info).\n\nProfile:\n• Gymnastic maturity or professional maturity or training deemed equivalent;\n\n• Attraction to training;\n\n• spirit of collaboration and autonomy;\n\n• organizational sense and analytical capacity;\n\n• interest in tasks related to events;\n\n• Mastery of MS-Office computer tools.",
-        "de": "Das Walliser Krankenhaus sucht eine:\n\nEin Pre-HES-Trainee für das Jahr 2027-2028\n\nIntegrieren Sie das französischsprachige Trainingszentrum und werden Sie Mitglied eines leidenschaftlichen und dynamischen Teams!\n\nTragen Sie zur kontinuierlichen Verbesserung der Fähigkeiten unserer Mitarbeiter bei und entwickeln Sie Ihre eigenen Talente in einem bereichernden und menschlichen Umfeld.\n\nMission:\n• Gewährleistung der administrativen und logistischen Organisation der internen Schulungen;\n\n• an der Bearbeitung von Anträgen auf Schulung von Arbeitnehmern mitwirken;\n\n• Vorbereitung der Eingänge der Auszubildenden;\n\n• an der Ausarbeitung, Veröffentlichung und Verwaltung von Dokumenten mitwirken;\n\n• Gestaltung der Animationen für die End-of-Learning-Zeremonie;\n\n• Nehmen Sie an der Organisation verschiedener Veranstaltungen teil (Minature Hospital, Ihre Herausforderung, Reisepassinformationen).\n\nProfil:\n• Gymnastik- oder Berufsreife oder gleichwertige Ausbildung;\n\n• Anziehung zum Training;\n\n• Geist der Zusammenarbeit und Autonomie;\n\n• Organisationssinn und Analysefähigkeit;\n\n• Interesse an Aufgaben im Zusammenhang mit Ereignissen;\n\n• Beherrschung von MS-Office Computer-Tools."
+        "de": "Das Walliser Krankenhaus sucht eine:\n\nEin Pre-HES-Trainee für das Jahr 2027-2028\n\nIntegrieren Sie das französischsprachige Trainingszentrum und werden Sie Mitglied eines leidenschaftlichen und dynamischen Teams!\n\nTragen Sie zur kontinuierlichen Verbesserung der Fähigkeiten unserer Mitarbeiter bei und entwickeln Sie Ihre eigenen Talente in einem bereichernden und menschlichen Umfeld.\n\nMission:\n• Gewährleistung der administrativen und logistischen Organisation der internen Schulungen;\n\n• an der Bearbeitung von Anträgen auf Schulung von Arbeitnehmern mitwirken;\n\n• Vorbereitung der Eingänge der Auszubildenden;\n\n• an der Ausarbeitung, Veröffentlichung und Verwaltung von Dokumenten mitwirken;\n\n• Gestaltung der Animationen für die End-of-Learning-Zeremonie;\n\n• Nehmen Sie an der Organisation verschiedener Veranstaltungen teil (Minature Hospital, Ihre Herausforderung, Reisepassinformationen).\n\nProfil:\n• Gymnastik- oder Berufsreife oder gleichwertige Ausbildung;\n\n• Anziehung zum Training;\n\n• Geist der Zusammenarbeit und Autonomie;\n\n• Organisationssinn und Analysefähigkeit;\n\n• Interesse an Aufgaben im Zusammenhang mit Ereignissen;\n\n• Beherrschung von MS-Office Computer-Tools.",
+        "fr": "L’Hôpital du Valais cherche un-e :\n\nUn-e stagiaire pré-HES pour l’année 2027-2028\n\nIntégrez le centre de formation francophone et devenez membre d’une équipe passionnée et dynamique !\n\nContribuez à l'amélioration continue des compétences de nos collaborateurs et développez vos propres talents dans un environnement enrichissant et humain.\n\nMission:\n• Assurer l’organisation administrative et logistique des formations internes ;\n\n• participer au traitement des demandes de formation des collaborateurs ;\n\n• préparer les entrées des stagiaires ;\n\n• participer à la rédaction, publication et gestion de documents ;\n\n• concevoir les animations de la cérémonie de fin d’apprentissage ;\n\n• participer à l’organisation de divers événements (l’Hôpital Miniature, Your Challenge, Passeport info).\n\nProfil:\n• Maturité gymnasiale ou maturité professionnelle ou formation jugée équivalente ;\n\n• attrait pour le domaine de la formation ;\n\n• esprit de collaboration et autonomie ;\n\n• sens de l’organisation et capacité d’analyse ;\n\n• intérêt pour les tâches liées à l’événementiel ;\n\n• maîtrise des outils informatiques MS-Office."
       },
       "location": "Sierre",
       "canton": "VS",
@@ -3657,7 +3656,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f73d0f828794d350dbd6ebd30cbb354c/ATSANN0004990/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:29:18.256Z",
+      "crawledAt": "2026-11-04T09:12:37.668Z",
       "_hvsMeta": {
         "number": "ATSANN0004990",
         "sysId": "f73d0f828794d350dbd6ebd30cbb354c",
@@ -3665,6 +3664,21 @@
         "famille": "Ressources humaines",
         "site": "SIERRE"
       },
+      "previousSlugs": [
+        "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
+        ],
+        "en": [
+          "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
+        ],
+        "de": [
+          "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
+        ]
+      },
+      "firstSeenAt": "2026-11-03T21:29:18.256Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "currency": "CHF",
@@ -3682,99 +3696,8 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:29:18.256Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:29:18.256Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
-        ]
-      },
-      "previousSlugs": [
-        "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
-      ]
-    },
-    {
-      "id": "hopital-du-valais-3b36c26f4331",
-      "slug": "infermiera-40-100-medicina-3-west-hopital-du-valais-visp",
-      "slugByLocale": {
-        "it": "infermiera-40-100-medicina-3-west-hopital-du-valais-visp",
-        "en": "nurse-40-100-medicine-3-west-hopital-du-valais-visp",
-        "de": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp",
-        "fr": "infirmiere-40-100-medecine-3-ouest-hopital-du-valais-visp"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Pflegefachperson 40-100%, Medizin 3 West",
-      "titleByLocale": {
-        "it": "Infermiera 40-100%, Medicina 3 West",
-        "en": "Nurse 40-100%, Medicine 3 West",
-        "de": "Pflegefachperson 40-100%, Medizin 3 West",
-        "fr": "Infirmière 40-100%, Médecine 3 Ouest"
-      },
-      "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Bettenstation Medizin 3 West eine:\n\nPflegefachperson 40-100%\n\nIhre Aufgaben:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Teilnahme am kontinuierlichen Veränderungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nIhr Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Hohe Fach- und Sozialkompetenz\n\n• Wertschätzung im Umgang mit den Patienten\n\n• Initiative, belastbare Persönlichkeit mit ausgeprägtem Organisationstalent\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nWir bieten:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Wallis è alla ricerca di uno per il Centro Ospedale Upper Wallis nella stazione Lean-Bed Medizin 3 West:\n\nProfessionista di Cura 40-100 %\n\nI loro compiti:\n• Garantire assistenza professionale e orientata al cliente insieme agli altri membri del team\n\n• Responsabilità personale e pensiero attivo\n\n• Co-responsabilità nel processo interdisciplinare e multi-professionale di trattamento e cura\n\n• Partecipazione al processo continuo di cambiamento\n\n• Partecipazione a gruppi di lavoro e di progetto\n\n• Accompagnamento e supporto agli studenti durante la formazione\n\nIl tuo profilo:\n• Formazione completa in allattamento (FH, HF)\n\n• Alto livello di competenza tecnica e sociale\n\n• Apprezzamento nel trattare con i pazienti\n\n• Iniziativa, personalità resiliente con un forte talento organizzativo\n\n• Metodo di lavoro fresco e preciso\n\n• Buone competenze informatiche\n\nOffriamo:\n• Lavori diversi, responsabili e indipendenti\n\n• Supporto da un team motivato e impegnato\n\n• Opportunità di ulteriore formazione\n\n• Condizioni di lavoro attraenti",
-        "en": "The Wallis Hospital is looking for one for the Upper Wallis Hospital Center in the Lean-Bed Station Medizin 3 West:\n\nCare professional 40-100 %\n\nTheir tasks:\n• Ensuring professional and customer-oriented care together with the other team members\n\n• Personal responsibility and active thinking\n\n• Co-responsibility in the interdisciplinary and multi-professional treatment and care process\n\n• Participation in the continuous process of change\n\n• Participation in working and project groups\n\n• Accompanying and supporting learners during training\n\nYour profile:\n• Completed training in nursing (FH, HF)\n\n• High level of technical and social competence\n\n• Appreciation in dealing with patients\n\n• Initiative, resilient personality with a strong organizational talent\n\n• Fresh and exact working method\n\n• Good computer skills\n\nWe offer:\n• Varied, responsible and independent work\n\n• Support from a motivated and committed team\n\n• Opportunity for further training\n\n• Attractive employment conditions",
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Bettenstation Medizin 3 West eine:\n\nPflegefachperson 40-100%\n\nIhre Aufgaben:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Teilnahme am kontinuierlichen Veränderungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nIhr Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Hohe Fach- und Sozialkompetenz\n\n• Wertschätzung im Umgang mit den Patienten\n\n• Initiative, belastbare Persönlichkeit mit ausgeprägtem Organisationstalent\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nWir bieten:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-        "fr": "L'hôpital Wallis en recherche un pour le centre hospitalier supérieur Wallis de la station Lean-Bed Medizin 3 West:\n\nProfessionnel de soins 40-100 %\n\nLeurs tâches:\n• Assurer des soins professionnels et axés sur le client avec les autres membres de l'équipe\n\n• Responsabilité personnelle et pensée active\n\n• Coresponsabilité dans le processus interdisciplinaire et multiprofessionnel de traitement et de soins\n\n• Participation au processus continu de changement\n\n• Participation aux groupes de travail et aux groupes de projet\n\n• Accompagner et soutenir les apprenants pendant la formation\n\nVotre profil:\n• Formation complète en soins infirmiers (FH, HF)\n\n• Haute compétence technique et sociale\n\n• Appréciation dans le traitement des patients\n\n• Initiative, personnalité résiliente avec un fort talent organisationnel\n\n• Méthode de travail fraîche et exacte\n\n• Bonnes compétences en informatique\n\nNous offrons:\n• Travail varié, responsable et indépendant\n\n• Soutien d'une équipe motivée et engagée\n\n• Possibilité de formation continue\n\n• Conditions d'emploi attrayantes"
-      },
-      "location": "Visp",
-      "canton": "VS",
-      "addressLocality": "Visp",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3930",
-      "category": "healthcare-nursing",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "40 - 100%",
-      "featured": false,
-      "datePosted": "2026-10-26",
-      "postedDate": "2026-10-26",
-      "postingDateSource": "reported",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/848d1bbe87e98b90dbd6ebd30cbb3527/ATSANN0004749/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/848d1bbe87e98b90dbd6ebd30cbb3527/ATSANN0004749/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:26:58.292Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004749",
-        "sysId": "848d1bbe87e98b90dbd6ebd30cbb3527",
-        "societe": "Spitalzentrum Oberwallis",
-        "famille": "Soins",
-        "site": "VISP"
-      },
-      "previousSlugs": [
-        "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
-        ]
-      },
-      "firstSeenAt": "2026-09-21T16:03:19.651Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Visp",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:26:58.292Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "validThrough": "2027-02-01T09:12:37.668Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
