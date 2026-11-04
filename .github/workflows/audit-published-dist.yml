@@ -1,0 +1,61 @@
+name: Audit Published Dist (async)
+
+on:
+  workflow_run:
+    workflows:
+      - Publish to GitHub Pages (deploy + validate)
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      source_run_id: ${{ steps.identity.outputs.source_run_id }}
+      source_sha: ${{ steps.identity.outputs.source_sha }}
+    steps:
+      - name: Extract source identity from publisher run title
+        id: identity
+        env:
+          RUN_TITLE: ${{ github.event.workflow_run.display_title }}
+        run: |
+          set -euo pipefail
+          if [[ "$RUN_TITLE" =~ ^Publish\ Pages\ build\ ([0-9]+)\ @\ ([a-f0-9]{40})$ ]]; then
+            printf 'source_run_id=%s\n' "${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+            printf 'source_sha=%s\n' "${BASH_REMATCH[2]}" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error::unexpected publisher run title: $RUN_TITLE"
+            exit 1
+          fi
+
+  report:
+    needs: [source-identity]
+    if: ${{ needs.source-identity.result == 'success' && github.event.workflow_run.conclusion != 'cancelled' }}
+    uses: ./.github/workflows/audit-dist-from-run.yml
+    with:
+      deploy_run_id: ${{ needs.source-identity.outputs.source_run_id }}
+      shard_artifact_run_id: ${{ github.event.workflow_run.id }}
+      deploy_ref: ${{ needs.source-identity.outputs.source_sha }}
+      audit_sample_rate: '0.25'
+      audit_sample_salt: ${{ github.event.workflow_run.run_number }}
+      audits: >-
+        audit:all,audit:hreflang,audit:max-bfs-depth,
+        audit:orphan-sitemap-pages,validate:jobs-quality,
+        audit:discover-eligibility,report:job-title-locale,
+        report:meta-description,validate:page-seo,validate:og-images,
+        audit:canonical-trailing-slash,audit:news-sitemap,audit:spa-bundle-injection,gate:dist-quality
+      audit_all_audits: >-
+        text-html-ratio,title-length,title-no-disambig-hash,
+        h1-title-duplicates,content-duplicates,faqpage-validity,
+        image-object-license,
+        no-literal-markdown,breadcrumb-coverage,single-h1-per-page,
+        duplicate-structured-data,link-anchor-text,duplicate-meta-description,
+        information-gain,page-weight,salary-landing-template
+    secrets: inherit
+    permissions:
+      contents: read
+      actions: read

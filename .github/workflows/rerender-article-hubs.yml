@@ -61,6 +61,11 @@ on:
       - 'build-plugins/seoHubsPlugin.ts'
       - 'build-plugins/topicClusterHubsPlugin.ts'
       - 'build-plugins/lib/adSlotHtml.ts'
+      # Shared content-addressed shell assets can change through serialized
+      # service helpers without changing the hub renderer imports. Their
+      # fingerprints mean existing hub HTML needs the new script references.
+      - 'tests/articles-shell-contract-fingerprint.json'
+      - 'tests/third-party-shell-assets-fingerprint.json'
       - 'build-plugins/topicClusterHubsData.ts'
       - 'packages/articles/engine/articleHubPagesPlugin.ts'
       - 'packages/articles/engine/topicTaxonomy.ts'

@@ -115,6 +115,17 @@ describe('validate:sitemap-links report scale', () => {
     fs.copyFileSync(manifest, path.join(dist, 'locale-sitemap-manifest.json'));
     fs.rmSync(path.join(dist, 'de', 'good', 'index.html'));
     fs.writeFileSync(path.join(dist, 'de', 'good.html'), '<!doctype html><title>good flat</title>');
+    expect(verifyLocaleManifest(path.join(dist, 'locale-sitemap-manifest.json'), 'de', dist).errors.join('\n'))
+      .toContain('manifest page path is absent from extracted dist/');
+
+    const flat = collectOwnedLocaleEntries('de', dist);
+    writeLocaleManifest(path.join(dist, 'locale-sitemap-manifest.json'), 'de', flat.entries);
     expect(verifyLocaleManifest(path.join(dist, 'locale-sitemap-manifest.json'), 'de', dist).errors).toEqual([]);
+
+    const tampered = JSON.parse(fs.readFileSync(path.join(dist, 'locale-sitemap-manifest.json'), 'utf8'));
+    tampered.entries[0].path = 'de/unrelated/index.html';
+    fs.writeFileSync(path.join(dist, 'locale-sitemap-manifest.json'), JSON.stringify(tampered));
+    expect(verifyLocaleManifest(path.join(dist, 'locale-sitemap-manifest.json'), 'de', dist).errors.join('\n'))
+      .toContain('manifest page path does not map to its URL');
   });
 });

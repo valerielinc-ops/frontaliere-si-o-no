@@ -60,6 +60,7 @@ import {
   type FuelType,
 } from '../../build-plugins/fuelDailyData';
 import { generateFuelStationPages } from '../../build-plugins/fuelDailyPagesPlugin';
+import { hasSelfCanonical } from '../../build-plugins/shared/sitemapCanonicalContract';
 import { extractFuelBreadcrumbTargets } from '../utils/fuelBreadcrumbs';
 import { createAuditor, MAX_HTML_BYTES } from '../../scripts/audit-page-weight.mjs';
 import {
@@ -271,6 +272,12 @@ describe('fuel-station orphans — every emitted leaf is linked from its index',
   });
 
   for (const fuel of FUEL_TYPES) {
+    it(`every generated index is self-canonical in ${fuel}`, () => {
+      for (const [path, html] of Object.entries(pages)) {
+        expect(hasSelfCanonical(html, `https://frontaliereticino.ch${path}`), `${path} has no valid head canonical`).toBe(true);
+      }
+    });
+
     it(`Swiss-stations indexes (${fuel}) link every emitted Swiss station leaf in all locales`, () => {
       for (const locale of FUEL_DAILY_LOCALES) {
         const html = pages[buildFuelIndexPath(locale, fuel, 'swissStations')]!;

@@ -17,6 +17,8 @@ import { classifyCanonicalMismatch, isOwnerArticleConsolidation } from './lib/ca
 // eslint-disable-next-line import/no-relative-parent-imports
 import { lookupRetired } from '../infra/cloudflare-worker/locale-router.js';
 import { pathToFileURL } from 'node:url';
+import { createHash } from 'node:crypto';
+import { executeIncrementalPageAudit, loadPublisherPageIndex } from './ci/page-audit-index.mjs';
 
 /**
  * Deploy validation: checks generated HTML pages in dist/ for SEO issues
@@ -45,7 +47,7 @@ import { pathToFileURL } from 'node:url';
  */
 
 import { readFileSync, existsSync, readdirSync, statSync, mkdirSync, writeFileSync } from 'fs';
-import { join, relative } from 'path';
+import { isAbsolute, join, relative, resolve as resolvePath, sep } from 'path';
 
 const DIST = 'dist';
 const SAMPLE_SIZE = 500;
@@ -120,9 +122,9 @@ const MAX_META_DESCRIPTION_LENGTH = 160;
 
 // Locale detection from path
 function detectLocale(pagePath) {
-  if (pagePath.startsWith('en/')) return 'en';
-  if (pagePath.startsWith('de/')) return 'de';
-  if (pagePath.startsWith('fr/')) return 'fr';
+  if (pagePath === 'en' || pagePath.startsWith('en/')) return 'en';
+  if (pagePath === 'de' || pagePath.startsWith('de/')) return 'de';
+  if (pagePath === 'fr' || pagePath.startsWith('fr/')) return 'fr';
   return 'it';
 }
 
@@ -664,7 +666,176 @@ function validateBestPracticeSeo(html, pagePath) {
   return issues;
 }
 
+const PAGE_SEO_ERROR_KEYS = [
+  'missingPage', 'missingH1', 'duplicateH1', 'emptyH1', 'invalidJson', 'conflictingSchemas',
+  'missingLang', 'wrongLang', 'missingViewport', 'missingTitle', 'missingDescription', 'hasNoindex', 'hasMetaRefresh',
+];
+const PAGE_SEO_WARNING_KEYS = [
+  'missingCanonical', 'canonicalNotAbsolute', 'canonicalWrongHost', 'canonicalHasQuery',
+  'canonicalMissingTrailingSlash', 'invalidCanonical', 'canonicalMismatch', 'missingOgTitle',
+  'missingOgDescription', 'missingOgUrl', 'invalidOgUrl', 'ogUrlMismatch', 'partialTwitterCard',
+  'shortMetaDescription', 'longMetaDescription', 'missingImageAlt',
+];
+
+function emptyPageSeoResult() {
+  return {
+    errors: Object.fromEntries(PAGE_SEO_ERROR_KEYS.map((key) => [key, []])),
+    warnings: Object.fromEntries(PAGE_SEO_WARNING_KEYS.map((key) => [key, []])),
+    declaredNoindex: null,
+    declaredCanonical: [],
+    edgeRetired: 0,
+    errorCount: 0,
+    warningCount: 0,
+  };
+}
+
+function validateIndexedSeoPage(page, html) {
+  const result = emptyPageSeoResult();
+  const pagePath = page.pagePath || '';
+  const shownPath = pagePath || '/';
+  const locale = detectLocale(pagePath);
+  const addError = (key, value = shownPath) => { result.errors[key].push(value); result.errorCount += 1; };
+  if (html === null) { addError('missingPage', shownPath); return result; }
+  if (isIntentionalRedirectPage(html)) return result;
+  if (lookupRetired(`/${pagePath ? `${pagePath}/` : ''}`) !== undefined) { result.edgeRetired = 1; return result; }
+
+  const h1Tags = extractH1Tags(html);
+  if (h1Tags.length === 0) addError('missingH1');
+  else if (h1Tags.length > 1) addError('duplicateH1', { path: shownPath, count: h1Tags.length });
+  else if (h1Tags[0] === '') addError('emptyH1');
+
+  for (const issue of validateSchemas(html)) {
+    if (issue.type === 'invalid-json') addError('invalidJson', { path: shownPath, detail: issue.detail });
+    else if (issue.type === 'conflicting-schemas') addError('conflictingSchemas', { path: shownPath, detail: issue.detail });
+  }
+  const langIssue = checkLangAttribute(html, locale);
+  if (langIssue?.error === 'missing-lang') addError('missingLang');
+  else if (langIssue?.error === 'wrong-lang') addError('wrongLang', { path: shownPath, detail: langIssue.detail });
+  if (!hasMetaViewport(html)) addError('missingViewport');
+  if (!extractTitle(html)) addError('missingTitle');
+  if (!extractMetaDescription(html)) addError('missingDescription');
+
+  const isSearchPage = /\/(ricerca-|suche-|search-|recherche-)/.test('/' + pagePath);
+  const noindexKinds = [
+    ['jobBoard', isIntentionalJobBoardNoindexPage(html)],
+    ['pharmacy', isIntentionalPharmacyNoindexPage(pagePath, html)],
+    ['eventArchive', isIntentionalEventArchiveNoindexPage(html)],
+    ['eventDetail', isIntentionalEventDetailNoindexPage(pagePath, html)],
+    ['companyCantonBridge', isIntentionalCompanyCantonBridgeNoindexPage(pagePath, html)],
+    ['autoSectorHub', isIntentionalAutoSectorHubNoindexPage(pagePath, html)],
+    ['pagination', isIntentionalPaginationNoindexPage(html)],
+    ['article', isIntentionalArticleNoindexPage(pagePath, html)],
+    ['plateAuction', isIntentionalPlateAuctionNoindexPage(pagePath, html)],
+  ];
+  result.declaredNoindex = noindexKinds.find(([, declared]) => declared)?.[0] ?? null;
+  if (pagePath !== '404.html' && !isSearchPage && !result.declaredNoindex && hasNoindex(html)) addError('hasNoindex');
+  if (hasMetaRefresh(html)) addError('hasMetaRefresh');
+  for (const issue of validateBestPracticeSeo(html, pagePath)) {
+    if (issue.type === 'declaredCanonical') result.declaredCanonical.push(issue.detail);
+    else {
+      result.warnings[issue.type].push({ path: shownPath, detail: issue.detail });
+      result.warningCount += 1;
+    }
+  }
+  return result;
+}
+
+function scanPageSeoBucket(entries, distRoot) {
+  const combined = {
+    errors: Object.fromEntries(PAGE_SEO_ERROR_KEYS.map((key) => [key, []])),
+    warnings: Object.fromEntries(PAGE_SEO_WARNING_KEYS.map((key) => [key, []])),
+    declaredNoindex: {}, declaredCanonical: [], edgeRetired: 0, errorCount: 0, warningCount: 0,
+  };
+  for (const entry of entries) {
+    const pagePath = String(entry.path).replace(/(?:\/index\.html|\.html)$/u, '');
+    const filePath = resolvePath(distRoot, entry.path);
+    const relativePath = relative(distRoot, filePath);
+    const exists = relativePath && relativePath !== '..' && !relativePath.startsWith(`..${sep}`) && !isAbsolute(relativePath);
+    let html = null;
+    if (exists) {
+      try { html = readFileSync(filePath, 'utf8'); }
+      catch (error) { if (error?.code !== 'ENOENT') throw error; }
+    }
+    const page = validateIndexedSeoPage({ filePath, pagePath }, html);
+    for (const key of PAGE_SEO_ERROR_KEYS) combined.errors[key].push(...page.errors[key]);
+    for (const key of PAGE_SEO_WARNING_KEYS) combined.warnings[key].push(...page.warnings[key]);
+    combined.errorCount += page.errorCount;
+    combined.warningCount += page.warningCount;
+    combined.edgeRetired += page.edgeRetired;
+    if (page.declaredNoindex) combined.declaredNoindex[page.declaredNoindex] = (combined.declaredNoindex[page.declaredNoindex] ?? 0) + 1;
+    combined.declaredCanonical.push(...page.declaredCanonical);
+  }
+  return combined;
+}
+
+function mergePageSeoResults(results) {
+  const combined = emptyPageSeoResult();
+  combined.declaredNoindex = {};
+  for (const result of results) {
+    for (const key of PAGE_SEO_ERROR_KEYS) combined.errors[key].push(...(result.errors?.[key] ?? []));
+    for (const key of PAGE_SEO_WARNING_KEYS) combined.warnings[key].push(...(result.warnings?.[key] ?? []));
+    combined.errorCount += result.errorCount ?? 0;
+    combined.warningCount += result.warningCount ?? 0;
+    combined.edgeRetired += result.edgeRetired ?? 0;
+    combined.declaredCanonical.push(...(result.declaredCanonical ?? []));
+    for (const [kind, count] of Object.entries(result.declaredNoindex ?? {})) combined.declaredNoindex[kind] = (combined.declaredNoindex[kind] ?? 0) + count;
+  }
+  return combined;
+}
+
+function reportIndexedPageSeo(plan, combined) {
+  const { errors, warnings } = combined;
+  const declaredNoindex = combined.declaredNoindex;
+  const declaredCanonical = combined.declaredCanonical.reduce((counts, value) => {
+    counts[value] = (counts[value] ?? 0) + 1;
+    return counts;
+  }, {});
+  const pagesWithErrors = new Set(PAGE_SEO_ERROR_KEYS.flatMap((key) => errors[key].map((item) => typeof item === 'string' ? item : item.path)));
+  const errorRate = plan.population ? pagesWithErrors.size / plan.population : 0;
+  console.log('='.repeat(60));
+  console.log(`POPULATION: ${plan.population}`);
+  console.log(`SCANNED THIS RUN: ${plan.scannedPages}; REUSED RECEIPTS: ${plan.reusedPages}; SAMPLE RATE: ${(plan.sampleRate * 100).toFixed(2)}%`);
+  console.log(`PAGE ERROR RATE: ${(errorRate * 100).toFixed(3)}%`);
+  console.log(`  WITH ERRORS: ${pagesWithErrors.size}; TOTAL ISSUES: ${combined.errorCount}; ADVISORY WARNINGS: ${combined.warningCount}`);
+  console.log(`  DECLARED NOINDEX: ${Object.entries(declaredNoindex).map(([key, value]) => `${key} ${value}`).join(', ') || 'none'}`);
+  console.log(`  DECLARED CROSS-URL CANONICAL: ${Object.entries(declaredCanonical).map(([key, value]) => `${key} ${value}`).join(', ') || 'none'}`);
+  console.log(`  EDGE-RETIRED: ${combined.edgeRetired}`);
+  console.log('='.repeat(60));
+  for (const [key, items] of Object.entries(errors)) if (items.length) printErrorGroup(key, items, 20);
+  for (const [key, items] of Object.entries(warnings)) if (items.length) printWarningGroup(key, items, 20);
+  writeFamilyBreakdown(errors, warnings, { population: plan.population, sampled: plan.scannedPages, reused: plan.reusedPages, sampleRate: plan.sampleRate, errorRate });
+  if (combined.errorCount > 0) {
+    console.log(`\n❌ DEPLOY BLOCKED: ${combined.errorCount} SEO issue(s) found in ${pagesWithErrors.size} page(s).`);
+    process.exit(1);
+  }
+  console.log(`\n✅ All ${plan.population} indexed pages pass blocking SEO quality validation.`);
+  process.exit(0);
+}
+
 function main() {
+  const pageManifestDir = process.env.PUBLISHER_PAGE_MANIFEST_DIR;
+  if (pageManifestDir) {
+    const entries = loadPublisherPageIndex({
+      pageManifestDir,
+      sectionManifestDir: process.env.PUBLISHER_SECTION_MANIFEST_DIR,
+    });
+    const requestedRate = Number(process.env.AUDIT_SAMPLE_RATE);
+    const sampleRate = Number.isFinite(requestedRate) && requestedRate > 0 && requestedRate <= 1 ? requestedRate : 1;
+    const plan = executeIncrementalPageAudit({
+      name: 'validate-page-seo',
+      validatorVersion: 'validate-page-seo-indexed-v1',
+      entries,
+      receiptFile: process.env.PUBLISHER_AUDIT_RECEIPT_DIR
+        ? join(process.env.PUBLISHER_AUDIT_RECEIPT_DIR, 'validate-page-seo.json')
+        : '',
+      sampleRate,
+      sampleSalt: Number(process.env.AUDIT_SAMPLE_SALT) || 0,
+      forceFull: process.env.AUDIT_FORCE_FULL === '1',
+      scanBucket: (bucketEntries) => scanPageSeoBucket(bucketEntries, DIST),
+    });
+    reportIndexedPageSeo(plan, mergePageSeoResults(plan.results));
+    return;
+  }
   if (!existsSync(DIST)) {
     console.error(`[validate-page-seo] dist/ directory not found. Run 'npx vite build' first.`);
     process.exit(1);
@@ -688,9 +859,18 @@ function main() {
     }
   }
 
-  // Random sample from other pages
-  const shuffled = otherPages.sort(() => Math.random() - 0.5);
-  const sampled = shuffled.slice(0, SAMPLE_SIZE);
+  // Stable, rotating fallback for old replays without a publisher page index.
+  // The indexed path above stratifies by locale, section and page family; this
+  // compatibility path still avoids a fresh, irreproducible 500-page sample.
+  const sampleSalt = String(process.env.AUDIT_SAMPLE_SALT ?? '0');
+  const sampled = otherPages
+    .map((page) => ({
+      page,
+      key: createHash('sha256').update(`${sampleSalt}\0${page.pagePath}`).digest('hex'),
+    }))
+    .sort((a, b) => a.key.localeCompare(b.key) || a.page.pagePath.localeCompare(b.page.pagePath))
+    .slice(0, SAMPLE_SIZE)
+    .map(({ page }) => page);
 
   const pagesToCheck = [...fullCheckPages, ...sampled];
   console.log(`[validate-page-seo] Checking ${fullCheckPages.length} key pages + ${sampled.length} sampled = ${pagesToCheck.length} total\n`);
@@ -1002,8 +1182,8 @@ function printFamilies(families, limit = 40) {
   if (rows.length > limit) console.log(`     ... and ${rows.length - limit} more families`);
 }
 
-function writeFamilyBreakdown(errors, warnings) {
-  const out = { generatedAt: new Date().toISOString(), errors: {}, warnings: {} };
+function writeFamilyBreakdown(errors, warnings, sampling = null) {
+  const out = { generatedAt: new Date().toISOString(), ...(sampling ? { sampling } : {}), errors: {}, warnings: {} };
   for (const [type, items] of Object.entries(errors)) {
     if (items.length > 0) out.errors[type] = { total: items.length, families: familyCounts(items) };
   }

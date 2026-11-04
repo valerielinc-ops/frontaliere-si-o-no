@@ -421,6 +421,7 @@ const STAGE_HINTS = {
 // (owner decision 2026-10-01).
 const RUNNER_HINTS = {
   portal_refused: 'Non serve controllare il portale. Su un portale con controllo anti-robot (come JOIN) un nuovo invio automatico di solito viene rifiutato di nuovo: completala tu sul portale (link, risposte e documenti sono nel pannello) e poi premi «Segna come inviata».',
+  portal_antibot_ambiguous: 'Il candidato non deve fare nulla. L’esito dell’invio è incerto: controlla prima se la candidatura è già arrivata, senza reinviarla. Se manca, dalla coda premi «Compila con l’estensione»: l’estensione prepara il modulo; risolvi tu il CAPTCHA nella scheda e invia dopo aver verificato il contenuto.',
   // The gate is run again right before sending: nothing left, there is nothing to check at the employer.
   fact_check_not_acknowledged: 'Non è partito nulla. L’automazione riscrive i passaggi non verificati e ripropone la bozza al candidato; non serve controllare i fatti a mano.',
   fact_repair_failed: 'Non è partito nulla. La correzione automatica dei testi ha esaurito i tentativi: serve una verifica tecnica del generatore. Non confermare fatti non supportati.',

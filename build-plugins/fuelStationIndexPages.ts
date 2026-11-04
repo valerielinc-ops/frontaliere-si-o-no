@@ -80,6 +80,7 @@ import {
 import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { paginationRobots } from './shared/paginationIndexPolicy';
+import { assertSelfCanonical } from './shared/sitemapCanonicalContract';
 import { infeedAdListItemHtml } from './lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 
@@ -1458,7 +1459,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   ${proseBlock}
 </article>`;
 
-  return buildSeoPageHtml({
+  const html = buildSeoPageHtml({
     locale,
     title,
     description,
@@ -1473,6 +1474,8 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     distDir,
     hubChrome: { hubKey: 'stats', activeSubTab: 'fuel-prices' },
   });
+  assertSelfCanonical(html, canonicalUrl, `fuel index ${canonicalPath}`);
+  return html;
 }
 
 // ── Public generators ─────────────────────────────────────────────

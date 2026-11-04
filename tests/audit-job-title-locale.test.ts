@@ -518,14 +518,14 @@ describe('audit-dist-from-run.yml — the title audit is parallel and report-onl
     path.join(ROOT, '.github', 'workflows', 'audit-dist-from-run.yml'),
     'utf-8'
   );
-  const DEPLOY_PUBLISH = fs.readFileSync(
-    path.join(ROOT, '.github', 'workflows', 'deploy-publish.yml'),
+  const PUBLISHED_DIST_AUDIT = fs.readFileSync(
+    path.join(ROOT, '.github', 'workflows', 'audit-published-dist.yml'),
     'utf-8'
   );
   const AUDIT_ALL = fs.readFileSync(path.join(ROOT, 'scripts', 'audit-all.mjs'), 'utf-8');
 
-  it('is wired into the publish-side report input, not the blocking dist workflow', () => {
-    expect(DEPLOY_PUBLISH).toMatch(/report:job-title-locale/);
+  it('is wired into the asynchronous published-dist report, not the blocking gate', () => {
+    expect(PUBLISHED_DIST_AUDIT).toMatch(/report:job-title-locale/);
     expect(POSTDEPLOY).not.toMatch(/build_skew_guard_run npm audit:job-title-locale\b/);
     expect(POSTDEPLOY).not.toMatch(/AUDIT_SAMPLE_RATE:\s*'0\.25'/);
   });

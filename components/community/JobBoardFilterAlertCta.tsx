@@ -5,11 +5,16 @@ import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap, stripKeywordEmoji } from '@/services/jobAlertService';
 import type { JobAlertConfig, JobAlertOneTapFilters } from '@/services/jobAlertService';
 import { openJobAlertForm } from '@/services/jobAlertOpenSignal';
-import { savePendingJobAlert, type PendingJobAlertOrigin } from '@/services/pendingJobAlert';
+import { clearPendingJobAlert, savePendingJobAlert, type PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 export type JobBoardFilterAlertCtaStatus = 'idle' | 'submitting' | 'success' | 'error';
 export type JobBoardFilterAlertCtaContext = 'category' | 'sector' | 'search';
+
+export interface JobBoardFilterAlertHandoff {
+  config: JobAlertConfig;
+  origin: PendingJobAlertOrigin;
+}
 
 /**
  * One-tap "Avvisami per questa ricerca" CTA (issue #4298).
@@ -46,10 +51,10 @@ export interface JobBoardFilterAlertCtaProps {
   onAccepted?: () => void;
   /** Called when subscribe throws. */
   onErrored?: (error: unknown) => void;
-  /** Called when an anonymous visitor hands off to the mounted JobAlertForm. */
-  onAnonymousOpen?: () => void;
+  /** Called when an anonymous visitor hands off its captured criteria. */
+  onAnonymousOpen?: (handoff: JobBoardFilterAlertHandoff) => void;
   /** Called after an anonymous one-tap intent is safely parked for auth replay. */
-  onAnonymousAuthRequired?: () => void;
+  onAnonymousAuthRequired?: (handoff: JobBoardFilterAlertHandoff) => void;
   /** Surface to preserve when an anonymous tap is handed to JobAlertForm. */
   formOrigin?: PendingJobAlertOrigin;
   /** Active board filters supported by `JobAlertConfig`. */
@@ -62,6 +67,25 @@ export interface JobBoardFilterAlertCtaProps {
   onImpression?: () => void;
   /** Optional override for the subscribe call (used by tests). */
   subscribe?: typeof subscribeJobAlertOneTap;
+}
+
+export function buildJobBoardFilterAlertConfig({
+  keywordLabel,
+  locale,
+  cantonCode,
+  filters,
+}: Pick<JobBoardFilterAlertCtaProps, 'keywordLabel' | 'locale' | 'cantonCode' | 'filters'>): JobAlertConfig | null {
+  const keyword = stripKeywordEmoji(keywordLabel);
+  if (!keyword) return null;
+  return {
+    keywords: [keyword],
+    locations: [...(filters?.locations ?? [])],
+    contractTypes: [...(filters?.contractTypes ?? [])],
+    sectors: [...(filters?.sectors ?? [])],
+    cantonFilter: cantonCode ? [cantonCode] : null,
+    frequency: 'weekly',
+    locale,
+  };
 }
 
 export default function JobBoardFilterAlertCta({
@@ -86,35 +110,33 @@ export default function JobBoardFilterAlertCta({
   const submissionStartedRef = useRef(false);
 
   const handleAnonymousOpen = useCallback(() => {
-    if (!keywordLabel) return;
+    const config = buildJobBoardFilterAlertConfig({ keywordLabel, locale, cantonCode, filters });
+    if (!config) return;
+    const origin = formOrigin ?? 'inline_card';
+    const handoff: JobBoardFilterAlertHandoff = { config, origin };
     // This CTA is the anonymous equivalent of the authenticated one-tap path:
     // park the exact criteria before entering the existing auth screen, so the
     // JobAlertForm can create the alert automatically after the auth round-trip.
-    // If storage is unavailable, keep the old form hand-off instead of sending
-    // the visitor through auth with no replayable intent.
-    const keyword = stripKeywordEmoji(keywordLabel);
-    if (onAnonymousAuthRequired && keyword) {
-      const config: JobAlertConfig = {
-        keywords: [keyword],
-        locations: [...(filters?.locations ?? [])],
-        contractTypes: [...(filters?.contractTypes ?? [])],
-        sectors: [...(filters?.sectors ?? [])],
-        cantonFilter: cantonCode ? [cantonCode] : null,
-        frequency: 'weekly',
-        locale,
-      };
-      const saved = savePendingJobAlert(config, formOrigin ?? 'inline_card');
+    // If storage is unavailable, do not send the visitor through auth with no
+    // replayable intent or silently downgrade to a generic form.
+    if (onAnonymousAuthRequired) {
+      const saved = savePendingJobAlert(config, origin);
       if (saved.ok) {
-        onAnonymousOpen?.();
-        return onAnonymousAuthRequired();
+        onAnonymousOpen?.(handoff);
+        return onAnonymousAuthRequired(handoff);
       }
+      clearPendingJobAlert();
+      const error = new Error('Job-alert criteria could not be parked for auth replay');
+      setStatus('error');
+      onErrored?.(error);
+      return;
     }
 
     // Notify an already-mounted form and retain the queued request for a lazy
     // mount (for example when the CTA was clicked on a detail route).
-    onAnonymousOpen?.();
-    openJobAlertForm(keywordLabel, formOrigin);
-  }, [cantonCode, filters, formOrigin, keywordLabel, locale, onAnonymousAuthRequired, onAnonymousOpen]);
+    onAnonymousOpen?.(handoff);
+    openJobAlertForm(config.keywords[0], formOrigin);
+  }, [cantonCode, filters, formOrigin, keywordLabel, locale, onAnonymousAuthRequired, onAnonymousOpen, onErrored]);
 
   const handleClick = useCallback(async () => {
     if (!keywordLabel) return;

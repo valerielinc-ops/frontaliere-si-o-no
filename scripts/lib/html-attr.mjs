@@ -342,6 +342,24 @@ export function scanMarkupStartTags(html = '', tagName = '') {
 }
 
 /**
+ * Scan live document tags while ignoring comments and raw-text elements.
+ *
+ * Unlike `scanMarkupStartTags`, this retains closing tags as well. Consumers
+ * that need a container boundary can therefore use the same quote-balanced,
+ * raw-text-aware scan as metadata readers instead of searching the raw source
+ * for a literal closing-tag prefix.
+ *
+ * @param {string} html
+ * @param {string} [tagName]
+ * @returns {ReturnType<typeof scanHtmlTags>}
+ */
+export function scanMarkupTags(html = '', tagName = '') {
+  const target = String(tagName || '').toLowerCase();
+  return scanHtmlTags(scrubMarkupForTagScan(String(html || '')))
+    .filter(({ name }) => !target || name === target);
+}
+
+/**
  * Le start tag di piu' nomi con UNA sola scrub e UNA sola tokenizzazione:
  * `scanMarkupStartTagGroups(html, ['meta','link'])` equivale, nome per nome, a
  * `scanMarkupStartTags(html, nome)`. I lettori della testa (`robots`, refresh,

@@ -3,9 +3,23 @@ import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import type { ReactNode } from 'react';
 import JobAlertStickyBanner from '@/components/community/JobAlertStickyBanner';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import { consumePendingJobAlert } from '@/services/pendingJobAlert';
 
-const { trackJobAlertCtaClick } = vi.hoisted(() => ({
+const {
+ trackJobAlertCtaClick,
+ trackJobAlertAuthHandoff,
+ trackJobAlertCreated,
+ subscribeJobAlertOneTap,
+} = vi.hoisted(() => ({
  trackJobAlertCtaClick: vi.fn(),
+ trackJobAlertAuthHandoff: vi.fn(),
+ trackJobAlertCreated: vi.fn(),
+ subscribeJobAlertOneTap: vi.fn(),
+}));
+
+vi.mock('@/services/jobAlertService', () => ({
+ subscribeJobAlertOneTap,
+ stripKeywordEmoji: (value: string) => value.replace(/^\p{Extended_Pictographic}\s*/u, ''),
 }));
 
 vi.mock('@/hooks/useJobAlertEligibility', () => ({
@@ -15,6 +29,8 @@ vi.mock('@/hooks/useJobAlertEligibility', () => ({
 vi.mock('@/services/analytics', () => ({
  Analytics: {
  trackJobAlertCtaClick,
+ trackJobAlertAuthHandoff,
+ trackJobAlertCreated,
  trackJobAlertCtaShown: vi.fn(),
  },
 }));
@@ -51,6 +67,9 @@ describe('JobAlertStickyBanner', () => {
  vi.useFakeTimers();
  localStorage.clear();
  trackJobAlertCtaClick.mockClear();
+ trackJobAlertAuthHandoff.mockClear();
+ trackJobAlertCreated.mockClear();
+ subscribeJobAlertOneTap.mockReset();
  Object.defineProperty(window, 'innerHeight', { configurable: true, value: 600 });
  Object.defineProperty(window, 'scrollY', { configurable: true, value: 100 });
  Object.defineProperty(document.documentElement, 'scrollHeight', { configurable: true, value: 1000 });
@@ -109,5 +128,77 @@ describe('JobAlertStickyBanner', () => {
  expect(trackJobAlertCtaClick).toHaveBeenCalledWith('sticky_banner', 'open');
  expect(dispatchSpy.mock.calls.some(([event]) => event.type === 'openJobAlert')).toBe(true);
  expect(consumeJobAlertOpen()).toEqual({ keyword: 'infermiere', origin: 'sticky_banner' });
+ });
+
+ it('parks the keyword and sticky origin before asking an anonymous visitor to authenticate', () => {
+ const onRequireAuth = vi.fn();
+ render(<JobAlertStickyBanner keyword="infermiere" onRequireAuth={onRequireAuth} />);
+ readAndScroll();
+
+ fireEvent.click(screen.getByRole('button', { name: 'Crea alert gratis' }));
+
+ expect(onRequireAuth).toHaveBeenCalledTimes(1);
+ expect(consumePendingJobAlert()).toEqual(expect.objectContaining({
+  origin: 'sticky_banner',
+  config: expect.objectContaining({
+   keywords: ['infermiere'],
+   frequency: 'weekly',
+   locale: 'it',
+  }),
+ }));
+ expect(trackJobAlertAuthHandoff).toHaveBeenCalledWith('sticky_banner', 'pending_saved', 'infermiere');
+ expect(consumeJobAlertOpen()).toBeNull();
+ });
+
+ it('creates the keyword directly for an authenticated visitor and records sticky attribution', async () => {
+ const createdAlert = { id: 'alert-1' };
+ subscribeJobAlertOneTap.mockResolvedValueOnce(createdAlert);
+ render(
+  <JobAlertStickyBanner
+   userId="user-1"
+   email="sticky-user-email"
+   locale="it"
+   keyword="infermiere"
+   subscribe={subscribeJobAlertOneTap}
+  />,
+ );
+ readAndScroll();
+
+ await act(async () => {
+  fireEvent.click(screen.getByRole('button', { name: 'Crea alert gratis' }));
+  await Promise.resolve();
+ });
+
+ expect(screen.getByRole('status')).toBeTruthy();
+ expect(subscribeJobAlertOneTap).toHaveBeenCalledWith('user-1', 'sticky-user-email', 'infermiere', 'it');
+ expect(trackJobAlertCreated).toHaveBeenCalledWith(expect.objectContaining({
+  keywords: 'infermiere',
+  frequency: 'weekly',
+  surface: 'sticky_banner',
+  authPath: 'direct',
+ }));
+ expect(trackJobAlertCtaClick).toHaveBeenCalledWith('sticky_banner', 'success', 'infermiere');
+ });
+
+ it('keeps the banner retryable and reports an authenticated create error', async () => {
+ subscribeJobAlertOneTap.mockRejectedValueOnce(new Error('create failed'));
+ render(
+  <JobAlertStickyBanner
+   userId="user-1"
+   email="sticky-user-email"
+   keyword="infermiere"
+   subscribe={subscribeJobAlertOneTap}
+  />,
+ );
+ readAndScroll();
+
+ await act(async () => {
+  fireEvent.click(screen.getByRole('button', { name: 'Crea alert gratis' }));
+  await Promise.resolve();
+ });
+
+ expect(screen.getByRole('alert')).toBeTruthy();
+ expect(trackJobAlertCtaClick).toHaveBeenCalledWith('sticky_banner', 'error', 'infermiere');
+ expect(screen.getByRole('button', { name: 'Crea alert gratis' })).toBeEnabled();
  });
 });

@@ -15,6 +15,7 @@ import { SWISS_ARTICLES } from '@/data/swiss-articles-data';
 import { ARTICLE_SECTIONS, type ArticleSection } from '@/services/articleSections';
 import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
 import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSectionDescriptors';
+import { fullyRetiredArticleIds } from '@/scripts/lib/sitemap-retired-urls.mjs';
 
 const root = resolve(__dirname, '..');
 
@@ -33,9 +34,22 @@ function readProjectFile(p: string): string {
 
 const ALT_LOCALES = ['en', 'de', 'fr'] as const;
 type AltLocale = typeof ALT_LOCALES[number];
+type SitemapLocale = 'it' | AltLocale;
+const SITE_ORIGIN = 'https://frontaliereticino.ch';
+
+function articleUrlBase(section: ArticleSection, locale: SitemapLocale): string {
+  const prefix = locale === 'it' ? '' : `${locale}/`;
+  return `${SITE_ORIGIN}/${prefix}${ARTICLE_SECTIONS[section].indexSlug[locale]}/`;
+}
 
 function hreflangBase(section: ArticleSection, locale: AltLocale): string {
-  return `https://frontaliereticino.ch/${locale}/${ARTICLE_SECTIONS[section].indexSlug[locale]}/`;
+  return articleUrlBase(section, locale);
+}
+
+function articleUrlBases(section: ArticleSection): Record<SitemapLocale, string> {
+  return Object.fromEntries(
+    (['it', ...ALT_LOCALES] as SitemapLocale[]).map((locale) => [locale, articleUrlBase(section, locale)]),
+  ) as Record<SitemapLocale, string>;
 }
 
 function extractHreflangSlugs(xml: string, section: ArticleSection, locale: AltLocale): string[] {
@@ -56,10 +70,10 @@ function registerHreflangIntegrityChecks(opts: {
   sitemapXml: string;
   articleIds: readonly string[];
   slugs: Record<string, Record<string, string>>;
-  // Article IDs intentionally dropped from this sitemap (canonical-override
-  // shadowed variants, issue #3010 item 1) — excluded from the "every
-  // article has a hreflang alternate" forward check but still included in
-  // the reverse lookup map (harmless: they simply won't be found in the XML).
+  // Article IDs intentionally absent from this sitemap (canonical-override
+  // shadowed variants or fully edge-retired rows) — excluded from the "every
+  // article has a hreflang alternate" forward check but still included in the
+  // reverse lookup map. Dedicated absence checks cover both classes.
   skipForwardCheckIds?: ReadonlySet<string>;
 }): void {
   const { section, sitemapLabel, sitemapXml, articleIds, slugs, skipForwardCheckIds } = opts;
@@ -97,6 +111,41 @@ function registerHreflangIntegrityChecks(opts: {
       }
     });
   }
+}
+
+function registerRetiredSitemapAbsenceChecks(opts: {
+  section: ArticleSection;
+  sitemapLabel: string;
+  sitemapXml: string;
+  itSitemapSlugs: readonly string[];
+  articleIds: ReadonlySet<string>;
+  slugs: Record<string, Record<string, string>>;
+}): void {
+  const { section, sitemapLabel, sitemapXml, itSitemapSlugs, articleIds, slugs } = opts;
+
+  describe(`every fully edge-retired article is absent from ${sitemapLabel} (IT loc + EN/DE/FR hreflang)`, () => {
+    for (const id of articleIds) {
+      const slugMap = slugs[id];
+      it(`article "${id}" → IT slug is NOT in ${sitemapLabel}`, () => {
+        expect(slugMap?.it, `Article "${id}" has no IT slug`).toBeTruthy();
+        expect(
+          itSitemapSlugs.includes(slugMap!.it),
+          `Article "${id}" is fully edge-retired but its IT slug is still listed in ${sitemapLabel}`,
+        ).toBe(false);
+      });
+
+      for (const locale of ALT_LOCALES) {
+        it(`article "${id}" → ${locale} slug has NO hreflang alternate in ${sitemapLabel}`, () => {
+          const slug = slugMap?.[locale];
+          expect(slug, `Article "${id}" has no ${locale} slug`).toBeTruthy();
+          expect(
+            extractHreflangSlugs(sitemapXml, section, locale).includes(slug!),
+            `Article "${id}" is fully edge-retired but its ${locale} hreflang is still listed in ${sitemapLabel}`,
+          ).toBe(false);
+        });
+      }
+    }
+  });
 }
 
 // ── Data sources ─────────────────────────────────────────────────────────────
@@ -148,6 +197,14 @@ const shadowedBlogArticleIds = new Set(
     return !!itSlug && Object.prototype.hasOwnProperty.call(blogCanonicalOverrides, itSlug);
   }),
 );
+const retiredBlogArticleIds = fullyRetiredArticleIds(
+  BLOG_SLUGS as Record<string, Record<string, string>>,
+  articleUrlBases('frontaliere'),
+);
+const blogSitemapExcludedArticleIds = new Set([
+  ...shadowedBlogArticleIds,
+  ...retiredBlogArticleIds,
+]);
 
 // ── Blog Article Slug Integrity ──────────────────────────────────────────────
 
@@ -180,9 +237,9 @@ describe('Blog sitemap slug integrity', () => {
     }
   });
 
-  describe('every non-shadowed article in ALL_BLOG_ARTICLE_IDS has a sitemap entry', () => {
+  describe('every non-excluded article in ALL_BLOG_ARTICLE_IDS has a sitemap entry', () => {
     for (const id of ALL_BLOG_ARTICLE_IDS) {
-      if (shadowedBlogArticleIds.has(id)) continue; // covered below: must be ABSENT instead
+      if (blogSitemapExcludedArticleIds.has(id)) continue; // covered below: must be ABSENT instead
       it(`article "${id}" → has IT slug in sitemap-blog.xml`, () => {
         const itSlug = BLOG_SLUGS[id]?.it;
         expect(itSlug, `Article "${id}" has no IT slug in BLOG_SLUGS`).toBeTruthy();
@@ -243,8 +300,17 @@ describe('Blog sitemap hreflang alternate integrity (EN/DE/FR)', () => {
     sitemapXml: blogSitemap,
     articleIds: ALL_BLOG_ARTICLE_IDS,
     slugs: BLOG_SLUGS,
-    skipForwardCheckIds: shadowedBlogArticleIds,
+    skipForwardCheckIds: blogSitemapExcludedArticleIds,
   });
+});
+
+registerRetiredSitemapAbsenceChecks({
+  section: 'frontaliere',
+  sitemapLabel: 'sitemap-blog.xml',
+  sitemapXml: blogSitemap,
+  itSitemapSlugs: blogSitemapSlugs,
+  articleIds: retiredBlogArticleIds,
+  slugs: BLOG_SLUGS as Record<string, Record<string, string>>,
 });
 
 // ── Blog ARTICLES array ↔ router consistency ─────────────────────────────────
@@ -310,6 +376,14 @@ const shadowedSwissArticleIds = new Set(
     return !!itSlug && Object.prototype.hasOwnProperty.call(swissCanonicalOverrides, itSlug);
   }),
 );
+const retiredSwissArticleIds = fullyRetiredArticleIds(
+  SWISS_SLUGS as Record<string, Record<string, string>>,
+  articleUrlBases('svizzera'),
+);
+const swissSitemapExcludedArticleIds = new Set([
+  ...shadowedSwissArticleIds,
+  ...retiredSwissArticleIds,
+]);
 
 describe('Swiss article sitemap slug integrity', () => {
   it('sitemap-blog-ch.xml has at least 1 article', () => {
@@ -340,9 +414,9 @@ describe('Swiss article sitemap slug integrity', () => {
     }
   });
 
-  describe('every non-shadowed article in ALL_SWISS_ARTICLE_IDS has a sitemap entry', () => {
+  describe('every non-excluded article in ALL_SWISS_ARTICLE_IDS has a sitemap entry', () => {
     for (const id of ALL_SWISS_ARTICLE_IDS) {
-      if (shadowedSwissArticleIds.has(id)) continue; // covered below: must be ABSENT instead
+      if (swissSitemapExcludedArticleIds.has(id)) continue; // covered below: must be ABSENT instead
       it(`article "${id}" → has IT slug in sitemap-blog-ch.xml`, () => {
         const itSlug = SWISS_SLUGS[id]?.it;
         expect(itSlug, `Article "${id}" has no IT slug in SWISS_SLUGS`).toBeTruthy();
@@ -410,8 +484,17 @@ describe('Swiss article sitemap hreflang alternate integrity (EN/DE/FR)', () => 
     sitemapXml: swissSitemap,
     articleIds: ALL_SWISS_ARTICLE_IDS,
     slugs: SWISS_SLUGS,
-    skipForwardCheckIds: shadowedSwissArticleIds,
+    skipForwardCheckIds: swissSitemapExcludedArticleIds,
   });
+});
+
+registerRetiredSitemapAbsenceChecks({
+  section: 'svizzera',
+  sitemapLabel: 'sitemap-blog-ch.xml',
+  sitemapXml: swissSitemap,
+  itSitemapSlugs: swissSitemapSlugs,
+  articleIds: retiredSwissArticleIds,
+  slugs: SWISS_SLUGS as Record<string, Record<string, string>>,
 });
 
 describe('SwissArticles SWISS_ARTICLES array ↔ ALL_SWISS_ARTICLE_IDS consistency', () => {

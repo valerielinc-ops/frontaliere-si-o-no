@@ -35,7 +35,7 @@ export function saveIntent<T>(key: string, value: T): boolean {
   }
 }
 
-function readValidIntent<T>(key: string, ttlMs: number): T | null {
+function readStoredIntent<T>(key: string, ttlMs: number): StoredIntent<T> | null {
   let raw: string | null = null;
   try {
     raw = window.localStorage.getItem(key);
@@ -47,10 +47,14 @@ function readValidIntent<T>(key: string, ttlMs: number): T | null {
     const parsed = JSON.parse(raw) as StoredIntent<T>;
     if (!parsed || typeof parsed.savedAt !== 'number' || !parsed.value) return null;
     if (Date.now() - parsed.savedAt > ttlMs) return null;
-    return parsed.value;
+    return parsed;
   } catch {
     return null;
   }
+}
+
+function readValidIntent<T>(key: string, ttlMs: number): T | null {
+  return readStoredIntent<T>(key, ttlMs)?.value ?? null;
 }
 
 /** Non-destructive read: returns the pending value without clearing it. */
@@ -69,6 +73,36 @@ export function consumeIntent<T>(key: string, ttlMs: number = DEFAULT_INTENT_TTL
     /* ignore */
   }
   return value;
+}
+
+/**
+ * Acknowledge a still-valid intent only when it still matches the operation
+ * that just succeeded. The predicate protects a newer intent written while
+ * an async replay was in flight from being cleared by the older replay.
+ */
+export function acknowledgeIntentIf<T>(
+  key: string,
+  matches: (value: T) => boolean,
+  ttlMs: number = DEFAULT_INTENT_TTL_MS,
+): boolean {
+  if (typeof window === 'undefined') return false;
+  const stored = readStoredIntent<T>(key, ttlMs);
+  if (!stored) return false;
+
+  let matchesCurrent = false;
+  try {
+    matchesCurrent = matches(stored.value);
+  } catch {
+    return false;
+  }
+  if (!matchesCurrent) return false;
+
+  try {
+    window.localStorage.removeItem(key);
+    return window.localStorage.getItem(key) === null;
+  } catch {
+    return false;
+  }
 }
 
 export function clearIntent(key: string): void {

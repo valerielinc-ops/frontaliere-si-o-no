@@ -56,15 +56,16 @@ function seedSitemapWithLocs(distDir: string, filename: string, locs: string[]):
 function seedHtmlPage(
   distDir: string,
   urlPath: string,
-  options: { canonical?: string; noindex?: boolean } = {},
+  options: { canonical?: string | null; noindex?: boolean } = {},
 ): void {
   const pageDir = path.join(distDir, urlPath.replace(/^\/+/, ''));
   fs.mkdirSync(pageDir, { recursive: true });
-  const canonical = options.canonical ?? `${BASE_URL}${urlPath}`;
+  const canonical = options.canonical === undefined ? `${BASE_URL}${urlPath}` : options.canonical;
   const robots = options.noindex ? '<meta name="robots" content="noindex,follow">' : '';
+  const canonicalTag = canonical === null ? '' : `<link rel="canonical" href="${canonical}">`;
   fs.writeFileSync(
     path.join(pageDir, 'index.html'),
-    `<!doctype html><html><head>${robots}<link rel="canonical" href="${canonical}"></head><body>Fuel station</body></html>`,
+    `<!doctype html><html><head>${robots}${canonicalTag}</head><body>Fuel station</body></html>`,
     'utf-8',
   );
 }
@@ -446,7 +447,8 @@ describe('sitemapAliasPlugin — final fuel dist reconciliation', () => {
     const livePath = '/prezzi-benzina/chiasso/oggi/';
     const noindexPath = '/prezzi-benzina/mendrisio/oggi/';
     const driftPath = '/prezzi-benzina/lugano/oggi/';
-    const missingPath = '/prezzi-benzina/locarno/oggi/';
+    const missingCanonicalPath = '/prezzi-benzina/locarno/oggi/';
+    const missingPath = '/prezzi-benzina/ascona/oggi/';
     const staleShardPath = '/prezzi-benzina/bellinzona/oggi/';
     const loc = (urlPath: string) => `${BASE_URL}${urlPath}`;
 
@@ -454,15 +456,17 @@ describe('sitemapAliasPlugin — final fuel dist reconciliation', () => {
       loc(livePath),
       loc(noindexPath),
       loc(driftPath),
+      loc(missingCanonicalPath),
       loc(missingPath),
     ]);
     seedSitemapWithLocs(distDir, 'sitemap-fuel-stations-1.xml', [loc(staleShardPath)]);
     seedHtmlPage(distDir, livePath);
     seedHtmlPage(distDir, noindexPath, { noindex: true });
     seedHtmlPage(distDir, driftPath, { canonical: `${BASE_URL}/prezzi-benzina/oggi/` });
+    seedHtmlPage(distDir, missingCanonicalPath, { canonical: null });
     seedHtmlPage(distDir, staleShardPath);
 
-    await expect(reconcileSitemapFuelWithDist(distDir)).resolves.toBe(3);
+    await expect(reconcileSitemapFuelWithDist(distDir)).resolves.toBe(4);
 
     expect(fs.existsSync(path.join(distDir, 'sitemap-fuel-stations-1.xml'))).toBe(false);
     const remaining = fs.readFileSync(
@@ -472,6 +476,7 @@ describe('sitemapAliasPlugin — final fuel dist reconciliation', () => {
     expect(remaining).toContain(`<loc>${loc(livePath)}</loc>`);
     expect(remaining).not.toContain(`<loc>${loc(noindexPath)}</loc>`);
     expect(remaining).not.toContain(`<loc>${loc(driftPath)}</loc>`);
+    expect(remaining).not.toContain(`<loc>${loc(missingCanonicalPath)}</loc>`);
     expect(remaining).not.toContain(`<loc>${loc(missingPath)}</loc>`);
   });
 });

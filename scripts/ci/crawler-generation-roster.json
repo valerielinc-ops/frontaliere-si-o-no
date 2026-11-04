@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 683,
+  "crawlerCount": 687,
   "groups": {
     "10": [
       "atec-personal",
@@ -459,9 +459,13 @@
       "az-systems-ch",
       "bb-trading-werbeartikel-ag",
       "bodmerfischer-ch",
+      "caisse-des-medecins-ch",
+      "cdg-beratungen",
       "comuni-ticino",
+      "creditx-ch",
       "csl-immobilien-ag",
       "eqe-ch",
+      "favresa-ch",
       "internezzo-ag",
       "invias-swiss",
       "jobdoor-ch",
@@ -833,6 +837,7 @@
     "buersten-technik": "data/jobs/by-crawler/buersten-technik.json",
     "burkhalter": "data/jobs/by-crawler/burkhalter-group.json",
     "c-and-a-schweiz": "data/jobs/by-crawler/c-and-a-schweiz.json",
+    "caisse-des-medecins-ch": "data/jobs/by-crawler/caisse-des-medecins-ch.json",
     "cambiavalute": "data/jobs/by-crawler/cambiavalute.json",
     "canton-ticino-osc": "data/jobs/by-crawler/canton-ticino-osc.json",
     "canton-valais": "data/jobs/by-crawler/canton-valais.json",
@@ -841,6 +846,7 @@
     "caritas-schweiz": "data/jobs/by-crawler/caritas-schweiz.json",
     "casale": "data/jobs/by-crawler/casale.json",
     "caseificio-gottardo": "data/jobs/by-crawler/caseificio-gottardo.json",
+    "cdg-beratungen": "data/jobs/by-crawler/cdg-beratungen.json",
     "cds-savognin": "data/jobs/by-crawler/cds-savognin.json",
     "cedes": "data/jobs/by-crawler/cedes.json",
     "centiel": "data/jobs/by-crawler/centiel.json",
@@ -887,6 +893,7 @@
     "coopers": "data/jobs/by-crawler/coopers.json",
     "cordenpharma": "data/jobs/by-crawler/cordenpharma.json",
     "corner-banca": "data/jobs/by-crawler/corner-banca.json",
+    "creditx-ch": "data/jobs/by-crawler/creditx-ch.json",
     "croix-rouge-fribourgeoise": "data/jobs/by-crawler/croix-rouge-fribourgeoise.json",
     "crr-suva-sion": "data/jobs/by-crawler/crr-suva-sion.json",
     "cs-bregaglia": "data/jobs/by-crawler/cs-bregaglia.json",
@@ -949,6 +956,7 @@
     "fachkraft": "data/jobs/by-crawler/fachkraft.json",
     "fart": "data/jobs/by-crawler/fart.json",
     "faulhaber": "data/jobs/by-crawler/faulhaber.json",
+    "favresa-ch": "data/jobs/by-crawler/favresa-ch.json",
     "felfel": "data/jobs/by-crawler/felfel.json",
     "ferring": "data/jobs/by-crawler/ferring.json",
     "ferrovia-retica": "data/jobs/by-crawler/ferrovia-retica.json",
@@ -1422,5 +1430,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:76de17fe6ac0859331c3d5a255bc8683ede6b467b264506346c9ac85ca8f2b31"
+  "digest": "sha256:83486ef3743b2e626b75586a2d9c3b445439e1d2a207bdafcd14eac2ac47be2d"
 }

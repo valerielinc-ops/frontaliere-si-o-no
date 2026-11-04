@@ -68,7 +68,7 @@ jobs:
       CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
-      CRAWLER_GROUP_MAX_PARALLEL: "5"
+      CRAWLER_GROUP_MAX_PARALLEL: "6"
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
       - name: Checkout frontaliere-si-o-no (attempt 1/2, sparse)
@@ -244,7 +244,7 @@ jobs:
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 18 silent push failures."
+            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 22 silent push failures."
             exit 1
           fi
           git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
@@ -420,7 +420,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -622,7 +622,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -824,7 +824,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1026,7 +1026,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1229,7 +1229,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1431,7 +1431,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1633,7 +1633,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1835,7 +1835,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2037,7 +2037,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2239,7 +2239,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2441,7 +2441,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2643,7 +2643,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2845,7 +2845,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3047,7 +3047,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3249,7 +3249,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3451,7 +3451,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3653,7 +3653,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3855,7 +3855,815 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-5}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            terminal_exit="$(resolveCrawlerTerminalStatus 1)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            terminal_exit="$(resolveCrawlerTerminalStatus 127)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+            exit "$terminal_exit"
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -s "$worker_status_file" ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch caisse-des-medecins-ch
+        id: crawler-launch-caisse-des-medecins-ch
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-caisse-des-medecins-ch.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_CAISSE_DES_MEDECINS_CH_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: caisse-des-medecins-ch
+          JOBS_SLICE_FILE: data/jobs/by-crawler/caisse-des-medecins-ch.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          # shellcheck disable=SC2016,SC1003
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          mkdir -p "$state_dir/slots"
+          script_path="$state_dir/caisse-des-medecins-ch.sh"
+          launcher_path="$state_dir/caisse-des-medecins-ch.launcher.sh"
+          worker_path="$state_dir/caisse-des-medecins-ch.worker.sh"
+          log_path="$state_dir/caisse-des-medecins-ch.log"
+          pid_path="$state_dir/caisse-des-medecins-ch.pid"
+          status_path="$state_dir/caisse-des-medecins-ch.status"
+          started_path="$state_dir/caisse-des-medecins-ch.started"
+          watchdog_path="$state_dir/caisse-des-medecins-ch.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/caisse-des-medecins-ch.crawl-exit"
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          # ---- caisse-des-medecins-ch: run crawler (verbatim from original workflow) ----
+          node scripts/update-caisse-des-medecins-ch-jobs.mjs
+          crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::caisse-des-medecins-ch: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
+          git_commit_exit=0
+          housekeeping_exit=0
+          report_exit=0
+
+          # ---- caisse-des-medecins-ch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs)
+            housekeeping_exit=$?
+          fi
+
+          # ---- caisse-des-medecins-ch: Commit and push (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Caisse des médecins jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          # ---- caisse-des-medecins-ch: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
+              --title "Crawler Failure: Run caisse-des-medecins-ch" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run caisse-des-medecins-ch"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed caisse-des-medecins-ch"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::caisse-des-medecins-ch: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ caisse-des-medecins-ch: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::caisse-des-medecins-ch: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ caisse-des-medecins-ch: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::caisse-des-medecins-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ caisse-des-medecins-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
+          fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::caisse-des-medecins-ch: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ caisse-des-medecins-ch: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
+
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.sh"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.worker.status"
+          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.worker.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.log"
+          : > "$started_file"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
+          mv -f "$worker_status_tmp" "$worker_status_file"
+          exit "$crawler_exit"' > "$worker_path"
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.worker.status"
+          started_file="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-24/caisse-des-medecins-ch.watchdog"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
+            worker_watchdog_minutes=74
+          fi
+          resolveCrawlerTerminalStatus() {
+            local wrapper_exit="$1"
+            local worker_status=""
+            local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
+            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
+              terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
+            else
+              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
+            fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
+            if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
+              echo "::error::could not publish the crawler terminal status" >&2
+              return 1
+            fi
+            printf '\''%s\n'\'' "$terminal_exit"
+          }
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            terminal_exit="$(resolveCrawlerTerminalStatus 1)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            terminal_exit="$(resolveCrawlerTerminalStatus 127)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+            exit "$terminal_exit"
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -s "$worker_status_file" ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch cdg-beratungen
+        id: crawler-launch-cdg-beratungen
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cdg-beratungen.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_CDG_BERATUNGEN_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: cdg-beratungen
+          JOBS_SLICE_FILE: data/jobs/by-crawler/cdg-beratungen.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          # shellcheck disable=SC2016,SC1003
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          mkdir -p "$state_dir/slots"
+          script_path="$state_dir/cdg-beratungen.sh"
+          launcher_path="$state_dir/cdg-beratungen.launcher.sh"
+          worker_path="$state_dir/cdg-beratungen.worker.sh"
+          log_path="$state_dir/cdg-beratungen.log"
+          pid_path="$state_dir/cdg-beratungen.pid"
+          status_path="$state_dir/cdg-beratungen.status"
+          started_path="$state_dir/cdg-beratungen.started"
+          watchdog_path="$state_dir/cdg-beratungen.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/cdg-beratungen.crawl-exit"
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          # ---- cdg-beratungen: run crawler (verbatim from original workflow) ----
+          node scripts/update-cdg-beratungen-jobs.mjs
+          crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::cdg-beratungen: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
+          git_commit_exit=0
+          housekeeping_exit=0
+          report_exit=0
+
+          # ---- cdg-beratungen: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs)
+            housekeeping_exit=$?
+          fi
+
+          # ---- cdg-beratungen: Commit and push (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update cdg Beratungen AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          # ---- cdg-beratungen: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
+              --title "Crawler Failure: Run cdg-beratungen" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run cdg-beratungen"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed cdg-beratungen"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::cdg-beratungen: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ cdg-beratungen: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::cdg-beratungen: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ cdg-beratungen: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::cdg-beratungen: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ cdg-beratungen: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
+          fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::cdg-beratungen: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ cdg-beratungen: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
+
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.sh"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.worker.status"
+          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.worker.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.log"
+          : > "$started_file"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
+          mv -f "$worker_status_tmp" "$worker_status_file"
+          exit "$crawler_exit"' > "$worker_path"
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.worker.status"
+          started_file="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-24/cdg-beratungen.watchdog"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
+            worker_watchdog_minutes=74
+          fi
+          resolveCrawlerTerminalStatus() {
+            local wrapper_exit="$1"
+            local worker_status=""
+            local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
+            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
+              terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
+            else
+              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
+            fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
+            if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
+              echo "::error::could not publish the crawler terminal status" >&2
+              return 1
+            fi
+            printf '\''%s\n'\'' "$terminal_exit"
+          }
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            terminal_exit="$(resolveCrawlerTerminalStatus 1)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            terminal_exit="$(resolveCrawlerTerminalStatus 127)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+            exit "$terminal_exit"
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -s "$worker_status_file" ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch creditx-ch
+        id: crawler-launch-creditx-ch
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-creditx-ch.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_CREDITX_CH_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: creditx-ch
+          JOBS_SLICE_FILE: data/jobs/by-crawler/creditx-ch.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          # shellcheck disable=SC2016,SC1003
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          mkdir -p "$state_dir/slots"
+          script_path="$state_dir/creditx-ch.sh"
+          launcher_path="$state_dir/creditx-ch.launcher.sh"
+          worker_path="$state_dir/creditx-ch.worker.sh"
+          log_path="$state_dir/creditx-ch.log"
+          pid_path="$state_dir/creditx-ch.pid"
+          status_path="$state_dir/creditx-ch.status"
+          started_path="$state_dir/creditx-ch.started"
+          watchdog_path="$state_dir/creditx-ch.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/creditx-ch.crawl-exit"
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          # ---- creditx-ch: run crawler (verbatim from original workflow) ----
+          node scripts/update-creditx-ch-jobs.mjs
+          crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::creditx-ch: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
+          git_commit_exit=0
+          housekeeping_exit=0
+          report_exit=0
+
+          # ---- creditx-ch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs)
+            housekeeping_exit=$?
+          fi
+
+          # ---- creditx-ch: Commit and push (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update CreditX Sàrl jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          # ---- creditx-ch: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
+              --title "Crawler Failure: Run creditx-ch" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run creditx-ch"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed creditx-ch"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::creditx-ch: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ creditx-ch: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::creditx-ch: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ creditx-ch: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::creditx-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ creditx-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
+          fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::creditx-ch: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ creditx-ch: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
+
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.sh"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.worker.status"
+          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.worker.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.log"
+          : > "$started_file"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
+          mv -f "$worker_status_tmp" "$worker_status_file"
+          exit "$crawler_exit"' > "$worker_path"
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.worker.status"
+          started_file="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-24/creditx-ch.watchdog"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
+            worker_watchdog_minutes=74
+          fi
+          resolveCrawlerTerminalStatus() {
+            local wrapper_exit="$1"
+            local worker_status=""
+            local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
+            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
+              terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
+            else
+              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
+            fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
+            if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
+              echo "::error::could not publish the crawler terminal status" >&2
+              return 1
+            fi
+            printf '\''%s\n'\'' "$terminal_exit"
+          }
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            terminal_exit="$(resolveCrawlerTerminalStatus 1)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            terminal_exit="$(resolveCrawlerTerminalStatus 127)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+            exit "$terminal_exit"
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -s "$worker_status_file" ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch favresa-ch
+        id: crawler-launch-favresa-ch
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-favresa-ch.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_FAVRESA_CH_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: favresa-ch
+          JOBS_SLICE_FILE: data/jobs/by-crawler/favresa-ch.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          # shellcheck disable=SC2016,SC1003
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          mkdir -p "$state_dir/slots"
+          script_path="$state_dir/favresa-ch.sh"
+          launcher_path="$state_dir/favresa-ch.launcher.sh"
+          worker_path="$state_dir/favresa-ch.worker.sh"
+          log_path="$state_dir/favresa-ch.log"
+          pid_path="$state_dir/favresa-ch.pid"
+          status_path="$state_dir/favresa-ch.status"
+          started_path="$state_dir/favresa-ch.started"
+          watchdog_path="$state_dir/favresa-ch.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/favresa-ch.crawl-exit"
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          # ---- favresa-ch: run crawler (verbatim from original workflow) ----
+          node scripts/update-favresa-ch-jobs.mjs
+          crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::favresa-ch: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
+          git_commit_exit=0
+          housekeeping_exit=0
+          report_exit=0
+
+          # ---- favresa-ch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs)
+            housekeeping_exit=$?
+          fi
+
+          # ---- favresa-ch: Commit and push (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Favre SA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          # ---- favresa-ch: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
+              --title "Crawler Failure: Run favresa-ch" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run favresa-ch"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed favresa-ch"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::favresa-ch: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ favresa-ch: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::favresa-ch: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ favresa-ch: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::favresa-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ favresa-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
+          fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::favresa-ch: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ favresa-ch: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
+
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.sh"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.worker.status"
+          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.worker.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.log"
+          : > "$started_file"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
+          mv -f "$worker_status_tmp" "$worker_status_file"
+          exit "$crawler_exit"' > "$worker_path"
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.worker.status"
+          started_file="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-24/favresa-ch.watchdog"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
+            worker_watchdog_minutes=74
+          fi
+          resolveCrawlerTerminalStatus() {
+            local wrapper_exit="$1"
+            local worker_status=""
+            local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
+            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
+              terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
+            else
+              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
+            fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
+            if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
+              echo "::error::could not publish the crawler terminal status" >&2
+              return 1
+            fi
+            printf '\''%s\n'\'' "$terminal_exit"
+          }
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-6}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -4898,6 +5706,226 @@ jobs:
             exit 1
           fi
           exit "$status"
+      - name: Run caisse-des-medecins-ch
+        id: crawler-caisse-des-medecins-ch
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-caisse-des-medecins-ch'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          status_file="$state_dir/caisse-des-medecins-ch.status"
+          pid_file="$state_dir/caisse-des-medecins-ch.pid"
+          log_file="$state_dir/caisse-des-medecins-ch.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::caisse-des-medecins-ch: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::caisse-des-medecins-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::caisse-des-medecins-ch: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::caisse-des-medecins-ch: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::caisse-des-medecins-ch: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::caisse-des-medecins-ch: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::caisse-des-medecins-ch: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run cdg-beratungen
+        id: crawler-cdg-beratungen
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-cdg-beratungen'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          status_file="$state_dir/cdg-beratungen.status"
+          pid_file="$state_dir/cdg-beratungen.pid"
+          log_file="$state_dir/cdg-beratungen.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::cdg-beratungen: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::cdg-beratungen: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::cdg-beratungen: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::cdg-beratungen: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::cdg-beratungen: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::cdg-beratungen: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::cdg-beratungen: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run creditx-ch
+        id: crawler-creditx-ch
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-creditx-ch'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          status_file="$state_dir/creditx-ch.status"
+          pid_file="$state_dir/creditx-ch.pid"
+          log_file="$state_dir/creditx-ch.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::creditx-ch: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::creditx-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::creditx-ch: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::creditx-ch: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::creditx-ch: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::creditx-ch: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::creditx-ch: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run favresa-ch
+        id: crawler-favresa-ch
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-favresa-ch'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-24"
+          status_file="$state_dir/favresa-ch.status"
+          pid_file="$state_dir/favresa-ch.pid"
+          log_file="$state_dir/favresa-ch.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::favresa-ch: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::favresa-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::favresa-ch: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::favresa-ch: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::favresa-ch: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::favresa-ch: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::favresa-ch: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
       - name: Aggregate crawler outcomes
         id: crawler_aggregate
         if: always()
@@ -4978,6 +6006,10 @@ jobs:
           aggregate_crawler_member 'mountains-ch'
           aggregate_crawler_member 'skan-com'
           aggregate_crawler_member 'zindel-united-swiss'
+          aggregate_crawler_member 'caisse-des-medecins-ch'
+          aggregate_crawler_member 'cdg-beratungen'
+          aggregate_crawler_member 'creditx-ch'
+          aggregate_crawler_member 'favresa-ch'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -5048,7 +6080,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"asanti-ch","primarySlice":"data/jobs/by-crawler/asanti-ch.json"},{"crawlerId":"avantgarten-ch","primarySlice":"data/jobs/by-crawler/avantgarten-ch.json"},{"crawlerId":"az-systems-ch","primarySlice":"data/jobs/by-crawler/az-systems-ch.json"},{"crawlerId":"bb-trading-werbeartikel-ag","primarySlice":"data/jobs/by-crawler/bb-trading-werbeartikel-ag.json"},{"crawlerId":"bodmerfischer-ch","primarySlice":"data/jobs/by-crawler/bodmerfischer-ch.json"},{"crawlerId":"comuni-ticino","primarySlice":"data/jobs/by-crawler/comuni-ticino.json"},{"crawlerId":"csl-immobilien-ag","primarySlice":"data/jobs/by-crawler/csl-immobilien-ag.json"},{"crawlerId":"eqe-ch","primarySlice":"data/jobs/by-crawler/eqe-ch.json"},{"crawlerId":"internezzo-ag","primarySlice":"data/jobs/by-crawler/internezzo-ag.json"},{"crawlerId":"invias-swiss","primarySlice":"data/jobs/by-crawler/invias-swiss.json"},{"crawlerId":"jobdoor-ch","primarySlice":"data/jobs/by-crawler/jobdoor-ch.json"},{"crawlerId":"lemco-precision-com","primarySlice":"data/jobs/by-crawler/lemco-precision-com.json"},{"crawlerId":"lipsuisse-ch","primarySlice":"data/jobs/by-crawler/lipsuisse-ch.json"},{"crawlerId":"mountains-ch","primarySlice":"data/jobs/by-crawler/mountains-ch.json"},{"crawlerId":"seco-jobroom","primarySlice":"data/jobs/by-crawler/seco-jobroom.json"},{"crawlerId":"sintio-ch","primarySlice":"data/jobs/by-crawler/sintio-ch.json"},{"crawlerId":"skan-com","primarySlice":"data/jobs/by-crawler/skan-com.json"},{"crawlerId":"zindel-united-swiss","primarySlice":"data/jobs/by-crawler/zindel-united-swiss.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"asanti-ch","primarySlice":"data/jobs/by-crawler/asanti-ch.json"},{"crawlerId":"avantgarten-ch","primarySlice":"data/jobs/by-crawler/avantgarten-ch.json"},{"crawlerId":"az-systems-ch","primarySlice":"data/jobs/by-crawler/az-systems-ch.json"},{"crawlerId":"bb-trading-werbeartikel-ag","primarySlice":"data/jobs/by-crawler/bb-trading-werbeartikel-ag.json"},{"crawlerId":"bodmerfischer-ch","primarySlice":"data/jobs/by-crawler/bodmerfischer-ch.json"},{"crawlerId":"caisse-des-medecins-ch","primarySlice":"data/jobs/by-crawler/caisse-des-medecins-ch.json"},{"crawlerId":"cdg-beratungen","primarySlice":"data/jobs/by-crawler/cdg-beratungen.json"},{"crawlerId":"comuni-ticino","primarySlice":"data/jobs/by-crawler/comuni-ticino.json"},{"crawlerId":"creditx-ch","primarySlice":"data/jobs/by-crawler/creditx-ch.json"},{"crawlerId":"csl-immobilien-ag","primarySlice":"data/jobs/by-crawler/csl-immobilien-ag.json"},{"crawlerId":"eqe-ch","primarySlice":"data/jobs/by-crawler/eqe-ch.json"},{"crawlerId":"favresa-ch","primarySlice":"data/jobs/by-crawler/favresa-ch.json"},{"crawlerId":"internezzo-ag","primarySlice":"data/jobs/by-crawler/internezzo-ag.json"},{"crawlerId":"invias-swiss","primarySlice":"data/jobs/by-crawler/invias-swiss.json"},{"crawlerId":"jobdoor-ch","primarySlice":"data/jobs/by-crawler/jobdoor-ch.json"},{"crawlerId":"lemco-precision-com","primarySlice":"data/jobs/by-crawler/lemco-precision-com.json"},{"crawlerId":"lipsuisse-ch","primarySlice":"data/jobs/by-crawler/lipsuisse-ch.json"},{"crawlerId":"mountains-ch","primarySlice":"data/jobs/by-crawler/mountains-ch.json"},{"crawlerId":"seco-jobroom","primarySlice":"data/jobs/by-crawler/seco-jobroom.json"},{"crawlerId":"sintio-ch","primarySlice":"data/jobs/by-crawler/sintio-ch.json"},{"crawlerId":"skan-com","primarySlice":"data/jobs/by-crawler/skan-com.json"},{"crawlerId":"zindel-united-swiss","primarySlice":"data/jobs/by-crawler/zindel-united-swiss.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-24-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs

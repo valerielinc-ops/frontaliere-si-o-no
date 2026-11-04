@@ -40,7 +40,7 @@ const HOWTO_CALCULATOR = {
 const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  'direct-employers': {
   title: 'Pubblica gratis un’offerta di lavoro | Frontaliere Ticino',
-  description: 'Piccole aziende e negozi possono pubblicare gratis un’offerta in Ticino tramite il flusso publisher: accesso sicuro, verifica reCAPTCHA, moderazione e scadenza automatica.',
+  description: 'Piccole aziende e negozi possono pubblicare gratis un’offerta in Ticino senza account: verifica del datore, moderazione umana e scadenza automatica dopo 30 giorni.',
   keywords: 'pubblicare offerta lavoro ticino gratis, offerta lavoro negozio ticino, datore lavoro ticino, candidatura frontaliere',
   ogTitle: 'Pubblica gratis un’offerta di lavoro',
   ogDescription: 'Un accesso sicuro al flusso publisher gratuito per i piccoli datori. Verifica reCAPTCHA, moderazione e scadenza automatica.',
@@ -85,7 +85,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  'direct-employers-de': {
   title: 'Kostenloses Stellenangebot veröffentlichen | Frontaliere Ticino',
-  description: 'Kleine Unternehmen und Geschäfte können über den Publisher-Ablauf kostenlos eine Stelle im Tessin veröffentlichen: sicherer Zugang, reCAPTCHA-Prüfung, Moderation und automatische Löschung.',
+  description: 'Kleine Unternehmen und Geschäfte können kostenlos Stellen im Tessin ohne Konto veröffentlichen: Arbeitgeberprüfung, Moderation und Ablauf nach 30 Tagen.',
   keywords: 'kostenlose Stelle Tessin veröffentlichen, kleine Arbeitgeber Tessin, Stelle ohne Konto, Jobs Grenzgänger',
   ogTitle: 'Kostenloses Stellenangebot veröffentlichen',
   ogDescription: 'Ein sicherer Publisher-Ablauf für kleine Arbeitgeber ohne Online-Portal. Prüfung, Moderation und automatische Löschung.',
@@ -94,7 +94,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  'direct-employers-fr': {
   title: 'Publier gratuitement une offre d’emploi | Frontaliere Ticino',
-  description: 'Les petites entreprises et commerces peuvent publier gratuitement une offre au Tessin via le flux publisher : accès sécurisé, vérification reCAPTCHA, modération et expiration automatique.',
+  description: 'Les petites entreprises et commerces peuvent publier une offre gratuite au Tessin sans compte : vérification de l’employeur, modération et expiration après 30 jours.',
   keywords: 'publier offre emploi gratuite Tessin, petit employeur Tessin, offre sans compte, emploi frontalier',
   ogTitle: 'Publier gratuitement une offre d’emploi',
   ogDescription: 'Un flux publisher sécurisé pour les petits employeurs sans portail en ligne. Vérification reCAPTCHA, modération et expiration automatique.',
@@ -112,7 +112,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  'permanent-employers-de': {
   title: 'Unternehmen für Spontanbewerbungen | Frontaliere Ticino',
-  description: 'Eine öffentliche Liste von Unternehmen, die der Prospector für Spontanbewerbungen gefunden hat. Meldungen von Kandidaten sind zweitrangig; es handelt sich nicht um offene Stellen.',
+  description: 'Eine öffentliche Liste von Unternehmen, die Spontanbewerbungen prüfen können, von Kandidaten gemeldet und vom Team geprüft. Es handelt sich nicht um offene Stellen.',
   keywords: 'Unternehmen Tessin Spontanbewerbung, Grenzgänger Bewerbung, Schweizer Arbeitgeber',
   ogTitle: 'Unternehmen für Spontanbewerbungen',
   ogDescription: 'Vom Prospector für Spontanbewerbungen gefundene Arbeitgeber. Meldungen von Kandidaten sind zweitrangig; diese Seite enthält keine offenen Stellen.',
@@ -121,7 +121,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  'permanent-employers-fr': {
   title: 'Entreprises ouvertes aux candidatures spontanées | Frontaliere Ticino',
-  description: 'Une liste publique d’entreprises trouvées par le prospector parce qu’elles recueillent des candidatures spontanées. Les signalements des candidats sont secondaires et ce ne sont pas des postes ouverts.',
+  description: 'Une liste publique d’entreprises pouvant examiner des candidatures spontanées, signalées par des candidats et vérifiées par l’équipe. Ce ne sont pas des postes ouverts.',
   keywords: 'entreprises Tessin candidatures spontanées, candidature frontalier, employeurs suisses',
   ogTitle: 'Entreprises ouvertes aux candidatures spontanées',
   ogDescription: 'Des employeurs trouvés par le prospector pour les candidatures spontanées. Les signalements des candidats sont secondaires ; cette page n’annonce pas de postes ouverts.',
