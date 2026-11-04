@@ -303,7 +303,9 @@ describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
       new URL('../scripts/ci/reconcile-rehydrated-sitemaps.ts', import.meta.url),
       'utf8',
     );
-    expect(source).toMatch(/reconcileFinalSitemapsWithDist\(distDir, \[\], \{\s*keepMissing: false,\s*ignoreShardOwnership: true,\s*\}\)/);
+    expect(source).toContain('const REHYDRATED_SITEMAP_OPTIONS = Object.freeze({');
+    expect(source).toMatch(/keepMissing: false,\s*ignoreShardOwnership: true/);
+    expect(source).toContain('reconcileFinalSitemapsWithDist(distDir, [], REHYDRATED_SITEMAP_OPTIONS)');
   });
 
   it('uses strict missing-page checks at the build finalization boundary', () => {
