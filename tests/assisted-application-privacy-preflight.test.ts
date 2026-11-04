@@ -167,6 +167,10 @@ const NOTICE_LINK = '<a id="notice" role="button" tabindex="0" aria-haspopup="di
 const NOTICE_DIALOG = `<div role="dialog" id="noticeDialog" hidden><h2>Datenschutzerklärung</h2><p>Ein synthetischer Text.</p>
   <label><input type="checkbox" id="noticeReview" name="noticeReview"> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label>
   <button type="button" id="noticeAccept" disabled>Akzeptieren</button><button type="button" id="noticeRefuse">Ablehnen</button></div>`;
+const SUCCESS_FACTORS_DIALOG = `<div role="dialog" id="noticeDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p>
+  <label><input type="checkbox" id="noticeReview" name="noticeReview"> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label>
+  <button type="button" id="noticeAccept" disabled>Akzeptieren</button><button type="button" id="noticeRefuse">Ablehnen</button>
+  <button type="button">Drucken</button><button type="button">Schließen</button></div>`;
 const REGISTRATION = (link = NOTICE_LINK, dialog = NOTICE_DIALOG) => `<form id="registration" action="/register">
   <label for="country">Land/Region des Wohnorts:*</label><select id="country" name="country"><option value="CH" selected>Schweiz</option></select>
   <label for="abo">Job-Abo</label><input type="checkbox" id="abo" name="abo">
@@ -327,6 +331,27 @@ describe('privacy before the registration click', () => {
     expect(fixture.element('otherReview').checked).toBe(false);
     expect(clicks.other).toBe(0);
     expect(clicks.submit).toBe(0);
+  });
+
+  it('accepts the SuccessFactors notice dialog rendered outside the registration form', async () => {
+    const markup = `<form id="registration" action="/register">
+      <label for="e1">E-Mail-Adresse: *</label><input id="e1" name="email" required>
+      <label for="e2">E-Mail-Adresse erneut eingeben: *</label><input id="e2" name="email2" required>
+      <label for="p1">Wählen Sie ein Kennwort: *</label><input id="p1" type="password" name="p1" required>
+      <label for="p2">Kennwort erneut eingeben: *</label><input id="p2" type="password" name="p2" required>
+      <label for="first">Vorname: *</label><input id="first" name="first" required>
+      <label for="last">Nachname: *</label><input id="last" name="last" required>
+      <label for="country">Land/Region des Wohnorts:*</label><select id="country" name="country" required><option value="CH" selected>Schweiz</option></select>
+      <label for="notice">Datenschutzerklärung:*</label><a id="notice" role="button" tabindex="0" aria-haspopup="dialog">Lesen und akzeptieren Sie die Datenschutzerklärung.</a>
+      <button type="submit" id="create" disabled>Konto anlegen</button>
+    </form>${SUCCESS_FACTORS_DIALOG}`;
+    const fixture = fakePage([markup], { url: 'https://career5.successfactors.eu/career' });
+    const clicks = wireNotice(fixture);
+    const result = await preflight(fixture.page);
+    expect(result).toMatchObject({ privacy: 'accepted', blocked: false });
+    expect(fixture.element('noticeReview').checked).toBe(true);
+    expect(fixture.element('noticeAccept').disabled).toBe(false);
+    expect(clicks).toEqual({ other: 0, submit: 0 });
   });
 
   it('gives the CTA a bounded time to become enabled after the acceptance', async () => {

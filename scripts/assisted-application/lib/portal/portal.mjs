@@ -2263,10 +2263,14 @@ async function ownPrivacyDialog(page, token, review) {
 
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
 export async function acceptPrivacyStatement(page, snapshot, { targetControl = registrationButton(snapshot) } = {}) {
-  const sameTargetForm = control => targetControl && targetControl.form >= 0
-    && control.form === targetControl.form && control.frame === targetControl.frame;
+  // SuccessFactors renders the required privacy dialog outside the registration
+  // form. Its controls still belong to the same application document, while a
+  // dialog in another frame must remain out of scope.
+  const sameTargetScope = control => targetControl && control.frame === targetControl.frame
+    && (isDialogControl(control)
+      || (targetControl.form >= 0 && control.form === targetControl.form));
   const targetControls = current => privacyConsentControls({ ...current,
-    buttons: (current.buttons || []).filter(sameTargetForm), links: (current.links || []).filter(sameTargetForm) });
+    buttons: (current.buttons || []).filter(sameTargetScope), links: (current.links || []).filter(sameTargetScope) });
   if (!targetControls(snapshot).trigger) return privacyConsentControls(snapshot).trigger ? 'unavailable' : 'none';
   // The last field filled (the password repeat) checks itself on blur:
   // SuccessFactors asks its password policy and a click on the statement's
