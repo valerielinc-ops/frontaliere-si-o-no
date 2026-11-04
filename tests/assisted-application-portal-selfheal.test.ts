@@ -125,6 +125,30 @@ describe('portal runner self-correction', () => {
     expect(hasApplicationSurface(snapshot)).toBe(false);
   });
 
+  it('does not treat a public page heading as ownership of its gallery pager', () => {
+    const buttons = ['Vorheriges', 'Nächstes', 'Öffne Bild in Grossansicht', 'Seite drucken']
+      .map(text => ({
+        text,
+        section: 'Bewerbungstipps',
+        context: 'Bewerbungstipps · Öffentliche Inhalte',
+        formId: 'public-gallery',
+        frame: 0,
+        disabled: false,
+      }));
+    const snapshot = {
+      fields: [{
+        id: 'attachment', kind: 'file', inputType: 'file',
+        label: 'Eine oder mehrere Dateien auswählen (optional) (optional).', required: false,
+        formId: 'public-gallery', frame: 0,
+      }],
+      buttons,
+    };
+
+    expect(pageControls(buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/', { snapshot }))
+      .toEqual({ submit: null, next: null, stage: { kind: 'form' } });
+    expect(hasApplicationSurface(snapshot)).toBe(false);
+  });
+
   it('rejects a first or last gallery with only one paging direction', () => {
     const snapshot = {
       fields: [{
