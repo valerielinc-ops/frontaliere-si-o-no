@@ -12560,8 +12560,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Suspense fallback={null}>
  <JobAlertStickyBanner
  userId={userId}
+ email={userEmail}
+ locale={locale}
  authResolved={authResolved}
  keyword={deferredSearchQuery.trim()}
+ onRequireAuth={onRequireAuth}
+ onSubscribed={() => invalidateUserAlertsCache()}
  />
  </Suspense>
  )}
