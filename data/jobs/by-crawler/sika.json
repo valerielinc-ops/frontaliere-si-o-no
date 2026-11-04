@@ -85,9 +85,9 @@
       "slug": "chemical-plant-worker-m-w-d-chemiemitarbeiter-chemikant-m-w-d-sika-dudingen",
       "slugByLocale": {
         "de": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
-        "it": "chemical-plant-worker-m-w-d-chemiemitarbeiter-chemikant-m-w-d-sika-dudingen",
+        "it": "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen-canton-of-fribourg",
         "en": "chemical-plant-worker-m-f-chemical-employee-chemical-m-f-sika-dudingen",
-        "fr": "chemical-plant-worker-m-w-d-chemiemitarbeiter-chemikant-m-w-d-sika-dudingen"
+        "fr": "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen-canton-of-fribourg"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -136,17 +136,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
-          "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen-canton-of-fribourg"
-        ],
-        "fr": [
-          "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen-canton-of-fribourg"
+          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
         ]
       },
       "previousSlugs": [
-        "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
-        "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen-canton-of-fribourg",
-        "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen-canton-of-fribourg"
+        "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

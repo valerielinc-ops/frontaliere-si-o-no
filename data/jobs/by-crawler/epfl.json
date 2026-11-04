@@ -6430,12 +6430,12 @@
     },
     {
       "id": "epfl-436ceacda5e0",
-      "slug": "adjoint-e-de-la-section-de-genie-civil-epfl-lausanne",
+      "slug": "sezione-di-ingegneria-civile-epfl-lausanne",
       "slugByLocale": {
         "fr": "adjoint-e-de-la-section-de-genie-civil-epfl-lausanne",
-        "it": "adjoint-e-de-la-section-de-genie-civil-epfl-lausanne",
-        "en": "adjoint-e-de-la-section-de-genie-civil-epfl-lausanne",
-        "de": "adjoint-e-de-la-section-de-genie-civil-epfl-lausanne"
+        "it": "sezione-di-ingegneria-civile-epfl-lausanne",
+        "en": "deputy-civil-engineering-section-epfl-lausanne",
+        "de": "stellvertretende-abteilung-bauingenieurwesen-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6500,15 +6500,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:28:15.581Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:28:15.581Z"
+      "firstSeenAt": "2026-11-03T21:28:15.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "adjoint-e-de-la-section-de-genie-civil-epfl-lausanne"
+        ],
+        "en": [
+          "adjoint-e-de-la-section-de-genie-civil-epfl-lausanne"
+        ],
+        "de": [
+          "adjoint-e-de-la-section-de-genie-civil-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "adjoint-e-de-la-section-de-genie-civil-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-722976eb1d65",
-      "slug": "robotics-engineer-80-epfl-lausanne",
+      "slug": "robotics-ingegnere-80-epfl-lausanne",
       "slugByLocale": {
         "en": "robotics-engineer-80-epfl-lausanne",
-        "it": "robotics-engineer-80-epfl-lausanne",
-        "de": "robotics-engineer-80-epfl-lausanne",
+        "it": "robotics-ingegnere-80-epfl-lausanne",
+        "de": "robotics-ingenieur-80-epfl-lausanne",
         "fr": "robotics-engineer-80-epfl-lausanne"
       },
       "company": "EPFL",
@@ -6574,7 +6588,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:28:14.971Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:28:14.971Z"
+      "firstSeenAt": "2026-11-03T21:28:14.971Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "robotics-engineer-80-epfl-lausanne"
+        ],
+        "de": [
+          "robotics-engineer-80-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "robotics-engineer-80-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-c829309c5e7e",

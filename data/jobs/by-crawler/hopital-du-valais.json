@@ -3615,10 +3615,10 @@
     },
     {
       "id": "hopital-du-valais-ec0f56e5a396",
-      "slug": "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre",
+      "slug": "un-tirocinante-pre-es-per-l-anno-2027-2028-hopital-du-valais-sierre",
       "slugByLocale": {
         "fr": "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre",
-        "it": "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre",
+        "it": "un-tirocinante-pre-es-per-l-anno-2027-2028-hopital-du-valais-sierre",
         "en": "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre",
         "de": "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
       },
@@ -3684,7 +3684,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:29:18.256Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:29:18.256Z"
+      "firstSeenAt": "2026-11-03T21:29:18.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-stagiaire-pre-hes-pour-l-annee-2027-2028-hopital-du-valais-sierre"
+      ]
     },
     {
       "id": "hopital-du-valais-3b36c26f4331",

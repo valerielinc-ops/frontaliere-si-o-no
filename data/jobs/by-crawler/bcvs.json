@@ -735,12 +735,12 @@
     },
     {
       "id": "bcvs-c77478e3e812",
-      "slug": "berater-in-customer-center-bcvs-sion",
+      "slug": "consulente-customer-center-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "de": "berater-in-customer-center-bcvs-sion",
-        "it": "berater-in-customer-center-bcvs-sion",
-        "en": "berater-in-customer-center-bcvs-sion",
-        "fr": "berater-in-customer-center-bcvs-sion"
+        "it": "consulente-customer-center-banque-cantonale-du-valais-sion",
+        "en": "customer-center-advisor-banque-cantonale-du-valais-sion",
+        "fr": "conseiller-ere-au-centre-de-service-a-la-clientele-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -815,7 +815,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-01T21:55:59.480Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:55:59.480Z"
+      "firstSeenAt": "2026-11-03T21:55:59.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-in-customer-center-bcvs-sion"
+        ],
+        "en": [
+          "berater-in-customer-center-bcvs-sion"
+        ],
+        "fr": [
+          "berater-in-customer-center-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "berater-in-customer-center-bcvs-sion"
+      ]
     }
   ]
 }

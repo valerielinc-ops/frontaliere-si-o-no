@@ -4866,12 +4866,12 @@
     },
     {
       "id": "kispi-75b541fecbb9",
-      "slug": "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-per-2-jahre-universitats-kinderspital-zurich",
+      "slug": "assistente-amministrativa-segreteria-del-programma-m-f-d-50-70-a-tempo-determinato-per-2-anni-universitats-kinderspital",
       "slugByLocale": {
         "de": "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-kispi",
-        "it": "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-per-2-jahre-universitats-kinderspital-zurich",
-        "en": "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-universitats-kinderspital-zurich-zurich",
-        "fr": "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-universitats-kinderspital-zurich-zurich"
+        "it": "assistente-amministrativa-segreteria-del-programma-m-f-d-50-70-a-tempo-determinato-per-2-anni-universitats-kinderspital",
+        "en": "administrative-assistant-program-secretariat-m-f-d-50-70-temporary-for-2-years-universitats-kinderspital-zurich-zurich",
+        "fr": "secretariat-du-programme-adjoint-administratif-h-f-d-50-70-temporaire-pour-2-ans-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4920,11 +4920,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-kispi"
+          "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-kispi",
+          "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-per-2-jahre-universitats-kinderspital-zurich"
+        ],
+        "en": [
+          "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-universitats-kinderspital-zurich-zurich"
+        ],
+        "fr": [
+          "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-universitats-kinderspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-kispi"
+        "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-kispi",
+        "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-per-2-jahre-universitats-kinderspital-zurich",
+        "administrative-assistentin-programmsekretariat-m-w-d-50-70-befristet-fur-2-jahre-universitats-kinderspital-zurich-zurich"
       ],
       "salaryMin": 55300,
       "salaryMax": 94200,

@@ -86,12 +86,12 @@
     },
     {
       "id": "nestle-1453841233",
-      "slug": "stagiaire-pre-heg-achats-finance-1-an-nestle-ch",
+      "slug": "stagista-pre-heg-acquisti-e-finanza-1-anno-nestle-orbe",
       "slugByLocale": {
         "fr": "stagiaire-pre-heg-achats-finance-1-an-nestle-ch",
-        "it": "stagiaire-pre-heg-achats-finance-1-an-nestle-ch",
-        "en": "stagiaire-pre-heg-achats-finance-1-an-nestle-ch",
-        "de": "stagiaire-pre-heg-achats-finance-1-an-nestle-ch"
+        "it": "stagista-pre-heg-acquisti-e-finanza-1-anno-nestle-orbe",
+        "en": "pre-heg-trainee-purchases-finance-1-year-nestle-orbe",
+        "de": "vorpraktikum-heg-einkauf-finanzen-1-jahr-nestle-orbe"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -154,7 +154,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T22:01:41.619Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:01:41.619Z"
+      "firstSeenAt": "2026-11-03T22:01:41.619Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-pre-heg-achats-finance-1-an-nestle-ch"
+        ],
+        "en": [
+          "stagiaire-pre-heg-achats-finance-1-an-nestle-ch"
+        ],
+        "de": [
+          "stagiaire-pre-heg-achats-finance-1-an-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-pre-heg-achats-finance-1-an-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1437201133",
@@ -801,7 +815,7 @@
       "slugByLocale": {
         "it": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
         "en": "apprenti-e-brassage-and-beverage-technologist-nestle-henniez-ch",
-        "de": "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez",
+        "de": "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch",
         "fr": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
       },
       "company": "Nestlé",
@@ -845,14 +859,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
-        "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
+        "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
         ],
         "de": [
-          "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
+          "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:59.851Z",
@@ -1748,12 +1762,12 @@
     },
     {
       "id": "nestle-1453854133",
-      "slug": "facilities-maintenance-employee-nestle-ch",
+      "slug": "servizi-manutenzione-dipendenti-nestle-vevey",
       "slugByLocale": {
         "fr": "facilities-maintenance-employee-nestle-ch",
-        "it": "facilities-maintenance-employee-nestle-ch",
-        "en": "facilities-maintenance-employee-nestle-ch",
-        "de": "facilities-maintenance-employee-nestle-ch"
+        "it": "servizi-manutenzione-dipendenti-nestle-vevey",
+        "en": "the-swiss-foundation-for-the-improvement-of-living-and-working-conditions-nestle-vevey",
+        "de": "instandhaltungspersonal-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1815,7 +1829,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T22:01:26.560Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:01:26.560Z"
+      "firstSeenAt": "2026-11-03T22:01:26.560Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facilities-maintenance-employee-nestle-ch"
+        ],
+        "en": [
+          "facilities-maintenance-employee-nestle-ch"
+        ],
+        "de": [
+          "facilities-maintenance-employee-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facilities-maintenance-employee-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1452245833",
@@ -4381,7 +4409,7 @@
         "it": "specialista-di-produzione-nestle-basel",
         "en": "production-specialist-nestle-basel",
         "de": "produktions-spezialist-in-nestle-ch",
-        "fr": "specialiste-de-la-production-nestle-basel"
+        "fr": "produktions-spezialist-in-nestle-basel"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -4424,7 +4452,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktions-spezialist-in-nestle-ch",
-        "produktions-spezialist-in-nestle-basel"
+        "specialiste-de-la-production-nestle-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4434,7 +4462,7 @@
           "produktions-spezialist-in-nestle-ch"
         ],
         "fr": [
-          "produktions-spezialist-in-nestle-basel"
+          "specialiste-de-la-production-nestle-basel"
         ]
       },
       "firstSeenAt": "2026-10-18T09:45:04.531Z",
@@ -5249,7 +5277,7 @@
       "slugByLocale": {
         "it": "ingenieur-e-digitale-e-performance-nestle-henniez-ch",
         "en": "automaticien-ne-specialiste-digital-nestle-ch",
-        "de": "automatician-ne-digital-spezialist-nestle-henniez",
+        "de": "automatiker-in-und-digitalspezialist-in-nestle-henniez",
         "fr": "ingenieur-e-digital-performance-nestle-ch"
       },
       "company": "Nestlé",
@@ -5300,13 +5328,13 @@
         ],
         "de": [
           "automaticien-ne-specialiste-digital-nestle-henniez",
-          "automatiker-in-und-digitalspezialist-in-nestle-henniez"
+          "automatician-ne-digital-spezialist-nestle-henniez"
         ]
       },
       "previousSlugs": [
         "automaticien-ne-specialiste-digital-nestle-ch",
         "automaticien-ne-specialiste-digital-nestle-henniez",
-        "automatiker-in-und-digitalspezialist-in-nestle-henniez"
+        "automatician-ne-digital-spezialist-nestle-henniez"
       ],
       "firstSeenAt": "2026-05-25T13:33:29.386Z",
       "salaryMin": 60500,
@@ -6530,7 +6558,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "en": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "de": "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe",
+        "de": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "fr": "gestionnaire-de-projet-pour-les-systemes-de-boissons-hors-maison-nestle-orbe"
       },
       "company": "Nestlé",
@@ -6574,12 +6602,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
+        "project-manager-for-out-of-home-beverage-systems-nestle-orbe",
+        "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-for-out-of-home-beverage-systems-nestle-ch",
           "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
+        ],
+        "de": [
+          "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:30.943Z",

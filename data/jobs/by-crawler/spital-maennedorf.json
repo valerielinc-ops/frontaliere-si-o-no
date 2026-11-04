@@ -3096,8 +3096,8 @@
       "slugByLocale": {
         "de": "lehrstelle-logistikerin-logistiker-eba-oder-efz-2027-spital-maennedorf-ch",
         "it": "apprendistato-logistikerin-logistiker-afp-o-cfc-2027-spital-mannedorf",
-        "en": "lehrstelle-logistikerin-logistiker-eba-oder-efz-2027-spital-mannedorf-mannedorf",
-        "fr": "lehrstelle-logistikerin-logistiker-eba-oder-efz-2027-spital-mannedorf-mannedorf"
+        "en": "apprenticeship-logistics-manager-logistician-eba-or-efz-2027-spital-mannedorf-mannedorf",
+        "fr": "apprentissage-logistique-gestionnaire-logisticien-eba-ou-efz-2027-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3145,10 +3145,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistikerin-logistiker-eba-oder-efz-2027-spital-maennedorf-ch"
+        ],
+        "en": [
+          "lehrstelle-logistikerin-logistiker-eba-oder-efz-2027-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "lehrstelle-logistikerin-logistiker-eba-oder-efz-2027-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-logistikerin-logistiker-eba-oder-efz-2027-spital-maennedorf-ch"
+        "lehrstelle-logistikerin-logistiker-eba-oder-efz-2027-spital-maennedorf-ch",
+        "lehrstelle-logistikerin-logistiker-eba-oder-efz-2027-spital-mannedorf-mannedorf"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

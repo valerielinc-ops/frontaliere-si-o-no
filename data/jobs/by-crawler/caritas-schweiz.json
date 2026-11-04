@@ -92,12 +92,12 @@
     },
     {
       "id": "caritas-schweiz-7210a83051f7",
-      "slug": "interkulturell-dolmetschende-caritas-schweiz-bern",
+      "slug": "interculturali-interpreti-caritas-schweiz-bern",
       "slugByLocale": {
         "de": "interkulturell-dolmetschende-caritas-schweiz-bern",
-        "it": "interkulturell-dolmetschende-caritas-schweiz-bern",
-        "en": "interkulturell-dolmetschende-caritas-schweiz-bern",
-        "fr": "interkulturell-dolmetschende-caritas-schweiz-bern"
+        "it": "interculturali-interpreti-caritas-schweiz-bern",
+        "en": "intercultural-interpreters-caritas-schweiz-bern",
+        "fr": "interpretes-interculturels-caritas-schweiz-bern"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -162,7 +162,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-03T21:28:59.598Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:28:59.598Z"
+      "firstSeenAt": "2026-11-03T21:28:59.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "interkulturell-dolmetschende-caritas-schweiz-bern"
+        ],
+        "en": [
+          "interkulturell-dolmetschende-caritas-schweiz-bern"
+        ],
+        "fr": [
+          "interkulturell-dolmetschende-caritas-schweiz-bern"
+        ]
+      },
+      "previousSlugs": [
+        "interkulturell-dolmetschende-caritas-schweiz-bern"
+      ]
     },
     {
       "id": "caritas-schweiz-43f6a37e0add",

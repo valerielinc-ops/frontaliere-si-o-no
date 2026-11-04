@@ -175,12 +175,12 @@
     },
     {
       "id": "hermes-d9d48120d0a2",
-      "slug": "apprentissage-cfc-horloger-de-production-m-w-d-hermes-brugg-be",
+      "slug": "cfc-learning-orologio-di-produzione-m-f-hermes-brugg-be-bern-switzerland",
       "slugByLocale": {
         "fr": "apprentissage-cfc-horloger-de-production-h-f-hermes-ch",
-        "it": "apprentissage-cfc-horloger-de-production-m-w-d-hermes-brugg-be",
-        "en": "apprentissage-cfc-horloger-de-production-h-f-hermes-ch",
-        "de": "apprentissage-cfc-horloger-de-production-h-f-hermes-ch"
+        "it": "cfc-learning-orologio-di-produzione-m-f-hermes-brugg-be-bern-switzerland",
+        "en": "cfc-learning-production-clock-m-f-hermes-brugg-be-bern-switzerland",
+        "de": "cfc-learning-produktionsuhr-m-w-hermes-brugg-be-bern-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -226,11 +226,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-cfc-horloger-de-production-h-f-hermes-ch",
+          "apprentissage-cfc-horloger-de-production-m-w-d-hermes-brugg-be"
+        ],
+        "en": [
+          "apprentissage-cfc-horloger-de-production-h-f-hermes-ch"
+        ],
+        "de": [
           "apprentissage-cfc-horloger-de-production-h-f-hermes-ch"
         ]
       },
       "previousSlugs": [
-        "apprentissage-cfc-horloger-de-production-h-f-hermes-ch"
+        "apprentissage-cfc-horloger-de-production-h-f-hermes-ch",
+        "apprentissage-cfc-horloger-de-production-m-w-d-hermes-brugg-be"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

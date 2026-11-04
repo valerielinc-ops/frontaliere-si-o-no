@@ -88,12 +88,12 @@
     },
     {
       "id": "clinique-de-montchoisi-c6d7c0904ffd",
-      "slug": "infirmier-ere-instrumentiste-clinique-de-montchoisi",
+      "slug": "infermiere-strumentali-clinique-de-montchoisi-lausanne",
       "slugByLocale": {
         "fr": "infirmier-ere-instrumentiste-clinique-de-montchoisi",
-        "it": "infirmier-ere-instrumentiste-clinique-de-montchoisi",
-        "en": "infirmier-ere-instrumentiste-clinique-de-montchoisi",
-        "de": "infirmier-ere-instrumentiste-clinique-de-montchoisi"
+        "it": "infermiere-strumentali-clinique-de-montchoisi-lausanne",
+        "en": "instrumental-nurse-clinique-de-montchoisi-lausanne",
+        "de": "instrumentale-krankenschwester-clinique-de-montchoisi-lausanne"
       },
       "company": "Clinique de Montchoisi",
       "companyKey": "clinique-de-montchoisi",
@@ -154,7 +154,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:33:16.708Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:33:16.708Z"
+      "firstSeenAt": "2026-11-03T21:33:16.708Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-instrumentiste-clinique-de-montchoisi"
+        ],
+        "en": [
+          "infirmier-ere-instrumentiste-clinique-de-montchoisi"
+        ],
+        "de": [
+          "infirmier-ere-instrumentiste-clinique-de-montchoisi"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-instrumentiste-clinique-de-montchoisi"
+      ]
     },
     {
       "id": "clinique-de-montchoisi-25ec20ee795f",

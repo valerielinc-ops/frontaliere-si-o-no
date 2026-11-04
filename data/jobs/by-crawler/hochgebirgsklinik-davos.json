@@ -949,12 +949,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-5f86172af9c5",
-      "slug": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
+      "slug": "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
-        "it": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
-        "en": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
-        "fr": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        "it": "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos",
+        "en": "personnel-rehabilitation-planning-m-f-d-50-70-hochgebirgsklinik-davos-davos",
+        "fr": "planification-de-la-readaptation-du-personnel-h-f-d-50-70-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1021,7 +1021,21 @@
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:24:10.587Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-55dbfb81a41b",

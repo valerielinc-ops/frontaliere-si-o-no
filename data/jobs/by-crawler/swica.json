@@ -2807,12 +2807,12 @@
     },
     {
       "id": "swica-bbb4b12045ae",
-      "slug": "teamleiter-kundenbetreuung-alle-swica-winterthur",
+      "slug": "supporto-clienti-del-team-leader-tutti-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
         "de": "teamleiter-kundenbetreuung-alle-swica-winterthur",
-        "it": "teamleiter-kundenbetreuung-alle-swica-winterthur",
-        "en": "teamleiter-kundenbetreuung-alle-swica-winterthur",
-        "fr": "teamleiter-kundenbetreuung-alle-swica-winterthur"
+        "it": "supporto-clienti-del-team-leader-tutti-swica-gesundheitsorganisation-winterthur",
+        "en": "team-leader-customer-support-all-swica-gesundheitsorganisation-winterthur",
+        "fr": "chef-d-equipe-service-a-la-clientele-tous-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2874,7 +2874,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:58:21.455Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:58:21.455Z"
+      "firstSeenAt": "2026-11-03T21:58:21.455Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-kundenbetreuung-alle-swica-winterthur"
+        ],
+        "en": [
+          "teamleiter-kundenbetreuung-alle-swica-winterthur"
+        ],
+        "fr": [
+          "teamleiter-kundenbetreuung-alle-swica-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-kundenbetreuung-alle-swica-winterthur"
+      ]
     }
   ]
 }

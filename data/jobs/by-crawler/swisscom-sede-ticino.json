@@ -2757,9 +2757,9 @@
         "de": "ICT System Manager",
         "fr": "Gestionnaire de systèmes TIC"
       },
-      "slug": "ict-system-manager-swisscom-zurich-qstsig",
+      "slug": "gestione-del-sistema-ict-swisscom-zurich",
       "slugByLocale": {
-        "it": "ict-system-manager-swisscom-zurich-qstsig",
+        "it": "gestione-del-sistema-ict-swisscom-zurich",
         "en": "escalation-manager-swisscom-sede-ticino-zurich",
         "de": "escalation-manager-swisscom-zurich-qstsig",
         "fr": "gestionnaire-d-escalation-swisscom-sede-ticino-zurich"
@@ -2801,7 +2801,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T22:01:27.732Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:01:27.732Z"
+      "firstSeenAt": "2026-11-03T22:01:27.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-manager-swisscom-zurich-qstsig"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-manager-swisscom-zurich-qstsig"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Sales-Manager-Digital-Media---LMS_R-0006622",

@@ -4447,12 +4447,12 @@
     },
     {
       "id": "balgrist-797688d43510",
-      "slug": "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich",
+      "slug": "b-posto-di-apprendistato-come-cuoca-cuoco-afc-m-f-d-b-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
-        "it": "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich",
-        "en": "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
-        "fr": "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich"
+        "it": "b-posto-di-apprendistato-come-cuoca-cuoco-afc-m-f-d-b-universitatsklinik-balgrist-zurich",
+        "en": "b-apprenticeship-as-cook-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich",
+        "fr": "b-apprentissage-en-tant-que-cuisinier-chef-efz-h-f-d-b-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4501,11 +4501,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
+          "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich"
+        ],
+        "en": [
+          "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich"
+        ],
+        "fr": [
           "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich"
         ]
       },
       "previousSlugs": [
-        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich"
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
+        "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich"
       ],
       "salaryMin": 58000,
       "salaryMax": 73000,

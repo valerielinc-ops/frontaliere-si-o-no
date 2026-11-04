@@ -2736,12 +2736,12 @@
     },
     {
       "id": "cern-3af2813fa86b",
-      "slug": "short-term-internship-2027-applied-physics-cern-geneva-ge-switzerland",
+      "slug": "stage-a-breve-termine-2027-fisica-applicata-cern-geneva-ge-switzerland",
       "slugByLocale": {
         "en": "short-term-internship-2027-applied-physics-cern-geneva-ge-switzerland",
-        "it": "short-term-internship-2027-applied-physics-cern-geneva-ge-switzerland",
-        "de": "short-term-internship-2027-applied-physics-cern-geneva-ge-switzerland",
-        "fr": "short-term-internship-2027-applied-physics-cern-geneva-ge-switzerland"
+        "it": "stage-a-breve-termine-2027-fisica-applicata-cern-geneva-ge-switzerland",
+        "de": "kurzzeitpraktikum-2027-angewandte-physik-cern-geneva-ge-switzerland",
+        "fr": "stage-de-courte-duree-2027-physique-appliquee-cern-geneva-ge-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -2804,7 +2804,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:53:12.923Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:53:12.923Z"
+      "firstSeenAt": "2026-11-03T21:53:12.923Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "short-term-internship-2027-applied-physics-cern-geneva-ge-switzerland"
+        ],
+        "de": [
+          "short-term-internship-2027-applied-physics-cern-geneva-ge-switzerland"
+        ],
+        "fr": [
+          "short-term-internship-2027-applied-physics-cern-geneva-ge-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "short-term-internship-2027-applied-physics-cern-geneva-ge-switzerland"
+      ]
     },
     {
       "id": "cern-2d92d46ab6b6",

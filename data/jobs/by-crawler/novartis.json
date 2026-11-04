@@ -2890,12 +2890,12 @@
     },
     {
       "id": "novartis-40fb11bc0595",
-      "slug": "principal-scientist-senior-scientist-cryo-em-structural-biology-novartis-ch",
+      "slug": "scienziato-scienziato-principale-biologia-strutturale-cryo-em-novartis-basel-city",
       "slugByLocale": {
         "en": "principal-scientist-senior-scientist-cryo-em-structural-biology-novartis-ch",
-        "it": "principal-scientist-senior-scientist-cryo-em-structural-biology-novartis-ch",
+        "it": "scienziato-scienziato-principale-biologia-strutturale-cryo-em-novartis-basel-city",
         "de": "principal-scientist-senior-scientist-cryo-em-structural-biology-novartis-ch",
-        "fr": "principal-scientist-senior-scientist-cryo-em-structural-biology-novartis-ch"
+        "fr": "chercheur-principal-chercheur-principal-cryo-em-biologie-structurale-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2957,16 +2957,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:55:01.805Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:55:01.805Z"
+      "firstSeenAt": "2026-11-03T21:55:01.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-scientist-senior-scientist-cryo-em-structural-biology-novartis-ch"
+        ],
+        "fr": [
+          "principal-scientist-senior-scientist-cryo-em-structural-biology-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-scientist-senior-scientist-cryo-em-structural-biology-novartis-ch"
+      ]
     },
     {
       "id": "novartis-bc5de3ad21f7",
-      "slug": "executive-assistance-ai-office-novartis-ch",
+      "slug": "assistenza-esecutivo-ufficio-ai-novartis-basel-city",
       "slugByLocale": {
         "en": "executive-assistance-ai-office-novartis-ch",
-        "it": "executive-assistance-ai-office-novartis-ch",
-        "de": "executive-assistance-ai-office-novartis-ch",
-        "fr": "executive-assistance-ai-office-novartis-ch"
+        "it": "assistenza-esecutivo-ufficio-ai-novartis-basel-city",
+        "de": "exekutive-hilfe-ai-buro-novartis-basel-city",
+        "fr": "assistance-a-la-direction-bureau-de-l-ia-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3028,7 +3039,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:55:00.990Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:55:00.990Z"
+      "firstSeenAt": "2026-11-03T21:55:00.990Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistance-ai-office-novartis-ch"
+        ],
+        "de": [
+          "executive-assistance-ai-office-novartis-ch"
+        ],
+        "fr": [
+          "executive-assistance-ai-office-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistance-ai-office-novartis-ch"
+      ]
     }
   ]
 }

@@ -2777,11 +2777,11 @@
     },
     {
       "id": "c-and-a-schweiz-0f32a4bb1753",
-      "slug": "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch",
+      "slug": "addetta-alle-vendite-m-f-d-tempo-indeterminato-20-il-sabato-lausanne-c-a-schweiz-lausanne-ch",
       "slugByLocale": {
         "en": "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch",
-        "it": "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch",
-        "de": "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch",
+        "it": "addetta-alle-vendite-m-f-d-tempo-indeterminato-20-il-sabato-lausanne-c-a-schweiz-lausanne-ch",
+        "de": "verkaufsmitarbeiterin-m-w-d-unbefristet-20-samstags-lausanne-c-a-schweiz-lausanne-ch",
         "fr": "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch"
       },
       "company": "C&A Schweiz",
@@ -2845,7 +2845,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:31:46.541Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:31:46.541Z"
+      "firstSeenAt": "2026-11-03T21:31:46.541Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-723fab092bc4",
@@ -2854,7 +2865,7 @@
         "en": "store-visual-merchandiser-f-m-d-cdi-100-balexert-c-and-a-schweiz-ch",
         "it": "store-visual-merchandiser-f-m-d-cdi-100-balexert-c-and-a-schweiz-ch",
         "de": "store-visual-merchandiser-f-m-d-cdi-100-balexert-c-and-a-schweiz-ch",
-        "fr": "store-visual-merchandiser-f-m-d-cdi-100-balexert-c-and-a-schweiz-ch"
+        "fr": "magasiner-les-marchandises-visuelles-h-f-d-cdi-100-balexert-c-a-schweiz-geneve-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",

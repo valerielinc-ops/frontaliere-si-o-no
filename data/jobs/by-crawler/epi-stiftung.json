@@ -1060,12 +1060,12 @@
     },
     {
       "id": "epi-stiftung-d4eaac7c4751",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
+      "slug": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
+        "it": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1127,7 +1127,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:27:40.762Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T23:05:25.940Z"
+      "firstSeenAt": "2026-09-09T23:05:25.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-8ad847bc740c",

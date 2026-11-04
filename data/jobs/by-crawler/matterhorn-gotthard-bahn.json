@@ -103,12 +103,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-a68c8f09f3d3",
-      "slug": "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-andermatt",
+      "slug": "manutenzione-del-personale-dell-officina-m-f-d-matterhorn-gotthard-bahn-andermatt",
       "slugByLocale": {
-        "it": "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-andermatt",
-        "en": "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-andermatt",
+        "it": "manutenzione-del-personale-dell-officina-m-f-d-matterhorn-gotthard-bahn-andermatt",
+        "en": "workshop-staff-maintenance-m-f-d-matterhorn-gotthard-bahn-andermatt",
         "de": "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-andermatt"
+        "fr": "entretien-du-personnel-de-l-atelier-h-f-d-matterhorn-gotthard-bahn-andermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -182,15 +182,18 @@
         "it": [
           "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
           "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-          "manutenzione-del-veicolo-tecnico-m-f-d-matterhorn-gotthard-bahn-andermatt"
+          "manutenzione-del-veicolo-tecnico-m-f-d-matterhorn-gotthard-bahn-andermatt",
+          "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-andermatt"
         ],
         "en": [
           "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-          "technical-vehicle-maintenance-m-f-d-matterhorn-gotthard-bahn-andermatt"
+          "technical-vehicle-maintenance-m-f-d-matterhorn-gotthard-bahn-andermatt",
+          "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-andermatt"
         ],
         "fr": [
           "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-          "entretien-technique-des-vehicules-h-f-d-matterhorn-gotthard-bahn-andermatt"
+          "entretien-technique-des-vehicules-h-f-d-matterhorn-gotthard-bahn-andermatt",
+          "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-andermatt"
         ]
       },
       "previousSlugs": [
@@ -198,7 +201,8 @@
         "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
         "manutenzione-del-veicolo-tecnico-m-f-d-matterhorn-gotthard-bahn-andermatt",
         "technical-vehicle-maintenance-m-f-d-matterhorn-gotthard-bahn-andermatt",
-        "entretien-technique-des-vehicules-h-f-d-matterhorn-gotthard-bahn-andermatt"
+        "entretien-technique-des-vehicules-h-f-d-matterhorn-gotthard-bahn-andermatt",
+        "werkstattmitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-andermatt"
       ],
       "firstSeenAt": "2026-09-19T23:10:21.709Z",
       "salaryMin": 78500,
@@ -637,7 +641,7 @@
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
-        "it": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
+        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
         "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
@@ -705,14 +709,12 @@
       },
       "previousSlugs": [
         "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:41.109Z",

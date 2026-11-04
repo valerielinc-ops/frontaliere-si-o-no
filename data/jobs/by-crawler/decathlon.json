@@ -3704,12 +3704,12 @@
     },
     {
       "id": "decathlon-5d86eda7554a",
-      "slug": "conseiller-ere-sportif-ve-decathlon-avry-cdd-20-60-novembre-a-mars-decathlon-ch",
+      "slug": "consigliere-sportivo-decathlon-avry-csd-20-60-da-novembre-a-marzo-decathlon-matran",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-ve-decathlon-avry-cdd-20-60-novembre-a-mars-decathlon-ch",
-        "it": "conseiller-ere-sportif-ve-decathlon-avry-cdd-20-60-novembre-a-mars-decathlon-ch",
-        "en": "conseiller-ere-sportif-ve-decathlon-avry-cdd-20-60-novembre-a-mars-decathlon-ch",
-        "de": "conseiller-ere-sportif-ve-decathlon-avry-cdd-20-60-novembre-a-mars-decathlon-ch"
+        "it": "consigliere-sportivo-decathlon-avry-csd-20-60-da-novembre-a-marzo-decathlon-matran",
+        "en": "sports-counsellor-decathlon-avry-csd-20-60-november-to-march-decathlon-matran",
+        "de": "sportberater-decathlon-avry-csd-20-60-november-bis-marz-decathlon-matran"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3770,7 +3770,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:57:05.999Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:57:05.999Z"
+      "firstSeenAt": "2026-11-03T21:57:05.999Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-ve-decathlon-avry-cdd-20-60-novembre-a-mars-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-ve-decathlon-avry-cdd-20-60-novembre-a-mars-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-ve-decathlon-avry-cdd-20-60-novembre-a-mars-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-ve-decathlon-avry-cdd-20-60-novembre-a-mars-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-8f3294d2c70b",
@@ -3778,8 +3792,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
         "it": "consulente-sportivo-gestione-delle-merci-m-f-d-40-60-decathlon-svizzera-decathlon-spreitenbach",
-        "en": "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-spreitenbach",
-        "fr": "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-spreitenbach"
+        "en": "sports-consultant-goods-management-m-f-d-40-60-decathlon-switzerland-decathlon-spreitenbach",
+        "fr": "consultant-sportif-gestion-des-biens-m-f-d-40-60-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3829,16 +3843,15 @@
           "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
         ],
         "en": [
-          "sports-consultant-goods-management-m-f-d-40-60-decathlon-switzerland-decathlon-spreitenbach"
+          "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-spreitenbach"
         ],
         "fr": [
-          "consultant-sportif-gestion-des-biens-m-f-d-40-60-decathlon-spreitenbach"
+          "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-spreitenbach"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
-        "sports-consultant-goods-management-m-f-d-40-60-decathlon-switzerland-decathlon-spreitenbach",
-        "consultant-sportif-gestion-des-biens-m-f-d-40-60-decathlon-spreitenbach"
+        "verkaufsberater-in-warenannahme-m-w-d-40-60-decathlon-schweiz-decathlon-spreitenbach"
       ],
       "salaryMin": 44400,
       "salaryMax": 68100,
@@ -3861,12 +3874,12 @@
     },
     {
       "id": "decathlon-2753fd33623e",
-      "slug": "kasse-empfang-decathlon-bern-shoppyland-m-w-d-stundenlohnvertrag-decathlon-ch",
+      "slug": "deathlon-bern-shoppyland-m-f-d-contratto-salariale-orario-decathlon-urtenen-schonbuhl",
       "slugByLocale": {
         "de": "kasse-empfang-decathlon-bern-shoppyland-m-w-d-stundenlohnvertrag-decathlon-ch",
-        "it": "kasse-empfang-decathlon-bern-shoppyland-m-w-d-stundenlohnvertrag-decathlon-ch",
-        "en": "kasse-empfang-decathlon-bern-shoppyland-m-w-d-stundenlohnvertrag-decathlon-ch",
-        "fr": "kasse-empfang-decathlon-bern-shoppyland-m-w-d-stundenlohnvertrag-decathlon-ch"
+        "it": "deathlon-bern-shoppyland-m-f-d-contratto-salariale-orario-decathlon-urtenen-schonbuhl",
+        "en": "deathlon-bern-shoppyland-m-f-d-hourly-wage-contract-decathlon-urtenen-schonbuhl",
+        "fr": "deathlon-bern-shoppyland-h-f-d-contrat-de-salaire-horaire-decathlon-urtenen-schonbuhl"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3928,7 +3941,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:57:04.605Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:57:04.605Z"
+      "firstSeenAt": "2026-11-03T21:57:04.605Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kasse-empfang-decathlon-bern-shoppyland-m-w-d-stundenlohnvertrag-decathlon-ch"
+        ],
+        "en": [
+          "kasse-empfang-decathlon-bern-shoppyland-m-w-d-stundenlohnvertrag-decathlon-ch"
+        ],
+        "fr": [
+          "kasse-empfang-decathlon-bern-shoppyland-m-w-d-stundenlohnvertrag-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kasse-empfang-decathlon-bern-shoppyland-m-w-d-stundenlohnvertrag-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-54e6826b6248",

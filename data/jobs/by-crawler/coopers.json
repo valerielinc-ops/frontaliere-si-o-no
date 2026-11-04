@@ -3170,12 +3170,12 @@
     },
     {
       "id": "coopers-530ad3160294",
-      "slug": "biospecimen-specialist-m-f-d-coopers-zug",
+      "slug": "biospecimen-specialista-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
         "en": "biospecimen-specialist-m-f-d-coopers-zug",
-        "it": "biospecimen-specialist-m-f-d-coopers-zug",
-        "de": "biospecimen-specialist-m-f-d-coopers-zug",
-        "fr": "biospecimen-specialist-m-f-d-coopers-zug"
+        "it": "biospecimen-specialista-m-f-d-coopers-group-ag-zug",
+        "de": "biospecimen-spezialist-m-f-d-coopers-group-ag-zug",
+        "fr": "biospecimen-specialiste-m-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3253,16 +3253,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T21:32:43.732Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:32:43.732Z"
+      "firstSeenAt": "2026-11-03T21:32:43.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "biospecimen-specialist-m-f-d-coopers-zug"
+        ],
+        "de": [
+          "biospecimen-specialist-m-f-d-coopers-zug"
+        ],
+        "fr": [
+          "biospecimen-specialist-m-f-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "biospecimen-specialist-m-f-d-coopers-zug"
+      ]
     },
     {
       "id": "coopers-c3e26083301b",
-      "slug": "technical-project-lead-process-design-m-f-d-coopers-zug",
+      "slug": "progetto-tecnico-lead-process-design-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
         "en": "technical-project-lead-process-design-m-f-d-coopers-zug",
-        "it": "technical-project-lead-process-design-m-f-d-coopers-zug",
-        "de": "technical-project-lead-process-design-m-f-d-coopers-zug",
-        "fr": "technical-project-lead-process-design-m-f-d-coopers-zug"
+        "it": "progetto-tecnico-lead-process-design-m-f-d-coopers-group-ag-zug",
+        "de": "technischer-projektleiter-und-prozessdesign-m-w-d-coopers-group-ag-zug",
+        "fr": "chef-de-projet-technique-et-conception-de-processus-h-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3334,7 +3348,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T21:32:42.890Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:32:42.890Z"
+      "firstSeenAt": "2026-11-03T21:32:42.890Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-project-lead-process-design-m-f-d-coopers-zug"
+        ],
+        "de": [
+          "technical-project-lead-process-design-m-f-d-coopers-zug"
+        ],
+        "fr": [
+          "technical-project-lead-process-design-m-f-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "technical-project-lead-process-design-m-f-d-coopers-zug"
+      ]
     },
     {
       "id": "coopers-9477b206fa7e",
@@ -3440,7 +3468,7 @@
       "id": "coopers-a19125428a8b",
       "slug": "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft-7eadbfce97",
       "slugByLocale": {
-        "it": "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft-7eadbfce97",
+        "it": "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft",
         "en": "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
         "de": "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
         "fr": "commissioning-qualification-ingenieur-cqe-m-w-d-coopers-group-ag-basel-landschaft"
@@ -3502,13 +3530,11 @@
         ]
       },
       "previousSlugs": [
-        "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
-        "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft"
+        "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
-          "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft"
+          "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
         ]
       },
       "firstSeenAt": "2026-09-25T14:51:01.578Z",

@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -260,7 +260,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -319,7 +319,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -342,7 +342,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -452,7 +452,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -502,7 +502,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -512,7 +512,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -540,7 +540,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -590,14 +590,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -875,7 +873,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -933,14 +931,14 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       ],
       "firstSeenAt": "2026-10-22T09:33:25.776Z",
       "salaryMin": 110500,
@@ -11018,12 +11016,12 @@
     },
     {
       "id": "raiffeisen-2bcd724f6044",
-      "slug": "kundenberater-w-m-d-raiffeisen-rapperswil-jona",
+      "slug": "servizio-clienti-m-f-d-raiffeisen-rapperswil-jona",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-raiffeisen-rapperswil-jona",
-        "it": "kundenberater-w-m-d-raiffeisen-rapperswil-jona",
-        "en": "kundenberater-w-m-d-raiffeisen-rapperswil-jona",
-        "fr": "kundenberater-w-m-d-raiffeisen-rapperswil-jona"
+        "it": "servizio-clienti-m-f-d-raiffeisen-rapperswil-jona",
+        "en": "customer-service-provider-m-f-d-raiffeisen-rapperswil-jona",
+        "fr": "fournisseur-de-services-a-la-clientele-h-f-d-raiffeisen-rapperswil-jona"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11085,16 +11083,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:33:41.470Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:33:41.470Z"
+      "firstSeenAt": "2026-11-03T21:33:41.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-raiffeisen-rapperswil-jona"
+        ],
+        "en": [
+          "kundenberater-w-m-d-raiffeisen-rapperswil-jona"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-raiffeisen-rapperswil-jona"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-raiffeisen-rapperswil-jona"
+      ]
     },
     {
       "id": "raiffeisen-2215e87a1f00",
-      "slug": "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung",
+      "slug": "consulente-alla-clientela-privata-con-potenziale-di-crescita-fino-a-diventare-vice-responsabile-della-filiale",
       "slugByLocale": {
         "de": "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung",
-        "it": "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung",
-        "en": "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung",
-        "fr": "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung"
+        "it": "consulente-alla-clientela-privata-con-potenziale-di-crescita-fino-a-diventare-vice-responsabile-della-filiale",
+        "en": "private-client-advisor-with-development-potential-as-deputy-head-of-office-hombrechtikon-m-f-d-raiffeisen-hombrechtikon",
+        "fr": "conseiller-client-prive-ayant-un-potentiel-de-developpement-en-tant-que-chef-de-bureau-adjoint-hombrechtikon-h-f-d"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11157,16 +11169,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:33:41.447Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:33:41.447Z"
+      "firstSeenAt": "2026-11-03T21:33:41.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung"
+        ],
+        "en": [
+          "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung"
+        ],
+        "fr": [
+          "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung"
+      ]
     },
     {
       "id": "raiffeisen-152c4161c5e5",
-      "slug": "stagiaire-bem-rentree-mars-2027-ou-septembre-2027-raiffeisen-martigny",
+      "slug": "bem-trainee-nel-marzo-2027-o-settembre-2027-raiffeisen-martigny",
       "slugByLocale": {
         "fr": "stagiaire-bem-rentree-mars-2027-ou-septembre-2027-raiffeisen-martigny",
-        "it": "stagiaire-bem-rentree-mars-2027-ou-septembre-2027-raiffeisen-martigny",
-        "en": "stagiaire-bem-rentree-mars-2027-ou-septembre-2027-raiffeisen-martigny",
-        "de": "stagiaire-bem-rentree-mars-2027-ou-septembre-2027-raiffeisen-martigny"
+        "it": "bem-trainee-nel-marzo-2027-o-settembre-2027-raiffeisen-martigny",
+        "en": "bem-trainee-back-in-march-2027-or-september-2027-raiffeisen-martigny",
+        "de": "bem-trainee-im-marz-2027-oder-september-2027-raiffeisen-martigny"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11228,16 +11254,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:33:41.434Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:33:41.434Z"
+      "firstSeenAt": "2026-11-03T21:33:41.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-bem-rentree-mars-2027-ou-septembre-2027-raiffeisen-martigny"
+        ],
+        "en": [
+          "stagiaire-bem-rentree-mars-2027-ou-septembre-2027-raiffeisen-martigny"
+        ],
+        "de": [
+          "stagiaire-bem-rentree-mars-2027-ou-septembre-2027-raiffeisen-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-bem-rentree-mars-2027-ou-septembre-2027-raiffeisen-martigny"
+      ]
     },
     {
       "id": "raiffeisen-9ecaf4299096",
-      "slug": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
+      "slug": "clienti-specializzati-della-societa-di-elaborazione-del-credito-m-f-d-raiffeisen-zurich",
       "slugByLocale": {
         "de": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
-        "it": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
-        "en": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
-        "fr": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+        "it": "clienti-specializzati-della-societa-di-elaborazione-del-credito-m-f-d-raiffeisen-zurich",
+        "en": "specialist-credit-processing-company-customers-m-f-d-raiffeisen-zurich",
+        "fr": "societe-specialisee-dans-le-traitement-du-credit-clients-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11299,7 +11339,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:33:41.428Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:33:41.428Z"
+      "firstSeenAt": "2026-11-03T21:33:41.428Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+        ],
+        "en": [
+          "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+        ],
+        "fr": [
+          "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+      ]
     },
     {
       "id": "raiffeisen-d9ec877425c1",
@@ -11386,7 +11440,7 @@
       "id": "raiffeisen-69f03328fb9e",
       "slug": "consulente-clienti-o-consulente-cliente-privato-con-lavoro-di-commutazione-raiffeisen-menzingen-f3ad1e9669",
       "slugByLocale": {
-        "it": "consulente-clienti-o-consulente-cliente-privato-con-lavoro-di-commutazione-raiffeisen-menzingen-f3ad1e9669",
+        "it": "consulente-clienti-o-consulente-cliente-privato-con-lavoro-di-commutazione-raiffeisen-menzingen",
         "en": "customer-consultant-or-private-client-consultant-with-switch-work-raiffeisen-menzingen",
         "de": "kundenberater-in-oder-privatkundenberater-in-mit-schaltertatigkeit-raiffeisen-menzingen",
         "fr": "consultant-client-ou-consultant-client-prive-avec-travail-de-commutation-raiffeisen-menzingen"
@@ -11434,13 +11488,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-oder-privatkundenberater-in-mit-schaltertatigkeit-raiffeisen-menzingen",
-        "consulente-clienti-o-consulente-cliente-privato-con-lavoro-di-commutazione-raiffeisen-menzingen"
+        "kundenberater-in-oder-privatkundenberater-in-mit-schaltertatigkeit-raiffeisen-menzingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-oder-privatkundenberater-in-mit-schaltertatigkeit-raiffeisen-menzingen",
-          "consulente-clienti-o-consulente-cliente-privato-con-lavoro-di-commutazione-raiffeisen-menzingen"
+          "kundenberater-in-oder-privatkundenberater-in-mit-schaltertatigkeit-raiffeisen-menzingen"
         ]
       },
       "firstSeenAt": "2026-09-04T13:31:35.451Z",

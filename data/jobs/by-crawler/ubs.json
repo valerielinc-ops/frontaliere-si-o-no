@@ -9689,7 +9689,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -9742,11 +9742,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -12184,8 +12188,8 @@
       "slugByLocale": {
         "en": "head-sales-office-marketing-design-digital-sales-100-ubs-zurich",
         "it": "head-sales-office-marketing-design-digital-sales-100-ubs-zurich",
-        "de": "head-sales-office-marketing-design-digital-sales-100-ubs-zurich",
-        "fr": "head-sales-office-marketing-design-digital-sales-100-ubs-zurich"
+        "de": "leitung-verkaufsburo-marketing-design-digitaler-vertrieb-100-ubs-zurich",
+        "fr": "siege-commercial-marketing-design-et-ventes-numeriques-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12265,7 +12269,7 @@
       "slugByLocale": {
         "fr": "client-advisor-retail-geneva-ubs-suisse-romande",
         "it": "client-advisor-retail-geneva-ubs-suisse-romande",
-        "en": "client-advisor-retail-geneva-ubs-suisse-romande",
+        "en": "clientbord-retail-geneva-ubs-suisse-romande",
         "de": "client-advisor-retail-geneva-ubs-suisse-romande"
       },
       "company": "UBS",
@@ -12346,7 +12350,7 @@
         "de": "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich",
         "it": "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich",
         "en": "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich",
-        "fr": "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich"
+        "fr": "gestionnaire-de-caisse-dans-le-commerce-de-detail-bahnhofstrasse-45-zurich-80-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",

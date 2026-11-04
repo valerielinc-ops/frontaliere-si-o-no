@@ -325,12 +325,12 @@
     },
     {
       "id": "edmond-de-rothschild-3967a1f10d6c",
-      "slug": "client-service-officer-m-f-edmond-de-rothschild-ch",
+      "slug": "ufficio-di-servizi-doganali-m-f-edmond-de-rothschild-switzerland",
       "slugByLocale": {
         "fr": "client-service-officer-m-f-edmond-de-rothschild-ch",
-        "it": "client-service-officer-m-f-edmond-de-rothschild-ch",
+        "it": "ufficio-di-servizi-doganali-m-f-edmond-de-rothschild-switzerland",
         "en": "client-service-officer-m-f-edmond-de-rothschild-ch",
-        "de": "client-service-officer-m-f-edmond-de-rothschild-ch"
+        "de": "kundendienstleistungsoffizier-m-w-edmond-de-rothschild-switzerland"
       },
       "company": "Edmond de Rothschild",
       "companyKey": "edmond-de-rothschild",
@@ -393,7 +393,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:54:00.867Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:54:00.867Z"
+      "firstSeenAt": "2026-11-03T21:54:00.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-service-officer-m-f-edmond-de-rothschild-ch"
+        ],
+        "de": [
+          "client-service-officer-m-f-edmond-de-rothschild-ch"
+        ]
+      },
+      "previousSlugs": [
+        "client-service-officer-m-f-edmond-de-rothschild-ch"
+      ]
     },
     {
       "id": "edmond-de-rothschild-9df42d163950",

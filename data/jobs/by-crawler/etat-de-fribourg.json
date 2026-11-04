@@ -7140,12 +7140,12 @@
     },
     {
       "id": "etat-de-fribourg-fbcae77a74da",
-      "slug": "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch",
+      "slug": "praticante-cancelliere-a-giudiziario-a-presso-il-tribunale-cantonale-di-friburgo-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch",
-        "it": "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch",
-        "en": "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch",
-        "fr": "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch"
+        "it": "praticante-cancelliere-a-giudiziario-a-presso-il-tribunale-cantonale-di-friburgo-etat-de-fribourg-fribourg",
+        "en": "court-clerk-intern-at-the-cantonal-court-of-fribourg-etat-de-fribourg-fribourg",
+        "fr": "stagiaire-greffier-greffiere-aupres-du-tribunal-cantonal-de-fribourg-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7212,7 +7212,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T22:05:18.272Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:05:18.272Z"
+      "firstSeenAt": "2026-11-03T22:05:18.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch"
+      ]
     }
   ]
 }

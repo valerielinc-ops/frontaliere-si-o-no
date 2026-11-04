@@ -168,12 +168,12 @@
     },
     {
       "id": "sro-2bf184b2d23a",
-      "slug": "sozialarbeiter-in-psychiatrie-mobile-akutbehandlung-40-sro-langenthal",
+      "slug": "assistente-sociale-in-psichiatria-trattamento-acuto-mobile-40-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "sozialarbeiter-in-psychiatrie-mobile-akutbehandlung-40-sro-langenthal",
-        "it": "sozialarbeiter-in-psychiatrie-mobile-akutbehandlung-40-sro-langenthal",
-        "en": "sozialarbeiter-in-psychiatrie-mobile-akutbehandlung-40-sro-langenthal",
-        "fr": "sozialarbeiter-in-psychiatrie-mobile-akutbehandlung-40-sro-langenthal"
+        "it": "assistente-sociale-in-psichiatria-trattamento-acuto-mobile-40-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "social-worker-in-psychiatry-mobile-acute-treatment-40-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "assistant-e-social-e-en-psychiatrie-traitement-aigu-mobile-40-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -240,16 +240,30 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-03T21:30:37.485Z"
+      "firstSeenAt": "2026-11-03T21:30:37.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-psychiatrie-mobile-akutbehandlung-40-sro-langenthal"
+        ],
+        "en": [
+          "sozialarbeiter-in-psychiatrie-mobile-akutbehandlung-40-sro-langenthal"
+        ],
+        "fr": [
+          "sozialarbeiter-in-psychiatrie-mobile-akutbehandlung-40-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-psychiatrie-mobile-akutbehandlung-40-sro-langenthal"
+      ]
     },
     {
       "id": "sro-d0bd3d20ae48",
-      "slug": "sozialarbeiter-in-psychiatrie-80-sro-langenthal",
+      "slug": "assistente-sociale-in-psichiatria-80-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "sozialarbeiter-in-psychiatrie-80-sro-langenthal",
-        "it": "sozialarbeiter-in-psychiatrie-80-sro-langenthal",
-        "en": "sozialarbeiter-in-psychiatrie-80-sro-langenthal",
-        "fr": "sozialarbeiter-in-psychiatrie-80-sro-langenthal"
+        "it": "assistente-sociale-in-psichiatria-80-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "social-worker-in-psychiatry-80-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "assistant-e-social-e-en-psychiatrie-80-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -316,7 +330,21 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-03T21:30:36.964Z"
+      "firstSeenAt": "2026-11-03T21:30:36.964Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-psychiatrie-80-sro-langenthal"
+        ],
+        "en": [
+          "sozialarbeiter-in-psychiatrie-80-sro-langenthal"
+        ],
+        "fr": [
+          "sozialarbeiter-in-psychiatrie-80-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-psychiatrie-80-sro-langenthal"
+      ]
     },
     {
       "id": "sro-db7b19c60353",

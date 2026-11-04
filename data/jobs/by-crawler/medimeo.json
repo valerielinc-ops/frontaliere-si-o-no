@@ -511,12 +511,12 @@
     },
     {
       "id": "medimeo-c1467541274f",
-      "slug": "hausarzt-hausarztin-willkommen-in-einer-familiaren-praxis-im-berner-oberland-region-bern",
+      "slug": "dottore-di-famiglia-benvenuti-in-una-pratica-familiare-nell-oberland-bernese-medimeo-ag-region-bern-berner-oberland",
       "slugByLocale": {
         "de": "hausarzt-hausarztin-willkommen-in-einer-familiaren-praxis-im-berner-oberland-region-bern",
-        "it": "hausarzt-hausarztin-willkommen-in-einer-familiaren-praxis-im-berner-oberland-region-bern",
-        "en": "hausarzt-hausarztin-willkommen-in-einer-familiaren-praxis-im-berner-oberland-region-bern",
-        "fr": "hausarzt-hausarztin-willkommen-in-einer-familiaren-praxis-im-berner-oberland-region-bern"
+        "it": "dottore-di-famiglia-benvenuti-in-una-pratica-familiare-nell-oberland-bernese-medimeo-ag-region-bern-berner-oberland",
+        "en": "family-doctor-welcome-to-a-family-practice-in-the-bernese-oberland-medimeo-ag-region-bern-berner-oberland-emmental",
+        "fr": "medecin-de-famille-bienvenue-dans-une-pratique-familiale-a-l-oberland-bernois-medimeo-ag-region-bern-berner-oberland"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -578,7 +578,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:29:00.416Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:29:00.416Z"
+      "firstSeenAt": "2026-11-03T21:29:00.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarzt-hausarztin-willkommen-in-einer-familiaren-praxis-im-berner-oberland-region-bern"
+        ],
+        "en": [
+          "hausarzt-hausarztin-willkommen-in-einer-familiaren-praxis-im-berner-oberland-region-bern"
+        ],
+        "fr": [
+          "hausarzt-hausarztin-willkommen-in-einer-familiaren-praxis-im-berner-oberland-region-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hausarzt-hausarztin-willkommen-in-einer-familiaren-praxis-im-berner-oberland-region-bern"
+      ]
     },
     {
       "id": "medimeo-6abce13c0c31",

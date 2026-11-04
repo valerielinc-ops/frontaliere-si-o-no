@@ -4093,12 +4093,12 @@
     },
     {
       "id": "buergenstock-hotels-750a978ecdc2",
-      "slug": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "assistente-di-pulizia-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
-        "en": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        "it": "assistente-di-pulizia-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "en": "house-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces",
+        "fr": "employe-de-menage-100-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -4171,7 +4171,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-03T21:56:30.063Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-20T06:09:00.831Z"
+      "firstSeenAt": "2026-05-20T06:09:00.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     }
   ]
 }

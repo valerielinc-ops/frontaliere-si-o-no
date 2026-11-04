@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "idorsia-996d59f3bf6d",
-      "slug": "global-medical-information-manager-1-idorsia-allschwil-basel-area",
+      "slug": "responsabile-globale-delle-informazioni-mediche-1-idorsia-pharmaceuticals-allschwil-basel-area",
       "slugByLocale": {
         "en": "global-medical-information-manager-1-idorsia-allschwil-basel-area",
-        "it": "global-medical-information-manager-1-idorsia-allschwil-basel-area",
-        "de": "global-medical-information-manager-1-idorsia-allschwil-basel-area",
-        "fr": "global-medical-information-manager-1-idorsia-allschwil-basel-area"
+        "it": "responsabile-globale-delle-informazioni-mediche-1-idorsia-pharmaceuticals-allschwil-basel-area",
+        "de": "globaler-medizinischer-informationsmanager-1-idorsia-pharmaceuticals-allschwil-basel-area",
+        "fr": "gestionnaire-mondial-d-information-medicale-1-idorsia-pharmaceuticals-allschwil-basel-area"
       },
       "company": "Idorsia Pharmaceuticals",
       "companyKey": "idorsia",
@@ -73,7 +73,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:54:35.190Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:54:35.190Z"
+      "firstSeenAt": "2026-11-03T21:54:35.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-medical-information-manager-1-idorsia-allschwil-basel-area"
+        ],
+        "de": [
+          "global-medical-information-manager-1-idorsia-allschwil-basel-area"
+        ],
+        "fr": [
+          "global-medical-information-manager-1-idorsia-allschwil-basel-area"
+        ]
+      },
+      "previousSlugs": [
+        "global-medical-information-manager-1-idorsia-allschwil-basel-area"
+      ]
     },
     {
       "id": "idorsia-1e7a4ba7a1fc",
@@ -390,7 +404,7 @@
       "slugByLocale": {
         "it": "medicina-di-sicurezza-idorsia-pharmaceuticals-allschwil-basel-area",
         "en": "drug-safety-physician-idorsia-allschwil-basel-area",
-        "de": "arzneimittelsicherheitsphysiker-idorsia-pharmaceuticals-allschwil-basel-area",
+        "de": "drogensicherheit-arzt-idorsia-pharmaceuticals-allschwil-basel-area",
         "fr": "medecin-de-l-innocuite-des-medicaments-idorsia-pharmaceuticals-allschwil-basel-area"
       },
       "company": "Idorsia Pharmaceuticals",
@@ -437,14 +451,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "drug-safety-physician-idorsia-allschwil-basel-area",
-        "drogensicherheit-arzt-idorsia-pharmaceuticals-allschwil-basel-area"
+        "arzneimittelsicherheitsphysiker-idorsia-pharmaceuticals-allschwil-basel-area"
       ],
       "previousSlugsByLocale": {
         "it": [
           "drug-safety-physician-idorsia-allschwil-basel-area"
         ],
         "de": [
-          "drogensicherheit-arzt-idorsia-pharmaceuticals-allschwil-basel-area"
+          "arzneimittelsicherheitsphysiker-idorsia-pharmaceuticals-allschwil-basel-area"
         ]
       },
       "firstSeenAt": "2026-09-10T19:17:53.619Z",

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-f8121656d167",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich",
+      "slug": "infermiere-a-diplomato-a-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
+        "it": "infermiere-a-diplomato-a-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
+        "en": "qualified-nurse-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
+        "fr": "infirmier-ere-diplome-e-es-hes-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
       },
       "slugDisambiguator": "f8121656",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -58,11 +58,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
+          "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
+        "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
+        "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

@@ -4220,12 +4220,12 @@
     },
     {
       "id": "hib-broye-3b9c9fd33d6a",
-      "slug": "secretaire-medical-e-a-80-hib-broye-payerne",
+      "slug": "segretario-medico-all-80-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
         "fr": "secretaire-medical-e-a-80-hib-broye-payerne",
-        "it": "secretaire-medical-e-a-80-hib-broye-payerne",
-        "en": "secretaire-medical-e-a-80-hib-broye-payerne",
-        "de": "secretaire-medical-e-a-80-hib-broye-payerne"
+        "it": "segretario-medico-all-80-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "medical-secretary-at-80-hopital-intercantonal-de-la-broye-hib-payerne",
+        "de": "medical-secretary-bei-80-hopital-intercantonal-de-la-broye-hib-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
@@ -4287,16 +4287,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:32:16.245Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:32:16.245Z"
+      "firstSeenAt": "2026-11-03T21:32:16.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-a-80-hib-broye-payerne"
+        ],
+        "en": [
+          "secretaire-medical-e-a-80-hib-broye-payerne"
+        ],
+        "de": [
+          "secretaire-medical-e-a-80-hib-broye-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-a-80-hib-broye-payerne"
+      ]
     },
     {
       "id": "hib-broye-b71507302f0e",
-      "slug": "infirmier-ere-hpci-50-a-60-hib-broye-payerne",
+      "slug": "infermiera-hpci-50-al-60-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
         "fr": "infirmier-ere-hpci-50-a-60-hib-broye-payerne",
-        "it": "infirmier-ere-hpci-50-a-60-hib-broye-payerne",
-        "en": "infirmier-ere-hpci-50-a-60-hib-broye-payerne",
-        "de": "infirmier-ere-hpci-50-a-60-hib-broye-payerne"
+        "it": "infermiera-hpci-50-al-60-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "nurse-hpci-50-to-60-hopital-intercantonal-de-la-broye-hib-payerne",
+        "de": "krankenschwester-hpci-50-bis-60-hopital-intercantonal-de-la-broye-hib-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
@@ -4358,7 +4372,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:32:16.225Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:32:16.225Z"
+      "firstSeenAt": "2026-11-03T21:32:16.225Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-hpci-50-a-60-hib-broye-payerne"
+        ],
+        "en": [
+          "infirmier-ere-hpci-50-a-60-hib-broye-payerne"
+        ],
+        "de": [
+          "infirmier-ere-hpci-50-a-60-hib-broye-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-hpci-50-a-60-hib-broye-payerne"
+      ]
     },
     {
       "id": "hib-broye-f880de2bc5c6",

@@ -1422,12 +1422,12 @@
     },
     {
       "id": "buehler-192bd90854ea",
-      "slug": "technical-project-leader-r-amp-d-buehler-uzwil",
+      "slug": "leader-del-progetto-tecnico-r-d-buhler-group-uzwil",
       "slugByLocale": {
         "de": "technical-project-leader-r-amp-d-buehler-uzwil",
-        "it": "technical-project-leader-r-amp-d-buehler-uzwil",
+        "it": "leader-del-progetto-tecnico-r-d-buhler-group-uzwil",
         "en": "technical-project-leader-r-amp-d-buehler-uzwil",
-        "fr": "technical-project-leader-r-amp-d-buehler-uzwil"
+        "fr": "chef-de-projet-technique-r-d-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1490,7 +1490,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:53:57.675Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:53:57.675Z"
+      "firstSeenAt": "2026-11-03T21:53:57.675Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-project-leader-r-amp-d-buehler-uzwil"
+        ],
+        "fr": [
+          "technical-project-leader-r-amp-d-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "technical-project-leader-r-amp-d-buehler-uzwil"
+      ]
     }
   ]
 }

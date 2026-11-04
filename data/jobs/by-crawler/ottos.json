@@ -1316,12 +1316,12 @@
     },
     {
       "id": "ottos-15fcbb7a47a6",
-      "slug": "verkaufsmitarbeiter-in-mobel-mithilfe-im-mobellager-ottos-munsingen",
+      "slug": "addetto-a-alle-vendite-mobili-aiuto-nel-magazzino-mobili-otto-s-ag-munsingen",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mobel-mithilfe-im-mobellager-ottos-munsingen",
-        "it": "verkaufsmitarbeiter-in-mobel-mithilfe-im-mobellager-ottos-munsingen",
-        "en": "verkaufsmitarbeiter-in-mobel-mithilfe-im-mobellager-ottos-munsingen",
-        "fr": "verkaufsmitarbeiter-in-mobel-mithilfe-im-mobellager-ottos-munsingen"
+        "it": "addetto-a-alle-vendite-mobili-aiuto-nel-magazzino-mobili-otto-s-ag-munsingen",
+        "en": "furniture-sales-associate-assistance-in-the-furniture-warehouse-otto-s-ag-munsingen",
+        "fr": "vendeur-euse-de-meubles-aide-a-l-entrepot-de-meubles-otto-s-ag-munsingen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1389,7 +1389,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:56:33.279Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:56:33.279Z"
+      "firstSeenAt": "2026-11-03T21:56:33.279Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-mobel-mithilfe-im-mobellager-ottos-munsingen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-mithilfe-im-mobellager-ottos-munsingen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-mithilfe-im-mobellager-ottos-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-mobel-mithilfe-im-mobellager-ottos-munsingen"
+      ]
     },
     {
       "id": "ottos-e5f9ba2b8adb",
@@ -2407,12 +2421,12 @@
     },
     {
       "id": "ottos-559a846e1c9d",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-uetendorf",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-uetendorf",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mobel-ottos-uetendorf",
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-uetendorf",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-uetendorf",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-uetendorf"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-uetendorf",
+        "en": "furniture-sales-associate-otto-s-ag-uetendorf",
+        "fr": "vendeur-euse-de-meubles-otto-s-ag-uetendorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2465,11 +2479,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-uetendorf"
+          "verkaufsmitarbeiter-in-mobel-ottos-uetendorf",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-uetendorf"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-uetendorf"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-uetendorf"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-uetendorf"
+        "verkaufsmitarbeiter-in-mobel-ottos-uetendorf",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-uetendorf"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -3772,12 +3794,12 @@
     },
     {
       "id": "ottos-eae28fc0a560",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-littau",
+      "slug": "addetto-a-temporaneo-a-alle-vendite-food-non-food-otto-s-ag-littau",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-littau",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-littau",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-littau",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-littau"
+        "it": "addetto-a-temporaneo-a-alle-vendite-food-non-food-otto-s-ag-littau",
+        "en": "temporary-food-non-food-sales-assistant-otto-s-ag-littau",
+        "fr": "auxiliaire-de-vente-alimentaire-non-alimentaire-otto-s-ag-littau"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3845,7 +3867,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:56:15.947Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:56:15.947Z"
+      "firstSeenAt": "2026-11-03T21:56:15.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-littau"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-littau"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-littau"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-littau"
+      ]
     },
     {
       "id": "ottos-5e71c027473a",
@@ -4214,9 +4250,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4267,17 +4303,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -4943,12 +4980,12 @@
     },
     {
       "id": "ottos-7b1c17dc3076",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-littau",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-littau",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-littau",
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-littau",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-littau",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-littau"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-littau",
+        "en": "food-non-food-sales-associate-otto-s-ag-littau",
+        "fr": "collaborateur-trice-de-vente-alimentaire-non-alimentaire-otto-s-ag-littau"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5001,11 +5038,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-littau"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-littau",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-littau"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-littau"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-littau"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-littau"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-littau",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-littau"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,

@@ -17273,8 +17273,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-versorgungslogistik-80-100-usz-ch",
         "it": "collaboratore-trice-versorgungslogistik-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "mitarbeiter-in-versorgungslogistik-80-100-usz-ch",
-        "fr": "mitarbeiter-in-versorgungslogistik-80-100-usz-ch"
+        "en": "supply-logistics-employee-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "collaborateur-trice-en-logistique-d-approvisionnement-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17322,6 +17322,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-versorgungslogistik-80-100-usz-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-versorgungslogistik-80-100-usz-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-versorgungslogistik-80-100-usz-ch"
         ]
       },

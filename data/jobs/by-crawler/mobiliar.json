@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-547839a77792",
-      "slug": "sachbearbeiter-zahlungsverkehr-in-exkasso-w-m-d-mobiliar-ch",
+      "slug": "fornitore-di-servizi-di-pagamento-in-excasso-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-zahlungsverkehr-in-exkasso-w-m-d-mobiliar-ch",
-        "it": "sachbearbeiter-zahlungsverkehr-in-exkasso-w-m-d-mobiliar-ch",
-        "en": "sachbearbeiter-zahlungsverkehr-in-exkasso-w-m-d-mobiliar-ch",
-        "fr": "sachbearbeiter-zahlungsverkehr-in-exkasso-w-m-d-mobiliar-ch"
+        "it": "fornitore-di-servizi-di-pagamento-in-excasso-m-f-d-die-mobiliar-bern",
+        "en": "payment-service-provider-in-excasso-m-f-d-die-mobiliar-bern",
+        "fr": "fournisseur-de-services-de-paiement-in-excasso-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -92,7 +92,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:30:14.430Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:30:14.430Z"
+      "firstSeenAt": "2026-11-03T21:30:14.430Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-zahlungsverkehr-in-exkasso-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "sachbearbeiter-zahlungsverkehr-in-exkasso-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-zahlungsverkehr-in-exkasso-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-zahlungsverkehr-in-exkasso-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-2e5dab97cbc6",
@@ -268,8 +282,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-personenschaden-w-m-d-generalagentur-basel-mobiliar-ch",
         "it": "collaboratore-trice-personenschaden-m-w-d-agenzia-generale-basel-die-mobiliar-basel",
-        "en": "mitarbeiter-personenschaden-w-m-d-generalagentur-basel-mobiliar-ch",
-        "fr": "mitarbeiter-personenschaden-w-m-d-generalagentur-basel-mobiliar-ch"
+        "en": "employees-personal-injury-m-f-d-general-agency-basel-die-mobiliar-basel",
+        "fr": "employes-dommages-corporels-h-f-d-agence-generale-bale-die-mobiliar-basel"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -318,6 +332,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-personenschaden-w-m-d-generalagentur-basel-mobiliar-ch"
+        ],
+        "en": [
+          "mitarbeiter-personenschaden-w-m-d-generalagentur-basel-mobiliar-ch"
+        ],
+        "fr": [
           "mitarbeiter-personenschaden-w-m-d-generalagentur-basel-mobiliar-ch"
         ]
       },
@@ -453,8 +473,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkaufssupport-w-m-d-generalagentur-balsthal-mobiliar-ch",
         "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-balsthal-die-mobiliar-balsthal",
-        "en": "mitarbeiter-in-verkaufssupport-w-m-d-generalagentur-balsthal-mobiliar-ch",
-        "fr": "mitarbeiter-in-verkaufssupport-w-m-d-generalagentur-balsthal-mobiliar-ch"
+        "en": "sales-support-employee-m-f-d-general-agency-balsthal-die-mobiliar-balsthal",
+        "fr": "collaborateur-trice-au-support-des-ventes-h-f-d-agence-generale-de-balsthal-die-mobiliar-balsthal"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -519,6 +539,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkaufssupport-w-m-d-generalagentur-balsthal-mobiliar-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkaufssupport-w-m-d-generalagentur-balsthal-mobiliar-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkaufssupport-w-m-d-generalagentur-balsthal-mobiliar-ch"
         ]
       },
@@ -8479,9 +8505,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -8545,17 +8571,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

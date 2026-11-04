@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "galliker-9a40f3539fc1",
-      "slug": "teamleiter-check-in-a-galliker-altishofen",
+      "slug": "team-leader-check-in-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "teamleiter-check-in-a-galliker-altishofen",
-        "it": "teamleiter-check-in-a-galliker-altishofen",
+        "it": "team-leader-check-in-a-galliker-transport-ag-altishofen",
         "en": "teamleiter-check-in-a-galliker-altishofen",
-        "fr": "teamleiter-check-in-a-galliker-altishofen"
+        "fr": "enregistrement-du-chef-d-equipe-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -73,7 +73,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:32:36.908Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:32:36.908Z"
+      "firstSeenAt": "2026-11-03T21:32:36.908Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-check-in-a-galliker-altishofen"
+        ],
+        "fr": [
+          "teamleiter-check-in-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-check-in-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-34338b2b96a7",
@@ -3485,7 +3496,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logisticien-a-galliker-transport-ag-altishofen"
+        "fr": "logistique-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3533,7 +3544,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logistique-a-galliker-transport-ag-altishofen"
+        "logisticien-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3545,7 +3556,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logistique-a-galliker-transport-ag-altishofen"
+          "logisticien-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -3732,7 +3743,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3779,14 +3790,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "soins-de-sante-a-galliker-transport-ag-altishofen"
+          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",

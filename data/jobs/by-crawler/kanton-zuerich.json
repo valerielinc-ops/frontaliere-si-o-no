@@ -2002,12 +2002,12 @@
     },
     {
       "id": "kanton-zuerich-0cbfb6122611",
-      "slug": "ein-nebenamtliches-mitglied-per-das-baurekursgericht-la-mitte-kantonale-verwaltung-zurich",
+      "slug": "un-membro-a-titolo-accessorio-per-il-tribunale-dei-ricorsi-in-materia-edilizia-die-mitte-kantonale-verwaltung-zurich",
       "slugByLocale": {
         "de": "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kanton-zuerich-zurich",
-        "it": "ein-nebenamtliches-mitglied-per-das-baurekursgericht-la-mitte-kantonale-verwaltung-zurich",
-        "en": "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kantonale-verwaltung-zurich-zurich",
-        "fr": "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kantonale-verwaltung-zurich-zurich"
+        "it": "un-membro-a-titolo-accessorio-per-il-tribunale-dei-ricorsi-in-materia-edilizia-die-mitte-kantonale-verwaltung-zurich",
+        "en": "a-part-time-member-for-the-baurekursgericht-center-kantonale-verwaltung-zurich-zurich",
+        "fr": "membre-a-temps-partiel-du-baurekursgericht-centre-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2059,11 +2059,20 @@
       "pensum": "20%",
       "previousSlugsByLocale": {
         "it": [
-          "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kanton-zuerich-zurich"
+          "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kanton-zuerich-zurich",
+          "ein-nebenamtliches-mitglied-per-das-baurekursgericht-la-mitte-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kanton-zuerich-zurich"
+        "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kanton-zuerich-zurich",
+        "ein-nebenamtliches-mitglied-per-das-baurekursgericht-la-mitte-kantonale-verwaltung-zurich",
+        "ein-nebenamtliches-mitglied-fur-das-baurekursgericht-die-mitte-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 85000,
       "salaryMax": 145000,
@@ -2288,12 +2297,12 @@
     },
     {
       "id": "kanton-zuerich-c41f9e9ae1ba",
-      "slug": "verkehrsingenieur-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "ingegnere-a-del-traffico-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "verkehrsingenieur-in-kanton-zuerich-zurich",
-        "it": "verkehrsingenieur-in-kantonale-verwaltung-zurich-zurich",
-        "en": "verkehrsingenieur-in-kantonale-verwaltung-zurich-zurich",
-        "fr": "verkehrsingenieur-in-kantonale-verwaltung-zurich-zurich"
+        "it": "ingegnere-a-del-traffico-kantonale-verwaltung-zurich-zurich",
+        "en": "traffic-engineer-kantonale-verwaltung-zurich-zurich",
+        "fr": "ingenieur-e-en-transports-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2345,11 +2354,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkehrsingenieur-in-kanton-zuerich-zurich"
+          "verkehrsingenieur-in-kanton-zuerich-zurich",
+          "verkehrsingenieur-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "verkehrsingenieur-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "verkehrsingenieur-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "verkehrsingenieur-in-kanton-zuerich-zurich"
+        "verkehrsingenieur-in-kanton-zuerich-zurich",
+        "verkehrsingenieur-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -3374,12 +3391,12 @@
     },
     {
       "id": "kanton-zuerich-b14ff93fde82",
-      "slug": "rektorin-rektor-kanton-zuerich-8707-uetikon-am-see",
+      "slug": "rettore-rettore-kantonale-verwaltung-zurich-8707-uetikon-am-see",
       "slugByLocale": {
         "de": "rektorin-rektor-kanton-zuerich-8707-uetikon-am-see",
-        "it": "rektorin-rektor-kanton-zuerich-8707-uetikon-am-see",
-        "en": "rektorin-rektor-kanton-zuerich-8707-uetikon-am-see",
-        "fr": "rektorin-rektor-kanton-zuerich-8707-uetikon-am-see"
+        "it": "rettore-rettore-kantonale-verwaltung-zurich-8707-uetikon-am-see",
+        "en": "rector-rector-kantonale-verwaltung-zurich-8707-uetikon-am-see",
+        "fr": "recteur-recteur-kantonale-verwaltung-zurich-8707-uetikon-am-see"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3445,7 +3462,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T22:07:40.890Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:07:40.890Z"
+      "firstSeenAt": "2026-11-03T22:07:40.890Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rektorin-rektor-kanton-zuerich-8707-uetikon-am-see"
+        ],
+        "en": [
+          "rektorin-rektor-kanton-zuerich-8707-uetikon-am-see"
+        ],
+        "fr": [
+          "rektorin-rektor-kanton-zuerich-8707-uetikon-am-see"
+        ]
+      },
+      "previousSlugs": [
+        "rektorin-rektor-kanton-zuerich-8707-uetikon-am-see"
+      ]
     },
     {
       "id": "kanton-zuerich-acbb5e5fc5f9",
@@ -6634,12 +6665,12 @@
     },
     {
       "id": "kanton-zuerich-bddff49cc7b4",
-      "slug": "aufseher-in-betreuer-in-kanton-zuerich-zurich",
+      "slug": "sorvegliante-e-assistente-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "aufseher-in-betreuer-in-kanton-zuerich-zurich",
-        "it": "aufseher-in-betreuer-in-kanton-zuerich-zurich",
-        "en": "aufseher-in-betreuer-in-kanton-zuerich-zurich",
-        "fr": "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+        "it": "sorvegliante-e-assistente-kantonale-verwaltung-zurich-zurich",
+        "en": "supervisor-caregiver-kantonale-verwaltung-zurich-zurich",
+        "fr": "surveillant-e-encadrant-e-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6706,7 +6737,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T22:07:22.621Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:07:22.621Z"
+      "firstSeenAt": "2026-11-03T22:07:22.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-485e806d2ca1",
@@ -8714,12 +8759,12 @@
     },
     {
       "id": "kanton-zuerich-bfdbb6d59a73",
-      "slug": "gerichtsschreiber-innen-ii-zk-kantonale-verwaltung-zurich-8001",
+      "slug": "cancellieri-e-della-ii-camera-civile-kantonale-verwaltung-zurich-8001",
       "slugByLocale": {
         "de": "gerichtsschreiber-innen-ii-zk-kanton-zuerich-8001",
-        "it": "gerichtsschreiber-innen-ii-zk-kantonale-verwaltung-zurich-8001",
-        "en": "gerichtsschreiber-innen-ii-zk-kantonale-verwaltung-zurich-8001",
-        "fr": "gerichtsschreiber-innen-ii-zk-kantonale-verwaltung-zurich-8001"
+        "it": "cancellieri-e-della-ii-camera-civile-kantonale-verwaltung-zurich-8001",
+        "en": "court-clerks-ii-zk-kantonale-verwaltung-zurich-8001",
+        "fr": "greffier-iere-de-la-iie-chambre-civile-kantonale-verwaltung-zurich-8001"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8771,11 +8816,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "gerichtsschreiber-innen-ii-zk-kanton-zuerich-8001"
+          "gerichtsschreiber-innen-ii-zk-kanton-zuerich-8001",
+          "gerichtsschreiber-innen-ii-zk-kantonale-verwaltung-zurich-8001"
+        ],
+        "en": [
+          "gerichtsschreiber-innen-ii-zk-kantonale-verwaltung-zurich-8001"
+        ],
+        "fr": [
+          "gerichtsschreiber-innen-ii-zk-kantonale-verwaltung-zurich-8001"
         ]
       },
       "previousSlugs": [
-        "gerichtsschreiber-innen-ii-zk-kanton-zuerich-8001"
+        "gerichtsschreiber-innen-ii-zk-kanton-zuerich-8001",
+        "gerichtsschreiber-innen-ii-zk-kantonale-verwaltung-zurich-8001"
       ],
       "salaryMin": 85000,
       "salaryMax": 145000,
@@ -11548,12 +11601,12 @@
     },
     {
       "id": "kanton-zuerich-856217758c97",
-      "slug": "wissenschaftliche-r-collaboratore-trice-offentliche-finanzen-stadte-e-gemeinden-kantonale-verwaltung-zurich",
+      "slug": "collaboratore-trice-scientifico-a-finanze-pubbliche-citta-e-comuni-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kanton",
-        "it": "wissenschaftliche-r-collaboratore-trice-offentliche-finanzen-stadte-e-gemeinden-kantonale-verwaltung-zurich",
-        "en": "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kantonale-verwaltung-zurich-zurich",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kantonale-verwaltung-zurich-zurich"
+        "it": "collaboratore-trice-scientifico-a-finanze-pubbliche-citta-e-comuni-kantonale-verwaltung-zurich-zurich",
+        "en": "research-associate-public-finances-cities-and-municipalities-kantonale-verwaltung-zurich-zurich",
+        "fr": "collaborateur-trice-scientifique-en-finances-publiques-villes-et-communes-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11605,11 +11658,20 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kanton"
+          "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kanton",
+          "wissenschaftliche-r-collaboratore-trice-offentliche-finanzen-stadte-e-gemeinden-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kanton"
+        "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kanton",
+        "wissenschaftliche-r-collaboratore-trice-offentliche-finanzen-stadte-e-gemeinden-kantonale-verwaltung-zurich",
+        "wissenschaftliche-r-mitarbeiter-in-offentliche-finanzen-stadte-und-gemeinden-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14204,12 +14266,12 @@
     },
     {
       "id": "kanton-zuerich-fad1e5b652e9",
-      "slug": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
+      "slug": "assistente-sociale-presso-il-kjz-horgen-kantonale-verwaltung-zurich-horgen",
       "slugByLocale": {
         "de": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
-        "it": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
-        "en": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
-        "fr": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+        "it": "assistente-sociale-presso-il-kjz-horgen-kantonale-verwaltung-zurich-horgen",
+        "en": "social-worker-at-kjz-horgen-kantonale-verwaltung-zurich-horgen",
+        "fr": "assistant-e-social-e-au-kjz-horgen-kantonale-verwaltung-zurich-horgen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14276,7 +14338,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T22:06:40.753Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:06:40.753Z"
+      "firstSeenAt": "2026-11-03T22:06:40.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+        ],
+        "en": [
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+        ],
+        "fr": [
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+      ]
     },
     {
       "id": "kanton-zuerich-075ea16498ce",

@@ -747,12 +747,12 @@
     },
     {
       "id": "planzer-899b301e9f60",
-      "slug": "disponent-m-w-d-planzer-marstetten",
+      "slug": "traduzione-m-f-d-planzer-marstetten",
       "slugByLocale": {
         "de": "disponent-m-w-d-planzer-marstetten",
-        "it": "disponent-m-w-d-planzer-marstetten",
+        "it": "traduzione-m-f-d-planzer-marstetten",
         "en": "disponent-m-w-d-planzer-marstetten",
-        "fr": "disponent-m-w-d-planzer-marstetten"
+        "fr": "detenteur-h-f-d-planzer-marstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -815,7 +815,18 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:26:10.743Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-m-w-d-planzer-marstetten"
+        ],
+        "fr": [
+          "disponent-m-w-d-planzer-marstetten"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-m-w-d-planzer-marstetten"
+      ]
     },
     {
       "id": "planzer-fcaa58108f7e",

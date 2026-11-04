@@ -1050,12 +1050,12 @@
     },
     {
       "id": "gz-dielsdorf-f7e4688c4e2e",
-      "slug": "dipl-pflegefachperson-hf-schwerpunkt-palliative-care-gz-dielsdorf-dielsdorf",
+      "slug": "dipl-infermieristica-professionale-hf-focus-on-palliative-care-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-schwerpunkt-palliative-care-gz-dielsdorf-dielsdorf",
-        "it": "dipl-pflegefachperson-hf-schwerpunkt-palliative-care-gz-dielsdorf-dielsdorf",
-        "en": "dipl-pflegefachperson-hf-schwerpunkt-palliative-care-gz-dielsdorf-dielsdorf",
-        "fr": "dipl-pflegefachperson-hf-schwerpunkt-palliative-care-gz-dielsdorf-dielsdorf"
+        "it": "dipl-infermieristica-professionale-hf-focus-on-palliative-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "dipl-nursing-professional-hf-focus-on-palliative-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "fr": "dipl-soins-infirmiers-professionnels-focus-sur-les-soins-palliatifs-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1117,7 +1117,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:36:03.289Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:36:03.289Z"
+      "firstSeenAt": "2026-11-03T21:36:03.289Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-schwerpunkt-palliative-care-gz-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-schwerpunkt-palliative-care-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-schwerpunkt-palliative-care-gz-dielsdorf-dielsdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-schwerpunkt-palliative-care-gz-dielsdorf-dielsdorf"
+      ]
     },
     {
       "id": "gz-dielsdorf-2ae3e085d18f",

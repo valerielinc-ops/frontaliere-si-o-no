@@ -4389,12 +4389,12 @@
     },
     {
       "id": "srg-ssr-aa61ed38c2f0",
-      "slug": "fachspezialist-in-change-management-srg-ssr-bern",
+      "slug": "specialista-in-gestione-del-cambiamento-srg-ssr-bern",
       "slugByLocale": {
         "de": "fachspezialist-in-change-management-srg-ssr-bern",
-        "it": "fachspezialist-in-change-management-srg-ssr-bern",
+        "it": "specialista-in-gestione-del-cambiamento-srg-ssr-bern",
         "en": "fachspezialist-in-change-management-srg-ssr-bern",
-        "fr": "fachspezialist-in-change-management-srg-ssr-bern"
+        "fr": "specialiste-en-gestion-du-changement-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4476,7 +4476,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T21:24:07.704Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:24:07.704Z"
+      "firstSeenAt": "2026-11-03T21:24:07.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-change-management-srg-ssr-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-change-management-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-change-management-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-05637bddf763",
@@ -4484,8 +4495,8 @@
       "slugByLocale": {
         "fr": "specialiste-en-gestion-du-changement-f-h-d-srg-ssr-bern",
         "it": "specialiste-en-gestion-du-changement-f-h-d-srg-ssr-bern",
-        "en": "specialiste-en-gestion-du-changement-f-h-d-srg-ssr-bern",
-        "de": "specialiste-en-gestion-du-changement-f-h-d-srg-ssr-bern"
+        "en": "change-management-specialist-m-f-d-srg-ssr-bern",
+        "de": "change-management-spezialist-m-w-d-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4575,7 +4586,7 @@
         "it": "specialista-in-change-management-srg-ssr-bern",
         "en": "specialista-in-change-management-srg-ssr-bern",
         "de": "specialista-in-change-management-srg-ssr-bern",
-        "fr": "specialista-in-change-management-srg-ssr-bern"
+        "fr": "specialiste-de-la-gestion-du-changement-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",

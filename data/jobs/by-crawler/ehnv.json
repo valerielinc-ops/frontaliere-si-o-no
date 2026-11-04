@@ -191,7 +191,7 @@
       "slugByLocale": {
         "it": "70-80-infermiera-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
         "en": "70-80-nurse-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-        "de": "70-80-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
+        "de": "un-e-infirmier-ere-a-70-80-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
         "fr": "un-e-infirmier-ere-a-70-80-ehnv-pompaples"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -238,7 +238,7 @@
       "externalId": "4719",
       "previousSlugs": [
         "un-e-infirmier-ere-a-70-80-ehnv-pompaples",
-        "un-e-infirmier-ere-a-70-80-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
+        "70-80-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -249,7 +249,7 @@
         ],
         "de": [
           "un-e-infirmier-ere-a-70-80-ehnv-pompaples",
-          "un-e-infirmier-ere-a-70-80-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
+          "70-80-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
         ]
       },
       "firstSeenAt": "2026-10-09T09:17:27.025Z",
@@ -1205,12 +1205,12 @@
     },
     {
       "id": "ehnv-ea2c360e1fd8",
-      "slug": "un-e-infirmier-iere-a-60-ehnv-yverdon-les-bains",
+      "slug": "60-infermiere-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
       "slugByLocale": {
         "fr": "un-e-infirmier-iere-a-60-ehnv-yverdon-les-bains",
-        "it": "un-e-infirmier-iere-a-60-ehnv-yverdon-les-bains",
-        "en": "un-e-infirmier-iere-a-60-ehnv-yverdon-les-bains",
-        "de": "un-e-infirmier-iere-a-60-ehnv-yverdon-les-bains"
+        "it": "60-infermiere-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "en": "60-nurse-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "de": "60-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -1273,7 +1273,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:25:19.363Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:25:19.363Z"
+      "firstSeenAt": "2026-11-03T21:25:19.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-infirmier-iere-a-60-ehnv-yverdon-les-bains"
+        ],
+        "en": [
+          "un-e-infirmier-iere-a-60-ehnv-yverdon-les-bains"
+        ],
+        "de": [
+          "un-e-infirmier-iere-a-60-ehnv-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-infirmier-iere-a-60-ehnv-yverdon-les-bains"
+      ]
     }
   ]
 }

@@ -1571,12 +1571,12 @@
     },
     {
       "id": "gmo-073c5775352b",
-      "slug": "infirmier-ere-en-hematologie-gmo-1213-onex-073c5775",
+      "slug": "infermiera-in-ematologia-gmo-1213-onex-073c5775",
       "slugByLocale": {
         "fr": "infirmier-ere-en-hematologie-gmo-1213-onex-073c5775",
-        "it": "infirmier-ere-en-hematologie-gmo-1213-onex-073c5775",
-        "en": "infirmier-ere-en-hematologie-gmo-1213-onex-073c5775",
-        "de": "infirmier-ere-en-hematologie-gmo-1213-onex-073c5775"
+        "it": "infermiera-in-ematologia-gmo-1213-onex-073c5775",
+        "en": "nurse-in-haematology-gmo-1213-onex-073c5775",
+        "de": "krankenschwester-in-der-hamatologie-gmo-1213-onex-073c5775"
       },
       "slugDisambiguator": "073c5775",
       "company": "gmo",
@@ -1639,7 +1639,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:25:47.344Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:25:47.344Z"
+      "firstSeenAt": "2026-11-03T21:25:47.344Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-hematologie-gmo-1213-onex-073c5775"
+        ],
+        "en": [
+          "infirmier-ere-en-hematologie-gmo-1213-onex-073c5775"
+        ],
+        "de": [
+          "infirmier-ere-en-hematologie-gmo-1213-onex-073c5775"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-hematologie-gmo-1213-onex-073c5775"
+      ]
     }
   ]
 }

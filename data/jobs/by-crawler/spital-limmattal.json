@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-6729f59c8e92",
-      "slug": "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-schlieren",
+      "slug": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
-        "it": "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-schlieren",
-        "en": "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
-        "fr": "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch"
+        "it": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
+        "en": "healthcare-specialist-care-center-spital-limmattal-schlieren",
+        "fr": "assistant-en-soins-et-sante-communautaire-centre-de-soins-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -58,11 +58,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
+          "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch"
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-schlieren"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2575,7 +2583,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -2636,9 +2644,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

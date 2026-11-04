@@ -3230,12 +3230,12 @@
     },
     {
       "id": "helsana-4363d91102bb",
-      "slug": "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2-27-helsana-dubendorf-stettbach",
+      "slug": "servizio-clienti-temporaneo-de-en-it-internazionale-a-80-100-temporaneo-fino-al-28-2-27-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "de": "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2",
-        "it": "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2-27-helsana-dubendorf-stettbach",
-        "en": "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2",
-        "fr": "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2"
+        "it": "servizio-clienti-temporaneo-de-en-it-internazionale-a-80-100-temporaneo-fino-al-28-2-27-helsana-dubendorf-stettbach",
+        "en": "temporary-customer-service-international-de-en-it-a-80-100-temporary-until-28-2-27-helsana-dubendorf-stettbach",
+        "fr": "service-a-la-clientele-temporaire-international-de-en-it-a-80-100-temporaire-jusqu-au-28-2-27-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3282,11 +3282,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2",
+          "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2-27-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2"
+        ],
+        "fr": [
           "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2"
         ]
       },
       "previousSlugs": [
-        "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2"
+        "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2",
+        "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2-27-helsana-dubendorf-stettbach"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
