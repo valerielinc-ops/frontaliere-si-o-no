@@ -8,7 +8,10 @@ import {
   loadArticleIndexExclusions,
   parseArticleIndexExclusions,
 } from '../packages/articles/engine/shared/articleIndexExclusions.mjs';
-import { indexExcludedArticleIds } from '../scripts/lib/article-canonical-overrides.mjs';
+import {
+  dropArticleIndexExcludedSitemapUrlBlocks,
+  indexExcludedArticleIds,
+} from '../scripts/lib/article-canonical-overrides.mjs';
 
 const [SITE_LEDGER, CORPUS_LEDGER] = ARTICLE_INDEX_EXCLUSIONS_FILES;
 
@@ -76,6 +79,24 @@ describe('article index exclusions ledger', () => {
     };
     expect([...indexExcludedArticleIds(root, 'frontaliere', slugs)]).toEqual(['burraco-solidale-buguggiate']);
     expect([...indexExcludedArticleIds(root, 'svizzera', slugs)]).toEqual(['muro-big-bend']);
+  });
+
+  it('drops the full sitemap block only for an exact ledger-excluded Italian loc', () => {
+    const excludedLoc = 'https://frontaliereticino.ch/articoli-frontaliere/ritirato/';
+    const retainedBlock = '  <url><loc>https://frontaliereticino.ch/articoli-frontaliere/rilevante/</loc>'
+      + '<xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/relevant/" /></url>';
+    const excludedBlock = `  <url><loc> ${excludedLoc} </loc>`
+      + '<xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/withdrawn/" /></url>';
+    const xml = `<urlset>\n${retainedBlock}\n${excludedBlock}\n</urlset>`;
+
+    expect(dropArticleIndexExcludedSitemapUrlBlocks(xml, new Set([excludedLoc]))).toEqual({
+      xml: `<urlset>\n${retainedBlock}\n</urlset>`,
+      dropped: [excludedLoc],
+    });
+    expect(dropArticleIndexExcludedSitemapUrlBlocks(xml, new Set())).toEqual({
+      xml,
+      dropped: [],
+    });
   });
 
   it('wires the renderer to the ledger on both the robots value and the validator marker', () => {

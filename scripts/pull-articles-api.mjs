@@ -51,7 +51,9 @@ import path from 'node:path';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import {
+  dropArticleIndexExcludedSitemapUrlBlocks,
   dropShadowedSitemapUrlBlocks,
+  indexExcludedArticleIds,
   loadAllShadowedSlugs,
   loadSectionCanonicalOverrides,
 } from './lib/article-canonical-overrides.mjs';
@@ -601,6 +603,11 @@ const PUBLISHED_SLUG_SECTIONS = {
   'sitemap-blog-ch.xml': 'swiss',
 };
 
+const ARTICLE_INDEX_SECTIONS_BY_SLUG_SECTION = {
+  blog: 'frontaliere',
+  swiss: 'svizzera',
+};
+
 // These are the corpus builder's sitemap-retention rules for the dated daily
 // editions. The API does not publish a separate retired-id manifest, but the
 // article ids are the keys of slugs.json and the builder keeps the newest 90.
@@ -652,13 +659,14 @@ function retiredDailyEditionSlugs(rows) {
   );
 }
 
-function isExpectedInSitemap(name, row, slugDocument, retiredDailySlugs) {
+function isExpectedInSitemap(name, row, slugDocument, retiredDailySlugs, indexExcludedIds) {
   const sectionName = PUBLISHED_SLUG_SECTIONS[name];
   const itSlug = row.slugs.it;
   if (!isPublishedLocaleSlug(slugDocument, sectionName, row.id, 'it', itSlug, row.slugs)) {
     return false;
   }
 
+  if (indexExcludedIds.has(row.id)) return false;
   if (CANONICAL_SHADOWED_SLUGS_BY_SECTION[sectionName]?.has(itSlug)) return false;
   if (retiredDailySlugs.has(itSlug)) return false;
   return !isRetiredLoc(`${SECTION_SITEMAPS[name].bases.it}${itSlug}/`);
@@ -672,13 +680,18 @@ function isExpectedInSitemap(name, row, slugDocument, retiredDailySlugs) {
  */
 function assertSitemapUsesPublishedSlugMap(name, xml, slugDocument) {
   const sectionName = PUBLISHED_SLUG_SECTIONS[name];
-  if (!sectionName) return;
+  if (!sectionName) return new Set();
 
   const cfg = SECTION_SITEMAPS[name];
   const rows = slugDocument?.[sectionName];
   if (!rows || typeof rows !== 'object' || Array.isArray(rows)) {
     fail(`${SLUGS_ARTIFACT} has no ${sectionName} slug registry — refusing ${name}`);
   }
+  const indexExcludedIds = indexExcludedArticleIds(
+    ROOT,
+    ARTICLE_INDEX_SECTIONS_BY_SLUG_SECTION[sectionName],
+    rows,
+  );
 
   const byItSlug = new Map();
   for (const [id, slugs] of Object.entries(rows)) {
@@ -703,6 +716,9 @@ function assertSitemapUsesPublishedSlugMap(name, xml, slugDocument) {
     const row = byItSlug.get(itMatch[1]);
     if (!row) {
       fail(`${name}: ${loc} is absent from ${SLUGS_ARTIFACT}.${sectionName} — refusing`);
+    }
+    if (indexExcludedIds.has(row.id)) {
+      fail(`${name}: ${row.id} is excluded from index but present in the sitemap — refusing`);
     }
     seenItSlugs.add(itMatch[1]);
 
@@ -734,13 +750,17 @@ function assertSitemapUsesPublishedSlugMap(name, xml, slugDocument) {
 
   const missing = [];
   for (const [itSlug, row] of byItSlug) {
-    if (isExpectedInSitemap(name, row, slugDocument, retiredDailySlugs) && !seenItSlugs.has(itSlug)) {
+    if (
+      isExpectedInSitemap(name, row, slugDocument, retiredDailySlugs, indexExcludedIds)
+      && !seenItSlugs.has(itSlug)
+    ) {
       missing.push(`${row.id} (${itSlug})`);
     }
   }
   if (missing.length > 0) {
     fail(`${name}: ${missing.join(', ')} absent from the sitemap — refusing`);
   }
+  return indexExcludedIds;
 }
 
 /**
@@ -777,6 +797,12 @@ function reinstateLocalArticles(name, xml) {
   const registry = readSlugRegistry(...cfg.registry);
   if (!registry) return { xml, added: [] };
 
+  const sectionName = PUBLISHED_SLUG_SECTIONS[name];
+  const indexExcludedIds = indexExcludedArticleIds(
+    ROOT,
+    ARTICLE_INDEX_SECTIONS_BY_SLUG_SECTION[sectionName],
+    Object.fromEntries(registry),
+  );
   const shadowed = cfg.overrides ? readOverrideKeys(cfg.overrides) : new Set();
   const present = new Set(
     [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim()),
@@ -785,6 +811,7 @@ function reinstateLocalArticles(name, xml) {
   const blocks = [];
   const added = [];
   for (const [id, slugs] of registry) {
+    if (indexExcludedIds.has(id)) continue;
     if (shadowed.has(slugs.it)) continue;
     const canonical = `${cfg.bases.it}${slugs.it}/`;
     if (present.has(canonical)) continue;
@@ -937,7 +964,16 @@ for (const name of SITEMAPS) {
   // The map is the corpus's source of truth for localized URLs. Check the
   // upstream sitemap against that same release before adding any site-owned
   // entries or staging the document.
-  assertSitemapUsesPublishedSlugMap(name, xml, publishedSlugs);
+  const indexExcludedIds = assertSitemapUsesPublishedSlugMap(name, xml, publishedSlugs);
+  const sectionCfg = SECTION_SITEMAPS[name];
+  const indexExcludedLocs = new Set();
+  if (sectionCfg) {
+    const sectionName = PUBLISHED_SLUG_SECTIONS[name];
+    for (const id of indexExcludedIds) {
+      const itSlug = publishedSlugs?.[sectionName]?.[id]?.it;
+      if (itSlug) indexExcludedLocs.add(`${sectionCfg.bases.it}${itSlug}/`);
+    }
+  }
 
   // Before the count guards, so the shrink comparison below is made against
   // the document that will actually be written.
@@ -1012,8 +1048,18 @@ for (const name of SITEMAPS) {
     const current = dropRetiredSitemapUrlBlocks(
       dropShadowedSitemapUrlBlocks(fs.readFileSync(dest, 'utf-8'), shadowedSitemapSlugs).xml,
     ).xml;
-    const curUrls = countUrls(current);
-    const curAlts = countAlternates(current);
+    const currentWithoutIndexExcluded = dropArticleIndexExcludedSitemapUrlBlocks(
+      current,
+      indexExcludedLocs,
+    );
+    const curUrls = countUrls(currentWithoutIndexExcluded.xml);
+    const curAlts = countAlternates(currentWithoutIndexExcluded.xml);
+    if (currentWithoutIndexExcluded.dropped.length > 0) {
+      log(
+        `${name}: shrink baseline omits ${currentWithoutIndexExcluded.dropped.length} ` +
+          'article-index exclusions already withdrawn by the corpus',
+      );
+    }
     // Shrinking either dimension drops pages or alternates from the index.
     if (urls < curUrls && !intentionalArchiveProjection) {
       fail(`${name} would shrink from ${curUrls} to ${urls} urls — refusing`);
@@ -1320,7 +1366,7 @@ for (const name of FEEDS) {
       }
       return ids;
     };
-    const localeSlugsOf = (file, articlesFile, constName) => {
+    const localeSlugsOf = (file, articlesFile, constName, section) => {
       const abs = path.join(ROOT, file);
       if (!fs.existsSync(abs)) return null;
       const parsed = readSlugRegistryWithRows(abs, constName);
@@ -1328,11 +1374,16 @@ for (const name of FEEDS) {
         fail(`could not parse ${constName} out of ${file}: ${Object.keys(parsed.registry).length}/${parsed.rows} rows — refusing`);
       }
       const evergreenIds = evergreenIdsOf(articlesFile);
+      const indexExcludedIds = indexExcludedArticleIds(ROOT, section, parsed.registry);
       const slugsFor = (entries, loc) => new Set(entries.map((slugs) => slugs?.[loc]).filter(Boolean));
       return Object.fromEntries(
         NEWS_LOCALES.map((loc) => [loc, {
           slugs: slugsFor(Object.values(parsed.registry), loc),
           evergreen: slugsFor([...evergreenIds].map((id) => parsed.registry[id]), loc),
+          indexExcluded: slugsFor(
+            [...indexExcludedIds].map((id) => parsed.registry[id]),
+            loc,
+          ),
         }]),
       );
     };
@@ -1342,7 +1393,7 @@ for (const name of FEEDS) {
       { section: 'frontaliere', file: 'packages/articles/content/routerBlogData.ts', articlesFile: 'packages/articles/content/blog-articles-data.ts', constName: 'BLOG_SLUGS' },
       { section: 'svizzera', file: 'packages/articles/content/routerSwissData.ts', articlesFile: 'packages/articles/content/swiss-articles-data.ts', constName: 'SWISS_SLUGS' },
     ].flatMap(({ section, file, articlesFile, constName }) => {
-      const slugsByLocale = localeSlugsOf(file, articlesFile, constName);
+      const slugsByLocale = localeSlugsOf(file, articlesFile, constName, section);
       if (slugsByLocale === null) return [];
       const { indexSlug } = ARTICLE_SECTION_CORE[section];
       return NEWS_LOCALES.map((loc) => ({
@@ -1363,6 +1414,14 @@ for (const name of FEEDS) {
       }
       return false;
     };
+    const isIndexExcluded = (block) => {
+      const loc = locOf(block);
+      for (const { pattern, indexExcluded } of registries) {
+        const m = loc.match(pattern);
+        if (m) return indexExcluded.has(m[1]);
+      }
+      return false;
+    };
     const isEvergreen = (block) => {
       const loc = locOf(block);
       for (const { pattern, evergreen } of registries) {
@@ -1371,7 +1430,7 @@ for (const name of FEEDS) {
       }
       return false;
     };
-    const leavesFeed = (block) => deListed(block) || isEvergreen(block);
+    const leavesFeed = (block) => deListed(block) || isIndexExcluded(block) || isEvergreen(block);
 
     const now = Date.now();
     const inWindow = (block) => {
@@ -1429,6 +1488,8 @@ for (const name of FEEDS) {
     for (const block of currentBlocks) {
       if (deListed(block)) {
         log(`${NEWS_SITEMAP}: dropping ${locOf(block)} — no longer in the slug registry`);
+      } else if (isIndexExcluded(block)) {
+        log(`${NEWS_SITEMAP}: dropping ${locOf(block)} — withdrawn from the index`);
       } else if (isEvergreen(block)) {
         log(`${NEWS_SITEMAP}: dropping ${locOf(block)} — declared evergreen, not news`);
       }

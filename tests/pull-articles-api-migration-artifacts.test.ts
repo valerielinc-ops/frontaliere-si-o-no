@@ -81,6 +81,16 @@ const blogSitemap = urlset([
   </url>`,
 ]);
 
+const articleUrlBlock = (slugs: Record<string, string>) => [
+  '  <url>',
+  '    <loc>https://frontaliereticino.ch/articoli-frontaliere/' + slugs.it + '/</loc>',
+  '    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/' + slugs.it + '/" />',
+  '    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/' + slugs.en + '/" />',
+  '    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/' + slugs.de + '/" />',
+  '    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/' + slugs.fr + '/" />',
+  '  </url>',
+].join('\n');
+
 const feed = `<?xml version="1.0"?><rss><channel>${'<item></item>'.repeat(12)}</channel></rss>`;
 
 const ticker = JSON.stringify({
@@ -147,6 +157,22 @@ const PUBLISHED_SLUGS = publishedSlugs({
 });
 const PUBLISHED_SLUGS_A_B = publishedSlugs({
   a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+  b: { it: 'b', en: 'b-en', de: 'b-de', fr: 'b-fr' },
+});
+const INDEX_EXCLUDED_ID = 'iran-tajani-non-tratta-navi';
+const INDEX_EXCLUDED_SLUGS = {
+  it: 'iran-tajani-non-tratta-navi',
+  en: 'iran-tajani-no-negotiation-shipping',
+  de: 'iran-tajani-keine-verhandlungen-schifffahrt',
+  fr: 'iran-tajani-pas-negociation-navires',
+};
+const PUBLISHED_SLUGS_A_INDEX_EXCLUDED = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+  [INDEX_EXCLUDED_ID]: INDEX_EXCLUDED_SLUGS,
+});
+const PUBLISHED_SLUGS_A_INDEX_EXCLUDED_B = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+  [INDEX_EXCLUDED_ID]: INDEX_EXCLUDED_SLUGS,
   b: { it: 'b', en: 'b-en', de: 'b-de', fr: 'b-fr' },
 });
 const validGeneratedCover = () => {
@@ -313,7 +339,7 @@ let routes: Routes = {};
 let manifestSequence: string[] | null = null;
 let manifestSequenceIndex = 0;
 
-function baseRoutes(slugs = PUBLISHED_SLUGS): Routes {
+function baseRoutes(slugs = PUBLISHED_SLUGS, newsCandidates?: string): Routes {
   const credits = JSON.stringify({ schema: 1, section: 'blog', commit: API_COMMIT, generated: {} });
   const r: Routes = {
     // A FULL sha, as nanako's build-api.mjs actually emits (checked against the
@@ -336,6 +362,12 @@ function baseRoutes(slugs = PUBLISHED_SLUGS): Routes {
     [CANTON_ARTICLES_PATH]: CANTON_ARTICLES,
     'news-ticker-live.json': ticker,
   };
+  if (newsCandidates !== undefined) {
+    const manifest = JSON.parse(r['manifest.json'] as string);
+    manifest.files['sitemap-news-candidates.xml'] = Buffer.byteLength(newsCandidates);
+    r['manifest.json'] = JSON.stringify(manifest);
+    r['sitemap-news-candidates.xml'] = newsCandidates;
+  }
   for (const s of SITEMAPS) {
     r[s] = s === 'sitemap-articles-archive.xml' ? archiveSitemap : blogSitemap;
   }
@@ -383,6 +415,9 @@ function makeCheckout(opts: {
   newsEntries?: string[];
   windowHours?: number | null;
   frontaliereShadowedSlugs?: string[];
+  currentBlogSitemap?: string;
+  articleIndexExclusions?: Array<{ section: 'frontaliere' | 'svizzera'; id: string }>;
+  localBlogSlugs?: Record<string, Record<string, string>>;
 } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'pull-articles-'));
   const pub = path.join(dir, 'public');
@@ -411,10 +446,27 @@ function makeCheckout(opts: {
       }),
     );
   }
+  if (opts.articleIndexExclusions?.length) {
+    const ledger = path.join(dir, 'content', 'article-index-exclusions.json');
+    fs.mkdirSync(path.dirname(ledger), { recursive: true });
+    fs.writeFileSync(ledger, JSON.stringify({ excluded: opts.articleIndexExclusions }, null, 2));
+  }
+  if (opts.localBlogSlugs) {
+    const registry = path.join(dir, 'packages', 'articles', 'content', 'routerBlogData.ts');
+    fs.mkdirSync(path.dirname(registry), { recursive: true });
+    fs.writeFileSync(
+      registry,
+      'export const BLOG_SLUGS = ' + JSON.stringify(opts.localBlogSlugs, null, 2) + ' as const;\n',
+    );
+  }
   for (const s of SITEMAPS) {
     fs.writeFileSync(
       path.join(pub, s),
-      s === 'sitemap-articles-archive.xml' ? archiveSitemap : blogSitemap,
+      s === 'sitemap-articles-archive.xml'
+        ? archiveSitemap
+        : s === 'sitemap-blog.xml'
+          ? opts.currentBlogSitemap ?? blogSitemap
+          : blogSitemap,
     );
   }
   for (const f of FEEDS) fs.writeFileSync(path.join(pub, f), feed);
@@ -507,6 +559,72 @@ describe('pull-articles-api: sitemap/slug-map source parity', () => {
 
     expect(result.code).toBe(0);
     expect(result.out).not.toContain('absent from the sitemap');
+  });
+
+  it('allows ledger-withdrawn articles and keeps them out of reinstated and News sitemaps', async () => {
+    const includedLoc = 'https://frontaliereticino.ch/articoli-frontaliere/a/';
+    routes = baseRoutes(
+      PUBLISHED_SLUGS_A_INDEX_EXCLUDED,
+      urlset([newsUrlBlock(includedLoc, hoursAgo(1))]),
+    );
+    const excludedLoc = 'https://frontaliereticino.ch/articoli-frontaliere/'
+      + INDEX_EXCLUDED_SLUGS.it + '/';
+    const currentBlogSitemap = urlset([
+      articleUrlBlock({ it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' }),
+      articleUrlBlock(INDEX_EXCLUDED_SLUGS),
+    ]);
+    const dir = makeCheckout({
+      currentBlogSitemap,
+      articleIndexExclusions: [{ section: 'frontaliere', id: INDEX_EXCLUDED_ID }],
+      localBlogSlugs: {
+        a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+        [INDEX_EXCLUDED_ID]: INDEX_EXCLUDED_SLUGS,
+      },
+      newsEntries: [newsUrlBlock(excludedLoc, hoursAgo(1))],
+    });
+
+    const result = await run(dir);
+
+    expect(result.code).toBe(0);
+    expect(result.out).toContain(`sitemap-news.xml: dropping ${excludedLoc} — withdrawn from the index`);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+    expect(readPub(dir, 'sitemap-blog.xml')).not.toContain(excludedLoc);
+    expect(readPub(dir, 'sitemap-news.xml')).not.toContain(excludedLoc);
+    expect(readPub(dir, 'sitemap-news.xml')).toContain(includedLoc);
+    expect(readPub(dir, 'sitemap-news.xml')).toContain('<news:news>');
+  });
+
+  it('does not forgive a different missing publishable article when the ledger names one exclusion', async () => {
+    routes = baseRoutes(PUBLISHED_SLUGS_A_INDEX_EXCLUDED_B);
+    const dir = makeCheckout({
+      articleIndexExclusions: [{ section: 'frontaliere', id: INDEX_EXCLUDED_ID }],
+    });
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('b (b) absent from the sitemap');
+    expect(result.out).not.toContain(`${INDEX_EXCLUDED_ID} (${INDEX_EXCLUDED_SLUGS.it}) absent from the sitemap`);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('refuses a ledger-withdrawn article that the published sitemap still advertises', async () => {
+    routes = {
+      ...baseRoutes(PUBLISHED_SLUGS_A_INDEX_EXCLUDED),
+      'sitemap-blog.xml': urlset([
+        '  <url>\n    <loc>https://frontaliereticino.ch/articoli-frontaliere/'
+          + INDEX_EXCLUDED_SLUGS.it + '/</loc>\n  </url>',
+      ]),
+    };
+    const dir = makeCheckout({
+      articleIndexExclusions: [{ section: 'frontaliere', id: INDEX_EXCLUDED_ID }],
+    });
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain(`${INDEX_EXCLUDED_ID} is excluded from index but present in the sitemap`);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
   });
 
   it('accepts the intentional page-1-only archive projection after a full-chain copy', async () => {

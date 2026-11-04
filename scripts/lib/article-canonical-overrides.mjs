@@ -113,6 +113,25 @@ export function indexExcludedArticleIds(root, section, slugs) {
 }
 
 /**
+ * Shared whole-block sitemap pruner. A `<url>` carries all locale alternates,
+ * so a targeted exclusion must remove the block instead of only its `<loc>`.
+ *
+ * @param {string} xml
+ * @param {(loc: string) => boolean} shouldDrop
+ * @returns {{ xml: string, dropped: string[] }}
+ */
+function dropSitemapUrlBlocks(xml, shouldDrop) {
+  const dropped = [];
+  const out = xml.replace(/[ \t]*<url>[\s\S]*?<\/url>\n?/g, (block) => {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
+    if (!loc || !shouldDrop(loc)) return block;
+    dropped.push(loc);
+    return '';
+  });
+  return { xml: out, dropped };
+}
+
+/**
  * Removes every `<url>…</url>` block whose `<loc>` ends in a shadowed slug.
  *
  * Dropping the whole block (not just the `<loc>`) is what the svizzera
@@ -131,14 +150,22 @@ export function indexExcludedArticleIds(root, section, slugs) {
  */
 export function dropShadowedSitemapUrlBlocks(xml, shadowedSlugs) {
   if (shadowedSlugs.size === 0) return { xml, dropped: [] };
-  const dropped = [];
-  const out = xml.replace(/[ \t]*<url>[\s\S]*?<\/url>\n?/g, (block) => {
-    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
-    if (!loc) return block;
+  return dropSitemapUrlBlocks(xml, (loc) => {
     const slug = loc.replace(/\/$/, '').split('/').pop();
-    if (!slug || !shadowedSlugs.has(slug)) return block;
-    dropped.push(loc);
-    return '';
+    return Boolean(slug && shadowedSlugs.has(slug));
   });
-  return { xml: out, dropped };
+}
+
+/**
+ * Removes a whole article URL block only when its Italian `<loc>` is in the
+ * exact ledger-derived set. Used to normalize the previous sitemap for the
+ * shrink guard after an editorial index withdrawal.
+ *
+ * @param {string} xml
+ * @param {Set<string>} excludedLocs
+ * @returns {{ xml: string, dropped: string[] }}
+ */
+export function dropArticleIndexExcludedSitemapUrlBlocks(xml, excludedLocs) {
+  if (excludedLocs.size === 0) return { xml, dropped: [] };
+  return dropSitemapUrlBlocks(xml, (loc) => excludedLocs.has(loc));
 }
