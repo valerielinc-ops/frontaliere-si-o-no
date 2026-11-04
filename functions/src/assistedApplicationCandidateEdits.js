@@ -315,6 +315,18 @@ export function questionNeedsCandidateAnswer(question, profile, draft) {
     && !unreadablePortalQuestion(question) && !languageExplicitlyAbsent(profile, question?.question);
 }
 
+/** A required application consent remains open unless the candidate explicitly agrees. */
+export function requiredPortalConsentAffirmed(question, value) {
+  if (question?.requiresAffirmativeConsent !== true) return true;
+  if (value === true) return true;
+  if (value === false || value == null) return false;
+  const text = (Array.isArray(value) ? value.join(' ') : String(value)).normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim().toLowerCase();
+  if (/\b(?:no|nein|non|not|refus\w*|rifiut\w*)\b/.test(text)) return false;
+  return /^(?:si|yes|ja|oui|true|1)(?:\b|$)/.test(text)
+    || /\b(?:acconsent\w*|consent\w*|accett\w*|agree\w*|accept\w*|conferm\w*)\b/.test(text);
+}
+
 /** Remove questions established by the CV and duplicate semantic requests, retaining required status. */
 export function questionsForCandidate(questions, profile, answers = {}, memory = {}, draft = null) {
   const projectedAnswers = candidateAnswersForQuestions(questions, answers, memory);
@@ -565,9 +577,17 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   if (availability) profile.availability = availability;
   const cv = cvPersonalFacts(draft?.factSources?.text);
   const locale = candidateLocaleOf(requestedLocale, order);
+  const requiredPortalSalutation = (draft?.questions || []).some(question =>
+    question?.id === 'salutation' && question?.source === 'portal' && question?.required === true);
+  const explicitlyChosenSalutation = clean(answers.salutation, 40)
+    || (has(overrides, 'salutation') ? clean(overrides.salutation, 40) : '');
   const salutation = salutationNow({ answers, overrides, cvGender: cv.gender || salutationGenderFromName(identity.firstName, locale), locale });
-  answers.salutation = salutation;
-  if (!salutation) delete answers.salutation;
+  // A profile-derived title can format the cover letter, but it cannot answer
+  // a required title choice on the candidate's behalf. Keep the portal Q&A
+  // blank until a direct answer or an explicit review-page correction exists.
+  if (requiredPortalSalutation && !explicitlyChosenSalutation) delete answers.salutation;
+  else if (salutation) answers.salutation = salutation;
+  else delete answers.salutation;
   const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
   return { identity, profile, answers, overrides, personal };
 }

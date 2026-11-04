@@ -435,6 +435,15 @@ export async function buildDraft(ctx) {
   const formAnswers = buildFormAnswers({ identity, profile, documents, answers, locale, personal });
   const readPortal = ctx.readPortalRequirements || ctx.readPortalQuestions;
   if (readPortal && channel.applyUrl) {
+    // `candidateWithEdits` may derive a salutation from CV wording or a name
+    // for letter formatting. That inference is useful for the letter, but it
+    // is not the candidate's choice for a required portal title field.
+    const portalAnswers = { ...answers };
+    const explicitlyChosenSalutation = Object.hasOwn(edited.overrides, 'salutation')
+      ? String(edited.overrides.salutation || '').trim()
+      : String(flow?.answers?.salutation || '').trim();
+    if (explicitlyChosenSalutation) portalAnswers.salutation = explicitlyChosenSalutation;
+    else delete portalAnswers.salutation;
     const portalResult = await readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
@@ -442,7 +451,7 @@ export async function buildDraft(ctx) {
       job: { title, company: order.companyName || '' },
       language,
       candidateLocale: locale,
-      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' } }),
+      candidate: candidateForForm({ identity, profile, answers: portalAnswers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' } }),
       codex,
       log,
     });
@@ -450,6 +459,7 @@ export async function buildDraft(ctx) {
     // reader also returns required file fields so they reach the upload picker
     // before the first submission attempt.
     const portal = Array.isArray(portalResult) ? { questions: portalResult, documents: [] } : (portalResult || { questions: [], documents: [] });
+    if (portal.handoff) throw new DraftAbort('draft_failed', 'portal_requirements_unavailable');
     requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
     // The document requirement is the answer to a narrow "do you hold it?"
     // question. Re-run this filter after the portal has contributed its own
