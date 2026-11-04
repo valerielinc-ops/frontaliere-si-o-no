@@ -271,12 +271,19 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
 
   it('fails the run when neither official source can be read', async () => {
     mockPortal({ indexOk: false });
-    await expect(fetchAllStadtZuerichJobs({
-      fetchCurrentDetailPage: async () => ({
-        html: '',
-        descriptionHtml: '<p>Nur ein kurzer Eintrag.</p>',
-      }),
-    })).rejects.toThrow(/current portal detail fallback yielded no vacancy text/);
+    let caught: unknown;
+    try {
+      await fetchAllStadtZuerichJobs({
+        fetchCurrentDetailPage: async () => ({
+          html: '',
+          descriptionHtml: '<p>Nur ein kurzer Eintrag.</p>',
+        }),
+      });
+    } catch (error) {
+      caught = error;
+    }
+    expect(caught).toBeInstanceOf(Error);
+    expect((caught as Error).message).toContain('current job portal detail fallback yielded no vacancy text');
   }, 20_000);
 
   // 2026-09-29: the same ad re-posted under a second Referenz-Nr. (e.g.
