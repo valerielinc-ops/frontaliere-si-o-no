@@ -2,14 +2,22 @@ import { useCallback, useRef, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { subscribeJobAlertForJob } from '@/services/jobAlertService';
+import {
+  subscribeJobAlertForDetail,
+  type JobAlertDetailIntent,
+  type JobAlert,
+} from '@/services/jobAlertService';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 export type JobDetailJobAlertButtonStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 export interface JobDetailJobAlertButtonProps {
-  /** Stable job id this alert is pinned to (matcher `specificJobId`). */
-  jobId: string;
+  /** Stable publisher job id; when present the alert is pinned via `specificJobId`. */
+  jobId?: string | null;
+  /** Category/search keyword for the ordinary post-apply detail path. */
+  keyword?: string | null;
+  /** Canton carried from the viewed detail into an ordinary alert. */
+  cantonCode?: string | null;
   /** Authenticated user id. */
   userId: string;
   /** Authenticated user email. */
@@ -22,31 +30,36 @@ export interface JobDetailJobAlertButtonProps {
   sourceJobUrl?: string | null;
   /** Title of the job — stored as subscription provenance. */
   sourceJobTitle?: string | null;
+  /** Optional label override for the generic post-apply placement. */
+  label?: string;
   /** Called on a successful create (analytics / gating side-effects). */
-  onSubscribed?: () => void;
+  onSubscribed?: (alert: JobAlert) => void;
   /** Called once on a direct one-tap action, before the create request starts. */
   onAccepted?: () => void;
   /** Called when subscribe throws. */
   onErrored?: (error: unknown) => void;
   /** Fired once when the direct detail CTA becomes visible. */
   onImpression?: () => void;
-  /** Optional override for the subscribe call (used by tests). */
-  subscribe?: typeof subscribeJobAlertForJob;
+  /** Optional override for the detail writer (used by tests). */
+  subscribe?: typeof subscribeJobAlertForDetail;
 }
 
 export default function JobDetailJobAlertButton({
   jobId,
+  keyword,
+  cantonCode,
   userId,
   email,
   locale,
   sourceJobSlug,
   sourceJobUrl,
   sourceJobTitle,
+  label,
   onSubscribed,
   onAccepted,
   onErrored,
   onImpression,
-  subscribe = subscribeJobAlertForJob,
+  subscribe = subscribeJobAlertForDetail,
 }: JobDetailJobAlertButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobDetailJobAlertButtonStatus>('idle');
@@ -59,7 +72,7 @@ export default function JobDetailJobAlertButton({
   }, [onImpression]);
   const impressionRef = useImpressionTracker(reportImpression);
   const handleClick = useCallback(async () => {
-    if (!jobId) return;
+    if (!jobId && !keyword?.trim()) return;
     if (submissionStartedRef.current) return;
     submissionStartedRef.current = true;
     // A click proves the CTA was visible even if the observer callback has not
@@ -69,7 +82,12 @@ export default function JobDetailJobAlertButton({
     try {
       // Telemetry must not prevent the requested alert from being created.
       try { onAccepted?.(); } catch { /* best-effort analytics */ }
-      await subscribe(userId, email, jobId, locale, {
+      const intent: JobAlertDetailIntent = {
+        jobId: jobId ?? null,
+        keyword: keyword ?? null,
+        cantonCode: cantonCode ?? null,
+      };
+      const created = await subscribe(userId, email, intent, locale, {
         slug: sourceJobSlug ?? null,
         url: sourceJobUrl ?? null,
         title: sourceJobTitle ?? null,
@@ -89,13 +107,13 @@ export default function JobDetailJobAlertButton({
       // is what turns a deduced consent into an explicit one. Deliberately not
       // awaited into this CTA's error path: a proof that fails to land must
       // never present a successful subscription as a failure.
-      if (onSubscribed) onSubscribed();
+      if (onSubscribed) onSubscribed(created);
     } catch (error: unknown) {
       submissionStartedRef.current = false;
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [email, jobId, locale, onAccepted, onErrored, onSubscribed, reportImpression, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
+  }, [cantonCode, email, jobId, keyword, locale, onAccepted, onErrored, onSubscribed, reportImpression, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
 
   if (status === 'success') {
     return (
@@ -122,7 +140,7 @@ export default function JobDetailJobAlertButton({
         ) : (
           <BellRing className="w-4 h-4" aria-hidden="true" />
         )}
-        {t('jobAlert.jobDetailButton.cta', 'Avvisami per questo annuncio')}
+          {label || t('jobAlert.jobDetailButton.cta', 'Avvisami per questo annuncio')}
       </button>
       {status === 'error' && (
         <p className="mt-2 text-xs text-danger">

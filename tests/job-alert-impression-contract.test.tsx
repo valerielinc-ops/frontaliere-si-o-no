@@ -178,33 +178,36 @@ describe('issue 9577/10529 — inline_card separates actionable and passive visi
   });
 });
 
-describe('issue 10528 — job_detail_button shown/created parity', () => {
-  it('the direct detail CTA owns the impression for its own creation surface', () => {
+describe('issue 16998 — job_detail_button shown/created parity', () => {
+  it('the unified detail CTA owns the impression for its own creation surface', () => {
     const button = fs.readFileSync(path.join(ROOT, 'components/community/JobDetailJobAlertButton.tsx'), 'utf-8');
     expect(button).toContain('useImpressionTracker');
     expect(button).toMatch(/ref=\{impressionRef\}/);
     expect(button).toContain('onImpression');
+    expect(button).toContain('subscribeJobAlertForDetail');
 
     const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
     const start = board.indexOf('<JobDetailJobAlertButton');
     const directCta = board.slice(start, start + 1400);
     expect(directCta).toContain("onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button'");
     expect(directCta).toContain("surface: 'job_detail_button'");
+    expect(directCta).toContain('jobId={detailAlertJobId}');
+    expect(directCta).toContain('keyword={detailAlertKeyword}');
+    expect(directCta).toContain('cantonCode={selectedJob.canton ?? null}');
   });
 
-  it('the applied-receipt handoff keeps job_detail_button through the form and auth replay', () => {
+  it('the applied receipt reuses the same detail CTA instead of opening a second form path', () => {
     const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
     const receiptStart = board.indexOf('const appliedNoticeJsx');
     const receipt = board.slice(receiptStart, board.indexOf(') : null;', receiptStart));
-    expect(receipt).toContain("requestJobAlertOpen(category || undefined, 'job_detail_button')");
+    expect(receipt).not.toContain("requestJobAlertOpen(category || undefined, 'job_detail_button')");
+    expect(board).toContain('const detailAlertButtonJsx = detailAlertButtonVisible && selectedJob ? (');
+    expect(board).toContain('{detailAlertButtonJsx}');
 
-    const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
-    expect(form).toContain("setCtaOrigin(req.origin ?? 'inline_card')");
-    expect(form).toContain('savePendingJobAlert(config, ctaOrigin)');
-    expect(form).toContain("persistAlert(authUser.uid, authEmail, config, ctaOrigin, 'direct')");
-
-    const pending = fs.readFileSync(path.join(ROOT, 'services/pendingJobAlert.ts'), 'utf-8');
-    expect(pending).toContain("'job_detail_button'");
+    const service = fs.readFileSync(path.join(ROOT, 'services/jobAlertService.ts'), 'utf-8');
+    expect(service).toContain('export async function subscribeJobAlertForDetail');
+    expect(service).toContain('specificJobId: normalizedJobId');
+    expect(service).toContain('cantonFilter: cantonCode ? [cantonCode] : null');
 
     const boardFilter = fs.readFileSync(path.join(ROOT, 'components/community/JobBoardFilterAlertCta.tsx'), 'utf-8');
     expect(boardFilter).toContain('openJobAlertForm(config.keywords[0], formOrigin)');
@@ -217,7 +220,7 @@ describe('issue 10528 — job_detail_button shown/created parity', () => {
   });
 });
 
-describe('issue 10528 — every alert surface keeps shown→created attribution', () => {
+describe('issue 16998 — every alert surface keeps shown→created attribution', () => {
   const source = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf-8');
   const jobBoard = () => source('components/community/JobBoard.tsx');
   const form = () => source('components/community/JobAlertForm.tsx');
@@ -235,9 +238,7 @@ describe('issue 10528 — every alert surface keeps shown→created attribution'
       ['components/community/JobAlertForm.tsx', 'savePendingJobAlert(config, ctaOrigin)'],
       ['components/community/JobAlertForm.tsx', "persistAlert(authUser.uid, authEmail, config, ctaOrigin, 'direct')"],
     ],
-    job_detail_button: [
-      ['components/community/JobBoard.tsx', "requestJobAlertOpen(category || undefined, 'job_detail_button')"],
-    ],
+    job_detail_button: [],
     job_board_filters: [
       ['components/community/JobBoard.tsx', 'formOrigin="job_board_filters"'],
       ['components/community/JobBoardFilterAlertCta.tsx', "openJobAlertForm(config.keywords[0], formOrigin)"],
@@ -430,11 +431,12 @@ describe('#7765 — CTA eligibility precedes rendering and impression', () => {
     expect(src).not.toMatch(/if \(inlineCardEligibility !== true\) return null/);
   });
 
-  it('the post-apply detail button gates both the CTA and its shown event', () => {
+  it('the unified detail button gates its CTA and owns its shown event', () => {
     const src = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
     expect(src).toContain("surface: 'job_detail_button'");
-    expect(src).toContain('if (!appliedAlertCtaVisible) return;');
-    expect(src).toContain('{appliedAlertCtaVisible && (');
+    expect(src).toContain('detailAlertEligible === true');
+    expect(src).toContain('const detailAlertButtonJsx = detailAlertButtonVisible && selectedJob ? (');
+    expect(src).not.toContain("requestJobAlertOpen(category || undefined, 'job_detail_button')");
   });
 
   it('all three surfaces resolve through the shared per-user cache', () => {
@@ -486,19 +488,16 @@ describe('#5040 — the apply hand-off leaves a visible trace on the page', () =
     expect(src()).toMatch(/selectedJob\?\.id !== appliedJobId[\s\S]{0,120}setAppliedJobId\(null\)/);
   });
 
-  it('its alert CTA does NOT require an authenticated session', () => {
-    // The only converting surface today is gated on userId+email and logs a
-    // `no_auth` skip for everyone else (34 such skips in 14d). Peak intent is
-    // the wrong moment to demand a login: hand off to JobAlertForm, which owns
-    // auth + email capture, exactly as SavedJobsAlertNudge already does.
+  it('keeps anonymous detail intent on its diagnostic surface', () => {
     const full = src();
     const start = full.indexOf('const appliedNoticeJsx');
     expect(start).toBeGreaterThan(-1);
     const block = full.slice(start, full.indexOf(') : null;', start));
-    expect(block).toContain('requestJobAlertOpen');
-    expect(block).toContain('backToList()');
+    expect(block).not.toContain("job_detail_button'");
     expect(block).not.toMatch(/\buserId\b/);
     expect(block).not.toMatch(/\buserEmail\b/);
+    expect(full).toContain('formOrigin="job_detail_anonymous"');
+    expect(full).toContain("Analytics.trackJobAlertCtaShown('job_detail_anonymous'");
   });
 });
 
