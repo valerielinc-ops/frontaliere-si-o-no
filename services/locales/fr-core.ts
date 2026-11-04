@@ -1111,6 +1111,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.postal.downloadPacket': "Telecharger le dossier complet en un seul PDF",
  'jobBoard.assisted.review.postal.packetUnsupported': "Utilisez des fichiers PDF ou des scans JPG/PNG pour le dossier unique. Si le CV sélectionné est un fichier Word, choisissez l’option CV adapté en PDF. Remplacez ces fichiers :",
  'jobBoard.assisted.review.postal.packetTooLarge': "Les pieces jointes depassent {mb} Mo. Reduisez leur taille ou televersez des versions plus legeres pour creer le PDF unique.",
+ 'jobBoard.assisted.review.postal.packetSizeUnavailable': "La taille d’un fichier de candidature ne peut pas etre verifiee. Demandez de l’aide avant de confirmer l’envoi postal.",
  'jobBoard.assisted.review.postal.packetDownloadError': "Nous n’avons pas pu creer le PDF unique. Verifiez que les fichiers sont lisibles et reessayez ; si le probleme persiste, contactez l’assistance.",
  'jobBoard.assisted.review.postal.recipient': "Destinataire",
  'jobBoard.assisted.review.postal.deadline': "Échéance",

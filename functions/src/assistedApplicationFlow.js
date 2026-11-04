@@ -560,15 +560,24 @@ export function canOwnerHandoffToCandidate(flow, reason = '') {
 /**
  * @param {object|null} flow current flow (order.automation)
  * @param {{type:string, feedback?:string, questions?:Array, error?:string}} event
- * @param {{draft?:object, answers?:object, nowMs?:number}} context
+ * @param {{draft?:object, answers?:object, documents?:object, postalPacketReady?:boolean, nowMs?:number}} context
  * @returns {{flow:object, effects:Array<object>, ignored?:string}}
  */
-export function transition(flow, event, { draft = null, answers = {}, documents = {}, nowMs = Date.now() } = {}) {
+export function transition(flow, event, { draft = null, answers = {}, documents = {}, postalPacketReady = true, nowMs = Date.now() } = {}) {
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
   const flags = evaluateRedFlags(draft, answers, documents, flow?.questionAnswers, flow);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
+  const enterReadyPostalHandoff = () => {
+    if (postalPacketReady !== false) return enterPostalHandoff(next, nowMs);
+    next.state = 'candidate_review';
+    next.deadlineAt = null;
+    next.reminderAt = null;
+    next.heldBy = ['postal_packet_not_ready'];
+    delete next.submittedVia;
+    return [];
+  };
   if (state === 'withdrawn') return ignore('withdrawn');
   if (TERMINAL_STATES.has(state) && !STOPPED_EXITS.has(event.type)) return ignore('terminal');
 
@@ -685,7 +694,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         && flags.owner.length === 0 && candidateHolds(flags).length === 0
         && roundWasSent(flow, current.round)) {
         effects = isPostalSubmission(flow)
-          ? enterPostalHandoff(next, nowMs)
+          ? enterReadyPostalHandoff()
           : enterSubmitting(next, 'resolved_candidate_answers');
         break;
       }
@@ -728,7 +737,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
           break;
         }
         effects = isPostalSubmission(flow)
-          ? enterPostalHandoff(next, nowMs)
+          ? enterReadyPostalHandoff()
           : enterSubmitting(next, 'auto_approved_12h');
         break;
       }
@@ -791,6 +800,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       if (state !== 'owner_takeover') return ignore('not_taken_over');
       if (isPostalSubmission(flow)) {
         if (roundDraftMissing(current, draft) || flow.submittedVia !== 'postal') return ignore('not_approved');
+        if (postalPacketReady === false) return ignore('postal_packet_not_ready');
         effects = enterPostalHandoff(next, nowMs);
         break;
       }
@@ -818,6 +828,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       break;
     case 'candidate_confirmed_submitted':
       if (state !== 'candidate_handoff') return ignore('not_handoff');
+      if (isPostalSubmission(flow) && postalPacketReady === false) return ignore('postal_packet_not_ready');
       next.state = 'submitted';
       next.reminderAt = null;
       next.heldBy = [];
@@ -857,7 +868,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       }
       if (candidateHolds(flags).length) return { flow: current, effects: [], ignored: 'questions_open' };
       effects = isPostalSubmission(flow)
-        ? enterPostalHandoff(next, nowMs)
+        ? enterReadyPostalHandoff()
         : enterSubmitting(next, 'candidate_approved');
       break;
     case 'candidate_answers':
@@ -869,7 +880,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         }
         if (candidateHolds(flags).length) return { flow: { ...current }, effects: [], ignored: 'questions_open' };
         effects = isPostalSubmission(flow)
-          ? enterPostalHandoff(next, nowMs)
+          ? enterReadyPostalHandoff()
           : enterSubmitting(next, 'candidate_answered');
         break;
       }

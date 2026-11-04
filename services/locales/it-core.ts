@@ -1173,6 +1173,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.postal.downloadPacket': "Scarica il dossier completo in un unico PDF",
  'jobBoard.assisted.review.postal.packetUnsupported': "Per creare il PDF unico usa file PDF o scansioni JPG/PNG. Se il CV selezionato è Word, scegli l’opzione CV adattato in PDF. Sostituisci questi file:",
  'jobBoard.assisted.review.postal.packetTooLarge': "Gli allegati superano {mb} MB. Riducili o carica versioni più leggere per creare il PDF unico.",
+ 'jobBoard.assisted.review.postal.packetSizeUnavailable': "Non riusciamo a verificare la dimensione di un file del dossier. Chiedi assistenza prima di confermare la spedizione.",
  'jobBoard.assisted.review.postal.packetDownloadError': "Non siamo riusciti a creare il PDF unico. Controlla che i file siano leggibili e riprova; se il problema continua, contatta l’assistenza.",
  'jobBoard.assisted.review.postal.recipient': "Destinatario",
  'jobBoard.assisted.review.postal.deadline': "Scadenza",

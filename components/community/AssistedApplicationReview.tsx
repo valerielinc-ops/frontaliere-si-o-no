@@ -678,8 +678,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           <div className="rounded-lg border border-warning-border bg-warning-subtle/40 p-3 text-sm text-body" role="status">
             {data.postalPacket.tooLarge
               ? t('jobBoard.assisted.review.postal.packetTooLarge', { mb: Math.round(data.postalPacket.maxBytes / (1024 * 1024)) })
-              : t('jobBoard.assisted.review.postal.packetUnsupported', { files: data.postalPacket.unsupportedFiles.join(', ') || 'CV' })}
-            {data.postalPacket.unsupportedFiles.length > 0 && <p className="mt-1 text-xs">{data.postalPacket.unsupportedFiles.join(', ')}</p>}
+              : data.postalPacket.unsupportedFiles.length > 0
+                ? t('jobBoard.assisted.review.postal.packetUnsupported', { files: data.postalPacket.unsupportedFiles.join(', ') })
+                : t('jobBoard.assisted.review.postal.packetSizeUnavailable')}
           </div>
         )}
 
@@ -915,7 +916,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               <p className="rounded-lg border border-warning-border bg-warning-subtle/40 p-3 text-sm text-body" role="status">
                 {data.postalPacket?.tooLarge
                   ? t('jobBoard.assisted.review.postal.packetTooLarge', { mb: Math.round((data.postalPacket?.maxBytes || 0) / (1024 * 1024)) })
-                  : t('jobBoard.assisted.review.postal.packetUnsupported', { files: data.postalPacket?.unsupportedFiles.join(', ') || 'CV' })}
+                  : (data.postalPacket?.unsupportedFiles.length || 0) > 0
+                    ? t('jobBoard.assisted.review.postal.packetUnsupported', { files: data.postalPacket?.unsupportedFiles.join(', ') })
+                    : t('jobBoard.assisted.review.postal.packetSizeUnavailable')}
               </p>
             )}
             {packetDownloadError && <p className="text-sm text-danger" role="alert">{t('jobBoard.assisted.review.postal.packetDownloadError')}</p>}

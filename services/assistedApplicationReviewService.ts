@@ -197,8 +197,9 @@ export interface ReviewPayload {
   postalPacket?: {
     ready: boolean;
     unsupportedFiles: string[];
+    missingSizes: boolean;
     tooLarge: boolean;
-    estimatedBytes: number;
+    sourceBytes: number;
     maxBytes: number;
   } | null;
   /** Sent as a WhatsApp application (PastaHR): the link the candidate opens from the phone. */

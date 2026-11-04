@@ -1,4 +1,6 @@
-import { PDFDocument, PageSizes, StandardFonts, rgb } from 'pdf-lib';
+import fontkit from '@pdf-lib/fontkit';
+import { PDFDocument, PageSizes, rgb } from 'pdf-lib';
+import { readFile } from 'node:fs/promises';
 import { cvToSend } from './assistedApplicationDocxInPlace.js';
 import { documentFilesOf, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
@@ -26,12 +28,8 @@ export class PostalPacketError extends Error {
 
 const safeText = (value) => String(value ?? '')
   .replace(/\r/g, '')
-  .replace(/[\u2018\u2019]/g, "'")
-  .replace(/[\u201c\u201d]/g, '"')
-  .replace(/[\u2013\u2014]/g, '-')
-  .replace(/\u2026/g, '...')
   .replace(/\u00a0/g, ' ')
-  .replace(/[^\u0009\u000a\u0020-\u00ff\u20ac]/g, '?')
+  .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, ' ')
   .trim();
 
 const COPY = {
@@ -120,6 +118,9 @@ export function postalPacketSources({ order, orderId, flow, draft }) {
   const cv = {
     key: selected.key,
     type: selected.extension,
+    size: selected.cv === 'original'
+      ? (order?.cvFileCheck?.key === selected.key ? Number(order.cvFileCheck.size) || 0 : 0)
+      : selected.cv === 'tailored' ? Number(draft?.tailoredCv?.size) || 0 : 0,
     name: selected.cv === 'original'
       ? order?.cvFileName || selected.key.split('/').pop() || 'CV'
       : selected.cv === 'inplace' ? 'CV_adattato.docx' : 'CV_adattato.pdf',
@@ -135,7 +136,7 @@ export function postalPacketSources({ order, orderId, flow, draft }) {
   return { cv, documents };
 }
 
-/** Preflight format and size before the candidate can approve a postal packet. */
+/** Preflight format and actual stored source sizes before approving a postal packet. */
 export function postalPacketReadiness({ order, orderId, flow, draft }) {
   const { cv, documents } = postalPacketSources({ order, orderId, flow, draft });
   const unsupportedFiles = [];
@@ -147,15 +148,16 @@ export function postalPacketReadiness({ order, orderId, flow, draft }) {
   for (const file of documents) {
     if (!SUPPORTED_TYPES.has(extensionOf(file))) unsupportedFiles.push(cleanName(file.name));
   }
-  // A standard assisted-application CV upload is capped at 5 MiB. Reserve that
-  // full amount because its exact size is not part of the candidate flow view.
-  const estimatedBytes = 5 * 1024 * 1024 + documents.reduce((sum, file) => sum + Math.max(0, Number(file.size) || 0), 0);
-  const tooLarge = estimatedBytes > POSTAL_PACKET_MAX_SOURCE_BYTES;
+  const sourceSizes = [cv.size, ...documents.map((file) => Number(file.size) || 0)];
+  const missingSizes = sourceSizes.some((size) => !Number.isSafeInteger(size) || size <= 0);
+  const sourceBytes = sourceSizes.reduce((sum, size) => sum + (Number.isSafeInteger(size) && size > 0 ? size : 0), 0);
+  const tooLarge = sourceBytes > POSTAL_PACKET_MAX_SOURCE_BYTES;
   return {
-    ready: unsupportedFiles.length === 0 && !tooLarge,
+    ready: unsupportedFiles.length === 0 && !missingSizes && !tooLarge,
     unsupportedFiles: [...new Set(unsupportedFiles)].slice(0, 12),
+    missingSizes,
     tooLarge,
-    estimatedBytes,
+    sourceBytes,
     maxBytes: POSTAL_PACKET_MAX_SOURCE_BYTES,
   };
 }
@@ -262,7 +264,7 @@ function hasDigitalSignature(buffer) {
   return /\/SigFlags\b/.test(text) || (/\/ByteRange\s*\[/.test(text) && /\/Contents\s*</.test(text));
 }
 
-async function appendFile(pdf, file) {
+async function appendFile(pdf, file, regularFontBytes) {
   const type = String(file.type || '').toLowerCase();
   if (type === 'pdf') {
     let source;
@@ -270,6 +272,16 @@ async function appendFile(pdf, file) {
       source = await PDFDocument.load(file.buffer, { updateMetadata: false });
     } catch {
       throw new PostalPacketError('postal_packet_pdf_unreadable', 422, { fileName: cleanName(file.name) });
+    }
+    // Preserve form values as printed content before copying pages into the
+    // packet. The destination PDF does not carry the source AcroForm catalog.
+    const form = source.getForm();
+    if (form.hasXFA()) throw new PostalPacketError('postal_packet_pdf_unreadable', 422, { fileName: cleanName(file.name) });
+    if (form.getFields().length) {
+      source.registerFontkit(fontkit);
+      const appearanceFont = await source.embedFont(regularFontBytes, { subset: true });
+      form.updateFieldAppearances(appearanceFont);
+      form.flatten({ updateFieldAppearances: false });
     }
     if (pdf.getPageCount() + source.getPageCount() > MAX_PAGES) throw new PostalPacketError('postal_packet_too_many_pages', 413);
     const pages = await pdf.copyPages(source, source.getPageIndices());
@@ -301,11 +313,16 @@ export async function buildPostalApplicationPacket({ locale, jobTitle, companyNa
   const signedPdfFiles = new Set((files || []).filter((file) => file.type === 'pdf' && hasDigitalSignature(file.buffer)));
 
   const pdf = await PDFDocument.create();
+  pdf.registerFontkit(fontkit);
   pdf.setTitle('Paper application packet');
   pdf.setSubject(safeText(jobTitle || 'Paper application'));
   pdf.setCreator('frontaliereticino.ch');
-  const regular = await pdf.embedFont(StandardFonts.Helvetica);
-  const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+  const [regularBytes, boldBytes] = await Promise.all([
+    readFile(new URL('../assets/fonts/SourceSans3-Regular.ttf', import.meta.url)),
+    readFile(new URL('../assets/fonts/SourceSans3-Bold.ttf', import.meta.url)),
+  ]);
+  const regular = await pdf.embedFont(regularBytes, { subset: true });
+  const bold = await pdf.embedFont(boldBytes, { subset: true });
   const copy = copyFor(locale);
   const writer = new PacketWriter(pdf, regular, bold, copy.title);
   writer.line(copy.packetNote, { size: 10.5, gapAfter: 14 });
@@ -342,7 +359,7 @@ export async function buildPostalApplicationPacket({ locale, jobTitle, companyNa
   }
   if (!files?.length) writer.line(copy.missing, { size: 10 });
 
-  for (const file of files || []) if (!signedPdfFiles.has(file)) await appendFile(pdf, file);
+  for (const file of files || []) if (!signedPdfFiles.has(file)) await appendFile(pdf, file, regularBytes);
   const bytes = await pdf.save({ useObjectStreams: true });
   return Buffer.from(bytes);
 }

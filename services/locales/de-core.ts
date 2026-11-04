@@ -1137,6 +1137,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.postal.downloadPacket': "Vollstaendiges Dossier als ein PDF herunterladen",
  'jobBoard.assisted.review.postal.packetUnsupported': "Verwende PDF-Dateien oder JPG/PNG-Scans fuer das Gesamtdossier. Wenn dein ausgewaehlter Lebenslauf eine Word-Datei ist, waehle die Option fuer den angepassten Lebenslauf als PDF. Ersetze diese Dateien:",
  'jobBoard.assisted.review.postal.packetTooLarge': "Die Anlagen sind groesser als {mb} MB. Verkleinere sie oder lade kleinere Versionen hoch, um das PDF zu erstellen.",
+ 'jobBoard.assisted.review.postal.packetSizeUnavailable': "Die Groesse einer Bewerbungsdatei kann nicht ueberprueft werden. Bitte vor der postalischen Bestaetigung um Hilfe.",
  'jobBoard.assisted.review.postal.packetDownloadError': "Das PDF konnte nicht erstellt werden. Pruefe, ob die Dateien lesbar sind, und versuche es erneut. Wenn das Problem bleibt, wende dich an den Support.",
  'jobBoard.assisted.review.postal.recipient': "Empfänger",
  'jobBoard.assisted.review.postal.deadline': "Frist",

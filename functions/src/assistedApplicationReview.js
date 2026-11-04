@@ -524,7 +524,8 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
       withdraw: !stale && canWithdrawApplication({ order, flow, draft, submission }),
       answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),
       uploadDocuments: !stale && DOCUMENT_STATES.has(state) && documents.length > 0,
-      confirmSubmitted: !stale && state === 'candidate_handoff',
+      confirmSubmitted: !stale && state === 'candidate_handoff'
+        && (flow?.postalSubmission?.enabled !== true || postalPacket?.ready === true),
       chooseCv: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
       // A tailored CV kept on the draft can be rebuilt with a photo (drafts from before it was kept cannot).
       uploadPhoto: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
@@ -641,7 +642,7 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
       factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
       // With the writer that produced the letter now on the draft.
       ...(coverLetterPdfKey ? { coverLetterPdfKey, coverLetterRenderer } : {}),
-      ...(tailored ? { tailoredCv: { pdfKey: tailored.pdfKey, renderer: tailored.renderer, photo: tailored.photo } } : {}),
+      ...(tailored ? { tailoredCv: { pdfKey: tailored.pdfKey, renderer: tailored.renderer, photo: tailored.photo, size: tailored.size } } : {}),
       candidateEditedAt: nowMs,
     },
   });
@@ -717,7 +718,7 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
     db, bucket, orderId, flow, draft, nowMs,
     created: [rebuilt.pdfKey],
     flowPatch: { cvChoices: choices, cvChoicesRound },
-    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo, ...(inplace ? { inplace } : {}) } },
+    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo, size: rebuilt.size, ...(inplace ? { inplace } : {}) } },
   });
   await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
   await orderRefFor(db, orderId).collection('events').doc().set(buildAssistedApplicationEvent('automation_candidate_cv_reviewed', {
@@ -775,7 +776,7 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
     db, bucket, orderId, flow, draft, nowMs, created,
     flowPatch: { photo },
     // `photo`: what the PDF carries, not what was given (the standard-font writer prints none).
-    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
+    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo, size: rebuilt.size } },
   });
   // Only now, with the commit in, does no document name the photo it replaces.
   await deleteStored(bucket, orderId, [flow.photo?.key !== photo?.key ? flow.photo?.key : null, supersededPhotoPdf(draft)]);
@@ -1109,9 +1110,11 @@ export async function handleAssistedApplicationReview(req, deps) {
         answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions, confirmedAnswerOrigins: confirmedOrigins,
         answerSuggestionDismissals, nowMs, answerActor: 'candidate', communicationLocale, requireAnswerContracts: deps.requireAnswerContracts === true });
     }
-    if (action === 'approve' && flow?.postalSubmission?.enabled === true) {
-      const readiness = postalPacketReadiness({ order, orderId, flow, draft });
-      if (!readiness.ready) throw new ReviewError('postal_packet_not_ready', 409, readiness);
+    const postalPacket = flow?.postalSubmission?.enabled === true
+      ? postalPacketReadiness({ order, orderId, flow, draft })
+      : null;
+    if (['approve', 'confirm_submitted'].includes(action) && postalPacket && !postalPacket.ready) {
+      throw new ReviewError('postal_packet_not_ready', 409, postalPacket);
     }
     const event = {
       approve: { type: 'candidate_approve' },
@@ -1121,7 +1124,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     }[action];
     let writeSubmissionReceipt = null;
     if (action === 'confirm_submitted') {
-      const allowed = transition(flow, event, { nowMs });
+      const allowed = transition(flow, event, { nowMs, postalPacketReady: postalPacket?.ready !== false });
       if (allowed.ignored) throw new ReviewError(allowed.ignored, 409);
       const guard = submissionGuard(deps.db, orderId, round);
       const existing = await guard.read();

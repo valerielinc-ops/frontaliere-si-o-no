@@ -249,10 +249,15 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
 function normalizedRequestedDocuments(raw) {
   if (!Array.isArray(raw) || raw.length > MAX_REQUIRED_DOCUMENTS) throw new AutomationAdminError('invalid_documents', 400);
   const used = new Set();
+  const usedLabels = new Set();
   const documents = [];
   for (const [index, item] of raw.entries()) {
     const label = clean(item?.label, 160);
     if (!label) throw new AutomationAdminError('invalid_documents', 400);
+    const labelKey = label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+    if (!labelKey || usedLabels.has(labelKey)) throw new AutomationAdminError('invalid_documents', 400);
+    usedLabels.add(labelKey);
     const proposed = String(item?.id || label).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
       .replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 32) || `requested_${index + 1}`;
     let id = proposed;
@@ -332,17 +337,47 @@ async function saveCandidateRequests(db, orderId, raw, { nowMs }) {
   return { ok: true, state: flow.state, count: requestedDocuments.length, removedKeys };
 }
 
-async function savePostalSubmission(db, orderId, raw, { nowMs }) {
-  const [draftSnapshot, flowSnapshot] = await Promise.all([
+async function savePostalSubmission(db, orderId, raw, { bucket, nowMs }) {
+  const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
+    orderRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
     flowRefFor(db, orderId).get(),
   ]);
   if (!draftSnapshot.exists || draftSnapshot.data()?.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
+  const order = orderSnapshot.data() || {};
+  const draft = draftSnapshot.data() || {};
   const flow = flowSnapshot.data() || {};
   if (flow.state !== 'owner_review') throw new AutomationAdminError('postal_submission_closed', 409);
   const postalSubmission = normalizedPostalSubmission(raw);
-  if (postalSubmission.enabled && (!flow.requestedDocumentsOverride || !requiredDocumentsFor(draftSnapshot.data(), flow).length)) {
+  if (postalSubmission.enabled && (!flow.requestedDocumentsOverride || !requiredDocumentsFor(draft, flow).length)) {
     throw new AutomationAdminError('postal_submission_documents_missing', 409);
+  }
+  if (postalSubmission.enabled) {
+    if (!bucket) throw new AutomationAdminError('storage_unavailable', 503);
+    const sourceSizes = [];
+    if (isAssistedApplicationCvKey(orderId, order.cvStorageKey) && order.cvFileCheck?.key === order.cvStorageKey
+      && (!Number.isSafeInteger(Number(order.cvFileCheck.size)) || Number(order.cvFileCheck.size) <= 0)) {
+      sourceSizes.push({ key: order.cvStorageKey, target: 'order', data: order });
+    }
+    if (isAssistedApplicationCvKey(orderId, draft.tailoredCv?.pdfKey)
+      && (!Number.isSafeInteger(Number(draft.tailoredCv.size)) || Number(draft.tailoredCv.size) <= 0)) {
+      sourceSizes.push({ key: draft.tailoredCv.pdfKey, target: 'draft', data: draft });
+    }
+    for (const source of sourceSizes) {
+      let metadata;
+      try {
+        [metadata] = await bucket.file(source.key).getMetadata();
+      } catch {
+        throw new AutomationAdminError('postal_packet_file_unavailable', 409);
+      }
+      const size = Number(metadata?.size);
+      if (!Number.isSafeInteger(size) || size <= 0) throw new AutomationAdminError('postal_packet_file_unavailable', 409);
+      if (source.target === 'order') {
+        await orderRefFor(db, orderId).set({ cvFileCheck: { ...source.data.cvFileCheck, size } }, { merge: true });
+      } else {
+        await draftRefFor(db, orderId).set({ tailoredCv: { ...source.data.tailoredCv, size } }, { merge: true });
+      }
+    }
   }
   await flowRefFor(db, orderId).set({ postalSubmission, updatedAt: nowMs }, { merge: true });
   return { ok: true, state: flow.state, enabled: postalSubmission.enabled };
@@ -558,7 +593,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       return { ok: true, state: result.state, count: result.count };
     }
     case 'automationSetPostalSubmission':
-      return savePostalSubmission(db, orderId, raw, { nowMs });
+      return savePostalSubmission(db, orderId, raw, { bucket: deps.bucket, nowMs });
     case 'automationRevealAccount': {
       // Owner takeover of a portal application: the account the runner
       // created on the alias. Who looked and when is recorded; the password
