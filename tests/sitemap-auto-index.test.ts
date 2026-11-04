@@ -306,6 +306,14 @@ describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
     expect(source).toMatch(/reconcileFinalSitemapsWithDist\(distDir, \[\], \{\s*keepMissing: false,\s*ignoreShardOwnership: true,\s*\}\)/);
   });
 
+  it('uses strict missing-page checks at the build finalization boundary', () => {
+    const source = fs.readFileSync(
+      new URL('../build-plugins/sitemapAliasPlugin.ts', import.meta.url),
+      'utf8',
+    );
+    expect(source).toMatch(/reconcileFinalSitemapsWithDist\(distDir, getFinalSitemapMirrorLocs\(\), \{\s*keepMissing: false,\s*ignoreShardOwnership: false,\s*\}\)/);
+  });
+
   it('keeps healthy recovered URLs and removes noindex, noncanonical, and final-dist 404 URLs', async () => {
     const healthy = `${BASE_URL}/it/professioni/ticino/infermiere/`;
     const noindex = `${BASE_URL}/it/professioni/ticino/placeholder/`;
@@ -324,10 +332,7 @@ describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
       .map((match) => match[1]!);
     expect(shardBuildLocs).toEqual([healthy, missing]);
 
-    await reconcileFinalSitemapsWithDist(distDir, [], {
-      keepMissing: false,
-      ignoreShardOwnership: true,
-    });
+    await reconcileFinalSitemapsWithDist(distDir, []);
     const finalLocs = [...fs.readFileSync(path.join(distDir, file), 'utf8').matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
       .map((match) => match[1]!);
     expect(finalLocs).toEqual([healthy]);
