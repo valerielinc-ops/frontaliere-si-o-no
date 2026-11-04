@@ -691,6 +691,15 @@ describe('runtime reliability watchdog', () => {
       expect(workflow).toMatch(/if: >-\s*\n\s*\$\{\{ github\.event_name != 'workflow_run' \|\|\s*\n\s*github\.event\.workflow_run\.conclusion == 'success' \}\}/);
     });
 
+    it('keeps failed workflow_run triggers green without probing a partial deploy', () => {
+      const skipJob = workflow.match(/\n  skip-failed-source:\n([\s\S]*?)(?=\n  [a-z][a-z0-9-]*:\n|$)/u)?.[1] ?? '';
+      expect(skipJob).toContain("github.event_name == 'workflow_run'");
+      expect(skipJob).toContain("github.event.workflow_run.conclusion != 'success'");
+      expect(skipJob).toContain('runs-on: ubuntu-latest');
+      expect(skipJob).toContain('- name: Record skipped source run');
+      expect(skipJob).toContain('The scheduled and manual watchdog paths remain responsible');
+    });
+
     it('purges from the report file in batches, never via one --files list or purge_everything', () => {
       expect(workflow).toContain('node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability.json');
       expect(workflow).toContain('node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability-final.json');
