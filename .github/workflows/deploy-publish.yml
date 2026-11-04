@@ -1001,7 +1001,7 @@ jobs:
           # leg's "Pack section shard dist" step above.
           order="$(bp_section_order "$PUBLISHER_DIST" "$loc" "$PUBLISHER_ROOT")" || {
             echo "::warning::could not order the section list — packing in list order"
-            order="$(bash "$PUBLISHER_ROOT/scripts/lib/deploy-shard-sections.sh)"
+            order="$(bash "$PUBLISHER_ROOT/scripts/lib/deploy-shard-sections.sh")"
           }
           mapfile -t ordered_sections <<< "$order"
           bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
@@ -1147,7 +1147,7 @@ jobs:
 
           order="$(bp_section_order "$PUBLISHER_DIST" "$LOC" "$PUBLISHER_ROOT")" || {
             echo "::warning::could not order the section list — stripping in list order"
-            order="$(bash "$PUBLISHER_ROOT/scripts/lib/deploy-shard-sections.sh)"
+            order="$(bash "$PUBLISHER_ROOT/scripts/lib/deploy-shard-sections.sh")"
           }
           # Same exit-status contract as the IT-leg step: unchanged, visibility only.
           export BP_FAILED_FILE="$RUNNER_TEMP/shard-strip-failed-$LOC.txt"
