@@ -3612,10 +3612,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // issue a fresh OTP; do not throw the credential away and try to create a
   // second one.
   if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
-    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account_verification', 'no_create_button', 'verification');
-    const registration = await awaitAuthView(page, snapshot);
-    if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
-    return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
+    // Some SuccessFactors tenants reopen `/career` on the sign-in form and
+    // expose only «Anmelden». The saved credential is the safe recovery path
+    // there; only restart registration when the page actually offers that
+    // navigation control.
+    const openedRegistration = await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE]);
+    if (openedRegistration) {
+      const registration = await awaitAuthView(page, snapshot);
+      if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
+      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
+    }
   }
 
   if (kind === 'sign_in') {

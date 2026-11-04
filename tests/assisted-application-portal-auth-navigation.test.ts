@@ -407,4 +407,73 @@ describe('assisted portal account navigation', () => {
 
     expect(result).toEqual({ dryRun: true });
   });
+
+  it('uses a saved unverified SuccessFactors account when /career exposes only Anmelden', async () => {
+    const url = 'https://career5.successfactors.eu/career';
+    const values = new Map<string, string>();
+    let signedIn = false;
+    const accountMark = vi.fn(async () => {});
+    const loginFields = [
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, formId: 'login-form', frame: 0 },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Kennwort:*', required: true, formId: 'login-form', frame: 0 },
+    ];
+    const currentSnapshot = () => signedIn
+      ? {
+        url,
+        fields: [{ id: 'first-name', kind: 'text', inputType: 'text', label: 'Vorname', frame: 0 }],
+        buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: 'Bewerbung',
+      }
+      : {
+        url,
+        fields: loginFields.map((field) => ({ ...field, value: values.get(field.id) || '' })),
+        buttons: [{ id: 'login', text: 'Anmelden', disabled: false, frame: 0, formId: 'login-form' }],
+        links: [], dialogs: [], captcha: false, passwordVisible: true, errors: [], text: '',
+      };
+    const unavailableRole = {
+      filter: () => unavailableRole,
+      first: () => unavailableRole,
+      waitFor: vi.fn(async () => { throw new Error('registration-control-not-found'); }),
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_fn: unknown, args?: unknown) => args ? currentSnapshot() : null),
+      getByRole: vi.fn(() => unavailableRole),
+      locator: vi.fn((selector: string) => {
+        const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1] || '';
+        const locator: any = {
+          first: () => locator,
+          click: vi.fn(async () => { if (id === 'login') signedIn = true; }),
+          fill: vi.fn(async (value: string) => { values.set(id, value); }),
+          inputValue: vi.fn(async () => values.get(id) || ''),
+          count: vi.fn(async () => 0),
+        };
+        return locator;
+      }),
+    };
+    const page = {
+      url: () => url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+      getByRole: vi.fn(() => unavailableRole),
+    };
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: currentSnapshot() as any,
+      ctx: {
+        accounts: {
+          load: vi.fn(async () => ({ email: 'runner@example.test', password: 'synthetic-password', status: 'pending', verifiedAt: null })),
+          mark: accountMark,
+        },
+      },
+    });
+
+    expect(values).toEqual(new Map([
+      ['email', 'runner@example.test'],
+      ['password', 'synthetic-password'],
+    ]));
+    expect(result).toMatchObject({ snapshot: { text: 'Bewerbung' }, reopen: true, pressed: 'id' });
+    expect(accountMark).toHaveBeenCalledWith('career5.successfactors.eu', expect.objectContaining({ status: 'created' }));
+  });
 });
