@@ -2370,10 +2370,16 @@ async function ownPrivacyDialog(page, token, review) {
 
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
 export async function acceptPrivacyStatement(page, snapshot, { targetControl = registrationButton(snapshot) } = {}) {
-  const sameTargetForm = control => targetControl && targetControl.form >= 0
-    && control.form === targetControl.form && control.frame === targetControl.frame;
+  const controlFrame = control => Number.isInteger(control?.frame) ? control.frame : 0;
+  const controlForm = control => Number.isInteger(control?.form) ? control.form : null;
+  const targetForm = controlForm(targetControl);
+  const sameTargetFrame = control => Boolean(targetControl) && controlFrame(control) === controlFrame(targetControl);
+  // SuccessFactors places its required privacy notice outside the registration
+  // form. Bind it to the CTA's frame and allow only that form or page-level controls.
+  const belongsToTarget = control => targetForm !== null && targetForm >= 0 && sameTargetFrame(control)
+    && (controlForm(control) === targetForm || controlForm(control) === -1);
   const targetControls = current => privacyConsentControls({ ...current,
-    buttons: (current.buttons || []).filter(sameTargetForm), links: (current.links || []).filter(sameTargetForm) });
+    buttons: (current.buttons || []).filter(belongsToTarget), links: (current.links || []).filter(belongsToTarget) });
   if (!targetControls(snapshot).trigger) return privacyConsentControls(snapshot).trigger ? 'unavailable' : 'none';
   // The last field filled (the password repeat) checks itself on blur:
   // SuccessFactors asks its password policy and a click on the statement's
