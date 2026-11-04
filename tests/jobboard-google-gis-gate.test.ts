@@ -18,4 +18,13 @@ describe('JobBoard Google gate uses GIS as primary path', () => {
     expect(jobBoardSource).toContain("if (!authResolved || !isLoggedIn) return;");
     expect(appSource).toContain("authUser={authUser}");
   });
+
+  it('uses the provider email fallback for every job-alert gate on the board', () => {
+    const jobBoardSource = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
+    const alertBlockStart = jobBoardSource.indexOf('// Job-detail alert prompt — gating + 1.5 s reveal timer.');
+    const alertBlock = jobBoardSource.slice(alertBlockStart);
+
+    expect(alertBlock).toContain('const userEmail = getAuthEmail(authUser);');
+    expect(alertBlock).not.toContain('const userEmail = authUser?.email || null;');
+  });
 });
