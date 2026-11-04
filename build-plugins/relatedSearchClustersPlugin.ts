@@ -5310,7 +5310,13 @@ function shardLocsListedInLegacyJobSitemap(
  * different ownership contracts and must not be filtered by the cluster
  * locale-shard rule.
  */
-export async function reconcileSitemapSearchClustersWithDist(distDir: string): Promise<number> {
+export async function reconcileSitemapSearchClustersWithDist(
+  distDir: string,
+  options: {
+    foreignDirectoryIndex?: ForeignDirectoryIndex;
+    ignoreShardOwnership?: boolean;
+  } = {},
+): Promise<number> {
   if (!fs.existsSync(distDir)) return 0;
   const files = fs
     .readdirSync(distDir)
@@ -5321,7 +5327,13 @@ export async function reconcileSitemapSearchClustersWithDist(distDir: string): P
   const advertised = files.flatMap(({ xml }) => extractSitemapLocs(xml));
   if (advertised.length === 0) return 0;
   const kept = new Set(
-    (await dropOverwrittenLocs(distDir, advertised, { preserveCanonicalExemptions: true, label: 'alias-clusters' }))
+    (await dropOverwrittenLocs(distDir, advertised, {
+      inspectForeignPresent: true,
+      ignoreShardOwnership: options.ignoreShardOwnership,
+      foreignDirectoryIndex: options.foreignDirectoryIndex,
+      preserveCanonicalExemptions: true,
+      label: 'alias-clusters',
+    }))
       .map(normalizeLocForCanonicalCmp),
   );
   const droppedLocs = advertised.filter((loc) => !kept.has(normalizeLocForCanonicalCmp(loc)));

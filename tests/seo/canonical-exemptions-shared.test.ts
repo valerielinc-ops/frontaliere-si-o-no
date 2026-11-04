@@ -75,6 +75,35 @@ describe('canonical exemptions — legitimate non-self canonicals', () => {
       expect(isLegitJobCanonicalConsolidation(url, canonical), `${url} → ${canonical}`).toBe(true);
     }
   });
+
+  it('requires the canonical pair to stay on the canonical site', () => {
+    expect(
+      classifyCanonicalMismatch({
+        url: `${H}/cerca-lavoro-ticino/job-a/`,
+        canonical: 'https://evil.example/cerca-lavoro-ticino/job-b/',
+        html: '__BRIDGE_TARGET_SLUG__',
+      }),
+    ).toBeNull();
+    expect(
+      isLegitLegacyAliasCanonicalization(`${H}/about/`, 'https://evil.example/en/about-us/'),
+    ).toBe(false);
+    expect(
+      isLegitJobCanonicalConsolidation(`${H}/cerca-lavoro-ticino/job-a/`, 'https://evil.example/cerca-lavoro-ticino/job-b/'),
+    ).toBe(false);
+  });
+
+  it('does not treat search, category, company, or pagination leaves as job details', () => {
+    const nonDetailSlugs = ['ricerca-lugano', 'category-healthcare', 'company-acme', 'page-12'];
+    for (const slug of nonDetailSlugs) {
+      expect(
+        isLegitJobCanonicalConsolidation(
+          `${H}/cerca-lavoro-ticino/${slug}/`,
+          `${H}/cerca-lavoro-ticino/real-job-slug/`,
+        ),
+        slug,
+      ).toBe(false);
+    }
+  });
 });
 
 describe('canonical exemptions — shapes that stay hard offenders', () => {
