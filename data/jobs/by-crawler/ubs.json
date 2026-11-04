@@ -12345,10 +12345,10 @@
     },
     {
       "id": "ubs-60d74c49e3aa",
-      "slug": "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich",
+      "slug": "responsabile-della-gestione-della-liquidita-nel-retail-bahnhofstrasse-45-zurigo-80-100-ubs-zurich",
       "slugByLocale": {
         "de": "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich",
-        "it": "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich",
+        "it": "responsabile-della-gestione-della-liquidita-nel-retail-bahnhofstrasse-45-zurigo-80-100-ubs-zurich",
         "en": "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich",
         "fr": "gestionnaire-de-caisse-dans-le-commerce-de-detail-bahnhofstrasse-45-zurich-80-100-ubs-zurich"
       },
@@ -12358,7 +12358,7 @@
       "title": "Cash Manager/in Retail, Bahnhofstrasse 45, Zürich (80-100%)",
       "titleByLocale": {
         "de": "Cash Manager/in Retail, Bahnhofstrasse 45, Zürich (80-100%)",
-        "it": "Cash Manager/in Retail, Bahnhofstrasse 45, Zürich (80-100%)",
+        "it": "Responsabile della gestione della liquidità nel Retail, Bahnhofstrasse 45, Zurigo (80-100%)",
         "en": "Cash Manager/in Retail, Bahnhofstrasse 45, Zürich (80-100%)",
         "fr": "Gestionnaire de caisse dans le commerce de détail, Bahnhofstrasse 45, Zürich (80-100%)"
       },
@@ -12422,7 +12422,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:30:38.196Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:30:38.196Z"
+      "firstSeenAt": "2026-11-03T21:30:38.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "cash-manager-in-retail-bahnhofstrasse-45-zurich-80-100-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-1dd17ea236cb",

@@ -4,10 +4,10 @@ import { openVerifiedSignInNavigation } from '../scripts/assisted-application/li
 const HOST = 'sunrise.wd3.myworkdayjobs.com';
 const CURRENT_URL = `https://${HOST}/de/registration`;
 
-function pageWithLink({ href, label, finalUrl, visible = true, tagName = 'A', cookieOverlay = false, cookieText = 'We use cookies.' }: {
-  href?: string; label: string; finalUrl?: string; visible?: boolean; tagName?: string; cookieOverlay?: boolean; cookieText?: string;
+function pageWithLink({ href, label, finalUrl, currentUrl = CURRENT_URL, visible = true, tagName = 'A', cookieOverlay = false, cookieText = 'We use cookies.' }: {
+  href?: string; label: string; finalUrl?: string; currentUrl?: string; visible?: boolean; tagName?: string; cookieOverlay?: boolean; cookieText?: string;
 }) {
-  let url = CURRENT_URL;
+  let url = currentUrl;
   let cookieVisible = cookieOverlay;
   const goto = vi.fn(async (target: string) => { url = finalUrl || target; });
   const linkLocator = {
@@ -242,6 +242,72 @@ describe('verified sign-in navigation from an existing-account registration page
     await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(false);
 
     expect(frame.goto).toHaveBeenCalledOnce();
+    expect(page.request.post).not.toHaveBeenCalled();
+  });
+
+  it('uses the job-bound SuccessFactors sign-in view when registration has no sign-in link', async () => {
+    const currentUrl = 'https://career5.successfactors.eu/career?company=C0007256361P&career_ns=job_application&career_job_req_id=103967&login_ns=register&jobPipeline=sbbinternet';
+    const { page, frame, locator } = pageWithLink({ label: 'Konto anlegen', currentUrl });
+    const snapshot = {
+      url: currentUrl,
+      fields: [
+        { id: 'password', inputType: 'password', frame: 0, formId: 'registration-form' },
+        { id: 'password-repeat', inputType: 'password', frame: 0, formId: 'registration-form' },
+      ],
+      buttons: [{ id: 'create', frame: 0, text: 'Konto anlegen', formId: 'registration-form' }],
+      links: [],
+      dialogs: [],
+    };
+
+    await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(true);
+
+    expect(frame.goto).toHaveBeenCalledOnce();
+    expect(frame.goto).toHaveBeenCalledWith(
+      'https://career5.successfactors.eu/career?company=C0007256361P&career_ns=job_application&career_job_req_id=103967&login_ns=login&jobPipeline=sbbinternet',
+      { waitUntil: 'domcontentloaded', timeout: 60_000 },
+    );
+    expect(frame.locator).not.toHaveBeenCalled();
+    expect(locator.click).not.toHaveBeenCalled();
+    expect(page.request.post).not.toHaveBeenCalled();
+  });
+
+  it('stops if the derived SuccessFactors sign-in route redirects outside the ATS family', async () => {
+    const currentUrl = 'https://career5.successfactors.eu/career?company=C0007256361P&career_ns=job_application&career_job_req_id=103967&login_ns=register&jobPipeline=sbbinternet';
+    const { page, frame } = pageWithLink({ label: 'Konto anlegen', currentUrl, finalUrl: 'https://evil.example/login' });
+    const snapshot = {
+      url: currentUrl,
+      fields: [
+        { id: 'password', inputType: 'password', frame: 0, formId: 'registration-form' },
+        { id: 'password-repeat', inputType: 'password', frame: 0, formId: 'registration-form' },
+      ],
+      buttons: [{ id: 'create', frame: 0, text: 'Konto anlegen', formId: 'registration-form' }],
+      links: [],
+      dialogs: [],
+    };
+
+    await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(false);
+
+    expect(frame.goto).toHaveBeenCalledOnce();
+    expect(page.request.post).not.toHaveBeenCalled();
+  });
+
+  it('does not derive a sign-in route from a generic SuccessFactors registration URL', async () => {
+    const currentUrl = 'https://career5.successfactors.eu/career?company=C0007256361P&login_ns=register';
+    const { page, frame } = pageWithLink({ label: 'Konto anlegen', currentUrl });
+    const snapshot = {
+      url: currentUrl,
+      fields: [
+        { id: 'password', inputType: 'password', frame: 0, formId: 'registration-form' },
+        { id: 'password-repeat', inputType: 'password', frame: 0, formId: 'registration-form' },
+      ],
+      buttons: [{ id: 'create', frame: 0, text: 'Konto anlegen', formId: 'registration-form' }],
+      links: [],
+      dialogs: [],
+    };
+
+    await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(false);
+
+    expect(frame.goto).not.toHaveBeenCalled();
     expect(page.request.post).not.toHaveBeenCalled();
   });
 });

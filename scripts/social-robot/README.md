@@ -40,6 +40,12 @@ TikTok alla luce delle linee guida correnti per i client di pubblicazione.
    gli Insights leggendo le metriche visibili nel Professional Dashboard. Le
    risposte community passano solo dal Graph API esplicitamente selezionato.
 
+Non c'è approvazione preventiva per i post ordinari. Un esito browser ambiguo è
+un'eccezione di recupero: mette in pausa Instagram e richiede una verifica
+operativa. Questo percorso non è ancora completamente autonomo. Un run verde
+di `instagram-daily-broadcast.yml` può indicare che il carosello è stato messo
+in coda; la pubblicazione viene registrata soltanto dopo la conferma del robot.
+
 Le funzioni storiche di riconciliazione TikTok restano nel codice per leggere
 eventuali record preesistenti, ma il robot non avvia più il browser TikTok e
 non cerca né pubblica nuovi contenuti su quel canale.
@@ -78,20 +84,26 @@ Il worker legge dal Professional Dashboard autenticato due finestre per ogni
 post eleggibile: 24 ore per la diagnosi dell’hook e 72 ore per la decisione.
 Le righe vengono salvate nella collezione privata Firestore
 `social_native_insights/current`. Il workflow `instagram-insights-snapshot.yml`
-esporta i dati solo in `$RUNNER_TEMP`, calcola lo scorecard e applica decisioni
-deterministiche già abilitate in Firebase Remote Config.
+esporta i dati solo in `$RUNNER_TEMP`, stampa uno scorecard descrittivo e mostra
+candidati. `scripts/instagram-insights-decision.mjs` è un reporter legacy: il
+gate `AUTONOMOUS_PROMOTION_PROTOCOL_READY=false` mantiene chiuse le scritture
+Remote Config anche quando riceve `--apply`. Le vecchie soglie di 3
+osservazioni, 15%/0,5 punti percentuali e 20% di esplorazione non sono policy
+di promozione attiva.
 
-Una variante viene promossa soltanto con almeno tre osservazioni indipendenti,
-un confronto con una seconda variante e un vantaggio che supera sia il 15%
-relativo sia 0,5 punti percentuali assoluti. Con segnale nullo, dati scarsi o
-un margine insufficiente il sistema mantiene la rotazione. Anche dopo una
-promozione resta il 20% di esplorazione per continuare a provare formati e
-sfondi nuovi. Le mappe pubblicate in Remote Config sono separate per
-`kind + creativeBaseId + objective` (creatività) e `kind + creativeId +
-objective` (sfondo); quando una coorte viene rivalutata senza segnale
-sufficiente, il relativo vincitore viene rimosso invece di restare attivo.
-Il Graph API resta un fallback esplicito: non si riusa il Page token come token
-Insights.
+Il motore autorevole per gli esperimenti sociali è il protocollo a campione
+fisso schema v4 di `scripts/social-copy/experiment-protocol.mjs`, invocato dal
+workflow `social-native-insights.yml` dopo la raccolta. Congela registrazioni,
+valuta solo righe esatte e aggiorna la mappa Firebase soltanto quando campione,
+copertura, guardrail e policy qualificano. Finché i grant e i campioni reali
+non passano quei gate, i candidati restano descrittivi e l'assegnazione resta
+deterministica. Il dettaglio del protocollo è in
+`docs/social-ai-automation.md#learning-cadence-and-data-freshness`.
+
+Il percorso browser è la fonte attualmente configurata per gli Insights del
+robot; Graph API è separata e richiede i grant documentati. Un esito browser
+vuoto, incompleto o ambiguo resta non misurato: non viene convertito in zero e
+non abilita un vincitore.
 
 ### Esperimento audio TikTok (archiviato)
 

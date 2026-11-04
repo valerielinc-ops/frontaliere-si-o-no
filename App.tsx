@@ -493,7 +493,7 @@ const App: React.FC = () => {
  const mainNavRef = useRef<HTMLElement>(null);
  useEffect(() => (mainNavRef.current ? installNavOverlayGuard(mainNavRef.current) : undefined), []);
  useSeoPageTracking();
- useMetaPixelPageView();
+ useMetaPixelPageView(authUser);
  // One GA4 `ad_page_diag` per page view (services/adPageDiag.ts); on static
  // pages the AdSense loader owns the first one and this takes over on navigation.
  useAdPageDiag();

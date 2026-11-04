@@ -19,6 +19,17 @@ import {
   validateLifecycleEvent,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import {
+  addLedgerRecordToIndex,
+  ledgerFileOid,
+  ledgerIndexEntry,
+  ledgerIndexHasFile,
+  ledgerIndexLifecycleEvent,
+  ledgerLifecycleConflictDigest,
+  loadLedgerIndexForWriter,
+  setLedgerIndexFile,
+  writeLedgerIndex,
+} from '../lib/loop-fleet-ledger-index.mjs';
 import { ledgerShardName, listLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -165,17 +176,6 @@ function validateHistoricalDurableEvent(registry, event, label) {
   return validateDurableEvent(registry, event, label, validateHistoricalLifecycleEvent);
 }
 
-/**
- * The observer's capture metadata is expected to change when a run retries.
- * The event itself must remain immutable, however: a changed PR, event type or
- * evidence reference under the same deterministic recordId is a real conflict.
- */
-function sameRecord(left, right) {
-  const { recordedAt: _leftRecordedAt, execution: _leftExecution, ...leftEvent } = left;
-  const { recordedAt: _rightRecordedAt, execution: _rightExecution, ...rightEvent } = right;
-  return JSON.stringify(leftEvent) === JSON.stringify(rightEvent);
-}
-
 function occurredAtMs(event) {
   const timestamp = Date.parse(event?.occurredAt || '');
   return Number.isFinite(timestamp) ? timestamp : null;
@@ -301,18 +301,35 @@ export function appendLoopFleetLifecycle({
     }
   }
 
+  const { index, trackedFileOids } = loadLedgerIndexForWriter(ledgerDir);
   const existingFiles = listLoopFleetLedgerFiles(ledgerDir, 'lifecycle-events.jsonl');
   const target = path.resolve(ledgerDir, ledgerShardName('lifecycle-events.jsonl', shardId));
-  const existing = existingFiles.flatMap((file) => readJsonl(file, `ledger ${path.basename(file)}`));
   const byId = new Map();
   const existingByCandidate = new Map();
-  for (const [index, event] of existing.entries()) {
-    validateHistoricalDurableEvent(registry, event, `durable lifecycle event ${index + 1}`);
-    const previous = byId.get(event.recordId);
-    if (previous && !sameRecord(previous, event)) {
-      throw new Error(`durable lifecycle ledger has conflicting duplicate ${event.recordId}`);
+  for (const file of existingFiles) {
+    const fileName = path.basename(file);
+    if (!ledgerIndexHasFile(index, fileName)) {
+      for (const [lineIndex, event] of readJsonl(file, `ledger ${fileName}`).entries()) {
+        validateHistoricalDurableEvent(registry, event, `durable lifecycle event ${lineIndex + 1}`);
+        const previous = ledgerIndexEntry(index, 'lifecycle', event.recordId);
+        if (previous && previous.conflictDigest !== ledgerLifecycleConflictDigest(event)) {
+          throw new Error(`durable lifecycle ledger has conflicting duplicate ${event.recordId}`);
+        }
+        addLedgerRecordToIndex(index, { type: 'lifecycle', record: event, file });
+      }
     }
-    byId.set(event.recordId, event);
+    // A legacy/unindexed target may legitimately receive its first append in
+    // this run. Leave its manifest slot unset until the final post-append OID
+    // is computed; an already indexed target must still fail closed if it is
+    // rewritten.
+    const manifestOid = fileName === path.basename(target) && !ledgerIndexHasFile(index, fileName)
+      ? null
+      : trackedFileOids?.get(fileName) ?? null;
+    setLedgerIndexFile(index, fileName, manifestOid);
+  }
+  for (const entry of index.entries.filter((candidate) => candidate.recordType === 'lifecycle')) {
+    const event = ledgerIndexLifecycleEvent(entry);
+    byId.set(entry.recordId, entry);
     if (!existingByCandidate.has(event.candidateId)) existingByCandidate.set(event.candidateId, []);
     existingByCandidate.get(event.candidateId).push(event);
   }
@@ -323,10 +340,11 @@ export function appendLoopFleetLifecycle({
   const newById = new Map();
   for (const event of input) {
     const previous = byId.get(event.recordId) || newById.get(event.recordId);
-    if (previous && !sameRecord(previous, event)) {
+    const conflictDigest = ledgerLifecycleConflictDigest(event);
+    if (previous && previous.conflictDigest !== conflictDigest) {
       throw new Error(`durable lifecycle ledger has conflicting duplicate ${event.recordId}`);
     }
-    if (!previous) newById.set(event.recordId, event);
+    if (!previous) newById.set(event.recordId, { event, conflictDigest });
   }
 
   // Everything known about each touched candidate, regardless of where it sits
@@ -335,7 +353,7 @@ export function appendLoopFleetLifecycle({
   // not postdate what it authorises" is a property of the candidate, not of the
   // observer's write order, so it needs the whole set.
   const allEventsByCandidate = new Map();
-  for (const event of newById.values()) {
+  for (const { event } of newById.values()) {
     if (!allEventsByCandidate.has(event.candidateId)) {
       allEventsByCandidate.set(event.candidateId, [
         ...(existingByCandidate.get(event.candidateId) || []),
@@ -345,7 +363,7 @@ export function appendLoopFleetLifecycle({
   }
 
   const candidateEventsToValidate = new Map();
-  for (const event of newById.values()) {
+  for (const { event } of newById.values()) {
     if (!candidateEventsToValidate.has(event.candidateId)) {
       candidateEventsToValidate.set(event.candidateId, [
         ...(existingByCandidate.get(event.candidateId) || []),
@@ -365,18 +383,22 @@ export function appendLoopFleetLifecycle({
   let skipped = 0;
   for (const event of input) {
     const previous = byId.get(event.recordId);
+    const conflictDigest = ledgerLifecycleConflictDigest(event);
     if (previous) {
-      if (!sameRecord(previous, event)) {
+      if (previous.conflictDigest !== conflictDigest) {
         throw new Error(`durable lifecycle ledger has conflicting duplicate ${event.recordId}`);
       }
       skipped += 1;
       continue;
     }
     const result = appendJsonlSerialized(target, event, { label: 'durable lifecycle ledger' });
-    byId.set(event.recordId, event);
+    addLedgerRecordToIndex(index, { type: 'lifecycle', record: event, file: target });
+    byId.set(event.recordId, ledgerIndexEntry(index, 'lifecycle', event.recordId));
     if (result.appended) appended += 1;
     else skipped += 1;
   }
+  if (fs.existsSync(target)) setLedgerIndexFile(index, path.basename(target), ledgerFileOid(ledgerDir, target));
+  writeLedgerIndex(ledgerDir, index);
   return {
     inputRecords: input.length,
     appended,

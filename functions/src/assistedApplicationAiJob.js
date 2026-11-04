@@ -372,6 +372,7 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
   return {
     text: text.slice(0, maxPostingChars),
     textTruncated: text.length > maxPostingChars,
+    postingUrl: clean(detail?.url, 1000),
     applyUrl: clean(detail?.applyUrl, 1000),
     titles: detail?.titleByLocale && typeof detail.titleByLocale === 'object' ? detail.titleByLocale : {},
     location: clean([detail?.addressLocality, detail?.addressRegion].filter(Boolean).join(', '), 200),
@@ -391,7 +392,7 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
 }
 
 /**
- * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, applyUrl:string, titles:object,
+ * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, postingUrl:string, applyUrl:string, titles:object,
  *   location:string, postalCode:string, streetAddress:string, contactPerson:string, contactPhone:string,
  *   salary:string, employmentType:string, datePosted:string, postedDate:string, postingDateSource:string, firstSeenAt:string, validThrough:string}>}
  */
@@ -405,7 +406,7 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
   }
   maxPostingChars = Math.min(60_000, Math.max(MAX_POSTING_CHARS, Number(maxPostingChars) || MAX_POSTING_CHARS));
   const empty = {
-    source: 'none', text: '', applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
+    source: 'none', text: '', postingUrl: clean(order?.jobUrl, 1000), applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
     streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', datePosted: '', postedDate: '', postingDateSource: 'unknown', firstSeenAt: '', validThrough: '',
   };
   const jobId = String(order?.jobId || '');
@@ -415,7 +416,13 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
       if (response.ok) {
         const posting = postingFromDetail(await response.json(), maxPostingChars);
         if (posting.text) {
-          return { ...empty, ...posting, applyUrl: posting.applyUrl || empty.applyUrl, source: 'job_detail' };
+          return {
+            ...empty,
+            ...posting,
+            postingUrl: posting.postingUrl || empty.postingUrl,
+            applyUrl: posting.applyUrl || empty.applyUrl,
+            source: 'job_detail',
+          };
         }
       }
     } catch (error) {

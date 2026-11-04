@@ -282,13 +282,19 @@ describe('the ad\'s own word that it is closed', () => {
 
   it('is read for an order at the address the runner reads before it submits', async () => {
     expect(postingAddressOf({ channel: { postingUrl: 'https://a.example/p', applyUrl: 'https://ats.example/apply' }, job: { applyUrl: 'https://b.example' } })).toBe('https://a.example/p');
+    expect(postingAddressOf({ channel: { postingUrl: 'https://stale.example/job' } }, { jobUrl: posting })).toBe(posting);
     expect(postingAddressOf({ channel: { applyUrl: 'https://ats.example/apply' } })).toBe('https://ats.example/apply');
     expect(postingAddressOf({ job: { applyUrl: 'https://b.example' } })).toBe('https://b.example');
     expect(postingAddressOf(null)).toBe('');
 
-    const store = createMemoryFirestore({ 'assisted_applications/o1/ai_drafts/current': { channel: { type: 'workday', applyUrl: posting } } });
+    const stalePosting = 'https://acme.wd3.myworkdayjobs.com/en-US/Careers/job/Lugano/Old-Store-Assistant_JR09999';
+    const store = createMemoryFirestore({ 'assisted_applications/o1/ai_drafts/current': { channel: { type: 'workday', postingUrl: stalePosting, applyUrl: stalePosting } } });
     const order = { jobId: 'acme-1', jobUrl: posting };
-    expect(await postingClosedForOrder({ db: store.db, orderId: 'o1', order, fetchImpl: workday(denied, () => json({ total: 0, jobPostings: [] })), resolve })).toBe(true);
+    const unlisted = workday(denied, () => json({ total: 0, jobPostings: [] }));
+    expect(await postingClosedForOrder({ db: store.db, orderId: 'o1', order, fetchImpl: unlisted, resolve })).toBe(true);
+    const readPostingUrls = unlisted.mock.calls.map(([url]) => String(url));
+    expect(readPostingUrls.some((url) => url.includes('JR01234-1'))).toBe(true);
+    expect(readPostingUrls.some((url) => url.includes('JR09999'))).toBe(false);
     const open = workday(() => json({ jobPostingInfo: { canApply: true, posted: true, jobDescription: 'x' } }), () => json({ total: 0, jobPostings: [] }));
     expect(await postingClosedForOrder({ db: store.db, orderId: 'o1', order, fetchImpl: open, resolve })).toBe(false);
   });

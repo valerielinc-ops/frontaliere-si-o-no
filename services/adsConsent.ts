@@ -3,10 +3,10 @@
  *
  * Scope, decided by the owner in #5842 and deliberately narrow:
  *   - IN  scope: Auto Ads / AdSense (`adsbygoogle.js`), GPT (`gpt.js`), and
- *     Meta Pixel across the canonical site after explicit consent.
+ *     Meta Pixel across the canonical site after explicit consent, including
+ *     service funnel events and consented server-side Purchase events.
  *   - OUT of scope: GA4, PostHog, Clarity. Those stay covered by the honest
- *     disclosure shipped in #5832 and are NOT gated here. Do not widen this
- *     module to analytics without a new owner decision.
+ *     disclosure shipped in #5832 and remain outside this advertising gate.
  *
  * ── Why a NEW storage key, and not `frontaliere_consent` ──────────────
  *
@@ -44,12 +44,17 @@
 
 /** localStorage key. Also consumed by build-plugins/constants.ts. */
 export const ADS_CONSENT_STORAGE_KEY = 'frontaliere_ads_consent';
+export const ADS_CONSENT_DECISION_AT_STORAGE_KEY = 'frontaliere_ads_consent_decision_at';
 
 /** The only value that opens the gate. Also consumed by build-plugins/constants.ts. */
 export const ADS_CONSENT_GRANTED = 'granted';
 export const ADS_CONSENT_DENIED = 'denied';
 
 export type AdsConsentValue = typeof ADS_CONSENT_GRANTED | typeof ADS_CONSENT_DENIED;
+type AdsConsentWindow = Window & {
+  __ftAdsConsentDecision?: AdsConsentValue;
+  __ftAdsConsentDecisionAt?: number;
+};
 
 /**
  * Fired on same-tab changes; cross-tab changes arrive via the `storage` event.
@@ -68,7 +73,7 @@ const CHANGE_EVENT = ADS_CONSENT_CHANGE_EVENT;
  */
 export function getAdsConsent(): AdsConsentValue | null {
   if (typeof window === 'undefined') return null;
-  const memory = (window as Window & { __ftAdsConsentDecision?: AdsConsentValue }).__ftAdsConsentDecision;
+  const memory = (window as AdsConsentWindow).__ftAdsConsentDecision;
   if (memory === ADS_CONSENT_GRANTED || memory === ADS_CONSENT_DENIED) return memory;
   try {
     const raw = window.localStorage.getItem(ADS_CONSENT_STORAGE_KEY);
@@ -78,6 +83,36 @@ export function getAdsConsent(): AdsConsentValue | null {
   } catch {
     return null;
   }
+}
+
+/** Timestamp for the local choice. One-time migration timestamps prior explicit choices. */
+export function getAdsConsentDecisionAt(): number {
+  if (typeof window === 'undefined') return 0;
+  const consentWindow = window as AdsConsentWindow;
+  const memory = consentWindow.__ftAdsConsentDecisionAt;
+  if (Number.isFinite(memory) && Number(memory) > 0) return Number(memory);
+
+  let decision = consentWindow.__ftAdsConsentDecision;
+  try {
+    const storedRaw = window.localStorage.getItem(ADS_CONSENT_DECISION_AT_STORAGE_KEY);
+    const stored = Number(storedRaw);
+    if (storedRaw && Number.isFinite(stored) && stored > 0) return stored;
+  } catch { /* a current in-memory decision can still be migrated below */ }
+
+  if (decision !== ADS_CONSENT_GRANTED && decision !== ADS_CONSENT_DENIED) {
+    try {
+      const storedDecision = window.localStorage.getItem(ADS_CONSENT_STORAGE_KEY);
+      if (storedDecision === ADS_CONSENT_GRANTED) decision = ADS_CONSENT_GRANTED;
+      else if (storedDecision === ADS_CONSENT_DENIED) decision = ADS_CONSENT_DENIED;
+    } catch { /* without an explicit choice there is nothing to migrate */ }
+  }
+  if (decision !== ADS_CONSENT_GRANTED && decision !== ADS_CONSENT_DENIED) return 0;
+
+  const migratedAt = Date.now();
+  consentWindow.__ftAdsConsentDecision = decision;
+  consentWindow.__ftAdsConsentDecisionAt = migratedAt;
+  try { window.localStorage.setItem(ADS_CONSENT_DECISION_AT_STORAGE_KEY, String(migratedAt)); } catch { /* current session remains usable */ }
+  return migratedAt;
 }
 
 /**
@@ -113,9 +148,13 @@ export function needsAdsConsentDecision(): boolean {
 /** Persist a decision and notify listeners in this tab. */
 export function setAdsConsent(value: AdsConsentValue): void {
   if (typeof window === 'undefined') return;
-  (window as Window & { __ftAdsConsentDecision?: AdsConsentValue }).__ftAdsConsentDecision = value;
+  const decidedAt = Date.now();
+  const consentWindow = window as AdsConsentWindow;
+  consentWindow.__ftAdsConsentDecision = value;
+  consentWindow.__ftAdsConsentDecisionAt = decidedAt;
   try {
     window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, value);
+    window.localStorage.setItem(ADS_CONSENT_DECISION_AT_STORAGE_KEY, String(decidedAt));
   } catch {
     /* quota / private mode — the in-memory notification below still runs, so
        the current page behaves as chosen; the next page load re-asks. */
@@ -199,14 +238,36 @@ export function onAdsConsentChange(listener: (value: AdsConsentValue | null) => 
   if (typeof window === 'undefined') return () => {};
   const onLocal = (event: Event) => {
     const value = (event as CustomEvent).detail;
-    const memory = window as Window & { __ftAdsConsentDecision?: AdsConsentValue };
-    if (value === ADS_CONSENT_GRANTED || value === ADS_CONSENT_DENIED) memory.__ftAdsConsentDecision = value;
-    else delete memory.__ftAdsConsentDecision;
+    const memory = window as AdsConsentWindow;
+    if (value === ADS_CONSENT_GRANTED || value === ADS_CONSENT_DENIED) {
+      memory.__ftAdsConsentDecision = value;
+      const decidedAt = Date.now();
+      memory.__ftAdsConsentDecisionAt = decidedAt;
+      try { window.localStorage.setItem(ADS_CONSENT_DECISION_AT_STORAGE_KEY, String(decidedAt)); } catch { /* in-memory choice remains usable */ }
+    } else {
+      delete memory.__ftAdsConsentDecision;
+      delete memory.__ftAdsConsentDecisionAt;
+    }
     listener(getAdsConsent());
   };
   const onStorage = (e: StorageEvent) => {
-    if (e.key === null || e.key === ADS_CONSENT_STORAGE_KEY) {
-      delete (window as Window & { __ftAdsConsentDecision?: AdsConsentValue }).__ftAdsConsentDecision;
+    if (e.key === null || e.key === ADS_CONSENT_STORAGE_KEY || e.key === ADS_CONSENT_DECISION_AT_STORAGE_KEY) {
+      const memory = window as AdsConsentWindow;
+      if (e.key === ADS_CONSENT_DECISION_AT_STORAGE_KEY
+        && e.newValue !== null
+        && Number(memory.__ftAdsConsentDecisionAt) === Number(e.newValue)) {
+        try {
+          if (memory.__ftAdsConsentDecision === window.localStorage.getItem(ADS_CONSENT_STORAGE_KEY)) return;
+        } catch { /* process the storage event when the current decision cannot be confirmed */ }
+      }
+      delete memory.__ftAdsConsentDecision;
+      delete memory.__ftAdsConsentDecisionAt;
+      const decision = getAdsConsent();
+      if (decision) {
+        const decidedAt = getAdsConsentDecisionAt() || Date.now();
+        memory.__ftAdsConsentDecision = decision;
+        memory.__ftAdsConsentDecisionAt = decidedAt;
+      }
       listener(getAdsConsent());
     }
   };

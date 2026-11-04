@@ -68,6 +68,7 @@ jobs:
             /scripts/ci/merge-loop-fleet-ledger.mjs
             /scripts/ci/benchmark-loop-fleet-ledger.mjs
             /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/loop-fleet-ledger-index.mjs
             /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/lib/loop-fleet-contract.mjs

@@ -126,6 +126,8 @@ describe('sanitizeJobDescriptionHtml — cosa resta', () => {
       .toBe('<a href="mailto:hr@example.com">Scrivi</a>');
     expect(sanitizeJobDescriptionHtml('<a href="/cerca-lavoro-ticino/">Altre offerte</a>'))
       .toBe('<a href="/cerca-lavoro-ticino/">Altre offerte</a>');
+    expect(sanitizeJobDescriptionHtml('<a href="/cdn-cgi/l/email-protection#abc123">mail@example.com</a>'))
+      .toBe('<a>mail@example.com</a>');
   });
 
   it('scarta i wrapper non ammessi tenendone il testo', () => {
@@ -177,6 +179,11 @@ describe('safeHref', () => {
   ])('accetta %j', (href, expected) => {
     expect(safeHref(href)).toBe(expected);
   });
+
+  it.each(['/cdn-cgi/l/email-protection', '/cdn-cgi/l/email-protection#abc123'])
+    ('rifiuta gli endpoint Cloudflare di obfuscation email %j', (href) => {
+      expect(safeHref(href)).toBeNull();
+    });
 });
 
 describe('JobExpiredView non inietta più la description grezza', () => {
