@@ -12,6 +12,18 @@ describe('fuel price refresh publication', () => {
     expect(workflow).toMatch(/concurrency:\n\s+group: fuel-prices\n\s+# Keep an hourly\/manual run from cancelling the daily run[\s\S]*?cancel-in-progress: false/);
   });
 
+  it('keeps the fuel publisher checkout bounded to its runtime inputs', () => {
+    const workflow = read('.github/workflows/update-fuel-prices.yml');
+
+    expect(workflow).toContain('sparse-checkout: |');
+    expect(workflow).toContain('/scripts/');
+    expect(workflow).toContain('/data/fuel-prices.json');
+    expect(workflow).toContain('/public/data/fuel-prices.json');
+    expect(workflow).toContain('sparse-checkout-cone-mode: false');
+    expect(workflow).not.toContain('/public/images/');
+    expect(workflow).not.toContain('/data/jobs/');
+  });
+
   it('publishes ignored fuel caches through the shared PR path', () => {
     const workflow = read('.github/workflows/update-fuel-prices.yml');
 

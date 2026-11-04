@@ -38,6 +38,36 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 1
+          filter: blob:none
+          # This job's runtime closure is limited to the fuel producer and its
+          # refresh publisher. Keep the checkout explicit: the generated
+          # exclusion profile conservatively sees the whole `scripts/` tree
+          # and the broad public/data writer, which leaves this job above its
+          # crossover and causes a full 6.8 GB fetch. The 2026-11-03 failure
+          # spent the whole six-minute step in that fetch before any script
+          # could run. The profile guard verifies both imported code and files
+          # opened from the repository root.
+          sparse-checkout: |
+            /.gitignore
+            /package.json
+            /package-lock.json
+            /scripts/
+            /functions/src/githubApiHeaders.js
+            /build-plugins/shared/fuelRouteSlugs.mjs
+            /data/canton-url-slugs.json
+            /data/canton-municipalities.json
+            /data/swiss-locality-postal-codes.json
+            /data/swiss-postal-code-index.json
+            /data/municipalities.ts
+            /data/fuel-station-inventory.json
+            /data/prev-slug-restore-denylist.json
+            /data/fuel-prices.json
+            /data/fuel-prices-cantons.json
+            /data/fuel-prices-history/
+            /data/fuel-prices-archive/
+            /public/data/fuel-prices.json
+            /public/data/fuel-prices-cantons.json
+          sparse-checkout-cone-mode: false
         # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
         # budget del job e questo muore `cancelled` — stato invisibile agli
         # `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
@@ -45,10 +75,10 @@ jobs:
         # step Checkout, lo script fuel-prices non e' mai partito). Con il
         # tetto e' un `failure` diagnosticabile. 6min stanno sopra il massimo
         # osservato sui run sani (114-183s su 7 run, ~30% del cap da 10min) con
-        # ampio margine, e sotto il cap del job. NIENTE `filter: blob:none`:
-        # con `fetch-depth: 1` e' un peggioramento misurato (+125% su
-        # tests.yml, vedi la nota in pr-review-loop.yml e #5164), non un
-        # miglioramento.
+        # ampio margine, e sotto il cap del job. Non aggiungere `filter:
+        # blob:none`: con `fetch-depth: 1` e' un peggioramento misurato
+        # (+125% su tests.yml, vedi la nota in pr-review-loop.yml e #5164),
+        # non un miglioramento.
         timeout-minutes: 6
 
       - name: Setup Node.js
