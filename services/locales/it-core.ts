@@ -1171,7 +1171,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.postal.title': "Materiali e istruzioni per la candidatura cartacea",
  'jobBoard.assisted.review.postal.body': "Il pacchetto è pronto nella pagina. Controlla i documenti, stampa quelli caricati e prepara quelli indicati come cartacei. Completa la busta e spediscila tu all’indirizzo qui sotto entro la scadenza.",
  'jobBoard.assisted.review.postal.downloadPacket': "Scarica il dossier completo in un unico PDF",
- 'jobBoard.assisted.review.postal.packetUnsupported': "Per creare il PDF unico usa file PDF o scansioni JPG/PNG. Se il CV originale è Word, scegli il CV adattato in PDF. Sostituisci questi file:",
+ 'jobBoard.assisted.review.postal.packetUnsupported': "Per creare il PDF unico usa file PDF o scansioni JPG/PNG. Se il CV selezionato è Word, scegli l’opzione CV adattato in PDF. Sostituisci questi file:",
  'jobBoard.assisted.review.postal.packetTooLarge': "Gli allegati superano {mb} MB. Riducili o carica versioni più leggere per creare il PDF unico.",
  'jobBoard.assisted.review.postal.packetDownloadError': "Non siamo riusciti a creare il PDF unico. Controlla che i file siano leggibili e riprova; se il problema continua, contatta l’assistenza.",
  'jobBoard.assisted.review.postal.recipient': "Destinatario",

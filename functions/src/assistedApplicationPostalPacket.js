@@ -117,11 +117,13 @@ export function postalPacketExemptionLabel(locale, reason) {
  */
 export function postalPacketSources({ order, orderId, flow, draft }) {
   const selected = cvToSend(draft, flow, order);
-  const cv = selected.cv === 'original'
-    ? { key: selected.key, type: selected.extension, name: order?.cvFileName || selected.key.split('/').pop() || 'CV' }
-    // The candidate-facing postal page offers the prepared PDF for every
-    // non-original choice, including the in-place Word variant.
-    : { key: draft?.tailoredCv?.pdfKey, type: 'pdf', name: 'CV_adattato.pdf' };
+  const cv = {
+    key: selected.key,
+    type: selected.extension,
+    name: selected.cv === 'original'
+      ? order?.cvFileName || selected.key.split('/').pop() || 'CV'
+      : selected.cv === 'inplace' ? 'CV_adattato.docx' : 'CV_adattato.pdf',
+  };
   const documents = requiredDocumentsFor(draft, flow).flatMap((document) => (
     documentFilesOf(flow, orderId, document.id).map((file) => ({
       ...file,

@@ -1132,7 +1132,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.postal.title': "Paper application materials and mailing instructions",
  'jobBoard.assisted.review.postal.body': "The packet is ready on this page. Check the documents, print the uploaded files and prepare anything marked as a paper document. Complete the envelope and mail it yourself to the address below by the deadline.",
  'jobBoard.assisted.review.postal.downloadPacket': "Download the complete packet as one PDF",
- 'jobBoard.assisted.review.postal.packetUnsupported': "Use PDF files or JPG/PNG scans for the single PDF. If your original CV is a Word file, choose the tailored PDF CV. Replace these files:",
+ 'jobBoard.assisted.review.postal.packetUnsupported': "Use PDF files or JPG/PNG scans for the single PDF. If your selected CV is a Word file, choose the tailored PDF CV option. Replace these files:",
  'jobBoard.assisted.review.postal.packetTooLarge': "The attachments exceed {mb} MB. Reduce their size or upload smaller versions to create the single PDF.",
  'jobBoard.assisted.review.postal.packetDownloadError': "We could not create the single PDF. Check that the files are readable and try again; contact support if the problem continues.",
  'jobBoard.assisted.review.postal.recipient': "Recipient",
