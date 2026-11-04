@@ -43,6 +43,7 @@ import CompanyFollowCta, { CompanyFollowPopup } from '@/components/community/Com
 import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
+import type { JobBoardFilterAlertHandoff } from '@/components/community/JobBoardFilterAlertCta';
 const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
 const SumUpPaymentWidget = lazyRetry(() => import('@/components/community/SumUpPaymentWidget'));
 const RewardedApplicationOffer = lazyRetry(() => import('@/components/community/RewardedApplicationOffer'));
@@ -2999,10 +3000,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (JobSaveMount renders it on every page); the board only reads whether it is up.
  const saveAuthPromptOpen = useSyncExternalStore(subscribeSavePrompt, isSavePromptOpen, () => false);
  const [jobBoardAlertAuthPromptOpen, setJobBoardAlertAuthPromptOpen] = useState(false);
+ const [jobBoardAlertAuthHandoff, setJobBoardAlertAuthHandoff] = useState<JobBoardFilterAlertHandoff | null>(null);
  useEffect(() => {
   if (!authUser?.uid) return;
   releaseSlot('job-board-alert-auth-prompt');
   setJobBoardAlertAuthPromptOpen(false);
+  setJobBoardAlertAuthHandoff(null);
  }, [authUser?.uid]);
  const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null; savedCount: number; category: string } | null>(null);
  // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
@@ -11667,40 +11670,44 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
 
- const handleBoardFilterAlertAuthRequired = () => {
+ const handleBoardFilterAlertAuthRequired = (handoff: JobBoardFilterAlertHandoff) => {
+  const keyword = handoff.config.keywords.join(', ');
+  setJobBoardAlertAuthHandoff(handoff);
   Analytics.trackJobAlertAuthHandoff(
    'job_board_filters',
    'pending_saved',
-   boardFilterAlertKeywordLabel,
+   keyword,
   );
   requestSlot('job-board-alert-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
   setJobBoardAlertAuthPromptOpen(true);
   Analytics.trackJobAlertAuthHandoff(
    'job_board_filters',
    'prompt_shown',
-   boardFilterAlertKeywordLabel,
+   keyword,
   );
  };
 
  const handleBoardFilterAlertAuthPromptDismiss = () => {
+  const keyword = jobBoardAlertAuthHandoff?.config.keywords.join(', ') || boardFilterAlertKeywordLabel;
   Analytics.trackJobAlertAuthHandoff(
    'job_board_filters',
    'dismissed',
-   boardFilterAlertKeywordLabel,
+   keyword,
   );
   releaseSlot('job-board-alert-auth-prompt');
   setJobBoardAlertAuthPromptOpen(false);
+  setJobBoardAlertAuthHandoff(null);
  };
 
  // This surface stays next to the filters so a category/sector intent is
  // actionable before the first result on mobile. Anonymous visitors keep the
  // exact filter intent parked while the contextual auth gate is shown;
  // authenticated visitors keep the one-tap create path below.
- const boardFilterAlertAuthPromptJsx = jobBoardAlertAuthPromptOpen ? (
+ const boardFilterAlertAuthPromptJsx = jobBoardAlertAuthPromptOpen && jobBoardAlertAuthHandoff ? (
  <Suspense fallback={null}>
  <JobAlertAuthPromptModal
  locale={locale}
- keyword={boardFilterAlertKeywordLabel}
+ handoff={jobBoardAlertAuthHandoff}
  onDismiss={handleBoardFilterAlertAuthPromptDismiss}
  />
  </Suspense>
@@ -11724,8 +11731,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  formOrigin="job_board_filters"
  onAnonymousAuthRequired={handleBoardFilterAlertAuthRequired}
  onAccepted={() => Analytics.trackJobAlertCtaClick('job_board_filters', 'accept', boardFilterAlertKeywordLabel)}
- onAnonymousOpen={() => {
- Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);
+ onAnonymousOpen={(handoff) => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'open', handoff.config.keywords.join(', '));
  }}
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
