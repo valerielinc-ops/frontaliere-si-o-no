@@ -489,7 +489,7 @@ describe('fetchOfficialAdTexts — partial legacy recovery', () => {
     vi.unstubAllGlobals();
   });
 
-  it('merges current official results for references absent from legacy results', async () => {
+  it('continues direct fallback after a partial current result for legacy-missing references', async () => {
     const legacyAd = `
       <stzh-pagecontent>
         <stzh-richtext><p>Referenz-Nr.: 123</p><p>Legacy vacancy text</p></stzh-richtext>
@@ -502,6 +502,9 @@ describe('fetchOfficialAdTexts — partial legacy recovery', () => {
         <p>Current vacancy text</p>
       </main>
     `;
+    const directAd = legacyAd
+      .replace('123', '789')
+      .replace('Legacy vacancy text', 'Direct vacancy text');
     const currentIndexRefs: string[][] = [];
 
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
@@ -513,11 +516,12 @@ describe('fetchOfficialAdTexts — partial legacy recovery', () => {
       }
       if (value.includes('job-detailseite.123.html')) return new Response(legacyAd, { status: 200 });
       if (value.includes('/jobs/de/unit-456.html')) return new Response(currentAd, { status: 200 });
+      if (value.includes('job-detailseite.789.html')) return new Response(directAd, { status: 200 });
       return new Response('', { status: 404 });
     }));
 
     const texts = await fetchOfficialAdTexts(
-      new Set(['123', '456']),
+      new Set(['123', '456', '789']),
       0,
       {
         fetchCurrentOfficialIndexPage: async (wantedRefs: string[]) => {
@@ -529,6 +533,7 @@ describe('fetchOfficialAdTexts — partial legacy recovery', () => {
 
     expect(texts.get('123')).toContain('Legacy vacancy text');
     expect(texts.get('456')).toContain('Current vacancy text');
-    expect(currentIndexRefs).toEqual([['456']]);
+    expect(texts.get('789')).toContain('Direct vacancy text');
+    expect(currentIndexRefs).toEqual([['456', '789']]);
   }, 20_000);
 });

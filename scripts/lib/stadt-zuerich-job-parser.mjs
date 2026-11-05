@@ -872,10 +872,13 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
       .map((ref) => String(ref))
       .filter((ref) => !byRef.has(ref)),
   );
-  const recoverReferenceBoundFallbacks = async () => {
-    const successFactors = await fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef);
-    mergeByRef(successFactors);
+  const recoverReferenceBoundFallbacks = async ({ includeSuccessFactors = true } = {}) => {
     let refsToFill = missingRefs();
+    if (includeSuccessFactors) {
+      const successFactors = await fetchSuccessFactorsAdTextsByReference(refsToFill, delayMs, publicationByRef);
+      mergeByRef(successFactors);
+      refsToFill = missingRefs();
+    }
     if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
 
     const currentOfficial = await fetchCurrentOfficialAdTexts(
@@ -956,19 +959,11 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
   }
 
   // A partial legacy index can remain usable during a portal migration. Keep
-  // explicit legacy matches and fill only references it did not identify from
-  // the migrated official index.
-  const missingRefsAfterLegacy = new Set(
-    [...wantedRefs].map(String).filter((ref) => !byRef.has(ref)),
-  );
-  if (byRef.size > 0 && missingRefsAfterLegacy.size > 0) {
-    const currentOfficial = await fetchCurrentOfficialAdTexts(
-      missingRefsAfterLegacy,
-      delayMs,
-      publicationByRef,
-      { fetchCurrentOfficialIndexPage },
-    );
-    mergeByRef(currentOfficial);
+  // explicit legacy matches and continue the reference-bound fallback chain
+  // for every wanted reference it did not identify.
+  if (byRef.size > 0 && missingRefs().size > 0) {
+    const recovered = await recoverReferenceBoundFallbacks({ includeSuccessFactors: false });
+    if (recovered) return recovered;
   }
 
   // A stale legacy index can still return links while every old detail page
