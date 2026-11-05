@@ -10,7 +10,12 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 // Owner decision 2026-10-01: the runner corrects itself the way JOIN's «Conferma e applica» was fixed (#10725).
 describe('portal runner self-correction', () => {
   it('recovers an external form-associated control through its unique exact role and owner', async () => {
-    const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const locatorTimeout = new Error([
+      'locator.click: Timeout 6000ms exceeded',
+      'Call log:',
+      '- waiting for locator [data-aa-id="f5"]',
+      '- locator resolved to <button>',
+    ].join('\n'));
     const staleClick = vi.fn().mockRejectedValue(locatorTimeout);
     const exactClick = vi.fn().mockResolvedValue(undefined);
     const externalForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
@@ -100,6 +105,12 @@ describe('portal runner self-correction', () => {
   it('retries only locator timeouts without evidence that a click action started', () => {
     expect(isPreDispatchLocatorClickFailure(new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]'))).toBe(true);
     expect(isPreDispatchLocatorClickFailure(new Error('locator.click: locator resolved to 0 elements'))).toBe(true);
+    expect(isPreDispatchLocatorClickFailure(new Error([
+      'locator.click: Timeout 6000ms exceeded',
+      'Call log:',
+      '- waiting for locator [data-aa-id="f5"]',
+      '- locator resolved to <button>',
+    ].join('\n')))).toBe(true);
     expect(isPreDispatchLocatorClickFailure(new Error([
       'locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]',
       'Call log:',
