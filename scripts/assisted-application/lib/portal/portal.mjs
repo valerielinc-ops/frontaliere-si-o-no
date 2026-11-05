@@ -32,6 +32,7 @@ import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isP
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
+import { applicationContractFromPreflight, applicationContractFromSubmission } from './application-contract.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
@@ -5665,7 +5666,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
  * A supported portal that cannot be read is a technical handoff, never an
  * empty requirement list. An unreadable required field is not a question for
  * the candidate.
- * @returns {Promise<{questions:Array<object>,documents:Array<object>,handoff?:string,unreadableFields?:Array<string>}>} requirements for the review page
+ * @returns {Promise<{questions:Array<object>,documents:Array<object>,handoff?:string,unreadableFields?:Array<string>,portalContract?:object}>} requirements and the metadata-only portal contract for the review page
  */
 export async function readPortalRequirements(ctx) {
   const entryUrl = portalEntryUrl(ctx);
@@ -5688,11 +5689,56 @@ export async function readPortalRequirements(ctx) {
     verifiedPostingEntry,
   });
   if (!readAhead || !ctx.applyUrl) {
-    return { questions: [], documents: [] };
+    return {
+      questions: [],
+      documents: [],
+      portalContract: applicationContractFromPreflight({
+        channelType,
+        applyUrl: ctx.applyUrl,
+        sourceUrl: entryUrl,
+        status: readAhead ? 'unavailable' : 'handoff',
+        handoff: readAhead ? 'apply_url_unavailable' : channelType === 'pastahr' ? 'candidate_handoff' : 'channel_not_preread',
+        submitCapability: channelType === 'pastahr' ? 'candidate_handoff' : 'unknown',
+      }),
+    };
   }
-  if (!ctx.codex) return { questions: [], documents: [], handoff: 'planner_unavailable' };
+  if (!ctx.codex) return {
+    questions: [],
+    documents: [],
+    handoff: 'planner_unavailable',
+    portalContract: applicationContractFromPreflight({
+      channelType, applyUrl: ctx.applyUrl, sourceUrl: entryUrl, status: 'unavailable', handoff: 'planner_unavailable',
+    }),
+  };
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
+  let page = null;
+  let contractDiagnostics = null;
+  let contractFinished = false;
+  let contractSnapshot = null;
+  let contractPostingMatch = 'unknown';
+  const finish = async (result, { status = result?.handoff ? 'handoff' : 'ready', snapshot = contractSnapshot, postingMatch = contractPostingMatch } = {}) => {
+    if (contractDiagnostics && !contractFinished) {
+      await contractDiagnostics.finish().catch(() => {});
+      contractFinished = true;
+    }
+    return {
+      ...result,
+      portalContract: applicationContractFromPreflight({
+        channelType,
+        applyUrl: ctx.applyUrl,
+        sourceUrl: entryUrl,
+        currentUrl: page?.url?.() || entryUrl,
+        snapshot,
+        postingMatch,
+        status,
+        handoff: result?.handoff || null,
+        questions: result?.questions || [],
+        documents: result?.documents || [],
+        diagnostics: contractDiagnostics?.data || null,
+      }),
+    };
+  };
   try {
     browser = await launch();
     const context = await browser.newContext({
@@ -5704,10 +5750,18 @@ export async function readPortalRequirements(ctx) {
     });
     registerPortalChannelType(context, portalChannelType(ctx));
     await registerCookieSessionRecovery(context, { log: ctx.log });
-    let page = await context.newPage();
+    // Reuse the bounded diagnostic listener for the preflight. It records only
+    // request/response locations and methods; it never reads candidate data.
+    // Deterministic portal fixtures may not expose a BrowserContext event API.
+    if (typeof context.on === 'function') {
+      contractDiagnostics = startPortalDiagnostics(context, []);
+      await contractDiagnostics.beginAttempt().catch(() => {});
+    }
+    page = await context.newPage();
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
+    contractSnapshot = snapshot;
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
       postingUrl: ctx.postingUrl || page.url(),
@@ -5717,7 +5771,8 @@ export async function readPortalRequirements(ctx) {
       allowSingleExternalApplicationEntry: true,
     });
     ({ page, snapshot } = opened);
-    if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
+    contractSnapshot = snapshot;
+    if (opened.handoff) return await finish({ questions: [], documents: [], handoff: opened.handoff });
     // An allowlisted ATS may keep later, unconditional steps mounted with
     // zero-sized controls. Read the complete mounted contract once, without
     // pressing Next/Continue or fabricating an answer. Conditional containers
@@ -5726,10 +5781,11 @@ export async function readPortalRequirements(ctx) {
     snapshot = await awaitFields(page, await extractFields(page, readAhead
       ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
       : NAVIGATION));
+    contractSnapshot = snapshot;
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
-    if (snapshot.captcha) return { questions: [], documents: [], handoff: 'captcha_present' };
-    if (!readableApplication) return { questions: [], documents: [], handoff: 'application_form_unreadable' };
+    if (snapshot.captcha) return await finish({ questions: [], documents: [], handoff: 'captcha_present' });
+    if (!readableApplication) return await finish({ questions: [], documents: [], handoff: 'application_form_unreadable' });
     // The live form is authoritative for the selected posting. A verified
     // route is sufficient provenance for a generic ATS form; otherwise a
     // mismatch must stop before any job-specific question reaches the draft.
@@ -5748,14 +5804,15 @@ export async function readPortalRequirements(ctx) {
         postingUrl: ctx.postingUrl,
         postingRouteProof: ctx.postingRouteProof,
       });
-      if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
+      contractPostingMatch = formMatch === 'mismatch' ? 'mismatch' : formMatch === 'match' ? 'match' : 'unknown';
+      if (formMatch === 'mismatch') return await finish({ questions: [], documents: [], handoff: 'posting_mismatch' }, { status: 'blocked' });
     }
     let plan;
     try {
       plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     } catch {
       (ctx.log || (() => {}))('portal pre-read skipped: question_planning_failed');
-      return { questions: [], documents: [], handoff: 'question_planning_failed' };
+      return await finish({ questions: [], documents: [], handoff: 'question_planning_failed' });
     }
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, {
       candidate: ctx.candidate,
@@ -5763,7 +5820,7 @@ export async function readPortalRequirements(ctx) {
     });
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
-      return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
+      return await finish({ ...requirements, questions: [], handoff: 'question_label_unreadable' });
     }
     const questions = await localizePortalQuestions(requirements.questions, {
       candidateLocale: ctx.candidateLocale,
@@ -5779,14 +5836,18 @@ export async function readPortalRequirements(ctx) {
       // candidate's normal review and approval gate.
       (ctx.log || (() => {}))('portal pre-read retained native questions for candidate review');
     }
-    return { ...requirements, questions };
+    return await finish({ ...requirements, questions });
   } catch (error) {
     const handoff = error instanceof PortalQuestionLocalizationError
       ? 'question_localization_unavailable'
       : 'portal_reader_failed';
     (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`);
-    return { questions: [], documents: [], handoff };
+    return await finish({ questions: [], documents: [], handoff }, { status: 'unavailable' });
   } finally {
+    if (contractDiagnostics && !contractFinished) {
+      await contractDiagnostics.finish().catch(() => {});
+      contractFinished = true;
+    }
     await browser?.close().catch(() => {});
   }
 }
@@ -6997,6 +7058,16 @@ export async function submitViaPortal(ctx) {
   } finally {
     await clearActiveFinalFormGuard();
     await diagnostics?.finish();
+    // Keep the route/API protocol next to the encrypted submit evidence. This
+    // is metadata only: diagnostics has already removed queries and never
+    // exports request bodies or response bodies.
+    evidence.portalContract = applicationContractFromSubmission({
+      channelType,
+      applyUrl: ctx.applyUrl,
+      currentUrl: evidence.finalUrl || page?.url?.() || ctx.applyUrl,
+      diagnostics: diagnostics?.data || null,
+      outcome: evidence.finalOutcomes?.at(-1) || null,
+    });
     await context?.close().catch(() => {});
     await browser?.close().catch(() => {});
   }

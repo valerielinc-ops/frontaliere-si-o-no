@@ -22,6 +22,7 @@ import {
   type FollowupPayload,
   type ReviewAction,
   type ReviewFormField,
+  type ReviewPortalContract,
   type ReviewPayload,
   type ReviewQuestion,
 } from '@/services/assistedApplicationReviewService';
@@ -178,6 +179,33 @@ function QuestionField({ question, value, onChange, disabled, error, locale, sav
       {question.id === 'work_permit' && <span className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.permitRule')}</span>}
       {error && <span className="mt-1 block text-xs font-normal text-danger" role="alert">{error}</span>}
     </label>
+  );
+}
+
+function PortalContractNotice({ contract }: { contract: ReviewPortalContract }) {
+  const { t } = useTranslation();
+  const questions = contract.missing?.requiredQuestionCount ?? 0;
+  const documents = contract.missing?.requiredDocumentCount ?? 0;
+  const methodKey = contract.submit?.capability || 'unknown';
+  const checkedBackground = contract.background?.status === 'observed';
+  const degradedBackground = contract.background?.status === 'degraded';
+  const complete = contract.status === 'ready' && contract.postingMatch !== 'mismatch';
+  return (
+    <section className={`rounded-xl border p-4 ${complete ? 'border-info-border bg-info-subtle/40' : 'border-warning-border bg-warning-subtle/50'}`} aria-labelledby="portal-contract-title">
+      <h2 id="portal-contract-title" className="text-sm font-bold text-heading">{t('jobBoard.assisted.review.portalCheckTitle')}</h2>
+      <p className="mt-1 text-sm leading-relaxed text-body">
+        {complete ? t('jobBoard.assisted.review.portalCheckReady') : t('jobBoard.assisted.review.portalCheckIncomplete')}
+      </p>
+      {(questions > 0 || documents > 0) && (
+        <p className="mt-2 text-sm font-medium text-body">
+          {t('jobBoard.assisted.review.portalCheckMissing', { questions: String(questions), documents: String(documents) })}
+        </p>
+      )}
+      <dl className="mt-3 grid gap-2 text-xs text-subtle sm:grid-cols-2">
+        <div><dt className="font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.portalCheckBackgroundLabel')}</dt><dd className="mt-0.5">{checkedBackground ? t('jobBoard.assisted.review.portalCheckBackground', { count: String(contract.background?.requestCount || 0) }) : degradedBackground ? t('jobBoard.assisted.review.portalCheckBackgroundDegraded') : t('jobBoard.assisted.review.portalCheckUnknown')}</dd></div>
+        <div><dt className="font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.portalCheckSubmitLabel')}</dt><dd className="mt-0.5">{t(`jobBoard.assisted.review.portalCheckMethod.${methodKey}`, t('jobBoard.assisted.review.portalCheckUnknown'))}</dd></div>
+      </dl>
+    </section>
   );
 }
 
@@ -674,6 +702,10 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         {/* A profile that is not a full match goes on: said here, above the questions, before the candidate decides. */}
         {data && data.fit && data.can.answer && (
           <AssistedApplicationFitNotice fit={data.fit} locale={pageLocale} hasQuestions={data.questions.length > 0} canEdit={Boolean(data.can.edit)} />
+        )}
+
+        {data && data.portalContract && ['candidate_review', 'candidate_handoff', 'owner_takeover'].includes(data.state) && (
+          <PortalContractNotice contract={data.portalContract} />
         )}
 
         {data && data.can.answer && data.questions.length > 0 && (

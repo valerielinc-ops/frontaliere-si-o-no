@@ -5,6 +5,7 @@ import {
   uploadAssistedApplicationCv,
   type AssistedApplicationAdminOrder,
   type AutomationAdminAction,
+  type AutomationPortalContractView,
   type AutomationRequestedDocumentView,
   type PostalSubmissionView,
 } from '@/services/assistedApplicationAdminService';
@@ -85,6 +86,46 @@ const MATCH_STYLES: Record<string, string> = { met: 'text-success', partial: 'te
 function formatMs(ms: number | null | undefined): string {
   if (!ms) return '—';
   return new Date(ms).toLocaleString('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' });
+}
+
+const PORTAL_PROTOCOL_LABELS: Record<string, string> = {
+  native_form: 'form HTML nativo',
+  server_action: 'server action',
+  xhr_fetch: 'API XHR/fetch',
+  candidate_handoff: 'passaggio al candidato',
+  unknown: 'non determinato',
+};
+
+function PortalContractPanel({ contract }: { contract: AutomationPortalContractView }) {
+  const background = contract.background;
+  const form = contract.form;
+  const missing = contract.missing;
+  const requests = background?.requests || [];
+  return (
+    <div className="rounded-stripe border border-info-border bg-info-subtle/40 p-3 text-xs text-body sm:col-span-2">
+      <p className="font-semibold uppercase tracking-wide text-muted">Contratto form/API del portale</p>
+      <div className="mt-1 grid gap-1 sm:grid-cols-2">
+        <p><strong>Stato:</strong> {contract.status}{contract.postingMatch === 'mismatch' ? ' · annuncio non corrispondente' : ''}{contract.phase ? ` · ${contract.phase}` : ''}</p>
+        <p><strong>Submit:</strong> {PORTAL_PROTOCOL_LABELS[contract.submit?.capability || 'unknown'] || 'non determinato'} · {contract.submit?.status || 'non determinato'}</p>
+        <p><strong>Form:</strong> {form?.observed ? `${form.fieldCount} campi, ${form.requiredFieldCount} obbligatori` : 'non osservato'}{form?.requiredFileCount ? ` · ${form.requiredFileCount} file` : ''}</p>
+        <p><strong>Mancanti:</strong> {missing?.requiredQuestionCount || 0} risposte · {missing?.requiredDocumentCount || 0} documenti richiesti</p>
+        <p><strong>Background:</strong> {background ? `${background.status}, ${background.requestCount} richieste` : 'non determinato'}{background?.mutatingRequestCount ? ` · ${background.mutatingRequestCount} mutative` : ''}</p>
+        {contract.handoff && <p><strong>Handoff:</strong> {contract.handoff}</p>}
+      </div>
+      {requests.length > 0 && (
+        <details className="mt-2 rounded border border-info-border bg-surface p-2">
+          <summary className="cursor-pointer font-medium">Endpoint osservati ({requests.length})</summary>
+          <ul className="mt-2 space-y-1 font-mono text-[11px]">
+            {requests.map((request, index) => {
+              const href = `${request.endpoint.origin}${request.endpoint.path}`;
+              return <li key={`${request.method}-${href}-${index}`}><a className="text-link hover:underline" href={href} target="_blank" rel="noreferrer">{request.method} {href}</a> · {request.resourceType}{request.status ? ` · HTTP ${request.status}` : ''}{request.count && request.count > 1 ? ` · ×${request.count}` : ''}</li>;
+            })}
+          </ul>
+        </details>
+      )}
+      <p className="mt-2 text-muted">Sono conservati solo metadati tecnici: nessun body, query, cookie o valore del candidato.</p>
+    </div>
+  );
 }
 
 const PORTAL_STOP_LABELS: Record<string, string> = {
@@ -564,6 +605,8 @@ export default function AssistedApplicationAutomationPanel({
             {draft.checksIt.length > 0 && <ul className="mt-1 list-disc pl-5 text-xs text-subtle">{draft.checksIt.map((item) => <li key={item}>{item}</li>)}</ul>}
             {draft.job?.applyUrl && <a className="mt-1 inline-block text-xs text-link hover:underline" href={normalizeExternalJobDetailUrl(draft.job.applyUrl)} target="_blank" rel="noreferrer">Pagina di candidatura</a>}
           </div>
+
+          {draft.portalContract && <PortalContractPanel contract={draft.portalContract} />}
 
           {(draft.ats || draft.legitimacy || draft.tailoredCv) && (
             <div className="grid gap-2 text-xs text-body sm:grid-cols-2">

@@ -43,6 +43,7 @@ import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, documentFilesOf, extraD
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
+import { portalApplicationContractView } from './lib/portalApplicationContract.js';
 
 export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationStart',
@@ -198,6 +199,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       job: draft.job || null,
       liveness: draft.liveness || null,
       channel: draft.channel || null,
+      portalContract: portalApplicationContractView(draft.portalContract, { includeEndpoints: true }),
       verdict: draft.verdict || null,
       summaryIt: draft.summaryIt || '',
       checksIt: draft.checksIt || [],

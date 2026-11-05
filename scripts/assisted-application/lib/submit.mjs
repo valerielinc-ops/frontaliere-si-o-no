@@ -41,6 +41,7 @@ import { checkPostingLiveness } from './posting-liveness.mjs';
 import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { portalPassFrom } from './portal/stop-report.mjs';
+import { compactApplicationContract } from './portal/application-contract.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
 
 const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
@@ -691,9 +692,10 @@ export async function submitApplication(ctx) {
       // Where the runner stopped, for the fix issue (agent.mjs strikes the candidate's values out first).
       const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channelType } } : {};
       const pass = portalPass ? { portalPass } : {};
+      const applicationContract = compactApplicationContract(evidence.portalContract);
       return succeeded
-        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...(receiptId ? { receiptId } : {}), ...pass }
-        : { ...event, portalAnswers, ...stopReport, ...pass };
+        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...(receiptId ? { receiptId } : {}), ...(applicationContract ? { applicationContract } : {}), ...pass }
+        : { ...event, portalAnswers, ...(applicationContract ? { applicationContract } : {}), ...stopReport, ...pass };
     } catch (error) {
       if (receiptPersisted) {
         return {
