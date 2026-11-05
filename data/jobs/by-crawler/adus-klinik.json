@@ -1,7 +1,7 @@
 {
   "crawlerKey": "adus-klinik",
-  "assembledAt": "2026-11-04T21:41:30.489Z",
-  "runId": "41915347941",
+  "assembledAt": "2026-11-05T09:40:59.679Z",
+  "runId": "42001694377",
   "jobs": [
     {
       "id": "adus-klinik-8cd04c15239f",
@@ -34,7 +34,7 @@
       "url": "https://karriere.adus-klinik.ch/jobs/6277966-dipl-physiotherapeut-in-20-30-im-stundenlohn",
       "source": "ADUS Klinik Dedicated Parser (Teamtailor RSS)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:41:24.105Z",
+      "crawledAt": "2026-11-05T09:40:55.098Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:41:24.105Z",
+      "validThrough": "2026-12-05T09:40:55.098Z",
       "validThroughSource": "last-observed-window"
     }
   ]

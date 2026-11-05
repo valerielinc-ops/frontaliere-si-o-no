@@ -481,7 +481,7 @@ function withdrawalRefreshFixture(servicePatch: Record<string, any> = {}) {
 async function realWithdrawal(servicePatch: Record<string, any> = {}) {
   const store = withdrawalRefreshFixture(servicePatch);
   const before = structuredClone(store.read(WITHDRAWAL_SERVICE_PATH));
-  await withdrawAssistedApplication({ db: store.db, orderId: WITHDRAWAL_ORDER_ID, round: 1, nowMs: WITHDRAWAL_NOW });
+  await withdrawAssistedApplication({ db: store.db, orderId: WITHDRAWAL_ORDER_ID, round: 1, withdrawalReason: 'La posizione non fa per me', nowMs: WITHDRAWAL_NOW });
   const after = structuredClone(store.read(WITHDRAWAL_SERVICE_PATH));
   return { store, before, after, requestId: after.proposalRefreshRequestId };
 }

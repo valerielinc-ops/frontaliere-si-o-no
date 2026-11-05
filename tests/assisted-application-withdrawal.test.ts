@@ -23,7 +23,9 @@ describe('candidate withdrawal and slot release', () => {
   it('releases one slot exactly once, keeps expiry and schedules replenishment', async () => {
     const store = fixture();
     const expiresAt = store.read(parent).expiresAt;
-    const withdraw = () => withdrawAssistedApplication({ db: store.db, orderId, round: 1, nowMs: now });
+    const withdraw = (overrides: Record<string, unknown> = {}) => withdrawAssistedApplication({
+      db: store.db, orderId, round: 1, withdrawalReason: 'La posizione non fa per me', nowMs: now, ...overrides,
+    });
     expect(await withdraw()).toMatchObject({ state: 'withdrawn', slotReleased: true });
     expect(await withdraw()).toMatchObject({ state: 'withdrawn', slotReleased: true });
     expect(store.read(parent)).toMatchObject({ acceptedPositionsCount: 3, expiresAt, proposalRefreshRequestedBy: 'candidate_withdrawal' });
@@ -39,7 +41,7 @@ describe('candidate withdrawal and slot release', () => {
     const store = fixture();
     const guard = submissionGuard(store.db, orderId, 1);
     expect((await guard.claim('portal', now)).status).toBe('claimed');
-    await withdrawAssistedApplication({ db: store.db, orderId, round: 1, nowMs: now + 1 });
+    await withdrawAssistedApplication({ db: store.db, orderId, round: 1, withdrawalReason: 'Ho cambiato idea', nowMs: now + 1 });
     await expect(guard.markClicked(now + 2)).rejects.toThrow('application_withdrawn');
     expect((await guard.claim('portal', now + 3, { resumable: true })).status).toBe('withdrawn');
     expect((await guard.claim('email', now + 3)).status).toBe('withdrawn');
@@ -55,13 +57,45 @@ describe('candidate withdrawal and slot release', () => {
     if (kind === 'prior_round_sent') store.docs.set(`${path}/automation/submission`, { r2: { state: 'sent' } });
     if (kind === 'draft_sent') store.docs.set(`${path}/ai_drafts/current`, { sent: { at: now } });
     if (kind === 'foreign_parent') store.docs.set(parent, { ...store.read(parent), userId: 'different_candidate' });
-    await expect(withdrawAssistedApplication({ db: store.db, orderId, round: kind === 'stale_round' ? 2 : 1, nowMs: now })).rejects.toThrow();
+    await expect(withdrawAssistedApplication({
+      db: store.db, orderId, round: kind === 'stale_round' ? 2 : 1,
+      withdrawalReason: 'La posizione non mi interessa più', nowMs: now,
+    })).rejects.toThrow();
     expect(store.read(parent).acceptedPositionsCount).toBe(4);
     expect(store.read(path).withdrawnAt).toBeUndefined();
   });
 
-  it('never offers concierge slot release on a standalone application', () => {
-    expect(canWithdrawApplication({ order: { billingMode: 'standalone', paymentStatus: 'paid' }, flow: { state: 'candidate_review' } })).toBe(false);
+  it('offers cancellation for a one-off application without releasing a concierge slot', async () => {
+    expect(canWithdrawApplication({
+      order: { billingMode: 'standalone', userId: 'candidate_test', paymentStatus: 'paid' },
+      flow: { state: 'candidate_review' },
+    })).toBe(true);
+    expect(canWithdrawApplication({
+      order: { billingMode: 'application_concierge', userId: 'candidate_test', paymentStatus: 'paid' },
+      flow: { state: 'candidate_review' },
+    })).toBe(false);
+
+    const singleOrderId = 'order_withdraw_single_test';
+    const singlePath = `assisted_applications/${singleOrderId}`;
+    const store = createMemoryFirestore({
+      [singlePath]: { billingMode: 'standalone', paymentStatus: 'paid', userId: 'candidate_test', submissionStatus: 'in_progress' },
+      [`${singlePath}/automation/flow`]: { state: 'candidate_review', round: 1 },
+      [`${singlePath}/ai_drafts/current`]: { status: 'ready', round: 1 },
+    });
+    await expect(withdrawAssistedApplication({ db: store.db, orderId: singleOrderId, round: 1, withdrawalReason: '  ', nowMs: now }))
+      .rejects.toThrow('withdrawal_reason_required');
+    expect(store.read(singlePath).submissionStatus).toBe('in_progress');
+
+    await expect(withdrawAssistedApplication({
+      db: store.db, orderId: singleOrderId, round: 1,
+      withdrawalReason: 'La posizione non mi interessa più', nowMs: now,
+    })).resolves.toMatchObject({ state: 'withdrawn', slotReleased: false });
+    expect(store.read(singlePath)).toMatchObject({
+      submissionStatus: 'withdrawn', automationState: 'withdrawn', withdrawalReason: 'La posizione non mi interessa più',
+    });
+    expect(store.read(singlePath).conciergeSlotReleasedAt).toBeUndefined();
+    const eventPath = store.list(`${singlePath}/events/`)[0];
+    expect(store.read(eventPath)).toMatchObject({ reason: 'La posizione non mi interessa più', slotReleased: false });
   });
 
   it('never restores a stale submitting mirror after withdrawal and claims a watchdog once', async () => {
@@ -69,7 +103,7 @@ describe('candidate withdrawal and slot release', () => {
     store.docs.set(`${path}/automation/flow`, { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, requestedAt: now - 86400000, attempts: 1 } });
     expect(await claimWatchdogDispatch({ db: store.db, orderId, nowMs: now })).toMatchObject({ dispatch: { attempts: 2 } });
     expect(await claimWatchdogDispatch({ db: store.db, orderId, nowMs: now })).toBeNull();
-    await withdrawAssistedApplication({ db: store.db, orderId, round: 1, nowMs: now });
+    await withdrawAssistedApplication({ db: store.db, orderId, round: 1, withdrawalReason: 'Non desidero più inviare la candidatura', nowMs: now });
     expect(await claimWatchdogDispatch({ db: store.db, orderId, nowMs: now + 86400000 })).toBeNull();
     expect(store.read(path).automationState).toBe('withdrawn');
   });

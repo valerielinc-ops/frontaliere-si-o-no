@@ -28,7 +28,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00048851EXTERNALENGLOBAL/XMLNAME--80--100---R-D-Electronics-Hardware--Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049148EXTERNALENGLOBAL/IS-Project-Manager---SAP-ARIBA-SCC-Implementation-Coordinator--flexible-location",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049229EXTERNALENGLOBAL/Senior-Trade---Transportation-Specialist--f-m-d--80-100",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00049721EXTERNALENGLOBAL/Country-Sales---Solutions-Manager-80---100---f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049851EXTERNALENGLOBAL/Operations-Financial---Trade-Analyst--f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049984EXTERNALENGLOBAL/Service-Technician-f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050089EXTERNALENGLOBAL/R-D-Control-Engineer",
@@ -52,7 +51,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00052393EXTERNALENGLOBAL/Field-Service-Technician--Region-Central-Switzerland--f-m-d--80-100"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-11-04T21:21:25.181Z",
+  "updatedAt": "2026-11-05T09:16:58.283Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050946EXTERNALENGLOBAL/PIM-Senior-Admin_JR00050946-1": {
       "location": "Heidelberg, Baden-Wurttemberg, Germany",
@@ -198,14 +197,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00049721EXTERNALENGLOBAL/Country-Sales---Solutions-Manager-80---100---f-m-d": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049984EXTERNALENGLOBAL/Service-Technician-f-m-d--80-100": {
       "location": "Schaffhausen, Schaffhausen, Switzerland",
       "canton": "SH",
@@ -286,17 +277,17 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00046744EXTERNALENGLOBAL/R-D-Engineer--f-m-d--80-100-_JR00046744-1": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00052388EXTERNALENGLOBAL/Field-Service-Technician--Region-East-Switzerland--f-m-d--80-100": {
+      "location": "Baden, Aargau, Switzerland",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00052388EXTERNALENGLOBAL/Field-Service-Technician--Region-East-Switzerland--f-m-d--80-100": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00046744EXTERNALENGLOBAL/R-D-Engineer--f-m-d--80-100-_JR00046744-1": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",

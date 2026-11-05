@@ -1,7 +1,7 @@
 {
   "key": "sygnum",
   "label": "Sygnum Bank",
-  "generatedAt": "2026-11-04T21:33:02.934Z",
+  "generatedAt": "2026-11-05T09:40:27.501Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 16496,
-  "avgDurationMs": 16496,
+  "durationMs": 15393,
+  "avgDurationMs": 15393,
   "durationHistory": [
-    16496
+    15393
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "sygnum-19adf0571850",
-      "slug": "account-manager-client-business-switzerland-sygnum-zurich",
+      "slug": "account-manager-client-business-svizzera-sygnum-bank-zurich",
       "company": "Sygnum Bank",
       "companyKey": "sygnum",
       "companyDomain": "sygnum.com",
@@ -34,7 +35,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN305",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:29.058Z",
+      "crawledAt": "2026-11-05T09:40:02.995Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -53,24 +54,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN305",
       "jobReqId": "VN305",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T21:32:29.058Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:32:29.058Z",
+      "validThrough": "2027-01-28T09:40:02.995Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:32:29.058Z",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +84,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:29.566Z",
+      "crawledAt": "2026-11-05T09:40:03.712Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -109,7 +108,7 @@
       "salaryMax": 331500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:32:29.566Z",
+      "validThrough": "2026-12-30T09:40:03.712Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +130,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:27.046Z",
+      "crawledAt": "2026-11-05T09:40:01.676Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -155,7 +154,7 @@
       "salaryMax": 331500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-04T21:32:27.046Z",
+      "validThrough": "2026-12-05T09:40:01.676Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -177,7 +176,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:26.009Z",
+      "crawledAt": "2026-11-05T09:40:00.477Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -201,7 +200,7 @@
       "salaryMax": 331500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-04T21:32:26.009Z",
+      "validThrough": "2026-12-05T09:40:00.477Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -212,5 +211,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

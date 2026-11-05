@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { operationalDefaultAnswer, operationalQuestionTopic } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { mergeLivePortalQuestions } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
 
@@ -192,6 +192,81 @@ describe('portal field extraction', () => {
       'Paramètres des cookies',
       'Cookie-instellingen',
     ]) expect(COOKIE_CUSTOMIZE_RE.test(label)).toBe(true);
+    expect(COOKIE_CUSTOMIZE_RE.test('Manage consent')).toBe(false);
+    expect(COOKIE_MANAGE_CONSENT_RE.test('Manage consent')).toBe(true);
+  });
+
+  it('opens Yellowshark’s Manage consent surface before its apply control', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    let stage = 0;
+    const currentSnapshot = () => stage === 0
+      ? {
+        url, fields: [],
+        buttons: [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false },
+          { id: 'manage-consent', text: 'Manage consent', dialog: true, dialogId: 'd1', disabled: false },
+        ],
+        dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false,
+        text: 'This website uses cookies. Manage consent',
+      }
+      : stage === 1
+        ? {
+          url, fields: [],
+          buttons: [{ id: 'reject', text: 'Reject all cookies', dialog: true, dialogId: 'd1', disabled: false }],
+          dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false,
+          text: 'Cookie preferences',
+        }
+        : {
+          url, fields: [], buttons: [{ id: 'apply', text: 'JETZT BEWERBEN', disabled: false }],
+          dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Job posting',
+        };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        innerText: vi.fn(async () => stage < 2 ? 'Cookie preferences' : ''),
+        first: () => ({
+          click: vi.fn(async () => {
+            expect(selector).toBe(stage === 0 ? '[data-aa-id="manage-consent"]' : '[data-aa-id="reject"]');
+            stage += 1;
+          }),
+        }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
+  });
+
+  it('does not open an application privacy action labelled Manage consent', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const privacy = extract('<form id="application-form" class="consent"><button type="button">Manage consent</button></form>', url);
+    const manageConsent = privacy.buttons.find((button: any) => button.text === 'Manage consent');
+    expect(manageConsent).toMatchObject({ formId: expect.any(String) });
+    expect(manageConsent).not.toHaveProperty('cookieSurface');
+    const frame = { url: () => url, evaluate: vi.fn(async () => privacy) };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not open a role-form privacy action labelled Manage consent', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const privacy = extract('<div id="application-form" role="form" class="consent"><button type="button">Manage consent</button></div>', url);
+    const manageConsent = privacy.buttons.find((button: any) => button.text === 'Manage consent');
+    expect(manageConsent).toMatchObject({ roleFormId: expect.any(String) });
+    expect(manageConsent).not.toHaveProperty('cookieSurface');
+    const frame = { url: () => url, evaluate: vi.fn(async () => privacy) };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
   });
 
   it('marks only an active cookie surface, not a persistent preferences section', () => {
@@ -401,6 +476,64 @@ describe('portal field extraction', () => {
 
     expect(result.status).toBe('unresolved');
     expect(clicks).toEqual(['[data-aa-id="customize"]']);
+  });
+
+  it('dismisses Manage consent from a consent-marked shadow host', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const { window } = new JSDOM('<!doctype html><html><body><div id="cookie" class="consent"></div></body></html>', { url });
+    Object.defineProperty(window.HTMLElement.prototype, 'innerText', {
+      configurable: true,
+      get() { return this.textContent || ''; },
+    });
+    window.Element.prototype.getBoundingClientRect = function rect() {
+      return { width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON: () => ({}) } as DOMRect;
+    };
+    const host = window.document.getElementById('cookie')!;
+    const shadow = host.attachShadow({ mode: 'open' });
+    const show = (label: string) => {
+      shadow.innerHTML = label ? `<p>This website uses cookies.</p><button>${label}</button>` : '<p>Cookies handled.</p>';
+    };
+    show('Manage consent');
+    vi.stubGlobal('window', window);
+    vi.stubGlobal('document', window.document);
+    vi.stubGlobal('location', window.location);
+
+    const snapshot = { url, fields: [], buttons: [], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '' };
+    let stage = 0;
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => snapshot),
+    };
+    const page = {
+      url: () => url,
+      frames: () => [frame],
+      evaluate: vi.fn(async (evaluateInPage: Function, args: unknown) => evaluateInPage(args)),
+      locator: vi.fn(() => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            const button = shadow.querySelector('[data-aa-cookie="1"]') as HTMLButtonElement | null;
+            expect(button).toBeTruthy();
+            if (stage === 0) {
+              stage = 1;
+              show('Reject all cookies');
+            } else {
+              stage = 2;
+              show('');
+            }
+          }),
+          evaluate: vi.fn(async (clear: (element: Element) => void) => {
+            const button = shadow.querySelector('[data-aa-cookie="1"]');
+            if (button) clear(button);
+          }),
+        }),
+      })),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
   });
 
   it('does not open site chrome preferences or accept an unrelated privacy dialog', async () => {

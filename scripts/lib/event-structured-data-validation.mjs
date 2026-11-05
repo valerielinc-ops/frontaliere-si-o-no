@@ -90,15 +90,9 @@ function validateEventLocation(schema, filePath, errors) {
         if (!schemaTypeMatches(address['@type'], 'PostalAddress')) {
           errors.push({ file: filePath, type: 'Event', field: `${field}.address.@type`, message: `Event "${field}.address" must use PostalAddress` });
         }
-        const requiredAddressFields = [
-          address.streetAddress,
-          address.addressLocality,
-          address.addressRegion,
-          address.postalCode,
-          address.addressCountry,
-        ];
+        const requiredAddressFields = [address.addressLocality, address.addressCountry];
         if (!requiredAddressFields.every(isNonEmpty)) {
-          errors.push({ file: filePath, type: 'Event', field: `${field}.address`, message: `Event "${field}.address" needs a complete postal address` });
+          errors.push({ file: filePath, type: 'Event', field: `${field}.address`, message: `Event "${field}.address" needs addressLocality and addressCountry` });
         }
       }
     } else if (isVirtualLocation && !isPhysicalLocation) {
