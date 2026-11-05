@@ -1047,6 +1047,30 @@ describe('portal field extraction', () => {
     expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: gender.id, question: 'Geschlecht', type: 'choice', options: ['Weiblich', 'Männlich'] })]);
   });
 
+  it('keeps a city name in a SuccessFactors radio option out of address-owner unreadable handoff', () => {
+    const page = extract(`
+      <form>
+        <label><input type="radio" name="recruiter-visibility" value="yes" required>Alle Recruiter*innen der Stadt Zürich (mehrere Hundert Personen in allen Organisationseinheiten; erforderlich, damit Ihr Profil gefunden und berücksichtigt werden kann)</label>
+        <label><input type="radio" name="recruiter-visibility" value="no">Nein</label>
+      </form>`, 'https://career2.successfactors.eu/career');
+    const field = page.fields.find((entry: any) => entry.name === 'recruiter-visibility');
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const guarded = guardPlan({
+      actions: [{ fieldId: field.id, action: 'select', source: 'rule', value: field.options[0].label }],
+      missingRequired: [],
+    }, page.fields, candidate);
+
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: field.id, type: 'choice' })]);
+    const requirements = portalRequirementsFromMissingRequired(page.fields, guarded.missingRequired, { candidate, candidateLocale: 'it' });
+    expect(requirements.unreadableFields).toBeUndefined();
+    expect(requirements.questions).toEqual([expect.objectContaining({
+      applicationQuestion: field.label,
+      type: 'choice',
+      applicationOptions: [field.options[0].label, 'Nein'],
+    })]);
+  });
+
   // Giro di prova 2026-10-01 on JOIN: every step reported the page title as a form error.
   it('reads the form’s own messages, not a route announcer only screen readers get', () => {
     const page = extract(`

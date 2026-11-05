@@ -735,8 +735,21 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  * the previous portal run when an ATS regenerates its field id.
  */
 const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') ? { addressContext: addressContextContract(field) } : {};
+// When a radio group has no accessible group caption, the field extractor
+// falls back to the first option as its label. That option can contain a
+// place name (for example, an employer's city) without making the control a
+// candidate-address field. Do not turn this structural fallback into an
+// unreadable-owner handoff; the planner still keeps the unknown choice as a
+// candidate question when no answer is present.
+const radioCaptionIsOption = (field) => {
+  if (field?.kind !== 'radio' || !Array.isArray(field.options)) return false;
+  const normalize = (value) => String(value || '').normalize('NFKC').replace(/\s+/g, ' ').trim();
+  const caption = normalize(field.label || field.applicationQuestion || field.question);
+  return Boolean(caption && field.options.some((option) => normalize(typeof option === 'string' ? option : option?.label) === caption));
+};
 const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.consentOwnershipUnknown === true)
   || (addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
+    && !radioCaptionIsOption(field)
     && Object.hasOwn(field || {}, 'addressContext') && !hasAddressContextOwnership(field));
 
 // An account-creation form is the candidate's own profile surface. Some ATSes
