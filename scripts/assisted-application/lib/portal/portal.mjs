@@ -1180,6 +1180,40 @@ export function needsPortalOptionRead(snapshot = {}) {
   return snapshot.fields?.some((field) => field.kind === 'listbox' || field.selectLike) || false;
 }
 
+const choiceField = field => ['combobox', 'listbox', 'radio', 'select'].includes(field?.kind) || field?.selectLike === true;
+const usableChoiceOption = option => {
+  if (typeof option === 'string') return Boolean(option.trim());
+  return Boolean(option && option.disabled !== true && option.placeholder !== true
+    && String(option.label || option.value || '').trim());
+};
+const hasChoiceCatalogue = field => Array.isArray(field?.options) && field.options.some(usableChoiceOption);
+const fieldFrame = field => Number.isInteger(field?.frame) ? field.frame : 0;
+const fieldKey = field => field?.id ? `${fieldFrame(field)}:${String(field.id)}` : '';
+
+/**
+ * A portal can expose a choice control before its native options have been
+ * attached to the first snapshot. Re-read the live page only for that exact
+ * control and carry over its catalogue; labels, ids, values and field set
+ * remain owned by the original snapshot. An empty or ambiguous reread stays
+ * empty and therefore fails closed in the deterministic filler.
+ */
+async function refreshChoiceCatalogues(page, snapshot) {
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  if (!fields.some(field => choiceField(field) && !hasChoiceCatalogue(field))) return snapshot;
+  const live = await extractFields(page).catch(() => null);
+  if (!live?.fields?.length) return snapshot;
+  const liveByKey = new Map(live.fields.map(field => [fieldKey(field), field]).filter(([key]) => key));
+  let changed = false;
+  const nextFields = fields.map((field) => {
+    if (!choiceField(field) || hasChoiceCatalogue(field)) return field;
+    const observed = liveByKey.get(fieldKey(field));
+    if (!hasChoiceCatalogue(observed)) return field;
+    changed = true;
+    return { ...field, options: observed.options };
+  });
+  return changed ? { ...snapshot, fields: nextFields } : snapshot;
+}
+
 /** A SuccessFactors page resumed between account creation and OTP submission. */
 export function isOtpVerificationPage(snapshot, host, account) {
   if (!account || account.verifiedAt || !usesOtpAccountCreation(host) || hasApplicationForm(snapshot)) return false;
@@ -4548,6 +4582,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
+  snapshot = await refreshChoiceCatalogues(page, snapshot);
   const others = accountRegistrationSnapshot({ ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') });
   const candidate = account
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
@@ -4625,7 +4660,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     while (true) {
       const stable = await waitForStableQuestionSurface(page, current, expectedUrl);
       if (stable.status !== 'stable') return { status: 'unstable', snapshot: stable.snapshot };
-      const plannedSnapshot = accountRegistrationSnapshot(stable.snapshot);
+      const refreshed = await refreshChoiceCatalogues(page, stable.snapshot);
+      const plannedSnapshot = accountRegistrationSnapshot(refreshed);
       const planned = await planPage({
         snapshot: { ...plannedSnapshot, fields: plannedSnapshot.fields.filter((field) => field.inputType !== 'password') },
         candidate,
@@ -4635,7 +4671,9 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       // The planner can take minutes. Re-read immediately after it returns so
       // its plan cannot authorize a CTA on a surface that appeared meanwhile.
       const observedRaw = await extractFields(page, NAVIGATION).catch(() => null);
-      const observed = observedRaw ? accountRegistrationSnapshot(observedRaw) : null;
+      const observed = observedRaw
+        ? accountRegistrationSnapshot(await refreshChoiceCatalogues(page, observedRaw))
+        : null;
       if (!observed || page.url() !== expectedUrl || observed.url !== expectedUrl) {
         return { status: 'moved', snapshot: observed || plannedSnapshot };
       }
@@ -4664,7 +4702,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate' };
     const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl);
     if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
-    registrationSnapshot = accountRegistrationSnapshot(stable.snapshot);
+    registrationSnapshot = accountRegistrationSnapshot(await refreshChoiceCatalogues(page, stable.snapshot));
     registrationPlan = await planPage({
       snapshot: { ...registrationSnapshot, fields: registrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
       candidate,
