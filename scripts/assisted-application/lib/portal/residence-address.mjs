@@ -67,7 +67,12 @@ function cityWithoutProvince(value) {
 const LOCALITY_LABEL_RE = /^\s*(?:localit(?:à|a|é|e|y)?\w*|locality|citt[aà]|city|town|ville|lieu|commune|wohn(?:ort|sitz|adresse)\w*|ort)(?=\s|:|-|$)(?:\s+(?:(?:de|of)\s+(?:(?:la|le|les|l[’'])\s+)?|(?:du|des|la|le|in|im|am|von|zu)\s+))?\s*(?::|-)?\s*/i;
 const POSTAL_LABEL_RE = /^\s*(?:postcode|post\s*code|postal\s+code|code\s+postal|zip(?:\s+code)?|plz|npa|cap|codice\s+postale)(?=\s|:|-|$)\s*(?::|-)?\s*/i;
 const GENERAL_ADDRESS_LABEL_RE = /^\s*(?:domicilio|residen\w*|indirizzo(?:\s+di\s+residen\w*)?|address|residence)(?=\s|:|-|$)\s*(?::|-)?\s*/i;
-const STREET_TYPE_RE = /\b(?:via|viale|piazza|piazzale|corso|strada|largo|vicolo|contrada|avenue|rue|chemin|route|place|boulevard|quai|gasse|strasse|straße|weg|platz|allee|street|st\.?|road|rd\.?|lane|ln\.?|drive|dr\.?)\b/i;
+const STREET_TYPE_RE = /\b(?:via|viale|piazza|piazzale|corso|strada|largo|vicolo|contrada|avenue|rue|chemin|route|place|boulevard|quai|gasse|strasse|straße|weg|platz|allee|street|st\.?|road|rd\.?|lane|ln\.?|drive|dr\.?|[\p{L}]*strasse|[\p{L}]*straße)\b/iu;
+
+function postalCodeDigits(value) {
+  const unlabelled = compact(value, 20).replace(POSTAL_LABEL_RE, '').trim();
+  return /^\d{4,5}$/.test(unlabelled) ? unlabelled : '';
+}
 
 function addressTextVariants(value) {
   const raw = compact(value);
@@ -104,7 +109,12 @@ function localityOnlyStreet(street, { city, location, postalCode, country, provi
   ]);
   if (!knownLocalities.size) return false;
   const streetVariants = addressTextVariants(street);
-  return !streetVariants.length || streetVariants.some((variant) => knownLocalities.has(variant));
+  if (!streetVariants.length) return true;
+  return streetVariants.some((variant) => {
+    if (knownLocalities.has(variant)) return true;
+    const withoutNumericSuffix = variant.replace(/\s+\d{1,5}[a-z]?$/i, '').trim();
+    return withoutNumericSuffix !== variant && knownLocalities.has(withoutNumericSuffix);
+  });
 }
 
 const entries = (Array.isArray(ITALY_POSTAL_DIRECTORY.entries) ? ITALY_POSTAL_DIRECTORY.entries : [])
@@ -160,7 +170,8 @@ export function resolveResidenceAddress(rawAddress = {}, location = '', cvText =
   const explicit = explicitCountry(address.country) || explicitCountry(rawCity) || explicitCountry(location);
   const city = cityWithoutProvince(rawCity);
   const knownItalianPostal = resolveItalianPostalCode(city, province);
-  const statedPostal = compact(address.postalCode, 20);
+  const rawStatedPostal = compact(address.postalCode, 20);
+  const statedPostal = postalCodeDigits(rawStatedPostal) || rawStatedPostal;
   const postalCode = knownItalianPostal
     || explicitPostalCode(cvText, city, province)
     || statedPostal;
@@ -171,8 +182,9 @@ export function resolveResidenceAddress(rawAddress = {}, location = '', cvText =
   // four/five-digit value is rejected below as an ambiguous postal code, while
   // longer numbers with a street remain eligible as explicit civic numbers.
   const street = compact(address.street);
-  const streetWithoutKnownPostal = /^\d{4,5}$/.test(postalCode)
-    ? street.replace(new RegExp(`\\b${postalCode}\\b`, 'g'), ' ')
+  const knownPostalDigits = postalCodeDigits(postalCode);
+  const streetWithoutKnownPostal = knownPostalDigits
+    ? street.replace(new RegExp(`\\b${knownPostalDigits}\\b`, 'g'), ' ')
     : street;
   const cleanStreet = streetWithoutKnownPostal
     .replace(/\s+/g, ' ')
@@ -236,11 +248,13 @@ export function residenceCountryCode(value) {
 }
 
 function houseNumberFromAddress(street, postalCode) {
-  const withoutPostal = /^\d{4,5}$/.test(postalCode)
-    ? street.replace(new RegExp(`\\b${postalCode}\\b`, 'g'), ' ').replace(/\s+/g, ' ').trim()
+  const knownPostalDigits = postalCodeDigits(postalCode);
+  const withoutPostal = knownPostalDigits
+    ? street.replace(new RegExp(`\\b${knownPostalDigits}\\b`, 'g'), ' ').replace(/\s+/g, ' ').trim()
     : street;
   const marked = withoutPostal.match(/\b(?:n[°ºo]?|no\.?|numero|numéro|civico|house\s*(?:number|no)|street\s*(?:number|no))\s*([0-9]{1,5}[A-Za-z]?)/i)?.[1];
-  const leading = withoutPostal.match(/^\s*([0-9]{1,5}[A-Za-z]?)\s+(?=.*\b(?:via|viale|piazza|piazzale|corso|strada|largo|vicolo|contrada|avenue|rue|chemin|route|place|boulevard|quai|gasse|strasse|straße|weg|platz|allee|street|st\.?|road|rd\.?|lane|ln\.?|drive|dr\.?)\b)/i)?.[1];
+  const leadingMatch = withoutPostal.match(/^\s*([0-9]{1,5}[A-Za-z]?)\s+(.+)$/u);
+  const leading = leadingMatch && STREET_TYPE_RE.test(leadingMatch[2]) ? leadingMatch[1] : '';
   const trailingMatch = withoutPostal.match(/\b([0-9]{1,5}[A-Za-z]?)\s*$/);
   const trailingPrefix = trailingMatch ? withoutPostal.slice(0, trailingMatch.index).trim().replace(/[,.]+$/, '').trim() : '';
   const roadTypeOnly = /^(?:via|viale|piazza|piazzale|corso|strada(?:\s+(?:statale|provinciale|regionale|nazionale))?|largo|vicolo|contrada|avenue|rue|chemin|route(?:\s+nationale)?|place|boulevard|quai|gasse|strasse|straße|weg|platz|allee|street|st\.?|road|rd\.?|lane|ln\.?|drive|dr\.?)$/i.test(trailingPrefix);

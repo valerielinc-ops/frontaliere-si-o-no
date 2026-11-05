@@ -2733,6 +2733,27 @@ describe('portal runner helpers', () => {
     });
     expect(candidateAnswerForField(explicitLongHouseNumber, houseNumber)).toEqual({ value: '1234', source: 'identity' });
     expect(candidateAnswerForField(explicitLongHouseNumber, combined)).toEqual({ value: 'Via Roma 1234', source: 'identity' });
+    const germanCompoundStreet = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Zürich, Schweiz' },
+      profile: { location: 'Zürich, Schweiz', address: { street: '12 Bahnhofstrasse', postalCode: '8001', city: 'Zürich', country: 'Schweiz' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(addressQuestionAnswer(germanCompoundStreet, 'address_house_number')).toBe('12');
+    const labelledSwissPostal = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Lugano, Svizzera' },
+      profile: { location: 'Lugano, Svizzera', address: { street: '6900 Via Roma', postalCode: 'CAP 6900', city: 'Lugano', country: 'Svizzera' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(addressQuestionAnswer(labelledSwissPostal, 'address')).toBe('');
+    const localityWithNumericSuffix = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Lugano, Svizzera' },
+      profile: { location: 'Lugano, Svizzera', address: { street: 'Lugano 12', postalCode: '6900', city: 'Lugano', country: 'Svizzera' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(addressQuestionAnswer(localityWithNumericSuffix, 'address')).toBe('');
     const bareHouseNumber = candidateForForm({
       identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Roma, Italia' },
       profile: { location: 'Roma, Italia', address: { street: '1234', postalCode: '20100', city: 'Roma', country: 'Italia' } },
