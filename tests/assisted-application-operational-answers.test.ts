@@ -571,10 +571,82 @@ describe('application consent and minimum retention defaults', () => {
         'I would like my data to be deleted once this application process is complete.',
       ],
     })?.value).toBe('I would like my data to be deleted once this application process is complete.');
+    const unrelatedNegation = 'I would like my data to be deleted once this application process is complete. This answer is not conditional.';
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I consent to my data being stored for future job offers.',
+        unrelatedNegation,
+      ],
+    })?.value).toBe(unrelatedNegation);
+    const unicodeWording = 'I would like my data to be deleted once the\u200B “present” application process is complete — thank you.';
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.',
+        unicodeWording,
+      ],
+    })?.value).toBe(unicodeWording);
     expect(operationalDefaultAnswer({
       question: 'Data release *', type: 'choice',
       options: [
         'I would like my data deleted once an application process has ended.',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I do not want my data to be deleted once the present application process is complete.',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'without deleting data after this application',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'do not under any circumstances for any reason whatsoever delete after this application',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        "I wouldn't want my data to be deleted once this application process is complete.",
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        "I needn't delete my data once this application process is complete.",
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I do not want my data deleted; keep it only for this application.',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain your personal data for this application?', type: 'choice',
+      options: [
+        'I do not consent to my data being deleted once this application process is complete.',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I would like my data to be deleted once the present application process is rejected.',
         'Retain the data for 6 months',
       ],
     })).toBeNull();
@@ -668,6 +740,70 @@ describe('application consent and minimum retention defaults', () => {
     });
     expect(requirements.questions).toEqual([]);
     expect(requirements.documents).toEqual([]);
+  });
+
+  it.each([
+    'Without deleting data after this application',
+    'Do not under any circumstances for any reason whatsoever delete after this application',
+    'My data will be retained without ever being deleted after this application process',
+    'Without my data getting deleted after this application',
+    'Senza che i dati siano cancellati dopo questa candidatura',
+    'Ohne die Daten nach diesem Bewerbungsverfahren zu löschen',
+    'Sans que les données soient supprimées après la candidature',
+    'Delete my data — not after this application process',
+    'Deleting data after this application process is not permitted',
+    'Deletion is prohibited after this application process',
+    'Deletion is not permitted after this application process',
+    'Deletion is not permitted once the current application process is complete',
+    'Deletion is prohibited once the current application process is complete',
+    'Deleting data once the current application process is complete is not permitted',
+  ])('does not rank a negated deletion as the minimum: %s', negatedDeletion => {
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain your personal data?', type: 'choice',
+      options: [negatedDeletion, 'Retain the data for 6 months'],
+    })).toBeNull();
+  });
+
+  it('keeps a separate affirmative deletion clause distinct from an unrelated negation', () => {
+    for (const affirmativeDeletion of [
+      'No additional storage is needed. Delete my data after this application process.',
+      'No additional storage is needed — delete my data after this application process.',
+      'No additional storage is needed - delete my data after this application process.',
+      'No additional storage is permitted. Delete my data after this application process.',
+      'Mes données seront supprimées après la candidature.',
+    ]) {
+      expect(operationalDefaultAnswer({
+        question: 'How long may we retain your personal data?', type: 'choice',
+        options: [affirmativeDeletion, 'Retain the data for 6 months'],
+      })?.value).toBe(affirmativeDeletion);
+    }
+  });
+
+  it.each([
+    'Delete my data after this application process without delay.',
+    'Without delay, delete my data after this application process.',
+    'Without further delay, delete my data after this application process.',
+    'Without any further delay, delete my data after this application process.',
+    'Without hesitation, delete my data after this application process.',
+    'Sans délai, delete my data after this application process.',
+    'Ohne Verzögerung, delete my data after this application process.',
+    'Senza indugio, delete my data after this application process.',
+  ])('does not treat a “without delay” qualifier as a negated deletion: %s', affirmativeDeletion => {
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain your personal data?', type: 'choice',
+      options: [affirmativeDeletion, 'Retain the data for 6 months'],
+    })?.value).toBe(affirmativeDeletion);
+  });
+
+  it.each([
+    'Your personal data will be deleted after this application process if you are not selected.',
+    'If you are not selected, your personal data will be deleted after this application process.',
+    'If you aren’t selected, your personal data will be deleted after this application process.',
+  ])('does not treat an outcome condition as negation of deletion: %s', conditionalDeletion => {
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain your personal data?', type: 'choice',
+      options: [conditionalDeletion, 'Retain the data for 6 months'],
+    })?.value).toBe(conditionalDeletion);
   });
 });
 

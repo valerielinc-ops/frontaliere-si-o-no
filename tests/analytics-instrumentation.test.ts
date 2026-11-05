@@ -355,6 +355,14 @@ describe('analytics.ts — job_auth funnel aliasing', () => {
     expect(block![0]).toMatch(/step:\s*action/);
     expect(block![0]).toMatch(/funnel:\s*'job_auth'/);
   });
+
+  it('emits the GA4 `login` key-event alias only after auth success', () => {
+    const block = analyticsSrc.match(/trackJobAuthFunnel:[\s\S]*?\n \},\n\n \/\*\*\n \* Job comparator/);
+    expect(block).not.toBeNull();
+    expect(block![0]).toMatch(/if \(action === 'auth_success'\)/);
+    expect(block![0]).toMatch(/logFirebaseOnly\('login'/);
+    expect(block![0]).toMatch(/method:\s*truncate\(details\?\.method/);
+  });
 });
 
 describe('analytics.ts — GA4 job gate contract', () => {
@@ -366,6 +374,12 @@ describe('analytics.ts — GA4 job gate contract', () => {
     }
     expect(analyticsSrc).toMatch(/logPostHogOnly\('job_auth_funnel'/);
     expect(analyticsSrc).toMatch(/logFirebaseOnly\('job_auth_funnel'/);
+  });
+
+  it('emits the dedicated newsletter key-event alias only for subscribe', () => {
+    const block = analyticsSrc.match(/trackNewsletter:[\s\S]*?\n \},\n\n trackNewsletterEvent:/);
+    expect(block).not.toBeNull();
+    expect(block![0]).toMatch(/if \(action === 'subscribe'\) logFirebaseOnly\('newsletter_subscribe'\)/);
   });
 
   it('routes newsletter source context through a queryable GA4 ui_interaction', () => {

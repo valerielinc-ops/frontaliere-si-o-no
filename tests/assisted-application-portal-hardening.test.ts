@@ -106,12 +106,19 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       pageUrl: 'https://jobs.example/vacancy?req=1',
       postingUrl: 'https://jobs.example/vacancy?req=2',
     })).toBe(false);
+    const workdayUrl = 'https://acme.wd5.myworkdayjobs.com/en-US/Acme/job/123';
+    expect(isPostingRouteBound({ pageUrl: workdayUrl, postingUrl: workdayUrl })).toBe(false);
     expect(formPostingMatch(shellText, job, { pageUrl: postingUrl, postingUrl })).toBe('match');
     expect(hasApplicationSurface(snapshot, {
       pageUrl: postingUrl,
       postingUrl,
       postingMatch: 'match',
     })).toBe(true);
+    expect(hasApplicationSurface(snapshot, {
+      pageUrl: workdayUrl,
+      postingUrl: workdayUrl,
+      postingMatch: 'match',
+    })).toBe(false);
   });
 
   it('opens a same-job employer apply route from its matching posting page', () => {

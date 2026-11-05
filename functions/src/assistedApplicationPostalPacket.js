@@ -35,66 +35,66 @@ const safeText = (value) => String(value ?? '')
 const COPY = {
   it: {
     title: 'Dossier per la candidatura cartacea',
-    packetNote: 'Questo PDF raccoglie le istruzioni e i documenti digitali inclusi nel dossier. Le pagine introduttive sono istruzioni: non inserirle nella busta. Aggiungi gli originali e i documenti segnati come da aggiungere. I PDF firmati digitalmente restano separati per conservare il file originale: scaricali dalla pagina protetta e segui le istruzioni del bando.',
+    packetNote: 'Questo unico PDF riunisce le istruzioni postali e i documenti forniti. Le pagine iniziali e gli indici sono solo di servizio: non inserirli nella busta. Stampa e spedisci le pagine dei documenti; ricopia a mano la lettera indicata e non spedire le pagine contrassegnate. Aggiungi gli originali cartacei richiesti dal bando. Le scansioni locali sono unite su questo dispositivo. Le copie stampabili dei PDF firmati sono incluse, ma la firma digitale non viene mantenuta: conserva il file originale e allegalo separatamente se il bando richiede la verifica digitale.',
     job: 'Candidatura', recipient: 'Destinatario', address: 'Indirizzo postale', deadline: 'Scadenza',
     marking: 'Dicitura sulla busta', instructions: 'Istruzioni di spedizione', form: 'Modulo ufficiale',
-    checklist: 'Documenti richiesti', included: 'incluso nel PDF', manual: 'da aggiungere fisicamente',
-    prepared: 'segnato come preparato; aggiungere fisicamente', exempt: 'esente', missing: 'non incluso', signedSeparateShort: 'PDF firmato digitalmente da aggiungere separatamente',
-    files: 'File del dossier (il riepilogo indica cosa e incluso)', includedStatus: 'incluso nel PDF', signedSeparate: 'PDF firmato digitalmente: scarica e aggiungi separatamente il file originale', letterTitle: 'Bozza della lettera manoscritta - NON spedire questa pagina',
+    checklist: 'Documenti richiesti', included: 'incluso nel PDF', local: 'documento locale; vedere l’indice delle scansioni unite, se presente', manual: 'da aggiungere fisicamente',
+    prepared: 'segnato come preparato; aggiungere fisicamente', exempt: 'esente', missing: 'non incluso', signedPrintableShort: 'copia stampabile inclusa; conserva l’originale firmato se serve la verifica digitale',
+    files: 'Indice dei documenti digitali - NON SPEDIRE QUESTA PAGINA', includedStatus: 'incluso nel PDF', signedOriginalNote: 'copia stampabile inclusa; conserva e allega separatamente il file originale se il bando richiede la verifica della firma digitale', letterTitle: 'Bozza della lettera manoscritta - NON spedire questa pagina',
     letterNote: 'Ricopia a mano la bozza qui sotto. Completa il termine di disponibilita nella riga dedicata. Inserisci nella busta la lettera scritta a mano, non questa stampa.',
     availability: 'Termine di disponibilita: ______________________________________________',
     noLetter: 'La bozza della lettera non e disponibile. Chiedi assistenza prima di spedire.',
     resident: 'domiciliato/a nel Comune', employee: 'dipendente comunale',
     includedFile: 'allegato digitale', passportPhoto: 'Fotografia formato passaporto - stampa nel riquadro; verifica dimensioni e qualita prima di spedirla.',
-    manualNote: 'Aggiungi fisicamente gli originali e i moduli cartacei segnati nella checklist. Ricopia a mano la bozza della lettera solo se la lettera è richiesta e non risulti esente.',
+    manualNote: 'Controlla nel bando se serve aggiungere anche un originale cartaceo. Le scansioni non sostituiscono gli originali quando sono richiesti.',
     noFiles: 'Nessun documento digitale da allegare a questo dossier.',
   },
   en: {
     title: 'Paper application packet',
-    packetNote: 'This PDF contains the instructions and digital documents included in your application packet. The introductory pages are instructions: do not put them in the envelope. Add originals and items marked for separate inclusion. Digitally signed PDFs remain separate to preserve the original file: download them from the protected page and follow the posting instructions.',
+    packetNote: 'This single PDF brings together the mailing instructions and the documents provided. The opening pages and indexes are for guidance only: do not put them in the envelope. Print and mail the document pages; copy the indicated letter by hand and do not mail pages marked as instructions. Add any paper originals required by the posting. Local scans are merged on this device. Printable copies of digitally signed PDFs are included, but the digital signatures are not preserved: keep the original file and attach it separately if the posting requires digital verification.',
     job: 'Application', recipient: 'Recipient', address: 'Mailing address', deadline: 'Deadline',
     marking: 'Text for the envelope', instructions: 'Mailing instructions', form: 'Official form',
-    checklist: 'Required documents', included: 'included in this PDF', manual: 'add separately on paper',
-    prepared: 'marked prepared; add separately on paper', exempt: 'exempt', missing: 'not included', signedSeparateShort: 'digitally signed PDF to add separately',
-    files: 'Dossier files (the list shows what is included)', includedStatus: 'included in this PDF', signedSeparate: 'digitally signed PDF: download and add the original file separately', letterTitle: 'Handwritten letter draft - DO NOT MAIL THIS PAGE',
+    checklist: 'Required documents', included: 'included in this PDF', local: 'local document; see the index of merged scans, if included', manual: 'add separately on paper',
+    prepared: 'marked prepared; add separately on paper', exempt: 'exempt', missing: 'not included', signedPrintableShort: 'printable copy included; keep the signed original if digital verification is required',
+    files: 'Index of digital documents - DO NOT MAIL THIS PAGE', includedStatus: 'included in this PDF', signedOriginalNote: 'printable copy included; keep and attach the original separately if the posting requires digital signature verification', letterTitle: 'Handwritten letter draft - DO NOT MAIL THIS PAGE',
     letterNote: 'Copy the draft below by hand. Complete the availability term on the marked line. Put the handwritten letter in the envelope, not this printout.',
     availability: 'Availability date/term: ______________________________________________',
     noLetter: 'The letter draft is unavailable. Ask for assistance before mailing.',
     resident: 'domiciled in the municipality', employee: 'municipal employee',
     includedFile: 'digital attachment', passportPhoto: 'Passport-size photograph - print in the frame; check its dimensions and quality before mailing.',
-    manualNote: 'Add the originals and paper forms marked on the checklist separately. Copy the letter draft by hand only if the letter is required and you are not exempt.',
+    manualNote: 'Check the posting to see whether any paper original must also be added. A scan does not replace an original when one is required.',
     noFiles: 'There are no digital documents to attach to this packet.',
   },
   de: {
     title: 'Unterlagenpaket fuer die Papierbewerbung',
-    packetNote: 'Dieses PDF enthaelt die Hinweise und die digitalen Unterlagen des Bewerbungspakets. Die ersten Seiten enthalten Hinweise und gehoeren nicht in den Umschlag. Fuege Originale und separat beizulegende Unterlagen hinzu. Digital signierte PDFs bleiben separat, damit die Originaldatei erhalten bleibt: Lade sie auf der geschuetzten Seite herunter und beachte die Hinweise der Ausschreibung.',
+    packetNote: 'Dieses PDF enthaelt Versandhinweise und die bereitgestellten Unterlagen. Die ersten Seiten und Verzeichnisse dienen nur der Orientierung und gehoeren nicht in den Umschlag. Drucke nur die Dokumentseiten aus; schreibe den angegebenen Brief von Hand ab und versende keine als Hinweis markierten Seiten. Fuege verlangte Papieroriginale hinzu. Lokale Scans werden auf diesem Geraet zusammengefuehrt. Druckbare Kopien digital signierter PDFs sind enthalten, die digitale Signatur bleibt jedoch nicht erhalten: Bewahre die Originaldatei auf und lege sie separat bei, falls die Ausschreibung eine digitale Pruefung verlangt.',
     job: 'Bewerbung', recipient: 'Empfaenger', address: 'Postadresse', deadline: 'Frist',
     marking: 'Vermerk auf dem Umschlag', instructions: 'Versandhinweise', form: 'Offizielles Formular',
-    checklist: 'Erforderliche Unterlagen', included: 'in diesem PDF enthalten', manual: 'auf Papier separat beilegen',
-    prepared: 'als vorbereitet markiert; separat beilegen', exempt: 'befreit', missing: 'nicht enthalten', signedSeparateShort: 'digital signiertes PDF separat beilegen',
-    files: 'Dateien des Dossiers (die Liste zeigt, was enthalten ist)', includedStatus: 'in diesem PDF enthalten', signedSeparate: 'digital signiertes PDF: Originaldatei separat herunterladen und beilegen', letterTitle: 'Entwurf des handschriftlichen Anschreibens - NICHT VERSENDEN',
+    checklist: 'Erforderliche Unterlagen', included: 'in diesem PDF enthalten', local: 'lokales Dokument; siehe Verzeichnis der eingefuegten Scans, falls vorhanden', manual: 'auf Papier separat beilegen',
+    prepared: 'als vorbereitet markiert; separat beilegen', exempt: 'befreit', missing: 'nicht enthalten', signedPrintableShort: 'druckbare Kopie enthalten; Original bei erforderlicher digitaler Pruefung aufbewahren',
+    files: 'Verzeichnis der digitalen Unterlagen - DIESE SEITE NICHT VERSENDEN', includedStatus: 'in diesem PDF enthalten', signedOriginalNote: 'druckbare Kopie enthalten; Original separat aufbewahren und beilegen, falls die Ausschreibung eine digitale Signaturpruefung verlangt', letterTitle: 'Entwurf des handschriftlichen Anschreibens - NICHT VERSENDEN',
     letterNote: 'Schreibe den folgenden Entwurf von Hand ab. Ergaenze die Verfuegbarkeit in der markierten Zeile. Lege den handschriftlichen Brief bei, nicht diesen Ausdruck.',
     availability: 'Verfuegbarkeit ab: ______________________________________________',
     noLetter: 'Der Briefentwurf ist nicht verfuegbar. Bitte vor dem Versand Hilfe anfordern.',
     resident: 'in der Gemeinde wohnhaft', employee: 'Gemeindeangestellte/r',
     includedFile: 'digitale Beilage', passportPhoto: 'Passfoto - im Rahmen ausdrucken; Groesse und Qualitaet vor dem Versand pruefen.',
-    manualNote: 'Fuege die in der Checkliste genannten Originale und Papierformulare separat bei. Schreibe den Briefentwurf nur dann von Hand ab, wenn der Brief erforderlich ist und keine Befreiung gilt.',
+    manualNote: 'Pruefe in der Ausschreibung, ob Papieroriginale zusaetzlich beigelegt werden muessen. Ein Scan ersetzt kein verlangtes Original.',
     noFiles: 'Diesem Paket sind keine digitalen Unterlagen beigefuegt.',
   },
   fr: {
     title: 'Dossier de candidature papier',
-    packetNote: 'Ce PDF contient les instructions et les documents numeriques du dossier. Les premieres pages sont des instructions : ne les mettez pas dans l’enveloppe. Ajoutez les originaux et les documents marques comme pieces a joindre separement. Les PDF signes numeriquement restent separes pour conserver le fichier original : telechargez-les depuis la page securisee et suivez les instructions de l’annonce.',
+    packetNote: 'Ce PDF unique rassemble les instructions d’envoi et les documents fournis. Les premieres pages et les index servent uniquement de guide : ne les mettez pas dans l’enveloppe. Imprimez et envoyez les pages des documents ; recopiez la lettre indiquee a la main et n’envoyez pas les pages marquees comme instructions. Ajoutez les originaux papier exiges par l’annonce. Les scans locaux sont fusionnes sur cet appareil. Les copies imprimables des PDF signes numeriquement sont incluses, mais la signature numerique n’est pas conservee : gardez le fichier original et joignez-le separement si l’annonce exige une verification numerique.',
     job: 'Candidature', recipient: 'Destinataire', address: 'Adresse postale', deadline: 'Echeance',
     marking: 'Mention sur l’enveloppe', instructions: 'Instructions d’envoi', form: 'Formulaire officiel',
-    checklist: 'Documents requis', included: 'inclus dans ce PDF', manual: 'a ajouter separement sur papier',
-    prepared: 'indique comme prepare ; a ajouter separement', exempt: 'dispense', missing: 'non inclus', signedSeparateShort: 'PDF signe numeriquement a ajouter separement',
-    files: 'Fichiers du dossier (la liste indique ceux qui sont inclus)', includedStatus: 'inclus dans ce PDF', signedSeparate: 'PDF signe numeriquement : telechargez et ajoutez separement le fichier original', letterTitle: 'Projet de lettre manuscrite - NE PAS ENVOYER CETTE PAGE',
+    checklist: 'Documents requis', included: 'inclus dans ce PDF', local: 'document local ; voir la liste des scans fusionnes, le cas echeant', manual: 'a ajouter separement sur papier',
+    prepared: 'indique comme prepare ; a ajouter separement', exempt: 'dispense', missing: 'non inclus', signedPrintableShort: 'copie imprimable incluse ; conservez l’original si une verification numerique est requise',
+    files: 'Index des documents numeriques - NE PAS ENVOYER CETTE PAGE', includedStatus: 'inclus dans ce PDF', signedOriginalNote: 'copie imprimable incluse ; conservez et joignez separement l’original si l’annonce exige la verification de la signature numerique', letterTitle: 'Projet de lettre manuscrite - NE PAS ENVOYER CETTE PAGE',
     letterNote: 'Recopiez le projet ci-dessous a la main. Completez le delai de disponibilite sur la ligne indiquee. Joignez la lettre manuscrite, pas cette impression.',
     availability: 'Delai de disponibilite : ______________________________________________',
     noLetter: 'Le projet de lettre est indisponible. Demandez de l’aide avant l’envoi.',
     resident: 'domicilie dans la commune', employee: 'employe communal',
     includedFile: 'piece jointe numerique', passportPhoto: 'Photo format passeport - imprimez-la dans le cadre ; verifiez ses dimensions et sa qualite avant l’envoi.',
-    manualNote: 'Ajoutez separement les originaux et les formulaires papier indiques dans la liste. Recopiez la lettre a la main uniquement si elle est requise et si vous n’en etes pas dispensee.',
+    manualNote: 'Verifiez dans l’annonce si un original papier doit aussi etre ajoute. Un scan ne remplace pas un original exige.',
     noFiles: 'Aucun document numerique a joindre a ce dossier.',
   },
 };
@@ -133,7 +133,7 @@ export function postalPacketSources({ order, orderId, flow, draft }) {
       ? order?.cvFileName || selected.key.split('/').pop() || 'CV'
       : selected.cv === 'inplace' ? 'CV_adattato.docx' : 'CV_adattato.pdf',
   };
-  const documents = requested.filter((document) => !exemptionOf(document, flow)).flatMap((document) => (
+  const documents = requested.filter((document) => document.id !== 'curriculum_vitae' && !document.localOnly && !exemptionOf(document, flow)).flatMap((document) => (
     documentFilesOf(flow, orderId, document.id).map((file) => ({
       ...file,
       label: document.label,
@@ -141,14 +141,25 @@ export function postalPacketSources({ order, orderId, flow, draft }) {
       purpose: document.id === 'passport_photo' ? 'passport_photo' : 'document',
     }))
   ));
+  // The applicant needs the draft to copy by hand even when the posting
+  // explicitly lists a handwritten letter as a required document.
   const letterRequirement = requested.find((document) => document.id === 'handwritten_letter');
   const includeHandwrittenLetter = !letterRequirement || !exemptionOf(letterRequirement, flow);
-  return { cv, documents, includeHandwrittenLetter };
+  const localDocuments = requested
+    .filter((document) => document.localOnly && !exemptionOf(document, flow))
+    .map(({ id, label, required }) => ({ id, label, required }));
+  const missingDocuments = requested
+    .filter((document) => document.required && document.id !== 'curriculum_vitae' && !document.localOnly
+      && document.delivery !== 'service' && !exemptionOf(document, flow))
+    .filter((document) => documentFilesOf(flow, orderId, document.id).length === 0)
+    .map((document) => document.label);
+  if (cvRequirement?.required && !exemptionOf(cvRequirement, flow) && !cv?.key) missingDocuments.unshift(cvRequirement.label);
+  return { cv, documents, includeHandwrittenLetter, localDocuments, missingDocuments };
 }
 
 /** Preflight format and actual stored source sizes before approving a postal packet. */
 export function postalPacketReadiness({ order, orderId, flow, draft }) {
-  const { cv, documents } = postalPacketSources({ order, orderId, flow, draft });
+  const { cv, documents, localDocuments, missingDocuments } = postalPacketSources({ order, orderId, flow, draft });
   const unsupportedFiles = [];
   if (cv && (!cv.key || !isAssistedApplicationCvKey(orderId, cv.key))) {
     unsupportedFiles.push('CV');
@@ -163,8 +174,10 @@ export function postalPacketReadiness({ order, orderId, flow, draft }) {
   const sourceBytes = sourceSizes.reduce((sum, size) => sum + (Number.isSafeInteger(size) && size > 0 ? size : 0), 0);
   const tooLarge = sourceBytes > POSTAL_PACKET_MAX_SOURCE_BYTES;
   return {
-    ready: unsupportedFiles.length === 0 && !missingSizes && !tooLarge,
+    ready: unsupportedFiles.length === 0 && missingDocuments.length === 0 && !missingSizes && !tooLarge,
     unsupportedFiles: [...new Set(unsupportedFiles)].slice(0, 12),
+    missingDocuments: [...new Set(missingDocuments)].slice(0, 16),
+    localDocuments,
     missingSizes,
     tooLarge,
     sourceBytes,
@@ -283,15 +296,18 @@ async function appendFile(pdf, file, regularFontBytes) {
     } catch {
       throw new PostalPacketError('postal_packet_pdf_unreadable', 422, { fileName: cleanName(file.name) });
     }
-    // Preserve form values as printed content before copying pages into the
-    // packet. The destination PDF does not carry the source AcroForm catalog.
     const form = source.getForm();
     if (form.hasXFA()) throw new PostalPacketError('postal_packet_pdf_unreadable', 422, { fileName: cleanName(file.name) });
     if (form.getFields().length) {
       source.registerFontkit(fontkit);
       const appearanceFont = await source.embedFont(regularFontBytes, { subset: true });
       form.updateFieldAppearances(appearanceFont);
-      form.flatten({ updateFieldAppearances: false });
+      // A signed source may have a signature widget without an appearance
+      // stream, which pdf-lib cannot flatten. Keep updated field appearances
+      // in the copied pages and leave the untouched original available.
+      if (!hasDigitalSignature(file.buffer)) {
+        form.flatten({ updateFieldAppearances: false });
+      }
     }
     if (pdf.getPageCount() + source.getPageCount() > MAX_PAGES) throw new PostalPacketError('postal_packet_too_many_pages', 413);
     const pages = await pdf.copyPages(source, source.getPageIndices());
@@ -321,7 +337,6 @@ export async function buildPostalApplicationPacket({ locale, jobTitle, companyNa
   const totalBytes = (files || []).reduce((sum, file) => sum + (Buffer.isBuffer(file.buffer) ? file.buffer.length : 0), 0);
   if (totalBytes > POSTAL_PACKET_MAX_SOURCE_BYTES) throw new PostalPacketError('postal_packet_too_large', 413);
   const signedPdfFiles = new Set((files || []).filter((file) => file.type === 'pdf' && hasDigitalSignature(file.buffer)));
-
   const pdf = await PDFDocument.create();
   pdf.registerFontkit(fontkit);
   pdf.setTitle('Paper application packet');
@@ -345,13 +360,9 @@ export async function buildPostalApplicationPacket({ locale, jobTitle, companyNa
   writer.field(copy.instructions, postalSubmission.instructions);
   if (postalSubmission.officialFormUrl) writer.field(copy.form, postalSubmission.officialFormUrl);
   writer.section(copy.checklist);
-  const signedDocumentIds = new Set([...signedPdfFiles]
-    .map((file) => file.documentId)
-    .filter(Boolean));
+  const signedDocumentIds = new Set([...signedPdfFiles].map((file) => file.documentId).filter(Boolean));
   for (const item of checklist || []) {
-    const status = signedDocumentIds.has(item.documentId)
-      ? `${item.status}; ${copy.signedSeparateShort}`
-      : item.status;
+    const status = signedDocumentIds.has(item.documentId) ? `${item.status}; ${copy.signedPrintableShort}` : item.status;
     writer.line(`${item.label}: ${status}`, { size: 10, bold: true, gapAfter: 1 });
     if (item.instructions) writer.line(item.instructions, { size: 9.5, indent: 8, gapAfter: 4 });
   }
@@ -366,12 +377,12 @@ export async function buildPostalApplicationPacket({ locale, jobTitle, companyNa
 
   writer.newPage(copy.files);
   for (const file of files || []) {
-    const status = signedPdfFiles.has(file) ? copy.signedSeparate : copy.includedStatus;
+    const status = signedPdfFiles.has(file) ? copy.signedOriginalNote : copy.includedStatus;
     writer.line(`${file.label || copy.includedFile}: ${cleanName(file.name)} - ${status}`, { size: 10, gapAfter: 2 });
   }
   if (!files?.length) writer.line(copy.noFiles, { size: 10 });
 
-  for (const file of files || []) if (!signedPdfFiles.has(file)) await appendFile(pdf, file, regularBytes);
+  for (const file of files || []) await appendFile(pdf, file, regularBytes);
   const bytes = await pdf.save({ useObjectStreams: true });
   return Buffer.from(bytes);
 }

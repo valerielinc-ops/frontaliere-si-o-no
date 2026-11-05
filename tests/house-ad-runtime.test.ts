@@ -1,13 +1,13 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { installHouseAds } from '../services/houseAdRuntime';
-import { createHouseAdCreative, HOUSE_AD_CREATIVE_CSS } from '../services/houseAdCreative';
+import { createHouseAdCreative, HOUSE_AD_CREATIVE_CSS, HOUSE_AD_VARIANTS } from '../services/houseAdCreative';
 import { sanitizeHouseAdAttribution } from '../functions/src/houseAdAttribution.js';
 
 let dom: JSDOM;
 let w: any;
 const emit = vi.fn();
-const config = { publicConfigUrl: 'https://example.test/public-config', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent' };
+const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS };
 function frame(state: string, placement = 'article-inline') {
   const el = w.document.createElement('div'); el.dataset.house = placement; el.dataset.ftHouseHeight = '250';
   const google = w.document.createElement('div'); google.dataset.ftHouseGoogle = ''; google.dataset.ftAdState = state;
@@ -23,7 +23,8 @@ beforeEach(() => {
   vi.useFakeTimers(); emit.mockClear();
   dom = new JSDOM('<!doctype html><html lang="it"><head></head><body></body></html>', { url: 'https://frontaliereticino.ch/articoli-frontaliere/esempio/', runScripts: 'outside-only', pretendToBeVisual: true });
   w = dom.window; w.Date = Date; w.setTimeout = setTimeout; w.clearTimeout = clearTimeout;
-  w.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ HOUSE_AD_CREATIVE_VARIANT: 'auto' }) });
+  Object.defineProperty(w.crypto, 'randomUUID', { configurable: true, value: () => '123e4567-e89b-42d3-a456-426614174000' });
+  w.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ variant: 'control', enrolled: false, experimentId: 'house_creatives_v2', assignmentSource: 'local_default' }) });
   w.matchMedia = () => ({ matches: true });
   w.HTMLElement.prototype.getBoundingClientRect = function () { const width = Number(this.dataset.width) || 300; return { top: 0, left: 0, width, height: 250, right: width, bottom: 250 }; };
   Object.defineProperty(w.document.documentElement, 'clientWidth', { value: 390 });
@@ -82,7 +83,7 @@ describe('per-slot first-party creative delivery', () => {
     expect(empty.el.style.getPropertyValue('--ft-house-height')).toBe(`${preservedHeight}px`);
   });
   it('keeps the commute visual as a second time-saving concept at tall and billboard sizes', async () => {
-    w.fetch.mockResolvedValue({ ok: true, json: async () => ({ HOUSE_AD_CREATIVE_VARIANT: 'time_saved' }) });
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({ variant: 'time_saved', enrolled: true, experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config' }) });
     const tall = frame('unfilled'); tall.el.dataset.width = '300'; tall.el.dataset.ftHouseHeight = '600';
     const wide = frame('unfilled', 'article-end'); wide.el.dataset.width = '970'; wide.el.dataset.ftHouseHeight = '250';
     await start();
@@ -90,7 +91,7 @@ describe('per-slot first-party creative delivery', () => {
     expect(wide.host.querySelector('img')?.getAttribute('src')).toContain('commute-wide-v1.webp');
   });
   it('keeps the Swiss-first claim and clear done-for-you promise in the compact banner', async () => {
-    w.fetch.mockResolvedValue({ ok: true, json: async () => ({ HOUSE_AD_CREATIVE_VARIANT: 'control' }) });
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({ variant: 'control', enrolled: false, experimentId: 'house_creatives_v2', assignmentSource: 'local_default' }) });
     const empty = frame('unfilled'); empty.el.dataset.ftHouseHeight = '50';
     await start();
     const creative = empty.host.querySelector('a');
@@ -166,7 +167,10 @@ describe('per-slot first-party creative delivery', () => {
     const empty = frame('waiting_width');
     const script = w.document.createElement('script'); script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; script.dataset.failed = '1'; script.dataset.ftScriptState = 'retry_wait'; w.document.head.append(script);
     await start(); expect(empty.host.childElementCount).toBe(0);
-    script.dataset.ftScriptState = 'failed'; await vi.advanceTimersByTimeAsync(1200);
+    script.dataset.ftScriptState = 'failed';
+    await Promise.resolve();
+    w.__ftHouseAds.refresh();
+    await vi.advanceTimersByTimeAsync(2500);
     expect(empty.host.querySelector('a')).not.toBeNull(); expect(script.dataset.ftScriptState).toBe('failed');
   });
   it('uses unenrolled control when Firebase is unavailable', async () => {
@@ -174,6 +178,14 @@ describe('per-slot first-party creative delivery', () => {
     expect(empty.host.querySelector('a')?.dataset.houseCreative).toBe('control_v1');
     empty.host.querySelector('a').click();
     expect(JSON.parse(w.sessionStorage.getItem('ft_house_ad_click_v1')).enrolled).toBe(false);
+  });
+  it('stores Firebase assignment metadata with the click for purchase attribution', async () => {
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({ variant: 'profile_match', enrolled: true, experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config' }) });
+    const empty = frame('unfilled'); await start();
+    empty.host.querySelector('a').click();
+    expect(JSON.parse(w.sessionStorage.getItem('ft_house_ad_click_v1'))).toMatchObject({
+      experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config', variant: 'profile_match', enrolled: true,
+    });
   });
   it('keeps assignment stable and counts one viewable impression per slot creative', async () => {
     const empty = frame('unfilled'); await start(); await vi.advanceTimersByTimeAsync(1200);
@@ -203,10 +215,15 @@ describe('per-slot first-party creative delivery', () => {
 describe('bounded purchase attribution', () => {
   const click = () => ({ campaign: 'job_search_automation', variant: 'control', creativeId: 'control_v1', format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true, clickedAt: Date.now() - 1000 });
   it('keeps public campaign fields and strips arbitrary user data', () => {
-    expect(sanitizeHouseAdAttribution({ ...click(), email: 'discard@example.test', url: 'https://example.test/private/' })).toEqual({ ...click(), experimentId: 'house_creatives_v1' });
+    expect(sanitizeHouseAdAttribution({ ...click(), email: 'discard@example.test', url: 'https://example.test/private/' })).toEqual({ ...click(), experimentId: 'house_creatives_v1', assignmentSource: 'legacy_client_hash' });
+  });
+  it('preserves Firebase assignment through click attribution and purchase enrollment', () => {
+    const current = { ...click(), experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config' };
+    expect(sanitizeHouseAdAttribution(current)).toEqual(current);
+    expect(sanitizeHouseAdAttribution({ ...current, assignmentSource: 'local_default' })).toMatchObject({ enrolled: false, assignmentSource: 'local_default' });
   });
   it.each([
-    { variant: 'unknown' }, { creativeId: 'mismatch_v1' }, { placement: 'https://example.test/private/' },
+    { variant: 'unknown' }, { experimentId: 'unreleased_experiment' }, { creativeId: 'mismatch_v1' }, { placement: 'https://example.test/private/' },
     { clickedAt: Infinity }, { clickedAt: Date.now() + 86400000 }, { clickedAt: Date.now() - 8 * 86400000 },
   ])('rejects invalid or expired metadata %j', bad => { expect(sanitizeHouseAdAttribution({ ...click(), ...bad })).toBeNull(); });
 });

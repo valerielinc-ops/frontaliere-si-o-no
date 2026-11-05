@@ -1,15 +1,11 @@
-const EVENT_STATUSES = new Set([
-  'EventCancelled',
-  'EventPostponed',
-  'EventRescheduled',
-  'EventScheduled',
-]);
+import {
+  areSupportedGoogleEventStatuses,
+  isGoogleEventStatusCompatible,
+  isSupportedGoogleEventAttendanceMode,
+  isValidEventDateRange,
+} from './google-event-values.mjs';
+
 const EVENT_AVAILABILITY = new Set(['InStock', 'SoldOut', 'PreOrder']);
-const EVENT_ATTENDANCE_MODES = new Set([
-  'OfflineEventAttendanceMode',
-  'OnlineEventAttendanceMode',
-  'MixedEventAttendanceMode',
-]);
 const ISO_4217_CURRENCIES = new Set(
   // ECMA-402 exposes the runtime's canonical, well-formed ISO 4217 currency set.
   typeof Intl.supportedValuesOf === 'function'
@@ -74,6 +70,22 @@ function isValidCurrency(value) {
   return value !== 'XXX' && ISO_4217_CURRENCIES.has(value);
 }
 
+function isSupportedEventAvailability(value) {
+  if (typeof value !== 'string') return false;
+  const raw = value.trim();
+  if (EVENT_AVAILABILITY.has(raw)) return true;
+
+  let url;
+  try {
+    url = new URL(raw);
+  } catch {
+    return false;
+  }
+  if (!['http:', 'https:'].includes(url.protocol) || url.hostname.toLowerCase() !== 'schema.org' || url.port) return false;
+  const member = url.pathname.replace(/^\/+|\/+$/gu, '');
+  return EVENT_AVAILABILITY.has(member) && !url.search && !url.hash;
+}
+
 function isCompletePhysicalLocation(location) {
   const address = location?.address;
   return location
@@ -101,7 +113,7 @@ function hasCompleteEventLocation(location, attendanceModes) {
   const locations = Array.isArray(location) ? location : [location];
   if (locations.length === 0) return false;
 
-  if (attendanceModes.length !== 1 || !EVENT_ATTENDANCE_MODES.has(attendanceModes[0])) return false;
+  if (attendanceModes.length !== 1 || !isSupportedGoogleEventAttendanceMode(attendanceModes[0])) return false;
 
   const physicalLocations = locations.filter(isCompletePhysicalLocation);
   const virtualLocations = locations.filter(isCompleteVirtualLocation);
@@ -144,7 +156,6 @@ function imageUrls(value) {
 }
 
 function hasCompleteOffer(offer, event) {
-  const availability = typeNames(offer?.availability);
   return offer
     && typeof offer === 'object'
     && typeNames(offer['@type']).includes('Offer')
@@ -152,7 +163,7 @@ function hasCompleteOffer(offer, event) {
     && Number.isFinite(offer.price)
     && offer.price >= 0
     && isValidCurrency(offer.priceCurrency)
-    && availability.some((value) => EVENT_AVAILABILITY.has(value))
+    && isSupportedEventAvailability(offer.availability)
     && (offer.validFrom === undefined || isValidDateTime(offer.validFrom))
     && isHttpUrl(offer.url)
     && (offer.price !== 0 || event.isAccessibleForFree === true);
@@ -173,6 +184,7 @@ export function hasCompleteGoogleEventData(event) {
   return isNonEmpty(event.name)
     && isValidDateTime(event.startDate)
     && isValidDateTime(event.endDate)
+    && isValidEventDateRange(event.startDate, event.endDate)
     && isHttpUrl(event.url)
     && isNonEmpty(event.description)
     && event.description.trim().length >= 30
@@ -181,8 +193,10 @@ export function hasCompleteGoogleEventData(event) {
     && hasNamedEntities(event.performer, PERFORMER_TYPES)
     && hasNamedEntities(event.organizer, ORGANIZER_TYPES)
     && hasHttpUrls(event.organizer)
-    && status.some((value) => EVENT_STATUSES.has(value))
-    && attendanceModes.some((value) => EVENT_ATTENDANCE_MODES.has(value))
+    && areSupportedGoogleEventStatuses(status)
+    && attendanceModes.length === 1
+    && attendanceModes.every(isSupportedGoogleEventAttendanceMode)
+    && isGoogleEventStatusCompatible(status, attendanceModes)
     && offers.length > 0
     && offers.every((offer) => hasCompleteOffer(offer, event))
     && (status.includes('EventRescheduled')

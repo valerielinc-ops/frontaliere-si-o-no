@@ -1,16 +1,10 @@
 import { normalizeSchemaOrgDateTime, normalizeSchemaOrgItemAvailability } from './schema-org-values.mjs';
-
-const EVENT_STATUSES = new Set([
-  'EventCancelled',
-  'EventPostponed',
-  'EventRescheduled',
-  'EventScheduled',
-]);
-const ATTENDANCE_MODES = new Set([
-  'OfflineEventAttendanceMode',
-  'OnlineEventAttendanceMode',
-  'MixedEventAttendanceMode',
-]);
+import {
+  areSupportedGoogleEventStatuses,
+  isGoogleEventStatusCompatible,
+  isSupportedGoogleEventAttendanceMode,
+  isValidEventDateRange,
+} from '../../packages/articles/engine/shared/google-event-values.mjs';
 const ISO_4217_CURRENCIES = new Set(
   typeof Intl.supportedValuesOf === 'function'
     ? Intl.supportedValuesOf('currency')
@@ -23,6 +17,12 @@ function isNonEmpty(value) {
 function schemaTypeName(value) {
   if (typeof value !== 'string') return '';
   return value.trim().split(/[\/#]/u).pop() || '';
+}
+
+function schemaTypeNames(value) {
+  const types = Array.isArray(value) ? value : [value];
+  if (types.some((type) => typeof type !== 'string')) return [];
+  return types.map(schemaTypeName);
 }
 
 function schemaTypeMatches(value, expected) {
@@ -51,10 +51,11 @@ function isHttpUrl(value) {
 }
 
 function validateEventLocation(schema, filePath, errors) {
-  const requestedMode = schema.eventAttendanceMode === undefined
-    ? 'OfflineEventAttendanceMode'
-    : schemaTypeName(schema.eventAttendanceMode);
-  const attendanceMode = ATTENDANCE_MODES.has(requestedMode)
+  const requestedModes = schema.eventAttendanceMode === undefined
+    ? ['OfflineEventAttendanceMode']
+    : schemaTypeNames(schema.eventAttendanceMode);
+  const requestedMode = requestedModes.length === 1 ? requestedModes[0] : '';
+  const attendanceMode = isSupportedGoogleEventAttendanceMode(requestedMode)
     ? requestedMode
     : 'OfflineEventAttendanceMode';
   const locations = Array.isArray(schema.location) ? schema.location : [schema.location];
@@ -176,6 +177,8 @@ function validateOffer(offer, index, schema, filePath, errors) {
 export function validateEventStructuredData(schema, filePath) {
   const errors = [];
   if (schema?.['@type'] !== 'Event') return errors;
+  const eventStatuses = schemaTypeNames(schema.eventStatus);
+  const attendanceModes = schemaTypeNames(schema.eventAttendanceMode);
 
   if (!isNonEmpty(schema.name)) {
     errors.push({ file: filePath, type: 'Event', field: 'name', message: 'Event missing "name"' });
@@ -186,6 +189,10 @@ export function validateEventStructuredData(schema, filePath) {
   if (schema.endDate !== undefined && !isValidDate(schema.endDate)) {
     errors.push({ file: filePath, type: 'Event', field: 'endDate', message: 'Event "endDate" must be an ISO date or date-time when present' });
   }
+  if (schema.endDate !== undefined && isValidDate(schema.startDate) && isValidDate(schema.endDate)
+    && !isValidEventDateRange(schema.startDate, schema.endDate)) {
+    errors.push({ file: filePath, type: 'Event', field: 'endDate', message: 'Event "endDate" must not be before "startDate"' });
+  }
   if (schema.description !== undefined && String(schema.description || '').trim().length < 30) {
     const length = String(schema.description || '').trim().length;
     errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${length} chars, need >= 30)` });
@@ -193,10 +200,14 @@ export function validateEventStructuredData(schema, filePath) {
 
   validateEventLocation(schema, filePath, errors);
 
-  if (schema.eventStatus !== undefined && !EVENT_STATUSES.has(schemaTypeName(schema.eventStatus))) {
+  if (schema.eventStatus !== undefined && !areSupportedGoogleEventStatuses(eventStatuses)) {
     errors.push({ file: filePath, type: 'Event', field: 'eventStatus', message: 'Event "eventStatus" is not a supported status' });
   }
-  if (schema.eventAttendanceMode !== undefined && !ATTENDANCE_MODES.has(schemaTypeName(schema.eventAttendanceMode))) {
+  if (!isGoogleEventStatusCompatible(eventStatuses, attendanceModes)) {
+    errors.push({ file: filePath, type: 'Event', field: 'eventAttendanceMode', message: 'EventMovedOnline requires OnlineEventAttendanceMode' });
+  }
+  if (schema.eventAttendanceMode !== undefined
+    && (attendanceModes.length !== 1 || !isSupportedGoogleEventAttendanceMode(attendanceModes[0]))) {
     errors.push({ file: filePath, type: 'Event', field: 'eventAttendanceMode', message: 'Event "eventAttendanceMode" is not supported' });
   }
   if (schema.image !== undefined) {

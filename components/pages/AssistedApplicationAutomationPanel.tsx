@@ -98,16 +98,26 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
   whatsapp: 'candidatura solo via WhatsApp: con un link PastaHR (https) «Riprova l’invio automatico» la chiude mandando il link al candidato per email, altrimenti «Affida al candidato»',
 };
 
-const MUNICIPAL_DOCUMENT_CHECKLIST: AutomationRequestedDocumentView[] = [
-  { id: 'handwritten_letter', label: 'Lettera manoscritta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Ricopia a mano la bozza della lettera mostrata nella pagina della candidatura e indica il termine di disponibilità.', delivery: 'offline', exemptions: ['municipal_employee'] },
+const LOSONE_DOCUMENT_CHECKLIST: AutomationRequestedDocumentView[] = [
+  { id: 'handwritten_letter', label: 'Lettera manoscritta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Ricopia a mano la bozza mostrata nella pagina, indica il termine di disponibilità, poi aggiungi una scansione leggibile al dossier.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
   { id: 'curriculum_vitae', label: 'Curriculum vitae', kind: 'other', keywords: [], required: true, quote: '', instructions: '', delivery: 'service', exemptions: ['municipal_employee'] },
   { id: 'study_work_certificates', label: 'Certificati di studio con note e certificati di lavoro', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica scansioni leggibili; stampa i documenti caricati per inserirli nella busta.', delivery: 'upload', exemptions: ['municipal_employee'] },
-  { id: 'civil_status', label: 'Certificato individuale di stato civile o atto di famiglia', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica una scansione leggibile del certificato rilasciato da meno di 6 mesi. Se il bando richiede l’originale, inseriscilo anche nella busta. Non è richiesto se sei domiciliato/a nel Comune.', delivery: 'upload', exemptions: ['municipal_resident', 'municipal_employee'] },
-  { id: 'good_conduct', label: 'Certificato di buona condotta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica una scansione leggibile del certificato rilasciato da meno di 6 mesi. Se il bando richiede l’originale, inseriscilo anche nella busta. Non è richiesto se sei domiciliato/a nel Comune.', delivery: 'upload', exemptions: ['municipal_resident', 'municipal_employee'] },
-  { id: 'criminal_record', label: 'Estratto del casellario giudiziale', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica una scansione leggibile dell’estratto rilasciato da meno di 6 mesi. Se il bando richiede l’originale, inseriscilo anche nella busta.', delivery: 'upload', exemptions: ['municipal_employee'] },
-  { id: 'health_questionnaire', label: 'Questionario sullo stato di salute', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Compila il questionario ufficiale e inseriscilo nella busta. Non caricarne il contenuto nella pagina.', delivery: 'offline', exemptions: ['municipal_employee'] },
-  { id: 'passport_photo', label: 'Fotografia formato passaporto', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica una fotografia recente; stampa la foto o prepara una copia formato passaporto da inserire nella busta.', delivery: 'upload', exemptions: ['municipal_employee'] },
+  { id: 'civil_status', label: 'Certificato individuale di stato civile o atto di famiglia', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Il certificato deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione al dossier; controlla nel bando se serve anche l’originale cartaceo. Non è richiesto se sei domiciliato/a nel Comune.', delivery: 'offline', localOnly: true, exemptions: ['municipal_resident', 'municipal_employee'] },
+  { id: 'good_conduct', label: 'Certificato di buona condotta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Il certificato deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione al dossier; controlla nel bando se serve anche l’originale cartaceo. Non è richiesto se sei domiciliato/a nel Comune.', delivery: 'offline', localOnly: true, exemptions: ['municipal_resident', 'municipal_employee'] },
+  { id: 'criminal_record', label: 'Estratto del casellario giudiziale', kind: 'other', keywords: [], required: true, quote: '', instructions: 'L’estratto deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione al dossier; controlla nel bando se serve anche l’originale cartaceo.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+  { id: 'health_questionnaire', label: 'Questionario sullo stato di salute', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Compila il questionario ufficiale, poi aggiungi la scansione al dossier. Il file resta su questo dispositivo e non viene caricato sui nostri server né analizzato automaticamente.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+  { id: 'passport_photo', label: 'Fotografia formato passaporto', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Aggiungi una fotografia recente: sarà impaginata in formato passaporto nel PDF. Verifica che la foto sia quella richiesta dal bando.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
 ];
+
+const LOSONE_POSTAL_SUBMISSION: PostalSubmissionView = {
+  enabled: true,
+  recipient: 'Municipio di Losone',
+  address: 'Via Municipio 7\nCasella postale 863\n6616 Losone',
+  deadline: 'Entro le ore 16:00 di giovedì 12 novembre 2026',
+  envelopeMarking: 'Concorso impiegato/a amministrativo/a',
+  instructions: 'La candidatura deve pervenire al Municipio di Losone in busta chiusa entro le ore 16:00 di giovedì 12 novembre 2026. Spedisci con anticipo sufficiente perché arrivi entro la scadenza. Ricopia a mano la lettera indicata nel dossier e aggiungi gli eventuali originali cartacei richiesti dal bando. Non inserire nella busta le pagine del PDF contrassegnate come istruzioni o indice.',
+  officialFormUrl: 'https://www.losone.ch/Questionario-sullo-stato-di-salute-per-concorsi-95f1a700?i=1',
+};
 
 const EMPTY_POSTAL_SUBMISSION: PostalSubmissionView = {
   enabled: false, recipient: '', address: '', deadline: '', envelopeMarking: '', instructions: '', officialFormUrl: '',
@@ -188,7 +198,7 @@ export default function AssistedApplicationAutomationPanel({
     const id = `requested_${crypto.randomUUID().replace(/-/g, '').slice(0, 16)}`;
     setRequestedDocumentsDirty(true);
     setRequestedDocuments((current) => [...current, {
-      id, label: '', kind: 'other', keywords: [], required: true, quote: '', instructions: '', delivery: 'upload', exemptions: [],
+      id, label: '', kind: 'other', keywords: [], required: true, quote: '', instructions: '', delivery: 'upload', localOnly: false, exemptions: [],
     }]);
   };
   const saveRequestedDocuments = async () => {
@@ -205,11 +215,11 @@ export default function AssistedApplicationAutomationPanel({
     setPostalSubmissionDirty(true);
     setPostalSubmission((current) => ({ ...current, [field]: value }));
   };
-  const useMunicipalChecklist = () => {
+  const useLosoneChecklist = () => {
     setRequestedDocumentsDirty(true);
     setPostalSubmissionDirty(true);
-    setRequestedDocuments(MUNICIPAL_DOCUMENT_CHECKLIST.map((item) => ({ ...item, exemptions: [...item.exemptions] })));
-    setPostalSubmission((current) => ({ ...current, enabled: true }));
+    setRequestedDocuments(LOSONE_DOCUMENT_CHECKLIST.map((item) => ({ ...item, exemptions: [...item.exemptions] })));
+    setPostalSubmission(LOSONE_POSTAL_SUBMISSION);
   };
 
   const retrySubmit = async () => {
@@ -697,8 +707,8 @@ export default function AssistedApplicationAutomationPanel({
             <p className="mt-1 text-xs text-subtle">Configura tutto prima di approvare: le richieste e le risposte saranno gestite nella pagina protetta della candidata. Le email inviano soltanto il collegamento. Il CV già caricato sarà disponibile tra i materiali.</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={useMunicipalChecklist}>
-              <FileText size={14} aria-hidden="true" /> Inserisci checklist bando comunale
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={useLosoneChecklist}>
+              <FileText size={14} aria-hidden="true" /> Precompila checklist e invio bando Losone (12 novembre 2026)
             </button>
             <button type="button" className={secondary} disabled={Boolean(busy) || requestedDocuments.length >= MAX_REQUESTED_DOCUMENTS} onClick={addRequestedDocument}>
               <Plus size={14} aria-hidden="true" /> Aggiungi documento
@@ -731,6 +741,7 @@ export default function AssistedApplicationAutomationPanel({
                 </label>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-body">
                   <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.required} onChange={(event) => updateRequestedDocument(document.id, { required: event.target.checked })} /> Obbligatorio prima di preparare il pacchetto</label>
+                  {document.delivery !== 'service' && <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.localOnly === true} onChange={(event) => updateRequestedDocument(document.id, { localOnly: event.target.checked })} /> Unisci solo su questo dispositivo (mai inviato né controllato dal servizio)</label>}
                   <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.exemptions.includes('municipal_resident')} onChange={(event) => updateRequestedDocument(document.id, { exemptions: event.target.checked ? [...document.exemptions, 'municipal_resident'] : document.exemptions.filter((item) => item !== 'municipal_resident') })} /> Esonero per domiciliati nel Comune</label>
                   <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.exemptions.includes('municipal_employee')} onChange={(event) => updateRequestedDocument(document.id, { exemptions: event.target.checked ? [...document.exemptions, 'municipal_employee'] : document.exemptions.filter((item) => item !== 'municipal_employee') })} /> Esonero per dipendenti comunali</label>
                   <button type="button" className="inline-flex min-h-[36px] items-center gap-1 rounded px-2 font-semibold text-danger hover:bg-danger-subtle" onClick={() => { setRequestedDocumentsDirty(true); setRequestedDocuments((current) => current.filter((item) => item.id !== document.id)); }}>
@@ -763,10 +774,10 @@ export default function AssistedApplicationAutomationPanel({
                 <label className="block text-xs font-medium text-body">Link HTTPS al modulo ufficiale (facoltativo)<input type="url" value={postalSubmission.officialFormUrl} onChange={(event) => setPostalField('officialFormUrl', event.target.value)} maxLength={2048} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
               </>
             )}
-            {requestedDocuments.some((document) => document.delivery === 'offline') && !postalSubmission.enabled && (
+            {requestedDocuments.some((document) => document.delivery === 'offline' || document.localOnly) && !postalSubmission.enabled && (
               <p className="rounded-stripe border border-warning-border bg-warning-subtle/50 p-3 text-xs text-body" role="status">Hai richiesto documenti da preparare su carta: completa e salva le istruzioni postali prima di approvare. In questo modo la candidatura non potrà essere inviata per via elettronica.</p>
             )}
-            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void savePostalSubmission(); }}>
+            <button type="button" className={secondary} disabled={Boolean(busy) || requestedDocumentsDirty} onClick={() => { void savePostalSubmission(); }}>
               {spinner('automationSetPostalSubmission') || <Save size={14} aria-hidden="true" />} Salva impostazioni cartacee
             </button>
           </div>
@@ -790,7 +801,7 @@ export default function AssistedApplicationAutomationPanel({
         )}
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
           {flow.state === 'owner_review' && !repairingFacts && (
-            <button type="button" className={primary} disabled={Boolean(busy) || requestedDocumentsDirty || postalSubmissionDirty || (requestedDocuments.some((document) => document.delivery === 'offline') && !postalSubmission.enabled)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, postalSubmission.enabled ? 'Approvata: ora tocca al candidato (12 ore).' : 'Approvata: il candidato riceve la pagina della candidatura.'); }}>
+            <button type="button" className={primary} disabled={Boolean(busy) || requestedDocumentsDirty || postalSubmissionDirty || (requestedDocuments.some((document) => document.delivery === 'offline' || document.localOnly) && !postalSubmission.enabled)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, postalSubmission.enabled ? 'Approvata: ora tocca al candidato (12 ore).' : 'Approvata: il candidato riceve la pagina della candidatura.'); }}>
               {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
             </button>
           )}

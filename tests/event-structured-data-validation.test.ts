@@ -25,6 +25,58 @@ describe('validateEventStructuredData', () => {
     expect(validateEventStructuredData(EVENT, '/dist/event/index.html')).toEqual([]);
   });
 
+  it('accepts supported Event status arrays and rejects arrays with unknown members', () => {
+    const valid = validateEventStructuredData({
+      ...EVENT,
+      eventStatus: ['https://schema.org/EventScheduled', 'https://schema.org/EventPostponed'],
+    }, '/dist/event/index.html');
+    expect(valid).toEqual([]);
+
+    const invalid = validateEventStructuredData({
+      ...EVENT,
+      eventStatus: ['https://schema.org/EventScheduled', 'https://schema.org/EventUnknown'],
+    }, '/dist/event/index.html');
+    expect(invalid.map(({ field }) => field)).toContain('eventStatus');
+
+    const movedOnline = validateEventStructuredData({
+      ...EVENT,
+      eventStatus: ['https://schema.org/EventScheduled', 'https://schema.org/EventMovedOnline'],
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: { '@type': 'VirtualLocation', url: 'https://example.test/events/concerto/stream/' },
+    }, '/dist/event/index.html');
+    expect(movedOnline).toEqual([]);
+  });
+
+  it('accepts EventMovedOnline and rejects an end date before the start instant', () => {
+    expect(validateEventStructuredData({
+      ...EVENT,
+      eventStatus: 'https://schema.org/EventMovedOnline',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: { '@type': 'VirtualLocation', url: 'https://example.test/events/concerto/stream/' },
+    }, '/dist/event/index.html')).toEqual([]);
+
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      endDate: '2026-07-04T19:00:00+02:00',
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('endDate');
+
+    const offlineEvent = validateEventStructuredData({
+      ...EVENT,
+      eventStatus: 'https://schema.org/EventMovedOnline',
+    }, '/dist/event/index.html');
+    expect(offlineEvent.map(({ field }) => field)).toContain('eventAttendanceMode');
+  });
+
+  it('trims accepted date-time values before comparing timezone-free instants', () => {
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      startDate: ' 2024-01-02T01:00',
+      endDate: '2024-01-02T00:30Z',
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('endDate');
+  });
+
   it('requires a named physical location and PostalAddress details', () => {
     const errors = validateEventStructuredData({
       ...EVENT,
