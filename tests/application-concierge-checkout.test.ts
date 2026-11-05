@@ -621,6 +621,59 @@ describe('application concierge checkout', () => {
     expect((service.expiresAt as any).toMillis()).toBe(paidAt + 30 * 24 * 60 * 60 * 1000);
   });
 
+  it('activates an explicitly consented renewal after Stripe confirms asynchronous payment', async () => {
+    mocks.store.set('application_concierge_services/original-45', {
+      userId: 'candidate-42', paymentStatus: 'paid', serviceStatus: 'expired',
+    });
+    mocks.store.set('application_concierge_services/renewal-45', {
+      userId: 'candidate-42', paymentProvider: 'stripe', stripeCheckoutSessionId: 'cs_concierge_async_45',
+      paymentStatus: 'pending', serviceStatus: 'awaiting_payment', expectedAmountTotal: 2999,
+      renewalOfServiceId: 'original-45', renewal: true,
+    });
+
+    const paidAt = 1_700_000_000_000;
+    await expect(handleApplicationConciergeWebhookEvent({
+      type: 'checkout.session.async_payment_succeeded',
+      data: { object: {
+        id: 'cs_concierge_async_45', amount_total: 2999, currency: 'eur', payment_status: 'unpaid',
+        metadata: { product: 'application_concierge', paymentProvider: 'stripe', serviceId: 'renewal-45' },
+      } },
+    }, { db: mocks.db, ts: '__webhook_timestamp__', nowMs: () => paidAt })).resolves.toBe(true);
+
+    expect(mocks.store.get('application_concierge_services/renewal-45')).toEqual(expect.objectContaining({
+      paymentStatus: 'paid', serviceStatus: 'active', expectedAmountTotal: 2999,
+      paidAt: expect.objectContaining({ toMillis: expect.any(Function) }),
+    }));
+    expect(mocks.store.get('application_concierge_services/original-45')).toEqual(expect.objectContaining({
+      renewedByServiceId: 'renewal-45',
+    }));
+  });
+
+  it('expires an unpaid Stripe checkout without marking the renewal as paid', async () => {
+    mocks.store.set('application_concierge_services/original-46', {
+      userId: 'candidate-42', paymentStatus: 'paid', serviceStatus: 'expired',
+    });
+    mocks.store.set('application_concierge_services/renewal-46', {
+      userId: 'candidate-42', paymentProvider: 'stripe', stripeCheckoutSessionId: 'cs_concierge_expired_46',
+      paymentStatus: 'pending', serviceStatus: 'awaiting_payment', expectedAmountTotal: 2999,
+      renewalOfServiceId: 'original-46', renewal: true,
+    });
+
+    await expect(handleApplicationConciergeWebhookEvent({
+      type: 'checkout.session.expired',
+      data: { object: {
+        id: 'cs_concierge_expired_46', amount_total: 2999, currency: 'eur', payment_status: 'unpaid',
+        metadata: { product: 'application_concierge', paymentProvider: 'stripe', serviceId: 'renewal-46' },
+      } },
+    }, { db: mocks.db, ts: '__webhook_timestamp__' })).resolves.toBe(true);
+
+    expect(mocks.store.get('application_concierge_services/renewal-46')).toEqual(expect.objectContaining({
+      paymentStatus: 'failed', serviceStatus: 'payment_failed', checkoutSessionStatus: 'expired',
+      paymentFailureReason: 'checkout_session_expired',
+    }));
+    expect(mocks.store.get('application_concierge_services/original-46')).not.toHaveProperty('renewedByServiceId');
+  });
+
   it('fails closed on an amount mismatch instead of granting the service', async () => {
     mocks.store.set('application_concierge_services/service-43', {
       paymentProvider: 'stripe',
