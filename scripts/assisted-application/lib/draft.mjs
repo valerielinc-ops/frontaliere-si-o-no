@@ -454,6 +454,13 @@ export async function buildDraft(ctx) {
       applyUrl: channel.applyUrl,
       postingUrl: posting.postingUrl || order.jobUrl || '',
       job: { title, company: order.companyName || '' },
+      ...(channel.via === 'successfactors' ? {
+        postingRouteProof: {
+          via: 'successfactors',
+          applyUrl: channel.applyUrl,
+          postingUrl: posting.postingUrl || order.jobUrl || '',
+        },
+      } : {}),
       language,
       candidateLocale: locale,
       candidate: candidateForForm({ identity, profile, answers: portalAnswers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' } }),

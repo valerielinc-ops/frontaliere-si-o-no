@@ -85,6 +85,48 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('jobs.six-group.com', 'www.six-group.com') })).toBe(applyUrl);
   });
 
+  it('binds an external Career Site Builder module only to its source-backed posting', () => {
+    const postingUrl = 'https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-IT-Management-Assistenz-%28a%29-80/1426391333/';
+    const moduleUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
+    const moduleWithoutQuery = 'https://career5.successfactors.eu/career';
+    const proof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
+
+    // The external module's requisition id is not the public posting id. URL
+    // shape alone is therefore deliberately not enough to bind the routes.
+    expect(isVerifiedPostingEntry({ applyUrl: moduleUrl, postingUrl })).toBe(false);
+    expect(portalEntryUrl({ applyUrl: moduleUrl, postingUrl })).toBe(moduleUrl);
+    expect(isVerifiedPostingEntry({ applyUrl: moduleWithoutQuery, postingUrl, postingRouteProof: proof })).toBe(false);
+    expect(portalEntryUrl({ applyUrl: moduleUrl, postingUrl, postingRouteProof: proof })).toBe(postingUrl);
+    const normalizedModuleUrl = 'https://career5.successfactors.eu/career?career_ns=job_application&career_job_req_id=34525&company=helsana&login_ns=login';
+    expect(portalEntryUrl({ applyUrl: normalizedModuleUrl, postingUrl, postingRouteProof: proof })).toBe(postingUrl);
+    const genericForm = 'Karrierechancen: Anmelden\nE-Mail-Adresse\nKennwort\nAnmelden';
+    const job = { company: 'Helsana', title: 'IT Management Assistenz (a) 80%' };
+    expect(formPostingMatch(genericForm, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: moduleUrl,
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe('match');
+    expect(isVerifiedPostingEntry({
+      applyUrl: moduleUrl.replace('career_job_req_id=34525', 'career_job_req_id=34526'),
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe(false);
+    expect(formPostingMatch(genericForm, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: moduleUrl.replace('career_job_req_id=34525', 'career_job_req_id=34526'),
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe('mismatch');
+    expect(isVerifiedPostingEntry({
+      applyUrl: moduleUrl,
+      postingUrl: postingUrl.replace('1426391333', '1426391334'),
+      postingRouteProof: proof,
+    })).toBe(false);
+  });
+
   it('keeps a same-posting Jobs2Web shell bound while only the language control is visible', () => {
     const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';
     const applyUrl = 'https://jobs.stadt-zuerich.ch/talentcommunity/apply/1373719857/?locale=de_DE';
