@@ -436,7 +436,8 @@ function samePostingAddress(firstUrl, secondUrl) {
     return first.origin === second.origin
       && !first.username && !first.password && !second.username && !second.password
       && first.pathname.replace(/\/+$/, '') === second.pathname.replace(/\/+$/, '')
-      && first.search === second.search;
+      && first.search === second.search
+      && first.hash === second.hash;
   } catch {
     return false;
   }
@@ -1940,7 +1941,10 @@ export function formPostingMatch(formText, job = {}, {
   // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
   // Do not apply this to another page on the same host: route identity must be
   // exact, and an apply route still goes through the employer-conflict guard.
-  if (bound && samePostingAddress(pageUrl, postingUrl)) return 'match';
+  if (bound && samePostingAddress(pageUrl, postingUrl)) {
+    if (postingMatched && namesAnotherEmployer(formText, job)) return 'mismatch';
+    return 'match';
+  }
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';

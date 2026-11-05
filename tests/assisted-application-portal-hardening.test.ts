@@ -106,6 +106,14 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       pageUrl: 'https://jobs.example/vacancy?req=1',
       postingUrl: 'https://jobs.example/vacancy?req=2',
     })).toBe(false);
+    expect(isPostingRouteBound({
+      pageUrl: `${postingUrl}#job=2`,
+      postingUrl: `${postingUrl}#job=1`,
+    })).toBe(false);
+    expect(isPostingRouteBound({
+      pageUrl: `${postingUrl}#job=1`,
+      postingUrl: `${postingUrl}#job=1`,
+    })).toBe(true);
     const workdayUrl = 'https://acme.wd5.myworkdayjobs.com/en-US/Acme/job/123';
     expect(isPostingRouteBound({ pageUrl: workdayUrl, postingUrl: workdayUrl })).toBe(false);
     expect(formPostingMatch(shellText, job, { pageUrl: postingUrl, postingUrl })).toBe('match');
@@ -119,6 +127,16 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       postingUrl: workdayUrl,
       postingMatch: 'match',
     })).toBe(false);
+    expect(hasApplicationSurface({}, {
+      pageUrl: 'https://jobs.example/posting',
+      postingUrl: 'https://jobs.example/posting',
+      postingMatch: 'match',
+    })).toBe(false);
+    expect(hasApplicationSurface({}, {
+      pageUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      postingUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      postingMatch: 'match',
+    })).toBe(true);
     const umantisPostingUrl = 'https://company.umantis.com/Vacancies/123/Description/456';
     const umantisApplyUrl = 'https://company.umantis.com/Vacancies/123/Application/New/456';
     expect(isPostingRouteBound({ pageUrl: umantisApplyUrl, postingUrl: umantisPostingUrl })).toBe(true);
@@ -271,6 +289,15 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
     expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('match');
     expect(formPostingMatch('Project Manager — Other Employer\nSend application', job, { postingMatched: true, postingEntry: true })).toBe('mismatch');
+    expect(formPostingMatch('Grand Hotel — Other Resort', {
+      title: 'Concierge',
+      company: 'Grand Hotel',
+    }, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      postingUrl: 'https://jobs.stadt-zuerich.ch/posting',
+    })).toBe('mismatch');
   });
 
   it('keeps ALTEN posting provenance when the apply link has a trailing slash and query', () => {
