@@ -521,6 +521,10 @@ describe('portal field extraction', () => {
               show('');
             }
           }),
+          evaluate: vi.fn(async (clear: (element: Element) => void) => {
+            const button = shadow.querySelector('[data-aa-cookie="1"]');
+            if (button) clear(button);
+          }),
         }),
       })),
       waitForTimeout: vi.fn(async () => {}),
