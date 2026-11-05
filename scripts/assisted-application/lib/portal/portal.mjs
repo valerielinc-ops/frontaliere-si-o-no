@@ -559,6 +559,7 @@ export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof } = {})
 export function verifiedUmantisPostingAddress({ applyUrl, postingUrls = [] } = {}) {
   const candidates = Array.isArray(postingUrls) ? postingUrls : [];
   for (const postingUrl of [...new Set(candidates.map((value) => String(value || '').trim()).filter(Boolean))]) {
+    if (isUmantisPostingEntry({ applyUrl, postingUrl })) return postingUrl;
     const entryUrl = portalEntryUrl({ applyUrl, postingUrl });
     if (isUmantisPostingEntry({ applyUrl: entryUrl, postingUrl })) return postingUrl;
   }
