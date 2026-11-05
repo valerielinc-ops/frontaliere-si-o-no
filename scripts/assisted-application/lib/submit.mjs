@@ -35,7 +35,7 @@ import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, postingAddressForPortal, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
@@ -506,6 +506,14 @@ export async function submitApplication(ctx) {
       }
     }
   }
+  // Liveness can resolve a legacy Umantis address to the site's published
+  // canonical URL. Portal matching still needs the same-origin ATS vacancy
+  // route, otherwise a generic EOC form cannot be bound to this posting.
+  const portalPostingUrl = postingAddressForPortal({
+    applyUrl,
+    postingUrls: [draft.job?.postingUrl, channel.postingUrl, draft.job?.applyUrl, channel.applyUrl, order.jobUrl],
+    fallback: postingUrl,
+  });
   if (WAVE1_CHANNELS.has(channelType) && applyUrl && ctx.codex) {
     // The same durable guard as the e-mail: a re-dispatched run never submits
     // twice. A run may restart only after a confirmed pre-click failure
@@ -581,7 +589,7 @@ export async function submitApplication(ctx) {
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
-        postingUrl,
+        postingUrl: portalPostingUrl,
         postingRouteProof,
         channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.

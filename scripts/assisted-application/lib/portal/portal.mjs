@@ -438,6 +438,14 @@ function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+function isUmantisUrl(value) {
+  try {
+    return /(?:^|\.)umantis\.com$/i.test(new URL(String(value || '')).hostname);
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Umantis application URLs carry the vacancy id in the ATS route
  * (`/Vacancies/<id>/Application/...`). Only a posting on the same origin is
@@ -449,7 +457,7 @@ function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
   try {
     const apply = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
-    if (!/(?:^|\.)umantis\.com$/i.test(apply.hostname)) return false;
+    if (!isUmantisUrl(apply.href)) return false;
     const applyId = /\/vacancies\/(\d+)\/application(?:\/|$)/i.exec(apply.pathname)?.[1];
     const postingId = /\/vacancies\/(\d+)(?:\/description(?:\/[^/]+)?)?\/?$/i.exec(posting.pathname)?.[1];
     return apply.origin === posting.origin && Boolean(applyId && postingId && applyId === postingId);
@@ -546,6 +554,24 @@ export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof } = {})
     // Keep the given application URL when either address is absent or invalid.
   }
   return umantisApplicationEntryUrl({ applyUrl: directUrl, postingUrl }) || directUrl;
+}
+
+/** A saved Umantis vacancy address, only when it proves the current application route. */
+export function verifiedUmantisPostingAddress({ applyUrl, postingUrls = [] } = {}) {
+  const candidates = Array.isArray(postingUrls) ? postingUrls : [];
+  for (const postingUrl of [...new Set(candidates.map((value) => String(value || '').trim()).filter(Boolean))]) {
+    if (isUmantisPostingEntry({ applyUrl, postingUrl })) return postingUrl;
+    const entryUrl = portalEntryUrl({ applyUrl, postingUrl });
+    if (isUmantisPostingEntry({ applyUrl: entryUrl, postingUrl })) return postingUrl;
+  }
+  return '';
+}
+
+/** Use an Umantis fallback only when its vacancy route is proven against the application URL. */
+export function postingAddressForPortal({ applyUrl, postingUrls = [], fallback = '' } = {}) {
+  const verified = verifiedUmantisPostingAddress({ applyUrl, postingUrls });
+  if (verified) return verified;
+  return isUmantisUrl(applyUrl) ? '' : String(fallback || '');
 }
 
 function portalChannelType(ctx = {}) {
