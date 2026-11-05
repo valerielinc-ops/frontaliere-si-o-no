@@ -53,7 +53,7 @@ export const NEXT_STEP_GROUP_LABELS: Record<NextStepGroup, string> = {
 const EXTENSION_HOLDS = new Set(['portal:captcha', 'portal:captcha_provider_unavailable', 'portal:rejected', 'portal_refused']);
 // A send that may have reached the employer (the flow's AMBIGUOUS_SUBMIT_HOLDS, review of #11016):
 // checked before anything is sent again, never straight to a second send.
-const AMBIGUOUS_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
+const AMBIGUOUS_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous', 'submission_receipt_invalid']);
 // The robot could not get past the portal's account: the extension types a form, it never creates an account.
 const ACCOUNT_HOLD_RE = /^portal:account(_|$)/;
 

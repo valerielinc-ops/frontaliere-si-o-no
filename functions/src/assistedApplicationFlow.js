@@ -34,6 +34,7 @@ import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js'
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
 import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
+import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
@@ -117,7 +118,7 @@ const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_su
 const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged', 'repair_facts']);
 // The submit_failed errors of a send that may have reached the employer (never retried).
 // portal_antibot_ambiguous: the same unknown outcome, on a portal with an invisible reCAPTCHA.
-const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
+const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous', 'submission_receipt_invalid']);
 
 /**
  * The warnings of a fact-check result as the owner confirms them: field, kind and token, sorted. The field
@@ -303,6 +304,10 @@ function base(flow) {
     // An explicitly malformed persisted count must fail closed instead of
     // creating another automatic draft run.
     draftAutoRetryCount: draftAutoRetryCountValue(flow) ?? -1,
+    dispatchRecoveryAt: Number(flow?.dispatchRecoveryAt) || null,
+    // An explicitly malformed count must fail closed instead of minting a
+    // second retry after a pre-dispatch failure.
+    dispatchRecoveryCount: dispatchRecoveryCountValue(flow) ?? -1,
     portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
     portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
     transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,
@@ -403,6 +408,8 @@ function redraftSameRound(next, reason) {
   next.heldBy = [];
   next.portalAutoRetryAt = null;
   next.draftAutoRetryAt = null;
+  next.dispatchRecoveryAt = null;
+  next.dispatchRecoveryCount = 0;
   return [{ type: 'dispatch', mode: 'draft', reason }];
 }
 
