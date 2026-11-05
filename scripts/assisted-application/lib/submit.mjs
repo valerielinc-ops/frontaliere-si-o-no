@@ -26,7 +26,7 @@ import {
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from '../../../functions/src/assistedApplicationCandidateEdits.js';
-import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
+import { classifyApplicationChannel, isPlausibleEmail, refreshApplicationChannel, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
@@ -227,7 +227,10 @@ export function portalUploads(evidence) {
 }
 
 export async function submitApplication(ctx) {
-  const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
+  const { order, orderId, flow, bucket, runKey, sendCascade } = ctx;
+  let { draft } = ctx;
+  const fetchImpl = ctx.fetchImpl || fetch;
+  draft = await refreshApplicationChannel(draft, order, { fetchImpl, resolve: ctx.resolve });
   const { cvBuffer, cvType, cvSent, cvKey } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType, cvKey: order?.cvStorageKey || null });
   const nowMs = ctx.nowMs || Date.now();
   // Resolve facts that the CV already states before the generic required-question gate.
@@ -277,7 +280,6 @@ export async function submitApplication(ctx) {
     }
   };
 
-  const fetchImpl = ctx.fetchImpl || fetch;
   const publishedPostingUrl = await resolvePublishedPostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve });
   const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve, publishedPostingUrl });
   const liveness = await checkPostingLiveness({
