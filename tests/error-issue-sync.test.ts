@@ -658,7 +658,7 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     const sample = 'Installations: Create Installation request failed with error "400 INVALID_ARGUMENT: invalid client configuration"';
     const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test(sample));
     expect(benignPattern).toBeDefined();
-    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.toString())).toContain(benignPattern!.toString());
     expect(isIssueDenied(sample)).toBe(true);
     expect(isIssueDenied('[firebase.initRemoteConfig] Installations: Create Installation request failed with error "400 INVALI')).toBe(true);
   });

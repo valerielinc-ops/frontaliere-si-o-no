@@ -189,6 +189,8 @@ describe('firme scartate dal CLIENT prima di GA4 → non misurate', () => {
 
   const other = entry({ errorMessage: 'altro errore', count: 50, last7d: 1 });
   it.each([
+    ['Firebase Installations completo (#16807)', 'Installations: Create Installation request failed with error "400 INVALID_ARGUMENT: invalid client configuration"'],
+    ['Firebase Installations troncato da GA4 (#16807)', '[firebase.initRemoteConfig] Installations: Create Installation request failed with error "400 INVALI'],
     ['filtro totale (ResizeObserver)', 'ResizeObserver loop completed with undelivered notifications.'],
     ['filtro per UA/stack (stack overflow delle app Google iOS)', 'RangeError: Maximum call stack size exceeded.'],
   ])('%s: assente da un elenco completo → zero scritture, evidenza «scartata dal client»', async (_label, message) => {
