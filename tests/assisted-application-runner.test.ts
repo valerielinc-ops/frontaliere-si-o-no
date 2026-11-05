@@ -812,6 +812,50 @@ describe('submit mode', () => {
     expect(calls.some((call) => call.includes('successfactors'))).toBe(false);
   });
 
+  it('re-resolves a synthesized SuccessFactors URL from the current published posting', async () => {
+    const jobId = 'stadt-zuerich-bd8c02aa73de';
+    const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';
+    const staleApplyUrl = 'https://career2.successfactors.eu/career?company=STZH&career_job_req_id=51796&lang=de_DE&career_ns=job_application';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const page = `<main><h1>Application Manager</h1><p>${POSTING.repeat(4)}</p><a href="/talentcommunity/apply/1373719857/?locale=de_DE">Jetzt bewerben</a></main>`;
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      calls.push(`${init.method || 'GET'} ${url}`);
+      if (url === detailUrl) return new Response(JSON.stringify({
+        description: POSTING,
+        url: postingUrl,
+        applyUrl: postingUrl,
+        titleByLocale: { de: 'Application Manager' },
+      }), { status: 200 });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url === postingUrl && init.method === 'HEAD') return new Response(null, { status: 200 });
+      if (url === postingUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+      return new Response('', { status: 404 });
+    });
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+
+    const event = await submitApplication({
+      order: { ...order, jobId, jobUrl: postingUrl, jobTitle: 'Application Manager', companyName: 'Stadt Zürich' },
+      orderId: ORDER_ID,
+      draft: {
+        ...baseDraft,
+        job: { ...baseDraft.job, applyUrl: staleApplyUrl },
+        channel: { type: 'successfactors', applyUrl: staleApplyUrl, postingUrl, via: 'successfactors', host: 'career2.successfactors.eu', requiresAccount: true },
+      },
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      cvBuffer: cvPdf(), cvType: 'pdf', bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns,
+      fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+
+    expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
+    expect((runner.mock.calls as any)[0][0]).toMatchObject({ applyUrl: postingUrl, postingUrl, channelType: 'employer_site' });
+    expect(calls).toContain(`GET ${detailUrl}`);
+    expect(calls).toContain(`GET ${postingUrl}`);
+    expect(calls.some((call) => call.includes(staleApplyUrl))).toBe(false);
+  });
+
   // Coop's apprenticeships, 2026-10-02: the redirect ends on a WhatsApp chat (PastaHR).
   // Owner decision 2026-10-03: sent once the candidate has the link and the steps by e-mail.
   it('completes a WhatsApp-only application with its link, without running the browser', async () => {

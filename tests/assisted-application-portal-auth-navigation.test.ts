@@ -4,6 +4,29 @@ import { handleAuth } from '../scripts/assisted-application/lib/portal/portal.mj
 const URL = 'https://career74.sapsf.eu/career';
 
 describe('assisted portal account navigation', () => {
+  it('hands off an existing-account registration page without creating another account', async () => {
+    const save = vi.fn(async () => {});
+    const page = { url: () => URL };
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: {
+        url: URL,
+        text: 'Sie haben bereits ein Bewerbungskonto bei der Bundesverwaltung. Dann loggen Sie sich hier ein.',
+        fields: [
+          { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort', required: true },
+          { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Passwort wiederholen', required: true },
+        ],
+        buttons: [{ id: 'create', text: 'Bewerbungskonto erstellen' }],
+        links: [{ id: 'sign-in', text: 'Dann loggen Sie sich hier ein', href: '/career?login_ns=login' }],
+        errors: [],
+      } as any,
+      ctx: { accounts: { load: vi.fn(async () => null), save } } as any,
+    });
+
+    expect(result).toMatchObject({ handoff: 'account', accountFailure: { code: 'login_unobserved', stage: 'login' } });
+    expect(save).not.toHaveBeenCalled();
+  });
+
   it('opens a SuccessFactors create-account link in the form frame when the page exposes only Login as a button', async () => {
     let pageKind: 'sign_in' | 'create' = 'sign_in';
     const click = vi.fn(async () => { pageKind = 'create'; });
