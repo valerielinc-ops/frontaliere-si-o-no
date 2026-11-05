@@ -1,7 +1,7 @@
 {
   "key": "entero",
   "label": "entero",
-  "generatedAt": "2026-11-05T09:36:39.617Z",
+  "generatedAt": "2026-11-05T21:52:30.772Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 7146,
-  "avgDurationMs": 7146,
+  "durationMs": 6789,
+  "avgDurationMs": 6789,
   "durationHistory": [
-    7146
+    6789
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.entero.ch/de/karriere/psychologin-oder-psychologe-80-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:36:27.301Z",
+      "crawledAt": "2026-11-05T21:52:20.332Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Niederlenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:36:27.301Z",
+      "validThrough": "2027-01-01T21:52:20.332Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:36:26.699Z",
+      "crawledAt": "2026-11-05T21:52:19.729Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "salarySource": "estimated",
       "streetAddress": "Niederlenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:36:26.699Z",
+      "validThrough": "2026-12-05T21:52:19.729Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://www.entero.ch/de/karriere/koechin-koch-80-100-mit-agogischer-perspektive",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:36:26.091Z",
+      "crawledAt": "2026-11-05T21:52:19.132Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -151,7 +151,7 @@
       "salarySource": "estimated",
       "streetAddress": "Egliswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:36:26.091Z",
+      "validThrough": "2027-01-01T21:52:19.132Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -173,7 +173,7 @@
       "url": "https://www.entero.ch/de/karriere/psycholog-in-psychotherapeut-in-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:36:25.494Z",
+      "crawledAt": "2026-11-05T21:52:18.537Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "salarySource": "estimated",
       "streetAddress": "Egliswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:36:25.494Z",
+      "validThrough": "2026-12-05T21:52:18.537Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -219,7 +219,7 @@
       "url": "https://www.entero.ch/de/karriere/dipl-pflegefachperson-hf-fh-fuer-den-nachtdienst-psychiatrie-sucht-60",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:36:24.889Z",
+      "crawledAt": "2026-11-05T21:52:17.938Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       "salarySource": "estimated",
       "streetAddress": "Niederlenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:36:24.889Z",
+      "validThrough": "2027-01-25T21:52:17.938Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -264,7 +264,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegfachperson-hf-psychiatrie-60-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:36:24.285Z",
+      "crawledAt": "2026-11-05T21:52:17.340Z",
       "addressLocality": "Neuenhof",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -287,7 +287,7 @@
       "salarySource": "estimated",
       "streetAddress": "Neuenhof",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:36:24.285Z",
+      "validThrough": "2027-01-28T21:52:17.340Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -310,7 +310,7 @@
       "url": "https://www.entero.ch/de/karriere/dauernachtwache-dipl-pflegefachperson-hf-fh-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:36:23.681Z",
+      "crawledAt": "2026-11-05T21:52:16.736Z",
       "addressLocality": "Neuenhof",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -333,7 +333,7 @@
       "salarySource": "estimated",
       "streetAddress": "Neuenhof",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:36:23.681Z",
+      "validThrough": "2027-01-28T21:52:16.736Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -344,5 +344,5 @@
       }
     }
   ],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }
