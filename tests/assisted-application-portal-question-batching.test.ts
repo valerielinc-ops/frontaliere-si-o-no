@@ -980,14 +980,36 @@ describe('assisted portal question batching', () => {
     expect(window.document.getElementById('next')?.getAttribute('data-clicked')).not.toBe('true');
   });
 
-  it('keeps lazy SuccessFactors picklist options readable after navigation-only polling', async () => {
+  it('matches lazy options to the same field and frame after navigation-only polling', async () => {
     const fixture = fakePage({ conditional: false, successFactorsPicklist: true });
     const { page, window, extractionTrace } = fixture;
+    const primaryFrame = page.frames()[0];
+    const secondaryFrameUrl = `${page.url()}/embedded-form`;
     const context: any = {
       on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
       close: async () => {}, waitForEvent: async () => null,
     };
     page.context = () => context;
+    page.frames = () => [primaryFrame, {
+      url: () => secondaryFrameUrl,
+      evaluate: async () => ({
+        url: secondaryFrameUrl,
+        pageMarker: '',
+        title: 'Embedded form',
+        fields: [{
+          id: window.document.getElementById('referral')?.getAttribute('data-aa-id') || 'referral',
+          kind: 'text',
+          inputType: 'text',
+          label: 'Different field with a reused id',
+          required: false,
+          value: '',
+          options: [{ label: 'Wrong frame option' }],
+          selectLike: false,
+        }],
+        buttons: [], links: [], dialogs: [], captcha: false,
+        passwordVisible: false, errors: [], text: '',
+      }),
+    }];
     const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
@@ -1017,7 +1039,11 @@ describe('assisted portal question batching', () => {
 
     expect(result.event.type, portalRunSummary(result, [], extractionTrace)).toBe('submit_needs_candidate');
     expect(result.event.questions).toEqual(expect.arrayContaining([
-      expect.objectContaining({ applicationQuestion: 'How did you hear about this position? *', applicationOptions: ['Company website', 'Recruiter'] }),
+      expect.objectContaining({
+        applicationQuestion: 'How did you hear about this position? *',
+        applicationOptions: ['Company website', 'Recruiter'],
+        options: ['Company website', 'Recruiter'],
+      }),
     ]));
     expect(result.event.questions).not.toEqual(expect.arrayContaining([
       expect.objectContaining({ applicationQuestion: 'Country of residence *' }),

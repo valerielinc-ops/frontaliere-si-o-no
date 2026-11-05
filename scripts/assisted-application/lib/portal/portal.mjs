@@ -1208,7 +1208,31 @@ const usableChoiceOption = option => {
 };
 const hasChoiceCatalogue = field => Array.isArray(field?.options) && field.options.some(usableChoiceOption);
 const fieldFrame = field => Number.isInteger(field?.frame) ? field.frame : 0;
-const fieldKey = field => field?.id ? `${fieldFrame(field)}:${String(field.id)}` : '';
+const fieldFrameUrl = (snapshot, field) => {
+  const index = fieldFrame(field);
+  const frame = (Array.isArray(snapshot?.frames) ? snapshot.frames : [])
+    .find((item) => item?.index === index);
+  return String(frame?.url || (index === 0 ? snapshot?.url : '') || '').trim();
+};
+const fieldKey = (snapshot, field) => {
+  const id = String(field?.id || '').trim();
+  const url = fieldFrameUrl(snapshot, field);
+  return id && url ? JSON.stringify([fieldFrame(field), url, id]) : '';
+};
+const fieldsByIdentity = (snapshot) => {
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const byIdentity = new Map();
+  const ambiguous = new Set();
+  for (const field of fields) {
+    const key = fieldKey(snapshot, field);
+    if (!key) continue;
+    if (byIdentity.has(key)) {
+      byIdentity.delete(key);
+      ambiguous.add(key);
+    } else if (!ambiguous.has(key)) byIdentity.set(key, field);
+  }
+  return byIdentity;
+};
 
 /**
  * A portal can expose a choice control before its native options have been
@@ -1223,11 +1247,11 @@ async function refreshChoiceCatalogues(page, snapshot) {
   const live = await extractFields(page).catch(() => null);
   const expectedUrl = String(snapshot?.url || page.url() || '');
   if (!live?.fields?.length || String(live.url || '') !== expectedUrl || String(page.url() || '') !== expectedUrl) return snapshot;
-  const liveByKey = new Map(live.fields.map(field => [fieldKey(field), field]).filter(([key]) => key));
+  const liveByKey = fieldsByIdentity(live);
   let changed = false;
   const nextFields = fields.map((field) => {
     if (!choiceField(field) || hasChoiceCatalogue(field)) return field;
-    const observed = liveByKey.get(fieldKey(field));
+    const observed = liveByKey.get(fieldKey(snapshot, field));
     if (!hasChoiceCatalogue(observed)) return field;
     changed = true;
     return { ...field, options: observed.options };
@@ -6244,13 +6268,10 @@ export async function submitViaPortal(ctx) {
       if (!needsPortalOptionRead(current)) return current;
       const refreshed = await extractFields(page).catch(() => null);
       if (!refreshed) return current;
-      const refreshedFields = Array.isArray(refreshed.fields) ? refreshed.fields : [];
-      const refreshedById = new Map(refreshedFields
-        .filter((field) => field.id)
-        .map((field) => [field.id, field]));
+      const refreshedByIdentity = fieldsByIdentity(refreshed);
       const currentFields = Array.isArray(current.fields) ? current.fields : [];
       const fields = currentFields.map((field) => {
-        const live = field.id ? refreshedById.get(field.id) : null;
+        const live = refreshedByIdentity.get(fieldKey(current, field));
         if (!live || !Array.isArray(live.options) || !live.options.length) return field;
         return { ...field, options: live.options };
       });
