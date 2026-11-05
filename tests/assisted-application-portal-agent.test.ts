@@ -971,6 +971,18 @@ describe('portal agentic fallback: the candidate’s Swiss status and nationalit
     expect(asked.actions).toEqual([expect.objectContaining({ value: 'No', answer: 'No', source: 'rule' })]);
   });
 
+  it('asks for confirmation when a permit appears only in the CV', () => {
+    const question = 'Haben Sie eine Arbeitserlaubnis?';
+    const guarded = guardAgentStep(turn('act', [act({
+      ref: 'e7', action: 'select', value: 'Ausweis G', question, answer: 'Ausweis G', source: 'profile',
+    })]), candidate({ workPermit: 'Permesso G' }));
+    expect(guarded).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question })],
+    });
+  });
+
   it('maps a concrete permit to Yes before the agent selects a qualified boolean list', () => {
     const question = 'Do you hold a valid work permit for Switzerland?';
     const grounded = guardAgentStep(turn('act', [act({

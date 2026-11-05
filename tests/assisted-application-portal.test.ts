@@ -3059,9 +3059,11 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     // The candidate's own answer to this very question.
     const answered = candidate({ permitStatus: 'none' }, { portal_bewilligung: 'Ja' }, [{ id: 'portal_bewilligung', question }]);
     expect(guardPlan({ actions: [select('p1', 'Ja', 'answers')], missingRequired: [] }, [yesNo], answered).actions).toEqual([select('p1', 'Ja', 'answers')]);
-    // Nothing chosen: only the CV's own words.
+    // A CV-only permit is not confirmation of a permit held today.
     const gb = permitField('Work permit', ['G', 'B']);
-    expect(guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({ workPermit: 'Permesso G' })).actions).toEqual([select('p1', 'G', 'profile')]);
+    const cvOnly = guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({ workPermit: 'Permesso G' }));
+    expect(cvOnly.actions).toEqual([]);
+    expect(cvOnly.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
     expect(guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({})).missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
     // A text field filled with the candidate's own statement.
     const text = { id: 't1', kind: 'text', label: 'Aufenthaltsstatus', required: true };
@@ -3074,7 +3076,6 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(candidateAnswerForField(
       { profile: { workPermit: 'Permesso B' }, answers: {} },
       { kind: 'text', label: 'Work permit', options: [] },
-      { includeProfileWorkPermit: false },
     )).toBeNull();
   });
 
