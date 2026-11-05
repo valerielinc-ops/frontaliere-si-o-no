@@ -644,7 +644,7 @@ export async function advanceLocator(page, ref) {
  * name says sending or confirming (FINAL_RE) and nothing of going back,
  * leaving or signing in. The runner checks the page has nothing left to
  * answer and presses it behind the submission guard; a dry run stops before.
- * @returns {Promise<{locator: import('playwright').Locator, frame: import('playwright').Frame, name: string, buttonId: string, formId: string}|null>}
+ * @returns {Promise<{locator: import('playwright').Locator, frame: import('playwright').Frame, name: string, buttonId: string, formId: string, dialogId: string}|null>}
  */
 export async function submitLocator(page, ref) {
   if (!REF_RE.test(ref || '')) return null;
@@ -658,6 +658,7 @@ export async function submitLocator(page, ref) {
     return {
       buttonId: String(element.getAttribute('data-aa-id') || ''),
       formId: String(form?.getAttribute('data-aa-id') || ''),
+      dialogId: String(element.closest?.('dialog, [role="dialog"], [aria-modal="true"]')?.getAttribute('data-aa-dialog-id') || ''),
     };
   }).catch(() => null);
   if (!binding?.buttonId || !binding.formId) return null;
@@ -669,10 +670,10 @@ export async function submitLocator(page, ref) {
 /**
  * Click the final control an agent named, resolving it again when the portal
  * replaces the DOM node between the accessibility snapshot and the guarded
- * click (SuccessFactors, Rolex, 2026-10-08).  A missing ref is retried by
- * accessible name only while an enabled visible button with that exact name
- * is still present; if the first click already changed the page, no second
- * click is attempted.
+ * click (SuccessFactors, Rolex, 2026-10-08). A missing ref is retried only
+ * when one enabled visible exact-name button remains in the same frame and
+ * form/dialog; if the first click already changed the page, no second click
+ * is attempted.
  */
 export async function clickSubmitButton(page, target) {
   try {
@@ -683,29 +684,51 @@ export async function clickSubmitButton(page, target) {
     // click was dispatched. Every other click failure is ambiguous: the
     // browser may already have sent the event, so let the caller observe the
     // page outcome instead of risking a duplicate application.
-    const message = String(error?.message || error);
-    if (!/waiting for locator|strict mode violation|resolved to 0 elements/i.test(message)) return 'outcome';
-    if (!target?.name || typeof page.getByRole !== 'function') throw error;
-    const candidates = page.getByRole('button', { name: target.name, exact: true });
+    if (!isPreDispatchLocatorClickFailure(error)) return 'outcome';
+    const frame = target?.frame || (typeof page?.mainFrame === 'function' ? page.mainFrame() : null);
+    const formId = String(target?.formId || '');
+    const dialogId = String(target?.dialogId || '');
+    if (!target?.name || !formId || typeof frame?.getByRole !== 'function') throw error;
+    const candidates = frame.getByRole('button', { name: target.name, exact: true });
     const count = await candidates.count().catch(() => 0);
+    const owned = [];
     for (let index = 0; index < count; index += 1) {
       const candidate = candidates.nth(index);
       if (!await candidate.isVisible().catch(() => false)) continue;
       if (!await candidate.isEnabled({ timeout: 2000 }).catch(() => false)) continue;
-      try {
-        await candidate.click({ timeout: ACTION_TIMEOUT_MS });
-        return 'role';
-      } catch (candidateError) {
-        // A candidate click may have dispatched before rejecting. Do not try
-        // another same-name control; the caller must observe the outcome.
-        const candidateMessage = String(candidateError?.message || candidateError);
-        if (!/waiting for locator|strict mode violation|resolved to 0 elements/i.test(candidateMessage)) return 'outcome';
-        // SuccessFactors can replace the button once more while it is being
-        // resolved; only a proven pre-dispatch miss may try the next exact-name control.
-      }
+      const owner = await candidate.evaluate(element => {
+        const form = element.form || element.closest?.('form');
+        const dialog = element.closest?.('dialog, [role="dialog"], [aria-modal="true"]');
+        return {
+          formId: String(form?.getAttribute('data-aa-id') || ''),
+          dialogId: String(dialog?.getAttribute('data-aa-dialog-id') || ''),
+        };
+      }).catch(() => null);
+      if (owner?.formId !== formId || owner.dialogId !== dialogId) continue;
+      owned.push(candidate);
+      if (owned.length > 1) throw error;
     }
-    throw error;
+    if (owned.length !== 1) throw error;
+    try {
+      await owned[0].click({ timeout: ACTION_TIMEOUT_MS });
+      return 'role';
+    } catch (candidateError) {
+      // The unique owner can still be re-rendered before dispatch; expose the
+      // original miss if that click also provably never started. An ambiguous
+      // dispatch is observed by the caller and is never retried here.
+      if (!isPreDispatchLocatorClickFailure(candidateError)) return 'outcome';
+      throw error;
+    }
   }
+}
+
+/** True only when Playwright proves the click did not reach a locator. */
+export function isPreDispatchLocatorClickFailure(error) {
+  const message = String(error?.message || error);
+  if (/performing click action|click action done|waiting for (?:scheduled )?navigations?|waiting for navigation|navigated to|waiting for load state/i.test(message)) return false;
+  if (/locator resolved to 0 elements/i.test(message)) return true;
+  if (/locator resolved\b|element is visible, enabled and stable|scrolling into view/i.test(message)) return false;
+  return /waiting for locator|strict mode violation/i.test(message);
 }
 
 /** A step's own button ("Salva e prosegui") may be pressed as Next; nothing that may send, go back or leave. */

@@ -28,7 +28,7 @@ import '../../extension/apply-control.js';
 
 import path from 'node:path';
 import { applicationReceipt, applicationStage } from './stages.mjs';
-import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
+import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
@@ -886,19 +886,57 @@ async function settle(page) {
   await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {});
 }
 
-/**
- * The control a snapshot named, found again in a fresh reading of the page: the same name in the same place
- * (the page or the site's header, a dialog or not).
- */
+/** The uniquely matching visible control from a fresh snapshot, in the same frame and ownership scope. */
 async function sameControl(page, button) {
   const fresh = await extractFields(page, NAVIGATION).catch(() => null);
-  return fresh?.buttons.find((candidate) => candidate.text === button.text && !candidate.disabled
+  const matches = fresh?.buttons.filter((candidate) => candidate.text === button.text && !candidate.disabled
     && Boolean(candidate.chrome) === Boolean(button.chrome) && Boolean(candidate.dialog) === Boolean(button.dialog)
+    && String(candidate.dialogId || '') === String(button.dialogId || '')
+    && String(candidate.formId || '') === String(button.formId || '')
+    && String(candidate.href || '') === String(button.href || '')
     && (candidate.frame || 0) === (button.frame || 0)) || null;
+  return matches?.length === 1 ? matches[0] : null;
 }
 
-/** Presses a control of a snapshot; says how it was found (`id`, `again`, `text`, `href`). */
-async function clickButton(page, button) {
+/** A unique, visible semantic match survives a portal replacing its generated DOM id. */
+async function clickUniqueNamedControl(frame, button) {
+  if (!button.text) return null;
+  const formId = String(button.formId || '');
+  const dialogId = String(button.dialogId || '');
+  if (formId && !/^[\w-]{1,80}$/.test(formId)) return null;
+  if (button.dialog && !/^[\w-]{1,80}$/.test(dialogId)) return null;
+  if (!formId && !button.dialog) return null;
+  if (typeof frame?.getByRole !== 'function') return null;
+  const matches = [];
+  for (const role of ['button', 'link']) {
+    const candidates = frame.getByRole(role, { name: button.text, exact: true });
+    const count = await candidates.count().catch(() => 0);
+    for (let index = 0; index < count; index += 1) {
+      const candidate = candidates.nth(index);
+      if (!await candidate.isVisible().catch(() => false)) continue;
+      if (!await candidate.isEnabled({ timeout: 2_000 }).catch(() => false)) continue;
+      const owner = await candidate.evaluate((element) => {
+        const form = element.form || element.closest?.('form');
+        const dialog = element.closest?.('dialog, [role="dialog"], [aria-modal="true"]');
+        return {
+          formId: form?.getAttribute('data-aa-id') || '',
+          dialogId: dialog?.getAttribute('data-aa-dialog-id') || '',
+          href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
+        };
+      }).catch(() => null);
+      if (!owner || owner.formId !== formId || owner.dialogId !== dialogId) continue;
+      if (Object.hasOwn(button, 'href') && owner.href !== String(button.href || '')) continue;
+      matches.push(candidate);
+      if (matches.length > 1) return null;
+    }
+  }
+  if (matches.length !== 1) return null;
+  await matches[0].click({ timeout: 6_000 });
+  return 'role';
+}
+
+/** Presses a control from a snapshot; recovery must preserve the control's click handler. */
+export async function clickButton(page, button) {
   const frameNumber = Number(button.frame) || 0;
   const frames = typeof page.frames === 'function' ? page.frames() : [];
   const frame = frames[frameNumber]
@@ -909,25 +947,30 @@ async function clickButton(page, button) {
     return 'id';
   } catch (error) {
     // Workday animates its apply modal and re-renders its forms, dropping our data-aa-id: the same control
-    // is found again in a fresh reading, by its name and its place. Its visible text alone finds the first
-    // thing on the page that says so: for the form's «Sign In» on Workday that is the header's, which opens
-    // a dialog over the form (dry run of 2026-10-07). A control found again that still cannot be pressed
-    // is covered by something: nothing else is pressed in its place.
-    if (!button.text) throw error;
+    // is found again in a fresh reading. A text-only selector can find the header's «Sign In» instead of
+    // the form's and open a dialog over the form (dry run of 2026-10-07). A role retry needs a unique match
+    // inside the same form or dialog; without a verified scope, nothing else is pressed in its place.
+    if (!isPreDispatchLocatorClickFailure(error) || !button.text) throw error;
     const again = await sameControl(page, button);
     if (again) {
-      await frame.locator(`[data-aa-id="${again.id}"]`).first().click({ timeout: 6_000 });
-      return 'again';
+      const retryFrames = typeof page.frames === 'function' ? page.frames() : [];
+      const retryFrameNumber = Number(again.frame) || 0;
+      const retryFrame = retryFrames[retryFrameNumber]
+        || (retryFrameNumber === 0 ? (typeof page.mainFrame === 'function' ? page.mainFrame() : page) : null);
+      if (typeof retryFrame?.locator !== 'function') throw error;
+      try {
+        await retryFrame.locator(`[data-aa-id="${again.id}"]`).first().click({ timeout: 6_000 });
+        return 'again';
+      } catch (retryError) {
+        if (!isPreDispatchLocatorClickFailure(retryError)) throw retryError;
+        const recovered = await clickUniqueNamedControl(retryFrame, again);
+        if (recovered) return recovered;
+        throw retryError;
+      }
     }
-    try {
-      await frame.getByText(button.text, { exact: true }).first().click({ timeout: 6_000 });
-      return 'text';
-    } catch (textError) {
-      // A link that never settles is followed by its address.
-      if (!button.href) throw textError;
-      await page.goto(button.href, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-      return 'href';
-    }
+    const recovered = await clickUniqueNamedControl(frame, button);
+    if (recovered) return recovered;
+    throw error;
   }
 }
 
@@ -5336,7 +5379,7 @@ export async function submitViaPortal(ctx) {
           kind: authPageKind(snapshot),
           outcome: auth.handoff || (auth.questions?.length || auth.documents?.length ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
           ...(auth.privacy ? { privacy: auth.privacy } : {}),
-          // How the sign-in button was found (clickButton): by its id, again after a redraw, or by its text.
+          // How the sign-in button was found (clickButton): by id, again after a redraw, or scoped role.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
         };
         if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
@@ -5784,6 +5827,7 @@ export async function submitViaPortal(ctx) {
           by: 'runner',
           buttonId: id,
           formId: String(button.formId || ''),
+          dialogId: String(button.dialogId || ''),
           frame,
           locator: frame.locator(`[data-aa-id="${id}"]`).first(),
           click: () => clickButton(page, button),
@@ -5794,6 +5838,7 @@ export async function submitViaPortal(ctx) {
         by: 'agent',
         buttonId: String(button.buttonId || ''),
         formId: String(button.formId || ''),
+        dialogId: String(button.dialogId || ''),
         frame: button.frame || page.mainFrame(),
         locator: button.locator,
         click: () => clickSubmitButton(page, button),
