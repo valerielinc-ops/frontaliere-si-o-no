@@ -10,6 +10,12 @@ const EVENT_ATTENDANCE_MODES = new Set([
   'OnlineEventAttendanceMode',
   'MixedEventAttendanceMode',
 ]);
+const ISO_4217_CURRENCIES = new Set(
+  // ECMA-402 exposes the runtime's canonical, well-formed ISO 4217 currency set.
+  typeof Intl.supportedValuesOf === 'function'
+    ? Intl.supportedValuesOf('currency')
+    : [],
+);
 const PERFORMER_TYPES = new Set([
   'Person',
   'PerformingGroup',
@@ -22,8 +28,8 @@ const ORGANIZER_TYPES = new Set(['Organization', 'Person']);
 
 function typeNames(value) {
   const types = Array.isArray(value) ? value : [value];
+  if (types.some((type) => typeof type !== 'string')) return [];
   return types
-    .filter((type) => typeof type === 'string')
     .map((type) => type.trim().split(/[\/#]/u).pop());
 }
 
@@ -43,8 +49,14 @@ function isValidDateTime(value) {
   if (year < 1 || month < 1 || month > 12 || day < 1 || day > daysInMonth[month - 1]) return false;
 
   const isDateOnly = /^\d{4}-\d{2}-\d{2}$/u.test(value);
+  const isLocalDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/u.test(value);
   const isZonedDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})$/u.test(value);
-  return (isDateOnly || isZonedDateTime) && Number.isFinite(Date.parse(value));
+  return (isDateOnly || isLocalDateTime || isZonedDateTime) && Number.isFinite(Date.parse(value));
+}
+
+function isValidPreviousStartDate(value) {
+  const dates = Array.isArray(value) ? value : [value];
+  return dates.length > 0 && dates.every(isValidDateTime);
 }
 
 function isHttpUrl(value) {
@@ -59,12 +71,50 @@ function isHttpUrl(value) {
 
 function isValidCurrency(value) {
   if (typeof value !== 'string' || !/^[A-Z]{3}$/u.test(value)) return false;
-  try {
-    return value !== 'XXX'
-      && new Intl.NumberFormat('en', { style: 'currency', currency: value }).resolvedOptions().currency === value;
-  } catch {
-    return false;
+  return value !== 'XXX' && ISO_4217_CURRENCIES.has(value);
+}
+
+function isCompletePhysicalLocation(location) {
+  const address = location?.address;
+  return location
+    && typeof location === 'object'
+    && !Array.isArray(location)
+    && typeNames(location['@type']).includes('Place')
+    && isNonEmpty(location.name)
+    && typeNames(address?.['@type']).includes('PostalAddress')
+    && isNonEmpty(address.streetAddress)
+    && isNonEmpty(address.addressLocality)
+    && isNonEmpty(address.addressRegion)
+    && isNonEmpty(address.postalCode)
+    && isNonEmpty(address.addressCountry);
+}
+
+function isCompleteVirtualLocation(location) {
+  return location
+    && typeof location === 'object'
+    && !Array.isArray(location)
+    && typeNames(location['@type']).includes('VirtualLocation')
+    && isHttpUrl(location.url);
+}
+
+function hasCompleteEventLocation(location, attendanceModes) {
+  const locations = Array.isArray(location) ? location : [location];
+  if (locations.length === 0) return false;
+
+  if (attendanceModes.length !== 1 || !EVENT_ATTENDANCE_MODES.has(attendanceModes[0])) return false;
+
+  const physicalLocations = locations.filter(isCompletePhysicalLocation);
+  const virtualLocations = locations.filter(isCompleteVirtualLocation);
+  if (physicalLocations.length + virtualLocations.length !== locations.length) return false;
+
+  const [attendanceMode] = attendanceModes;
+  if (attendanceMode === 'OfflineEventAttendanceMode') {
+    return physicalLocations.length > 0 && virtualLocations.length === 0;
   }
+  if (attendanceMode === 'OnlineEventAttendanceMode') {
+    return virtualLocations.length > 0 && physicalLocations.length === 0;
+  }
+  return physicalLocations.length > 0 && virtualLocations.length > 0;
 }
 
 function hasNamedEntities(value, allowedTypes) {
@@ -103,7 +153,7 @@ function hasCompleteOffer(offer, event) {
     && offer.price >= 0
     && isValidCurrency(offer.priceCurrency)
     && availability.some((value) => EVENT_AVAILABILITY.has(value))
-    && isValidDateTime(offer.validFrom)
+    && (offer.validFrom === undefined || isValidDateTime(offer.validFrom))
     && isHttpUrl(offer.url)
     && (offer.price !== 0 || event.isAccessibleForFree === true);
 }
@@ -115,8 +165,6 @@ function hasCompleteOffer(offer, event) {
  */
 export function hasCompleteGoogleEventData(event) {
   if (!event || event['@type'] !== 'Event') return false;
-  const location = event.location;
-  const address = location?.address;
   const offers = Array.isArray(event.offers) ? event.offers : [event.offers];
   const images = imageUrls(event.image);
   const status = typeNames(event.eventStatus);
@@ -129,14 +177,7 @@ export function hasCompleteGoogleEventData(event) {
     && isNonEmpty(event.description)
     && event.description.trim().length >= 30
     && images.some(isHttpUrl)
-    && typeNames(location?.['@type']).includes('Place')
-    && isNonEmpty(location.name)
-    && typeNames(address?.['@type']).includes('PostalAddress')
-    && isNonEmpty(address.streetAddress)
-    && isNonEmpty(address.addressLocality)
-    && isNonEmpty(address.addressRegion)
-    && isNonEmpty(address.postalCode)
-    && isNonEmpty(address.addressCountry)
+    && hasCompleteEventLocation(event.location, attendanceModes)
     && hasNamedEntities(event.performer, PERFORMER_TYPES)
     && hasNamedEntities(event.organizer, ORGANIZER_TYPES)
     && hasHttpUrls(event.organizer)
@@ -145,6 +186,6 @@ export function hasCompleteGoogleEventData(event) {
     && offers.length > 0
     && offers.every((offer) => hasCompleteOffer(offer, event))
     && (status.includes('EventRescheduled')
-      ? isValidDateTime(event.previousStartDate)
+      ? isValidPreviousStartDate(event.previousStartDate)
       : !event.previousStartDate);
 }

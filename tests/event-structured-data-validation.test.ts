@@ -11,7 +11,10 @@ const EVENT = {
     name: 'Teatro Sociale',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Via della Prova 1',
       addressLocality: 'Bellinzona',
+      addressRegion: 'TI',
+      postalCode: '6500',
       addressCountry: 'CH',
     },
   },
@@ -31,6 +34,49 @@ describe('validateEventStructuredData', () => {
     expect(errors.map(({ field }) => field)).toContain('location.address');
   });
 
+  it('validates physical and virtual locations against the attendance mode', () => {
+    const virtualLocation = {
+      '@type': ['Thing', 'VirtualLocation'],
+      url: 'https://example.test/events/concerto/stream/',
+    };
+    const physicalLocation = {
+      ...EVENT.location,
+      '@type': ['Thing', 'Place'],
+      address: { ...EVENT.location.address, '@type': ['Thing', 'PostalAddress'] },
+    };
+
+    expect(validateEventStructuredData({
+      ...EVENT,
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: virtualLocation,
+    }, '/dist/event/index.html')).toEqual([]);
+
+    expect(validateEventStructuredData({
+      ...EVENT,
+      eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
+      location: [physicalLocation, virtualLocation],
+    }, '/dist/event/index.html')).toEqual([]);
+
+    const onlineWithPhysical = validateEventStructuredData({
+      ...EVENT,
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+    }, '/dist/event/index.html');
+    expect(onlineWithPhysical.map(({ field }) => field)).toContain('location.@type');
+    expect(onlineWithPhysical.map(({ field }) => field)).toContain('location');
+
+    const offlineWithVirtual = validateEventStructuredData({
+      ...EVENT,
+      location: virtualLocation,
+    }, '/dist/event/index.html');
+    expect(offlineWithVirtual.map(({ field }) => field)).toContain('location.@type');
+
+    const mixedWithoutVirtual = validateEventStructuredData({
+      ...EVENT,
+      eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
+    }, '/dist/event/index.html');
+    expect(mixedWithoutVirtual.map(({ field }) => field)).toContain('location');
+  });
+
   it('does not treat a venue name copied into PostalAddress.name as an address', () => {
     const errors = validateEventStructuredData({
       ...EVENT,
@@ -40,6 +86,33 @@ describe('validateEventStructuredData', () => {
       },
     }, '/dist/event/index.html');
     expect(errors.map(({ field }) => field)).toContain('location.address');
+  });
+
+  it('rejects a partial physical address that the Event renderer cannot publish', () => {
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      location: {
+        ...EVENT.location,
+        address: { '@type': 'PostalAddress', streetAddress: 'Via della Prova 1' },
+      },
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('location.address');
+  });
+
+  it('rejects non-string members in a location @type array without throwing', () => {
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      location: { ...EVENT.location, '@type': [null, 'Place'] },
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('location.@type');
+  });
+
+  it('rejects well-formed but unknown currency codes', () => {
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      offers: { '@type': 'Offer', price: 25, priceCurrency: 'ZZZ' },
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('offers.priceCurrency');
   });
 
   it('rejects an empty Offer instead of treating unknown price as complete', () => {

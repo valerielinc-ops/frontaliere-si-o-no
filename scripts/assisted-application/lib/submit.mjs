@@ -477,10 +477,15 @@ export async function submitApplication(ctx) {
   // or anything it must not bypass ends in the career-ops handoff below.
   let applyUrl = channel.applyUrl || draft.job?.applyUrl || postingUrl || '';
   let channelType = channel.type;
-  // A draft from before the ATS route was resolved (Coop's first order,
-  // 2026-10-02, an ORIOR Jobs2Web draft, or Helsana's retired apply URL):
-  // resolve from the published posting, not a stale saved application endpoint.
-  if (channel.type === 'employer_site' && (postingUrl || applyUrl)) {
+  const currentPostingRoute = publishedPostingUrl || channel.postingUrl || '';
+  // Older employer-site drafts, and SuccessFactors routes synthesized from
+  // page configuration, can keep an ATS URL that no longer opens this job.
+  // Re-resolve those from the current published posting. A Prospective redirect
+  // (`via: 'prospective'`) remains a proven direct route and is left alone.
+  const reResolveFromPosting = channel.type === 'employer_site'
+    || (channel.type === 'successfactors' && channel.via === 'successfactors'
+      && Boolean(currentPostingRoute) && currentPostingRoute !== applyUrl);
+  if (reResolveFromPosting && (postingUrl || applyUrl)) {
     const routeUrl = publishedPostingUrl || channel.postingUrl || channel.applyUrl || draft.job?.applyUrl || postingUrl;
     const directChannel = classifyApplicationChannel({ applyUrl: routeUrl }).type;
     if (directChannel !== 'employer_site' && WAVE1_CHANNELS.has(directChannel)) {
@@ -489,7 +494,7 @@ export async function submitApplication(ctx) {
     } else {
       const target = await resolveApplyUrl(routeUrl, { fetchImpl, resolve: ctx.resolve });
       applyUrl = target.applyUrl || routeUrl;
-      if (target.via) {
+      if (target.via || channel.type !== 'employer_site') {
         channelType = classifyApplicationChannel({ applyUrl }).type;
       }
     }

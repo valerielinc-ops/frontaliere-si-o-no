@@ -731,22 +731,91 @@ export function readStructuredSeoBlock(block) {
 }
 
 /**
- * Return the final static object assigned to a structuredData field.
+ * Return the final static object or array assigned to a property.
  * @returns {string | undefined}
  */
-export function readStaticObjectProperty(block, field) {
+export function readStaticCompositeProperty(block, field) {
   /** @type {string | undefined} */
-  let objectBlock;
+  let composite;
   forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
     if (key !== field) return;
-    // JavaScript object literals are last-write-wins. A later null, dynamic
-    // expression, or primitive must therefore clear an earlier object rather
-    // than leaking stale nested JSON-LD into the emitted page/feed.
-    objectBlock = block[valueStart] === '{'
+    // JavaScript properties are last-write-wins. A later null, dynamic
+    // expression, or primitive must clear an earlier nested JSON-LD value.
+    composite = block[valueStart] === '{' || block[valueStart] === '['
       ? block.slice(valueStart, valueEnd)
       : undefined;
   });
-  return objectBlock;
+  return composite;
+}
+
+/**
+ * Return the final static string or an array of static strings assigned to a property.
+ * @returns {string | string[] | undefined}
+ */
+export function readStaticStringOrStringArrayProperty(block, field) {
+  /** @type {string | string[] | undefined} */
+  let value;
+  forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
+    if (key !== field) return;
+    const state = readPropertyState(block, valueStart, valueEnd);
+    if (state.dynamic) {
+      value = undefined;
+    } else if (typeof state.value === 'string') {
+      value = state.value;
+    } else if (block[valueStart] === '[') {
+      value = readStaticStringArray(block, valueStart, valueEnd);
+    } else {
+      value = undefined;
+    }
+  });
+  return value;
+}
+
+function readStaticStringArray(block, valueStart, valueEnd) {
+  /** @type {string[]} */
+  const values = [];
+  let cursor = valueStart + 1;
+  while (cursor < valueEnd) {
+    cursor = skipStaticTrivia(block, cursor, 'SEO entry', 'string-array');
+    if (cursor >= valueEnd || block[cursor] === ']') return values;
+
+    const itemEnd = valueExpressionEnd(block, cursor);
+    const item = readPropertyState(block, cursor, itemEnd);
+    if (item.dynamic || typeof item.value !== 'string' || !item.valueEnd) return undefined;
+    values.push(item.value);
+    cursor = skipStaticTrivia(block, item.valueEnd, 'SEO entry', 'string-array');
+    if (block[cursor] === ',') {
+      cursor += 1;
+      continue;
+    }
+    if (block[cursor] === ']') return values;
+    return undefined;
+  }
+  return undefined;
+}
+
+/**
+ * Return the final static object assigned to a property.
+ * @returns {string | undefined}
+ */
+export function readStaticObjectProperty(block, field) {
+  const composite = readStaticCompositeProperty(block, field);
+  return composite?.startsWith('{') ? composite : undefined;
+}
+
+/**
+ * Return the final literal boolean assigned to a property.
+ * @returns {boolean | undefined}
+ */
+export function readStaticBooleanProperty(block, field) {
+  /** @type {boolean | undefined} */
+  let booleanValue;
+  forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
+    if (key !== field) return;
+    const literal = block.slice(valueStart, valueEnd).trim();
+    booleanValue = literal === 'true' ? true : literal === 'false' ? false : undefined;
+  });
+  return booleanValue;
 }
 
 /**
