@@ -251,6 +251,17 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
+  it('classifies a page without application controls as unresolved instead of a posting mismatch', async () => {
+    const unrecognized = { ...snapshot(applyUrl, 'Please wait while the portal loads.', []), text: 'Please wait while the portal loads.', title: 'Careers' };
+    const f = fixture(unrecognized);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_needs_candidate' });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('opens the posting-owned CTA when an unrelated Apply control comes first', async () => {
     const headerClick = vi.fn(async () => {});
     const matchingClick = vi.fn(async () => { state.snapshot = profile; });
@@ -304,6 +315,19 @@ describe('runner final guard across three application stages', () => {
 
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
     expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('keeps posting_mismatch for an application surface that names another role', async () => {
+    const otherRole = { ...snapshot(applyUrl, 'Application for a different role.', []),
+      title: 'Different role', text: 'Application for a different role.',
+      fields: [{ id: 'note', kind: 'text', inputType: 'text', label: 'Application note', formId: 'application', frame: 0 }] };
+    const f = fixture(otherRole);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
   });
@@ -441,7 +465,7 @@ describe('runner final guard across three application stages', () => {
       skipPostingCheck: true, maxSteps: 3, codex, launch: async () => browser,
     });
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_needs_candidate' });
     expect(advance).toHaveBeenCalledOnce();
     expect(codex).not.toHaveBeenCalled();
   });

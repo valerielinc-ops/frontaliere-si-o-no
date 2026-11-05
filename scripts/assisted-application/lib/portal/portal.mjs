@@ -5467,7 +5467,10 @@ export async function submitViaPortal(ctx) {
     // pass postingMatch, while exposing only the site's Menu/Search controls.
     // Do not send that chrome to the agent as if it were an unanswered
     // candidate question; it is not the application form for this posting.
-    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
+    // No recognizable form or control is unknown page state, not evidence that
+    // the runner reached a different vacancy. Keep explicit identity conflicts
+    // on the posting_mismatch path below.
+    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('portal_needs_candidate');
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
@@ -6093,7 +6096,7 @@ export async function submitViaPortal(ctx) {
       // generic optional upload and gallery controls. The entry-point guard
       // above does not run again, so stop before the no-controls agent fallback
       // treats that content as an unanswered application question.
-      if (!hasApplicationSurface(after)) return await handoff('posting_mismatch');
+      if (!hasApplicationSurface(after)) return await handoff('portal_needs_candidate');
       let advance = null;
       let finalByAgent = null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's
