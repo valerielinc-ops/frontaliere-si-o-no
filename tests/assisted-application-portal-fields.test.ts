@@ -527,6 +527,45 @@ describe('portal field extraction', () => {
     expect(clicks).toEqual(['[data-aa-id="customize"]', '[data-aa-id="reject"]']);
   });
 
+  it('does not treat application-owned cookie settings as a preference center', async () => {
+    const url = 'https://career5.successfactors.eu/career';
+    const clicks: string[] = [];
+    const snapshot = {
+      url,
+      text: 'Cookie-Einstellungen E-Mail-Adresse: * E-Mail-Adresse erneut eingeben: * Wähle ein Kennwort: * Kennwort erneut eingeben: * Konto anlegen',
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse: *', formId: 'registration', dialogId: 'd1', frame: 0 },
+        { id: 'email-repeat', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse erneut eingeben: *', formId: 'registration', dialogId: 'd1', frame: 0 },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Wähle ein Kennwort: *', formId: 'registration', dialogId: 'd1', frame: 0 },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Kennwort erneut eingeben: *', formId: 'registration', dialogId: 'd1', frame: 0 },
+      ],
+      buttons: [
+        { id: 'cookie-settings', text: 'Cookie-Einstellungen', dialog: true, dialogId: 'd1', disabled: false, frame: 0 },
+        { id: 'privacy', text: 'Lese und akzeptiere die Datenschutzerklärung.', dialog: true, dialogId: 'd1', disabled: false, frame: 0 },
+        { id: 'register', text: 'Konto anlegen', dialog: true, dialogId: 'd1', disabled: false, frame: 0 },
+      ],
+      links: [],
+      dialogs: [{ dialogId: 'd1' }],
+      errors: [],
+      captcha: false,
+      passwordVisible: true,
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => snapshot),
+      locator: vi.fn((selector: string) => ({
+        innerText: vi.fn(async () => snapshot.text),
+        first: () => ({ click: vi.fn(async () => { clicks.push(selector); }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+    expect(clicks).toEqual([]);
+  });
+
   it('hands off when preferences reveal no explicit cookie decision', async () => {
     const url = 'https://careers.example/apply';
     let stage = 0;

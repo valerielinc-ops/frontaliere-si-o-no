@@ -951,6 +951,22 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+function hasApplicationFormInCookieScope(snapshot, button) {
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const frame = Number(button?.frame) || 0;
+  const formId = String(button?.formId || '');
+  const roleFormId = String(button?.roleFormId || '');
+  const dialogId = String(button?.dialogId || '');
+  const scopedFields = fields.filter((field) => {
+    if ((Number(field?.frame) || 0) !== frame) return false;
+    const sameForm = (formId && String(field?.formId || '') === formId)
+      || (roleFormId && String(field?.roleFormId || '') === roleFormId);
+    const sameDialog = dialogId && String(field?.dialogId || '') === dialogId;
+    return sameForm || sameDialog;
+  });
+  return scopedFields.length > 0 && hasApplicationForm({ ...snapshot, fields: scopedFields });
+}
+
 function comparablePortalRoute(value, base = '') {
   try {
     const url = new URL(String(value || ''), base || undefined);
@@ -1491,9 +1507,17 @@ async function isPageCookieConsentControl(page, snapshot, button) {
 }
 
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
+  const label = cookieControlLabel(button);
+  const isPreferenceControl = COOKIE_CUSTOMIZE_RE.test(label)
+    || COOKIE_GENERIC_PREFERENCES_RE.test(label)
+    || COOKIE_MANAGE_CONSENT_RE.test(label);
+  // An ATS registration dialog can expose a persistent cookie-settings link
+  // next to its application fields. The form contract is stronger evidence
+  // of application ownership than the shared word "cookie" in that dialog.
+  if (isPreferenceControl && hasApplicationFormInCookieScope(snapshot, button)) return false;
   // A privacy/consent action can use the same bare label inside the
   // application form. It is never a cookie-manager entry point there.
-  if (COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button)) && (button.formId || button.roleFormId)) return false;
+  if (COOKIE_MANAGE_CONSENT_RE.test(label) && (button.formId || button.roleFormId)) return false;
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
