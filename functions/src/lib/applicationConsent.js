@@ -118,21 +118,24 @@ export function minimumDataRetentionOption(options, question = '') {
     // may be arbitrarily long (“not under any circumstances ... delete”).
     const negationWords = /\b(?:not|never|no|non|nicht|nie|pas|aucun(?:e|s|es)?|kein\w*|\w+n t|cannot)\b/;
     const refusalWords = /\b(?:refus\w*|declin\w*|reject\w*|disagree\w*|unwilling\w*|unwillig\w*|reluctant\w*|rifiut\w*|verweiger\w*)\b/;
+    const commaBoundary = '\u0001';
     // Never bridge an independent, conditional, or uncertain clause when filtering negated refusals.
-    const refusalBridgeBoundaryWords = String.raw`(?:and|or|but|however|although|though|whereas|while|yet|instead|otherwise|because|since|therefore|so|ma|pero|bensi|mais|cependant|pourtant|toutefois|neanmoins|et|ou|aber|sondern|jedoch|hingegen|und|oder|e|ed|o|oppure|mas|sino|if|whether|ob|se|si|qualora|falls|wenn|sure|sur|certain\w*|uncertain|unsure|maybe|perhaps|probably|possibly|likely|think|believe|know|suppose|guess|doubt|credo|penso|pensare|forse|magari|incerto|incerta|certo|certa|sicur\w*|crois|pense|sais|savoir|doute|vielleicht|glaube|denke|weiss|wissen|unsicher)`;
-    const refusalBridge = String.raw`(?:(?!\b${refusalBridgeBoundaryWords}\b)[a-z0-9]+ ){0,3}`;
+    const refusalBridgeBoundaryWords = String.raw`(?:and|or|but|however|although|though|whereas|while|yet|instead|otherwise|because|since|therefore|so|ma|pero|bensi|mais|cependant|pourtant|toutefois|neanmoins|et|ou|aber|sondern|jedoch|hingegen|und|oder|e|ed|o|oppure|mas|sino|if|whether|ob|se|si|qualora|falls|wenn|sure|sur|certain\w*|uncertain|unsure|maybe|perhaps|probably|possibly|likely|think|believe|know|suppose|guess|doubt|credo|penso|pensare|forse|magari|incerto|incerta|certo|certa|sicur\w*|crois|pense|sais|savoir|doute|vielleicht|glaube|denke|weiss|wissen|unsicher|i|we|our|you|he|she|they|their|candidate|applicant|employer|company|recruiter\w*|hiring|team|organization|organisation|firm|management|hr|human|resources|board|committee|azienda|datore|societa|impresa|selezionator\w*|responsabile|commissione|employeur|entreprise|recruteur\w*|equipe|arbeitgeber|unternehmen|firma|personalabteilung|empresa|equipo|je|tu|il|elle|nous|notre|leur|vous|ils|elles|io|lui|lei|noi|voi|loro|ich|du|er|sie|wir|ihr|unser\w*|bewerber\w*|kandidat\w*|candidat\w*|candidato\w*|candidata\w*)`;
+    const refusalBridge = String.raw`(?:${commaBoundary} )*(?:(?!\b${refusalBridgeBoundaryWords}\b)[a-z0-9]+ (?:${commaBoundary} )*){0,3}`;
     const startsWithNegativeAnswerAndFirstPersonRefusal = new RegExp(
       `^(?:no|non|nein) (?:i|we|io|ich|je|nous|noi|loro)\\b(?: [a-z0-9]+){0,3} ${refusalWords.source}`,
     );
-    const removeNegatedRefusal = clauseText => startsWithNegativeAnswerAndFirstPersonRefusal.test(clauseText)
-      ? clauseText
-      : clauseText.replace(
-        new RegExp(`(?:${negationWords.source}${refusalBridge}${refusalWords.source}|${refusalWords.source}${refusalBridge}(?:pas|plus|jamais|nicht)\\b)`, 'g'),
+    const removeNegatedRefusal = clauseText => startsWithNegativeAnswerAndFirstPersonRefusal.test(
+      clauseText.split(commaBoundary).join(' ').replace(/\s+/g, ' ').trim(),
+    ) ? clauseText : clauseText.replace(
+        new RegExp(`(?:${negationWords.source} ${refusalBridge}${refusalWords.source}|${refusalWords.source} ${refusalBridge}(?:pas|plus|jamais|nicht)\\b)`, 'g'),
         match => /\bnot only\b/.test(match) ? match : ' ',
       );
     const withoutWords = /\b(?:without|sans|ohne|senza)\b/;
     // Split before normalize(), which would otherwise erase Unicode clause dashes.
-    const clauseTexts = option.purpose.split(/[,.!?;:\r\n\u2012-\u2015]+|\s+-\s+/u).map(normalize);
+    const clauseGroups = option.purpose.split(/[.!?;:\r\n\u2012-\u2015]+|\s+-\s+/u);
+    const commaClauseGroups = clauseGroups.map(clauseText => clauseText.split(',').map(normalize));
+    const clauseTexts = commaClauseGroups.flat();
     const applicationOutcomeWords = String.raw`(?:selected|chosen|hired|accepted|approved|eligible|successful|rejected|declined|refused|selezionat\w*|assunt\w*|selectionne\w*|retenu\w*|choisi\w*|embauch\w*|ausgewahlt|ausgewaehlt|eingestellt|abgelehnt|abgelehn\w*|verworfen)`;
     const selectionConditionPattern = new RegExp(
       `\\b(?:if|unless|when|whenever|provided that|se|qualora|wenn|falls|si)\\b(?: [a-z0-9]+){0,12}(?: ${negationWords.source}(?: [a-z0-9]+){0,12})? \\b${applicationOutcomeWords}\\b`,
@@ -150,8 +153,12 @@ export function minimumDataRetentionOption(options, question = '') {
       const bareNonSelection = /^\b(?:if|unless|when|whenever|provided that|se|qualora|wenn|falls|si)\b (?:not|never|no|non|nicht|nie) (?:selected|chosen|hired|eligible|successful|selezionat\w*|assunt\w*|selectionne\w*|retenu\w*|choisi\w*|embauch\w*|ausgewahlt|ausgewaehlt|eingestellt)$/.test(match);
       return !consentOrDataContext && !activeCandidateRejection && (applicantContext || bareRejection || bareNonSelection) ? ' ' : match;
     });
-    const scopedClauseTexts = clauseTexts.map(selectionCondition);
-    const refusalAwareClauseTexts = scopedClauseTexts.map(removeNegatedRefusal);
+    const scopedClauseGroups = commaClauseGroups.map(group => group.map(selectionCondition));
+    const scopedClauseTexts = scopedClauseGroups.flat();
+    const refusalAwareClauseGroups = scopedClauseGroups.map(group =>
+      removeNegatedRefusal(group.join(` ${commaBoundary} `)));
+    const refusalAwareClauseTexts = refusalAwareClauseGroups.flatMap(clauseText =>
+      clauseText.split(commaBoundary).map(normalize));
     const negatesDeletion = refusalAwareClauseTexts.some(clauseText => {
       const negatesBeforeDeletion = new RegExp(`${negationWords.source}(?: [a-z0-9]+)* ${deletionWords.source}`);
       const affirmativeWithoutQualifier = /(?:(?:any|a|an|the|further|additional|undue|more|another|weitere|weiteren|ulteriore|ulteriori|plus|aucun|aucune) )*(?:delay|delai|verzoegerung|verzogerung|ritardo|indugio|hesitation|hesitance|esitazione|zogern|zogerung|attendre|waiting|warning|notice|reservation|interruption|prejudice|ado)\b/;
@@ -203,18 +210,23 @@ export function minimumDataRetentionOption(options, question = '') {
     });
     const candidateInitiatedRejection = /\b(?:i|you)\b(?: (?:have|has|had))? (?:reject\w*|refus\w*|declin\w*)\b/;
     const candidateAsRejectionAgent = /\b(?:reject\w*|refus\w*|declin\w*|rifiut\w*|verweiger\w*|abgelehn\w*)\b(?: [a-z0-9]+){0,8} \b(?:by (?:me|you|the candidate|the applicant)|da (?:me|te|candidat\w*)|par (?:moi|vous|candidat\w*)|von (?:mir|ihnen|dem bewerber\w*))\b/;
+    const candidateRefusalSubject = String.raw`(?:i|we|you|me|my|yo|nosotros|usted|ustedes|io|noi|tu|voi|je|nous|vous|ich|wir|du|ihr|candidate\w*|applicant\w*|candidat\w*|bewerber\w*|kandidat\w*|candidato\w*|candidata\w*)`;
+    const candidateExplicitRefusal = new RegExp(String.raw`\b${candidateRefusalSubject}\b ${refusalBridge}${refusalWords.source}`);
+    const applicantRejectedByEmployer = /\b(?:candidate\w*|applicant\w*|candidat\w*|bewerber\w*|kandidat\w*|candidato\w*|candidata\w*)\b(?: (?:after review|following review|after consideration|apres examen|apres etude|dopo la revisione|nach der prufung|tras la revision)){0,2}(?: (?:am|is|are|was|were|has been|have been|had been|got|ist|war|wurde|wird|sind|wurden|viene|vengono|suis|est|sommes|sont|a ete|ont ete|e stato|e stata|sono stati|sono state|bin|bist|waren|werden) (?:reject\w*|refus\w*|declin\w*|rifiutat\w*|respint\w*|abgelehn\w*)| (?:reject\w*|refus\w*|declin\w*|rifiutat\w*|respint\w*|abgelehn\w*))\b(?: (?:yesterday|today|recently|previously|earlier|already|gestern|heute|vorher|bereits|hier|auparavant|recemment|aujourd hui|ieri|oggi|prima|recentemente|ayer|hoy|antes|recientemente)){0,2} (?:by (?:the )?(?:employer|company|recruiter\w*|organization|organisation|eoc|hospital)|par (?:l )?(?:employeur|entreprise|recruteur\w*|societe|eoc|hopital)|(?:da|dal|dalla|dall|dell|della|dello) (?:l )?(?:datore|azienda|societa|impresa|recruiter\w*|eoc|ospedale)|(?:vom|von (?:dem )?)(?:arbeitgeber|unternehmen|firma|eoc|krankenhaus)|por (?:el )?(?:empleador|empresa|recruiter\w*|eoc|hospital)|del (?:empleador|recruiter\w*|eoc))\b/;
     const applicationOutcomeRejection = /\b(?:application(?: process)?|candidac\w*|candidatur\w*|bewerbung(?:sverfahren)?|job|position|stelle)\b(?: (?:is|was|are|were|has been|have been|had been|got|ist|war|wurde|wird|sind|wurden|e stato|e stata|sono stati|sono state|a ete|ont ete|est|sont))? (?:not )?(?:reject\w*|refus\w*|declin\w*|rifiut\w*|rejet\w*|abgelehn\w*|verworfen|not selected|nicht ausgewahlt|non selezionat\w*|pas selectionne\w*)\b/;
     const passiveApplicantRejection = /\b(?:i|you|he|she|they|je|tu|il|elle|nous|vous|ils|elles|on|io|lui|lei|noi|voi|loro|er|sie|ich|du|wir|ihr|candidate|applicant|candidat\w*|bewerber\w*|kandidat\w*|candidato\w*|candidata\w*)\b.{0,24}\b(?:am|is|are|was|were|have been|has been|got|sono(?: stato| stata| stati| state)?|sei|e(?: stato| stata)?|siamo|siete|viene|vengono|suis|es|est|sommes|etes|sont|a ete|ont ete|bin|bist|ist|sind|war|waren|wurde|wurden|wird|werden)\b.{0,24}\b(?:rejected|refused|declined|rifiutat\w*|respint\w*|refuse(?:e|es|s)?|rejete(?:e|es|s)?|decline(?:e|es|s)?|abgelehnt|verworfen)\b/;
     const employerRejection = /\b(?:we|they|the employer|the company)\b.{0,20}\b(?:reject(?:ed)?|refuse(?:d)?|decline(?:d)?|abgelehnt|verworfen)\b.{0,25}\b(?:you|your application|candidate|applicant|(?:the|an|my) application|candidac\w*|candidatur\w*)\b/;
     const removeAtsRejectionOutcome = clauseText => candidateAsRejectionAgent.test(clauseText)
       ? clauseText
-      : [applicationOutcomeRejection, passiveApplicantRejection, employerRejection]
+      : [applicationOutcomeRejection, passiveApplicantRejection, applicantRejectedByEmployer, employerRejection]
         .reduce((remaining, pattern) => remaining.replace(new RegExp(pattern.source, 'g'), ' '), clauseText);
-    const explicitlyRefuses = refusalAwareClauseTexts.some(clauseText => {
-      const candidateRefusalClause = removeAtsRejectionOutcome(clauseText);
+    const explicitlyRefuses = refusalAwareClauseGroups.some(clauseText => {
+      const candidateRefusalClause = removeAtsRejectionOutcome(
+        clauseText.split(commaBoundary).join(' ').replace(/\s+/g, ' ').trim(),
+      );
       return candidateInitiatedRejection.test(candidateRefusalClause)
         || candidateAsRejectionAgent.test(candidateRefusalClause)
-        || refusalWords.test(candidateRefusalClause);
+        || candidateExplicitRefusal.test(candidateRefusalClause);
     });
     const answerIsNo = /^(?:no|non|nein|nein danke|non desidero|non acconsento|non consento|i do not consent|i don t consent)$/
       .test(normalize(option.label));
