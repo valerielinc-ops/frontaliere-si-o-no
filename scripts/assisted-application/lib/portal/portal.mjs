@@ -2178,12 +2178,13 @@ export function formPostingMatch(formText, job = {}, {
   if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
-  // On the verified same-origin vacancy route, the matching role in the page
-  // heading binds the form; keep the other-employer guard on that heading.
+  // The verified same-origin vacancy id binds the form even when the heading is
+  // generic; keep the other-employer guard on that heading, not on native field
+  // labels that describe the application itself.
   const heading = String(formText || '').split(/\r?\n/, 1)[0];
-  if (bound && isUmantisApplicationRoute(pageUrl)
-    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl })
-    && titleMatches(heading, job.title)) {
+  const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
+    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl });
+  if (boundUmantisApplication) {
     if (namesAnotherEmployer(heading, job)) return 'mismatch';
     return 'match';
   }
