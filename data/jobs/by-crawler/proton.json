@@ -1,7 +1,7 @@
 {
   "crawlerKey": "proton",
-  "assembledAt": "2026-11-04T21:32:32.867Z",
-  "runId": "41914815346",
+  "assembledAt": "2026-11-05T09:40:04.962Z",
+  "runId": "42001258715",
   "jobs": [
     {
       "id": "proton-3c306b854149",
@@ -34,7 +34,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:24.351Z",
+      "crawledAt": "2026-11-05T09:39:58.279Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,7 +78,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:32:24.351Z",
+      "validThrough": "2026-12-05T09:39:58.279Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4766179101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:24.048Z",
+      "crawledAt": "2026-11-05T09:39:57.977Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -162,7 +162,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:32:24.048Z",
+      "validThrough": "2026-12-05T09:39:57.977Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -196,7 +196,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4962235101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:23.741Z",
+      "crawledAt": "2026-11-05T09:39:57.672Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -242,7 +242,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:32:23.741Z",
+      "validThrough": "2026-12-05T09:39:57.672Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -276,7 +276,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:23.428Z",
+      "crawledAt": "2026-11-05T09:39:57.362Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -323,7 +323,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:32:23.428Z",
+      "validThrough": "2026-12-05T09:39:57.362Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -357,7 +357,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4999112101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:23.123Z",
+      "crawledAt": "2026-11-05T09:39:57.059Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -400,7 +400,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:32:23.123Z",
+      "validThrough": "2027-01-05T09:39:57.059Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -434,7 +434,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/5024892101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:22.795Z",
+      "crawledAt": "2026-11-05T09:39:56.741Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -451,8 +451,9 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5024892101",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-03T21:30:08.989Z",
+      "previousSlugs": [
+        "senior-marketing-data-analyst-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-marketing-data-analyst-proton-ch"
@@ -461,9 +462,8 @@
           "senior-marketing-data-analyst-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-marketing-data-analyst-proton-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-03T21:30:08.989Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -481,7 +481,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:32:22.795Z",
+      "validThrough": "2027-02-01T09:39:56.741Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -515,7 +515,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:32:22.413Z",
+      "crawledAt": "2026-11-05T09:39:56.415Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -565,7 +565,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:32:22.413Z",
+      "validThrough": "2026-12-05T09:39:56.415Z",
       "validThroughSource": "last-observed-window"
     }
   ]

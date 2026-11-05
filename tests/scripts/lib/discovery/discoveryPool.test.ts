@@ -4,7 +4,7 @@
 // at least 2 sources, dedupes against proven headlines, scores via
 // source-specific multipliers.
 
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   buildDiscoveryPool,
@@ -286,6 +286,26 @@ describe('scoreCandidates', () => {
 
   it('returns [] when input is empty', () => {
     expect(scoreCandidates([], evidence)).toEqual([]);
+  });
+
+  it('does not log signal headlines or free-form scoring errors', () => {
+    const privateTopic = 'private-trends-topic-sentinel';
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      expect(scoreCandidates([{
+        headline: privateTopic,
+        source: 'suggest',
+        url: null,
+        meta: {},
+      }], {})).toEqual([]);
+      const output = warning.mock.calls.flat().join(' ');
+      expect(output).toContain('candidate_index=1');
+      expect(output).toContain('error_type=Error');
+      expect(output).not.toContain(privateTopic);
+      expect(output).not.toContain('lacks a Ticino/frontalieri anchor token');
+    } finally {
+      warning.mockRestore();
+    }
   });
 });
 

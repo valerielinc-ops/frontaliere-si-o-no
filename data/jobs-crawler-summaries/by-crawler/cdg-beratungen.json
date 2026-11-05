@@ -1,7 +1,7 @@
 {
   "key": "cdg-beratungen",
   "label": "cdg Beratungen AG",
-  "generatedAt": "2026-11-04T21:49:52.518Z",
+  "generatedAt": "2026-11-05T09:36:48.480Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5689,
-  "avgDurationMs": 5689,
+  "durationMs": 3711,
+  "avgDurationMs": 3711,
   "durationHistory": [
-    5689
+    3711
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cdg-beratungen-8a6a6d42e096",
-      "slug": "trainee-sales-80-100-m-w-d-opfikon-zurich-cdg-beratungen-ch",
+      "slug": "apprendista-sales-80-100-m-w-d-cdg-beratungen-ag-opfikon",
       "company": "cdg Beratungen AG",
       "companyKey": "cdg-beratungen",
       "companyDomain": "cdg-beratungen.softgarden.io",
@@ -34,7 +35,7 @@
       "url": "https://cdg-beratungen.softgarden.io/job/67261350?l=de",
       "source": "cdg Beratungen AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:49:33.934Z",
+      "crawledAt": "2026-11-05T09:36:31.182Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,25 +53,23 @@
       "postedDate": "2026-10-14T11:55:41.550+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://cdg-beratungen.softgarden.io/job/67261350?l=de",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T21:49:33.934Z",
       "salaryMin": 65500,
       "salaryMax": 100500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:49:33.934Z",
+      "validThrough": "2027-01-13T09:36:31.182Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:49:33.934Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

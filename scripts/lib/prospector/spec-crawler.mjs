@@ -1913,13 +1913,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     // clients while a browser receives the full vacancy board. A non-empty
     // subset must not enter the normal detail pipeline as if it were the
     // complete population: it is exactly the shape that can shrink a healthy
-    // slice without triggering the zero-result rescue. This is opt-in per
+    // slice without triggering the zero-result rescue. Treat equality as
+    // partial too: a page-sized response can stop at the learned sample
+    // boundary while the source still has more vacancies. This is opt-in per
     // source because the browser fetch is bounded but materially more
     // expensive than the ordinary transport, and the learned sample count is
     // source evidence rather than a generic population threshold.
     if (spec.rescueOnPartialListing === true
       && candidates.length > 0
-      && Number(spec.sampleVacancyCount) > candidates.length
+      && Number(spec.sampleVacancyCount) >= candidates.length
       && runtime.disableWafProxy !== true
       && typeof runtime.browserFetchImpl === 'function') {
       const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);

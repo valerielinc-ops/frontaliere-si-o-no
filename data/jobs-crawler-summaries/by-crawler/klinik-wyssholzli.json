@@ -1,20 +1,67 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-11-04T21:45:37.348Z",
-  "total": 5,
+  "generatedAt": "2026-11-05T09:43:15.470Z",
+  "total": 6,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5088,
-  "avgDurationMs": 5088,
+  "durationMs": 2786,
+  "avgDurationMs": 2786,
   "durationHistory": [
-    5088
+    2786
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Pflegefachfrau Hf Ca. 80 2027",
+      "slug": "pflegefachfrau-hf-ca-80-2027-klinik-wyssholzli",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_ca.-80-_2027.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "2027-02-03T09:43:02.827Z",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Pflegefachfrau-HF_ca.-80-_2027.pdf"
+      },
+      "id": "klinik-wyssholzli-ecfd30370266",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Herzogenbuchsee",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T09:43:02.827Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -154,51 +201,6 @@
       }
     },
     {
-      "title": "Pflegefachfrau Hf 80 2027",
-      "slug": "infermiera-hf-80-2027-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_80-_2027.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "2027-01-27T21:33:44.901Z",
-      "_meta": {
-        "sourceFilename": "Pflegefachfrau-HF_80-_2027.pdf"
-      },
-      "id": "klinik-wyssholzli-92e2006711aa",
-      "firstSeenAt": "2026-10-29T21:33:44.901Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Herzogenbuchsee",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
       "title": "Praktikantin Pflege",
       "slug": "infermieristica-klinik-wyssholzli-herzogenbuchsee",
       "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Praktikantin-Pflege.pdf",
@@ -242,7 +244,53 @@
         "translation": 25,
         "completeness": 23
       }
+    },
+    {
+      "title": "Pflegefachfrau Hf 80 2027",
+      "slug": "infermiera-hf-80-2027-klinik-wyssholzli-herzogenbuchsee",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_80-_2027.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "2027-01-27T21:33:44.901Z",
+      "_meta": {
+        "sourceFilename": "Pflegefachfrau-HF_80-_2027.pdf"
+      },
+      "id": "klinik-wyssholzli-92e2006711aa",
+      "firstSeenAt": "2026-10-29T21:33:44.901Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Herzogenbuchsee",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }
