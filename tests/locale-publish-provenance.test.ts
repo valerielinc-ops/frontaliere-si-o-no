@@ -8,7 +8,10 @@ import {
   validateLocalePublishProvenance,
   validateLocaleSourceProvenance,
 } from '../scripts/ci/locale-publish-provenance.mjs';
-import { resolveLocalePublishPlan } from '../scripts/ci/resolve-locale-publish-plan.mjs';
+import {
+  requiredPublisherSourceArtifacts,
+  resolveLocalePublishPlan,
+} from '../scripts/ci/resolve-locale-publish-plan.mjs';
 import { resolveNonItPublishPlan } from '../scripts/ci/resolve-nonit-publish-plan.mjs';
 import {
   localeHomeUrl,
@@ -243,6 +246,29 @@ describe('locale publish admission plan', () => {
       legacySourceLocales: ['en', 'de', 'fr'],
     });
     expect(plan.reason).toContain('enqueue one current build request to replay the split handoff');
+  });
+
+  it('blocks a source snapshot without fast-gate receipts before validation and requests a current build', () => {
+    const required = requiredPublisherSourceArtifacts(SOURCE_RUN_ID);
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'success',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: jobs(),
+      provenance: manifests('it', 'en', 'de', 'fr'),
+      sourceArtifacts: {
+        artifacts: [{ name: required[0], expired: false }],
+      },
+    });
+    expect(plan).toMatchObject({
+      allowed: false,
+      mode: 'blocked',
+      recoveryRequired: true,
+      legacySourceLocales: [],
+    });
+    expect(plan.reason).toContain('missing publisher fast-gate artifacts');
+    expect(plan.reason).toContain(required[1]);
+    expect(plan.reason).toContain('enqueue one current build request before validation');
   });
 
   it('blocks the snapshot when one matrix leg is cancelled', () => {
@@ -511,6 +537,12 @@ describe('locale publish workflow wiring', () => {
     expect(String(resolver.if)).toContain("needs.validate-source-build.result == 'success'");
     expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
     expect(resolver.outputs.recovery_required).toContain('steps.plan.outputs.recovery_required');
+    const sourceArtifacts = (resolver.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Read source artifact inventory');
+    expect(String(sourceArtifacts?.run)).toContain('actions/runs/${SOURCE_RUN_ID}/artifacts');
+    expect(String((resolver.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Resolve fail-closed locale plan')?.run))
+      .toContain('--source-artifacts-file "$RUNNER_TEMP/source-artifacts.json"');
     expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'resolve-nonit-publish']);
     expect(String(deployJob.if)).toContain('outputs.allowed');
     expect(String(deployJob.if)).toContain("needs.resolve-publish-plan.outputs.it_admitted == 'true'");

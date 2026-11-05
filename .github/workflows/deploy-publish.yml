@@ -241,6 +241,17 @@ jobs:
           set -euo pipefail
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/jobs?per_page=100" > "$RUNNER_TEMP/source-jobs.json"
 
+      - name: Read source artifact inventory
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+        run: |
+          set -euo pipefail
+          gh api --paginate --slurp \
+            "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100" \
+            | jq '{artifacts: [ .[] | .artifacts[] | {name, expired} ]}' \
+            > "$RUNNER_TEMP/source-artifacts.json"
+
       # A cancelled leg can stop before its final `always()` step, so missing
       # receipts are a valid input to the resolver. Successful legs, however,
       # cannot be admitted without their receipt.
@@ -267,6 +278,7 @@ jobs:
           node scripts/ci/resolve-locale-publish-plan.mjs \
             --jobs-file "$RUNNER_TEMP/source-jobs.json" \
             --provenance-dir "$RUNNER_TEMP/locale-publish-provenance" \
+            --source-artifacts-file "$RUNNER_TEMP/source-artifacts.json" \
             --run-conclusion "$SOURCE_RUN_CONCLUSION" \
             --source-run-id "$SOURCE_RUN_ID" \
             --source-sha "$SOURCE_SHA" \

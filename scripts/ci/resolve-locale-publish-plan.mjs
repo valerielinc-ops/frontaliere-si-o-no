@@ -29,6 +29,14 @@ const PREREQUISITE_NAMES = Object.freeze([
   'matrix-setup',
   'prep',
 ]);
+const PUBLISHER_SOURCE_ARTIFACT_KINDS = Object.freeze([
+  'sitemaps',
+  'sitemap-page-manifest-it',
+  'sitemap-page-manifest-en',
+  'sitemap-page-manifest-de',
+  'sitemap-page-manifest-fr',
+  'section-page-manifest-it',
+]);
 
 function text(value) {
   return value == null ? '' : String(value).trim();
@@ -36,6 +44,22 @@ function text(value) {
 
 function normalizeConclusion(value) {
   return text(value).toLowerCase();
+}
+
+export function requiredPublisherSourceArtifacts(sourceRunId) {
+  const runId = text(sourceRunId);
+  return PUBLISHER_SOURCE_ARTIFACT_KINDS.map((kind) => `${kind}-${runId}`);
+}
+
+function missingPublisherSourceArtifacts(sourceRunId, payload) {
+  const records = Array.isArray(payload) ? payload : payload?.artifacts;
+  const artifacts = new Map(
+    (Array.isArray(records) ? records : [])
+      .map((artifact) => [text(artifact?.name ?? artifact), artifact])
+      .filter(([name]) => name),
+  );
+  return requiredPublisherSourceArtifacts(sourceRunId)
+    .filter((name) => !artifacts.has(name) || artifacts.get(name)?.expired === true);
 }
 
 function hasOwn(object, key) {
@@ -113,11 +137,10 @@ function blockedPlan({
   reasons,
   staleReasons = {},
   recoveryRequired = false,
+  recoveryReasons = [],
   legacySourceLocales = [],
 }) {
-  const recoveryReason = recoveryRequired
-    ? `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; enqueue one current build request to replay the split handoff`
-    : '';
+  const recoveryReason = recoveryRequired ? recoveryReasons.join('; ') : '';
   const reason = reasons.join('; ') || 'no locale publish plan was admissible';
   return {
     allowed: false,
@@ -146,6 +169,7 @@ export function resolveLocalePublishPlan({
   jobs,
   provenance = [],
   provenanceErrors = [],
+  sourceArtifacts,
 }) {
   const conclusion = normalizeConclusion(runConclusion);
   const runId = text(sourceRunId);
@@ -266,6 +290,15 @@ export function resolveLocalePublishPlan({
     if (!staleReasons[locale]) staleReasons[locale] = 'not admitted; keep the last-known-good locale shard';
   }
 
+  const missingPublisherArtifacts = sourceArtifacts === undefined
+    ? []
+    : missingPublisherSourceArtifacts(runId, sourceArtifacts);
+  if (missingPublisherArtifacts.length > 0) {
+    reasons.push(
+      `source build is missing publisher fast-gate artifacts: ${missingPublisherArtifacts.join(', ')}`,
+    );
+  }
+
   // IT is the one non-negotiable common payload. No amount of healthy
   // per-locale evidence can publish around a missing/invalid IT receipt.
   if (!healthyLocales.includes('it')) {
@@ -281,7 +314,18 @@ export function resolveLocalePublishPlan({
     reasons.push(`source locale handoff is incomplete for ${sourceIncompleteLocales.join(', ')}; refusing publish`);
   }
 
-  const recoveryRequired = legacySourceLocales.length > 0;
+  const recoveryReasons = [];
+  if (legacySourceLocales.length > 0) {
+    recoveryReasons.push(
+      `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; enqueue one current build request to replay the split handoff`,
+    );
+  }
+  if (missingPublisherArtifacts.length > 0) {
+    recoveryReasons.push(
+      'source build predates or did not emit the publisher fast-gate receipt contract; enqueue one current build request before validation',
+    );
+  }
+  const recoveryRequired = recoveryReasons.length > 0;
 
   if (reasons.length) {
     return blockedPlan({
@@ -291,13 +335,12 @@ export function resolveLocalePublishPlan({
       reasons,
       staleReasons,
       recoveryRequired,
+      recoveryReasons,
       legacySourceLocales,
     });
   }
 
-  const recoveryReason = recoveryRequired
-    ? `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; enqueue one current build request to replay the split handoff`
-    : '';
+  const recoveryReason = recoveryReasons.join('; ');
 
   return {
     allowed: true,
@@ -358,6 +401,9 @@ function main() {
   }
   const jobs = readJson(args['jobs-file']);
   const loaded = readLocalePublishProvenanceDirectory(args['provenance-dir']);
+  const sourceArtifacts = args['source-artifacts-file']
+    ? readJson(args['source-artifacts-file'])
+    : undefined;
   const plan = resolveLocalePublishPlan({
     runConclusion: args['run-conclusion'],
     sourceRunId: args['source-run-id'] || '',
@@ -365,6 +411,7 @@ function main() {
     jobs,
     provenance: loaded.manifests,
     provenanceErrors: loaded.errors,
+    sourceArtifacts,
   });
   writeGithubOutputs(args['github-output'], plan);
   console.log(JSON.stringify(plan));
