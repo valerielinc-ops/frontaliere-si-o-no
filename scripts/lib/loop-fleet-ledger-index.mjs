@@ -276,28 +276,32 @@ export function trackedLedgerFileOids(ledgerDir) {
     }).trim();
     const relativeLedgerDir = path.relative(root, targetDir).split(path.sep).join('/');
     const ledgerPrefix = relativeLedgerDir ? `${relativeLedgerDir}/` : '';
+    // The writer stages the complete ledger before loading the index. Use Git's
+    // stat check to detect an unstaged rewrite, then read the staged blob IDs
+    // instead of hashing every historical shard with a separate subprocess.
+    execFileSync('git', [
+      '-C', root, 'diff-files', '--quiet', '--', relativeLedgerDir || '.',
+    ], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
     const output = execFileSync('git', [
-      '-C', root, 'ls-files', '-z', '--full-name', '--', relativeLedgerDir || '.',
+      '-C', root, 'ls-files', '--stage', '-z', '--full-name', '--', relativeLedgerDir || '.',
     ], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     });
     const result = new Map();
-    for (const relativeFile of output.split('\0')) {
-      if (!relativeFile || !relativeFile.startsWith(ledgerPrefix)) continue;
+    for (const entry of output.split('\0')) {
+      if (!entry) continue;
+      const separator = entry.indexOf('\t');
+      if (separator < 0) continue;
+      const [,, stage] = entry.slice(0, separator).trim().split(/\s+/u);
+      const relativeFile = entry.slice(separator + 1);
+      if (stage !== '0' || !relativeFile.startsWith(ledgerPrefix)) continue;
       const name = relativeFile.slice(ledgerPrefix.length);
       if (!name || name === LOOP_FLEET_LEDGER_INDEX_FILE || name.includes('/')) continue;
-      let oid;
-      try {
-        oid = execFileSync('git', ['-C', root, 'hash-object', '--', relativeFile], {
-          encoding: 'utf8',
-          stdio: ['ignore', 'pipe', 'ignore'],
-        }).trim().toLowerCase();
-      } catch {
-        // A tracked file deleted from the worktree remains absent from the
-        // map, so the manifest check below reports the missing shard.
-        continue;
-      }
+      const oid = entry.slice(0, separator).trim().split(/\s+/u)[1]?.toLowerCase();
       if (GIT_OID_RE.test(oid)) result.set(name, oid);
     }
     return result;

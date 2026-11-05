@@ -112,26 +112,37 @@ describe('loop-fleet durable ledger index', () => {
       fs.mkdirSync(ledgerDir, { recursive: true });
       const shard = path.join(ledgerDir, 'loop-observations-run-1.jsonl');
       fs.writeFileSync(shard, '{"recordId":"one"}\n');
+      let indexedOid: string | null = null;
+      let hashObjectCalls = 0;
       gitMock.mockImplementation((_command: string, args: string[]) => {
         if (args.includes('rev-parse')) return `${repo}\n`;
-        if (args.includes('ls-files')) return 'data/loop-fleet/ledger/loop-observations-run-1.jsonl\0';
+        if (args.includes('diff-files')) {
+          if (fs.readFileSync(shard, 'utf8').includes('two')) throw new Error('unstaged rewrite');
+          return '';
+        }
+        if (args.includes('ls-files')) {
+          return `100644 ${indexedOid} 0\tdata/loop-fleet/ledger/loop-observations-run-1.jsonl\0`;
+        }
         if (args.includes('hash-object')) {
+          hashObjectCalls += 1;
           return `${gitBlobOid(path.join(repo, args[args.length - 1]))}\n`;
         }
         throw new Error(`unexpected git command: ${args.join(' ')}`);
       });
 
-      const indexedOid = ledgerFileOid(ledgerDir, shard);
+      indexedOid = ledgerFileOid(ledgerDir, shard);
       expect(indexedOid).toMatch(/^[0-9a-f]{40,64}$/u);
+      hashObjectCalls = 0;
       const state = createLedgerIndexState();
       setLedgerIndexFile(state, shard, indexedOid);
       writeLedgerIndex(ledgerDir, state);
 
+      expect(loadLedgerIndexForWriter(ledgerDir).trackedFileOids?.get(path.basename(shard))).toBe(indexedOid);
+      expect(hashObjectCalls).toBe(0);
+
       fs.appendFileSync(shard, '{"recordId":"two"}\n');
 
-      expect(() => loadLedgerIndexForWriter(ledgerDir)).toThrow(
-        'ledger file loop-observations-run-1.jsonl changed after it was indexed',
-      );
+      expect(() => loadLedgerIndexForWriter(ledgerDir)).toThrow('ledger index cannot verify tracked ledger files');
     } finally {
       fs.rmSync(repo, { recursive: true, force: true });
     }
