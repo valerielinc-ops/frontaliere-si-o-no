@@ -104,6 +104,29 @@ describe('red flags', () => {
     expect(evaluateRedFlags(draft, { portal_privacy_consent: 'Sì' }).candidate).toEqual([]);
   });
 
+  it('clears a known applicant email confirmation while still waiting for an unknown date of birth', () => {
+    const order = {
+      applicantEmail: 'candidate@example.test',
+      candidateAlias: { active: true, address: 'alias@example.test' },
+    };
+    const draft = {
+      ...cleanDraft,
+      questions: [
+        { id: 'portal_email_confirmation', source: 'portal', question: 'Confirm email address', type: 'text', required: true },
+        { id: 'portal_birth_date', source: 'portal', question: 'What is your date of birth?', type: 'date', required: true },
+      ],
+    };
+    expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual(['portal_birth_date']);
+
+    const waiting = { state: 'needs_candidate_action', round: 1, heldBy: ['question:portal_email_confirmation', 'question:portal_birth_date'] };
+    expect(transition(waiting, { type: 'candidate_answers' }, { order, draft, answers: {}, nowMs: T0 }).ignored).toBe('questions_open');
+    const resumed = transition(waiting, { type: 'candidate_answers' }, {
+      order, draft, answers: { portal_birth_date: '1990-01-01' }, nowMs: T0,
+    });
+    expect(resumed.flow.state).toBe('submitting');
+    expect(resumed.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'candidate_answered' }]);
+  });
+
   it('does not hold a legacy draft on a language question already answered by a complete CV list', () => {
     const draft = {
       ...cleanDraft,

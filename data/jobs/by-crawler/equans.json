@@ -9131,12 +9131,12 @@
     },
     {
       "id": "equans-7437894d17c6",
-      "slug": "assistant-e-administratif-ve-equans-carouge",
+      "slug": "assistente-amministrativo-equans-switzerland-carouge",
       "slugByLocale": {
         "fr": "assistant-e-administratif-ve-equans-carouge",
-        "it": "assistant-e-administratif-ve-equans-carouge",
-        "en": "assistant-e-administratif-ve-equans-carouge",
-        "de": "assistant-e-administratif-ve-equans-carouge"
+        "it": "assistente-amministrativo-equans-switzerland-carouge",
+        "en": "administrative-assistant-equans-switzerland-carouge",
+        "de": "assistent-e-administratif-ve-equans-switzerland-carouge"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9198,16 +9198,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:23:31.191Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:23:31.191Z"
+      "firstSeenAt": "2026-11-04T21:23:31.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-equans-carouge"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-equans-carouge"
+        ],
+        "de": [
+          "assistant-e-administratif-ve-equans-carouge"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-equans-carouge"
+      ]
     },
     {
       "id": "equans-ff56ce1083ac",
-      "slug": "responsable-administratif-front-office-a-100-h-f-equans-lausanne",
+      "slug": "amministrativo-ufficio-fronte-100-m-f-equans-switzerland-lausanne",
       "slugByLocale": {
         "fr": "responsable-administratif-front-office-a-100-h-f-equans-lausanne",
-        "it": "responsable-administratif-front-office-a-100-h-f-equans-lausanne",
-        "en": "responsable-administratif-front-office-a-100-h-f-equans-lausanne",
-        "de": "responsable-administratif-front-office-a-100-h-f-equans-lausanne"
+        "it": "amministrativo-ufficio-fronte-100-m-f-equans-switzerland-lausanne",
+        "en": "administrative-officer-office-front-100-m-f-equans-switzerland-lausanne",
+        "de": "verwaltungsbeamter-burofront-100-m-w-equans-switzerland-lausanne"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9269,16 +9283,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:23:31.188Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:23:31.188Z"
+      "firstSeenAt": "2026-11-04T21:23:31.188Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-administratif-front-office-a-100-h-f-equans-lausanne"
+        ],
+        "en": [
+          "responsable-administratif-front-office-a-100-h-f-equans-lausanne"
+        ],
+        "de": [
+          "responsable-administratif-front-office-a-100-h-f-equans-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-administratif-front-office-a-100-h-f-equans-lausanne"
+      ]
     },
     {
       "id": "equans-d44eab8a556a",
-      "slug": "techniker-in-gebaudeautomation-zurich-equans-zurich",
+      "slug": "tecnico-a-per-l-automazione-degli-edifici-a-zurigo-equans-switzerland-zurich",
       "slugByLocale": {
         "de": "techniker-in-gebaudeautomation-zurich-equans-zurich",
-        "it": "techniker-in-gebaudeautomation-zurich-equans-zurich",
-        "en": "techniker-in-gebaudeautomation-zurich-equans-zurich",
-        "fr": "techniker-in-gebaudeautomation-zurich-equans-zurich"
+        "it": "tecnico-a-per-l-automazione-degli-edifici-a-zurigo-equans-switzerland-zurich",
+        "en": "building-automation-technician-zurich-equans-switzerland-zurich",
+        "fr": "technicien-ne-en-automatisation-des-batiments-a-zurich-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9341,7 +9369,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:23:31.166Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:23:31.166Z"
+      "firstSeenAt": "2026-11-04T21:23:31.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-gebaudeautomation-zurich-equans-zurich"
+        ],
+        "en": [
+          "techniker-in-gebaudeautomation-zurich-equans-zurich"
+        ],
+        "fr": [
+          "techniker-in-gebaudeautomation-zurich-equans-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-gebaudeautomation-zurich-equans-zurich"
+      ]
     },
     {
       "id": "equans-54a7704399f2",

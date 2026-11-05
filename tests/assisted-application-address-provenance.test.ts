@@ -200,12 +200,28 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField({ ...candidate, identity: { address: { street: 'Via Roma 1' } } }, field)).toEqual({ value: 'Via Roma 1', source: 'identity' });
   });
 
-  it.each([['Email address', 'text'], ['Email address', 'email'], ['Adresse e-mail', 'text'], ['Adresse e-mail', 'email']])('does not treat the contact caption %s/%s as a postal address', (label, type) => {
+  it.each([
+    ['Email address', 'text'], ['Email address', 'email'], ['Adresse e-mail', 'text'], ['Adresse e-mail', 'email'],
+    ['E-Mail-Adresse erneut eingeben', 'text'], ['Re-enter email address', 'email'], ['Confirm email address', 'email'],
+  ])('uses the candidate identity for the contact caption %s/%s', (label, type) => {
     const field = nativeField(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" name="city" type="${type}" autocomplete="email" required></form>`, reader);
     const person = { ...candidate, identity: { ...candidate.identity, email: 'alias@example.test' } };
     expect(candidateAnswerForField(person, field)).toEqual({ value: 'alias@example.test', source: 'identity' });
     const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: 'alias@example.test', source: 'identity' }], missingRequired: [] }, [field], person);
     expect(guarded.actions[0]?.value).toBe('alias@example.test');
+
+    const repaired = guardPlan({ actions: [], missingRequired: [{ fieldId: field.id, question: label, why: '', type: 'text' }] }, [field], person);
+    expect(repaired.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, value: 'alias@example.test', source: 'identity' }));
+    expect(repaired.missingRequired).not.toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it('does not reuse the candidate email in a different person’s confirmation field', () => {
+    const field = nativeField('<form><fieldset><legend>Emergency Contact</legend><label for="city">Confirm email address</label><input id="city" name="city" type="email" autocomplete="email" required></fieldset></form>', reader);
+    const person = { ...candidate, identity: { ...candidate.identity, email: 'alias@example.test' } };
+    expect(candidateAnswerForField(person, field)).toBeNull();
+    const guarded = guardPlan({ actions: [], missingRequired: [{ fieldId: field.id, question: field.label, why: '', type: 'text' }] }, [field], person);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
   });
 
   it.each([

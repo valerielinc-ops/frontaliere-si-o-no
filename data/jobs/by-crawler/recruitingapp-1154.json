@@ -1649,12 +1649,12 @@
     },
     {
       "id": "recruitingapp-1154-269185499444",
-      "slug": "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch-3",
+      "slug": "specialista-per-la-clientela-privata-80-100-sgkb-bewerbermanagement-stellen-st-margrethen",
       "slugByLocale": {
         "de": "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch",
-        "it": "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch-3",
-        "en": "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch-3",
-        "fr": "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch-3"
+        "it": "specialista-per-la-clientela-privata-80-100-sgkb-bewerbermanagement-stellen-st-margrethen",
+        "en": "private-client-specialist-80-100-sgkb-bewerbermanagement-stellen-st-margrethen",
+        "fr": "specialiste-clientele-privee-80-100-sgkb-bewerbermanagement-stellen-st-margrethen"
       },
       "company": "SGKB Bewerbermanagement Stellen",
       "companyKey": "recruitingapp-1154",
@@ -1720,11 +1720,19 @@
       "firstSeenAt": "2026-09-19T23:05:57.852Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch"
+          "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch",
+          "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch-3"
+        ],
+        "en": [
+          "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch-3"
+        ],
+        "fr": [
+          "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch-3"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch"
+        "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch",
+        "fachspezialist-in-privatkunden-80-100-recruitingapp-1154-ch-3"
       ]
     }
   ]

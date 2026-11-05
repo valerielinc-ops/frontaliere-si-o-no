@@ -4585,12 +4585,12 @@
     },
     {
       "id": "srg-ssr-acc6ebd09c0d",
-      "slug": "product-owner-erp-dispo-srg-ssr-zurich-cdd2189faa",
+      "slug": "proprietario-di-prodotto-erp-dispo-srg-ssr-zurich",
       "slugByLocale": {
         "de": "product-owner-erp-dispo-srg-ssr-zurich",
-        "it": "product-owner-erp-dispo-srg-ssr-zurich-cdd2189faa",
+        "it": "proprietario-di-prodotto-erp-dispo-srg-ssr-zurich",
         "en": "product-owner-erp-dispo-srg-ssr-zurich",
-        "fr": "product-owner-erp-dispo-srg-ssr-zurich"
+        "fr": "proprietaire-du-produit-erp-dispo-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4676,20 +4676,25 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-21T09:13:58.728Z",
       "previousSlugs": [
-        "product-owner-erp-dispo-srg-ssr-zurich"
+        "product-owner-erp-dispo-srg-ssr-zurich",
+        "product-owner-erp-dispo-srg-ssr-zurich-cdd2189faa"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "product-owner-erp-dispo-srg-ssr-zurich",
+          "product-owner-erp-dispo-srg-ssr-zurich-cdd2189faa"
+        ],
+        "fr": [
           "product-owner-erp-dispo-srg-ssr-zurich"
         ]
       }
     },
     {
       "id": "srg-ssr-f6056fb8fa18",
-      "slug": "product-owner-erp-dispo-srg-ssr-zurich-2",
+      "slug": "proprietario-di-prodotto-erp-disponibile-srg-ssr-zurich",
       "slugByLocale": {
         "fr": "product-owner-erp-dispo-srg-ssr-zurich",
-        "it": "product-owner-erp-dispo-srg-ssr-zurich-2",
+        "it": "proprietario-di-prodotto-erp-disponibile-srg-ssr-zurich",
         "en": "product-owner-erp-dispo-srg-ssr-zurich-2",
         "de": "product-owner-erp-dispo-srg-ssr-zurich-2"
       },
@@ -4777,11 +4782,13 @@
       "firstSeenAt": "2026-10-21T09:13:58.728Z",
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-erp-dispo-srg-ssr-zurich"
+          "product-owner-erp-dispo-srg-ssr-zurich",
+          "product-owner-erp-dispo-srg-ssr-zurich-2"
         ]
       },
       "previousSlugs": [
-        "product-owner-erp-dispo-srg-ssr-zurich"
+        "product-owner-erp-dispo-srg-ssr-zurich",
+        "product-owner-erp-dispo-srg-ssr-zurich-2"
       ]
     },
     {
@@ -4791,7 +4798,7 @@
         "it": "product-owner-erp-dispo-srg-ssr-zurich-6705294533",
         "en": "product-owner-erp-dispo-srg-ssr-zurich-3",
         "de": "product-owner-erp-dispo-srg-ssr-zurich-3",
-        "fr": "product-owner-erp-dispo-srg-ssr-zurich-3"
+        "fr": "proprietaire-du-produit-erp-jetable-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4861,6 +4868,9 @@
         "it": [
           "product-owner-erp-dispo-srg-ssr-zurich-3",
           "product-owner-erp-dispo-srg-ssr-zurich"
+        ],
+        "fr": [
+          "product-owner-erp-dispo-srg-ssr-zurich-3"
         ]
       },
       "previousSlugs": [

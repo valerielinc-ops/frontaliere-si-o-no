@@ -88,7 +88,7 @@
       "slugByLocale": {
         "it": "aiuto-a-tasso-variabile-fondation-de-nant-corsier-sur-vevey",
         "en": "variable-rate-helpers-fondation-de-nant-corsier-sur-vevey",
-        "de": "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey",
+        "de": "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey",
         "fr": "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -137,7 +137,7 @@
       "previousSlugs": [
         "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey",
         "aide-soignant-e-s-a-taux-variable-fondation-de-nant-corsier-sur-vevey",
-        "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey"
+        "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -145,7 +145,7 @@
         ],
         "de": [
           "aide-soignant-e-s-a-taux-variable-fondation-de-nant-corsier-sur-vevey",
-          "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey"
+          "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey"
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:27.676Z",
@@ -410,12 +410,12 @@
     },
     {
       "id": "nant-3e38b10ebc7d",
-      "slug": "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100-fondation-de-nant-corsier-sur-vevey",
+      "slug": "capo-della-clinica-medico-o-vice-capo-della-clinica-unita-ospedaliere-a-80-100-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100",
-        "it": "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100-fondation-de-nant-corsier-sur-vevey",
-        "en": "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100",
-        "de": "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100"
+        "it": "capo-della-clinica-medico-o-vice-capo-della-clinica-unita-ospedaliere-a-80-100-fondation-de-nant-corsier-sur-vevey",
+        "en": "head-of-clinic-doctor-or-deputy-head-of-clinic-hospital-units-at-80-100-fondation-de-nant-corsier-sur-vevey",
+        "de": "leiter-des-klinikarztes-oder-stellvertretender-leiter-der-klinik-krankenhauseinheiten-bei-80-100-fondation-de-nant"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -463,11 +463,19 @@
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100",
+          "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100-fondation-de-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100"
+        ],
+        "de": [
           "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100"
         ]
       },
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100"
+        "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100",
+        "medecin-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-unites-hospitalieres-a-80-100-fondation-de-nant-corsier-sur-vevey"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -490,12 +498,12 @@
     },
     {
       "id": "nant-3d3cf3abe8d6",
-      "slug": "infirmier-ere-80-molaine-nant-corsier-sur-vevey",
+      "slug": "infermiera-80-molaine-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
         "fr": "infirmier-ere-80-molaine-nant-corsier-sur-vevey",
-        "it": "infirmier-ere-80-molaine-nant-corsier-sur-vevey",
-        "en": "infirmier-ere-80-molaine-nant-corsier-sur-vevey",
-        "de": "infirmier-ere-80-molaine-nant-corsier-sur-vevey"
+        "it": "infermiera-80-molaine-fondation-de-nant-corsier-sur-vevey",
+        "en": "nurse-80-molaine-fondation-de-nant-corsier-sur-vevey",
+        "de": "krankenschwester-80-molain-fondation-de-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -558,15 +566,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:22:23.069Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:22:23.069Z"
+      "firstSeenAt": "2026-11-04T21:22:23.069Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-80-molaine-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "infirmier-ere-80-molaine-nant-corsier-sur-vevey"
+        ],
+        "de": [
+          "infirmier-ere-80-molaine-nant-corsier-sur-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-80-molaine-nant-corsier-sur-vevey"
+      ]
     },
     {
       "id": "nant-1bf23000798a",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-80-molaine-nant-corsier-sur-vevey",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-80-molaine-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
         "fr": "assistant-e-en-soins-et-sante-communautaire-80-molaine-nant-corsier-sur-vevey",
-        "it": "assistant-e-en-soins-et-sante-communautaire-80-molaine-nant-corsier-sur-vevey",
-        "en": "assistant-e-en-soins-et-sante-communautaire-80-molaine-nant-corsier-sur-vevey",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-80-molaine-fondation-de-nant-corsier-sur-vevey",
+        "en": "community-health-and-care-assistant-80-molaine-fondation-de-nant-corsier-sur-vevey",
         "de": "assistant-e-en-soins-et-sante-communautaire-80-molaine-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -631,7 +653,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:22:23.065Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:22:23.065Z"
+      "firstSeenAt": "2026-11-04T21:22:23.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-80-molaine-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-80-molaine-nant-corsier-sur-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-80-molaine-nant-corsier-sur-vevey"
+      ]
     }
   ]
 }

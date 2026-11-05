@@ -938,6 +938,24 @@ async function clickUniqueNamedControl(frame, button) {
   return 'role';
 }
 
+function unresolvedPreDispatchControlClick() {
+  const error = new Error('portal_control_click_unresolved');
+  error.code = 'portal_control_click_unresolved';
+  return error;
+}
+
+async function clickUniqueNamedControlAfterTimeout(frame, button) {
+  try {
+    return await clickUniqueNamedControl(frame, button);
+  } catch (error) {
+    // A timed-out locator can be retried only when Playwright proves that it
+    // never dispatched. Once the scoped fallback also proves that, stop here:
+    // the portal runner will hand the page to the owner with encrypted evidence.
+    if (isPreDispatchLocatorClickFailure(error)) throw unresolvedPreDispatchControlClick();
+    throw error;
+  }
+}
+
 /** Presses a control from a snapshot; recovery must preserve the control's click handler. */
 export async function clickButton(page, button) {
   const frameNumber = Number(button.frame) || 0;
@@ -953,27 +971,28 @@ export async function clickButton(page, button) {
     // is found again in a fresh reading. A text-only selector can find the header's «Sign In» instead of
     // the form's and open a dialog over the form (dry run of 2026-10-07). A role retry needs a unique match
     // inside the same form or dialog; without a verified scope, nothing else is pressed in its place.
-    if (!isPreDispatchLocatorClickFailure(error) || !button.text) throw error;
+    if (!isPreDispatchLocatorClickFailure(error)) throw error;
+    if (!button.text) throw unresolvedPreDispatchControlClick();
     const again = await sameControl(page, button);
     if (again) {
       const retryFrames = typeof page.frames === 'function' ? page.frames() : [];
       const retryFrameNumber = Number(again.frame) || 0;
       const retryFrame = retryFrames[retryFrameNumber]
         || (retryFrameNumber === 0 ? (typeof page.mainFrame === 'function' ? page.mainFrame() : page) : null);
-      if (typeof retryFrame?.locator !== 'function') throw error;
+      if (typeof retryFrame?.locator !== 'function') throw unresolvedPreDispatchControlClick();
       try {
         await retryFrame.locator(`[data-aa-id="${again.id}"]`).first().click({ timeout: 6_000 });
         return 'again';
       } catch (retryError) {
         if (!isPreDispatchLocatorClickFailure(retryError)) throw retryError;
-        const recovered = await clickUniqueNamedControl(retryFrame, again);
+        const recovered = await clickUniqueNamedControlAfterTimeout(retryFrame, again);
         if (recovered) return recovered;
-        throw retryError;
+        throw unresolvedPreDispatchControlClick();
       }
     }
-    const recovered = await clickUniqueNamedControl(frame, button);
+    const recovered = await clickUniqueNamedControlAfterTimeout(frame, button);
     if (recovered) return recovered;
-    throw error;
+    throw unresolvedPreDispatchControlClick();
   }
 }
 
@@ -5999,6 +6018,19 @@ export async function submitViaPortal(ctx) {
       return { event: { type: 'submit_failed', error: outcome === 'validation' ? 'portal_validation' : antibot ? 'portal_antibot_ambiguous' : 'portal_ambiguous' }, evidence };
     }
     return await handoff('portal_needs_candidate');
+  } catch (error) {
+    const currentAttempt = diagnostics?.currentAttempt?.();
+    const finalClickInCurrentAttempt = Number.isSafeInteger(finalClickAttempt)
+      && Number.isSafeInteger(currentAttempt)
+      && finalClickAttempt === currentAttempt;
+    const message = String(error?.message || error);
+    const exhaustedPreDispatchLocatorClick = /\blocator\.click\b/i.test(message)
+      && isPreDispatchLocatorClickFailure(error);
+    if ((error?.code === 'portal_control_click_unresolved' || exhaustedPreDispatchLocatorClick) && !finalClickInCurrentAttempt) {
+      evidence.controlClickFailure = { stage: 'intermediate', outcome: 'pre_dispatch' };
+      return await handoff('portal_control_click_unresolved');
+    }
+    throw error;
   } finally {
     await clearActiveFinalFormGuard();
     await diagnostics?.finish();

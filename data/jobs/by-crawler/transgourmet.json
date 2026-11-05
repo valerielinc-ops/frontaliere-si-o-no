@@ -2215,12 +2215,12 @@
     },
     {
       "id": "transgourmet-fa860607-702",
-      "slug": "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf",
+      "slug": "personale-personale-finanza-transgourmet-moosseedorf",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf",
-        "it": "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf",
-        "en": "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf",
-        "fr": "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
+        "it": "personale-personale-finanza-transgourmet-moosseedorf",
+        "en": "personnel-personnel-finance-transgourmet-moosseedorf",
+        "fr": "personnel-finances-du-personnel-transgourmet-moosseedorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2297,7 +2297,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:21:03.240Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:21:03.240Z"
+      "firstSeenAt": "2026-11-04T21:21:03.240Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
+      ]
     },
     {
       "id": "transgourmet-779a2b13-3f5",

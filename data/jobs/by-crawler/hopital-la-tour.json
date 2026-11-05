@@ -453,12 +453,12 @@
     },
     {
       "id": "hopital-la-tour-f260bca1b4dd",
-      "slug": "infirmier-ere-de-jour-en-medecine-cdm-6-mois-70-hopital-la-tour-meyrin",
+      "slug": "infermiera-di-giorno-in-medicina-cdm-6-mesi-70-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "infirmier-ere-de-jour-en-medecine-cdm-6-mois-70-hopital-la-tour-meyrin",
-        "it": "infirmier-ere-de-jour-en-medecine-cdm-6-mois-70-hopital-la-tour-meyrin",
-        "en": "infirmier-ere-de-jour-en-medecine-cdm-6-mois-70-hopital-la-tour-meyrin",
-        "de": "infirmier-ere-de-jour-en-medecine-cdm-6-mois-70-hopital-la-tour-meyrin"
+        "it": "infermiera-di-giorno-in-medicina-cdm-6-mesi-70-hopital-de-la-tour-meyrin",
+        "en": "day-nurse-in-medicine-cdm-6-months-70-hopital-de-la-tour-meyrin",
+        "de": "day-nurse-in-medicine-cdm-6-monate-70-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -531,7 +531,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-02T21:35:45.942Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:35:45.942Z"
+      "firstSeenAt": "2026-11-04T21:35:45.942Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-jour-en-medecine-cdm-6-mois-70-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "infirmier-ere-de-jour-en-medecine-cdm-6-mois-70-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "infirmier-ere-de-jour-en-medecine-cdm-6-mois-70-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-de-jour-en-medecine-cdm-6-mois-70-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-27d334811186",

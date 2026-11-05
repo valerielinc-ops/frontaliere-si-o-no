@@ -3181,12 +3181,12 @@
     },
     {
       "id": "etat-de-vaud-6112",
-      "slug": "juriste-responsable-du-greffe-de-la-commission-d-examen-des-plaintes-de-patients-etat-de",
+      "slug": "responsabile-legale-responsabile-del-registro-dei-reclami-pazienti-commissione-etat-de-vaud-administration-cantonale",
       "slugByLocale": {
         "fr": "juriste-responsable-du-greffe-de-la-commission-d-examen-des-plaintes-de-patients-etat-de",
-        "it": "juriste-responsable-du-greffe-de-la-commission-d-examen-des-plaintes-de-patients-etat-de",
-        "en": "juriste-responsable-du-greffe-de-la-commission-d-examen-des-plaintes-de-patients-etat-de",
-        "de": "juriste-responsable-du-greffe-de-la-commission-d-examen-des-plaintes-de-patients-etat-de"
+        "it": "responsabile-legale-responsabile-del-registro-dei-reclami-pazienti-commissione-etat-de-vaud-administration-cantonale",
+        "en": "legal-officer-responsible-for-the-registry-of-the-patient-complaints-commission-etat-de-vaud-administration-cantonale",
+        "de": "legal-officer-zustandig-fur-das-register-der-patient-complaints-commission-etat-de-vaud-administration-cantonale"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3248,7 +3248,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:52:42.281Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:52:42.281Z"
+      "firstSeenAt": "2026-11-04T21:52:42.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juriste-responsable-du-greffe-de-la-commission-d-examen-des-plaintes-de-patients-etat-de"
+        ],
+        "en": [
+          "juriste-responsable-du-greffe-de-la-commission-d-examen-des-plaintes-de-patients-etat-de"
+        ],
+        "de": [
+          "juriste-responsable-du-greffe-de-la-commission-d-examen-des-plaintes-de-patients-etat-de"
+        ]
+      },
+      "previousSlugs": [
+        "juriste-responsable-du-greffe-de-la-commission-d-examen-des-plaintes-de-patients-etat-de"
+      ]
     },
     {
       "id": "etat-de-vaud-6048",

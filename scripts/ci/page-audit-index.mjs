@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 export const PAGE_AUDIT_INDEX_VERSION = 1;
+const PUBLISHER_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 
 function readJsonFiles(directory) {
   if (!directory || !fs.existsSync(directory)) return [];
@@ -29,56 +30,98 @@ export function pageFamily(entry) {
 
 /**
  * Merge the immutable page index with final shard digests. The publisher's
- * provenance gate validates identity, artifact digests and exact URL sets;
- * this consumer only builds the bounded audit work index from those receipts.
+ * provenance gate validates artifact provenance; this consumer also rejects
+ * incomplete locale and required-shard receipts before sampling the bounded
+ * audit work index.
  */
 export function loadPublisherPageIndex({ pageManifestDir, sectionManifestDir }) {
   const byUrl = new Map();
+  const pageManifestByLocale = new Map();
+  const requiredSectionsByLocale = new Map();
   for (const manifest of readJsonFiles(pageManifestDir)) {
     if (manifest?.kind !== 'publisher-page-manifest' || manifest.schemaVersion !== 2 || !Array.isArray(manifest.entries)) {
       throw new Error(`invalid publisher page manifest: ${manifest?.kind ?? 'unknown'}`);
     }
+    const locale = String(manifest.locale ?? '');
+    if (!PUBLISHER_LOCALES.includes(locale)) throw new Error(`invalid publisher page manifest locale: ${locale || 'unknown'}`);
+    if (pageManifestByLocale.has(locale)) throw new Error(`duplicate publisher page manifest locale: ${locale}`);
+    if (!Array.isArray(manifest.requiredSections)) throw new Error(`publisher page manifest requiredSections is not an array: ${locale}`);
+    const requiredSections = manifest.requiredSections.map((section) => String(section).trim()).filter(Boolean).sort();
+    if (new Set(requiredSections).size !== requiredSections.length) throw new Error(`duplicate required section in publisher page manifest: ${locale}`);
+    pageManifestByLocale.set(locale, manifest);
+    requiredSectionsByLocale.set(locale, requiredSections);
     for (const entry of manifest.entries) {
       const url = String(entry.url ?? '');
       const pagePath = String(entry.path ?? '');
       const sha256 = String(entry.sha256 ?? '').toLowerCase();
       if (!url || !pagePath || !/^[0-9a-f]{64}$/u.test(sha256)) throw new Error(`incomplete page index entry: ${url || pagePath || 'unknown'}`);
+      if (entry.locale !== locale) throw new Error(`page locale differs from its source manifest: ${url}`);
+      if (entry.section != null && (typeof entry.section !== 'string' || !entry.section)) throw new Error(`invalid page section in source manifest: ${url}`);
       if (byUrl.has(url)) throw new Error(`duplicate URL in page index: ${url}`);
       byUrl.set(url, {
         url,
         path: pagePath,
         sha256,
-        locale: String(entry.locale ?? manifest.locale),
+        locale,
         section: entry.section ? String(entry.section) : null,
       });
     }
   }
   if (byUrl.size === 0) throw new Error(`no publisher page entries found in ${pageManifestDir}`);
+  for (const locale of PUBLISHER_LOCALES) {
+    if (!pageManifestByLocale.has(locale)) throw new Error(`publisher page manifest missing for locale ${locale}`);
+  }
 
   const finalDigestByUrl = new Set();
+  const sectionManifestLocales = new Set();
   for (const manifest of readJsonFiles(sectionManifestDir)) {
     if (manifest?.kind !== 'publisher-section-manifest' || manifest.schemaVersion !== 2 || !Array.isArray(manifest.shards)) {
       throw new Error(`invalid publisher section manifest: ${manifest?.kind ?? 'unknown'}`);
     }
-    if (!['it', 'en', 'de', 'fr'].includes(manifest.locale)) {
-      throw new Error(`invalid locale in publisher section manifest: ${manifest.locale ?? 'unknown'}`);
+    const locale = String(manifest.locale ?? '');
+    if (!PUBLISHER_LOCALES.includes(locale)) throw new Error(`invalid locale in publisher section manifest: ${locale || 'unknown'}`);
+    if (sectionManifestLocales.has(locale)) throw new Error(`duplicate publisher section manifest locale: ${locale}`);
+    sectionManifestLocales.add(locale);
+    if (!Array.isArray(manifest.requiredSections)) throw new Error(`publisher section manifest requiredSections is not an array: ${locale}`);
+    const requiredSections = manifest.requiredSections.map((section) => String(section).trim()).filter(Boolean).sort();
+    if (new Set(requiredSections).size !== requiredSections.length) throw new Error(`duplicate required section in publisher section manifest: ${locale}`);
+    if (JSON.stringify(requiredSections) !== JSON.stringify(requiredSectionsByLocale.get(locale))) {
+      throw new Error(`required section set differs between page and section manifests: ${locale}`);
     }
+    const sections = new Set();
     for (const shard of manifest.shards) {
-      if (shard.locale !== manifest.locale || typeof shard.section !== 'string' || !shard.section) {
-        throw new Error(`invalid shard identity in publisher section manifest: ${manifest.locale}/${shard.section ?? 'unknown'}`);
+      if (shard.locale !== locale || typeof shard.section !== 'string' || !shard.section || !Array.isArray(shard.pages)) {
+        throw new Error(`invalid shard identity in publisher section manifest: ${locale}/${shard.section ?? 'unknown'}`);
       }
-      for (const page of shard.pages ?? []) {
+      if (sections.has(shard.section)) throw new Error(`duplicate shard in publisher section manifest: ${locale}/${shard.section}`);
+      sections.add(shard.section);
+      for (const page of shard.pages) {
         const indexed = byUrl.get(String(page.url ?? ''));
         if (!indexed) throw new Error(`section page is absent from source page index: ${page.url ?? 'unknown'}`);
         if (finalDigestByUrl.has(indexed.url)) throw new Error(`duplicate section page receipt: ${indexed.url}`);
         if (page.path !== indexed.path || page.locale !== indexed.locale || page.section !== indexed.section) {
           throw new Error(`section page identity differs from source page index: ${page.url}`);
         }
+        const sourceDigest = String(page.sourceSha256 ?? '').toLowerCase();
+        if (!/^[0-9a-f]{64}$/u.test(sourceDigest) || sourceDigest !== indexed.sha256) {
+          throw new Error(`section source digest differs from source page index: ${page.url}`);
+        }
         const finalDigest = String(page.sha256 ?? '').toLowerCase();
         if (!/^[0-9a-f]{64}$/u.test(finalDigest)) throw new Error(`section page digest is invalid: ${page.url}`);
         indexed.sha256 = finalDigest;
         finalDigestByUrl.add(indexed.url);
       }
+    }
+    for (const section of requiredSections) {
+      if (!sections.has(section)) throw new Error(`required shard is missing from publisher section manifest: ${locale}/${section}`);
+    }
+  }
+  for (const locale of PUBLISHER_LOCALES) {
+    if (!sectionManifestLocales.has(locale)) throw new Error(`publisher section manifest missing for locale ${locale}`);
+  }
+  for (const indexed of byUrl.values()) {
+    if (indexed.section && requiredSectionsByLocale.get(indexed.locale)?.includes(indexed.section) && !finalDigestByUrl.has(indexed.url)) {
+      throw new Error(`required shard page receipt is missing: ${indexed.url}`);
     }
   }
 

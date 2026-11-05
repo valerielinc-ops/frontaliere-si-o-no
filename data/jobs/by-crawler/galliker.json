@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "galliker-dec2ef901f17",
-      "slug": "stellvertretender-werkstattleiter-a-galliker-altishofen",
+      "slug": "direttore-di-officina-aggiunto-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "stellvertretender-werkstattleiter-a-galliker-altishofen",
-        "it": "stellvertretender-werkstattleiter-a-galliker-altishofen",
-        "en": "stellvertretender-werkstattleiter-a-galliker-altishofen",
-        "fr": "stellvertretender-werkstattleiter-a-galliker-altishofen"
+        "it": "direttore-di-officina-aggiunto-a-galliker-transport-ag-altishofen",
+        "en": "deputy-workshop-manager-a-galliker-transport-ag-altishofen",
+        "fr": "directeur-adjoint-de-l-atelier-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -73,7 +73,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:17:39.827Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:17:39.827Z"
+      "firstSeenAt": "2026-11-04T21:17:39.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretender-werkstattleiter-a-galliker-altishofen"
+        ],
+        "en": [
+          "stellvertretender-werkstattleiter-a-galliker-altishofen"
+        ],
+        "fr": [
+          "stellvertretender-werkstattleiter-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretender-werkstattleiter-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-4d20dfcdefb5",
@@ -156,12 +170,12 @@
     },
     {
       "id": "galliker-64d1e70dcf4a",
-      "slug": "betriebsmitarbeiter-mechanischer-rucklauf-a-galliker-altishofen",
+      "slug": "rientro-meccanico-del-personale-operativo-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-mechanischer-rucklauf-a-galliker-altishofen",
-        "it": "betriebsmitarbeiter-mechanischer-rucklauf-a-galliker-altishofen",
-        "en": "betriebsmitarbeiter-mechanischer-rucklauf-a-galliker-altishofen",
-        "fr": "betriebsmitarbeiter-mechanischer-rucklauf-a-galliker-altishofen"
+        "it": "rientro-meccanico-del-personale-operativo-a-galliker-transport-ag-altishofen",
+        "en": "operational-personnel-mechanical-return-a-galliker-transport-ag-altishofen",
+        "fr": "retour-mecanique-du-personnel-operationnel-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -224,7 +238,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:17:38.982Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:17:38.982Z"
+      "firstSeenAt": "2026-11-04T21:17:38.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeiter-mechanischer-rucklauf-a-galliker-altishofen"
+        ],
+        "en": [
+          "betriebsmitarbeiter-mechanischer-rucklauf-a-galliker-altishofen"
+        ],
+        "fr": [
+          "betriebsmitarbeiter-mechanischer-rucklauf-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmitarbeiter-mechanischer-rucklauf-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-6a3acb991490",
@@ -3548,7 +3576,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logisticien-a-galliker-transport-ag-altishofen"
+        "fr": "logistique-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3596,7 +3624,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logistique-a-galliker-transport-ag-altishofen"
+        "logisticien-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3608,7 +3636,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logistique-a-galliker-transport-ag-altishofen"
+          "logisticien-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -3795,7 +3823,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3842,14 +3870,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "soins-de-sante-a-galliker-transport-ag-altishofen"
+          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",

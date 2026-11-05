@@ -155,8 +155,17 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     expect(workflow.on.workflow_call.inputs.full_scan.type).toBe('boolean');
     const steps = workflow.jobs.audit.steps;
+    const indexValidatorCheckout = steps.find((step: any) => step.name === 'Checkout current publisher index validator');
+    expect(indexValidatorCheckout.uses).toBe('actions/checkout@v7');
+    expect(indexValidatorCheckout.with.ref).toBe('refs/heads/main');
+    expect(indexValidatorCheckout.with['sparse-checkout']).toContain('/scripts/ci/page-audit-index.mjs');
     expect(steps.some((step: any) => step.name === 'Download source page manifests')).toBe(true);
     expect(steps.some((step: any) => step.name === 'Download publisher non-IT section manifests')).toBe(true);
+    const indexDetector = steps.find((step: any) => step.id === 'publisher-index');
+    expect(indexDetector.name).toContain('complete');
+    expect(indexDetector.run).toContain('current-index-validator/scripts/ci/page-audit-index.mjs');
+    expect(indexDetector.env.SECTION_MANIFEST_DIR).toContain('publisher-audit-manifests/sections');
+    expect(indexDetector.run).toContain('full audit path');
     expect(steps.some((step: any) => step.uses === 'actions/cache/restore@v6')).toBe(true);
     expect(steps.some((step: any) => step.uses === 'actions/cache/save@v6')).toBe(true);
     const auditStep = steps.find((step: any) => step.id === 'audits');

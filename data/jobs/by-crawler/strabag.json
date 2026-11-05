@@ -935,12 +935,12 @@
     },
     {
       "id": "strabag-7d2d809e8a01",
-      "slug": "vorarbeiter-in-strassenbau-strabag-ag-disentis-oder-thusis",
+      "slug": "caposquadra-costruzioni-stradali-strabag-ag-disentis-oder-thusis",
       "slugByLocale": {
         "de": "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis",
-        "it": "vorarbeiter-in-strassenbau-strabag-ag-disentis-oder-thusis",
-        "en": "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis",
-        "fr": "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis"
+        "it": "caposquadra-costruzioni-stradali-strabag-ag-disentis-oder-thusis",
+        "en": "road-construction-working-foreperson-strabag-ag-disentis-oder-thusis",
+        "fr": "chef-fe-d-equipe-en-construction-routiere-strabag-ag-disentis-oder-thusis"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -989,11 +989,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis",
+          "vorarbeiter-in-strassenbau-strabag-ag-disentis-oder-thusis"
+        ],
+        "en": [
+          "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis"
+        ],
+        "fr": [
           "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis"
         ]
       },
       "previousSlugs": [
-        "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis"
+        "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis",
+        "vorarbeiter-in-strassenbau-strabag-ag-disentis-oder-thusis"
       ],
       "salaryMin": 70000,
       "salaryMax": 89000,
@@ -1015,12 +1023,12 @@
     },
     {
       "id": "strabag-a900e6575562",
-      "slug": "polier-in-strassenbau-strabag-ag-disentis-oder-thusis",
+      "slug": "capocantiere-costruzioni-stradali-strabag-ag-disentis-oder-thusis",
       "slugByLocale": {
         "de": "polier-in-strassenbau-strabag-disentis-oder-thusis",
-        "it": "polier-in-strassenbau-strabag-ag-disentis-oder-thusis",
-        "en": "polier-in-strassenbau-strabag-disentis-oder-thusis",
-        "fr": "polier-in-strassenbau-strabag-disentis-oder-thusis"
+        "it": "capocantiere-costruzioni-stradali-strabag-ag-disentis-oder-thusis",
+        "en": "road-construction-foreperson-strabag-ag-disentis-oder-thusis",
+        "fr": "contremaitre-esse-en-construction-routiere-strabag-ag-disentis-oder-thusis"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1069,11 +1077,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "polier-in-strassenbau-strabag-disentis-oder-thusis",
+          "polier-in-strassenbau-strabag-ag-disentis-oder-thusis"
+        ],
+        "en": [
+          "polier-in-strassenbau-strabag-disentis-oder-thusis"
+        ],
+        "fr": [
           "polier-in-strassenbau-strabag-disentis-oder-thusis"
         ]
       },
       "previousSlugs": [
-        "polier-in-strassenbau-strabag-disentis-oder-thusis"
+        "polier-in-strassenbau-strabag-disentis-oder-thusis",
+        "polier-in-strassenbau-strabag-ag-disentis-oder-thusis"
       ],
       "salaryMin": 70000,
       "salaryMax": 89000,

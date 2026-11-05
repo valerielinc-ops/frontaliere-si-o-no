@@ -239,6 +239,26 @@ describe('decideLatestPublish', () => {
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
   });
 
+  it('recovers the source SHA from the REST workflow-run display title', () => {
+    const publishRun = {
+      id: 124,
+      head_sha: SHA_OLDER_TAIL,
+      display_title: `Publish Pages build 42 @ ${SHA_LATEST}`,
+    };
+    const sourceSha = deploymentSourceSha(
+      { sha: SHA_OLDER_TAIL },
+      { target_url: 'https://github.com/o/r/actions/runs/124/job/456' },
+      [publishRun],
+    );
+
+    expect(sourceSha).toBe(SHA_LATEST);
+    expect(decideLatestPublish({
+      builds: [build(42, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [publishRun],
+      lastSuccessfulDeployment: { sha: SHA_OLDER_TAIL, sourceSha },
+    })).toMatchObject({ action: 'skip', reason: 'already-live' });
+  });
+
   it('dispatches when the live deployment has a different revision, even if it finished later', () => {
     expect(decideLatestPublish({
       builds: [build(2, SHA_OLD, '2026-10-20T12:00:00Z')],

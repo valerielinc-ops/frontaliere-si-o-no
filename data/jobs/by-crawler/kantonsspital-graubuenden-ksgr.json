@@ -8594,9 +8594,12 @@
       "employmentType": "60 - 60%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-04T21:32:28.264Z",
-      "slug": "administrative-r-stationsmitarbeiter-in-kardiologie-und-nephrologie-kantonsspital-graubunden-chur",
+      "slug": "amministrativo-r-stazione-personale-cardiologia-e-nefrologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "administrative-r-stationsmitarbeiter-in-kardiologie-und-nephrologie-kantonsspital-graubunden-chur"
+        "de": "administrative-r-stationsmitarbeiter-in-kardiologie-und-nephrologie-kantonsspital-graubunden-chur",
+        "it": "amministrativo-r-stazione-personale-cardiologia-e-nefrologia-kantonsspital-graubunden-chur",
+        "en": "administrative-ward-staff-member-in-cardiology-and-nephrology-kantonsspital-graubunden-chur",
+        "fr": "fonction-publique-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Administrative:r Stationsmitarbeiter:in Kardiologie und Nephrologie",
@@ -8631,7 +8634,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-11-04T21:32:28.264Z"
+      "firstSeenAt": "2026-11-04T21:32:28.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-r-stationsmitarbeiter-in-kardiologie-und-nephrologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-r-stationsmitarbeiter-in-kardiologie-und-nephrologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10251015",
@@ -8656,9 +8667,12 @@
       "employmentType": "80 - 80%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-04T21:32:28.264Z",
-      "slug": "administrative-r-stationsmitarbeiter-in-onkologie-kantonsspital-graubunden-chur",
+      "slug": "amministrativo-r-dipendente-della-stazione-oncology-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "administrative-r-stationsmitarbeiter-in-onkologie-kantonsspital-graubunden-chur"
+        "de": "administrative-r-stationsmitarbeiter-in-onkologie-kantonsspital-graubunden-chur",
+        "it": "amministrativo-r-dipendente-della-stazione-oncology-kantonsspital-graubunden-chur",
+        "en": "administrative-ward-staff-member-in-oncology-kantonsspital-graubunden-chur",
+        "fr": "administration-r-employe-de-station-oncologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Administrative:r Stationsmitarbeiter:in Onkologie",
@@ -8693,7 +8707,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-11-04T21:32:28.264Z"
+      "firstSeenAt": "2026-11-04T21:32:28.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-r-stationsmitarbeiter-in-onkologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-r-stationsmitarbeiter-in-onkologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10250468",
@@ -8718,9 +8740,12 @@
       "employmentType": "60 - 70%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-04T21:32:28.264Z",
-      "slug": "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur",
+      "slug": "clinica-femminile-fontana-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur"
+        "de": "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur",
+        "it": "clinica-femminile-fontana-kantonsspital-graubunden-chur",
+        "en": "disponent-women-s-clinic-fontana-kantonsspital-graubunden-chur",
+        "fr": "clinique-pour-femmes-disposant-fontana-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Disponent:in Frauenklinik Fontana",
@@ -8754,7 +8779,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-11-04T21:32:28.264Z"
+      "firstSeenAt": "2026-11-04T21:32:28.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur"
+      ]
     }
   ]
 }
