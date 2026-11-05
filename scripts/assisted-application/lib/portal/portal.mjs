@@ -742,16 +742,51 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+function comparablePortalRoute(value, base = '') {
+  try {
+    const url = new URL(String(value || ''), base || undefined);
+    return {
+      origin: url.origin,
+      pathname: url.pathname.replace(/\/+$/, '') || '/',
+      search: url.search,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function samePortalRoute(one, other, base = '') {
+  const left = comparablePortalRoute(one, base);
+  const right = comparablePortalRoute(other, base);
+  return Boolean(left && right && left.origin === right.origin
+    && left.pathname === right.pathname && left.search === right.search);
+}
+
+function applicationEntryBelongsToPosting(control, { applyUrl = '', postingUrl = '', job = {} } = {}) {
+  const href = String(control?.href || '').trim();
+  if (href && [applyUrl, postingUrl].some((route) => samePortalRoute(href, route, postingUrl))) return true;
+  if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl })) return true;
+
+  // A posting can use a button with no URL (Yellowshark). Its nearest heading
+  // or explicit section is still a posting association; a neighbouring job
+  // card has a different title and must stay terminal under the notice.
+  const localContext = [control?.section, control?.context].filter(Boolean).join(' ');
+  if (!localContext) return false;
+  return postingMatch(localContext, job, postingUrl) === 'match'
+    || (job?.title && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
+}
+
 // A posting may show an informational region notice and still expose its own
 // application entry. Keep the notice terminal only when no proved entry
-// control remains; an unrelated site button must not count as an escape hatch.
-function hasApplicationEntryControl(snapshot = {}) {
+// control remains; an unrelated job button must not count as an escape hatch.
+function hasApplicationEntryControl(snapshot = {}, context = {}) {
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
   ];
   return controls.some((control) => !control?.disabled && !control?.chrome
-    && [control.text, control.label, control.ariaLabel, control.title].some((value) => startsApplication(value)));
+    && startsApplication(control?.text || control?.label)
+    && applicationEntryBelongsToPosting(control, context));
 }
 
 /**
@@ -5101,7 +5136,8 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    if (postingNamed && isApplicationRegionUnsupported(initialPageText) && !hasApplicationEntryControl(snapshot)) {
+    if (postingNamed && isApplicationRegionUnsupported(initialPageText)
+      && !hasApplicationEntryControl(snapshot, { applyUrl: ctx.applyUrl, postingUrl, job: ctx.job })) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });

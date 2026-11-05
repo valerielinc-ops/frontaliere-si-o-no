@@ -159,7 +159,7 @@ describe('runner final guard across three application stages', () => {
         { id: 'accept', text: 'Alle akzeptieren', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
         { id: 'reject', text: 'Ablehnen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
         { id: 'settings', text: 'Einstellungen anzeigen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
-        { id: 'apply', text: 'JETZT BEWERBEN', disabled: false },
+        { id: 'apply', text: 'JETZT BEWERBEN', section: title, disabled: false },
       ]);
     yellowsharkPosting.dialogs = [{ dialogId: 'd1' }];
     yellowsharkPosting.buttons.slice(0, 4).forEach((button: any) => { button.dialog = true; button.dialogId = 'd1'; });
@@ -178,6 +178,20 @@ describe('runner final guard across three application stages', () => {
     expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
     expect(f.guard).toHaveBeenCalledOnce();
     expect(f.click).toHaveBeenCalledOnce();
+  });
+
+  it('keeps a regional notice terminal for an unrelated job-card application CTA', async () => {
+    const unrelatedCta = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+      [{ id: 'other-apply', text: 'JETZT BEWERBEN', section: 'Senior Data Analyst', disabled: false }]);
+    const f = fixture(unrelatedCta);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
   });
 
   it('hands off a proven pre-dispatch timeout from the agent-named advance locator', async () => {
