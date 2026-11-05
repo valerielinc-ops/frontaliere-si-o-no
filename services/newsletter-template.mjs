@@ -63,6 +63,7 @@ const NL_I18N = {
     jobsSub: 'Selezionate a mano, non da un algoritmo che pensa che tu voglia fare il "Growth Hacker" a Zugo.',
     jobsCta: 'Tutte le {n} offerte \u2192',
     articleTitle: 'Da leggere',
+    discoveryArticleTitle: 'Tema in crescita',
     toolsTitle: 'I tuoi strumenti per la settimana',
     toolsSub: 'Quelli che il tuo commercialista usa di nascosto (e ti fa pagare 200\u20ac a consulenza).',
     closerText: 'Ti è piaciuta questa email? Inoltrala a quel collega che chiede sempre "ma com\u2019è il cambio oggi?".',
@@ -116,6 +117,7 @@ const NL_I18N = {
     jobsSub: 'Hand-picked, not by an algorithm that thinks you want to be a "Growth Hacker" in Zug.',
     jobsCta: 'All {n} jobs \u2192',
     articleTitle: 'Worth reading',
+    discoveryArticleTitle: 'Trending now',
     toolsTitle: 'Your tools for the week',
     toolsSub: 'The ones your accountant uses secretly (and charges you \u20ac200 per consultation).',
     closerText: 'Liked this email? Forward it to that colleague who always asks "what\u2019s the rate today?".',
@@ -169,6 +171,7 @@ const NL_I18N = {
     jobsSub: 'Von Hand ausgew\u00e4hlt, nicht von einem Algorithmus.',
     jobsCta: 'Alle {n} Stellen \u2192',
     articleTitle: 'Lesenswert',
+    discoveryArticleTitle: 'Thema im Trend',
     toolsTitle: 'Deine Tools für diese Woche',
     toolsSub: 'Die Tools, die dein Steuerberater heimlich nutzt.',
     closerText: 'Hat dir diese E-Mail gefallen? Leite sie an den Kollegen weiter, der immer fragt "Wie steht der Kurs?".',
@@ -222,6 +225,7 @@ const NL_I18N = {
     jobsSub: 'S\u00e9lectionn\u00e9es \u00e0 la main, pas par un algorithme.',
     jobsCta: 'Toutes les {n} offres \u2192',
     articleTitle: '\u00c0 lire',
+    discoveryArticleTitle: 'Tendance du moment',
     toolsTitle: 'Tes outils de la semaine',
     toolsSub: 'Ceux que ton comptable utilise en secret (et te facture 200\u20ac la consultation).',
     closerText: 'Tu as aimé cet email ? Transfère-le au collègue qui demande toujours "c\u2019est quoi le taux ?".',
@@ -712,6 +716,7 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
  * @param {object}  [data.featuredTool]  — (legacy, ignored in v3 — tools grid is built-in)
  * @param {object}  [data.weeklyFact]    — { text, source }
  * @param {object}  [data.article]       — { title, excerpt, url, badge }
+ * @param {object}  [data.discoveryArticle] — { title, excerpt, url } from the campaign-frozen public index
  * @param {object}  [data.metrics]       — { unemploymentRate, unemploymentLabel, lamalPremium, lamalLabel }
  * @param {string}  [data.locale]        — 'it' | 'en' | 'de' | 'fr'
  * @param {string}  [data.interest]      — acquisition segment ('jobs'|'utility'|'articles'|'general') for the recommended block
@@ -787,6 +792,16 @@ export function buildNewsletter(data) {
       <div style="font-size:11px;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcf0 ${nlT(locale, 'articleTitle')}</div>
     </td></tr>`;
     html += renderArticle(data.article, locale);
+  }
+
+  // 9b. One campaign-stable article selected from the published discovery
+  // index. It complements the personalized article above instead of replacing
+  // it, and is absent when the corpus feed has no eligible localized item.
+  if (data.discoveryArticle) {
+    html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
+      <div style="font-size:11px;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">📈 ${nlT(locale, 'discoveryArticleTitle')}</div>
+    </td></tr>`;
+    html += renderArticle({ ...data.discoveryArticle, badge: false }, locale);
   }
 
   // 10. Divider

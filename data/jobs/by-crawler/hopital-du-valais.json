@@ -3782,12 +3782,12 @@
     },
     {
       "id": "hopital-du-valais-e1cab9cb17b2",
-      "slug": "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie",
+      "slug": "80-infermiera-per-j1-unita-cardiovascolare-unita-ictus-neurologia-medicina-nefrologia-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie",
-        "it": "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie",
-        "en": "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie",
-        "de": "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
+        "it": "80-infermiera-per-j1-unita-cardiovascolare-unita-ictus-neurologia-medicina-nefrologia-hopital-du-valais-sion",
+        "en": "80-nurse-for-j1-cerebrovascular-unit-stroke-unit-neurology-medicine-nephrology-hopital-du-valais-sion",
+        "de": "80-krankenschwester-fur-j1-zerebrovaskulare-einheit-schlaganfalleinheit-neurologie-medizin-nephrologie-hopital-du-valais"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3851,16 +3851,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:17:34.470Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:17:34.470Z"
+      "firstSeenAt": "2026-11-04T21:17:34.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
+        ],
+        "en": [
+          "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
+        ],
+        "de": [
+          "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
+      ]
     },
     {
       "id": "hopital-du-valais-b2b3c8d8d5f8",
-      "slug": "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital",
+      "slug": "80-infermiera-per-cardiologia-e-cardiochirurgia-presso-l-ospedale-sion-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital",
-        "it": "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital",
-        "en": "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital",
-        "de": "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
+        "it": "80-infermiera-per-cardiologia-e-cardiochirurgia-presso-l-ospedale-sion-hopital-du-valais-sion",
+        "en": "80-nurse-for-cardiology-and-cardiac-surgery-at-sion-hospital-hopital-du-valais-sion",
+        "de": "80-krankenschwester-fur-kardiologie-und-herzchirurgie-im-sion-hospital-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3924,7 +3938,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:17:34.110Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:17:34.110Z"
+      "firstSeenAt": "2026-11-04T21:17:34.110Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
+        ],
+        "en": [
+          "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
+        ],
+        "de": [
+          "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
+      ]
     }
   ]
 }

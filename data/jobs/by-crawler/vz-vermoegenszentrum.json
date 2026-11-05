@@ -6217,8 +6217,8 @@
       "slugByLocale": {
         "fr": "private-clients-consultant-vz-vermoegenszentrum-ch",
         "it": "private-clients-consultant-vz-vermogenszentrum-vevey",
-        "en": "private-clients-consultant-vz-vermogenszentrum-vevey",
-        "de": "private-clients-consultant-vz-vermoegenszentrum-ch-2"
+        "en": "private-customers-quant-vz-vermogenszentrum-vevey-vaud",
+        "de": "private-clients-berater-vz-vermogenszentrum-vevey-vaud"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6279,6 +6279,9 @@
         "it": [
           "private-clients-consultant-vz-vermoegenszentrum-ch",
           "private-clients-consultant-vz-vermoegenszentrum-ch-2"
+        ],
+        "de": [
+          "private-clients-consultant-vz-vermoegenszentrum-ch-2"
         ]
       },
       "previousSlugs": [
@@ -6309,8 +6312,8 @@
       "slugByLocale": {
         "de": "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
         "it": "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-liestal",
-        "en": "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-liestal",
-        "fr": "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-liestal"
+        "en": "junior-consultant-independent-asset-advice-vz-vermogenszentrum-liestal-basel-landschaft",
+        "fr": "consultant-junior-conseil-en-actifs-independants-vz-vermogenszentrum-liestal-basel-landschaft"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",

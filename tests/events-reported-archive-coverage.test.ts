@@ -13,6 +13,7 @@ import {
 } from '../build-plugins/eventsSeoPagesPlugin';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { readAttr, readTagByAttr } from '../scripts/lib/html-attr.mjs';
+import { hasCompleteGoogleEventData } from '../packages/articles/engine/shared/googleEventDataQuality.mjs';
 
 type Event = Parameters<typeof renderEventDetailPage>[0]['event'];
 const seed = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8')) as { events: Event[] };
@@ -178,6 +179,10 @@ describe('reported GSC event archive coverage', () => {
           normalizeEventPeople(cleanedPeople.performer, event.url, event.url),
         );
         expect(event.recurring === true || !hasSupportedLocation || !hasSourceBackedPerformer, reportedPath).toBe(true);
+        expect(page.html, reportedPath).not.toMatch(/"@type"\s*:\s*"Event"/);
+        continue;
+      }
+      if (!hasCompleteGoogleEventData(structuredEvent)) {
         expect(page.html, reportedPath).not.toMatch(/"@type"\s*:\s*"Event"/);
         continue;
       }

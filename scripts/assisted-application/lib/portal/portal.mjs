@@ -670,6 +670,11 @@ const isGenericOptionalAttachment = (field) => isFileField(field)
   && field.required !== true
   && GENERIC_ATTACHMENT_RE.test([field.label, field.name, field.id, field.context].filter(Boolean).join(' '));
 
+// A page heading or an ancestor's descriptive context is not ownership proof:
+// Stadt Zürich's public «Bewerbungstipps» gallery puts that word into the
+// section/context of every pager button. Keep those broad fields out of the
+// gallery-vs-application decision; the control's own identity and label are
+// the evidence that can safely distinguish a mixed surface.
 const controlOwnershipText = (button) => [
   button?.text,
   button?.id,
@@ -679,9 +684,7 @@ const controlOwnershipText = (button) => [
   button?.title,
   button?.ariaLabel,
   button?.dataAutomationId,
-  button?.section,
-  button?.context,
-  button?.fileContext,
+  button?.href,
 ].filter(Boolean).join(' ');
 const isApplicationControl = (button) => APPLICATION_CONTROL_RE.test(controlOwnershipText(button));
 const galleryToolScopes = (buttons) => new Set(buttons.filter(isGalleryToolButton).map(portalControlScope));

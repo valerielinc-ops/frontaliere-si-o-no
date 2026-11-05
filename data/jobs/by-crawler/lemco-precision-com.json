@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "lemco-precision-com-6a36ce5ef8c4",
-      "slug": "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch",
+      "slug": "un-esperienza-professionale-unica-e-gratificante-lemco-precision-sa-1895-vionnaz",
       "slugByLocale": {
         "en": "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch",
-        "it": "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch",
-        "de": "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch",
-        "fr": "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch"
+        "it": "un-esperienza-professionale-unica-e-gratificante-lemco-precision-sa-1895-vionnaz",
+        "de": "eine-einzigartige-und-lohnende-berufserfahrung-lemco-precision-sa-1895-vionnaz",
+        "fr": "une-experience-professionnelle-unique-et-enrichissante-lemco-precision-sa-1895-vionnaz"
       },
       "company": "Lemco Précision SA",
       "companyKey": "lemco-precision-com",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:49:59.281Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:49:59.281Z"
+      "firstSeenAt": "2026-11-04T21:49:59.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch"
+        ],
+        "de": [
+          "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch"
+        ],
+        "fr": [
+          "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch"
+        ]
+      },
+      "previousSlugs": [
+        "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch"
+      ]
     }
   ]
 }

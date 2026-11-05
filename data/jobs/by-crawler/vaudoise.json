@@ -3404,12 +3404,12 @@
     },
     {
       "id": "vaudoise-ab49ce3127f6",
-      "slug": "chef-cheffe-de-groupe-assurance-animaliere-h-f-x-fr-de-80-100-vaudoise-ch",
+      "slug": "head-group-head-animal-insurance-m-f-x-en-de-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "chef-cheffe-de-groupe-assurance-animaliere-h-f-x-fr-de-80-100-vaudoise-ch",
-        "it": "chef-cheffe-de-groupe-assurance-animaliere-h-f-x-fr-de-80-100-vaudoise-ch",
+        "it": "head-group-head-animal-insurance-m-f-x-en-de-80-100-vaudoise-assurances-lausanne",
         "en": "chef-cheffe-de-groupe-assurance-animaliere-h-f-x-fr-de-80-100-vaudoise-ch",
-        "de": "chef-cheffe-de-groupe-assurance-animaliere-h-f-x-fr-de-80-100-vaudoise-ch"
+        "de": "leiter-gruppenleiter-tierversicherung-m-w-x-de-de-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3472,7 +3472,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:19:53.944Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:19:53.944Z"
+      "firstSeenAt": "2026-11-04T21:19:53.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-cheffe-de-groupe-assurance-animaliere-h-f-x-fr-de-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "chef-cheffe-de-groupe-assurance-animaliere-h-f-x-fr-de-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-cheffe-de-groupe-assurance-animaliere-h-f-x-fr-de-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-9670a5945437",

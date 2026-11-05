@@ -594,12 +594,12 @@
     },
     {
       "id": "klinik-im-hasel-f6918b25ef27",
-      "slug": "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil",
+      "slug": "segretario-a-m-f-d-50-60-klinik-im-hasel-gontenschwil",
       "slugByLocale": {
         "de": "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil",
-        "it": "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil",
-        "en": "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil",
-        "fr": "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil"
+        "it": "segretario-a-m-f-d-50-60-klinik-im-hasel-gontenschwil",
+        "en": "secretary-m-f-d-50-60-klinik-im-hasel-gontenschwil",
+        "fr": "secretaire-h-f-d-50-60-klinik-im-hasel-gontenschwil"
       },
       "company": "Klinik im Hasel",
       "companyKey": "klinik-im-hasel",
@@ -673,7 +673,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-02T21:25:15.588Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:25:15.588Z"
+      "firstSeenAt": "2026-11-04T21:25:15.588Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil"
+        ],
+        "en": [
+          "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil"
+        ],
+        "fr": [
+          "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil"
+        ]
+      },
+      "previousSlugs": [
+        "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil"
+      ]
     }
   ]
 }

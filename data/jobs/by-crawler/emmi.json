@@ -204,7 +204,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -265,7 +265,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -273,7 +273,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "needsRetranslation": true,
@@ -8425,12 +8425,12 @@
     },
     {
       "id": "emmi-02d75778a76b",
-      "slug": "anlagenfuhrer-in-portionen-emmi-ch",
+      "slug": "operatore-trice-di-impianto-di-porzionamento-emmi-kirchberg-bern",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-portionen-emmi-ch",
-        "it": "anlagenfuhrer-in-portionen-emmi-ch",
-        "en": "anlagenfuhrer-in-portionen-emmi-ch",
-        "fr": "anlagenfuhrer-in-portionen-emmi-ch"
+        "it": "operatore-trice-di-impianto-di-porzionamento-emmi-kirchberg-bern",
+        "en": "portioning-machine-operator-emmi-kirchberg-bern",
+        "fr": "operateur-trice-d-installation-de-portionnement-emmi-kirchberg-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8504,7 +8504,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:27:37.442Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:27:37.442Z"
+      "firstSeenAt": "2026-11-04T21:27:37.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-portionen-emmi-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-portionen-emmi-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-portionen-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-portionen-emmi-ch"
+      ]
     },
     {
       "id": "emmi-0dc8b3b1f60d",

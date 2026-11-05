@@ -4619,12 +4619,12 @@
     },
     {
       "id": "balgrist-51aed26fc6b2",
-      "slug": "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich",
+      "slug": "professionista-della-salute-m-f-d-50-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich",
-        "it": "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich",
-        "en": "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich",
-        "fr": "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich"
+        "it": "professionista-della-salute-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+        "en": "health-professional-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+        "fr": "professionnels-de-la-sante-h-f-d-50-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4686,7 +4686,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:32:36.761Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:32:36.761Z"
+      "firstSeenAt": "2026-11-04T21:32:36.761Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich"
+        ],
+        "en": [
+          "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich"
+        ],
+        "fr": [
+          "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich"
+      ]
     },
     {
       "id": "balgrist-fac3d3de0dc9",
@@ -4694,8 +4708,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich",
         "it": "mitarbeiterin-collaboratore-trice-patientenservice-m-w-d-60-80-universitatsklinik-balgrist-zurich",
-        "en": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich"
+        "en": "employee-patient-service-m-f-d-60-80-universitatsklinik-balgrist-zurich",
+        "fr": "service-patient-salarie-h-f-d-60-80-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4744,6 +4758,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich"
         ]
       },

@@ -693,12 +693,12 @@
     },
     {
       "id": "psgn-e098ecfc2a89",
-      "slug": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
+      "slug": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers-d3ff13",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
-        "it": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
-        "en": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
-        "fr": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        "it": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers-d3ff13",
+        "en": "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers-d3ff13",
+        "fr": "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-d3ff13"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -746,12 +746,20 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
-          "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-3"
+          "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-3",
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
-        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-3"
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-3",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -774,12 +782,12 @@
     },
     {
       "id": "psgn-3c98a0536516",
-      "slug": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers",
+      "slug": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "fachpsychologin-fachpsychologe-psgn-pfafers",
-        "it": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers",
-        "en": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers",
-        "fr": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
+        "it": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-pfafers",
+        "en": "specialist-psychologist-specialist-psychologist-psychiatrie-st-gallen-pfafers",
+        "fr": "psychologue-specialise-psychologue-specialise-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -826,11 +834,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachpsychologin-fachpsychologe-psgn-pfafers"
+          "fachpsychologin-fachpsychologe-psgn-pfafers",
+          "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "fachpsychologin-fachpsychologe-psgn-pfafers"
+        "fachpsychologin-fachpsychologe-psgn-pfafers",
+        "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

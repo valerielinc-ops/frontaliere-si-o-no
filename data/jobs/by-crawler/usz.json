@@ -17598,12 +17598,12 @@
     },
     {
       "id": "usz-1d7abeeb19c6",
-      "slug": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt-viszeral",
+      "slug": "cure-specialistiche-esperta-esperto-in-cure-infermieristiche-m-f-d-terapia-intensiva-con-specializzazione-in-chirurgia",
       "slugByLocale": {
         "de": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt-viszeral",
-        "it": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt-viszeral",
-        "en": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt-viszeral",
-        "fr": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt-viszeral"
+        "it": "cure-specialistiche-esperta-esperto-in-cure-infermieristiche-m-f-d-terapia-intensiva-con-specializzazione-in-chirurgia",
+        "en": "special-care-nursing-expert-nursing-expert-m-f-d-intensive-care-with-focus-on-visceral-and-transplantation-surgery-80",
+        "fr": "soins-speciaux-expert-en-soins-infirmiers-expert-en-soins-infirmiers-h-f-d-soins-intensifs-avec-l-accent-sur-la"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17666,16 +17666,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:30:32.986Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:30:32.986Z"
+      "firstSeenAt": "2026-11-04T21:30:32.986Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt-viszeral"
+        ],
+        "en": [
+          "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt-viszeral"
+        ],
+        "fr": [
+          "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt-viszeral"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt-viszeral"
+      ]
     },
     {
       "id": "usz-5dbcc3f9258c",
-      "slug": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt",
+      "slug": "assistenza-infermieristica-specialistica-esperta-esperto-di-cure-infermieristiche-m-f-d-in-terapia-intensiva-con",
       "slugByLocale": {
         "de": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt",
-        "it": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt",
-        "en": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt",
-        "fr": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt"
+        "it": "assistenza-infermieristica-specialistica-esperta-esperto-di-cure-infermieristiche-m-f-d-in-terapia-intensiva-con",
+        "en": "special-care-nursing-expert-nursing-expert-m-f-d-intensive-care-with-focus-on-neurosurgery-neurology-80",
+        "fr": "soins-speciaux-expert-en-soins-infirmiers-expert-en-soins-infirmiers-h-f-d-soins-intensifs-en-neurochirurgie-neurologie"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17738,7 +17752,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:30:32.983Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:30:32.983Z"
+      "firstSeenAt": "2026-11-04T21:30:32.983Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt"
+        ],
+        "en": [
+          "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt"
+        ],
+        "fr": [
+          "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-intensivpflege-mit-schwerpunkt"
+      ]
     }
   ]
 }

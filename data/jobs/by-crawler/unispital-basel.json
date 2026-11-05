@@ -3111,7 +3111,7 @@
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "en": "physiotherapist-universitatsspital-basel",
+        "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapiste-universitatsspital-basel-basel"
       },
@@ -3160,7 +3160,7 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+        "physiotherapist-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3170,7 +3170,7 @@
         "en": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+          "physiotherapist-universitatsspital-basel"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
@@ -10838,7 +10838,7 @@
       "slug": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
-        "en": "platform-manager-op-universitatsspital-basel",
+        "en": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
         "de": "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
         "fr": "gestionnaire-de-plateforme-gestionnaire-de-plateforme-op-universitatsspital-basel-basel"
       },
@@ -10885,7 +10885,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
-        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+        "platform-manager-op-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10893,7 +10894,7 @@
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
         ],
         "en": [
-          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+          "platform-manager-op-universitatsspital-basel"
         ],
         "fr": [
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
@@ -11171,12 +11172,12 @@
     },
     {
       "id": "unispital-basel-416207a81b89",
-      "slug": "lab-technician-unispital-basel-ch",
+      "slug": "tecnico-di-laboratorio-universitatsspital-basel-basel",
       "slugByLocale": {
         "en": "lab-technician-unispital-basel-ch",
-        "it": "lab-technician-unispital-basel-ch",
-        "de": "lab-technician-unispital-basel-ch",
-        "fr": "lab-technician-unispital-basel-ch"
+        "it": "tecnico-di-laboratorio-universitatsspital-basel-basel",
+        "de": "lab-techniker-universitatsspital-basel-basel",
+        "fr": "lab-technicien-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11238,7 +11239,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:31:42.079Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:31:42.079Z"
+      "firstSeenAt": "2026-11-04T21:31:42.079Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-technician-unispital-basel-ch"
+        ],
+        "de": [
+          "lab-technician-unispital-basel-ch"
+        ],
+        "fr": [
+          "lab-technician-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lab-technician-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-1e8342374518",

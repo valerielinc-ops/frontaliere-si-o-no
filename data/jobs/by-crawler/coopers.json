@@ -1728,7 +1728,7 @@
       "slug": "1st-2nd-level-supporter-m-w-d-coopers-thurgau",
       "slugByLocale": {
         "de": "1st-2nd-level-supporter-m-w-d-coopers-thurgau",
-        "fr": "1st-2nd-level-supporter-m-w-d-coopers-group-ag-thurgau",
+        "fr": "support-de-premier-et-deuxieme-niveaux-h-f-d-coopers-group-ag-thurgau",
         "it": "1st-2nd-level-supporter-m-w-d-coopers-thurgau",
         "en": "1st-2nd-level-supporter-m-w-d-coopers-thurgau"
       },
@@ -1790,11 +1790,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "support-de-premier-et-deuxieme-niveaux-h-f-d-coopers-group-ag-thurgau"
+          "1st-2nd-level-supporter-m-w-d-coopers-group-ag-thurgau"
         ]
       },
       "previousSlugs": [
-        "support-de-premier-et-deuxieme-niveaux-h-f-d-coopers-group-ag-thurgau"
+        "1st-2nd-level-supporter-m-w-d-coopers-group-ag-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3378,11 +3378,11 @@
     },
     {
       "id": "coopers-96670036898d",
-      "slug": "cqv-engineer-m-f-d-coopers-wallis",
+      "slug": "cqv-ingegnere-m-f-d-coopers-group-ag-wallis",
       "slugByLocale": {
         "en": "cqv-engineer-m-f-d-coopers-wallis",
-        "it": "cqv-engineer-m-f-d-coopers-wallis",
-        "de": "cqv-engineer-m-f-d-coopers-wallis",
+        "it": "cqv-ingegnere-m-f-d-coopers-group-ag-wallis",
+        "de": "cqv-ingenieur-m-f-d-coopers-group-ag-wallis",
         "fr": "cqv-engineer-m-f-d-coopers-wallis"
       },
       "company": "Coopers Group AG",
@@ -3459,16 +3459,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T21:30:46.428Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:30:46.428Z"
+      "firstSeenAt": "2026-11-04T21:30:46.428Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cqv-engineer-m-f-d-coopers-wallis"
+        ],
+        "de": [
+          "cqv-engineer-m-f-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "cqv-engineer-m-f-d-coopers-wallis"
+      ]
     },
     {
       "id": "coopers-14d33a3919ad",
-      "slug": "technical-product-lead-consumables-m-f-d-coopers-zug",
+      "slug": "prodotto-tecnico-piombo-consumabili-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
         "en": "technical-product-lead-consumables-m-f-d-coopers-zug",
-        "it": "technical-product-lead-consumables-m-f-d-coopers-zug",
-        "de": "technical-product-lead-consumables-m-f-d-coopers-zug",
-        "fr": "technical-product-lead-consumables-m-f-d-coopers-zug"
+        "it": "prodotto-tecnico-piombo-consumabili-m-f-d-coopers-group-ag-zug",
+        "de": "technischer-produktfuhrer-verbrauchsmaterialien-m-w-d-coopers-group-ag-zug",
+        "fr": "produit-technique-plomb-consommables-h-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3540,7 +3551,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T21:30:45.568Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:30:45.568Z"
+      "firstSeenAt": "2026-11-04T21:30:45.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-lead-consumables-m-f-d-coopers-zug"
+        ],
+        "de": [
+          "technical-product-lead-consumables-m-f-d-coopers-zug"
+        ],
+        "fr": [
+          "technical-product-lead-consumables-m-f-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-lead-consumables-m-f-d-coopers-zug"
+      ]
     },
     {
       "id": "coopers-83384329db18",

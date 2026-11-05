@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "abraxas-42b4ced3192f",
-      "slug": "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3-monate-abraxas-informatik-ag-st-gallen",
+      "slug": "studente-lavoratore-studentessa-lavoratrice-analisi-di-mercato-della-pubblica-amministrazione-monitoraggio-dell-ia-40-60",
       "slugByLocale": {
         "de": "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3",
-        "it": "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3-monate-abraxas-informatik-ag-st-gallen",
-        "en": "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3",
-        "fr": "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3"
+        "it": "studente-lavoratore-studentessa-lavoratrice-analisi-di-mercato-della-pubblica-amministrazione-monitoraggio-dell-ia-40-60",
+        "en": "working-student-market-analysis-public-administration-ai-monitoring-40-60-fixed-term-for-3-months-abraxas-informatik-ag",
+        "fr": "etudiant-e-salarie-e-en-analyse-de-marche-de-l-administration-publique-monitoring-de-l-ia-40-60-a-duree-determinee-de-3"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
@@ -63,11 +63,19 @@
       "pensum": "40 - 60%",
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3",
+          "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3-monate-abraxas-informatik-ag-st-gallen"
+        ],
+        "en": [
+          "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3"
+        ],
+        "fr": [
           "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3"
         ]
       },
       "previousSlugs": [
-        "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3"
+        "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3",
+        "werkstudent-in-marktanalyse-offentliche-verwaltung-ki-monitoring-40-60-befristet-auf-3-monate-abraxas-informatik-ag-st-gallen"
       ],
       "salaryMin": 36000,
       "salaryMax": 61200,

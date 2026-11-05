@@ -49,7 +49,7 @@ it('renders each article revision independently in all four locales', async () =
   }
 });
 
-it('scopes Event identity to the page URL', async () => {
+it('keeps an incomplete Event source as a WebPage without emitting partial Event data', async () => {
   const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'article-event-identity-fixture-'));
   temporaryRoots.push(rootDir);
   const write = (file: string, body: string) => {
@@ -75,9 +75,11 @@ it('scopes Event identity to the page URL', async () => {
   const html = fs.readFileSync(path.join(distDir, result.entries[0].paths.it), 'utf8');
   const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
     .map(([, json]) => JSON.parse(json));
-  const event = schemas.find((schema) => schema['@type'] === 'Event');
-  expect(event).toBeDefined();
-  expect(event['@id']).toBe(`${event.url}#event`);
+  expect(schemas.some((schema) => schema['@type'] === 'Event')).toBe(false);
+  const page = schemas.find((schema) => schema['@type'] === 'WebPage');
+  expect(page).toBeDefined();
+  expect(page['@id']).toBe(`${page.url}#webpage`);
+  expect(page.isAccessibleForFree).toBeUndefined();
 });
 
 it.each([

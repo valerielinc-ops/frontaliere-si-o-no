@@ -21,7 +21,7 @@
  *     retain the source's actual past dates and eventStatus beside the visible
  *     archival notice — image and organizer use source-backed values or
  *     deterministic defaults, while performer exists only when the source
- *     names one. Offers are always present; unknown prices stay unstated.
+ *     names one. Incomplete recommended facts suppress Event markup.
  *     Aggregate pages expose an ItemList of event URLs,
  *     not partial nested Event objects.
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
@@ -113,6 +113,7 @@ import { normalizeEventPeople, withoutAddressPeople } from '../scripts/lib/event
 import { isDescriptionSupportedByEventFacts } from '../scripts/lib/event-description-policy.mjs';
 import { normalizeSchemaOrgDateTime, normalizeSchemaOrgItemAvailability } from '../scripts/lib/schema-org-values.mjs';
 import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
+import { hasCompleteGoogleEventData } from '../packages/articles/engine/shared/googleEventDataQuality.mjs';
 import { LICENSED_PHOTO_PROVIDERS } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from './shared/eventArchiveNoindexTargetMarker.mjs';
 import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from './shared/eventDetailNoindexTargetMarker.mjs';
@@ -4467,9 +4468,24 @@ export function renderEventDetailPage(params: {
   // The archived lifecycle is explicit in the HTML and notice. Event JSON-LD
   // keeps the source's actual past dates and status; EventScheduled covers an
   // event that took place as planned, while known cancelled/postponed states
-  // remain distinct.
+  // remain distinct. Search Console's reported recommended facts are also a
+  // publication gate: incomplete source records do not emit partial Event markup.
   const eventSchema = eventLd(event, locale, canonicalUrl);
-  const eventLdScript = eventSchema ? inlineScriptJson(eventSchema) : '';
+  const hasCompleteEventSchema = eventSchema && hasCompleteGoogleEventData(eventSchema);
+  const eventLdScript = hasCompleteEventSchema
+    ? inlineScriptJson(eventSchema)
+    : '';
+  // Image licensing metadata belongs to each page occurrence independently of
+  // Event rich-result eligibility. Keep it as a standalone ImageObject when
+  // the Event node is suppressed, including records that lack a performer.
+  const imageSchema = hasCompleteEventSchema
+    ? null
+    : (eventSchema?.image as ImageObjectLd | undefined)
+      ?? mirroredEventImageObject(event)
+      ?? catalogImageObjectLd(event.category, locale);
+  const imageLdScript = imageSchema
+    ? inlineScriptJson({ '@context': 'https://schema.org', ...imageSchema })
+    : '';
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -4524,7 +4540,12 @@ export function renderEventDetailPage(params: {
       }
       : {}),
     bodyHtml,
-    jsonLdScripts: eventLdScript ? [eventLdScript, breadcrumbLd, faqLd] : [breadcrumbLd, faqLd],
+    jsonLdScripts: [
+      ...(eventLdScript ? [eventLdScript] : []),
+      ...(imageLdScript ? [imageLdScript] : []),
+      breadcrumbLd,
+      faqLd,
+    ],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });

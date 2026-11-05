@@ -170,12 +170,12 @@
     },
     {
       "id": "implenia-d7a0f37ee5a2",
-      "slug": "projektleiter-gu-tu-spezialprojekte-m-w-d-implenia-glattpark-opfikon",
+      "slug": "project-manager-gu-tu-progetti-speciali-m-f-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch",
-        "it": "projektleiter-gu-tu-spezialprojekte-m-w-d-implenia-glattpark-opfikon",
-        "en": "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
-        "fr": "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
+        "it": "project-manager-gu-tu-progetti-speciali-m-f-d-implenia-glattpark-opfikon",
+        "en": "project-manager-gu-tu-special-projects-m-f-d-implenia-glattpark-opfikon",
+        "fr": "gestionnaire-de-projet-gu-tu-projets-speciaux-h-f-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -227,22 +227,27 @@
         "responsabile-di-progetto-gu-tu-per-progetti-speciali-m-f-d-implenia-glattpark-opfikon",
         "project-manager-gc-tc-special-projects-m-f-d-implenia-glattpark-opfikon",
         "chef-de-projet-pour-projets-speciaux-gu-tu-h-f-d-implenia-glattpark-opfikon",
-        "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch"
+        "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch",
+        "projektleiter-gu-tu-spezialprojekte-m-w-d-implenia-glattpark-opfikon",
+        "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch",
           "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
           "responsabile-di-progetto-gu-tu-per-progetti-speciali-m-f-d-implenia-glattpark-opfikon",
-          "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch"
+          "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch",
+          "projektleiter-gu-tu-spezialprojekte-m-w-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
-          "project-manager-gc-tc-special-projects-m-f-d-implenia-glattpark-opfikon"
+          "project-manager-gc-tc-special-projects-m-f-d-implenia-glattpark-opfikon",
+          "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
         ],
         "fr": [
           "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
-          "chef-de-projet-pour-projets-speciaux-gu-tu-h-f-d-implenia-glattpark-opfikon"
+          "chef-de-projet-pour-projets-speciaux-gu-tu-h-f-d-implenia-glattpark-opfikon",
+          "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
         ],
         "de": [
           "projektleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch"
@@ -2619,7 +2624,7 @@
         "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
         "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
-        "fr": "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2666,7 +2671,7 @@
       "previousSlugs": [
         "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-        "depollution-m-j-implenia-glattpark-opfikon"
+        "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2677,7 +2682,7 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-          "depollution-m-j-implenia-glattpark-opfikon"
+          "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-05T23:08:18.837Z",

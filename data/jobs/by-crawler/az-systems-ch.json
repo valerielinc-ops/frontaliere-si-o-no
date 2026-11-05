@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "az-systems-ch-7284f0935048",
-      "slug": "techniker-in-gebaudeautomation-msrl-landquart-graubunden-az-systems-ch-ch",
+      "slug": "tecnico-a-in-automazione-degli-edifici-msrl-az-systems-ag-landquart-graubunden",
       "slugByLocale": {
         "de": "techniker-in-gebaudeautomation-msrl-landquart-graubunden-az-systems-ch-ch",
-        "it": "techniker-in-gebaudeautomation-msrl-landquart-graubunden-az-systems-ch-ch",
-        "en": "techniker-in-gebaudeautomation-msrl-landquart-graubunden-az-systems-ch-ch",
-        "fr": "techniker-in-gebaudeautomation-msrl-landquart-graubunden-az-systems-ch-ch"
+        "it": "tecnico-a-in-automazione-degli-edifici-msrl-az-systems-ag-landquart-graubunden",
+        "en": "building-automation-msrl-technician-az-systems-ag-landquart-graubunden",
+        "fr": "technicien-ne-en-automatisation-des-batiments-msrl-az-systems-ag-landquart-graubunden"
       },
       "company": "AZ systems AG",
       "companyKey": "az-systems-ch",
@@ -73,16 +73,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-04T21:51:13.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:51:13.054Z"
+      "firstSeenAt": "2026-11-04T21:51:13.054Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-gebaudeautomation-msrl-landquart-graubunden-az-systems-ch-ch"
+        ],
+        "en": [
+          "techniker-in-gebaudeautomation-msrl-landquart-graubunden-az-systems-ch-ch"
+        ],
+        "fr": [
+          "techniker-in-gebaudeautomation-msrl-landquart-graubunden-az-systems-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-gebaudeautomation-msrl-landquart-graubunden-az-systems-ch-ch"
+      ]
     },
     {
       "id": "az-systems-ch-b20ca7f58f75",
-      "slug": "sachbearbeiter-in-administration-servizio-interno-az-systems-ag-landquart",
+      "slug": "impiegato-a-amministrativo-a-e-back-office-az-systems-ag-landquart-graubunden",
       "slugByLocale": {
         "de": "sachbearbeiter-in-administration-innendienst-landquart-graubunden-az-systems-ch-ch",
-        "it": "sachbearbeiter-in-administration-servizio-interno-az-systems-ag-landquart",
-        "en": "sachbearbeiter-in-administration-innendienst-landquart-graubunden-az-systems-ch-ch",
-        "fr": "sachbearbeiter-in-administration-innendienst-landquart-graubunden-az-systems-ch-ch"
+        "it": "impiegato-a-amministrativo-a-e-back-office-az-systems-ag-landquart-graubunden",
+        "en": "administrative-and-inside-sales-clerk-az-systems-ag-landquart-graubunden",
+        "fr": "collaborateur-trice-administratif-ve-service-interne-az-systems-ag-landquart-graubunden"
       },
       "company": "AZ systems AG",
       "companyKey": "az-systems-ch",
@@ -131,11 +145,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-administration-innendienst-landquart-graubunden-az-systems-ch-ch",
+          "sachbearbeiter-in-administration-servizio-interno-az-systems-ag-landquart"
+        ],
+        "en": [
+          "sachbearbeiter-in-administration-innendienst-landquart-graubunden-az-systems-ch-ch"
+        ],
+        "fr": [
           "sachbearbeiter-in-administration-innendienst-landquart-graubunden-az-systems-ch-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-administration-innendienst-landquart-graubunden-az-systems-ch-ch"
+        "sachbearbeiter-in-administration-innendienst-landquart-graubunden-az-systems-ch-ch",
+        "sachbearbeiter-in-administration-servizio-interno-az-systems-ag-landquart"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

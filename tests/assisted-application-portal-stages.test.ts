@@ -117,6 +117,24 @@ describe('application stage ownership', () => {
     expect(controls({ ...form, buttons: [{ text: 'Apply', formId: 'application', frame: 1 }] }).submit).toBeNull();
   });
 
+  it('recognizes a SuccessFactors application page with job-specific questions before the final click', () => {
+    const submit = { text: 'Bewerben', formId: 'successfactors-application', frame: 0 };
+    const form = {
+      url: 'https://career5.successfactors.eu/portalcareer',
+      text: 'Profilinformationen Stellenspezifische Informationen',
+      fields: [
+        { label: '* Vorname', kind: 'text', inputType: 'text', required: true, formId: submit.formId, frame: 0 },
+        { label: '* Name', kind: 'text', inputType: 'text', required: true, formId: submit.formId, frame: 0 },
+        { label: '* E-Mail', kind: 'text', inputType: 'email', required: true, formId: submit.formId, frame: 0 },
+        { label: '* Was hat dich motiviert, dich auf diese Stelle zu bewerben?', kind: 'textarea', inputType: 'textarea', required: true, formId: submit.formId, frame: 0 },
+        { label: '* Übst du derzeit eine entgeltliche Nebenbeschäftigung aus?', kind: 'combobox', required: true, formId: submit.formId, frame: 0 },
+      ],
+      buttons: [submit, { text: 'Meine Dokumente', formId: submit.formId, frame: 0 }],
+    };
+    expect(applicationStage(form, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=103967', job }).kind).toBe('form');
+    expect(controls(form).submit).toBe(submit);
+  });
+
   it('treats Resume / CV as a document label beside an application submit button', () => {
     const submit = { text: 'Submit application', formId: 'application', frame: 0 };
     const form = {
