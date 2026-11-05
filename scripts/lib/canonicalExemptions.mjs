@@ -41,7 +41,7 @@
 
 import { readFileSync } from 'node:fs';
 import { getJobBoardSectionPrefix } from './jobBoardSections.mjs';
-import { JOB_BOARD_DETAIL_PATH_RE } from './job-board-detail-path.mjs';
+import { isJobBoardDetailPath } from './job-board-detail-path.mjs';
 import { SECTOR_HUB_SLUG } from '../../build-plugins/shared/jobSectorSlugs.mjs';
 
 const CANONICAL_SITE_ORIGIN = 'https://frontaliereticino.ch';
@@ -144,7 +144,7 @@ function hasJobPostingIdentity(html) {
 
 function isAllowedJobBoardLeaf(path, section, html) {
   const normalizedPath = path.endsWith('/') ? path : `${path}/`;
-  if (!JOB_BOARD_DETAIL_PATH_RE.test(normalizedPath) || !hasJobPostingIdentity(html)) return false;
+  if (!isJobBoardDetailPath(normalizedPath) || !hasJobPostingIdentity(html)) return false;
 
   const suffix = normalizedPath.slice(section.length).replace(/\/$/, '');
   return suffix.length > 0

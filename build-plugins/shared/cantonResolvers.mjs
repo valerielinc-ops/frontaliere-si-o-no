@@ -28,6 +28,15 @@ export const SECTION_LEGACY_TI = {
   fr: 'trouver-emploi-tessin', // cathedral-allow: canonical TI legacy section table (single source of truth)
 };
 
+/** Clean city hubs still owned by the legacy Ticino route branch. */
+export const TI_LEGACY_CITY_HUB_SLUGS = Object.freeze([
+  'lugano',
+  'mendrisio',
+  'bellinzona',
+  'locarno',
+  'chiasso',
+]);
+
 const SECTION_PREFIX_BY_LOCALE = {
   it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi',
 };
@@ -42,6 +51,18 @@ export function normalizeCityKey(s) {
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
     .trim();
+}
+
+/** Normalize a municipality to the slug emitted by the city-hub router. */
+export function normalizeCitySlug(s) {
+  return String(s)
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/\./g, '')
+    .replace(/\([a-z]+\)/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 }
 
 /**
@@ -59,6 +80,52 @@ export function createCantonResolvers({ cantonSlugFile, municipalitiesFile }) {
   const memberToGroup = {};
   for (const [group, info] of Object.entries(cantonGroups)) {
     for (const member of info.members) memberToGroup[member] = group;
+  }
+
+  // The router's city-vs-job decision is data-driven for new canton sections.
+  // Keep the same municipality-only population here; aliases are used for job
+  // location resolution but are not emitted as city-hub routes by the router.
+  const citySlugsByCanton = new Map();
+  const citySlugOwners = new Map();
+  for (const [canton, info] of Object.entries(municipalitiesFile.cantons ?? {})) {
+    const citySlugs = new Set(
+      (info.municipalities ?? []).map(normalizeCitySlug).filter(Boolean),
+    );
+    citySlugsByCanton.set(canton, citySlugs);
+    for (const slug of citySlugs) {
+      const owners = citySlugOwners.get(slug) ?? new Set();
+      owners.add(canton);
+      citySlugOwners.set(slug, owners);
+    }
+  }
+
+  const citySlugsByScope = new Map([[AGGREGATE_KEY, new Set(citySlugOwners.keys())]]);
+  for (const code of new Set([
+    ...Object.keys(cantons),
+    ...Object.keys(cantonGroups),
+    ...Object.keys(memberToGroup),
+  ])) {
+    const scope = memberToGroup[code] ?? code;
+    const group = cantonGroups[scope];
+    citySlugsByScope.set(
+      code,
+      group?.members?.length
+        ? new Set(group.members.flatMap((member) => citySlugsByCanton.get(member) ?? []))
+        : citySlugsByCanton.get(code) ?? new Set(),
+    );
+  }
+
+  function citySlugsForCanton(cantonCode) {
+    const code = String(cantonCode || '').toUpperCase().trim();
+    return citySlugsByScope.get(code) ?? new Set();
+  }
+
+  /** Mirror cityJobsHub.isKnownCityHub without importing the SPA into Node. */
+  function isKnownCityHubSlug(citySlug, cantonCode) {
+    const normalized = normalizeCitySlug(citySlug);
+    if (!normalized) return false;
+    if (cantonCode) return citySlugsForCanton(cantonCode).has(normalized);
+    return citySlugOwners.get(normalized)?.size === 1;
   }
 
   function resolveCantonGroup(cantonCode) {
@@ -85,6 +152,16 @@ export function createCantonResolvers({ cantonSlugFile, municipalitiesFile }) {
       if (entry?.dePrefix) return `${entry.dePrefix}${entry.de}`;
     }
     return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlug(code, locale)}`;
+  }
+
+  function resolveCantonFromSection(locale, section) {
+    const target = String(section || '').toLowerCase().trim();
+    if (!target) return null;
+    const candidates = new Set([AGGREGATE_KEY, ...Object.keys(cantons)]);
+    for (const code of candidates) {
+      if (resolveCantonSection(locale, code).toLowerCase() === target) return code;
+    }
+    return null;
   }
 
   const CITY_TO_CANTON = (() => {
@@ -158,6 +235,8 @@ export function createCantonResolvers({ cantonSlugFile, municipalitiesFile }) {
     resolveCantonGroup,
     getCantonUrlSlug,
     resolveCantonSection,
+    resolveCantonFromSection,
+    isKnownCityHubSlug,
     resolveKnownJobCanton,
     resolveJobCanton,
     ALL_CANTON_CODES,

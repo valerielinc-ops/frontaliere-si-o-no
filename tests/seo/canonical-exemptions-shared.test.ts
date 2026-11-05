@@ -110,7 +110,17 @@ describe('canonical exemptions — legitimate non-self canonicals', () => {
   });
 
   it('does not treat search, category, company, or pagination leaves as job details', () => {
-    const nonDetailSlugs = ['ricerca-lugano', 'category-healthcare', 'company-acme', 'page-12'];
+    const nonDetailSlugs = [
+      'ricerca-lugano',
+      'category-healthcare',
+      'company-acme',
+      'page-12',
+      'lugano',
+      'mendrisio',
+      'bellinzona',
+      'locarno',
+      'chiasso',
+    ];
     for (const slug of nonDetailSlugs) {
       expect(
         isLegitJobCanonicalConsolidation(
@@ -151,6 +161,15 @@ describe('canonical exemptions — legitimate non-self canonicals', () => {
       isLegitJobCanonicalConsolidation(
         `${H}/cerca-lavoro-ticino/lavoro-part-time/`,
         `${H}/cerca-lavoro-ticino/lavoro-infermieri-ticino/`,
+      ),
+    ).toBe(false);
+  });
+
+  it('does not exempt a canonical drift between clean city hubs', () => {
+    expect(
+      isLegitJobCanonicalConsolidation(
+        `${H}/cerca-lavoro-ticino/lugano/`,
+        `${H}/cerca-lavoro-ticino/locarno/`,
       ),
     ).toBe(false);
   });
