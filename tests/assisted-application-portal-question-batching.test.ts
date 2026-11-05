@@ -339,7 +339,7 @@ describe('assisted portal question batching', () => {
     const candidate = {
       identity: { email: 'candidate@example.test', address: { country: 'Italia' } },
       profile: { workPermit: 'Permesso G' },
-      answers: { work_permit: 'Permesso G' },
+      answers: {},
       portalQuestionsAnswered: [],
     };
     let agentCandidate: any = null;
@@ -368,7 +368,7 @@ describe('assisted portal question batching', () => {
     });
 
     expect(agentCandidate).not.toBeNull();
-    expect(agentCandidate.answers.work_permit).toBe('Permesso G');
+    expect(agentCandidate.answers).not.toHaveProperty('work_permit');
     expect(agentCandidate.portalQuestionsAnswered).toEqual([]);
   });
 

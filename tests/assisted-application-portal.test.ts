@@ -3114,6 +3114,13 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(guardPlan({ actions: [], missingRequired: [] }, [italian], held).actions).toEqual([select('p1', 'Sì')]);
   });
 
+  it('keeps a specific work-authorisation question as a permit status, not a yes/no answer', () => {
+    const candidateWithPermit = { identity, profile: {}, answers: { work_permit: 'Permesso G' } };
+    expect(candidateAnswerForField(candidateWithPermit, {
+      id: 't1', kind: 'text', label: 'Which work authorization do you hold?', options: [],
+    })).toEqual({ value: 'Permesso G', source: 'answers' });
+  });
+
   it('keeps a nationality only when it names the one the candidate gave, Swiss for the status «swiss»', () => {
     const field = { id: 'n1', kind: 'select', label: 'Nationalität', required: true, options: [{ label: 'Italien' }, { label: 'Deutschland' }, { label: 'Schweiz' }] };
     expect(guardPlan({ actions: [select('n1', 'Italien', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).actions).toEqual([select('n1', 'Italien', 'profile')]);

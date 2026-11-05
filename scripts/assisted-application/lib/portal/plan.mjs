@@ -1419,7 +1419,10 @@ function languageAnswerForField(candidate, field) {
 }
 
 function isYesNoPermitQuestion(label) {
-  return /\b(?:do you|does the candidate|are you|hold|have|hast du|haben sie|hältst|halten sie|avez[- ]vous|détenez|detenez|avez|hai|detieni|possiedi|è in possesso|in possesso)\b/i.test(String(label || ''));
+  // A later "do you hold" can belong to a wh-question asking for the permit
+  // itself ("Which work authorization do you hold?"). Only a yes/no question
+  // opener permits converting a confirmed permit status into a boolean.
+  return /^\s*(?:do you|does the candidate|are you|have you|hast du|haben sie|hältst du|halten sie|(?:est[- ]ce que )?(?:vous|tu) avez|avez[- ]vous|détenez[- ]vous|detenez[- ]vous|hai|detieni|possiedi|(?:sei|è) in possesso|tienes|tiene usted)\b/i.test(String(label || ''));
 }
 
 const SALUTATION_FIELD_RE = /\b(?:anrede|salutation|appellativo|civilit[ée]|form of address|how (?:would|should) you like to be addressed|how should you be addressed in (?:your )?application|how do you want to be addressed|how would you like us to address you|preferred form of address|come vuoi essere indicat[oa] (?:nei|negli) moduli(?: di candidatura)?|wie m(?:ö|oe)chten sie angesprochen werden|comment souhaitez[- ]vous (?:être|etre) appel[ée]e?|comment devons[- ]nous vous appeler)\b/i;
