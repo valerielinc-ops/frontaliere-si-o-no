@@ -121,6 +121,9 @@ function nativeQuestionText(value, counter = null) {
     return false;
   };
   const visible = (element) => {
+    // Mounted background steps can retain layout boxes. Their controls must
+    // not supply auth, cookie or candidate-question evidence for this step.
+    if (element.closest('[hidden], [inert], [aria-hidden="true" i]') || hiddenAncestor(element)) return false;
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
     // Keep a file input hidden only by its own styling: many portals pair it
