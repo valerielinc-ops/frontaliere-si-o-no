@@ -1,6 +1,6 @@
 // tests/scripts/lib/discovery/sources/googleNewsRssSource.test.ts
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   fetchNewsRssDiscoveryCandidates,
@@ -43,6 +43,23 @@ describe('ageHoursFromPubDate', () => {
 });
 
 describe('fetchNewsRssDiscoveryCandidates', () => {
+  it('does not log private seed or fetcher error details', async () => {
+    const privateTopic = 'private-trends-topic-sentinel';
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      await fetchNewsRssDiscoveryCandidates({}, {
+        seeds: [privateTopic],
+        newsFn: async () => { throw new Error(`fetcher echoed ${privateTopic}`); },
+      });
+      const output = warning.mock.calls.flat().join(' ');
+      expect(output).toContain('error_type=Error');
+      expect(output).not.toContain(privateTopic);
+      expect(output).not.toContain('fetcher echoed');
+    } finally {
+      warning.mockRestore();
+    }
+  });
+
   it('exposes the bounded per-seed RSS duration', () => {
     expect(NEWS_RSS_MAX_SEED_DURATION_MS).toBe(31_500);
   });
