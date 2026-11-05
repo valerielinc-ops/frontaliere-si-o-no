@@ -1614,7 +1614,7 @@ async function main() {
       if (request.prompt.includes('{"agentPage"')) throw new Error('timeout');
       return fakeCodex(request);
     };
-    const broken = await run({ applyUrl: `${base}/widget-job`, codex: failing, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    const broken = await run({ applyUrl: `${base}/widget`, codex: failing, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
     check('a Codex failure in the fallback hands the order to the owner', broken.event.type === 'submit_handoff'
       && broken.event.reason === 'portal_needs_candidate' && state.widgetApplications.length === 0);
     const widget = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
