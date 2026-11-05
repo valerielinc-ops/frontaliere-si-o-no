@@ -10,6 +10,13 @@ describe('house creative readout', () => {
     ]);
     expect(() => summarizeHouseTraffic({ rowCount: 2, rows: [] })).toThrow('truncated');
   });
+  it('keeps v2 traffic in its own experiment cohort', () => {
+    const row = (event: string, component: string, n: number) => ({ dimensionValues: [event, component, 'rectangle.article-inline', 'mobile'].map(value => ({ value })), metricValues: [{ value: String(n) }] });
+    expect(summarizeHouseTraffic({ rowCount: 2, rows: [
+      row('house_ad_impression', 'house_creatives_v2.control_v1.test.it', 100),
+      row('house_ad_click', 'house_creatives_v2.control_v1.test.it', 5),
+    ] })).toEqual([expect.objectContaining({ experimentId: 'house_creatives_v2', variant: 'control', enrolled: true, impressions: 100, clicks: 5, ctr: .05 })]);
+  });
   it('counts only verified paid ledger entries and separates refunds and unpaid orders', () => {
     const now = Date.now();
     const attribution = { campaign: 'job_search_automation', variant: 'control', creativeId: 'control_v1', format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true, clickedAt: now - 2000 };
@@ -21,5 +28,21 @@ describe('house creative readout', () => {
       { ...service, paymentStatus: 'refunded', paidAt: { toMillis: () => now } },
     ], now - 86400000, now + 1);
     expect(result).toEqual([expect.objectContaining({ initiatedOrders: 4, confirmedPurchases: 1, refundedOrders: 1, confirmedRevenueEurCents: 3999 })]);
+  });
+  it('attributes verified purchases to the Firebase v2 creative arm', () => {
+    const now = Date.now();
+    const service = {
+      createdAt: { toMillis: () => now - 1000 },
+      paidAt: { toMillis: () => now },
+      paymentStatus: 'paid', amountTotal: 3999, currency: 'eur',
+      houseAdAttribution: {
+        campaign: 'job_search_automation', experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config',
+        variant: 'profile_match', creativeId: 'profile_match_v1', format: 'rectangle', locale: 'it',
+        placement: 'article-inline', device: 'mobile', enrolled: true, clickedAt: now - 2000,
+      },
+    };
+    expect(summarizeHouseOrders([service], now - 86400000, now + 1)).toEqual([
+      expect.objectContaining({ experimentId: 'house_creatives_v2', variant: 'profile_match', enrolled: true, confirmedPurchases: 1, confirmedRevenueEurCents: 3999 }),
+    ]);
   });
 });

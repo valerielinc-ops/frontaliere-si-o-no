@@ -59,6 +59,7 @@ import { handleOutreachReplyTrack } from './src/outreachReplyTrack.js';
 import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
+import { resolveHouseAdCreativeAssignment } from './src/houseAdCreativeAssignment.js';
 import { getPublicTrafficCurrent } from './src/publicTrafficCurrent.js';
 import { getPublicTrafficHistory } from './src/publicTrafficHistory.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
@@ -614,6 +615,32 @@ export const getPublicConfig = onRequest(
  // Fail open: empty object → client uses its built-in defaults.
  res.status(200).json({});
  }
+ },
+);
+
+// Evaluates creative assignment against Firebase's server Remote Config
+// template. The browser receives only this allowlisted result, never the
+// server template or its unrelated configuration values.
+export const getHouseAdCreativeAssignment = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 10,
+ cors: ['https://frontaliereticino.ch'],
+ },
+ async (req, res) => {
+  res.set({
+   'Cache-Control': 'no-store, max-age=0',
+   'X-Content-Type-Options': 'nosniff',
+  });
+  if (req.method !== 'POST') {
+   res.set('Allow', 'POST');
+   res.status(405).json({ error: 'method_not_allowed' });
+   return;
+  }
+
+  const assignment = await resolveHouseAdCreativeAssignment(req.body?.randomizationId);
+  res.status(200).json(assignment);
  },
 );
 

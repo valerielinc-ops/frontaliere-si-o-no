@@ -8,7 +8,7 @@ export function installHouseAds(
   css: string,
   emit: (event: string, properties: Record<string, string | number>) => void,
   allowed: () => boolean,
-  config: { publicConfigUrl: string; consentKey: string; consentEvent: string },
+  config: { assignmentUrl: string; consentKey: string; consentEvent: string; variants: readonly HouseAdVariant[] },
 ) {
   type Entry = { creative: HTMLAnchorElement; timer?: ReturnType<typeof setTimeout>; seen: boolean; data: Record<string, string | number> };
   type HouseWindow = Window & {
@@ -22,15 +22,18 @@ export function installHouseAds(
   // Without DOM observation we cannot guarantee yielding to a late Google
   // fill. Skip this optional layer and let the independent recovery continue.
   if (typeof MutationObserver !== 'function') return undefined;
-  const variants = ['control', 'time_saved', 'profile_match', 'in_control', 'swiss_work', 'next_chapter'];
+  const variants = config.variants;
   const entries = new Map<HTMLElement, Entry>();
   const eligibleFrames = new Set<HTMLElement>();
   const observedFrames = new Set<HTMLElement>();
   const eligibleSince = new WeakMap<HTMLElement, number>();
   const observedWidths = new WeakMap<HTMLElement, number>();
   const counted = new WeakMap<HTMLElement, Set<string>>();
-  let assignment: { variant: HouseAdVariant; enrolled: boolean } = { variant: 'control', enrolled: false };
+  let assignment: { variant: HouseAdVariant; enrolled: boolean; experimentId: string; assignmentSource: string } = {
+    variant: 'control', enrolled: false, experimentId: 'house_creatives_v2', assignmentSource: 'local_default',
+  };
   let ready = false;
+  let assignmentRequested = false;
   let scheduled: ReturnType<typeof setTimeout> | undefined;
   let path = location.pathname;
   const resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver((records) => {
@@ -60,6 +63,50 @@ export function installHouseAds(
   };
   const blockerConfirmed = () => (w.__ftAdBlock?.blocked === true || w.__ftAdBlockProbe === 'blocked') && w.__ftAdBlock?.adsAllowed !== true;
   const report = (name: string, data: Record<string, string | number>) => { if (permitted() && analyticsAllowed()) emit(name, data); };
+  function requestAssignment() {
+    if (assignmentRequested) return;
+    assignmentRequested = true;
+    const abort = new AbortController();
+    const timeout = setTimeout(() => abort.abort(), 3000);
+    void (async () => {
+      if (!analyticsAllowed()) return;
+      let id = read('ft_house_creative_id_v1', true);
+      if (!id) {
+        id = crypto.randomUUID();
+        try {
+          localStorage.setItem('ft_house_creative_id_v1', id);
+        } catch {
+          // Keep a stable assignment for this tab when persistent storage is unavailable.
+          id = read('ft_house_creative_session_id_v1') || crypto.randomUUID();
+          sessionStorage.setItem('ft_house_creative_session_id_v1', id);
+        }
+      }
+      const response = await fetch(config.assignmentUrl, {
+        method: 'POST',
+        credentials: 'omit',
+        cache: 'no-store',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ randomizationId: id }),
+        signal: abort.signal,
+      });
+      if (!response.ok) return;
+      const value = await response.json();
+      const arm = value?.variant;
+      if (variants.includes(arm)) {
+        const assignmentSource = value.assignmentSource === 'firebase_remote_config' ? value.assignmentSource : 'local_default';
+        assignment = {
+          variant: arm,
+          enrolled: value.enrolled === true && assignmentSource === 'firebase_remote_config',
+          experimentId: 'house_creatives_v2',
+          assignmentSource,
+        };
+      }
+    })().catch(() => {}).finally(() => {
+      clearTimeout(timeout);
+      ready = true;
+      schedule();
+    });
+  }
   const remove = (frame: HTMLElement, keepEligible = false) => {
     const entry = entries.get(frame);
     if (entry) { clearTimeout(entry.timer); entry.creative.remove(); entries.delete(frame); }
@@ -115,7 +162,7 @@ export function installHouseAds(
     }
     if (path !== location.pathname) { for (const frame of eligibleFrames) remove(frame); path = location.pathname; }
     for (const frame of eligibleFrames) if (!frame.isConnected || !permitted()) remove(frame);
-    if (!ready || !permitted()) return;
+    if (!permitted()) return;
     for (const frame of document.querySelectorAll<HTMLElement>('[data-house]')) {
       if (!observedFrames.has(frame)) {
         observedFrames.add(frame);
@@ -157,6 +204,7 @@ export function installHouseAds(
       eligibleFrames.add(frame);
       const width = frame.getBoundingClientRect().width;
       if (width < 160 || !visible(frame)) continue;
+      if (!ready) { requestAssignment(); continue; }
       const { format, height } = chooseSize(width, Number(frame.dataset.ftHouseHeight) || parseFloat(google.style.minHeight) || google.getBoundingClientRect().height);
       const portraitArtwork = format === 'billboard' && height >= 500;
       const locale = (['it', 'en', 'de', 'fr'].includes(document.documentElement.lang.slice(0, 2)) ? document.documentElement.lang.slice(0, 2) : 'it') as HouseAdLocale;
@@ -174,11 +222,11 @@ export function installHouseAds(
         : cmpFailed && !decision ? 'consent_loader_failed'
         : state === 'collapsed' ? 'ad_collapsed'
         : 'ad_unavailable';
-      const data = { campaign: 'job_search_automation', experiment_id: 'house_creatives_v1', experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), creative_id: `${assignment.variant}_v1`, component: `${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' };
+      const data = { campaign: 'job_search_automation', experiment_id: assignment.experimentId, experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), assignment_source: assignment.assignmentSource, creative_id: `${assignment.variant}_v1`, component: `${assignment.experimentId}.${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' };
       const creative = render({ variant: assignment.variant, format, locale, placement, portraitArtwork, onClick: () => {
         if (!permitted()) return;
         report('house_ad_click', { ...data, action: 'click' });
-        if (analyticsAllowed()) try { sessionStorage.setItem('ft_house_ad_click_v1', JSON.stringify({ campaign: 'job_search_automation', variant: assignment.variant, creativeId: `${assignment.variant}_v1`, format, locale, placement, device: data.device, enrolled: assignment.enrolled, clickedAt: Date.now() })); } catch { /* navigation still works */ }
+        if (analyticsAllowed()) try { sessionStorage.setItem('ft_house_ad_click_v1', JSON.stringify({ campaign: 'job_search_automation', experimentId: assignment.experimentId, assignmentSource: assignment.assignmentSource, variant: assignment.variant, creativeId: `${assignment.variant}_v1`, format, locale, placement, device: data.device, enrolled: assignment.enrolled, clickedAt: Date.now() })); } catch { /* navigation still works */ }
       } });
       creative.lang = locale;
       host.replaceChildren(creative);
@@ -193,21 +241,9 @@ export function installHouseAds(
   const style = document.createElement('style'); style.id = 'ft-house-creative-style';
   style.textContent = css + '\n[data-house]{position:relative;min-width:0}[data-ft-house-host]{display:none}:where([data-house][data-ft-house-active]){min-height:var(--ft-house-height)}[data-ft-house-active]>[data-ft-house-host]{display:block;position:absolute;inset:0;height:100%;container-type:size;z-index:1}:where([data-house]):has(>ins[data-ft-static-ad-collapsed]):not([data-ft-house-active]),:where(div,li,section):has(>[data-house]:only-child>ins[data-ft-static-ad-collapsed]):not(:has(>[data-ft-house-active])){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}';
   document.head.append(style);
-  // Public allowlist only. A missing/failed config renders the safe control
-  // without enrolling; no late variant switch after the first creative appears.
-  const abort = new AbortController();
-  const timeout = setTimeout(() => abort.abort(), 3000);
-  void fetch(config.publicConfigUrl, { signal: abort.signal }).then(r => r.ok ? r.json() : null).then(value => {
-    const arm = value?.HOUSE_AD_CREATIVE_VARIANT ?? value?.config?.HOUSE_AD_CREATIVE_VARIANT;
-    if (!analyticsAllowed()) return;
-    if (variants.includes(arm)) assignment = { variant: arm, enrolled: false };
-    if (arm !== 'auto') return;
-    let id = read('ft_house_creative_id_v1', true);
-    if (!id) { id = crypto.randomUUID(); localStorage.setItem('ft_house_creative_id_v1', id); }
-    let hash = 2166136261;
-    for (let n = 0; n < id.length; n++) hash = Math.imul(hash ^ id.charCodeAt(n), 16777619);
-    assignment = { variant: variants[(hash >>> 0) % variants.length] as HouseAdVariant, enrolled: true };
-  }).catch(() => {}).finally(() => { clearTimeout(timeout); ready = true; refresh(); });
+  // Assignment is requested only after a genuinely eligible, visible fallback
+  // slot appears. Firebase evaluates percentage conditions with the stable ID;
+  // failures use the fixed control without a browser-side hash.
   const observer = new MutationObserver(records => {
     if (records.every(r => (r.target as Element).closest?.('[data-ft-house-host]'))) return;
     schedule();
@@ -216,5 +252,5 @@ export function installHouseAds(
   for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate', 'resize']) window.addEventListener(name, schedule);
   window.addEventListener('scroll', measure, { passive: true });
   document.addEventListener('visibilitychange', measure);
-  const api = { refresh }; w.__ftHouseAds = api; return api;
+  const api = { refresh }; w.__ftHouseAds = api; schedule(); return api;
 }
