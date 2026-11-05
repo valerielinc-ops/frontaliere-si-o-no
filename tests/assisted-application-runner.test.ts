@@ -778,6 +778,11 @@ describe('submit mode', () => {
     expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
     expect(runner).toHaveBeenCalledTimes(1);
     expect((runner.mock.calls as any)[0][0]).toMatchObject({ applyUrl: successFactorsUrl, postingUrl, channelType: 'successfactors' });
+    expect((runner.mock.calls as any)[0][0].postingRouteProof).toEqual({
+      via: 'successfactors',
+      applyUrl: successFactorsUrl,
+      postingUrl,
+    });
     expect(calls).toContain(`GET ${postingUrl}`);
     expect(calls.some((call) => call.endsWith(staleApplyUrl))).toBe(false);
   });

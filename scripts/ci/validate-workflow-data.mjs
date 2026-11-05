@@ -348,10 +348,24 @@ export function readHeadFile(root, relative) {
   if (!treeEntry) return null;
 
   try {
+    // `execFileSync`'s default 1 MiB stdout limit is smaller than the
+    // append-only crawler ledger. Read the immutable blob size first and use
+    // that exact size as the bounded read budget; an unreadable blob still
+    // throws below instead of being mistaken for a first-write baseline.
+    const blobSizeRaw = execFileSync('git', ['cat-file', '-s', `HEAD:${relative}`], {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    }).trim();
+    const blobSize = Number(blobSizeRaw);
+    if (!/^[0-9]+$/u.test(blobSizeRaw) || !Number.isSafeInteger(blobSize) || blobSize >= Number.MAX_SAFE_INTEGER) {
+      throw new Error(`dimensione blob Git non valida: ${blobSizeRaw}`);
+    }
     return execFileSync('git', ['show', `HEAD:${relative}`], {
       cwd: root,
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'pipe'],
+      maxBuffer: blobSize + 1,
     });
   } catch (error) {
     throw new Error(`Impossibile leggere il baseline HEAD:${relative}`, { cause: error });
