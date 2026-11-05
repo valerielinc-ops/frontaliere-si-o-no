@@ -24,6 +24,9 @@ const WORKFLOW_PATH = path.resolve(
   '.github/workflows/sync-articles-sitemaps.yml',
 );
 const workflow = parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as {
+  on: {
+    push: { paths: string[] };
+  };
   jobs: {
     sync: WorkflowJob;
     'replay-after-article-sync': WorkflowJob;
@@ -216,6 +219,15 @@ describe('post-merge replay edge recheck (executed step script)', () => {
 });
 
 describe('article corpus sync parser gate', () => {
+  it('commits the discovery article index and replays it after merge', () => {
+    const commitRun = stepNamed('Commit if changed').run ?? '';
+    const occurrences = commitRun.split('public/data/discovery-articles.json').length - 1;
+
+    expect(occurrences).toBe(2); // git staging allowlist and open-data-refresh-pr path.
+    expect(workflow.on.push.paths).toContain('public/data/discovery-articles.json');
+    expect(workflow.jobs['replay-after-article-sync'].if).toBe("github.event_name == 'push'");
+  });
+
   it('blocks the refresh PR when changed article modules do not parse', () => {
     const validationIndex = steps.findIndex(
       (step) => step.name === 'Validate changed article modules before commit',

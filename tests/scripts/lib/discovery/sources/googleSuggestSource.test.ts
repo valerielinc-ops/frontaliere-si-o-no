@@ -1,6 +1,6 @@
 // tests/scripts/lib/discovery/sources/googleSuggestSource.test.ts
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   fetchSuggestDiscoveryCandidates,
@@ -53,6 +53,25 @@ describe('pickClusterSeeds', () => {
       'avs lpp frontalieri svizzera',
       'secondo pilastro frontalieri svizzera',
     ]);
+  });
+});
+
+describe('fetchSuggestDiscoveryCandidates logging', () => {
+  it('does not log private seed or fetcher error details', async () => {
+    const privateTopic = 'private-trends-topic-sentinel';
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      await fetchSuggestDiscoveryCandidates({}, {
+        seeds: [privateTopic],
+        suggestFn: async () => { throw new Error(`fetcher echoed ${privateTopic}`); },
+      });
+      const output = warning.mock.calls.flat().join(' ');
+      expect(output).toContain('error_type=Error');
+      expect(output).not.toContain(privateTopic);
+      expect(output).not.toContain('fetcher echoed');
+    } finally {
+      warning.mockRestore();
+    }
   });
 });
 

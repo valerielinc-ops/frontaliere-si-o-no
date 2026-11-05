@@ -1,11 +1,11 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-11-04T21:46:05.231Z",
-  "runId": "41915842215",
+  "assembledAt": "2026-11-05T09:41:55.759Z",
+  "runId": "42002139661",
   "jobs": [
     {
       "title": "Hochschulpraktikant/-in Projekt EIGER: Drohnen, Drohnenabwehr und Robotik für die Verteidigungsfähigkeit",
-      "slug": "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-e-robotik-per-la-verteidigungsfahigkeit-confederazione-svizzera-thun",
+      "slug": "tirocinante-universitario-a-progetto-eiger-droni-difesa-dai-droni-e-robotica-per-la-capacita-di-difesa-confederazione",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-und-robotik-fuer-die-verteidigungsfaehigkeit/f23f204f-e24a-4ff4-bfa8-f29d84a30af6",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20928",
       "company": "Confederazione Svizzera",
@@ -42,24 +42,31 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-und-robotik-fur-die-verteidigungsfahigkeit-confederazione-thun",
-        "it": "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-e-robotik-per-la-verteidigungsfahigkeit-confederazione-svizzera-thun",
-        "en": "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-und-robotik-fur-die-verteidigungsfahigkeit-confederazione-thun",
-        "fr": "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-und-robotik-fur-die-verteidigungsfahigkeit-confederazione-thun"
+        "it": "tirocinante-universitario-a-progetto-eiger-droni-difesa-dai-droni-e-robotica-per-la-capacita-di-difesa-confederazione",
+        "en": "university-intern-project-eiger-drones-counter-drone-systems-and-robotics-for-defence-capability-confederazione-svizzera",
+        "fr": "stagiaire-universitaire-projet-eiger-drones-defense-contre-les-drones-et-robotique-pour-la-capacite-de-defense"
       },
       "id": "confederazione-ticino-026b98520278",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-und-robotik-fur-die-verteidigungsfahigkeit-confederazione-thun",
+          "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-e-robotik-per-la-verteidigungsfahigkeit-confederazione-svizzera-thun"
+        ],
+        "en": [
+          "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-und-robotik-fur-die-verteidigungsfahigkeit-confederazione-thun"
+        ],
+        "fr": [
           "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-und-robotik-fur-die-verteidigungsfahigkeit-confederazione-thun"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-und-robotik-fur-die-verteidigungsfahigkeit-confederazione-thun"
+        "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-und-robotik-fur-die-verteidigungsfahigkeit-confederazione-thun",
+        "hochschulpraktikant-in-projekt-eiger-drohnen-drohnenabwehr-e-robotik-per-la-verteidigungsfahigkeit-confederazione-svizzera-thun"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -78,7 +85,7 @@
     },
     {
       "title": "Bundesermittler/-in Wirtschaftskriminalität",
-      "slug": "bundesermittler-in-wirtschaftskriminalitat-confederazione-bern",
+      "slug": "investigatore-trice-federale-per-la-criminalita-economica-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/bundesermittler-in-wirtschaftskriminalitaet/bf3d87fb-0b65-4b05-9c29-ecf9bd4c84c7",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20940",
       "company": "Confederazione Svizzera",
@@ -115,12 +122,11 @@
       },
       "slugByLocale": {
         "de": "bundesermittler-in-wirtschaftskriminalitat-confederazione-bern",
-        "it": "bundesermittler-in-wirtschaftskriminalitat-confederazione-bern",
-        "en": "bundesermittler-in-wirtschaftskriminalitat-confederazione-bern",
-        "fr": "bundesermittler-in-wirtschaftskriminalitat-confederazione-bern"
+        "it": "investigatore-trice-federale-per-la-criminalita-economica-confederazione-svizzera-bern",
+        "en": "federal-investigator-economic-crime-confederazione-svizzera-bern",
+        "fr": "enqueteur-enquetrice-federal-e-en-criminalite-economique-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-852e09584d42",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "currency": "CHF",
@@ -139,11 +145,25 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:46:02.326Z"
+      "firstSeenAt": "2026-11-04T21:46:02.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bundesermittler-in-wirtschaftskriminalitat-confederazione-bern"
+        ],
+        "en": [
+          "bundesermittler-in-wirtschaftskriminalitat-confederazione-bern"
+        ],
+        "fr": [
+          "bundesermittler-in-wirtschaftskriminalitat-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "bundesermittler-in-wirtschaftskriminalitat-confederazione-bern"
+      ]
     },
     {
       "title": "Projektleiter/-in",
-      "slug": "projektleiter-in-confederazione-svizzera-bellinzona",
+      "slug": "responsabile-di-progetto-confederazione-svizzera-bellinzona",
       "url": "https://jobs.admin.ch/posti-vacanti/projektleiter-in/bccaa635-def3-4137-9a69-acef8469535b",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20932",
       "company": "Confederazione Svizzera",
@@ -180,27 +200,34 @@
       },
       "slugByLocale": {
         "de": "projektleiter-in-confederazione-svizzera-bellinzona",
-        "it": "projektleiter-in-confederazione-svizzera-bellinzona",
-        "en": "projektleiter-in-confederazione-bellinzona",
-        "fr": "projektleiter-in-confederazione-bellinzona"
+        "it": "responsabile-di-progetto-confederazione-svizzera-bellinzona",
+        "en": "project-manager-confederazione-svizzera-bellinzona",
+        "fr": "chef-cheffe-de-projet-confederazione-svizzera-bellinzona"
       },
       "id": "confederazione-ticino-b7cb48e218df",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-confederazione-svizzera-bellinzona",
           "projektleiter-in-confederazione-bellinzona"
         ],
         "de": [
           "projektleiter-in-confederazione-bellinzona"
+        ],
+        "en": [
+          "projektleiter-in-confederazione-bellinzona"
+        ],
+        "fr": [
+          "projektleiter-in-confederazione-bellinzona"
         ]
       },
       "previousSlugs": [
+        "projektleiter-in-confederazione-svizzera-bellinzona",
         "projektleiter-in-confederazione-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -219,7 +246,7 @@
     },
     {
       "title": "Teamleiter/-in Recht-MWST",
-      "slug": "teamleiter-in-recht-mwst-confederazione-bern",
+      "slug": "responsabile-del-team-diritto-iva-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/teamleiter-in-recht-mwst/84ffd78c-0e82-4c6d-9595-08722b47e17d",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20838",
       "company": "Confederazione Svizzera",
@@ -256,16 +283,15 @@
       },
       "slugByLocale": {
         "de": "teamleiter-in-recht-mwst-confederazione-bern",
-        "it": "teamleiter-in-recht-mwst-confederazione-bern",
-        "en": "teamleiter-in-recht-mwst-confederazione-bern",
-        "fr": "teamleiter-in-recht-mwst-confederazione-bern"
+        "it": "responsabile-del-team-diritto-iva-confederazione-svizzera-bern",
+        "en": "team-leader-vat-law-confederazione-svizzera-bern",
+        "fr": "responsable-d-equipe-droit-tva-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-bb64da01fcf2",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "currency": "CHF",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -280,7 +306,21 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:46:02.326Z"
+      "firstSeenAt": "2026-11-04T21:46:02.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-recht-mwst-confederazione-bern"
+        ],
+        "en": [
+          "teamleiter-in-recht-mwst-confederazione-bern"
+        ],
+        "fr": [
+          "teamleiter-in-recht-mwst-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-recht-mwst-confederazione-bern"
+      ]
     },
     {
       "title": "Verantwortliche/-r Einsatz Führungssysteme Luftwaffe",
@@ -362,7 +402,7 @@
     },
     {
       "title": "Lehrgang als ICT-Systemspezialist/-in Junior an der ICT Warrior Academy (Start im März 2027)",
-      "slug": "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern",
+      "slug": "corso-di-formazione-per-specialista-junior-di-sistemi-ict-presso-la-ict-warrior-academy-inizio-a-marzo-2027",
       "url": "https://jobs.admin.ch/posti-vacanti/lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-maerz-2027/85852838-ee1c-4fbd-afae-f0b4f9b2015c",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19697",
       "company": "Confederazione Svizzera",
@@ -399,19 +439,26 @@
       },
       "slugByLocale": {
         "de": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
-        "it": "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern",
-        "en": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
-        "fr": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern"
+        "it": "corso-di-formazione-per-specialista-junior-di-sistemi-ict-presso-la-ict-warrior-academy-inizio-a-marzo-2027",
+        "en": "training-program-as-a-junior-ict-systems-specialist-at-the-ict-warrior-academy-starting-in-march-2027-confederazione",
+        "fr": "formation-de-specialiste-junior-des-systemes-ict-a-l-ict-warrior-academy-debut-en-mars-2027-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-c411ce0b278c",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
+          "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern"
+        ],
+        "en": [
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern"
+        ],
+        "fr": [
           "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern"
         ]
       },
       "previousSlugs": [
-        "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern"
+        "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
+        "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern"
       ],
       "salaryMin": 66000,
       "salaryMax": 112000,
@@ -2847,12 +2894,13 @@
         "en": "real-estate-project-manager-confederazione-svizzera-bern",
         "de": "projektleiter-in-immobilien-confederazione-bern",
         "fr": "chef-fe-de-projet-immobilier-confederazione-svizzera-bern",
-        "it": "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
+        "it": "projektleiter-in-immobilien-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-576bb222693c",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-immobilien-confederazione-bern"
+          "projektleiter-in-immobilien-confederazione-bern",
+          "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
         ],
         "en": [
           "projektleiter-in-immobilien-confederazione-bern"
@@ -2862,7 +2910,8 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-immobilien-confederazione-bern"
+        "projektleiter-in-immobilien-confederazione-bern",
+        "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3570,86 +3619,6 @@
       "validThroughSource": "last-observed-window"
     },
     {
-      "title": "Wiss. Mitarbeiter/in Klimapolitik und Rechtsetzung (CCS/NET)",
-      "slug": "collaboratore-trice-esperto-a-in-politica-climatica-e-legislazione-ccs-net-confederazione-svizzera-ittigen",
-      "url": "https://jobs.admin.ch/posti-vacanti/wiss-mitarbeiter-in-klimapolitik-und-rechtsetzung-ccs-net/068681ac-9f0c-4494-bdf5-7829203e9828",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20873",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Ittigen",
-      "addressLocality": "Ittigen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-29T09:51:52Z",
-      "postedDate": "2026-10-29T09:51:52Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-27T00:00:00.000Z",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "description": "## Auf den Punkt gebracht\n\nGestalte die klimapolitischen Rahmenbedingungen für CCS/NET und präge die Erarbeitung neuer Rechtsgrundlagen. Übernimm Verantwortung an der Schnittstelle von Politik und Rechtsetzung.\n\n- Eintrittsdatum: 01.01.2027\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20873\n- Arbeitsort: Mühlestrasse 2, 3063 Ittigen\n\n## Diesen Beitrag kannst du leisten\n\n- Rechtsetzungsprojekte im Bereich CCS/NET eigenständig leiten\n- Bundesrats- und Parlamentsgeschäfte zu CCS/NET bearbeiten und Konsultationsverfahren begleiten\n- Arbeiten zu CCS/NET innerhalb des BAFU und der Bundesverwaltung koordinieren sowie nationale und internationale Anspruchsgruppen einbeziehen\n- Aufbau einer CO₂-Transport- und Speicherinfrastruktur regulatorisch begleiten und Entwicklungen in der EU sowie im freiwilligen CO₂-Markt analysieren\n\n## Das macht dich einzigartig\n\n- Hochschulabschluss in Politik-, Wirtschafts- oder Umweltwissenschaften oder vergleichbarem Fach\n- Fundierte Kenntnisse der Schweizer Klimapolitik und der Rechtsetzungsprozesse auf Bundesebene\n- Kenntnisse zu CCS/NET und Verständnis der technischen und regulatorischen Herausforderungen\n- Erfahrung in Projektleitung und Koordination unterschiedlicher Anspruchsgruppen\n- Analytische und konzeptionelle Fähigkeiten, politisches Gespür und sehr gute schriftliche Ausdrucksfähigkeit sowie selbständige und belastbare Arbeitsweise\n- Gute aktive Kenntnisse mindestens einer zweiten Amtssprache sowie Englisch und wenn möglich Kenntnisse einer dritten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Lebensqualität für heute und morgen.\n\nDas Bundesamt für Umwelt (BAFU) ist für die nachhaltige Nutzung der natürlichen Ressourcen wie Boden, Wasser, Luft und Wald, für den Schutz vor Naturgefahren und für den Erhalt der Biodiversität zuständig. Es ist Teil des Eidgenössischen Departements für Umwelt, Verkehr, Energie und Kommunikation (UVEK).\n\nWir haben die Schweiz von heute und morgen im Blick und übernehmen in anspruchsvollen Projekten die Verantwortung für die erfolgreiche Entwicklung unseres Landes. Das BAFU bietet die Möglichkeit, in einem modernen Arbeitsumfeld einen wesentlichen Beitrag für eine nachhaltige Schweiz zu leisten.\n\n## Zusätzliche Informationen\n\nEintrittsdatum: 01.01.2027 oder nach Vereinbarung.\n\nPersonen aus der französischen und der italienischen Sprachengemeinschaft sind in unserer Verwaltungseinheit untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-      "titleByLocale": {
-        "it": "Collaboratore/trice esperto/a in politica climatica e legislazione (CCS/NET)",
-        "en": "Research associate in climate policy and legislation (CCS/NET)",
-        "de": "Wiss. Mitarbeiter/in Klimapolitik und Rechtsetzung (CCS/NET)",
-        "fr": "Collaborateur/-trice scientifique en politique climatique et législation (CCS/NET)"
-      },
-      "descriptionByLocale": {
-        "it": "## Metti al punto\n\nFormare il quadro di politica climatica per CCS/NET e modellare lo sviluppo di nuove basi giuridiche. Prendere la responsabilità nell'interfaccia della politica e della legislazione.\n\n- Data di entrata: 01.01.2027\n- Tipo di lavoro: perpetuo\n- Numero di riferimento: JRQ$540-20873\n- Ubicazione: Mühlestrasse 2, 3063 Ittigen\n\n## Puoi dare questo contributo\n\n- Progettare progetti legislativi nel settore del CCS/NET indipendentemente\n- Lavorazione del Consiglio federale e affari del Parlamento su CCS/NET e procedure di consultazione di accompagnamento\n- Coordinare i lavori su CCS/NET all'interno del FOEN e dell'Amministrazione federale e coinvolgere le parti interessate nazionali e internazionali\n- Sostegno normativo alla creazione di un'infrastruttura di trasporto e di stoccaggio di CO2 e all'analisi degli sviluppi nell'UE e del mercato volontario di CO2\n\n## Questo ti rende unico\n\n- Laurea in scienze politiche, economiche o ambientali o equivalenti\n- Conoscenza approfondita della politica climatica svizzera e dei processi legislativi a livello federale\n- Conoscenza di CCS/NET e comprensione delle sfide tecniche e regolamentari\n- Esperienza nella gestione e nel coordinamento dei diversi stakeholder\n- Competenze analitiche e concettuali, senso politico e molto buona espressività scritta nonché metodi di lavoro indipendenti e resilienti\n- Buona conoscenza attiva di almeno una seconda lingua ufficiale e inglese e, se possibile, conoscenza di una terza lingua ufficiale\n\n## Offriamo questo\n\n- Lavorare per la Svizzera: Siamo impegnati al modello di successo svizzero e lavoriamo a beneficio della popolazione.\n- Vivi diversità: Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n- Salute al lavoro: Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\n## Qualità della vita per oggi e domani.\n\nL'Ufficio federale dell'ambiente (FOEN) è responsabile dell'uso sostenibile delle risorse naturali come il suolo, l'acqua, l'aria e le foreste, per la protezione contro i pericoli naturali e per la conservazione della biodiversità. Fa parte del Dipartimento federale dell'ambiente, dei trasporti, dell'energia e delle comunicazioni (UVEK).\n\nTeniamo d'occhio la Svizzera oggi e domani e ci assumiamo la responsabilità per il successo dello sviluppo del nostro Paese in progetti impegnativi. Il FOEN offre l'opportunità di dare un contributo significativo a una Svizzera sostenibile in un ambiente di lavoro moderno.\n\n## Ulteriori informazioni\n\nData di entrata: 01.01.2027 o per accordo.\n\nLe persone delle comunità linguistiche francesi e italiane sono sottorappresentate nella nostra unità amministrativa. Le vostre applicazioni sono quindi particolarmente gradite.",
-        "en": "## Put to the Point\n\nShape the climate policy framework for CCS/NET and shape the development of new legal bases. Take responsibility at the interface of politics and legislation.\n\n- Entry date: 01.01.2027\n- Type of employment: perpetual\n- Reference No: JRQ$540-20873\n- Location: Mühlestrasse 2, 3063 Ittigen\n\n## You can make this contribution\n\n- Steering legislative projects in the area of CCS/NET independently\n- Processing Federal Council and Parliament’s business on CCS/NET and accompanying consultation procedures\n- Coordinate work on CCS/NET within the FOEN and the Federal Administration and involve national and international stakeholders\n- Regulatory support for the establishment of a CO2 transport and storage infrastructure and analyse developments in the EU and the voluntary CO2 market\n\n## This makes you unique\n\n- Graduate degree in political, economic or environmental sciences or equivalent\n- In-depth knowledge of Swiss climate policy and legislative processes at federal level\n- Knowledge of CCS/NET and understanding of technical and regulatory challenges\n- Experience in project management and coordination of different stakeholders\n- Analytical and conceptual skills, political sense and very good written expressiveness as well as independent and resilient working methods\n- Good active knowledge of at least one second official language and English and, if possible, knowledge of a third official language\n\n## We offer this\n\n- Working for Switzerland: We are committed to the Swiss success model and work for the benefit of the population.\n- Living diversity: Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n- Healthy at work: We support and advise our employees in the field of physical and mental health.\n\n## Quality of life for today and tomorrow.\n\nThe Federal Office for the Environment (FOEN) is responsible for the sustainable use of natural resources such as soil, water, air and forests, for protection against natural hazards and for the preservation of biodiversity. It is part of the Federal Department of Environment, Transport, Energy and Communications (UVEK).\n\nWe keep an eye on Switzerland today and tomorrow and assume responsibility for the successful development of our country in challenging projects. The FOEN offers the opportunity to make a significant contribution to a sustainable Switzerland in a modern working environment.\n\n## Additional information\n\nEntry date: 01.01.2027 or by arrangement.\n\nPeople from the French and Italian linguistic communities are sub-represented in our administrative unit. Your applications are therefore particularly welcome.",
-        "de": "## Auf den Punkt gebracht\n\nGestalte die klimapolitischen Rahmenbedingungen für CCS/NET und präge die Erarbeitung neuer Rechtsgrundlagen. Übernimm Verantwortung an der Schnittstelle von Politik und Rechtsetzung.\n\n- Eintrittsdatum: 01.01.2027\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20873\n- Arbeitsort: Mühlestrasse 2, 3063 Ittigen\n\n## Diesen Beitrag kannst du leisten\n\n- Rechtsetzungsprojekte im Bereich CCS/NET eigenständig leiten\n- Bundesrats- und Parlamentsgeschäfte zu CCS/NET bearbeiten und Konsultationsverfahren begleiten\n- Arbeiten zu CCS/NET innerhalb des BAFU und der Bundesverwaltung koordinieren sowie nationale und internationale Anspruchsgruppen einbeziehen\n- Aufbau einer CO₂-Transport- und Speicherinfrastruktur regulatorisch begleiten und Entwicklungen in der EU sowie im freiwilligen CO₂-Markt analysieren\n\n## Das macht dich einzigartig\n\n- Hochschulabschluss in Politik-, Wirtschafts- oder Umweltwissenschaften oder vergleichbarem Fach\n- Fundierte Kenntnisse der Schweizer Klimapolitik und der Rechtsetzungsprozesse auf Bundesebene\n- Kenntnisse zu CCS/NET und Verständnis der technischen und regulatorischen Herausforderungen\n- Erfahrung in Projektleitung und Koordination unterschiedlicher Anspruchsgruppen\n- Analytische und konzeptionelle Fähigkeiten, politisches Gespür und sehr gute schriftliche Ausdrucksfähigkeit sowie selbständige und belastbare Arbeitsweise\n- Gute aktive Kenntnisse mindestens einer zweiten Amtssprache sowie Englisch und wenn möglich Kenntnisse einer dritten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Lebensqualität für heute und morgen.\n\nDas Bundesamt für Umwelt (BAFU) ist für die nachhaltige Nutzung der natürlichen Ressourcen wie Boden, Wasser, Luft und Wald, für den Schutz vor Naturgefahren und für den Erhalt der Biodiversität zuständig. Es ist Teil des Eidgenössischen Departements für Umwelt, Verkehr, Energie und Kommunikation (UVEK).\n\nWir haben die Schweiz von heute und morgen im Blick und übernehmen in anspruchsvollen Projekten die Verantwortung für die erfolgreiche Entwicklung unseres Landes. Das BAFU bietet die Möglichkeit, in einem modernen Arbeitsumfeld einen wesentlichen Beitrag für eine nachhaltige Schweiz zu leisten.\n\n## Zusätzliche Informationen\n\nEintrittsdatum: 01.01.2027 oder nach Vereinbarung.\n\nPersonen aus der französischen und der italienischen Sprachengemeinschaft sind in unserer Verwaltungseinheit untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-        "fr": "## Mettre au point\n\nFormer le cadre de la politique climatique pour le CCS/NET et façonner le développement de nouvelles bases juridiques. Prendre la responsabilité à l'interface de la politique et de la législation.\n\n- Date d'entrée: 01.01.2027\n- Type d'emploi: perpétuel\n- Numéro de référence: JRQ$540-20873\n- Lieu: Mühlestrasse 2, 3063 Ittigen\n\n## Vous pouvez faire cette contribution\n\n- Orientation des projets législatifs dans le domaine du CCS/NET indépendamment\n- Traitement des affaires du Conseil fédéral et du Parlement concernant le CCS/NET et les procédures de consultation connexes\n- Coordonner les travaux sur le CSC/NET au sein du FOEN et de l'Administration fédérale et faire participer les intervenants nationaux et internationaux\n- Soutien réglementaire à la mise en place d'une infrastructure de transport et de stockage du CO2 et analyse les développements dans l'UE et le marché volontaire du CO2\n\n## Cela vous rend unique\n\n- Diplômé en sciences politiques, économiques ou environnementales ou équivalent\n- Connaissance approfondie de la politique climatique suisse et des processus législatifs au niveau fédéral\n- Connaissance du CSC/NET et compréhension des défis techniques et réglementaires\n- Expérience en gestion de projet et coordination des différentes parties prenantes\n- Compétences analytiques et conceptuelles, sens politique et très bonne expression écrite ainsi que méthodes de travail indépendantes et résistantes\n- Bonne connaissance active d'au moins une seconde langue officielle et d'anglais et, si possible, connaissance d'une troisième langue officielle\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse: Nous sommes engagés dans le modèle de réussite suisse et travaillons au profit de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Qualité de vie pour aujourd'hui et demain.\n\nL'Office fédéral de l'environnement (OFEN) est responsable de l'utilisation durable des ressources naturelles telles que les sols, l'eau, l'air et les forêts, de la protection contre les risques naturels et de la préservation de la biodiversité. Il fait partie du ministère fédéral de l'Environnement, des Transports, de l'Énergie et des Communications (UVEK).\n\nNous gardons un œil sur la Suisse aujourd'hui et demain et assumons la responsabilité du développement réussi de notre pays dans des projets difficiles. Le FOEN offre la possibilité d'apporter une contribution significative à une Suisse durable dans un environnement de travail moderne.\n\n## Informations complémentaires\n\nDate d'entrée : 01.01.2027 ou par arrangement.\n\nLes personnes des communautés linguistiques française et italienne sont sous-représentées dans notre unité administrative. Vos candidatures sont donc particulièrement bienvenues."
-      },
-      "slugByLocale": {
-        "it": "collaboratore-trice-esperto-a-in-politica-climatica-e-legislazione-ccs-net-confederazione-svizzera-ittigen",
-        "en": "research-associate-in-climate-policy-and-legislation-ccs-net-confederazione-svizzera-ittigen",
-        "de": "wiss-mitarbeiter-in-klimapolitik-und-rechtsetzung-ccs-net-confederazione-ittigen",
-        "fr": "collaborateur-trice-scientifique-en-politique-climatique-et-legislation-ccs-net-confederazione-svizzera-ittigen"
-      },
-      "id": "confederazione-ticino-0f36b622adfd",
-      "salaryMin": 89000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 89000,
-          "maxValue": 147500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3063",
-      "firstSeenAt": "2026-10-29T10:20:46.794Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "wiss-collaboratore-trice-klimapolitik-e-rechtsetzung-ccs-net-confederazione-svizzera-ittigen",
-          "wiss-mitarbeiter-in-klimapolitik-und-rechtsetzung-ccs-net-confederazione-ittigen"
-        ],
-        "en": [
-          "wiss-mitarbeiter-in-klimapolitik-und-rechtsetzung-ccs-net-confederazione-ittigen"
-        ],
-        "fr": [
-          "wiss-mitarbeiter-in-klimapolitik-und-rechtsetzung-ccs-net-confederazione-ittigen"
-        ]
-      },
-      "previousSlugs": [
-        "wiss-collaboratore-trice-klimapolitik-e-rechtsetzung-ccs-net-confederazione-svizzera-ittigen",
-        "wiss-mitarbeiter-in-klimapolitik-und-rechtsetzung-ccs-net-confederazione-ittigen"
-      ],
-      "streetAddress": "Ittigen",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
-    },
-    {
       "title": "Hochschulpraktikant/-in Schweizerisches Literaturarchiv",
       "slug": "tirocinante-universitario-a-presso-l-archivio-letterario-svizzero-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-schweizerisches-literaturarchiv/796d43b9-03ee-45ad-aa7c-8c80c00454fe",
@@ -3803,84 +3772,6 @@
       },
       "previousSlugs": [
         "jurist-in-politikwissenschaftler-in-confederazione-bern"
-      ]
-    },
-    {
-      "title": "Hochschulpraktikant/-in Klimapolitik",
-      "slug": "tirocinante-universitario-a-in-politica-climatica-confederazione-svizzera-ittigen",
-      "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-klimapolitik/8dc723e3-4981-4a66-a4d0-f55e256f7f06",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20870",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Ittigen",
-      "addressLocality": "Ittigen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "internship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-28T23:00:00Z",
-      "postedDate": "2026-10-28T23:00:00Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-27T00:00:00.000Z",
-      "employmentType": "internship",
-      "contractType": "internship",
-      "description": "## Auf den Punkt gebracht\n\nGestalte die Schweizer Klimapolitik für die Zeit nach 2030 mit und erhalte einen unmittelbaren Einblick in die Arbeit an Gesetzesvorlagen und weiteren politischen Geschäften.\n\n- Eintrittsdatum: 01.01.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: JRQ$540-20870\n- Arbeitsort: Mühlestrasse 2, 3063 Ittigen\n\n## Diesen Beitrag kannst du leisten\n\n- Bei der Revision des CO₂-Gesetzes für die Zeit nach 2030 und weiteren klimapolitischen Geschäften mitarbeiten\n- Ämterkonsultationen und Vernehmlassungen begleiten, Stellungnahmen systematisch erfassen und auswerten\n- Ergebnisbericht zur Vernehmlassung zum CO₂-Gesetz nach 2030 erarbeiten und die Abstimmung mit beteiligten Fachstellen koordinieren\n- Bei der Bearbeitung parlamentarischer Vorstösse sowie bei der Erarbeitung von Berichten und Entscheidungsgrundlagen mitwirken\n\n## Das macht dich einzigartig\n\n- Hochschulstudium (Bachelor oder Master), beispielsweise in Politik-, Wirtschafts- oder Umweltwissenschaften\n- Analytische und konzeptionelle Fähigkeiten zur strukturierten Auswertung komplexer Informationen\n- Interesse an der Schweizer Klima- und Umweltpolitik sowie an politischen Entscheidungsprozessen\n- Sehr gute schriftliche Ausdrucksfähigkeit und Freude an der verständlichen Aufbereitung von Sachverhalten\n- Selbstständige, sorgfältige und zuverlässige Arbeitsweise sowie organisatorisches Geschick\n- Gute aktive Kenntnisse mindestens einer zweiten Amtssprache sowie Englisch und wenn möglich Kenntnisse einer dritten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Lebensqualität für heute und morgen.\n\nDas Bundesamt für Umwelt (BAFU) ist für die nachhaltige Nutzung der natürlichen Ressourcen wie Boden, Wasser, Luft und Wald, für den Schutz vor Naturgefahren und für den Erhalt der Biodiversität zuständig. Es ist Teil des Eidgenössischen Departements für Umwelt, Verkehr, Energie und Kommunikation (UVEK).\n\nWir haben die Schweiz von heute und morgen im Blick und übernehmen in anspruchsvollen Projekten die Verantwortung für die erfolgreiche Entwicklung unseres Landes. Das BAFU bietet die Möglichkeit, in einem modernen Arbeitsumfeld einen wesentlichen Beitrag für eine nachhaltige Schweiz zu leisten.\n\n## Zusätzliche Informationen\n\nEintrittsdatum: 01.01.2027 oder nach Vereinbarung.\nPraktikumsdauer 01.01.2027 - 31.12.2027.\nKonditionen zum Hochschulpraktikum: Studierende und Hochschulabgänger/-innen (admin.ch)\n\nPersonen aus der französischen und der italienischen Sprachengemeinschaft sind in unserer Verwaltungseinheit untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-      "titleByLocale": {
-        "it": "Tirocinante universitario/a in politica climatica",
-        "en": "University intern in climate policy",
-        "de": "Hochschulpraktikant/-in Klimapolitik",
-        "fr": "Stagiaire universitaire en politique climatique"
-      },
-      "descriptionByLocale": {
-        "it": "## Metti al punto\n\nAiuta a plasmare la politica climatica svizzera per il periodo successivo al 2030 e a approfondire immediatamente i lavori sulle proposte legislative e su altri accordi politici.\n\n- Data di entrata: 01.01.2027\n- Tipo di lavoro: temporaneo\n- Numero di riferimento: JRQ$540-20870\n- Luogo di lavoro: Mühlestrasse 2, 3063 Ittigen\n\n## Puoi dare questo contributo\n\n- Partecipazione alla revisione della legge sulla CO2 per il periodo successivo al 2030 e all'ulteriore business della politica climatica\n- Sostenere consultazioni e consultazioni ufficiali, raccogliere sistematicamente e valutare le opinioni\n- Preparare la relazione dei risultati sulla consultazione sulla legge CO2 dopo il 2030 e coordinare il coordinamento con gli organismi specializzati partecipanti\n- Partecipazione al trattamento delle iniziative parlamentari e alla preparazione di relazioni e basi decisionali\n\n## Questo ti rende unico\n\n- Studi universitari (bachelor o master), per esempio in scienze politiche, economiche o ambientali\n- Competenze analitiche e concettuali per la valutazione strutturata delle informazioni complesse\n- Interessi nella politica climatica e ambientale e nei processi decisionali politici\n- Molto buona espressività scritta e piacere nella preparazione comprensibile dei fatti\n- Metodi di lavoro indipendenti, attenti e affidabili e competenze organizzative\n- Buona conoscenza attiva di almeno una seconda lingua ufficiale e inglese e, se possibile, conoscenza di una terza lingua ufficiale\n\n## Offriamo questo\n\n- Lavorare per la Svizzera: Siamo impegnati al modello di successo svizzero e lavoriamo a beneficio della popolazione.\n- Vivi diversità: Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n- Salute al lavoro: Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\n## Qualità della vita per oggi e domani.\n\nL'Ufficio federale dell'ambiente (FOEN) è responsabile dell'uso sostenibile delle risorse naturali come il suolo, l'acqua, l'aria e le foreste, per la protezione contro i pericoli naturali e per la conservazione della biodiversità. Fa parte del Dipartimento federale dell'ambiente, dei trasporti, dell'energia e delle comunicazioni (UVEK).\n\nTeniamo d'occhio la Svizzera oggi e domani e ci assumiamo la responsabilità per il successo dello sviluppo del nostro Paese in progetti impegnativi. Il FOEN offre l'opportunità di dare un contributo significativo ad una Svizzera sostenibile in un ambiente di lavoro moderno.\n\n## Ulteriori informazioni\n\nData di entrata: 01.01.2027 o per accordo.\nPeriodo di stage 01.01.2027 - 31.12.2027.\nCondizioni per uno stage universitario: studenti e laureati (admin.ch)\n\nLe persone delle comunità linguistiche francesi e italiane sono sottorappresentate nella nostra unità amministrativa. Le vostre applicazioni sono quindi particolarmente gradite.",
-        "en": "## Put to the Point\n\nHelp shape Swiss climate policy for the period after 2030 and gain immediate insight into the work on legislative proposals and other political deals.\n\n- Entry date: 01.01.2027\n- Type of employment: temporary\n- Reference No: JRQ$540-20870\n- Place of work: Mühlestrasse 2, 3063 Ittigen\n\n## You can make this contribution\n\n- Participating in the revision of the CO2 law for the period after 2030 and further climate policy business\n- Support official consultations and consultations, systematically collect and evaluate opinions\n- Prepare the results report on the consultation on the CO2 law after 2030 and coordinate the coordination with participating specialist bodies\n- Participate in the processing of parliamentary initiatives and in the preparation of reports and decision-making bases\n\n## This makes you unique\n\n- University studies (bachelor or master), for example in political, economic or environmental sciences\n- Analytical and conceptual skills for the structured evaluation of complex information\n- Interest in Swiss climate and environmental policy as well as in political decision-making processes\n- Very good written expressiveness and pleasure in the comprehensible preparation of facts\n- Independent, careful and reliable working methods and organizational skills\n- Good active knowledge of at least one second official language and English and, if possible, knowledge of a third official language\n\n## We offer this\n\n- Working for Switzerland: We are committed to the Swiss success model and work for the benefit of the population.\n- Living diversity: Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n- Healthy at work: We support and advise our employees in the field of physical and mental health.\n\n## Quality of life for today and tomorrow.\n\nThe Federal Office for the Environment (FOEN) is responsible for the sustainable use of natural resources such as soil, water, air and forests, for protection against natural hazards and for the preservation of biodiversity. It is part of the Federal Department of Environment, Transport, Energy and Communications (UVEK).\n\nWe keep an eye on Switzerland today and tomorrow and assume responsibility for the successful development of our country in challenging projects. The FOEN offers the opportunity to make a significant contribution to a sustainable Switzerland in a modern working environment.\n\n## Additional information\n\nEntry date: 01.01.2027 or by arrangement.\nInternship period 01.01.2027 - 31.12.2027.\nConditions for a university internship: students and graduates (admin.ch)\n\nPersons from the French and Italian linguistic communities are sub-represented in our administrative unit. Your applications are therefore particularly welcome.",
-        "de": "## Auf den Punkt gebracht\n\nGestalte die Schweizer Klimapolitik für die Zeit nach 2030 mit und erhalte einen unmittelbaren Einblick in die Arbeit an Gesetzesvorlagen und weiteren politischen Geschäften.\n\n- Eintrittsdatum: 01.01.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: JRQ$540-20870\n- Arbeitsort: Mühlestrasse 2, 3063 Ittigen\n\n## Diesen Beitrag kannst du leisten\n\n- Bei der Revision des CO₂-Gesetzes für die Zeit nach 2030 und weiteren klimapolitischen Geschäften mitarbeiten\n- Ämterkonsultationen und Vernehmlassungen begleiten, Stellungnahmen systematisch erfassen und auswerten\n- Ergebnisbericht zur Vernehmlassung zum CO₂-Gesetz nach 2030 erarbeiten und die Abstimmung mit beteiligten Fachstellen koordinieren\n- Bei der Bearbeitung parlamentarischer Vorstösse sowie bei der Erarbeitung von Berichten und Entscheidungsgrundlagen mitwirken\n\n## Das macht dich einzigartig\n\n- Hochschulstudium (Bachelor oder Master), beispielsweise in Politik-, Wirtschafts- oder Umweltwissenschaften\n- Analytische und konzeptionelle Fähigkeiten zur strukturierten Auswertung komplexer Informationen\n- Interesse an der Schweizer Klima- und Umweltpolitik sowie an politischen Entscheidungsprozessen\n- Sehr gute schriftliche Ausdrucksfähigkeit und Freude an der verständlichen Aufbereitung von Sachverhalten\n- Selbstständige, sorgfältige und zuverlässige Arbeitsweise sowie organisatorisches Geschick\n- Gute aktive Kenntnisse mindestens einer zweiten Amtssprache sowie Englisch und wenn möglich Kenntnisse einer dritten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Lebensqualität für heute und morgen.\n\nDas Bundesamt für Umwelt (BAFU) ist für die nachhaltige Nutzung der natürlichen Ressourcen wie Boden, Wasser, Luft und Wald, für den Schutz vor Naturgefahren und für den Erhalt der Biodiversität zuständig. Es ist Teil des Eidgenössischen Departements für Umwelt, Verkehr, Energie und Kommunikation (UVEK).\n\nWir haben die Schweiz von heute und morgen im Blick und übernehmen in anspruchsvollen Projekten die Verantwortung für die erfolgreiche Entwicklung unseres Landes. Das BAFU bietet die Möglichkeit, in einem modernen Arbeitsumfeld einen wesentlichen Beitrag für eine nachhaltige Schweiz zu leisten.\n\n## Zusätzliche Informationen\n\nEintrittsdatum: 01.01.2027 oder nach Vereinbarung.\nPraktikumsdauer 01.01.2027 - 31.12.2027.\nKonditionen zum Hochschulpraktikum: Studierende und Hochschulabgänger/-innen (admin.ch)\n\nPersonen aus der französischen und der italienischen Sprachengemeinschaft sind in unserer Verwaltungseinheit untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-        "fr": "## Mettre au point\n\nAider à façonner la politique climatique suisse pour la période postérieure à 2030 et obtenir un aperçu immédiat des travaux sur les propositions législatives et autres accords politiques.\n\n- Date d'entrée: 01.01.2027\n- Type d'emploi: temporaire\n- Numéro de référence: JRQ$540-20870\n- Lieu de travail: Mühlestrasse 2, 3063 Ittigen\n\n## Vous pouvez faire cette contribution\n\n- Participation à la révision de la loi sur le CO2 pour la période postérieure à 2030 et à la poursuite de la politique climatique\n- Appuyer les consultations et consultations officielles, recueillir et évaluer systématiquement les opinions\n- Préparer le rapport sur les résultats de la consultation sur la loi sur le CO2 après 2030 et coordonner la coordination avec les organismes spécialisés participants\n- Participer au traitement des initiatives parlementaires et à la préparation des rapports et des bases de décision\n\n## Cela vous rend unique\n\n- Études universitaires (bachelor ou master), par exemple en sciences politiques, économiques ou environnementales\n- Compétences analytiques et conceptuelles pour l'évaluation structurée de l'information complexe\n- Intérêt pour la politique environnementale et climatique suisse ainsi que pour les processus de décision politique\n- Très bonne expression écrite et plaisir dans la préparation compréhensible des faits\n- Méthodes de travail et compétences organisationnelles indépendantes, prudentes et fiables\n- Bonne connaissance active d'au moins une seconde langue officielle et d'anglais et, si possible, connaissance d'une troisième langue officielle\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse : Nous sommes engagés dans le modèle de réussite suisse et travaillons au bénéfice de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Qualité de vie pour aujourd'hui et demain.\n\nL'Office fédéral de l'environnement (OFEN) est responsable de l'utilisation durable des ressources naturelles telles que le sol, l'eau, l'air et les forêts, de la protection contre les risques naturels et de la préservation de la biodiversité. Il fait partie du Département fédéral de l'environnement, des transports, de l'énergie et des communications (UVEK).\n\nNous gardons un œil sur la Suisse aujourd'hui et demain et assumons la responsabilité du développement réussi de notre pays dans des projets difficiles. Le FOEN offre la possibilité d'apporter une contribution significative à une Suisse durable dans un environnement de travail moderne.\n\n## Informations complémentaires\n\nDate d'entrée: 01.01.2027 ou par arrangement.\nPériode de stage 01.01.2027 - 31.12.2027.\nConditions pour un stage universitaire: étudiants et diplômés (admin.ch)\n\nLes personnes des communautés linguistiques française et italienne sont sous-représentées dans notre unité administrative. Vos candidatures sont donc particulièrement bienvenues."
-      },
-      "slugByLocale": {
-        "it": "tirocinante-universitario-a-in-politica-climatica-confederazione-svizzera-ittigen",
-        "en": "university-intern-in-climate-policy-confederazione-svizzera-ittigen",
-        "de": "hochschulpraktikant-in-klimapolitik-confederazione-ittigen",
-        "fr": "stagiaire-universitaire-en-politique-climatique-confederazione-svizzera-ittigen"
-      },
-      "id": "confederazione-ticino-32d419f27a32",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3063",
-      "firstSeenAt": "2026-10-29T10:20:46.794Z",
-      "streetAddress": "Ittigen",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "previousSlugsByLocale": {
-        "it": [
-          "hochschulpraktikant-in-klimapolitik-confederazione-ittigen"
-        ],
-        "en": [
-          "hochschulpraktikant-in-klimapolitik-confederazione-ittigen"
-        ],
-        "fr": [
-          "hochschulpraktikant-in-klimapolitik-confederazione-ittigen"
-        ]
-      },
-      "previousSlugs": [
-        "hochschulpraktikant-in-klimapolitik-confederazione-ittigen"
       ]
     },
     {
@@ -6079,91 +5970,6 @@
       "previousSlugs": [
         "hochschulpraktikant-in-invasive-gebietsfremde-arten-confederazione-ittigen"
       ]
-    },
-    {
-      "title": "Hochschulpraktikant/-in",
-      "slug": "tirocinante-universitario-a-confederazione-svizzera-bern-2cf21d",
-      "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in/476c4f79-82d3-4a74-a7e5-f733f650d968",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20809",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "internship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-23T06:20:07Z",
-      "postedDate": "2026-10-23T06:20:07Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-07T11:54:13.398Z",
-      "employmentType": "internship",
-      "contractType": "internship",
-      "description": "## Auf den Punkt gebracht\n\nBringen Sie Ihr betriebswirtschaftliches und digitales Know-how dort ein, wo Planung, Organisation und Projekte ineinandergreifen\n\n- Eintrittsdatum: 01.03.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: 403-20809\n- Arbeitsort: Guisanplatz 1A, 3014 Bern\n\n## Diesen Beitrag können Sie leisten\n\n- In konzeptionellen, planerischen und organisatorischen Aufgaben der Abteilung Einsatz, Ausbildung und Planung mitarbeiten\n- Konzepte, Grundlagen und Entscheidungsunterlagen erarbeiten und weiterentwickeln\n- In Projekten mitarbeiten oder Teilaufgaben übernehmen, inklusive Projektcontrolling und -administration\n- Informations- und Kommunikationsprozesse analysieren, weiterentwickeln und konsolidieren\n- Sitzungen und Workshops organisieren, mitwirken und Protokolle erstellen\n- Administrative Aufgaben sowie Digitalisierungs- und IT-Vorhaben unterstützen\n\n## Das macht Sie einzigartig\n\n- Bachelor- oder Masterabschluss an einer Fachhochschule oder Universität, vorzugsweise in Betriebswirtschaft oder Wirtschaftsinformatik\n- Interesse an betriebswirtschaftlichen Prozessen sowie digitalen Anwendungen und IT-Themen\n- Erfahrung oder Affinität zu Projektarbeit und Projektmanagement\n- Sehr gute redaktionelle und konzeptionelle Fähigkeiten sowie stilsichere Schreibweise\n- Selbstständige, strukturierte Arbeitsweise und Freude an vernetztem Denken\n- Gute aktive Kenntnisse einer zweiten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nJanine Ronchi\n+41 58 46 24718\n\n## fedpol im Einsatz für die Schweiz – jederzeit & überall\n\nfedpol im Einsatz für die Schweiz – jederzeit & überall.\nfedpol schützt Personen und Gebäude in der Verantwortung des Bundes. Der Bundessicherheitsdienst (BSD) von fedpol erstellt Gefährdungsbeurteilungen und Sicherheitsdispositive und schützt Mitglieder der Bundesversammlung, Angestellte des Bundes sowie völkerrechtlich geschützte Personen. Er ist zuständig für den Schutz von zivilen Bundesgebäuden sowie diplomatischen und konsularischen Vertretungen ausländischer Staaten in der Schweiz. Der BSD stellt zudem die Ausbildung sowie den Einsatz von Sicherheitsbeauftragten im Luftverkehr sicher. Die Abteilung Einsatz, Ausbildung und Planung (EAP) erarbeitet Grundlagen und Planungen für die operativen Bereiche des BSD und betreibt das Einvernahmezentrum des Bundes. Sie führt das Kompetenzzentrum sicherheitspolizeiliche Ausbildung, gewährleistet die Sicherheit im Parlamentsgebäude sowie an Bundesratssitzen und am Hauptstandort von fedpol und verantwortet die Rekrutierung, Ausbildung und den Einsatz von Sicherheitspersonal im internationalen Luftverkehr.\n\n## Zusätzliche Informationen\n\nStudienabschluss und Praktikumsbeginn dürfen höchstens ein Jahr auseinanderliegen.\nStellenantritt: 01.03.2027\nPraktikumsdauer: 12 Monate\nBitte bewerben Sie sich über unser Bewerbungsmanagementsystem. Klicken Sie dafür auf «Jetzt bewerben».",
-      "titleByLocale": {
-        "it": "Tirocinante universitario/a",
-        "en": "University Intern",
-        "de": "Hochschulpraktikant/-in",
-        "fr": "Stagiaire universitaire"
-      },
-      "descriptionByLocale": {
-        "it": "## Metti al punto\n\nPorta il tuo business e il tuo know-how digitale in cui la pianificazione, l'organizzazione e i progetti sono intrecciati\n\n- Data di entrata: 01.03.2027\n- Tipo di lavoro: temporaneo\n- Numero di riferimento: 403-20809\n- Posizione: Guisanplatz 1A, 3014 Berna\n\n## Puoi dare questo contributo\n\n- Lavorare in compiti concettuali, di pianificazione e organizzativi del dipartimento di distribuzione, formazione e pianificazione\n- Sviluppo e sviluppo di concetti, principi e documenti decisionali\n- Lavorare in progetti o svolgere compiti parziali, compreso il controllo del progetto e l'amministrazione\n- Analizzare, sviluppare e consolidare i processi di informazione e comunicazione\n- Organizzare riunioni e workshop, partecipare e elaborare minuti\n- Sostenere i compiti amministrativi e la digitalizzazione e i progetti IT\n\n## Questo li rende unici.\n\n- Laurea o Master in un college tecnico o universitario, preferibilmente in amministrazione aziendale o informatica aziendale\n- Interessi nei processi aziendali e applicazioni digitali e argomenti IT\n- Esperienza o affinità per il lavoro di progetto e la gestione del progetto\n- Molto buone capacità editoriali e concettuali e scrittura elegante\n- Metodo di lavoro indipendente e strutturato e fruizione del pensiero in rete\n- Buona conoscenza attiva di una seconda lingua ufficiale\n\n## Offriamo questo\n\n- Lavorare per la Svizzera: Siamo impegnati al modello di successo svizzero e lavoriamo a beneficio della popolazione.\n- Vivi diversità: Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n- Salute al lavoro: Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\n## Questioni di applicazione\n\nJanine Ronchi\n+41 58 46 24718\n\n## federalpol in azione per la Svizzera – sempre e ovunque\n\nfedpol in funzione per la Svizzera – sempre e ovunque.\nfederalpol protegge individui e edifici sotto la responsabilità della Federazione. Il Servizio federale di sicurezza (BSD) di federalpol elabora valutazioni di rischio e dispositivi di sicurezza e protegge i membri dell'Assemblea federale, i dipendenti della Federazione e le persone protette dal diritto internazionale. È responsabile della protezione degli edifici federali civili e delle rappresentazioni diplomatiche e consolari degli stati stranieri in Svizzera. La BSD garantisce anche la formazione e la distribuzione di agenti di sicurezza nel trasporto aereo. Il Dipartimento di Engagement, Training and Planning (EAP) sviluppa principi e piani di base per le aree operative del BSD e gestisce il Centro Federale di Accettazione. Guida il centro di competenza per la formazione della polizia di sicurezza, assicura la sicurezza nell'edificio del Parlamento, nonché presso i seggi del Consiglio federale e presso la sede di federalpol ed è responsabile per il reclutamento, la formazione e la distribuzione del personale di sicurezza nel traffico aereo internazionale.\n\n## Ulteriori informazioni\n\nLa laurea e l'inizio del tirocinio non possono essere più di un anno di distanza.\nApertura del lavoro: 01.03.2027\nDurata dello stage: 12 mesi\nSi prega di applicare attraverso il nostro sistema di gestione delle applicazioni. Clicca su “Applica ora”.",
-        "en": "## Put to the Point\n\nBring your business and digital know-how where planning, organization and projects are intertwined\n\n- Date of entry: 01.03.2027\n- Type of employment: temporary\n- Reference No: 403-20809\n- Location: Guisanplatz 1A, 3014 Bern\n\n## You can make this contribution\n\n- Working in conceptual, planning and organizational tasks of the department of deployment, training and planning\n- Developing and further developing concepts, principles and decision documents\n- Working in projects or taking on partial tasks, including project controlling and administration\n- Analyse, develop and consolidate information and communication processes\n- Organise meetings and workshops, participate and draw up minutes\n- Support administrative tasks as well as digitalisation and IT projects\n\n## This makes them unique.\n\n- Bachelor's or Master's degree at a technical college or university, preferably in business administration or business informatics\n- Interest in business processes as well as digital applications and IT topics\n- Experience or affinity for project work and project management\n- Very good editorial and conceptual skills as well as stylish writing\n- Independent, structured working method and enjoyment of networked thinking\n- Good active knowledge of a second official language\n\n## We offer this\n\n- Working for Switzerland: We are committed to the Swiss success model and work for the benefit of the population.\n- Living diversity: Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n- Healthy at work: We support and advise our employees in the field of physical and mental health.\n\n## Application questions\n\nJanine Ronchi\n+41 58 46 24718\n\n## fedpol in action for Switzerland – anytime and anywhere\n\nfedpol in operation for Switzerland – anytime & anywhere.\nfedpol protects individuals and buildings under the responsibility of the Federation. The Federal Security Service (BSD) of fedpol draws up risk assessments and security devices and protects members of the Federal Assembly, employees of the Federation and persons protected under international law. He is responsible for the protection of civil federal buildings as well as diplomatic and consular representations of foreign states in Switzerland. The BSD also ensures the training and deployment of safety officers in air transport. The Department of Engagement, Training and Planning (EAP) develops basic principles and plans for the operational areas of the BSD and operates the Federal Acceptance Center. She leads the competence center for security police training, ensures security in the Parliament building as well as at the seats of the Federal Council and at the headquarters of fedpol and is responsible for the recruitment, training and deployment of security personnel in international air traffic.\n\n## Additional information\n\nDegree and start of the traineeship may not be more than one year apart.\nJob opening: 01.03.2027\nDuration of internship: 12 months\nPlease apply through our application management system. Click on “Apply now”.",
-        "de": "## Auf den Punkt gebracht\n\nBringen Sie Ihr betriebswirtschaftliches und digitales Know-how dort ein, wo Planung, Organisation und Projekte ineinandergreifen\n\n- Eintrittsdatum: 01.03.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: 403-20809\n- Arbeitsort: Guisanplatz 1A, 3014 Bern\n\n## Diesen Beitrag können Sie leisten\n\n- In konzeptionellen, planerischen und organisatorischen Aufgaben der Abteilung Einsatz, Ausbildung und Planung mitarbeiten\n- Konzepte, Grundlagen und Entscheidungsunterlagen erarbeiten und weiterentwickeln\n- In Projekten mitarbeiten oder Teilaufgaben übernehmen, inklusive Projektcontrolling und -administration\n- Informations- und Kommunikationsprozesse analysieren, weiterentwickeln und konsolidieren\n- Sitzungen und Workshops organisieren, mitwirken und Protokolle erstellen\n- Administrative Aufgaben sowie Digitalisierungs- und IT-Vorhaben unterstützen\n\n## Das macht Sie einzigartig\n\n- Bachelor- oder Masterabschluss an einer Fachhochschule oder Universität, vorzugsweise in Betriebswirtschaft oder Wirtschaftsinformatik\n- Interesse an betriebswirtschaftlichen Prozessen sowie digitalen Anwendungen und IT-Themen\n- Erfahrung oder Affinität zu Projektarbeit und Projektmanagement\n- Sehr gute redaktionelle und konzeptionelle Fähigkeiten sowie stilsichere Schreibweise\n- Selbstständige, strukturierte Arbeitsweise und Freude an vernetztem Denken\n- Gute aktive Kenntnisse einer zweiten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nJanine Ronchi\n+41 58 46 24718\n\n## fedpol im Einsatz für die Schweiz – jederzeit & überall\n\nfedpol im Einsatz für die Schweiz – jederzeit & überall.\nfedpol schützt Personen und Gebäude in der Verantwortung des Bundes. Der Bundessicherheitsdienst (BSD) von fedpol erstellt Gefährdungsbeurteilungen und Sicherheitsdispositive und schützt Mitglieder der Bundesversammlung, Angestellte des Bundes sowie völkerrechtlich geschützte Personen. Er ist zuständig für den Schutz von zivilen Bundesgebäuden sowie diplomatischen und konsularischen Vertretungen ausländischer Staaten in der Schweiz. Der BSD stellt zudem die Ausbildung sowie den Einsatz von Sicherheitsbeauftragten im Luftverkehr sicher. Die Abteilung Einsatz, Ausbildung und Planung (EAP) erarbeitet Grundlagen und Planungen für die operativen Bereiche des BSD und betreibt das Einvernahmezentrum des Bundes. Sie führt das Kompetenzzentrum sicherheitspolizeiliche Ausbildung, gewährleistet die Sicherheit im Parlamentsgebäude sowie an Bundesratssitzen und am Hauptstandort von fedpol und verantwortet die Rekrutierung, Ausbildung und den Einsatz von Sicherheitspersonal im internationalen Luftverkehr.\n\n## Zusätzliche Informationen\n\nStudienabschluss und Praktikumsbeginn dürfen höchstens ein Jahr auseinanderliegen.\nStellenantritt: 01.03.2027\nPraktikumsdauer: 12 Monate\nBitte bewerben Sie sich über unser Bewerbungsmanagementsystem. Klicken Sie dafür auf «Jetzt bewerben».",
-        "fr": "## Mettre au point\n\nApportez votre savoir-faire commercial et numérique où la planification, l'organisation et les projets sont liés\n\n- Date d'entrée: 01.03.2027\n- Type d'emploi: temporaire\n- Numéro de référence: 403-20809\n- Lieu: Guisanplatz 1A, 3014 Berne\n\n## Vous pouvez faire cette contribution\n\n- Travaux de conception, de planification et d ' organisation du Département du déploiement, de la formation et de la planification\n- Élaboration et développement de concepts, principes et documents de décision\n- Travailler dans des projets ou assumer des tâches partielles, y compris le contrôle et l'administration des projets\n- Analyser, développer et consolider les processus d'information et de communication\n- Organiser des réunions et des ateliers, participer et rédiger des procès-verbaux\n- Soutenir les tâches administratives ainsi que les projets de numérisation et d'informatique\n\n## Cela les rend uniques.\n\n- Baccalauréat ou maîtrise dans un collège technique ou une université, de préférence en administration des affaires ou en informatique des affaires\n- Intérêt pour les processus opérationnels ainsi que pour les applications numériques et les sujets informatiques\n- Expérience ou affinité pour le travail de projet et la gestion de projet\n- Très bonnes compétences éditoriales et conceptuelles ainsi que l'écriture élégante\n- Méthode de travail indépendante et structurée et jouissance de la pensée en réseau\n- Bonne connaissance active d'une deuxième langue officielle\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse: Nous sommes engagés dans le modèle de réussite suisse et travaillons au profit de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Questions relatives aux demandes\n\nJanine Ronchi\n+41 58 46 24718\n\n## fedpol en action pour la Suisse – à tout moment et partout\n\nfedpol en fonctionnement pour la Suisse – à tout moment et n'importe où.\nfedpol protège les individus et les bâtiments sous la responsabilité de la Fédération. Le Service fédéral de sécurité (BSD) de Fedpol établit des évaluations des risques et des dispositifs de sécurité et protège les membres de l'Assemblée fédérale, les employés de la Fédération et les personnes protégées par le droit international. Il est responsable de la protection des bâtiments fédéraux civils ainsi que des représentations diplomatiques et consulaires d'États étrangers en Suisse. Le BSD assure également la formation et le déploiement des agents de sécurité dans le transport aérien. Le Département de l ' engagement, de la formation et de la planification élabore des principes et des plans de base pour les domaines opérationnels de la Division et gère le Centre fédéral d ' acceptation. Elle dirige le centre de compétence pour la formation de la police de sécurité, assure la sécurité dans le bâtiment du Parlement ainsi qu'aux sièges du Conseil fédéral et au siège de fedpol et est responsable du recrutement, de la formation et du déploiement du personnel de sécurité dans la circulation aérienne internationale.\n\n## Informations complémentaires\n\nLe degré et le début du stage ne peuvent pas dépasser un an d'intervalle.\nOuverture de l'emploi: 01.03.2027\nDurée du stage: 12 mois\nVeuillez vous inscrire à notre système de gestion des applications. Cliquez sur \"Appliquer maintenant\"."
-      },
-      "slugByLocale": {
-        "it": "tirocinante-universitario-a-confederazione-svizzera-bern-2cf21d",
-        "en": "university-intern-confederazione-svizzera-bern-2cf21d",
-        "de": "hochschulpraktikant-in-confederazione-svizzera-bern",
-        "fr": "stagiaire-universitaire-confederazione-svizzera-bern-2cf21d"
-      },
-      "id": "confederazione-ticino-121cd0fad35b",
-      "previousSlugsByLocale": {
-        "it": [
-          "hochschulpraktikant-in-confederazione-svizzera-bern",
-          "hochschulpraktikant-in-confederazione-bern"
-        ],
-        "en": [
-          "hochschulpraktikant-in-confederazione-svizzera-bern"
-        ],
-        "fr": [
-          "hochschulpraktikant-in-confederazione-svizzera-bern"
-        ],
-        "de": [
-          "hochschulpraktikant-in-confederazione-svizzera-bern-5n1mdz",
-          "hochschulpraktikant-in-confederazione-bern"
-        ]
-      },
-      "previousSlugs": [
-        "hochschulpraktikant-in-confederazione-svizzera-bern",
-        "hochschulpraktikant-in-confederazione-svizzera-bern-5n1mdz",
-        "hochschulpraktikant-in-confederazione-bern"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
     },
     {
       "title": "ICT Systemspezialist/in Senior Server und Storage",
@@ -9503,7 +9309,7 @@
       "datePosted": "2026-10-07T07:50:57Z",
       "postedDate": "2026-10-07T07:50:57Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-05T00:00:00.000Z",
+      "validThrough": "2027-01-05T09:45:08.463Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "description": "## Auf den Punkt gebracht\n\nLeisten Sie einen wichtigen und unverzichtbaren Beitrag zur Sicherheit des NDB! Die Sicherheit und der Schutz von Mitarbeitenden und Objekten hat für den NDB oberste Priorität. Mit Ihrem Wissen und Ihren Erfahrungen tragen Sie zur Sicherung dieser Werte und zu deren Weiterentwicklung bei. Eine spannende und herausfordernde Aufgabe in einem speziellen Umfeld erwartet Sie\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20546\n- Arbeitsort: Papiermühlestrasse 20, 3003 Bern\n\n## Diesen Beitrag kannst du leisten\n\n- Grundlagen, Konzepte und Instrumente der integralen Sicherheit mit Fokus auf Personen- und Objektsicherheit erarbeiten\n- Projekte der Sicherheit NDB führen und an Projekten mit Sicherheitsbezug (intern und mit externen Partnern) mitarbeiten\n- Schulungen in den Bereichen Personen- und Objektsicherheit und Informationsschutz konzipieren\n- Mitarbeitende in Sicherheitsfragen beraten und Personalgeschäfte mit Sicherheitsbezug bearbeiten\n- Pikettdienst leisten\n\n## Das macht dich einzigartig\n\n- Abgeschlossenes Hoch- oder Fachhochschulstudium (Master) vorzugsweise mit Fachrichtung Elektrotechnik, Nachrichtentechnik oder Telekommunikation\n- Langjährige Berufserfahrung im Umfeld der Personen- und Objektsicherheit\n- Exakte, strukturierte und eigenverantwortliche Arbeitsweise sowie Projektleitungskompetenzen\n- Schweizer Bürger/-in mit einwandfreiem Leumund\n- Sehr gute Kenntnissen einer zweiten Amtssprache sowie sehr gute Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nRecruiting NDB / SRC / SIC / FIS\n\n## Gemeinsam für die Sicherheit der Schweiz!\n\nDer NDB befasst sich mit der Früherkennung und Bekämpfung von Terrorismus, gewalttätigem Extremismus, Spionage, der Verbreitung von Massenvernichtungswaffen und deren Trägertechnologie sowie Cyberangriffen auf kritische Infrastrukturen. Ausserdem beschafft der NDB sicherheitspolitisch wichtige Informationen und wertet diese aus. So liefert er entscheidende Beiträge für die umfassende Beurteilung der Bedrohungslage.\n\nAuf Stufe Bund bedient der NDB primär den Bundesrat, die Departemente sowie die militärische Führung mit seinen Produkten. Er unterstützt zudem die Kantone bei der Wahrung der inneren Sicherheit und die Strafverfolgungsbehörden auf Bundesebene.\n\nFrauen sowie Personen aus der französischen und der italienischen Sprachengemeinschaft sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
@@ -9544,7 +9350,7 @@
       "firstSeenAt": "2026-10-07T09:45:08.463Z",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-personen-und-objektsicherheit-confederazione-bern"
@@ -9581,7 +9387,7 @@
       "datePosted": "2026-10-08T06:03:00Z",
       "postedDate": "2026-10-08T06:03:00Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-05T00:00:00.000Z",
+      "validThrough": "2026-11-22T09:52:58.131Z",
       "employmentType": "internship",
       "contractType": "internship",
       "description": "## Auf den Punkt gebracht\n\nGesprächsführung, Verfassung von Berichten sowie eine interdisziplinäre Arbeit zwischen Recht, Psychologie und Kriminologie bilden die während diesem Praktikum auszuführenden Tätigkeiten.\n\n- Eintrittsdatum: 01.01.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: JRQ$540-20575\n- Arbeitsort: Papiermühlestrasse 20, 3003 Bern\n\n## Diesen Beitrag kannst du leisten\n\n- Führung von Sicherheitsgesprächen\n- Vorbereitung der Sicherheitsgespräche und Verfassung von Berichten nach den Gesprächen\n- Ausführung von Aufgaben in den Bereichen Psychologie, Kriminologie und Recht. Zum Beispiel: Literaturrecherchen, Erarbeitung von Ausbildungen usw\n- Mitarbeit an Projekten in den Bereichen HR, Arbeitspsycholoie oder anderen Bereichen im Zusammenhang mit Recht, Psychologie und Kriminologie\n\n## Das macht dich einzigartig\n\n- Ein vor dem Stellenantritt abgeschlossener Master in Psychologie, Recht oder Kriminologie ist erforderlich (Diplom max. 18 Monate zurückliegend)\n- Die Fähigkeit, Gespräche auf Französisch und auf Deutsch zu führen ist erforderlich. Die Sprachkompetenzen werden bei den Einstellungsgesprächen getestet. Kenntnisse in anderen Sprachen sind von Vorteil\n- Gesprächsführungskompetenzen sind von Vorteil\n- Erfahrungen in der Ausübung dieser Funktion, der Durchführung von Anhörungen, der Sozialarbeit oder im Bereich der geistigen Gesundheit sind von Vorteil\n- Schweizer Bürger/in mit einwandfreiem Leumund\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nRecruiting NDB / SRC / SIC / FIS\n\n## Gemeinsam für die Sicherheit der Schweiz!\n\nDer NDB befasst sich mit der Früherkennung und Bekämpfung von Terrorismus, gewalttätigem Extremismus, Spionage, der Verbreitung von Massenvernichtungswaffen und deren Trägertechnologie sowie Cyberangriffen auf kritische Infrastrukturen. Ausserdem beschafft der NDB sicherheitspolitisch wichtige Informationen und wertet diese aus. So liefert er entscheidende Beiträge für die umfassende Beurteilung der Bedrohungslage.\n\nAuf Stufe Bund bedient der NDB primär den Bundesrat, die Departemente sowie die militärische Führung mit seinen Produkten. Er unterstützt zudem die Kantone bei der Wahrung der inneren Sicherheit und die Strafverfolgungsbehörden auf Bundesebene.\n\nFrauen sowie Personen aus der französischen und der italienischen Sprachengemeinschaft sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
@@ -9622,7 +9428,7 @@
       "firstSeenAt": "2026-10-08T09:52:58.131Z",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikant-in-risk-profiling-confederazione-bern"
@@ -10921,12 +10727,13 @@
         "en": "commercial-apprentice-efz-confederazione-svizzera-malerweg-6-3600-thun",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-malerweg-6-3600-thun",
         "fr": "apprenti-e-employe-e-de-commerce-cfc-confederazione-svizzera-malerweg-6-3600-thun",
-        "it": "apprendista-impiegata-o-di-commercio-afc-confederazione-svizzera-malerweg-6-3600-thun"
+        "it": "apprendista-r-kauffrau-mann-cfc-confederazione-svizzera-malerweg-6-3600-thun"
       },
       "id": "confederazione-ticino-c638fe8fc387",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-malerweg-6-3600-thun"
+          "lernende-r-kauffrau-mann-efz-confederazione-malerweg-6-3600-thun",
+          "apprendista-impiegata-o-di-commercio-afc-confederazione-svizzera-malerweg-6-3600-thun"
         ],
         "en": [
           "lernende-r-kauffrau-mann-efz-confederazione-malerweg-6-3600-thun"
@@ -10936,7 +10743,8 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-malerweg-6-3600-thun"
+        "lernende-r-kauffrau-mann-efz-confederazione-malerweg-6-3600-thun",
+        "apprendista-impiegata-o-di-commercio-afc-confederazione-svizzera-malerweg-6-3600-thun"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -12477,12 +12285,13 @@
         "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-altstatten",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
         "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-altstatten",
-        "it": "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
+        "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-altstatten"
       },
       "id": "confederazione-ticino-4fb5290f45ac",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+          "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+          "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
         ],
         "en": [
           "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
@@ -12492,7 +12301,8 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+        "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+        "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -13663,7 +13473,7 @@
         "fr": "## Mettre au point\n\nVoulez-vous trouver indépendamment des solutions difficiles? En collaboration avec vos collègues, assurez la sécurité des installations techniques dans les bâtiments complexes, 365 jours par an.\n\n- Date d'entrée: 01.11.2026\n- Type d'emploi: perpétuel\n- Numéro de référence: 620-17485\n\n## Vous pouvez faire cette contribution\n\n- Co-responsable de la mesure, du contrôle, du contrôle et de la technologie de contrôle des installations techniques\n- Entretien, entretien et exploitation du matériel complexe de construction et de construction\n- Effectuer l'entretien et la planification des commandes\n- Effectuer des travaux de dépannage et d'optimisation\n- Mettre en œuvre de petites réparations et des mesures pour prévenir les défaillances opérationnelles, les perturbations et les dommages de toutes sortes\n\n## Cela les rend uniques.\n\n- Formation complète dans un domaine de la technologie du bâtiment avec un permis de raccordement NIV 15\n- Expertise en technologie du bâtiment avec expérience dans l'application des systèmes de contrôle du bâtiment\n- des manières indépendantes, socialement compétentes, discrètes et agréables\n- Connaissances des utilisateurs en administration et en informatique (p. ex. MS-Office, système de gestion des bâtiments); Ticket Cat B; prêt à fournir un service de picettage\n- Connaissance orale d'une deuxième langue officielle\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse : Nous sommes engagés dans le modèle de réussite suisse et travaillons au bénéfice de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Questions relatives aux demandes\n\nManuel Meyer\nConsultant en ressources humaines\n+41 58 46 08320\n\n## Travailler chez BBL\n\nConstruire, acquérir, déplacer, consulter – c'est l'ADN de la BBL. Chaque jour, nous sommes heureux de faire de notre mieux pour la Suisse, la politique et l'administration fédérale. Ensemble, nous veillons à ce que les 43 000 employés fédéraux puissent faire leur travail et non seulement façonner leur coopération, mais aussi établir de nouvelles normes pour la durabilité.\n\n## Informations complémentaires\n\nVeuillez vous inscrire à notre système de gestion des applications. Cliquez sur \"Appliquer maintenant\"."
       },
       "slugByLocale": {
-        "it": "tecnici-edili-confederazione-svizzera-bern",
+        "it": "tecnico-in-confederazione-svizzera-bern",
         "en": "building-technician-in-confederazione-svizzera-bern",
         "de": "gebaudetechniker-in-confederazione-svizzera-bern",
         "fr": "technicien-des-batiments-confederazione-svizzera-bern"
@@ -13673,8 +13483,8 @@
         "it": [
           "gebaudetechniker-in-confederazione-svizzera-bern",
           "gebaudetechniker-in-confederazione-bern",
-          "servicetechniker-in-gebaudetechnik-confederazione-bern",
-          "tecnico-in-confederazione-svizzera-bern"
+          "tecnico-in-confederazione-svizzera-bern",
+          "servicetechniker-in-gebaudetechnik-confederazione-bern"
         ],
         "de": [
           "gebaudetechniker-in-confederazione-bern"
@@ -13687,8 +13497,8 @@
         "gebaudetechniker-in-confederazione-svizzera-bern",
         "gebaudetechniker-in-confederazione-bern",
         "servicetechniker-in-gebaudetechnik-confederazione-svizzera-bern",
-        "servicetechniker-in-gebaudetechnik-confederazione-bern",
-        "tecnico-in-confederazione-svizzera-bern"
+        "tecnico-in-confederazione-svizzera-bern",
+        "servicetechniker-in-gebaudetechnik-confederazione-bern"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -14943,19 +14753,21 @@
         "en": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "de": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "fr": "gestionnaire-bim-et-chef-de-projet-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
-        "it": "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
+        "it": "bim-manager-in-e-projektleiter-in-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
       },
       "id": "confederazione-ticino-47ced81b7cdc",
       "previousSlugsByLocale": {
         "it": [
-          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+          "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
         ],
         "fr": [
           "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
         ]
       },
       "previousSlugs": [
-        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+        "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -15485,7 +15297,7 @@
         "en": "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
-        "it": "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-272d8fe2025d",
       "previousSlugsByLocale": {
@@ -15493,7 +15305,8 @@
           "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
           "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
           "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+          "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
         ],
         "en": [
           "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
@@ -15506,7 +15319,8 @@
         "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
         "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+        "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -15570,12 +15384,13 @@
         "en": "bim-manager-and-project-manager-confederazione-svizzera-winterthur",
         "de": "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
         "fr": "gestionnaire-bim-et-gestionnaire-de-projet-confederazione-svizzera-winterthur",
-        "it": "bim-manager-e-project-manager-confederazione-svizzera-winterthur"
+        "it": "bim-manager-in-e-projektleiter-in-confederazione-svizzera-winterthur"
       },
       "id": "confederazione-ticino-fd60d9620266",
       "previousSlugsByLocale": {
         "it": [
-          "bim-manager-in-und-projektleiter-in-confederazione-winterthur"
+          "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
+          "bim-manager-e-project-manager-confederazione-svizzera-winterthur"
         ],
         "en": [
           "bim-manager-in-und-projektleiter-in-confederazione-winterthur"
@@ -15585,7 +15400,8 @@
         ]
       },
       "previousSlugs": [
-        "bim-manager-in-und-projektleiter-in-confederazione-winterthur"
+        "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
+        "bim-manager-e-project-manager-confederazione-svizzera-winterthur"
       ],
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -16483,16 +16299,18 @@
         "en": "apprentice-kauffrau-mann-eba-confederazione-svizzera-bern",
         "de": "lernende-r-kauffrau-mann-eba-confederazione-bern",
         "fr": "apprenti-e-kauffrau-mann-eba-confederazione-svizzera-bern",
-        "it": "apprentice-businessman-eba-confederazione-svizzera-bern"
+        "it": "apprendista-kauffrau-mann-afp-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-e6cde7c07b76",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-eba-confederazione-bern"
+          "lernende-r-kauffrau-mann-eba-confederazione-bern",
+          "apprentice-businessman-eba-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-eba-confederazione-bern"
+        "lernende-r-kauffrau-mann-eba-confederazione-bern",
+        "apprentice-businessman-eba-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -16558,16 +16376,18 @@
         "en": "apprenticeship-professional-female-maintenance-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-female-maintenance-efz-confederazione-svizzera-bern",
-        "it": "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-f3aa7fcaa234",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+          "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+        "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -16611,7 +16431,7 @@
       "validThrough": "2026-09-28T22:04:58.229Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "description": "## Auf den Punkt gebracht\n\nDu übernimmst gerne Verantwortung in einem anspruchsvollen Umfeld und möchtest Operational Excellence der Bundesverwaltung aktiv mitgestalten? Dann bist Du bei uns richtig. Mit Deinem Fachwissen trägst Du dazu bei, dass Prozesse, Werkzeuge und operative Anforderungen optimal zusammenspielen und ein stabiler, effizienter und zukunftsorientierter IT Betrieb sichergestellt wird.\n\n- Eintrittsdatum: 01.03.2027\n- Anstellungsart: unbefristet\n- Referenz-Nr.: 609-19442\n- Arbeitsort: Stauffacherstrasse 65, 3014 Bern\n\n## Diesen Beitrag kannst du leisten\n\n- Das Team Operational Services Management bei Defence Platform fachlich führen und dessen strategische sowie operative Weiterentwicklung steuern\n- Die ITIL‑Prozesse (Change, Deployment, Release, Knowledge, Service‑Catalogue‑Management) gestalten, optimieren und deren wirksame Anwendung sicherstellen\n- Führen der Disziplinen Lifecycle‑ und Collection‑Management\n- Das Team‑Backlog priorisieren, Anforderungen aus Betrieb, Kundenbedürfnissen und Governance aufnehmen und deren Umsetzung nach agilen Prinzipien koordinieren\n- Die Zusammenarbeit zwischen Kund-/innen, Service‑Ownern sowie Betriebs‑ und Entwicklungsteams fördern und die Weiterentwicklung der ITSM‑Tools vorantreiben\n\n## Das macht dich einzigartig\n\n- Abschluss in Informatik, Wirtschaftsinformatik oder einem verwandten Bereich (HF/FH) sowie mehrjährige Erfahrung im IT‑Service‑Management\n- Fundierte Kenntnisse von ITSM‑Frameworks wie ITIL v4 sowie Erfahrung im IT‑Service‑Management und der Definition, Implementierung und Weiterentwicklung\n- Erfahrung als Product Owner und agile Arbeitsweisen nach Scrum, Kanban oder SAFe\n- Erfahrung mit modernen ITSM‑Plattformen (z. B. ServiceNow) sowie ein gutes Verständnis von komplexen IT‑Infrastrukturen und Betriebsprozessen\n- Hohe Kommunikations‑ und Führungsstärke, ausgeprägte Teamorientierung sowie ein hohes Service‑ und Kundenverständnis um als Brückenbauer-/in zwischen Betrieb, Entwicklung und Governance wirken zu können\n- Gute Kenntnisse in zwei Amtssprachen sowie gute Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Wieviel (B)IT steckt in dir?\n\nWir - das Bundesamt für Informatik und Telekommunikation (BIT) - sind das zukunftsorientierte und agile Amt. Bei uns entwickeln neugierige Köpfe, ambitionierte Macher/-innen und innovative Vorausdenker/-innen vielfältige digitalen Lösungen für die Schweiz. Wir unterstützen und fördern mobiles sowie ortsunabhängiges Arbeiten. So können unsere Teamplayer/-innen ihre Arbeit wo möglich flexibel und individuell gestalten - für die Vereinbarkeit von Familie und Beruf. Ausserdem pflegen wir im BIT eine offene Du-Kultur und fördern dich und deine Zukunft mit einem breiten Aus- und Weiterbildungsangebot.\n\n## Zusätzliche Informationen\n\nBewirb dich bitte über unser Bewerbungsmanagementsystem. Klicke dafür auf «Jetzt bewerben».\nBei dieser Stellenbesetzung berücksichtigen wir keine Personaldienstleister.",
+      "description": "## Auf den Punkt gebracht\n\nDu übernimmst gerne Verantwortung in einem anspruchsvollen Umfeld und möchtest Operational Excellence der Bundesverwaltung aktiv mitgestalten? Dann bist Du bei uns richtig. Mit Deinem Fachwissen trägst Du dazu bei, dass Prozesse, Werkzeuge und operative Anforderungen optimal zusammenspielen und ein stabiler, effizienter und zukunftsorientierter IT Betrieb sichergestellt wird.\n\n- Eintrittsdatum: 01.03.2027\n- Anstellungsart: unbefristet\n- Referenz-Nr.: 609-19442\n- Arbeitsort: Stauffacherstrasse 65, 3014 Bern\n\n## Diesen Beitrag kannst du leisten\n\n- Das Team OSM (Operational Services Management) bei Defence Platform mit seinen Prozess Managers und Disziplinenverantwortlichen fachlich führen und dessen operative Weiterentwicklung steuern\n- Das Team fachlich unterstützen, ITIL‑Prozesse (z.B. Change, Deployment, Release, Knowledge, Service‑Catalogue‑Management) zu gestalten, zu optimieren und deren wirksame Anwendung sicherzustellen\n- Das Team‑Backlog priorisieren, Anforderungen aus Betrieb, Kundenbedürfnissen und Governance aufnehmen und deren Umsetzung nach agilen Prinzipien koordinieren\n- Die Zusammenarbeit zwischen Kund-/innen, Service‑Ownern sowie Betriebs‑ und Entwicklungsteams fördern und die Weiterentwicklung der ITSM‑Tools vorantreiben\n- Sparringpartner/Coaching für alle Operativen und Prozessualen Themen\n\n## Das macht dich einzigartig\n\n- Abschluss in Informatik, Wirtschaftsinformatik oder einem verwandten Bereich (HF/FH) sowie mehrjährige Erfahrung im IT‑Service‑Management\n- Fundierte Kenntnisse von ITSM‑Frameworks wie ITIL v4 sowie Erfahrung im IT‑Service‑Management und der Definition, Implementierung und Weiterentwicklung\n- Erfahrung als Product Owner und agile Arbeitsweisen nach Scrum, Kanban oder SAFe\n- Erfahrung mit modernen ITSM‑Plattformen (z. B. ServiceNow) sowie ein gutes Verständnis von komplexen IT‑Infrastrukturen und Betriebsprozessen\n- Hohe Kommunikations‑ und Führungsstärke, ausgeprägte Teamorientierung sowie ein hohes Service‑ und Kundenverständnis um als Brückenbauer-/in zwischen Betrieb, Entwicklung und Governance wirken zu können\n- Gute Kenntnisse in zwei Amtssprachen sowie gute Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Wieviel (B)IT steckt in dir?\n\nWir - das Bundesamt für Informatik und Telekommunikation (BIT) - sind das zukunftsorientierte und agile Amt. Bei uns entwickeln neugierige Köpfe, ambitionierte Macher/-innen und innovative Vorausdenker/-innen vielfältige digitalen Lösungen für die Schweiz. Wir unterstützen und fördern mobiles sowie ortsunabhängiges Arbeiten. So können unsere Teamplayer/-innen ihre Arbeit wo möglich flexibel und individuell gestalten - für die Vereinbarkeit von Familie und Beruf. Ausserdem pflegen wir im BIT eine offene Du-Kultur und fördern dich und deine Zukunft mit einem breiten Aus- und Weiterbildungsangebot.\n\n## Zusätzliche Informationen\n\nBewirb dich bitte über unser Bewerbungsmanagementsystem. Klicke dafür auf «Jetzt bewerben».\nBei dieser Stellenbesetzung berücksichtigen wir keine Personaldienstleister.",
       "titleByLocale": {
         "it": "Gestione dei servizi IT operativi (915)",
         "en": "Product Owner Operational IT Service Management (915)",
@@ -16621,7 +16441,7 @@
       "descriptionByLocale": {
         "it": "## Metti al punto\n\nDesideri assumersi la responsabilità in un ambiente esigente e desidera plasmare attivamente l'Eccellenza Operativa dell'Amministrazione Federale? Allora hai ragione con noi. Con la vostra competenza, contribuite a garantire che processi, strumenti e requisiti operativi interagiscano in modo ottimale e garantiscano un funzionamento IT stabile, efficiente e orientato al futuro.\n\n- Data di entrata: 01.03.2027\n- Tipo di lavoro: perpetuo\n- Numero di riferimento: 609-19442\n- Luogo di lavoro: Stauffacherstrasse 65, 3014 Berna\n\n## Puoi dare questo contributo\n\n- Guidare il team di gestione dei servizi operativi alla piattaforma di difesa e gestire il suo sviluppo strategico e operativo\n- Progettazione, ottimizzazione e garanzia dell'applicazione efficace dei processi ITIL (cambio, distribuzione, rilascio, conoscenza, gestione del catalogo di servizi)\n- Guidare le discipline Lifecycle and Collection Management\n- Priorizzare il backlog del team, i requisiti di record delle operazioni, le esigenze del cliente e la governance e coordinare la loro implementazione secondo i principi agili\n- Promuovere la cooperazione tra clienti, proprietari di servizi e team operativi e di sviluppo e guidare l'ulteriore sviluppo di strumenti ITSM\n\n## Questo ti rende unico\n\n- Laurea in informatica, informatica aziendale o un campo correlato (HF/FH) e diversi anni di esperienza nella gestione dei servizi IT\n- Conoscenza approfondita dei framework ITSM come ITIL v4 e l'esperienza nella gestione e nella definizione dei servizi IT, nell'implementazione e nello sviluppo\n- Esperienza come proprietario del prodotto e metodi di lavoro agili secondo Scrum, Kanban o SAFe\n- Esperienza con le moderne piattaforme ITSM (ad esempio ServiceNow) e una buona comprensione delle complesse infrastrutture IT e dei processi operativi\n- Alta forza di comunicazione e di leadership, forte orientamento del team e un alto livello di servizio e comprensione del cliente al fine di essere in grado di agire come costruttore di ponti tra funzionamento, sviluppo e governance\n- Buona conoscenza di due lingue ufficiali e buona conoscenza dell'inglese\n\n## Offriamo questo\n\n- Lavorare per la Svizzera: Siamo impegnati al modello di successo svizzero e lavoriamo a beneficio della popolazione.\n- Vivi diversità: Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n- Salute al lavoro: Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\n## Quanto (B) è in te?\n\nNoi – l'Ufficio federale per l'informatica e le telecomunicazioni (BIT) – siamo l'ufficio orientato al futuro e agile. Qui, menti curiosi, creatori ambiziosi e leader di pensiero innovativi sviluppano una vasta gamma di soluzioni digitali per la Svizzera. Supportiamo e promuoviamo il lavoro mobile e indipendente dalla posizione. In questo modo, i nostri giocatori di squadra possono progettare il loro lavoro in modo flessibile e individualmente dove possibile - per la compatibilità di famiglia e lavoro. Inoltre, manteniamo una cultura aperta a BIT e promuoviamo voi e il vostro futuro con una vasta gamma di formazione e formazione ulteriore.\n\n## Ulteriori informazioni\n\nSi prega di applicare attraverso il nostro sistema di gestione delle applicazioni. Clicca su “Applica ora”.\nDurante il riempimento di questa posizione, non consideriamo fornitori di servizi del personale.",
         "en": "## Put to the Point\n\nYou would like to take on responsibility in a demanding environment and would like to actively shape Operational Excellence of the Federal Administration? Then you are right with us. With your expertise, you contribute to ensuring that processes, tools and operational requirements optimally interact and ensure a stable, efficient and future-oriented IT operation.\n\n- Date of entry: 01.03.2027\n- Type of employment: perpetual\n- Reference No: 609-19442\n- Place of work: Stauffacherstrasse 65, 3014 Bern\n\n## You can make this contribution\n\n- Lead the Operational Services Management team at Defence Platform and manage its strategic and operational development\n- Design, optimize and ensure the effective application of ITIL processes (change, deployment, release, knowledge, service catalogue management)\n- Leading the disciplines Lifecycle and Collection Management\n- Prioritize the team backlog, record requirements from operations, customer needs and governance and coordinate their implementation according to agile principles\n- Promote cooperation between customers, service owners and operational and development teams and drive the further development of ITSM tools\n\n## This makes you unique\n\n- Degree in computer science, business informatics or a related field (HF/FH) as well as several years of experience in IT service management\n- In-depth knowledge of ITSM frameworks such as ITIL v4 as well as experience in IT service management and definition, implementation and further development\n- Experience as a product owner and agile working methods according to Scrum, Kanban or SAFe\n- Experience with modern ITSM platforms (e.g. ServiceNow) as well as a good understanding of complex IT infrastructures and operational processes\n- High communication and leadership strength, pronounced team orientation and a high level of service and customer understanding in order to be able to act as a bridge builder between operation, development and governance\n- Good knowledge of two official languages and good knowledge of English\n\n## We offer this\n\n- Working for Switzerland: We are committed to the Swiss success model and work for the benefit of the population.\n- Living diversity: Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n- Healthy at work: We support and advise our employees in the field of physical and mental health.\n\n## How much (B)IT is in you?\n\nWe – the Federal Office for Informatics and Telecommunications (BIT) – are the future-oriented and agile office. Here, curious minds, ambitious makers and innovative thought leaders develop a wide range of digital solutions for Switzerland. We support and promote mobile and location-independent work. In this way, our team players can design their work flexibly and individually where possible - for the compatibility of family and work. In addition, we maintain an open you culture at BIT and promote you and your future with a broad range of training and further education.\n\n## Additional information\n\nPlease apply through our application management system. Click on “Apply now”.\nWhen filling this position, we do not consider personnel service providers.",
-        "de": "## Auf den Punkt gebracht\n\nDu übernimmst gerne Verantwortung in einem anspruchsvollen Umfeld und möchtest Operational Excellence der Bundesverwaltung aktiv mitgestalten? Dann bist Du bei uns richtig. Mit Deinem Fachwissen trägst Du dazu bei, dass Prozesse, Werkzeuge und operative Anforderungen optimal zusammenspielen und ein stabiler, effizienter und zukunftsorientierter IT Betrieb sichergestellt wird.\n\n- Eintrittsdatum: 01.03.2027\n- Anstellungsart: unbefristet\n- Referenz-Nr.: 609-19442\n- Arbeitsort: Stauffacherstrasse 65, 3014 Bern\n\n## Diesen Beitrag kannst du leisten\n\n- Das Team Operational Services Management bei Defence Platform fachlich führen und dessen strategische sowie operative Weiterentwicklung steuern\n- Die ITIL‑Prozesse (Change, Deployment, Release, Knowledge, Service‑Catalogue‑Management) gestalten, optimieren und deren wirksame Anwendung sicherstellen\n- Führen der Disziplinen Lifecycle‑ und Collection‑Management\n- Das Team‑Backlog priorisieren, Anforderungen aus Betrieb, Kundenbedürfnissen und Governance aufnehmen und deren Umsetzung nach agilen Prinzipien koordinieren\n- Die Zusammenarbeit zwischen Kund-/innen, Service‑Ownern sowie Betriebs‑ und Entwicklungsteams fördern und die Weiterentwicklung der ITSM‑Tools vorantreiben\n\n## Das macht dich einzigartig\n\n- Abschluss in Informatik, Wirtschaftsinformatik oder einem verwandten Bereich (HF/FH) sowie mehrjährige Erfahrung im IT‑Service‑Management\n- Fundierte Kenntnisse von ITSM‑Frameworks wie ITIL v4 sowie Erfahrung im IT‑Service‑Management und der Definition, Implementierung und Weiterentwicklung\n- Erfahrung als Product Owner und agile Arbeitsweisen nach Scrum, Kanban oder SAFe\n- Erfahrung mit modernen ITSM‑Plattformen (z. B. ServiceNow) sowie ein gutes Verständnis von komplexen IT‑Infrastrukturen und Betriebsprozessen\n- Hohe Kommunikations‑ und Führungsstärke, ausgeprägte Teamorientierung sowie ein hohes Service‑ und Kundenverständnis um als Brückenbauer-/in zwischen Betrieb, Entwicklung und Governance wirken zu können\n- Gute Kenntnisse in zwei Amtssprachen sowie gute Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Wieviel (B)IT steckt in dir?\n\nWir - das Bundesamt für Informatik und Telekommunikation (BIT) - sind das zukunftsorientierte und agile Amt. Bei uns entwickeln neugierige Köpfe, ambitionierte Macher/-innen und innovative Vorausdenker/-innen vielfältige digitalen Lösungen für die Schweiz. Wir unterstützen und fördern mobiles sowie ortsunabhängiges Arbeiten. So können unsere Teamplayer/-innen ihre Arbeit wo möglich flexibel und individuell gestalten - für die Vereinbarkeit von Familie und Beruf. Ausserdem pflegen wir im BIT eine offene Du-Kultur und fördern dich und deine Zukunft mit einem breiten Aus- und Weiterbildungsangebot.\n\n## Zusätzliche Informationen\n\nBewirb dich bitte über unser Bewerbungsmanagementsystem. Klicke dafür auf «Jetzt bewerben».\nBei dieser Stellenbesetzung berücksichtigen wir keine Personaldienstleister.",
+        "de": "## Auf den Punkt gebracht\n\nDu übernimmst gerne Verantwortung in einem anspruchsvollen Umfeld und möchtest Operational Excellence der Bundesverwaltung aktiv mitgestalten? Dann bist Du bei uns richtig. Mit Deinem Fachwissen trägst Du dazu bei, dass Prozesse, Werkzeuge und operative Anforderungen optimal zusammenspielen und ein stabiler, effizienter und zukunftsorientierter IT Betrieb sichergestellt wird.\n\n- Eintrittsdatum: 01.03.2027\n- Anstellungsart: unbefristet\n- Referenz-Nr.: 609-19442\n- Arbeitsort: Stauffacherstrasse 65, 3014 Bern\n\n## Diesen Beitrag kannst du leisten\n\n- Das Team OSM (Operational Services Management) bei Defence Platform mit seinen Prozess Managers und Disziplinenverantwortlichen fachlich führen und dessen operative Weiterentwicklung steuern\n- Das Team fachlich unterstützen, ITIL‑Prozesse (z.B. Change, Deployment, Release, Knowledge, Service‑Catalogue‑Management) zu gestalten, zu optimieren und deren wirksame Anwendung sicherzustellen\n- Das Team‑Backlog priorisieren, Anforderungen aus Betrieb, Kundenbedürfnissen und Governance aufnehmen und deren Umsetzung nach agilen Prinzipien koordinieren\n- Die Zusammenarbeit zwischen Kund-/innen, Service‑Ownern sowie Betriebs‑ und Entwicklungsteams fördern und die Weiterentwicklung der ITSM‑Tools vorantreiben\n- Sparringpartner/Coaching für alle Operativen und Prozessualen Themen\n\n## Das macht dich einzigartig\n\n- Abschluss in Informatik, Wirtschaftsinformatik oder einem verwandten Bereich (HF/FH) sowie mehrjährige Erfahrung im IT‑Service‑Management\n- Fundierte Kenntnisse von ITSM‑Frameworks wie ITIL v4 sowie Erfahrung im IT‑Service‑Management und der Definition, Implementierung und Weiterentwicklung\n- Erfahrung als Product Owner und agile Arbeitsweisen nach Scrum, Kanban oder SAFe\n- Erfahrung mit modernen ITSM‑Plattformen (z. B. ServiceNow) sowie ein gutes Verständnis von komplexen IT‑Infrastrukturen und Betriebsprozessen\n- Hohe Kommunikations‑ und Führungsstärke, ausgeprägte Teamorientierung sowie ein hohes Service‑ und Kundenverständnis um als Brückenbauer-/in zwischen Betrieb, Entwicklung und Governance wirken zu können\n- Gute Kenntnisse in zwei Amtssprachen sowie gute Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Wieviel (B)IT steckt in dir?\n\nWir - das Bundesamt für Informatik und Telekommunikation (BIT) - sind das zukunftsorientierte und agile Amt. Bei uns entwickeln neugierige Köpfe, ambitionierte Macher/-innen und innovative Vorausdenker/-innen vielfältige digitalen Lösungen für die Schweiz. Wir unterstützen und fördern mobiles sowie ortsunabhängiges Arbeiten. So können unsere Teamplayer/-innen ihre Arbeit wo möglich flexibel und individuell gestalten - für die Vereinbarkeit von Familie und Beruf. Ausserdem pflegen wir im BIT eine offene Du-Kultur und fördern dich und deine Zukunft mit einem breiten Aus- und Weiterbildungsangebot.\n\n## Zusätzliche Informationen\n\nBewirb dich bitte über unser Bewerbungsmanagementsystem. Klicke dafür auf «Jetzt bewerben».\nBei dieser Stellenbesetzung berücksichtigen wir keine Personaldienstleister.",
         "fr": "## Mettre au point\n\nVous voulez assumer la responsabilité dans un environnement exigeant et vous voulez façonner activement l'excellence opérationnelle de l'Administration fédérale? Alors tu as raison avec nous. Grâce à votre expertise, vous contribuez à faire en sorte que les processus, les outils et les exigences opérationnelles interagissent de manière optimale et assurent une exploitation informatique stable, efficace et orientée vers l'avenir.\n\n- Date d'entrée: 01.03.2027\n- Type d'emploi: perpétuel\n- Numéro de référence: 609-19442\n- Lieu de travail: Stauffacherstrasse 65, 3014 Berne\n\n## Vous pouvez faire cette contribution\n\n- Diriger l'équipe de gestion des services opérationnels à la plate-forme de défense et gérer son développement stratégique et opérationnel\n- Concevoir, optimiser et assurer l'application efficace des processus ITIL (changement, déploiement, diffusion, connaissances, gestion du catalogue de services)\n- Diriger les disciplines Gestion du cycle de vie et des collections\n- Privilégier l'arriéré de l'équipe, enregistrer les exigences des opérations, les besoins des clients et la gouvernance et coordonner leur mise en œuvre selon des principes agiles\n- Promouvoir la coopération entre les clients, les propriétaires de services et les équipes opérationnelles et de développement et favoriser le développement des outils de la STIM\n\n## Cela vous rend unique\n\n- Diplôme en informatique, en informatique des affaires ou dans un domaine connexe (HF/FH) ainsi que plusieurs années d'expérience en gestion des services informatiques\n- Connaissance approfondie des cadres de gestion intégrée des technologies de l ' information, tels que ITIL v4, ainsi que de l ' expérience acquise en matière de gestion et de définition des services informatiques, de mise en œuvre et de développement\n- Expérience en tant que propriétaire de produit et méthodes de travail agiles selon Scrum, Kanban ou Safe\n- Expérience des plates-formes TISM modernes (par exemple ServiceNow) ainsi qu'une bonne compréhension des infrastructures et des processus opérationnels complexes en TI\n- Une grande force de communication et de leadership, une forte orientation de l'équipe et un haut niveau de service et de compréhension de la clientèle afin de pouvoir servir de pont entre l'exploitation, le développement et la gouvernance\n- Bonne connaissance de deux langues officielles et bonne connaissance de l'anglais\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse : Nous sommes engagés dans le modèle de réussite suisse et travaillons au bénéfice de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Combien (B)IT est en vous?\n\nNous – l'Office fédéral de l'informatique et des télécommunications (BIT) – sommes le bureau orienté vers l'avenir et agile. Ici, des esprits curieux, des décideurs ambitieux et des leaders de pensée innovants développent une large gamme de solutions numériques pour la Suisse. Nous soutenons et promouvons le travail mobile et indépendant de l'emplacement. De cette façon, nos joueurs d'équipe peuvent concevoir leur travail de manière flexible et individuelle lorsque cela est possible - pour la compatibilité de la famille et du travail. En outre, nous maintenons une culture ouverte au BIT et vous faisons la promotion et votre avenir avec un large éventail de formation et de formation continue.\n\n## Informations complémentaires\n\nVeuillez vous inscrire à notre système de gestion des applications. Cliquez sur \"Appliquer maintenant\".\nPour combler ce poste, nous ne considérons pas les fournisseurs de services au personnel."
       },
       "slugByLocale": {
@@ -16925,16 +16745,18 @@
         "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-basel",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-basel",
         "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-basel",
-        "it": "apparecchio-merchant-man-efz-confederazione-svizzera-basel"
+        "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-basel"
       },
       "id": "confederazione-ticino-6cbfef4587e8",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-basel"
+          "lernende-r-kauffrau-mann-efz-confederazione-basel",
+          "apparecchio-merchant-man-efz-confederazione-svizzera-basel"
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-basel"
+        "lernende-r-kauffrau-mann-efz-confederazione-basel",
+        "apparecchio-merchant-man-efz-confederazione-svizzera-basel"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -17439,7 +17261,7 @@
         "it": "pki-security-officer-operator-confederazione-bern",
         "en": "pki-securit-officer-confederazione-svizzera-bern",
         "de": "pki-sicherheitsbeauftragter-confederazione-svizzera-bern",
-        "fr": "pki-security-officer-operateur-confederazione-svizzera-bern"
+        "fr": "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-8a925debd86b",
       "salaryMin": 77000,
@@ -17459,11 +17281,11 @@
       "firstSeenAt": "2026-06-10T22:26:55.170Z",
       "previousSlugsByLocale": {
         "fr": [
-          "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
+          "pki-security-officer-operateur-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
+        "pki-security-officer-operateur-confederazione-svizzera-bern"
       ],
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/pki-security-officer-operator/0af2460f-c30d-4a28-92e2-a0cd7562cbce",
       "needsRetranslation": true,
@@ -17549,6 +17371,136 @@
       "previousSlugs": [
         "ict-system-engineer-sap-basis-confederazione-bern"
       ]
+    },
+    {
+      "title": "Hochschulpraktikant/-in in der Abteilung Bürgerrecht",
+      "slug": "hochschulpraktikant-in-in-der-abteilung-burgerrecht-confederazione-bern",
+      "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-in-der-abteilung-buergerrecht/ed543a2e-ccc0-46eb-8ddf-dc6ae0e5dd66",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20967",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "internship",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-11-05T08:32:13Z",
+      "postedDate": "2026-11-05T08:32:13Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-20T09:41:53.357Z",
+      "employmentType": "internship",
+      "contractType": "internship",
+      "description": "## Auf den Punkt gebracht\n\nLerne das Bürgerrecht mit all seinen Facetten kennen und gestalte mit deinen Fähigkeiten die Verwaltung mit.\n\n- Eintrittsdatum: 01.02.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: 420-20967\n- Arbeitsort: Quellenweg 6, 3084 Köniz\n\n## Diesen Beitrag kannst du leisten\n\n- Einbürgerungsverfahren unter Berücksichtigung rechtlicher und sachlicher Fragestellungen durchführen\n- Analysen und Konzepte erarbeiten\n- Projekte selbständig voranbringen\n- Von Standardbriefen bis zu Webtexten: Komplexe Inhalte zielgruppengerecht aufbereiten und damit die Verwaltungssprache verständlich machen\n- Diverse Aufgaben der Führungsunterstützung für die Abteilungsleitung übernehmen\n\n## Das macht dich einzigartig\n\n- Hochschulabschluss auf Masterniveau\n- Grosses Interesse für die Verwaltungsarbeit an der Schnittstelle zwischen Recht, Politik und Gesellschaft\n- Rasche Auffassungsgabe, ein ausgeprägter Blick für das Wesentliche sowie starke konzeptionelle Fähigkeiten\n- Ausgeprägtes sprachliches Gespür und die Fähigkeit, anspruchsvolle Inhalte zielgruppengerecht zu vermitteln\n- Eigeninitiative, Offenheit, Flexibilität und eine selbständige und eigenverantwortliche Arbeitsweise\n- Gute Kenntnisse einer zweiten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nDaniel Degen\n\n## Migration bewegt\n\nDas SEM ist zuständig für alle ausländer- und asylrechtlichen Belange in der Schweiz. Die Abteilung Bürgerrecht im Direktionsbereich Zuwanderung und Integration ist als Kompetenzzentrum zuständig für die operativen Verfahren zum Erwerb und Verlust des Schweizer Bürgerrechts sowie für die Erarbeitung von themenbezogenen politischen und gesetzlichen Grundlagen.\n\n## Zusätzliche Informationen\n\nBewirb dich bitte über unser Bewerbungsmanagementsystem. Klicke dafür auf «Jetzt bewerben».",
+      "titleByLocale": {
+        "de": "Hochschulpraktikant/-in in der Abteilung Bürgerrecht",
+        "it": "Hochschulpraktikant/-in in der Abteilung Bürgerrecht",
+        "en": "Hochschulpraktikant/-in in der Abteilung Bürgerrecht",
+        "fr": "Hochschulpraktikant/-in in der Abteilung Bürgerrecht"
+      },
+      "descriptionByLocale": {
+        "de": "## Auf den Punkt gebracht\n\nLerne das Bürgerrecht mit all seinen Facetten kennen und gestalte mit deinen Fähigkeiten die Verwaltung mit.\n\n- Eintrittsdatum: 01.02.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: 420-20967\n- Arbeitsort: Quellenweg 6, 3084 Köniz\n\n## Diesen Beitrag kannst du leisten\n\n- Einbürgerungsverfahren unter Berücksichtigung rechtlicher und sachlicher Fragestellungen durchführen\n- Analysen und Konzepte erarbeiten\n- Projekte selbständig voranbringen\n- Von Standardbriefen bis zu Webtexten: Komplexe Inhalte zielgruppengerecht aufbereiten und damit die Verwaltungssprache verständlich machen\n- Diverse Aufgaben der Führungsunterstützung für die Abteilungsleitung übernehmen\n\n## Das macht dich einzigartig\n\n- Hochschulabschluss auf Masterniveau\n- Grosses Interesse für die Verwaltungsarbeit an der Schnittstelle zwischen Recht, Politik und Gesellschaft\n- Rasche Auffassungsgabe, ein ausgeprägter Blick für das Wesentliche sowie starke konzeptionelle Fähigkeiten\n- Ausgeprägtes sprachliches Gespür und die Fähigkeit, anspruchsvolle Inhalte zielgruppengerecht zu vermitteln\n- Eigeninitiative, Offenheit, Flexibilität und eine selbständige und eigenverantwortliche Arbeitsweise\n- Gute Kenntnisse einer zweiten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nDaniel Degen\n\n## Migration bewegt\n\nDas SEM ist zuständig für alle ausländer- und asylrechtlichen Belange in der Schweiz. Die Abteilung Bürgerrecht im Direktionsbereich Zuwanderung und Integration ist als Kompetenzzentrum zuständig für die operativen Verfahren zum Erwerb und Verlust des Schweizer Bürgerrechts sowie für die Erarbeitung von themenbezogenen politischen und gesetzlichen Grundlagen.\n\n## Zusätzliche Informationen\n\nBewirb dich bitte über unser Bewerbungsmanagementsystem. Klicke dafür auf «Jetzt bewerben».",
+        "it": "## Auf den Punkt gebracht\n\nLerne das Bürgerrecht mit all seinen Facetten kennen und gestalte mit deinen Fähigkeiten die Verwaltung mit.\n\n- Eintrittsdatum: 01.02.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: 420-20967\n- Arbeitsort: Quellenweg 6, 3084 Köniz\n\n## Diesen Beitrag kannst du leisten\n\n- Einbürgerungsverfahren unter Berücksichtigung rechtlicher und sachlicher Fragestellungen durchführen\n- Analysen und Konzepte erarbeiten\n- Projekte selbständig voranbringen\n- Von Standardbriefen bis zu Webtexten: Komplexe Inhalte zielgruppengerecht aufbereiten und damit die Verwaltungssprache verständlich machen\n- Diverse Aufgaben der Führungsunterstützung für die Abteilungsleitung übernehmen\n\n## Das macht dich einzigartig\n\n- Hochschulabschluss auf Masterniveau\n- Grosses Interesse für die Verwaltungsarbeit an der Schnittstelle zwischen Recht, Politik und Gesellschaft\n- Rasche Auffassungsgabe, ein ausgeprägter Blick für das Wesentliche sowie starke konzeptionelle Fähigkeiten\n- Ausgeprägtes sprachliches Gespür und die Fähigkeit, anspruchsvolle Inhalte zielgruppengerecht zu vermitteln\n- Eigeninitiative, Offenheit, Flexibilität und eine selbständige und eigenverantwortliche Arbeitsweise\n- Gute Kenntnisse einer zweiten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nDaniel Degen\n\n## Migration bewegt\n\nDas SEM ist zuständig für alle ausländer- und asylrechtlichen Belange in der Schweiz. Die Abteilung Bürgerrecht im Direktionsbereich Zuwanderung und Integration ist als Kompetenzzentrum zuständig für die operativen Verfahren zum Erwerb und Verlust des Schweizer Bürgerrechts sowie für die Erarbeitung von themenbezogenen politischen und gesetzlichen Grundlagen.\n\n## Zusätzliche Informationen\n\nBewirb dich bitte über unser Bewerbungsmanagementsystem. Klicke dafür auf «Jetzt bewerben».",
+        "en": "## Auf den Punkt gebracht\n\nLerne das Bürgerrecht mit all seinen Facetten kennen und gestalte mit deinen Fähigkeiten die Verwaltung mit.\n\n- Eintrittsdatum: 01.02.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: 420-20967\n- Arbeitsort: Quellenweg 6, 3084 Köniz\n\n## Diesen Beitrag kannst du leisten\n\n- Einbürgerungsverfahren unter Berücksichtigung rechtlicher und sachlicher Fragestellungen durchführen\n- Analysen und Konzepte erarbeiten\n- Projekte selbständig voranbringen\n- Von Standardbriefen bis zu Webtexten: Komplexe Inhalte zielgruppengerecht aufbereiten und damit die Verwaltungssprache verständlich machen\n- Diverse Aufgaben der Führungsunterstützung für die Abteilungsleitung übernehmen\n\n## Das macht dich einzigartig\n\n- Hochschulabschluss auf Masterniveau\n- Grosses Interesse für die Verwaltungsarbeit an der Schnittstelle zwischen Recht, Politik und Gesellschaft\n- Rasche Auffassungsgabe, ein ausgeprägter Blick für das Wesentliche sowie starke konzeptionelle Fähigkeiten\n- Ausgeprägtes sprachliches Gespür und die Fähigkeit, anspruchsvolle Inhalte zielgruppengerecht zu vermitteln\n- Eigeninitiative, Offenheit, Flexibilität und eine selbständige und eigenverantwortliche Arbeitsweise\n- Gute Kenntnisse einer zweiten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nDaniel Degen\n\n## Migration bewegt\n\nDas SEM ist zuständig für alle ausländer- und asylrechtlichen Belange in der Schweiz. Die Abteilung Bürgerrecht im Direktionsbereich Zuwanderung und Integration ist als Kompetenzzentrum zuständig für die operativen Verfahren zum Erwerb und Verlust des Schweizer Bürgerrechts sowie für die Erarbeitung von themenbezogenen politischen und gesetzlichen Grundlagen.\n\n## Zusätzliche Informationen\n\nBewirb dich bitte über unser Bewerbungsmanagementsystem. Klicke dafür auf «Jetzt bewerben».",
+        "fr": "## Auf den Punkt gebracht\n\nLerne das Bürgerrecht mit all seinen Facetten kennen und gestalte mit deinen Fähigkeiten die Verwaltung mit.\n\n- Eintrittsdatum: 01.02.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: 420-20967\n- Arbeitsort: Quellenweg 6, 3084 Köniz\n\n## Diesen Beitrag kannst du leisten\n\n- Einbürgerungsverfahren unter Berücksichtigung rechtlicher und sachlicher Fragestellungen durchführen\n- Analysen und Konzepte erarbeiten\n- Projekte selbständig voranbringen\n- Von Standardbriefen bis zu Webtexten: Komplexe Inhalte zielgruppengerecht aufbereiten und damit die Verwaltungssprache verständlich machen\n- Diverse Aufgaben der Führungsunterstützung für die Abteilungsleitung übernehmen\n\n## Das macht dich einzigartig\n\n- Hochschulabschluss auf Masterniveau\n- Grosses Interesse für die Verwaltungsarbeit an der Schnittstelle zwischen Recht, Politik und Gesellschaft\n- Rasche Auffassungsgabe, ein ausgeprägter Blick für das Wesentliche sowie starke konzeptionelle Fähigkeiten\n- Ausgeprägtes sprachliches Gespür und die Fähigkeit, anspruchsvolle Inhalte zielgruppengerecht zu vermitteln\n- Eigeninitiative, Offenheit, Flexibilität und eine selbständige und eigenverantwortliche Arbeitsweise\n- Gute Kenntnisse einer zweiten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nDaniel Degen\n\n## Migration bewegt\n\nDas SEM ist zuständig für alle ausländer- und asylrechtlichen Belange in der Schweiz. Die Abteilung Bürgerrecht im Direktionsbereich Zuwanderung und Integration ist als Kompetenzzentrum zuständig für die operativen Verfahren zum Erwerb und Verlust des Schweizer Bürgerrechts sowie für die Erarbeitung von themenbezogenen politischen und gesetzlichen Grundlagen.\n\n## Zusätzliche Informationen\n\nBewirb dich bitte über unser Bewerbungsmanagementsystem. Klicke dafür auf «Jetzt bewerben»."
+      },
+      "slugByLocale": {
+        "de": "hochschulpraktikant-in-in-der-abteilung-burgerrecht-confederazione-bern",
+        "it": "hochschulpraktikant-in-in-der-abteilung-burgerrecht-confederazione-bern",
+        "en": "hochschulpraktikant-in-in-der-abteilung-burgerrecht-confederazione-bern",
+        "fr": "hochschulpraktikant-in-in-der-abteilung-burgerrecht-confederazione-bern"
+      },
+      "id": "confederazione-ticino-8597f1e4a12a",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T09:41:53.357Z"
+    },
+    {
+      "title": "ICT-System Engineer",
+      "slug": "ict-system-engineer-confederazione-zollikofen-be",
+      "url": "https://jobs.admin.ch/posti-vacanti/ict-system-engineer/689257ef-ba5d-4bfb-9f65-68b6e679d619",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20922",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Zollikofen BE",
+      "addressLocality": "Zollikofen BE",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "it",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-11-04T23:00:00Z",
+      "postedDate": "2026-11-04T23:00:00Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-07T00:00:00.000Z",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "description": "## Auf den Punkt gebracht\n\nDu möchtest Plattformen gestalten, die den zuverlässigen Betrieb wichtiger GEVER-Systeme ermöglichen. Dabei verbindest Du System-Engineering mit Automatisierung und Release-Management und sorgst dafür, dass technische Änderungen sicher und wiederholbar umgesetzt werden.\nBei uns arbeitest Du an der Schnittstelle von Entwicklung, Architektur und Betrieb. Du unterstützt Teams dabei, ihre Lösungen effizient in den Betrieb zu integrieren, und schaffst die Voraussetzungen für planbare Releases in verschiedenen Umgebungen. Dabei kannst Du technische Lösungen mitgestalten und Deine Erfahrung in die Weiterentwicklung unserer Plattformen und Standards einbringen.\nBist Du interessiert? Unser Team freut sich auf Dich!\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20922\n- Arbeitsort: Eichenweg 3, 3052 Zollikofen\n\n## Diesen Beitrag kannst du leisten\n\n- Du konzipierst, integrierst und betreibst Cloud-, Infrastruktur- und Containerplattformen für die GEVER-Systeme.\n- Du analysierst Anforderungen, bewertest technische Lösungsvarianten und berücksichtigst dabei Architektur, Sicherheit, Risiken und Betrieb.\n- Du entwickelst und optimierst automatisierte Build-, Test-, Release- und Deploymentprozesse und unterstützt Entwicklungsteams bei CI/CD und Betriebsintegration.\n- Du planst und begleitest Einführungen, Migrationen und Releasewechsel in Test-, Abnahme- und Produktionsumgebungen.\n- Du analysierst Störungen und Schwachstellen, erarbeitest vorbeugende Massnahmen und dokumentierst technische Lösungen. Dabei arbeitest Du eng mit Entwicklung, Architektur, Betrieb, Projekten und externen Leistungserbringern zusammen.\n\n## Das macht dich einzigartig\n\n- Du verfügst über einen Abschluss in Informatik oder eine vergleichbare Aus- und Weiterbildung.\n- Du bringst mehrjährige Erfahrung als ICT-System Engineer oder in einer vergleichbaren Funktion mit und hast Cloud-, Infrastruktur- und Containerplattformen konzipiert oder betrieben. CI/CD, Build- und Deploymentprozesse sowie deren Automatisierung kennst Du aus der Praxis.\n- Du verstehst, wie Entwicklung, Architektur und Betrieb zusammenspielen, und kannst Anforderungen in sichere, stabile und effizient betreibbare Lösungen übersetzen.\n- Du hast Erfahrung mit Skript- oder Programmiersprachen und mit der Automatisierung von Bereitstellung, Konfiguration und Betrieb.\n- Du arbeitest selbstständig, strukturiert und lösungsorientiert und kannst technische Zusammenhänge verständlich vermitteln.\n- Du verfügst über gute Kenntnisse einer Amtssprache sowie über Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nElke Jaquet\nElke Jaquet, Fachspezialistin Human Resources\n+41 58 46 28176\n\nDas Information Service Center WBF ISCeco ist der Informatik-Leistungserbringer des Eidgenössischen Departements für Wirtschaft, Bildung und Forschung WBF. Wir entwickeln, be-treiben und unterstützen moderne E-Government-Anwendungen und leisten einen wichtigen Beitrag zur digitalen Transformation der Bundesverwaltung.\nEine unserer zentralen Aufgaben ist der Betrieb und die Weiterentwicklung der bundesweit standardisierten Geschäftsverwaltungslösung GEVER. Diese unterstützt die tägliche Arbeit zahlreicher Verwaltungseinheiten und stellt entsprechend hohe Anforderungen an Verfügbarkeit, Datenqualität, Sicherheit und Performance.\nBei uns erwartet dich ein kollegiales und interdisziplinäres Arbeitsumfeld mit anspruchsvollen Aufgaben, modernen Arbeitsformen und der Möglichkeit, einen sichtbaren Beitrag für eine leistungsfähige digitale Bundesverwaltung zu leisten.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
+      "titleByLocale": {
+        "de": "ICT-System Engineer",
+        "it": "ICT-System Ingegnere",
+        "en": "ICT-System Engineer",
+        "fr": "ICT-System Ingénieur"
+      },
+      "descriptionByLocale": {
+        "de": "## Auf den Punkt gebracht\n\nDu möchtest Plattformen gestalten, die den zuverlässigen Betrieb wichtiger GEVER-Systeme ermöglichen. Dabei verbindest Du System-Engineering mit Automatisierung und Release-Management und sorgst dafür, dass technische Änderungen sicher und wiederholbar umgesetzt werden.\nBei uns arbeitest Du an der Schnittstelle von Entwicklung, Architektur und Betrieb. Du unterstützt Teams dabei, ihre Lösungen effizient in den Betrieb zu integrieren, und schaffst die Voraussetzungen für planbare Releases in verschiedenen Umgebungen. Dabei kannst Du technische Lösungen mitgestalten und Deine Erfahrung in die Weiterentwicklung unserer Plattformen und Standards einbringen.\nBist Du interessiert? Unser Team freut sich auf Dich!\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20922\n- Arbeitsort: Eichenweg 3, 3052 Zollikofen\n\n## Diesen Beitrag kannst du leisten\n\n- Du konzipierst, integrierst und betreibst Cloud-, Infrastruktur- und Containerplattformen für die GEVER-Systeme.\n- Du analysierst Anforderungen, bewertest technische Lösungsvarianten und berücksichtigst dabei Architektur, Sicherheit, Risiken und Betrieb.\n- Du entwickelst und optimierst automatisierte Build-, Test-, Release- und Deploymentprozesse und unterstützt Entwicklungsteams bei CI/CD und Betriebsintegration.\n- Du planst und begleitest Einführungen, Migrationen und Releasewechsel in Test-, Abnahme- und Produktionsumgebungen.\n- Du analysierst Störungen und Schwachstellen, erarbeitest vorbeugende Massnahmen und dokumentierst technische Lösungen. Dabei arbeitest Du eng mit Entwicklung, Architektur, Betrieb, Projekten und externen Leistungserbringern zusammen.\n\n## Das macht dich einzigartig\n\n- Du verfügst über einen Abschluss in Informatik oder eine vergleichbare Aus- und Weiterbildung.\n- Du bringst mehrjährige Erfahrung als ICT-System Engineer oder in einer vergleichbaren Funktion mit und hast Cloud-, Infrastruktur- und Containerplattformen konzipiert oder betrieben. CI/CD, Build- und Deploymentprozesse sowie deren Automatisierung kennst Du aus der Praxis.\n- Du verstehst, wie Entwicklung, Architektur und Betrieb zusammenspielen, und kannst Anforderungen in sichere, stabile und effizient betreibbare Lösungen übersetzen.\n- Du hast Erfahrung mit Skript- oder Programmiersprachen und mit der Automatisierung von Bereitstellung, Konfiguration und Betrieb.\n- Du arbeitest selbstständig, strukturiert und lösungsorientiert und kannst technische Zusammenhänge verständlich vermitteln.\n- Du verfügst über gute Kenntnisse einer Amtssprache sowie über Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nElke Jaquet\nElke Jaquet, Fachspezialistin Human Resources\n+41 58 46 28176\n\nDas Information Service Center WBF ISCeco ist der Informatik-Leistungserbringer des Eidgenössischen Departements für Wirtschaft, Bildung und Forschung WBF. Wir entwickeln, be-treiben und unterstützen moderne E-Government-Anwendungen und leisten einen wichtigen Beitrag zur digitalen Transformation der Bundesverwaltung.\nEine unserer zentralen Aufgaben ist der Betrieb und die Weiterentwicklung der bundesweit standardisierten Geschäftsverwaltungslösung GEVER. Diese unterstützt die tägliche Arbeit zahlreicher Verwaltungseinheiten und stellt entsprechend hohe Anforderungen an Verfügbarkeit, Datenqualität, Sicherheit und Performance.\nBei uns erwartet dich ein kollegiales und interdisziplinäres Arbeitsumfeld mit anspruchsvollen Aufgaben, modernen Arbeitsformen und der Möglichkeit, einen sichtbaren Beitrag für eine leistungsfähige digitale Bundesverwaltung zu leisten.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
+        "it": "## Auf den Punkt gebracht\n\nDu möchtest Plattformen gestalten, die den zuverlässigen Betrieb wichtiger GEVER-Systeme ermöglichen. Dabei verbindest Du System-Engineering mit Automatisierung und Release-Management und sorgst dafür, dass technische Änderungen sicher und wiederholbar umgesetzt werden.\nBei uns arbeitest Du an der Schnittstelle von Entwicklung, Architektur und Betrieb. Du unterstützt Teams dabei, ihre Lösungen effizient in den Betrieb zu integrieren, und schaffst die Voraussetzungen für planbare Releases in verschiedenen Umgebungen. Dabei kannst Du technische Lösungen mitgestalten und Deine Erfahrung in die Weiterentwicklung unserer Plattformen und Standards einbringen.\nBist Du interessiert? Unser Team freut sich auf Dich!\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20922\n- Arbeitsort: Eichenweg 3, 3052 Zollikofen\n\n## Diesen Beitrag kannst du leisten\n\n- Du konzipierst, integrierst und betreibst Cloud-, Infrastruktur- und Containerplattformen für die GEVER-Systeme.\n- Du analysierst Anforderungen, bewertest technische Lösungsvarianten und berücksichtigst dabei Architektur, Sicherheit, Risiken und Betrieb.\n- Du entwickelst und optimierst automatisierte Build-, Test-, Release- und Deploymentprozesse und unterstützt Entwicklungsteams bei CI/CD und Betriebsintegration.\n- Du planst und begleitest Einführungen, Migrationen und Releasewechsel in Test-, Abnahme- und Produktionsumgebungen.\n- Du analysierst Störungen und Schwachstellen, erarbeitest vorbeugende Massnahmen und dokumentierst technische Lösungen. Dabei arbeitest Du eng mit Entwicklung, Architektur, Betrieb, Projekten und externen Leistungserbringern zusammen.\n\n## Das macht dich einzigartig\n\n- Du verfügst über einen Abschluss in Informatik oder eine vergleichbare Aus- und Weiterbildung.\n- Du bringst mehrjährige Erfahrung als ICT-System Engineer oder in einer vergleichbaren Funktion mit und hast Cloud-, Infrastruktur- und Containerplattformen konzipiert oder betrieben. CI/CD, Build- und Deploymentprozesse sowie deren Automatisierung kennst Du aus der Praxis.\n- Du verstehst, wie Entwicklung, Architektur und Betrieb zusammenspielen, und kannst Anforderungen in sichere, stabile und effizient betreibbare Lösungen übersetzen.\n- Du hast Erfahrung mit Skript- oder Programmiersprachen und mit der Automatisierung von Bereitstellung, Konfiguration und Betrieb.\n- Du arbeitest selbstständig, strukturiert und lösungsorientiert und kannst technische Zusammenhänge verständlich vermitteln.\n- Du verfügst über gute Kenntnisse einer Amtssprache sowie über Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nElke Jaquet\nElke Jaquet, Fachspezialistin Human Resources\n+41 58 46 28176\n\nDas Information Service Center WBF ISCeco ist der Informatik-Leistungserbringer des Eidgenössischen Departements für Wirtschaft, Bildung und Forschung WBF. Wir entwickeln, be-treiben und unterstützen moderne E-Government-Anwendungen und leisten einen wichtigen Beitrag zur digitalen Transformation der Bundesverwaltung.\nEine unserer zentralen Aufgaben ist der Betrieb und die Weiterentwicklung der bundesweit standardisierten Geschäftsverwaltungslösung GEVER. Diese unterstützt die tägliche Arbeit zahlreicher Verwaltungseinheiten und stellt entsprechend hohe Anforderungen an Verfügbarkeit, Datenqualität, Sicherheit und Performance.\nBei uns erwartet dich ein kollegiales und interdisziplinäres Arbeitsumfeld mit anspruchsvollen Aufgaben, modernen Arbeitsformen und der Möglichkeit, einen sichtbaren Beitrag für eine leistungsfähige digitale Bundesverwaltung zu leisten.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
+        "en": "## Auf den Punkt gebracht\n\nDu möchtest Plattformen gestalten, die den zuverlässigen Betrieb wichtiger GEVER-Systeme ermöglichen. Dabei verbindest Du System-Engineering mit Automatisierung und Release-Management und sorgst dafür, dass technische Änderungen sicher und wiederholbar umgesetzt werden.\nBei uns arbeitest Du an der Schnittstelle von Entwicklung, Architektur und Betrieb. Du unterstützt Teams dabei, ihre Lösungen effizient in den Betrieb zu integrieren, und schaffst die Voraussetzungen für planbare Releases in verschiedenen Umgebungen. Dabei kannst Du technische Lösungen mitgestalten und Deine Erfahrung in die Weiterentwicklung unserer Plattformen und Standards einbringen.\nBist Du interessiert? Unser Team freut sich auf Dich!\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20922\n- Arbeitsort: Eichenweg 3, 3052 Zollikofen\n\n## Diesen Beitrag kannst du leisten\n\n- Du konzipierst, integrierst und betreibst Cloud-, Infrastruktur- und Containerplattformen für die GEVER-Systeme.\n- Du analysierst Anforderungen, bewertest technische Lösungsvarianten und berücksichtigst dabei Architektur, Sicherheit, Risiken und Betrieb.\n- Du entwickelst und optimierst automatisierte Build-, Test-, Release- und Deploymentprozesse und unterstützt Entwicklungsteams bei CI/CD und Betriebsintegration.\n- Du planst und begleitest Einführungen, Migrationen und Releasewechsel in Test-, Abnahme- und Produktionsumgebungen.\n- Du analysierst Störungen und Schwachstellen, erarbeitest vorbeugende Massnahmen und dokumentierst technische Lösungen. Dabei arbeitest Du eng mit Entwicklung, Architektur, Betrieb, Projekten und externen Leistungserbringern zusammen.\n\n## Das macht dich einzigartig\n\n- Du verfügst über einen Abschluss in Informatik oder eine vergleichbare Aus- und Weiterbildung.\n- Du bringst mehrjährige Erfahrung als ICT-System Engineer oder in einer vergleichbaren Funktion mit und hast Cloud-, Infrastruktur- und Containerplattformen konzipiert oder betrieben. CI/CD, Build- und Deploymentprozesse sowie deren Automatisierung kennst Du aus der Praxis.\n- Du verstehst, wie Entwicklung, Architektur und Betrieb zusammenspielen, und kannst Anforderungen in sichere, stabile und effizient betreibbare Lösungen übersetzen.\n- Du hast Erfahrung mit Skript- oder Programmiersprachen und mit der Automatisierung von Bereitstellung, Konfiguration und Betrieb.\n- Du arbeitest selbstständig, strukturiert und lösungsorientiert und kannst technische Zusammenhänge verständlich vermitteln.\n- Du verfügst über gute Kenntnisse einer Amtssprache sowie über Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nElke Jaquet\nElke Jaquet, Fachspezialistin Human Resources\n+41 58 46 28176\n\nDas Information Service Center WBF ISCeco ist der Informatik-Leistungserbringer des Eidgenössischen Departements für Wirtschaft, Bildung und Forschung WBF. Wir entwickeln, be-treiben und unterstützen moderne E-Government-Anwendungen und leisten einen wichtigen Beitrag zur digitalen Transformation der Bundesverwaltung.\nEine unserer zentralen Aufgaben ist der Betrieb und die Weiterentwicklung der bundesweit standardisierten Geschäftsverwaltungslösung GEVER. Diese unterstützt die tägliche Arbeit zahlreicher Verwaltungseinheiten und stellt entsprechend hohe Anforderungen an Verfügbarkeit, Datenqualität, Sicherheit und Performance.\nBei uns erwartet dich ein kollegiales und interdisziplinäres Arbeitsumfeld mit anspruchsvollen Aufgaben, modernen Arbeitsformen und der Möglichkeit, einen sichtbaren Beitrag für eine leistungsfähige digitale Bundesverwaltung zu leisten.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
+        "fr": "## Auf den Punkt gebracht\n\nDu möchtest Plattformen gestalten, die den zuverlässigen Betrieb wichtiger GEVER-Systeme ermöglichen. Dabei verbindest Du System-Engineering mit Automatisierung und Release-Management und sorgst dafür, dass technische Änderungen sicher und wiederholbar umgesetzt werden.\nBei uns arbeitest Du an der Schnittstelle von Entwicklung, Architektur und Betrieb. Du unterstützt Teams dabei, ihre Lösungen effizient in den Betrieb zu integrieren, und schaffst die Voraussetzungen für planbare Releases in verschiedenen Umgebungen. Dabei kannst Du technische Lösungen mitgestalten und Deine Erfahrung in die Weiterentwicklung unserer Plattformen und Standards einbringen.\nBist Du interessiert? Unser Team freut sich auf Dich!\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20922\n- Arbeitsort: Eichenweg 3, 3052 Zollikofen\n\n## Diesen Beitrag kannst du leisten\n\n- Du konzipierst, integrierst und betreibst Cloud-, Infrastruktur- und Containerplattformen für die GEVER-Systeme.\n- Du analysierst Anforderungen, bewertest technische Lösungsvarianten und berücksichtigst dabei Architektur, Sicherheit, Risiken und Betrieb.\n- Du entwickelst und optimierst automatisierte Build-, Test-, Release- und Deploymentprozesse und unterstützt Entwicklungsteams bei CI/CD und Betriebsintegration.\n- Du planst und begleitest Einführungen, Migrationen und Releasewechsel in Test-, Abnahme- und Produktionsumgebungen.\n- Du analysierst Störungen und Schwachstellen, erarbeitest vorbeugende Massnahmen und dokumentierst technische Lösungen. Dabei arbeitest Du eng mit Entwicklung, Architektur, Betrieb, Projekten und externen Leistungserbringern zusammen.\n\n## Das macht dich einzigartig\n\n- Du verfügst über einen Abschluss in Informatik oder eine vergleichbare Aus- und Weiterbildung.\n- Du bringst mehrjährige Erfahrung als ICT-System Engineer oder in einer vergleichbaren Funktion mit und hast Cloud-, Infrastruktur- und Containerplattformen konzipiert oder betrieben. CI/CD, Build- und Deploymentprozesse sowie deren Automatisierung kennst Du aus der Praxis.\n- Du verstehst, wie Entwicklung, Architektur und Betrieb zusammenspielen, und kannst Anforderungen in sichere, stabile und effizient betreibbare Lösungen übersetzen.\n- Du hast Erfahrung mit Skript- oder Programmiersprachen und mit der Automatisierung von Bereitstellung, Konfiguration und Betrieb.\n- Du arbeitest selbstständig, strukturiert und lösungsorientiert und kannst technische Zusammenhänge verständlich vermitteln.\n- Du verfügst über gute Kenntnisse einer Amtssprache sowie über Englischkenntnisse\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Fragen zur Bewerbung\n\nElke Jaquet\nElke Jaquet, Fachspezialistin Human Resources\n+41 58 46 28176\n\nDas Information Service Center WBF ISCeco ist der Informatik-Leistungserbringer des Eidgenössischen Departements für Wirtschaft, Bildung und Forschung WBF. Wir entwickeln, be-treiben und unterstützen moderne E-Government-Anwendungen und leisten einen wichtigen Beitrag zur digitalen Transformation der Bundesverwaltung.\nEine unserer zentralen Aufgaben ist der Betrieb und die Weiterentwicklung der bundesweit standardisierten Geschäftsverwaltungslösung GEVER. Diese unterstützt die tägliche Arbeit zahlreicher Verwaltungseinheiten und stellt entsprechend hohe Anforderungen an Verfügbarkeit, Datenqualität, Sicherheit und Performance.\nBei uns erwartet dich ein kollegiales und interdisziplinäres Arbeitsumfeld mit anspruchsvollen Aufgaben, modernen Arbeitsformen und der Möglichkeit, einen sichtbaren Beitrag für eine leistungsfähige digitale Bundesverwaltung zu leisten.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen."
+      },
+      "slugByLocale": {
+        "de": "ict-system-engineer-confederazione-zollikofen-be",
+        "it": "ict-system-engineer-confederazione-zollikofen-be",
+        "en": "ict-system-engineer-confederazione-zollikofen-be",
+        "fr": "ict-system-engineer-confederazione-zollikofen-be"
+      },
+      "id": "confederazione-ticino-0c9c3abb466b",
+      "needsRetranslation": true,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "streetAddress": "Zollikofen BE",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-05T09:41:53.357Z"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "elektriker-elektromonteur-jobs-ch",
   "label": "elektriker-elektromonteur-jobs",
-  "generatedAt": "2026-11-04T21:43:02.263Z",
+  "generatedAt": "2026-11-05T09:43:45.356Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,14 +12,14 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7579,
-  "avgDurationMs": 7579,
+  "durationMs": 6340,
+  "avgDurationMs": 6340,
   "durationHistory": [
-    7579
+    6340
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:42:47.576Z",
+      "crawledAt": "2026-11-05T09:43:34.262Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -57,9 +57,9 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:42:47.576Z",
+      "validThrough": "2027-02-03T09:43:34.262Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:42:47.576Z",
+      "firstSeenAt": "2026-11-05T09:43:34.262Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -67,20 +67,22 @@
         "translation": 21,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "elektriker-elektromonteur-jobs-ch-c916dccbf332",
       "slug": "hr-professional-60-mit-payroll-erfahrung-4102-binningen-elektriker-elektromonteur-jobs-ch",
       "company": "elektriker-elektromonteur-jobs",
       "companyKey": "elektriker-elektromonteur-jobs-ch",
       "companyDomain": "pks-personal.ch",
-      "title": "HR Professional 60% (mit Payroll-Erfahrung)",
+      "title": "HR Professional 60% (mit Payroll-Erfahrung) - präzise bis auf den letzten Rappen....",
       "location": "4102 Binningen",
       "canton": "BL",
       "url": "https://www.pks-personal.ch/stellen/hr-professional-60-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:42:47.575Z",
+      "crawledAt": "2026-11-05T09:43:34.261Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -99,24 +101,23 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.pks-personal.ch/stellen/hr-professional-60-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T21:42:47.575Z",
       "salaryMin": 37200,
       "salaryMax": 56400,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:42:47.575Z",
+      "validThrough": "2027-02-03T09:43:34.261Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:42:47.575Z",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

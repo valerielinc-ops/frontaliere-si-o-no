@@ -24,6 +24,7 @@ import {
   portalRequiredDocumentFromField,
   portalEntryUrl,
   localizePortalQuestions,
+  isPostingRouteBound,
   isVerifiedPostingEntry,
   isSafeEmployerSitePreread,
   readPortalQuestions,
@@ -82,6 +83,68 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('1448418433', '1448418434') })).toBe(applyUrl);
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('jobs.six-group.com', 'www.six-group.com') })).toBe(applyUrl);
+  });
+
+  it('keeps a same-posting Jobs2Web shell bound while only the language control is visible', () => {
+    const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';
+    const applyUrl = 'https://jobs.stadt-zuerich.ch/talentcommunity/apply/1373719857/?locale=de_DE';
+    const job = { company: 'Stadt Zürich', title: 'Application Manager' };
+    const snapshot = {
+      fields: [],
+      buttons: [{ text: 'Sprache', chrome: true }],
+    };
+    const shellText = `Application Manager Stellendetails | STZH\nSprache\n${postingUrl}`;
+
+    expect(hasApplicationSurface(snapshot)).toBe(false);
+    expect(isPostingRouteBound({ pageUrl: postingUrl, postingUrl })).toBe(true);
+    expect(isPostingRouteBound({ pageUrl: applyUrl, postingUrl })).toBe(true);
+    expect(isPostingRouteBound({
+      pageUrl: 'https://jobs.stadt-zuerich.ch/job/Other-Role/999999999/',
+      postingUrl,
+    })).toBe(false);
+    expect(isPostingRouteBound({
+      pageUrl: 'https://jobs.example/vacancy?req=1',
+      postingUrl: 'https://jobs.example/vacancy?req=2',
+    })).toBe(false);
+    expect(isPostingRouteBound({
+      pageUrl: `${postingUrl}#job=2`,
+      postingUrl: `${postingUrl}#job=1`,
+    })).toBe(false);
+    expect(isPostingRouteBound({
+      pageUrl: `${postingUrl}#job=1`,
+      postingUrl: `${postingUrl}#job=1`,
+    })).toBe(true);
+    const workdayUrl = 'https://acme.wd5.myworkdayjobs.com/en-US/Acme/job/123';
+    expect(isPostingRouteBound({ pageUrl: workdayUrl, postingUrl: workdayUrl })).toBe(false);
+    expect(formPostingMatch(shellText, job, { pageUrl: postingUrl, postingUrl })).toBe('match');
+    expect(hasApplicationSurface(snapshot, {
+      pageUrl: postingUrl,
+      postingUrl,
+      postingMatch: 'match',
+    })).toBe(true);
+    expect(hasApplicationSurface(snapshot, {
+      pageUrl: workdayUrl,
+      postingUrl: workdayUrl,
+      postingMatch: 'match',
+    })).toBe(false);
+    expect(hasApplicationSurface({}, {
+      pageUrl: 'https://jobs.example/posting',
+      postingUrl: 'https://jobs.example/posting',
+      postingMatch: 'match',
+    })).toBe(false);
+    expect(hasApplicationSurface({}, {
+      pageUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      postingUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      postingMatch: 'match',
+    })).toBe(true);
+    const umantisPostingUrl = 'https://company.umantis.com/Vacancies/123/Description/456';
+    const umantisApplyUrl = 'https://company.umantis.com/Vacancies/123/Application/New/456';
+    expect(isPostingRouteBound({ pageUrl: umantisApplyUrl, postingUrl: umantisPostingUrl })).toBe(true);
+    expect(hasApplicationSurface(snapshot, {
+      pageUrl: umantisApplyUrl,
+      postingUrl: umantisPostingUrl,
+      postingMatch: 'match',
+    })).toBe(false);
   });
 
   it('opens a same-job employer apply route from its matching posting page', () => {
@@ -226,6 +289,22 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
     expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('match');
     expect(formPostingMatch('Project Manager — Other Employer\nSend application', job, { postingMatched: true, postingEntry: true })).toBe('mismatch');
+    expect(formPostingMatch('Grand Hotel — Other Resort', {
+      title: 'Concierge',
+      company: 'Grand Hotel',
+    }, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      postingUrl: 'https://jobs.stadt-zuerich.ch/posting',
+    })).toBe('mismatch');
+    expect(formPostingMatch('Grand Hotel — Other Resort', {
+      title: 'Concierge',
+      company: 'Grand Hotel',
+    }, {
+      pageUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      postingUrl: 'https://jobs.stadt-zuerich.ch/posting',
+    })).toBe('mismatch');
   });
 
   it('keeps ALTEN posting provenance when the apply link has a trailing slash and query', () => {

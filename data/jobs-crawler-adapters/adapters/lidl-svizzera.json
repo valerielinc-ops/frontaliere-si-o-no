@@ -111,7 +111,6 @@
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-m-w-d-60-rothrist-768071",
     "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-autoflotte-mobilitaet-m-w-d-40-weinfelden-760320",
     "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-sortiment-m-w-d-80-100-sevaz-757975",
-    "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-warengeschaeft-m-w-d-80-100-weinfelden-757676",
     "https://team.lidl.ch/de/jobs/spezialist-revisionsmanagement-m-w-d-60-weinfelden-755588",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-40-schluein-747393",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-aarberg-763547",
@@ -157,7 +156,6 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-chur-752159",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-duebendorf-740849",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-jona-758301",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-pfaeffikon-zh-726329",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-samstagern-711248",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-sevelen-756510",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-wetzikon-697094",
@@ -226,7 +224,6 @@
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-martigny-726014",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-matran-725994",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-noville-725997",
-    "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-bulle-715218",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-payerne-663191",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-conthey-648471",
     "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-bulle-768295",
@@ -238,6 +235,10 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-bulle-768283",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-courgevaux-764812",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-etoy-763548",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-fribourg-768484",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-givisiez-768482",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-marly-768478",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-matran-768473",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-bulle-768290",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-mont-sur-lausanne-759446",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-759293",
@@ -249,7 +250,7 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-11-04T21:34:09.997Z",
+  "updatedAt": "2026-11-05T09:43:29.793Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -1529,15 +1530,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-pfaeffikon-zh-726329": {
-      "location": "Pfäffikon (ZH)",
-      "addressLocality": "Pfäffikon (ZH)",
-      "canton": "ZH",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-duebendorf-757678": {
       "location": "Dübendorf",
       "addressLocality": "Dübendorf",
@@ -2042,15 +2034,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-warengeschaeft-m-w-d-80-100-weinfelden-757676": {
-      "location": "Weinfelden",
-      "addressLocality": "Weinfelden",
-      "canton": "TG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/spezialist-revisionsmanagement-m-w-d-60-weinfelden-755588": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
@@ -2240,15 +2223,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-bulle-715218": {
-      "location": "Bulle",
-      "addressLocality": "Bulle",
-      "canton": "FR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-bulle-768295": {
       "location": "Bulle",
       "addressLocality": "Bulle",
@@ -2294,6 +2268,24 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-matran-768473": {
+      "location": "Matran",
+      "addressLocality": "Matran",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-marly-768478": {
+      "location": "Marly",
+      "addressLocality": "Marly",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-payerne-663191": {
       "location": "Payerne",
       "addressLocality": "Payerne",
@@ -2320,6 +2312,24 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-fribourg-768484": {
+      "location": "Fribourg",
+      "addressLocality": "Fribourg",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-givisiez-768482": {
+      "location": "Givisiez",
+      "addressLocality": "Givisiez",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-20-40-bevaix-757426": {
       "location": "Bevaix",

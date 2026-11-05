@@ -436,6 +436,43 @@ export function isVerifiedPostingEntry({ applyUrl, postingUrl } = {}) {
     || isUmantisPostingEntry({ applyUrl, postingUrl });
 }
 
+/** The selected posting address, ignoring only its canonical trailing slash. */
+function samePostingAddress(firstUrl, secondUrl) {
+  try {
+    const first = new URL(String(firstUrl || ''));
+    const second = new URL(String(secondUrl || ''));
+    return first.origin === second.origin
+      && !first.username && !first.password && !second.username && !second.password
+      && first.pathname.replace(/\/+$/, '') === second.pathname.replace(/\/+$/, '')
+      && first.search === second.search
+      && first.hash === second.hash;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Stadt Zürich's Jobs2Web detail shell can stay on the selected posting while
+ * its application widget is mounting. Other hosts need an actual form surface
+ * or a verified same-requisition apply route before they count as bound.
+ */
+function isStadtZurichPostingRoute({ pageUrl, postingUrl } = {}) {
+  try {
+    const page = new URL(String(pageUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    return page.hostname === 'jobs.stadt-zuerich.ch'
+      && posting.hostname === page.hostname
+      && samePostingAddress(page.href, posting.href);
+  } catch {
+    return false;
+  }
+}
+
+export function isPostingRouteBound({ pageUrl, postingUrl } = {}) {
+  return isStadtZurichPostingRoute({ pageUrl, postingUrl })
+    || isVerifiedPostingEntry({ applyUrl: pageUrl, postingUrl });
+}
+
 export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   const directUrl = String(applyUrl || '');
   try {
@@ -1013,13 +1050,15 @@ function hasApplicationEntryControl(snapshot = {}, context = {}) {
 
 /**
  * A page with only the employer site's header/footer controls is not an
- * application form. Keeping this separate from hasApplicationForm matters:
- * custom application widgets may have no native fields yet, but their own
- * buttons are still actionable and must reach the agentic fallback.
+ * application form. The thin-shell exception is limited to Stadt Zürich's
+ * exact posting route; a verified apply URL alone still needs a form surface.
+ * Custom widgets may have no native fields yet, but their own buttons are
+ * actionable and must reach the agentic fallback.
  */
-export function hasApplicationSurface(snapshot) {
+export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '', postingMatch = '' } = {}) {
   if (isNonApplicationSurface(snapshot)) return false;
-  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
+  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome)
+    || (postingMatch === 'match' && isStadtZurichPostingRoute({ pageUrl, postingUrl })));
 }
 
 /**
@@ -1897,6 +1936,20 @@ export function namesAnotherEmployer(formText, job = {}) {
   return false;
 }
 
+// The exact Stadt Zürich detail shell can put its tenant marker and the
+// posting URL in the form text. They are route evidence, not a second
+// employer; remove only those proven shell tokens before the conflict guard.
+function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = '' } = {}) {
+  const text = String(formText || '');
+  const firstLine = text.split(/\r?\n/, 1)[0];
+  if (!isStadtZurichPostingRoute({ pageUrl, postingUrl })
+    || !/\bSTZH\b/iu.test(firstLine)
+    || !titleMatches(firstLine, job?.title)) return text;
+  const routeEvidence = [pageUrl, postingUrl].map(value => String(value || '')).filter(Boolean);
+  return routeEvidence.reduce((current, value) => current.split(value).join(' '), text)
+    .replace(/\b(?:Stellendetails|STZH)\b/giu, ' ');
+}
+
 /**
  * The form the posting's own apply button opened. An ATS on another host
  * often names the role and never the company (umantis for Grand Hotel
@@ -1912,8 +1965,22 @@ export function namesAnotherEmployer(formText, job = {}) {
  * a URL pair that proves this exact posting's apply route; the route is
  * provenance, not a generic employer-site fallback.
  */
-export function formPostingMatch(formText, job = {}, { postingMatched = false, postingEntry = false, pageUrl = '' } = {}) {
+export function formPostingMatch(formText, job = {}, {
+  postingMatched = false,
+  postingEntry = false,
+  pageUrl = '',
+  postingUrl = '',
+} = {}) {
   const direct = postingMatch(formText, job, pageUrl);
+  const bound = isPostingRouteBound({ pageUrl, postingUrl });
+  // The selected detail route is authoritative even when its dynamic shell
+  // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
+  // Do not apply this to another page on the same host: route identity must be
+  // exact, and an apply route still goes through the employer-conflict guard.
+  if (bound && samePostingAddress(pageUrl, postingUrl)) {
+    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl }), job)) return 'mismatch';
+    return 'match';
+  }
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
@@ -5240,6 +5307,7 @@ export async function readPortalRequirements(ctx) {
         postingMatched: verifiedPostingEntry,
         postingEntry: verifiedPostingEntry,
         pageUrl: page.url(),
+        postingUrl: ctx.postingUrl,
       });
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
     }
@@ -5262,7 +5330,12 @@ export async function readPortalRequirements(ctx) {
       log: ctx.log,
     });
     if (questions.some((question) => question.localizationStatus === 'fallback')) {
-      return { questions: [], documents: [], handoff: 'question_localization_unavailable' };
+      // Preserve the native question and its fallback marker. The candidate
+      // review page shows the original portal wording with a localization
+      // warning, while this editable draft lets the owner record answers the
+      // candidate already supplied. Submission still passes through the
+      // candidate's normal review and approval gate.
+      (ctx.log || (() => {}))('portal pre-read retained native questions for candidate review');
     }
     return { ...requirements, questions };
   } catch (error) {
@@ -5477,6 +5550,7 @@ export async function submitViaPortal(ctx) {
         postingMatched: enteredFromMatchingPosting || (postingNamed && page.url() !== postingUrl),
         postingEntry: enteredFromMatchingPosting,
         pageUrl,
+        postingUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
       if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
@@ -5499,7 +5573,11 @@ export async function submitViaPortal(ctx) {
     // pass postingMatch, while exposing only the site's Menu/Search controls.
     // Do not send that chrome to the agent as if it were an unanswered
     // candidate question; it is not the application form for this posting.
-    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
+    if (!hasApplicationSurface(snapshot, {
+      pageUrl: page.url(),
+      postingUrl,
+      postingMatch: match,
+    }) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
@@ -6125,7 +6203,11 @@ export async function submitViaPortal(ctx) {
       // generic optional upload and gallery controls. The entry-point guard
       // above does not run again, so stop before the no-controls agent fallback
       // treats that content as an unanswered application question.
-      if (!hasApplicationSurface(after)) return await handoff('posting_mismatch');
+      if (!hasApplicationSurface(after, {
+        pageUrl: page.url(),
+        postingUrl,
+        postingMatch: evidence.postingMatch,
+      })) return await handoff('posting_mismatch');
       let advance = null;
       let finalByAgent = null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's
