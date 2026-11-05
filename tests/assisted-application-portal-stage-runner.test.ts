@@ -202,7 +202,7 @@ describe('runner final guard across three application stages', () => {
 
     const result = await submitViaPortal({
       applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
-      skipPostingCheck: true, maxSteps: 2, codex, launch: async () => browser,
+      skipPostingCheck: true, maxSteps: 2, codex: vi.fn(), launch: async () => browser,
     });
 
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_control_click_unresolved' });
