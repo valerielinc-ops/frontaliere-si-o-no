@@ -126,9 +126,27 @@ describe('parseDiscoveryArticleIndex', () => {
     expect(parse(index(now), now).articles).toHaveLength(1);
   });
 
-  it('rejects Reddit provider data until the source is authorized', () => {
+  it('keeps the full index valid so selection can skip Reddit per article', () => {
     const now = Date.now();
-    expect(() => parse(index(now, [article('reddit-source', now, { provider: 'reddit' })]), now))
+    const parsed = parse(index(now, [
+      article('reddit-source', now, { provider: 'reddit' }),
+      article('google-trend', now),
+    ]), now);
+
+    expect(parsed.articles).toHaveLength(2);
+    expect(chooseDiscoveryArticle(parsed, 'weekly_2026-11-23', 'it', { now }))
+      .toMatchObject({ articleId: 'google-trend', provider: 'google_trends' });
+    expect(chooseDiscoveryArticle(
+      parse(index(now, [article('reddit-only', now, { provider: 'reddit' })]), now),
+      'weekly_2026-11-23',
+      'it',
+      { now },
+    )).toBeNull();
+  });
+
+  it('rejects providers outside the public index contract', () => {
+    const now = Date.now();
+    expect(() => parse(index(now, [article('unknown-source', now, { provider: 'unknown' })]), now))
       .toThrow(/invalid article contract/);
   });
 
