@@ -321,6 +321,30 @@ export function isVerifiedPostingEntry({ applyUrl, postingUrl } = {}) {
     || isUmantisPostingEntry({ applyUrl, postingUrl });
 }
 
+/** The selected posting address, ignoring only its canonical trailing slash. */
+function samePostingAddress(firstUrl, secondUrl) {
+  try {
+    const first = new URL(String(firstUrl || ''));
+    const second = new URL(String(secondUrl || ''));
+    return first.origin === second.origin
+      && !first.username && !first.password && !second.username && !second.password
+      && first.pathname.replace(/\/+$/, '') === second.pathname.replace(/\/+$/, '');
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * A browser page can stay on the selected posting while its employer-hosted
+ * application widget is still mounting. The exact posting address, or an
+ * already verified same-requisition apply route, is enough to bind that
+ * surface; the employer hostname alone is not.
+ */
+export function isPostingRouteBound({ pageUrl, postingUrl } = {}) {
+  return samePostingAddress(pageUrl, postingUrl)
+    || isVerifiedPostingEntry({ applyUrl: pageUrl, postingUrl });
+}
+
 export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   const directUrl = String(applyUrl || '');
   try {
@@ -748,9 +772,10 @@ function hasApplicationForm(snapshot) {
  * custom application widgets may have no native fields yet, but their own
  * buttons are still actionable and must reach the agentic fallback.
  */
-export function hasApplicationSurface(snapshot) {
+export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '', postingMatch = '' } = {}) {
   if (isNonApplicationGallerySurface(snapshot)) return false;
-  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
+  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome)
+    || (postingMatch === 'match' && isPostingRouteBound({ pageUrl, postingUrl })));
 }
 
 /**
@@ -1574,8 +1599,19 @@ export function namesAnotherEmployer(formText, job = {}) {
  * a URL pair that proves this exact posting's apply route; the route is
  * provenance, not a generic employer-site fallback.
  */
-export function formPostingMatch(formText, job = {}, { postingMatched = false, postingEntry = false, pageUrl = '' } = {}) {
+export function formPostingMatch(formText, job = {}, {
+  postingMatched = false,
+  postingEntry = false,
+  pageUrl = '',
+  postingUrl = '',
+} = {}) {
   const direct = postingMatch(formText, job, pageUrl);
+  const bound = isPostingRouteBound({ pageUrl, postingUrl });
+  // The selected detail route is authoritative even when its dynamic shell
+  // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
+  // Do not apply this to another page on the same host: route identity must be
+  // exact, and an apply route still goes through the employer-conflict guard.
+  if (bound && samePostingAddress(pageUrl, postingUrl)) return 'match';
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
@@ -4886,6 +4922,7 @@ export async function readPortalRequirements(ctx) {
         postingMatched: verifiedPostingEntry,
         postingEntry: verifiedPostingEntry,
         pageUrl: page.url(),
+        postingUrl: ctx.postingUrl,
       });
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
     }
@@ -5110,6 +5147,7 @@ export async function submitViaPortal(ctx) {
         postingMatched: enteredFromMatchingPosting || (postingNamed && page.url() !== postingUrl),
         postingEntry: enteredFromMatchingPosting,
         pageUrl,
+        postingUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
       if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
@@ -5132,7 +5170,11 @@ export async function submitViaPortal(ctx) {
     // pass postingMatch, while exposing only the site's Menu/Search controls.
     // Do not send that chrome to the agent as if it were an unanswered
     // candidate question; it is not the application form for this posting.
-    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
+    if (!hasApplicationSurface(snapshot, {
+      pageUrl: page.url(),
+      postingUrl,
+      postingMatch: match,
+    }) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
@@ -5752,7 +5794,11 @@ export async function submitViaPortal(ctx) {
       // generic optional upload and gallery controls. The entry-point guard
       // above does not run again, so stop before the no-controls agent fallback
       // treats that content as an unanswered application question.
-      if (!hasApplicationSurface(after)) return await handoff('posting_mismatch');
+      if (!hasApplicationSurface(after, {
+        pageUrl: page.url(),
+        postingUrl,
+        postingMatch: evidence.postingMatch,
+      })) return await handoff('posting_mismatch');
       let advance = null;
       let finalByAgent = null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's

@@ -24,6 +24,7 @@ import {
   portalRequiredDocumentFromField,
   portalEntryUrl,
   localizePortalQuestions,
+  isPostingRouteBound,
   isVerifiedPostingEntry,
   isSafeEmployerSitePreread,
   readPortalQuestions,
@@ -82,6 +83,31 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('1448418433', '1448418434') })).toBe(applyUrl);
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('jobs.six-group.com', 'www.six-group.com') })).toBe(applyUrl);
+  });
+
+  it('keeps a same-posting Jobs2Web shell bound while only the language control is visible', () => {
+    const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';
+    const applyUrl = 'https://jobs.stadt-zuerich.ch/talentcommunity/apply/1373719857/?locale=de_DE';
+    const job = { company: 'Stadt Zürich', title: 'Application Manager' };
+    const snapshot = {
+      fields: [],
+      buttons: [{ text: 'Sprache', chrome: true }],
+    };
+    const shellText = `Application Manager Stellendetails | STZH\nSprache\n${postingUrl}`;
+
+    expect(hasApplicationSurface(snapshot)).toBe(false);
+    expect(isPostingRouteBound({ pageUrl: postingUrl, postingUrl })).toBe(true);
+    expect(isPostingRouteBound({ pageUrl: applyUrl, postingUrl })).toBe(true);
+    expect(isPostingRouteBound({
+      pageUrl: 'https://jobs.stadt-zuerich.ch/job/Other-Role/999999999/',
+      postingUrl,
+    })).toBe(false);
+    expect(formPostingMatch(shellText, job, { pageUrl: postingUrl, postingUrl })).toBe('match');
+    expect(hasApplicationSurface(snapshot, {
+      pageUrl: postingUrl,
+      postingUrl,
+      postingMatch: 'match',
+    })).toBe(true);
   });
 
   it('opens a same-job employer apply route from its matching posting page', () => {
