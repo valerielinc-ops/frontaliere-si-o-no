@@ -283,6 +283,10 @@ describe('social workflow Remote Config scopes', () => {
     const commands = loadRcCommands(relativePath as string);
     expect(commands).toHaveLength(1);
     expect(commands[0]).toContain(`--only-env=${clientScope}`);
+    const knownMappedEnvKeys = new Set(Object.values(RC_TO_ENV).flat());
+    for (const envKey of clientScope.split(',')) {
+      expect(knownMappedEnvKeys.has(envKey), `${relativePath}: ${envKey} is mapped`).toBe(true);
+    }
     if (privateScope) {
       expect(commands[0]).toContain('--include-private-server-secrets');
       expect(commands[0]).toContain(`--only-private-server-env=${privateScope}`);
@@ -294,6 +298,7 @@ describe('social workflow Remote Config scopes', () => {
         expect(mapping, `${relativePath}: ${envKey} mapping`).toBeTruthy();
         if (!mapping) throw new Error(`${relativePath}: no private Remote Config mapping for ${envKey}`);
         const [rcKey, mappedEnvKeys] = mapping;
+        expect(PRIVATE_SERVER_SECRET_RC_KEYS.has(rcKey), `${relativePath}: ${rcKey} is private`).toBe(true);
         expect(selectMappedEnvKeysForLoad({
           rcKey,
           mappedEnvKeys,
