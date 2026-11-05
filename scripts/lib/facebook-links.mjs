@@ -19,6 +19,8 @@ import { attributedSocialLink } from './social-redirect-links.mjs';
 
 export const FACEBOOK_UTM_SOURCE = SOCIAL_UTM_SOURCE_BY_CHANNEL.facebook;
 export const FACEBOOK_UTM_MEDIUM = SOCIAL_UTM_MEDIUM;
+/** Use the same crawler identity for page checks that Meta uses on shared links. */
+export const FACEBOOK_CRAWLER_USER_AGENT = 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)';
 
 /**
  * One campaign per posting surface. They are distinct so GA4 can answer "which
