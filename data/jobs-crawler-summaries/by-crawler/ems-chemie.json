@@ -1,18 +1,60 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-11-05T09:25:38.438Z",
+  "generatedAt": "2026-11-05T21:22:32.452Z",
   "total": 14,
   "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 23898,
-  "avgDurationMs": 23898,
+  "updatedCount": 2,
+  "removedCount": 1,
+  "unchangedCount": 11,
+  "durationMs": 10398,
+  "avgDurationMs": 10398,
   "durationHistory": [
-    23898
+    10398
   ],
   "newJobs": [
+    {
+      "title": "Schichtelektriker (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/schichtelektriker-m-w-d/c9287292-12d6-46dc-ab2e-1041cbb7cc17",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "manufacturing",
+      "sourceLang": "de",
+      "datePosted": "2026-11-03",
+      "postedDate": "2026-11-03",
+      "postingDateSource": "reported",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
+      "source": "company-website",
+      "slug": "azienda-elettrica-m-f-d-100-ems-chemie-ag-domat-ems",
+      "id": "ems-chemie-2e9c5f8a632e",
+      "salaryMin": 77000,
+      "salaryMax": 127500,
+      "currency": "CHF",
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.ems-group.com/offene-stellen/betriebselektriker-m-w-d/c9287292-12d6-46dc-ab2e-1041cbb7cc17",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-01T21:22:21.677Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-03T09:19:01.261Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -32,30 +74,27 @@
       "datePosted": "2026-11-05",
       "postedDate": "2026-11-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
-      "slug": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
-      "needsRetranslation": true,
+      "slug": "project-manager-plastics-applications-industry-consumer-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-eda2fd73c15e",
       "salaryMin": 77000,
       "salaryMax": 127500,
       "currency": "CHF",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/c321ad51-e806-4927-9d95-a04f501ab489",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:25:19.910Z",
+      "validThrough": "2027-02-03T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T09:25:19.910Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Sachbearbeiter Customer Service (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -75,7 +114,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "impiegato-a-del-servizio-clienti-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-5dbb9aa8203c",
@@ -86,7 +125,7 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/sachbearbeiter-customer-service-m-w-d/7da8c327-4a7a-4bd0-9f5a-c106a7171d2b",
       "firstSeenAt": "2026-10-27T21:21:18.579Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:25:19.910Z",
+      "validThrough": "2027-01-25T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -97,8 +136,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Betriebselektriker (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -138,7 +176,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Leiter Technik (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -158,7 +198,7 @@
       "datePosted": "2026-11-03",
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "testa-di-tecnologia-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-ecf89ee6256d",
@@ -168,7 +208,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/leiter-technik-m-w-d/534ea978-1424-465a-ae37-10b7dbfad33b",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:25:19.910Z",
+      "validThrough": "2027-02-01T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-04T09:25:08.973Z",
       "_qualityScore": 90,
@@ -198,7 +238,7 @@
       "datePosted": "2026-11-03",
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "tecnologo-delle-materie-plastiche-specializzazione-nello-stampaggio-a-iniezione-m-f-d-100-ems-chemie-ag-domat-ems",
       "needsRetranslation": true,
@@ -209,7 +249,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/kunststofftechnologe-fachrichtung-spritzgiessen-m-w-d/68cc6af6-9d67-4d58-8878-0ab9b83b1510",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:25:19.910Z",
+      "validThrough": "2027-02-01T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T09:19:01.261Z",
       "_qualityScore": 90,
@@ -239,7 +279,7 @@
       "datePosted": "2026-11-02",
       "postedDate": "2026-11-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "project-manager-applicazioni-di-plastica-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-0389ef3782ee",
@@ -249,7 +289,7 @@
       "salarySource": "reported",
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/4a04c7df-2bee-41c3-81e2-3e6b2dd8e2f8",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:25:19.910Z",
+      "validThrough": "2027-01-31T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-02T21:28:35.720Z",
       "_qualityScore": 90,
@@ -279,7 +319,7 @@
       "datePosted": "2026-11-02",
       "postedDate": "2026-11-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "responsabile-vendite-svizzera-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-8c84f81c3958",
@@ -289,7 +329,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/leiter-verkauf-schweiz-m-w-d/099860ff-ffe5-497b-93ce-d0de22baf4df",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:25:19.910Z",
+      "validThrough": "2027-01-31T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-02T11:29:39.710Z",
       "_qualityScore": 90,
@@ -319,7 +359,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "responsabile-brevetti-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-9f678dc8fe0c",
@@ -330,7 +370,7 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/patentmanager-m-w-d/40e48d41-3148-4bfb-935a-ebbe2c7431ca",
       "firstSeenAt": "2026-10-30T21:24:08.497Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:25:19.910Z",
+      "validThrough": "2027-01-28T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -359,7 +399,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "testa-del-laboratorio-di-fisica-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-a60a19a4bfad",
@@ -370,7 +410,7 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/leiter-physiklabor-m-w-d/987d9234-247f-4803-9c5b-3eb86751074e",
       "firstSeenAt": "2026-10-30T21:24:08.497Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:25:19.910Z",
+      "validThrough": "2027-01-28T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -399,7 +439,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "agente-di-acquisto-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-cfdd5fda4531",
@@ -410,7 +450,7 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/sachbearbeiter-einkauf-m-w-d/7bf3ca8b-d13b-4b5d-aaba-b13be214573b",
       "firstSeenAt": "2026-10-27T21:21:18.579Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:25:19.910Z",
+      "validThrough": "2027-01-25T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -439,7 +479,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "regolatore-di-produzione-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-42f3501fe1fb",
@@ -450,7 +490,7 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/4041c658-2eb0-4969-8a85-72d08ccf60da",
       "firstSeenAt": "2026-10-27T09:27:51.959Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:25:19.910Z",
+      "validThrough": "2027-01-25T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -479,7 +519,7 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "regolatore-di-vendita-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-634462b90ae2",
@@ -490,7 +530,7 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/verkaufscontroller-m-w-d/3a80fbd8-c730-4cab-afa4-20a6b7e0b452",
       "firstSeenAt": "2026-10-22T09:23:44.148Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:25:19.910Z",
+      "validThrough": "2027-01-19T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -519,7 +559,7 @@
       "datePosted": "2026-10-13",
       "postedDate": "2026-10-13",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "source": "company-website",
       "slug": "gestione-moduli-sap-sd-wm-ewm-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-d30c0315b966",
@@ -530,7 +570,7 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/7c9b5090-0431-480d-9dea-7f64b0eef5da",
       "firstSeenAt": "2026-07-22T11:19:28.952Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:25:19.910Z",
+      "validThrough": "2027-01-11T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -561,7 +601,7 @@
       "postingDateSource": "reported",
       "source": "company-website",
       "slug": "responsabile-di-laboratorio-per-il-controllo-qualita-di-fibre-e-filati-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-11-05T09:25:19.910Z",
+      "crawledAt": "2026-11-05T21:22:21.677Z",
       "id": "ems-chemie-961e735b396c",
       "salaryMin": 77000,
       "salaryMax": 127500,
@@ -570,7 +610,7 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/laborleiter-qualitaetskontrolle-fasern-und-garn-m-w-d/715262d7-5394-4117-a941-89708ad7b2f2",
       "firstSeenAt": "2026-10-12T09:20:37.176Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T09:25:19.910Z",
+      "validThrough": "2027-01-10T21:22:21.677Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -581,5 +621,5 @@
       }
     }
   ],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }
