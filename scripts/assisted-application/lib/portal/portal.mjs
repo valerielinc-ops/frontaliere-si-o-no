@@ -1176,12 +1176,12 @@ export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
 }
 
-const usableChoiceOption = (option) => typeof option === 'string'
+const portalUsableChoiceOption = (option) => typeof option === 'string'
   ? Boolean(option.trim())
   : Boolean(option && option.placeholder !== true && option.disabled !== true && String(option.label || '').trim());
 
-const hasChoiceCatalogue = (field) => Array.isArray(field?.options)
-  && field.options.some(usableChoiceOption);
+const portalHasChoiceCatalogue = (field) => Array.isArray(field?.options)
+  && field.options.some(portalUsableChoiceOption);
 
 const editableCombobox = (field) => String(field?.kind || '').toLowerCase() === 'combobox'
   && field?.selectLike === false && !field?.nativeSelectId;
@@ -1195,7 +1195,7 @@ const fieldRequiresNativeOptions = (field) => fieldHasNativeOptions(field) && !e
 export function needsPortalOptionRead(snapshot = {}) {
   return snapshot.fields?.some((field) => {
     if (!fieldHasNativeOptions(field)) return false;
-    return !hasChoiceCatalogue(field);
+    return !portalHasChoiceCatalogue(field);
   }) || false;
 }
 
@@ -5194,7 +5194,7 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     ...(Array.isArray(field?.labels) ? field.labels : []),
   ].filter(Boolean).join(' '));
   const optionLabels = field => (Array.isArray(field?.options) ? field.options : [])
-    .filter(usableChoiceOption)
+    .filter(portalUsableChoiceOption)
     .map(option => String(typeof option === 'string' ? option : option?.label || '').trim())
     .filter(Boolean);
   const missing = [];
@@ -5420,7 +5420,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           continue;
         }
         const applicationOptions = (field ? editableCombobox(field) ? [] : field.options || [] : item.applicationOptions || item.options || [])
-          .filter(usableChoiceOption)
+          .filter(portalUsableChoiceOption)
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);
@@ -5437,7 +5437,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
         }
         // A native choice with no usable catalogue needs another portal read,
         // never a text question whose arbitrary answer the ATS cannot accept.
-        if (field && type === 'choice' && !hasChoiceCatalogue(field)
+        if (field && type === 'choice' && !portalHasChoiceCatalogue(field)
           && (fieldRequiresNativeOptions(field) || item.requiresNativeOptions === true)) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
