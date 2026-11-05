@@ -1176,9 +1176,13 @@ export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
 }
 
+const fieldHasNativeOptions = (field) => ['select', 'radio', 'listbox'].includes(String(field?.kind || '').toLowerCase())
+  || field?.selectLike === true
+  || Boolean(field?.nativeSelectId);
+
 export function needsPortalOptionRead(snapshot = {}) {
   return snapshot.fields?.some((field) => {
-    if (field.kind !== 'listbox' && !field.selectLike) return false;
+    if (!fieldHasNativeOptions(field)) return false;
     return !Array.isArray(field.options) || field.options.length === 0;
   }) || false;
 }
@@ -5154,10 +5158,6 @@ export function portalRequiredDocumentFromField(field) {
     keywords,
   };
 }
-
-const fieldHasNativeOptions = (field) => ['select', 'radio', 'listbox'].includes(String(field?.kind || '').toLowerCase())
-  || field?.selectLike === true
-  || Boolean(field?.nativeSelectId);
 
 /**
  * Split the required fields found on a live form into candidate questions and

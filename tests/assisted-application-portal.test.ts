@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -1402,8 +1402,26 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(needsPortalOptionRead({
       ...snapshot,
       fields: snapshot.fields.map((field) => field.selectLike ? { ...field, options: [{ label: 'Website' }] } : field),
-    })).toBe(false);
-    expect(needsPortalOptionRead({ ...snapshot, fields: snapshot.fields.filter((field) => !field.selectLike) })).toBe(false);
+    })).toBe(true);
+    expect(needsPortalOptionRead({ ...snapshot, fields: snapshot.fields.filter((field) => !field.selectLike) })).toBe(true);
+
+    const nativeSelect = {
+      id: 'native-permit',
+      kind: 'select',
+      selectLike: false,
+      nativeSelectId: 's',
+      label: 'Do you hold a valid work permit for Switzerland?',
+      required: true,
+      options: [],
+    };
+    expect(needsPortalOptionRead({ fields: [nativeSelect] })).toBe(true);
+    expect(needsPortalOptionRead({ fields: [{ ...nativeSelect, options: ['yes'] }] })).toBe(false);
+    const restoredRequirements = portalRequirementsFromMissingRequired(
+      [{ ...nativeSelect, options: ['yes'] }],
+      [],
+      { candidate: { identity: {}, profile: {}, answers: {} }, candidateLocale: 'en' },
+    );
+    expect(restoredRequirements.unreadableFields || []).toEqual([]);
   });
 
   it('chooses the canonical French label when a native nationality select has equivalent options', async () => {
