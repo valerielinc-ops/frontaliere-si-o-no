@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lipsuisse-ch",
-  "assembledAt": "2026-11-05T09:36:15.363Z",
-  "runId": "42002287075",
+  "assembledAt": "2026-11-05T21:52:49.236Z",
+  "runId": "42112545490",
   "jobs": [
     {
       "id": "lipsuisse-ch-a9339341a457",
@@ -34,7 +34,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/carreleur-2/",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:36:08.378Z",
+      "crawledAt": "2026-11-05T21:52:39.706Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "postalCode": "1201",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:36:08.378Z",
+      "validThrough": "2027-01-28T21:52:39.706Z",
       "validThroughSource": "last-observed-window"
     }
   ]
