@@ -1424,12 +1424,14 @@ function languageAnswerForField(candidate, field) {
 }
 
 const PERMIT_HISTORICAL_QUESTION_PATTERNS = [
-  /\b(?:ever|previously|before|in the past)\b/i,
-  /\b(?:received|obtain(?:ed|ing)?|granted|issued)\b/i,
-  /\b(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?)\b/i,
-  /\b(?:erhalten|erhielt|bekommen|bekam|erteilt|ausgestellt|erworben|verliehen)\b/i,
-  /\b(?:ricevut[oaie]|ottenut[oaie]|concess[oaie]|rilasciat[oaie]|emess[oaie])\b/i,
-  /\b(?:recibid[oa]s?|obtenid[oa]s?|concedid[oa]s?|expedid[oa]s?|emitid[oa]s?|otorgad[oa]s?)\b/i,
+  /^have you(?:\s+(?:ever|previously))?\s+(?:held|had|received|obtained|been\s+(?:granted|issued))\b/i,
+  /^did you(?:\s+(?:ever|previously))?\s+(?:hold|have|receive|obtain|possess)\b/i,
+  /^were you(?:\s+(?:ever|previously))?\s+(?:granted|issued|given)\b/i,
+  /^(?:est[- ]ce que\s*)?(?:vous|tu)\s+(?:avez|as)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?)\b/i,
+  /^(?:avez|as)[- ](?:vous|tu)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?)\b/i,
+  /^(?:haben sie|hast du)(?:\s+(?:schon|bereits|jemals|fruher))?\s+(?:ein(?:e|en|em|er)?|den|die|das)\b.*\b(?:erhalten|erhielt|bekommen|bekam|erteilt|ausgestellt|erworben|verliehen|gehabt)\b/i,
+  /^(?:hai|ha|avete|hanno)\s+(?:(?:gia|precedentemente)\s+)?(?:ricevut[oaie]|ottenut[oaie]|concess[oaie]|rilasciat[oaie]|emess[oaie])\b/i,
+  /^(?:has|ha|han|habeis)\s+(?:(?:alguna vez|antes|previamente)\s+)?(?:recibid[oa]s?|obtenid[oa]s?|concedid[oa]s?|expedid[oa]s?|emitid[oa]s?|otorgad[oa]s?)\b/i,
 ];
 
 function normalizePermitQuestion(label) {
@@ -1476,6 +1478,7 @@ function isYesNoPermitQuestion(label) {
   // A permit status does not establish that the candidate can produce its
   // proof, certificate, or other supporting document.
   if (PERMIT_EVIDENCE_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return false;
+  const currentPredicate = text.replace(/^before\s+(?:starting|beginning|commencing)\s+(?:work|employment),\s*/i, '');
   const patterns = [
     /^(?:do you|does the candidate)(?:\s+(?:currently|at present))?\s+(?:hold|have(?!\s+to\b)|possess|own)\b/i,
     /^are you(?:\s+(?:currently|legally))?\s+(?:authorized|authorised|permitted|entitled)\s+to\s+(?:work|be employed)\b/i,
@@ -1505,7 +1508,7 @@ function isYesNoPermitQuestion(label) {
     /^(?:eres|estas(?: usted)?)\s+(?:autorizad[oa]|habilitad[oa]|titular|en posesion)\b/i,
     /^puedes\s+trabajar\b/i,
   ];
-  return patterns.some((pattern) => pattern.test(text));
+  return patterns.some((pattern) => pattern.test(currentPredicate));
 }
 
 const SALUTATION_FIELD_RE = /\b(?:anrede|salutation|appellativo|civilit[ée]|form of address|how (?:would|should) you like to be addressed|how should you be addressed in (?:your )?application|how do you want to be addressed|how would you like us to address you|preferred form of address|come vuoi essere indicat[oa] (?:nei|negli) moduli(?: di candidatura)?|wie m(?:ö|oe)chten sie angesprochen werden|comment souhaitez[- ]vous (?:être|etre) appel[ée]e?|comment devons[- ]nous vous appeler)\b/i;

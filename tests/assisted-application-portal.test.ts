@@ -3148,6 +3148,7 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
       'Are you legally authorized to work in Switzerland?',
       'Are you currently permitted to work in Switzerland?',
       'Are you entitled to be employed in Switzerland?',
+      'Before starting work, are you legally authorized to work in Switzerland?',
       'Are you eligible to work in Switzerland?',
     ]) {
       const english = permitField(label, ['Yes', 'No']);
