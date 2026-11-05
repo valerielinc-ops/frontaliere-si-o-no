@@ -158,11 +158,11 @@ describe('application stage ownership', () => {
       url: 'https://career5.successfactors.eu/portalcareer',
       text: [job.title, 'Profilinformationen', 'Stellenspezifische Informationen', 'Wie hat dich diese Stelle motiviert?', submit.text].join('\n'),
       fields: [
-        { label: '* Vorname', kind: 'text', inputType: 'text', required: true, formId: 'profile', frame: 0 },
-        { label: '* E-Mail', kind: 'text', inputType: 'email', required: true, formId: 'profile', frame: 0 },
-        { label: '* Was hat dich motiviert, dich auf diese Stelle zu bewerben?', kind: 'textarea', inputType: 'textarea', required: true, formId: 'questions', frame: 0 },
+        { label: '* Vorname', kind: 'text', inputType: 'text', required: true, formId: 'profile', applicationScopeId: 'application-main', sectionGroupId: 'profile-group', sectionGroup: 'Profilinformationen', frame: 0 },
+        { label: '* E-Mail', kind: 'text', inputType: 'email', required: true, formId: 'profile', applicationScopeId: 'application-main', sectionGroupId: 'profile-group', sectionGroup: 'Profilinformationen', frame: 0 },
+        { label: '* Was hat dich motiviert, dich auf diese Stelle zu bewerben?', kind: 'textarea', inputType: 'textarea', required: true, formId: 'questions', applicationScopeId: 'application-main', sectionGroupId: 'questions-group', sectionGroup: 'Stellenspezifische Informationen', frame: 0 },
       ],
-      buttons: [submit],
+      buttons: [{ ...submit, applicationScopeId: 'application-main', sectionGroupId: 'questions-group', sectionGroup: 'Stellenspezifische Informationen' }],
     };
 
     expect(applicationStage(form, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('form');
@@ -170,6 +170,30 @@ describe('application stage ownership', () => {
     expect(applicationStage({ ...form, buttons: [{ text: submit.text, frame: 0 }] }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
     expect(applicationStage({ ...form, text: 'Profilinformationen Stellenspezifische Informationen' }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
     expect(applicationStage({ ...form, fields: form.fields.map(field => ({ ...field, frame: 1 })) }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
+    expect(applicationStage({ ...form, buttons: [{ ...submit, section: 'Newsletter' }] }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
+    expect(applicationStage({
+      ...form,
+      fields: form.fields.map(field => field.formId === 'questions' ? { ...field, sectionGroupId: 'unrelated-group' } : field),
+    }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
+    expect(applicationStage({
+      ...form,
+      fields: form.fields.map(field => field.formId === 'profile' ? { ...field, applicationScopeId: 'other-main' } : field),
+    }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
+  });
+
+  it('does not join unrelated same-frame sign-in and salary forms to the Apply action', () => {
+    const submit = { text: 'Apply', formId: 'apply', frame: 1 };
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/portalcareer',
+      text: [job.title, 'Sign in', 'Salary expectations', 'Apply'].join('\n'),
+      fields: [
+        { label: 'Email address', inputType: 'email', formId: 'sign-in', frame: 1 },
+        { label: 'Salary expectations', inputType: 'text', formId: 'newsletter', frame: 1 },
+      ],
+      buttons: [submit],
+    };
+
+    expect(applicationStage(snapshot, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
   });
 
   it('treats Resume / CV as a document label beside an application submit button', () => {

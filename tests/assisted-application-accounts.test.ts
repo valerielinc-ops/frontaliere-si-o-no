@@ -49,8 +49,14 @@ describe('portal account pages', () => {
     'Create a new account to continue.',
     'Sie haben noch kein Bewerbungskonto.',
     'Sign in to continue.',
+    'Already have an account? Sign in to continue.',
+    'Vous avez déjà un compte ? Se connecter pour continuer.',
   ])('does not mistake a registration or sign-in prompt for an existing account: %s', (text) => {
     expect(hasExistingAccountPrompt({ text })).toBe(false);
+  });
+
+  it('still recognizes a specific email-in-use error beside a sign-in navigation prompt', () => {
+    expect(hasExistingAccountPrompt({ text: 'Already have an account? Sign in to continue. This email is already in use.' })).toBe(true);
   });
 
   it.each([
