@@ -92,7 +92,7 @@ describe('red flags', () => {
     expect(flags).toEqual({ owner: ['fact_check', 'channel_unknown'], candidate: ['permit'], documents: [] });
   });
 
-  it('applies the owner data-processing consent default while preserving an explicit refusal', () => {
+  it('keeps required data-processing consent open until the candidate answers', () => {
     const draft = {
       ...cleanDraft,
       questions: [{ id: 'portal_privacy_consent', source: 'portal', question: 'Acconsenti al trattamento dei tuoi dati personali?',
@@ -101,7 +101,7 @@ describe('red flags', () => {
     for (const answer of ['No', 'I don’t agree', 'I cannot accept']) {
       expect(evaluateRedFlags(draft, { portal_privacy_consent: answer }).candidate).toEqual(['portal_privacy_consent']);
     }
-    expect(evaluateRedFlags(draft).candidate).toEqual([]);
+    expect(evaluateRedFlags(draft).candidate).toEqual(['portal_privacy_consent']);
     expect(evaluateRedFlags(draft, { portal_privacy_consent: 'Sì' }).candidate).toEqual([]);
   });
 

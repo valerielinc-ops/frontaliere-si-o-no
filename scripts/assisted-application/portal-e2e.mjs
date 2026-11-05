@@ -993,6 +993,8 @@ async function fakeCodex({ prompt }) {
   const request = JSON.parse(prompt.slice(prompt.lastIndexOf('{"form"'), prompt.lastIndexOf('\n\nReturn exactly')));
   const { form, candidate } = request;
   if (form.fields.some((field) => /password|kennwort/i.test(field.label))) plannerSawPassword = true;
+  const recordedAnswer = (pattern) => candidate?.portalQuestionsAnswered?.find((item) =>
+    pattern.test(item.applicationQuestion || item.question || ''))?.answer || '';
   const actions = form.fields.map((field) => {
     const act = (action, value = '', extra = {}) => ({ fieldId: field.id, action, value, document: 'none', source: 'identity', ...extra });
     const experience = candidate?.profile?.experience?.[0] || {};
@@ -1008,9 +1010,15 @@ async function fakeCodex({ prompt }) {
       return act('fill', answer, { source: 'answers' });
     }
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
-    if (/datenschutz|privacy policy/i.test(field.label)) return act('check', '', { source: 'consent' });
+    if (/datenschutz|privacy policy/i.test(field.label)) {
+      const answer = recordedAnswer(/datenschutz|privacy policy/i);
+      return answer ? act('check', answer, { source: 'answers' }) : act('skip', '', { source: 'rule' });
+    }
     if (/vermittlungsb/i.test(field.label)) return act('select', 'Ja', { source: 'rule' });
-    if (/anrede/i.test(field.label)) return act('select', 'Herr', { source: 'answers' });
+    if (/anrede/i.test(field.label)) {
+      const answer = candidate?.answers?.portal_anrede || recordedAnswer(/anrede|title|salutation/i);
+      return answer ? act('select', answer, { source: 'answers' }) : act('skip', '', { source: 'rule' });
+    }
     if (/geburtsdatum/i.test(field.label)) return act('fill', '1990-05-12', { source: 'profile' });
     if (/vorname|first name/i.test(field.label)) return act('fill', 'Luca');
     // Workday's first page: the country is a listbox, the address follows it, the phone code is a search.
@@ -1032,8 +1040,23 @@ async function fakeCodex({ prompt }) {
       const answer = candidate?.portalQuestionsAnswered?.find((item) => /valid work permit/i.test(item.question || ''))?.answer || 'Yes';
       return act('select', answer, { source: 'answers' });
     }
-    if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
-    if (/data release/i.test(field.label)) return act('select', (field.options || []).find((option) => /deleted/.test(option)) || '', { source: 'consent' });
+    if (/^title/i.test(field.label)) {
+      const answer = candidate?.answers?.portal_anrede || recordedAnswer(/title|anrede|salutation/i);
+      if (!answer) return act('skip', '', { source: 'rule' });
+      const male = /^(?:mr|herr|signor|signore|monsieur)$/i.test(answer);
+      const female = /^(?:ms|mrs|frau|signora|madame)$/i.test(answer);
+      const option = (field.options || []).find((item) => {
+        const label = typeof item === 'string' ? item : item?.label || '';
+        return male ? /^(?:mr|herr|signor|signore|monsieur)$/i.test(label)
+          : female && /^(?:ms|mrs|frau|signora|madame)$/i.test(label);
+      });
+      return option ? act('select', typeof option === 'string' ? option : option.label, { source: 'answers' })
+        : act('skip', '', { source: 'rule' });
+    }
+    if (/data release/i.test(field.label)) {
+      const answer = recordedAnswer(/data release/i);
+      return answer ? act('select', answer, { source: 'answers' }) : act('skip', '', { source: 'rule' });
+    }
     if (field.kind === 'file') return act('upload', '', { document: 'cv', source: 'documents' });
     return act('skip', '', { source: 'rule' });
   });
@@ -1057,7 +1080,16 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   };
   // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
   const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
-  const run = (order = job, candidate = { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }) => {
+  const run = (order = job, candidate = {
+    identity: { email: ALIAS },
+    profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
+    answers: { portal_anrede: 'Herr' },
+    portalQuestionsAnswered: [
+      { question: 'Ich akzeptiere die Datenschutzerklärung', answer: 'Ja', source: 'answers' },
+      { question: 'I agree to the Privacy Policy Statement', answer: 'Yes', source: 'answers' },
+      { question: 'Data release', answer: 'I would like my data to be deleted once the present application process is complete.', source: 'answers' },
+    ],
+  }) => {
     const applyUrl = bindReceiptJobId(`${base}/wd/job`);
     return submitViaPortal({
       applyUrl, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
@@ -1303,7 +1335,16 @@ async function main() {
     return submitViaPortal({
       language: 'de',
       candidateLocale: 'it',
-      candidate: { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } },
+      candidate: {
+        identity: { email: ALIAS },
+        profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
+        answers: { portal_anrede: 'Herr' },
+        portalQuestionsAnswered: [
+          { question: 'Ich akzeptiere die Datenschutzerklärung', answer: 'Ja', source: 'answers' },
+          { question: 'I agree to the Privacy Policy Statement', answer: 'Yes', source: 'answers' },
+          { question: 'Data release', answer: 'I would like my data to be deleted once the present application process is complete.', source: 'answers' },
+        ],
+      },
       files,
       codex: fakeCodex,
       accounts,
@@ -1406,7 +1447,16 @@ async function main() {
       async waitForVerification() { return null; },
     };
     const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
-    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
+    const coopCandidate = {
+      identity: { email: ALIAS },
+      profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
+      answers: { portal_anrede: 'Herr' },
+      portalQuestionsAnswered: [
+        { question: 'Ich akzeptiere die Datenschutzerklärung', answer: 'Ja', source: 'answers' },
+        { question: 'I agree to the Privacy Policy Statement', answer: 'Yes', source: 'answers' },
+        { question: 'Data release', answer: 'I would like my data to be deleted once the present application process is complete.', source: 'answers' },
+      ],
+    };
     const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
     check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
       && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
@@ -1682,7 +1732,7 @@ async function main() {
         <span id="notice-button" class="ui-selectmenu-button" role="combobox" aria-owns="notice-menu" tabindex="0">---</span>
         <ul id="notice-menu" style="display:none"><li><div data-month="month1">1 mese</div></li><li><div data-month="month3">3 mesi</div></li></ul>
         <label for="parser-cv">Curriculum vitae *</label><input id="parser-cv" type="file" required>
-        <input id="parser-privacy" type="checkbox" required style="display:none"><label for="parser-privacy">I accept the Privacy Policy</label>
+        <input id="parser-privacy" type="checkbox" required style="display:none"><label for="parser-privacy">Please check this box to confirm that you have read the Privacy Notice for Candidates.</label>
         <label for="parser-newsletter">Marketing newsletter</label><input id="parser-newsletter" type="checkbox">
         <button type="submit">Submit application</button></form>
         <div role="dialog" style="display:none" id="parser-dialog">

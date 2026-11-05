@@ -35,7 +35,7 @@ import {
 import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitLabel, permitOptions, permitStatusOf } from './lib/permitStatus.js';
-import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
+import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationOptions } from './lib/personalFacts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
@@ -524,7 +524,7 @@ function splitLanguages(text) {
  * '' when none.
  * `personal`: the form of address and the civil status, derived here at every
  * read too: what the candidate answered or corrected, else what the CV states
- * explicitly or an unambiguous first name supports (lib/personalFacts.js). A form of address known from either source also stands as `answers.salutation`, so the
+ * explicitly (lib/personalFacts.js). A form of address known from either source also stands as `answers.salutation`, so the
  * question is not asked and the portal's field is filled as if answered. The
  * civil status stays out of `profile` and `answers`: the letter and the CV
  * are written from those, and neither says whom the candidate married.
@@ -577,11 +577,9 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   if (availability) profile.availability = availability;
   const cv = cvPersonalFacts(draft?.factSources?.text);
   const locale = candidateLocaleOf(requestedLocale, order);
-  const salutation = salutationNow({ answers, overrides, cvGender: cv.gender || salutationGenderFromName(identity.firstName, locale), locale });
-  // An unambiguous first name is the owner's approved form-of-address default
-  // for application portals, including a required native title choice. A
-  // candidate answer or correction still wins; ambiguous names and an
-  // explicitly cleared correction stay blank.
+  const salutation = salutationNow({ answers, overrides, cvGender: cv.gender, locale });
+  // A form of address can come from an explicit answer/correction or the CV's
+  // own grammatical statement. A name alone never establishes gender.
   if (salutation) answers.salutation = salutation;
   else delete answers.salutation;
   const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
@@ -596,8 +594,8 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
  *     across rounds, and a draft written afterwards does not ask the question again (lib/draft.mjs): the
  *     older answer would otherwise come back with the question (review of #12348);
  *  2. their answer to the question;
- *  3. only where they touched neither, the gender the CV explicitly states in its own words or the locale-aware
- *     default for an unambiguous first name. Unknown and ambiguous names leave the field blank.
+ *  3. only where they touched neither, the gender the CV explicitly states in its own words. A name alone leaves
+ *     the field blank.
  */
 function salutationNow({ answers, overrides, cvGender, locale }) {
   if (has(overrides, 'salutation')) return overrides.salutation;

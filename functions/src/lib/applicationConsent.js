@@ -58,9 +58,9 @@ export function isOptionalPurpose(...values) {
 }
 
 /**
- * The candidate authorizes processing only for this application's personal
- * data. Optional purposes, declarations about candidate facts and ambiguous
- * native controls remain outside this owner default.
+ * Identify consent to process personal data for this application. Optional
+ * purposes, declarations about candidate facts and ambiguous native controls
+ * are excluded; callers still need an explicit candidate answer before acting.
  */
 export function isApplicationDataProcessingConsent(value, ...semanticMetadata) {
   const text = String(value || '').replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -73,11 +73,11 @@ export function isApplicationDataProcessingConsent(value, ...semanticMetadata) {
 }
 
 /**
- * Choose the shortest clearly described data-retention option for this
- * application. A current-application deletion option outranks every duration;
- * future-purpose options authorize a distinct use and are never selected by
- * this default, even when they include a numeric term. Unknown or tied
- * catalogues stay unanswered.
+ * Rank clearly described data-retention options for this application. Callers
+ * must have an explicit product policy before using the result as a default.
+ * A current-application deletion option outranks every duration; future-purpose
+ * options authorize a distinct use and are never selected by this ranking.
+ * Unknown or tied catalogues stay unanswered.
  */
 export function minimumDataRetentionOption(options, question = '') {
   const normalize = value => String(value ?? '').replace(/\p{Cf}/gu, '').normalize('NFD')

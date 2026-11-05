@@ -4,7 +4,7 @@
  */
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
-import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
+import { isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
 export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v3';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -24,7 +24,6 @@ const OTHER_NOTICE_TOPIC = /\b(?:availability|disponibilita|verfugbarkeit|dispon
 const RETENTION_ACTION = /\b(?:retention|retain\w*|keep\w*|stor\w*|conserv\w*|memoriz\w*|elimin\w*|cancell\w*|delet\w*|aufbewahr\w*|speicher\w*|conservation|stock\w*|effac\w*)\b/;
 const RETENTION_DATA = /\b(?:data|dati|donnees|daten|personal information|informazioni personali|informazioni di carattere personale|donnees personnelles|personenbezogen\w*)\b/;
 const RETENTION_TIME = /\b(?:how long|for how long|per quanto tempo|per quanto|duration|durata|period|periodo|after|dopo|successiv\w*|future|future offers|offerte di lavoro|nach|apres|combien de temps|wie lange|jahre?|anni?|months?|mesi?|mois|years?|ans?)\b/;
-const AFFIRMATIVE_CONSENT = /^(?:(?:i|io|je|ich) )?(?:si|yes|ja|oui|true|1|acconsent\w*|accett\w*|consent\w*|consens\w*|agree\w*|accept\w*|einwillig\w*|zustimm\w*|akzeptier\w*|autoris\w*)(?: .*)?$/;
 
 function optionsOf(question) {
   const raw = question?.options?.length ? question.options : question?.applicationOptions || [];
@@ -166,25 +165,14 @@ export function operationalQuestionTopic(question) {
 export function operationalDefaultAnswer(question, { locale } = {}) {
   const topic = operationalQuestionTopic(question);
   if (!topic) return null;
+  // A privacy/data-processing consent and a retention period are decisions for
+  // the candidate. Only an answer already recorded for this question is reused.
+  if (topic === 'application_data_processing_consent' || topic === 'application_data_retention') return null;
   const options = optionsOf(question);
   const text = norm(question?.applicationQuestion || question?.question || question?.label);
   const language = languageOf(text, locale);
   let value;
-  if (topic === 'application_data_processing_consent') {
-    if (question?.kind === 'checkbox' || question?.type === 'checkbox' || question?.inputType === 'checkbox') value = 'true';
-    else if (options.length) {
-      const matches = options.filter(option => (AFFIRMATIVE_CONSENT.test(norm(option.label))
-        || AFFIRMATIVE_CONSENT.test(norm(option.value)))
-        && !hasConsentContradiction(`${option.label} ${option.value}`));
-      if (matches.length !== 1) return null;
-      value = matches[0].label;
-    } else if (['yes_no', 'boolean'].includes(question?.type || question?.kind)) {
-      value = { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
-    } else return null;
-  } else if (topic === 'application_data_retention') {
-    value = minimumDataRetentionOption(options, text);
-    if (!value) return null;
-  } else if (topic === 'privacy_review_ack') {
+  if (topic === 'privacy_review_ack') {
     if (options.length) {
       const matches = options.filter(option => YES.test(norm(option.label)));
       if (matches.length !== 1) return null;

@@ -33,10 +33,11 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?(?:application|applying)\b|many thanks for (your )?(?:application|applying)\b|thanks for applying|application (has been )?(received|submitted|sent)|we have received your application\b|you have successfully applied|vielen dank für (ihre|deine) bewerbung|wir haben (ihre|deine) unterlagen erhalten|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (?:(?:la tua|la sua) candidatura\b|aver inviato (?:(?:la|la tua|la sua) )?candidatura\b|esserti candidat[oa]\b)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|abbiamo ricevuto (?:la )?(?:tua|sua|vostra) candidatura\b|(?:la|l['’])\s*(?:tua|sua|vostra) candidatura (?:è stata )?(?:correttamente )?(?:inoltrata|ricevuta|inviata)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isApplicationDataProcessingConsent, minimumDataRetentionOption, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
+  const POLICY_CONSENT_RE = /\b(?:privacy|datenschutz|data protection|data processing|informativa|protezione dei dati|terms|conditions|agb|termini|consent|consenso|agree|accept|einwillig|akzeptier)\b/i;
   const COOKIE_WORD_RE = /\bcookies?\b/i;
   const COOKIE_MARKER_RE = /cookies?|consent|onetrust|usercentrics|didomi|trustarc/i;
   const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
@@ -105,7 +106,6 @@
   const RESIDENCE_CONTEXT_RE = /\b(?:residen(?:ce|tial)|domicil|address|adresse|indirizz|abitaz|home\s+(?:address|country|city)|wohn(?:sitz|adresse|ort))\b/;
   const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|(?:dati|informazioni) personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche (?:angaben|daten|informationen)|private adresse|wohnadresse|adresse personnelle|(?:informations|coordonnees) personnelles|adresse du candidat)\b/;
   const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
-  const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   // Keep the same required-marker vocabulary as the portal snapshot. A
   // SuccessFactors label may carry only “(erforderlich)” while the input has
   // neither native nor ARIA requiredness.
@@ -1069,7 +1069,7 @@
     return '';
   }
 
-  function inferredSalutationAnswer(entry, kit) {
+  function formOfAddressAnswer(entry, kit) {
     const value = String(kit.profile?.formOfAddress || '').trim();
     const target = salutationKind(value);
     if (!target) return null;
@@ -1084,19 +1084,19 @@
     return matches.length === 1 ? { value: matches[0].label, family: 'formOfAddress' } : null;
   }
 
-  function minimumRetentionAnswer(entry) {
-    const options = choiceOptions(entry);
-    if (!options.length || typeof minimumDataRetentionOption !== 'function') return null;
-    const context = normalize((entry.labels || [entry.label]).join(' '));
-    if (!/\b(?:data|dati|daten|donnees)\b/.test(context)
-      || !/\b(?:retain|retention|stor\w*|memoriz\w*|conserv\w*|elimin\w*|cancell\w*|delet\w*|aufbewahr\w*|speicher\w*)\b/.test(context)) return null;
-    const selected = minimumDataRetentionOption(options.map(option => ({
-      label: option.label,
-      value: option.value ?? option.element?.value ?? option.label,
-    })), context);
-    if (!selected) return null;
-    const matches = options.filter(option => normalize(option.label) === normalize(selected));
-    return matches.length === 1 ? { value: matches[0].label, family: 'minimumDataRetention' } : null;
+  function isDataRetentionField(entry) {
+    const context = normalize([
+      ...(entry.labels || []), entry.label, entry.question, entry.applicationQuestion,
+    ].filter(Boolean).join(' '));
+    return /\b(?:data|dati|daten|donnees)\b/.test(context)
+      && /\b(?:retain|retention|stor\w*|memoriz\w*|conserv\w*|elimin\w*|cancell\w*|delet\w*|aufbewahr\w*|speicher\w*)\b/.test(context);
+  }
+
+  function explicitCheckboxAnswer(value) {
+    const answer = normalize(value);
+    if (/^(?:0|false|no|nein|non|i do not agree|i do not consent|i cannot accept|non acconsento|non consento|non accetto|ich stimme nicht zu|j accepte pas)$/.test(answer)) return false;
+    if (/^(?:1|true|yes|ja|oui|si|i agree|i accept|i consent|acconsento|consento|accetto|j accepte|je consens|ich stimme zu|ich akzeptiere)$/.test(answer)) return true;
+    return null;
   }
 
   function latestPositionAnswer(entry, kit) {
@@ -1318,16 +1318,22 @@
       if (fromKit?.source === 'documents' || (CV_RE.test(normalize(questionOf(entry.element))) && !isNonCvDocumentLabel(questionOf(entry.element)))) return { document: 'cv' };
       return null;
     }
+    const policyLabel = normalize([
+      ...(entry.labels || []), entry.label, entry.question, entry.applicationQuestion,
+    ].filter(Boolean).join(' '));
+    if (entry.kind !== 'checkbox'
+      && (fromKit?.source === 'consent'
+        || (fromKit?.source === 'policy_default' && POLICY_CONSENT_RE.test(policyLabel)))) return null;
     if (entry.kind === 'checkbox') {
       if (entry.consentOwnershipUnknown === true) return null;
-      const explicitNegativeAnswer = fromKit && fromKit.source !== 'policy_default'
-        && /^(?:0|false|no|nein|non)$/i.test(normalize(fromKit.answer));
-      if (explicitNegativeAnswer) return null;
+      if (fromKit?.source === 'answers') {
+        const explicitAnswer = explicitCheckboxAnswer(fromKit.answer);
+        if (explicitAnswer !== null) return { check: explicitAnswer };
+      }
       // JazzHR/Resumator (Fincons) puts the required privacy statement in the
       // label immediately before a separate «I agree» checkbox. Use all the
       // control's labels, but keep marketing/newsletter opt-ins excluded.
       const rawLabel = (entry.labels || [entry.label]).join(' ');
-      const label = normalize(rawLabel);
       const element = entry.element;
       const attr = name => element?.getAttribute?.(name) || '';
       const privacyMetadata = {
@@ -1349,23 +1355,20 @@
         && privacyRepresentations.length > 0
         && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
         && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, privacyMetadata, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
-      const privacyReviewShape = typeof privacyReviewAcknowledgmentShape === 'function'
-        && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
       const applicationDataProcessingConsent = typeof isApplicationDataProcessingConsent === 'function'
         && isApplicationDataProcessingConsent([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
           privacyMetadata, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels);
-      // The owner's default accepts only this application's personal-data
-      // processing; optional marketing, talent-pool and unrelated purposes stay off.
-      return (entry.required || privacyReviewAck || applicationDataProcessingConsent)
-        && (privacyReviewAck || applicationDataProcessingConsent || (CONSENT_RE.test(label) && !privacyReviewShape))
+      // A consent to process personal data is never supplied by the extension.
+      // The sole automatic checkbox is the exact privacy-reading acknowledgment.
+      if (applicationDataProcessingConsent) return null;
+      return privacyReviewAck
         && typeof hasConsentContradiction === 'function' && !hasConsentContradiction([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
         privacyMetadata, ...privacyIdentifiers) ? { check: true } : null;
     }
+    if (fromKit?.source === 'policy_default' && isDataRetentionField(entry)) return null;
     if (!fromKit) {
-      const salutation = inferredSalutationAnswer(entry, kit);
+      const salutation = formOfAddressAnswer(entry, kit);
       if (salutation) return salutation;
-      const retention = minimumRetentionAnswer(entry);
-      if (retention) return retention;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     // Contact facts are canonical identity data, not answers copied from the
