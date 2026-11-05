@@ -222,6 +222,35 @@ describe('discovery article selection', () => {
     expect(legacyResume).toBeNull();
     expect(legacyResumeAgain).toBeNull();
   });
+
+  it('converts a frozen Reddit selection to null on resume without choosing a replacement', async () => {
+    const now = Date.now();
+    const { db, documents } = fakeFirestore();
+    const campaignId = 'weekly_2026-11-23';
+    const documentPath = `newsletter_subscribers/_meta_/campaign_discovery/${campaignId}`;
+    documents.set(documentPath, {
+      campaign_id: campaignId,
+      selections: {
+        it: {
+          articleId: 'reddit-article',
+          provider: 'reddit',
+          article: {
+            id: 'reddit-article',
+            provider: 'reddit',
+            title: 'Titolo legacy',
+            excerpt: 'Estratto legacy',
+            url: '/articoli-frontaliere/reddit-article/',
+          },
+        },
+      },
+    });
+
+    const currentIndex = parse(index(now, [article('google-trend', now)]), now);
+    const resumed = await freezeCampaignDiscoverySelection(db, campaignId, 'it', currentIndex, { now: new Date(now) });
+
+    expect(resumed).toBeNull();
+    expect(documents.get(documentPath)?.selections?.it).toBeNull();
+  });
 });
 
 describe('duplicate discovery article suppression', () => {

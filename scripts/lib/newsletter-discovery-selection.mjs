@@ -249,6 +249,9 @@ export function chooseDiscoveryArticle(index, campaignId, locale, { now = Date.n
 
 function validateStoredSelection(value, locale) {
   if (value === null) return null;
+  if (isRecord(value) && typeof value.provider === 'string' && !PROVIDERS.has(value.provider)) {
+    return null;
+  }
   if (!isRecord(value)
     || typeof value.articleId !== 'string'
     || !PROVIDERS.has(value.provider)
@@ -287,7 +290,20 @@ export async function freezeCampaignDiscoverySelection(db, campaignId, locale, i
     const snapshot = await transaction.get(reference);
     const existing = snapshot.exists ? snapshot.data() : {};
     const selections = isRecord(existing?.selections) ? existing.selections : {};
-    if (Object.hasOwn(selections, locale)) return validateStoredSelection(selections[locale], locale);
+    if (Object.hasOwn(selections, locale)) {
+      const stored = validateStoredSelection(selections[locale], locale);
+      if (stored !== null || selections[locale] === null) return stored;
+
+      // A provider removed from the public allowlist must not break an older
+      // campaign resume. Freeze the disallowed slot as null instead of choosing
+      // a different article halfway through that campaign.
+      const timestamp = now instanceof Date ? now : new Date(now);
+      transaction.set(reference, {
+        updated_at: timestamp,
+        selections: { [locale]: null },
+      }, { merge: true });
+      return null;
+    }
 
     const selection = allowNewSelection
       ? chooseDiscoveryArticle(index, campaignId, locale, { now })
