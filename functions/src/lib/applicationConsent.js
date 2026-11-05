@@ -126,7 +126,7 @@ export function minimumDataRetentionOption(options, question = '') {
 
     const deletionWords = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/;
     const deletes = deletionWords.test(value);
-    const negationWords = /\b(?:not|never|no|non|nicht|nie|pas|kein\w*|don t|doesn t|didn t|won t|cannot|can t)\b/;
+    const negationWords = /\b(?:not|never|no|non|nicht|nie|pas|kein\w*|don t|doesn t|didn t|wouldn t|shouldn t|couldn t|mustn t|hasn t|haven t|hadn t|isn t|aren t|wasn t|weren t|won t|mightn t|cannot|can t)\b/;
     const negatesDeletion = new RegExp(
       `${negationWords.source}.{0,40}${deletionWords.source}|${deletionWords.source}.{0,40}${negationWords.source}`,
     ).test(value);
@@ -135,7 +135,7 @@ export function minimumDataRetentionOption(options, question = '') {
     const followsCurrentApplication = afterCurrentApplication.test(value) || onceCurrentApplicationCompletes.test(value);
     const currentOnly = /\b(?:only|solo|uniquement|nur)\b/.test(value)
       && /\b(?:this application|current application|questa candidatura|candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
-    if ((deletes && !negatesDeletion && followsCurrentApplication) || currentOnly) return 0;
+    if (!negatesDeletion && ((deletes && followsCurrentApplication) || currentOnly)) return 0;
 
     const answerIsNo = /^(?:no|non|nein|nein danke|non desidero|non acconsento|non consento)$/.test(value)
       || /\b(?:do not consent|non acconsento|non consento|nicht einverstanden|ne suis pas d accord)\b/.test(value);

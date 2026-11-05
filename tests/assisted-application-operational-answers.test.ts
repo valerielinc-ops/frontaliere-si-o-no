@@ -596,6 +596,20 @@ describe('application consent and minimum retention defaults', () => {
     expect(operationalDefaultAnswer({
       question: 'Data release *', type: 'choice',
       options: [
+        "I wouldn't want my data to be deleted once this application process is complete.",
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I do not want my data deleted; keep it only for this application.',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
         'I would like my data to be deleted once the present application process is rejected.',
         'Retain the data for 6 months',
       ],
