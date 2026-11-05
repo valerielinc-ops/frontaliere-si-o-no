@@ -10,6 +10,50 @@
     "jsonld"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/665a86f0-2860-4835-8bc6-ed0fc835a3a9": {
+      "location": "Burgdorf",
+      "canton": "BE",
+      "title": "Sanitärmonteur:in Küchen & Bäder",
+      "sourceId": "10253035",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
+    "https://jobs.fust.ch/posti-vacanti/falegname-montatore-di-cucine-bagni/69340185-9356-4844-9795-5c5bb05b2022": {
+      "location": "Giubiasco",
+      "canton": "TI",
+      "title": "Falegname-Montatore di cucine & bagni",
+      "sourceId": "10252579",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
+    "https://jobs.fust.ch/postes-vacants/concepteur-conceptrice-de-cuisines-et-salles-de-bain/43296c08-b3f5-45b7-a8b6-d5b4c60c08da": {
+      "location": "Région Riviera",
+      "canton": "TI",
+      "title": "Concepteur / Conceptrice de Cuisines et Salles de bain",
+      "sourceId": "10252512",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
+    "https://jobs.fust.ch/postes-vacants/concepteur-conceptrice-cuisines-et-salles-de-bain/0b1796c7-355e-4969-86b6-6d10aeefb16a": {
+      "location": "Romanel-sur-Lausanne",
+      "canton": "VD",
+      "title": "Concepteur / Conceptrice Cuisines et Salles de bain",
+      "sourceId": "10252474",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/9213630e-958f-4e55-b41d-2d616c92b99e": {
       "location": "Meierskappel",
       "canton": "LU",
@@ -747,17 +791,6 @@
       "postedDate": "",
       "postingDateSource": "unknown"
     },
-    "https://jobs.fust.ch/posti-vacanti/falegname-montatore-di-cucine-bagni/e2ca8101-cc8b-4acc-bfc8-5049e75eb56b": {
-      "location": "Giubiasco",
-      "canton": "TI",
-      "title": "Falegname-Montatore di cucine & bagni",
-      "sourceId": "10222485",
-      "company": "Fust",
-      "contract": "A tempo indeterminato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
     "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-settore-multimedia/9160be08-61b0-4001-ac94-442432d4d986": {
       "location": "Giubiasco",
       "canton": "TI",
@@ -892,8 +925,12 @@
     }
   },
   "notes": "Fust (Coop Group) — CH-wide discovery across all 26 cantons via Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch expose JSON-LD JobPosting and source workplace metadata.",
-  "updatedAt": "2026-11-05T09:35:55.261Z",
+  "updatedAt": "2026-11-05T21:47:05.917Z",
   "seedDetailUrls": [
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/665a86f0-2860-4835-8bc6-ed0fc835a3a9",
+    "https://jobs.fust.ch/posti-vacanti/falegname-montatore-di-cucine-bagni/69340185-9356-4844-9795-5c5bb05b2022",
+    "https://jobs.fust.ch/postes-vacants/concepteur-conceptrice-de-cuisines-et-salles-de-bain/43296c08-b3f5-45b7-a8b6-d5b4c60c08da",
+    "https://jobs.fust.ch/postes-vacants/concepteur-conceptrice-cuisines-et-salles-de-bain/0b1796c7-355e-4969-86b6-6d10aeefb16a",
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/9213630e-958f-4e55-b41d-2d616c92b99e",
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-multimediageraeten/989564f1-2dc5-4b27-aa1e-d8e3526ee03f",
     "https://jobs.fust.ch/postes-vacants/technicien-de-service-apres-vente/5398203e-74e9-4422-a547-6c072caedfc7",
@@ -961,7 +998,6 @@
     "https://jobs.fust.ch/offene-stellen/grafikdesigner-in/7f3f4436-b2cb-403b-a73b-2aedd3cd491b",
     "https://jobs.fust.ch/offene-stellen/bauleiter-in/f247dab4-e3d1-4739-85e6-28ba6b060e00",
     "https://jobs.fust.ch/offene-stellen/verkaeufer-in-planer-in-kuechen-baeder/30db0606-108a-4347-b832-33d8048a2548",
-    "https://jobs.fust.ch/posti-vacanti/falegname-montatore-di-cucine-bagni/e2ca8101-cc8b-4acc-bfc8-5049e75eb56b",
     "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-settore-multimedia/9160be08-61b0-4001-ac94-442432d4d986",
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/b9c1a6ce-9919-4a6a-ab41-b0ab02590df6",
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/982f1eec-7539-417d-b305-a9eaf0b12d54",
