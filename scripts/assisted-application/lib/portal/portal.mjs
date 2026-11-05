@@ -5040,12 +5040,6 @@ export function portalReadAheadCapability({ channelType = '', entryUrl = '', ver
   return null;
 }
 
-/** A prefilled held-permit value is evidence only when the candidate already confirmed a current status. */
-export function canRecordHeldPermitPrefill(candidate, field) {
-  if (!isPermitField(field?.label) || !asksHeldStatus(field?.label)) return true;
-  return Boolean(candidateAnswerForField(candidate, field, { includeProfileWorkPermit: false })?.value);
-}
-
 const CORE_DOCUMENT_LABEL_RE = /(?<![\p{L}\p{N}])(?:cv|resume|résumé|lebenslauf|curriculum(?: vitae)?|cover(?:ing)? letter|anschreiben|bewerbungsschreiben|motivations(?:schreiben|brief)|lettre de motivation|lettre de présentation|lettera di (?:motivazione|presentazione)|carta motivazionale)(?![\p{L}\p{N}])/iu;
 
 function portalDocumentId(field, label, context) {
@@ -5250,18 +5244,23 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
     const field = fieldFor(item);
     // Candidate questions are for facts the runner cannot already supply.
-    // The planner may label an untouched field missing during its read pass;
-    // that alone must not ask the candidate to repeat profile data or a safe
-    // operational default. An explicitly rejected field still needs review.
+    // A value prefilled by the ATS is not candidate confirmation; suppress a
+    // planner question only when the candidate's own data supplies an answer.
+    // An explicitly rejected field still needs review.
     const candidateAnswer = candidate && field
       ? candidateAnswerForField(candidate, field, {
         includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
       }) : null;
-    if (field && field.invalid !== true
-      && (holdsValue(field) || String(candidateAnswer?.value ?? '').trim())) continue;
+    if (field && field.invalid !== true && String(candidateAnswer?.value ?? '').trim()) continue;
     const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
     if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
   }
+  const fieldIndexes = new Map(availableFields.map((field, index) => [field, index]));
+  const orderedRequirements = [...mergedRequired.values()].sort((left, right) => {
+    const leftIndex = fieldIndexes.get(fieldFor(left)) ?? Number.MAX_SAFE_INTEGER;
+    const rightIndex = fieldIndexes.get(fieldFor(right)) ?? Number.MAX_SAFE_INTEGER;
+    return leftIndex - rightIndex;
+  });
   const hasAmbiguousAlias = (item) => {
     if (directFieldsFor(item?.fieldId).length === 1) return false;
     const requestedId = String(item?.fieldId || '').trim();
@@ -5271,7 +5270,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   const readable = [];
   const unreadableFields = [];
   let reducedRequirement = false;
-  for (const item of mergedRequired.values()) {
+  for (const item of orderedRequirements) {
     const field = fieldFor(item);
     if (hasAmbiguousAlias(item)) {
       unreadableFields.push(item.fieldId || 'unknown');
@@ -5317,6 +5316,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);
+        const nativeChoiceField = Boolean(field && !editableCombobox && (
+          ['select', 'radio', 'listbox'].includes(field.kind)
+          || field.selectLike === true
+          || field.nativeSelectId
+          || applicationOptions.length
+        ));
         const optionMap = portalOptionMap({ options: item.options, applicationOptions, optionMap: item.optionMap });
         let type = item.type;
         if (field) {
@@ -5330,11 +5335,11 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
         }
         // A native choice with no usable catalogue needs another portal read,
         // never a text question whose arbitrary answer the ATS cannot accept.
-        if (field && type === 'choice' && !applicationOptions.length) {
+        if (nativeChoiceField && type === 'choice' && !applicationOptions.length) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
-        if (field && item.requiresNativeOptions === true && !applicationOptions.length) {
+        if (nativeChoiceField && item.requiresNativeOptions === true && !applicationOptions.length) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
@@ -5347,7 +5352,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           required: true,
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
-          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,
+          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate)
+            : applicationOptions.length ? applicationOptions : item.options || [] : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
@@ -5849,9 +5855,8 @@ export async function submitViaPortal(ctx) {
         .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
         .map((field) => {
           const answer = field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim();
-          // A value already present in the ATS cannot confirm a current permit:
-          // it may have been inferred from the CV or retained by the portal.
-          // Explicit answers recorded by this run remain in `recorded` below.
+          // A portal's held-status prefill is never the candidate's statement.
+          // Their confirmed answer remains in the candidate record itself.
           if (isPermitField(field.label) && asksHeldStatus(field.label)) return null;
           // A portal may prefill a default country or phone code before the
           // planner sees the form. Keep an explicit candidate fact above that
@@ -5859,11 +5864,8 @@ export async function submitViaPortal(ctx) {
           const candidateAnswer = candidateAnswerForField(candidate, field, {
             includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
           })?.value || '';
-          // A preselected Yes/No on a held-status question is not the
-          // candidate's statement. Keep it out of the agent's answer context
-          // until the current permit has explicit candidate provenance.
-          if (!canRecordHeldPermitPrefill(candidate, field)) return null;
-          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field)
+            || !candidateAnswer || fold(candidateAnswer) !== fold(answer)) return null;
           return {
             question: String(field.label || field.name || field.id || '').slice(0, 200),
             answer,

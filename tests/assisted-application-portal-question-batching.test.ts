@@ -403,6 +403,7 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Country of residence *',
       'Which professional certification do you hold? *',
     ]);
     expect(window.document.getElementById('privacy-dialog')).toBeNull();
@@ -454,6 +455,7 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Country of residence *',
       'When could you start?',
       'Which professional certification do you hold? *',
     ]);
@@ -602,6 +604,7 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Country of residence *',
       'Which professional certification do you hold? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
@@ -671,7 +674,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test' }, profile: { region: 'Lombardy' } },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Svizzera' } }, profile: { region: 'Lombardy' } },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -727,8 +730,8 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Which security clearance do you hold? *',
       'Country of residence *',
+      'Which security clearance do you hold? *',
       'Why are you interested in this role? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
@@ -769,8 +772,8 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Which professional certification do you hold? *',
       'Country of residence *',
+      'Which professional certification do you hold? *',
       'Why are you interested in this role? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
@@ -814,8 +817,8 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Describe your experience leading regional teams.',
       'Country of residence *',
+      'Describe your experience leading regional teams.',
     ]);
     expect(plannerInputs.some((input) => input.includes('Describe your experience leading regional teams.'))).toBe(true);
     expect(plannerInputs.some((input) => input.includes('textarea_123'))).toBe(true);
@@ -862,8 +865,8 @@ describe('assisted portal question batching', () => {
     expect(window.document.querySelectorAll('input, textarea, select')).toHaveLength(initialControlCount);
     expect(elementValue(window, '#motivation')).toBe('Autofilled by the application');
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Why are you interested in this role? *',
       'Country of residence *',
+      'Why are you interested in this role? *',
     ]);
     expect(plannerInputs.some((input) => input.includes('Autofilled by the application'))).toBe(true);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');

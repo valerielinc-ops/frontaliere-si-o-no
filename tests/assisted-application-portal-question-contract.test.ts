@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { localizePortalQuestions, portalRequirementsForCandidate, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalAnswerForApplication } from '../scripts/assisted-application/lib/portal/question-key.mjs';
 import { validateAnswer } from '../functions/src/lib/answerRules.js';
+import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 const planned = { fieldId: 'source', question: 'Come hai trovato questo lavoro?', type: 'text', options: [], why: '' };
 const field = { id: 'source', kind: 'select', label: 'Wie haben Sie uns gefunden?', required: true, options: [{ label: 'Homepage' }, { label: 'Empfehlung' }] };
@@ -91,6 +92,40 @@ describe('portal candidate question contract', () => {
       const result = portalRequirementsFromMissingRequired([{ ...field, options }], [planned]);
       expect(result).toEqual({ questions: [], documents: [], unreadableFields: [field.id] });
     }
+  });
+
+  it('asks for current permit status on a readable text field without native options', () => {
+    const field = { id: 'authorization', kind: 'text', label: 'Which work authorization do you hold?', required: true, value: 'No', options: [] };
+    const result = portalRequirementsFromMissingRequired([field], [], {
+      candidate: { profile: { workPermit: 'Permesso G' }, answers: {} },
+      candidateLocale: 'en',
+    });
+
+    expect(result.unreadableFields).toBeUndefined();
+    expect(result.questions).toHaveLength(1);
+    expect(result.questions[0]).toMatchObject({
+      id: 'work_permit',
+      type: 'choice',
+      options: permitOptions('en'),
+      applicationOptions: [],
+      applicationOptionsKnown: true,
+    });
+    expect(portalAnswerForApplication(result.questions[0], permitOptions('en')[2])).toBe(permitOptions('en')[2]);
+  });
+
+  it('does not treat an ATS-prefilled value as a candidate answer when the planner asks for it', () => {
+    const field = { id: 'certification', kind: 'text', label: 'Which professional certification do you hold?', required: true, value: 'Autofilled by the application' };
+    const result = portalRequirementsFromMissingRequired([field], [{
+      fieldId: field.id,
+      question: field.label,
+      type: 'text',
+      options: [],
+      why: '',
+    }], { candidate: { profile: {}, answers: {} }, candidateLocale: 'en' });
+
+    expect(result.unreadableFields).toBeUndefined();
+    expect(result.questions).toHaveLength(1);
+    expect(result.questions[0]).toMatchObject({ applicationQuestion: field.label, type: 'text' });
   });
 
   it('keeps an editable combobox as free text beside an unloaded select-like combobox', () => {
