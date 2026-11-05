@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/c321ad51-e806-4927-9d95-a04f501ab489",
     "https://jobs.ems-group.com/offene-stellen/betriebselektriker-m-w-d/c9287292-12d6-46dc-ab2e-1041cbb7cc17",
     "https://jobs.ems-group.com/offene-stellen/leiter-technik-m-w-d/534ea978-1424-465a-ae37-10b7dbfad33b",
     "https://jobs.ems-group.com/offene-stellen/kunststofftechnologe-fachrichtung-spritzgiessen-m-w-d/68cc6af6-9d67-4d58-8878-0ab9b83b1510",
@@ -23,6 +24,10 @@
     "https://jobs.ems-group.com/offene-stellen/laborleiter-qualitaetskontrolle-fasern-und-garn-m-w-d/715262d7-5394-4117-a941-89708ad7b2f2"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/c321ad51-e806-4927-9d95-a04f501ab489": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/betriebselektriker-m-w-d/c9287292-12d6-46dc-ab2e-1041cbb7cc17": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -77,5 +82,5 @@
     }
   },
   "notes": "Career-portal HTML crawler tied to EMS-Chemie/EFTEC Swiss sites, centered on the Domat/Ems (GR) company seat; not a national employer search.",
-  "updatedAt": "2026-11-04T21:29:42.281Z"
+  "updatedAt": "2026-11-05T09:25:15.550Z"
 }

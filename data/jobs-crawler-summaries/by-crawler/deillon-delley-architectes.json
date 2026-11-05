@@ -1,7 +1,7 @@
 {
   "key": "deillon-delley-architectes",
   "label": "Deillon Delley Architectes SA",
-  "generatedAt": "2026-11-04T21:38:31.500Z",
+  "generatedAt": "2026-11-05T09:37:09.886Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4149,
-  "avgDurationMs": 4149,
+  "durationMs": 4487,
+  "avgDurationMs": 4487,
   "durationHistory": [
-    4149
+    4487
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -54,13 +54,13 @@
       "applyUrl": "https://deillondelley.ch/emplois/details-emplois/#:~:text=Architecte%20d%C3%A9veloppement%20junior",
       "source": "Deillon Delley Architectes SA Dedicated Parser (official site)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T21:38:17.022Z",
+      "crawledAt": "2026-11-05T09:36:57.326Z",
       "firstSeenAt": "2026-10-15T21:26:50.037Z",
       "salaryMin": 53000,
       "salaryMax": 80500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:38:17.022Z",
+      "validThrough": "2027-01-14T09:36:57.326Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -99,13 +99,13 @@
       "applyUrl": "https://deillondelley.ch/emplois/details-emplois/#:~:text=Architecte%20d%C3%A9veloppement%20senior",
       "source": "Deillon Delley Architectes SA Dedicated Parser (official site)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T21:38:17.022Z",
+      "crawledAt": "2026-11-05T09:36:57.326Z",
       "firstSeenAt": "2026-10-15T21:26:50.037Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:38:17.022Z",
+      "validThrough": "2027-01-14T09:36:57.326Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -116,5 +116,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

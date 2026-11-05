@@ -20,6 +20,7 @@ import {
   permitOptions,
   permitStatement,
   permitStatusQuestion,
+  permitStatusFromCandidate,
   permitStatusOf,
   printedPermitText,
 } from '../functions/src/lib/permitStatus.js';
@@ -164,6 +165,13 @@ describe('permit status catalogue (owner decisions 2026-10-03)', () => {
     expect(tokens('Nationalität: Schweiz')).toEqual(['Nationalität: Schweiz']);
     expect(tokens('I am Swiss.')).toEqual(['I am Swiss']);
     for (const text of ['Lavoro sul mercato svizzero.', 'A Swiss company', 'Ich bin Schweizer Meister im Schach.', 'I am Swiss-based']) expect([text, tokens(text)]).toEqual([text, []]);
+  });
+
+  it('uses only recognized candidate status values and falls through an unknown source', () => {
+    expect(permitStatusFromCandidate({ swissStatus: { code: 'pending' }, profile: { permitStatus: 'pending', workPermit: 'Permesso G in rinnovo' }, answers: {} })).toBe('');
+    expect(permitStatusFromCandidate({ swissStatus: { code: 'pending' }, profile: { permitStatus: 'pending' }, answers: { work_permit: 'permit_b' } })).toBe('permit_b');
+    expect(permitStatusFromCandidate({ swissStatus: { code: 'pending' }, profile: { permitStatus: 'pending', workPermit: 'Permesso G' }, answers: {} })).toBe('permit_g');
+    expect(permitStatusFromCandidate({ swissStatus: { code: 'permit_c' }, profile: { permitStatus: 'permit_b' }, answers: { work_permit: 'permit_g' } })).toBe('permit_c');
   });
 
   it('flags every wording of a permit to come, and no catalogue string', () => {

@@ -9,7 +9,7 @@ import { questionsForCandidate } from '../functions/src/assistedApplicationCandi
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcileOperationalAnswers } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
-import { permitOptions, permitStatusQuestion } from '../functions/src/lib/permitStatus.js';
+import { permitOptions, permitStatusQuestion, permitStatusQuestionWhy } from '../functions/src/lib/permitStatus.js';
 
 // Anonymous registration markup: an intentionally empty styled label and the
 // actual consent in the owned fieldset legend, as on the public Avature form.
@@ -454,11 +454,37 @@ it('turns a required Umantis residence-status choice into the candidate permit q
 
 it('does not ask for a Swiss status the candidate has already stated', () => {
   const field = { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: permitOptions('it') };
-  const result = portalRequirementsFromMissingRequired([field], [], {
-    candidate: { identity: {}, profile: { workPermit: 'Permesso G' }, answers: {} },
-    candidateLocale: 'it',
-  });
-  expect(result.questions).toEqual([]);
+  for (const candidate of [
+    { identity: {}, profile: { workPermit: 'Permesso G' }, answers: {} },
+    { identity: {}, profile: { permitStatus: 'permit_b' }, answers: {} },
+    { identity: {}, profile: {}, answers: {}, swissStatus: { code: 'permit_c' } },
+  ]) {
+    const result = portalRequirementsFromMissingRequired([field], [], { candidate, candidateLocale: 'it' });
+    expect(result.questions).toEqual([]);
+  }
+});
+
+it('asks for a missing Swiss status when stored status strings are not recognized and localizes the explanation', async () => {
+  const field = { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: permitOptions('it') };
+  for (const candidate of [
+    { identity: {}, profile: { permitStatus: 'pending' }, answers: {} },
+    { identity: {}, profile: {}, answers: {}, swissStatus: { code: 'pending' } },
+  ]) {
+    const result = portalRequirementsFromMissingRequired([field], [], { candidate, candidateLocale: 'de' });
+    expect(result.questions).toEqual([expect.objectContaining({
+      id: 'work_permit',
+      question: permitStatusQuestion('de'),
+      candidatePrompt: permitStatusQuestion('de'),
+      why: permitStatusQuestionWhy('de'),
+      applicationQuestion: 'Statuto di soggiorno',
+      applicationOptions: field.options,
+      required: true,
+    })]);
+    const [localized] = await localizePortalQuestions(result.questions, {
+      candidateLocale: 'de', applicationLocale: 'it', codex: vi.fn().mockRejectedValue(new Error('translation unavailable')),
+    });
+    expect(localized).toMatchObject({ question: permitStatusQuestion('de'), why: permitStatusQuestionWhy('de') });
+  }
 });
 
 it('asks for a missing residence country and reads it from a partial profile address', () => {
@@ -723,7 +749,7 @@ it('does not expose fallback-language questions from a pre-read when localizatio
     candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser };
 
   const result = await readPortalRequirements(ctx);
-  expect(result).toEqual({ questions: [], documents: [], handoff: 'requirements_unavailable' });
+  expect(result).toEqual({ questions: [], documents: [], handoff: 'question_localization_unavailable' });
   expect(codex).toHaveBeenCalledTimes(2);
   expect(browser.close).toHaveBeenCalledOnce();
 });

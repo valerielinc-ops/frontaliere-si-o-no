@@ -1,7 +1,7 @@
 {
   "key": "jobdoor-ch",
   "label": "Jobdoor AG",
-  "generatedAt": "2026-11-04T21:50:06.637Z",
+  "generatedAt": "2026-11-05T09:36:15.932Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5225,
-  "avgDurationMs": 5225,
+  "durationMs": 4166,
+  "avgDurationMs": 4166,
   "durationHistory": [
-    5225
+    4166
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "jobdoor-ch-7bc38f16351f",
-      "slug": "fage-efz-100-bern-jobdoor-ch-ch",
+      "slug": "fage-cfc-100-jobdoor-ag-bern",
       "company": "Jobdoor AG",
       "companyKey": "jobdoor-ch",
       "companyDomain": "jobdoor.ch",
@@ -34,7 +35,7 @@
       "url": "https://jobdoor.ch/job/fage-efz-100/",
       "source": "Jobdoor AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:49:45.980Z",
+      "crawledAt": "2026-11-05T09:36:00.384Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -51,26 +52,25 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobdoor.ch/job/fage-efz-100/",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T21:49:45.980Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:49:45.980Z",
+      "validThrough": "2027-02-03T09:36:00.384Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:49:45.980Z",
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

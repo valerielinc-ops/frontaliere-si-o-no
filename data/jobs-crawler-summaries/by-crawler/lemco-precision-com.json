@@ -1,7 +1,7 @@
 {
   "key": "lemco-precision-com",
   "label": "Lemco Précision SA",
-  "generatedAt": "2026-11-04T21:50:20.213Z",
+  "generatedAt": "2026-11-05T09:36:23.680Z",
   "total": 1,
   "discovered": null,
   "parsed": 3,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16224,
-  "avgDurationMs": 16224,
+  "durationMs": 15694,
+  "avgDurationMs": 15694,
   "durationHistory": [
-    16224
+    15694
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "lemco-precision-com-6a36ce5ef8c4",
-      "slug": "a-unique-and-rewarding-professional-experience-1895-vionnaz-lemco-precision-com-ch",
+      "slug": "un-esperienza-professionale-unica-e-gratificante-lemco-precision-sa-1895-vionnaz",
       "company": "Lemco Précision SA",
       "companyKey": "lemco-precision-com",
       "companyDomain": "lemco-precision.com",
@@ -34,7 +35,7 @@
       "url": "https://www.lemco-precision.com/career/job-openings/decolleteur-programmeur-iso-h-f-description-in-french/",
       "source": "Lemco Précision SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:49:59.281Z",
+      "crawledAt": "2026-11-05T09:36:07.511Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -51,26 +52,24 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.lemco-precision.com/career/job-openings/decolleteur-programmeur-iso-h-f-description-in-french/",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T21:49:59.281Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddress": "Vionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:49:59.281Z",
+      "validThrough": "2027-02-03T09:36:07.511Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:49:59.281Z",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

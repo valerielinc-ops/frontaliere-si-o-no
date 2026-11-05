@@ -1,7 +1,7 @@
 {
   "key": "zaugg",
   "label": "ZAUGG AG",
-  "generatedAt": "2026-11-04T21:46:21.960Z",
+  "generatedAt": "2026-11-05T09:45:12.557Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6690,
-  "avgDurationMs": 6690,
+  "durationMs": 3805,
+  "avgDurationMs": 3805,
   "durationHistory": [
-    6690
+    3805
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.zaugg.swiss/?section=2250&language=de_DE&itemid1541=3728&detail1541=1",
       "source": "ZAUGG AG official careers page",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:46:08.736Z",
+      "crawledAt": "2026-11-05T09:45:00.519Z",
       "addressLocality": "Eggiwil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -58,7 +58,7 @@
       "salarySource": "estimated",
       "streetAddress": "Eggiwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:46:08.736Z",
+      "validThrough": "2026-12-05T09:45:00.519Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -69,5 +69,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

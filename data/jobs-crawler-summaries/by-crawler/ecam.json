@@ -1,7 +1,7 @@
 {
   "key": "ecam",
   "label": "Ente Case Anziani Mendrisiotto (ECAM)",
-  "generatedAt": "2026-11-04T21:43:46.512Z",
+  "generatedAt": "2026-11-05T09:36:23.975Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,63 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3964,
-  "avgDurationMs": 3964,
+  "durationMs": 3846,
+  "avgDurationMs": 3846,
   "durationHistory": [
-    3964
+    3846
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "ecam-e0954917bf67",
-      "slug": "un-a-responsabile-servizio-risorse-umane-al-80-100-ecam-mendrisio",
-      "company": "Ente Case Anziani Mendrisiotto (ECAM)",
-      "companyKey": "ecam",
-      "companyDomain": "ecam.swiss",
-      "title": "un/a Responsabile servizio risorse umane al 80%-100%",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "url": "https://www.ecam.swiss/wp-content/uploads/2026/08/2026.03.08_Concorso-RU-ECAM-80-100_-002_def.pdf",
-      "source": "ECAM Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-11-03T09:51:23.048Z",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6850",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Case per anziani",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "validThrough": "2026-12-24T09:51:23.048Z",
-      "applyUrl": "https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego/",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "firstSeenAt": "2026-09-24T14:54:37.539Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "salarySource": "estimated",
-      "streetAddress": "Mendrisio",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "ecam-590be7c475e5",
@@ -84,7 +37,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-04T21:43:33.253Z",
+      "crawledAt": "2026-11-05T09:36:13.806Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -118,5 +71,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }
