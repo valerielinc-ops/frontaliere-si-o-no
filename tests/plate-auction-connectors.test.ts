@@ -709,6 +709,8 @@ describe('fixed-price PDF url resolution', () => {
       sourceKey: 'ai', pageUrl: String(ai.pageUrl),
       indexHtml: '<a href="https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download">PDF</a>',
     })).toBe(motorcyclePdf);
+    expect(normalizePlateAuctionUrl(autoPdf)).toBe(autoPdf);
+    expect(normalizePlateAuctionUrl(motorcyclePdf)).toBe(motorcyclePdf);
     expect(resolveVariantPdfUrl(ai.pdfVariants[0], {
       sourceKey: 'ai', pageUrl: String(ai.pageUrl), indexHtml: '<a href="/unrelated.pdf">PDF</a>',
     })).toBe(autoPdf);
