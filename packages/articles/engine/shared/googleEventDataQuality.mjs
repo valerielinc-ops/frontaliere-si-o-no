@@ -1,7 +1,7 @@
 import {
+  areSupportedGoogleEventStatuses,
   isGoogleEventStatusCompatible,
   isSupportedGoogleEventAttendanceMode,
-  isSupportedGoogleEventStatus,
   isValidEventDateRange,
 } from './google-event-values.mjs';
 
@@ -44,6 +44,8 @@ function isValidDateTime(value) {
   const daysInMonth = [31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   if (year < 1 || month < 1 || month > 12 || day < 1 || day > daysInMonth[month - 1]) return false;
 
+  // Google Search Central accepts date-only values for all-day events and when
+  // the event hour is unknown; keep them distinct from synthetic midnight times.
   const isDateOnly = /^\d{4}-\d{2}-\d{2}$/u.test(value);
   const isLocalDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/u.test(value);
   const isZonedDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})$/u.test(value);
@@ -70,6 +72,22 @@ function isValidCurrency(value) {
   return value !== 'XXX' && ISO_4217_CURRENCIES.has(value);
 }
 
+function isSupportedEventAvailability(value) {
+  if (typeof value !== 'string') return false;
+  const raw = value.trim();
+  if (EVENT_AVAILABILITY.has(raw)) return true;
+
+  let url;
+  try {
+    url = new URL(raw);
+  } catch {
+    return false;
+  }
+  if (!['http:', 'https:'].includes(url.protocol) || url.hostname.toLowerCase() !== 'schema.org' || url.port) return false;
+  const member = url.pathname.replace(/^\/+|\/+$/gu, '');
+  return EVENT_AVAILABILITY.has(member) && !url.search && !url.hash;
+}
+
 function isCompletePhysicalLocation(location) {
   const address = location?.address;
   return location
@@ -78,10 +96,7 @@ function isCompletePhysicalLocation(location) {
     && typeNames(location['@type']).includes('Place')
     && isNonEmpty(location.name)
     && typeNames(address?.['@type']).includes('PostalAddress')
-    && isNonEmpty(address.streetAddress)
     && isNonEmpty(address.addressLocality)
-    && isNonEmpty(address.addressRegion)
-    && isNonEmpty(address.postalCode)
     && isNonEmpty(address.addressCountry);
 }
 
@@ -140,7 +155,6 @@ function imageUrls(value) {
 }
 
 function hasCompleteOffer(offer, event) {
-  const availability = typeNames(offer?.availability);
   return offer
     && typeof offer === 'object'
     && typeNames(offer['@type']).includes('Offer')
@@ -148,7 +162,9 @@ function hasCompleteOffer(offer, event) {
     && Number.isFinite(offer.price)
     && offer.price >= 0
     && isValidCurrency(offer.priceCurrency)
-    && availability.some((value) => EVENT_AVAILABILITY.has(value))
+    && (offer.availability === undefined
+      ? offer.validFrom !== undefined
+      : isSupportedEventAvailability(offer.availability))
     && (offer.validFrom === undefined || isValidDateTime(offer.validFrom))
     && isHttpUrl(offer.url)
     && (offer.price !== 0 || event.isAccessibleForFree === true);
@@ -178,12 +194,15 @@ export function hasCompleteGoogleEventData(event) {
     && hasNamedEntities(event.performer, PERFORMER_TYPES)
     && hasNamedEntities(event.organizer, ORGANIZER_TYPES)
     && hasHttpUrls(event.organizer)
-    && status.some(isSupportedGoogleEventStatus)
-    && attendanceModes.some(isSupportedGoogleEventAttendanceMode)
+    && areSupportedGoogleEventStatuses(status)
+    && attendanceModes.length === 1
+    && attendanceModes.every(isSupportedGoogleEventAttendanceMode)
     && isGoogleEventStatusCompatible(status, attendanceModes)
     && offers.length > 0
     && offers.every((offer) => hasCompleteOffer(offer, event))
     && (status.includes('EventRescheduled')
-      ? isValidPreviousStartDate(event.previousStartDate)
-      : !event.previousStartDate);
+      ? status.length === 1
+        && status[0] === 'EventRescheduled'
+        && isValidPreviousStartDate(event.previousStartDate)
+      : event.previousStartDate === undefined);
 }

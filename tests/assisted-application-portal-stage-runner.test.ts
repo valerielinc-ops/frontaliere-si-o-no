@@ -23,8 +23,9 @@ const profile = snapshot(profileUrl, 'Since you have already submitted your pers
 const review = snapshot(reviewUrl, 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [{ id: 'commit', text: 'Apply' }]);
 const receipt = snapshot(receiptUrl, 'Thank you for your application.', [{ text: 'My profile' }]);
 
-function fixture(initial = profile, source: any = null, finalReview = review, finalClickError: Error | null = null) {
+function fixture(initial = profile, source: any = null, finalReview = review, finalClickError: Error | null = null, options: any = {}) {
   state.snapshot = source || initial;
+  const buttonTransitions = options.buttonTransitions || {};
   const guard = vi.fn(async () => {
     expect(state.snapshot.url).toBe(reviewUrl);
     expect(click).not.toHaveBeenCalled();
@@ -34,6 +35,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   const page: any = {
     url: () => state.snapshot.url, title: async () => title, frames: () => [page], mainFrame: () => page,
     goto: vi.fn(async (url: string) => {
+      if (url === options.applyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
       if (url === reviewUrl) { expect(guard).not.toHaveBeenCalled(); state.snapshot = finalReview; }
       return { status: () => 200 };
     }),
@@ -43,18 +45,27 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
       return source.includes('document.body') ? state.snapshot.text : false;
     },
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
-    locator: () => ({
+    getByRole: () => ({
+      count: async () => 0,
+      filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not visible'); } }) }),
+    }),
+    locator: (selector: string) => ({
       count: async () => 0,
       first: () => ({
-        click: () => finalClickError && state.snapshot.url === reviewUrl
-          ? Promise.reject(finalClickError)
-          : state.snapshot === source ? openClick() : click(),
+        click: (_options?: unknown) => {
+          const transition = buttonTransitions[selector];
+          if (transition) return transition();
+          return finalClickError && state.snapshot.url === reviewUrl
+            ? Promise.reject(finalClickError)
+            : state.snapshot === source ? openClick() : click();
+        },
         evaluate: async (_fn: Function, argument: any) => ({ ok: true, contractJson: JSON.stringify(argument) }),
       }),
     }),
   };
   const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
-  const run = () => submitViaPortal({ applyUrl: source?.url || applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
+  const run = () => submitViaPortal({ applyUrl: source?.url || options.applyUrl || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
+    job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
     codex: vi.fn(), launch: async () => browser, onBeforeSubmit: guard });
   return { run, guard, click, openClick, page };
 }
@@ -84,6 +95,54 @@ describe('runner final guard across three application stages', () => {
     const f = fixture({ ...profile, buttons: [{ id: 'unknown', text: 'Apply' }] });
     const result = await f.run();
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('opens a same-ID SuccessFactors apply URL from a warmed posting when the shell has no apply control', async () => {
+    const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';
+    const cityApplyUrl = 'https://jobs.stadt-zuerich.ch/talentcommunity/apply/1373719857/?locale=de_DE';
+    const shell = { ...snapshot(postingUrl, 'Sprache', [{ id: 'language', text: 'Sprache', chrome: true }]) };
+    const registration = {
+      ...snapshot(cityApplyUrl, 'Create your account for Application Manager', [{ id: 'create', text: 'Bewerbungskonto erstellen' }]),
+      fields: [
+        { id: 'email', label: 'E-Mail-Adresse', kind: 'text', inputType: 'email', required: true },
+        { id: 'password', label: 'Passwort', kind: 'text', inputType: 'password', required: true },
+      ],
+      passwordVisible: true,
+    };
+    const f = fixture(shell, null, review, null, {
+      applyUrl: cityApplyUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'Stadt Zürich', title: 'Application Manager' },
+      applySnapshot: registration,
+    });
+
+    const result = await f.run();
+
+    expect(f.page.goto).toHaveBeenCalledWith(cityApplyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    expect(result.event).toMatchObject({ type: 'submit_handoff' });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('stops if the verified SuccessFactors apply route redirects away from the posting ID', async () => {
+    const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';
+    const cityApplyUrl = 'https://jobs.stadt-zuerich.ch/talentcommunity/apply/1373719857/?locale=de_DE';
+    const shell = { ...snapshot(postingUrl, 'Sprache', [{ id: 'language', text: 'Sprache', chrome: true }]) };
+    const genericLanding = snapshot('https://jobs.stadt-zuerich.ch/de/jobs.html', 'Job search', [{ id: 'language', text: 'Sprache', chrome: true }]);
+    const f = fixture(shell, null, review, null, {
+      applyUrl: cityApplyUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'Stadt Zürich', title: 'Application Manager' },
+      applySnapshot: genericLanding,
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
   });
@@ -136,8 +195,110 @@ describe('runner final guard across three application stages', () => {
   it('stops on an explicit posting region restriction before clicking its Apply control', async () => {
     const blockedPosting = snapshot(applyUrl,
       'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
-      [{ id: 'apply', text: 'Jetzt bewerben', href: '', disabled: false }]);
+      [{ id: 'details', text: 'Mehr erfahren', href: '', disabled: false }]);
     const f = fixture(blockedPosting);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('passes Yellowshark regional copy when its cookie dialog leaves an application entry', async () => {
+    const yellowsharkPosting = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen. Einreichen deiner Bewerbung in 10 Minuten.',
+      [
+        { id: 'close', text: 'Close dialog', chrome: true, cookieSurface: 'banner', cookieContextId: 'yellowshark', disabled: false },
+        { id: 'accept', text: 'Alle akzeptieren', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'reject', text: 'Ablehnen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'settings', text: 'Einstellungen anzeigen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Job ID: 42', disabled: false },
+      ]);
+    yellowsharkPosting.dialogs = [{ dialogId: 'd1' }];
+    yellowsharkPosting.buttons.slice(0, 4).forEach((button: any) => { button.dialog = true; button.dialogId = 'd1'; });
+    const afterCookie = {
+      ...yellowsharkPosting,
+      dialogs: [],
+      buttons: [yellowsharkPosting.buttons.at(-1)],
+    };
+    const f = fixture(yellowsharkPosting, null, review, null, {
+      buttonTransitions: {
+        '[data-aa-id="reject"]': async () => { state.snapshot = afterCookie; },
+        '[data-aa-id="apply"]': async () => { state.snapshot = profile; },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+  });
+
+  it('keeps a regional notice terminal for an unrelated job-card application CTA', async () => {
+    const unrelatedCta = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+      [{ id: 'other-apply', text: 'JETZT BEWERBEN', section: 'Senior Data Analyst', disabled: false }]);
+    const f = fixture(unrelatedCta);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('opens the posting-owned CTA when an unrelated Apply control comes first', async () => {
+    const headerClick = vi.fn(async () => {});
+    const matchingClick = vi.fn(async () => { state.snapshot = profile; });
+    const mixedPosting = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+      [
+        { id: 'header-apply', text: 'JETZT BEWERBEN', href: 'https://careers.example/Careers/ApplicationMethods?jobId=99', disabled: false },
+        { id: 'matching-apply', text: 'JETZT BEWERBEN', href: applyUrl, disabled: false },
+      ]);
+    const f = fixture(mixedPosting, null, review, null, {
+      buttonTransitions: {
+        '[data-aa-id="header-apply"]': headerClick,
+        '[data-aa-id="matching-apply"]': matchingClick,
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(headerClick).not.toHaveBeenCalled();
+    expect(matchingClick).toHaveBeenCalledOnce();
+  });
+
+  it('keeps a regional notice terminal when a same-title no-href CTA lacks the current posting identity', async () => {
+    const ambiguousPosting = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+      [
+        { id: 'other-apply', text: 'JETZT BEWERBEN', section: title, context: 'Job ID: 43', disabled: false },
+        { id: 'title-only-apply', text: 'JETZT BEWERBEN', section: title, disabled: false },
+      ]);
+    const f = fixture(ambiguousPosting);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('keeps a regional notice terminal for a same-employer CTA on another role', async () => {
+    const unrelatedCta = {
+      ...snapshot(applyUrl,
+        'Acme AG. Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+        [{ id: 'other-apply', text: 'JETZT BEWERBEN', section: 'Acme AG — Junior Accountant', disabled: false }]),
+      text: 'Senior Engineer. Acme AG. Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+    };
+    const f = fixture(unrelatedCta, null, review, null, { job: { company: 'Acme AG', title: 'Senior Engineer' } });
 
     const result = await f.run();
 
@@ -222,7 +383,7 @@ describe('runner final guard across three application stages', () => {
   it('uses captured protocol for a slug/path posting and guards only the review commit', async () => {
     const postingUrl = 'https://careers.example/Careers/JobDetail/Infrastructure-Strategy-Manager/42';
     const markup = (page: string) => `<meta name="avature.portal.id" content="87"><meta name="avature.portal.urlPath" content="Careers"><meta name="avature.portal.page" content="${page}"><portal-data id="synapserBootstrap" data-applicationName="customPortal" data-applicationCode="customPortal_87"></portal-data>`;
-    const source = { ...snapshot(postingUrl, 'Read this vacancy and apply.', [{ id: 'open', text: 'Apply' }]), protocol: await portalProtocolFromHtml(markup('JobDetail'), postingUrl) };
+    const source = { ...snapshot(postingUrl, 'Read this vacancy and apply.', [{ id: 'open', text: 'Apply', section: title, context: 'Posting ID: 42' }]), protocol: await portalProtocolFromHtml(markup('JobDetail'), postingUrl) };
     const first = { ...profile, protocol: await portalProtocolFromHtml(markup('ApplicationConfirmation'), profileUrl) };
     const final = { ...review, protocol: await portalProtocolFromHtml(markup('ApplicationReview'), reviewUrl) };
     const f = fixture(first, source, final);

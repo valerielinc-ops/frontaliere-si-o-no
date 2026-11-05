@@ -1,8 +1,8 @@
 import { normalizeSchemaOrgDateTime, normalizeSchemaOrgItemAvailability } from './schema-org-values.mjs';
 import {
+  areSupportedGoogleEventStatuses,
   isGoogleEventStatusCompatible,
   isSupportedGoogleEventAttendanceMode,
-  isSupportedGoogleEventStatus,
   isValidEventDateRange,
 } from '../../packages/articles/engine/shared/google-event-values.mjs';
 const ISO_4217_CURRENCIES = new Set(
@@ -17,6 +17,12 @@ function isNonEmpty(value) {
 function schemaTypeName(value) {
   if (typeof value !== 'string') return '';
   return value.trim().split(/[\/#]/u).pop() || '';
+}
+
+function schemaTypeNames(value) {
+  const types = Array.isArray(value) ? value : [value];
+  if (types.some((type) => typeof type !== 'string')) return [];
+  return types.map(schemaTypeName);
 }
 
 function schemaTypeMatches(value, expected) {
@@ -45,9 +51,10 @@ function isHttpUrl(value) {
 }
 
 function validateEventLocation(schema, filePath, errors) {
-  const requestedMode = schema.eventAttendanceMode === undefined
-    ? 'OfflineEventAttendanceMode'
-    : schemaTypeName(schema.eventAttendanceMode);
+  const requestedModes = schema.eventAttendanceMode === undefined
+    ? ['OfflineEventAttendanceMode']
+    : schemaTypeNames(schema.eventAttendanceMode);
+  const requestedMode = requestedModes.length === 1 ? requestedModes[0] : '';
   const attendanceMode = isSupportedGoogleEventAttendanceMode(requestedMode)
     ? requestedMode
     : 'OfflineEventAttendanceMode';
@@ -83,15 +90,9 @@ function validateEventLocation(schema, filePath, errors) {
         if (!schemaTypeMatches(address['@type'], 'PostalAddress')) {
           errors.push({ file: filePath, type: 'Event', field: `${field}.address.@type`, message: `Event "${field}.address" must use PostalAddress` });
         }
-        const requiredAddressFields = [
-          address.streetAddress,
-          address.addressLocality,
-          address.addressRegion,
-          address.postalCode,
-          address.addressCountry,
-        ];
+        const requiredAddressFields = [address.addressLocality, address.addressCountry];
         if (!requiredAddressFields.every(isNonEmpty)) {
-          errors.push({ file: filePath, type: 'Event', field: `${field}.address`, message: `Event "${field}.address" needs a complete postal address` });
+          errors.push({ file: filePath, type: 'Event', field: `${field}.address`, message: `Event "${field}.address" needs addressLocality and addressCountry` });
         }
       }
     } else if (isVirtualLocation && !isPhysicalLocation) {
@@ -170,6 +171,8 @@ function validateOffer(offer, index, schema, filePath, errors) {
 export function validateEventStructuredData(schema, filePath) {
   const errors = [];
   if (schema?.['@type'] !== 'Event') return errors;
+  const eventStatuses = schemaTypeNames(schema.eventStatus);
+  const attendanceModes = schemaTypeNames(schema.eventAttendanceMode);
 
   if (!isNonEmpty(schema.name)) {
     errors.push({ file: filePath, type: 'Event', field: 'name', message: 'Event missing "name"' });
@@ -191,13 +194,14 @@ export function validateEventStructuredData(schema, filePath) {
 
   validateEventLocation(schema, filePath, errors);
 
-  if (schema.eventStatus !== undefined && !isSupportedGoogleEventStatus(schemaTypeName(schema.eventStatus))) {
+  if (schema.eventStatus !== undefined && !areSupportedGoogleEventStatuses(eventStatuses)) {
     errors.push({ file: filePath, type: 'Event', field: 'eventStatus', message: 'Event "eventStatus" is not a supported status' });
   }
-  if (!isGoogleEventStatusCompatible(schemaTypeName(schema.eventStatus), schemaTypeName(schema.eventAttendanceMode))) {
+  if (!isGoogleEventStatusCompatible(eventStatuses, attendanceModes)) {
     errors.push({ file: filePath, type: 'Event', field: 'eventAttendanceMode', message: 'EventMovedOnline requires OnlineEventAttendanceMode' });
   }
-  if (schema.eventAttendanceMode !== undefined && !isSupportedGoogleEventAttendanceMode(schemaTypeName(schema.eventAttendanceMode))) {
+  if (schema.eventAttendanceMode !== undefined
+    && (attendanceModes.length !== 1 || !isSupportedGoogleEventAttendanceMode(attendanceModes[0]))) {
     errors.push({ file: filePath, type: 'Event', field: 'eventAttendanceMode', message: 'Event "eventAttendanceMode" is not supported' });
   }
   if (schema.image !== undefined) {

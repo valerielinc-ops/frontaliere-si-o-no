@@ -1004,7 +1004,12 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
 
     if (action === 'withdraw') {
-      return { status: 200, body: await withdrawAssistedApplication({ db: deps.db, orderId, round, nowMs }) };
+      return {
+        status: 200,
+        body: await withdrawAssistedApplication({
+          db: deps.db, orderId, round, withdrawalReason: body.withdrawalReason, nowMs,
+        }),
+      };
     }
 
     if (action === 'cv_choice') {

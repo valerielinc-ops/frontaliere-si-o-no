@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-11-04T21:26:46.712Z",
-  "runId": "41912934034",
+  "assembledAt": "2026-11-05T09:21:22.558Z",
+  "runId": "41999657952",
   "jobs": [
     {
       "id": "company-7uc4er",
@@ -91,7 +91,8 @@
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:26:25.205Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

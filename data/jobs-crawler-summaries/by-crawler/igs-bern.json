@@ -1,7 +1,7 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-11-04T21:26:43.010Z",
+  "generatedAt": "2026-11-05T09:23:31.926Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,66 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3406,
-  "avgDurationMs": 3406,
+  "durationMs": 3755,
+  "avgDurationMs": 3755,
   "durationHistory": [
-    3406
+    3755
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "igs-bern-f5747d81c7ce",
-      "slug": "assistenza-professionale-fabe-salute-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
-      "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
-      "companyKey": "igs-bern",
-      "companyDomain": "igsbern.ch",
-      "title": "Fachfrau/Fachmann Betreuung (FaBe) / Gesundheit (FaGe) EFZ (50 % - 70 %)",
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
-      "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:59.827Z",
-      "addressLocality": "Moosseedorf",
-      "postalCode": "3302",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
-      "pensumMin": 50,
-      "pensumMax": 50,
-      "pensum": "50%",
-      "firstSeenAt": "2026-08-05T22:43:24.350Z",
-      "salaryMin": 59500,
-      "salaryMax": 83300,
-      "salarySource": "estimated",
-      "addressRegion": "BE",
-      "streetAddress": "Moosseedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:54:59.827Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "igs-bern-52ea00b2fd44",
@@ -88,7 +38,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:31.624Z",
+      "crawledAt": "2026-11-05T09:23:10.222Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -111,7 +61,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:26:31.624Z",
+      "validThrough": "2027-01-18T09:23:10.222Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -122,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

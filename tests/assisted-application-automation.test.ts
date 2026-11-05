@@ -227,6 +227,11 @@ describe('applying events', () => {
       heldBy: [],
       dispatch: { mode: 'submit', round: 1, attempts: 1 },
     });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({
+      ...readyDraft(),
+      questions: [{ id: 'portal_question', question: 'Qual è la risposta?', type: 'text', required: true }],
+      requiredDocuments: [{ id: 'portal_certificate', label: 'Certificato', kind: 'certificate', required: true }],
+    });
     const events = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events');
     const ref = await events.add({
       type: 'submit_needs_candidate',
@@ -240,6 +245,28 @@ describe('applying events', () => {
       ok: true,
       flow: { state: 'needs_candidate_action', heldBy: ['question:portal_question', 'document:portal_certificate'] },
     });
+  });
+
+  it('hands a runner question absent from the draft to the owner without a candidate-action email', async () => {
+    const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
+    await flowRef.set({
+      state: 'submitting', round: 1, heldBy: [],
+      dispatch: { mode: 'submit', round: 1, attempts: 1 },
+    });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
+    const events = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events');
+    const ref = await events.add({
+      type: 'submit_needs_candidate', round: 1,
+      questions: [{ id: 'unpersisted_portal_question' }], documents: [],
+    });
+
+    const result = await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data: store.read(ref.path), runEffect, nowMs: T0 });
+    expect(result).toMatchObject({
+      ok: true,
+      flow: { state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'] },
+    });
+    expect(effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover' })]);
+    expect(effects).not.toContainEqual(expect.objectContaining({ kind: 'candidate_action_needed' }));
   });
 
   it('passes portal question details so regenerated ids can reuse a known answer', async () => {
@@ -961,7 +988,7 @@ describe('sweep', () => {
 
   it('does not reuse a candidate-wide answer without its confirmed source', async () => {
     const userId = 'candidate-1';
-    const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
+    const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text', required: true };
     const key = candidateQuestionAnswerKey(question);
     store = createMemoryFirestore({
       [ORDER_PATH]: paidOrder({ userId }),
@@ -973,7 +1000,7 @@ describe('sweep', () => {
         heldBy: [],
         dispatch: { mode: 'submit', round: 1, attempts: 2 },
       },
-      [`${ORDER_PATH}/ai_drafts/current`]: { ...readyDraft(), round: 1, questions: [] },
+      [`${ORDER_PATH}/ai_drafts/current`]: { ...readyDraft(), round: 1, questions: [question] },
       [`user_cv_profiles/${userId}`]: { applicationQuestionAnswers: { [key]: 'Permit G' } },
     });
 
@@ -991,6 +1018,45 @@ describe('sweep', () => {
       questionAnswers: {},
     } });
     expect(effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
+  });
+
+  it('skips a candidate-action email when its flow hold has no visible requirement', async () => {
+    const sendNotification = vi.fn(async () => ({ ok: true }));
+    const result = await runAutomationEffect({
+      db: store.db,
+      orderId: ORDER,
+      effect: { type: 'email', kind: 'candidate_action_needed' },
+      flow: { round: 1, heldBy: ['question:unpersisted_portal_question'] },
+      nowMs: T0,
+    }, { sendNotification });
+
+    expect(result).toEqual({ ok: true, skipped: 'no_candidate_requirements' });
+    expect(sendNotification).not.toHaveBeenCalled();
+  });
+
+  it('sends a candidate-action email when required portal consent is still unconfirmed', async () => {
+    const question = {
+      id: 'privacy_ack',
+      question: 'Confermi di aver letto l’informativa?',
+      type: 'text',
+      required: true,
+      requiresAffirmativeConsent: true,
+    };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({
+      ...readyDraft(),
+      questions: [question],
+    });
+    const sendNotification = vi.fn(async (args: any) => ({ ok: true, message: args.build(paidOrder()) }));
+    const result: any = await runAutomationEffect({
+      db: store.db,
+      orderId: ORDER,
+      effect: { type: 'email', kind: 'candidate_action_needed' },
+      flow: { round: 1, heldBy: ['question:privacy_ack'], answers: { privacy_ack: 'No' } },
+      nowMs: T0,
+    }, { sendNotification, getSecret: async () => 's'.repeat(40) });
+
+    expect(sendNotification).toHaveBeenCalledTimes(1);
+    expect(result).toMatchObject({ ok: true, message: expect.any(Object) });
   });
 
   it('computes no due time for terminal flows', () => {

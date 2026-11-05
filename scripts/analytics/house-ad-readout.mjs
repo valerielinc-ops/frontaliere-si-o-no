@@ -11,11 +11,12 @@ export function summarizeHouseTraffic(response) {
   const groups = new Map();
   for (const row of response?.rows || []) {
     const [event, component, surface, device] = row.dimensionValues.map(v => v.value);
-    const match = /^(control|time_saved|profile_match|in_control|swiss_work|next_chapter)_v1\.(test|fixed)\.(it|en|de|fr)$/.exec(component);
+    const match = /^(?:(house_creatives_v[12])\.)?(control|time_saved|profile_match|in_control|swiss_work|next_chapter)_v1\.(test|fixed)\.(it|en|de|fr)$/.exec(component);
     if (!match || !['house_ad_impression', 'house_ad_click', 'house_ad_landing'].includes(event)) continue;
+    const experimentId = match[1] || 'house_creatives_v1';
     const [format, ...placement] = surface.split('.');
-    const key = JSON.stringify([match[1], match[2], match[3], format, placement.join('.'), device]);
-    const group = groups.get(key) || { variant: match[1], enrolled: match[2] === 'test', locale: match[3], format, placement: placement.join('.'), device, impressions: 0, clicks: 0, landings: 0 };
+    const key = JSON.stringify([experimentId, match[2], match[3], match[4], format, placement.join('.'), device]);
+    const group = groups.get(key) || { experimentId, variant: match[2], enrolled: match[3] === 'test', locale: match[4], format, placement: placement.join('.'), device, impressions: 0, clicks: 0, landings: 0 };
     group[event === 'house_ad_click' ? 'clicks' : event === 'house_ad_landing' ? 'landings' : 'impressions'] += Number(row.metricValues[0]?.value || 0);
     groups.set(key, group);
   }
@@ -28,8 +29,8 @@ export function summarizeHouseOrders(services, startMs, endMs) {
     const created = service.createdAt?.toMillis?.() ?? 0;
     const a = sanitizeHouseAdAttribution(service.houseAdAttribution, created);
     if (!a || created < startMs || created >= endMs) continue;
-    const key = JSON.stringify([a.variant, a.enrolled, a.locale, a.format, a.placement, a.device]);
-    const group = groups.get(key) || { variant: a.variant, enrolled: a.enrolled, locale: a.locale, format: a.format, placement: a.placement, device: a.device, initiatedOrders: 0, confirmedPurchases: 0, refundedOrders: 0, confirmedRevenueEurCents: 0 };
+    const key = JSON.stringify([a.experimentId, a.variant, a.enrolled, a.locale, a.format, a.placement, a.device]);
+    const group = groups.get(key) || { experimentId: a.experimentId, variant: a.variant, enrolled: a.enrolled, locale: a.locale, format: a.format, placement: a.placement, device: a.device, initiatedOrders: 0, confirmedPurchases: 0, refundedOrders: 0, confirmedRevenueEurCents: 0 };
     group.initiatedOrders++;
     if (service.paymentStatus === 'paid' && service.paidAt?.toMillis?.() > 0) {
       group.confirmedPurchases++;
@@ -72,9 +73,9 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
       if (snapshot.size < 1000) break;
       cursor = snapshot.docs.at(-1);
     }
-    console.log(JSON.stringify({ experimentId: 'house_creatives_v1', window, observedAt: new Date().toISOString(),
+    console.log(JSON.stringify({ currentExperimentId: 'house_creatives_v2', window, observedAt: new Date().toISOString(),
       traffic: summarizeHouseTraffic(traffic), orderCohorts: summarizeHouseOrders(services, startMs, endMs),
-      caveats: ['CTR uses observed Firebase/GA4 events and can be incomplete when telemetry is blocked.', 'Purchase totals use verified paymentStatus=paid and paidAt in the service ledger; refunds remain separate.', 'Orders are grouped by creation cohort and current payment state. Do not divide ledger purchases by partially observed clicks or infer statistical winners from CTR.'],
+      caveats: ['house_creatives_v1 is the legacy browser-hash split; compare creatives within currentExperimentId only.', 'CTR uses observed GA4 events and can be incomplete when telemetry is blocked.', 'Purchase totals use verified paymentStatus=paid and paidAt in the service ledger; refunds remain separate.', 'Orders are grouped by creation cohort and current payment state. Do not divide ledger purchases by partially observed clicks or infer statistical winners from CTR.'],
     }, null, 2));
   } finally { await deleteApp(app); }
 }

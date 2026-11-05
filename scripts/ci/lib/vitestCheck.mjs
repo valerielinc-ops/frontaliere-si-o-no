@@ -173,13 +173,29 @@ function generationMetadata(run) {
   };
 }
 
+/**
+ * Confronta la generazione di due run. `null` significa che i marcatori sono
+ * parziali e non consentono una scelta sicura: il chiamante deve restituire
+ * `ambiguous`, mai ricadere sull'id del check-run. L'id è solo il tie-break
+ * quando i marcatori presenti sono completi e uguali.
+ */
 function compareGenerations(left, right) {
   if (left.createdAt !== null && right.createdAt !== null && left.createdAt !== right.createdAt) {
     return left.createdAt - right.createdAt;
   }
+
+  // A marker present on only one candidate is not an ordering relation. Falling
+  // back to the check-run id here would make the answer depend on an API shape
+  // omission rather than on a proved generation.
+  if (left.createdAt !== right.createdAt) return null;
+
+  if (left.runAttempt === null || right.runAttempt === null) {
+    if (left.runAttempt !== right.runAttempt) return null;
+  }
   if (left.runAttempt !== null && right.runAttempt !== null && left.runAttempt !== right.runAttempt) {
     return left.runAttempt - right.runAttempt;
   }
+  if ((left.workflowRunId === null) !== (right.workflowRunId === null)) return null;
   if (left.workflowRunId !== null && right.workflowRunId !== null) {
     const workflowOrder = compareDecimalIds(left.workflowRunId, right.workflowRunId);
     if (workflowOrder !== 0) return workflowOrder;
@@ -350,7 +366,14 @@ export function latestCompletedRunSelectionByName(checkRuns, name, options = {})
   const uniqueMetadata = uniqueRuns.map((run) => generationMetadata(run));
   let latestIndex = 0;
   for (let index = 1; index < uniqueRuns.length; index += 1) {
-    if (compareGenerations(uniqueMetadata[index], uniqueMetadata[latestIndex]) > 0) {
+    const generationOrder = compareGenerations(
+      uniqueMetadata[index],
+      uniqueMetadata[latestIndex],
+    );
+    if (generationOrder === null) {
+      return runSelection(RUN_SELECTION_STATES.AMBIGUOUS, 'incomparable-generation-metadata');
+    }
+    if (generationOrder > 0) {
       latestIndex = index;
     }
   }

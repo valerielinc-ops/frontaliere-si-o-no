@@ -457,6 +457,20 @@ describe('Jobs2Web application route (ORIOR: employer page → SAP SuccessFactor
     expect(successFactorsApplyUrlFromPosting(html.replace('career5.successfactors.eu', 'evil.example'))).toBe('');
     expect(successFactorsApplyUrlFromPosting(html.replace('2190-it_IT', 'not-a-requisition'))).toBe('');
   });
+
+  it('uses the SAP application route only when the configured job ID matches the posting', async () => {
+    const cityPosting = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';
+    const cityApply = 'https://career2.successfactors.eu/career?company=STZH&career_job_req_id=1373719857&lang=de_DE&career_ns=job_application';
+    const cityHtml = `<script>j2w.SSO.init({ ssoCompanyId: 'STZH', ssoUrl: 'https://career2.successfactors.eu', jobID: '1373719857', locale: 'de_DE' });</script>`;
+    expect(successFactorsApplyUrlFromPosting(cityHtml, cityPosting)).toBe(cityApply);
+    expect(successFactorsApplyUrlFromPosting(cityHtml, cityPosting.replace('1373719857', '1373719858'))).toBe('');
+
+    const fetchImpl = async (url: string) => new Response(cityHtml, {
+      status: 200, headers: { 'content-type': 'text/html' },
+    });
+    await expect(resolveApplyUrl(cityPosting, { fetchImpl: fetchImpl as any, resolve: publicHost }))
+      .resolves.toEqual({ applyUrl: cityApply, via: 'successfactors' });
+  });
 });
 
 describe('job posting fetch', () => {

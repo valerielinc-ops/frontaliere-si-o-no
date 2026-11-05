@@ -25,6 +25,35 @@ describe('validateEventStructuredData', () => {
     expect(validateEventStructuredData(EVENT, '/dist/event/index.html')).toEqual([]);
   });
 
+  it('accepts a physical event address with locality and country but no street or postal code', () => {
+    const location = structuredClone(EVENT.location);
+    delete (location.address as Record<string, unknown>).streetAddress;
+    delete (location.address as Record<string, unknown>).postalCode;
+    expect(validateEventStructuredData({ ...EVENT, location }, '/dist/event/index.html')).toEqual([]);
+  });
+
+  it('accepts supported Event status arrays and rejects arrays with unknown members', () => {
+    const valid = validateEventStructuredData({
+      ...EVENT,
+      eventStatus: ['https://schema.org/EventScheduled', 'https://schema.org/EventPostponed'],
+    }, '/dist/event/index.html');
+    expect(valid).toEqual([]);
+
+    const invalid = validateEventStructuredData({
+      ...EVENT,
+      eventStatus: ['https://schema.org/EventScheduled', 'https://schema.org/EventUnknown'],
+    }, '/dist/event/index.html');
+    expect(invalid.map(({ field }) => field)).toContain('eventStatus');
+
+    const movedOnline = validateEventStructuredData({
+      ...EVENT,
+      eventStatus: ['https://schema.org/EventScheduled', 'https://schema.org/EventMovedOnline'],
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: { '@type': 'VirtualLocation', url: 'https://example.test/events/concerto/stream/' },
+    }, '/dist/event/index.html');
+    expect(movedOnline).toEqual([]);
+  });
+
   it('accepts EventMovedOnline and rejects an end date before the start instant', () => {
     expect(validateEventStructuredData({
       ...EVENT,
