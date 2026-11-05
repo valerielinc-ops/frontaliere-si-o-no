@@ -666,6 +666,8 @@ const PREFLIGHT_TIMEOUT_MS = 5000;
  * @param {object} [opts]
  * @param {typeof fetch} [opts.fetchImpl]
  * @param {number} [opts.timeoutMs]
+ * @param {string} [opts.userAgent] Optional crawler identity for target-specific
+ *   access checks.
  * @returns {Promise<boolean>}
  */
 export async function isLandingPageLive(url, opts = {}) {
@@ -676,7 +678,9 @@ export async function isLandingPageLive(url, opts = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetchImpl(url, { method: 'HEAD', signal: controller.signal });
+    const requestOptions = { method: 'HEAD', signal: controller.signal };
+    if (opts.userAgent) requestOptions.headers = { 'User-Agent': opts.userAgent };
+    const res = await fetchImpl(url, requestOptions);
     if (res && typeof res.status === 'number' && res.status >= 400 && res.status < 500) return false;
     return true;
   } catch {
