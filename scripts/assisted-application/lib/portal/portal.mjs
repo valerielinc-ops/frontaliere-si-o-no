@@ -5850,7 +5850,11 @@ export async function submitViaPortal(ctx) {
     };
     const candidateWithRecordedAnswers = (candidate, current) => {
       const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
-      const recorded = [...given.values()];
+      const isHeldPermitQuestion = (question) => isPermitField(question) && asksHeldStatus(question);
+      // A planner action can record an ATS-prefilled permit value before the
+      // agent fallback runs. Keep it in run evidence, but do not relabel it as
+      // a candidate-confirmed portal answer for the agent.
+      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question));
       const recordedKeys = new Set(recorded.map(answerKey));
       const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
       const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));
@@ -5860,7 +5864,7 @@ export async function submitViaPortal(ctx) {
           const answer = field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim();
           // A portal's held-status prefill is never the candidate's statement.
           // Their confirmed answer remains in the candidate record itself.
-          if (isPermitField(field.label) && asksHeldStatus(field.label)) return null;
+          if (isHeldPermitQuestion(field.label)) return null;
           // A portal may prefill a default country or phone code before the
           // planner sees the form. Keep an explicit candidate fact above that
           // default; phone-code defaults are never candidate answers.
