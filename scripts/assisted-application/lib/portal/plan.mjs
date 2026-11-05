@@ -615,7 +615,7 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
     if (status) {
       if (code === status || (swissStatus === status && same(value, candidate.swissStatus?.statement))) return true;
       const yesNo = booleanAnswer(value);
-      if (yesNo !== null) return yesNo === (status !== 'none');
+      if (yesNo !== null) return isYesNoPermitQuestion(label) && yesNo === (status !== 'none');
       return false;
     }
     // A CV can establish what was written there, not what the candidate holds today.
@@ -1165,6 +1165,7 @@ function permitAnswerForStatus(field, status) {
   const exact = options.filter((option) => permitOptionCode(labelOf(option)) === status);
   if (exact.length === 1) return labelOf(exact[0]);
   if (!asksHeldStatus(questionFromLabel(field?.label))) return '';
+  if (!isYesNoPermitQuestion(field?.label)) return '';
   const yes = options.filter((option) => PERMIT_YES_OPTION_RE.test(labelOf(option)));
   const no = options.filter((option) => PERMIT_NO_OPTION_RE.test(labelOf(option)));
   const booleanOptions = options.every((option) => {

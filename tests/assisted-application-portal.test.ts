@@ -3127,6 +3127,18 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(guardPlan({ actions: [], missingRequired: [] }, [yesNo], candidateWithPermit).actions).toEqual([]);
   });
 
+  it('does not convert a confirmed permit to Yes/No for a question asking which permit', () => {
+    const candidateWithPermit = { identity, profile: {}, answers: { work_permit: 'Permesso G' } };
+    const category = permitField('Which work authorization do you hold?', ['Yes', 'No']);
+    const rejected = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [category], candidateWithPermit);
+    expect(rejected.actions).toEqual([]);
+    expect(rejected.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
+    const yesNo = permitField('Do you hold a valid work permit for Switzerland?', ['Yes', 'No']);
+    expect(guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [yesNo], candidateWithPermit).actions)
+      .toEqual([select('p1', 'Yes', 'answers')]);
+  });
+
   it('keeps a specific work-authorisation question as a permit status, not a yes/no answer', () => {
     const candidateWithPermit = { identity, profile: {}, answers: { work_permit: 'Permesso G' } };
     expect(candidateAnswerForField(candidateWithPermit, {
