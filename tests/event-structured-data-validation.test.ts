@@ -25,6 +25,27 @@ describe('validateEventStructuredData', () => {
     expect(validateEventStructuredData(EVENT, '/dist/event/index.html')).toEqual([]);
   });
 
+  it('accepts EventMovedOnline and rejects an end date before the start instant', () => {
+    expect(validateEventStructuredData({
+      ...EVENT,
+      eventStatus: 'https://schema.org/EventMovedOnline',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: { '@type': 'VirtualLocation', url: 'https://example.test/events/concerto/stream/' },
+    }, '/dist/event/index.html')).toEqual([]);
+
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      endDate: '2026-07-04T19:00:00+02:00',
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('endDate');
+
+    const offlineEvent = validateEventStructuredData({
+      ...EVENT,
+      eventStatus: 'https://schema.org/EventMovedOnline',
+    }, '/dist/event/index.html');
+    expect(offlineEvent.map(({ field }) => field)).toContain('eventAttendanceMode');
+  });
+
   it('requires a named physical location and PostalAddress details', () => {
     const errors = validateEventStructuredData({
       ...EVENT,

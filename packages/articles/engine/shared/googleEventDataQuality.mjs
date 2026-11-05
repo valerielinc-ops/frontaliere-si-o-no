@@ -1,15 +1,11 @@
-const EVENT_STATUSES = new Set([
-  'EventCancelled',
-  'EventPostponed',
-  'EventRescheduled',
-  'EventScheduled',
-]);
+import {
+  isGoogleEventStatusCompatible,
+  isSupportedGoogleEventAttendanceMode,
+  isSupportedGoogleEventStatus,
+  isValidEventDateRange,
+} from './google-event-values.mjs';
+
 const EVENT_AVAILABILITY = new Set(['InStock', 'SoldOut', 'PreOrder']);
-const EVENT_ATTENDANCE_MODES = new Set([
-  'OfflineEventAttendanceMode',
-  'OnlineEventAttendanceMode',
-  'MixedEventAttendanceMode',
-]);
 const ISO_4217_CURRENCIES = new Set(
   // ECMA-402 exposes the runtime's canonical, well-formed ISO 4217 currency set.
   typeof Intl.supportedValuesOf === 'function'
@@ -101,7 +97,7 @@ function hasCompleteEventLocation(location, attendanceModes) {
   const locations = Array.isArray(location) ? location : [location];
   if (locations.length === 0) return false;
 
-  if (attendanceModes.length !== 1 || !EVENT_ATTENDANCE_MODES.has(attendanceModes[0])) return false;
+  if (attendanceModes.length !== 1 || !isSupportedGoogleEventAttendanceMode(attendanceModes[0])) return false;
 
   const physicalLocations = locations.filter(isCompletePhysicalLocation);
   const virtualLocations = locations.filter(isCompleteVirtualLocation);
@@ -173,6 +169,7 @@ export function hasCompleteGoogleEventData(event) {
   return isNonEmpty(event.name)
     && isValidDateTime(event.startDate)
     && isValidDateTime(event.endDate)
+    && isValidEventDateRange(event.startDate, event.endDate)
     && isHttpUrl(event.url)
     && isNonEmpty(event.description)
     && event.description.trim().length >= 30
@@ -181,8 +178,9 @@ export function hasCompleteGoogleEventData(event) {
     && hasNamedEntities(event.performer, PERFORMER_TYPES)
     && hasNamedEntities(event.organizer, ORGANIZER_TYPES)
     && hasHttpUrls(event.organizer)
-    && status.some((value) => EVENT_STATUSES.has(value))
-    && attendanceModes.some((value) => EVENT_ATTENDANCE_MODES.has(value))
+    && status.some(isSupportedGoogleEventStatus)
+    && attendanceModes.some(isSupportedGoogleEventAttendanceMode)
+    && isGoogleEventStatusCompatible(status, attendanceModes)
     && offers.length > 0
     && offers.every((offer) => hasCompleteOffer(offer, event))
     && (status.includes('EventRescheduled')
