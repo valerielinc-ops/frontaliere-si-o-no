@@ -23,7 +23,7 @@ type OfferFixture = {
   '@type': string;
   price?: number;
   priceCurrency?: string;
-  availability?: string;
+  availability?: string | string[];
   validFrom?: string;
   url?: string;
 };
@@ -34,7 +34,7 @@ type EventFixture = {
   name: string;
   startDate: string;
   endDate?: string;
-  eventStatus: string;
+  eventStatus: string | string[];
   eventAttendanceMode: string;
   previousStartDate?: string | string[];
   isAccessibleForFree?: boolean;
@@ -206,6 +206,33 @@ describe('Google Event data quality publication gate', () => {
       url: 'https://example.test/events/concerto/stream/',
     };
     expect(hasCompleteGoogleEventData(event)).toBe(true);
+  });
+
+  it('requires every Event status to be supported and availability to be scalar', () => {
+    const validStatuses = structuredClone(COMPLETE_EVENT);
+    validStatuses.eventStatus = [
+      'https://schema.org/EventScheduled',
+      'https://schema.org/EventPostponed',
+    ];
+    expect(hasCompleteGoogleEventData(validStatuses)).toBe(true);
+
+    const mixedStatuses = structuredClone(validStatuses);
+    mixedStatuses.eventStatus = [
+      ...validStatuses.eventStatus as string[],
+      'https://schema.org/EventUnknown',
+    ];
+    expect(hasCompleteGoogleEventData(mixedStatuses)).toBe(false);
+
+    const mixedAvailability = structuredClone(COMPLETE_EVENT);
+    mixedAvailability.offers.availability = [
+      'https://schema.org/InStock',
+      'https://example.test/Unknown',
+    ];
+    expect(hasCompleteGoogleEventData(mixedAvailability)).toBe(false);
+
+    const foreignAvailability = structuredClone(COMPLETE_EVENT);
+    foreignAvailability.offers.availability = 'https://example.test/InStock';
+    expect(hasCompleteGoogleEventData(foreignAvailability)).toBe(false);
   });
 
   it('rejects EventMovedOnline with an offline attendance mode', () => {
