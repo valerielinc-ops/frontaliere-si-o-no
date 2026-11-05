@@ -27,9 +27,9 @@ import '../../extension/apply-control.js';
  */
 
 import path from 'node:path';
-import { applicationReceipt, applicationStage } from './stages.mjs';
+import { applicationReceipt, applicationStage, isApplicationRegionUnsupported } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -3873,6 +3873,13 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
 
+  // The federal portal can show its create form even when the alias already
+  // has an account. Without saved credentials, stop before the planner fills
+  // or submits another registration; the candidate must sign in themselves.
+  if (!account && hasExistingAccountPrompt(snapshot)) {
+    return accountHandoff('account', 'login_unobserved', 'login');
+  }
+
   const canResendVerification = hasResendVerificationControl(snapshot);
   // SuccessFactors keeps the pending OTP account in this same sign-in shape;
   // its dedicated recovery below must restart registration instead of trying
@@ -5058,13 +5065,14 @@ export async function submitViaPortal(ctx) {
     let snapshot = await extractFields(page, NAVIGATION);
     sourceProtocol = snapshot.protocol || null;
     if (sourceProtocol) evidence.sourceProtocol = sourceProtocol;
+    const initialPageText = await pageText(page);
     // The posting as a browser renders it (career-ops liveness-browser): the
     // fetch before the run sees only the empty shell of a JavaScript portal.
     const rendered = classifyLiveness({
       status: response?.status() || 0,
       requestedUrl: entryUrl,
       finalUrl: page.url(),
-      bodyText: await pageText(page),
+      bodyText: initialPageText,
       applyControls: snapshot.buttons.map((button) => button.text || button.label || ''),
     });
     evidence.liveness = { result: rendered.result, code: rendered.code };
@@ -5074,13 +5082,16 @@ export async function submitViaPortal(ctx) {
     // The posting itself, before its apply button: where the company is read
     // when the form behind the button names only the role (formPostingMatch).
     const postingUrl = page.url();
-    const postingSeen = `${await page.title().catch(() => '')} ${await pageText(page)} ${postingUrl}`;
+    const postingSeen = `${await page.title().catch(() => '')} ${initialPageText} ${postingUrl}`;
     // The posting's own data (its ATS's answer for this very address, posting-liveness.mjs) may name the
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
+    if (postingNamed && isApplicationRegionUnsupported(initialPageText)) {
+      return await handoff('application_region_unsupported');
+    }
     const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
     ({ page, snapshot } = opened);
     if (opened.handoff) return await handoff(opened.handoff);

@@ -133,6 +133,20 @@ describe('runner final guard across three application stages', () => {
     expect(result.evidence.finalOutcomes).toBeUndefined();
   });
 
+  it('stops on an explicit posting region restriction before clicking its Apply control', async () => {
+    const blockedPosting = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+      [{ id: 'apply', text: 'Jetzt bewerben', href: '', disabled: false }]);
+    const f = fixture(blockedPosting);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('hands off a proven pre-dispatch timeout from the agent-named advance locator', async () => {
     state.snapshot = snapshot(applyUrl, 'Application step. Continue to the next part of the form.', []);
     state.snapshot.fields = [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: false, formId: 'application', frame: 0 }];

@@ -32,7 +32,10 @@ import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from '
 import {
   hasInterpolatedStaticProperty,
   lastStaticPropertyValue,
+  readStaticBooleanProperty,
+  readStaticCompositeProperty,
   readStaticObjectProperty,
+  readStaticStringOrStringArrayProperty,
   readStructuredSeoDescriptionState,
   readStructuredSeoObjectBlocks,
   staticPropertyState,
@@ -850,9 +853,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // A dynamic assignment cannot be represented by this static renderer. The
  // Event branch below consumes these fields directly, so discover the Event
  // object first and guard every field it reads. BASE_URL templates are safe
- // only in the URL-bearing nested fields resolved by parseNestedObj.
+ // only in the URL-bearing nested fields resolved by parseNestedValue.
  const eventFields = sdType === 'Event'
- ? ['name', 'startDate', 'endDate', 'eventStatus', 'eventAttendanceMode', 'location', 'organizer', 'offers', 'performer']
+ ? ['name', 'startDate', 'endDate', 'previousStartDate', 'eventStatus', 'eventAttendanceMode', 'isAccessibleForFree', 'location', 'organizer', 'offers', 'performer']
  : [];
  const eventBaseUrlFields = new Set(['location', 'organizer', 'offers', 'performer']);
  const dynamicField = [...dynamicFields, ...eventFields]
@@ -1670,15 +1673,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const value = lastStaticPropertyValue(sd, field);
  return typeof value === 'string' ? value : '';
  };
- // Parse nested objects like location, organizer, offers, performer.
+ // Parse nested objects or arrays like location, organizer, offers, performer.
  // Source keys are already double-quoted (JSON-LD style), so we only need
  // to resolve `${BASE_URL}` template literals and strip trailing commas.
- const parseNestedObj = (field: string): Record<string, unknown> | null => {
- const raw = readStaticObjectProperty(sd, field);
+ const parseNestedValue = (field: string): Record<string, unknown> | unknown[] | null => {
+ const raw = readStaticCompositeProperty(sd, field);
  if (!raw) return null;
  try {
  const jsonStr = raw
- .replace(/`\$\{BASE_URL\}([^`]*)`/g, `"${BASE_URL}$1"`)
+ .replace(/`\$\{BASE_URL\}([^`]*)`/g, (_match: string, suffix: string) => JSON.stringify(`${BASE_URL}${suffix}`))
  .replace(/,\s*([\]}])/g, '$1'); // strip trailing commas
  return JSON.parse(jsonStr);
  } catch { return null; }
@@ -1714,18 +1717,22 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const endDate = sdStr('endDate');
  const eventStatus = sdStr('eventStatus');
  const eventAttendanceMode = sdStr('eventAttendanceMode');
+ const previousStartDate = readStaticStringOrStringArrayProperty(sd, 'previousStartDate');
+ const isAccessibleForFree = readStaticBooleanProperty(sd, 'isAccessibleForFree');
  if (startDate) ldObj.startDate = startDate;
  if (endDate) ldObj.endDate = endDate;
+ if (previousStartDate !== undefined) ldObj.previousStartDate = previousStartDate;
  if (eventStatus) ldObj.eventStatus = eventStatus;
  if (eventAttendanceMode) ldObj.eventAttendanceMode = eventAttendanceMode;
+ if (isAccessibleForFree !== undefined) ldObj.isAccessibleForFree = isAccessibleForFree;
 
- const location = parseNestedObj('location');
+ const location = parseNestedValue('location');
  if (location) ldObj.location = location;
- const organizer = parseNestedObj('organizer');
+ const organizer = parseNestedValue('organizer');
  if (organizer) ldObj.organizer = organizer;
- const offers = parseNestedObj('offers');
+ const offers = parseNestedValue('offers');
  if (offers) ldObj.offers = offers;
- const performer = parseNestedObj('performer');
+ const performer = parseNestedValue('performer');
  if (performer) ldObj.performer = performer;
  if (!hasCompleteGoogleEventData(ldObj)) {
  // The source has not supplied enough facts for Google's Event report. Keep

@@ -194,6 +194,9 @@ describe('automation e-mails', () => {
     expect(refused.hint).not.toContain('prima di inviarla di nuovo');
     expect(describeTakeover({ reason: 'portal_ambiguous', stage: 'submit' }).hint).toContain('prima di inviarla di nuovo');
     expect(describeTakeover({ reason: 'portal:portal_needs_candidate', stage: 'submit' }).reason).toBe('l’invio sul portale si è fermato: il robot non è riuscito a completare una pagina del portale');
+    const regionRestricted = describeTakeover({ reason: 'portal:application_region_unsupported', stage: 'submit' });
+    expect(regionRestricted.reason).toContain('non supporta al momento candidature dalla regione del candidato');
+    expect(regionRestricted.hint).toContain('prima di riprovare');
     const portalRetry = buildOwnerAutomationEmail('owner_takeover', {
       job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: 'portal:portal_needs_candidate',
       portalAutoRetryAt: DEADLINE,
