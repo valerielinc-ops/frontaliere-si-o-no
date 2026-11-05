@@ -325,6 +325,53 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 }
 
 describe('assisted portal question batching', () => {
+  it('does not promote a prefilled current permit into agent portal answers', async () => {
+    const fixture = fakePage({ conditional: false });
+    const { page, window } = fixture;
+    (page as any).ariaSnapshot = async () => '- textbox "Which work authorization do you hold?" [ref=e1]';
+    window.document.querySelector('form')?.insertAdjacentHTML('beforeend', '<label for="permit">Which work authorization do you hold?</label><input id="permit" value="Permesso G">');
+    window.document.querySelector('label[for="country"]')?.remove();
+    window.document.getElementById('country')?.remove();
+    window.document.querySelector('label[for="motivation"]')?.remove();
+    window.document.getElementById('motivation')?.remove();
+    window.document.getElementById('next')?.remove();
+    window.document.getElementById('submit')?.remove();
+    const candidate = {
+      identity: { email: 'candidate@example.test', address: { country: 'Italia' } },
+      profile: { workPermit: 'Permesso G' },
+      answers: {},
+      portalQuestionsAnswered: [],
+    };
+    let agentCandidate: any = null;
+    const codex = async ({ prompt, schema }: any) => {
+      if (schema?.properties?.status) {
+        const text = String(prompt);
+        const start = text.indexOf('{"agentPage":');
+        const end = text.indexOf('\n\nPage snapshot:', start);
+        agentCandidate = JSON.parse(text.slice(start, end)).candidate;
+        return { status: 'stuck', reason: 'synthetic handoff', actions: [], advanceRef: '', submitRef: '', questions: [] };
+      }
+      return { actions: [], missingRequired: [] };
+    };
+    const context: any = {
+      on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
+      close: async () => {}, waitForEvent: async () => null,
+    };
+    page.context = () => context;
+    const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
+
+    await submitViaPortal({
+      applyUrl: page.url(), job: { title: 'Synthetic role', company: 'Example AG' },
+      language: 'en', candidateLocale: 'en', candidate,
+      files: {}, skipPostingCheck: true, maxSteps: 1, codex, launch: async () => browser,
+      accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
+    });
+
+    expect(agentCandidate).not.toBeNull();
+    expect(agentCandidate.answers).not.toHaveProperty('work_permit');
+    expect(agentCandidate.portalQuestionsAnswered).toEqual([]);
+  });
+
   it('replans after privacy acceptance and does not create an account when it reveals an unknown required answer', async () => {
     const fixture = fakePage({ registration: true, privacyRevealsUnknown: true });
     const { page, window, ctaClicks } = fixture;
@@ -362,6 +409,7 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Country of residence *',
       'Which professional certification do you hold? *',
     ]);
     expect(window.document.getElementById('privacy-dialog')).toBeNull();
@@ -413,6 +461,7 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Country of residence *',
       'When could you start?',
       'Which professional certification do you hold? *',
     ]);
@@ -561,6 +610,7 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Country of residence *',
       'Which professional certification do you hold? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
@@ -630,7 +680,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test' }, profile: { region: 'Lombardy' } },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Svizzera' } }, profile: { region: 'Lombardy' } },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -686,9 +736,9 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Which security clearance do you hold? *',
       'Country of residence *',
       'Why are you interested in this role? *',
+      'Which security clearance do you hold? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
@@ -728,9 +778,9 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Which professional certification do you hold? *',
       'Country of residence *',
       'Why are you interested in this role? *',
+      'Which professional certification do you hold? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
@@ -773,8 +823,8 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Describe your experience leading regional teams.',
       'Country of residence *',
+      'Describe your experience leading regional teams.',
     ]);
     expect(plannerInputs.some((input) => input.includes('Describe your experience leading regional teams.'))).toBe(true);
     expect(plannerInputs.some((input) => input.includes('textarea_123'))).toBe(true);
@@ -821,8 +871,8 @@ describe('assisted portal question batching', () => {
     expect(window.document.querySelectorAll('input, textarea, select')).toHaveLength(initialControlCount);
     expect(elementValue(window, '#motivation')).toBe('Autofilled by the application');
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Why are you interested in this role? *',
       'Country of residence *',
+      'Why are you interested in this role? *',
     ]);
     expect(plannerInputs.some((input) => input.includes('Autofilled by the application'))).toBe(true);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
@@ -891,7 +941,7 @@ describe('assisted portal question batching', () => {
     expect(elementValue(window, '#country')).toBe('IT');
     expect(result.event.questions.map((question: any) => question.question)).toEqual([
       'Why are you interested in this role? *',
-      'Which work authorization do you hold? *',
+      'Are you a Swiss citizen, or do you hold a Swiss permit valid today?',
       'When could you start? *',
     ]);
     expect(plannerCalls.some((fields) => fields.includes('availability'))).toBe(true);

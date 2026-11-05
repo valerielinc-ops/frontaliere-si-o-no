@@ -33,7 +33,7 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -5376,7 +5376,8 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
     const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
     const role = residenceFieldRole(field.label);
-    if (isPermitField(field.label) && asksHeldStatus(field.label) && !permitStatusPresent) {
+    if (isPermitField(field.label) && asksHeldStatus(field.label)
+      && !isPermitHistoricalQuestion(field.label) && !permitStatusPresent) {
       const question = permitStatusQuestion(candidateLocale);
       add(field, 'work_permit', question,
         permitStatusQuestionWhy(candidateLocale),
@@ -5495,18 +5496,23 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
     const field = fieldFor(item);
     // Candidate questions are for facts the runner cannot already supply.
-    // The planner may label an untouched field missing during its read pass;
-    // that alone must not ask the candidate to repeat profile data or a safe
-    // operational default. An explicitly rejected field still needs review.
+    // A value prefilled by the ATS is not candidate confirmation; suppress a
+    // planner question only when the candidate's own data supplies an answer.
+    // An explicitly rejected field still needs review.
     const candidateAnswer = candidate && field
       ? candidateAnswerForField(candidate, field, {
         includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
       }) : null;
-    if (field && field.invalid !== true
-      && (holdsValue(field) || String(candidateAnswer?.value ?? '').trim())) continue;
+    if (field && field.invalid !== true && String(candidateAnswer?.value ?? '').trim()) continue;
     const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
     if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
   }
+  const fieldIndexes = new Map(availableFields.map((field, index) => [field, index]));
+  const orderedRequirements = [...mergedRequired.values()].sort((left, right) => {
+    const leftIndex = fieldIndexes.get(fieldFor(left)) ?? Number.MAX_SAFE_INTEGER;
+    const rightIndex = fieldIndexes.get(fieldFor(right)) ?? Number.MAX_SAFE_INTEGER;
+    return leftIndex - rightIndex;
+  });
   const hasAmbiguousAlias = (item) => {
     if (directFieldsFor(item?.fieldId).length === 1) return false;
     const requestedId = String(item?.fieldId || '').trim();
@@ -5516,7 +5522,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   const readable = [];
   const unreadableFields = [];
   let reducedRequirement = false;
-  for (const item of mergedRequired.values()) {
+  for (const item of orderedRequirements) {
     const field = fieldFor(item);
     if (hasAmbiguousAlias(item)) {
       unreadableFields.push(item.fieldId || 'unknown');
@@ -5525,7 +5531,10 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
     // A planner calling a field missing is not proof that it is mandatory.
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
-    if (field?.required === false && !field.invalid) {
+    const unconfirmedHistoricalPermitPrefill = Boolean(field?.required === false
+      && isPermitField(field.label) && isPermitHistoricalQuestion(field.label) && holdsValue(field)
+      && !String(candidateAnswerForField(candidate, field)?.value ?? '').trim());
+    if (field?.required === false && !field.invalid && !unconfirmedHistoricalPermitPrefill) {
       const optionalTechnicalFile = (field.kind === 'file' || field.inputType === 'file') && machineLabel(field.label);
       // Umantis exposes optional attachment slots as names such as
       // `form_data41`. They are not candidate questions and must not turn a
@@ -5562,6 +5571,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);
+        const nativeChoiceField = Boolean(field && !editableCombobox && (
+          ['select', 'radio', 'listbox'].includes(field.kind)
+          || field.selectLike === true
+          || field.nativeSelectId
+          || applicationOptions.length
+        ));
         const optionMap = portalOptionMap({ options: item.options, applicationOptions, optionMap: item.optionMap });
         let type = item.type;
         if (field) {
@@ -5575,14 +5590,17 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
         }
         // A native choice with no usable catalogue needs another portal read,
         // never a text question whose arbitrary answer the ATS cannot accept.
-        if (field && type === 'choice' && !applicationOptions.length) {
+        if (nativeChoiceField && type === 'choice' && !applicationOptions.length) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
-        if (field && item.requiresNativeOptions === true && !applicationOptions.length) {
+        if (nativeChoiceField && item.requiresNativeOptions === true && !applicationOptions.length) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
+        const safeTextChoiceOptions = field && !nativeChoiceField && type === 'choice'
+          && isPermitField(field.label) && asksHeldStatus(field.label)
+          ? item.options || [] : [];
         readable.push({
           ...item,
           applicationQuestion,
@@ -5592,7 +5610,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           required: true,
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
-          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,
+          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate)
+            : applicationOptions.length ? applicationOptions : safeTextChoiceOptions : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
@@ -6086,7 +6105,11 @@ export async function submitViaPortal(ctx) {
     };
     const candidateWithRecordedAnswers = (candidate, current) => {
       const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
-      const recorded = [...given.values()];
+      const isHeldPermitQuestion = (question) => isPermitField(question) && asksHeldStatus(question);
+      // A held-permit value recorded during this run describes a runner form
+      // action, not a separate candidate portal response. Keep it in run
+      // evidence, but do not present it as an answered portal question.
+      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question));
       const recordedKeys = new Set(recorded.map(answerKey));
       const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
       const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));
@@ -6094,11 +6117,17 @@ export async function submitViaPortal(ctx) {
         .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
         .map((field) => {
           const answer = field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim();
+          // A portal's held-status prefill is never the candidate's statement.
+          // Their confirmed answer remains in the candidate record itself.
+          if (isHeldPermitQuestion(field.label)) return null;
           // A portal may prefill a default country or phone code before the
           // planner sees the form. Keep an explicit candidate fact above that
           // default; phone-code defaults are never candidate answers.
-          const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
-          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          const candidateAnswer = candidateAnswerForField(candidate, field, {
+            includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
+          })?.value || '';
+          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field)
+            || !candidateAnswer || fold(candidateAnswer) !== fold(answer)) return null;
           return {
             question: String(field.label || field.name || field.id || '').slice(0, 200),
             answer,
