@@ -680,7 +680,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -722,7 +722,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -767,7 +767,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -813,7 +813,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -918,7 +918,7 @@ describe('assisted portal question batching', () => {
     page.context = () => context;
     const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
-    const candidate = { identity: { email: 'candidate@example.test' }, profile: {} };
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
     const codex = async ({ prompt }: any) => {
       const text = String(prompt);
       if (text.includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
