@@ -110,7 +110,7 @@ export function createCantonResolvers({ cantonSlugFile, municipalitiesFile }) {
     citySlugsByScope.set(
       code,
       group?.members?.length
-        ? new Set(group.members.flatMap((member) => citySlugsByCanton.get(member) ?? []))
+        ? new Set(group.members.flatMap((member) => [...(citySlugsByCanton.get(member) ?? [])]))
         : citySlugsByCanton.get(code) ?? new Set(),
     );
   }

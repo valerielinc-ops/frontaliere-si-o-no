@@ -300,6 +300,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/canton-municipalities.json
             /data/health-facilities-jobs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
@@ -385,6 +386,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/canton-municipalities.json
             /data/health-facilities-jobs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
@@ -480,6 +482,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/canton-municipalities.json
             /data/health-facilities-jobs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
@@ -576,6 +579,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/canton-municipalities.json
             /data/health-facilities-jobs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
@@ -667,6 +671,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/canton-municipalities.json
             /data/health-facilities-jobs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs

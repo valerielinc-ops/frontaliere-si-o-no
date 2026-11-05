@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs';
+import cantonSlugFile from '../../data/canton-url-slugs.json' with { type: 'json' };
+import municipalitiesFile from '../../data/canton-municipalities.json' with { type: 'json' };
 import {
   AGGREGATE_KEY,
   SECTION_LEGACY_TI,
@@ -6,8 +7,6 @@ import {
   createCantonResolvers,
 } from '../../build-plugins/shared/cantonResolvers.mjs';
 
-const cantonSlugFile = JSON.parse(readFileSync(new URL('../../data/canton-url-slugs.json', import.meta.url), 'utf8'));
-const municipalitiesFile = JSON.parse(readFileSync(new URL('../../data/canton-municipalities.json', import.meta.url), 'utf8'));
 const {
   isKnownCityHubSlug,
   resolveCantonFromSection,
