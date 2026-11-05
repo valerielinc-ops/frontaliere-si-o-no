@@ -10,7 +10,12 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 // Owner decision 2026-10-01: the runner corrects itself the way JOIN's «Conferma e applica» was fixed (#10725).
 describe('portal runner self-correction', () => {
   it('recovers an external form-associated control through its unique exact role and owner', async () => {
-    const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const locatorTimeout = new Error([
+      'locator.click: Timeout 6000ms exceeded',
+      'Call log:',
+      '- waiting for locator [data-aa-id="f5"]',
+      '- locator resolved to <button>',
+    ].join('\n'));
     const staleClick = vi.fn().mockRejectedValue(locatorTimeout);
     const exactClick = vi.fn().mockResolvedValue(undefined);
     const externalForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
@@ -101,6 +106,12 @@ describe('portal runner self-correction', () => {
     expect(isPreDispatchLocatorClickFailure(new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]'))).toBe(true);
     expect(isPreDispatchLocatorClickFailure(new Error('locator.click: locator resolved to 0 elements'))).toBe(true);
     expect(isPreDispatchLocatorClickFailure(new Error([
+      'locator.click: Timeout 6000ms exceeded',
+      'Call log:',
+      '- waiting for locator [data-aa-id="f5"]',
+      '- locator resolved to <button>',
+    ].join('\n')))).toBe(true);
+    expect(isPreDispatchLocatorClickFailure(new Error([
       'locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]',
       'Call log:',
       '- locator resolved to <button>',
@@ -126,7 +137,8 @@ describe('portal runner self-correction', () => {
     };
     const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame, goto };
 
-    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 })).rejects.toBe(locatorTimeout);
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 }))
+      .rejects.toMatchObject({ code: 'portal_control_click_unresolved' });
     expect(frame.getByRole).not.toHaveBeenCalled();
     expect(staleClick).toHaveBeenCalledTimes(2);
     expect(goto).not.toHaveBeenCalled();
@@ -148,7 +160,8 @@ describe('portal runner self-correction', () => {
     };
     const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame, goto };
 
-    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 })).rejects.toBe(locatorTimeout);
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 }))
+      .rejects.toMatchObject({ code: 'portal_control_click_unresolved' });
     expect(staleClick).toHaveBeenCalledOnce();
     expect(frame.getByRole).not.toHaveBeenCalled();
     expect(goto).not.toHaveBeenCalled();
@@ -176,7 +189,8 @@ describe('portal runner self-correction', () => {
       getByRole: vi.fn((role: string) => role === 'button' ? candidates : noLinks),
     };
     const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame };
-    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', formId: 'f2', frame: 0 })).rejects.toBe(locatorTimeout);
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', formId: 'f2', frame: 0 }))
+      .rejects.toMatchObject({ code: 'portal_control_click_unresolved' });
     expect(first.click).not.toHaveBeenCalled();
     expect(second.click).not.toHaveBeenCalled();
 
@@ -234,7 +248,7 @@ describe('portal runner self-correction', () => {
 
     await expect(clickButton(page as any, {
       id: 'f5', text: 'Weiter', href: 'https://portal.example/next', formId: 'f2', dialog: true, dialogId: 'd1', frame: 0,
-    })).rejects.toBe(locatorTimeout);
+    })).rejects.toMatchObject({ code: 'portal_control_click_unresolved' });
     expect(staleClick).toHaveBeenCalledTimes(2);
     expect(candidate.evaluate).toHaveBeenCalledOnce();
     expect(exactClick).not.toHaveBeenCalled();

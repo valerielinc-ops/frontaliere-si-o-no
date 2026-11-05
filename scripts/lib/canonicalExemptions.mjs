@@ -41,6 +41,31 @@
 
 import { readFileSync } from 'node:fs';
 import { getJobBoardSectionPrefix } from './jobBoardSections.mjs';
+import { isJobBoardDetailPath } from './job-board-detail-path.mjs';
+import { SECTOR_HUB_SLUG } from '../../build-plugins/shared/jobSectorSlugs.mjs';
+
+const CANONICAL_SITE_ORIGIN = 'https://frontaliereticino.ch';
+
+/**
+ * Parse a URL against the canonical site origin without throwing. `toPath`
+ * intentionally discards hosts for historical callers; exemption predicates
+ * must not do that because an off-site canonical is a real mismatch.
+ */
+function parseCanonicalUrl(value) {
+  const raw = String(value ?? '').trim();
+  if (!raw) return null;
+  try {
+    return new URL(raw, CANONICAL_SITE_ORIGIN);
+  } catch {
+    return null;
+  }
+}
+
+function isSameCanonicalSite(url, canonical) {
+  const source = parseCanonicalUrl(url);
+  const target = parseCanonicalUrl(canonical);
+  return source?.origin === CANONICAL_SITE_ORIGIN && target?.origin === CANONICAL_SITE_ORIGIN;
+}
 
 /**
  * Marker emitted by buildCanonicalBridgePage() into full-content previousSlug
@@ -70,6 +95,64 @@ export const LEGACY_ALIAS_CANONICALS = new Map([
   ['/privacy-policy/', '/en/privacy/'],
   ['/privacy-policy', '/en/privacy/'],
 ]);
+
+// The one-segment job-board shape is shared by job details and several landing
+// pages. Keep the route contracts explicit: a same-section canonical between
+// those non-detail families is not a job slug consolidation and must remain
+// actionable.
+const NON_DETAIL_JOB_BOARD_SLUG_RE = /^(?:tutti|all|alle|tous|aziende|company|companies|unternehmen|entreprise|entreprises|settori|sectors|branchen|secteurs|categoria|category|kategorie|categorie|ricerca|search|suche|recherche|azienda|pagina|page|seite)(?:-|$)/i;
+const EDITORIAL_JOB_BOARD_SLUG_RES = [
+  /^(?:oggi|today|heute|aujourdhui|infermieri|nurses|pflege-jobs|infirmiers|lavoro-infermieri|cliniche|clinics|kliniken|cliniques|case-anziani|care-homes|altersheime|maisons-retraite|oss|educatori|educators|paedagogen|educateurs)$/i,
+  /^(?:offerte-di-lavoro-[a-z0-9-]+-oggi|[a-z0-9-]+-jobs-today|jobs-[a-z0-9-]+-heute|offres-emploi-[a-z0-9-]+-aujourdhui)$/i,
+  /^(?:infermieri-in|nurses-in|pflege-jobs-(?:im|in)|infirmiers-(?:a|au|aux|en)|lavoro-infermieri)-[a-z0-9-]+$/i,
+  /^(?:lavoro-part-time|part-time-jobs|teilzeit-jobs|emploi-temps-partiel)(?:-[a-z0-9-]+)?$/i,
+  /^(?:cliniche|case-anziani|oss|educatori)-[a-z0-9-]+$/i,
+  /^(?:clinics|care-homes|healthcare-assistants|educators|kliniken|altersheime|pflegeassistenz|paedagogen)-[a-z0-9-]+-jobs$/i,
+  /^(?:cliniques|maisons-retraite|educateurs)-[a-z0-9-]+$/i,
+  /^(?:foglio-ufficiale-offerte-di-lavoro-[a-z0-9-]+|official-gazette-[a-z0-9-]+-jobs|amtsblatt-stellen-[a-z0-9-]+|feuille-officielle-emplois-[a-z0-9-]+)$/i,
+  /^(?:ultimi-3-giorni|da-ieri|last-3-days|since-yesterday|letzte-3-tage|seit-gestern|derniers-3-jours|depuis-hier)$/i,
+  /^(?:lavoro-tedesco-ticino|lavoro-senza-esperienza-ticino|german-speaking-jobs-ticino|jobs-without-experience-ticino|deutschsprachige-jobs-tessin|jobs-ohne-erfahrung-tessin|emplois-germanophones-tessin|emplois-sans-experience-tessin)$/i,
+];
+const JOB_BOARD_SECTOR_SLUGS = new Set(
+  Object.values(SECTOR_HUB_SLUG)
+    .flatMap((localeSlugs) => Object.values(localeSlugs))
+    .map((slug) => slug.toLowerCase()),
+);
+
+function containsJobPostingType(value) {
+  if (Array.isArray(value)) return value.some(containsJobPostingType);
+  if (!value || typeof value !== 'object') return false;
+
+  const types = Array.isArray(value['@type']) ? value['@type'] : [value['@type']];
+  if (types.some((type) => /(?:^|[\/#])JobPosting$/i.test(String(type || '').trim()))) return true;
+  return Object.entries(value)
+    .some(([key, nested]) => key !== '@context' && containsJobPostingType(nested));
+}
+
+function hasJobPostingIdentity(html) {
+  if (typeof html !== 'string' || !html) return false;
+  const scripts = html.matchAll(
+    /<script\b[^>]*\btype\s*=\s*(["'])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script\s*>/gi,
+  );
+  for (const match of scripts) {
+    try {
+      if (containsJobPostingType(JSON.parse(match[2]))) return true;
+    } catch { /* malformed JSON-LD is not positive job-detail evidence */ }
+  }
+  return false;
+}
+
+function isAllowedJobBoardLeaf(path, section, html) {
+  const normalizedPath = path.endsWith('/') ? path : `${path}/`;
+  if (!isJobBoardDetailPath(normalizedPath) || !hasJobPostingIdentity(html)) return false;
+
+  const suffix = normalizedPath.slice(section.length).replace(/\/$/, '');
+  return suffix.length > 0
+    && !suffix.includes('/')
+    && !NON_DETAIL_JOB_BOARD_SLUG_RE.test(suffix)
+    && !EDITORIAL_JOB_BOARD_SLUG_RES.some((pattern) => pattern.test(suffix))
+    && !JOB_BOARD_SECTOR_SLUGS.has(suffix.toLowerCase());
+}
 
 /**
  * Reduce an absolute URL (or an already-relative path) to its pathname.
@@ -119,32 +202,35 @@ export function isThinBridgePage(html) {
  * @returns {boolean}
  */
 export function isLegitLegacyAliasCanonicalization(url, canonical) {
+  if (!isSameCanonicalSite(url, canonical)) return false;
   const expected = LEGACY_ALIAS_CANONICALS.get(toPath(url));
   return expected !== undefined && toPath(canonical) === expected;
 }
 
 /**
- * Job-board consolidation: a job page canonicalizing onto ANOTHER job page in
- * the SAME canton section — previousSlug bridges, locale-variant legacy
- * redirects, dedup suffix changes. Two BAD shapes are excluded, both real
- * defects rather than consolidation:
+ * Job-board consolidation: a page with JobPosting JSON-LD canonicalizing onto
+ * ANOTHER page with JobPosting JSON-LD in the SAME canton section —
+ * previousSlug bridges, locale-variant legacy redirects, dedup suffix changes.
+ * Positive schema identity excludes flat city hubs and editorial routes before
+ * the shared one-segment shape is considered. Two BAD shapes are excluded:
  *
  *  - canonical → the section listing root (no sub-path);
- *  - canonical → anything DEEPER than one segment under the section. Every
- *    job-board path this site emits — job detail, sector hub, city hub — is
- *    exactly `{section}/{one-segment-slug}/` (see the sibling `finish()`
- *    branches for `job-board` in services/router.ts: jobSlug, sectorSlug and
- *    citySlug are each appended directly to `jobBoardBase`, never to one
- *    another). There is no intermediate categoria/città level a job page
- *    nests under, so a canonical with a SECOND path segment inside the
- *    section is not a shape this build can produce — accepting it as
- *    "legitimate consolidation" would silently wave through a real mismatch.
+ *  - canonical → a known search/category/company/pagination leaf, or anything
+ *    DEEPER than one segment under the section. Job details and the flat
+ *    sector/city hubs use the one-segment shape (see the sibling `finish()`
+ *    branches for `job-board` in services/router.ts), while the other route
+ *    families have separate sitemap/canonical contracts. Accepting one of
+ *    those known non-detail leaves as a "job consolidation" would silently
+ *    wave through a real mismatch.
  *
  * @param {string} url
  * @param {string} canonical
+ * @param {string} html
+ * @param {string} canonicalHtml
  * @returns {boolean}
  */
-export function isLegitJobCanonicalConsolidation(url, canonical) {
+export function isLegitJobCanonicalConsolidation(url, canonical, html = '', canonicalHtml = '') {
+  if (!isSameCanonicalSite(url, canonical)) return false;
   const urlPath = toPath(url);
   const canonPath = toPath(canonical);
 
@@ -154,6 +240,12 @@ export function isLegitJobCanonicalConsolidation(url, canonical) {
 
   // Canonical → listing root is a BUG, not consolidation.
   const canonSubPath = canonPath.slice(canonSection.length).replace(/\/$/, '');
+  if (
+    !isAllowedJobBoardLeaf(urlPath, urlSection, html)
+    || !isAllowedJobBoardLeaf(canonPath, canonSection, canonicalHtml)
+  ) {
+    return false;
+  }
   if (canonSubPath.length === 0) return false;
 
   // Canonical → a nested sub-path (a second `/` inside the section) is not a
@@ -179,15 +271,17 @@ export function isTrailingSlashOnlyDifference(url, canonical) {
  * The single question every caller actually asks: this page's canonical does
  * not equal its sitemap <loc> — is that legitimate?
  *
- * @param {{url: string, canonical: string, html?: string}} input
+ * @param {{url: string, canonical: string, html?: string, canonicalHtml?: string}} input
  * @returns {null | 'trailing-slash' | 'previous-slug-bridge' | 'legacy-alias' | 'job-consolidation'}
  *   The exemption that applies, or null when the mismatch is a real offender.
  */
-export function classifyCanonicalMismatch({ url, canonical, html }) {
+export function classifyCanonicalMismatch({ url, canonical, html, canonicalHtml }) {
   if (isTrailingSlashOnlyDifference(url, canonical)) return 'trailing-slash';
-  if (html !== undefined && isPreviousSlugBridgePage(html)) return 'previous-slug-bridge';
+  if (html !== undefined && isPreviousSlugBridgePage(html) && isSameCanonicalSite(url, canonical)) {
+    return 'previous-slug-bridge';
+  }
   if (isLegitLegacyAliasCanonicalization(url, canonical)) return 'legacy-alias';
-  if (isLegitJobCanonicalConsolidation(url, canonical)) return 'job-consolidation';
+  if (isLegitJobCanonicalConsolidation(url, canonical, html, canonicalHtml)) return 'job-consolidation';
   return null;
 }
 

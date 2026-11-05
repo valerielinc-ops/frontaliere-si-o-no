@@ -67,6 +67,54 @@ describe('per-slot first-party creative delivery', () => {
     empty.el.dataset.ftHouseHeight = '220'; await vi.advanceTimersByTimeAsync(200);
     expect(empty.host.querySelector('img').src).toContain('-wide-v1.webp');
   });
+  it.each([
+    [300, 50, 'mobile_banner', 50],
+    [320, 100, 'mobile_large', 100],
+    [300, 250, 'rectangle', 250],
+    [728, 90, 'leaderboard', 90],
+    [728, 160, 'leaderboard', 160],
+    [970, 250, 'billboard', 250],
+    [300, 600, 'skyscraper', 600],
+  ] as const)('selects a matching creative for %sx%s slots', async (width, height, format, preservedHeight) => {
+    const empty = frame('unfilled'); empty.el.dataset.width = String(width); empty.el.dataset.ftHouseHeight = String(height);
+    await start();
+    expect(empty.host.querySelector('a')?.dataset.houseFormat).toBe(format);
+    expect(empty.el.style.getPropertyValue('--ft-house-height')).toBe(`${preservedHeight}px`);
+  });
+  it('keeps the commute visual as a second time-saving concept at tall and billboard sizes', async () => {
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({ HOUSE_AD_CREATIVE_VARIANT: 'time_saved' }) });
+    const tall = frame('unfilled'); tall.el.dataset.width = '300'; tall.el.dataset.ftHouseHeight = '600';
+    const wide = frame('unfilled', 'article-end'); wide.el.dataset.width = '970'; wide.el.dataset.ftHouseHeight = '250';
+    await start();
+    expect(tall.host.querySelector('img')?.getAttribute('src')).toContain('commute-portrait-v1.webp');
+    expect(wide.host.querySelector('img')?.getAttribute('src')).toContain('commute-wide-v1.webp');
+  });
+  it('keeps the Swiss-first claim and clear done-for-you promise in the compact banner', async () => {
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({ HOUSE_AD_CREATIVE_VARIANT: 'control' }) });
+    const empty = frame('unfilled'); empty.el.dataset.ftHouseHeight = '50';
+    await start();
+    const creative = empty.host.querySelector('a');
+    expect(creative?.querySelector('.ft-house-title')?.textContent).toBe('Lavoro in Svizzera?');
+    expect(creative?.querySelector('.ft-house-promise')?.textContent).toBe('Lo cerchiamo noi.');
+    expect(creative?.getAttribute('aria-label')).toContain('prepariamo le candidature per te');
+    expect(creative?.querySelector('.ft-house-cta')?.textContent).toBe('Scopri');
+  });
+  it('reflows the creative when a slot changes width without a window resize', async () => {
+    let deliver: ResizeObserverCallback | undefined;
+    w.ResizeObserver = class {
+      constructor(callback: ResizeObserverCallback) { deliver = callback; }
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    };
+    const empty = frame('unfilled'); empty.el.dataset.width = '660';
+    await start();
+    expect(empty.host.querySelector('a')?.dataset.houseFormat).toBe('rectangle');
+    empty.el.dataset.width = '740';
+    deliver?.([{ target: empty.el, contentRect: { width: 740, height: 250 } } as ResizeObserverEntry], {} as ResizeObserver);
+    await vi.advanceTimersByTimeAsync(200);
+    expect(empty.host.querySelector('a')?.dataset.houseFormat).toBe('billboard');
+  });
   it('leaves the independent recovery bootstrap usable without MutationObserver', async () => {
     w.MutationObserver = undefined; const empty = frame('unfilled');
     await expect(start()).resolves.toBeUndefined();

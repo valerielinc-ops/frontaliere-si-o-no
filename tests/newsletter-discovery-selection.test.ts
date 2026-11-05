@@ -126,6 +126,30 @@ describe('parseDiscoveryArticleIndex', () => {
     expect(parse(index(now), now).articles).toHaveLength(1);
   });
 
+  it('keeps the full index valid so selection can skip Reddit per article', () => {
+    const now = Date.now();
+    const parsed = parse(index(now, [
+      article('reddit-source', now, { provider: 'reddit' }),
+      article('google-trend', now),
+    ]), now);
+
+    expect(parsed.articles).toHaveLength(2);
+    expect(chooseDiscoveryArticle(parsed, 'weekly_2026-11-23', 'it', { now }))
+      .toMatchObject({ articleId: 'google-trend', provider: 'google_trends' });
+    expect(chooseDiscoveryArticle(
+      parse(index(now, [article('reddit-only', now, { provider: 'reddit' })]), now),
+      'weekly_2026-11-23',
+      'it',
+      { now },
+    )).toBeNull();
+  });
+
+  it('rejects providers outside the public index contract', () => {
+    const now = Date.now();
+    expect(() => parse(index(now, [article('unknown-source', now, { provider: 'unknown' })]), now))
+      .toThrow(/invalid article contract/);
+  });
+
   it('rejects wrong bytes, counts, commit, and stale timestamps', () => {
     const now = Date.now();
     const payload = index(now);
@@ -215,6 +239,35 @@ describe('discovery article selection', () => {
     );
     expect(legacyResume).toBeNull();
     expect(legacyResumeAgain).toBeNull();
+  });
+
+  it('converts a frozen Reddit selection to null on resume without choosing a replacement', async () => {
+    const now = Date.now();
+    const { db, documents } = fakeFirestore();
+    const campaignId = 'weekly_2026-11-23';
+    const documentPath = `newsletter_subscribers/_meta_/campaign_discovery/${campaignId}`;
+    documents.set(documentPath, {
+      campaign_id: campaignId,
+      selections: {
+        it: {
+          articleId: 'reddit-article',
+          provider: 'reddit',
+          article: {
+            id: 'reddit-article',
+            provider: 'reddit',
+            title: 'Titolo legacy',
+            excerpt: 'Estratto legacy',
+            url: '/articoli-frontaliere/reddit-article/',
+          },
+        },
+      },
+    });
+
+    const currentIndex = parse(index(now, [article('google-trend', now)]), now);
+    const resumed = await freezeCampaignDiscoverySelection(db, campaignId, 'it', currentIndex, { now: new Date(now) });
+
+    expect(resumed).toBeNull();
+    expect(documents.get(documentPath)?.selections?.it).toBeNull();
   });
 });
 

@@ -15,7 +15,7 @@
  * workflow shell step.  It also makes the live loop testable with fixtures.
  */
 
-import { JOB_BOARD_SECTION_RX } from './jobBoardSections.mjs';
+import { isJobBoardDetailPath } from './job-board-detail-path.mjs';
 import { readAttr, scanMarkupStartTags } from './html-attr.mjs';
 
 export const SEO_HEALTH_SCHEMA_VERSION = 1;
@@ -258,7 +258,7 @@ const JOB_DETAIL_EDITORIAL_SLUGS = new Set([
 export function isJobDetailPath(value, base = SITE_ORIGIN) {
   const pathname = urlPath(value, base);
   if (!pathname) return false;
-  if (!JOB_BOARD_SECTION_RX.test(pathname)) return false;
+  if (!isJobBoardDetailPath(pathname)) return false;
   const parts = pathname.split('/').filter(Boolean);
   const sectionIndex = ['en', 'de', 'fr'].includes(parts[0]?.toLowerCase()) ? 1 : 0;
   if (parts.length !== sectionIndex + 2) return false;

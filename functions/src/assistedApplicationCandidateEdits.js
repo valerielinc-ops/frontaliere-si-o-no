@@ -37,6 +37,7 @@ import { isoDateOf } from './lib/cvPeriod.js';
 import { permitLabel, permitOptions, permitStatusOf } from './lib/permitStatus.js';
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
+import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -330,7 +331,9 @@ export function requiredPortalConsentAffirmed(question, value) {
 /** Remove questions established by the CV and duplicate semantic requests, retaining required status. */
 export function questionsForCandidate(questions, profile, answers = {}, memory = {}, draft = null) {
   const projectedAnswers = candidateAnswersForQuestions(questions, answers, memory);
-  const candidates = (Array.isArray(questions) ? questions : []).filter((question) => questionNeedsCandidateAnswer(question, profile, draft))
+  const candidates = (Array.isArray(questions) ? questions : []).filter((question) =>
+    questionNeedsCandidateAnswer(question, profile, draft)
+      && !(isIdentityEmailConfirmationQuestion(question) && hasQuestionAnswer(projectedAnswers[question?.id])))
     .map(question => hasPortalQuestionEvidence(question) ? { ...question, question: portalQuestionText(question),
       ...(question.portalNativeContract && question.required === false
         && !provenOptionalOperationalPortalQuestion(question, draft) ? { required: true } : {}) } : question);
@@ -384,6 +387,16 @@ export function questionsForCandidate(questions, profile, answers = {}, memory =
     result[priorIndex] = { ...preferred, required: Boolean(previous.required || question.required) };
   }
   return result;
+}
+
+function isIdentityEmailConfirmationQuestion(question) {
+  const type = String(question?.type || '').trim().toLowerCase();
+  const label = [question?.question, question?.applicationQuestion].filter(Boolean).join(' ');
+  const context = [question?.context, question?.section, question?.autocomplete].filter(Boolean).join(' ');
+  return question?.source === 'portal'
+    && question?.required === true
+    && ['text', 'email', 'email_address'].includes(type)
+    && isIdentityEmailConfirmation({ label, context });
 }
 
 const MESSAGES = {
@@ -566,6 +579,17 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   if (has(overrides, 'dateOfBirth')) profile.dateOfBirth = overrides.dateOfBirth;
   if (has(overrides, 'nationality')) profile.nationality = overrides.nationality;
   const answers = candidateAnswersForQuestions(draft?.questions, flow?.answers || {}, flow?.questionAnswers || {});
+  // A required portal can repeat the applicant's identity e-mail as a
+  // confirmation field. It is already known from the order/alias; use that
+  // value in the same answer projection as the portal planner and keep it out
+  // of the candidate Q&A form. Other people's contact e-mails remain open.
+  if (identity.email) {
+    for (const question of draft?.questions || []) {
+      if (question?.id && isIdentityEmailConfirmationQuestion(question)) {
+        answers[question.id] = identity.email;
+      }
+    }
+  }
   const asked = new Set((draft?.questions || []).map((question) => question.id));
   for (const [key, spec] of Object.entries(EDITABLE_FIELDS)) {
     if (spec.answerId && has(overrides, key) && !asked.has(spec.answerId)) answers[spec.answerId] = overrides[key];
@@ -577,16 +601,12 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   if (availability) profile.availability = availability;
   const cv = cvPersonalFacts(draft?.factSources?.text);
   const locale = candidateLocaleOf(requestedLocale, order);
-  const requiredPortalSalutation = (draft?.questions || []).some(question =>
-    question?.id === 'salutation' && question?.source === 'portal' && question?.required === true);
-  const explicitlyChosenSalutation = clean(answers.salutation, 40)
-    || (has(overrides, 'salutation') ? clean(overrides.salutation, 40) : '');
   const salutation = salutationNow({ answers, overrides, cvGender: cv.gender || salutationGenderFromName(identity.firstName, locale), locale });
-  // A profile-derived title can format the cover letter, but it cannot answer
-  // a required title choice on the candidate's behalf. Keep the portal Q&A
-  // blank until a direct answer or an explicit review-page correction exists.
-  if (requiredPortalSalutation && !explicitlyChosenSalutation) delete answers.salutation;
-  else if (salutation) answers.salutation = salutation;
+  // An unambiguous first name is the owner's approved form-of-address default
+  // for application portals, including a required native title choice. A
+  // candidate answer or correction still wins; ambiguous names and an
+  // explicitly cleared correction stay blank.
+  if (salutation) answers.salutation = salutation;
   else delete answers.salutation;
   const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
   return { identity, profile, answers, overrides, personal };

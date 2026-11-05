@@ -421,6 +421,11 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
       const usesAt = src.indexOf('uses: ./.github/actions/fetch-pages-artifact');
       expect(checkoutAt, `${f}: no checkout step`).toBeGreaterThan(-1);
       expect(checkoutAt, `${f}: checkout must precede the action`).toBeLessThan(usesAt);
+      if (f.endsWith('/audit-dist-from-run.yml')) {
+        const validatorCheckoutAt = src.indexOf('name: Checkout current publisher index validator');
+        expect(validatorCheckoutAt, `${f}: current validator checkout is missing`).toBeGreaterThan(checkoutAt);
+        expect(src.slice(checkoutAt, validatorCheckoutAt)).not.toContain('sparse-checkout:');
+      }
       // A sparse checkout must actually include the action directory — in
       // BOTH YAML spellings. The block-scalar-only form of this regex skipped
       // inspect-dist-composition.yml, whose `sparse-checkout: <path>` is the
@@ -431,7 +436,7 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
       // audit-missing-company-logos.yml already contain one), and `.exec`
       // takes the FIRST match in the file.
       const sparse = /^[ \t]*sparse-checkout:[ \t]*(\|[\s\S]*?\n\s{0,10}[a-z-]+:|[^\n]+)/m.exec(src);
-      if (sparse && !sparse[1].includes('/*')) {
+      if (sparse && !sparse[1].includes('/*') && !f.endsWith('/audit-dist-from-run.yml')) {
         expect(sparse[1], `${f}: sparse checkout omits the action`).toContain(
           '.github/actions/fetch-pages-artifact/',
         );

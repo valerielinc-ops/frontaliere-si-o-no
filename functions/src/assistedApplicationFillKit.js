@@ -19,7 +19,7 @@ import { candidateQuestionAnswerKey, candidateWithEdits, questionsForCandidate }
 import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
 import { isoDateOf, isOngoingPeriod, parseEndpoint } from './lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from './lib/permitStatus.js';
-import { operationalAnswerForOption, operationalQuestionTopic } from './assistedApplicationOperationalAnswers.js';
+import { operationalAnswerForOption, operationalQuestionTopic, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalAnswerForApplication } from './lib/portalQuestionMapping.js';
 import { countryCodeOfLabel, countryLabelForCode, formatInternationalPhone, phoneCountryLabel } from './lib/phoneNormalization.js';
 
@@ -63,19 +63,22 @@ function applicationAnswer(question, answer) {
  * @returns {object} the kit (no secret: what the extension types and attaches)
  */
 export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, documents = {} }) {
-  const { identity, profile, answers } = candidateWithEdits({ order, draft, flow });
+  const { identity, profile, answers, personal } = candidateWithEdits({ order, draft, flow });
   const address = profile.address || {};
+  const language = LETTER_FILE_LABEL[draft.language] ? draft.language : 'it';
+  const questions = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers, draft);
+  const { answers: projectedAnswers, defaults } = withOperationalQuestionAnswers(questions, answers, { locale: language });
   // Keep the runner's portal wording and owner, with a current candidate
   // correction taking precedence over a previous answer to that exact scope.
   const fromPortal = (draft.portalAnswers?.answers || [])
     .map((item) => ({ ...item, question: item?.applicationQuestion || item?.question, answer: item?.answer, source: item?.source || 'portal', current: false }));
-  const fromDraft = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers, draft)
+  const fromDraft = questions
     .map((question) => ({
       ...question,
       questionAnswerKey: candidateQuestionAnswerKey(question),
       question: question.applicationQuestion || question.question,
-      answer: applicationAnswer(question, answers[question.id]),
-      source: 'answers',
+      answer: applicationAnswer(question, projectedAnswers[question.id]),
+      source: defaults[question.id]?.source || 'answers',
       operational: Boolean(operationalQuestionTopic(question)),
       current: Object.hasOwn(flow.answers || {}, question.id)
         || Object.hasOwn(flow.questionAnswers || {}, candidateQuestionAnswerKey(question)),
@@ -109,7 +112,6 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     })
     .slice(0, 60);
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field?.key, field?.value]));
-  const language = LETTER_FILE_LABEL[draft.language] ? draft.language : 'it';
   const locationCountry = countryLabelForCode(countryCodeOfLabel(profile.location), language);
   const canonicalAddress = {
     ...address,
@@ -157,6 +159,9 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     profile: {
       // In a form the extension reads (parseDate reads only numeric dates).
       dateOfBirth: text(isoDateOf(profile.dateOfBirth) || profile.dateOfBirth, 20),
+      // The profile-derived form of address is a bounded form-fill preference,
+      // never a candidate fact or a confirmed-question ledger entry.
+      formOfAddress: text(personal?.salutation, 40),
       nationality: text(profile.nationality, 100),
       // The status the candidate chose, as the portal planner's sentence; nothing chosen: the CV's own words.
       workPermit: text(profile.permitStatus ? permitStatement(profile.permitStatus, language) : printedPermitText(profile.workPermit), 200),

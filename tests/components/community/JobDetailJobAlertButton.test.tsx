@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import JobDetailJobAlertButton from '@/components/community/JobDetailJobAlertButton';
-import type { JobAlert, subscribeJobAlertForJob } from '@/services/jobAlertService';
+import type { JobAlert, subscribeJobAlertForDetail } from '@/services/jobAlertService';
 
 vi.mock('@/services/i18n', () => ({
   useTranslation: () => ({
@@ -10,7 +10,7 @@ vi.mock('@/services/i18n', () => ({
   }),
 }));
 
-type SubscribeFn = typeof subscribeJobAlertForJob;
+type SubscribeFn = typeof subscribeJobAlertForDetail;
 
 const baseAlert = (): JobAlert => ({
   id: 'alert-id',
@@ -68,16 +68,24 @@ function renderButton({
   onSubscribed = vi.fn(),
   onErrored = vi.fn(),
   subscribe = vi.fn<SubscribeFn>(async () => baseAlert()),
+  jobId = 'job-1',
+  keyword = 'Sanità',
+  cantonCode = 'TI',
 }: {
   onImpression?: () => void;
   onAccepted?: () => void;
   onSubscribed?: () => void;
   onErrored?: (error: unknown) => void;
   subscribe?: SubscribeFn;
+  jobId?: string | null;
+  keyword?: string;
+  cantonCode?: string;
 } = {}) {
   render(
     <JobDetailJobAlertButton
-      jobId="job-1"
+      jobId={jobId}
+      keyword={keyword}
+      cantonCode={cantonCode}
       userId="user-1"
       email="foo@example.com"
       locale="it"
@@ -130,6 +138,45 @@ describe('JobDetailJobAlertButton', () => {
     expect(subscribe).toHaveBeenCalledTimes(1);
     expect(onSubscribed).toHaveBeenCalledTimes(1);
     expect(onErrored).not.toHaveBeenCalled();
+  });
+
+  it('passes the unified detail intent and source provenance to the writer', async () => {
+    const subscribe = vi.fn<SubscribeFn>(async () => baseAlert());
+    renderButton({ subscribe });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Avvisami per questo annuncio' }));
+    });
+
+    expect(subscribe).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      { jobId: 'job-1', keyword: 'Sanità', cantonCode: 'TI' },
+      'it',
+      { slug: null, url: null, title: null },
+      expect.objectContaining({
+        source: 'job_alert_detail_button',
+        sourceComponent: 'JobDetailJobAlertButton',
+      }),
+    );
+  });
+
+  it('creates the ordinary post-apply detail intent without a job pin', async () => {
+    const subscribe = vi.fn<SubscribeFn>(async () => baseAlert());
+    renderButton({ subscribe, jobId: null });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Avvisami per questo annuncio' }));
+    });
+
+    expect(subscribe).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      { jobId: null, keyword: 'Sanità', cantonCode: 'TI' },
+      'it',
+      expect.anything(),
+      expect.anything(),
+    );
   });
 
   it('emits one accept before one error when the create rejects', async () => {

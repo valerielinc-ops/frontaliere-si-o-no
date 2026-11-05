@@ -16,9 +16,10 @@ import { addressContextContract, hasAddressContextOwnership } from '../../../../
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } from '../../../../functions/src/lib/applicationConsent.js';
+import { hasConsentContradiction, isApplicationDataProcessingConsent, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
+import { isIdentityEmailConfirmation } from '../../../../functions/src/lib/identityEmail.js';
 import {
   explicitLanguageEntries,
   explicitLanguageEntry,
@@ -170,7 +171,6 @@ const CONTACT_ADDRESS_RE = /\b(?:e[-\s]?mail|email|courriel|correo|contact\s+(?:
 const CANDIDATE_CONTACT_ADDRESS_RE = /\b(?:candidate|applicant|candidate['’]s|applicant['’]s|my|your)\s+(?:contact\s+)?address\b|\b(?:contact\s+)?address\s+(?:of|for)\s+(?:the\s+)?(?:candidate|applicant)\b/i;
 const CONTACT_ADDRESS_ONLY_RE = /^\s*(?:e[-\s]?mail|email|courriel|correo)(?:\s*[-–—:]?\s*(?:address|adresse|indirizzo))?(?:\s*[/|]\s*(?:login|identifiant))?(?:\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld|erforderlich)\)|[*:?!]))*\s*$/i;
 const IDENTITY_EMAIL_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
-const EMAIL_CONFIRMATION_RE = /\b(?:re[- ]?enter|enter again|repeat|confirm(?:ation)?|again|erneut|wiederholen|bestätigen|bestaetigen|nochmals|ripeti|conferma|répéter|repeter|confirmer|à nouveau|de nouveau)\b/i;
 const STREET_NAME_ONLY_RE = /\b(?:street|road|strasse|straße|rue)\s+name\b|\b(?:name|nom|nome)\s+(?:of\s+)?(?:the\s+)?(?:street|road|rue|via)\b/i;
 export const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
 const SENSITIVE_TERMS = String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|\bdob\b|ethnic|criminal|strafregister|casellario|${DATE_OF_BIRTH_RE.source}|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`;
@@ -228,8 +228,9 @@ export function ownConsent(field) {
     && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
     && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, field, ...privacyRepresentations, ...supplementalPrivacyLabels));
   const privacyReviewShape = privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
-  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || isConsentPurpose(label);
-  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck) && ownText
+  const applicationDataProcessingConsent = isApplicationDataProcessingConsent(consentText, field, ...privacyRepresentations, ...supplementalPrivacyLabels);
+  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || applicationDataProcessingConsent || isConsentPurpose(label);
+  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck || applicationDataProcessingConsent) && ownText
     && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(consentText)
     && !languageFactMetadata
     && !(privacyReviewShape && !privacyReviewAck)
@@ -1186,7 +1187,7 @@ function isCheckboxField(field) {
 }
 
 function privacyCheckboxAction(field, value) {
-  if (operationalQuestionTopic(field) !== 'privacy_review_ack'
+  if (!['privacy_review_ack', 'application_data_processing_consent'].includes(operationalQuestionTopic(field))
     || !isCheckboxField(field)) return null;
   const checked = booleanAnswer(value);
   return checked === null ? null : checked ? 'check' : 'uncheck';
@@ -1206,6 +1207,23 @@ function operationalChoiceHasNoCatalogue(field) {
   return Boolean(operationalQuestionTopic(field)
     && (['select', 'radio', 'listbox'].includes(field?.kind) || field?.selectLike || field?.nativeSelectId)
     && !(field.options || []).some(option => option?.placeholder !== true && String(typeof option === 'string' ? option : option?.label ?? '').trim()));
+}
+
+function operationalAnswerAlreadyHeld(field, value) {
+  if (isCheckboxField(field)) return booleanAnswer(value) === true && field.checked === true;
+  const expected = comparableAnswer(value);
+  if (!expected) return false;
+  const options = Array.isArray(field?.options) ? field.options : [];
+  const selected = options.filter(option => typeof option === 'object' && (option.checked === true || option.selected === true));
+  if (selected.length === 1) {
+    const option = selected[0];
+    return [option.label, option.value].some(candidate => comparableAnswer(candidate) === expected);
+  }
+  if (field?.value) {
+    const current = options.find(option => typeof option === 'object' && String(option.value ?? '') === String(field.value));
+    return [current?.label, current?.value, field.value].some(candidate => comparableAnswer(candidate) === expected);
+  }
+  return false;
 }
 
 function optionForAnswer(field, answer) {
@@ -1480,6 +1498,10 @@ function phoneCountryOption(candidate, field) {
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context, field);
+  const fieldKind = String(field?.kind || '').trim().toLowerCase();
+  const inputType = String(field?.inputType || '').trim().toLowerCase();
+  const isTextEmailInput = ['text', 'email'].includes(fieldKind)
+    && (!inputType || ['text', 'email'].includes(inputType));
   if (operationalChoiceHasNoCatalogue(field)) return null;
   if (topic === 'phone') {
     const value = formatInternationalPhone(candidate?.identity?.phone);
@@ -1488,6 +1510,9 @@ export function candidateAnswerForField(candidate, field) {
   if (topic === 'phone_country') {
     const value = phoneCountryOption(candidate, field);
     return value ? { value, source: 'identity' } : null;
+  }
+  if (isTextEmailInput && isIdentityEmailConfirmationField(field) && candidate?.identity?.email) {
+    return { value: candidate.identity.email, source: 'identity' };
   }
   const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context, field);
   const salutation = salutationFieldAnswer(candidate, field, previous);
@@ -1534,12 +1559,16 @@ export function candidateAnswerForField(candidate, field) {
   }
   const label = String(field?.label || '');
   const identity = candidate?.identity || {};
-  const otherPersonField = NON_CANDIDATE_NAME_RE.test(`${label} ${field?.context || ''}`);
+  const fieldOwnershipContext = [field?.context, field?.section, field?.autocomplete].filter(Boolean).join(' ');
+  const otherPersonField = NON_CANDIDATE_NAME_RE.test(`${label} ${fieldOwnershipContext}`);
   let identityValue = '';
   if ((FIRST_NAME_FIELD_RE.test(label) || BARE_FIRST_NAME_FIELD_RE.test(questionFromLabel(label))) && !otherPersonField) identityValue = identity.firstName || '';
   else if ((LAST_NAME_FIELD_RE.test(label) || BARE_LAST_NAME_FIELD_RE.test(questionFromLabel(label))) && !otherPersonField) identityValue = identity.lastName || '';
   else if (FULL_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.fullName || '';
-  else if (IDENTITY_EMAIL_RE.test(label) && !EMAIL_CONFIRMATION_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
+  // ATS registration forms can require the same identity email twice. The
+  // second field is still the applicant's email; never substitute it into a
+  // field owned by a referee, emergency contact, or another person.
+  else if (isTextEmailInput && IDENTITY_EMAIL_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
   else if (PHONE_CODE_FIELD_RE.test(label) && !PHONE_COUNTRY_CODE_LABEL_RE.test(label) && !otherPersonField) identityValue = identity.phone || '';
   else if (/\blinkedin\b/i.test(label) && !otherPersonField) identityValue = identity.linkedin || '';
   if (identityValue) {
@@ -1616,6 +1645,13 @@ export function candidateAnswerForField(candidate, field) {
   if (exact) return { value: exact, source: 'profile' };
   const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
   return other ? { value: other.label, source: 'profile' } : null;
+}
+
+/** A required applicant e-mail confirmation that can safely reuse identity.email. */
+export function isIdentityEmailConfirmationField(field) {
+  const label = String(field?.label || '');
+  const context = [field?.context, field?.section, field?.autocomplete].filter(Boolean).join(' ');
+  return isIdentityEmailConfirmation({ label, context });
 }
 
 /**
@@ -1779,7 +1815,32 @@ export function guardPlan(plan, fields, candidate = null) {
     rejectedActionFields.add(field.id);
     ask(field);
   }
-  for (const plannedAction of plan.actions || []) {
+  const operationalFields = new Set();
+  const operationalActions = [];
+  for (const field of fields) {
+    if (!operationalQuestionTopic(field)) continue;
+    operationalFields.add(field.id);
+    const answer = candidateAnswerForField(candidate, field);
+    if (!answer || !String(answer.value ?? '').trim()) continue;
+    if (operationalAnswerAlreadyHeld(field, answer.value)) continue;
+    const checked = isCheckboxField(field) ? booleanAnswer(answer.value) : null;
+    if (isCheckboxField(field) && checked === null) continue;
+    operationalActions.push({
+      fieldId: field.id,
+      action: isCheckboxField(field) ? checked ? 'check' : 'uncheck' : isChoiceField(field) ? 'select' : 'fill',
+      value: answer.value,
+      document: 'none',
+      source: answer.source,
+      evidence: '',
+    });
+  }
+  // Operational defaults and saved preferences are deterministic owner policy.
+  // The planner must not replace them with a different selection or a skip.
+  const plannedActions = [
+    ...(plan.actions || []).filter(action => !operationalFields.has(action.fieldId)),
+    ...operationalActions,
+  ];
+  for (const plannedAction of plannedActions) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
     if (!field || rejectedActionFields.has(field.id)) continue;
@@ -1793,8 +1854,11 @@ export function guardPlan(plan, fields, candidate = null) {
     const policyDefaultPrivacyAcknowledgment = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
+    const policyDefaultApplicationDataProcessingConsent = action.action === 'check'
+      && action.source === 'policy_default'
+      && privacyRepresentations.some(value => isApplicationDataProcessingConsent(value, field, ...privacyRepresentations));
     if (action.action === 'check'
-      && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment)
+      && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment || policyDefaultApplicationDataProcessingConsent)
       && !ownConsent(field)) {
       rejectedActionFields.add(field.id);
       ask(field);
@@ -1930,6 +1994,10 @@ export function guardPlan(plan, fields, candidate = null) {
     if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id)) continue;
     const answer = candidateAnswerForField(candidate, field);
     if (!answer) continue;
+    if (operationalAnswerAlreadyHeld(field, answer.value)) {
+      answered.add(field.id);
+      continue;
+    }
     const value = isCheckboxField(field)
       ? String(answer.value ?? '').trim()
       : field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);

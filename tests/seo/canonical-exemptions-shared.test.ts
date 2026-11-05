@@ -26,6 +26,8 @@ import {
 } from '../../scripts/lib/canonicalExemptions.mjs';
 
 const H = 'https://frontaliereticino.ch';
+const JOB_POSTING_HTML = '<script type="application/ld+json">{"@type":"JobPosting"}</script>';
+const CITY_HUB_HTML = '<script type="application/ld+json">{"@type":"CollectionPage"}</script>';
 
 describe('canonical exemptions — legitimate non-self canonicals', () => {
   it('exempts the run 32261742920 offender (same-section job slug rename)', () => {
@@ -33,7 +35,8 @@ describe('canonical exemptions — legitimate non-self canonicals', () => {
       classifyCanonicalMismatch({
         url: `${H}/fr/trouver-emploi-zurich/chef-sushi-zenbu-two-spice-ag-dietlikon/`,
         canonical: `${H}/fr/trouver-emploi-zurich/chef-de-sushi-zenbu-two-spice-ag-dietlikon/`,
-        html: '',
+        html: JOB_POSTING_HTML,
+        canonicalHtml: JOB_POSTING_HTML,
       }),
     ).toBe('job-consolidation');
   });
@@ -72,8 +75,103 @@ describe('canonical exemptions — legitimate non-self canonicals', () => {
       [`${H}/de/jobs-im-tessin/a/`, `${H}/de/jobs-im-tessin/b/`],
     ];
     for (const [url, canonical] of pairs) {
-      expect(isLegitJobCanonicalConsolidation(url, canonical), `${url} → ${canonical}`).toBe(true);
+      expect(
+        isLegitJobCanonicalConsolidation(url, canonical, JOB_POSTING_HTML, JOB_POSTING_HTML),
+        `${url} → ${canonical}`,
+      ).toBe(true);
     }
+  });
+
+  it('does not treat flat city-hub routes as job details', () => {
+    expect(
+      isLegitJobCanonicalConsolidation(
+        `${H}/cerca-lavoro-ticino/lugano/`,
+        `${H}/cerca-lavoro-ticino/locarno/`,
+        CITY_HUB_HTML,
+        CITY_HUB_HTML,
+      ),
+    ).toBe(false);
+  });
+
+  it('requires the canonical pair to stay on the canonical site', () => {
+    expect(
+      classifyCanonicalMismatch({
+        url: `${H}/cerca-lavoro-ticino/job-a/`,
+        canonical: 'https://evil.example/cerca-lavoro-ticino/job-b/',
+        html: '__BRIDGE_TARGET_SLUG__',
+      }),
+    ).toBeNull();
+    expect(
+      isLegitLegacyAliasCanonicalization(`${H}/about/`, 'https://evil.example/en/about-us/'),
+    ).toBe(false);
+    expect(
+      isLegitJobCanonicalConsolidation(`${H}/cerca-lavoro-ticino/job-a/`, 'https://evil.example/cerca-lavoro-ticino/job-b/'),
+    ).toBe(false);
+  });
+
+  it('does not treat search, category, company, or pagination leaves as job details', () => {
+    const nonDetailSlugs = [
+      'ricerca-lugano',
+      'category-healthcare',
+      'company-acme',
+      'page-12',
+      'lugano',
+      'mendrisio',
+      'bellinzona',
+      'locarno',
+      'chiasso',
+    ];
+    for (const slug of nonDetailSlugs) {
+      expect(
+        isLegitJobCanonicalConsolidation(
+          `${H}/cerca-lavoro-ticino/${slug}/`,
+          `${H}/cerca-lavoro-ticino/real-job-slug/`,
+        ),
+        slug,
+      ).toBe(false);
+    }
+
+    const routeLandings = [
+      'ricerca',
+      'search',
+      'suche',
+      'recherche',
+      'lavoro-part-time',
+      'part-time-jobs',
+      'teilzeit-jobs',
+      'emploi-temps-partiel',
+      'lavoro-infermieri-ticino',
+      'offerte-di-lavoro-ticino-oggi',
+      'foglio-ufficiale-offerte-di-lavoro-ticino',
+      'cliniche-ticino',
+      'ultimi-3-giorni',
+      'infermieri',
+    ];
+    for (const slug of routeLandings) {
+      expect(
+        isLegitJobCanonicalConsolidation(
+          `${H}/cerca-lavoro-ticino/${slug}/`,
+          `${H}/cerca-lavoro-ticino/lavoro-infermieri-ticino/`,
+        ),
+        slug,
+      ).toBe(false);
+    }
+
+    expect(
+      isLegitJobCanonicalConsolidation(
+        `${H}/cerca-lavoro-ticino/lavoro-part-time/`,
+        `${H}/cerca-lavoro-ticino/lavoro-infermieri-ticino/`,
+      ),
+    ).toBe(false);
+  });
+
+  it('does not exempt a canonical drift between clean city hubs', () => {
+    expect(
+      isLegitJobCanonicalConsolidation(
+        `${H}/cerca-lavoro-ticino/lugano/`,
+        `${H}/cerca-lavoro-ticino/locarno/`,
+      ),
+    ).toBe(false);
   });
 });
 

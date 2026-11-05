@@ -1696,6 +1696,85 @@ describe('fill extension: shared privacy-reading acknowledgement', () => {
   });
 });
 
+describe('fill extension: owner-approved application defaults', () => {
+  const consent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell’ente. Acconsento che i miei dati personali vengano trattati in conformità con tale Dichiarazione.';
+  const retentionQuestion = 'Per quanto tempo autorizzi l’ente a conservare i tuoi dati personali?';
+  const future = 'Conservazione per future offerte di lavoro';
+  const current = 'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.';
+
+  it('checks application consent, chooses the shortest retention option and infers an unambiguous title', async () => {
+    const { document, F } = page(`<form>
+      <label><input id="consent" type="checkbox"> ${consent}</label>
+      <label for="retention">${retentionQuestion}</label><select id="retention"><option value="">Seleziona</option><option>${future}</option><option>${current}</option></select>
+      <fieldset><legend>Titolo</legend><label><input type="radio" name="title" value="Signora">Signora</label><label><input type="radio" name="title" value="Signor">Signor</label></fieldset>
+    </form>`);
+    const eocKit = {
+      ...kit,
+      profile: { ...kit.profile, formOfAddress: 'Signora' },
+      answers: [
+        ...kit.answers,
+        { question: consent, answer: 'true', source: 'policy_default' },
+        { question: retentionQuestion, answer: current, source: 'policy_default' },
+      ],
+    };
+    const [consentEntry, retentionEntry] = ['consent', 'retention']
+      .map(id => F.collect(document).find((entry: any) => entry.element.id === id));
+    const radioEntry = F.collect(document).find((entry: any) => entry.kind === 'radio');
+
+    expect(F.answerFor(consentEntry, eocKit)).toEqual({ check: true });
+    expect(F.answerFor(retentionEntry, eocKit)).toEqual({ value: current });
+    expect(F.answerFor(radioEntry, eocKit)).toMatchObject({ value: 'Signora', family: 'formOfAddress' });
+    await F.fillEntry(consentEntry, { check: true }, { getFile: async () => null });
+    await F.fillEntry(retentionEntry, { value: current }, { getFile: async () => null });
+    await F.fillEntry(radioEntry, { value: 'Signora', family: 'formOfAddress' }, { getFile: async () => null });
+
+    expect((document.getElementById('consent') as HTMLInputElement).checked).toBe(true);
+    expect((document.getElementById('retention') as HTMLSelectElement).selectedOptions[0].text).toBe(current);
+    expect((document.querySelector('input[name="title"]:checked') as HTMLInputElement).value).toBe('Signora');
+  });
+
+  it('recognizes French authorization to process personal data', () => {
+    const authorization = "J'autorise le traitement de mes données personnelles";
+    const { document, F } = page(`<form><label for="privacy-fr">${authorization}</label><input id="privacy-fr" type="checkbox" required></form>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacy-fr');
+    expect(F.answerFor(entry, { ...kit, answers: [] })).toEqual({ check: true });
+  });
+
+  it('chooses the shortest finite term over future storage and a later deletion', () => {
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data?</label>
+      <select id="retention">
+        <option value="">Choose</option>
+        <option value="future">Keep my data for future opportunities</option>
+        <option value="delete_2_years">Delete my data after 2 years</option>
+        <option value="6_months">Keep my data for 6 months</option>
+      </select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toEqual({
+      value: 'Keep my data for 6 months', family: 'minimumDataRetention',
+    });
+  });
+
+  it.each([
+    'I would like my data to be deleted once the present application process is complete.',
+    'I would like my data to be deleted once this application process is complete.',
+  ])('recognizes current application process deletion in the extension bundle: %s', deletion => {
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data?</label>
+      <select id="retention">
+        <option value="future">Store my data for future job offers</option>
+        <option value="current">${deletion}</option>
+      </select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toEqual({
+      value: deletion, family: 'minimumDataRetention',
+    });
+  });
+});
+
 
 describe('fill extension: native fact metadata vetoes a privacy label', () => {
   it.each([

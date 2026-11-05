@@ -571,6 +571,23 @@ function isIndexablePage(html) {
   return !hasNoindex(html) && !hasMetaRefresh(html);
 }
 
+function readSameOriginCanonicalHtml(pageUrl, canonicalUrl) {
+  if (canonicalUrl.origin !== pageUrl.origin || canonicalUrl.search || canonicalUrl.hash) return '';
+  const distRoot = resolvePath(DIST);
+  const routePath = canonicalUrl.pathname.replace(/^\/+/, '');
+  const candidates = [
+    resolvePath(distRoot, routePath, 'index.html'),
+    resolvePath(distRoot, `${routePath}.html`),
+  ];
+  for (const targetPath of candidates) {
+    const relativePath = relative(distRoot, targetPath);
+    if (!relativePath || relativePath === '..' || relativePath.startsWith(`..${sep}`) || isAbsolute(relativePath)) continue;
+    try { return readFileSync(targetPath, 'utf8'); }
+    catch (error) { if (error?.code !== 'ENOENT') return ''; }
+  }
+  return '';
+}
+
 function validateBestPracticeSeo(html, pagePath) {
   if (!isIndexablePage(html) || isIntentionalRedirectPage(html)) return [];
 
@@ -600,7 +617,12 @@ function validateBestPracticeSeo(html, pagePath) {
         // The cross-URL canonicals the other canonical gates already accept
         // (shared classifier) plus the owner's article consolidations are a
         // declared decision, counted apart — not "does not match".
-        const declared = classifyCanonicalMismatch({ url: pageUrl.href, canonical: canonicalUrl.href, html })
+        const declared = classifyCanonicalMismatch({
+          url: pageUrl.href,
+          canonical: canonicalUrl.href,
+          html,
+          canonicalHtml: readSameOriginCanonicalHtml(pageUrl, canonicalUrl),
+        })
           || (isOwnerArticleConsolidation(pageUrl.href, canonicalUrl.href) ? 'article-consolidation' : null);
         issues.push(declared
           ? { type: 'declaredCanonical', detail: declared }

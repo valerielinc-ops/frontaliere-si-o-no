@@ -9,12 +9,13 @@
  */
 import { parseSitemapXml } from '../lib/sitemap-crawl.mjs';
 import { htmlHasActiveJobPosting } from '../lib/active-jobposting-coverage.mjs';
+import { JOB_BOARD_DETAIL_PATH_RE } from '../lib/job-board-detail-path.mjs';
 
 const LIVE_BASE_URL = (process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch').replace(/\/+$/, '');
 
 // A job-detail path is a single slug segment under any locale's canton-aware
 // job root. Hubs share that shape but are not listings — exclude them below.
-export const JOB_DETAIL_PATH_RE = /^\/(?:cerca-lavoro-[a-z0-9-]+|en\/find-jobs-[a-z0-9-]+|de\/jobs-(?:im|in)-[a-z0-9-]+|fr\/trouver-emploi-[a-z0-9-]+)\/[^/]+\/$/i;
+export const JOB_DETAIL_PATH_RE = JOB_BOARD_DETAIL_PATH_RE;
 const NON_DETAIL_EXACT_SLUG_RE = /^(?:tutti|all|alle|tous|aziende|companies|unternehmen|entreprises|settori|sectors|branchen|secteurs|categoria|category|kategorie|categorie|ricerca|recherche|search|suche|(?:pagina|page|seite)-\d+)$/i;
 
 function livePathFromUrl(value, baseUrl = LIVE_BASE_URL) {

@@ -39,7 +39,7 @@ import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQu
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
-import { operationalAnswerForOption, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
@@ -938,6 +938,24 @@ async function clickUniqueNamedControl(frame, button) {
   return 'role';
 }
 
+function unresolvedPreDispatchControlClick() {
+  const error = new Error('portal_control_click_unresolved');
+  error.code = 'portal_control_click_unresolved';
+  return error;
+}
+
+async function clickUniqueNamedControlAfterTimeout(frame, button) {
+  try {
+    return await clickUniqueNamedControl(frame, button);
+  } catch (error) {
+    // A timed-out locator can be retried only when Playwright proves that it
+    // never dispatched. Once the scoped fallback also proves that, stop here:
+    // the portal runner will hand the page to the owner with encrypted evidence.
+    if (isPreDispatchLocatorClickFailure(error)) throw unresolvedPreDispatchControlClick();
+    throw error;
+  }
+}
+
 /** Presses a control from a snapshot; recovery must preserve the control's click handler. */
 export async function clickButton(page, button) {
   const frameNumber = Number(button.frame) || 0;
@@ -953,27 +971,28 @@ export async function clickButton(page, button) {
     // is found again in a fresh reading. A text-only selector can find the header's «Sign In» instead of
     // the form's and open a dialog over the form (dry run of 2026-10-07). A role retry needs a unique match
     // inside the same form or dialog; without a verified scope, nothing else is pressed in its place.
-    if (!isPreDispatchLocatorClickFailure(error) || !button.text) throw error;
+    if (!isPreDispatchLocatorClickFailure(error)) throw error;
+    if (!button.text) throw unresolvedPreDispatchControlClick();
     const again = await sameControl(page, button);
     if (again) {
       const retryFrames = typeof page.frames === 'function' ? page.frames() : [];
       const retryFrameNumber = Number(again.frame) || 0;
       const retryFrame = retryFrames[retryFrameNumber]
         || (retryFrameNumber === 0 ? (typeof page.mainFrame === 'function' ? page.mainFrame() : page) : null);
-      if (typeof retryFrame?.locator !== 'function') throw error;
+      if (typeof retryFrame?.locator !== 'function') throw unresolvedPreDispatchControlClick();
       try {
         await retryFrame.locator(`[data-aa-id="${again.id}"]`).first().click({ timeout: 6_000 });
         return 'again';
       } catch (retryError) {
         if (!isPreDispatchLocatorClickFailure(retryError)) throw retryError;
-        const recovered = await clickUniqueNamedControl(retryFrame, again);
+        const recovered = await clickUniqueNamedControlAfterTimeout(retryFrame, again);
         if (recovered) return recovered;
-        throw retryError;
+        throw unresolvedPreDispatchControlClick();
       }
     }
-    const recovered = await clickUniqueNamedControl(frame, button);
+    const recovered = await clickUniqueNamedControlAfterTimeout(frame, button);
     if (recovered) return recovered;
-    throw error;
+    throw unresolvedPreDispatchControlClick();
   }
 }
 
@@ -4171,7 +4190,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired);
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
@@ -4281,7 +4300,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const repairSnapshot = accountRegistrationSnapshot({ ...after, fields: after.fields.filter((field) => field.inputType !== 'password') });
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
-      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
+      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired, { candidate });
       if (repairedRequirements.unreadableFields?.length) {
         await ctx.accounts.mark(host, { status: 'unanswered' });
         return noted({ handoff: 'question_label_unreadable' });
@@ -4560,7 +4579,6 @@ function missingCandidatePortalRequirements(fields, candidate) {
   if (!candidate || typeof candidate !== 'object') return { questions: [], stableQuestionIds: new Map() };
   const requiredFields = (Array.isArray(fields) ? fields : []).filter(field => field?.required === true);
   const profile = candidate.profile || {};
-  const address = candidate.identity?.address || profile.address || {};
   const answers = candidate.answers || {};
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
@@ -4569,6 +4587,10 @@ function missingCandidatePortalRequirements(fields, candidate) {
     ...(Array.isArray(field?.labels) ? field.labels : []),
     ...(Array.isArray(field?.options) ? field.options.map(option => typeof option === 'string' ? option : option?.label) : []),
   ].filter(Boolean).join(' ');
+  const fieldHasResidenceContext = (field) => explicitResidence([
+    field?.label, field?.ariaLabel, field?.description, field?.ariaDescription, field?.context, field?.section,
+    ...(Array.isArray(field?.labels) ? field.labels : []),
+  ].filter(Boolean).join(' '));
   const optionLabels = field => (Array.isArray(field?.options) ? field.options : [])
     .filter(option => option?.placeholder !== true)
     .map(option => String(typeof option === 'string' ? option : option?.label || '').trim())
@@ -4585,14 +4607,17 @@ function missingCandidatePortalRequirements(fields, candidate) {
   };
   const hasAnswer = id => String(answers[id] ?? '').trim().length > 0;
   const datePresent = String(profile.dateOfBirth || '').trim().length > 0;
-  const streetPresent = String(address.street || '').trim().length > 0;
+  const streetPresent = String(addressQuestionAnswer(candidate, 'address_street') || '').trim().length > 0;
   const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
+  const residenceCountryPresent = Boolean(String(addressQuestionAnswer(candidate, 'residence_country') || '').trim());
   const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
   const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
 
   for (const field of requiredFields) {
     const label = folded(field.label);
     const allText = folded(fieldText(field));
+    const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
+    const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
     const role = residenceFieldRole(field.label);
     const isBirthDate = String(field.autocomplete || '').toLowerCase() === 'bday'
       || /\b(?:date of birth|birth date|geburtsdatum|date de naissance|data di nascita)\b/.test(allText);
@@ -4615,6 +4640,14 @@ function missingCandidatePortalRequirements(fields, candidate) {
       continue;
     }
 
+    if (role === 'country' && fieldHasResidenceContext(field)
+      && !residenceCountryPresent && !hasAnswer('portal_residence_country')) {
+      add(field, 'portal_residence_country', 'In quale Paese risiedi?',
+        'Il portale richiede il Paese di residenza per creare il profilo candidato.',
+        { type: 'choice', forceType: 'choice', requiresNativeOptions: true });
+      continue;
+    }
+
     const addressQuestionId = role === 'houseNumber' ? 'portal_residence_house_number'
       : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address';
     const addressValuePresent = role === 'houseNumber' ? houseNumberPresent
@@ -4634,8 +4667,9 @@ function missingCandidatePortalRequirements(fields, candidate) {
       continue;
     }
 
-    const retentionPrompt = /\b(?:attivazione dati|data retention|retention period|keep (?:my |your |the )?data|retain (?:my |your |the )?data|delete (?:my |your |the )?data|eliminat\w* dopo la procedura|conserv\w* dopo la candidatura)\b/.test(allText);
-    if (retentionPrompt && !hasAnswer('portal_data_retention')) {
+    const retentionPrompt = /\b(?:attivazione dati|data retention|retention period|keep (?:my |your |the )?data|retain (?:my |your |the )?data|delete (?:my |your |the )?data|eliminat\w* dopo la procedura|conserv\w* dopo la candidatura)\b/.test(allText)
+      || operationalQuestionTopic({ ...field, question: allText, applicationQuestion: field.label || allText, options: field.options }) === 'application_data_retention';
+    if (retentionPrompt && !hasOperationalDefault && !hasAnswer('portal_data_retention')) {
       add(field, 'portal_data_retention', 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?',
         'Il portale richiede di scegliere tra la conservazione per future offerte e la cancellazione dopo questa candidatura.',
         { type: 'choice', forceType: 'choice', requiresNativeOptions: true });
@@ -4645,7 +4679,7 @@ function missingCandidatePortalRequirements(fields, candidate) {
     const privacyConsent = /\b(?:privacy|data protection|protezione dei dati|protezione dati|datenschutz|confidentialite)\b/.test(allText)
       && /\b(?:acconsent\w*|consent\w*|accept\w*|agree\w*|einwillig\w*|zustimm\w*)\b/.test(allText)
       && /\b(?:tratt\w*|process\w*|verarbeit\w*|trait\w*)\b/.test(allText);
-    if (privacyConsent && !hasAnswer('portal_privacy_consent')) {
+    if (privacyConsent && !hasOperationalDefault && !hasAnswer('portal_privacy_consent')) {
       add(field, 'portal_privacy_consent', 'Dopo aver letto la dichiarazione sulla protezione dei dati dell’EOC, acconsenti al trattamento dei tuoi dati personali descritto nel modulo?',
         'Il portale richiede il tuo consenso per inviare la candidatura. Se non acconsenti, la candidatura non può essere inviata.',
         { type: 'yes_no', forceType: 'yes_no', options: ['Sì', 'No'], requiresAffirmativeConsent: true });
@@ -4835,7 +4869,13 @@ export async function readPortalRequirements(ctx) {
     // mismatch must stop before any job-specific question reaches the draft.
     const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
     if (hasJobContract) {
-      const formMatch = formPostingMatch(`${snapshot.text || ''}\n${page.url()}`, ctx.job, {
+      // Keep the page title as a separate line. Some ATS accessibility text
+      // starts with a skip-link preamble (for example Umantis' «Passa a
+      // Contenuto principale»); flattening it into the first line makes the
+      // employer-conflict guard mistake that chrome for another employer.
+      const pageTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
+      const formText = `${pageTitle}\n${snapshot.text || ''}\n${page.url()}`;
+      const formMatch = formPostingMatch(formText, ctx.job, {
         postingMatched: verifiedPostingEntry,
         postingEntry: verifiedPostingEntry,
         pageUrl: page.url(),
@@ -5999,6 +6039,21 @@ export async function submitViaPortal(ctx) {
       return { event: { type: 'submit_failed', error: outcome === 'validation' ? 'portal_validation' : antibot ? 'portal_antibot_ambiguous' : 'portal_ambiguous' }, evidence };
     }
     return await handoff('portal_needs_candidate');
+  } catch (error) {
+    const currentAttempt = diagnostics?.currentAttempt?.();
+    const finalClickInCurrentAttempt = Number.isSafeInteger(finalClickAttempt)
+      && Number.isSafeInteger(currentAttempt)
+      && finalClickAttempt === currentAttempt;
+    const message = [error?.message, error?.code]
+      .filter((value) => typeof value === 'string' && value.trim())
+      .join('\n') || String(error);
+    const exhaustedPreDispatchLocatorClick = /\blocator\.click\b/i.test(message)
+      && isPreDispatchLocatorClickFailure({ message });
+    if ((error?.code === 'portal_control_click_unresolved' || exhaustedPreDispatchLocatorClick) && !finalClickInCurrentAttempt) {
+      evidence.controlClickFailure = { stage: 'intermediate', outcome: 'pre_dispatch' };
+      return await handoff('portal_control_click_unresolved');
+    }
+    throw error;
   } finally {
     await clearActiveFinalFormGuard();
     await diagnostics?.finish();

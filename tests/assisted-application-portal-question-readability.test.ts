@@ -426,6 +426,42 @@ it('asks for a separately required house number when the residence street has no
   expect(result.questions.map((question: any) => question.id)).toContain('portal_residence_house_number');
 });
 
+it('asks for a missing residence country and reads it from a partial profile address', () => {
+  const country = {
+    id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true,
+    options: [{ value: 'CH', label: 'Schweiz' }, { value: 'IT', label: 'Italien' }],
+  };
+  const partialIdentity = { identity: { address: { street: 'Via Roma' } }, profile: { address: { country: 'Svizzera' } }, answers: {} };
+  expect(portalRequirementsFromMissingRequired([country], [], { candidate: partialIdentity }).questions).toEqual([]);
+
+  const missing = portalRequirementsFromMissingRequired([country], [], {
+    candidate: { identity: { address: { street: 'Via Roma' } }, profile: { address: { street: 'Via Roma' } }, answers: {} },
+  });
+  expect(missing.questions).toEqual([expect.objectContaining({
+    id: 'portal_residence_country',
+    question: 'In quale Paese risiedi?',
+    applicationQuestion: country.label,
+    type: 'choice',
+    required: true,
+    applicationOptions: ['Schweiz', 'Italien'],
+  })]);
+
+  const contextualCountry = { ...country, label: 'Country', context: 'Residence address' };
+  const contextual = portalRequirementsFromMissingRequired([contextualCountry], [], {
+    candidate: { identity: { address: {} }, profile: { address: {} }, answers: {} },
+  });
+  expect(contextual.questions).toEqual([expect.objectContaining({
+    id: 'portal_residence_country',
+    applicationQuestion: 'Country',
+    question: 'In quale Paese risiedi?',
+  })]);
+
+  const genericCountry = { ...country, id: 'generic-country', label: 'Country' };
+  expect(portalRequirementsFromMissingRequired([genericCountry], [], {
+    candidate: { identity: { address: {} }, profile: { address: {} }, answers: {} },
+  }).questions).toEqual([]);
+});
+
 it('does not create a candidate request when the real reduction contains no questions or documents', async () => {
   const requirements = portalRequirementsFromMissingRequired([{ id: 'cv', kind: 'file', label: 'Resume / CV', required: true }], [{ fieldId: 'cv', type: 'text', question: 'Upload your CV' }]);
   expect(requirements).toMatchObject({ questions: [], documents: [] });
@@ -502,6 +538,36 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(frame.evaluate).toHaveBeenCalled();
   expect(browser.close).toHaveBeenCalledOnce();
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
+});
+
+it('keeps a verified Umantis form when its accessibility text starts with skip-link chrome', async () => {
+  const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+  const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+  const snapshot = {
+    url: applicationUrl, buttons: [], captcha: false, passwordVisible: true, errors: [],
+    text: 'Passa a Contenuto principale Impiegato/a amministrativo - Candidatura I campi contrassegnati con * sono obbligatori.',
+    fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'Curriculum', required: true }],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => applicationUrl,
+    title: vi.fn(async () => 'Impiegato/a amministrativo - Candidatura | EOC candiDati'),
+    goto: vi.fn(async () => {}), evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'it', candidateLocale: 'it',
+    job: { title: 'Impiegato a amministrativo', company: 'EOC – Ente Ospedaliero Cantonale' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(result).toMatchObject({ questions: [], documents: [] });
+  expect(result.handoff).toBeUndefined();
+  expect(codex).toHaveBeenCalledOnce();
+  expect(browser.close).toHaveBeenCalledOnce();
 });
 
 it('batches mounted later-step ATS questions in one read-only pre-read', async () => {

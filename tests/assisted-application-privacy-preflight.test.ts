@@ -118,7 +118,7 @@ async function runRegistration(fixture: ReturnType<typeof fakePage>, { account =
   const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
   const result = await submitViaPortal({
     applyUrl: page.url(), job: { title: 'Synthetische Rolle', company: 'Beispiel AG' }, language: 'de', candidateLocale: 'de',
-    candidate: { identity: { email: 'candidate@example.test' }, profile: {} }, files: {}, skipPostingCheck: true, maxSteps: 1,
+    candidate: { identity: { email: 'candidate@example.test', address: { country: 'CH' } }, profile: {} }, files: {}, skipPostingCheck: true, maxSteps: 1,
     codex: async () => ({ actions: [], missingRequired: [] }), launch: async () => browser,
     accounts: {
       load: async () => account,

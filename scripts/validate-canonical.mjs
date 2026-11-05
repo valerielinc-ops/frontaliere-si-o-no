@@ -70,6 +70,18 @@ function findHtmlFile(url) {
   return null;
 }
 
+function readSameOriginCanonicalHtml(url, canonical) {
+  try {
+    const source = new URL(url);
+    const target = new URL(canonical, source);
+    if (target.origin !== source.origin) return '';
+    const htmlFile = findHtmlFile(target.href);
+    return htmlFile ? fs.readFileSync(htmlFile, 'utf-8') : '';
+  } catch {
+    return '';
+  }
+}
+
 // Extract canonical URL from HTML content.
 // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
 function extractCanonical(content) {
@@ -153,7 +165,12 @@ for (const url of sitemapUrls) {
       }
       // Check if this is legitimate job-section canonical consolidation
       // (previousSlugs, locale variants, dedup suffix changes)
-      if (isLegitJobCanonicalConsolidation(url, canonical)) {
+      if (isLegitJobCanonicalConsolidation(
+        url,
+        canonical,
+        fullContent,
+        readSameOriginCanonicalHtml(url, canonical),
+      )) {
         bridgeSkipped++;
       } else {
         errors.push({

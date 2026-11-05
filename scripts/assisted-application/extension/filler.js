@@ -33,7 +33,7 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?(?:application|applying)\b|many thanks for (your )?(?:application|applying)\b|thanks for applying|application (has been )?(received|submitted|sent)|we have received your application\b|you have successfully applied|vielen dank für (ihre|deine) bewerbung|wir haben (ihre|deine) unterlagen erhalten|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (?:(?:la tua|la sua) candidatura\b|aver inviato (?:(?:la|la tua|la sua) )?candidatura\b|esserti candidat[oa]\b)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|abbiamo ricevuto (?:la )?(?:tua|sua|vostra) candidatura\b|(?:la|l['’])\s*(?:tua|sua|vostra) candidatura (?:è stata )?(?:correttamente )?(?:inoltrata|ricevuta|inviata)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isApplicationDataProcessingConsent, minimumDataRetentionOption, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
@@ -1062,6 +1062,43 @@
     return Array.isArray(entry.options) ? entry.options : [];
   }
 
+  function salutationKind(value) {
+    const text = normalize(value).replace(/\.$/, '');
+    if (/^(?:signor(?:e)?|monsieur|herr|mr|mister)$/.test(text)) return 'm';
+    if (/^(?:signora|madame|frau|mrs?|miss|ms)$/.test(text)) return 'f';
+    return '';
+  }
+
+  function inferredSalutationAnswer(entry, kit) {
+    const value = String(kit.profile?.formOfAddress || '').trim();
+    const target = salutationKind(value);
+    if (!target) return null;
+    const options = choiceOptions(entry);
+    if (!options.length) return null;
+    const label = normalize((entry.labels || [entry.label]).join(' '));
+    const kinds = new Set(options.map(option => salutationKind(option.label)).filter(Boolean));
+    const salutationField = /\b(?:salutation|form of address|anrede|civilite|appellativo|titolo)\b/.test(label)
+      || kinds.has('m') && kinds.has('f');
+    if (!salutationField) return null;
+    const matches = options.filter(option => salutationKind(option.label) === target);
+    return matches.length === 1 ? { value: matches[0].label, family: 'formOfAddress' } : null;
+  }
+
+  function minimumRetentionAnswer(entry) {
+    const options = choiceOptions(entry);
+    if (!options.length || typeof minimumDataRetentionOption !== 'function') return null;
+    const context = normalize((entry.labels || [entry.label]).join(' '));
+    if (!/\b(?:data|dati|daten|donnees)\b/.test(context)
+      || !/\b(?:retain|retention|stor\w*|memoriz\w*|conserv\w*|elimin\w*|cancell\w*|delet\w*|aufbewahr\w*|speicher\w*)\b/.test(context)) return null;
+    const selected = minimumDataRetentionOption(options.map(option => ({
+      label: option.label,
+      value: option.value ?? option.element?.value ?? option.label,
+    })), context);
+    if (!selected) return null;
+    const matches = options.filter(option => normalize(option.label) === normalize(selected));
+    return matches.length === 1 ? { value: matches[0].label, family: 'minimumDataRetention' } : null;
+  }
+
   function latestPositionAnswer(entry, kit) {
     const label = normalize((entry.labels || [entry.label]).join(' '));
     if (!LAST_POSITION_RE.test(label) || !POSITION_WORD_RE.test(label)) return null;
@@ -1314,9 +1351,21 @@
         && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, privacyMetadata, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
       const privacyReviewShape = typeof privacyReviewAcknowledgmentShape === 'function'
         && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
-      // Only the required acceptance of the portal's terms: never a newsletter or a talent pool.
-      return (entry.required || privacyReviewAck) && (privacyReviewAck || (CONSENT_RE.test(label) && !privacyReviewShape)) && typeof hasConsentContradiction === 'function' && !hasConsentContradiction([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
+      const applicationDataProcessingConsent = typeof isApplicationDataProcessingConsent === 'function'
+        && isApplicationDataProcessingConsent([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
+          privacyMetadata, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels);
+      // The owner's default accepts only this application's personal-data
+      // processing; optional marketing, talent-pool and unrelated purposes stay off.
+      return (entry.required || privacyReviewAck || applicationDataProcessingConsent)
+        && (privacyReviewAck || applicationDataProcessingConsent || (CONSENT_RE.test(label) && !privacyReviewShape))
+        && typeof hasConsentContradiction === 'function' && !hasConsentContradiction([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
         privacyMetadata, ...privacyIdentifiers) ? { check: true } : null;
+    }
+    if (!fromKit) {
+      const salutation = inferredSalutationAnswer(entry, kit);
+      if (salutation) return salutation;
+      const retention = minimumRetentionAnswer(entry);
+      if (retention) return retention;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     // Contact facts are canonical identity data, not answers copied from the

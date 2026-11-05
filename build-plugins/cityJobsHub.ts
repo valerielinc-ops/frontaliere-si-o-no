@@ -16,7 +16,11 @@ import type { JobBoardLocale } from './jobBoardSeoPure';
 import { buildCityHubTitle } from '../services/seo/job-board-titles';
 import { buildCityHubMeta } from '../services/seo/meta-descriptions';
 import { getCantonCities, normalizeCitySlug, getCityCanton } from './shared/cantonCities';
-import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import {
+  SECTION_LEGACY_TI,
+  isKnownCityHubSlug as isKnownCityHubSlugFromResolver,
+  TI_LEGACY_CITY_HUB_SLUGS,
+} from './shared/cantonSection';
 
 /**
  * P1.3 (Phase 2, 2026-05-11) — `CityHubKey` lifted from a 5-TI-city literal
@@ -37,12 +41,7 @@ export type CityHubKey = string;
  * and a job detail slug.
  */
 export function isKnownCityHub(citySlug: string, canton?: string): boolean {
-  const normalized = String(citySlug || '').toLowerCase().trim();
-  if (!normalized) return false;
-  const inferredCanton = canton ? canton.toUpperCase() : getCityCanton(normalized);
-  if (!inferredCanton) return false;
-  const cities = getCantonCities(inferredCanton);
-  return cities.some((c) => normalizeCitySlug(c) === normalized);
+  return isKnownCityHubSlugFromResolver(citySlug, canton);
 }
 
 /** Display label for a city slug. Lookup is canton-scoped when canton is provided. */
@@ -66,13 +65,7 @@ export function cityHubSlug(city: string, _locale: JobBoardLocale): string {
  * iterate this constant; everything else should iterate
  * `getCantonCities(canton).map(normalizeCitySlug)`.
  */
-export const TI_LEGACY_CITY_HUB_KEYS: readonly string[] = [
-  'lugano',
-  'mendrisio',
-  'bellinzona',
-  'locarno',
-  'chiasso',
-] as const;
+export const TI_LEGACY_CITY_HUB_KEYS: readonly string[] = TI_LEGACY_CITY_HUB_SLUGS;
 
 /**
  * @deprecated Use {@link TI_LEGACY_CITY_HUB_KEYS} when targeting the 5 TI
