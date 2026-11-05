@@ -1826,7 +1826,7 @@ export function guardPlan(plan, fields, candidate = null) {
       continue;
     }
     const plannedPrivacyCheckboxAction = ['fill', 'select'].includes(action.action)
-      ? privacyCheckboxAction(field, action.value) : null;
+      ? candidateCheckboxAction(field, action.value) : null;
     if (plannedPrivacyCheckboxAction) action = { ...action, action: plannedPrivacyCheckboxAction };
     if (['check', 'uncheck'].includes(action.action) && operationalQuestionTopic(field)) {
       const known = candidateAnswerForField(candidate, field);
@@ -1846,7 +1846,7 @@ export function guardPlan(plan, fields, candidate = null) {
         continue;
       }
       const knownHasValue = known && known.value !== undefined && known.value !== null && String(known.value).trim();
-      if (knownHasValue) action = { ...action, action: privacyCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: known.value, source: known.source, evidence: '' };
+      if (knownHasValue) action = { ...action, action: candidateCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: known.value, source: known.source, evidence: '' };
     }
     if (action.action === 'fill' && isDateField(field)) {
       const normalized = normalizeDateAnswer(field, action.value);
