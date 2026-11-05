@@ -298,6 +298,13 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       pageUrl: 'https://jobs.stadt-zuerich.ch/posting',
       postingUrl: 'https://jobs.stadt-zuerich.ch/posting',
     })).toBe('mismatch');
+    expect(formPostingMatch('Grand Hotel — Other Resort', {
+      title: 'Concierge',
+      company: 'Grand Hotel',
+    }, {
+      pageUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      postingUrl: 'https://jobs.stadt-zuerich.ch/posting',
+    })).toBe('mismatch');
   });
 
   it('keeps ALTEN posting provenance when the apply link has a trailing slash and query', () => {

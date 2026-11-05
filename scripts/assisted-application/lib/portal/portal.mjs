@@ -1914,6 +1914,20 @@ export function namesAnotherEmployer(formText, job = {}) {
   return false;
 }
 
+// The exact Stadt Zürich detail shell can put its tenant marker and the
+// posting URL in the form text. They are route evidence, not a second
+// employer; remove only those proven shell tokens before the conflict guard.
+function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = '' } = {}) {
+  const text = String(formText || '');
+  const firstLine = text.split(/\r?\n/, 1)[0];
+  if (!isStadtZurichPostingRoute({ pageUrl, postingUrl })
+    || !/\bSTZH\b/iu.test(firstLine)
+    || !titleMatches(firstLine, job?.title)) return text;
+  const routeEvidence = [pageUrl, postingUrl].map(value => String(value || '')).filter(Boolean);
+  return routeEvidence.reduce((current, value) => current.split(value).join(' '), text)
+    .replace(/\b(?:Stellendetails|STZH)\b/giu, ' ');
+}
+
 /**
  * The form the posting's own apply button opened. An ATS on another host
  * often names the role and never the company (umantis for Grand Hotel
@@ -1942,7 +1956,7 @@ export function formPostingMatch(formText, job = {}, {
   // Do not apply this to another page on the same host: route identity must be
   // exact, and an apply route still goes through the employer-conflict guard.
   if (bound && samePostingAddress(pageUrl, postingUrl)) {
-    if (postingMatched && namesAnotherEmployer(formText, job)) return 'mismatch';
+    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl }), job)) return 'mismatch';
     return 'match';
   }
   if (direct !== 'mismatch' || !postingMatched) return direct;
