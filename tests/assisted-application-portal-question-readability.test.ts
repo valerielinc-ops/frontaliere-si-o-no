@@ -671,6 +671,69 @@ it('binds the native Umantis applicant address when applyUrl is the direct posti
   expect(browser.close).toHaveBeenCalledOnce();
 });
 
+it('asks only for the missing EOC residence street and permit after resolving known profile facts', async () => {
+  const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4';
+  const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Application/New/4';
+  const processingConsent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell’EOC. Acconsento che i miei dati personali vengano trattati e conservati in conformità con tale Dichiarazione e con le normative vigenti in materia di protezione dei dati in Svizzera.';
+  const retentionQuestion = 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?';
+  const retentionOptions = [
+    'Do il mio consenso affinché i miei dati vengano memorizzati anche successivamente a una concreta richiesta di occupazione e dopo essere stato informato di offerte di lavoro interessanti.',
+    'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.',
+  ];
+  const snapshot = {
+    url: applicationUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Assistente sociale (80–100%) - Candidatura EOC',
+    fields: [
+      { id: 'first-name', kind: 'text', inputType: 'text', label: 'Nome', form: 0, required: true },
+      { id: 'last-name', kind: 'text', inputType: 'text', label: 'Cognome', form: 0, required: true },
+      { id: 'email', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', form: 0, required: true },
+      { id: 'phone', kind: 'text', inputType: 'tel', label: 'Telefono', form: 0, required: true },
+      { id: 'street', kind: 'textarea', inputType: 'textarea', label: 'Via', form: 0, required: true },
+      { id: 'postal', kind: 'text', inputType: 'text', label: 'NAP', form: 0, required: true },
+      { id: 'city', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true },
+      { id: 'country', kind: 'select', inputType: 'select', label: 'Paese', form: 0, required: true,
+        options: ['Selezionare', 'Svizzera', 'Italia'] },
+      { id: 'nationality', kind: 'select', inputType: 'select', label: 'Nazionalità', form: 0, required: true,
+        options: ['Selezionare', 'Italia', 'Svizzera'] },
+      { id: 'salutation', kind: 'select', inputType: 'select', label: 'Appellativo', form: 0, required: true,
+        options: ['Signora', 'Signor'] },
+      { id: 'birth-date', kind: 'text', inputType: 'text', autocomplete: 'bday', label: 'Data di nascita', form: 0, required: true },
+      { id: 'residence-status', kind: 'radio', inputType: 'radio', label: 'Statuto di soggiorno', form: 0, required: true,
+        options: permitOptions('it') },
+      { id: 'privacy', kind: 'checkbox', inputType: 'checkbox', label: processingConsent, form: 0, required: true },
+      { id: 'retention', kind: 'select', inputType: 'select', label: retentionQuestion, form: 0, required: true,
+        options: retentionOptions },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => applicationUrl,
+    title: vi.fn(async () => 'Assistente sociale (80–100%) - Candidatura | EOC candiDati'),
+    goto: vi.fn(async () => {}), evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+  const address = { street: '', postalCode: '6830', city: 'Lugano', country: 'Svizzera' };
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'it', candidateLocale: 'it',
+    job: { title: 'Assistente sociale (80-100%)', company: 'EOC – Ente Ospedaliero Cantonale' },
+    candidate: {
+      identity: { name: 'Mario Rossi', firstName: 'Mario', lastName: 'Rossi', email: 'candidate@example.invalid', phone: '+41791234567', address },
+      profile: { dateOfBirth: '1990-05-12', nationality: 'Italia', location: 'Lugano', address },
+      answers: { salutation: 'Signor' },
+    },
+    codex, launch: async () => browser,
+  });
+
+  expect(result.handoff).toBeUndefined();
+  expect(result.unreadableFields).toBeUndefined();
+  expect(result.questions.map((question) => question.id)).toEqual(['portal_residence_address', 'work_permit']);
+  expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Via', 'Statuto di soggiorno']);
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('batches mounted later-step ATS questions in one read-only pre-read', async () => {
   const url = 'https://jobs.lever.co/example/1/apply';
   const visible = {
