@@ -25,6 +25,7 @@ describe('verified posting script entry (#17253)', () => {
     ['application fields', { ...snapshot, fields: [{ inputType: 'email' }] }, context],
     ['unknown fields', { url, buttons }, context],
     ['form-owned CTA', { ...snapshot, buttons: [{ text: 'Jetzt bewerben', formId: 'application' }] }, context],
+    ['conflicting posting identity', { ...snapshot, buttons: [{ text: 'Jetzt bewerben', postingId: 'other' }] }, context],
     ['multiple CTAs', { ...snapshot, buttons: [...buttons, { text: 'Apply now' }] }, context],
     ['frame CTA', { ...snapshot, buttons: [{ text: 'Jetzt bewerben', frame: 1 }] }, context],
     ['disabled CTA', { ...snapshot, buttons: [{ text: 'Jetzt bewerben', disabled: true }] }, context],

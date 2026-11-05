@@ -1172,7 +1172,8 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const current = comparablePortalRoute(snapshot.url);
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && !control?.href && !control?.formId && (control.frame || 0) === 0
-    && startsApplication(control?.text || control?.label));
+    && startsApplication(control?.text || control?.label)
+    && controlPostingIdentity(control) === '');
   const allEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label));
   if (posting && current && current.origin === posting.origin
