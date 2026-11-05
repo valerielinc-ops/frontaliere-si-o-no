@@ -347,4 +347,81 @@ describe('getServerRemoteConfigValue — private namespace isolation', () => {
       .rejects.toThrow('private template unavailable');
     expect(clientCalls).toBe(0);
   });
+
+  it('fails closed when a private server-template refresh times out beyond the stale limit', async () => {
+    let serverCalls = 0;
+    let clientCalls = 0;
+    const hangingFetch = new Promise(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    vi.doMock('firebase-admin/remote-config', () => ({
+      getRemoteConfig: () => ({
+        getTemplate: async () => {
+          clientCalls += 1;
+          return { parameters: { SERVER_META_CAPI_ACCESS_TOKEN: { defaultValue: { value: 'client-copy' } } } };
+        },
+        getServerTemplate: () => {
+          serverCalls += 1;
+          if (serverCalls === 1) {
+            return Promise.resolve({
+              evaluate: () => ({ getString: () => 'revoked-private-token' }),
+            });
+          }
+          return hangingFetch;
+        },
+      }),
+    }));
+
+    const { getServerRemoteConfigValue } = await import('../../functions/src/remoteConfigSecrets.js');
+
+    await expect(getServerRemoteConfigValue('SERVER_META_CAPI_ACCESS_TOKEN'))
+      .resolves.toBe('revoked-private-token');
+    vi.advanceTimersByTime(CACHE_MAX_STALE_MS + 1);
+
+    const staleRead = getServerRemoteConfigValue('SERVER_META_CAPI_ACCESS_TOKEN');
+    const staleReadError = expect(staleRead).rejects.toThrow(/maximum stale age/i);
+    await vi.advanceTimersByTimeAsync(REMOTE_CONFIG_FETCH_TIMEOUT_MS);
+    await staleReadError;
+
+    expect(serverCalls).toBe(2);
+    expect(clientCalls).toBe(0);
+  });
+});
+
+describe('bridgeEmailCascadeCredentialsToEnv — provider isolation', () => {
+  beforeEach(() => {
+    vi.resetModules();
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-01-01T00:00:00.000Z'));
+    vi.stubEnv('MAILJET_API_KEY', '');
+    vi.stubEnv('MAILEROO_API_KEY', '');
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllEnvs();
+    vi.restoreAllMocks();
+  });
+
+  it('skips an unavailable private Maileroo template without disabling client-backed providers or falling back to its client alias', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.doMock('firebase-admin/remote-config', () => ({
+      getRemoteConfig: () => ({
+        getTemplate: async () => ({
+          parameters: {
+            MAILJET_API_KEY: { defaultValue: { value: 'client-mailjet-key' } },
+            MAILEROO_API_KEY: { defaultValue: { value: 'client-visible-maileroo-key' } },
+          },
+        }),
+        getServerTemplate: async () => { throw new Error('private template unavailable'); },
+      }),
+    }));
+
+    const { bridgeEmailCascadeCredentialsToEnv } = await import('../../functions/src/remoteConfigSecrets.js');
+
+    await expect(bridgeEmailCascadeCredentialsToEnv()).resolves.toBeUndefined();
+    expect(process.env.MAILJET_API_KEY).toBe('client-mailjet-key');
+    expect(process.env.MAILEROO_API_KEY).toBe('');
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('SERVER_MAILEROO_API_KEY is unavailable'));
+  });
 });

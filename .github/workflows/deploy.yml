@@ -675,6 +675,10 @@ jobs:
           test -f scripts/load-rc-env.mjs
           node scripts/load-rc-env.mjs
 
+      - name: Load private R2 publishing credentials
+        if: matrix.locale == 'it' && vars.CDN_TARGET == 'r2'
+        run: node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY --require-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+
       # The employer-profile ad experiment is consumed by the static
       # generator, so freeze its build input after Remote Config hydration and
       # before the `npm run build:ci` SSG step below. Unknown/missing values

@@ -22,11 +22,19 @@
  *  deployed `stripeWebhook` function.)
  */
 
-import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+import { readFirebaseServiceAccountCredentials } from './lib/firebase-service-account-credentials.mjs';
+import {
+  RC_SERVER_NAMESPACE,
+  getRemoteConfig,
+  fetchRcTemplate,
+  stageRcParam,
+  publishRcTemplate,
+  setRcParamsWithEtag,
+} from './lib/remote-config-admin.mjs';
 
 const PROVIDER_KEYS = [
   {
-    rcParam: 'STRIPE_SECRET_KEY',
+    rcParam: 'SERVER_STRIPE_SECRET_KEY',
     envVar: 'STRIPE_SECRET_KEY',
     shapeHint: /^sk_(test|live)_[A-Za-z0-9]+$/,
     description: 'Stripe secret key (publisher checkout + webhook)',
@@ -62,7 +70,7 @@ const PROVIDER_KEYS = [
     description: 'CHF 99 one-time Price for the /consulenza/ premium (60min) session',
   },
   {
-    rcParam: 'STRIPE_WEBHOOK_SECRET',
+    rcParam: 'SERVER_STRIPE_WEBHOOK_SECRET',
     envVar: 'STRIPE_WEBHOOK_SECRET',
     shapeHint: /^whsec_[A-Za-z0-9]+$/,
     description: 'Stripe webhook signing secret (stripeWebhook signature verification)',
@@ -93,28 +101,39 @@ async function main() {
     }
   }
 
-  const rc = await getRemoteConfig();
-  const template = await fetchRcTemplate(rc);
-
   const today = new Date().toISOString().slice(0, 10);
-  let changed = 0;
-  for (const p of pending) {
-    if (stageRcParam(template, p.rcParam, p.value, `${p.description} (set ${today})`)) {
-      changed++;
-      console.log(`📝 Staged ${p.rcParam} for publish.`);
-    } else {
-      console.log(`ℹ️  ${p.rcParam} already up-to-date.`);
+  const privateValues = pending.filter((p) => p.rcParam.startsWith('SERVER_'));
+  const publicValues = pending.filter((p) => !p.rcParam.startsWith('SERVER_'));
+
+  if (privateValues.length) {
+    const credentials = readFirebaseServiceAccountCredentials(process.env, {
+      purpose: 'write Stripe credentials to private Remote Config',
+    });
+    if (!credentials?.project_id) bail('Firebase service-account credentials missing.');
+    const result = await setRcParamsWithEtag({
+      credentials,
+      namespace: RC_SERVER_NAMESPACE,
+      params: privateValues.map((p) => ({
+        name: p.rcParam,
+        value: p.value,
+        description: `${p.description} (set ${today})`,
+      })),
+      versionDescription: 'Set private Stripe credentials',
+    });
+    if (!result.ok) bail(`Private Stripe Remote Config write failed: ${result.detail || 'unknown error'}`);
+  }
+
+  let publicChanged = 0;
+  if (publicValues.length) {
+    const rc = await getRemoteConfig();
+    const template = await fetchRcTemplate(rc);
+    for (const p of publicValues) {
+      if (stageRcParam(template, p.rcParam, p.value, `${p.description} (set ${today})`)) publicChanged++;
     }
+    if (publicChanged) await publishRcTemplate(rc, template, publicChanged);
   }
 
-  if (changed === 0) {
-    console.log('ℹ️  Nothing to publish — every value matches RC already.');
-    return;
-  }
-
-  await publishRcTemplate(rc, template, changed);
-  console.log(`✅ Published ${changed} Stripe value(s) to Remote Config.`);
-  console.log('   The publisher Cloud Functions read these via getRemoteConfigValue().');
+  console.log(`✅ Private Stripe credentials ${privateValues.length ? 'updated or already current' : 'unchanged'}; public price IDs ${publicChanged ? 'updated' : 'already current or not supplied'}.`);
 }
 
 main().catch((err) => {

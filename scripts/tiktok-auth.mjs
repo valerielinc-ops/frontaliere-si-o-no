@@ -44,7 +44,7 @@
  *   node scripts/tiktok-auth.mjs                 # sandbox app, full flow
  *   node scripts/tiktok-auth.mjs --prod           # production app
  *   node scripts/tiktok-auth.mjs --url-only        # just print the consent URL
- *   node scripts/tiktok-auth.mjs --scope=user.info.basic,video.list
+ *   node scripts/tiktok-auth.mjs --scope=user.info.basic,user.info.profile,user.info.stats,video.list
  *
  * Required env (from Remote Config via `source bin/rc-env.sh` at the
  * workspace root, or `node scripts/load-rc-env.mjs` from this repo):
@@ -85,10 +85,12 @@ const CLIENT_SECRET = isProd
 // This helper grants only the read scopes used by the native Insights
 // collector. Explicitly reject video.publish and unknown scopes so the auth
 // helper cannot silently restore a publishing token to Remote Config.
-const READ_ONLY_SCOPES = new Set(['user.info.basic', 'video.list']);
-const SCOPE = scopeArg ? scopeArg.split('=')[1] : 'user.info.basic,video.list';
+const READ_ONLY_SCOPES = new Set(['user.info.basic', 'user.info.profile', 'user.info.stats', 'video.list']);
+const SCOPE = scopeArg ? scopeArg.split('=')[1] : 'user.info.basic,user.info.profile,user.info.stats,video.list';
 const REQUESTED_SCOPES = SCOPE.split(',').map((scope) => scope.trim()).filter(Boolean);
 const INVALID_SCOPES = REQUESTED_SCOPES.filter((scope) => !READ_ONLY_SCOPES.has(scope));
+const MISSING_IDENTITY_SCOPES = ['user.info.basic', 'user.info.profile'].filter((scope) => !REQUESTED_SCOPES.includes(scope));
+const EXPECTED_USERNAME = String(process.env.TIKTOK_USERNAME || '').trim().replace(/^@/u, '').toLowerCase();
 
 // Trailing-slash path REQUIRED: TikTok's own Login Kit Desktop doc
 // (developers.tiktok.com/docs/en/login-kit-desktop) lists valid examples as
@@ -101,7 +103,14 @@ const INVALID_SCOPES = REQUESTED_SCOPES.filter((scope) => !READ_ONLY_SCOPES.has(
 // config (Manage apps → app → Sandbox → Products → Login Kit → Desktop tab)
 // MUST equal this string byte-for-byte, trailing slash included.
 const REDIRECT_URI = process.env.TIKTOK_AUTH_REDIRECT_URI || 'http://localhost:8083/callback/';
-const PORT = Number(new URL(REDIRECT_URI).port || 8083);
+const redirectUrl = new URL(REDIRECT_URI);
+if (redirectUrl.protocol !== 'http:') throw new Error('TikTok OAuth callback must use HTTP loopback');
+const PORT = Number(redirectUrl.port || 8083);
+const LISTEN_HOST = ['localhost', '127.0.0.1'].includes(redirectUrl.hostname.toLowerCase())
+  ? '127.0.0.1'
+  : redirectUrl.hostname === '[::1]'
+    ? '::1'
+    : (() => { throw new Error('TikTok OAuth callback must use a loopback redirect URI'); })();
 
 const AUTH_ENDPOINT = 'https://www.tiktok.com/v2/auth/authorize/';
 // The API host comes from the shared publish layer rather than a third literal
@@ -156,11 +165,31 @@ async function exchangeCode(code, codeVerifier) {
   return data;
 }
 
+async function resolveTikTokIdentity(accessToken) {
+  const url = new URL(`${TIKTOK_API}/user/info/`);
+  url.searchParams.set('fields', 'open_id,username,display_name');
+  const response = await fetch(url.toString(), {
+    headers: { Authorization: `Bearer ${accessToken}`, Accept: 'application/json' },
+  });
+  const payload = await response.json().catch(() => ({}));
+  const errorCode = String(payload?.error?.code ?? '').toLowerCase();
+  const user = payload?.data?.user;
+  if (!response.ok || (errorCode && errorCode !== 'ok' && errorCode !== '0')
+    || typeof user?.open_id !== 'string' || !user.open_id.trim()
+    || typeof user?.username !== 'string' || !user.username.trim()) {
+    throw new Error('TikTok did not return a verifiable authorized account identity');
+  }
+  return user;
+}
+
 async function main() {
   if (INVALID_SCOPES.length || REQUESTED_SCOPES.length === 0) {
     console.error(`Unsupported TikTok auth scope(s): ${INVALID_SCOPES.join(', ') || '(empty)'}`);
     console.error(`Allowed read-only scopes: ${[...READ_ONLY_SCOPES].join(', ')}`);
     process.exit(1);
+  }
+  if (MISSING_IDENTITY_SCOPES.length) {
+    throw new Error(`TikTok account verification requires ${MISSING_IDENTITY_SCOPES.join(', ')}`);
   }
 
   if (!CLIENT_KEY) {
@@ -169,6 +198,9 @@ async function main() {
     );
     console.error('    Run `source bin/rc-env.sh` from the workspace root first.');
     process.exit(1);
+  }
+  if (!urlOnly && !EXPECTED_USERNAME) {
+    throw new Error('TIKTOK_USERNAME must identify the target TikTok account before OAuth can start');
   }
 
   const platform = isProd ? 'tiktok-production' : 'tiktok-sandbox';
@@ -243,13 +275,17 @@ async function main() {
       server.close();
       resolve(got);
     });
-    server.listen(PORT, () => console.log(`⏳ waiting for the callback on port ${PORT}…`));
+    server.listen(PORT, LISTEN_HOST, () => console.log(`⏳ waiting for the callback on ${LISTEN_HOST}:${PORT}…`));
     server.on('error', reject);
   });
 
   // TikTok's docs note the code should be URL-decoded before exchange;
   // URLSearchParams.get() above already decodes it.
   const tokens = await exchangeCode(code, codeVerifier);
+  const identity = await resolveTikTokIdentity(tokens.access_token);
+  if (identity.username.trim().replace(/^@/u, '').toLowerCase() !== EXPECTED_USERNAME) {
+    throw new Error('TikTok consent account does not match configured TIKTOK_USERNAME; existing private credentials were retained');
+  }
   const expiresIn = Number(tokens.expires_in);
   if (!Number.isFinite(expiresIn) || expiresIn <= 0) {
     throw new Error('TikTok did not return a verifiable access-token lifetime');
@@ -258,6 +294,7 @@ async function main() {
   const parameters = {
     [prefix + 'ACCESS_TOKEN']: tokens.access_token,
     [prefix + 'ACCESS_TOKEN_EXPIRES_AT']: new Date(Date.now() + expiresIn * 1000).toISOString(),
+    [prefix + 'OPEN_ID']: identity.open_id,
   };
   const removeParameters = [];
   if (tokens.refresh_token) {
@@ -297,6 +334,7 @@ async function main() {
     );
   }
   console.log(`scope granted: ${tokens.scope || SCOPE}`);
+  console.log('consented TikTok account matched the configured username.');
 }
 
 main().catch((err) => {

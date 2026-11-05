@@ -108,7 +108,9 @@ jobs:
 
       - name: Load secrets from Remote Config (GA4 + GSC tokens)
         continue-on-error: true
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=GSC_CLIENT_SECRET,GSC_REFRESH_TOKEN
 
       - name: Run user-value canary
         id: canary

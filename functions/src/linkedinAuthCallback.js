@@ -16,7 +16,7 @@
 import { getAuth } from 'firebase-admin/auth';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { ensureAdminApp } from './newsletterResendWebhookCore.js';
-import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { getRemoteConfigValue, getServerRemoteConfigValue } from './remoteConfigSecrets.js';
 import { buildSignupAttributionFields, sanitizeSignupPath } from './lib/signupAttribution.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { isAddressSuppressed } from './lib/emailSuppression.js';
@@ -304,7 +304,7 @@ export async function handleLinkedInCallback({ code, redirectUri, attribution = 
 
  const [clientId, clientSecret] = await Promise.all([
  getRemoteConfigValue('LINKEDIN_SIGNIN_CLIENT_ID'),
- getRemoteConfigValue('LINKEDIN_SIGNIN_CLIENT_SECRET'),
+ getServerRemoteConfigValue('SERVER_LINKEDIN_SIGNIN_CLIENT_SECRET'),
  ]);
 
  if (!clientId || !clientSecret) {

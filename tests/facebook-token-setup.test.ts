@@ -21,6 +21,12 @@ function graphFixture({ scopes = ['pages_show_list', 'pages_manage_posts', 'page
     const url = new URL(String(input));
     requests.push({ url, options });
     if (url.pathname.endsWith('/oauth/access_token')) {
+      expect(url.searchParams.size).toBe(0);
+      expect(options.method).toBe('POST');
+      expect(options.body).toBeInstanceOf(URLSearchParams);
+      const body = options.body as URLSearchParams;
+      expect(body.get('client_secret')).toBe('app-secret-fixture');
+      expect(body.get('fb_exchange_token')).toBe('short-user-token-fixture');
       return response({ access_token: 'long-user-token-fixture', expires_in: 5184000 });
     }
     if (url.pathname.endsWith('/debug_token')) {
@@ -54,6 +60,14 @@ describe('Facebook token setup', () => {
     let published: Record<string, any> | null = null;
     let updateNamespace = '';
     let removedClientKeys: string[] = [];
+    const clientParameters: Record<string, unknown> = {
+      FB_USER_ACCESS_TOKEN: { defaultValue: { value: 'legacy-user-token' } },
+      FB_USER_ACCESS_TOKEN_EXPIRES_AT: { defaultValue: { value: 'legacy-expiry' } },
+      FB_PAGE_ACCESS_TOKEN: { defaultValue: { value: 'legacy-page-token' } },
+      FB_PAGE_ACCESS_TOKEN_EXPIRES_AT: { defaultValue: { value: 'legacy-expiry' } },
+      INSTAGRAM_ACCESS_TOKEN: { defaultValue: { value: 'legacy-instagram-token' } },
+      INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT: { defaultValue: { value: 'legacy-expiry' } },
+    };
     const updateConfig = async ({ stage, namespace }: { stage: (template: any) => any; namespace: string }) => {
       const staged = stage({
         parameters: { INSTAGRAM_BUSINESS_ACCOUNT_ID: { defaultValue: { value: 'ig-fixture' } } },
@@ -66,6 +80,7 @@ describe('Facebook token setup', () => {
     const removeClientConfig = async ({ names, namespace }: { names: string[]; namespace: string }) => {
       expect(namespace).toBe('firebase');
       removedClientKeys = names;
+      for (const name of names) delete clientParameters[name];
       return { ok: true, changed: true };
     };
     const result = await provisionFacebookPageCredentials({
@@ -92,6 +107,12 @@ describe('Facebook token setup', () => {
     expect(JSON.stringify(result)).not.toContain('page-token-fixture');
     expect(updateNamespace).toBe('firebase-server');
     expect(removedClientKeys).toEqual([
+      'FB_USER_ACCESS_TOKEN',
+      'FB_USER_ACCESS_TOKEN_EXPIRES_AT',
+      'FB_PAGE_ACCESS_TOKEN',
+      'FB_PAGE_ACCESS_TOKEN_EXPIRES_AT',
+      'INSTAGRAM_ACCESS_TOKEN',
+      'INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT',
       'SERVER_FB_USER_ACCESS_TOKEN',
       'SERVER_FB_USER_ACCESS_TOKEN_EXPIRES_AT',
       'SERVER_FB_PAGE_ACCESS_TOKEN',
@@ -99,6 +120,7 @@ describe('Facebook token setup', () => {
       'SERVER_INSTAGRAM_ACCESS_TOKEN',
       'SERVER_INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT',
     ]);
+    expect(clientParameters).toEqual({});
     expect(published).toMatchObject({
       FB_PAGE_ID: { defaultValue: { value: 'page-fixture' } },
       SERVER_FB_USER_ACCESS_TOKEN: { defaultValue: { value: 'long-user-token-fixture' } },

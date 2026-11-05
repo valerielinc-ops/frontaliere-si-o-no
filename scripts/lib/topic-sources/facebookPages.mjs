@@ -14,6 +14,7 @@
 // `{ ok: false, candidates: [], reason }`.
 
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
+import { redactAccessTokenText } from '../redact-access-token.mjs';
 
 // Public page usernames — Graph API resolves these to numeric IDs. We do NOT
 // hardcode numeric IDs because they were not findable in this repo within
@@ -40,17 +41,20 @@ const MAX_MESSAGE_PREFIX = 80;
 
 const REQUEST_TIMEOUT_MS = 15000;
 
-async function fetchJson(url, fetchImpl) {
+async function fetchJson(url, fetchImpl, token) {
   const f = fetchImpl ?? globalThis.fetch;
   const ac = new AbortController();
   const t = setTimeout(() => ac.abort(), REQUEST_TIMEOUT_MS);
   if (t && typeof t.unref === 'function') t.unref();
   try {
-    const res = await f(url, { signal: ac.signal });
+    const res = await f(url, {
+      signal: ac.signal,
+      headers: { Authorization: `Bearer ${token}` },
+    });
     if (!res.ok) {
       const txt = await res.text().catch(() => '');
       const e = new Error(
-        `facebook ${res.status}${txt ? ` ${txt.slice(0, 120)}` : ''}`,
+        `facebook ${res.status}${txt ? ` ${redactAccessTokenText(txt, token).slice(0, 120)}` : ''}`,
       );
       e.status = res.status;
       throw e;
@@ -150,11 +154,11 @@ export async function fetchFacebookCandidates(opts = {}) {
     const url =
       `https://graph.facebook.com/v19.0/${encodeURIComponent(ref)}/posts` +
       `?fields=message,created_time,reactions.summary(total_count),comments.summary(total_count)` +
-      `&limit=${MAX_PER_PAGE}&access_token=${encodeURIComponent(token)}`;
+      `&limit=${MAX_PER_PAGE}`;
 
     let json = null;
     try {
-      json = await fetchJson(url, fetchImpl);
+      json = await fetchJson(url, fetchImpl, token);
     } catch (e) {
       perPage[ref] = {
         ok: false,

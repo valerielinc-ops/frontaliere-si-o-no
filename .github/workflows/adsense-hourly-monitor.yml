@@ -93,7 +93,9 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config (AdSense tokens)
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=ADSENSE_CLIENT_ID,ADSENSE_CLIENT_SECRET,ADSENSE_REFRESH_TOKEN,GSC_CLIENT_SECRET
 
       - name: Store snapshot and evaluate
         id: monitor

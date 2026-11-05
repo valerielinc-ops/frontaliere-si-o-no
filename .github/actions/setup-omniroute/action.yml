@@ -56,6 +56,16 @@ runs:
       shell: bash
       run: echo "OMNIROUTE_FALLBACK_GATE=${ENABLE_OMNIROUTE_FALLBACK:-1}" >> "$GITHUB_ENV"
 
+    # Provider API keys are private Remote Config values. Keep the reader in
+    # the shared AI setup action so only workflows that opt into this AI lane
+    # receive them, and restrict the export to the two providers used by the
+    # direct fallback chain. Missing Firebase auth stays fail-soft here.
+    - name: Load private model provider credentials
+      shell: bash
+      run: >-
+        node scripts/load-rc-env.mjs --include-private-server-secrets
+        --only-private-server-env=CHUTES_API_KEY,ZAI_API_KEY
+
     # Resolves npm's real download/content-cache directory (documented
     # default ~/.npm, but read from npm's own config here instead of
     # assuming — npm config `cache` is user-overridable in .npmrc) so the

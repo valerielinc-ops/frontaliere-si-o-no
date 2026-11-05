@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
+import { normalizeServerTemplateData } from './lib/remote-config-template-data.mjs';
 
 
 /**
@@ -17,12 +18,16 @@ import { realpathSync } from 'node:fs';
  *       run: node scripts/load-rc-env.mjs
  *
  *   Jobs with least-privilege needs can request only specific mapped env vars.
- *   Social publishers must explicitly include the private server template:
+ *   Social publishers must explicitly include and allowlist private social vars:
  *
  *     node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN --include-social-secrets
  *   Mixed client-RC jobs can allowlist their private social credentials while
  *   retaining the existing client-template load:
  *     node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=LINKEDIN_POST_ACCESS_TOKEN
+ *   Other private server credentials require a separate explicit allowlist:
+ *     node scripts/load-rc-env.mjs --include-private-server-secrets --only-private-server-env=PAGESPEED_API_KEY
+ *   Writers can fail closed when selected private credentials are missing:
+ *     node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY --require-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
  *
  * ─── Local mode ──────────────────────────────────────────────────────────
  *   Prints export KEY=VALUE lines to stdout.  Use with eval:
@@ -61,6 +66,7 @@ export const SOCIAL_SERVER_SECRET_RC_KEYS = new Set([
   'SERVER_FB_PAGE_ACCESS_TOKEN_EXPIRES_AT',
   'SERVER_FB_USER_ACCESS_TOKEN',
   'SERVER_FB_USER_ACCESS_TOKEN_EXPIRES_AT',
+  'SERVER_PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN',
   'SERVER_INSTAGRAM_ACCESS_TOKEN',
   'SERVER_INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT',
   'SERVER_LINKEDIN_POST_CLIENT_SECRET',
@@ -71,6 +77,8 @@ export const SOCIAL_SERVER_SECRET_RC_KEYS = new Set([
   'SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN_EXPIRES_AT',
   'SERVER_LINKEDIN_MEMBER_REFRESH_TOKEN',
   'SERVER_LINKEDIN_MEMBER_URN',
+  'SERVER_R2_ACCESS_KEY_ID',
+  'SERVER_R2_SECRET_ACCESS_KEY',
   'SERVER_REDDIT_CLIENT_SECRET',
   'SERVER_REDDIT_PASSWORD',
   'SERVER_REDDIT_REFRESH_TOKEN',
@@ -79,15 +87,50 @@ export const SOCIAL_SERVER_SECRET_RC_KEYS = new Set([
   'SERVER_TIKTOK_CLIENT_SECRET',
   'SERVER_TIKTOK_ACCESS_TOKEN',
   'SERVER_TIKTOK_ACCESS_TOKEN_EXPIRES_AT',
+  'SERVER_TIKTOK_OPEN_ID',
   'SERVER_TIKTOK_REFRESH_TOKEN',
   'SERVER_TIKTOK_REFRESH_TOKEN_EXPIRES_AT',
   'SERVER_TIKTOK_SANDBOX_CLIENT_KEY',
   'SERVER_TIKTOK_SANDBOX_CLIENT_SECRET',
   'SERVER_TIKTOK_SANDBOX_ACCESS_TOKEN',
   'SERVER_TIKTOK_SANDBOX_ACCESS_TOKEN_EXPIRES_AT',
+  'SERVER_TIKTOK_SANDBOX_OPEN_ID',
   'SERVER_TIKTOK_SANDBOX_REFRESH_TOKEN',
   'SERVER_TIKTOK_SANDBOX_REFRESH_TOKEN_EXPIRES_AT',
 ]);
+
+// Other credentials already consumed by server-side CI and Functions. These
+// also come from firebase-server, but require their own explicit opt-in and
+// allowlist. A default client-template load must never export these values.
+export const PRIVATE_SERVER_SECRET_RC_KEYS = new Set([
+  ...SOCIAL_SERVER_SECRET_RC_KEYS,
+  'SERVER_ASSISTED_APPLICATION_RUN_KEY',
+  'SERVER_EVENT_DESCRIPTION_ARTIFACT_KEY',
+  'SERVER_PAGESPEED_API_KEY',
+  'SERVER_ADSENSE_CLIENT_ID',
+  'SERVER_ADSENSE_CLIENT_SECRET',
+  'SERVER_ADSENSE_REFRESH_TOKEN',
+  'SERVER_PIXABAY_API_KEY',
+  'SERVER_GSC_CLIENT_SECRET',
+  'SERVER_GSC_REFRESH_TOKEN',
+  'SERVER_CHUTES_API_KEY',
+  'SERVER_ZAI_API_KEY',
+  'SERVER_MAILEROO_API_KEY',
+  'SERVER_MAILEROO_TRANSACTIONAL_API_KEY',
+  'SERVER_MAILEROO_NEWSLETTER_API_KEY',
+  'SERVER_MAILEROO_WEBHOOK_SECRET',
+  'SERVER_MAILEROO_EMAIL_TESTING_API_KEY',
+  'SERVER_MAILEROO_ACCOUNT_API_KEY',
+  'SERVER_OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN',
+  'SERVER_OPENTRANSPORTDATA_ASTRA_LSA_TOKEN',
+  'SERVER_OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN',
+  'SERVER_OMNIROUTE_PROVIDERS_JSON',
+  'SERVER_POSTHOG_PERSONAL_API_KEY',
+]);
+
+export const NON_SOCIAL_PRIVATE_SERVER_SECRET_RC_KEYS = new Set(
+  [...PRIVATE_SERVER_SECRET_RC_KEYS].filter((rcKey) => !SOCIAL_SERVER_SECRET_RC_KEYS.has(rcKey)),
+);
 
 // ─── RC Param → Env Var Mapping ──────────────────────────────────────────
 // Maps Remote Config parameter names to the environment variable names
@@ -108,7 +151,7 @@ export const RC_TO_ENV = {
   DIRECT_EMPLOYER_CHANNEL_ENABLED: ['DIRECT_EMPLOYER_CHANNEL_ENABLED'],
   GEMINI_API_KEY:                 ['GEMINI_API_KEY', 'VITE_GEMINI_API_KEY'],
   BING_API_KEY:                   ['BING_API_KEY'],
-  PAGESPEED_API_KEY:              ['PAGESPEED_API_KEY'],
+  SERVER_PAGESPEED_API_KEY:       ['PAGESPEED_API_KEY'],
   FB_PAGE_ID:                     ['FB_PAGE_ID'],
   PHARMACY_FACEBOOK_PAGE_ID:      ['PHARMACY_FACEBOOK_PAGE_ID'],
   GITHUB_PAT:                     ['GITHUB_PAT', 'GH_MODELS_PAT'],
@@ -153,15 +196,12 @@ export const RC_TO_ENV = {
   // OpenTransportData exposes three separate ASTRA plans. Keep each token and
   // its dashboard-only token hash distinct so the quota ledger cannot mix
   // plans. The LSA token also feeds the legacy collector variable below.
-  OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN:      ['OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN'],
+  SERVER_OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN: ['OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN'],
   OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN_HASH: ['OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN_HASH'],
-  OPENTRANSPORTDATA_ASTRA_LSA_TOKEN:            ['OPENTRANSPORTDATA_ASTRA_LSA_TOKEN', 'OPENTRANSPORTDATA_API_KEY'],
+  SERVER_OPENTRANSPORTDATA_ASTRA_LSA_TOKEN:      ['OPENTRANSPORTDATA_ASTRA_LSA_TOKEN', 'OPENTRANSPORTDATA_API_KEY'],
   OPENTRANSPORTDATA_ASTRA_LSA_TOKEN_HASH:       ['OPENTRANSPORTDATA_ASTRA_LSA_TOKEN_HASH'],
-  OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN:      ['OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN'],
+  SERVER_OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN: ['OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN'],
   OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN_HASH: ['OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN_HASH'],
-  // Legacy single-token RC param: retain it as a fallback only when no
-  // plan-specific LSA token is provisioned.
-  OPENTRANSPORTDATA_API_KEY:   ['OPENTRANSPORTDATA_API_KEY'],
   OPENTRANSPORTDATA_QUOTA:     ['OPENTRANSPORTDATA_QUOTA'],
   // Conservative, server-side quota ceilings. A missing value falls back to
   // the safe defaults in functions/src/trafficProviderMesh.js.
@@ -191,11 +231,11 @@ export const RC_TO_ENV = {
   RESEND_API_KEY:                 ['RESEND_API_KEY'],
   // AES-256-GCM key (base64, 32 bytes) of the assisted-application agent's
   // encrypted evidence (scripts/assisted-application/lib/secure-run.mjs).
-  ASSISTED_APPLICATION_RUN_KEY:   ['ASSISTED_APPLICATION_RUN_KEY'],
+  SERVER_ASSISTED_APPLICATION_RUN_KEY: ['ASSISTED_APPLICATION_RUN_KEY'],
   // Stable key for the short-lived encrypted event-description artifact. It
   // must not be CODEX_AUTH_JSON: that login is rotated independently of the
   // crawl/rewrite hand-off.
-  EVENT_DESCRIPTION_ARTIFACT_KEY:  ['EVENT_DESCRIPTION_ARTIFACT_KEY'],
+  SERVER_EVENT_DESCRIPTION_ARTIFACT_KEY: ['EVENT_DESCRIPTION_ARTIFACT_KEY'],
   // "legacy" switches the assisted application's PDFs back to the standard-font writer (default: typst).
   ASSISTED_APPLICATION_PDF_RENDERER: ['ASSISTED_APPLICATION_PDF_RENDERER'],
   // Off on purpose: the verified sources do not support one PDF as the default (docs/assisted-application/decisioni.md §5); the posting's own instruction wins either way (lib/dossier.mjs).
@@ -242,19 +282,19 @@ export const RC_TO_ENV = {
   MAILGUN_API_KEY:                ['MAILGUN_API_KEY'],
   MAILGUN_DOMAIN:                 ['MAILGUN_DOMAIN'],
   MAILTRAP_API_TOKEN:             ['MAILTRAP_API_TOKEN'],
-  MAILEROO_API_KEY:               ['MAILEROO_API_KEY'],
-  MAILEROO_TRANSACTIONAL_API_KEY: ['MAILEROO_TRANSACTIONAL_API_KEY'],
-  MAILEROO_NEWSLETTER_API_KEY:    ['MAILEROO_NEWSLETTER_API_KEY'],
-  MAILEROO_WEBHOOK_SECRET:        ['MAILEROO_WEBHOOK_SECRET'],
+  SERVER_MAILEROO_API_KEY:        ['MAILEROO_API_KEY'],
+  SERVER_MAILEROO_TRANSACTIONAL_API_KEY: ['MAILEROO_TRANSACTIONAL_API_KEY'],
+  SERVER_MAILEROO_NEWSLETTER_API_KEY: ['MAILEROO_NEWSLETTER_API_KEY'],
+  SERVER_MAILEROO_WEBHOOK_SECRET: ['MAILEROO_WEBHOOK_SECRET'],
   // Restricted Maileroo Email Testing API key. It is used only by the
   // maileroo-email-testing workflow to create ephemeral inboxes, wait for
   // captured messages and run assertions; it must not be reused for sending.
-  MAILEROO_EMAIL_TESTING_API_KEY: ['MAILEROO_EMAIL_TESTING_API_KEY'],
+  SERVER_MAILEROO_EMAIL_TESTING_API_KEY: ['MAILEROO_EMAIL_TESTING_API_KEY'],
   // Separate Account API key (Maileroo dashboard "Applications" section) —
   // distinct from MAILEROO_API_KEY (a per-domain Sending Key), needed for
   // account-level endpoints like /v1/account (see fetchMailerooCycleUsage in
   // functions/src/emailCascade.js). Optional, falls back safely when unset.
-  MAILEROO_ACCOUNT_API_KEY:       ['MAILEROO_ACCOUNT_API_KEY'],
+  SERVER_MAILEROO_ACCOUNT_API_KEY: ['MAILEROO_ACCOUNT_API_KEY'],
   // Cloudflare Email Service (newsletter + job alerts). Dedicated token scoped to
   // Email Sending: Edit + Analytics Read; account id reuses CF_ACCOUNT_ID below.
   CLOUDFLARE_EMAIL_API_TOKEN:     ['CLOUDFLARE_EMAIL_API_TOKEN'],
@@ -323,14 +363,10 @@ export const RC_TO_ENV = {
   SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN:  ['LINKEDIN_MEMBER_ACCESS_TOKEN'],
   SERVER_LINKEDIN_MEMBER_ACCESS_TOKEN_EXPIRES_AT: ['LINKEDIN_MEMBER_ACCESS_TOKEN_EXPIRES_AT'],
   SERVER_LINKEDIN_MEMBER_REFRESH_TOKEN: ['LINKEDIN_MEMBER_REFRESH_TOKEN'],
-  LINKEDIN_MEMBER_URN:            ['LINKEDIN_MEMBER_URN'],
   SERVER_LINKEDIN_MEMBER_URN:     ['LINKEDIN_MEMBER_URN'],
 
   // LinkedIn Sign-In (OAuth2 for user authentication)
   LINKEDIN_SIGNIN_CLIENT_ID:      ['LINKEDIN_SIGNIN_CLIENT_ID'],
-  LINKEDIN_SIGNIN_CLIENT_SECRET:  ['LINKEDIN_SIGNIN_CLIENT_SECRET'],
-  LINKEDIN_SIGNIN_ACCESS_TOKEN:   ['LINKEDIN_SIGNIN_ACCESS_TOKEN'],
-  LINKEDIN_SIGNIN_REFRESH_TOKEN:  ['LINKEDIN_SIGNIN_REFRESH_TOKEN'],
 
   // Telegram broadcast channel (Bot API — free). TOKEN + CHANNEL_ID are consumed
   // by scripts/post-to-telegram.mjs; the public channel URL doubles as a client-
@@ -415,12 +451,14 @@ export const RC_TO_ENV = {
   SERVER_TIKTOK_CLIENT_SECRET:         ['TIKTOK_CLIENT_SECRET'],
   SERVER_TIKTOK_ACCESS_TOKEN:          ['TIKTOK_ACCESS_TOKEN'],
   SERVER_TIKTOK_ACCESS_TOKEN_EXPIRES_AT: ['TIKTOK_ACCESS_TOKEN_EXPIRES_AT'],
+  SERVER_TIKTOK_OPEN_ID:               ['TIKTOK_OPEN_ID'],
   SERVER_TIKTOK_REFRESH_TOKEN:         ['TIKTOK_REFRESH_TOKEN'],
   SERVER_TIKTOK_REFRESH_TOKEN_EXPIRES_AT: ['TIKTOK_REFRESH_TOKEN_EXPIRES_AT'],
   SERVER_TIKTOK_SANDBOX_CLIENT_KEY:    ['TIKTOK_SANDBOX_CLIENT_KEY'],
   SERVER_TIKTOK_SANDBOX_CLIENT_SECRET: ['TIKTOK_SANDBOX_CLIENT_SECRET'],
   SERVER_TIKTOK_SANDBOX_ACCESS_TOKEN:  ['TIKTOK_SANDBOX_ACCESS_TOKEN'],
   SERVER_TIKTOK_SANDBOX_ACCESS_TOKEN_EXPIRES_AT: ['TIKTOK_SANDBOX_ACCESS_TOKEN_EXPIRES_AT'],
+  SERVER_TIKTOK_SANDBOX_OPEN_ID:       ['TIKTOK_SANDBOX_OPEN_ID'],
   SERVER_TIKTOK_SANDBOX_REFRESH_TOKEN: ['TIKTOK_SANDBOX_REFRESH_TOKEN'],
   SERVER_TIKTOK_SANDBOX_REFRESH_TOKEN_EXPIRES_AT: ['TIKTOK_SANDBOX_REFRESH_TOKEN_EXPIRES_AT'],
 
@@ -464,17 +502,16 @@ export const RC_TO_ENV = {
   // GITHUB_PAT_NANAKO above — a credential nobody can read is not a fallback,
   // it is a credential that looks configured.
   CF_GLOBAL_API_KEY:              ['CF_GLOBAL_API_KEY'],
-  // Cloudflare R2 S3 deploy credentials for the CDN (CDN_TARGET=r2). Derived
-  // from CF_API_TOKEN by scripts/set-r2-rc.mjs (AccessKeyId = token id, Secret
-  // = SHA-256 of token value). Consumed by deploy-it-pages-prep.sh _publish_cdn_r2.
+  // Cloudflare R2 bucket metadata is public client config. S3 write credentials
+  // are mapped below from the private server template only.
   R2_ACCOUNT_ID:                  ['R2_ACCOUNT_ID'],
   R2_BUCKET:                      ['R2_BUCKET'],
   R2_S3_ENDPOINT:                 ['R2_S3_ENDPOINT'],
-  R2_ACCESS_KEY_ID:               ['R2_ACCESS_KEY_ID'],
-  R2_SECRET_ACCESS_KEY:           ['R2_SECRET_ACCESS_KEY'],
+  SERVER_R2_ACCESS_KEY_ID:        ['R2_ACCESS_KEY_ID'],
+  SERVER_R2_SECRET_ACCESS_KEY:    ['R2_SECRET_ACCESS_KEY'],
   MISTRAL_API_KEY:                ['MISTRAL_API_KEY'],
-  CHUTES_API_KEY:                 ['CHUTES_API_KEY'],
-  ZAI_API_KEY:                    ['ZAI_API_KEY', 'ZHIPU_API_KEY'],
+  SERVER_CHUTES_API_KEY:          ['CHUTES_API_KEY'],
+  SERVER_ZAI_API_KEY:             ['ZAI_API_KEY', 'ZHIPU_API_KEY'],
 
   // Image generation providers
   TOGETHER_API_KEY:               ['TOGETHER_API_KEY'],
@@ -551,7 +588,7 @@ export const RC_TO_ENV = {
   // scripts/sync-omniroute-providers-rc.mjs. Consumed by
   // scripts/ci/omniroute-poc-register.mjs to register the full provider set
   // into a fresh CI OmniRoute instance instead of the small hardcoded list.
-  OMNIROUTE_PROVIDERS_JSON:       ['OMNIROUTE_PROVIDERS_JSON'],
+  SERVER_OMNIROUTE_PROVIDERS_JSON: ['OMNIROUTE_PROVIDERS_JSON'],
 
   // Overrides the free-only provider allowlist in
   // scripts/lib/omniroute-free-providers.mjs: a CSV replaces the built-in list
@@ -569,6 +606,14 @@ export const RC_TO_ENV = {
   // other than '0': proceed).
   ENABLE_OMNIROUTE_FALLBACK:      ['ENABLE_OMNIROUTE_FALLBACK'],
 };
+
+// All SERVER_-prefixed parameters are read from firebase-server, including
+// non-secret identifiers such as GA4_PROPERTY_ID and POSTHOG_PROJECT_ID.
+// Only keys listed in PRIVATE_SERVER_SECRET_RC_KEYS need an explicit secret
+// opt-in before they can enter a workflow environment.
+export const SERVER_ONLY_RC_KEYS = new Set(
+  Object.keys(RC_TO_ENV).filter((rcKey) => rcKey.startsWith('SERVER_')),
+);
 
 /**
  * RC keys whose EMPTY value is a real signal, not a missing setting.
@@ -798,10 +843,17 @@ async function fetchTemplateViaRest(namespace = 'firebase') {
 function parseArgs(argv) {
   let onlyEnvKeys = null;
   let onlySocialEnvKeys = null;
+  let onlyPrivateServerEnvKeys = null;
+  let requiredSocialEnvKeys = null;
   let includeSocialSecrets = false;
+  let includePrivateServerSecrets = false;
   for (const arg of argv) {
     if (arg === '--include-social-secrets' && !includeSocialSecrets) {
       includeSocialSecrets = true;
+      continue;
+    }
+    if (arg === '--include-private-server-secrets' && !includePrivateServerSecrets) {
+      includePrivateServerSecrets = true;
       continue;
     }
     if (arg.startsWith('--only-env=') && onlyEnvKeys === null) {
@@ -828,26 +880,123 @@ function parseArgs(argv) {
       onlySocialEnvKeys = new Set(names);
       continue;
     }
-    throw new Error('usage: load-rc-env.mjs [--only-env=ENV_KEY,ENV_KEY] [--include-social-secrets] [--only-social-env=ENV_KEY,ENV_KEY]');
+    if (arg.startsWith('--only-private-server-env=') && onlyPrivateServerEnvKeys === null) {
+      const raw = arg.slice('--only-private-server-env='.length);
+      const names = raw.split(',').map((name) => name.trim()).filter(Boolean);
+      const privateServerEnvKeys = new Set(
+        Object.entries(RC_TO_ENV)
+          .filter(([rcKey]) => NON_SOCIAL_PRIVATE_SERVER_SECRET_RC_KEYS.has(rcKey))
+          .flatMap(([, envKeys]) => envKeys),
+      );
+      if (!names.length || names.some((name) => !/^[A-Z][A-Z0-9_]*$/u.test(name) || !privateServerEnvKeys.has(name))) {
+        throw new Error('`--only-private-server-env` must list known non-social private server environment keys');
+      }
+      onlyPrivateServerEnvKeys = new Set(names);
+      continue;
+    }
+    if (arg.startsWith('--require-social-env=') && requiredSocialEnvKeys === null) {
+      const raw = arg.slice('--require-social-env='.length);
+      const names = raw.split(',').map((name) => name.trim()).filter(Boolean);
+      const serverSecretEnvKeys = new Set(
+        Object.entries(RC_TO_ENV)
+          .filter(([rcKey]) => SOCIAL_SERVER_SECRET_RC_KEYS.has(rcKey))
+          .flatMap(([, envKeys]) => envKeys),
+      );
+      if (!names.length || names.some((name) => !/^[A-Z][A-Z0-9_]*$/u.test(name) || !serverSecretEnvKeys.has(name))) {
+        throw new Error('`--require-social-env` must list known private social environment keys');
+      }
+      requiredSocialEnvKeys = new Set(names);
+      continue;
+    }
+    throw new Error('usage: load-rc-env.mjs [--only-env=ENV_KEY,ENV_KEY] [--include-social-secrets --only-social-env=ENV_KEY,ENV_KEY] [--include-private-server-secrets --only-private-server-env=ENV_KEY,ENV_KEY] [--require-social-env=ENV_KEY,ENV_KEY]');
   }
-  const serverSecretEnvKeys = new Set(
+  const socialServerSecretEnvKeys = new Set(
     Object.entries(RC_TO_ENV)
       .filter(([rcKey]) => SOCIAL_SERVER_SECRET_RC_KEYS.has(rcKey))
       .flatMap(([, envKeys]) => envKeys),
   );
-  if (onlyEnvKeys && [...onlyEnvKeys].some((name) => serverSecretEnvKeys.has(name)) && !includeSocialSecrets) {
+  const privateServerSecretEnvKeys = new Set(
+    Object.entries(RC_TO_ENV)
+      .filter(([rcKey]) => NON_SOCIAL_PRIVATE_SERVER_SECRET_RC_KEYS.has(rcKey))
+      .flatMap(([, envKeys]) => envKeys),
+  );
+  if (onlyEnvKeys && [...onlyEnvKeys].some((name) => socialServerSecretEnvKeys.has(name)) && !includeSocialSecrets) {
     throw new Error('social credential env keys require --include-social-secrets');
+  }
+  if (onlyEnvKeys && [...onlyEnvKeys].some((name) => privateServerSecretEnvKeys.has(name)) && !includePrivateServerSecrets) {
+    throw new Error('non-social private server env keys require --include-private-server-secrets');
   }
   if (onlySocialEnvKeys && !includeSocialSecrets) {
     throw new Error('--only-social-env requires --include-social-secrets');
   }
+  if (onlyPrivateServerEnvKeys && !includePrivateServerSecrets) {
+    throw new Error('--only-private-server-env requires --include-private-server-secrets');
+  }
+  if (requiredSocialEnvKeys && !includeSocialSecrets) {
+    throw new Error('--require-social-env requires --include-social-secrets');
+  }
+  if (requiredSocialEnvKeys && [...requiredSocialEnvKeys].some((name) => (
+    !onlySocialEnvKeys?.has(name) && !onlyEnvKeys?.has(name)
+  ))) {
+    throw new Error('--require-social-env keys must also be selected by --only-social-env or --only-env');
+  }
   if (includeSocialSecrets && !onlyEnvKeys && !onlySocialEnvKeys) {
     throw new Error('--include-social-secrets requires --only-env or --only-social-env to limit private credentials');
   }
-  return { onlyEnvKeys, onlySocialEnvKeys, includeSocialSecrets };
+  if (includePrivateServerSecrets && !onlyEnvKeys && !onlyPrivateServerEnvKeys) {
+    throw new Error('--include-private-server-secrets requires --only-env or --only-private-server-env to limit private credentials');
+  }
+  return {
+    onlyEnvKeys,
+    onlySocialEnvKeys,
+    onlyPrivateServerEnvKeys,
+    requiredSocialEnvKeys,
+    includeSocialSecrets,
+    includePrivateServerSecrets,
+  };
 }
 
-async function main({ onlyEnvKeys = null, onlySocialEnvKeys = null, includeSocialSecrets = false } = {}) {
+export function selectMappedEnvKeysForLoad({
+  rcKey,
+  mappedEnvKeys,
+  onlyEnvKeys = null,
+  onlySocialEnvKeys = null,
+  onlyPrivateServerEnvKeys = null,
+  includeSocialSecrets = false,
+  includePrivateServerSecrets = false,
+}) {
+  const selected = onlyEnvKeys
+    ? mappedEnvKeys.filter((envKey) => onlyEnvKeys.has(envKey))
+    : (mappedEnvKeys || []);
+  if (SOCIAL_SERVER_SECRET_RC_KEYS.has(rcKey)) {
+    if (!includeSocialSecrets) return [];
+    const socialSelected = onlySocialEnvKeys
+      ? selected.filter((envKey) => onlySocialEnvKeys.has(envKey))
+      : selected;
+    return socialSelected;
+  }
+  if (NON_SOCIAL_PRIVATE_SERVER_SECRET_RC_KEYS.has(rcKey)) {
+    if (!includePrivateServerSecrets) return [];
+    const privateSelected = onlyPrivateServerEnvKeys
+      ? selected.filter((envKey) => onlyPrivateServerEnvKeys.has(envKey))
+      : selected;
+    return privateSelected;
+  }
+  return selected;
+}
+
+export function missingRequiredSocialEnvKeys(requiredEnvKeys, availableEnvKeys) {
+  return [...(requiredEnvKeys || [])].filter((name) => !availableEnvKeys.has(name));
+}
+
+async function main({
+  onlyEnvKeys = null,
+  onlySocialEnvKeys = null,
+  onlyPrivateServerEnvKeys = null,
+  requiredSocialEnvKeys = null,
+  includeSocialSecrets = false,
+  includePrivateServerSecrets = false,
+} = {}) {
   const isCI = !!process.env.GITHUB_ENV;
 
   // 1. Check for GOOGLE_APPLICATION_CREDENTIALS
@@ -900,26 +1049,41 @@ async function main({ onlyEnvKeys = null, onlySocialEnvKeys = null, includeSocia
     }
   }
 
-  let socialTemplate = null;
-  if (includeSocialSecrets) {
+  const privateSelected = Object.entries(RC_TO_ENV).some(([rcKey, mappedEnvKeys]) => (
+    SERVER_ONLY_RC_KEYS.has(rcKey)
+    && selectMappedEnvKeysForLoad({
+      rcKey,
+      mappedEnvKeys,
+      onlyEnvKeys,
+      onlySocialEnvKeys,
+      onlyPrivateServerEnvKeys,
+      includeSocialSecrets,
+      includePrivateServerSecrets,
+    }).length > 0
+  ));
+  let privateTemplate = null;
+  if (includeSocialSecrets || privateSelected) {
     try {
-      socialTemplate = admin
-        ? await admin.remoteConfig().getServerTemplate()
+      privateTemplate = admin
+        ? normalizeServerTemplateData(await admin.remoteConfig().getServerTemplate())
         : await fetchTemplateViaRest('firebase-server');
     } catch {
       // Never fall back to same-named parameters in the client template.
       try {
-        socialTemplate = await fetchTemplateViaRest('firebase-server');
+        privateTemplate = await fetchTemplateViaRest('firebase-server');
       } catch (error) {
-        throw new Error(`Private Firebase server template fetch failed (${String(error?.message || 'unknown error').slice(0, 180)})`);
+        if (includeSocialSecrets) {
+          throw new Error(`Private Firebase server template fetch failed (${String(error?.message || 'unknown error').slice(0, 180)})`);
+        }
+        console.warn(`⚠️  Private Firebase server template fetch failed (${String(error?.message || 'unknown error').slice(0, 180)}); private non-social values were not loaded.`);
       }
     }
   }
 
   const paramCount = Object.keys(template.parameters || {}).length
-    + Object.keys(socialTemplate?.parameters || {}).length;
+    + Object.keys(privateTemplate?.parameters || {}).length;
   const statusLog = isCI ? console.log : console.error;
-  statusLog(`📦 Remote Config: ${paramCount} params available${socialTemplate ? ' across client and private server templates' : ' in the client template'}`);
+  statusLog(`📦 Remote Config: ${paramCount} params available${privateTemplate ? ' across client and private server templates' : ' in the client template'}`);
 
   // 4. Map RC values → env vars
   let loaded = 0;
@@ -927,21 +1091,26 @@ async function main({ onlyEnvKeys = null, onlySocialEnvKeys = null, includeSocia
   let missing = 0;
   const lines = []; // For GITHUB_ENV or stdout
   const queuedEnvKeys = new Set();
+  const availableEnvKeys = new Set(
+    [...(requiredSocialEnvKeys || [])].filter((envKey) => Boolean(process.env[envKey])),
+  );
 
   for (const [rcKey, mappedEnvKeys] of Object.entries(RC_TO_ENV)) {
-    const selectedEnvKeys = onlyEnvKeys
-      ? mappedEnvKeys.filter((envKey) => onlyEnvKeys.has(envKey))
-      : mappedEnvKeys;
-    const isPrivateSocialParam = SOCIAL_SERVER_SECRET_RC_KEYS.has(rcKey);
-    const envKeys = isPrivateSocialParam && onlySocialEnvKeys
-      ? selectedEnvKeys.filter((envKey) => onlySocialEnvKeys.has(envKey))
-      : selectedEnvKeys;
+    const envKeys = selectMappedEnvKeysForLoad({
+      rcKey,
+      mappedEnvKeys,
+      onlyEnvKeys,
+      onlySocialEnvKeys,
+      onlyPrivateServerEnvKeys,
+      includeSocialSecrets,
+      includePrivateServerSecrets,
+    });
     if (!envKeys.length) continue;
-    if (isPrivateSocialParam && !socialTemplate) {
+    if (SERVER_ONLY_RC_KEYS.has(rcKey) && !privateTemplate) {
       missing += envKeys.length;
       continue;
     }
-    const sourceTemplate = isPrivateSocialParam ? socialTemplate : template;
+    const sourceTemplate = SERVER_ONLY_RC_KEYS.has(rcKey) ? privateTemplate : template;
     const value = getRcValue(sourceTemplate, rcKey);
 
     // See shouldExportRcValue: getRcValue() already distinguishes "absent" (null)
@@ -955,6 +1124,7 @@ async function main({ onlyEnvKeys = null, onlySocialEnvKeys = null, includeSocia
     for (const envKey of envKeys) {
       if (process.env[envKey] || !claimEnvKey(queuedEnvKeys, envKey)) {
         skipped++;
+        if (process.env[envKey]) availableEnvKeys.add(envKey);
         continue;
       }
 
@@ -977,7 +1147,13 @@ async function main({ onlyEnvKeys = null, onlySocialEnvKeys = null, includeSocia
         lines.push(`export ${envKey}='${escaped}'`);
       }
       loaded++;
+      availableEnvKeys.add(envKey);
     }
+  }
+
+  const unavailableRequiredKeys = missingRequiredSocialEnvKeys(requiredSocialEnvKeys, availableEnvKeys);
+  if (unavailableRequiredKeys.length) {
+    throw new Error(`Required private social credentials unavailable: ${unavailableRequiredKeys.join(', ')}`);
   }
 
   // 5. Write output

@@ -36,10 +36,12 @@ function fakeRemoteConfig(parameters: Record<string, unknown>) {
 }
 
 describe('Firebase Remote Config server template namespace', () => {
-  it('reads the server template through the Admin SDK method without consulting the client template', async () => {
+  it('normalizes the Admin SDK ServerTemplate wrapper without consulting the client template', async () => {
     const rc = {
       getTemplate: async () => { throw new Error('client template must not be read'); },
-      getServerTemplate: async () => ({ parameters: { SERVER_TOKEN: { defaultValue: { value: 'private' } } } }),
+      getServerTemplate: async () => ({
+        toJSON: () => ({ parameters: { SERVER_TOKEN: { defaultValue: { value: 'private' } } } }),
+      }),
     };
 
     await expect(fetchServerRcTemplate(rc as any)).resolves.toMatchObject({

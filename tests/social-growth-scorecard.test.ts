@@ -384,6 +384,7 @@ describe('cross-social growth scorecard', () => {
         },
       },
       sources: {
+        instagramPublishReadiness: { status: 'available', lastCheckedAt: '2026-10-10T12:00:00.000Z' },
         socialSiteOutcomes: {
           status: 'available',
           registeredEventNames: ['job_apply_handoff'],
@@ -894,6 +895,88 @@ describe('cross-social growth scorecard', () => {
     });
   });
 
+  it('holds Instagram out of active pilots when the current collector reports missing credentials', () => {
+    const scorecard = buildSocialGrowthScorecard({
+      asOf: AS_OF,
+      publicationLedgers: {
+        instagram: {
+          status: 'available',
+          posts: [{ id: 'recent-instagram-post', ts: '2026-11-01T12:00:00.000Z', instagramMediaId: 'ig-native-1' }],
+        },
+      },
+      sources: {
+        instagram: { status: 'available', lastSuccessAt: '2026-10-30T12:00:00.000Z' },
+        instagramPostInsights: { status: 'credentials-missing' },
+      },
+    });
+
+    expect(scorecard.channelPilots.instagram).toMatchObject({
+      contractVersion: 7,
+      deliveryState: 'blocked',
+      readinessStatus: 'delivery-held-or-unconfigured',
+      sourceStatus: 'credentials-missing',
+      postIdCoverage: { publishedPosts30d: 1 },
+    });
+    expect(scorecard.sourceFreshness.instagramPostInsights).toMatchObject({
+      status: 'not-configured-or-unavailable',
+      sourceStatus: 'credentials-missing',
+    });
+    expect(scorecard.growthObjective.businessOutcomeTargetCoverage.activePilotChannelEventPairs).toBe(0);
+  });
+
+  it('holds Instagram out of active pilots when Insights work but publishing is unverified', () => {
+    const scorecard = buildSocialGrowthScorecard({
+      asOf: AS_OF,
+      publicationLedgers: {
+        instagram: {
+          status: 'available',
+          posts: [{ id: 'recent-instagram-post', ts: '2026-11-01T12:00:00.000Z', instagramMediaId: 'ig-native-1' }],
+        },
+      },
+      sources: {
+        instagramPostInsights: { status: 'available' },
+        instagramPublishReadiness: { status: 'capability-unavailable' },
+        instagramAudience: { status: 'available' },
+      },
+    });
+
+    expect(scorecard.channelPilots.instagram).toMatchObject({
+      deliveryState: 'blocked',
+      readinessStatus: 'delivery-held-or-unconfigured',
+      sourceStatus: 'available',
+      deliverySourceStatus: 'capability-unavailable',
+      postIdCoverage: { publishedPosts30d: 1 },
+    });
+    expect(scorecard.sourceCoverage.instagramPublishReadiness).toBe('capability-unavailable');
+    expect(scorecard.growthObjective.businessOutcomeTargetCoverage.activePilotChannelEventPairs).toBe(0);
+  });
+
+  it('blocks Instagram readiness when the last publisher-grant probe is stale', () => {
+    const scorecard = buildSocialGrowthScorecard({
+      asOf: AS_OF,
+      publicationLedgers: {
+        instagram: {
+          status: 'available',
+          posts: [{ id: 'recent-instagram-post', ts: '2026-11-01T12:00:00.000Z', instagramMediaId: 'ig-native-1' }],
+        },
+      },
+      sources: {
+        instagramPostInsights: { status: 'available' },
+        instagramPublishReadiness: { status: 'available', lastCheckedAt: '2026-10-31T12:00:00.000Z' },
+      },
+    });
+
+    expect(scorecard.channelPilots.instagram).toMatchObject({
+      deliveryState: 'blocked',
+      readinessStatus: 'delivery-held-or-unconfigured',
+      deliverySourceStatus: 'readiness-stale',
+    });
+    expect(scorecard.sourceFreshness.instagramPublishReadiness).toMatchObject({
+      status: 'stale',
+      sourceStatus: 'available',
+    });
+  });
+
   it('reports aggregate pilot cadence and exact post-ID coverage without exposing IDs', () => {
     const publishedAt = '2026-10-29T12:00:00.000Z';
     const scorecard = buildSocialGrowthScorecard({
@@ -947,6 +1030,7 @@ describe('cross-social growth scorecard', () => {
       },
       sources: {
         instagram: { status: 'available' },
+        instagramPublishReadiness: { status: 'available', lastCheckedAt: AS_OF.toISOString() },
         instagramAudience: { status: 'available' },
         facebookAudience: { status: 'available' },
         linkedinAudience: { status: 'permission-missing' },
@@ -955,7 +1039,7 @@ describe('cross-social growth scorecard', () => {
     });
 
     expect(scorecard.channelPilots.instagram).toMatchObject({
-      contractVersion: 5,
+      contractVersion: 7,
       deliveryState: 'live',
       cadenceIncreaseAllowed: false,
       minimumOrganicPilotDays: 28,

@@ -57,7 +57,9 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=OMNIROUTE_PROVIDERS_JSON
 
       # Install/start/register/enable factored into
       # .github/actions/setup-omniroute — shared with the opt-in pilot

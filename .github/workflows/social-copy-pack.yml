@@ -1,32 +1,14 @@
 name: Social Copy Pack (Codex)
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.agents/skills/social-content/**'
-      - '.agents/skills/ig-reel/**'
-      - '.agents/skills/ig-caption/**'
-      - '.agents/skills/ig-carousel/**'
-      - '.agents/skills/ig-plan/**'
-      - '.agents/skills/ig-audit/**'
-      - '.agents/skills/ig-human/**'
-      - '.agents/skills/ig-repurpose/**'
-      - '.github/workflows/social-copy-pack.yml'
-      - 'docs/instagram-creative-study.md'
-      - 'docs/social-ai-automation.md'
-      - 'docs/third-party/instagram-agent-skill/UPSTREAM.md'
-      - 'scripts/lib/social-copy-pack.mjs'
-      - 'scripts/social-copy/**'
   schedule:
     - cron: '40 4 * * 1' # weekly adaptive pack, after the Monday insights snapshot
   workflow_dispatch:
     inputs:
-      promote:
-        description: 'Promote a valid generated pack on main'
-        required: false
-        default: true
-        type: boolean
+      source_run_id:
+        description: Successful scheduled run to promote again without generating new copy
+        required: true
+        type: string
 
 concurrency:
   group: social-copy-pack
@@ -34,7 +16,7 @@ concurrency:
 
 jobs:
   generate:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'schedule'
     environment: social-production
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -70,13 +52,22 @@ jobs:
             /docs/instagram-creative-study.md
             /docs/social-ai-automation.md
             /docs/third-party/instagram-agent-skill/UPSTREAM.md
-            /.agents/skills/
+            /.agents/skills/social-content/
+            /.agents/skills/ig-plan/
+            /.agents/skills/ig-caption/
+            /.agents/skills/ig-carousel/
+            /.agents/skills/ig-reel/
+            /.agents/skills/ig-audit/
+            /.agents/skills/ig-human/
+            /.agents/skills/ig-repurpose/
           sparse-checkout-cone-mode: false
       - name: Verify Codex editorial skill inputs
         shell: bash
         run: |
           set -euo pipefail
-          test -s .agents/skills/ig-repurpose/SKILL.md
+          for skill in social-content ig-plan ig-caption ig-carousel ig-reel ig-audit ig-human ig-repurpose; do
+            test -s ".agents/skills/$skill/SKILL.md"
+          done
       - uses: actions/setup-node@v7
         with:
           node-version: 22
@@ -85,19 +76,20 @@ jobs:
       - name: Install dependencies for the read-only GA4 report
         run: npm ci
 
-      - name: Reserve a rolling seven-day Codex invocation
-        id: codex_budget
+      - name: Check rolling seven-day Codex availability
+        id: codex_budget_check
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
           GITHUB_REF: ${{ github.ref }}
-        run: node scripts/social-copy/reserve-codex-invocation.mjs >> "$GITHUB_OUTPUT"
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: node scripts/social-copy/reserve-codex-invocation.mjs --check >> "$GITHUB_OUTPUT"
 
       - name: Build sanitized GA4 social-copy attribution brief
         id: attribution
-        if: steps.codex_budget.outputs.allowed == 'true'
+        if: steps.codex_budget_check.outputs.allowed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         shell: bash
@@ -113,7 +105,7 @@ jobs:
 
       - name: Build minimized native social brief and growth scorecard
         id: native
-        if: steps.codex_budget.outputs.allowed == 'true'
+        if: steps.codex_budget_check.outputs.allowed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
           TIKTOK_DISPLAY_ANALYTICS_APPROVED: ${{ vars.TIKTOK_DISPLAY_ANALYTICS_APPROVED }}
@@ -127,16 +119,30 @@ jobs:
 
       - name: Build sanitized published-topic inventory
         id: editorial_sources
-        if: steps.codex_budget.outputs.allowed == 'true'
+        if: steps.codex_budget_check.outputs.allowed == 'true'
         shell: bash
         run: |
           set -euo pipefail
+          output="$RUNNER_TEMP/social-copy-editorial-source-brief.json"
           brief="$(node scripts/social-copy/editorial-source-brief.mjs)"
+          printf '%s' "$brief" > "$output"
           printf 'brief=%s\n' "$brief" >> "$GITHUB_OUTPUT"
+
+      - name: Reserve a rolling seven-day Codex invocation
+        id: codex_budget
+        if: steps.codex_budget_check.outputs.allowed == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: node scripts/social-copy/reserve-codex-invocation.mjs >> "$GITHUB_OUTPUT"
 
       - name: Generate social copy with Codex
         id: codex
-        if: steps.codex_budget.outputs.allowed == 'true'
+        if: steps.codex_budget_check.outputs.allowed == 'true' && steps.codex_budget.outputs.allowed == 'true'
         uses: ./.github/actions/claude-codex-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
@@ -218,17 +224,22 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: social-copy-response
-          path: ${{ runner.temp }}/social-copy-response.json
+          path: |
+            ${{ runner.temp }}/social-copy-response.json
+            ${{ runner.temp }}/social-copy-editorial-source-brief.json
           if-no-files-found: error
-          retention-days: 2
+          retention-days: 14
 
   promote:
     needs: generate
     if: >-
-      needs.generate.result == 'success' &&
-      needs.generate.outputs.codex_invocation_allowed == 'true' &&
+      always() &&
       github.ref == 'refs/heads/main' &&
-      (github.event_name == 'schedule' || github.event_name == 'push' || inputs.promote == true)
+      ((github.event_name == 'schedule' &&
+      needs.generate.result == 'success' &&
+      needs.generate.outputs.codex_invocation_allowed == 'true') ||
+      (github.event_name == 'workflow_dispatch' &&
+      github.event.inputs.source_run_id != ''))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -264,16 +275,31 @@ jobs:
         with:
           node-version: 22
 
+      - name: Validate source pack run
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_RUN_ID" =~ ^[0-9]+$ ]]
+          gh run view "$SOURCE_RUN_ID" --json workflowName,event,headBranch,status,conclusion \
+            | jq -e '.workflowName == "Social Copy Pack (Codex)" and .event == "schedule" and .headBranch == "main" and .status == "completed" and .conclusion == "success"' >/dev/null
+
       - name: Download generated response
         uses: actions/download-artifact@v8
         with:
           name: social-copy-response
           path: ${{ runner.temp }}
+          run-id: ${{ github.event_name == 'workflow_dispatch' && inputs.source_run_id || github.run_id }}
+          github-token: ${{ github.token }}
 
       - name: Validate and promote
         run: >-
           node scripts/social-copy/pack.mjs promote
           --input="$RUNNER_TEMP/social-copy-response.json"
+          --source-brief="$RUNNER_TEMP/social-copy-editorial-source-brief.json"
           --output=data/social-copy-packs/current.json
 
       - name: Mint App token for protected data PR
@@ -287,14 +313,15 @@ jobs:
       - name: Open PR with current social copy pack
         env:
           GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
+          SOURCE_PACK_RUN_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.source_run_id || github.run_id }}
         run: |
           set -euo pipefail
           test "$APP_TOKEN_DATA_REFRESH" = true
           body="$RUNNER_TEMP/social-copy-pack-pr-body.md"
-          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_PACK_RUN_ID}"
           {
-            printf 'Auto-generated by [workflow run %s](%s).\n\n' \
-              "$GITHUB_RUN_ID" "$run_url"
+            printf 'Auto-generated from [workflow run %s](%s).\n\n' \
+              "$SOURCE_PACK_RUN_ID" "$run_url"
             cat <<'EOF'
           ## Implementato
           - Aggiornato il pacchetto di copy social Codex, validato per tutti i canali attivi e promosso tramite PR per il required check.

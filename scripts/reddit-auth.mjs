@@ -71,6 +71,7 @@ const TOKEN_ENDPOINT = 'https://www.reddit.com/api/v1/access_token';
 
 const CLIENT_ID = process.env.REDDIT_CLIENT_ID || '';
 const CLIENT_SECRET = process.env.REDDIT_CLIENT_SECRET || '';
+const EXPECTED_USERNAME = process.env.REDDIT_USERNAME || '';
 const REDIRECT_URI =
   process.env.REDDIT_REDIRECT_URI || 'http://localhost:8080/callback';
 
@@ -82,7 +83,14 @@ const REDIRECT_URI =
  * read     → read listings, used when checking whether a post survived
  */
 const SCOPE = process.env.REDDIT_SCOPE || 'identity submit flair read';
-const PORT = Number(new URL(REDIRECT_URI).port || 8080);
+const redirectUrl = new URL(REDIRECT_URI);
+if (redirectUrl.protocol !== 'http:') throw new Error('Reddit OAuth callback must use HTTP loopback');
+const PORT = Number(redirectUrl.port || 8080);
+const LISTEN_HOST = ['localhost', '127.0.0.1'].includes(redirectUrl.hostname.toLowerCase())
+  ? '127.0.0.1'
+  : redirectUrl.hostname === '[::1]'
+    ? '::1'
+    : (() => { throw new Error('Reddit OAuth callback must use a loopback redirect URI'); })();
 
 const urlOnly = process.argv.includes('--url-only');
 
@@ -95,6 +103,10 @@ function buildAuthUrl(state) {
   u.searchParams.set('duration', 'permanent'); // see header — mandatory
   u.searchParams.set('scope', SCOPE);
   return u.toString();
+}
+
+function normalizeUsername(value) {
+  return String(value || '').trim().replace(/^u\//iu, '').toLowerCase();
 }
 
 async function exchangeCode(code) {
@@ -119,7 +131,7 @@ async function exchangeCode(code) {
   return data;
 }
 
-/** Confirm which account actually consented. Non-fatal if it fails. */
+/** Confirm which account actually consented. Unavailable identity is a hard failure. */
 async function whoAmI(accessToken) {
   try {
     const res = await fetch('https://oauth.reddit.com/api/v1/me', {
@@ -128,11 +140,15 @@ async function whoAmI(accessToken) {
         'User-Agent': userAgent(),
       },
     });
-    if (!res.ok) return null;
+    if (!res.ok) throw new Error('Reddit consent identity lookup failed (HTTP ' + res.status + ')');
     const me = await res.json();
-    return me?.name || null;
-  } catch {
-    return null;
+    if (typeof me?.name !== 'string' || !me.name.trim()) {
+      throw new Error('Reddit consent identity lookup returned no username');
+    }
+    return me.name;
+  } catch (error) {
+    if (error instanceof Error && error.message.startsWith('Reddit consent identity lookup')) throw error;
+    throw new Error('Reddit consent identity lookup failed');
   }
 }
 
@@ -146,6 +162,7 @@ async function main() {
   let storageCredentials = null;
   if (!urlOnly) {
     if (!CLIENT_SECRET) throw new Error('REDDIT_CLIENT_SECRET is not set');
+    if (!normalizeUsername(EXPECTED_USERNAME)) throw new Error('REDDIT_USERNAME must identify the target publishing account before OAuth can start');
     storageCredentials = readSocialOAuthStorageCredentials(process.env, 'reddit');
     await validateSocialOAuthCredentialStorage({ credentials: storageCredentials, platform: 'reddit' });
   }
@@ -199,19 +216,21 @@ async function main() {
       server.close();
       resolve(got);
     });
-    server.listen(PORT, () => console.log(`⏳ waiting for the callback on port ${PORT}…`));
+    server.listen(PORT, LISTEN_HOST, () => console.log(`⏳ waiting for the callback on ${LISTEN_HOST}:${PORT}…`));
     server.on('error', reject);
   });
 
   const tokens = await exchangeCode(code);
-  const who = await whoAmI(tokens.access_token);
-
   if (!tokens.refresh_token) {
     console.error('❌ No refresh_token in the response.');
     console.error('   The grant was almost certainly issued as duration=temporary.');
     console.error('   Re-run this helper — the URL it prints sets duration=permanent.');
     process.exitCode = 1;
     return;
+  }
+  const who = await whoAmI(tokens.access_token);
+  if (normalizeUsername(who) !== normalizeUsername(EXPECTED_USERNAME)) {
+    throw new Error('Reddit consent account does not match configured REDDIT_USERNAME; existing private credentials were retained');
   }
   await persistSocialOAuthCredentials({
     credentials: storageCredentials,
@@ -221,7 +240,7 @@ async function main() {
 
   console.log('');
   console.log('✅ Reddit refresh token stored in the private server Remote Config namespace.');
-  if (who) console.log('consented account verified.');
+  console.log('consented account matched the configured publishing account.');
   console.log('access_token expires_in: ' + tokens.expires_in + 's');
   console.log('scope granted: ' + (tokens.scope || SCOPE));
 }

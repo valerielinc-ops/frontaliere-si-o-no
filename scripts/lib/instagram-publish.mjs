@@ -50,10 +50,13 @@ export const REEL_CONTAINER_STATUS_DELAY_MS = 10_000;
  * non-2xx AND an `error` object, so the presence of `error` alone is enough.
  */
 export async function graphPost(pathSuffix, params, accessToken, { fetchImpl = fetch } = {}) {
-  const body = new URLSearchParams({ ...params, access_token: accessToken });
+  const body = new URLSearchParams(params);
   const res = await fetchImpl(`${GRAPH_API}/${pathSuffix}`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
     body,
   });
   const data = await res.json().catch(() => ({}));
@@ -73,7 +76,8 @@ export async function waitForContainerReady(containerId, accessToken, opts = {})
   const { fetchImpl = fetchRetry, sleepImpl = sleep, maxAttempts = CONTAINER_STATUS_MAX_ATTEMPTS, delayMs = CONTAINER_STATUS_DELAY_MS } = opts;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     const res = await fetchImpl(
-      `${GRAPH_API}/${containerId}?fields=status_code&access_token=${encodeURIComponent(accessToken)}`,
+      `${GRAPH_API}/${containerId}?fields=status_code`,
+      { headers: { Authorization: `Bearer ${accessToken}` } },
     );
     const data = await res?.json().catch(() => ({}));
     if (!res?.ok || data?.error) return false;

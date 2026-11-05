@@ -22,9 +22,11 @@ describe('Facebook scheduled-post reconciliation', () => {
     const saveRows = vi.fn(async () => {});
     const markPublished = vi.fn(async () => true);
     const refreshReservation = vi.fn(async () => true);
-    const fetchImpl = vi.fn(async (input: URL) => {
+    const fetchImpl = vi.fn(async (input: URL, options: RequestInit) => {
       expect(input.pathname).toBe('/v26.0/123_456');
       expect(input.searchParams.get('fields')).toBe('id,is_published,created_time,scheduled_publish_time');
+      expect(input.searchParams.has('access_token')).toBe(false);
+      expect((options.headers as Record<string, string>).Authorization).toBe('Bearer test-token');
       return makeResponse({
         id: '123_456',
         is_published: true,

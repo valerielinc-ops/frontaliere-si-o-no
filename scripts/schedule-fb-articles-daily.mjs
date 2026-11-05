@@ -57,6 +57,7 @@ import {
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { preferredSocialSourceCandidates, socialSourceIdForArticle } from './lib/social-source-catalog.mjs';
 import { parseStaticArticleTranslationSource } from '../packages/articles/engine/shared/articleStaticSource.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -66,6 +67,7 @@ import {
   socialPublishReservationKey,
 } from './lib/social-publish-reservations.mjs';
 import { isAmbiguousSocialPublishResponse } from './lib/social-publish-outcome.mjs';
+import { redactAccessTokenText } from './lib/redact-access-token.mjs';
 
 export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mjs';
 
@@ -195,7 +197,7 @@ export function parseMetaMap(src) {
  * slug map (IT URL slug) and meta map (og title/excerpt). Articles missing a
  * slug or a title are dropped (can't build a useful post).
  *
- * @returns {Array<{ id, section, category, date, url, ogTitle, ogDescription }>}
+ * @returns {Array<{ id, slug, section, category, date, url, ogTitle, ogDescription }>}
  */
 export function loadArticles(repoRoot, log = () => {}) {
   const articles = [];
@@ -214,6 +216,7 @@ export function loadArticles(repoRoot, log = () => {}) {
       if (!url || !ogTitle) continue;
       articles.push({
         id: entry.id,
+        slug: slugIt,
         section: cfg.section,
         category: entry.category,
         date: entry.date,
@@ -255,7 +258,13 @@ export function selectUnpostedArticles(articles, postedSet, opts = {}) {
     if (ts < cutoff) continue;
     withTs.push({ article: a, ts });
   }
-  withTs.sort((x, y) => y.ts - x.ts);
+  const preferredRank = new Map((Array.isArray(opts.preferredIds) ? opts.preferredIds : [])
+    .map((id, index) => [String(id), index]));
+  withTs.sort((x, y) => {
+    const xRank = preferredRank.get(String(x.article.id)) ?? Number.POSITIVE_INFINITY;
+    const yRank = preferredRank.get(String(y.article.id)) ?? Number.POSITIVE_INFINITY;
+    return xRank - yRank || y.ts - x.ts;
+  });
   return withTs.slice(0, Math.max(0, limit | 0)).map((x) => x.article);
 }
 
@@ -319,7 +328,18 @@ export async function run(opts = {}) {
   const postedSet = new Set(ledger.posted.map((e) => e?.id).filter(Boolean));
 
   // 2. Pick recent never-posted articles
-  const candidates = selectUnpostedArticles(articles, postedSet, { maxAgeDays, limit, now });
+  const preferredSources = preferredSocialSourceCandidates(articles, {
+    pack: socialCopyPack,
+    channel: 'facebook',
+    format: 'article',
+    sourceIdForCandidate: (article) => socialSourceIdForArticle(article.slug),
+  });
+  const candidates = selectUnpostedArticles(articles, postedSet, {
+    maxAgeDays,
+    limit,
+    now,
+    preferredIds: preferredSources.map((article) => article.id),
+  });
   if (candidates.length === 0) {
     log('ℹ️', 'no unposted articles within the recency window, exiting');
     return { ok: true, posted: 0, dryRun, payloads: [] };
@@ -446,8 +466,8 @@ export async function run(opts = {}) {
   // (pre-deploy) OG image.
   async function rescrapeOg(url) {
     try {
-      const u = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true&access_token=${encodeURIComponent(token)}`;
-      await fetchImpl(u, { method: 'POST' });
+      const u = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true`;
+      await fetchImpl(u, { method: 'POST', headers: { Authorization: `Bearer ${token}` } });
     } catch {
       /* ignore — rescrape is best-effort */
     }
@@ -487,7 +507,6 @@ export async function run(opts = {}) {
       message: p.message,
       link,
       place: ARTICLE_PLACE_ID,
-      access_token: token,
     });
 
     let data = null;
@@ -499,11 +518,15 @@ export async function run(opts = {}) {
       res = null;
       data = null;
       try {
-        res = await fetchImpl(apiUrl, { method: 'POST', body: buildBody() });
+        res = await fetchImpl(apiUrl, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}` },
+          body: buildBody(),
+        });
         data = await res.json();
       } catch (err) {
         deliveryUncertain = !res || res.ok === true || isAmbiguousSocialPublishResponse(res);
-        warn('⚠️', `POST failed for ${p.articleId} (attempt ${attempt}): ${err.message}`);
+        warn('⚠️', `POST failed for ${p.articleId} (attempt ${attempt}): ${redactAccessTokenText(err.message, token)}`);
         data = null;
       }
       if (isAmbiguousSocialPublishResponse(res) || (res?.ok && !data?.id)) deliveryUncertain = true;
@@ -542,7 +565,7 @@ export async function run(opts = {}) {
       }
       log('✅', `${p.articleId} → ${data.id}`);
     } else {
-      warn('⚠️', `FB API error for ${p.articleId}: ${JSON.stringify(data).slice(0, 300)}`);
+      warn('⚠️', `FB API error for ${p.articleId}: ${redactAccessTokenText(JSON.stringify(data), token).slice(0, 300)}`);
       if (!deliveryUncertain && res && !res.ok) {
         await releaseReservation(p.articleId, 'Facebook explicitly rejected the article post');
         await releasePublishReservation(p, 'explicit API rejection');

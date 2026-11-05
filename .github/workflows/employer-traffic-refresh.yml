@@ -76,8 +76,8 @@ jobs:
             echo "⚠️ FIREBASE_SERVICE_ACCOUNT_JSON not set — aborting"; exit 1
           fi
 
-      - name: Load secrets from Remote Config (GA4 property)
-        run: node scripts/load-rc-env.mjs
+      - name: Load GA4 property ID
+        run: node scripts/load-rc-env.mjs --only-env=GA4_PROPERTY_ID
 
       - name: Compute per-company crawled traffic (GA4)
         run: node scripts/employer-traffic-report.mjs --source ga4 --days 90 --min 1 --json /tmp/employer-traffic.json

@@ -105,7 +105,9 @@ jobs:
 
       - name: Load RC secrets
         # Provides PAGESPEED_API_KEY (the CrUX API key).
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=PAGESPEED_API_KEY
 
       - name: Read the field criterion
         id: check

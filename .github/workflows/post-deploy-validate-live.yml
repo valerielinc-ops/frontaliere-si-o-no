@@ -274,7 +274,9 @@ jobs:
       # The two Playwright steps remain sequential because they share
       # playwright-report/ + test-results/.
       - name: Load RC secrets (PageSpeed API key)
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=PAGESPEED_API_KEY
 
       # GitHub Pages does not invalidate Cloudflare's apex HTML entry when it
       # publishes. The old zone-wide purge was removed to preserve the R2 CDN

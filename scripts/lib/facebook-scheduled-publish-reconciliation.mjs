@@ -11,10 +11,9 @@ function facebookTimestamp(value) {
   return Number.isFinite(parsed) ? parsed : NaN;
 }
 
-function readFacebookPostUrl(postId, token) {
+function readFacebookPostUrl(postId) {
   const url = new URL(`${GRAPH_API}/${encodeURIComponent(postId)}`);
   url.searchParams.set('fields', 'id,is_published,created_time,scheduled_publish_time');
-  url.searchParams.set('access_token', token);
   return url;
 }
 
@@ -72,7 +71,9 @@ export async function reconcileFacebookScheduledPosts({
       const batch = due.slice(start, start + concurrency);
       const outcomes = await Promise.all(batch.map(async ({ row }) => {
         try {
-          const response = await fetchImpl(readFacebookPostUrl(row.fbPostId, token));
+          const response = await fetchImpl(readFacebookPostUrl(row.fbPostId), {
+            headers: { Authorization: `Bearer ${token}` },
+          });
           let data;
           try {
             data = await response.json();

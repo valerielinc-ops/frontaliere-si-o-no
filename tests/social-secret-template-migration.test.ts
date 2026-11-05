@@ -31,6 +31,29 @@ describe('social credential Remote Config migration', () => {
     expect(plan.removeClientKeys).not.toContain('FB_PAGE_ID');
   });
 
+  it('moves LinkedIn Sign-In secrets and tokens to the private template while keeping the client ID public', () => {
+    const plan = planSocialSecretMigration({
+      parameters: {
+        LINKEDIN_SIGNIN_CLIENT_ID: { defaultValue: { value: 'public-client-id' } },
+        LINKEDIN_SIGNIN_CLIENT_SECRET: { defaultValue: { value: 'fixture-signin-secret' } },
+        LINKEDIN_SIGNIN_ACCESS_TOKEN: { defaultValue: { value: 'fixture-signin-access' } },
+        LINKEDIN_SIGNIN_REFRESH_TOKEN: { defaultValue: { value: 'fixture-signin-refresh' } },
+      },
+    });
+
+    expect(plan.targetValues).toEqual({
+      SERVER_LINKEDIN_SIGNIN_CLIENT_SECRET: 'fixture-signin-secret',
+      SERVER_LINKEDIN_SIGNIN_ACCESS_TOKEN: 'fixture-signin-access',
+      SERVER_LINKEDIN_SIGNIN_REFRESH_TOKEN: 'fixture-signin-refresh',
+    });
+    expect(plan.removeClientKeys).toEqual([
+      'LINKEDIN_SIGNIN_CLIENT_SECRET',
+      'LINKEDIN_SIGNIN_ACCESS_TOKEN',
+      'LINKEDIN_SIGNIN_REFRESH_TOKEN',
+    ]);
+    expect(plan.removeClientKeys).not.toContain('LINKEDIN_SIGNIN_CLIENT_ID');
+  });
+
   it('migrates TikTok app keys, access tokens, refresh tokens, and expiry metadata as separate server values', () => {
     const plan = planSocialSecretMigration({
       parameters: {
@@ -56,6 +79,52 @@ describe('social credential Remote Config migration', () => {
       SERVER_TIKTOK_SANDBOX_REFRESH_TOKEN: 'sandbox-refresh-token',
     });
     expect(plan.removeClientKeys).toHaveLength(8);
+  });
+
+  it('moves account identities and R2 write credentials out of the client template', () => {
+    const plan = planSocialSecretMigration({
+      parameters: {
+        LINKEDIN_MEMBER_URN: { defaultValue: { value: 'urn:li:person:123' } },
+        R2_ACCESS_KEY_ID: { defaultValue: { value: 'fixture-r2-access' } },
+        R2_SECRET_ACCESS_KEY: { defaultValue: { value: 'fixture-r2-secret' } },
+        TIKTOK_OPEN_ID: { defaultValue: { value: 'fixture-tiktok-open-id' } },
+      },
+    });
+
+    expect(plan.targetValues).toEqual({
+      SERVER_LINKEDIN_MEMBER_URN: 'urn:li:person:123',
+      SERVER_R2_ACCESS_KEY_ID: 'fixture-r2-access',
+      SERVER_R2_SECRET_ACCESS_KEY: 'fixture-r2-secret',
+      SERVER_TIKTOK_OPEN_ID: 'fixture-tiktok-open-id',
+    });
+    expect(plan.removeClientKeys).toEqual([
+      'LINKEDIN_MEMBER_URN',
+      'R2_ACCESS_KEY_ID',
+      'R2_SECRET_ACCESS_KEY',
+      'TIKTOK_OPEN_ID',
+    ]);
+  });
+
+  it('never copies the single-use Codex refresh token into server Remote Config', () => {
+    const plan = planSocialSecretMigration({
+      parameters: {
+        CODEX_AUTH_JSON: {
+          defaultValue: {
+            value: JSON.stringify({
+              tokens: {
+                access_token: 'fixture-codex-access',
+                refresh_token: 'fixture-single-use-refresh',
+              },
+            }),
+          },
+        },
+      },
+    });
+
+    const privateLogin = JSON.parse(plan.targetValues.SERVER_CODEX_AUTH_JSON);
+    expect(privateLogin.tokens.access_token).toBe('fixture-codex-access');
+    expect(privateLogin.tokens).not.toHaveProperty('refresh_token');
+    expect(JSON.stringify(plan.targetValues)).not.toContain('fixture-single-use-refresh');
   });
 
   it('rejects conflicting aliases before any write', () => {
@@ -99,7 +168,26 @@ describe('social credential Remote Config migration', () => {
     });
 
     expect(order).toEqual(['write:firebase-server', 'remove:firebase']);
-    expect(result).toEqual({ movedParameterCount: 1, removedClientParameterCount: 1, changed: true });
+    expect(result).toEqual({ movedParameterCount: 1, removedClientParameterCount: 1, copyOnly: false, changed: true });
+    expect(JSON.stringify(result)).not.toContain('fixture-page-token');
+  });
+
+  it('pre-stages the private copy without removing values needed by deployed readers', async () => {
+    const removeClientConfig = vi.fn();
+    const result = await migrateSocialSecrets({
+      credentials,
+      clientTemplate: { parameters: { FB_PAGE_ACCESS_TOKEN: { defaultValue: { value: 'fixture-page-token' } } } },
+      updateConfig: async ({ namespace, stage }) => {
+        expect(namespace).toBe('firebase-server');
+        expect(stage({ parameters: {} }).template.parameters.SERVER_FB_PAGE_ACCESS_TOKEN.defaultValue.value).toBe('fixture-page-token');
+        return { ok: true, changed: true };
+      },
+      removeClientConfig,
+      copyOnly: true,
+    });
+
+    expect(removeClientConfig).not.toHaveBeenCalled();
+    expect(result).toEqual({ movedParameterCount: 1, removedClientParameterCount: 0, copyOnly: true, changed: true });
     expect(JSON.stringify(result)).not.toContain('fixture-page-token');
   });
 

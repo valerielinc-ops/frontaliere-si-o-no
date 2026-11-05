@@ -126,6 +126,9 @@ jobs:
             --registry data/event-image-library.json \
             --output-dir .cache/event-image-library
 
+      - name: Load private R2 publishing credentials
+        run: node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY --require-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+
       - name: Upload generated WebP assets to R2
         run: |
           node scripts/upload-event-image-library-cdn.mjs \

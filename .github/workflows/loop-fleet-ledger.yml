@@ -76,6 +76,7 @@ jobs:
             /scripts/lib/google-service-account-token.mjs
             /functions/src/githubApiHeaders.js
             /scripts/load-rc-env.mjs
+            /scripts/lib/remote-config-template-data.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js

@@ -15,6 +15,7 @@
  * REST resource, never by treating a SERVER_ key prefix as access control.
  */
 import { getServiceAccountAccessToken } from './google-service-account-token.mjs';
+import { normalizeServerTemplateData } from './remote-config-template-data.mjs';
 
 export const RC_SCOPE = 'https://www.googleapis.com/auth/firebase.remoteconfig';
 export const RC_SERVER_NAMESPACE = 'firebase-server';
@@ -45,9 +46,7 @@ export async function fetchRcTemplate(rc) {
 }
 
 export async function fetchServerRcTemplate(rc) {
-  const template = await rc.getServerTemplate();
-  template.parameters = template.parameters || {};
-  return template;
+  return normalizeServerTemplateData(await rc.getServerTemplate());
 }
 
 /**
@@ -205,6 +204,41 @@ export async function setRcParamWithEtag({ name, value, description = '', versio
     ...options,
     versionDescription,
     stage: (template) => stageRcParamValue(template, name, value, description),
+  });
+}
+
+/**
+ * ETag-safe multi-parameter writer. Callers must choose the namespace
+ * explicitly so private values cannot accidentally fall back to the client
+ * template. Each item is {name, value, description}.
+ */
+export async function setRcParamsWithEtag({ params, namespace, versionDescription = 'set Remote Config parameters', ...options }) {
+  if (namespace !== 'firebase' && namespace !== RC_SERVER_NAMESPACE) {
+    return { ok: false, attempt: 0, detail: 'an explicit supported Remote Config namespace is required' };
+  }
+  if (!Array.isArray(params) || params.some((item) => (
+    !isPlainObject(item)
+    || typeof item.name !== 'string'
+    || !item.name
+    || typeof item.value !== 'string'
+  ))) {
+    return { ok: false, attempt: 0, detail: 'params must be an array of named string values' };
+  }
+  return updateRcTemplateWithEtag({
+    ...options,
+    namespace,
+    versionDescription,
+    stage: (template) => {
+      let next = template;
+      let changed = false;
+      for (const { name, value, description = '' } of params) {
+        const staged = stageRcParamValue(next, name, value, description);
+        if (staged.error) return staged;
+        changed ||= staged.changed;
+        if (staged.changed) next = staged.template;
+      }
+      return { changed, template: next };
+    },
   });
 }
 

@@ -42,7 +42,9 @@ jobs:
 
       - name: Load secrets from Remote Config
         continue-on-error: true
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=ADSENSE_CLIENT_ID,ADSENSE_CLIENT_SECRET,ADSENSE_REFRESH_TOKEN,GSC_CLIENT_SECRET,GSC_REFRESH_TOKEN
 
       - name: Run revenue monitor (save report)
         run: node scripts/revenue-monitor.mjs --save --markdown > /tmp/revenue-monitor.md

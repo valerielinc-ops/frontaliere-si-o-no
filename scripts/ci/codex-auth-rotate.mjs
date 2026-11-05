@@ -49,7 +49,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  *
  * Copia per le Cloud Functions (`write-remote-config`). Il rung Codex di
  * functions/src/codexFallback.js si autentica con lo stesso login, letto dal
- * parametro Remote Config `CODEX_AUTH_JSON`, e non rinfresca mai. Dopo il
+ * parametro privato Remote Config `SERVER_CODEX_AUTH_JSON`, e non rinfresca mai. Dopo il
  * refresh validato (o in `sync`) questo script scrive lì il login SENZA
  * `refresh_token` (`remoteConfigLogin`): alla function servono solo access
  * token e account, e senza refresh token nessun lettore del template può
@@ -72,7 +72,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { setRcParamWithEtag } from '../lib/remote-config-admin.mjs';
+import { RC_SERVER_NAMESPACE, setRcParamWithEtag } from '../lib/remote-config-admin.mjs';
 
 const HOUR_MS = 3_600_000;
 
@@ -102,8 +102,8 @@ export const MIN_ALLOWED_VALID_HOURS = 3;
 export const DEFAULT_POLICY = Object.freeze({ marginHours: 48, maxAgeHours: 96, minValidHours: 12 });
 
 export const SECRET_NAME = 'CODEX_AUTH_JSON';
-/** Parametro Remote Config letto da functions/src/codexFallback.js. */
-export const REMOTE_CONFIG_PARAM = 'CODEX_AUTH_JSON';
+/** Parametro del template privato letto da functions/src/codexFallback.js. */
+export const REMOTE_CONFIG_PARAM = 'SERVER_CODEX_AUTH_JSON';
 export const DEFAULT_TARGETS = Object.freeze([
   'valerielinc-ops/frontaliere-si-o-no',
   'nanakokyobashi-rgb/frontaliere-articles',
@@ -843,7 +843,7 @@ const STAGE_ACTIONS = {
   'write-primary': 'The refreshed login could not be written back to the source repository. The stored login has spent its refresh token and works only until its access token expires: log in again before then.',
   'write-secondary': 'The source repository holds the fresh login but some targets still hold the previous one. The next scheduled run retries them; create or renew the writer token for those owners if the log says it is missing.',
   lifetime: 'The refreshed access token lives shorter than the guaranteed validity window: consumers may still refresh on their own. Lower `CODEX_AUTH_MIN_VALID_HOURS` only with evidence, or shorten the schedule.',
-  'write-remote-config': 'Every GitHub target holds the fresh login, but its Remote Config copy `CODEX_AUTH_JSON` (read by the Cloud Functions Codex rung, functions/src/codexFallback.js) was not updated. The functions keep the previous access token, never refresh it, and skip the rung once it expires; the next scheduled run retries. Check `FIREBASE_SERVICE_ACCOUNT_JSON` (Remote Config write access) and the run log.',
+  'write-remote-config': 'Every GitHub target holds the fresh login, but private Remote Config parameter `SERVER_CODEX_AUTH_JSON` (read by the Cloud Functions Codex rung, functions/src/codexFallback.js) was not updated. The functions keep the previous access token, never refresh it, and skip the rung once it expires; the next scheduled run retries. Check `FIREBASE_SERVICE_ACCOUNT_JSON` (Remote Config write access) and the run log.',
 };
 
 export function alertTexts({ marker, runUrl, workflow, sourceRepo, expiresAt = null }) {
@@ -1239,6 +1239,7 @@ async function commandWriteRemoteConfig() {
   try {
     result = await setRcParamWithEtag({
       credentials,
+      namespace: RC_SERVER_NAMESPACE,
       name: REMOTE_CONFIG_PARAM,
       value,
       description: 'Codex ChatGPT login (no refresh_token) for functions/src/codexFallback.js. Written by codex-auth-rotate.yml; never refreshed by the functions.',

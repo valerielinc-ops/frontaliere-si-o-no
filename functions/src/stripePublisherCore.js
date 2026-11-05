@@ -31,7 +31,7 @@
 
 import { getAuth } from 'firebase-admin/auth';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
-import { getRemoteConfigValue, bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { getRemoteConfigValue, getServerRemoteConfigValue, bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { sendEmailCascade } from './emailCascade.js';
 import {
@@ -65,7 +65,7 @@ let _stripe = null;
 const _productTaxCodeEnsured = new Set();
 export async function getStripe() {
   if (_stripe) return _stripe;
-  const key = await getRemoteConfigValue('STRIPE_SECRET_KEY');
+  const key = await getServerRemoteConfigValue('SERVER_STRIPE_SECRET_KEY');
   if (!key) throw new Error('stripe_secret_key_missing');
   const { default: Stripe } = await import('stripe');
   _stripe = new Stripe(key, { apiVersion: '2025-03-31.basil' });
@@ -1037,7 +1037,7 @@ async function orderByStripeRef({ sessionId, subscriptionId, orderId }) {
 }
 
 export async function handleStripeWebhook(req) {
-  const secret = await getRemoteConfigValue('STRIPE_WEBHOOK_SECRET');
+  const secret = await getServerRemoteConfigValue('SERVER_STRIPE_WEBHOOK_SECRET');
   if (!secret) return { status: 500, body: { ok: false, error: 'webhook_secret_missing' } };
 
   const stripe = await getStripe();

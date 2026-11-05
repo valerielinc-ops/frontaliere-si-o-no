@@ -73,7 +73,9 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load analytics and Firebase settings from Remote Config
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=POSTHOG_PERSONAL_API_KEY
 
       - name: Verify selected source settings are present
         run: |

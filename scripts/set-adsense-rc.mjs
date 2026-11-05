@@ -23,7 +23,8 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+import { readFirebaseServiceAccountCredentials } from './lib/firebase-service-account-credentials.mjs';
+import { RC_SERVER_NAMESPACE, setRcParamsWithEtag } from './lib/remote-config-admin.mjs';
 
 const ROOT = process.cwd();
 const TOKEN_CACHE = path.join(ROOT, '.cache', 'adsense-oauth.json');
@@ -65,23 +66,20 @@ async function main() {
 
   loadLocalSecrets();
 
-  const rc = await getRemoteConfig();
-  const template = await fetchRcTemplate(rc);
-
   const description = `AdSense OAuth credential for weekly revenue-monitor (set ${new Date().toISOString().slice(0, 10)})`;
-  let changed = 0;
-  for (const [key, value] of Object.entries(RC_PARAMS)) {
-    if (stageRcParam(template, key, value, description)) changed++;
-  }
-
-  if (changed === 0) {
-    console.log('ℹ️  All 3 SERVER_ADSENSE_* params already up-to-date. Nothing to publish.');
-    return;
-  }
-
-  await publishRcTemplate(rc, template, changed);
-  console.log(`✅ Published ${changed} SERVER_ADSENSE_* param(s) to Remote Config.`);
-  console.log('   Next Monday the revenue-monitor workflow will pick them up via load-rc-env.mjs.');
+  const credentials = readFirebaseServiceAccountCredentials(process.env, {
+    purpose: 'write AdSense OAuth credentials to private Remote Config',
+  });
+  if (!credentials?.project_id) bail('Firebase service-account credentials missing.');
+  const result = await setRcParamsWithEtag({
+    credentials,
+    namespace: RC_SERVER_NAMESPACE,
+    params: Object.entries(RC_PARAMS).map(([name, value]) => ({ name, value, description })),
+    versionDescription: 'Set private AdSense OAuth credentials',
+  });
+  if (!result.ok) bail(`Private AdSense Remote Config write failed: ${result.detail || 'unknown error'}`);
+  console.log(`✅ Private SERVER_ADSENSE_* credentials ${result.changed ? 'updated' : 'already current'} in Remote Config.`);
+  console.log('   The revenue-monitor workflow reads them through the private server-template loader.');
 }
 
 main().catch((err) => {

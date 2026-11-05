@@ -87,7 +87,7 @@ jobs:
             only_env_keys="$only_env_keys,LINKEDIN_MEMBER_CLIENT_ID,LINKEDIN_MEMBER_CLIENT_SECRET,LINKEDIN_MEMBER_ACCESS_TOKEN,LINKEDIN_MEMBER_REFRESH_TOKEN"
           fi
           if [ "${TIKTOK_DISPLAY_ANALYTICS_APPROVED:-}" = true ]; then
-            only_env_keys="$only_env_keys,TIKTOK_CLIENT_KEY,TIKTOK_CLIENT_SECRET,TIKTOK_ACCESS_TOKEN,TIKTOK_REFRESH_TOKEN"
+            only_env_keys="$only_env_keys,TIKTOK_CLIENT_KEY,TIKTOK_CLIENT_SECRET,TIKTOK_ACCESS_TOKEN,TIKTOK_REFRESH_TOKEN,TIKTOK_OPEN_ID"
           fi
           rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs "--only-env=$only_env_keys" --include-social-secrets)"
           eval "$rc_exports"

@@ -32,7 +32,7 @@ import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { googleApiJson } from '../lib/google-api-json.mjs';
 import { getServiceAccountAccessToken } from '../lib/google-service-account-token.mjs';
-import { setRcParamWithEtag } from '../lib/remote-config-admin.mjs';
+import { RC_SERVER_NAMESPACE, setRcParamWithEtag } from '../lib/remote-config-admin.mjs';
 
 export const KEY_ID = 'frontaliere-pagespeed-crux';
 /** Id di una chiave nuova: stesso prefisso, suffisso UTC al minuto (regex keyId di API Keys v2). */
@@ -45,7 +45,7 @@ const CLOUD_SCOPE = 'https://www.googleapis.com/auth/cloud-platform';
 const APIKEYS = 'https://apikeys.googleapis.com/v2';
 const SERVICEUSAGE = 'https://serviceusage.googleapis.com/v1';
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
-const RC_PARAM = 'PAGESPEED_API_KEY';
+const RC_PARAM = 'SERVER_PAGESPEED_API_KEY';
 const MISSING_ROLES_HINT = 'grant the service account roles/serviceusage.apiKeysAdmin and roles/serviceusage.serviceUsageAdmin in Google Cloud IAM, then re-run';
 
 const defaultSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -194,6 +194,7 @@ export async function provisionPagespeedKey({
 
   const written = await writeRemoteConfig({
     credentials,
+    namespace: RC_SERVER_NAMESPACE,
     name: RC_PARAM,
     value: keyString,
     description: `Google API key restricted to PageSpeed Insights + Chrome UX Report (${keyName.split('/').pop()}). Written by pagespeed-api-key-provision.yml.`,

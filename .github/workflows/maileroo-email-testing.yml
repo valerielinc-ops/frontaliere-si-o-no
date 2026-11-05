@@ -56,7 +56,9 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load Maileroo Applications and scoped Email Testing key
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=MAILEROO_EMAIL_TESTING_API_KEY,MAILEROO_ACCOUNT_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILEROO_NEWSLETTER_API_KEY
 
       - name: Run Maileroo Email Testing CI
         env:

@@ -96,6 +96,7 @@ import {
 import { publishCarousel } from './lib/instagram-publish.mjs';
 import { assertInstagramPublishReady } from './lib/instagram-publish-readiness.mjs';
 import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { prioritizeSocialSourceCandidates, socialSourceIdForArticle, socialSourceIdForJob } from './lib/social-source-catalog.mjs';
 import {
   markSocialPublishReservationPublished,
   releaseSocialPublishReservation,
@@ -284,7 +285,14 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId }) {
     jobSections,
     isJobSlug: kind === 'job' ? (slug) => jobIndex.has(slug) : undefined,
   });
-  const candidates = kind === 'job' ? jobs : articles;
+  const candidates = prioritizeSocialSourceCandidates(kind === 'job' ? jobs : articles, {
+    pack: SOCIAL_COPY_PACK,
+    channel: 'instagram',
+    format: kind,
+    sourceIdForCandidate: (candidate) => kind === 'job'
+      ? socialSourceIdForJob(jobIndex.get(candidate.slug))
+      : socialSourceIdForArticle(candidate.slug),
+  });
 
   const { picks, skipped } = pickTopNUnposted(candidates, recent, CAROUSEL_SIZE);
   if (picks.length === 0) {

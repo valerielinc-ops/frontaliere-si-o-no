@@ -4,6 +4,7 @@ import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { buildEditorialSourceBrief } from '../scripts/social-copy/editorial-source-brief.mjs';
+import { socialSourceIdForArticle } from '../scripts/lib/social-source-catalog.mjs';
 
 const directories: string[] = [];
 afterEach(() => {
@@ -53,7 +54,12 @@ describe('sanitized editorial source brief', () => {
       unreadableSourceCount: 1,
       clusters: { mobilita: 1, pensioni: 1 },
       recentTopics: [
-        { publishedOn: '2026-11-02', topic: 'nuove-regole-trasporto-frontalieri', cluster: 'mobilita' },
+        {
+          sourceId: socialSourceIdForArticle('nuove-regole-trasporto-frontalieri'),
+          publishedOn: '2026-11-02',
+          topic: 'nuove-regole-trasporto-frontalieri',
+          cluster: 'mobilita',
+        },
         { publishedOn: '2026-10-15', topic: 'nuovo-calcolo-pensione', cluster: 'pensioni' },
       ],
       historicalWindowDays: 365,
@@ -67,6 +73,10 @@ describe('sanitized editorial source brief', () => {
     expect(JSON.stringify(brief)).not.toContain('private ranking query');
     expect(JSON.stringify(brief)).not.toContain('personali@example.com');
     expect(JSON.stringify(brief)).not.toContain('contenuto-futuro');
+    expect(brief.sourceCatalog.sources.find((source) => source.contentKind === 'article')).toMatchObject({
+      sourceId: socialSourceIdForArticle('nuove-regole-trasporto-frontalieri'),
+      selectionHint: 'nuove-regole-trasporto-frontalieri',
+    });
   });
 
   it('reports missing recent sources as unavailable instead of inventing zero performance', () => {
@@ -133,6 +143,12 @@ describe('sanitized editorial source brief', () => {
     expect(JSON.stringify(brief)).not.toContain('Titolo pubblico');
     expect(JSON.stringify(brief)).not.toContain('private');
     expect(JSON.stringify(brief)).not.toContain('event/one');
+    expect(brief.sourceCatalog.sources.find((source) => source.contentKind === 'event')).toMatchObject({
+      contentKind: 'event',
+      selectionHint: 'Musica',
+    });
+    expect(JSON.stringify(brief.sourceCatalog)).not.toContain('Titolo pubblico');
+    expect(JSON.stringify(brief.sourceCatalog)).not.toContain('events.example.ch');
   });
 
   it('passes only thresholded search categories and fresh multi-publisher news categories', () => {

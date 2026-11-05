@@ -12,9 +12,11 @@ import { join } from 'node:path';
 // Pure-ESM script. The CLI block is gated on `import.meta.url ===
 // file://${process.argv[1]}`, so importing is side-effect-free.
 import * as scheduler from '../../scripts/schedule-fb-articles-daily.mjs';
+import { socialSourceIdForArticle } from '../../scripts/lib/social-source-catalog.mjs';
 
 interface ArticleLike {
   id: string;
+  slug?: string;
   section: 'frontaliere' | 'svizzera';
   category?: string;
   date: string;
@@ -226,6 +228,7 @@ describe('loadArticles', () => {
       category: 'fiscale',
       date: '2026-06-10',
       url: 'https://frontaliereticino.ch/articoli-frontaliere/articolo-uno/',
+      slug: 'articolo-uno',
       ogTitle: 'Titolo Uno',
       ogDescription: 'Estratto uno.',
     });
@@ -263,6 +266,16 @@ describe('selectUnpostedArticles', () => {
     const out = selectUnpostedArticles(articles, new Set(), { maxAgeDays: 30, limit: 1, now: NOW });
     expect(out).toHaveLength(1);
     expect(out[0].id).toBe('fresh-1');
+  });
+
+  it('uses only current unposted preferred sources before the newest fallback', () => {
+    const out = selectUnpostedArticles(articles, new Set(['fresh-2']), {
+      maxAgeDays: 30,
+      limit: 2,
+      now: NOW,
+      preferredIds: ['fresh-2', 'fresh-1'],
+    });
+    expect(out.map((article) => article.id)).toEqual(['fresh-1', 'old']);
   });
 
   it('drops unparseable dates', () => {
@@ -346,14 +359,14 @@ describe('loadPosted / appendPosted', () => {
 // ── run() integration ─────────────────────────────────────
 
 describe('run()', () => {
-  function setupRepo(opts: { articles: Array<{ id: string; date: string }>; posted?: string[] }): string {
+  function setupRepo(opts: { articles: Array<{ id: string; date: string; slug?: string }>; posted?: string[] }): string {
     const tmp = mkdtempSync(join(tmpdir(), 'fb-art-run-'));
     mkdirSync(join(tmp, 'data'), { recursive: true });
     mkdirSync(join(tmp, 'services', 'locales'), { recursive: true });
     const reg = opts.articles
       .map((a) => `{ id: '${a.id}', category: 'novita', date: '${a.date}' }`)
       .join(', ');
-    const slugs = opts.articles.map((a) => `'${a.id}': { it: '${a.id}-slug', en: 'x', de: 'y', fr: 'z' }`).join(', ');
+    const slugs = opts.articles.map((a) => `'${a.id}': { it: '${a.slug || `${a.id}-slug`}', en: 'x', de: 'y', fr: 'z' }`).join(', ');
     const meta = opts.articles
       .map((a) => `'blog.article.${a.id}.title': 'Titolo ${a.id}', 'blog.article.${a.id}.excerpt': 'Estratto ${a.id}.'`)
       .join(', ');
@@ -414,6 +427,13 @@ describe('run()', () => {
     expect(result.ok).toBe(true);
     // pre-flight HEAD + OG rescrape + /feed POST = 3 calls.
     expect(fetchSpy).toHaveBeenCalledTimes(3);
+    for (const [requestUrl, requestInit] of fetchSpy.mock.calls) {
+      const parsed = new URL(String(requestUrl));
+      if (parsed.hostname !== 'graph.facebook.com') continue;
+      expect(parsed.searchParams.has('access_token')).toBe(false);
+      expect((requestInit?.headers as Record<string, string>)?.Authorization).toBe('Bearer tok');
+      if (requestInit?.body instanceof URLSearchParams) expect(requestInit.body.has('access_token')).toBe(false);
+    }
     const ledger = loadPosted(tmp);
     expect(ledger.posted).toHaveLength(1);
     expect(ledger.posted[0].id).toBe('a1');
@@ -483,6 +503,44 @@ describe('run()', () => {
     expect(result.posted).toBe(0);
     expect(fetchSpy).toHaveBeenCalledTimes(3);
     expect(reservationCalls).toEqual(['reserved', 'released']);
+  });
+
+  it('resolves Facebook article source assignments by canonical URL slug, not registry id', async () => {
+    const articleId = 'stipendio-netto-2026';
+    const canonicalSlug = 'stipendio-netto-frontaliere-2026';
+    const tmp = setupRepo({ articles: [
+      { id: articleId, slug: canonicalSlug, date: '2026-06-11' },
+      { id: 'newer-article-id', slug: 'newer-article-slug', date: '2026-06-12' },
+    ] });
+    const socialCopyPack = {
+      promptVersion: 'frontaliere-social-copy-v1',
+      packId: '0123456789abcdef',
+      sourceAssignments: [{
+        channel: 'facebook',
+        format: 'article',
+        sourceId: socialSourceIdForArticle(canonicalSlug),
+      }],
+      channels: {
+        facebook: {
+          article: [
+            { id: 'facebook-article-one', hook: 'Una novità sul lavoro', cta: 'Leggi la guida' },
+            { id: 'facebook-article-two', hook: 'Un tema da conoscere', cta: 'Scopri i dettagli' },
+            { id: 'facebook-article-three', hook: 'Uno spunto per oggi', cta: 'Apri la guida' },
+          ],
+        },
+      },
+    };
+    const result = await run({
+      env: { DRY_RUN: '1', FB_ARTICLE_MAX_AGE_DAYS: '2', FB_ARTICLE_VOLUME: '1' },
+      now: NOW,
+      repoRoot: tmp,
+      socialCopyPack,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result.payloads.map((payload) => payload.articleId)).toEqual([articleId]);
+    expect(result.payloads[0].url).toContain(`/${canonicalSlug}/`);
   });
 
   it('carries the selected Codex copy variant into the Facebook link attribution', async () => {

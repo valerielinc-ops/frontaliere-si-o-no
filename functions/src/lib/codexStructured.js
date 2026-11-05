@@ -17,14 +17,14 @@ import {
   parseCodexLogin,
   readCodexSse,
 } from '../codexFallback.js';
-import { getRemoteConfigValue } from '../remoteConfigSecrets.js';
+import { getRemoteConfigValue, getServerRemoteConfigValue } from '../remoteConfigSecrets.js';
 
 /**
  * @param {{systemPrompt:string, userText:string, schema:object, name:string, effort?:string, timeoutMs?:number}} request
  * @returns {Promise<object>} the parsed JSON answer
  */
-export async function codexStructured({ systemPrompt, userText, schema, name, effort = 'max', timeoutMs = 240_000, read = getRemoteConfigValue, fetchImpl = fetch }) {
-  const login = parseCodexLogin(String(await read('CODEX_AUTH_JSON') || '').trim());
+export async function codexStructured({ systemPrompt, userText, schema, name, effort = 'max', timeoutMs = 240_000, read = getRemoteConfigValue, readServer = getServerRemoteConfigValue, fetchImpl = fetch }) {
+  const login = parseCodexLogin(String(await readServer('SERVER_CODEX_AUTH_JSON') || '').trim());
   if (!login.ok) throw new Error(`codex_${login.error}`);
   if (login.expiresAt - Date.now() <= ACCESS_TOKEN_MIN_REMAINING_MS) throw new Error('codex_auth_expired');
   const model = String(await read('CODEX_FALLBACK_MODEL') || '').trim() || CODEX_FALLBACK_DEFAULT_MODEL;

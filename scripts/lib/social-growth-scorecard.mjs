@@ -22,7 +22,8 @@ export const SOCIAL_GROWTH_TARGET_POLICY_VERSION = 2;
 export const SOCIAL_GROWTH_TARGET_HORIZON_DAYS = 90;
 export const SOCIAL_BUSINESS_OUTCOME_TARGET_RELATIVE_LIFT = 0.25;
 export const SOCIAL_BUSINESS_OUTCOME_TARGET_RATE_RETENTION = 0.9;
-export const SOCIAL_CHANNEL_PILOT_CONTRACT_VERSION = 5;
+export const SOCIAL_CHANNEL_PILOT_CONTRACT_VERSION = 7;
+const SOCIAL_PUBLISH_READINESS_STALE_AFTER_HOURS = 12;
 
 const CHANNEL_PILOT_CONTRACTS = Object.freeze({
   instagram: Object.freeze({
@@ -154,7 +155,8 @@ const AUDIENCE_STORAGE_CHANNEL_BY_SCORECARD_KEY = Object.freeze({
   youtubeShorts: 'youtube-shorts',
 });
 const SOURCE_FRESHNESS_CONTRACTS = Object.freeze([
-  { key: 'instagramPostInsights', source: 'instagram', channel: 'instagram', intervalHours: 24 },
+  { key: 'instagramPublishReadiness', source: 'instagramPublishReadiness', channel: 'instagram', intervalHours: 6, staleAfterHours: SOCIAL_PUBLISH_READINESS_STALE_AFTER_HOURS, readiness: true },
+  { key: 'instagramPostInsights', source: 'instagramPostInsights', fallbackSource: 'instagram', channel: 'instagram', intervalHours: 24 },
   { key: 'instagramStoryInsights', source: 'instagramStoryInsights', channel: 'instagram', storyInsights: true, intervalHours: 1, staleAfterHours: 3 },
   { key: 'tiktokPostInsights', source: 'tiktok', channel: 'tiktok', intervalHours: 6 },
   { key: 'facebookPostInsights', source: 'facebook', channel: 'facebook', intervalHours: 6 },
@@ -847,7 +849,9 @@ function dailyCadenceEvidence({ channel, ledgerState, asOfMs, cap }) {
 function buildChannelPilotObservability({ audienceGrowth, sources, publicationLedgers, nativePosts, asOfMs }) {
   const snapshots = [...(Array.isArray(nativePosts) ? nativePosts : [])];
   return Object.fromEntries(Object.entries(CHANNEL_PILOT_CONTRACTS).map(([key, contract]) => {
-    const sourceStatus = key === 'linkedinMember'
+    const sourceStatus = key === 'instagram'
+      ? statusFor(sources, 'instagramPostInsights', statusFor(sources, 'instagram', 'not-collected-yet'))
+      : key === 'linkedinMember'
       ? statusFor(sources, 'linkedinAudience', 'not-collected-yet')
       : key === 'linkedinCompanyPage' ? statusFor(sources, key, 'organization-social-permission-missing')
       : key === 'youtubeShorts' ? statusFor(sources, 'youtubeShorts', 'account-not-configured')
@@ -855,6 +859,9 @@ function buildChannelPilotObservability({ audienceGrowth, sources, publicationLe
         : key === 'threads' ? statusFor(sources, 'threads', 'account-and-oauth-not-configured')
           : ['x', 'whatsappChannels'].includes(key) ? statusFor(sources, key, 'account-and-oauth-not-configured')
             : statusFor(sources, key, key === 'tiktok' ? 'policy-review-required' : 'not-collected-yet');
+    const deliverySourceStatus = key === 'instagram'
+      ? instagramPublishReadinessStatus(sources, asOfMs)
+      : sourceStatus;
     const audience = audienceGrowth[key] || { status: 'not-supported' };
     const ledgerState = contract.ledgerKey ? publicationLedgers?.[contract.ledgerKey] : null;
     const postIdCoverage = contract.ledgerKey && contract.nativeChannel
@@ -889,7 +896,11 @@ function buildChannelPilotObservability({ audienceGrowth, sources, publicationLe
         overrunDays: null,
         lastOverrunDay: null,
       };
-    const deliveryBlocked = sourceStatus === 'policy-review-required'
+    const deliveryBlocked = (key === 'instagram' && deliverySourceStatus !== 'available')
+      || sourceStatus === 'credentials-missing'
+      || sourceStatus === 'permission-missing'
+      || sourceStatus === 'capability-unavailable'
+      || sourceStatus === 'policy-review-required'
       || sourceStatus === 'external-devvit-review-required'
       || sourceStatus === 'account-and-oauth-not-configured'
       || sourceStatus === 'account-not-configured'
@@ -901,9 +912,14 @@ function buildChannelPilotObservability({ audienceGrowth, sources, publicationLe
           ? 'measurement-building' : 'exact-post-evidence-incomplete';
     return [key, {
       contractVersion: SOCIAL_CHANNEL_PILOT_CONTRACT_VERSION,
-      deliveryState: contract.deliveryState,
+      deliveryState: key === 'instagram' && sourceStatus === 'credentials-missing'
+        ? 'blocked'
+        : key === 'instagram' && deliverySourceStatus !== 'available'
+          ? 'blocked'
+          : contract.deliveryState,
       readinessStatus,
       sourceStatus,
+      ...(key === 'instagram' ? { deliverySourceStatus } : {}),
       deliveryPath: contract.deliveryPath,
       cadenceCap: contract.cadenceCap,
       cadenceOverrun,
@@ -1439,6 +1455,16 @@ function statusFor(sources, channel, fallback) {
   return typeof value === 'string' && value ? value : fallback;
 }
 
+function instagramPublishReadinessStatus(sources, asOfMs) {
+  const state = sources?.instagramPublishReadiness;
+  const status = typeof state?.status === 'string' && state.status ? state.status : 'readiness-unverified';
+  if (status !== 'available') return status;
+  const checkedAtMs = Date.parse(String(state?.lastCheckedAt || ''));
+  if (!Number.isFinite(checkedAtMs) || checkedAtMs > asOfMs) return 'readiness-unverified';
+  if (asOfMs - checkedAtMs > SOCIAL_PUBLISH_READINESS_STALE_AFTER_HOURS * 60 * 60 * 1000) return 'readiness-stale';
+  return 'available';
+}
+
 function latestSnapshotAt(rows, predicate, asOfMs) {
   return (Array.isArray(rows) ? rows : [])
     .filter((row) => {
@@ -1458,7 +1484,7 @@ function buildSourceFreshness({ nativeInsights, sources, asOfMs, tiktokEnabled }
   const siteOutcomes = Array.isArray(nativeInsights?.siteOutcomeSnapshots) ? nativeInsights.siteOutcomeSnapshots : [];
   const followerGains = Array.isArray(nativeInsights?.followerGainSnapshots) ? nativeInsights.followerGainSnapshots : [];
   return Object.fromEntries(SOURCE_FRESHNESS_CONTRACTS.map((contract) => {
-    const state = sources?.[contract.source];
+    const state = sources?.[contract.source] || (contract.fallbackSource ? sources?.[contract.fallbackSource] : null);
     const status = typeof state === 'string' ? state : String(state?.status || 'not-collected-yet');
     const tiktokSource = contract.source === 'tiktok' || contract.source === 'tiktokAudience';
     if (tiktokSource && !tiktokEnabled) {
@@ -1470,7 +1496,9 @@ function buildSourceFreshness({ nativeInsights, sources, asOfMs, tiktokEnabled }
         ageHours: null,
       }];
     }
-    const fallbackSnapshotAt = contract.storyInsights
+    const fallbackSnapshotAt = contract.readiness
+      ? typeof state === 'object' ? state?.lastCheckedAt || null : null
+      : contract.storyInsights
       ? latestSnapshotAt(storySnapshots, (row) => Array.isArray(row.availableMetrics) && row.availableMetrics.length > 0, asOfMs)
       : contract.metric
       ? latestSnapshotAt(audience, (row) => row.channel === contract.channel && row.metric === contract.metric && row.status === 'available', asOfMs)
@@ -1483,7 +1511,9 @@ function buildSourceFreshness({ nativeInsights, sources, asOfMs, tiktokEnabled }
             ? nativeInsights?.robotDelivery?.recordedAt || null
             : null
         : latestSnapshotAt(posts, (row) => row.channel === contract.channel, asOfMs);
-    const declaredLastSuccessAt = typeof state === 'object' ? state?.lastSuccessAt : null;
+    const declaredLastSuccessAt = typeof state === 'object'
+      ? contract.readiness ? state?.lastCheckedAt : state?.lastSuccessAt
+      : null;
     const declaredLastSuccessMs = Date.parse(String(declaredLastSuccessAt || ''));
     const lastSuccessAt = Number.isFinite(declaredLastSuccessMs) && declaredLastSuccessMs <= asOfMs
       ? declaredLastSuccessAt
@@ -1591,7 +1621,11 @@ export function buildSocialGrowthScorecard({
     : Array.isArray(nativeInsights?.audienceSnapshots) ? nativeInsights.audienceSnapshots : [];
   const tiktokStatus = statusFor(sources, 'tiktok', 'unavailable');
   const linkedinStatus = statusFor(sources, 'linkedinMember', 'unavailable');
-  const instagramStatus = statusFor(sources, 'instagram', Array.isArray(instagramInsights?.posts) ? 'available' : 'unavailable');
+  const instagramStatus = statusFor(sources, 'instagramPostInsights', statusFor(
+    sources,
+    'instagram',
+    Array.isArray(instagramInsights?.posts) ? 'available' : 'unavailable',
+  ));
   const telegramStatus = statusFor(sources, 'telegram', Array.isArray(telegramHistory) || typeof telegramHistory === 'string' ? 'available' : 'unavailable');
   const audienceGrowth = {
     instagram: audienceChangeScorecard(audienceSnapshots, 'instagram', 'followers', asOfMs, statusFor(sources, 'instagramAudience', 'not-collected-yet')),
@@ -1805,6 +1839,7 @@ export function buildSocialGrowthScorecard({
     interpretation: 'Dated rolling descriptive benchmarks; per-channel stretch goals appear only after a frozen baseline. No combined target, forecast, or causal claim. Rates stay separate by channel and event; missing metrics are not imputed as zero.',
     sourceCoverage: {
       instagram: instagramStatus,
+      instagramPublishReadiness: instagramPublishReadinessStatus(sources, asOfMs),
       instagramStoryInsights: statusFor(sources, 'instagramStoryInsights', 'not-collected-yet'),
       tiktok: tiktokStatus,
       linkedinMember: linkedinStatus,

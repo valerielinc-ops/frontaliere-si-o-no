@@ -16,7 +16,7 @@ import { writeAdminAuditLog } from './adminAudit.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
-import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { getRemoteConfigValue, getServerRemoteConfigValue } from './remoteConfigSecrets.js';
 import { answerContractRequired } from './assistedApplicationAnswerConfirmation.js';
 import {
   refundSumUpTransaction,
@@ -918,7 +918,7 @@ async function handleMutate(db, req, adminEmail) {
         bucket: getStorage().bucket(STORAGE_BUCKET),
         requireAnswerContracts: action === 'automationSetAnswers' ? await answerContractRequired(getRemoteConfigValue) : false,
         // Read only by automationRevealAccount (portal accounts on the alias).
-        runKey: () => getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+        runKey: () => getServerRemoteConfigValue('SERVER_ASSISTED_APPLICATION_RUN_KEY'),
         // Read only by automationFillKit: the documents the fill extension attaches.
         signUrl: resolveCvLink,
         originalCvUrl: cvUrlForOrder,

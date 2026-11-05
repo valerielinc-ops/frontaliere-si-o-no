@@ -22,13 +22,15 @@ function failureStatus(response, payload) {
 /** Read only the authenticated user's follower total; callers must policy-gate this API use. */
 export async function collectTikTokAudienceSnapshot({
   accessToken,
+  expectedOpenId = process.env.TIKTOK_OPEN_ID,
   asOf = new Date(),
   fetchImpl = fetchRetry,
 } = {}) {
   const snapshotAt = new Date(asOf).toISOString();
   if (!String(accessToken || '').trim()) return { status: 'credentials-missing', snapshotAt, snapshot: null };
+  if (!String(expectedOpenId || '').trim()) return { status: 'identity-unverified', snapshotAt, snapshot: null };
   const url = new URL(`${TIKTOK_API}/user/info/`);
-  url.searchParams.set('fields', 'follower_count');
+  url.searchParams.set('fields', 'open_id,follower_count');
   let response;
   let payload;
   try {
@@ -53,6 +55,13 @@ export async function collectTikTokAudienceSnapshot({
       snapshotAt,
       snapshot: null,
     };
+  }
+  const openId = payload?.data?.user?.open_id;
+  if (typeof openId !== 'string' || !openId.trim()) {
+    return { status: 'identity-unverified', snapshotAt, snapshot: null };
+  }
+  if (openId !== String(expectedOpenId).trim()) {
+    return { status: 'identity-mismatch', snapshotAt, snapshot: null };
   }
   const value = safeCount(payload?.data?.user?.follower_count);
   if (value === null) return { status: 'metric-unavailable', snapshotAt, snapshot: null };

@@ -7,9 +7,10 @@
  *
  * Values are cached for 5 minutes to avoid excessive Remote Config reads. Once
  * that TTL expires, callers can use the cached template while one background
- * refresh runs until the 60-minute stale limit. Beyond that limit, reads wait
- * at most 8 seconds for Remote Config before using a cached template or failing
- * clearly.
+ * refresh runs until the 60-minute stale limit. The general template retains
+ * its legacy stale fallback; the private server template fails closed beyond
+ * that limit because it carries revocable credentials. Both readers wait at
+ * most 8 seconds for Remote Config before using any permitted cache or failing.
  */
 
 import { getRemoteConfig } from 'firebase-admin/remote-config';
@@ -189,7 +190,10 @@ export async function getServerRemoteConfigTemplate() {
         await getServerTemplatePromise();
       } catch (error) {
         if (!isServerFetchTimeoutError(error)) throw error;
-        console.warn('[remoteConfigSecrets] server-template refresh timed out; serving cached template beyond max stale age');
+        throw new Error(
+          'Remote Config server template exceeds the maximum stale age and refresh timed out',
+          { cause: error },
+        );
       }
     }
   }
@@ -347,9 +351,9 @@ const EMAIL_CASCADE_RC_KEYS = [
  'MAILJET_API_KEY', 'MAILJET_SECRET_KEY',
  'MAILGUN_API_KEY', 'MAILGUN_DOMAIN',
  'MAILTRAP_API_TOKEN',
- 'MAILEROO_API_KEY',
- 'MAILEROO_TRANSACTIONAL_API_KEY', 'MAILEROO_NEWSLETTER_API_KEY',
- 'MAILEROO_ACCOUNT_API_KEY',
+ 'SERVER_MAILEROO_API_KEY',
+ 'SERVER_MAILEROO_TRANSACTIONAL_API_KEY', 'SERVER_MAILEROO_NEWSLETTER_API_KEY',
+ 'SERVER_MAILEROO_ACCOUNT_API_KEY',
  'CLOUDFLARE_EMAIL_API_TOKEN', 'CF_ACCOUNT_ID',
 ];
 
@@ -365,8 +369,18 @@ const EMAIL_CASCADE_RC_KEYS = [
  */
 export async function bridgeEmailCascadeCredentialsToEnv() {
  await Promise.all(EMAIL_CASCADE_RC_KEYS.map(async (key) => {
- if (process.env[key]) return;
- const value = await getRemoteConfigValue(key);
- if (value) process.env[key] = value;
+ const envKey = key.startsWith('SERVER_') ? key.slice('SERVER_'.length) : key;
+ if (process.env[envKey]) return;
+ try {
+ const value = key.startsWith('SERVER_')
+   ? await getServerRemoteConfigValue(key)
+   : await getRemoteConfigValue(key);
+ if (value) process.env[envKey] = value;
+ } catch (error) {
+ // Each email transport is an independent fallback. A private-template
+ // outage must disable Maileroo without preventing client-template providers
+ // already loaded by the same bridge from sending the message.
+ console.warn(`[remoteConfigSecrets] email credential ${key} is unavailable; that provider is skipped for this request`);
+ }
  }));
 }

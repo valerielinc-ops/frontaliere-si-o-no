@@ -5,12 +5,23 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { classifyByRegex, CLUSTER_TAXONOMY } from '../lib/cluster-classifier-prompt.mjs';
+import {
+  SOCIAL_SOURCE_FORMATS_BY_KIND,
+  SOCIAL_SOURCE_CATALOG_SCHEMA_VERSION,
+  SOCIAL_JOB_SOURCE_MAX_AGE_DAYS,
+  socialSourceCatalogId,
+  socialSourceIdForArticle,
+  socialSourceIdForEvent,
+  sanitizeSocialSourceSelectionHint,
+  validateSocialSourceCatalog,
+} from '../lib/social-source-catalog.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const DEFAULT_ARTICLE_DIRECTORY = path.join(ROOT, 'data', 'swiss-articles');
 const DEFAULT_BLOG_ARTICLE_DIRECTORY = path.join(ROOT, 'data', 'blog-articles');
 const DEFAULT_ARTICLE_DIRECTORIES = Object.freeze([DEFAULT_ARTICLE_DIRECTORY, DEFAULT_BLOG_ARTICLE_DIRECTORY]);
 const DEFAULT_EVENT_DIRECTORY = path.join(ROOT, 'data', 'events', 'by-source');
+const DEFAULT_JOB_SOURCE_CATALOG_PATH = path.join(ROOT, 'data', 'social-copy-job-source-catalog.json');
 const DEFAULT_DEMAND_VOCABULARY_PATH = path.join(ROOT, 'data', 'demand-vocabulary.json');
 const DEFAULT_EXPERIMENTAL_CANDIDATES_PATH = path.join(ROOT, 'data', 'experimental-candidates.json');
 const INVENTORY_DAYS = 30;
@@ -23,6 +34,8 @@ const MIN_NEWS_ITEMS_PER_CLUSTER = 3;
 const MIN_NEWS_DOMAINS_PER_CLUSTER = 2;
 const MAX_RECENT_TOPICS = 12;
 const MAX_EVENT_CATEGORIES = 8;
+const MAX_ARTICLE_SOURCE_CANDIDATES = 60;
+const MAX_EVENT_SOURCE_CANDIDATES = 40;
 const EVENT_CANTON = 'TI';
 const DEMAND_CLUSTERS = new Set(CLUSTER_TAXONOMY);
 const ALLOWED_CLUSTERS = new Set([
@@ -262,6 +275,7 @@ function upcomingTicinoEventInventory({ eventDirectory, asOfDate, inventoryDays 
   const nowMs = asOfMs;
   const categoryCounts = new Map();
   const seen = new Set();
+  const sourceCandidates = new Map();
   let unreadableSourceCount = 0;
   let freshSourceCount = 0;
   let latestSourceAt = null;
@@ -298,16 +312,34 @@ function upcomingTicinoEventInventory({ eventDirectory, asOfDate, inventoryDays 
       || nowMs - assembledAt > EVENT_SOURCE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000) continue;
     freshSourceCount += 1;
     latestSourceAt = Math.max(latestSourceAt || 0, assembledAt);
+    const freshnessDays = Math.floor((asOfMs - assembledAt) / (24 * 60 * 60 * 1000));
 
     for (const event of payload.events) {
       if (!isRecord(event) || String(event.canton || '').trim().toUpperCase() !== EVENT_CANTON) continue;
       const date = strictDate(event.startDate);
       if (!date || date < firstDay || date > lastDay) continue;
       const identity = eventIdentity(event, date);
-      if (seen.has(identity)) continue;
+      const sourceId = socialSourceIdForEvent(event);
+      if (!sourceId) continue;
+      if (seen.has(identity)) {
+        const previous = sourceCandidates.get(sourceId);
+        if (previous && freshnessDays < previous.freshnessDays) {
+          sourceCandidates.set(sourceId, { ...previous, freshnessDays });
+        }
+        continue;
+      }
       seen.add(identity);
       const category = safeEventCategory(event.category) || 'non-classificato';
       categoryCounts.set(category, (categoryCounts.get(category) || 0) + 1);
+      const topic = classifyByRegex(category);
+      sourceCandidates.set(sourceId, {
+        sourceId,
+        contentKind: 'event',
+        topic: CLUSTER_TAXONOMY.includes(topic) ? topic : 'generic',
+        freshnessDays,
+        selectionHint: sanitizeSocialSourceSelectionHint(category),
+        eligibleFormats: [...SOCIAL_SOURCE_FORMATS_BY_KIND.event],
+      });
     }
   }
 
@@ -326,7 +358,62 @@ function upcomingTicinoEventInventory({ eventDirectory, asOfDate, inventoryDays 
     sourceCount: freshSourceCount,
     unreadableSourceCount,
     categories,
+    candidateSources: [...sourceCandidates.values()]
+      .sort((left, right) => left.freshnessDays - right.freshnessDays || left.sourceId.localeCompare(right.sourceId))
+      .slice(0, MAX_EVENT_SOURCE_CANDIDATES),
     latestSourceAt: latestSourceAt === null ? null : new Date(latestSourceAt).toISOString(),
+  };
+}
+
+function jobSourceCandidates({ jobSourceCatalogPath, asOfDate }) {
+  const raw = safeReadJson(jobSourceCatalogPath);
+  if (!raw) return { status: 'missing', sources: [] };
+  try {
+    const catalog = validateSocialSourceCatalog(raw, { now: asOfDate, allowStale: true });
+    const todayMs = Date.parse(`${asOfDate.toISOString().slice(0, 10)}T00:00:00.000Z`);
+    const sources = catalog.sources
+      .filter((source) => source.contentKind === 'job' && source.sourceObservedOn)
+      .map((source) => {
+        const observedMs = Date.parse(`${source.sourceObservedOn}T00:00:00.000Z`);
+        const freshnessDays = Math.floor((todayMs - observedMs) / (24 * 60 * 60 * 1000));
+        return freshnessDays >= 0 && freshnessDays <= SOCIAL_JOB_SOURCE_MAX_AGE_DAYS
+          ? {
+            sourceId: source.sourceId,
+            contentKind: source.contentKind,
+            topic: source.topic,
+            freshnessDays,
+            ...(source.selectionHint ? { selectionHint: source.selectionHint } : {}),
+            eligibleFormats: source.eligibleFormats,
+          }
+          : null;
+      })
+      .filter(Boolean);
+    return { status: sources.length ? 'available' : 'empty', sources };
+  } catch {
+    return { status: 'stale-or-invalid', sources: [] };
+  }
+}
+
+function buildSourceCatalog({ articleSources, eventSources, jobSources, asOfDate }) {
+  const sources = [...articleSources, ...eventSources, ...jobSources]
+    .map(({ sourceObservedOn: _sourceObservedOn, ...source }) => source)
+    .sort((left, right) => left.contentKind.localeCompare(right.contentKind)
+      || left.freshnessDays - right.freshnessDays
+      || left.sourceId.localeCompare(right.sourceId));
+  return {
+    schemaVersion: SOCIAL_SOURCE_CATALOG_SCHEMA_VERSION,
+    snapshotDate: asOfDate.toISOString().slice(0, 10),
+    catalogId: socialSourceCatalogId(sources),
+    available: sources.length > 0,
+    sourceCount: sources.length,
+    coverage: {
+      article: articleSources.length,
+      job: jobSources.length,
+      event: eventSources.length,
+      border: 0,
+    },
+    sources,
+    interpretation: 'Source IDs are opaque first-party references. Topics and freshness are bounded selection hints, never evidence for factual claims. Publishers must resolve each assigned ID to a currently eligible source and insert only facts verified from that source.',
   };
 }
 
@@ -335,6 +422,7 @@ export function buildEditorialSourceBrief({
   articleDirectory,
   articleDirectories = DEFAULT_ARTICLE_DIRECTORIES,
   eventDirectory = DEFAULT_EVENT_DIRECTORY,
+  jobSourceCatalogPath = DEFAULT_JOB_SOURCE_CATALOG_PATH,
   demandVocabularyPath = DEFAULT_DEMAND_VOCABULARY_PATH,
   experimentalCandidatesPath = DEFAULT_EXPERIMENTAL_CANDIDATES_PATH,
   asOf = new Date(),
@@ -397,7 +485,30 @@ export function buildEditorialSourceBrief({
   for (const row of historicalRecords) {
     historicalClusterCounts[row.cluster] = (historicalClusterCounts[row.cluster] || 0) + 1;
   }
-  const upcomingEvents = upcomingTicinoEventInventory({ eventDirectory, asOfDate, inventoryDays });
+  const upcomingEventInventory = upcomingTicinoEventInventory({ eventDirectory, asOfDate, inventoryDays });
+  const { candidateSources: eventSources = [], ...upcomingEvents } = upcomingEventInventory;
+  const articleSources = records
+    .slice(0, MAX_ARTICLE_SOURCE_CANDIDATES)
+    .map((record) => {
+      const sourceId = socialSourceIdForArticle(record.topic);
+      if (!sourceId || !CLUSTER_TAXONOMY.includes(record.cluster)) return null;
+      return {
+        sourceId,
+        contentKind: 'article',
+        topic: record.cluster,
+        freshnessDays: Math.floor((asOfMs - record.publishedMs) / (24 * 60 * 60 * 1000)),
+        selectionHint: sanitizeSocialSourceSelectionHint(record.topic),
+        eligibleFormats: [...SOCIAL_SOURCE_FORMATS_BY_KIND.article],
+      };
+    })
+    .filter(Boolean);
+  const jobCatalog = jobSourceCandidates({ jobSourceCatalogPath, asOfDate });
+  const sourceCatalog = buildSourceCatalog({
+    articleSources,
+    eventSources,
+    jobSources: jobCatalog.sources,
+    asOfDate,
+  });
   const topicDiscovery = buildTopicDiscoveryBrief({
     demandVocabularyPath,
     experimentalCandidatesPath,
@@ -413,6 +524,7 @@ export function buildEditorialSourceBrief({
     unreadableSourceCount: unreadable,
     clusters: Object.fromEntries(Object.entries(clusterCounts).sort(([a], [b]) => a.localeCompare(b))),
     recentTopics: records.slice(0, maxRecentTopics).map(({ publishedOn, topic, cluster }) => ({
+      sourceId: socialSourceIdForArticle(topic),
       publishedOn,
       topic,
       cluster,
@@ -428,6 +540,8 @@ export function buildEditorialSourceBrief({
     })),
     topicDiscovery,
     upcomingTicinoEvents: upcomingEvents,
+    jobSourceCatalogStatus: jobCatalog.status,
+    sourceCatalog,
     interpretation: 'Recent article topics and historical topics from the prior year are source-inventory context only; historical topics are ideation candidates, not current trends or performance evidence. Topic-discovery categories are thresholded aggregates, not search volume, audience evidence, or current facts. The brief contains no article claims, event details, audience data, rankings, or performance evidence; the publishing workflow must verify every fact against its current source.',
   };
 }

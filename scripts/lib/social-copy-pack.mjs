@@ -2,17 +2,21 @@ import { createHash, randomUUID } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SOCIAL_SOURCE_FORMATS_BY_KIND, validateSocialSourceCatalog } from './social-source-catalog.mjs';
 
-export const SOCIAL_COPY_PACK_SCHEMA_VERSION = 4;
-export const SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v4';
+export const SOCIAL_COPY_PACK_SCHEMA_VERSION = 5;
+export const SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v5';
 export const SOCIAL_COPY_PACK_MAX_AGE_DAYS = 45;
 export const SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION = 'social-copy-angle-matched-block-v4';
+const INSTAGRAM_REEL_GROWTH_SCHEMA_VERSION = 4;
 const LEGACY_SOCIAL_COPY_PACK_SCHEMA_VERSION = 1;
 const LEGACY_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v1';
 const SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 2;
 const SECOND_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v2';
-const PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 3;
-const PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v3';
+const THIRD_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 3;
+const THIRD_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v3';
+const PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 4;
+const PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v4';
 
 export const SOCIAL_COPY_CHANNELS = Object.freeze({
   instagram: Object.freeze(['article', 'job', 'border', 'reel']),
@@ -74,7 +78,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 export const DEFAULT_SOCIAL_COPY_PACK_PATH = path.join(ROOT, 'data', 'social-copy-packs', 'current.json');
 
 function instagramObjectivesForKind(kind, schemaVersion = SOCIAL_COPY_PACK_SCHEMA_VERSION) {
-  if (kind === 'reel' && Number(schemaVersion) >= SOCIAL_COPY_PACK_SCHEMA_VERSION) {
+  if (kind === 'reel' && Number(schemaVersion) >= INSTAGRAM_REEL_GROWTH_SCHEMA_VERSION) {
     return INSTAGRAM_REEL_GROWTH_OBJECTIVES;
   }
   return INSTAGRAM_ENGAGEMENT_OBJECTIVES;
@@ -82,7 +86,7 @@ function instagramObjectivesForKind(kind, schemaVersion = SOCIAL_COPY_PACK_SCHEM
 
 export function socialCopyTemplateCount(channel, kind, schemaVersion = SOCIAL_COPY_PACK_SCHEMA_VERSION) {
   if (channel === 'instagram' && kind === 'reel') {
-    return Number(schemaVersion) >= SOCIAL_COPY_PACK_SCHEMA_VERSION
+    return Number(schemaVersion) >= INSTAGRAM_REEL_GROWTH_SCHEMA_VERSION
       ? INSTAGRAM_REEL_GROWTH_OBJECTIVES.length * MAX_TEMPLATES_PER_INSTAGRAM_OBJECTIVE
       : 9;
   }
@@ -307,6 +311,75 @@ function packEditorialPlan(raw, channelSchema = SOCIAL_COPY_CHANNELS) {
   return { pillars, angles };
 }
 
+function packSourceAssignments(raw, channelSchema, {
+  required = false,
+  sourceCatalog = null,
+  sourceCatalogId = null,
+  validateMembership = false,
+  generatedAt = new Date(),
+} = {}) {
+  if (!required) return { sourceAssignments: null, sourceCatalogId: null };
+  if (!Array.isArray(raw?.sourceAssignments)) throw new Error('sourceAssignments must be an array');
+  const catalog = sourceCatalog
+    ? validateSocialSourceCatalog(sourceCatalog, { now: generatedAt })
+    : null;
+  const catalogSources = new Map((catalog?.sources || []).map((source) => [source.sourceId, source]));
+  const selectedCatalogId = catalog?.catalogId || sourceCatalogId || null;
+  if (selectedCatalogId !== null && !/^[a-f0-9]{32}$/u.test(String(selectedCatalogId))) {
+    throw new Error('sourceCatalogId must be a 32-character lowercase SHA-256 prefix');
+  }
+
+  const seen = new Set();
+  const counts = new Map();
+  const assignments = raw.sourceAssignments.map((assignment, index) => {
+    const field = `sourceAssignments[${index}]`;
+    if (!isRecord(assignment) || Object.keys(assignment).sort().join('|') !== 'channel|format|sourceId') {
+      throw new Error(`${field} must contain exactly channel, format, and sourceId`);
+    }
+    const channel = String(assignment.channel || '').trim();
+    const format = String(assignment.format || '').trim();
+    const sourceId = String(assignment.sourceId || '').trim();
+    const sourceKind = sourceId.split('-', 1)[0];
+    if (!Object.hasOwn(channelSchema, channel)
+      || !channelSchema[channel].includes(format)
+      || !/^(?:article|job|event|border)-[a-f0-9]{20}$/u.test(sourceId)
+      || !SOCIAL_SOURCE_FORMATS_BY_KIND[sourceKind]?.includes(`${channel}.${format}`)) {
+      throw new Error(`${field} references an unsupported channel, format, or source ID`);
+    }
+    const slotKey = `${channel}.${format}`;
+    const uniquenessKey = `${slotKey}|${sourceId}`;
+    if (seen.has(uniquenessKey)) throw new Error(`${field} duplicates a source recommendation in ${slotKey}`);
+    seen.add(uniquenessKey);
+    const count = (counts.get(slotKey) || 0) + 1;
+    if (count > 3) throw new Error(`${slotKey} may contain at most three source recommendations`);
+    counts.set(slotKey, count);
+    if (validateMembership) {
+      const source = catalogSources.get(sourceId);
+      if (!source || !source.eligibleFormats.includes(`${channel}.${format}`)) {
+        throw new Error(`${field} source is missing or ineligible in the supplied source catalog`);
+      }
+    }
+    return { channel, format, sourceId };
+  });
+
+  if (validateMembership && catalog) {
+    for (const source of catalog.sources) {
+      for (const eligibleFormat of source.eligibleFormats) {
+        const [channel, format] = eligibleFormat.split('.');
+        if (!channelSchema[channel]?.includes(format)) continue;
+        if (!counts.has(`${channel}.${format}`)) {
+          throw new Error(`sourceAssignments must recommend at least one eligible ${channel}.${format} source`);
+        }
+      }
+    }
+  }
+  if (assignments.length > 54) throw new Error('sourceAssignments may contain at most 54 recommendations');
+  if (assignments.length > 0 && !selectedCatalogId) {
+    throw new Error('source assignments require a sourceCatalogId or a validated source catalog');
+  }
+  return { sourceAssignments: assignments, sourceCatalogId: selectedCatalogId };
+}
+
 function packChannels(raw, channelSchema = SOCIAL_COPY_CHANNELS, {
   editorialPlan = null,
   requireEditorialAngles = false,
@@ -419,13 +492,31 @@ function normalizePack(raw, {
   schemaVersion = SOCIAL_COPY_PACK_SCHEMA_VERSION,
   promptVersion = SOCIAL_COPY_PROMPT_VERSION,
   channelSchema = SOCIAL_COPY_CHANNELS,
+  sourceCatalog = null,
+  sourceCatalogId = null,
+  validateSourceMembership = false,
 } = {}) {
-  const requireEditorialAngles = Number(schemaVersion) >= PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION;
+  const requireEditorialAngles = Number(schemaVersion) >= THIRD_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION;
+  const requireSourceAssignments = Number(schemaVersion) >= SOCIAL_COPY_PACK_SCHEMA_VERSION;
   const editorialPlan = requireEditorialAngles ? packEditorialPlan(raw, channelSchema) : null;
   const channels = packChannels(raw, channelSchema, { editorialPlan, requireEditorialAngles, schemaVersion });
   const generated = generatedAt instanceof Date ? generatedAt : new Date(generatedAt);
   if (!Number.isFinite(generated.getTime())) throw new Error('generatedAt must be a valid timestamp');
-  const canonical = JSON.stringify(requireEditorialAngles ? { editorialPlan, channels } : channels);
+  const sourceContract = packSourceAssignments(raw, channelSchema, {
+    required: requireSourceAssignments,
+    sourceCatalog,
+    sourceCatalogId,
+    validateMembership: validateSourceMembership,
+    generatedAt: generated,
+  });
+  const canonical = JSON.stringify(requireSourceAssignments
+    ? {
+      editorialPlan,
+      sourceCatalogId: sourceContract.sourceCatalogId,
+      sourceAssignments: sourceContract.sourceAssignments,
+      channels,
+    }
+    : requireEditorialAngles ? { editorialPlan, channels } : channels);
   const packId = createHash('sha256')
     .update(promptVersion + '\n' + canonical)
     .digest('hex')
@@ -438,12 +529,23 @@ function normalizePack(raw, {
     generatedAt: generated.toISOString(),
     validUntil: validUntil.toISOString(),
     ...(editorialPlan ? { editorialPlan } : {}),
+    ...(requireSourceAssignments ? {
+      sourceCatalogId: sourceContract.sourceCatalogId,
+      sourceAssignments: sourceContract.sourceAssignments,
+    } : {}),
     channels,
   };
 }
 
-export function normalizeSocialCopyPack(raw, { generatedAt = new Date() } = {}) {
-  return normalizePack(raw, { generatedAt });
+export function normalizeSocialCopyPack(raw, {
+  generatedAt = new Date(),
+  sourceCatalog = null,
+} = {}) {
+  return normalizePack(raw, {
+    generatedAt,
+    sourceCatalog,
+    validateSourceMembership: Boolean(sourceCatalog),
+  });
 }
 
 export function validatePersistedSocialCopyPack(pack, { now = new Date() } = {}) {
@@ -456,27 +558,35 @@ export function validatePersistedSocialCopyPack(pack, { now = new Date() } = {})
     && !Object.hasOwn(pack.channels, 'reddit');
   const previousPack = Number(pack.schemaVersion) === PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
     && pack.promptVersion === PREVIOUS_SOCIAL_COPY_PROMPT_VERSION;
+  const thirdPreviousPack = Number(pack.schemaVersion) === THIRD_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
+    && pack.promptVersion === THIRD_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION;
   const secondPreviousPack = Number(pack.schemaVersion) === SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
     && pack.promptVersion === SECOND_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION;
   const currentPack = Number(pack.schemaVersion) === SOCIAL_COPY_PACK_SCHEMA_VERSION
     && pack.promptVersion === SOCIAL_COPY_PROMPT_VERSION;
-  if (!legacyPack && !secondPreviousPack && !previousPack && !currentPack) throw new Error('unsupported social-copy schema or prompt version');
+  if (!legacyPack && !secondPreviousPack && !thirdPreviousPack && !previousPack && !currentPack) {
+    throw new Error('unsupported social-copy schema or prompt version');
+  }
   const version = legacyPack ? LEGACY_SOCIAL_COPY_PACK_SCHEMA_VERSION
     : secondPreviousPack ? SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
-      : previousPack ? PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION : SOCIAL_COPY_PACK_SCHEMA_VERSION;
+      : thirdPreviousPack ? THIRD_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
+        : previousPack ? PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION : SOCIAL_COPY_PACK_SCHEMA_VERSION;
   const promptVersion = legacyPack ? LEGACY_SOCIAL_COPY_PROMPT_VERSION
     : secondPreviousPack ? SECOND_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION
-      : previousPack ? PREVIOUS_SOCIAL_COPY_PROMPT_VERSION : SOCIAL_COPY_PROMPT_VERSION;
+      : thirdPreviousPack ? THIRD_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION
+        : previousPack ? PREVIOUS_SOCIAL_COPY_PROMPT_VERSION : SOCIAL_COPY_PROMPT_VERSION;
   const normalized = normalizePack(
     {
       channels: pack.channels,
-      ...(version >= PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION ? { editorialPlan: pack.editorialPlan } : {}),
+      ...(version >= THIRD_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION ? { editorialPlan: pack.editorialPlan } : {}),
+      ...(version >= SOCIAL_COPY_PACK_SCHEMA_VERSION ? { sourceAssignments: pack.sourceAssignments } : {}),
     },
     {
       generatedAt: pack.generatedAt,
       schemaVersion: version,
       promptVersion,
       channelSchema: legacyPack ? LEGACY_SOCIAL_COPY_CHANNELS : SOCIAL_COPY_CHANNELS,
+      sourceCatalogId: version >= SOCIAL_COPY_PACK_SCHEMA_VERSION ? pack.sourceCatalogId : null,
     },
   );
   if (pack.packId !== normalized.packId || pack.validUntil !== normalized.validUntil) {

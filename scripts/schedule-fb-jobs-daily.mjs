@@ -38,6 +38,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { preferredSocialSourceCandidates, socialSourceIdForJob } from './lib/social-source-catalog.mjs';
 import { JOB_OG_IMAGE_VERSION } from '../build-plugins/shared/jobOgImageVersion.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -49,6 +50,7 @@ import {
 } from './lib/social-publish-reservations.mjs';
 import { isAmbiguousSocialPublishResponse } from './lib/social-publish-outcome.mjs';
 import { reconcileFacebookScheduledPosts } from './lib/facebook-scheduled-publish-reconciliation.mjs';
+import { redactAccessTokenText } from './lib/redact-access-token.mjs';
 
 import {
   stripHtml,
@@ -486,12 +488,12 @@ async function fetchScheduledPostMinutes({ pageId, token, fetchImpl, log }) {
   // need to read the queue to detect minute-collisions, not exhaustively
   // page through it — the next free :05/:15/… slot ≥ now+10min is what
   // pickNextSlots picks anyway.
-  const url = `${GRAPH_BASE}/${pageId}/scheduled_posts?fields=scheduled_publish_time&limit=100&access_token=${encodeURIComponent(token)}`;
+  const url = `${GRAPH_BASE}/${pageId}/scheduled_posts?fields=scheduled_publish_time&limit=100`;
   try {
-    const res = await fetchImpl(url);
+    const res = await fetchImpl(url, { headers: { Authorization: `Bearer ${token}` } });
     const data = await res.json();
     if (!res.ok) {
-      log('⚠️', `pre-flight scheduled_posts → HTTP ${res.status}: ${JSON.stringify(data).slice(0, 200)}`);
+      log('⚠️', `pre-flight scheduled_posts → HTTP ${res.status}: ${redactAccessTokenText(JSON.stringify(data), token).slice(0, 200)}`);
       return new Set();
     }
     const list = Array.isArray(data?.data) ? data.data : [];
@@ -503,7 +505,7 @@ async function fetchScheduledPostMinutes({ pageId, token, fetchImpl, log }) {
     log('ℹ️', `pre-flight: ${occupied.size} scheduled_publish_time slots already occupied`);
     return occupied;
   } catch (err) {
-    log('⚠️', `pre-flight scheduled_posts failed: ${err.message}`);
+    log('⚠️', `pre-flight scheduled_posts failed: ${redactAccessTokenText(err.message, token)}`);
     return new Set();
   }
 }
@@ -544,20 +546,22 @@ function expectedJobOgImagePath(url) {
 // scheduler reject generic or archived offer previews while event posts retain
 // their existing best-effort behavior.
 export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}, options = {}) {
-  const scrapeUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true&access_token=${encodeURIComponent(token)}`;
-  const checkUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&access_token=${encodeURIComponent(token)}`;
+  // Meta's scraper accepts the caller token through the normal Graph bearer auth.
+  const scrapeUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true`;
+  const checkUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}`;
+  const auth = { headers: { Authorization: `Bearer ${token}` } };
   const backoffMs = [0, 1500, 3000];
   const fallbackTitlePattern = /offerta\s+non\s+(?:verificata|trovata|disponibile)|job\s+not\s+found|position\s+not\s+verified|offre\s+(?:introuvable|non\s+v[ée]rifi[ée]e)|stelle\s+nicht\s+gefunden/i;
   for (let i = 0; i < backoffMs.length; i += 1) {
     if (backoffMs[i]) await new Promise((r) => setTimeout(r, backoffMs[i]));
     try {
-      const scrapeResponse = await fetchImpl(scrapeUrl, { method: 'POST' });
+      const scrapeResponse = await fetchImpl(scrapeUrl, { ...auth, method: 'POST' });
       if (!scrapeResponse.ok) continue;
       const scrapeData = typeof scrapeResponse.clone === 'function'
         ? await scrapeResponse.clone().json().catch(() => null)
         : null;
       if (scrapeData?.error) continue;
-      const res = await fetchImpl(checkUrl);
+      const res = await fetchImpl(checkUrl, auth);
       if (!res.ok) continue;
       const data = await res.json();
       const image = data?.og_object?.image;
@@ -649,7 +653,15 @@ export async function run(opts = {}) {
   const postedSet = new Set(ledger.posted.map((e) => e?.id).filter(Boolean));
 
   // 2. Pick top-N never-posted jobs
-  const candidates = selectUnpostedJobs(jobs, postedSet, volume);
+  const preferredSources = preferredSocialSourceCandidates(jobs, {
+    pack: socialCopyPack,
+    channel: 'facebook',
+    format: 'job',
+    sourceIdForCandidate: (job) => socialSourceIdForJob(job),
+  });
+  const candidates = selectUnpostedJobs(jobs, postedSet, volume, {
+    preferredIds: preferredSources.map((job) => job.id),
+  });
   if (candidates.length === 0) {
     log('ℹ️', 'no unposted jobs eligible, exiting');
     return { ok: reconciliation.uncertain === 0, scheduled: 0, uncertain: reconciliation.uncertain, dryRun, payloads: [] };
@@ -862,7 +874,6 @@ export async function run(opts = {}) {
         link,
         published: 'false',
         scheduled_publish_time: String(p.scheduled_publish_time),
-        access_token: token,
       });
       if (p.placeId) b.append('place', p.placeId);
       return b;
@@ -876,11 +887,15 @@ export async function run(opts = {}) {
       res = null;
       data = null;
       try {
-        res = await fetchImpl(apiUrl, { method: 'POST', body: buildBody() });
+        res = await fetchImpl(apiUrl, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}` },
+          body: buildBody(),
+        });
         data = await res.json();
       } catch (err) {
         deliveryUncertain = !res || res.ok === true || isAmbiguousSocialPublishResponse(res);
-        warn('⚠️', `POST failed for ${p.jobId} (attempt ${attempt}): ${err.message}`);
+        warn('⚠️', `POST failed for ${p.jobId} (attempt ${attempt}): ${redactAccessTokenText(err.message, token)}`);
         data = null;
       }
       if (isAmbiguousSocialPublishResponse(res) || (res?.ok && !data?.id)) deliveryUncertain = true;
@@ -908,7 +923,7 @@ export async function run(opts = {}) {
       log('✅', `${p.jobId} → ${data.id} scheduled for ${new Date(p.scheduled_publish_time * 1000).toISOString()}; reservation held until Meta confirms publication`);
       return true;
     } else {
-      warn('⚠️', `FB API error for ${p.jobId}: ${JSON.stringify(data).slice(0, 300)}`);
+      warn('⚠️', `FB API error for ${p.jobId}: ${redactAccessTokenText(JSON.stringify(data), token).slice(0, 300)}`);
       if (!deliveryUncertain && res && !res.ok) {
         await releaseReservation(p.jobId, 'Facebook explicitly rejected the scheduled job post');
         await releasePublishReservation(p, 'explicit API rejection');
@@ -917,7 +932,7 @@ export async function run(opts = {}) {
       return false;
     }
     } catch (err) {
-      warn('⚠️', `FB scheduler failed for ${p.jobId}: ${err.message}`);
+      warn('⚠️', `FB scheduler failed for ${p.jobId}: ${redactAccessTokenText(err.message, token)}`);
       if (!accepted && !deliveryUncertain) {
         await releaseReservation(p.jobId, 'Facebook job failed before delivery attempt');
         await releasePublishReservation(p, 'failure before delivery');

@@ -131,6 +131,9 @@ jobs:
       - name: Load R2, Codex and PR credentials from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Load private R2 publishing credentials
+        run: node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY --require-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+
       - name: Provision the existing R2 client for the inventory probe
         run: |
           # upload-cdn-file.sh installs the same pinned-by-convention rclone

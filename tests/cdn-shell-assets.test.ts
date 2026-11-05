@@ -913,9 +913,9 @@ describe('fast emitters run the ensure step before they publish', () => {
       if (secrets === -1 || secrets > ensure) offenders.push(`${workflow} › ${job}: the ensure step runs without the Remote Config secrets`);
     }
     expect(offenders).toEqual([]);
-    for (const name of ['CF_API_TOKEN', 'R2_ACCESS_KEY_ID']) {
-      expect(read('scripts/load-rc-env.mjs')).toMatch(new RegExp(String.raw`^\s*${name}:\s*\[`, 'm'));
-    }
+    const rcLoader = read('scripts/load-rc-env.mjs');
+    expect(rcLoader).toMatch(/^\s*CF_API_TOKEN:\s*\[/m);
+    expect(rcLoader).toMatch(/^\s*SERVER_R2_ACCESS_KEY_ID:\s*\[\s*'R2_ACCESS_KEY_ID'/m);
   });
 });
 

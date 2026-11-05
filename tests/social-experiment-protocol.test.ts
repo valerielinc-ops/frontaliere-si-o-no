@@ -1,6 +1,9 @@
 import { createHash } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 import {
+  SOCIAL_EXPERIMENT_AA_CALIBRATION_MAX_UPPER_BOUND,
+  SOCIAL_EXPERIMENT_FAMILY_ALPHA,
+  calibrateMatchedBlockExperimentProtocol,
   createMatchedBlockExperimentRegistration,
   evaluateMatchedBlockExperiment,
   validateMatchedBlockExperimentRegistration,
@@ -75,6 +78,14 @@ function blockRows(frozen: ReturnType<typeof registration>, { winner = true, inc
 }
 
 describe('matched-block social-copy experiment protocol', () => {
+  it('keeps the calibrated false-winner bound within the declared family alpha', () => {
+    expect(SOCIAL_EXPERIMENT_AA_CALIBRATION_MAX_UPPER_BOUND).toBe(SOCIAL_EXPERIMENT_FAMILY_ALPHA);
+    const certificate = calibrateMatchedBlockExperimentProtocol();
+    expect(certificate.maximumAcceptedUpperBound).toBe(SOCIAL_EXPERIMENT_FAMILY_ALPHA);
+    expect(certificate.wilsonUpperBound).toBeLessThanOrEqual(SOCIAL_EXPERIMENT_FAMILY_ALPHA);
+    expect(certificate.status).toBe('passed');
+  });
+
   it('freezes a hashed, fixed-sample registration from exact historical outcomes', () => {
     const frozen = registration();
     expect(frozen).toMatchObject({

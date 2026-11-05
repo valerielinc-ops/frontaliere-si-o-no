@@ -171,9 +171,9 @@ jobs:
           fi
 
       # R2 (CDN) credentials + any other provider keys this render path needs
-      # are Remote-Config-sourced, same as every other workflow in this repo
-      # (scripts/load-rc-env.mjs RC_TO_ENV: R2_ACCOUNT_ID, R2_BUCKET,
-      # R2_S3_ENDPOINT, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY). Deliberately
+      # are Remote-Config-sourced, same as every other workflow in this repo.
+      # Bucket metadata is client config; the private S3 write pair is loaded
+      # explicitly below from the server template. Deliberately
       # NO full `npm ci` anywhere in this job — the renderer’s targeted runtime
       # dependencies (`esbuild` for static shell serialization plus the
       # renderer packages) are installed from the root lockfile above. `tsx` stays
@@ -181,6 +181,10 @@ jobs:
       - name: Load secrets from Remote Config (R2 + indexing)
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
+
+      - name: Load private R2 upload credentials
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY --require-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
 
       # The static shell scripts (build-plugins/staticScriptsPlugin.ts) reach the
       # CDN only at the end of a full deploy, hours after the merge this job

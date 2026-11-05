@@ -292,11 +292,21 @@ export function selectSnapshotCandidates(
 }
 
 async function graphGet(pathSuffix, params, accessToken, { fetchImpl = fetchRetry } = {}) {
-  const query = new URLSearchParams({ ...params, access_token: accessToken });
-  const response = await fetchImpl(`${GRAPH_API}/${pathSuffix}?${query.toString()}`, {}, 2, 30_000);
+  const query = new URLSearchParams(params);
+  const url = `${GRAPH_API}/${pathSuffix}?${query.toString()}`;
+  const redactToken = (value) => {
+    const message = String(value ?? '');
+    return accessToken ? message.split(String(accessToken)).join('[redacted]') : message;
+  };
+  let response;
+  try {
+    response = await fetchImpl(url, { headers: { Authorization: `Bearer ${accessToken}` } }, 2, 30_000);
+  } catch (error) {
+    throw new Error(redactToken(error?.message || error));
+  }
   const body = await response.json().catch(() => ({}));
   if (!response?.ok || body?.error) {
-    const error = new Error(`Instagram Graph API ${response?.status || 'error'}: ${body?.error?.message || 'request failed'}`);
+    const error = new Error(redactToken(`Instagram Graph API ${response?.status || 'error'}: ${body?.error?.message || 'request failed'}`));
     error.graphCode = body?.error?.code;
     error.graphSubcode = body?.error?.error_subcode;
     error.status = response?.status;

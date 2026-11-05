@@ -156,4 +156,12 @@ describe('workflow hygiene: --regenerate-cmd (#7389)', () => {
       '--regenerate-cmd "git checkout $COMMIT_SHA -- data/seo-serp-autopilot-last-run.json && node scripts/lib/merge-seo-serp-experiment-history.mjs $COMMIT_SHA data/seo-serp-experiment-history.json && git add data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json"',
     );
   });
+
+  it('loads private GSC credentials before the SERP report instead of relying on client Remote Config aliases', () => {
+    const workflow = readFileSync(join(__dirname, '..', '.github', 'workflows', 'seo-serp-autopilot.yml'), 'utf8');
+    expect(workflow).toContain('--include-private-server-secrets');
+    expect(workflow).toContain('--only-private-server-env=GSC_CLIENT_SECRET,GSC_REFRESH_TOKEN');
+    expect(workflow.indexOf('--only-private-server-env=GSC_CLIENT_SECRET,GSC_REFRESH_TOKEN'))
+      .toBeLessThan(workflow.indexOf('node scripts/seo-serp-autopilot.mjs'));
+  });
 });

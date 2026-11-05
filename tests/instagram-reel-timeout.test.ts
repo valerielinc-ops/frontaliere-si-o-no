@@ -13,11 +13,14 @@ describe('Instagram Reel preview wait', () => {
     });
     const absentLocator = {
       first() { return this; },
+      nth() { return this; },
       filter() { return this; },
+      getByRole() { return this; },
+      locator() { return this; },
       count: vi.fn().mockResolvedValue(0),
       isVisible: vi.fn().mockResolvedValue(false),
     };
-    const page = { getByRole: () => absentLocator, locator: () => ({ count: vi.fn().mockResolvedValue(0) }) };
+    const page = { getByRole: () => absentLocator, locator: () => absentLocator };
     const step = { set: vi.fn(), get: () => 'reel-next-preview' };
     vi.spyOn(Date, 'now').mockReturnValueOnce(0).mockReturnValue(DEFAULT_TIMEOUTS.upload + 1);
 

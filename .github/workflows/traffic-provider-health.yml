@@ -61,7 +61,9 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load provider credentials and caps
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN,OPENTRANSPORTDATA_ASTRA_LSA_TOKEN,OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN
 
       - name: Check provider health without route probes
         # The check validates every configured routing provider plus all three

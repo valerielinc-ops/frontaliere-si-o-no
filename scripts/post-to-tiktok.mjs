@@ -133,6 +133,7 @@ import {
   socialCopyLedgerFields,
   socialCopyTrackingContent,
 } from './lib/social-copy-pack.mjs';
+import { prioritizeSocialSourceCandidates, socialSourceIdForArticle, socialSourceIdForJob } from './lib/social-source-catalog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -321,7 +322,14 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     jobSections,
     isJobSlug: kind === 'job' ? (slug) => jobIndex.has(slug) : undefined,
   });
-  const candidates = kind === 'job' ? jobs : articles;
+  const candidates = prioritizeSocialSourceCandidates(kind === 'job' ? jobs : articles, {
+    pack: SOCIAL_COPY_PACK,
+    channel: 'tiktok',
+    format: kind,
+    sourceIdForCandidate: (candidate) => kind === 'job'
+      ? socialSourceIdForJob(jobIndex.get(candidate.slug))
+      : socialSourceIdForArticle(candidate.slug),
+  });
 
   const { picks, skipped } = pickTopNUnposted(candidates, recent, CAROUSEL_SIZE);
   if (picks.length === 0) {

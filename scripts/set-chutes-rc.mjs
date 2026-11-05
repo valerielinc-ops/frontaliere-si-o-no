@@ -20,17 +20,18 @@
  * param written. Missing envs are skipped silently.
  */
 
-import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+import { readFirebaseServiceAccountCredentials } from './lib/firebase-service-account-credentials.mjs';
+import { RC_SERVER_NAMESPACE, setRcParamsWithEtag } from './lib/remote-config-admin.mjs';
 
 const PROVIDER_KEYS = [
   {
-    rcParam: 'CHUTES_API_KEY',
+    rcParam: 'SERVER_CHUTES_API_KEY',
     envVar: 'CHUTES_API_KEY',
     shapeHint: /^cpk_[0-9a-f]+/i,
     description: 'Chutes.ai API key for the LLM fallback chain',
   },
   {
-    rcParam: 'ZAI_API_KEY',
+    rcParam: 'SERVER_ZAI_API_KEY',
     envVar: 'ZAI_API_KEY',
     shapeHint: /^[0-9a-f]{32}\.[A-Za-z0-9]+$/,
     description: 'Z.AI (Zhipu) GLM API key for the LLM fallback chain',
@@ -61,28 +62,20 @@ async function main() {
     }
   }
 
-  const rc = await getRemoteConfig();
-  const template = await fetchRcTemplate(rc);
-
+  const credentials = readFirebaseServiceAccountCredentials(process.env, {
+    purpose: 'write LLM provider credentials to private Remote Config',
+  });
+  if (!credentials?.project_id) bail('Firebase service-account credentials missing.');
   const today = new Date().toISOString().slice(0, 10);
-  let changed = 0;
-  for (const p of pending) {
-    if (stageRcParam(template, p.rcParam, p.value, `${p.description} (set ${today})`)) {
-      changed++;
-      console.log(`📝 Staged ${p.rcParam} for publish.`);
-    } else {
-      console.log(`ℹ️  ${p.rcParam} already up-to-date.`);
-    }
-  }
-
-  if (changed === 0) {
-    console.log('ℹ️  Nothing to publish — every key matches RC already.');
-    return;
-  }
-
-  await publishRcTemplate(rc, template, changed);
-  console.log(`✅ Published ${changed} LLM provider key(s) to Remote Config.`);
-  console.log('   Next CI run of generate-article.yml will pick them up via load-rc-env.mjs.');
+  const result = await setRcParamsWithEtag({
+    credentials,
+    namespace: RC_SERVER_NAMESPACE,
+    params: pending.map((p) => ({ name: p.rcParam, value: p.value, description: `${p.description} (set ${today})` })),
+    versionDescription: 'Set private LLM provider credentials',
+  });
+  if (!result.ok) bail(`Private LLM provider Remote Config write failed: ${result.detail || 'unknown error'}`);
+  console.log(`✅ Private LLM provider credentials ${result.changed ? 'updated' : 'already current'} in Remote Config.`);
+  console.log('   CI loads these credentials from the private server template.');
   console.log('   New free models are now live in DEFAULT_CHAIN.');
 }
 

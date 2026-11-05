@@ -128,7 +128,7 @@ describe('provision-pagespeed-key', () => {
     // Every consumer endpoint is probed before the write.
     expect(google.calls.some((call) => call.url.includes('records:queryHistoryRecord'))).toBe(true);
     expect(writes).toHaveLength(1);
-    expect(writes[0]).toMatchObject({ name: 'PAGESPEED_API_KEY', value: KEY_STRING });
+    expect(writes[0]).toMatchObject({ namespace: 'firebase-server', name: 'SERVER_PAGESPEED_API_KEY', value: KEY_STRING });
     // The key and the token are masked before anything else happens with them.
     expect(masked).toEqual(expect.arrayContaining(['cloud-token', KEY_STRING]));
   });

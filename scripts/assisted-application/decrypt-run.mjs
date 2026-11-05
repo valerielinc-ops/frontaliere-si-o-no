@@ -40,8 +40,8 @@ async function main() {
 async function runKey() {
   if (process.env.ASSISTED_APPLICATION_RUN_KEY) return runKeyFrom();
   const { getRemoteConfig } = await import('firebase-admin/remote-config');
-  const template = await getRemoteConfig().getTemplate();
-  return runKeyFrom(template.parameters?.ASSISTED_APPLICATION_RUN_KEY?.defaultValue?.value);
+  const template = await getRemoteConfig().getServerTemplate();
+  return runKeyFrom(template.evaluate().getString('SERVER_ASSISTED_APPLICATION_RUN_KEY'));
 }
 
 main().catch((error) => {

@@ -89,6 +89,11 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Load private Google Search Console credentials
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=GSC_CLIENT_SECRET,GSC_REFRESH_TOKEN
+
       - name: Run SEO SERP autopilot
         env:
           SEO_SERP_AUTOPILOT_DAYS: ${{ inputs.days || '28' }}

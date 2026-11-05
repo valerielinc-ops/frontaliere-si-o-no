@@ -17,9 +17,13 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 let rc: Record<string, string> = {};
 const getRemoteConfigValueMock = vi.fn(async (key: string) => rc[key] ?? '');
+const getServerRemoteConfigValueMock = vi.fn(async (key: string) => (
+  rc[key === 'SERVER_CODEX_AUTH_JSON' ? 'CODEX_AUTH_JSON' : key] ?? ''
+));
 
 vi.mock('../../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: (key: string) => getRemoteConfigValueMock(key),
+  getServerRemoteConfigValue: (key: string) => getServerRemoteConfigValueMock(key),
 }));
 
 const CODEX_URL = 'https://chatgpt.com/backend-api/codex/responses';
@@ -92,6 +96,7 @@ beforeEach(() => {
   vi.resetModules();
   rc = {};
   getRemoteConfigValueMock.mockClear();
+  getServerRemoteConfigValueMock.mockClear();
   fetchMock.mockReset();
   vi.stubGlobal('fetch', fetchMock);
   vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -121,6 +126,7 @@ describe('tryCodexFallback — richiesta come codex exec 0.153.4 con login ChatG
     });
 
     expect(result).toEqual({ ok: true, text: 'risposta codex', model: CODEX_FALLBACK_DEFAULT_MODEL });
+    expect(getServerRemoteConfigValueMock).toHaveBeenCalledWith('SERVER_CODEX_AUTH_JSON');
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const [url, init] = fetchMock.mock.calls[0];
     expect(url).toBe(CODEX_URL);
@@ -443,7 +449,7 @@ describe('parità con la CI e con la rotazione', () => {
     const full = { OPENAI_API_KEY: null, ...JSON.parse(codexLogin({ withRefreshToken: true })) };
     const copy = remoteConfigLogin(full);
 
-    expect(REMOTE_CONFIG_PARAM).toBe('CODEX_AUTH_JSON');
+    expect(REMOTE_CONFIG_PARAM).toBe('SERVER_CODEX_AUTH_JSON');
     expect(copy).not.toContain('rt_single_use_0123456789');
     expect(parseCodexLogin(copy)).toMatchObject({ ok: true, accountId: 'acct-2f6c7d1e', accessToken: full.tokens.access_token });
   });

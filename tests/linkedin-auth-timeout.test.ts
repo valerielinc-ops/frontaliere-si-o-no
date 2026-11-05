@@ -9,7 +9,7 @@ const source = readFileSync(
 
 describe('LinkedIn auth provider requests', () => {
   it('bounds every outbound request without changing the best-effort profile fallback', () => {
-    expect(source).toContain('const LINKEDIN_REQUEST_TIMEOUT_MS = 30_000;');
+    expect(source).toContain('const LINKEDIN_REQUEST_TIMEOUT_MS = 12_000;');
 
     const requests = [
       source.slice(
@@ -17,12 +17,12 @@ describe('LinkedIn auth provider requests', () => {
         source.indexOf('/**\n * Enrich newsletter_subscribers'),
       ),
       source.slice(
-        source.indexOf("const tokenRes = await fetch('https://www.linkedin.com/oauth/v2/accessToken'"),
-        source.indexOf('if (!tokenRes.ok)', source.indexOf('const tokenRes = await fetch(')),
+        source.indexOf("const tokenRes = await fetchLinkedIn('https://www.linkedin.com/oauth/v2/accessToken'"),
+        source.indexOf('if (!tokenRes.ok)', source.indexOf('const tokenRes = await fetchLinkedIn(')),
       ),
       source.slice(
-        source.indexOf("const userRes = await fetch('https://api.linkedin.com/v2/userinfo'"),
-        source.indexOf('if (!userRes.ok)', source.indexOf('const userRes = await fetch(')),
+        source.indexOf("const userRes = await fetchLinkedIn('https://api.linkedin.com/v2/userinfo'"),
+        source.indexOf('if (!userRes.ok)', source.indexOf('const userRes = await fetchLinkedIn(')),
       ),
     ];
 

@@ -359,7 +359,7 @@ describe('marker dell\'alert e azione del piano', () => {
     const { body } = alertTexts({ marker, runUrl: 'https://github.com/o/r/actions/runs/8', workflow: 'Codex auth rotate', sourceRepo: SOURCE });
     expect(extractRotationMarkers(body)).toEqual([marker]);
     expect(body).toContain('Stage: `write-remote-config`');
-    expect(body).toMatch(/Remote Config copy `CODEX_AUTH_JSON`[\s\S]*never refresh/u);
+    expect(body).toMatch(/private Remote Config parameter `SERVER_CODEX_AUTH_JSON`[\s\S]*never refresh/u);
     expect(body).toContain('FIREBASE_SERVICE_ACCOUNT_JSON');
     // Un fallimento non consumante porta la run successiva in sync, che riscrive anche la copia.
     expect(planAction({ decision: { due: false }, latestMarker: marker, currentDigest: DIGEST_A })).toEqual({ action: 'sync' });
@@ -456,7 +456,9 @@ describe('runCliRefresh — la CLI gira ermetica', () => {
     const { argv, env } = readRecord();
     expect(argv.slice(0, 5)).toEqual(['app-server', '-c', 'cli_auth_credentials_store="file"', '-c', expect.stringMatching(/^chatgpt_base_url="http:\/\/127\.0\.0\.1:\d+\/backend-api\/"$/u)]);
     // Env costruito da zero: niente token GitHub, segreti o override ereditati.
-    for (const key of Object.keys(env)) expect(key, key).toMatch(/^(PATH|HOME|CODEX_HOME|TMPDIR|RUST_LOG|NO_COLOR|(HTTPS?|ALL)_PROXY|(https?|all)_proxy|NO_PROXY|no_proxy)$/u);
+    const safeEnvKeys = new Set(['PATH', 'HOME', 'CODEX_HOME', 'TMPDIR', 'RUST_LOG', 'NO_COLOR', 'HTTP_PROXY', 'HTTPS_PROXY', 'ALL_PROXY', 'http_proxy', 'https_proxy', 'all_proxy', 'NO_PROXY', 'no_proxy']);
+    if (process.platform === 'darwin') safeEnvKeys.add('__CF_USER_TEXT_ENCODING');
+    for (const key of Object.keys(env)) expect(safeEnvKeys.has(key), key).toBe(true);
     expect(env.HTTPS_PROXY).toMatch(/^http:\/\/127\.0\.0\.1:\d+$/u);
     expect(env.NO_PROXY.split(',')).toEqual(['127.0.0.1', 'localhost', 'auth.openai.com']);
     expect(env.CODEX_REFRESH_TOKEN_URL_OVERRIDE).toBeUndefined();
@@ -673,7 +675,7 @@ describe('remoteConfigLogin — la copia per functions/src/codexFallback.js', ()
       last_refresh: auth.last_refresh,
     });
     expect(JSON.stringify(copy)).not.toContain(auth.tokens.refresh_token);
-    expect(REMOTE_CONFIG_PARAM).toBe('CODEX_AUTH_JSON');
+    expect(REMOTE_CONFIG_PARAM).toBe('SERVER_CODEX_AUTH_JSON');
   });
 });
 
@@ -707,6 +709,7 @@ function fakeRemoteConfig({ template = { parameters: {} } as any, conflicts = 0,
 
 const SA = { client_email: 'rc-writer@example.iam.gserviceaccount.com', private_key: 'unused', project_id: 'frontaliere-test' };
 const RC_URL = 'https://firebaseremoteconfig.googleapis.com/v1/projects/frontaliere-test/remoteConfig';
+const SERVER_RC_URL = `${RC_URL}?name=${encodeURIComponent('projects/frontaliere-test/namespaces/firebase-server/remoteConfig')}`;
 
 describe('setRcParamWithEtag — concorrenza ottimistica sul template', () => {
   const base = { credentials: SA, name: 'CODEX_AUTH_JSON', value: '{"tokens":{}}', sleep: async () => {}, getAccessToken: async () => 'ya29.fake' };
@@ -822,15 +825,15 @@ describe('comando write-remote-config', () => {
     expect(run.status, run.stdout + run.stderr).toBe(0);
     const calls = google.calls();
     expect(calls.map((call) => `${call.method}:${call.ifMatch ?? ''}`)).toEqual(['POST:', 'GET:', 'PUT:etag-1', 'GET:', 'PUT:etag-2']);
-    expect(calls.filter((call) => call.method !== 'POST').every((call) => call.url === RC_URL && call.auth === 'Bearer ya29.google-access-token-value')).toBe(true);
+    expect(calls.filter((call) => call.method !== 'POST').every((call) => call.url === SERVER_RC_URL && call.auth === 'Bearer ya29.google-access-token-value')).toBe(true);
     const written = JSON.parse(calls.at(-1).body);
     expect(written.parameters.KEEP).toEqual({ defaultValue: { value: 'k' } });
-    const value = written.parameters.CODEX_AUTH_JSON.defaultValue.value;
+    const value = written.parameters.SERVER_CODEX_AUTH_JSON.defaultValue.value;
     expect(value).toBe(remoteConfigLogin(fresh));
     expect(value).not.toContain(fresh.tokens.refresh_token);
     expectOnlyMasked(run.stdout + run.stderr, [fresh.tokens.access_token, fresh.tokens.id_token, fresh.tokens.refresh_token, 'ya29.google-access-token-value', value]);
     expect(run.stdout).toContain('::add-mask::ya29.google-access-token-value');
-    expect(run.stdout).toMatch(/Remote Config CODEX_AUTH_JSON updated \(attempt 2, refresh_token omitted\)/u);
+    expect(run.stdout).toMatch(/Remote Config SERVER_CODEX_AUTH_JSON updated \(attempt 2, refresh_token omitted\)/u);
     expect(state()).toMatchObject({ stage: 'done', remoteConfig: 'written' });
   });
 

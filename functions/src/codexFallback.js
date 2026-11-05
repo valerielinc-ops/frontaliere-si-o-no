@@ -7,7 +7,7 @@
  * Autenticazione (istruzione del proprietario 2026-09-24: «anziché utilizzare
  * APIkey su RC usa lo stesso meccanismo che usa tutto il workflow tramite il
  * JSON»): lo stesso login ChatGPT della Codex CLI che la CI usa in
- * `CODEX_AUTH_JSON`, letto dal parametro Remote Config `CODEX_AUTH_JSON`.
+ * `CODEX_AUTH_JSON`, letto dal parametro privato Remote Config `SERVER_CODEX_AUTH_JSON`.
  * Nessuna chiave API OpenAI.
  *
  * Regola che non si tocca: questo modulo NON rinfresca MAI il login. Il
@@ -52,7 +52,7 @@
 
 import { randomUUID } from 'node:crypto';
 import os from 'node:os';
-import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { getRemoteConfigValue, getServerRemoteConfigValue } from './remoteConfigSecrets.js';
 import { cancelReaderWithDeadline } from './lib/boundedReaderCleanup.js';
 
 /** model-provider-info/src/lib.rs:40 — base URL con un login ChatGPT (:293-306). */
@@ -327,7 +327,7 @@ export async function readCodexSse(body) {
  */
 export async function tryCodexFallback({ systemPrompt, messages, background = false, signal = null }) {
   try {
-    const raw = (await getRemoteConfigValue('CODEX_AUTH_JSON')).trim();
+    const raw = (await getServerRemoteConfigValue('SERVER_CODEX_AUTH_JSON')).trim();
     if (!raw) return { ok: false, notConfigured: true };
     const login = parseCodexLogin(raw);
     if (!login.ok) {

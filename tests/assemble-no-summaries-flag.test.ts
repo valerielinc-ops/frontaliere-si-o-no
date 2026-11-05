@@ -47,6 +47,7 @@ describe('assemble-jobs-dataset --no-summaries is opt-in', () => {
       withStats: false,
       withSummaries: true,
       withExpired: true,
+      withSocialCopySourceCatalog: false,
     });
   });
 
@@ -63,9 +64,14 @@ describe('assemble-jobs-dataset --no-summaries is opt-in', () => {
     expect(parseAssembleCliArgs([]).withExpired).toBe(true);
   });
 
+  it('enables the bounded social-copy job catalog only when requested', () => {
+    expect(parseAssembleCliArgs(['--social-copy-source-catalog']).withSocialCopySourceCatalog).toBe(true);
+    expect(parseAssembleCliArgs([]).withSocialCopySourceCatalog).toBe(false);
+  });
+
   it('keeps --stats orthogonal to --no-summaries', () => {
     expect(parseAssembleCliArgs(['--stats', '--no-summaries']))
-      .toEqual({ withStats: true, withSummaries: false, withExpired: true });
+      .toEqual({ withStats: true, withSummaries: false, withExpired: true, withSocialCopySourceCatalog: false });
   });
 
   it('declares the option default as true in assembleJobsDataset()', () => {

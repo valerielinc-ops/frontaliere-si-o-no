@@ -231,7 +231,7 @@ export function recencyTs(job) {
  * @param {Set<string>} postedSet — set of jobIds already posted
  * @param {number} limit
  */
-export function selectUnpostedJobs(jobs, postedSet, limit) {
+export function selectUnpostedJobs(jobs, postedSet, limit, { preferredIds = [] } = {}) {
   if (!Array.isArray(jobs)) return [];
   const list = jobs.filter((j) => {
     if (!j || !j.id) return false;
@@ -247,7 +247,13 @@ export function selectUnpostedJobs(jobs, postedSet, limit) {
     if (j.needsRetranslation === true && (j.sourceLang || 'it') !== 'it') return false;
     return true;
   });
-  list.sort((a, b) => recencyTs(b) - recencyTs(a));
+  const preferredRank = new Map((Array.isArray(preferredIds) ? preferredIds : [])
+    .map((id, index) => [String(id), index]));
+  list.sort((a, b) => {
+    const aRank = preferredRank.get(String(a.id)) ?? Number.POSITIVE_INFINITY;
+    const bRank = preferredRank.get(String(b.id)) ?? Number.POSITIVE_INFINITY;
+    return aRank - bRank || recencyTs(b) - recencyTs(a);
+  });
   return list.slice(0, Math.max(0, limit | 0));
 }
 

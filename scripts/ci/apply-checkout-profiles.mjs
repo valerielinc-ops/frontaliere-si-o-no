@@ -35,14 +35,21 @@ export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
   '/packages/articles/content/blogImageCdnMirror.ts',
 ];
 
-// The Codex copy-pack job reads these editorial references from its prompt.
-// They are not statically imported by the Node scripts, so bucket analysis
-// would otherwise prune the whole `docs/` tree and leave the agent without
-// its declared source material.
+// The Codex copy-pack job reads these editorial references and eight skills
+// declared by its prompt. Some skills also use local helper files, so keep each
+// skill directory in sparse checkout instead of only its SKILL.md file.
 export const SOCIAL_COPY_REQUIRED_SPARSE_PATHS = Object.freeze([
   '/docs/instagram-creative-study.md',
   '/docs/social-ai-automation.md',
   '/docs/third-party/instagram-agent-skill/UPSTREAM.md',
+  '/.agents/skills/social-content/',
+  '/.agents/skills/ig-plan/',
+  '/.agents/skills/ig-caption/',
+  '/.agents/skills/ig-carousel/',
+  '/.agents/skills/ig-reel/',
+  '/.agents/skills/ig-audit/',
+  '/.agents/skills/ig-human/',
+  '/.agents/skills/ig-repurpose/',
 ]);
 
 /**

@@ -2,13 +2,16 @@
 
 The social publishers use Codex for a scheduled weekly copy pack and a
 structured editorial plan with three pillars and three angle IDs per active
-channel/format. A push to `main` that changes scoped social inputs or an explicit
-`workflow_dispatch` on `main` can also request a complete pack; dispatches from
-other refs are skipped before they reserve quota. An atomic Firestore
-reservation caps Codex generation at two invocations per rolling seven days
-across scheduled runs, pushes, manual dispatches, and reruns. The reservation
-fails closed when Firestore is unavailable; an exhausted run skips brief
-collection, Codex, and promotion. Workflow concurrency serializes overlapping
+channel/format. Only the Monday schedule generates the pack. A main-only
+recovery dispatch can promote an artifact from a successful scheduled run; it
+validates the source run and never calls Codex. Manual recovery cannot consume
+the rolling seven-day Codex slot ahead of the next Monday pack. An atomic Firestore
+reservation caps Codex generation at one invocation per rolling seven days
+across scheduled runs and reruns. A read-only availability check gates brief
+collection; the atomic reservation immediately before Codex still fails closed
+if another request consumed the slot meanwhile.
+A denied quota preflight skips brief collection, generation, and promotion.
+Workflow concurrency serializes overlapping
 runs, while the reservation enforces the durable quota. A generation-only
 preview on `main` still counts as an invocation. The pack workflow also sends Codex a sanitized 30-day inventory
 of published article topics and cluster counts when available, plus up to 12
@@ -37,16 +40,19 @@ path is Graph API only; the legacy browser queue remains held for reconciliation
 
 ## Automated flow
 
-1. A push to `main` that changes the social-content skill, copy prompt/schema,
-   or source brief requests a pack; the Monday schedule refreshes it after the
-   weekly insights snapshot. Production generation runs only on `main`; a
-   dispatch from another ref is skipped before touching the durable quota.
-   Each production request first atomically reserves one of two
-   Codex invocations allowed in the rolling seven-day window. The same cap
-   applies to `workflow_dispatch` and workflow reruns. A denied reservation
-   skips brief collection, generation, and promotion; missing Firestore state
-   fails closed. No bootstrap dispatch is required. Publishers
-   retain their deterministic copy until a validated pack reaches `main`.
+1. The Monday schedule refreshes the pack after the weekly insights snapshot.
+   Production generation runs only on `main`.
+   After dependency setup, a read-only Firestore check verifies whether the
+   single Codex invocation allowed in the rolling seven-day window is available.
+   A denied quota preflight skips GA4, native-insights, and editorial-source
+   brief collection as well as generation and promotion. If available, the job
+   collects its sanitized briefs, then atomically reserves the slot immediately
+   before Codex; losing a race at that reservation skips generation and
+   promotion. Missing or malformed Firestore state fails closed at either
+   check. The same cap applies to workflow reruns. No bootstrap dispatch is
+   required.
+   Publishers retain their deterministic copy until a validated pack reaches
+   `main`.
 2. The Codex job receives editorial instructions, minimized Instagram,
    Facebook, TikTok, and LinkedIn performance briefs when exact IDs, grants,
    and measurement windows are eligible, angle-level outcomes when exact
@@ -60,7 +66,7 @@ path is Graph API only; the legacy browser queue remains held for reconciliation
    sessions and site-action groups ten event occurrences before descriptive
    use; native metric groups require three posts. These are descriptive sample
    floors, not statistical significance or winner gates.
-3. A separate job validates the exact v4 JSON schema, three-pillar plan, three
+3. A separate job validates the exact v5 JSON schema, source-ID-to-format recommendations against the dated catalog, three-pillar plan, three
    angles per channel/format, even angle assignment, and rejects missing slots,
    duplicate hooks or CTAs, long copy, links, handles, markup, placeholders,
    numeric claims, CTAs without exactly one recognized imperative action, and
@@ -119,10 +125,11 @@ path is Graph API only; the legacy browser queue remains held for reconciliation
    exposed and clicked.
 
 No per-post approval step is used for channels whose existing unattended route
-is eligible. The scheduled workflow opens the promotion PR automatically;
-the source-change push trigger also bootstraps the first pack without a manual
-dispatch. Manual dispatch promotes a valid pack by default; `promote=false`
-remains available for a generation-only preview.
+is eligible. The scheduled workflow opens the promotion PR automatically.
+The Monday schedule bootstraps and refreshes the pack when the shared rolling
+quota is available; initial rollout may wait until the next eligible scheduled
+run. Every successful generation opens the protected promotion PR automatically.
+Reruns do not create another Codex invocation within the same quota window.
 TikTok delivery is held by a policy guard, while its content preview and
 read-only measurement stay separate. Existing publisher controls,
 deduplication, platform readiness checks, and legacy browser-confirmation
@@ -158,20 +165,25 @@ Remote Config template, never from a same-named client-template parameter.
 credential aliases with ETag protection and removes the client copies only
 after all readers have shipped. Firebase documents server templates as a
 Preview feature without an SLA ([server-side Remote Config](https://firebase.google.com/docs/remote-config/server)). The active service account has a separate Secret Manager IAM policy and currently lacks its list permission. Migration and rotation of values previously present in the client template remain post-deploy work.
-The shared R2 CDN upload credentials are still read from the client template because unrelated site workflows also consume them; see residual item 38.
+R2 upload workflows now load the S3 write pair from the private server template;
+after merge, migrate and rotate legacy client-template values before treating
+the exposure as closed (residual item 38).
 
 ## Channel coverage
 
 | Channel | Delivery state | Integrated formats | Existing delivery path |
 |---|---|---|---|
-| Instagram | `blocked: Graph account readiness` | existing feed schedule: at most two feed posts/Reels per day; at most six follow-up Stories per day | Feed/Reel publishing, Insights, comment moderation, messaging, and Stories have separate scope/Page-task readiness. As of 2026-11-04, `SERVER_FB_USER_ACCESS_TOKEN` and `SERVER_INSTAGRAM_ACCESS_TOKEN` are absent from Remote Config; no capability is reported ready until its exact grant and account link are verified. Stories also require a Business account. See residual item 32. |
+| Instagram | `blocked: Graph account readiness` | existing feed schedule: at most two feed posts/Reels per day; at most six follow-up Stories per day | Feed/Reel publishing, Insights, comment moderation, messaging, and Stories have separate scope/Page-task readiness. A read-only Remote Config inventory on 2026-11-04 found the Page and Instagram target IDs, but no Meta user token or Instagram publisher token; the existing Page-token probe returned HTTP 400/code 100. The private template now holds the available credential set, but these required Meta grants were not among it. No capability is reported ready until its exact grant and account link are verified. Stories also require a Business account. See residual item 32. |
 | TikTok | `draft-only` | daily article/job carousels and weekly border content | automated delivery is held pending an eligible, policy-compliant use case; read-only native measurement remains separate |
 | Facebook | `live` | articles, events/digests, scheduled jobs | existing Graph API schedulers |
 | LinkedIn member | `live` | member-profile article/job posts | member token and Posts API share an atomic 2/day member cap |
 | LinkedIn Company Page | `blocked` | article copy reuses the member pack | organization-social permission is currently denied |
 | Telegram | `live` | daily jobs and weekly border digest | Bot API sends share an atomic 2-message/day channel cap |
 | Reddit | `draft-only` | article and job hooks/CTAs in the shared pack and existing template builders | classic Data API is `path-refused`; Devvit code is not present in this repository, and its review/CDN feed remain external |
-| YouTube Shorts, Threads, X, WhatsApp Channels | `not-inventoried` | none | no verified account, OAuth grant, or publishing integration is configured |
+| YouTube Shorts | `not-inventoried` | none | YouTube Data API has an official upload path; on 2026-11-02 Google removed the prior private-only restriction for uploads from unverified API projects. Account ownership, OAuth access, upload policy, and exact-ID analytics still need a read-only probe before adding a publisher ([revision history](https://developers.google.com/youtube/v3/revision_history?hl=en), [videos.insert](https://developers.google.com/youtube/v3/docs/videos/insert)). |
+| Threads | `not-inventoried` | none | Meta documents official Threads publishing and account/post Insights endpoints. No owned account, OAuth grant, or repository integration is verified yet; probe the account and exact metrics before adding a publisher ([Threads API](https://developers.facebook.com/docs/threads/), [Meta API collection](https://www.postman.com/meta/threads/collection/dht3nzz/threads-api)). |
+| X | `not-inventoried` | none | no verified account, API access tier, publisher, or measurement path is configured; confirm current access cost and exact-ID analytics before prioritization |
+| WhatsApp Channels | `not-inventoried` | none | no owned Channel or supported official publishing and measurement path is verified; WhatsApp Business messaging APIs alone do not establish Channels publishing |
 
 The weekly scorecard repeats delivery state next to analytics readiness so
 copy-pack coverage cannot be mistaken for a live publisher. Instagram remains
@@ -302,7 +314,9 @@ metric endpoints. Its TikTok Display API
 collector makes no TikTok API call unless the repository variable
 `TIKTOK_DISPLAY_ANALYTICS_APPROVED=true` is set after external use-case review.
 Until then its source status is `policy-review-required` and no TikTok metrics
-reach Codex. Each collector step loads only the Remote Config keys it needs:
+reach Codex. OAuth checks the configured username, saves the app-scoped
+`open_id` privately, and the audience collector rejects metrics unless the
+authenticated ID matches. Each collector step loads only the Remote Config keys it needs:
 TikTok credentials only when its policy flag is enabled, LinkedIn credentials
 only for the daily member run, and the GA4 property only for the weekly site
 outcome run. These values stay in the consuming step's shell rather than being
@@ -420,9 +434,23 @@ post-volume increase is part of this change. The scheduled Facebook jobs
 workflow requests 24 posts per day; manual dispatch still offers 1, 24, 72, or
 144 jobs, but all Facebook formats now share the 144/day hard Page ceiling.
 
-After this PR is merged, the main-branch source-change trigger generates the
-initial pack and opens a separate protected data PR automatically. Until that
-PR passes the required checks and merges, deterministic copy remains active.
+The weekly Codex batch reads the eight versioned guides used for social voice,
+planning, captions, carousels, Reels, audits, humanization, and repurposing.
+Their full skill directories, including referenced local helper assets, are
+available in the workflow's sparse checkout and verified before generation.
+Codex uses them to shape reusable copy; source IDs, verified facts, format
+compilation, and publishing remain enforced by the repository's catalog and
+publisher code. The batch does not run browser-based publishing or add per-post
+model calls.
+The separate `ig-profile` guide requires profile material supplied by the
+owner, so the scheduled copy job does not scrape a profile or claim to audit
+or edit bio settings.
+
+After this PR is merged, the next Monday schedule attempts to generate the
+initial pack and open a separate protected data PR automatically. The attempt
+uses the shared rolling quota; a prior successful generation or rerun inside
+the window defers work until the next eligible Monday. Until the protected
+pack PR passes the required checks and merges, deterministic copy remains active.
 
 ## Editorial and measurement rules
 
@@ -561,7 +589,7 @@ while the Instagram publisher compiles source-specific carousel and Reel kits
 from those lines plus verified facts. That compiler does not make a new Codex
 call or generate factual claims. Active text-first channels already use native
 publisher composers; candidate video channels stay unconfigured until account
-and grant probes pass. The weekly v4 Codex batch returns a structured editorial
+and grant probes pass. The weekly v5 Codex batch returns a structured editorial
 plan by pillar, channel, format, audience need, and stable angle ID, refreshed
 from sanitized rolling 30-day performance and source briefs. Publishers record
 only the IDs; native and tagged GA4 briefs expose those cohorts only when their
@@ -571,6 +599,52 @@ joins, and stop criteria. These checks measure operational readiness, not lift.
 Some audience-growth metrics remain unavailable. The default operational
 audience-growth and GA4 session targets are reported separately; the GA4 target
 is a provisional operating assumption, not an owner-supplied business forecast.
+
+### Sequenza operativa per la crescita
+
+1. **Chiudere il passaggio delle credenziali senza interrompere i publisher.**
+   Il 2026-11-05 la migrazione copy-only ha copiato 41 parametri privati nel
+   template server live, verificati 41/41 contro le rispettive sorgenti, e ha
+   lasciato intatti i 41 alias client. Distribuire i reader normalizzati che
+   usano solo quel namespace; poi rimuovere gli alias dal template client,
+   verificare i consumer e ruotare le credenziali che erano scaricabili. La
+   credenziale Codex copiata in Remote Config non deve contenere il refresh
+   token monouso.
+2. **Completare il registro degli account realmente posseduti.** Per ogni
+   account verificare handle e proprietario, data e valore dell'audience,
+   grant distinti per pubblicazione e Insights, costo e cadenza massima,
+   formati ammessi, identificatore esatto dei post e destinazione tracciabile.
+   Ordinare le opportunità con questi dati prima di attivare altri publisher.
+3. **Sbloccare Instagram per capability.** Dopo app review e token validi,
+   verificare il collegamento Pagina-account professionale e provare in
+   sequenza feed/Reel, Insights, commenti, messaggi e Stories. Ogni prova deve
+   confermare l'identità account e l'ID restituito; un grant non abilita le
+   altre capability. Finché le prove non passano, Instagram resta fuori dal
+   perimetro live del piano.
+4. **Qualificare il punto di partenza.** Lasciare raccogliere almeno 25
+   osservazioni giornaliere distribuite su 25 giorni per ogni serie audience,
+   e almeno 100 sessioni per ciascun key event/canale GA4 previsto. Tenere
+   separati follower netti, reach, sessioni e azioni del sito; chiamare
+   job_apply_handoff clic di passaggio al datore di lavoro. Nessuna serie
+   descrittiva basta a dichiarare un contenuto vincente.
+5. **Provare un cambiamento per volta.** Dopo una baseline qualificata,
+   preregistrare con Firebase un esperimento per cadenza o mix di formati,
+   mantenendo i cap correnti. Specificare prima campione, finestra,
+   metrica primaria, guardrail per unfollow/feedback negativo e rollback.
+   Promuovere solo con l'esito exact-ID ammesso dal protocollo; scalare ogni
+   canale separatamente quando follower netti e risultati del sito lo
+   sostengono.
+
+La generazione Codex resta una sola chiamata settimanale: sceglie fonti e
+formati dal catalogo first-party, propone angoli e copy breve; il publisher
+risolve gli ID sulle fonti correnti e compone i media con fatti verificati.
+Questo estende l'AI alla pianificazione e al source-to-format matching senza
+aggiungere chiamate per post né consegnare al prompt credenziali o sessioni
+browser. Solo la schedule del lunedì genera il pack. Un dispatch manuale può
+ri-promuovere un artifact da una run scheduled completata e verificata, senza
+chiamare Codex né consumare la quota settimanale. Un push di contenuti non
+crea una generazione aggiuntiva.
+
 Keep three outcome groups separate:
 
 - **Audience growth:** net followers or subscribers and profile-to-follow
@@ -773,8 +847,8 @@ The evaluator uses a paired sign-flip randomization test on block-level rates,
 with a family-wise confidence bound and a fixed stopping rule. It runs a
 reproducible synthetic A/A simulation before enabling assignments, caches the
 certificate by protocol fingerprint, and requires its 95% Wilson upper bound
-on false-winner rate to stay at or below 8%. There are no interim significance
-looks. Missing or expired blocks, less than 95% exact metric coverage, duplicate
+on false-winner rate to stay at or below the declared 5% family alpha. There
+are no interim significance looks. Missing or expired blocks, less than 95% exact metric coverage, duplicate
 post IDs, an open reservation, a stale or unhealthy source, or a failed A/A
 certificate all hold the cohort. Exact native post rows can reconcile an
 accepted assignment whose publisher marker failed; an ambiguous delivery with
@@ -904,12 +978,12 @@ same guardrails.
 | 7 | Implement and then qualify randomized-block experiments and automatic promotion/rollback. | **blocked: live scheduled qualification and external metric grants. Motivo:** the matched-block statistical protocol v3 estimates article/job carousel baseline variance from exact same-slot metric rows across rotating objectives, while preserving 25 observations over 25 distinct days, the 45-day recency span, power/MDE, 5% family error, A/A calibration, and exact metric coverage. The Remote Config promotion policy is v4: it requires a fresh qualified 30-day audience trend with positive net follower change; flat, negative, or unqualified series hold the engagement winner. Weekly border content stays descriptive because its current cadence cannot meet the fixed sample within 365 days. Pack-refresh crossing is supported by the stable angle fingerprint and tests; winner selection is angle-level, not a frozen hook/CTA test. Remote Config v4 carries registration deadlines, stops new assignments after 365 days, closes a fixed sample with no winner, and keeps a qualified winner only while guardrails remain healthy. The account-level signal is not attributed to an individual post. The latest scorecard has 3 active-pilot channel/event pairs and 0 qualified frozen outcome baselines; Facebook's 1,159-session baseline has no ledgered Facebook post in its 30-day window, so it cannot qualify a current pilot. Reels and LinkedIn also need exact metrics, grants, and policy clearance. **Prossimo passo:** after merge, verify scheduled registration/deadline reconciliation, then qualify each cohort from private exact-ID reports; do not increase cadence or promote a winner until its fixed sample and audience growth gate pass.** |
 | 8 | Add a branded social landing hub with stable redirect keys and UTMs for actual clickable destinations. | **in questa PR. Motivo:** `/social/`, the stable `/social/r/<hash>/` redirect registry, and sitemap discovery are implemented; Instagram's supported publishing API does not expose a bio-edit operation, so profile URL changes cannot be completed through this Graph integration. **Prossimo passo:** set the hub URL once in each account's profile editor, then preserve channel/placement UTMs; do not claim per-post attribution unless a clickable destination carries a post-specific tag. |
 | 9 | Compare X, WhatsApp Channels, YouTube Shorts, and Threads as next channels after a real account, audience, analytics, and posting-grant probe. | **blocked: account and platform grants unavailable. Motivo:** the repository has no verified account, audience history, publisher/analytics connector, or confirmed API scopes for these networks; the weekly scorecard now shows X and WhatsApp explicitly as unconfigured, alongside Shorts and Threads. **Prossimo passo:** verify accounts and official API use cases, access and cost, exact post/message IDs, supported metrics, freshness, attribution, and production caps before any four-week organic pilot with preregistered stop criteria and no paid spend.** |
-| 10 | Connect Reddit copy to a Devvit app and published CDN feeds after supported domain access and review. | **blocked: external Reddit review and domain access. Motivo:** the repository has no approved Devvit app or supported domain grant for the proposed app-owned publishing identity. **Prossimo passo:** create the app, document its app-owned identity and non-user-acting flow, request domain access, and submit it for review before implementing delivery.** |
-| 11 | Build the weekly freshness/coverage loop and connect its evidence to the weekly Codex refresh. | **in questa PR. Motivo:** Monday's collector emits a deterministic scorecard, measures freshness after two source-specific intervals, and persists one private deduplicated health snapshot per UTC week; the following bounded Codex batch receives only sanitized aggregate briefs. **Prossimo passo:** keep the weekly schedule as the normal refresh, recognize that eligible source pushes and manual dispatches can trigger additional pack generations, and never add a call per collector run or post.** |
-| 12 | Add channel-pilot observability without increasing Codex quota. | **in questa PR. Motivo:** the weekly scorecard now reports each channel's delivery path, configured cadence cap, ledger-based cap overruns by Europe/Zurich day, 30-day publication count, exact-ID coverage, eligible measurement-window count, metric joins, held/unconfigured state, and stop criteria; it includes separate held rows for the LinkedIn Company Page, X, and WhatsApp Channels identities. It reports aggregates only and makes no Codex call. Telegram counts one Bot API message per jobs digest, not one post per included job; legacy rows are grouped by near-identical send times. Instagram cadence includes the Monday/Friday reserved Reel slots, while Story-ledger overrun coverage remains unavailable. **Prossimo passo:** after merge, verify the first weekly scorecard against live ledgers and keep cadence increases disabled until each channel's experiment is independently qualified. |
+| 10 | Preserve Reddit access and decide whether a compliant Devvit publisher is viable. | **blocked: Reddit account registration and platform review. Motivo:** the classic Data API request was denied on 2026-08-24 and no approved Devvit app or supported-domain grant exists. Reddit's official registration page says existing Data API apps should register; apps registered by 2026-11-30 may qualify for the migration bounty, API access restrictions begin 2027-01-12, and remaining public API access ends in March 2027. Eligibility for this repository's denied app is not confirmed, and registration requires the associated app details plus a human Reddit account ([official registration](https://developers.reddit.com/app-registration)). **Prossimo passo:** use the account that owns the existing Reddit app to check eligibility and register it before 2026-11-30 if eligible; then request the supported domain and submit the Devvit design for review before implementing delivery.** |
+| 11 | Build the weekly freshness/coverage loop and connect its evidence to the weekly Codex refresh. | **in questa PR. Motivo:** Monday's collector emits a deterministic scorecard, measures freshness after two source-specific intervals, and persists one private deduplicated health snapshot per UTC week; the following bounded Codex batch receives only sanitized aggregate briefs. The Codex workflow generates only on its Monday schedule; its restricted recovery dispatch accepts only a successful scheduled run and promotes its existing artifact without another generation. Source pushes do not trigger extra generations. **Prossimo passo:** keep the weekly schedule as the sole generation path and never add a call per collector run or post.** |
+| 12 | Add channel-pilot observability without increasing Codex quota. | **in questa PR. Motivo:** the weekly scorecard now reports each channel's delivery path, configured cadence cap, ledger-based cap overruns by Europe/Zurich day, 30-day publication count, exact-ID coverage, eligible measurement-window count, metric joins, held/unconfigured state, and stop criteria; it includes separate held rows for the LinkedIn Company Page, X, and WhatsApp Channels identities. Instagram analytics readiness uses the current native post-Insights collector result, while feed/Reel delivery readiness comes from a separate read-only Graph probe for `instagram_content_publish`, the Page content-creation task, account link, and publisher-token identity. The publishing probe runs every six hours; a missing, unverified, or older-than-12-hour result blocks Instagram delivery and removes it from the active-pilot denominator even if Insights and historical ledger posts are available. Missing analytics credentials independently blocks the pilot. It reports aggregates only and makes no Codex call. Telegram counts one Bot API message per jobs digest, not one post per included job; legacy rows are grouped by near-identical send times. Instagram cadence includes the Monday/Friday reserved Reel slots, while Story-ledger overrun coverage remains unavailable. **Prossimo passo:** after merge, verify the first weekly scorecard against live ledgers and keep cadence increases disabled until each channel's experiment is independently qualified.** |
 | 13 | Track unattended social worker delivery and queue freshness separately from prepared content. | **in questa PR. Motivo:** each completed Mac-host run now writes a private aggregate heartbeat; the weekly scorecard distinguishes live, dry-run, policy-held, legacy queued, expired, overdue, partial-channel coverage, and confirmation-pending states without storing post identifiers or content. Instagram browser delivery is held; Graph API publishers record their exact media IDs separately. Retry failures for historical confirmation rows are included in the aggregate and fail the host run, while their queue rows are not misreported as awaiting a new publication; missing or invalid expiries match the publisher's expired-row behavior. **Prossimo passo:** after merge, confirm the first heartbeat and weekly summary; a stale or missing report must remain visible as a host/telemetry failure, never as a successful publish. |
 | 14 | Add distribution and referrals beyond the owned accounts. | **blocked: no partner campaign or approved recipient list exists. Motivo:** owned-account publishing and tracked links cannot create partner reach by themselves, and outreach needs a real recipient, approved offer, and channel-specific terms. **Prossimo passo:** prepare a tracked partner campaign with a named partner, agreed destination, and measured referral goal before building or sending outreach; do not infer a partner or contact from public profile data.** |
-| 15 | Extend the weekly Codex batch from reusable copy into a measurable editorial-angle plan for each eligible channel and format. | **in questa PR. Motivo:** schema v4 requires three pillars and three angles per channel/format, distributes templates evenly across angles, carries angle/pillar IDs through publishing ledgers and exact native joins, and supplies an availability-marked source inventory; on 2026-11-03 it contained no recent article topics (`available:false`, `sourceCount:0`) but did contain 156 upcoming Ticino events from 8 fresh snapshots, and up to 12 topics published in the prior 365 days with publication date and ageDays. The weekly brief now adds only thresholded, closed-category GSC/Suggest signals and fresh multi-publisher news categories when those inputs qualify; raw queries, headlines, URLs, and Reddit text stay out of Codex input. These sources remain dated ideation context, never trends, audience evidence, or performance evidence. The 30-day recent-article window remains empty and no article angle has qualified performance evidence. **Prossimo passo:** after merge verify the first topic-discovery categories and weekly brief, keep every fact anchored in current publisher sources, and leave unsupported angles labeled as hypotheses until recent coverage or qualified live evidence becomes available; require exact follows/reach evidence before Reel promotion.** |
+| 15 | Extend the weekly Codex batch from reusable copy into a measurable editorial-angle plan for each eligible channel and format. | **in questa PR. Motivo:** schema v5 requires three pillars and three angles per channel/format, distributes templates evenly across angles, carries angle/pillar IDs through publishing ledgers and exact native joins, and supplies an availability-marked source inventory; on 2026-11-03 it contained no recent article topics (`available:false`, `sourceCount:0`) but did contain 156 upcoming Ticino events from 8 fresh snapshots, and up to 12 topics published in the prior 365 days with publication date and ageDays. The weekly brief now adds only thresholded, closed-category GSC/Suggest signals and fresh multi-publisher news categories when those inputs qualify; raw queries, headlines, URLs, and Reddit text stay out of Codex input. These sources remain dated ideation context, never trends, audience evidence, or performance evidence. The 30-day recent-article window remains empty and no article angle has qualified performance evidence. **Prossimo passo:** after merge verify the first topic-discovery categories and weekly brief, keep every fact anchored in current publisher sources, and leave unsupported angles labeled as hypotheses until recent coverage or qualified live evidence becomes available; require exact follows/reach evidence before Reel promotion.** |
 | 16 | Clear LinkedIn member-post analytics storage terms before retaining exact post metrics or enabling winner evaluation. | **blocked: external platform policy clarification. Motivo:** LinkedIn's public storage table allows 48 hours for Members' Social Activity Data and requires the shortest limit when categories overlap; it does not clearly state whether counters for the authenticated member's own posts are exempt. Collection and per-post retention now fail closed unless `LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED` is exactly `true`, and the runner also requires that variable before admitting a LinkedIn experiment. **Prossimo passo:** obtain written LinkedIn confirmation or an approved retention basis; set the repository variable only if that basis permits the configured retention, otherwise keep post-level storage and experiments disabled or redesign them around a confirmed compliant path.** |
 | 17 | Keep Instagram readiness honest about the Page link, publisher identity, and per-capability Meta grants. | **in questa PR. Motivo:** the read-only matrix reports `instagram_basic` plus content publishing, post Insights, comments, messages, and Page metadata scopes with their required Page tasks. The top-level `ready` remains feed/Reels readiness; community and Insights jobs gate each surface independently, and Stories also require a Business account. Missing or ambiguous checks stay actionable and cannot enable that capability. Neither `SERVER_FB_USER_ACCESS_TOKEN` nor `SERVER_INSTAGRAM_ACCESS_TOKEN` is currently in RC. **Prossimo passo:** after Meta grants the required scopes and Page tasks, configure the scoped user token under `SERVER_FB_USER_ACCESS_TOKEN` and publisher token under `SERVER_INSTAGRAM_ACCESS_TOKEN`, verify the intended professional account and Page connection, then confirm each required capability separately in the read-only monitor.** |
 | 18 | Set the social landing hub as the website link on the active Instagram and TikTok profiles and verify each profile exposes it. | **blocked: profile-edit access unavailable. Motivo:** the landing page and redirect routes are implemented, but this environment has no connected profile editor or authenticated browser session, and the publisher APIs do not edit profile links. **Prossimo passo:** apply `/social/` in each account's profile settings through an authorized account session, then verify the public profile and a tagged click before treating bio traffic as measurable.** |
@@ -929,12 +1003,12 @@ same guardrails.
 | 31 | Feed privacy-safe demand discovery into the weekly social topic brief. | **in questa PR. Motivo:** the brief now reads weekly demand vocabulary only as closed-cluster counts after a 10-keyword floor, and reads only Google News candidates with a valid HTTPS source host, a publication date within 14 days, at least three distinct items, and at least two source domains per cluster. It emits only category names and count bands; raw GSC/Suggest queries, headlines, URLs, publisher names, Reddit text, and identifiers stay out of Codex input. The prompt labels both feeds as ideation context, never search volume, audience evidence, a current trend, or a factual source. **Prossimo passo:** after merge, inspect the first scheduled brief for fresh category coverage; keep suppressed or stale categories unknown and verify every content claim against a current authoritative source.** |
 | 32 | Enable unattended Instagram publishing, community actions, Stories, and native Insights with approved Graph API grants and renewable credentials. | **blocked: Meta app review and account-level Graph token. Motivo:** the scheduled worker no longer invokes the browser publisher or Dashboard Insights reader; the supported Graph paths remain in code, but `SERVER_FB_USER_ACCESS_TOKEN` and `SERVER_INSTAGRAM_ACCESS_TOKEN` are absent from Remote Config, and the existing Page token returned HTTP 400/code 100 for read-only Page, Instagram-account, and permission probes. The new setup utility accepts credentials only from environment variables, selects one exact Page, verifies `pages_show_list`, `pages_manage_posts`, and `pages_read_engagement`, writes the verified user/Page tokens and Graph-reported expiry to server-side Remote Config with ETag protection, and never prints token values. It writes the Page token into the dedicated `SERVER_INSTAGRAM_ACCESS_TOKEN` parameter only when the token has the required Instagram publishing scopes, Meta returns the configured Page-to-Instagram link, and a read-only request verifies that exact Instagram account; it also stores the Instagram token expiry. The readiness watch opens a deduplicated issue when a configured token is expired, within 14 days of expiry, or missing expiry metadata. Automatic token renewal is not configured because Meta app credentials and an approved user token are not available in the environment. Publishing, Insights, comment moderation, messaging, and Stories therefore remain unverified; Stories also require a Business account. Owner authorization does not issue those platform grants. ([Meta Instagram API](https://www.postman.com/meta/instagram/documentation/6yqw8pt/instagram-api), [Meta Page token flow](https://www.postman.com/meta/instagram/documentation/6yqw8pt/instagram-api?entity=request-23987686-5216d45b-1e24-4bff-bdc8-e1bf15358477)) **Prossimo passo:** complete Meta app review and link the professional account, provision the user/Page credentials via a local secret manager, verify the separate Insights/comments/DM/Stories grants per capability, then assess supported automatic renewal using approved Meta app credentials before relying on unattended publishing or Insights.** |
 | 33 | Validate the social language mix and localize AI copy only where each channel has a measurable audience cohort. | **blocked: native audience-language breakdown unavailable. Motivo:** the Codex prompt is Italian-first, matching the site's primary locale, but EN/DE/FR website coverage does not prove demand for multilingual social posts and the active channels have no qualified language-specific reach or conversion baseline. Missing Instagram and LinkedIn audience grants prevent a complete cross-channel language read. **Prossimo passo:** collect only aggregate audience-language signals after each platform's native Insights grant is approved, then test one localized variant per eligible channel in a separate preregistered cohort and qualify it against its own native reach plus exact-UTM site outcomes before expanding.** |
-| 34 | Remove social credentials from downloadable client Remote Config and rotate previously exposed values. | **blocked: private-template readers not deployed to production. Motivo:** this branch adds a separate no-fallback server-template reader for Meta CAPI, private ETag-protected OAuth persistence for LinkedIn Member, Reddit, and TikTok, and a one-time migration that copies exact social aliases before deleting their client copies. The live client template still contains social credential parameters, and the service-account Secret Manager list request is denied; the Firebase server-template feature is Preview without an SLA. **Prossimo passo:** after merge and deployment, run `node scripts/migrate-social-secrets-to-server-rc.mjs`, verify parameter names only in both namespaces, confirm that no live reader uses the client aliases, rotate every previously client-visible credential at its provider, and rerun the readiness probes without printing values.** |
+| 34 | Remove social credentials from downloadable client Remote Config and rotate previously exposed values. | **blocked: server-only readers are not deployed and exposed credentials are not rotated. Motivo:** on 2026-11-05, a copy-only migration staged 41 private parameters in the live `firebase-server` template; a REST comparison confirmed exact values for 41/41 while all 41 client aliases remained intact. The Admin SDK returns a `ServerTemplate` wrapper, so direct `.parameters` reads silently missed private values; this branch now normalizes `toJSON()` in the shared reader and CI loader, with regression coverage. The live template contains a Facebook Page token and LinkedIn Member token, but no Facebook user token or Instagram publisher token. A read-only Meta probe with the Page token verified the configured Facebook Page ID; Page-task and linked-Instagram fields remain unverified (HTTP 400, Graph code 100), so all Instagram capabilities remain action-required. This branch also adds no-fallback server-template readers, private ETag-protected OAuth persistence, and copy-before-delete migration. Firebase server Remote Config is Preview without an SLA. This scoped social migration does not claim the client template is secret-free: MailJet, Mailgun, Mailtrap, Resend, Cloudflare Email, GitHub, and Cloudflare API credentials still have client-reader consumers. **Prossimo passo:** after the normalized readers deploy, verify live consumer readiness, remove only the migrated aliases through the ETag migration, rotate every previously client-visible social credential at its provider, then migrate the remaining secret families separately.** |
 
-| 35 | Let the weekly Codex batch choose which verified first-party content to adapt for each eligible channel and format. | **blocked: source-to-format assignment contract is not implemented. Motivo:** current inputs expose topic categories and aggregate performance, while publishers independently select live articles, jobs, and events; Codex cannot nominate an exact source item and the active publisher cannot validate a Codex source assignment. **Prossimo passo:** add a bounded source catalog with stable first-party IDs, content kind, freshness, closed topic labels, and channel/format eligibility; have the existing weekly Codex invocation return source-ID-to-format suggestions, then make each publisher resolve and revalidate the ID before inserting verified facts, media, and links. Keep source facts publisher-side, reject stale or ineligible IDs, preserve experiment assignments, and do not add per-post model calls.** |
+| 35 | Let the weekly Codex batch choose which verified first-party content to adapt for each eligible channel and format. | **in questa PR. Motivo:** schema v5 carries up to three opaque source IDs per eligible channel/format from a dated, privacy-screened article/job/event catalog; promotion validates the IDs against that exact catalog, and candidate-based publishers re-resolve suggestions only inside their current eligible set before existing fact and media checks. Catalog age is checked separately from per-kind source age (articles 30 days; jobs/events 7 days), so a valid weekly catalog does not fail because an individual source is older than two days. Fixed ranking digests remain aggregates by construction because an individual crossing is not a valid substitute for the whole ranking. Event-triggered Reddit article posts are not source-selection slots because the deployed article workflow supplies the single source; they retain the existing copy path. This reuses the weekly Codex call and existing publisher paths. **Prossimo passo:** after merge, verify a promoted pack against the live weekly artifact and monitor exact-match/fallback coverage; stale or unresolvable suggestions must continue to fall back to the publisher's own ranking.** |
 | 36 | Test channel-specific cadence and format mix for growth and audience fatigue after baselines qualify. | **blocked: qualified native audience baselines are unavailable. Motivo:** current experiments compare editorial angles, not cadence or format mix, and available channel metrics are incomplete or descriptive. **Prossimo passo:** after a channel has a frozen qualified baseline and exact post-level coverage, preregister one bounded block experiment that changes only cadence or format mix while respecting the existing hard cap; measure net audience change, unfollows or negative feedback where the API exposes them, reach, and qualified UTM outcomes, with fixed sample, stop rules, and rollback criteria. Never raise the cap from descriptive data alone.** |
-| 37 | Build and rank a verified inventory of owned social accounts and eligible platforms. | **blocked: account ownership and current platform access are not verified for every candidate. Motivo:** the current matrix records repository paths and known grants but is not a complete register of active handles, audience size, API cost, supported content types, and account-level analytics access; candidate networks without verified accounts have no measured value. **Prossimo passo:** record each owned account's verified identity, audience snapshot date, publishing and analytics scopes, exact-ID support, policy eligibility, cost, cadence ceiling, and tagged destination; rank candidates by measurable audience opportunity, conversion fit, access cost, and operating effort before adding another publisher.** |
-| 38 | Remove shared R2 CDN upload credentials from the downloadable client Remote Config template without breaking other asset publishers. | **blocked: R2 consumers across the site have not been migrated. Motivo:** Instagram publishing uses the same `R2_ACCESS_KEY_ID` and `R2_SECRET_ACCESS_KEY` values that existing site asset workflows load from the client template; deleting the client aliases now would break unrelated uploads, while leaving them means those credentials remain client-readable. **Prossimo passo:** inventory every R2 consumer and its least-privilege need, move each to a protected server-side credential source, update the R2 writer and workflow allowlists, validate live uploads, then remove the client aliases and rotate the old access key pair.** |
+| 37 | Build and rank a verified inventory of owned social accounts and eligible platforms. | **blocked: account ownership and current platform access are not verified for every candidate. Motivo:** live Remote Config has identity/token material for Facebook Page, LinkedIn Member, and Telegram; Instagram has configured account IDs but no user or publisher token; TikTok has a client key but no access token or Open ID; Reddit has no client identity or token, and Threads/YouTube have no configured account IDs or OAuth tokens. These are configuration signals, not proof of ownership or granted publishing/analytics scopes. The current matrix still lacks verified handles, dated audience size, API cost, supported content types, and account-level analytics access. Threads has official publishing and Insights endpoints, and YouTube's 2026-11-02 API revision removed the prior private-only restriction for uploads from unverified projects; these changes make them candidates to probe, not verified owned accounts or granted access. **Prossimo passo:** record each owned account's verified identity, audience snapshot date, publishing and analytics scopes, exact-ID support, policy eligibility, cost, cadence ceiling, and tagged destination; probe Threads and YouTube Shorts separately, then rank them alongside the existing channels by measurable audience opportunity, conversion fit, access cost, and operating effort before adding another publisher.** |
+| 38 | Remove shared R2 CDN upload credentials from the downloadable client Remote Config template without breaking other asset publishers. | **blocked: readers are not deployed and the legacy aliases remain client-visible. Motivo:** all 12 affected asset-upload workflows now load the write pair from the private server template, the provisioning helper writes secrets only to that namespace, and the live copy-only migration verified the private pair while preserving its two client aliases. **Prossimo passo:** deploy the normalized readers, verify the 12 upload paths, remove those two aliases, then rotate the old R2 pair and source Cloudflare token.** |
 
 ## Integrazione Growth e Feedback Codex
 

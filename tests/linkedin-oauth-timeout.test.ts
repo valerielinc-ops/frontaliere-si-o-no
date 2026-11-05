@@ -5,13 +5,19 @@ import { resolve } from 'node:path';
 const source = readFileSync(resolve(import.meta.dirname, '../functions/src/linkedinAuthCallback.js'), 'utf8');
 
 describe('LinkedIn OAuth callback', () => {
+  it('reads the client secret only from the private server Remote Config template', () => {
+    expect(source).toContain("getRemoteConfigValue('LINKEDIN_SIGNIN_CLIENT_ID')");
+    expect(source).toContain("getServerRemoteConfigValue('SERVER_LINKEDIN_SIGNIN_CLIENT_SECRET')");
+    expect(source).not.toContain("getRemoteConfigValue('LINKEDIN_SIGNIN_CLIENT_SECRET')");
+  });
+
   it('bounds the authorization-code token exchange request', () => {
     const handlerStart = source.indexOf('export async function handleLinkedInCallback');
     const exchangeEnd = source.indexOf('\n // ── Fetch user profile', handlerStart);
     const exchange = source.slice(handlerStart, exchangeEnd);
 
     expect(exchangeEnd).toBeGreaterThan(handlerStart);
-    expect(source).toContain('const LINKEDIN_REQUEST_TIMEOUT_MS = 30_000;');
+    expect(source).toContain('const LINKEDIN_REQUEST_TIMEOUT_MS = 12_000;');
     expect(exchange).toContain('signal: AbortSignal.timeout(LINKEDIN_REQUEST_TIMEOUT_MS)');
   });
 });

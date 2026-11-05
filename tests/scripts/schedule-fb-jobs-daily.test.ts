@@ -71,6 +71,7 @@ const {
   loadPlaceIds,
   lookupPlaceId,
   FB_SCHEDULE_CONCURRENCY,
+  rescrapeOgAndVerify,
   run: runImpl,
 } = scheduler as unknown as {
   pickNextSlots: (
@@ -94,6 +95,7 @@ const {
     placeIds: Record<string, string>,
   ) => string | null;
   FB_SCHEDULE_CONCURRENCY: number;
+  rescrapeOgAndVerify: (fetchImpl: typeof fetch, url: string, token: string, warn?: (...args: unknown[]) => void, options?: object) => Promise<boolean>;
   run: (opts: {
     env?: Record<string, string | undefined>;
     now?: Date;
@@ -228,6 +230,11 @@ describe('selectUnpostedJobs', () => {
     const out = selectUnpostedJobs(jobs, new Set(), 4);
     // b (May 4) > c (May 3) > d (May 2) > a (May 1)
     expect(out.slice(0, 4).map((j) => j.id)).toEqual(['b', 'c', 'd', 'a']);
+  });
+
+  it('keeps exact preferred source IDs ahead of recency while retaining deduplication', () => {
+    const out = selectUnpostedJobs(jobs, new Set(['b']), 2, { preferredIds: ['c', 'b', 'a'] });
+    expect(out.map((job) => job.id)).toEqual(['c', 'a']);
   });
 
   it('respects the limit', () => {
@@ -698,12 +705,35 @@ describe('run() — DRY_RUN mode', () => {
     expect(result.ok).toBe(true);
     // Pre-flight + OG rescrape POST + OG rescrape verify GET + /feed POST = 4 fetch calls.
     expect(fetchSpy).toHaveBeenCalledTimes(4);
+    for (const [requestUrl, requestInit] of fetchSpy.mock.calls) {
+      const parsed = new URL(String(requestUrl));
+      if (parsed.hostname !== 'graph.facebook.com') continue;
+      expect(parsed.searchParams.has('access_token')).toBe(false);
+      expect((requestInit?.headers as Record<string, string>)?.Authorization).toBe('Bearer tok');
+      if (requestInit?.body instanceof URLSearchParams) expect(requestInit.body.has('access_token')).toBe(false);
+    }
 
     // Ledger has the entry now.
     const ledger = loadPosted(tmp);
     expect(ledger.posted).toHaveLength(1);
     expect(ledger.posted[0].id).toBe('job-X');
     expect(ledger.posted[0].fbPostId).toBe('pid_postid_1');
+  });
+
+  it('sends OG scrape and verification tokens through Authorization headers', async () => {
+    const calls: Array<{ url: string; options?: RequestInit }> = [];
+    const fetchImpl = vi.fn(async (input: string | URL | Request, options?: RequestInit) => {
+      const url = String(input);
+      calls.push({ url, options });
+      if (options?.method === 'POST') return new Response(JSON.stringify({ scraped: true }), { status: 200 });
+      return new Response(JSON.stringify({ og_object: { image: [{ url: 'https://example.test/image.webp' }] } }), { status: 200 });
+    });
+
+    expect(await rescrapeOgAndVerify(fetchImpl as unknown as typeof fetch, 'https://example.test/article/', 'secret-token'))
+      .toBe(true);
+    expect(calls).toHaveLength(2);
+    expect(calls.every(({ url }) => !url.includes('access_token'))).toBe(true);
+    expect(calls.every(({ options }) => (options?.headers as Record<string, string>)?.Authorization === 'Bearer secret-token')).toBe(true);
   });
 
   it('does not let a manual job batch bypass the shared Facebook Page cap', async () => {

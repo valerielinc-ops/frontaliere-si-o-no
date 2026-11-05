@@ -2,6 +2,26 @@ import { describe, expect, it } from 'vitest';
 
 import { buildSocialCopyPerformanceBrief } from '../scripts/social-copy/performance-brief.mjs';
 
+function ledgerFor(rows) {
+  return {
+    posted: rows.map((row) => ({
+      instagramMediaId: row.id,
+      creativeId: row.creativeId,
+      kind: row.kind,
+      copyMode: row.copyMode,
+      copyAssignmentMode: row.copyAssignmentMode,
+      copyExperimentId: row.copyExperimentId,
+      copyPackId: row.copyPackId,
+      copyTemplateId: row.copyTemplateId,
+      copyAngleId: row.copyAngleId,
+      copyPillarId: row.copyPillarId,
+      copyAngleIntent: row.copyAngleIntent,
+      copyHook: row.copyHook,
+      copyCta: row.copyCta,
+    })),
+  };
+}
+
 describe('social copy performance brief', () => {
   it('exports only aggregated Instagram outcomes and hides groups below the existing sample minimum', () => {
     const insights = [
@@ -13,7 +33,7 @@ describe('social copy performance brief', () => {
       { id: 'post-six', creativeId: 'proof', kind: 'article', reach: 100, shares: 6, copyMode: 'codex', copyAssignmentMode: 'firebase-balanced', copyExperimentId: 'social-copy-balanced-v2', copyPackId: '0123456789abcdef', copyTemplateId: 'ig-article-share-a', copyHook: 'Private post text' },
     ];
 
-    const brief = buildSocialCopyPerformanceBrief(insights, null);
+    const brief = buildSocialCopyPerformanceBrief(insights, ledgerFor(insights));
 
     expect(brief.minimumObservations).toBe(3);
     expect(brief.variants).toEqual([
@@ -67,7 +87,7 @@ describe('social copy performance brief', () => {
       copyHook: 'Private social hook',
       copyCta: 'Private social CTA',
     }));
-    const brief = buildSocialCopyPerformanceBrief(copy, null);
+    const brief = buildSocialCopyPerformanceBrief(copy, ledgerFor(copy));
 
     expect(brief.variants).toHaveLength(1);
     expect(brief.variants[0]?.copyRevisionId).toMatch(/^[a-f0-9]{16}$/u);

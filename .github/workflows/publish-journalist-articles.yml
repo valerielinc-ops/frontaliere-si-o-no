@@ -87,7 +87,9 @@ jobs:
       # job triggers actually succeeds.
       - name: Load secrets from Remote Config
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=PIXABAY_API_KEY
 
       # publish-journalist-article.mjs imports registerArticleFiles/
       # translateArticle from create-article.mjs, which routes callLLM

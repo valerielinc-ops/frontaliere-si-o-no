@@ -135,6 +135,7 @@ import { previousRunSliceJobs, recordPreviousRunSlice } from './lib/crawler-prev
 import { isIncomplete } from './lib/translation-incomplete.mjs';
 import { officialPostalCodeForLocation } from './lib/swiss-locality-directory.mjs';
 import { startPipelinePhase } from './lib/pipeline-phase-timing.mjs';
+import { buildSocialJobSourceCatalog } from './lib/social-source-catalog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -853,6 +854,7 @@ const DATA_EXPIRED = path.join(ROOT, 'data', 'expired-jobs.json');
 const PUBLIC_EXPIRED = path.join(ROOT, 'public', 'data', 'expired-jobs.json');
 const DATA_META = path.join(ROOT, 'data', 'jobs-meta.json');
 const DATA_SUMMARIES = path.join(ROOT, 'data', 'jobs-crawler-summaries.json');
+const DATA_SOCIAL_COPY_JOB_SOURCE_CATALOG = path.join(ROOT, 'data', 'social-copy-job-source-catalog.json');
 
 /** Maximum number of expired jobs to keep across all crawlers. */
 const EXPIRED_JOBS_CAP = 5000;
@@ -1036,7 +1038,12 @@ function hashRepoFile(hasher, abs) {
  * `--print-cache-key`, so a workflow can key `actions/cache` on exactly the
  * value the script checks — no second, weaker `hashFiles()` definition.
  */
-export function computeAssembleCacheKey({ withStats = false, withSummaries = true, withExpired = true } = {}) {
+export function computeAssembleCacheKey({
+  withStats = false,
+  withSummaries = true,
+  withExpired = true,
+  withSocialCopySourceCatalog = false,
+} = {}) {
   const inputFingerprint = computeAssembleInputFingerprint();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   const includeHeld = includeTranslationHeldFromEnv();
@@ -1049,7 +1056,7 @@ export function computeAssembleCacheKey({ withStats = false, withSummaries = tru
   // included) must never be restored by a publishing run, hence `_withheld`.
   return {
     inputFingerprint,
-    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}${includeHeld ? '_withheld' : ''}`,
+    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}${includeHeld ? '_withheld' : ''}${withSocialCopySourceCatalog ? '_socialcatalog' : ''}`,
   };
 }
 
@@ -4795,7 +4802,12 @@ async function persistQualityScoresToFirestore(summaries) {
   }
 }
 
-export async function assembleJobsDataset({ withStats = false, withSummaries = true, withExpired = true } = {}) {
+export async function assembleJobsDataset({
+  withStats = false,
+  withSummaries = true,
+  withExpired = true,
+  withSocialCopySourceCatalog = false,
+} = {}) {
   const finishDatasetTiming = startPipelinePhase('jobs-dataset', 'dataset orchestration');
   // In slice-only mode crawlers skip assembly — it runs during deploy instead.
   if (String(process.env.CRAWLER_SLICE_ONLY || '0') === '1') {
@@ -4809,7 +4821,9 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // Inputs change on a few cron hours per day; between those events, ~80 % of
   // deploys feed identical bytes through the same pipeline.
   const finishFingerprintTiming = startPipelinePhase('jobs-dataset', 'input fingerprint and cache lookup');
-  const { inputFingerprint, cacheKey } = computeAssembleCacheKey({ withStats, withSummaries, withExpired });
+  const { inputFingerprint, cacheKey } = computeAssembleCacheKey({
+    withStats, withSummaries, withExpired, withSocialCopySourceCatalog,
+  });
   finishFingerprintTiming();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
@@ -4829,6 +4843,9 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     // Preserve the existing --no-summaries contract: a cache hit may restore
     // the previous summary snapshot, while a cache miss leaves the file as-is.
     restorePairs.push([path.join(cacheDir, 'jobs-crawler-summaries.json'), DATA_SUMMARIES]);
+    if (withSocialCopySourceCatalog) {
+      restorePairs.push([path.join(cacheDir, 'social-copy-job-source-catalog.json'), DATA_SOCIAL_COPY_JOB_SOURCE_CATALOG]);
+    }
     if (withStats) {
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), DATA_STATS]);
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), PUBLIC_STATS]);
@@ -5191,6 +5208,13 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   }
   finishStatsTiming();
 
+  if (withSocialCopySourceCatalog) {
+    const catalogJobs = Array.isArray(publishedJobs) ? publishedJobs : priorJobsSnapshot;
+    const sourceCatalog = buildSocialJobSourceCatalog(catalogJobs);
+    writeJson(DATA_SOCIAL_COPY_JOB_SOURCE_CATALOG, sourceCatalog);
+    console.log(`🧭 Social source catalog refreshed: ${sourceCatalog.sources.length} sanitized job candidates`);
+  }
+
   // --- Snapshot to cache for next run ---
   // Wrapped in try/catch — cache write failures must never fail the deploy;
   // worst case the next run pays the 58 s assembly cost again.
@@ -5202,6 +5226,9 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       [DATA_JOBS, 'jobs.json'],
       [DATA_META, 'jobs-meta.json'],
     ];
+    if (withSocialCopySourceCatalog && fs.existsSync(DATA_SOCIAL_COPY_JOB_SOURCE_CATALOG)) {
+      snapshotPairs.push([DATA_SOCIAL_COPY_JOB_SOURCE_CATALOG, 'social-copy-job-source-catalog.json']);
+    }
     if (withExpired) snapshotPairs.push([DATA_EXPIRED, 'expired-jobs.json']);
     snapshotPairs.push([DATA_SUMMARIES, 'jobs-crawler-summaries.json']);
     if (withStats) {
@@ -5224,6 +5251,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       withStats,
       withSummaries,
       withExpired,
+      withSocialCopySourceCatalog,
       snapshotAt: new Date().toISOString(),
       fileCount: snapshotted,
     }, null, 2));
@@ -5273,6 +5301,7 @@ export function parseAssembleCliArgs(argv = []) {
     withStats: argv.includes('--stats'),
     withSummaries: !argv.includes('--no-summaries'),
     withExpired: !argv.includes('--active-only'),
+    withSocialCopySourceCatalog: argv.includes('--social-copy-source-catalog'),
   };
 }
 

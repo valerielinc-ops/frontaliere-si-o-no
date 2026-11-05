@@ -701,6 +701,17 @@ jobs:
       # the checked-in files. Keep this publication in the same section lease
       # as fast-publish/resync: companions first, registry second, and fail
       # closed if either the source snapshot or an upload/purge is not current.
+      - name: Load private R2 publishing credentials
+        if: >-
+          (steps.commit.outputs.article-content-changed == 'true' ||
+          steps.commit.outputs.news-sitemap-changed == 'true' ||
+          steps.commit.outputs.ticker-changed == 'true' ||
+          steps.commit.outputs.feeds-changed == 'true') &&
+          steps.commit.outputs.published-via-pr != 'true' &&
+          inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY --require-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+
       - name: Acquire article chunk section locks for synced corpus
         id: acquire_synced_chunk_locks
         if: steps.commit.outputs.article-content-changed == 'true' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
@@ -955,12 +966,11 @@ jobs:
       # the two writers cannot disagree about the freshness contract.
       - name: Publish the news-ticker payload to the edge
         if: steps.commit.outputs.ticker-changed == 'true' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        continue-on-error: true
         run: |
           set -euo pipefail
-          if [ -z "${R2_ACCESS_KEY_ID:-}" ]; then
-            echo "::warning::R2 credentials absent — the ticker keeps serving the previously pushed copy"
-            exit 0
+          if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ]; then
+            echo "::error::private R2 credentials absent — refusing to leave the changed ticker stale"
+            exit 1
           fi
           # The single-quoted argument is JavaScript source; its template
           # literals must expand in Node, not in the surrounding shell.
@@ -1140,6 +1150,9 @@ jobs:
 
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
+
+      - name: Load private R2 publishing credentials
+        run: node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY --require-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
 
       # Serialize the client registry/companion publication with fast-publish,
       # resync and the regular sync path. The lease covers all four sections'

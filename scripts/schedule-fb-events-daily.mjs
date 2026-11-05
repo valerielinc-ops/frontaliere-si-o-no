@@ -35,6 +35,7 @@ import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLa
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_EVENT } from './lib/facebook-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { preferredSocialSourceCandidates, socialSourceIdForEvent } from './lib/social-source-catalog.mjs';
 import { withoutPrivateEvents } from './lib/private-event-sources.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -44,6 +45,7 @@ import {
   socialPublishReservationKey,
 } from './lib/social-publish-reservations.mjs';
 import { isAmbiguousSocialPublishResponse } from './lib/social-publish-outcome.mjs';
+import { redactAccessTokenText } from './lib/redact-access-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -151,10 +153,17 @@ export function buildEventCaption(event, { socialCopy } = {}) {
 export { isLandingPageLive };
 
 /** Select the soonest-starting upcoming events not yet in `postedSet`. */
-export function selectUnpostedEvents(events, postedSet, limit) {
+export function selectUnpostedEvents(events, postedSet, limit, { preferredIds = [] } = {}) {
   if (!Array.isArray(events)) return [];
   // upcomingEvents already sorts ascending by startDate then title.
-  return events.filter((e) => e && e.id && !postedSet.has(e.id)).slice(0, Math.max(0, limit | 0));
+  const preferredRank = new Map((Array.isArray(preferredIds) ? preferredIds : [])
+    .map((id, index) => [String(id), index]));
+  return events
+    .filter((e) => e && e.id && !postedSet.has(e.id))
+    .map((event, index) => ({ event, index, rank: preferredRank.get(String(event.id)) ?? Number.POSITIVE_INFINITY }))
+    .sort((left, right) => left.rank - right.rank || left.index - right.index)
+    .slice(0, Math.max(0, limit | 0))
+    .map(({ event }) => event);
 }
 
 /** Canonical URL of a canton's weekend digest landing page (matches the SSG plugin). */
@@ -399,7 +408,15 @@ export async function run(opts = {}) {
     log('🎉', `weekend digest day — posting roundup for ${digestsThisRun.length} canton(s): ${digestsThisRun.map((d) => d.canton).join(', ')}`);
     payloads = digestsThisRun;
   } else {
-    const candidates = selectUnpostedEvents(upcoming, postedSet, volume);
+    const preferredSources = preferredSocialSourceCandidates(upcoming, {
+      pack: socialCopyPack,
+      channel: 'facebook',
+      format: 'event',
+      sourceIdForCandidate: (event) => socialSourceIdForEvent(event),
+    });
+    const candidates = selectUnpostedEvents(upcoming, postedSet, volume, {
+      preferredIds: preferredSources.map((event) => event.id),
+    });
     const built = await Promise.allSettled(candidates.map(async (event) => {
       const socialCopy = await selectSocialCopy({
         pack: socialCopyPack,
@@ -552,13 +569,13 @@ export async function run(opts = {}) {
     } catch (err) {
       await releaseReservation(p.id, 'Facebook event OG preflight failed before delivery');
       await releasePublishReservation(p, 'OG preflight failure');
-      warn('⚠️', `OG preflight failed for ${p.id}: ${err.message}`);
+      warn('⚠️', `OG preflight failed for ${p.id}: ${redactAccessTokenText(err.message, token)}`);
       continue;
     }
 
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const body = () => {
-      const b = new URLSearchParams({ message: p.message, link, access_token: token });
+      const b = new URLSearchParams({ message: p.message, link });
       if (p.placeId) b.append('place', p.placeId);
       return b;
     };
@@ -570,11 +587,15 @@ export async function run(opts = {}) {
       res = null;
       data = null;
       try {
-        res = await fetchImpl(apiUrl, { method: 'POST', body: body() });
+        res = await fetchImpl(apiUrl, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}` },
+          body: body(),
+        });
         data = await res.json();
       } catch (err) {
         deliveryUncertain = !res || res.ok === true || isAmbiguousSocialPublishResponse(res);
-        warn('⚠️', `POST failed for ${p.id} (attempt ${attempt}): ${err.message}`);
+        warn('⚠️', `POST failed for ${p.id} (attempt ${attempt}): ${redactAccessTokenText(err.message, token)}`);
         data = null;
       }
       if (isAmbiguousSocialPublishResponse(res) || (res?.ok && !data?.id)) deliveryUncertain = true;
@@ -612,7 +633,7 @@ export async function run(opts = {}) {
       }
       log('✅', `posted ${p.id} → ${data.id}${p.coveredIds?.length ? ` (covers ${p.coveredIds.length} events)` : ''}`);
     } else {
-      warn('⚠️', `FB API error for ${p.id}: ${JSON.stringify(data).slice(0, 200)}`);
+      warn('⚠️', `FB API error for ${p.id}: ${redactAccessTokenText(JSON.stringify(data), token).slice(0, 200)}`);
       if (!deliveryUncertain && res && !res.ok) {
         await releaseReservation(p.id, 'Facebook explicitly rejected the event post');
         await releasePublishReservation(p, 'explicit API rejection');

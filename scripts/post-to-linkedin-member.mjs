@@ -76,6 +76,7 @@ import {
 } from './lib/linkedin-member-copy.mjs';
 import { fetchPageOg, uploadLinkedInImage } from './lib/linkedin-member-media.mjs';
 import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { prioritizeSocialSourceCandidates, socialSourceIdForArticle, socialSourceIdForJob } from './lib/social-source-catalog.mjs';
 import {
   markSocialPublishReservationPublished,
   releaseSocialPublishReservation,
@@ -219,8 +220,26 @@ async function main() {
   );
 
   const slots = [
-    { kind: 'article', candidates: articles, campaign: LINKEDIN_MEMBER_CAMPAIGN_ARTICLE },
-    { kind: 'job', candidates: jobs, campaign: LINKEDIN_MEMBER_CAMPAIGN_JOB },
+    {
+      kind: 'article',
+      candidates: prioritizeSocialSourceCandidates(articles, {
+        pack: SOCIAL_COPY_PACK,
+        channel: 'linkedin',
+        format: 'article',
+        sourceIdForCandidate: (candidate) => socialSourceIdForArticle(candidate.slug),
+      }),
+      campaign: LINKEDIN_MEMBER_CAMPAIGN_ARTICLE,
+    },
+    {
+      kind: 'job',
+      candidates: prioritizeSocialSourceCandidates(jobs, {
+        pack: SOCIAL_COPY_PACK,
+        channel: 'linkedin',
+        format: 'job',
+        sourceIdForCandidate: (candidate) => socialSourceIdForJob(jobIndex.get(candidate.slug)),
+      }),
+      campaign: LINKEDIN_MEMBER_CAMPAIGN_JOB,
+    },
   ].filter((s) => !only || s.kind === only);
 
   // Resolve credentials once, but only when something would actually be sent.

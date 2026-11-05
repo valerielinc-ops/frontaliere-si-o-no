@@ -24,7 +24,7 @@ import { realpathSync } from 'node:fs';
  */
 
 import { createRequire } from 'node:module';
-import { getRemoteConfigValue } from '../functions/src/remoteConfigSecrets.js';
+import { getServerRemoteConfigValue } from '../functions/src/remoteConfigSecrets.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from '../functions/src/assistedApplicationConstants.js';
 import {
   NOTIFICATION_KEYS,
@@ -83,14 +83,14 @@ export function maskEmail(value) {
  * fall back to Italian and the job-board root.
  */
 export async function presentationFromStripe(order, {
-  getKey = () => getRemoteConfigValue('STRIPE_SECRET_KEY'),
+  getKey = () => getServerRemoteConfigValue('SERVER_STRIPE_SECRET_KEY'),
   fetchImpl = fetch,
 } = {}) {
   if (order.orderPageUrl && order.locale) return null;
   const sessionId = String(order.stripeCheckoutSessionId || order.stripeSessionId || '');
   if (!sessionId) throw new Error('the order has no Stripe checkout session');
   const key = await getKey();
-  if (!key) throw new Error('STRIPE_SECRET_KEY is empty in Remote Config');
+  if (!key) throw new Error('SERVER_STRIPE_SECRET_KEY is empty in private Remote Config');
   const response = await fetchImpl(`https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sessionId)}`, {
     headers: { Authorization: `Bearer ${key}` },
   });

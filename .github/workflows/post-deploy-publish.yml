@@ -330,6 +330,11 @@ jobs:
           node scripts/load-rc-env.mjs --include-social-secrets
           --only-social-env=LINKEDIN_POST_CLIENT_SECRET,LINKEDIN_POST_REFRESH_TOKEN,LINKEDIN_POST_ACCESS_TOKEN,REDDIT_CLIENT_SECRET,REDDIT_PASSWORD,REDDIT_REFRESH_TOKEN
 
+      - name: Load Google indexing credentials from private Remote Config
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=GSC_CLIENT_SECRET,GSC_REFRESH_TOKEN
+
       # Small JSON artifacts only — NO github-pages download here. All keyed on
       # `deploy_run_id` (the BUILD run); run-id + token makes the fetch work both
       # same-run (legacy caller) and cross-run (coordinator-dispatched

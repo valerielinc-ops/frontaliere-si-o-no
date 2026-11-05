@@ -28,7 +28,8 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
-import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+import { readFirebaseServiceAccountCredentials } from './lib/firebase-service-account-credentials.mjs';
+import { RC_SERVER_NAMESPACE, setRcParamWithEtag } from './lib/remote-config-admin.mjs';
 import { resolveOmniRouteAllowlist } from './lib/omniroute-free-providers.mjs';
 
 const DB_PATH = process.env.OMNIROUTE_DB_PATH || path.join(os.homedir(), '.omniroute', 'storage.sqlite');
@@ -112,19 +113,24 @@ if (payload.length === 0) {
 const json = JSON.stringify(payload);
 console.log(`🔓 Decrypted ${payload.length} provider connection(s) (${INCLUDE_ALL ? 'all statuses' : 'active only'}).`);
 
-const rc = await getRemoteConfig();
-const template = await fetchRcTemplate(rc);
 const today = new Date().toISOString().slice(0, 10);
-const changed = stageRcParam(
-  template,
-  'OMNIROUTE_PROVIDERS_JSON',
-  json,
-  `OmniRoute provider connections (decrypted from local storage.sqlite; ${payload.length} entries; set ${today})`
-) ? 1 : 0;
-
-if (changed === 0) {
-  console.log('ℹ️  OMNIROUTE_PROVIDERS_JSON already up-to-date in Remote Config. Nothing published.');
-  process.exit(0);
+const credentials = readFirebaseServiceAccountCredentials(process.env, {
+  purpose: 'write OmniRoute provider credentials to private Remote Config',
+});
+if (!credentials?.project_id) {
+  console.error('❌ Firebase service-account credentials are required.');
+  process.exit(1);
 }
-await publishRcTemplate(rc, template, changed);
-console.log(`✅ Published OMNIROUTE_PROVIDERS_JSON to Remote Config (${payload.length} providers, ${Math.round(json.length / 1024)}KB).`);
+const result = await setRcParamWithEtag({
+  credentials,
+  namespace: RC_SERVER_NAMESPACE,
+  name: 'SERVER_OMNIROUTE_PROVIDERS_JSON',
+  value: json,
+  description: `Private OmniRoute provider connections (${payload.length} entries; set ${today})`,
+  versionDescription: 'Set private OmniRoute provider credentials',
+});
+if (!result.ok) {
+  console.error(`❌ Private OmniRoute credential write failed: ${result.detail || 'unknown error'}`);
+  process.exit(1);
+}
+console.log(`✅ Private OmniRoute provider credentials ${result.changed ? 'updated' : 'already current'} (${payload.length} providers, ${Math.round(json.length / 1024)}KB).`);

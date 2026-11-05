@@ -15,7 +15,7 @@ import { resolveNewsletterTokenPolicy } from './src/lib/newsletterActionToken.js
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { sendNewsletterWelcomeEmail } from './src/newsletterWelcomeEmail.js';
 import { handleSendCalculatorReport } from './src/sendCalculatorReport.js';
-import { getNewsletterSecrets, getRemoteConfigValue, getAutologinPolicyConfig, getNewsletterTokenPolicyConfig } from './src/remoteConfigSecrets.js';
+import { getNewsletterSecrets, getRemoteConfigValue, getServerRemoteConfigValue, getAutologinPolicyConfig, getNewsletterTokenPolicyConfig } from './src/remoteConfigSecrets.js';
 import { answerContractRequired } from './src/assistedApplicationAnswerConfirmation.js';
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
@@ -930,7 +930,7 @@ export const newsletterMailerooWebhook = onRequest(
  : JSON.stringify(req.body || {});
 
  try {
- const signingSecret = await getRemoteConfigValue('MAILEROO_WEBHOOK_SECRET');
+ const signingSecret = await getServerRemoteConfigValue('SERVER_MAILEROO_WEBHOOK_SECRET');
  const result = await handleMailerooWebhookRequest({
  payload,
  headers: req.headers,
@@ -3394,7 +3394,7 @@ export const assistedApplicationInbound = onRequest(
         db: getAdminDb(),
         bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         secret: newsletterSecret,
-        runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+        runKey: await getServerRemoteConfigValue('SERVER_ASSISTED_APPLICATION_RUN_KEY'),
       });
       if (body.matched) console.log('[assistedApplicationInbound] employer message accepted');
       res.status(status).json(body);
@@ -3416,7 +3416,7 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
       bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
       orderId: event.params.orderId,
       messageId: event.params.messageId,
-      runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+      runKey: await getServerRemoteConfigValue('SERVER_ASSISTED_APPLICATION_RUN_KEY'),
       classify: (request) => codexStructured(request),
       sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
       // An acknowledgement or a reply settles a submission of unknown outcome.

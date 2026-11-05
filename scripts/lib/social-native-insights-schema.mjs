@@ -26,7 +26,7 @@ const DECIMAL_INSTAGRAM_METRICS = new Set([
   'igReelsAvgWatchTime', 'igReelsVideoViewTotalTime', 'reelsSkipRate',
 ]);
 const SOURCE_NAMES = new Set([
-  'instagram', 'tiktok', 'linkedinMember', 'facebook', 'telegram', 'reddit', 'youtubeShorts',
+  'instagram', 'instagramPublishReadiness', 'tiktok', 'linkedinMember', 'facebook', 'telegram', 'reddit', 'youtubeShorts',
   'instagramAudience', 'tiktokAudience', 'facebookAudience', 'linkedinAudience',
   'telegramAudience', 'youtubeShortsAudience', 'threadsAudience', 'socialRobotDelivery',
   'socialSiteOutcomes', 'linkedinFollowerGains',

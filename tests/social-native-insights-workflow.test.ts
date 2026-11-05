@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
+import { SOCIAL_COPY_REQUIRED_SPARSE_PATHS } from '../scripts/ci/apply-checkout-profiles.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -38,36 +39,76 @@ describe('social native insights workflow contract', () => {
 
   it('refreshes the validated Codex pack weekly after Monday insights collection', () => {
     const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-copy-pack.yml'), 'utf8');
+    const parsed = YAML.parse(workflow, { logLevel: 'silent' });
     expect(workflow).toContain("- cron: '40 4 * * 1'");
     expect(workflow).not.toContain("- cron: '40 4 1 * *'");
+    expect(workflow).not.toMatch(/^  push:/mu);
+    expect(workflow).toMatch(/^  workflow_dispatch:/mu);
+    expect(workflow).toContain('source_run_id:');
+    expect(parsed.jobs.generate.if).toContain("github.event_name == 'schedule'");
+
+    const validateSourceRun = parsed.jobs.promote.steps.find((step: any) => step.name === 'Validate source pack run');
+    const download = parsed.jobs.promote.steps.find((step: any) => step.name === 'Download generated response');
+    expect(parsed.jobs.promote.if).toContain("github.event_name == 'workflow_dispatch'");
+    expect(parsed.jobs.promote.if).toContain("github.ref == 'refs/heads/main'");
+    expect(validateSourceRun.if).toBe("github.event_name == 'workflow_dispatch'");
+    expect(validateSourceRun.run).toContain('gh run view "$SOURCE_RUN_ID"');
+    expect(validateSourceRun.run).toContain('.event == "schedule"');
+    expect(validateSourceRun.run).toContain('.headBranch == "main"');
+    expect(validateSourceRun.run).toContain('.status == "completed"');
+    expect(validateSourceRun.run).toContain('.conclusion == "success"');
+    expect(download.with['run-id']).toContain('inputs.source_run_id');
+    expect(download.with['github-token']).toBe('${{ github.token }}');
+    expect(parsed.jobs.generate.steps.find((step: any) => step.name === 'Upload generated response').with['retention-days']).toBe(14);
   });
 
-  it('reserves a durable rolling seven-day Codex budget before building briefs or calling the model', () => {
+  it('documents the scheduled bootstrap and does not claim a main-branch push trigger', () => {
+    const docs = readFileSync(resolve(ROOT, 'docs/social-ai-automation.md'), 'utf8').replace(/\s+/gu, ' ');
+    expect(docs).toContain('Only the Monday schedule generates the pack.');
+    expect(docs).toContain('A main-only recovery dispatch can promote an artifact');
+    expect(docs).toContain('Manual recovery cannot consume the rolling seven-day Codex slot');
+    expect(docs).toMatch(/A denied quota preflight skips brief\s+collection, generation, and promotion/u);
+    expect(docs).toMatch(/the atomic reservation immediately\s+before Codex still fails closed/iu);
+    expect(docs).not.toMatch(/source-change push trigger/u);
+    expect(docs).toContain('The weekly Codex batch reads the eight versioned guides');
+    expect(docs).toContain('does not run browser-based publishing or add per-post');
+  });
+
+  it('preflights quota before briefs and reserves atomically before Codex', () => {
     const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-copy-pack.yml'), 'utf8');
+    const checkStart = workflow.indexOf('      - name: Check rolling seven-day Codex availability');
     const budgetStart = workflow.indexOf('      - name: Reserve a rolling seven-day Codex invocation');
     const attributionStart = workflow.indexOf('      - name: Build sanitized GA4 social-copy attribution brief');
     const nativeStart = workflow.indexOf('      - name: Build minimized native social brief and growth scorecard');
     const editorialStart = workflow.indexOf('      - name: Build sanitized published-topic inventory');
     const codexStart = workflow.indexOf('      - name: Generate social copy with Codex');
     const promoteStart = workflow.indexOf('\n  promote:\n');
-    const budget = workflow.slice(budgetStart, attributionStart);
     const attribution = workflow.slice(attributionStart, nativeStart);
     const native = workflow.slice(nativeStart, editorialStart);
     const editorial = workflow.slice(editorialStart, codexStart);
+    const budget = workflow.slice(budgetStart, codexStart);
     const codex = workflow.slice(codexStart, promoteStart);
     const promote = workflow.slice(promoteStart);
 
-    expect(budgetStart).toBeGreaterThanOrEqual(0);
-    expect(attributionStart).toBeGreaterThan(budgetStart);
+    expect(checkStart).toBeGreaterThanOrEqual(0);
+    expect(budgetStart).toBeGreaterThan(editorialStart);
+    expect(attributionStart).toBeGreaterThanOrEqual(0);
+    expect(attributionStart).toBeGreaterThan(checkStart);
     expect(nativeStart).toBeGreaterThan(attributionStart);
     expect(editorialStart).toBeGreaterThan(nativeStart);
     expect(codexStart).toBeGreaterThan(editorialStart);
+    expect(codexStart).toBeGreaterThan(budgetStart);
+    expect(workflow).not.toContain("github.event_name == 'push'");
+    const check = workflow.slice(checkStart, attributionStart);
+    expect(check).toContain('node scripts/social-copy/reserve-codex-invocation.mjs --check');
+    expect(check).toContain('FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}');
     expect(budget).toContain('FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}');
     expect(budget).toContain('node scripts/social-copy/reserve-codex-invocation.mjs');
-    expect(attribution).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
-    expect(native).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
-    expect(editorial).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
-    expect(codex).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
+    expect(budget).toContain("if: steps.codex_budget_check.outputs.allowed == 'true'");
+    expect(attribution).toContain("if: steps.codex_budget_check.outputs.allowed == 'true'");
+    expect(native).toContain("if: steps.codex_budget_check.outputs.allowed == 'true'");
+    expect(editorial).toContain("if: steps.codex_budget_check.outputs.allowed == 'true'");
+    expect(codex).toContain("if: steps.codex_budget_check.outputs.allowed == 'true' && steps.codex_budget.outputs.allowed == 'true'");
     expect(promote).toContain("needs.generate.outputs.codex_invocation_allowed == 'true'");
   });
 
@@ -77,13 +118,15 @@ describe('social native insights workflow contract', () => {
     const promoteStart = workflow.indexOf('\n  promote:\n');
     const generate = workflow.slice(generateStart, promoteStart);
     const budgetStart = generate.indexOf('      - name: Reserve a rolling seven-day Codex invocation');
-    const attributionStart = generate.indexOf('      - name: Build sanitized GA4 social-copy attribution brief');
-    const budget = generate.slice(budgetStart, attributionStart);
+    const codexStart = generate.indexOf('      - name: Generate social copy with Codex');
+    const budget = generate.slice(budgetStart, codexStart);
 
     expect(generateStart).toBeGreaterThanOrEqual(0);
     expect(promoteStart).toBeGreaterThan(generateStart);
+    expect(codexStart).toBeGreaterThan(budgetStart);
     expect(generate).toContain("if: github.ref == 'refs/heads/main'");
     expect(budget).toContain('GITHUB_REF: ${{ github.ref }}');
+    expect(budget).toContain('GITHUB_EVENT_NAME: ${{ github.event_name }}');
     expect(budget).toContain('node scripts/social-copy/reserve-codex-invocation.mjs');
   });
 
@@ -109,6 +152,7 @@ describe('social native insights workflow contract', () => {
     expect(persistedCredential).toBeGreaterThan(credentialsFile);
     expect(loader).toBeGreaterThanOrEqual(0);
     expect(collectRun).toContain("only_env_keys='FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,FB_USER_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN'");
+    expect(collectRun).toContain('TIKTOK_CLIENT_KEY,TIKTOK_CLIENT_SECRET,TIKTOK_ACCESS_TOKEN,TIKTOK_REFRESH_TOKEN,TIKTOK_OPEN_ID');
     expect(collectRun).toContain('--include-social-secrets');
     expect(collectRun).toContain('::add-mask::%s\\n');
     expect(collectRun).toContain('unset FB_PAGE_ID FB_PAGE_ACCESS_TOKEN FB_USER_ACCESS_TOKEN INSTAGRAM_BUSINESS_ACCOUNT_ID INSTAGRAM_ACCESS_TOKEN');
@@ -203,20 +247,30 @@ describe('social native insights workflow contract', () => {
     expect(codexStart).toBeGreaterThan(sourceStart);
     expect(uploadStart).toBeGreaterThan(codexStart);
     expect(sourceStep).toContain('node scripts/social-copy/editorial-source-brief.mjs');
+    expect(sourceStep).not.toContain('npx tsx');
     expect(codexStep).toContain('privacy-screened topic-discovery');
     expect(codexStep).toContain('no headlines, URLs');
     expect(prompt).toContain('topicDiscovery.searchDemand.available');
     expect(prompt).toContain('topicDiscovery.recentPublisherNews.available');
     expect(prompt).toContain('no raw GSC/Suggest query');
+    expect(workflow).toContain('${{ runner.temp }}/social-copy-editorial-source-brief.json');
+    expect(workflow).toContain('--source-brief="$RUNNER_TEMP/social-copy-editorial-source-brief.json"');
   });
 
-  it('checks the repurpose skill used by the weekly Codex prompt is present in sparse checkout', () => {
+  it('checks every skill used by the weekly Codex prompt is present in sparse checkout', () => {
     const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-copy-pack.yml'), 'utf8');
     const prompt = readFileSync(resolve(ROOT, 'scripts/social-copy/CODEX-PROMPT.md'), 'utf8');
+    const skills = [
+      'social-content', 'ig-plan', 'ig-caption', 'ig-carousel',
+      'ig-reel', 'ig-audit', 'ig-human', 'ig-repurpose',
+    ];
 
-    expect(prompt).toContain('.agents/skills/ig-repurpose/SKILL.md');
-    expect(workflow).toContain('/.agents/skills/');
-    expect(workflow).toContain('test -s .agents/skills/ig-repurpose/SKILL.md');
+    for (const skill of skills) {
+      expect(prompt).toContain(`.agents/skills/${skill}/SKILL.md`);
+      expect(SOCIAL_COPY_REQUIRED_SPARSE_PATHS).toContain(`/.agents/skills/${skill}/`);
+    }
+    expect(workflow).toContain(`for skill in ${skills.join(' ')}`);
+    expect(workflow).toContain('test -s ".agents/skills/$skill/SKILL.md"');
   });
 
   it('limits credentialed social workflows with manual dispatch to main', () => {
@@ -286,7 +340,10 @@ describe('social native insights workflow contract', () => {
 
       expect(jobs, file).not.toHaveLength(0);
       for (const [jobId, job] of jobs as Array<[string, any]>) {
-        expect(job.if, `${file} :: ${jobId}`).toBe("github.ref == 'refs/heads/main'");
+        const expectedRefGuard = file === '.github/workflows/social-copy-pack.yml'
+          ? "github.ref == 'refs/heads/main' && github.event_name == 'schedule'"
+          : "github.ref == 'refs/heads/main'";
+        expect(job.if, `${file} :: ${jobId}`).toBe(expectedRefGuard);
         expect(job.environment, `${file} :: ${jobId}`).toBe('social-production');
       }
     }

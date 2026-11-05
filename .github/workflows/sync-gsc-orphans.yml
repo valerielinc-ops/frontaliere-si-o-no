@@ -78,7 +78,9 @@ jobs:
 
       - name: Load RC secrets
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=GSC_CLIENT_SECRET,GSC_REFRESH_TOKEN
 
       - name: Sync GSC orphan slugs + enrich
         if: inputs.dry_run != true && inputs.dry_run != 'true'

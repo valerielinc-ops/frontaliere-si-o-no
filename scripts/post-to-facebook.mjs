@@ -35,6 +35,7 @@ import {
   socialPublishReservationKey,
 } from './lib/social-publish-reservations.mjs';
 import { isAmbiguousSocialPublishResponse } from './lib/social-publish-outcome.mjs';
+import { redactAccessTokenText } from './lib/redact-access-token.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -87,7 +88,7 @@ async function main() {
     console.log('\n🔍 Debug: verifying token & page identity...');
     try {
       // 1. Check what the token belongs to
-      const meRes = await fetch(`${GRAPH_API}/me?access_token=${FB_PAGE_ACCESS_TOKEN}`);
+      const meRes = await fetch(`${GRAPH_API}/me`, { headers: { Authorization: `Bearer ${FB_PAGE_ACCESS_TOKEN}` } });
       const me = await meRes.json();
       console.log(`   Token owner: ${me.name || '?'} (id: ${me.id || '?'}, category: ${me.category || 'user/unknown'})`);
       if (me.id && me.id !== FB_PAGE_ID) {
@@ -95,7 +96,7 @@ async function main() {
         console.log(`   💡 If this token is a Page Access Token, set FB_PAGE_ID=${me.id}`);
       }
       // 2. Check /me/accounts to list managed pages
-      const acctRes = await fetch(`${GRAPH_API}/me/accounts?access_token=${FB_PAGE_ACCESS_TOKEN}`);
+      const acctRes = await fetch(`${GRAPH_API}/me/accounts`, { headers: { Authorization: `Bearer ${FB_PAGE_ACCESS_TOKEN}` } });
       const acct = await acctRes.json();
       if (acct.data?.length) {
         console.log(`   Managed pages:`);
@@ -106,7 +107,7 @@ async function main() {
         console.log(`   No managed pages found (token may already be a Page token)`);
       }
     } catch (e) {
-      console.log(`   Debug error: ${e.message}`);
+      console.log(`   Debug error: ${redactAccessTokenText(e.message, FB_PAGE_ACCESS_TOKEN)}`);
     }
     console.log('');
   }
@@ -114,15 +115,16 @@ async function main() {
   // Force Facebook to scrape/refresh OG metadata for the article URL
   console.log('🔄 Forcing Facebook OG cache refresh...');
   try {
-    const scrapeRes = await fetch(`${GRAPH_API}/?id=${encodeURIComponent(taggedUrl)}&scrape=true&access_token=${FB_PAGE_ACCESS_TOKEN}`, {
+    const scrapeRes = await fetch(`${GRAPH_API}/?id=${encodeURIComponent(taggedUrl)}&scrape=true`, {
       method: 'POST',
+      headers: { Authorization: `Bearer ${FB_PAGE_ACCESS_TOKEN}` },
     });
     const scrapeData = await scrapeRes.json();
     if (scrapeData.title) {
       console.log(`✅ Facebook OG refreshed: "${scrapeData.title}"`);
       console.log(`   og:image = ${scrapeData.image?.[0]?.url || '(none)'}`);
     } else {
-      console.log(`⚠️  Facebook scrape response: ${JSON.stringify(scrapeData).slice(0, 200)}`);
+      console.log(`⚠️  Facebook scrape response: ${redactAccessTokenText(JSON.stringify(scrapeData), FB_PAGE_ACCESS_TOKEN).slice(0, 200)}`);
     }
   } catch (e) {
     console.log(`⚠️  Facebook scrape failed: ${e.message}`);
@@ -160,7 +162,6 @@ async function main() {
     const body = new URLSearchParams({
       message,
       link: taggedUrl,
-      access_token: FB_PAGE_ACCESS_TOKEN,
     });
     // Geo anchor for FB Search discovery. Articles cover cross-border
     // CH-IT topics; Lugano is the canonical city for the frontaliere
@@ -175,6 +176,7 @@ async function main() {
     try {
       response = await fetch(url, {
         method: 'POST',
+        headers: { Authorization: `Bearer ${FB_PAGE_ACCESS_TOKEN}` },
         body,
       });
     } catch (error) {
@@ -230,7 +232,7 @@ async function main() {
         publicationNeedsReconciliation = true;
         console.warn('⚠️  Facebook publication outcome is ambiguous; shared reservation remains held to prevent replay');
       }
-      console.error(`⚠️  Facebook API error: ${requestError?.message || JSON.stringify(data)}`);
+      console.error(`⚠️  Facebook API error: ${redactAccessTokenText(requestError?.message || JSON.stringify(data), FB_PAGE_ACCESS_TOKEN)}`);
       if (data?.error?.code === 100) {
         console.error('💡 Error 100 = wrong ID. FB_PAGE_ID must be the numeric Page ID, not a User ID.');
         console.error('   Run with --debug to identify the correct Page ID:');

@@ -10,6 +10,12 @@ const REQUIRED_USER_SCOPES = ['pages_show_list'];
 const REQUIRED_PAGE_SCOPES = ['pages_manage_posts', 'pages_read_engagement'];
 const REQUIRED_INSTAGRAM_PUBLISH_SCOPES = ['instagram_basic', 'instagram_content_publish'];
 const CLIENT_TEMPLATE_META_SECRET_KEYS = [
+  'FB_USER_ACCESS_TOKEN',
+  'FB_USER_ACCESS_TOKEN_EXPIRES_AT',
+  'FB_PAGE_ACCESS_TOKEN',
+  'FB_PAGE_ACCESS_TOKEN_EXPIRES_AT',
+  'INSTAGRAM_ACCESS_TOKEN',
+  'INSTAGRAM_ACCESS_TOKEN_EXPIRES_AT',
   'SERVER_FB_USER_ACCESS_TOKEN',
   'SERVER_FB_USER_ACCESS_TOKEN_EXPIRES_AT',
   'SERVER_FB_PAGE_ACCESS_TOKEN',
@@ -24,30 +30,31 @@ function assertCredential(value, name) {
   return value.trim();
 }
 
-async function graphJson(fetchImpl, url, { step, accessToken, method = 'GET' } = {}) {
+async function graphJson(fetchImpl, url, { step, accessToken, method = 'GET', body } = {}) {
   let response;
   try {
     response = await fetchImpl(url, {
       method,
       headers: accessToken ? { Authorization: `Bearer ${accessToken}` } : {},
+      ...(body === undefined ? {} : { body }),
       signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     });
   } catch {
     throw new Error(`${step} request failed; check network access and retry`);
   }
 
-  let body;
+  let responseBody;
   try {
-    body = await response.json();
+    responseBody = await response.json();
   } catch {
     throw new Error(`${step} returned an unreadable response`);
   }
-  const error = body?.error;
+  const error = responseBody?.error;
   if (!response.ok || error) {
     const code = Number.isFinite(Number(error?.code)) ? `, Meta code ${Number(error.code)}` : '';
     throw new Error(`${step} failed (HTTP ${response.status}${code})`);
   }
-  return body;
+  return responseBody;
 }
 
 function tokenScopes(debugData, label) {
@@ -63,6 +70,8 @@ function requireScopes(scopes, required, label) {
 }
 
 function debugTokenUrl(token) {
+  // Meta's debug_token endpoint specifies input_token as a GET query parameter.
+  // Never log this URL; the app token is kept in the Authorization header.
   const url = new URL(`${GRAPH_API}/debug_token`);
   url.searchParams.set('input_token', token);
   return url;
@@ -74,15 +83,13 @@ function meAccountsUrl() {
   return url;
 }
 
-function exchangeUrl({ appId, appSecret, shortLivedUserToken }) {
-  const url = new URL(`${GRAPH_API}/oauth/access_token`);
-  url.search = new URLSearchParams({
+function exchangeBody({ appId, appSecret, shortLivedUserToken }) {
+  return new URLSearchParams({
     grant_type: 'fb_exchange_token',
     client_id: appId,
     client_secret: appSecret,
     fb_exchange_token: shortLivedUserToken,
-  }).toString();
-  return url;
+  });
 }
 
 function metadataExpiry(value, label) {
@@ -127,11 +134,11 @@ export async function provisionFacebookPageCredentials({
     throw new Error('GOOGLE_APPLICATION_CREDENTIALS must contain a Firebase service account');
   }
 
-  const exchanged = await graphJson(fetchImpl, exchangeUrl({
-    appId: clientId,
-    appSecret: clientSecret,
-    shortLivedUserToken: shortToken,
-  }), { step: 'Meta user-token exchange' });
+  const exchanged = await graphJson(fetchImpl, `${GRAPH_API}/oauth/access_token`, {
+    step: 'Meta user-token exchange',
+    method: 'POST',
+    body: exchangeBody({ appId: clientId, appSecret: clientSecret, shortLivedUserToken: shortToken }),
+  });
   if (typeof exchanged.access_token !== 'string' || !exchanged.access_token
     || !Number.isFinite(Number(exchanged.expires_in)) || Number(exchanged.expires_in) <= 0) {
     throw new Error('Meta user-token exchange did not return a verifiable token lifetime');

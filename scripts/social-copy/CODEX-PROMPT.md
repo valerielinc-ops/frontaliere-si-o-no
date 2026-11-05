@@ -36,8 +36,8 @@ visible captions must match that script and its timing.
 The publisher remains the source of facts and the renderer remains the source
 of final media.
 
-Return one JSON object with exactly two top-level keys: `editorialPlan` and
-`channels`. The plan contains three to five durable pillars. Each configured
+Return one JSON object with exactly three top-level keys: `editorialPlan`,
+`sourceAssignments`, and `channels`. The plan contains three to five durable
 channel/format gets exactly three distinct angles; each template points to one
 of those angle IDs. The pack is editorial coverage, not proof that every
 channel has a live publisher. TikTok and Reddit remain draft-preparation only
@@ -49,6 +49,22 @@ provided report marks the relevant metric eligible. Otherwise label the idea
 actually publishes, or `editorial-hypothesis` when it is a testable idea with
 no qualified evidence. Never describe a hypothesis as a finding. Do not invent
 audience research, platform trends, or performance results.
+
+`sourceAssignments` plans which exact first-party items fit which channel
+formats. Use only `sourceId` values and `eligibleFormats` present in the
+supplied dated `sourceCatalog`; use only its bounded `topic`, `selectionHint`,
+and `freshnessDays` fields to choose among them. Include one to three recommendations for every
+channel/format that has an eligible source, in preference order; do not assign
+a source to a format absent from its `eligibleFormats`, repeat a source within
+one format, or exceed 54 recommendations total. If the catalog has no eligible
+source for a format, omit that format. Favor useful, fresh items for live
+publishers; suggestions for held channels remain drafts and must never be
+described as delivered. Source IDs are pointers only: do not infer article,
+job, event, or border facts from an ID, topic label, or freshness. The publisher
+resolves each recommendation against its current eligible candidates and
+supplies every verified fact, date, destination, and media. An absent or stale
+recommendation must fall back to the publisher's existing selection. Do not
+ask for another Codex call per post.
 
 The JSON shape is:
 
@@ -69,6 +85,9 @@ The JSON shape is:
       "reddit": {"article": [], "job": []}
     }
   },
+  "sourceAssignments": [
+    {"channel": "instagram", "format": "article", "sourceId": "article-0123456789abcdef0123"}
+  ],
   "channels": {
     "instagram": {"article": [], "job": [], "border": [], "reel": []},
     "tiktok": {"article": [], "job": [], "border": [], "video": []},
@@ -79,6 +98,10 @@ The JSON shape is:
   }
 }
 ```
+
+The example source ID is illustrative only. Every returned ID must be copied
+exactly from the `sourceCatalog` supplied with the brief; invented IDs fail
+validation.
 
 Each array contains template objects with short unique lowercase kebab-case
 `id`, an `angleId` declared under the same channel/format, `hook`, and `cta`.

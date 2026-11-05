@@ -85,7 +85,9 @@ jobs:
 
       - name: Load RC secrets
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=GSC_CLIENT_SECRET,GSC_REFRESH_TOKEN
 
       # Primary identity for the PR publisher below = GitHub App installation
       # token (`frontaliere-automation[bot]`): auto-mints, no expiry babysit, and

@@ -214,9 +214,10 @@ describe('Instagram Insights snapshot collector', () => {
   });
 
   it('collects one read-only snapshot and preserves the creative join', async () => {
-    const calls: string[] = [];
-    const fetchImpl = async (url: string) => {
-      calls.push(url);
+    const calls: { url: string; options?: RequestInit }[] = [];
+    const fetchImpl = async (input: string | URL | Request, options?: RequestInit) => {
+      const url = String(input);
+      calls.push({ url, options });
       if (url.includes('/account-1/media?')) {
         return response({ data: [{
           id: 'm-1',
@@ -300,7 +301,38 @@ describe('Instagram Insights snapshot collector', () => {
       },
     });
     expect(calls).toHaveLength(2);
+    expect(calls.every(({ url }) => !url.includes('access_token'))).toBe(true);
+    expect(calls.every(({ options }) => (options?.headers as Record<string, string>)?.Authorization === 'Bearer token-not-printed')).toBe(true);
     expect(JSON.stringify(result)).not.toContain('token-not-printed');
+  });
+
+  it('redacts the bearer token from Graph API and network error messages', async () => {
+    const getFailureMessage = async (fetchImpl: typeof fetch) => {
+      try {
+        await collectSnapshots({
+          ledger: { posted: [ledgerEntry({ instagramMediaId: 'm-1' })] },
+          accountId: 'account-1',
+          accessToken: 'secret-token',
+          asOf: AS_OF,
+          fetchImpl,
+        });
+        throw new Error('expected collection to fail');
+      } catch (error) {
+        return String((error as Error).message);
+      }
+    };
+
+    const graphFailure = await getFailureMessage(async () => response({
+      error: { message: 'request rejected secret-token' },
+    }, 400) as Response);
+    expect(graphFailure).toContain('[redacted]');
+    expect(graphFailure).not.toContain('secret-token');
+
+    const networkFailure = await getFailureMessage(async () => {
+      throw new Error('network failed with secret-token');
+    });
+    expect(networkFailure).toContain('[redacted]');
+    expect(networkFailure).not.toContain('secret-token');
   });
 
   it('keeps timestamp-matched creative metadata out of the Codex performance brief', async () => {

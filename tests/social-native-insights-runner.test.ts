@@ -12,15 +12,21 @@ function collectWithReadyInstagramInsights(options: Parameters<typeof collectSoc
       INSTAGRAM_ACCESS_TOKEN: 'page-token',
       ...options?.env,
     },
-    probeInstagramPermissionScopes: async () => ({
-      permissionStatuses: { instagram_basic: 'granted', instagram_manage_insights: 'granted' },
-    }),
-    probeInstagramPageAccess: async () => ({
+    probeInstagramPermissionScopes: options.probeInstagramPermissionScopes || (async () => ({
+      permissionStatuses: {
+        instagram_basic: 'granted',
+        instagram_manage_insights: 'granted',
+        instagram_content_publish: 'granted',
+      },
+      publishPermissionStatus: 'granted',
+    })),
+    probeInstagramPageAccess: options.probeInstagramPageAccess || (async () => ({
       pageLinkStatus: 'matched',
       publisherTokenSourceStatus: 'matched',
-      pageTaskStatuses: { analyze: 'granted' },
-    }),
-    probeInstagramPublisher: async () => ({ publisherTokenStatus: 'matched' }),
+      pageTaskStatus: 'granted',
+      pageTaskStatuses: { analyze: 'granted', createContent: 'granted' },
+    })),
+    probeInstagramPublisher: options.probeInstagramPublisher || (async () => ({ publisherTokenStatus: 'matched' })),
   });
 }
 
@@ -71,6 +77,7 @@ describe('social native insights workflow runner', () => {
 
     expect(collectInstagramPosts).toHaveBeenCalledOnce();
     expect(result.sources.instagramPostInsights).toBe('available');
+    expect(result.sources.instagramPublishReadiness).toBe('available');
     expect(result.document.posts[0]).toMatchObject({
       channel: 'instagram',
       postId: 'instagram-reel-exact-id',
@@ -84,6 +91,37 @@ describe('social native insights workflow runner', () => {
       },
       matchMethod: 'ledger-media-id',
       copyAttributionStatus: 'exact',
+    });
+  });
+
+  it('keeps Instagram Insights available while holding publishing with no content-publish grant', async () => {
+    const asOf = new Date('2026-11-02T12:00:00.000Z');
+    const result = await collectWithReadyInstagramInsights({
+      asOf,
+      existing: { schemaVersion: 1, posts: [], sources: {} },
+      collectInstagramPosts: async () => ({ status: 'nothing-ready', additions: [], skipped: [] }),
+      collectLinkedIn: false,
+      probeInstagramPermissionScopes: async () => ({
+        permissionStatuses: {
+          instagram_basic: 'granted',
+          instagram_manage_insights: 'granted',
+          instagram_content_publish: 'missing',
+        },
+        publishPermissionStatus: 'missing',
+      }),
+      probeInstagramPageAccess: async () => ({
+        pageLinkStatus: 'matched',
+        publisherTokenSourceStatus: 'matched',
+        pageTaskStatus: 'missing',
+        pageTaskStatuses: { analyze: 'granted', createContent: 'missing' },
+      }),
+    });
+
+    expect(result.sources.instagramPostInsights).toBe('available');
+    expect(result.sources.instagramPublishReadiness).toBe('capability-unavailable');
+    expect(result.document.sources.instagramPublishReadiness).toMatchObject({
+      status: 'capability-unavailable',
+      lastCheckedAt: asOf.toISOString(),
     });
   });
 
@@ -329,14 +367,18 @@ describe('social native insights workflow runner', () => {
   });
 
   it('calls TikTok Display API only after explicit use-case approval is configured', async () => {
-    const fetchTikTok = vi.fn<typeof fetch>().mockResolvedValue(new Response(JSON.stringify({
-      data: { videos: [], has_more: false },
-      error: { code: 'ok', message: '' },
-    }), { status: 200 }));
+    const fetchTikTok = vi.fn<typeof fetch>().mockImplementation(async (input) => {
+      const path = new URL(String(input)).pathname;
+      const body = path === '/v2/user/info/'
+        ? { data: { user: { open_id: 'target-open-id', follower_count: 40 } }, error: { code: 'ok', message: '' } }
+        : { data: { videos: [], has_more: false }, error: { code: 'ok', message: '' } };
+      return new Response(JSON.stringify(body), { status: 200 });
+    });
     const result = await collectWithReadyInstagramInsights({
       env: {
         TIKTOK_DISPLAY_ANALYTICS_APPROVED: 'true',
         TIKTOK_ACCESS_TOKEN: 'test-token',
+        TIKTOK_OPEN_ID: 'target-open-id',
       },
       asOf: new Date('2026-11-02T06:15:00.000Z'),
       existing: { schemaVersion: 1, posts: [], sources: {} },

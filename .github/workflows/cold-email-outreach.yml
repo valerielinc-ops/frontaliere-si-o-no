@@ -127,13 +127,13 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
-      - name: Load secrets from Remote Config (email providers + GA4)
+      - name: Load GA4 property ID
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=GA4_PROPERTY_ID
 
       - name: Refresh employer target report (GA4, 90 days)
-        # Reads GA4 with the credentials the two steps above hydrate, so it
-        # carries their exact condition: on a denied run those steps are
+        # Reads GA4 with the property ID and credentials hydrated by the setup steps,
+        # so it carries their exact condition: on a denied run those steps are
         # skipped and this one would fail with a bare `no GA4_PROPERTY_ID`
         # instead of standing down.
         if: inputs.dry_run != true && inputs.dry_run != 'true'
@@ -141,6 +141,13 @@ jobs:
         # 581 known employers (data/crawler-manifest.json universe) by real
         # candidate traffic we sent them, so the pitch numbers are current.
         run: node scripts/employer-traffic-report.mjs --source ga4 --days 90 --min 1 --json data/employer-outreach/report.json
+
+      - name: Load email provider credentials for confirmed sends
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && inputs.mode == 'send' && inputs.confirm == true
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-env=MAILEROO_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY
+          --only-private-server-env=MAILEROO_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY
 
       - name: Drain STOP replies into suppression (best-effort)
         if: inputs.dry_run != true && inputs.dry_run != 'true'

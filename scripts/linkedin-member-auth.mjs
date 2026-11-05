@@ -13,6 +13,7 @@
  *
  * Usage:
  *   node scripts/linkedin-member-auth.mjs            # full flow, opens a local listener
+ *   node scripts/linkedin-member-auth.mjs --expected-member-urn=urn:li:person:<id>
  *   node scripts/linkedin-member-auth.mjs --url-only # just print the consent URL
  *
  * Required env (from Remote Config via `source bin/rc-env.sh`):
@@ -53,9 +54,25 @@ const CLIENT_SECRET = process.env.LINKEDIN_MEMBER_CLIENT_SECRET || '';
 const REDIRECT_URI =
   process.env.LINKEDIN_MEMBER_REDIRECT_URI || 'http://localhost:8080/callback';
 const SCOPE = process.env.LINKEDIN_MEMBER_SCOPE || 'w_member_social r_member_postAnalytics r_member_profileAnalytics';
-const PORT = Number(new URL(REDIRECT_URI).port || 8080);
+const redirectUrl = new URL(REDIRECT_URI);
+if (redirectUrl.protocol !== 'http:') throw new Error('LinkedIn OAuth callback must use HTTP loopback');
+const PORT = Number(redirectUrl.port || 8080);
+const LISTEN_HOST = ['localhost', '127.0.0.1'].includes(redirectUrl.hostname.toLowerCase())
+  ? '127.0.0.1'
+  : redirectUrl.hostname === '[::1]'
+    ? '::1'
+    : (() => { throw new Error('LinkedIn OAuth callback must use a loopback redirect URI'); })();
 
 const urlOnly = process.argv.includes('--url-only');
+const expectedUrnArgs = process.argv.filter((arg) => arg.startsWith('--expected-member-urn='));
+if (expectedUrnArgs.length > 1) throw new Error('Pass --expected-member-urn at most once');
+const expectedUrn = process.env.LINKEDIN_MEMBER_URN
+  || expectedUrnArgs[0]?.slice('--expected-member-urn='.length)
+  || '';
+
+function isMemberUrn(value) {
+  return /^urn:li:person:[A-Za-z0-9_-]+$/u.test(value);
+}
 
 function buildAuthUrl(state) {
   const u = new URL('https://www.linkedin.com/oauth/v2/authorization');
@@ -104,6 +121,9 @@ async function main() {
   let storageCredentials = null;
   if (!urlOnly) {
     if (!CLIENT_SECRET) throw new Error('LINKEDIN_MEMBER_CLIENT_SECRET is not set');
+    if (!isMemberUrn(expectedUrn)) {
+      throw new Error('A trusted target member URN is required in private LINKEDIN_MEMBER_URN or --expected-member-urn before OAuth can start');
+    }
     storageCredentials = readSocialOAuthStorageCredentials(process.env, 'linkedin-member');
     await validateSocialOAuthCredentialStorage({
       credentials: storageCredentials,
@@ -158,12 +178,18 @@ async function main() {
       server.close();
       resolve(got);
     });
-    server.listen(PORT, () => console.log(`⏳ waiting for the callback on port ${PORT}…`));
+    server.listen(PORT, LISTEN_HOST, () => console.log(`⏳ waiting for the callback on ${LISTEN_HOST}:${PORT}…`));
     server.on('error', reject);
   });
 
   const tokens = await exchangeCode(code);
   const urn = await tryResolveUrn(tokens.access_token);
+  if (!urn) {
+    throw new Error('LinkedIn could not verify the consented member identity; existing private credentials were retained and publishing remains held');
+  }
+  if (!isMemberUrn(urn) || urn !== expectedUrn) {
+    throw new Error('LinkedIn consented member does not match the configured target URN; existing private credentials were retained');
+  }
 
   const expiresIn = Number(tokens.expires_in);
   if (!Number.isFinite(expiresIn) || expiresIn <= 0) {
@@ -179,7 +205,7 @@ async function main() {
   } else {
     removeParameters.push('SERVER_LINKEDIN_MEMBER_REFRESH_TOKEN');
   }
-  if (urn) parameters.SERVER_LINKEDIN_MEMBER_URN = urn;
+  parameters.SERVER_LINKEDIN_MEMBER_URN = urn;
   const stored = await persistSocialOAuthCredentials({
     credentials: storageCredentials,
     platform: 'linkedin-member',
@@ -190,12 +216,7 @@ async function main() {
   console.log('');
   console.log('✅ LinkedIn member OAuth credentials stored in the private server Remote Config namespace.');
   console.log('stored fields: ' + stored.parameterCount + '; access token lifetime: ' + expiresIn + 's');
-  if (urn) {
-    console.log('member URN resolved and stored privately.');
-  } else {
-    console.log('# /v2/userinfo unavailable with w_member_social alone (expected).');
-    console.log('# Any existing configured member URN was retained.');
-  }
+  console.log('member identity matched the configured target URN and was stored privately.');
   console.log('');
   console.log('scope granted: ' + (tokens.scope || SCOPE));
 }

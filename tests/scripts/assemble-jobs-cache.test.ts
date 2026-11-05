@@ -70,6 +70,15 @@ beforeAll(async () => {
     path.join(REPO_ROOT, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
     path.join(tmpRoot, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
   );
+  cpSync(
+    path.join(REPO_ROOT, 'build-plugins', 'shared', 'companyHqAddresses.mjs'),
+    path.join(tmpRoot, 'build-plugins', 'shared', 'companyHqAddresses.mjs'),
+  );
+  mkdirSync(path.join(tmpRoot, 'services'), { recursive: true });
+  cpSync(
+    path.join(REPO_ROOT, 'services', 'employerChannelOrigin.mjs'),
+    path.join(tmpRoot, 'services', 'employerChannelOrigin.mjs'),
+  );
   const articleSharedDir = path.join(tmpRoot, 'packages', 'articles', 'engine', 'shared');
   mkdirSync(articleSharedDir, { recursive: true });
   cpSync(
@@ -271,5 +280,7 @@ describe('computeAssembleInputFingerprint — non-slice inputs', () => {
     expect(computeAssembleCacheKey({ withStats: true }).cacheKey).toBe(`${fp}_stats`);
     expect(computeAssembleCacheKey({ withSummaries: false }).cacheKey).toBe(`${fp}_nostats_nosummaries`);
     expect(computeAssembleCacheKey({ withExpired: false }).cacheKey).toBe(`${fp}_nostats_activeonly`);
+    expect(computeAssembleCacheKey({ withSocialCopySourceCatalog: true }).cacheKey)
+      .toBe(`${fp}_nostats_socialcatalog`);
   });
 });

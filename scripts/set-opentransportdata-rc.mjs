@@ -19,15 +19,18 @@
  */
 
 import {
+  RC_SERVER_NAMESPACE,
   fetchRcTemplate,
   getRemoteConfig,
   publishRcTemplate,
   stageRcParam,
+  setRcParamsWithEtag,
 } from './lib/remote-config-admin.mjs';
+import { readFirebaseServiceAccountCredentials } from './lib/firebase-service-account-credentials.mjs';
 
 const CREDENTIALS = Object.freeze([
   {
-    rcParam: 'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN',
+    rcParam: 'SERVER_OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN',
     envVar: 'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN',
     description: 'OpenTransportData ASTRA traffic situations plan bearer token',
   },
@@ -38,7 +41,7 @@ const CREDENTIALS = Object.freeze([
     description: 'OpenTransportData ASTRA traffic situations plan token hash (inventory only)',
   },
   {
-    rcParam: 'OPENTRANSPORTDATA_ASTRA_LSA_TOKEN',
+    rcParam: 'SERVER_OPENTRANSPORTDATA_ASTRA_LSA_TOKEN',
     envVar: 'OPENTRANSPORTDATA_ASTRA_LSA_TOKEN',
     description: 'OpenTransportData ASTRA LSA traffic-lights plan bearer token',
   },
@@ -49,7 +52,7 @@ const CREDENTIALS = Object.freeze([
     description: 'OpenTransportData ASTRA LSA traffic-lights plan token hash (inventory only)',
   },
   {
-    rcParam: 'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN',
+    rcParam: 'SERVER_OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN',
     envVar: 'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN',
     description: 'OpenTransportData ASTRA traffic counters plan bearer token',
   },
@@ -86,28 +89,39 @@ async function main() {
     }
   }
 
+  const date = new Date().toISOString().slice(0, 10);
+  const privateTokens = pending.filter((credential) => !credential.hash);
+  const publicHashes = pending.filter((credential) => credential.hash);
+  const serviceAccount = readFirebaseServiceAccountCredentials(process.env, {
+    purpose: 'write ASTRA bearer tokens to private Remote Config',
+  });
+  if (!serviceAccount?.project_id) bail('Firebase service-account credentials missing.');
+  const privateResult = await setRcParamsWithEtag({
+    credentials: serviceAccount,
+    namespace: RC_SERVER_NAMESPACE,
+    params: privateTokens.map((credential) => ({
+      name: credential.rcParam,
+      value: credential.value,
+      description: `${credential.description} (set ${date})`,
+    })),
+    versionDescription: 'Set private OpenTransportData ASTRA bearer tokens',
+  });
+  if (!privateResult.ok) bail(`Private ASTRA Remote Config write failed: ${privateResult.detail || 'unknown error'}`);
+
   const rc = await getRemoteConfig();
   const template = await fetchRcTemplate(rc);
-  const date = new Date().toISOString().slice(0, 10);
-  let changed = 0;
-
-  for (const credential of pending) {
+  let publicChanged = 0;
+  for (const credential of publicHashes) {
     if (stageRcParam(template, credential.rcParam, credential.value, `${credential.description} (set ${date})`)) {
-      changed++;
+      publicChanged++;
       console.log(`📝 Staged ${credential.rcParam} for publish.`);
     } else {
       console.log(`ℹ️  ${credential.rcParam} already up-to-date.`);
     }
   }
 
-  if (changed === 0) {
-    console.log('ℹ️  Nothing to publish — all six ASTRA credential parameters already match Remote Config.');
-    return;
-  }
-
-  await publishRcTemplate(rc, template, changed);
-  console.log(`✅ Published ${changed} ASTRA OpenTransportData credential parameter(s) to Remote Config.`);
-  console.log('   The site and corpus loaders now expose the three plan tokens without logging their values.');
+  if (publicChanged) await publishRcTemplate(rc, template, publicChanged);
+  console.log(`✅ Private ASTRA bearer tokens ${privateResult.changed ? 'updated' : 'already current'}; ${publicChanged} inventory hash(es) ${publicChanged ? 'published' : 'already current'}.`);
 }
 
 main().catch((error) => {

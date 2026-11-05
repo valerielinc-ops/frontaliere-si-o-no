@@ -1,17 +1,17 @@
 import { randomBytes } from 'node:crypto';
 import {
-  fetchRcTemplate,
-  getRemoteConfig,
+  RC_SERVER_NAMESPACE,
   stageRcParamValue,
   updateRcTemplateWithEtag,
 } from './remote-config-admin.mjs';
+import { readFirebaseServiceAccountCredentials } from './firebase-service-account-credentials.mjs';
 
 /**
  * The rewrite artifact crosses two independent workflow runs. Its key must
  * therefore have a longer lifetime than the rotating Codex login used by the
  * rewrite broker.
  */
-export const EVENT_DESCRIPTION_ARTIFACT_KEY_NAME = 'EVENT_DESCRIPTION_ARTIFACT_KEY';
+export const EVENT_DESCRIPTION_ARTIFACT_KEY_NAME = 'SERVER_EVENT_DESCRIPTION_ARTIFACT_KEY';
 export const EVENT_DESCRIPTION_ARTIFACT_KEY_BYTES = 32;
 export const EVENT_DESCRIPTION_ARTIFACT_FORMAT = 'event-description-artifact-v2';
 export const EVENT_DESCRIPTION_ARTIFACT_KEY_DESCRIPTION =
@@ -52,10 +52,15 @@ export function stageEventDescriptionArtifactKey(template, candidate = generateE
  * same ETag/retry contract as the other Remote Config writers.
  */
 export async function ensureEventDescriptionArtifactKey({ credentials }) {
+  const serviceAccount = credentials || readFirebaseServiceAccountCredentials(process.env, {
+    purpose: 'provision the event-description artifact key in private Remote Config',
+  });
+  if (!serviceAccount?.project_id) throw new Error('Firebase service-account credentials are required');
   const candidate = generateEventDescriptionArtifactKey();
   let resolvedKey = '';
   const result = await updateRcTemplateWithEtag({
-    credentials,
+    credentials: serviceAccount,
+    namespace: RC_SERVER_NAMESPACE,
     versionDescription: 'ensure event-description artifact key',
     stage: (template) => {
       const staged = stageEventDescriptionArtifactKey(template, candidate);
@@ -71,7 +76,21 @@ export async function ensureEventDescriptionArtifactKey({ credentials }) {
 
 /** Read the existing key without creating or changing Remote Config state. */
 export async function readEventDescriptionArtifactKey() {
-  const template = await fetchRcTemplate(await getRemoteConfig());
+  const credentials = readFirebaseServiceAccountCredentials(process.env, {
+    purpose: 'read the event-description artifact key from private Remote Config',
+  });
+  if (!credentials?.project_id) throw new Error('Firebase service-account credentials are required');
+  let template = null;
+  const result = await updateRcTemplateWithEtag({
+    credentials,
+    namespace: RC_SERVER_NAMESPACE,
+    dryRun: true,
+    stage: (current) => {
+      template = current;
+      return { changed: false };
+    },
+  });
+  if (!result.ok || !template) throw new Error(`unable to read private ${EVENT_DESCRIPTION_ARTIFACT_KEY_NAME}`);
   const key = template.parameters?.[EVENT_DESCRIPTION_ARTIFACT_KEY_NAME]?.defaultValue?.value;
   if (!isValidEventDescriptionArtifactKey(key)) {
     throw new Error(`${EVENT_DESCRIPTION_ARTIFACT_KEY_NAME} is not provisioned`);

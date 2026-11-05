@@ -5,8 +5,7 @@ import { fileURLToPath } from 'node:url';
 import {
   assertSocialCopyTreatmentContinuity,
   normalizeSocialCopyPack,
-  SOCIAL_COPY_PACK_SCHEMA_VERSION,
-  SOCIAL_COPY_PROMPT_VERSION,
+  validatePersistedSocialCopyPack,
 } from '../lib/social-copy-pack.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -36,30 +35,34 @@ function writeJsonAtomic(file, value) {
 async function main() {
   const command = process.argv[2];
   if (!['validate', 'promote'].includes(command)) {
-    throw new Error('usage: node scripts/social-copy/pack.mjs <validate|promote> --input=<json> [--output=<json>] [--generated-at=<ISO>]');
+    throw new Error('usage: node scripts/social-copy/pack.mjs <validate|promote> --input=<json> --source-brief=<json> [--output=<json>] [--generated-at=<ISO>]');
   }
   const input = requireArgument('input');
   const raw = readJson(input);
+  const sourceBriefPath = requireArgument('source-brief');
+  const sourceBrief = readJson(sourceBriefPath);
+  const sourceCatalog = sourceBrief?.sourceCatalog;
+  if (!sourceCatalog || !Array.isArray(sourceCatalog.sources)) {
+    throw new Error('source brief must contain a sourceCatalog');
+  }
   const generatedAt = argument('generated-at', new Date().toISOString());
-  const pack = normalizeSocialCopyPack(raw, { generatedAt });
+  const pack = normalizeSocialCopyPack(raw, { generatedAt, sourceCatalog });
   if (command === 'promote') {
     const output = argument('output', path.join(ROOT, 'data', 'social-copy-packs', 'current.json'));
     if (existsSync(output)) {
       const previousRaw = readJson(output);
-      if (Number(previousRaw.schemaVersion) === SOCIAL_COPY_PACK_SCHEMA_VERSION
-        && previousRaw.promptVersion === SOCIAL_COPY_PROMPT_VERSION) {
-        const previous = normalizeSocialCopyPack({
-          editorialPlan: previousRaw.editorialPlan,
-          channels: previousRaw.channels,
-        }, { generatedAt: previousRaw.generatedAt });
+      if (Number(previousRaw.schemaVersion) >= 3) {
+        const previous = validatePersistedSocialCopyPack(previousRaw, {
+          now: previousRaw.generatedAt,
+        });
         assertSocialCopyTreatmentContinuity(previous, pack);
       }
     }
     writeJsonAtomic(output, pack);
-    process.stdout.write('Promoted validated social copy pack ' + pack.packId + ' (' + SOCIAL_COPY_PROMPT_VERSION + ')\n');
+    process.stdout.write('Promoted validated social copy pack ' + pack.packId + ' (' + pack.promptVersion + ')\n');
     return;
   }
-  process.stdout.write('Valid social copy pack (' + SOCIAL_COPY_PROMPT_VERSION + '); ' + pack.packId + '\n');
+  process.stdout.write('Valid social copy pack (' + pack.promptVersion + '); ' + pack.packId + '\n');
 }
 
 main().catch((error) => {

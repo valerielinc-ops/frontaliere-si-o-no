@@ -611,21 +611,26 @@ describe('facebookPages', () => {
   });
 
   it('orchestrates with mocked fetch', async () => {
-    const mockFetch = vi.fn(async () => ({
-      ok: true,
-      status: 200,
-      json: async () => ({
-        data: [
-          {
-            message: 'Nuove regole per i frontalieri 2026 in arrivo',
-            reactions: { summary: { total_count: 30 } },
-            comments: { summary: { total_count: 5 } },
-            created_time: '2026-05-01T00:00:00Z',
-          },
-        ],
-      }),
-      text: async () => '',
-    }));
+    const mockFetch = vi.fn(async (_url: string, options: RequestInit) => {
+      const requestUrl = new URL(_url);
+      expect(requestUrl.searchParams.has('access_token')).toBe(false);
+      expect((options.headers as Record<string, string>).Authorization).toBe('Bearer fake');
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          data: [
+            {
+              message: 'Nuove regole per i frontalieri 2026 in arrivo',
+              reactions: { summary: { total_count: 30 } },
+              comments: { summary: { total_count: 5 } },
+              created_time: '2026-05-01T00:00:00Z',
+            },
+          ],
+        }),
+        text: async () => '',
+      };
+    });
     const r = await fetchFacebookCandidates({
       token: 'fake',
       pages: ['tio.ch'],
@@ -634,6 +639,27 @@ describe('facebookPages', () => {
     expect(r.ok).toBe(true);
     expect(r.candidates.length).toBe(1);
     expect(r.candidates[0].keyword).toMatch(/frontalieri/i);
+  });
+
+  it('redacts a reflected Facebook bearer token from collector diagnostics', async () => {
+    const result = await fetchFacebookCandidates({
+      token: 'secret-facebook-token',
+      pages: ['tio.ch'],
+      fetchImpl: async (_url: string, options: RequestInit) => {
+        expect((options.headers as Record<string, string>).Authorization).toBe('Bearer secret-facebook-token');
+        const error = new Error('Meta echoed secret-facebook-token');
+        return {
+          ok: false,
+          status: 400,
+          json: async () => ({}),
+          text: async () => error.message,
+        } as Response;
+      },
+    });
+
+    const diagnostic = JSON.stringify(result.perPage);
+    expect(diagnostic).not.toContain('secret-facebook-token');
+    expect(diagnostic).toContain('[redacted]');
   });
 });
 

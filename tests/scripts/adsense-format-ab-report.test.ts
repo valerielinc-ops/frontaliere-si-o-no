@@ -313,6 +313,16 @@ describe('adsense-format-ab-report / weekly plan gates the tracking issue', () =
     }
   });
 
+  it('loads the report’s private AdSense credentials through its explicit Remote Config allowlist', () => {
+    const reportJob = Object.values(jobs()).find((job) => job.steps.some((step) => (
+      String(step.run ?? '').includes('adsense-format-ab-report.mjs --experiment')
+    )));
+    const loader = reportJob?.steps.find((step) => String(step.run ?? '').includes('load-rc-env.mjs'));
+
+    expect(loader?.run).toContain('--include-private-server-secrets');
+    expect(loader?.run).toMatch(/--only-private-server-env=[^\s]*ADSENSE_CLIENT_ID[^\s]*ADSENSE_CLIENT_SECRET[^\s]*ADSENSE_REFRESH_TOKEN/u);
+  });
+
   it('every other job of the workflow runs only with an active plan', () => {
     const others = Object.entries(jobs()).filter(([id]) => id !== 'plan');
     expect(others.length).toBeGreaterThan(0);

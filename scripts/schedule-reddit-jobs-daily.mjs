@@ -49,6 +49,7 @@ import {
   selectSocialCopyForPublish,
   socialCopyLedgerFields,
 } from './lib/social-copy-pack.mjs';
+import { preferredSocialSourceCandidates, socialSourceIdForJob } from './lib/social-source-catalog.mjs';
 
 // Re-export the channel-agnostic helpers so tests can import them from
 // this module directly (mirrors the FB scheduler).
@@ -231,7 +232,15 @@ export async function run(opts = {}) {
   });
 
   // 3. Pick top-N never-posted jobs.
-  const candidates = selectUnpostedJobs(jobs, postedSet, volume);
+  const preferredSources = preferredSocialSourceCandidates(jobs, {
+    pack: socialCopyPack,
+    channel: 'reddit',
+    format: 'job',
+    sourceIdForCandidate: (job) => socialSourceIdForJob(job),
+  });
+  const candidates = selectUnpostedJobs(jobs, postedSet, volume, {
+    preferredIds: preferredSources.map((job) => job.id),
+  });
   if (candidates.length === 0) {
     log('ℹ️', 'no unposted jobs eligible, exiting');
     return { ok: true, posted: 0, dryRun, payloads: [] };

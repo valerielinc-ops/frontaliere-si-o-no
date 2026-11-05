@@ -89,7 +89,7 @@ jobs:
       # into the full dataset; a corrupt record fails here → no poisoned commit.
       - name: Validate — dataset assembles with the new slice
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/assemble-jobs-dataset.mjs --stats
+        run: node scripts/assemble-jobs-dataset.mjs --stats --social-copy-source-catalog
 
       # App installation token = push identity honoured by main's
       # "main required CI checks" ruleset bypass_actors on a direct push
@@ -114,7 +114,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f data/jobs/by-crawler/publisher-submitted.json
+          git add -f data/jobs/by-crawler/publisher-submitted.json data/social-copy-job-source-catalog.json
           if git diff --cached --quiet; then
             echo "No employer-jobs changes detected."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
@@ -150,6 +150,7 @@ jobs:
             # content; any paid-ad change that lands after this snapshot is
             # picked up by the next scheduled run 30min later either way.
             cp data/jobs/by-crawler/publisher-submitted.json /tmp/publisher-submitted-cache.json
+            cp data/social-copy-job-source-catalog.json /tmp/social-copy-job-source-catalog-cache.json
             set +e
             if [ -z "${GITHUB_PAT:-}" ]; then
               echo "::error::GITHUB_PAT missing from Remote Config — cannot bypass the main CI ruleset for this scheduled writer"
@@ -157,7 +158,7 @@ jobs:
             fi
             git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git"
             PUSH_LOG=$(bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted \
-              --regenerate-cmd 'cp /tmp/publisher-submitted-cache.json data/jobs/by-crawler/publisher-submitted.json && git add -f data/jobs/by-crawler/publisher-submitted.json' 2>&1)
+              --regenerate-cmd 'cp /tmp/publisher-submitted-cache.json data/jobs/by-crawler/publisher-submitted.json && cp /tmp/social-copy-job-source-catalog-cache.json data/social-copy-job-source-catalog.json && git add -f data/jobs/by-crawler/publisher-submitted.json data/social-copy-job-source-catalog.json' 2>&1)
             rc=$?
             set -e
             echo "$PUSH_LOG"

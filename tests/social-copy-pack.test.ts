@@ -1,4 +1,9 @@
 import { createHash } from 'node:crypto';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import { describe, expect, it, vi } from 'vitest';
 
 import {
@@ -20,6 +25,7 @@ import {
   socialCopyTrackingContent,
   validatePersistedSocialCopyPack,
 } from '../scripts/lib/social-copy-pack.mjs';
+import { socialSourceCatalogId, socialSourceIdForArticle } from '../scripts/lib/social-source-catalog.mjs';
 
 const CHANNEL_KINDS: Record<string, string[]> = {
   instagram: ['article', 'job', 'border', 'reel'],
@@ -29,8 +35,9 @@ const CHANNEL_KINDS: Record<string, string[]> = {
   telegram: ['job', 'border'],
   reddit: ['article', 'job'],
 };
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
-function channels({ includeEditorialAngles = true, schemaVersion = 4 } = {}) {
+function channels({ includeEditorialAngles = true, schemaVersion = 5 } = {}) {
   const ordinal = ['primo', 'secondo', 'terzo', 'quarto', 'quinto', 'sesto', 'settimo', 'ottavo', 'nono', 'decimo', 'undicesimo', 'dodicesimo'];
   return Object.fromEntries(Object.entries(CHANNEL_KINDS).map(([channel, kinds]) => [
     channel,
@@ -81,7 +88,23 @@ function editorialPlan(rawChannels = channels()) {
 }
 
 function packInput(rawChannels = channels()) {
-  return { channels: rawChannels, editorialPlan: editorialPlan(rawChannels) };
+  return { channels: rawChannels, editorialPlan: editorialPlan(rawChannels), sourceAssignments: [] };
+}
+
+function articleSourceCatalog({ eligibleFormats = ['instagram.article'], snapshotDate = '2026-11-03' } = {}) {
+  const sources = [{
+    sourceId: socialSourceIdForArticle('guida-mobilita-frontalieri'),
+    contentKind: 'article',
+    topic: 'mobilita',
+    freshnessDays: 0,
+    eligibleFormats,
+  }];
+  return {
+    schemaVersion: 1,
+    snapshotDate,
+    catalogId: socialSourceCatalogId(sources),
+    sources,
+  };
 }
 
 function registeredExperiment(pack: { packId: string }, channel: string, slot: string, objective = '') {
@@ -126,9 +149,82 @@ describe('social copy pack', () => {
     );
 
     expect(pack.packId).toMatch(/^[a-f0-9]{16}$/);
-    expect(pack.schemaVersion).toBe(4);
+    expect(pack.schemaVersion).toBe(5);
     expect(pack.editorialPlan.angles.instagram.article).toHaveLength(3);
+    expect(pack.sourceAssignments).toEqual([]);
     expect(validatePersistedSocialCopyPack(pack, { now: '2026-10-20T00:00:00.000Z' })).toEqual(pack);
+  });
+
+  it('accepts only current source assignments covered by the supplied catalog', () => {
+    const sourceCatalog = articleSourceCatalog();
+    const input = packInput();
+    input.sourceAssignments = [{
+      channel: 'instagram',
+      format: 'article',
+      sourceId: sourceCatalog.sources[0].sourceId,
+    }];
+
+    const pack = normalizeSocialCopyPack(input, {
+      generatedAt: '2026-11-03T12:00:00.000Z',
+      sourceCatalog,
+    });
+
+    expect(pack).toMatchObject({
+      sourceCatalogId: sourceCatalog.catalogId,
+      sourceAssignments: input.sourceAssignments,
+    });
+    expect(pack).not.toHaveProperty('sourceCatalog');
+    expect(validatePersistedSocialCopyPack(pack, { now: '2026-11-04T12:00:00.000Z' })).toEqual(pack);
+  });
+
+  it('validates the weekly pack CLI against the exact source brief artifact', () => {
+    const directory = mkdtempSync(join(tmpdir(), 'social-copy-pack-cli-'));
+    try {
+      const sourceCatalog = articleSourceCatalog();
+      const input = packInput();
+      input.sourceAssignments = [{
+        channel: 'instagram',
+        format: 'article',
+        sourceId: sourceCatalog.sources[0].sourceId,
+      }];
+      const inputPath = join(directory, 'response.json');
+      const briefPath = join(directory, 'source-brief.json');
+      writeFileSync(inputPath, JSON.stringify(input));
+      writeFileSync(briefPath, JSON.stringify({ sourceCatalog }));
+
+      const result = spawnSync(process.execPath, [
+        'scripts/social-copy/pack.mjs', 'validate',
+        `--input=${inputPath}`,
+        `--source-brief=${briefPath}`,
+        '--generated-at=2026-11-03T12:00:00.000Z',
+      ], { cwd: ROOT, encoding: 'utf8' });
+
+      expect(result.status).toBe(0);
+      expect(result.stdout).toMatch(/Valid social copy pack \(frontaliere-social-copy-v5\); [a-f0-9]{16}/u);
+      expect(result.stderr).toBe('');
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects source IDs outside the current catalog and sources assigned to ineligible formats', () => {
+    const sourceCatalog = articleSourceCatalog();
+    const unknownSource = packInput();
+    unknownSource.sourceAssignments = [{
+      channel: 'instagram', format: 'article', sourceId: 'article-ffffffffffffffffffff',
+    }];
+    expect(() => normalizeSocialCopyPack(unknownSource, {
+      generatedAt: '2026-11-03T12:00:00.000Z', sourceCatalog,
+    })).toThrow(/missing or ineligible/);
+
+    const ineligibleSource = packInput();
+    ineligibleSource.sourceAssignments = [{
+      channel: 'instagram', format: 'article', sourceId: sourceCatalog.sources[0].sourceId,
+    }];
+    expect(() => normalizeSocialCopyPack(ineligibleSource, {
+      generatedAt: '2026-11-03T12:00:00.000Z',
+      sourceCatalog: articleSourceCatalog({ eligibleFormats: ['facebook.article'] }),
+    })).toThrow(/missing or ineligible/);
   });
 
   it('keeps angle-level experiment identity stable across weekly hook refreshes', () => {
@@ -476,7 +572,7 @@ describe('social copy pack', () => {
     expect(selected).toMatchObject({
       copyMode: 'codex',
       copySlot: 'article',
-      copyPromptVersion: 'frontaliere-social-copy-v4',
+      copyPromptVersion: 'frontaliere-social-copy-v5',
       copyAngleId: selected?.copyAngleId,
       copyPillarId: selected?.copyPillarId,
       copyPackId: pack.packId,
@@ -533,7 +629,7 @@ describe('social copy pack', () => {
         blockCycle: 2,
         registrationHash: 'a'.repeat(64),
       },
-      copyPromptVersion: 'frontaliere-social-copy-v4',
+      copyPromptVersion: 'frontaliere-social-copy-v5',
     });
     expect(socialCopyLedgerFields(selected)).toMatchObject({
       copyAssignmentMode: 'firebase-balanced',

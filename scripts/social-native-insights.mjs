@@ -10,6 +10,7 @@ import { collectFacebookPostInsights } from './lib/facebook-post-insights.mjs';
 import { collectInstagramAudienceSnapshot } from './lib/instagram-audience-insights.mjs';
 import { collectSnapshots as collectInstagramPostInsights } from './lib/instagram-insights-snapshot.mjs';
 import { buildInstagramCapabilityReadiness } from './lib/instagram-publish-readiness.mjs';
+import { classifyInstagram } from './lib/social-readiness.mjs';
 import { probeInstagramPageLink } from './lib/instagram-page-link-probe.mjs';
 import {
   probeInstagramPermissions,
@@ -333,13 +334,17 @@ export async function collectSocialNativeInsights({
   const instagramInsightsPermissionStatus = requiredInstagramInsightPermissions.every((status) => status === 'granted')
     ? 'granted'
     : requiredInstagramInsightPermissions.includes('missing') ? 'missing' : 'unavailable';
-  const instagramCapabilities = buildInstagramCapabilityReadiness({
+  const instagramProbe = {
     permissionStatuses: instagramPermissionProbe?.permissionStatuses,
+    publishPermissionStatus: instagramPermissionProbe?.publishPermissionStatus,
     pageTaskStatuses: instagramPageProbe?.pageTaskStatuses,
+    pageTaskStatus: instagramPageProbe?.pageTaskStatus,
     pageLinkStatus: instagramPageProbe?.pageLinkStatus,
     publisherTokenSourceStatus: instagramPageProbe?.publisherTokenSourceStatus,
     publisherTokenStatus: instagramPublisherProbe?.publisherTokenStatus,
-  });
+  };
+  const instagramPublishVerdict = classifyInstagram({ env, probe: instagramProbe });
+  const instagramCapabilities = buildInstagramCapabilityReadiness(instagramProbe, instagramPublishVerdict);
   const instagramInsightsReady = Boolean(String(env.INSTAGRAM_ACCESS_TOKEN || '').trim())
     && instagramInsightsPermissionStatus === 'granted'
     && instagramCapabilities.insights.state === 'ready';
@@ -347,6 +352,11 @@ export async function collectSocialNativeInsights({
     ? 'credentials-missing'
     : instagramInsightsPermissionStatus === 'missing'
       ? 'permission-missing'
+      : 'capability-unavailable';
+  const instagramPublishingStatus = instagramCapabilities.feedAndReels.state === 'ready'
+    ? 'available'
+    : !String(env.FB_USER_ACCESS_TOKEN || '').trim() || !String(env.INSTAGRAM_ACCESS_TOKEN || '').trim()
+      ? 'credentials-missing'
       : 'capability-unavailable';
 
   const collected = await Promise.allSettled([
@@ -369,7 +379,12 @@ export async function collectSocialNativeInsights({
             fetchImpl: fetchTikTok,
           }),
           tiktokAudienceDue
-            ? collectTikTokAudience({ accessToken, asOf, fetchImpl: fetchTikTok })
+            ? collectTikTokAudience({
+              accessToken,
+              expectedOpenId: env.TIKTOK_OPEN_ID,
+              asOf,
+              fetchImpl: fetchTikTok,
+            })
             : Promise.resolve({ status: 'not-due-today', snapshot: null }),
         ]);
         return {
@@ -548,6 +563,7 @@ export async function collectSocialNativeInsights({
     instagram: typeof existing?.sources?.instagram?.status === 'string'
       ? existing.sources.instagram.status
       : (existing?.posts || []).some((row) => row.channel === 'instagram') ? 'available' : 'not-collected-yet',
+    instagramPublishReadiness: instagramPublishingStatus,
     instagramPostInsights: normalizedSourceStatus(
       instagramPostResult,
       new Set(['snapshots-added', 'nothing-ready', 'nothing-collected']),
@@ -622,6 +638,10 @@ export async function collectSocialNativeInsights({
       && (existing?.sources?.facebook?.postInsightsStatus || !['lastSuccessAt', 'latestSnapshotAt'].includes(key))),
   );
   const sourceUpdates = {
+    instagramPublishReadiness: {
+      status: statuses.instagramPublishReadiness,
+      lastCheckedAt: new Date(asOf).toISOString(),
+    },
     instagramPostInsights: collectorSourceUpdate(
       existing?.sources?.instagramPostInsights,
       instagramPostResult,

@@ -290,6 +290,10 @@ jobs:
       - name: Load secrets from Remote Config (R2 + indexing)
         run: node scripts/load-rc-env.mjs
 
+      - name: Load private R2 publishing credentials
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY --require-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+
       # The static shell scripts (build-plugins/staticScriptsPlugin.ts) reach the
       # CDN only at the end of a full deploy, hours after the merge this job
       # publishes within minutes. A file the last deploy did not upload would be

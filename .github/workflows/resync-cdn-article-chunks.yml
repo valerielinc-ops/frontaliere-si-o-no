@@ -71,6 +71,10 @@ jobs:
       - name: Load secrets from Remote Config (R2 + CF)
         run: node scripts/load-rc-env.mjs
 
+      - name: Load private R2 publishing credentials
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY --require-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+
       # A resync writes BOTH section registries, so acquire both R2 leases in
       # the stable order used by the lock helper. This participates in the same
       # mutex as fast-publish without using a GitHub section concurrency group

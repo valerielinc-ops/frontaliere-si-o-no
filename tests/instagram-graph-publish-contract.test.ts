@@ -42,14 +42,14 @@ function fakeFetch(responses: any[]) {
 const noSleep = async () => {};
 
 describe('graphPost — form encoding and the error verdict', () => {
-  it('posts form-encoded params with the token folded into the body, never the URL', () => {
-    // A token in the query string lands in every proxy log on the way out.
+  it('posts form-encoded params and sends the token in an Authorization header', () => {
     const { impl, calls } = fakeFetch([{ body: { id: '1' } }]);
     return graphPost('123/media', { image_url: 'https://cdn/x.jpg' }, 'EAAG', { fetchImpl: impl }).then(() => {
       expect(calls[0].url).toBe(`${GRAPH_API}/123/media`);
       expect(calls[0].options.headers['Content-Type']).toBe('application/x-www-form-urlencoded');
+      expect(calls[0].options.headers.Authorization).toBe('Bearer EAAG');
       const body = calls[0].options.body as URLSearchParams;
-      expect(body.get('access_token')).toBe('EAAG');
+      expect(body.has('access_token')).toBe(false);
       expect(body.get('image_url')).toBe('https://cdn/x.jpg');
       expect(calls[0].url).not.toContain('access_token');
     });
@@ -131,10 +131,11 @@ describe('waitForContainerReady — the step that bites', () => {
     expect(calls).toHaveLength(2);
   });
 
-  it('url-encodes the access token in the status query', async () => {
+  it('sends the status token in an Authorization header, never in the URL', async () => {
     const { impl, calls } = fakeFetch([{ body: { status_code: 'FINISHED' } }]);
     await waitForContainerReady('c1', 'a b/c', { fetchImpl: impl, sleepImpl: noSleep });
-    expect(calls[0].url).toContain('access_token=a%20b%2Fc');
+    expect(calls[0].url).toBe(`${GRAPH_API}/c1?fields=status_code`);
+    expect(calls[0].options.headers.Authorization).toBe('Bearer a b/c');
   });
 
   it('gives up immediately on ERROR or EXPIRED rather than burning the budget', async () => {

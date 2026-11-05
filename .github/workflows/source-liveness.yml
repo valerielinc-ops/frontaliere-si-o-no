@@ -111,7 +111,9 @@ jobs:
           fi
 
       - name: Load RC secrets
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=POSTHOG_PERSONAL_API_KEY
 
       - name: Probe GA4 liveness
         env:

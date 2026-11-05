@@ -103,6 +103,10 @@ describe('selectUnpostedEvents', () => {
   it('returns [] when everything is posted', () => {
     expect(selectUnpostedEvents(events, new Set(['a', 'b', 'c']), 5)).toEqual([]);
   });
+  it('prioritizes exact eligible sources and keeps the original order for unmatched candidates', () => {
+    const out = selectUnpostedEvents(events, new Set(['c']), 2, { preferredIds: ['c', 'b'] });
+    expect(out.map((event) => event.id)).toEqual(['b', 'a']);
+  });
 });
 
 describe('run() dry-run', () => {

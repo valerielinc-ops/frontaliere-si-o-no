@@ -617,6 +617,11 @@ jobs:
             echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
           fi
 
+      - name: Load private R2 image credentials
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs --include-social-secrets --only-social-env=R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+
       - name: Push this run's mirrored event images to the CDN
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/push-mirrored-event-images-cdn.mjs

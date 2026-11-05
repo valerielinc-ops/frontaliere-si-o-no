@@ -87,6 +87,7 @@ jobs:
           sparse-checkout: |
             /scripts/ci/native-automerge-source.mjs
             /scripts/load-rc-env.mjs
+            /scripts/lib/remote-config-template-data.mjs
             /scripts/lib/google-service-account-token.mjs
             /scripts/ci/native-automerge-gate.mjs
             /scripts/ci/review-test-policy.mjs

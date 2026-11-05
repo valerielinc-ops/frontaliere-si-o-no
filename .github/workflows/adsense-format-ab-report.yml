@@ -126,7 +126,9 @@ jobs:
 
       - name: Load secrets from Remote Config
         continue-on-error: true
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=ADSENSE_CLIENT_ID,ADSENSE_CLIENT_SECRET,ADSENSE_REFRESH_TOKEN,POSTHOG_PERSONAL_API_KEY,PAGESPEED_API_KEY
 
       - name: Run AdSense format A/B report (save)
         env:

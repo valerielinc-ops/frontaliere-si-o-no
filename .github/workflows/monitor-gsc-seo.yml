@@ -178,7 +178,9 @@ jobs:
       # the service account is not a Search Console Owner.
       - name: Load secrets from Remote Config
         continue-on-error: true
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs --include-private-server-secrets
+          --only-private-server-env=GSC_CLIENT_SECRET,GSC_REFRESH_TOKEN
 
       - name: Fetch the monitor's pages without Jobs rich result
         if: needs.monitor.result == 'success'

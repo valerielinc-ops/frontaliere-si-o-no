@@ -70,6 +70,7 @@ import {
   selectSocialCopyForPublish,
   socialCopyLedgerFields,
 } from './lib/social-copy-pack.mjs';
+import { preferredSocialSourceCandidates, socialSourceIdForJob } from './lib/social-source-catalog.mjs';
 import {
   markSocialPublishReservationPublished,
   releaseSocialPublishReservation,
@@ -247,7 +248,15 @@ async function buildForMode(mode, { env, repoRoot, now, log, dryRun = false, soc
 
   // Take a buffer (2×) so digest can drop any job without a resolvable URL and
   // still fill the shortlist.
-  const candidates = selectUnpostedJobs(jobs, postedSet, limit * 2);
+  const preferredSources = preferredSocialSourceCandidates(jobs, {
+    pack: socialCopyPack,
+    channel: 'telegram',
+    format: 'job',
+    sourceIdForCandidate: (job) => socialSourceIdForJob(job),
+  });
+  const candidates = selectUnpostedJobs(jobs, postedSet, limit * 2, {
+    preferredIds: preferredSources.map((job) => job.id),
+  });
   if (candidates.length === 0) {
     log('ℹ️', 'no unposted Ticino jobs available');
     return { text: '', onSent: null };
