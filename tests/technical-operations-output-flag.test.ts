@@ -4,6 +4,72 @@ import path from 'node:path';
 import { auditWorkflowText } from '../scripts/ci/technical-operations-audit.mjs';
 
 describe('technical operations output audit', () => {
+  it('keeps all printf keys in a continued GITHUB_OUTPUT command', () => {
+    const printfLine = '        printf \'source_run_id=%s\\nsource_sha=%s\\npublisher_run_id=%s\\n\' ' + '\\';
+    const source = [
+      'name: continued output command',
+      'on: [push]',
+      'jobs:',
+      '  resolve:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: source-identity',
+      '        run: |',
+      printfLine,
+      '          "$source_id" "$source_sha" "$publisher_id" >> "$GITHUB_OUTPUT"',
+      '          echo "${{ steps.source-identity.outputs.source_run_id }} ${{ steps.source-identity.outputs.source_sha }} ${{ steps.source-identity.outputs.publisher_run_id }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/continued-output.yml', source, {
+      root: process.cwd(),
+    });
+
+    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('follows destructured GITHUB_OUTPUT aliases into appendFileSync writers', () => {
+    const scriptPath = path.resolve('scripts/ci/resolve-application-recovery-marker.mjs');
+    const source = [
+      'name: destructured output',
+      'on: [push]',
+      'jobs:',
+      '  resolve:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: recovery',
+      '        run: node scripts/ci/resolve-application-recovery-marker.mjs',
+      '      - run: echo "${{ steps.recovery.outputs.apply }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/destructured-output.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => candidate === scriptPath,
+      readFile: (candidate: string) => fs.readFileSync(candidate, 'utf8'),
+    });
+
+    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('follows stdout writers when the workflow redirects them to GITHUB_OUTPUT', () => {
+    const scriptPath = path.resolve('scripts/social-copy/reserve-codex-invocation.mjs');
+    const source = [
+      'name: stdout output',
+      'on: [push]',
+      'jobs:',
+      '  reserve:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: codex-budget',
+      '        run: node scripts/social-copy/reserve-codex-invocation.mjs >> "$GITHUB_OUTPUT"',
+      '      - run: echo "${{ steps.codex-budget.outputs.allowed }} ${{ steps.codex-budget.outputs.count }} ${{ steps.codex-budget.outputs.limit }} ${{ steps.codex-budget.outputs.window_ends_at }} ${{ steps.codex-budget.outputs.message }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/stdout-output.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => candidate === scriptPath,
+      readFile: (candidate: string) => fs.readFileSync(candidate, 'utf8'),
+    });
+
+    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
   it('follows --github-output into args[github-output] writers', () => {
     const scriptPath = path.resolve('scripts/ci/publish-receipts.mjs');
     const source = [

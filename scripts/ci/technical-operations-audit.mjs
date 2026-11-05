@@ -1069,6 +1069,19 @@ function shellOutputAliasBindings(source) {
   }));
 }
 
+function destructuredGithubOutputAliases(source) {
+  const raw = String(source || '');
+  const aliases = new Set();
+  const destructuringRe = /\b(?:const|let|var)\s*\{([\s\S]*?)\}\s*=\s*process\.env\b/g;
+  for (const match of raw.matchAll(destructuringRe)) {
+    for (const property of match[1].split(',')) {
+      const output = /^\s*GITHUB_OUTPUT(?:\s*:\s*([A-Za-z_$][A-Za-z0-9_$]*))?(?:\s*=.*)?\s*$/u.exec(property);
+      if (output) aliases.add(output[1] || 'GITHUB_OUTPUT');
+    }
+  }
+  return aliases;
+}
+
 function latestShellAssignment(bindings, name, beforeIndex) {
   let latest = null;
   for (const binding of bindings) {
@@ -1081,7 +1094,7 @@ function latestShellAssignment(bindings, name, beforeIndex) {
 /**
  * Find shell redirections to GITHUB_OUTPUT or to a proven shell alias. The
  * scanner ignores quoted text and comments, then limits each range to the
- * command's physical line so unrelated literals cannot become outputs.
+ * command's shell statement so unrelated literals cannot become outputs.
  */
 function shellOutputRedirectRanges(source, bindings) {
   const raw = String(source || '');
@@ -1134,7 +1147,14 @@ function shellOutputRedirectRanges(source, bindings) {
         const isOutput = name === 'GITHUB_OUTPUT'
           || latestShellAssignment(bindings, name, lineStart + offset)?.outputAlias === true;
         if (isOutput) {
-          ranges.push({ start: inlineShellCommandStart(raw, lineStart), end: lineEnd });
+          let commandStart = inlineShellCommandStart(raw, lineStart);
+          while (commandStart > 0) {
+            const previousEnd = commandStart - 1;
+            const previousStart = raw.lastIndexOf('\n', previousEnd - 1) + 1;
+            if (! /\\\s*$/u.test(raw.slice(previousStart, previousEnd))) break;
+            commandStart = previousStart;
+          }
+          ranges.push({ start: commandStart, end: lineEnd });
           break;
         }
       }
@@ -1149,6 +1169,7 @@ function outputSinkRanges(source) {
   const raw = String(source || '');
   const shellBindings = shellOutputAliasBindings(raw);
   const outputVariables = new Set(['process.env.GITHUB_OUTPUT', 'env.GITHUB_OUTPUT']);
+  for (const alias of destructuredGithubOutputAliases(raw)) outputVariables.add(alias);
   for (const match of raw.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*process\.env\.GITHUB_OUTPUT\b/g)) {
     outputVariables.add(match[1]);
   }
@@ -1187,6 +1208,20 @@ function outputSinkRanges(source) {
     ...shellOutputRedirectRanges(raw, shellBindings),
     ...heredocOutputRanges(raw),
   ];
+}
+
+function stdoutOutputRanges(source) {
+  const raw = String(source || '');
+  const ranges = [];
+  for (const match of raw.matchAll(/(?<![\w.])(?:process\.)?stdout\.write\s*\(/g)) {
+    const openingIndex = raw.indexOf('(', match.index ?? 0);
+    const closingIndex = matchingParen(raw, openingIndex);
+    ranges.push({
+      start: match.index ?? 0,
+      end: closingIndex >= 0 ? closingIndex + 1 : raw.length,
+    });
+  }
+  return ranges;
 }
 
 function outputKeysFromText(source) {
@@ -1573,6 +1608,19 @@ function outputFlagsByCommandPath(run) {
   return flagsByPath;
 }
 
+function stdoutOutputPathsByCommand(run) {
+  const source = String(run || '');
+  const paths = new Set();
+  const printed = printedQuotedRanges(source);
+  for (const reference of extractInvokedCommandReferences(source)) {
+    if (isShellComment(source, reference.index)) continue;
+    if (printed.some(({ start, end }) => reference.index >= start && reference.index < end)) continue;
+    const segment = shellCommandSegment(source, reference.index);
+    if (shellOutputRedirectRanges(segment, []).length > 0) paths.add(reference.path);
+  }
+  return paths;
+}
+
 function fileWriterCalls(source, start = 0, end = String(source || '').length) {
   const raw = String(source || '');
   const writers = [];
@@ -1737,7 +1785,7 @@ function flagOutputSinkRanges(source, flags) {
   return ranges;
 }
 
-function outputKeysFromSource(source, { outputFlags = null } = {}) {
+function outputKeysFromSource(source, { outputFlags = null, stdoutToGithubOutput = false } = {}) {
   const raw = String(source || '');
   const keys = new Set();
   // A script that received $GITHUB_OUTPUT through a flag proves its keys only
@@ -1748,14 +1796,16 @@ function outputKeysFromSource(source, { outputFlags = null } = {}) {
     for (const key of objectEntryOutputKeys(raw, flagRanges)) keys.add(key);
   }
   if (outputFlags && outputFlags.size > 0) return keys;
-  if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|append(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return keys;
+  const sinkRanges = outputSinkRanges(raw);
+  const stdoutRanges = stdoutToGithubOutput ? stdoutOutputRanges(raw) : [];
+  if (!sinkRanges.length && !stdoutRanges.length && !/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|append(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return keys;
   for (const match of raw.matchAll(OUTPUT_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_KV_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_ACTIONS_FILE_RE)) keys.add(match[1]);
-  const sinkRanges = outputSinkRanges(raw);
   for (const key of literalOutputKeys(raw, sinkRanges)) keys.add(key);
+  for (const key of literalOutputKeys(raw, stdoutRanges)) keys.add(key);
   for (const key of objectEntryOutputKeys(raw, sinkRanges)) keys.add(key);
   for (const key of literalOutputKeys(raw, directOutputWriterRanges(raw))) keys.add(key);
   for (const key of returnedOutputArrayKeys(raw)) keys.add(key);
@@ -1783,8 +1833,9 @@ function stepOutputKeys(run, {
   const keys = outputKeysFromSource(source);
   if (!followReferences || workingRoot === null) return keys;
   const outputFlags = outputFlagsByCommandPath(source);
+  const stdoutOutputPaths = stdoutOutputPathsByCommand(source);
   const visited = new Set();
-  const visit = (absolute, depth, flags = null) => {
+  const visit = (absolute, depth, flags = null, stdoutToGithubOutput = false) => {
     if (depth > 4 || visited.size >= MAX_OUTPUT_REFERENCE_FILES || visited.has(absolute) || !exists(absolute)) return;
     visited.add(absolute);
     let delegated;
@@ -1795,7 +1846,10 @@ function stepOutputKeys(run, {
       // contract. Leave the key unknown so the existing warning is retained.
       return;
     }
-    const delegatedKeys = outputKeysFromSource(delegated, { outputFlags: flags });
+    const delegatedKeys = outputKeysFromSource(delegated, {
+      outputFlags: flags,
+      stdoutToGithubOutput,
+    });
     for (const key of delegatedKeys) keys.add(key);
     // Once a delegated writer exposes literal keys, traversing all of its
     // dependencies adds cost without making the contract more certain. Keep
@@ -1815,7 +1869,12 @@ function stepOutputKeys(run, {
     }
   };
   for (const candidate of extractCommandPaths(source)) {
-    visit(path.resolve(workingRoot, candidate), 0, outputFlags.get(candidate) || null);
+    visit(
+      path.resolve(workingRoot, candidate),
+      0,
+      outputFlags.get(candidate) || null,
+      stdoutOutputPaths.has(candidate),
+    );
   }
   return keys;
 }
