@@ -51,7 +51,7 @@ import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
 
 export const WAVE1_CHANNELS = new Set([
-  'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch',
+  'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch', 'manatal',
   // Workday and SuccessFactors: a guest application where the tenant allows
   // it, otherwise an account on the order's alias (account.mjs).
   'workday', 'successfactors',
@@ -4937,7 +4937,7 @@ async function waitForOutcome(page, context = {}) {
 // returns false and the reader stops without touching the account flow.
 export const PREREAD_CHANNELS = new Set([
   'greenhouse', 'lever', 'smartrecruiters', 'personio', 'softgarden',
-  'umantis', 'refline', 'jobs_ch', 'workday', 'successfactors',
+  'umantis', 'refline', 'jobs_ch', 'workday', 'successfactors', 'manatal',
 ]);
 
 // Solique exposes a public multi-step application form without an account.
