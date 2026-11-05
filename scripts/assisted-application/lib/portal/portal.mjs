@@ -1254,9 +1254,12 @@ function questionSurfaceSignature(snapshot = {}) {
 
 /** The planned question shape plus whether each required answer is still present. */
 function registrationSurfaceSignature(snapshot = {}) {
+  const fields = (Array.isArray(snapshot.fields) ? snapshot.fields : [])
+    .filter((field) => field.inputType !== 'password');
+  const questionSurface = { ...snapshot, fields };
   return JSON.stringify({
-    questions: questionSurfaceSignature(snapshot),
-    required: (Array.isArray(snapshot.fields) ? snapshot.fields : [])
+    questions: questionSurfaceSignature(questionSurface),
+    required: fields
       .filter((field) => field.required === true || field.invalid === true)
       .map((field) => [field.id || '', field.kind || '', field.inputType || '', field.required === true,
         field.invalid === true, field.checked === true, holdsValue(field)]),
@@ -4746,7 +4749,13 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         await parkRegistrationCredential('privacy_question_surface_unstable');
         return noted({ handoff: 'portal_needs_candidate' });
       }
-      privacyPlan = questionSurfaceSignature(settled.snapshot) === questionSurfaceSignature(registrationSnapshot)
+      // A known answer can redraw the registration form before credentials are
+      // typed. Keep one post-credential planner pass in that case: the
+      // password itself is excluded from the planner surface, but some ATSs
+      // reveal a hard question only after the credential fields change.
+      const knownAnswerRedraw = registrationReplans > 0;
+      privacyPlan = !knownAnswerRedraw
+        && registrationSurfaceSignature(settled.snapshot) === registrationSurfaceSignature(registrationSnapshot)
         ? { status: 'stable', snapshot: accountRegistrationSnapshot(settled.snapshot), plan: registrationPlan }
         : await planStableRegistrationSurface(settled.snapshot, privacyUrl);
     }
@@ -4756,7 +4765,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate, candidateLocale: ctx.candidateLocale });
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, {
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+      // A planner pass triggered by a changing registration surface may mark
+      // an untrusted portal autofill as missing. Keep that explicit request;
+      // the normal mapper still suppresses values already grounded in the
+      // candidate or in a safe operational answer.
+      preservePlannerMissingValues: true,
+    });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
@@ -5280,7 +5297,11 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
   return { questions: missing, stableQuestionIds };
 }
 
-export function portalRequirementsFromMissingRequired(fields, missingRequired, { candidate = null, candidateLocale = 'it' } = {}) {
+export function portalRequirementsFromMissingRequired(fields, missingRequired, {
+  candidate = null,
+  candidateLocale = 'it',
+  preservePlannerMissingValues = false,
+} = {}) {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
@@ -5310,10 +5331,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   };
   const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate, candidateLocale);
   const mergedRequired = new Map();
-  for (const item of candidateRequirements.questions) {
-    const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
-    if (key) mergedRequired.set(key, item);
-  }
+  const mergeRequired = (item, { preferIncoming = false } = {}) => {
+    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
+    if (!key) return;
+    const existing = mergedRequired.get(key);
+    mergedRequired.set(key, existing && !preferIncoming ? { ...existing, ...item } : item);
+  };
   for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
     const field = fieldFor(item);
     // Candidate questions are for facts the runner cannot already supply.
@@ -5325,9 +5348,15 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
         includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
       }) : null;
     if (field && field.invalid !== true
-      && (holdsValue(field) || String(candidateAnswer?.value ?? '').trim())) continue;
-    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
-    if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
+      && ((!preservePlannerMissingValues && holdsValue(field)) || String(candidateAnswer?.value ?? '').trim())) continue;
+    mergeRequired(item);
+  }
+  // Keep the planner's order when a deterministic candidate requirement
+  // enriches the same live field (for example, the permit question replacing
+  // a generic work-authorisation prompt). Candidate-only requirements are
+  // appended after the planner's explicit missing fields.
+  for (const item of candidateRequirements.questions) {
+    mergeRequired(item, { preferIncoming: true });
   }
   const hasAmbiguousAlias = (item) => {
     if (directFieldsFor(item?.fieldId).length === 1) return false;
@@ -5416,7 +5445,11 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
           options: field
-            ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions.length ? applicationOptions : item.options || []
+            ? optionMap.length
+              ? optionMap.map((pair) => pair.candidate)
+              : applicationOptions.length
+                ? applicationOptions
+                : (item.forceType || item.candidatePrompt ? item.options || [] : [])
             : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),

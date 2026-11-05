@@ -705,7 +705,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -747,7 +747,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -792,7 +792,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -838,7 +838,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
