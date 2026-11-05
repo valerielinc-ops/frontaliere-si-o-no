@@ -83,7 +83,7 @@ function addImagePage(pdf: PDFDocument, image: Awaited<ReturnType<PDFDocument['e
   page.drawImage(image, { x: (A4[0] - width) / 2, y: (A4[1] - height) / 2, width, height });
 }
 
-async function appendLocalFile(pdf: PDFDocument, document: LocalPostalDocument, bytes: Uint8Array, type: 'pdf' | 'jpg' | 'png') {
+async function appendLocalFile(pdf: PDFDocument, document: LocalPostalDocument, bytes: Uint8Array, type: 'pdf' | 'jpg' | 'png', signed = false) {
   if (type === 'pdf') {
     let source: PDFDocument;
     try {
@@ -92,7 +92,9 @@ async function appendLocalFile(pdf: PDFDocument, document: LocalPostalDocument, 
       if (form.hasXFA()) throw new Error('xfa');
       if (form.getFields().length) {
         form.updateFieldAppearances();
-        form.flatten();
+        if (!signed) {
+          form.flatten();
+        }
       }
     } catch {
       throw new LocalPostalPacketError('postal_packet_local_pdf_unreadable');
@@ -213,6 +215,6 @@ export async function mergeLocalPostalDocuments({
   if (y < PAGE_MARGIN + 30) ({ page, y } = addIndexPage(copy.title));
   drawWrapped(copy.signature, { x: PAGE_MARGIN, size: 8.5, maxWidth: A4[0] - PAGE_MARGIN * 2, font: regular });
 
-  for (const attachment of attachments) await appendLocalFile(pdf, attachment.document, attachment.bytes, attachment.type);
+  for (const attachment of attachments) await appendLocalFile(pdf, attachment.document, attachment.bytes, attachment.type, attachment.signed);
   return pdf.save({ useObjectStreams: true });
 }

@@ -296,15 +296,18 @@ async function appendFile(pdf, file, regularFontBytes) {
     } catch {
       throw new PostalPacketError('postal_packet_pdf_unreadable', 422, { fileName: cleanName(file.name) });
     }
-    // Preserve form values as printed content before copying pages into the
-    // packet. The destination PDF does not carry the source AcroForm catalog.
     const form = source.getForm();
     if (form.hasXFA()) throw new PostalPacketError('postal_packet_pdf_unreadable', 422, { fileName: cleanName(file.name) });
     if (form.getFields().length) {
       source.registerFontkit(fontkit);
       const appearanceFont = await source.embedFont(regularFontBytes, { subset: true });
       form.updateFieldAppearances(appearanceFont);
-      form.flatten({ updateFieldAppearances: false });
+      // A signed source may have a signature widget without an appearance
+      // stream, which pdf-lib cannot flatten. Keep updated field appearances
+      // in the copied pages and leave the untouched original available.
+      if (!hasDigitalSignature(file.buffer)) {
+        form.flatten({ updateFieldAppearances: false });
+      }
     }
     if (pdf.getPageCount() + source.getPageCount() > MAX_PAGES) throw new PostalPacketError('postal_packet_too_many_pages', 413);
     const pages = await pdf.copyPages(source, source.getPageIndices());
