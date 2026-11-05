@@ -200,6 +200,32 @@ describe('social workflow Remote Config scopes', () => {
     expect(agentImportIndex).toBeGreaterThan(privateLoaderIndex);
   });
 
+  it('limits traffic-provider health to its route credentials, caps, and ASTRA plans', () => {
+    const workflow = YAML.parse(readFileSync(resolve(ROOT, '.github/workflows/traffic-provider-health.yml'), 'utf8'));
+    const step = workflow.jobs.health.steps.find((candidate: any) => candidate.name === 'Load provider credentials and caps');
+    const command = String(step?.run || '');
+    const clientScope = command.match(/--only-env=([A-Z0-9_,]+)/u)?.[1]?.split(',') || [];
+    const privateScope = command.match(/--only-private-server-env=([A-Z0-9_,]+)/u)?.[1]?.split(',') || [];
+
+    expect(new Set(clientScope)).toEqual(new Set([
+      'TOMTOM_API_KEY', 'HERE_API_KEY', 'GOOGLE_ROUTES_API_KEY', 'GOOGLE_MAPS_API_KEY',
+      'MAPBOX_SECRET_TOKEN', 'MAPBOX_PUBLIC_TOKEN', 'GEOAPIFY_API_KEY',
+      'OPENROUTESERVICE_API_KEY', 'GRAPHHOPPER_API_KEY', 'STADIA_API_KEY',
+      'TOMTOM_ROUTING_MONTHLY_BUDGET', 'TOMTOM_FLOW_MONTHLY_BUDGET',
+      'HERE_DAILY_BUDGET', 'HERE_MONTHLY_BUDGET', 'GOOGLE_MONTHLY_BUDGET',
+      'MAPBOX_MONTHLY_BUDGET', 'GEOAPIFY_DAILY_BUDGET',
+      'OPENROUTESERVICE_DAILY_BUDGET', 'GRAPHHOPPER_DAILY_BUDGET',
+      'STADIA_MONTHLY_CREDITS', 'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN_HASH',
+      'OPENTRANSPORTDATA_ASTRA_LSA_TOKEN_HASH', 'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN_HASH',
+    ]));
+    expect(new Set(privateScope)).toEqual(new Set([
+      'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN',
+      'OPENTRANSPORTDATA_ASTRA_LSA_TOKEN',
+      'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN',
+    ]));
+    expect(command).toContain('--include-private-server-secrets');
+  });
+
   it.each(Object.entries(SOCIAL_WORKFLOW_RC_SCOPES))(
     '%s exports only its declared social keys',
     (relativePath, expectedScope) => {
