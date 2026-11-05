@@ -58,8 +58,11 @@ function validSha(value) {
 function sourceShaFromPublishRun(run) {
   const explicitSourceSha = validSha(run?.sourceSha || run?.source_sha);
   if (explicitSourceSha) return explicitSourceSha;
-  const match = text(run?.runName || run?.run_name).match(PUBLISH_RUN_NAME_RE);
-  return match ? match[1] : '';
+  for (const title of [run?.runName, run?.run_name, run?.displayTitle, run?.display_title]) {
+    const match = text(title).match(PUBLISH_RUN_NAME_RE);
+    if (match) return match[1];
+  }
+  return '';
 }
 
 function deploymentHeadSha(deployment) {
