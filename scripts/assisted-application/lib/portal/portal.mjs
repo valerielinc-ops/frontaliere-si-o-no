@@ -4973,6 +4973,12 @@ export function portalReadAheadCapability({ channelType = '', entryUrl = '', ver
   return null;
 }
 
+/** A prefilled held-permit value is evidence only when the candidate already confirmed a current status. */
+export function canRecordHeldPermitPrefill(candidate, field) {
+  if (!isPermitField(field?.label) || !asksHeldStatus(field?.label)) return true;
+  return Boolean(candidateAnswerForField(candidate, field, { includeProfileWorkPermit: false })?.value);
+}
+
 const CORE_DOCUMENT_LABEL_RE = /(?<![\p{L}\p{N}])(?:cv|resume|résumé|lebenslauf|curriculum(?: vitae)?|cover(?:ing)? letter|anschreiben|bewerbungsschreiben|motivations(?:schreiben|brief)|lettre de motivation|lettre de présentation|lettera di (?:motivazione|presentazione)|carta motivazionale)(?![\p{L}\p{N}])/iu;
 
 function portalDocumentId(field, label, context) {
@@ -5774,10 +5780,20 @@ export async function submitViaPortal(ctx) {
         .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
         .map((field) => {
           const answer = field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim();
+          // A value already present in the ATS cannot confirm a current permit:
+          // it may have been inferred from the CV or retained by the portal.
+          // Explicit answers recorded by this run remain in `recorded` below.
+          if (isPermitField(field.label) && asksHeldStatus(field.label)) return null;
           // A portal may prefill a default country or phone code before the
           // planner sees the form. Keep an explicit candidate fact above that
           // default; phone-code defaults are never candidate answers.
-          const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
+          const candidateAnswer = candidateAnswerForField(candidate, field, {
+            includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
+          })?.value || '';
+          // A preselected Yes/No on a held-status question is not the
+          // candidate's statement. Keep it out of the agent's answer context
+          // until the current permit has explicit candidate provenance.
+          if (!canRecordHeldPermitPrefill(candidate, field)) return null;
           if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
           return {
             question: String(field.label || field.name || field.id || '').slice(0, 200),
