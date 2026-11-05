@@ -615,6 +615,10 @@ async function initFirebase() {
 
 const EVENT_FIELDS = ['event_type', 'surface', 'surface_id', 'delivery_id', 'job_id', 'position', 'ranking_variant', 'user_id', 'occurred_at', 'affinity_profile'];
 const STATS_FIELDS = ['surface', 'date', 'impressions', 'clicks', 'impressions_by_variant', 'clicks_by_variant'];
+// `sent_at` is the orderBy/startAfter cursor field. Firestore requires it in
+// the selected snapshot for every page after the first one, even though the
+// value is only used for pagination and never enters the aggregate report.
+export const DELIVERY_FIELDS = ['delivery_id', 'affinity_profile', 'sent_at'];
 
 async function readPaged(query, pageSize, onPage) {
   let reads = 0;
@@ -715,7 +719,7 @@ async function main() {
         .where('sent_at', '>=', new Date(opts.fromMs))
         .where('sent_at', '<', new Date(opts.toMs))
         .orderBy('sent_at')
-        .select('delivery_id', 'affinity_profile'),
+      .select(...DELIVERY_FIELDS),
       opts.pageSize,
       (docs) => {
         for (const d of docs) {
