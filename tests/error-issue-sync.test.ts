@@ -654,6 +654,15 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(isIssueDenied(`Non-Error promise rejection captured with value: ${sample}`)).toBe(true);
   });
 
+  it('mirrors the truncated Firebase Installations configuration pattern so #16807 cannot reopen from GA4 residuals', () => {
+    const sample = 'Installations: Create Installation request failed with error "400 INVALID_ARGUMENT: invalid client configuration"';
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test(sample));
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+    expect(isIssueDenied(sample)).toBe(true);
+    expect(isIssueDenied('[firebase.initRemoteConfig] Installations: Create Installation request failed with error "400 INVALI')).toBe(true);
+  });
+
   it('mirrors the AbortError pattern from services/benignErrorPatterns.ts byte-for-byte (#4147)', () => {
     const benignAbortError = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
       p.test('AbortError: The user aborted a request.'),
