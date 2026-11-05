@@ -354,7 +354,7 @@ describe('fill extension: patterns', () => {
   });
 
   it('recognizes a plain Bewerbung einreichen final link', () => {
-    const { F, document } = page('<a href="/apply">Bewerbung einreichen</a>');
+    const { F, document } = page('<a href="https://example.test/apply/">Bewerbung einreichen</a>');
     expect(F.finalButton(document)?.element.textContent?.trim()).toBe('Bewerbung einreichen');
   });
 

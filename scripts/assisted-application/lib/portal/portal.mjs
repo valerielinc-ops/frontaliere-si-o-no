@@ -1600,7 +1600,7 @@ async function hasLiveCookieManagerSurface(page, button) {
     if (control.closest('form, [role="form"]')) return false;
     const managerSurface = new RegExp(surfacePattern, 'i');
     const cookieCopy = /\bcookies?\b/i;
-    for (let node = control.parentElement; node; node = node.parentElement) {
+    for (let node = control.parentElement; node && node !== document.documentElement; node = node.parentElement) {
       const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('role'), node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
       if (!managerSurface.test(marker)) continue;
