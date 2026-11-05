@@ -1593,7 +1593,7 @@ async function hasLiveCookieManagerSurface(page, button) {
   const frames = typeof page?.frames === 'function' ? page.frames() : [];
   const frame = frames[frameNumber]
     || (frameNumber === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
-  return Boolean(await frame?.evaluate?.(({ controlId, surfacePattern }) => {
+  const surfaceIsLive = await frame?.evaluate?.(({ controlId, surfacePattern }) => {
     const control = [...document.querySelectorAll('[data-aa-id]')]
       .find(element => element.getAttribute('data-aa-id') === controlId);
     if (!control) return false;
@@ -1609,7 +1609,8 @@ async function hasLiveCookieManagerSurface(page, button) {
       return true;
     }
     return false;
-  }, { controlId: String(button.id), surfacePattern: COOKIE_MANAGER_SURFACE_RE.source }).catch(() => false));
+  }, { controlId: String(button.id), surfacePattern: COOKIE_MANAGER_SURFACE_RE.source }).catch(() => false);
+  return surfaceIsLive === true;
 }
 
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
