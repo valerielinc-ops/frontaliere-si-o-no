@@ -310,6 +310,39 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('recruitingapp-2761', 'other') })).toBe(postingUrl);
   });
 
+  it('uses a bound Umantis vacancy route when EOC application questions mention the employer', () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+    const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+    const job = { company: 'EOC – Ente Ospedaliero Cantonale', title: 'Impiegato/a amministrativo' };
+    const form = [
+      'Impiegato/a amministrativo - Candidatura | EOC candiDati',
+      'Application Tracking System',
+      'Selezionare collaboratori dell’EOC amici e conoscenti',
+    ].join('\n');
+    const verified = isVerifiedPostingEntry({ applyUrl, postingUrl });
+
+    expect(verified).toBe(true);
+    expect(namesAnotherEmployer(form, job)).toBe(true);
+    expect(formPostingMatch(form, job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applyUrl,
+      postingUrl,
+    })).toBe('match');
+    expect(formPostingMatch('Other Employer — Impiegato/a amministrativo', job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applyUrl,
+      postingUrl,
+    })).toBe('mismatch');
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: applyUrl,
+      postingUrl: postingUrl.replace('/1153/', '/1154/'),
+    })).toBe('mismatch');
+  });
+
   it('accepts ALTEN’s generic form only when the matching posting route was the entry', () => {
     const job = { company: 'ALTEN Switzerland', title: 'Project Manager – IT & Banking' };
     const genericForm = [
