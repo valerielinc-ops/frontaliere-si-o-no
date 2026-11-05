@@ -64,7 +64,7 @@ describe('infrastructure failures use the scheduler without a manual retry', () 
     expect(navigationHandoffFor(new Error('page.goto: net::ERR_ADDRESS_UNREACHABLE'))).toEqual({ type: 'submit_handoff', reason: 'navigation_unavailable' });
     expect(navigationHandoffFor(new Error('page.goto: net::ERR_ADDRESS_UNREACHABLE'), { clicked: true })).toBeNull();
     expect(navigationHandoffFor(new Error('page.goto: net::ERR_ADDRESS_UNREACHABLE'), { succeeded: true })).toBeNull();
-    for (const error of ['email_ambiguous', 'portal_ambiguous', 'portal_antibot_ambiguous']) {
+    for (const error of ['email_ambiguous', 'portal_ambiguous', 'portal_antibot_ambiguous', 'submission_receipt_invalid']) {
       const result = transition(approved, { type: 'submit_failed', error }, { draft, nowMs: now });
       expect(computeDueAt(result.flow)).toBeNull();
     }

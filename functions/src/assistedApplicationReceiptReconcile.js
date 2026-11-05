@@ -6,7 +6,7 @@ import { verifySubmissionReceipt } from './lib/submissionReceiptContract.js';
 const orderRefFor = (db, orderId) => db.collection('assisted_applications').doc(String(orderId));
 const flowRefFor = (db, orderId) => orderRefFor(db, orderId).collection('automation').doc('flow');
 
-const AMBIGUOUS_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
+const AMBIGUOUS_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous', 'submission_receipt_invalid']);
 const BASE_RETRY_MS = 60_000;
 const MAX_RETRY_MS = 6 * 60 * 60 * 1000;
 export const SUBMISSION_RECEIPT_RETRY_LIMIT = 12;
@@ -33,8 +33,9 @@ function legacyProofFor(record, orderId, round, nowMs) {
   if (record?.attemptId) return null;
   const observedAt = Number(record?.confirmedAt || record?.sentAt || nowMs);
   const attemptId = `legacy-${createHash('sha256').update(`${orderId}:${round}:${record?.channel}:${observedAt}`).digest('hex').slice(0, 32)}`;
-  if (record?.channel === 'email' && record.provider && record.messageId) {
-    return { kind: 'email_provider_accepted', attemptId, observedAt, evidence: { provider: record.provider, messageId: record.messageId } };
+  const providerMessageId = record?.providerMessageId || (record?.provider === 'maileroo' ? '' : record?.messageId);
+  if (record?.channel === 'email' && record.provider && providerMessageId) {
+    return { kind: 'email_provider_accepted', attemptId, observedAt, evidence: { provider: record.provider, messageId: providerMessageId } };
   }
   if (record?.channel && record.finalUrl) {
     return { kind: 'portal_success_page', attemptId, observedAt, evidence: { finalUrl: record.finalUrl } };
