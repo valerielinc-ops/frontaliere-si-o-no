@@ -12,6 +12,7 @@ import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/sr
 import { getRemoteConfig } from 'firebase-admin/remote-config';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../functions/src/lib/portalNativeContract.js';
 import { portalCodeVersion, portalIdentityQuestionDefinitelyUnsent, portalRecoveryDefinitelyUnsent, operationalPortalRecoveryReady } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
+import { portalAutoRetryAttemptsRemaining } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
 import './extension/apply-control.js';
 import { candidateAnswerForField, isIdentityEmailConfirmationField } from './lib/portal/plan.mjs';
 
@@ -108,6 +109,17 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         if ((!ownerRecoveryReady && !identityQuestionReady) || !roundWasSent(flow) || flow.postingExpiredAt) return false;
         if (flow.heldBy[0] === 'portal:portal_needs_candidate'
           && !talentPoolConsentActive(order) && !(retentionPurgeDueAt(order) > nowMs)) return false;
+        // A source-version change may make a previously blocked portal
+        // technically recoverable, but it must never mint a new retry budget.
+        // The normal clock and this reconciler share the same policy helper so
+        // repeated deployments cannot keep resubmitting one application.
+        if (!identityQuestionReady && !portalAutoRetryAttemptsRemaining(flow)) {
+          if (apply) {
+            transaction.set(flowRef, { portalRecoveryVersion: version, portalAutoRetryAt: null, updatedAt: nowMs }, { merge: true });
+            transaction.set(doc.ref, { automationDueAt: null, automationUpdatedAt: new Date(nowMs) }, { merge: true });
+          }
+          return false;
+        }
         const answerContext = await loadRunnerAnswerContext({ db, orderId: doc.id, order, flow, draft, nowMs,
           profileRecord: profileDoc?.data() || {}, getDocument: ref => transaction.get(ref) });
         const trustedLocalAnswers = flow.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
@@ -145,7 +157,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
             const recoveryOrderAnswers = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
               ? {} : trustedLocalAnswers ? answerContext.orderAnswers
                 : rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: legacyLocalAnswers, changed: legacyLocalAnswers });
-            transaction.set(flowRef, { heldBy, questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs, portalAutoRetryCount: 0,
+            transaction.set(flowRef, { heldBy, questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs,
               portalRecoveryVersion: version, updatedAt: nowMs }, { merge: true });
           }
           transaction.set(doc.ref, { automationDueAt: nowMs, automationUpdatedAt: new Date(nowMs) }, { merge: true });

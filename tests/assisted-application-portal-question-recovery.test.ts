@@ -71,7 +71,7 @@ function recoveryContext({ answer = 'Candidate-confirmed answer', question = har
     order: { paymentStatus: 'paid', consentVersion: 'assisted-application-v2', consentedAt: daysAgo(1) },
     flow: {
       state: 'owner_takeover', round: 1, heldBy: ['portal:portal_needs_candidate'],
-      dispatch: { mode: 'submit', round: 1, requestedAt: now - 1_000 },
+      dispatch: { mode: 'submit', round: 1, requestedAt: now - 1_000 }, portalAutoRetryCount: 0,
       answers: answer === null ? {} : { [question.id]: answer }, questionAnswers: {},
     },
     draft: {

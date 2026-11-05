@@ -1010,6 +1010,11 @@ describe('sweep', () => {
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
   });
 
+  it('does not expose a scheduler due time after the portal retry budget is exhausted', () => {
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'],
+      portalAutoRetryAt: T0, portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length })).toBeNull();
+  });
+
   it('does not schedule legacy CAPTCHA provider failures for another automatic submit', async () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());

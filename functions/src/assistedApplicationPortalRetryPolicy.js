@@ -32,7 +32,22 @@ export function isAutoRetryablePortalHold(flow) {
     || reason === 'portal:portal_needs_candidate');
 }
 
+/**
+ * The unsupported-portal recovery lane has a finite budget.  Keep this
+ * check in the shared policy so the scheduler and the source-version
+ * reconciler cannot disagree about whether another automatic submit exists.
+ * Legacy flows without the field start at zero; malformed or negative values
+ * fail closed instead of receiving a fresh retry budget.
+ */
+export function portalAutoRetryAttemptsRemaining(flow) {
+  const raw = flow?.portalAutoRetryCount;
+  const attempts = raw === undefined || raw === null || raw === '' ? 0 : Number(raw);
+  return Number.isSafeInteger(attempts) && attempts >= 0 && attempts < PORTAL_AUTO_RETRY_DELAYS_MS.length;
+}
+
 export function portalRetryDueAt(flow) {
   const retryAt = Number(flow?.portalAutoRetryAt) || 0;
-  return flow?.state === 'owner_takeover' && isAutoRetryablePortalHold(flow) && Number.isFinite(retryAt) && retryAt > 0 ? retryAt : null;
+  const budgetAvailable = isInfrastructureRetryHold(flow) || portalAutoRetryAttemptsRemaining(flow);
+  return flow?.state === 'owner_takeover' && isAutoRetryablePortalHold(flow) && budgetAvailable
+    && Number.isFinite(retryAt) && retryAt > 0 ? retryAt : null;
 }
