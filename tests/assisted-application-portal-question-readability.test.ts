@@ -452,10 +452,16 @@ it('turns a required Umantis residence-status choice into the candidate permit q
   });
 });
 
-it('does not ask for a Swiss status the candidate has already stated', () => {
+it('asks for current Swiss status when the CV alone names a permit', () => {
   const field = { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: permitOptions('it') };
+  const fromCv = portalRequirementsFromMissingRequired([field], [], {
+    candidate: { identity: {}, profile: { workPermit: 'Permesso G' }, answers: {} }, candidateLocale: 'it',
+  });
+  expect(fromCv.questions).toMatchObject([{
+    id: 'work_permit', question: permitStatusQuestion('it'), applicationQuestion: 'Statuto di soggiorno', required: true,
+  }]);
+
   for (const candidate of [
-    { identity: {}, profile: { workPermit: 'Permesso G' }, answers: {} },
     { identity: {}, profile: { permitStatus: 'permit_b' }, answers: {} },
     { identity: {}, profile: {}, answers: {}, swissStatus: { code: 'permit_c' } },
   ]) {
