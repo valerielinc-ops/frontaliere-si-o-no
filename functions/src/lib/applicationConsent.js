@@ -87,11 +87,11 @@ export function minimumDataRetentionOption(options, question = '') {
   const rows = (Array.isArray(options) ? options : []).map(option => {
     const label = typeof option === 'string' ? option : String(option?.label ?? option?.value ?? '');
     const value = typeof option === 'string' ? label : String(option?.value ?? label);
-    return { label: label.trim(), value: [...new Set([normalize(label), normalize(value)].filter(Boolean))].join(' '), purpose: `${label} ${value}` };
+    const purpose = [...new Set([label.trim(), value.trim()].filter(Boolean))].join('. ');
+    return { label: label.trim(), value: [...new Set([normalize(label), normalize(value)].filter(Boolean))].join(' '), purpose };
   }).filter(option => option.label && option.value && !selectionPrompt.test(normalize(option.label)));
   if (!rows.length) return '';
 
-  const currentApplication = /\b(?:current application|this application|current candidatur\w*|questa candidatura|candidatura corrente|procedura di candidatura corrente|bewerbung(?:sverfahren)?|candidature en cours|after the application process|after this application|dopo la procedura|nach abschluss des bewerbungsverfahrens|apres la procedure de candidature)\b/.test(normalize(question));
   const durationFactor = { day: 1, week: 7, month: 30, year: 365 };
   const durationUnit = /\b(days?|giorn[io]|tage?n?|jours?)\b/;
   const weekUnit = /\b(weeks?|settimane?|wochen|semaines?)\b/;
@@ -101,10 +101,95 @@ export function minimumDataRetentionOption(options, question = '') {
   const numberWords = { one: 1, uno: 1, un: 1, une: 1, ein: 1, eins: 1, eine: 1, two: 2, due: 2, zwei: 2, deux: 2,
     three: 3, tre: 3, drei: 3, trois: 3, four: 4, quattro: 4, vier: 4, quatre: 4, five: 5, cinque: 5, funf: 5,
     fuenf: 5, cinq: 5, six: 6, sei: 6, sechs: 6 };
+  const deletionWords = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/;
+  const rejectedApplicationProcess = /\b(?:application|candidacy|candidature|bewerbung)\b(?: [a-z0-9]+){0,4} (?:is|was|were|has|have|had|gets?|got|a|est|sont|ete|werden|wurde)(?: [a-z0-9]+){0,2} (?:reject\w*|declin\w*|refus\w*|rejet\w*|abgelehnt|verworfen)\b/;
+  // Rejection of the application itself leaves the deletion timing ambiguous.
+  // Do not fall through to a longer-duration choice in that catalogue.
+  if (rows.some(option => deletionWords.test(option.value) && rejectedApplicationProcess.test(option.value))) return '';
   const rank = option => {
     const value = option.value;
     const futureStorage = isOptionalPurpose(option.purpose);
     if (futureStorage) return Number.POSITIVE_INFINITY;
+
+    const deletes = deletionWords.test(value);
+    // normalize() turns English n't contractions into a word ending in n + "t".
+    // Keep the negation and deletion in the same clause; words between them
+    // may be arbitrarily long (“not under any circumstances ... delete”).
+    const negationWords = /\b(?:not|never|no|non|nicht|nie|pas|kein\w*|\w+n t|cannot)\b/;
+    const withoutWords = /\b(?:without|sans|ohne|senza)\b/;
+    // Split before normalize(), which would otherwise erase Unicode clause dashes.
+    const clauseTexts = option.purpose.split(/[.!?;:\r\n\u2012-\u2015]+|\s+-\s+/u).map(normalize);
+    const applicationOutcomeWords = String.raw`(?:selected|chosen|hired|accepted|approved|eligible|successful|rejected|declined|refused|selezionat\w*|assunt\w*|selectionne\w*|retenu\w*|choisi\w*|embauch\w*|ausgewahlt|ausgewaehlt|eingestellt|abgelehnt|abgelehn\w*|verworfen)`;
+    const selectionConditionPattern = new RegExp(
+      `\\b(?:if|unless|when|whenever|provided that|se|qualora|wenn|falls|si)\\b(?: [a-z0-9]+){0,12}(?: ${negationWords.source}(?: [a-z0-9]+){0,12})? \\b${applicationOutcomeWords}\\b`,
+      'g',
+    );
+    const selectionCondition = clauseText => clauseText.replace(selectionConditionPattern, (match, offset, wholeClause) => {
+      const conditionTail = wholeClause.slice(offset + match.length);
+      const consentOrDataContext = /\b(?:consent\w*|einwillig\w*|zustimm\w*|daten|data|donnee\w*|personal|retention\w*|stor\w*|speicher\w*|privacy|protection|processing|traitement|permission|authoriz\w*|authoris\w*|agreement|option)\b/.test(match)
+        || /^ (?:[a-z0-9]+ ){0,3}(?:consent\w*|einwillig\w*|zustimm\w*|agreement|authoriz\w*|authoris\w*)\b/.test(conditionTail)
+        || (/(?:accepted|approved)$/.test(match)
+          && /^ (?:[a-z0-9]+ ){0,3}(?:data|daten|donnee\w*|personal|retention\w*|stor\w*|privacy|protection|processing|traitement|permission|option)\b/.test(conditionTail));
+      const applicantContext = /\b(?:application\w*|candidac\w*|candidatur\w*|bewerbung\w*|candidate\w*|applicant\w*|you|your|they|their|he|she|i|me|my|we|our|person|candidat\w*|bewerber\w*|jobseeker\w*)\b/.test(match);
+      const activeCandidateRejection = /\b(?:i|you)\b(?: (?:have|has|had))? (?:rejected|refused|declined)\b/.test(match);
+      const bareRejection = /^\b(?:if|unless|when|whenever|provided that|se|qualora|wenn|falls|si)\b rejected$/.test(match);
+      const bareNonSelection = /^\b(?:if|unless|when|whenever|provided that|se|qualora|wenn|falls|si)\b (?:not|never|no|non|nicht|nie) (?:selected|chosen|hired|eligible|successful|selezionat\w*|assunt\w*|selectionne\w*|retenu\w*|choisi\w*|embauch\w*|ausgewahlt|ausgewaehlt|eingestellt)$/.test(match);
+      return !consentOrDataContext && !activeCandidateRejection && (applicantContext || bareRejection || bareNonSelection) ? ' ' : match;
+    });
+    const scopedClauseTexts = clauseTexts.map(selectionCondition);
+    const negatesDeletion = clauseTexts.some(clauseText => {
+      const negatesBeforeDeletion = new RegExp(`${negationWords.source}(?: [a-z0-9]+)* ${deletionWords.source}`);
+      const affirmativeWithoutQualifier = /(?:(?:any|a|an|the|further|additional|undue|more|another|weitere|weiteren|ulteriore|ulteriori|plus|aucun|aucune) )*(?:delay|delai|verzoegerung|verzogerung|ritardo|indugio|hesitation|hesitance|esitazione|zogern|zogerung|attendre|waiting|warning|notice|reservation|interruption|prejudice|ado)\b/;
+      // Keep positive modifiers such as “without delay” distinct from negated deletion.
+      const withoutDeletion = new RegExp(
+        `${withoutWords.source}(?! ${affirmativeWithoutQualifier.source})(?: [a-z0-9]+)* ${deletionWords.source}`,
+      );
+      return negatesBeforeDeletion.test(selectionCondition(clauseText)) || withoutDeletion.test(clauseText);
+    });
+    const currentApplicationWords = String.raw`(?:current application|this application|application process|questa candidatura|candidatura corrente|procedura di candidatura corrente|(?:la |cette )?candidature(?: en cours)?|(?:la )?procedure de candidature(?: en cours)?|bewerbung(?:sverfahren)?)`;
+    const currentApplicationCompletion = String.raw`once.{0,80}\b(?:(?:the )?(?:current|present)|this) application process\b.{0,40}\b(?:complet(?:e|ed|ion)|finish(?:ed)?|ends?|ended|over|conclud(?:e|es|ed)|terminat(?:e|ed|es))\b`;
+    const currentApplicationTiming = String.raw`(?:\b(?:after|dopo|nach|apres)\b.{0,80}\b${currentApplicationWords}\b|${currentApplicationCompletion})`;
+    const afterCurrentApplication = new RegExp(`\\b(?:after|dopo|nach|apres)\\b.{0,80}\\b${currentApplicationWords}\\b`);
+    const onceCurrentApplicationCompletes = new RegExp(currentApplicationCompletion);
+    const negatesCurrentTiming = clauseTexts.some(clauseText => new RegExp(
+      `${negationWords.source}(?:(?! ${deletionWords.source}) [a-z0-9]+)* ${currentApplicationTiming}`,
+    ).test(clauseText));
+    const prohibitionWords = String.raw`(?:permit\w*|allow\w*|authoriz\w*|authoris\w*|autorise\w*|erlaub\w*|possible|impossible|permissible|lawful|unlaw\w*|legal|illegal|consentit\w*|required|necessary|unnecessary)`;
+    const directProhibitionWords = String.raw`(?:prohibit\w*|forbidden|banned|illegal|interdit\w*|verboten|vietat\w*|unlaw\w*|impossible|unnecessary|disallow\w*|forbid\w*|prevent\w*|restrict\w*)`;
+    const negatesPostTemporalProhibition = clauseTexts.some(clauseText => new RegExp(
+      `\\b${currentApplicationTiming}\\b(?: [a-z0-9]+){0,12} ${negationWords.source}(?: [a-z0-9]+){0,4} \\b${prohibitionWords}\\b|\\b${currentApplicationTiming}\\b(?: [a-z0-9]+){0,12}\\b${directProhibitionWords}\\b`,
+    ).test(clauseText));
+    const negatesPreTemporalProhibition = clauseTexts.some(clauseText => new RegExp(
+      `(?:${negationWords.source}(?: [a-z0-9]+){0,4} \\b${prohibitionWords}\\b|\\b${directProhibitionWords}\\b).{0,80}${currentApplicationTiming}`,
+    ).test(clauseText));
+    // Do not infer authorization from an explicit refusal. These choices are
+    // excluded from the minimum so a separate, affirmative finite option can
+    // still be selected. Keep ambiguous anti-deletion wording unresolved above.
+    const consentActionWords = /\b(?:consent\w*|acconsent\w*|agree\w*|accept\w*|authoriz\w*|authoris\w*|autoriz\w*|autoris\w*|allow\w*|permit\w*|erlaub\w*|gestatt\w*|einwillig\w*|zustimm\w*|akzeptier\w*|accepter\w*|willing\w*|want\w*|wish\w*|bereit|dispost\w*|einverstanden|accord\w*)\b/;
+    const storageActionWords = /\b(?:retain\w*|kept|keep\w*|held|hold\w*|store\w*|stor\w*|preserv\w*|conserv\w*|memorizz\w*|behalten\w*|aufbewahr\w*)\b/;
+    const negationBefore = actionWords => clauseText => new RegExp(
+      `${negationWords.source}(?: [a-z0-9]+){0,12} ${actionWords.source}`,
+    ).test(clauseText);
+    const consentSubjectContext = /\b(?:consent\w*|einwillig\w*|zustimm\w*|acconsent\w*|agree\w*|agreement|permission|authorization|authorisation|i|me|my|we|our|you|your|candidate|applicant|data|daten|donnee\w*|dati|personal)\b/;
+    const negatesConsentChoice = scopedClauseTexts.some(clauseText => consentSubjectContext.test(clauseText)
+      && negationBefore(consentActionWords)(clauseText));
+    const firstPersonDataChoice = /\b(?:i|me|my|we|our|io|me|mio|mia|ich|mir|mich|mein\w*|je|moi|mon|ma|mes|nous|notre)\b/;
+    const negatesPersonalRetention = clauseTexts.some((clauseText, index) => scopedClauseTexts[index] === clauseText
+      && firstPersonDataChoice.test(clauseText) && negationBefore(storageActionWords)(clauseText));
+    const retentionSubjectContext = /\b(?:data|daten|donnee\w*|dati|personal|candidate|applicant|my|your|our|their|mio|mia|mein\w*|mon|ma|mes|notre)\b/;
+    const negatesRetentionAction = scopedClauseTexts.some(clauseText => retentionSubjectContext.test(clauseText)
+      && negationBefore(storageActionWords)(clauseText));
+    const refusalWords = /\b(?:refus\w*|declin\w*|reject\w*|disagree\w*|unwilling\w*|unwillig\w*|reluctant\w*|rifiut\w*|verweiger\w*)\b/;
+    const explicitlyRefuses = scopedClauseTexts.some(clauseText => refusalWords.test(clauseText));
+    const answerIsNo = /^(?:no|non|nein|nein danke|non desidero|non acconsento|non consento|i do not consent|i don t consent)$/
+      .test(normalize(option.label));
+    if (negatesDeletion || negatesCurrentTiming || negatesPostTemporalProhibition || negatesPreTemporalProhibition) return null;
+    if (answerIsNo || negatesConsentChoice || negatesPersonalRetention || explicitlyRefuses) return Number.POSITIVE_INFINITY;
+    if (negatesRetentionAction) return null;
+    const followsCurrentApplication = afterCurrentApplication.test(value) || onceCurrentApplicationCompletes.test(value);
+    const currentOnly = /\b(?:only|solo|uniquement|nur)\b/.test(value)
+      && /\b(?:this application|current application|questa candidatura|candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
+    if ((deletes && followsCurrentApplication) || currentOnly) return 0;
 
     // A form may repeat the same duration in a human label and a machine value
     // (for example “six months” and “6_months”). Deduplicate the parsed tuple,
@@ -123,16 +208,6 @@ export function minimumDataRetentionOption(options, question = '') {
       const [{ amount, unitKey }] = durationMatches.values();
       return amount >= 0 ? amount * durationFactor[unitKey] : null;
     }
-
-    const deletes = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/.test(value);
-    const followsCurrentApplication = /(?:\b(?:after|dopo|nach|apres)\b.{0,80}\b(?:current application|this application|application process|questa candidatura|candidatura corrente|procedura di candidatura corrente|candidature en cours|bewerbung(?:sverfahren)?)\b|\bonce\b.{0,80}\b(?:the )?(?:current|present|this) application process\b)/.test(value);
-    const currentOnly = /\b(?:only|solo|uniquement|nur)\b/.test(value)
-      && /\b(?:this application|current application|questa candidatura|candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
-    if ((deletes && followsCurrentApplication) || currentOnly) return 0;
-
-    const answerIsNo = /^(?:no|non|nein|nein danke|non desidero|non acconsento|non consento)$/.test(value)
-      || /\b(?:do not consent|non acconsento|non consento|nicht einverstanden|ne suis pas d accord)\b/.test(value);
-    if (answerIsNo && (currentApplication || isOptionalPurpose(question))) return 0;
     return null;
   };
 
