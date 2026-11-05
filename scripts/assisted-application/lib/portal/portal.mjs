@@ -41,7 +41,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { asksHeldStatus, isPermitField, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
@@ -576,7 +576,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
-  const status = profile.permitStatus || '';
+  const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit);
   const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
@@ -1036,9 +1036,23 @@ function applicationEntryControls(snapshot = {}, context = {}) {
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
   ];
-  return controls.filter((control) => !control?.disabled && !control?.chrome
+  const matching = controls.filter((control) => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label)
     && applicationEntryBelongsToPosting(control, context));
+  if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
+
+  // A verified posting can hand off to an ATS on another route or origin
+  // without a URL that carries the vacancy id (common on employer career
+  // pages). A single explicit Apply link is enough provenance; a listing with
+  // several such links remains unresolved rather than choosing one by position.
+  const posting = comparablePortalRoute(context.postingUrl);
+  const unbound = controls.filter((control) => {
+    if (control?.disabled || control?.chrome || !startsApplication(control?.text || control?.label)) return false;
+    const target = comparablePortalRoute(control?.href);
+    return Boolean(target && posting
+      && (target.origin !== posting.origin || target.pathname !== posting.pathname || target.search !== posting.search));
+  });
+  return unbound.length === 1 ? unbound : [];
 }
 
 // A posting may show an informational region notice and still expose its own
@@ -2161,6 +2175,7 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       id,
       question: readableQuestionCandidate(item.question) || applicationQuestion,
       applicationQuestion,
+      ...(readableQuestionCandidate(item.candidatePrompt) ? { candidatePrompt: readableQuestionCandidate(item.candidatePrompt) } : {}),
       ...(applicationOptions.length ? { applicationOptions } : {}),
       ...(optionMap.length ? { optionMap } : {}),
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
@@ -2344,6 +2359,7 @@ function deterministicGermanLocalization(item, language) {
   const entry = deterministicGermanQuestionEntry(item);
   if (!entry || !language) return null;
   const sourceQuestion = nativePortalQuestion(item);
+  const candidatePrompt = readablePortalQuestionText(item?.candidatePrompt);
   const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
     ? item.applicationOptions
     : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
@@ -2363,7 +2379,7 @@ function deterministicGermanLocalization(item, language) {
   const sameLanguage = language === 'de';
   return {
     ...item,
-    question: entry[language] || entry.en,
+    question: candidatePrompt || entry[language] || entry.en,
     applicationQuestion: sourceQuestion,
     applicationQuestionLocale: 'de',
     why: String(item.why || '').trim() || fallback.why,
@@ -2381,7 +2397,8 @@ function nativePortalQuestion(item) {
 
 function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  const rawQuestion = nativePortalQuestion(item);
+  const candidatePrompt = readablePortalQuestionText(item?.candidatePrompt);
+  const rawQuestion = candidatePrompt || nativePortalQuestion(item);
   const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length ? item.applicationOptions : item.options || [])
     .map((option) => String(option || '').trim()).filter(Boolean);
   const candidateOptions = applicationOptions
@@ -2396,9 +2413,9 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   return {
     ...item,
     question: rawQuestion,
-    applicationQuestion: rawQuestion,
+    applicationQuestion: nativePortalQuestion(item),
     applicationQuestionLocale: localeCode(sourceLocale) || null,
-    why: fallback.why,
+    why: candidatePrompt && String(item?.why || '').trim() ? String(item.why).trim() : fallback.why,
     ...(applicationOptions.length ? { applicationOptions } : {}),
     ...(item.validation ? { validation: { ...item.validation, message: fallback.validation } } : {}),
     ...(options.length ? { options } : {}),
@@ -2425,12 +2442,13 @@ export class PortalQuestionLocalizationError extends Error {
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
   const items = (Array.isArray(questions) ? questions : []).map((item) => {
     const sourceQuestion = nativePortalQuestion(item);
+    const candidatePrompt = readablePortalQuestionText(item?.candidatePrompt);
     const applicationOptions = (Array.isArray(item?.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item?.options || []).map((option) => String(option || '').trim()).filter(Boolean);
     return {
       ...item,
-      question: sourceQuestion,
+      question: candidatePrompt || sourceQuestion,
       applicationQuestion: sourceQuestion,
       ...(applicationOptions.length ? { applicationOptions, options: applicationOptions } : {}),
     };
@@ -2482,7 +2500,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
       return {
         ...item,
-        question: nativePortalQuestion(item),
+        question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
         ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
         applicationQuestionLocale: sourceLocale,
         localizationStatus: 'same_language',
@@ -2498,16 +2516,19 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       && copy.options.length === applicationOptions.length
       && translatedMap.length === applicationOptions.length
       && candidateOptions.length === applicationOptions.length);
-    const translatedQuestion = String(copy?.question || '').trim();
+    const translatedQuestion = readablePortalQuestionText(item.candidatePrompt) || String(copy?.question || '').trim();
     const sourceQuestion = nativePortalQuestion(item);
-    const question = readablePortalQuestionText(translatedQuestion);
-    const translationIsValid = question && normalizedQuestionText(question) !== normalizedQuestionText(sourceQuestion) && optionsComplete;
+    const question = readablePortalQuestionText(item.candidatePrompt) || readablePortalQuestionText(translatedQuestion);
+    const translationIsValid = item.candidatePrompt ? Boolean(question && optionsComplete)
+      : Boolean(question && normalizedQuestionText(question) !== normalizedQuestionText(sourceQuestion) && optionsComplete);
     if (!translationIsValid) return fallbackLocalizedQuestion(item, candidateLanguage, sourceLocale);
     const fallback = LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it;
     const translatedWhy = String(copy?.why || '').trim();
-    const why = !translatedWhy || normalizedQuestionText(translatedWhy) === normalizedQuestionText(item.why)
+    const candidatePrompt = readablePortalQuestionText(item.candidatePrompt);
+    const candidateWhy = candidatePrompt && String(item.why || '').trim() ? String(item.why).trim() : '';
+    const why = candidateWhy || (!translatedWhy || normalizedQuestionText(translatedWhy) === normalizedQuestionText(item.why)
       ? fallback.why
-      : translatedWhy;
+      : translatedWhy);
     const translatedValidation = String(copy?.validationMessage || '').trim();
     const validationMessage = !translatedValidation
       || normalizedQuestionText(translatedValidation) === normalizedQuestionText(item.validation?.message)
@@ -4602,7 +4623,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate });
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate, candidateLocale: ctx.candidateLocale });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
@@ -4712,7 +4733,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const repairSnapshot = accountRegistrationSnapshot({ ...after, fields: after.fields.filter((field) => field.inputType !== 'password') });
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
-      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired, { candidate });
+      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired, { candidate, candidateLocale: ctx.candidateLocale });
       if (repairedRequirements.unreadableFields?.length) {
         await ctx.accounts.mark(host, { status: 'unanswered' });
         return noted({ handoff: 'question_label_unreadable' });
@@ -4990,7 +5011,7 @@ export function portalRequiredDocumentFromField(field) {
  * question: the review page must show it in the same document picker as the
  * posting's requested documents.
  */
-function missingCandidatePortalRequirements(fields, candidate) {
+function missingCandidatePortalRequirements(fields, candidate, candidateLocale = 'it') {
   if (!candidate || typeof candidate !== 'object') return { questions: [], stableQuestionIds: new Map() };
   const requiredFields = (Array.isArray(fields) ? fields : []).filter(field => field?.required === true);
   const profile = candidate.profile || {};
@@ -5026,6 +5047,9 @@ function missingCandidatePortalRequirements(fields, candidate) {
   const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
   const residenceCountryPresent = Boolean(String(addressQuestionAnswer(candidate, 'residence_country') || '').trim());
   const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
+  // CV text is evidence to review, not the candidate's confirmation of a
+  // required current residence or permit status.
+  const permitStatusPresent = Boolean(permitStatusFromCandidate(candidate, { includeProfileWorkPermit: false }));
   const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
 
   for (const field of requiredFields) {
@@ -5034,6 +5058,19 @@ function missingCandidatePortalRequirements(fields, candidate) {
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
     const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
     const role = residenceFieldRole(field.label);
+    if (isPermitField(field.label) && asksHeldStatus(field.label) && !permitStatusPresent) {
+      const question = permitStatusQuestion(candidateLocale);
+      add(field, 'work_permit', question,
+        permitStatusQuestionWhy(candidateLocale),
+        {
+          type: 'choice',
+          forceType: 'choice',
+          options: permitOptions(candidateLocale),
+          requiresNativeOptions: true,
+          candidatePrompt: question,
+        });
+      continue;
+    }
     const isBirthDate = String(field.autocomplete || '').toLowerCase() === 'bday'
       || /\b(?:date of birth|birth date|geburtsdatum|date de naissance|data di nascita)\b/.test(allText);
     if (isBirthDate && !datePresent && !hasAnswer('portal_date_of_birth')) {
@@ -5103,20 +5140,10 @@ function missingCandidatePortalRequirements(fields, candidate) {
   return { questions: missing, stableQuestionIds };
 }
 
-export function portalRequirementsFromMissingRequired(fields, missingRequired, { candidate = null } = {}) {
+export function portalRequirementsFromMissingRequired(fields, missingRequired, { candidate = null, candidateLocale = 'it' } = {}) {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
-  const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate);
-  const mergedRequired = new Map();
-  for (const item of candidateRequirements.questions) {
-    const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
-    if (key) mergedRequired.set(key, item);
-  }
-  for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
-    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
-    if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
-  }
   const aliases = ['domId', 'name', 'controlId', 'nativeControlId', 'nativeSelectId', 'semanticId',
     'dataAutomationId', 'dataControlId', 'dataSemanticId', 'elementId', 'nativeFieldId'];
   const directFieldsFor = fieldId => availableFields.filter(field => field.id && field.id === fieldId);
@@ -5141,6 +5168,27 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
     });
     return matching.length === 1 ? matching[0] : null;
   };
+  const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate, candidateLocale);
+  const mergedRequired = new Map();
+  for (const item of candidateRequirements.questions) {
+    const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
+    if (key) mergedRequired.set(key, item);
+  }
+  for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
+    const field = fieldFor(item);
+    // Candidate questions are for facts the runner cannot already supply.
+    // The planner may label an untouched field missing during its read pass;
+    // that alone must not ask the candidate to repeat profile data or a safe
+    // operational default. An explicitly rejected field still needs review.
+    const candidateAnswer = candidate && field
+      ? candidateAnswerForField(candidate, field, {
+        includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
+      }) : null;
+    if (field && field.invalid !== true
+      && (holdsValue(field) || String(candidateAnswer?.value ?? '').trim())) continue;
+    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
+    if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
+  }
   const hasAmbiguousAlias = (item) => {
     if (directFieldsFor(item?.fieldId).length === 1) return false;
     const requestedId = String(item?.fieldId || '').trim();
@@ -5299,10 +5347,11 @@ export async function readPortalRequirements(ctx) {
     let snapshot = await extractFields(page, NAVIGATION);
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
-      postingUrl: ctx.postingUrl,
+      postingUrl: ctx.postingUrl || page.url(),
       sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
       job: ctx.job,
       postingEntry: verifiedPostingEntry,
+      allowSingleExternalApplicationEntry: true,
     });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
@@ -5344,7 +5393,10 @@ export async function readPortalRequirements(ctx) {
       (ctx.log || (() => {}))('portal pre-read skipped: question_planning_failed');
       return { questions: [], documents: [], handoff: 'question_planning_failed' };
     }
-    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, { candidate: ctx.candidate });
+    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, {
+      candidate: ctx.candidate,
+      candidateLocale: ctx.candidateLocale,
+    });
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
       return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
@@ -5549,15 +5601,28 @@ export async function submitViaPortal(ctx) {
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
     // the page: the posting is the order's.
-    const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
-    const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
+    const companyNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match';
+    const organizationCompatible = !ctx.job?.company || !ctx.job?.organization
+      || sameEmployerFamily(ctx.job.organization, ctx.job.company);
+    // The posting may use a brand while the order carries a legal entity, but
+    // two unrelated employer names are a source-data conflict, not permission
+    // to fall back to the role alone on an otherwise silent ATS form.
+    if (companyNamed && !organizationCompatible) return await handoff('posting_mismatch');
+    const namedByItsData = organizationCompatible
+      && sameEmployerFamily(ctx.job?.organization, ctx.job?.company)
+      && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
+    const postingNamed = organizationCompatible && (companyNamed || namedByItsData);
     if (postingNamed && isApplicationRegionUnsupported(initialPageText)
-      && !hasApplicationEntryControl(snapshot, { applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job })) {
+      && !hasApplicationEntryControl(snapshot, {
+        applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job,
+        allowSingleExternalApplicationEntry: true,
+      })) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, {
-      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol,
+      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
       postingEntry: enteredFromMatchingPosting, job: ctx.job,
+      allowSingleExternalApplicationEntry: postingNamed,
     });
     ({ page, snapshot } = opened);
     if (opened.handoff) return await handoff(opened.handoff);
@@ -5595,16 +5660,20 @@ export async function submitViaPortal(ctx) {
     };
     const match = await formMatch();
     evidence.postingMatch = match;
+    const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A generic careers landing page can mention the employer and therefore
     // pass postingMatch, while exposing only the site's Menu/Search controls.
     // Do not send that chrome to the agent as if it were an unanswered
     // candidate question; it is not the application form for this posting.
+    // No recognizable form or control is not evidence that the runner reached
+    // the selected vacancy: keep it as a posting mismatch until the owner can
+    // inspect the page, rather than presenting a loading shell as a candidate
+    // question.
     if (!hasApplicationSurface(snapshot, {
       pageUrl: page.url(),
       postingUrl,
       postingMatch: match,
     }) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
-    const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
@@ -5762,7 +5831,7 @@ export async function submitViaPortal(ctx) {
       return agent;
     };
     const askCandidate = async (questions) => {
-      const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions);
+      const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions, { candidate: ctx.candidate, candidateLocale: ctx.candidateLocale });
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
       let request;
       try {
@@ -5829,8 +5898,9 @@ export async function submitViaPortal(ctx) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
-            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol,
+            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, job: ctx.job,
+            allowSingleExternalApplicationEntry: postingNamed,
           });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
@@ -5893,7 +5963,9 @@ export async function submitViaPortal(ctx) {
           // A control of the account page that could not be pressed or typed into (covered by a dialog,
           // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
           // and, read as a timeout, the run was started again twice; the owner gets the page instead.
-          if (!/^locator\./.test(String(error?.message || ''))) throw error;
+          const controlClickFailure = /^locator\./.test(String(error?.message || ''))
+            || error?.code === 'portal_control_click_unresolved';
+          if (!controlClickFailure) throw error;
           evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'control_error' };
           // A registration whose password was stored and whose button then could not be pressed: whether the
           // account exists is not known. Left `pending`, the next run would sign in, fail and stop there;
@@ -5935,8 +6007,9 @@ export async function submitViaPortal(ctx) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
-            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol,
+            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, job: ctx.job,
+            allowSingleExternalApplicationEntry: postingNamed,
           });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
@@ -6206,7 +6279,7 @@ export async function submitViaPortal(ctx) {
           if (candidateQuestions.length) {
             // Ask only after known answers have settled and any fields they
             // reveal have been re-read and planned on the next pass.
-            const requirements = portalRequirementsFromMissingRequired(snapshot.fields, candidateQuestions);
+            const requirements = portalRequirementsFromMissingRequired(snapshot.fields, candidateQuestions, { candidate: ctx.candidate, candidateLocale: ctx.candidateLocale });
             if (requirements.unreadableFields?.length) {
               unclearQuestions = candidateQuestions;
               agentHint = 'unclear_fields';

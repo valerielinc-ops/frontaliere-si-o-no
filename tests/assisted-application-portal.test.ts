@@ -2585,6 +2585,7 @@ describe('portal runner helpers', () => {
     expect(questionTopic('Hausnummer')).toBe('address_house_number');
     expect(candidateAnswerForQuestion({ portalQuestionsAnswered: [{ question: 'Street address', answer: 'Via Roma' }] }, 'Hausnummer')).toBe('');
     expect(questionTopic('Which Swiss work permit do you hold?')).toBe('permit');
+    expect(questionTopic('Statuto di soggiorno')).toBe('permit');
     expect(questionTopic('Will you need a work permit?')).toBe('');
     expect(questionTopic('In quale scuola sei attualmente?')).toBe('current_school');
     expect(questionTopic('What did you study?')).toBe('');
@@ -3064,8 +3065,17 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({})).missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
     // A text field filled with the candidate's own statement.
     const text = { id: 't1', kind: 'text', label: 'Aufenthaltsstatus', required: true };
-    const fill = { fieldId: 't1', action: 'fill', value: permitStatement('permit_b', 'de'), document: 'none', source: 'profile', evidence: '' };
+    const fill = { fieldId: 't1', action: 'fill', value: permitStatement('permit_b', 'de'), document: 'none', source: 'rule', evidence: '' };
     expect(guardPlan({ actions: [fill], missingRequired: [] }, [text], candidate({ permitStatus: 'permit_b' })).actions).toEqual([fill]);
+    expect(candidateAnswerForField({ profile: { permitStatus: 'permit_b' }, answers: {} }, { kind: 'text', label: 'Work permit', options: [] }))
+      .toEqual({ value: 'permit_b', source: 'profile' });
+    expect(candidateAnswerForField({ profile: {}, answers: { work_permit: 'permit_g' } }, { kind: 'text', label: 'Work permit', options: [] }))
+      .toEqual({ value: 'permit_g', source: 'answers' });
+    expect(candidateAnswerForField(
+      { profile: { workPermit: 'Permesso B' }, answers: {} },
+      { kind: 'text', label: 'Work permit', options: [] },
+      { includeProfileWorkPermit: false },
+    )).toBeNull();
   });
 
   it('maps a held permit to the positive answer when an ATS qualifies its negative choices', () => {
@@ -3078,6 +3088,10 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const fromPlan = guardPlan({ actions: [select('p1', 'G Permit', 'profile')], missingRequired: [] }, [field], held);
     expect(fromPlan.actions).toEqual([select('p1', 'Yes')]);
     expect(fromPlan.missingRequired).toEqual([]);
+
+    const unrecognized = { identity, profile: {}, answers: {}, swissStatus: { code: 'pending', statement: 'Yes' } };
+    expect(candidateAnswerForField(unrecognized, field)).toBeNull();
+    expect(guardPlan({ actions: [select('p1', 'Yes')], missingRequired: [] }, [field], unrecognized).actions).toEqual([]);
 
     // SuccessFactors can expose the same combobox before its lazy list has
     // been read.  The status still maps to the localized boolean answer, so
@@ -3116,5 +3130,16 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(known).not.toContain('aufenthaltsbewilligung');
     expect(known).not.toContain('permesso g');
     expect(planSystemPrompt('it')).toContain('swissStatus.statement is the candidate\'s own statement of their Swiss status today');
+  });
+
+  it('does not promote an unrecognized profile status into a candidate permit', () => {
+    const form = candidateForForm({ identity, profile: { permitStatus: 'pending' }, answers: {}, language: 'it' });
+    expect(form.swissStatus).toBeNull();
+    const field = permitField('Statuto di soggiorno', ['B', 'G']);
+    expect(candidateAnswerForField(form, field)).toBeNull();
+
+    const answered = candidateForForm({ identity, profile: { permitStatus: 'pending' }, answers: { work_permit: 'permit_b' }, language: 'it' });
+    expect(answered.swissStatus?.code).toBe('permit_b');
+    expect(answered.answers).not.toHaveProperty('work_permit');
   });
 });

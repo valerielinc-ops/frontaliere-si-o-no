@@ -33,7 +33,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   const click = vi.fn(async () => { expect(guard).toHaveBeenCalledTimes(1); state.snapshot = receipt; });
   const openClick = vi.fn(async () => { expect(guard).not.toHaveBeenCalled(); state.snapshot = initial; });
   const page: any = {
-    url: () => state.snapshot.url, title: async () => title, frames: () => [page], mainFrame: () => page,
+    url: () => state.snapshot.url, title: async () => state.snapshot.title || title, frames: () => [page], mainFrame: () => page,
     goto: vi.fn(async (url: string) => {
       if (url === options.applyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
       if (url === reviewUrl) { expect(guard).not.toHaveBeenCalled(); state.snapshot = finalReview; }
@@ -251,6 +251,30 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
+  it('classifies a non-form loading page outside the selected posting as a mismatch', async () => {
+    const unrecognized = { ...snapshot(applyUrl, 'Please wait while the portal loads.', []), text: 'Please wait while the portal loads.', title: 'Careers' };
+    const f = fixture(unrecognized);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('classifies a control-free page outside the selected route as a posting mismatch', async () => {
+    const otherTitle = { ...snapshot(applyUrl, 'Application portal is loading.', []),
+      title: 'Different role', text: 'Application portal is loading.', fields: [] };
+    const f = fixture(otherTitle);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.evidence.postingMatch).toBe('mismatch');
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('opens the posting-owned CTA when an unrelated Apply control comes first', async () => {
     const headerClick = vi.fn(async () => {});
     const matchingClick = vi.fn(async () => { state.snapshot = profile; });
@@ -304,6 +328,19 @@ describe('runner final guard across three application stages', () => {
 
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
     expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('keeps posting_mismatch for an application surface that names another role', async () => {
+    const otherRole = { ...snapshot(applyUrl, 'Application for a different role.', []),
+      title: 'Different role', text: 'Application for a different role.',
+      fields: [{ id: 'note', kind: 'text', inputType: 'text', label: 'Application note', formId: 'application', frame: 0 }] };
+    const f = fixture(profile, otherRole);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
   });
@@ -398,7 +435,7 @@ describe('runner final guard across three application stages', () => {
   it('hands off a public gallery reached after an application step before agent fallback', async () => {
     const initial = snapshot(applyUrl, 'Application step.', [{ id: 'step-next', text: 'Next' }]);
     initial.fields = [{ id: 'application-note', kind: 'text', inputType: 'text', label: 'Application note', required: false, formId: 'application', frame: 0 }];
-    const gallery = snapshot(`${applyUrl}/bewerbungstipps/`, 'Public content.', [
+    const gallery = snapshot('https://careers.example/Careers/ApplicationMethods/bewerbungstipps/?jobId=42', 'Public content.', [
       { text: 'Menü', chrome: true },
       { text: 'Mein Konto', chrome: true },
       { text: 'Vorheriges', formId: 'public-gallery', frame: 0, disabled: false },

@@ -7,7 +7,7 @@
 
 import { buildFactIndex, checkGeneratedFacts, withPermitClaims } from './assistedApplicationAiFactCheck.js';
 import { sanitizeValidation } from './lib/answerRules.js';
-import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, isPermitField, permitLabel, permitOptions } from './lib/permitStatus.js';
+import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, isPermitField, permitLabel, permitOptions, permitStatusQuestion } from './lib/permitStatus.js';
 import { letterPlaceDate, letterSubject } from './assistedApplicationAiPrompts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { SALUTATIONS } from './lib/personalFacts.js';
@@ -506,13 +506,14 @@ export const SALARY_RULE_MESSAGES = {
   en: 'Give an amount, for example CHF 80’000 a year.',
 };
 
-// The Swiss status: [question, why when required, why when optional]. The optional «why» never says the CV
-// is silent: the model may ask while the CV states a permit.
+// The Swiss status question is shared with the portal backstop. These are the
+// reasons when required and optional; the optional «why» never says the CV is
+// silent because the model may ask while the CV states a permit.
 const PERMIT_QUESTION = {
-  it: ['Hai la cittadinanza svizzera o un permesso svizzero valido oggi?', 'L’annuncio lo chiede e il CV non lo indica.', 'Facoltativo: lo riportiamo nel CV solo se lo scegli tu.'],
-  de: ['Hast du das Schweizer Bürgerrecht oder eine heute gültige Schweizer Bewilligung?', 'Das Inserat fragt danach und der Lebenslauf nennt es nicht.', 'Freiwillig: Es steht nur im Lebenslauf, wenn du es wählst.'],
-  fr: ['Avez-vous la nationalité suisse ou un permis suisse valable aujourd’hui ?', 'L’annonce le demande et le CV ne l’indique pas.', 'Facultatif : il ne figure dans le CV que si vous le choisissez.'],
-  en: ['Are you a Swiss citizen, or do you hold a Swiss permit valid today?', 'The ad asks for it and the CV does not state it.', 'Optional: it appears in the CV only if you choose it.'],
+  it: ['L’annuncio lo chiede e il CV non lo indica.', 'Facoltativo: lo riportiamo nel CV solo se lo scegli tu.'],
+  de: ['Das Inserat fragt danach und der Lebenslauf nennt es nicht.', 'Freiwillig: Es steht nur im Lebenslauf, wenn du es wählst.'],
+  fr: ['L’annonce le demande et le CV ne l’indique pas.', 'Facultatif : il ne figure dans le CV que si vous le choisissez.'],
+  en: ['The ad asks for it and the CV does not state it.', 'Optional: it appears in the CV only if you choose it.'],
 };
 
 const FALLBACK_QUESTIONS = {
@@ -544,9 +545,9 @@ const asksPersonal = (question) => NATIONALITY_FIELD_RE.test(`${question.id} ${q
  */
 export function ensureRequiredQuestions(questions, { requirements, profile, answers = {}, locale = 'it' }) {
   const permitRequired = Boolean(requirements?.workPermitQuote) && !profile?.workPermit;
-  const [permitText, whyRequired, whyOptional] = PERMIT_QUESTION[String(locale || '').slice(0, 2).toLowerCase()] || PERMIT_QUESTION.it;
+  const [whyRequired, whyOptional] = PERMIT_QUESTION[String(locale || '').slice(0, 2).toLowerCase()] || PERMIT_QUESTION.it;
   const permitQuestion = (source) => ({
-    id: 'work_permit', question: permitText, why: permitRequired ? whyRequired : whyOptional, type: 'choice',
+    id: 'work_permit', question: permitStatusQuestion(locale), why: permitRequired ? whyRequired : whyOptional, type: 'choice',
     options: permitOptions(locale), required: permitRequired, validation: sanitizeValidation({}, { type: 'choice' }), source,
   });
   const result = [];

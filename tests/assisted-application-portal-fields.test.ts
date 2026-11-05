@@ -1246,6 +1246,16 @@ describe('portal field extraction', () => {
     ]);
   });
 
+  it('keeps the target of a plain application link for posting ownership checks', () => {
+    const page = extract(
+      '<main><h1>Acme Careers</h1><a href="https://apply.example.test/jobs/42">Apply</a></main>'
+    );
+    expect(page.links).toContainEqual(expect.objectContaining({
+      text: 'Apply',
+      href: 'https://apply.example.test/jobs/42',
+    }));
+  });
+
   it('does not let a same-label content link hide a real submit control', () => {
     const page = extract(
       '<div><button type="submit" tabindex="-1" aria-hidden="true">Submit</button>'

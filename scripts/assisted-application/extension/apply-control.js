@@ -76,7 +76,7 @@ function individualApplicationOriginQuestion(value) {
       .replace(/^current\s+/, '');
     const city = /^(?:(?:city|town|municipality|locality)(?:\s*\/\s*(?:city|town))?(?: of residence)?|(?:citta|comune|localita)(?: di (?:residenza|domicilio))?|(?:ville|commune|localite)(?: de residence| du domicile)?|place of residence|luogo di (?:residenza|domicilio)|lieu de residence|ort|stadt|wohnort|wohnsitz)$/;
     const country = /^(?:country(?: of residence)?|residence country|country\s*\/\s*region|(?:paese|nazione)(?: di residenza)?|stato di residenza|pays(?: de residence)?|land(?:\s*\/\s*region)?(?: des wohnorts| des wohnsitzes)?|wohnland|wohnsitzland)$/;
-    const postalCode = /^(?:zip(?: code)?|postal code|postalcode|post code|postcode|zip\s*(?:\/|or)\s*postal code|postal\s*\/\s*zip code|cap|codice (?:di avviamento )?postale|plz|postleitzahl|npa|code postal)$/;
+    const postalCode = /^(?:zip(?: code)?|postal code|postalcode|post code|postcode|zip\s*(?:\/|or)\s*postal code|postal\s*\/\s*zip code|cap|codice (?:di avviamento )?postale|plz|postleitzahl|nap|npa|code postal)$/;
     const streetNumber = /^(?:(?:street|address|via|indirizzo|rue|strasse|straße)\s+(?:and|e|et|und|&)\s+(?:(?:the|il|le|die)\s+)?(?:house number|number|numero(?: civico)?|hausnummer))$/;
     const street = /^(?:street(?: address| name)?|road name|address(?: line 1)?|residential address|residence address|(?:via(?:\s*\/\s*(?:piazza|viale))?|indirizzo)(?: di residenza| stradale| completo)?|nome (?:della )?via|strasse|straße|strassenname|adresse|wohnadresse|rue|nom de (?:la )?rue|adresse (?:personnelle|de residence))$/;
     const number = /^(?:house number|street number|numero civico|civico|hausnummer|numero (?:civique|de la rue))$/;

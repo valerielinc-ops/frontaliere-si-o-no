@@ -40,6 +40,7 @@ import {
   nationalityCodes,
   nationalityOf,
   permitOptionCode,
+  permitStatusFromCandidate,
   permitStatusOf,
 } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
@@ -608,10 +609,11 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
   if (isPermitField(label)) {
     // Whether the candidate needs a permit, a visa or sponsorship is never answered from the data: they say it.
     if (!asksHeldStatus(questionFromLabel(label))) return false;
-    const status = candidate.swissStatus?.code || permitStatusOf(profile.workPermit);
+    const swissStatus = permitStatusOf(candidate.swissStatus?.code);
+    const status = permitStatusFromCandidate(candidate);
     const code = option ? permitOptionCode(value) : permitStatusOf(value) || permitOptionCode(value);
     if (status) {
-      if (code === status || same(value, candidate.swissStatus?.statement)) return true;
+      if (code === status || (swissStatus === status && same(value, candidate.swissStatus?.statement))) return true;
       const yesNo = booleanAnswer(value);
       if (yesNo !== null) return yesNo === (status !== 'none');
       return false;
@@ -652,7 +654,7 @@ const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\
 // «civique» or «de la rue». Keep the conjunction bounded so a phone number or
 // another unrelated number in a longer label cannot become an address alias.
 const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&)\s*(?:(?:house|street|the|il|la|die|your|tuo|tua|vostro|vostra)\s*)*(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
-const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|npa)\b/i;
+const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|nap|npa)\b/i;
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /(?<![\p{L}\p{N}_])(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)(?![\p{L}\p{N}_])/iu;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
@@ -1496,7 +1498,7 @@ function phoneCountryOption(candidate, field) {
 }
 
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
-export function candidateAnswerForField(candidate, field) {
+export function candidateAnswerForField(candidate, field, { includeProfileWorkPermit = true } = {}) {
   const topic = questionTopic(field?.label, field?.context, field);
   const fieldKind = String(field?.kind || '').trim().toLowerCase();
   const inputType = String(field?.inputType || '').trim().toLowerCase();
@@ -1614,13 +1616,22 @@ export function candidateAnswerForField(candidate, field) {
   const language = languageAnswerForField(candidate, field);
   if (language) return language;
   if (topic === 'permit') {
-    const status = candidate?.swissStatus?.code || permitStatusOf(candidate?.profile?.workPermit);
+    const swissStatus = permitStatusOf(candidate?.swissStatus?.code);
+    const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit });
     if (!status || !asksHeldStatus(field?.label)) return null;
-    const statusSource = candidate?.swissStatus?.code ? 'rule' : 'profile';
+    const statusSource = swissStatus ? 'rule'
+      : permitStatusOf(candidate?.profile?.permitStatus) ? 'profile'
+        : permitStatusOf(candidate?.answers?.work_permit) ? 'answers' : 'profile';
     const options = Array.isArray(field?.options) ? field.options : [];
     const selected = permitAnswerForStatus(field, status);
     if (selected) return { value: selected, source: statusSource };
-    if (!options.length) return { value: candidate?.swissStatus?.statement || candidate?.profile?.workPermit || '', source: 'profile' };
+    if (!options.length) {
+      const rawStatus = swissStatus === status ? candidate?.swissStatus?.statement
+        : permitStatusOf(candidate?.profile?.permitStatus) ? candidate?.profile?.permitStatus
+          : permitStatusOf(candidate?.answers?.work_permit) ? candidate?.answers?.work_permit
+          : includeProfileWorkPermit ? candidate?.profile?.workPermit : '';
+      return { value: String(rawStatus || status).trim(), source: statusSource };
+    }
     return null;
   }
   const native = nativeLanguageOption(field, candidate);
@@ -1746,7 +1757,7 @@ export function guardPlan(plan, fields, candidate = null) {
   // The Swiss status the candidate chose, on a field that asks the permit held (decision 9): the one option that
   // says exactly that status, whatever the plan chose; none, or two, and the plan's answer is judged as any other.
   // A field that asks what the candidate needs or applies for is never answered by the code.
-  const status = candidate?.swissStatus?.code || '';
+  const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit: false });
   const statusPick = new Map(status ? fields
     .filter((field) => {
       if (!isPermitField(field.label) || !asksHeldStatus(questionFromLabel(field.label))) return false;
@@ -1762,10 +1773,13 @@ export function guardPlan(plan, fields, candidate = null) {
     })
     .map((field) => [field.id, permitAnswerForStatus(field, status)])
     .filter(([, value]) => value) : []);
+  const statusSource = permitStatusOf(candidate?.swissStatus?.code) ? 'rule'
+    : permitStatusOf(candidate?.profile?.permitStatus) ? 'profile'
+      : permitStatusOf(candidate?.answers?.work_permit) ? 'answers' : 'profile';
   for (const [fieldId, value] of statusPick) {
     const field = byId.get(fieldId);
     const action = isChoiceField(field) ? 'select' : 'fill';
-    actions.push({ fieldId, action, value, document: 'none', source: 'rule', evidence: '' });
+    actions.push({ fieldId, action, value, document: 'none', source: statusSource, evidence: '' });
   }
   // A yes/no field that only asks whether the candidate holds a document attached to this application: its
   // «yes», whatever the plan says (attachedDocumentYes). Before the gates below, which would turn «a driving

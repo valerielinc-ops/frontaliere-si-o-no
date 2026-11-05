@@ -19,6 +19,8 @@ import {
   permitOptionCode,
   permitOptions,
   permitStatement,
+  permitStatusQuestion,
+  permitStatusFromCandidate,
   permitStatusOf,
   printedPermitText,
 } from '../functions/src/lib/permitStatus.js';
@@ -64,6 +66,12 @@ describe('permit status catalogue (owner decisions 2026-10-03)', () => {
     }
     expect(permitOptions('de-CH')).toEqual(SHIPPED_LABELS.de);
     expect(permitOptions('xx')).toEqual(SHIPPED_LABELS.it);
+    expect(['it', 'de', 'fr', 'en'].map(permitStatusQuestion)).toEqual([
+      'Hai la cittadinanza svizzera o un permesso svizzero valido oggi?',
+      'Hast du das Schweizer Bürgerrecht oder eine heute gültige Schweizer Bewilligung?',
+      'Avez-vous la nationalité suisse ou un permis suisse valable aujourd’hui ?',
+      'Are you a Swiss citizen, or do you hold a Swiss permit valid today?',
+    ]);
     expect(permitStatement('', 'de')).toBe('');
     // Swiss German, never «ß».
     expect(Object.values(SHIPPED_LABELS).flat().concat(Object.values(CV_WORDINGS).flat()).filter((text) => text.includes('ß'))).toEqual([]);
@@ -159,6 +167,13 @@ describe('permit status catalogue (owner decisions 2026-10-03)', () => {
     for (const text of ['Lavoro sul mercato svizzero.', 'A Swiss company', 'Ich bin Schweizer Meister im Schach.', 'I am Swiss-based']) expect([text, tokens(text)]).toEqual([text, []]);
   });
 
+  it('uses only recognized candidate status values and falls through an unknown source', () => {
+    expect(permitStatusFromCandidate({ swissStatus: { code: 'pending' }, profile: { permitStatus: 'pending', workPermit: 'Permesso G in rinnovo' }, answers: {} })).toBe('');
+    expect(permitStatusFromCandidate({ swissStatus: { code: 'pending' }, profile: { permitStatus: 'pending' }, answers: { work_permit: 'permit_b' } })).toBe('permit_b');
+    expect(permitStatusFromCandidate({ swissStatus: { code: 'pending' }, profile: { permitStatus: 'pending', workPermit: 'Permesso G' }, answers: {} })).toBe('permit_g');
+    expect(permitStatusFromCandidate({ swissStatus: { code: 'permit_c' }, profile: { permitStatus: 'permit_b' }, answers: { work_permit: 'permit_g' } })).toBe('permit_c');
+  });
+
   it('flags every wording of a permit to come, and no catalogue string', () => {
     for (const text of ['permesso G da richiedere', 'Anspruch auf Bewilligung', 'diritto al permesso', 'Bewilligung beantragt', 'éligible au permis G', 'keine Bewilligung nötig',
       'Il permesso mi verrà rilasciato', 'Le permis sera délivré', 'Die Bewilligung wird erteilt', 'permit pending', 'I will apply for a G permit']) {
@@ -230,7 +245,7 @@ describe('form-field wordings (one source for the portal guard and the questions
   it('reads permit and work-authorisation fields in four languages, never a licence', () => {
     for (const label of ['Arbeitserlaubnis', 'Are you legally authorised to work in Switzerland?', 'Do you have the right to work in Switzerland?', 'Will you require sponsorship?',
       'Avez-vous un permis de travail valable en Suisse ?', 'Autorisation de travail', 'Aufenthaltsstatus', 'Titre de séjour', 'Statut de séjour', 'Work authorization status',
-      'Visa status', 'Ausweistyp', 'Qual è il suo stato di autorizzazione al lavoro per Svizzera?', 'Work permit *']) {
+      'Visa status', 'Ausweistyp', 'Qual è il suo stato di autorizzazione al lavoro per Svizzera?', 'Statuto di soggiorno', 'Work permit *']) {
       expect([label, isPermitField(label)]).toEqual([label, true]);
     }
     for (const label of ['Permis de conduire', 'Führerausweis', 'Fahrausweis Kategorie B', 'Berufsausübungsbewilligung', 'Country', 'Aufenthaltsort', 'Land', 'Wohnort', 'Privacy', 'Patente di guida', 'Ausweis-Nr.']) {
