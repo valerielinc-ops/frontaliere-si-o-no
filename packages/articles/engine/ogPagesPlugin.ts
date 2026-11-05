@@ -11,6 +11,7 @@ import path from 'path';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
+import { hasCompleteGoogleEventData } from './shared/googleEventDataQuality.mjs';
 import type { Plugin } from 'vite';
 import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
@@ -1706,7 +1707,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  '@type': 'SpeakableSpecification',
  cssSelector: ['article h1', 'article h2', 'article p'],
  },
- isAccessibleForFree: true,
  };
 
  // Add Event-specific fields from source
@@ -1724,19 +1724,32 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const organizer = parseNestedObj('organizer');
  if (organizer) ldObj.organizer = organizer;
  const offers = parseNestedObj('offers');
- if (offers) {
- // Ensure validFrom is always present (Google recommended field)
- if (!offers.validFrom && startDate) {
- try {
- const sd = new Date(startDate as string);
- sd.setDate(sd.getDate() - 30);
- offers.validFrom = sd.toISOString().replace('Z', '+01:00').replace(/\.\d{3}/, '');
- } catch { /* skip */ }
- }
- ldObj.offers = offers;
- }
+ if (offers) ldObj.offers = offers;
  const performer = parseNestedObj('performer');
  if (performer) ldObj.performer = performer;
+ if (!hasCompleteGoogleEventData(ldObj)) {
+ // The source has not supplied enough facts for Google's Event report. Keep
+ // the public article page discoverable as a WebPage without asserting an
+ // incomplete Event or inventing a ticket date/free-admission claim.
+ ldObj = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ '@id': `${full}#webpage`,
+ name: localizedTitle,
+ description: localizedDesc,
+ image: imageObjectLd({
+ url: imgU,
+ ...(imageCredit ? imageObjectCreditFields(imageCredit) : {}),
+ width: en.imgW,
+ height: en.imgH,
+ }),
+ url: full,
+ inLanguage: locale,
+ author: authorObj,
+ publisher: ORGANIZATION_LD,
+ isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },
+ };
+ }
  } else {
  // NewsArticle — Google News eligibility (Publisher Center answer/9607104)
  ldObj = {
