@@ -137,8 +137,8 @@ describe('Stadtspital Zürich crawler parser', () => {
       { id: '70002', unit: 'Stadtspital Zürich' },
       { id: '70003', unit: 'Verkehrsbetriebe' },
     ]);
-    const currentPortalAdFor = (ref: string) => ({
-      html: '',
+    const currentPortalAdFor = (ref: string, url: string) => ({
+      html: `<link rel="canonical" href="${url}"><div>Referenz-Nr.: ${ref}</div>`,
       descriptionHtml: officialAdFor(ref),
     });
 
@@ -276,7 +276,7 @@ describe('Stadtspital Zürich crawler parser', () => {
       const jobs = await fetchAllStadtspitalZuerichJobs({
         fetchCurrentDetailPage: async (url: string, row: { ref?: string }) => {
           detailCalls.push(url);
-          return currentPortalAdFor(String(row.ref || ''));
+          return currentPortalAdFor(String(row.ref || ''), url);
         },
       });
 

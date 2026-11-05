@@ -59,7 +59,7 @@ import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
 import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
-import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
 import {
   closeAll,
@@ -377,6 +377,83 @@ function currentPortalDetailUrl(row) {
   }
 }
 
+function currentPortalDetailIdentity(rawUrl = '') {
+  const markupDecodedUrl = String(rawUrl || '').replace(/&amp;/gi, '&');
+  try {
+    const url = new URL(markupDecodedUrl, CURRENT_PORTAL_ORIGIN);
+    if (url.origin !== CURRENT_PORTAL_ORIGIN) return null;
+    const match = url.pathname.match(/^\/job\/[^/]+\/(\d+)\/?$/);
+    if (!match) return null;
+    return { jobId: match[1] };
+  } catch {
+    return null;
+  }
+}
+
+function htmlAttribute(markup, name) {
+  const match = String(markup || '').match(new RegExp(
+    `(?:^|\\s)${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`,
+    'i',
+  ));
+  return match?.[1] ?? match?.[2] ?? match?.[3] ?? '';
+}
+
+function currentPortalCanonicalUrls(html = '') {
+  const urls = [];
+  for (const match of String(html || '').matchAll(/<link\b[^>]*>/gi)) {
+    const tag = match[0];
+    const rel = htmlAttribute(tag, 'rel').toLowerCase().split(/\s+/).filter(Boolean);
+    if (rel.includes('canonical')) {
+      const href = htmlAttribute(tag, 'href');
+      if (href) urls.push(href);
+    }
+  }
+  for (const match of String(html || '').matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = match[0];
+    const property = (htmlAttribute(tag, 'property') || htmlAttribute(tag, 'name')).toLowerCase();
+    if (property === 'og:url') {
+      const content = htmlAttribute(tag, 'content');
+      if (content) urls.push(content);
+    }
+  }
+  return urls;
+}
+
+function currentPortalReferences(html = '') {
+  const text = normalizeSpace(stripHtml(String(html || '')));
+  const refs = new Set();
+  const pattern = /\bReferenz(?:\s*[-‐‑‒–—]\s*|\s+)Nr\.?\s*:?\s*([A-Za-z0-9][A-Za-z0-9_-]{0,63})\b/giu;
+  for (const match of text.matchAll(pattern)) refs.add(String(match[1]).toLowerCase());
+  return refs;
+}
+
+function currentPortalDetailMatches(row, payload, requestedUrl) {
+  const expectedUrl = currentPortalDetailIdentity(requestedUrl);
+  if (!expectedUrl) return false;
+
+  const urls = [
+    ...currentPortalCanonicalUrls(payload?.html || ''),
+    payload?.url,
+    payload?.finalUrl,
+  ].filter((value) => typeof value === 'string' && value.trim());
+  let urlMatched = false;
+  for (const rawUrl of urls) {
+    const identity = currentPortalDetailIdentity(rawUrl);
+    if (!identity || identity.jobId !== expectedUrl.jobId) return false;
+    urlMatched = true;
+  }
+
+  const references = currentPortalReferences(payload?.html || '');
+  if (references.size > 1) return false;
+  const expectedRef = String(row?.ref || '').trim().toLowerCase();
+  const referenceMatched = references.size === 1 && references.has(expectedRef);
+  if (references.size === 1 && !referenceMatched) return false;
+
+  // The fallback may expose either the official reference or the current
+  // portal's canonical detail URL. If both are present, both must agree.
+  return referenceMatched || urlMatched;
+}
+
 /**
  * Pick the source-backed body from a hydrated current-portal detail page.
  * The shared CSB parser handles the normal property/microdata shapes; the
@@ -394,16 +471,18 @@ function parseCurrentPortalDetail({ html = '', descriptionHtml = '' } = {}) {
 
 async function readRenderedCurrentPortalDescription(page) {
   try {
-    return await page.evaluate((selector) => {
+    return await page.evaluate(({ selector, minWords }) => {
       const candidates = [...document.querySelectorAll(selector)]
-        .map((node) => ({
-          html: node.innerHTML || '',
-          textLength: (node.textContent || '').trim().length,
-        }))
-        .filter((candidate) => candidate.html && candidate.textLength > 0)
-        .sort((left, right) => right.textLength - left.textLength);
+        .map((node) => {
+          const text = (node.textContent || '').trim();
+          const wordCount = text.split(/\s+/)
+            .filter((token) => /[\p{L}\p{N}]/u.test(token)).length;
+          return { html: node.innerHTML || '', wordCount };
+        })
+        .filter((candidate) => candidate.html && candidate.wordCount >= minWords)
+        .sort((left, right) => right.wordCount - left.wordCount || right.html.length - left.html.length);
       return candidates[0]?.html || '';
-    }, CURRENT_DETAIL_SELECTORS);
+    }, { selector: CURRENT_DETAIL_SELECTORS, minWords: MIN_SOURCE_BODY_WORDS });
   } catch {
     return '';
   }
@@ -415,14 +494,22 @@ async function fetchCurrentPortalDetailWithBrowser(context, url, delayMs) {
     page = await fetchWithRateLimit(context, url, {
       minDelayMs: Math.max(delayMs, CURRENT_DETAIL_MIN_DELAY_MS),
     });
-    await page.waitForSelector(CURRENT_DETAIL_SELECTORS, {
-      timeout: CURRENT_DETAIL_WAIT_MS,
-      state: 'attached',
-    }).catch(() => {
+    await page.waitForFunction(
+      ({ selector, minWords }) => [...document.querySelectorAll(selector)].some((node) => {
+        const words = String(node.textContent || '')
+          .trim()
+          .split(/\s+/)
+          .filter((token) => /[\p{L}\p{N}]/u.test(token));
+        return words.length >= minWords;
+      }),
+      { selector: CURRENT_DETAIL_SELECTORS, minWords: MIN_SOURCE_BODY_WORDS },
+      { timeout: CURRENT_DETAIL_WAIT_MS },
+    ).catch(() => {
       // `page.content()` below still captures a server-rendered CSB body if a
       // tenant changes the selector without changing the detail contract.
     });
     return {
+      url: page.url(),
       html: await page.content(),
       descriptionHtml: await readRenderedCurrentPortalDescription(page),
     };
@@ -441,7 +528,7 @@ async function fetchCurrentPortalDetailWithBrowser(context, url, delayMs) {
  * @param {Set<string>} wantedRefs
  * @param {number} delayMs
  * @param {Array<{ ref?: string, path?: string }>} detailRows
- * @param {{ publicationByRef?: Map<string, ReturnType<typeof sourcePostingDateFields>>, fetchCurrentDetailPage?: (url: string, row: object) => Promise<string|{html?: string, descriptionHtml?: string}> }} options
+ * @param {{ publicationByRef?: Map<string, ReturnType<typeof sourcePostingDateFields>>, fetchCurrentDetailPage?: (url: string, row: object) => Promise<string|{url?: string, finalUrl?: string, html?: string, descriptionHtml?: string}> }} options
  * @returns {Promise<Map<string, string>>}
  */
 async function fetchCurrentPortalAdTexts(wantedRefs, delayMs, detailRows, {
@@ -478,6 +565,10 @@ async function fetchCurrentPortalAdTexts(wantedRefs, delayMs, detailRows, {
         const payload = typeof fetched === 'string' ? { html: fetched } : (fetched || {});
         const description = parseCurrentPortalDetail(payload);
         if (!description) continue;
+        if (!currentPortalDetailMatches(row, payload, url)) {
+          console.warn(`  ⚠️ Current portal detail identity mismatch: expected ref ${ref} / ${url}`);
+          continue;
+        }
         byRef.set(ref, description);
         publicationByRef?.set(ref, officialAdPublication(payload.html || '', url));
       } catch (err) {
@@ -509,7 +600,7 @@ async function fetchCurrentPortalAdTexts(wantedRefs, delayMs, detailRows, {
  *
  * @param {Set<string>} wantedRefs Referenz-Nr. of the tiles to fill
  * @param {number} delayMs pause between two ad pages
- * @param {{ unit?: RegExp, publicationByRef?: Map<string, ReturnType<typeof sourcePostingDateFields>>, detailRows?: Array<{ ref?: string, path?: string }>, fetchCurrentDetailPage?: (url: string, row: object) => Promise<string|{html?: string, descriptionHtml?: string}> }} [options]
+ * @param {{ unit?: RegExp, publicationByRef?: Map<string, ReturnType<typeof sourcePostingDateFields>>, detailRows?: Array<{ ref?: string, path?: string }>, fetchCurrentDetailPage?: (url: string, row: object) => Promise<string|{url?: string, finalUrl?: string, html?: string, descriptionHtml?: string}> }} [options]
  * @returns {Promise<Map<string, string>>}
  */
 export async function fetchOfficialAdTexts(wantedRefs, delayMs, {

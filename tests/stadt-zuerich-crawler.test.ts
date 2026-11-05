@@ -214,6 +214,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     + `<div id="job-${id}-desktop-section-customfield2-value">Grün Stadt Zürich</div>`
     + `<div id="job-${id}-desktop-section-adcode-value">${ref}</div></li>`;
   const listing = `<ul>${tile('1101', 'Gärtner*in', '51726')}${tile('1102', 'Werkstattleiter*in', '99999')}</ul>`;
+  const detailIdentity = (url: string, ref: string) => `<link rel="canonical" href="${url}"><div>Referenz-Nr.: ${ref}</div>`;
 
   function mockPortal({ indexOk, directAdOk = false }: { indexOk: boolean; directAdOk?: boolean }) {
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
@@ -256,7 +257,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
       fetchCurrentDetailPage: async (url: string, row: { ref?: string }) => {
         detailCalls.push(url);
         return row.ref === '51726'
-          ? { html: '', descriptionHtml: fixture }
+          ? { html: detailIdentity(url, String(row.ref)), descriptionHtml: fixture }
           : { html: '', descriptionHtml: '<p>Nur ein kurzer Eintrag.</p>' };
       },
     });
@@ -267,6 +268,26 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
       'https://jobs.stadt-zuerich.ch/job/1101/1101/',
       'https://jobs.stadt-zuerich.ch/job/1102/1102/',
     ]);
+  }, 20_000);
+
+  it('does not attribute a hydrated body when the fetched detail identity is another posting', async () => {
+    mockPortal({ indexOk: false });
+    const jobs = await fetchAllStadtZuerichJobs({
+      fetchCurrentDetailPage: async (url: string, row: { ref?: string }) => {
+        if (row.ref === '51726') {
+          return {
+            html: detailIdentity('https://jobs.stadt-zuerich.ch/job/other/2202/', '99999'),
+            descriptionHtml: fixture,
+          };
+        }
+        return {
+          html: detailIdentity(url, '99999'),
+          descriptionHtml: fixture.replace(/51726/g, '99999'),
+        };
+      },
+    });
+
+    expect(jobs.map((job) => job.referenceNumber)).toEqual(['99999']);
   }, 20_000);
 
   it('fails the run when neither official source can be read', async () => {
