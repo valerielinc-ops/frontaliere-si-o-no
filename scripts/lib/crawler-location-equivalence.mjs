@@ -140,12 +140,13 @@ export function compareCrawlerPublishedLocation({
   const publishedKey = canonicalCrawlerLocationKey(published, publishedCanton);
 
   // Do not let a Swiss homonym inside a foreign compound (for example
-  // `Baden-Württemberg`) certify the published locality. If both sides are
-  // explicitly foreign, the location audit is not the authority that decides
-  // between those foreign places; retain the conservative unknown result.
+  // `Baden-Württemberg`) certify the published locality. A foreign source can
+  // contradict the published value only when that value supplies concrete
+  // Swiss locality evidence; facility/work-mode labels such as `Remote` do
+  // not prove a rewritten municipality.
   const sourceForeign = isLocationExplicitlyForeign(source);
   const publishedForeign = isLocationExplicitlyForeign(published);
-  if (sourceForeign && !publishedForeign) return 'different';
+  if (sourceForeign && !publishedForeign && (publishedKey || publishedPostal)) return 'different';
   // Keep the foreign guard symmetric when the source has concrete Swiss
   // evidence. An explicitly foreign published city is a rewrite, while a
   // regional/facility label without a municipality or postal place remains

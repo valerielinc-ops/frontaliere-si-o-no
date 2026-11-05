@@ -28,6 +28,13 @@ describe('crawler/published location equivalence', () => {
     })).toBe('different');
   });
 
+  it('does not treat a non-locality published label as Swiss evidence', () => {
+    expect(compareCrawlerPublishedLocation({
+      sourceLocation: 'Milan, Italy',
+      publishedLocation: 'Remote',
+    })).toBe('unknown');
+  });
+
   it('uses a source postal locality for facility and sub-locality labels', () => {
     expect(compareCrawlerPublishedLocation({
       sourceLocation: 'Hirslanden Salem-Spital',
