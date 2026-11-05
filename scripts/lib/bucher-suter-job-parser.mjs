@@ -72,6 +72,7 @@ import {
   WAF_IP_BLOCK_STATUS,
   isConnectionLevelFetchError,
 } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
@@ -97,6 +98,17 @@ const HQ = getCompanyDefaults(BUCHER_SUTER_KEY) || {
 const BASE_URL = 'https://www.bucher-suter.com';
 const LISTING_PAGE_CAP = 50;
 const API_URL = `${BASE_URL}/wp-json/wp/v2/job-listings?per_page=${LISTING_PAGE_CAP}`;
+
+function markWordPressZeroIfDeclared(listings, response) {
+  if (!Array.isArray(listings) || listings.length !== 0) return listings;
+  const total = String(response?.headers?.get?.('x-wp-total') || '').trim();
+  const totalPages = String(response?.headers?.get?.('x-wp-totalpages') || '').trim();
+  if (total !== '0' || totalPages !== '0') return listings;
+  return markAuthoritativeEmptySnapshot(
+    listings,
+    'WordPress REST job-listings response declares X-WP-Total=0 and X-WP-TotalPages=0',
+  );
+}
 
 /* ── Discovery: WordPress REST API listing metadata ─────────────────── */
 
@@ -125,7 +137,11 @@ const API_URL = `${BASE_URL}/wp-json/wp/v2/job-listings?per_page=${LISTING_PAGE_
  */
 export async function fetchJobListingsMeta() {
   try {
-    return await fetchJson(API_URL, { label: 'Bucher + Suter WP REST job-listings' });
+    const { data, response } = await fetchJson(API_URL, {
+      label: 'Bucher + Suter WP REST job-listings',
+      returnResponse: true,
+    });
+    return markWordPressZeroIfDeclared(data, response);
   } catch (err) {
     if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) throw err;
     console.warn(`   ⚠️ Direct fetch to WP REST job-listings blocked (${err?.message || err}) — retrying via Jina clean-IP proxy...`);
@@ -252,9 +268,15 @@ export async function fetchAllBucherSuterJobs() {
   console.log(`   Source: ${API_URL}\n`);
 
   const listings = await fetchJobListingsMeta();
-  if (!Array.isArray(listings) || listings.length === 0) {
+  if (!Array.isArray(listings)) {
     console.warn('⚠️ No job listings returned from WordPress API.');
     return [];
+  }
+  if (listings.length === 0) {
+    console.warn('⚠️ No job listings returned from WordPress API.');
+    // Keep the exact array instance: a source-proven zero is carried by the
+    // shared non-enumerable stamp and must reach the standard pipeline intact.
+    return listings;
   }
 
   console.log(`   📋 WordPress job listings found: ${listings.length}`);
