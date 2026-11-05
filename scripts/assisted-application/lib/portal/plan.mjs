@@ -1420,10 +1420,11 @@ function languageAnswerForField(candidate, field) {
 }
 
 function isYesNoPermitQuestion(label) {
-  // A later "do you hold" can belong to a wh-question asking for the permit
-  // itself ("Which work authorization do you hold?"). Only a yes/no question
-  // opener permits converting a confirmed permit status into a boolean.
-  return /^\s*(?:do you|does the candidate|are you|have you|hast du|haben sie|hältst du|halten sie|(?:est[- ]ce que )?(?:vous|tu) avez|avez[- ]vous|détenez[- ]vous|detenez[- ]vous|hai|detieni|possiedi|(?:sei|è) in possesso|tienes|tiene usted)\b/i.test(String(label || ''));
+  // A later "do you hold" can belong to a wh-question asking which permit the
+  // candidate has. Require a held-status predicate, so neither that question
+  // nor an indirect "do you know which permit" converts status into a boolean.
+  const text = String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/^[\s¿¡]+/, '');
+  return /^(?:do you(?:\s+(?:currently|at present))?\s+(?:hold|have|possess|own)|does the candidate(?:\s+(?:currently|at present))?\s+(?:hold|have|possess|own)|are you(?:\s+(?:currently|legally))?\s+(?:authorized|authorised|permitted|entitled)|have you(?:\s+ever)?\s+(?:been\s+(?:granted|issued|authorized|authorised)|received|obtained)|can you(?:\s+legally)?\s+(?:work|be employed)|(?:est[- ]ce que\s*)?(?:vous|tu)\s+(?:avez|etes|detenez|possedez)|(?:avez|etes|detenez|possedez)[- ]vous|(?:haben sie|hast du)(?:\s+(?:aktuell|derzeit|schon|bereits))?\s+(?:ein(?:e|en|em|er)?|den|die|das)|(?:sind sie|bist du)\s+(?:berechtigt|autorisiert|im besitz)|besitzen sie\s+(?:ein(?:e|en|em|er)?|den|die|das)|verfugen sie\s+(?:uber|ueber)|(?:haltst du|halten sie)\s+(?:ein(?:e|en|em|er)?|den|die|das)|(?:hai|possiedi|detieni)\s+(?:(?:un|una|il|la)\s+)?(?:permesso|autorizzazione|visa)|(?:sei|e)\s+(?:in possesso|autorizzat\w*|abilitat\w*|titolare)|(?:tienes|tiene usted)\s+(?:(?:un|una|el|la)\s+)?(?:permiso|visa|autorizacion|derecho)|(?:eres|estas(?: usted)?)\s+(?:autorizad[oa]|habilitad[oa]|titular|en posesion)|puedes\s+trabajar)\b/i.test(text);
 }
 
 const SALUTATION_FIELD_RE = /\b(?:anrede|salutation|appellativo|civilit[ée]|form of address|how (?:would|should) you like to be addressed|how should you be addressed in (?:your )?application|how do you want to be addressed|how would you like us to address you|preferred form of address|come vuoi essere indicat[oa] (?:nei|negli) moduli(?: di candidatura)?|wie m(?:ö|oe)chten sie angesprochen werden|comment souhaitez[- ]vous (?:être|etre) appel[ée]e?|comment devons[- ]nous vous appeler)\b/i;
