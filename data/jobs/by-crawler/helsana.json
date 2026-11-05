@@ -2897,12 +2897,12 @@
     },
     {
       "id": "helsana-a7507b24e1d8",
-      "slug": "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf-stettbach",
+      "slug": "ritiro-temporaneo-del-debito-dei-dipendenti-a-80-100-temporaneo-fino-al-febbraio-2027-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "de": "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf",
-        "it": "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf-stettbach",
-        "en": "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf",
-        "fr": "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf"
+        "it": "ritiro-temporaneo-del-debito-dei-dipendenti-a-80-100-temporaneo-fino-al-febbraio-2027-helsana-dubendorf-stettbach",
+        "en": "temporary-employee-debt-collection-a-80-100-temporary-until-february-2027-helsana-dubendorf-stettbach",
+        "fr": "recouvrement-temporaire-de-la-dette-des-employes-a-80-100-temporaire-jusqu-en-fevrier-2027-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2949,11 +2949,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf",
+          "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf"
+        ],
+        "fr": [
           "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf"
         ]
       },
       "previousSlugs": [
-        "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf"
+        "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf",
+        "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf-stettbach"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

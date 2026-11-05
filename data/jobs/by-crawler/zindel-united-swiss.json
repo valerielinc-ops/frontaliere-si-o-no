@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zindel-united-swiss-da9acb8d958b",
-      "slug": "disegnatore-trice-fach-richtung-architektur-zindel-co-ag-maienfeld",
+      "slug": "disegnatore-trice-indirizzo-architettura-zindel-co-ag-7304-maienfeld",
       "slugByLocale": {
         "de": "zeichner-in-fach-shy-richtung-architektur-7304-maienfeld-zindel-united-swiss-ch",
-        "it": "disegnatore-trice-fach-richtung-architektur-zindel-co-ag-maienfeld",
-        "en": "zeichner-in-fach-shy-richtung-architektur-7304-maienfeld-zindel-united-swiss-ch",
-        "fr": "zeichner-in-fach-shy-richtung-architektur-7304-maienfeld-zindel-united-swiss-ch"
+        "it": "disegnatore-trice-indirizzo-architettura-zindel-co-ag-7304-maienfeld",
+        "en": "architectural-drafter-zindel-co-ag-7304-maienfeld",
+        "fr": "dessinateur-trice-orientation-architecture-zindel-co-ag-7304-maienfeld"
       },
       "company": "Zindel + Co. AG",
       "companyKey": "zindel-united-swiss",
@@ -58,11 +58,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zeichner-in-fach-shy-richtung-architektur-7304-maienfeld-zindel-united-swiss-ch",
+          "disegnatore-trice-fach-richtung-architektur-zindel-co-ag-maienfeld"
+        ],
+        "en": [
+          "zeichner-in-fach-shy-richtung-architektur-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "fr": [
           "zeichner-in-fach-shy-richtung-architektur-7304-maienfeld-zindel-united-swiss-ch"
         ]
       },
       "previousSlugs": [
-        "zeichner-in-fach-shy-richtung-architektur-7304-maienfeld-zindel-united-swiss-ch"
+        "zeichner-in-fach-shy-richtung-architektur-7304-maienfeld-zindel-united-swiss-ch",
+        "disegnatore-trice-fach-richtung-architektur-zindel-co-ag-maienfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -85,12 +93,12 @@
     },
     {
       "id": "zindel-united-swiss-13fcdd2e8e4a",
-      "slug": "grundbauer-in-efz-7304-maienfeld-zindel-united-swiss-ch",
+      "slug": "costruttore-trice-di-fondazioni-afc-zindel-co-ag-7304-maienfeld",
       "slugByLocale": {
         "de": "grundbauer-in-efz-7304-maienfeld-zindel-united-swiss-ch",
-        "it": "grundbauer-in-efz-7304-maienfeld-zindel-united-swiss-ch",
-        "en": "grundbauer-in-efz-7304-maienfeld-zindel-united-swiss-ch",
-        "fr": "grundbauer-in-efz-7304-maienfeld-zindel-united-swiss-ch"
+        "it": "costruttore-trice-di-fondazioni-afc-zindel-co-ag-7304-maienfeld",
+        "en": "foundation-builder-efz-zindel-co-ag-7304-maienfeld",
+        "fr": "constructeur-trice-de-fondations-cfc-zindel-co-ag-7304-maienfeld"
       },
       "company": "Zindel + Co. AG",
       "companyKey": "zindel-united-swiss",
@@ -153,16 +161,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:50:33.803Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:50:33.803Z"
+      "firstSeenAt": "2026-11-04T21:50:33.803Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "grundbauer-in-efz-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "en": [
+          "grundbauer-in-efz-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "fr": [
+          "grundbauer-in-efz-7304-maienfeld-zindel-united-swiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "grundbauer-in-efz-7304-maienfeld-zindel-united-swiss-ch"
+      ]
     },
     {
       "id": "zindel-united-swiss-70297c4d7ea9",
-      "slug": "strassentransport-shy-fachleute-7304-maienfeld-zindel-united-swiss-ch",
+      "slug": "professionisti-del-trasporto-stradale-zindel-co-ag-7304-maienfeld",
       "slugByLocale": {
         "de": "strassentransport-shy-fachleute-7304-maienfeld-zindel-united-swiss-ch",
-        "it": "strassentransport-shy-fachleute-7304-maienfeld-zindel-united-swiss-ch",
-        "en": "strassentransport-shy-fachleute-7304-maienfeld-zindel-united-swiss-ch",
-        "fr": "strassentransport-shy-fachleute-7304-maienfeld-zindel-united-swiss-ch"
+        "it": "professionisti-del-trasporto-stradale-zindel-co-ag-7304-maienfeld",
+        "en": "road-transport-professionals-zindel-co-ag-7304-maienfeld",
+        "fr": "professionnels-des-transports-routiers-zindel-co-ag-7304-maienfeld"
       },
       "company": "Zindel + Co. AG",
       "companyKey": "zindel-united-swiss",
@@ -224,16 +246,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:50:33.802Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:50:33.802Z"
+      "firstSeenAt": "2026-11-04T21:50:33.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strassentransport-shy-fachleute-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "en": [
+          "strassentransport-shy-fachleute-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "fr": [
+          "strassentransport-shy-fachleute-7304-maienfeld-zindel-united-swiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strassentransport-shy-fachleute-7304-maienfeld-zindel-united-swiss-ch"
+      ]
     },
     {
       "id": "zindel-united-swiss-315f3e28314a",
-      "slug": "produktions-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch",
+      "slug": "meccanico-a-di-produzione-zindel-co-ag-7304-maienfeld",
       "slugByLocale": {
         "de": "produktions-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch",
-        "it": "produktions-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch",
-        "en": "produktions-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch",
-        "fr": "produktions-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+        "it": "meccanico-a-di-produzione-zindel-co-ag-7304-maienfeld",
+        "en": "production-mechanic-zindel-co-ag-7304-maienfeld",
+        "fr": "mecanicien-ne-de-production-zindel-co-ag-7304-maienfeld"
       },
       "company": "Zindel + Co. AG",
       "companyKey": "zindel-united-swiss",
@@ -296,16 +332,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:50:33.798Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:50:33.798Z"
+      "firstSeenAt": "2026-11-04T21:50:33.798Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktions-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "en": [
+          "produktions-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "fr": [
+          "produktions-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "produktions-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+      ]
     },
     {
       "id": "zindel-united-swiss-1926bc07b3a0",
-      "slug": "maurer-in-7304-maienfeld-zindel-united-swiss-ch",
+      "slug": "muratore-trice-zindel-co-ag-7304-maienfeld",
       "slugByLocale": {
         "de": "maurer-in-7304-maienfeld-zindel-united-swiss-ch",
-        "it": "maurer-in-7304-maienfeld-zindel-united-swiss-ch",
-        "en": "maurer-in-7304-maienfeld-zindel-united-swiss-ch",
-        "fr": "maurer-in-7304-maienfeld-zindel-united-swiss-ch"
+        "it": "muratore-trice-zindel-co-ag-7304-maienfeld",
+        "en": "mason-zindel-co-ag-7304-maienfeld",
+        "fr": "macon-ne-zindel-co-ag-7304-maienfeld"
       },
       "company": "Zindel + Co. AG",
       "companyKey": "zindel-united-swiss",
@@ -368,16 +418,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:50:33.797Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:50:33.797Z"
+      "firstSeenAt": "2026-11-04T21:50:33.797Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maurer-in-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "en": [
+          "maurer-in-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "fr": [
+          "maurer-in-7304-maienfeld-zindel-united-swiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "maurer-in-7304-maienfeld-zindel-united-swiss-ch"
+      ]
     },
     {
       "id": "zindel-united-swiss-0718b13078f6",
-      "slug": "baumaschinen-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch",
+      "slug": "meccanico-a-di-macchine-edili-zindel-co-ag-7304-maienfeld",
       "slugByLocale": {
         "de": "baumaschinen-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch",
-        "it": "baumaschinen-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch",
-        "en": "baumaschinen-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch",
-        "fr": "baumaschinen-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+        "it": "meccanico-a-di-macchine-edili-zindel-co-ag-7304-maienfeld",
+        "en": "construction-machinery-mechanic-zindel-co-ag-7304-maienfeld",
+        "fr": "mecanicien-ne-de-machines-de-chantier-zindel-co-ag-7304-maienfeld"
       },
       "company": "Zindel + Co. AG",
       "companyKey": "zindel-united-swiss",
@@ -440,16 +504,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:50:33.795Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:50:33.795Z"
+      "firstSeenAt": "2026-11-04T21:50:33.795Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinen-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "en": [
+          "baumaschinen-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "fr": [
+          "baumaschinen-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinen-shy-mechaniker-in-7304-maienfeld-zindel-united-swiss-ch"
+      ]
     },
     {
       "id": "zindel-united-swiss-49e573a29a8d",
-      "slug": "kauffrau-kaufmann-cfc-branche-bauen-e-wohnen-zindel-co-ag-maienfeld",
+      "slug": "impiegata-impiegato-di-commercio-afc-settore-edilizia-e-abitazione-zindel-co-ag-7304-maienfeld",
       "slugByLocale": {
         "de": "kauffrau-kaufmann-efz-branche-bauen-und-wohnen-7304-maienfeld-zindel-united-swiss-ch",
-        "it": "kauffrau-kaufmann-cfc-branche-bauen-e-wohnen-zindel-co-ag-maienfeld",
-        "en": "kauffrau-kaufmann-efz-branche-bauen-und-wohnen-7304-maienfeld-zindel-united-swiss-ch",
-        "fr": "kauffrau-kaufmann-efz-branche-bauen-und-wohnen-7304-maienfeld-zindel-united-swiss-ch"
+        "it": "impiegata-impiegato-di-commercio-afc-settore-edilizia-e-abitazione-zindel-co-ag-7304-maienfeld",
+        "en": "commercial-employee-efz-construction-and-housing-sector-zindel-co-ag-7304-maienfeld",
+        "fr": "employee-employe-de-commerce-cfc-branche-construction-et-habitat-zindel-co-ag-7304-maienfeld"
       },
       "company": "Zindel + Co. AG",
       "companyKey": "zindel-united-swiss",
@@ -497,11 +575,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "kauffrau-kaufmann-efz-branche-bauen-und-wohnen-7304-maienfeld-zindel-united-swiss-ch",
+          "kauffrau-kaufmann-cfc-branche-bauen-e-wohnen-zindel-co-ag-maienfeld"
+        ],
+        "en": [
+          "kauffrau-kaufmann-efz-branche-bauen-und-wohnen-7304-maienfeld-zindel-united-swiss-ch"
+        ],
+        "fr": [
           "kauffrau-kaufmann-efz-branche-bauen-und-wohnen-7304-maienfeld-zindel-united-swiss-ch"
         ]
       },
       "previousSlugs": [
-        "kauffrau-kaufmann-efz-branche-bauen-und-wohnen-7304-maienfeld-zindel-united-swiss-ch"
+        "kauffrau-kaufmann-efz-branche-bauen-und-wohnen-7304-maienfeld-zindel-united-swiss-ch",
+        "kauffrau-kaufmann-cfc-branche-bauen-e-wohnen-zindel-co-ag-maienfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -1695,7 +1695,7 @@
         "de": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",
         "it": "infermiere-certificata-hf-fh-m-f-d-60-90-nel-team-di-demenza-spitex-burgdorf-oberburg-burgdorf",
         "en": "certified-nurse-hf-fh-m-f-d-60-90-in-the-dementia-team-spitex-burgdorf-oberburg-burgdorf",
-        "fr": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-burgdorf-oberburg-burgdorf"
+        "fr": "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf"
       },
       "company": "Spitex Burgdorf-Oberburg",
       "companyKey": "spitex-ch",
@@ -1747,12 +1747,12 @@
           "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf"
         ],
         "fr": [
-          "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf"
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-burgdorf-oberburg-burgdorf"
         ]
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",
-        "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf"
+        "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-burgdorf-oberburg-burgdorf"
       ],
       "salaryMin": 76500,
       "salaryMax": 107100,
@@ -1774,12 +1774,12 @@
     },
     {
       "id": "spitex-ch-c3140c800768",
-      "slug": "stellvertretende-r-leiter-in-team-psychiatrie-spitex-region-entlebuch-wolhusen",
+      "slug": "vice-responsabile-del-team-di-psichiatria-spitex-region-entlebuch-wolhusen",
       "slugByLocale": {
         "de": "stellvertretende-r-leiter-in-team-psychiatrie-spitex-ch-wolhusen",
-        "it": "stellvertretende-r-leiter-in-team-psychiatrie-spitex-region-entlebuch-wolhusen",
-        "en": "stellvertretende-r-leiter-in-team-psychiatrie-spitex-ch-wolhusen",
-        "fr": "stellvertretende-r-leiter-in-team-psychiatrie-spitex-ch-wolhusen"
+        "it": "vice-responsabile-del-team-di-psichiatria-spitex-region-entlebuch-wolhusen",
+        "en": "deputy-head-of-the-psychiatry-team-spitex-region-entlebuch-wolhusen",
+        "fr": "responsable-adjoint-e-de-l-equipe-de-psychiatrie-spitex-region-entlebuch-wolhusen"
       },
       "company": "Spitex Region Entlebuch",
       "companyKey": "spitex-ch",
@@ -1828,11 +1828,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretende-r-leiter-in-team-psychiatrie-spitex-ch-wolhusen",
+          "stellvertretende-r-leiter-in-team-psychiatrie-spitex-region-entlebuch-wolhusen"
+        ],
+        "en": [
+          "stellvertretende-r-leiter-in-team-psychiatrie-spitex-ch-wolhusen"
+        ],
+        "fr": [
           "stellvertretende-r-leiter-in-team-psychiatrie-spitex-ch-wolhusen"
         ]
       },
       "previousSlugs": [
-        "stellvertretende-r-leiter-in-team-psychiatrie-spitex-ch-wolhusen"
+        "stellvertretende-r-leiter-in-team-psychiatrie-spitex-ch-wolhusen",
+        "stellvertretende-r-leiter-in-team-psychiatrie-spitex-region-entlebuch-wolhusen"
       ],
       "salaryMin": 117000,
       "salaryMax": 163000,

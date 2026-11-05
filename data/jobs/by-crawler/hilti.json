@@ -1093,12 +1093,12 @@
     },
     {
       "id": "hilti-21397-de",
-      "slug": "sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d-hilti-ch",
+      "slug": "account-manager-contabilita-80-100-m-f-d-hilti-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d-hilti-ch",
-        "it": "sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d-hilti-ch",
-        "en": "sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d-hilti-ch",
-        "fr": "sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d-hilti-ch"
+        "it": "account-manager-contabilita-80-100-m-f-d-hilti-zurich-zurich",
+        "en": "account-manager-accounting-80-100-m-f-d-hilti-zurich-zurich",
+        "fr": "gestionnaire-de-comptes-comptabilite-80-100-h-f-d-hilti-zurich-zurich"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1150,23 +1150,27 @@
         "comptabilite-des-debiteurs-80-100-h-f-d-hilti-zurich-zurich",
         "contatori-80-100-m-f-d-hilti-zurich",
         "debitors-accounting-80-100-m-f-d-hilti-zurich",
-        "comptabilite-des-debiteurs-80-100-h-f-d-hilti-zurich"
+        "comptabilite-des-debiteurs-80-100-h-f-d-hilti-zurich",
+        "sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d-hilti-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeitung-debitorenbuchhaltung-80-100-w-m-d-hilti-ch",
           "contatori-80-100-m-f-d-hilti-zurich-zurich",
-          "contatori-80-100-m-f-d-hilti-zurich"
+          "contatori-80-100-m-f-d-hilti-zurich",
+          "sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d-hilti-ch"
         ],
         "en": [
           "sachbearbeitung-debitorenbuchhaltung-80-100-w-m-d-hilti-ch",
           "debitors-accounting-80-100-m-f-d-hilti-zurich-zurich",
-          "debitors-accounting-80-100-m-f-d-hilti-zurich"
+          "debitors-accounting-80-100-m-f-d-hilti-zurich",
+          "sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d-hilti-ch"
         ],
         "fr": [
           "sachbearbeitung-debitorenbuchhaltung-80-100-w-m-d-hilti-ch",
           "comptabilite-des-debiteurs-80-100-h-f-d-hilti-zurich-zurich",
-          "comptabilite-des-debiteurs-80-100-h-f-d-hilti-zurich"
+          "comptabilite-des-debiteurs-80-100-h-f-d-hilti-zurich",
+          "sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d-hilti-ch"
         ],
         "de": [
           "sachbearbeitung-debitorenbuchhaltung-80-100-w-m-d-hilti-ch"
@@ -1363,7 +1367,7 @@
       "slugByLocale": {
         "fr": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "it": "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich",
-        "en": "collaborator-customer-data-management-m-w-d-hilti-zurich",
+        "en": "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
         "de": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-ch"
       },
       "company": "Hilti",
@@ -1413,7 +1417,7 @@
           "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
         ],
         "en": [
-          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+          "collaborator-customer-data-management-m-w-d-hilti-zurich"
         ],
         "de": [
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch"
@@ -1424,7 +1428,8 @@
       },
       "previousSlugs": [
         "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
-        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+        "collaborator-customer-data-management-m-w-d-hilti-zurich"
       ],
       "firstSeenAt": "2026-08-20T10:09:01.466Z",
       "salaryMin": 73500,

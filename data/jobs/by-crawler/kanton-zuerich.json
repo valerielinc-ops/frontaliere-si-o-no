@@ -2475,12 +2475,12 @@
     },
     {
       "id": "kanton-zuerich-cd3ced70624b",
-      "slug": "apprendistato-come-mediamatiker-in-cfc-2027-kantonale-verwaltung-zurich",
+      "slug": "posto-di-apprendistato-come-mediamatico-a-efz-2027-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "lehrstelle-als-mediamatiker-in-efz-2027-kanton-zuerich-zurich",
-        "it": "apprendistato-come-mediamatiker-in-cfc-2027-kantonale-verwaltung-zurich",
-        "en": "lehrstelle-als-mediamatiker-in-efz-2027-kanton-zuerich-zurich",
-        "fr": "lehrstelle-als-mediamatiker-in-efz-2027-kanton-zuerich-zurich"
+        "it": "posto-di-apprendistato-come-mediamatico-a-efz-2027-kantonale-verwaltung-zurich-zurich",
+        "en": "apprenticeship-as-a-media-technologist-efz-2027-kantonale-verwaltung-zurich-zurich",
+        "fr": "place-d-apprentissage-de-mediamaticien-ne-cfc-2027-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2532,11 +2532,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-mediamatiker-in-efz-2027-kanton-zuerich-zurich",
+          "apprendistato-come-mediamatiker-in-cfc-2027-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "lehrstelle-als-mediamatiker-in-efz-2027-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "lehrstelle-als-mediamatiker-in-efz-2027-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-mediamatiker-in-efz-2027-kanton-zuerich-zurich"
+        "lehrstelle-als-mediamatiker-in-efz-2027-kanton-zuerich-zurich",
+        "apprendistato-come-mediamatiker-in-cfc-2027-kantonale-verwaltung-zurich"
       ],
       "salaryMin": 53500,
       "salaryMax": 98500,
@@ -9370,12 +9378,12 @@
     },
     {
       "id": "kanton-zuerich-65bf0cbde431",
-      "slug": "project-portfolio-officer-kanton-zuerich-zurich",
+      "slug": "responsabile-del-portafoglio-progetti-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "project-portfolio-officer-kanton-zuerich-zurich",
-        "it": "project-portfolio-officer-kanton-zuerich-zurich",
+        "it": "responsabile-del-portafoglio-progetti-kantonale-verwaltung-zurich-zurich",
         "en": "project-portfolio-officer-kanton-zuerich-zurich",
-        "fr": "project-portfolio-officer-kanton-zuerich-zurich"
+        "fr": "administrateur-de-portefeuille-de-projet-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9442,16 +9450,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:59:05.041Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:59:05.041Z"
+      "firstSeenAt": "2026-11-04T21:59:05.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-portfolio-officer-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "project-portfolio-officer-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "project-portfolio-officer-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-c52572fec29b",
-      "slug": "apprendistato-come-kochin-koch-cfc-kantonale-verwaltung-zurich",
+      "slug": "posto-di-apprendistato-come-cuoca-cuoco-afc-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "lehrstelle-als-kochin-koch-efz-kanton-zuerich-zurich",
-        "it": "apprendistato-come-kochin-koch-cfc-kantonale-verwaltung-zurich",
-        "en": "lehrstelle-als-kochin-koch-efz-kanton-zuerich-zurich",
-        "fr": "lehrstelle-als-kochin-koch-efz-kanton-zuerich-zurich"
+        "it": "posto-di-apprendistato-come-cuoca-cuoco-afc-kantonale-verwaltung-zurich-zurich",
+        "en": "apprenticeship-as-cook-chef-efz-kantonale-verwaltung-zurich-zurich",
+        "fr": "apprentissage-en-tant-que-cuisinier-chef-efz-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9503,11 +9522,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-kochin-koch-efz-kanton-zuerich-zurich",
+          "apprendistato-come-kochin-koch-cfc-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "lehrstelle-als-kochin-koch-efz-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "lehrstelle-als-kochin-koch-efz-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-kochin-koch-efz-kanton-zuerich-zurich"
+        "lehrstelle-als-kochin-koch-efz-kanton-zuerich-zurich",
+        "apprendistato-come-kochin-koch-cfc-kantonale-verwaltung-zurich"
       ],
       "salaryMin": 53500,
       "salaryMax": 98500,
@@ -12103,12 +12130,12 @@
     },
     {
       "id": "kanton-zuerich-45147a226bba",
-      "slug": "beauftragte-r-berufsfachschulen-kantonale-verwaltung-zurich-zurich",
+      "slug": "scuole-professionali-delegati-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "beauftragte-r-berufsfachschulen-kanton-zuerich-zurich",
-        "it": "beauftragte-r-berufsfachschulen-kantonale-verwaltung-zurich-zurich",
-        "en": "beauftragte-r-berufsfachschulen-kantonale-verwaltung-zurich-zurich",
-        "fr": "beauftragte-r-berufsfachschulen-kantonale-verwaltung-zurich-zurich"
+        "it": "scuole-professionali-delegati-kantonale-verwaltung-zurich-zurich",
+        "en": "delegated-vocational-schools-kantonale-verwaltung-zurich-zurich",
+        "fr": "ecoles-professionnelles-deleguees-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12159,11 +12186,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "beauftragte-r-berufsfachschulen-kanton-zuerich-zurich"
+          "beauftragte-r-berufsfachschulen-kanton-zuerich-zurich",
+          "beauftragte-r-berufsfachschulen-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "beauftragte-r-berufsfachschulen-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "beauftragte-r-berufsfachschulen-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "beauftragte-r-berufsfachschulen-kanton-zuerich-zurich"
+        "beauftragte-r-berufsfachschulen-kanton-zuerich-zurich",
+        "beauftragte-r-berufsfachschulen-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,

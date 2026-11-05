@@ -558,8 +558,8 @@ async function loadAll(db, orderId) {
  * failure refuses the whole save with a message per field.
  * @param {object} [stored] the answers as stored: one kept unchanged is not checked again
  */
-export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', stored = {}, questionAnswers = {}) {
-  const { profile, answers } = candidateWithEdits({ order: {}, draft, flow: { answers: stored, questionAnswers } });
+export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', stored = {}, questionAnswers = {}, order = {}) {
+  const { profile, answers } = candidateWithEdits({ order, draft, flow: { answers: stored, questionAnswers } });
   const allowed = new Map(questionsForCandidate(draft?.questions, profile, answers, questionAnswers, draft).map((question) => [question.id, question]));
   const todayIso = zurichToday(nowMs);
   const out = {};
@@ -1059,7 +1059,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       const reviewFlow = { ...runnerContext.flow, answers: storedAnswers, questionAnswers };
       const candidate = candidateWithEdits({ order, draft, flow: reviewFlow, locale: communicationLocale });
       const visibleQuestions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, questionAnswers, draft);
-      const answers = sanitizeAnswers(body.answers, draft, nowMs, communicationLocale, storedAnswers, questionAnswers);
+      const answers = sanitizeAnswers(body.answers, draft, nowMs, communicationLocale, storedAnswers, questionAnswers, order);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
       const currentRound = Number(runnerContext.flow?.round || flow?.round) || 1;
       const previousDismissals = runnerContext.flow?.answerSuggestionDismissals || flow?.answerSuggestionDismissals;

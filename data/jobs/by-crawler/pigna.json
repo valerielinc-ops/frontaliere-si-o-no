@@ -570,12 +570,12 @@
     },
     {
       "id": "pigna-dfc722ba06ae",
-      "slug": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
+      "slug": "addetto-a-all-assistenza-con-possibilita-di-ricoprire-il-ruolo-di-vice-responsabile-del-team-60-90-stiftung-pigna-kloten",
       "slugByLocale": {
         "de": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
-        "it": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
-        "en": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
-        "fr": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
+        "it": "addetto-a-all-assistenza-con-possibilita-di-ricoprire-il-ruolo-di-vice-responsabile-del-team-60-90-stiftung-pigna-kloten",
+        "en": "operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
+        "fr": "personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten"
       },
       "company": "Stiftung Pigna",
       "companyKey": "pigna",
@@ -638,16 +638,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:35:20.279Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:35:20.279Z"
+      "firstSeenAt": "2026-11-04T21:35:20.279Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
+        ],
+        "en": [
+          "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
+        ],
+        "fr": [
+          "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
+      ]
     },
     {
       "id": "pigna-be50e70cf2eb",
-      "slug": "begleitprofi-per-unseren-springerpool-im-wohnbereich-60-90-stiftung-pigna-kloten",
+      "slug": "professionista-dell-assistenza-per-il-nostro-pool-di-sostituzione-nell-ambito-residenziale-60-90-stiftung-pigna-kloten",
       "slugByLocale": {
         "de": "begleitprofi-fur-unseren-springerpool-im-wohnbereich-60-90-pigna-kloten",
-        "it": "begleitprofi-per-unseren-springerpool-im-wohnbereich-60-90-stiftung-pigna-kloten",
-        "en": "begleitprofi-fur-unseren-springerpool-im-wohnbereich-60-90-pigna-kloten",
-        "fr": "begleitprofi-fur-unseren-springerpool-im-wohnbereich-60-90-pigna-kloten"
+        "it": "professionista-dell-assistenza-per-il-nostro-pool-di-sostituzione-nell-ambito-residenziale-60-90-stiftung-pigna-kloten",
+        "en": "accompanying-profi-for-our-springerpool-in-the-residence-area-60-90-stiftung-pigna-kloten",
+        "fr": "profi-d-accompagner-pour-notre-springerpool-dans-la-zone-de-residence-60-90-stiftung-pigna-kloten"
       },
       "company": "Stiftung Pigna",
       "companyKey": "pigna",
@@ -695,11 +709,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "begleitprofi-fur-unseren-springerpool-im-wohnbereich-60-90-pigna-kloten",
+          "begleitprofi-per-unseren-springerpool-im-wohnbereich-60-90-stiftung-pigna-kloten"
+        ],
+        "en": [
+          "begleitprofi-fur-unseren-springerpool-im-wohnbereich-60-90-pigna-kloten"
+        ],
+        "fr": [
           "begleitprofi-fur-unseren-springerpool-im-wohnbereich-60-90-pigna-kloten"
         ]
       },
       "previousSlugs": [
-        "begleitprofi-fur-unseren-springerpool-im-wohnbereich-60-90-pigna-kloten"
+        "begleitprofi-fur-unseren-springerpool-im-wohnbereich-60-90-pigna-kloten",
+        "begleitprofi-per-unseren-springerpool-im-wohnbereich-60-90-stiftung-pigna-kloten"
       ],
       "salaryMin": 82400,
       "salaryMax": 115200,

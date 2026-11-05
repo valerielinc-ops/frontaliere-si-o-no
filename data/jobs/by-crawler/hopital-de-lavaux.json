@@ -252,12 +252,12 @@
     },
     {
       "id": "hopital-de-lavaux-ad04818d8654",
-      "slug": "ergotherapeute-de-la-main-a-100-hopital-de-lavaux-bourg-en-lavaux",
+      "slug": "100-ergoterapist-hopital-de-lavaux-bourg-en-lavaux",
       "slugByLocale": {
         "fr": "ergotherapeute-de-la-main-a-100-hopital-de-lavaux-bourg-en-lavaux",
-        "it": "ergotherapeute-de-la-main-a-100-hopital-de-lavaux-bourg-en-lavaux",
-        "en": "ergotherapeute-de-la-main-a-100-hopital-de-lavaux-bourg-en-lavaux",
-        "de": "ergotherapeute-de-la-main-a-100-hopital-de-lavaux-bourg-en-lavaux"
+        "it": "100-ergoterapist-hopital-de-lavaux-bourg-en-lavaux",
+        "en": "100-ergotherapist-hopital-de-lavaux-bourg-en-lavaux",
+        "de": "100-ergotherapeut-hopital-de-lavaux-bourg-en-lavaux"
       },
       "company": "Hôpital de Lavaux",
       "companyKey": "hopital-de-lavaux",
@@ -320,7 +320,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:16:45.081Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:16:45.081Z"
+      "firstSeenAt": "2026-11-04T21:16:45.081Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-de-la-main-a-100-hopital-de-lavaux-bourg-en-lavaux"
+        ],
+        "en": [
+          "ergotherapeute-de-la-main-a-100-hopital-de-lavaux-bourg-en-lavaux"
+        ],
+        "de": [
+          "ergotherapeute-de-la-main-a-100-hopital-de-lavaux-bourg-en-lavaux"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-de-la-main-a-100-hopital-de-lavaux-bourg-en-lavaux"
+      ]
     }
   ]
 }

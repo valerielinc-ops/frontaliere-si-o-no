@@ -79,7 +79,9 @@ export function automationEmailKey(effect, flow) {
 async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   const draftSnapshot = await draftRefFor(db, orderId).get();
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
-  const { profile, answers } = candidateWithEdits({ order: {}, draft, flow });
+  const orderSnapshot = await orderRefFor(db, orderId).get();
+  const order = orderSnapshot.data() || {};
+  const { profile, answers } = candidateWithEdits({ order, draft, flow });
   const candidateQuestions = questionsForCandidate(draft.questions, profile, answers, flow?.questionAnswers, draft);
   const formAnswers = withOperationalQuestionAnswers(candidateQuestions, answers).answers;
   const key = automationEmailKey(effect, flow);
@@ -87,8 +89,6 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   // Build inside sendOrderNotification's claim (it hands us the fresh order).
   let reviewUrl = '';
   if (!isOwner && effect.kind !== 'candidate_posting_closed') {
-    const snapshot = await orderRefFor(db, orderId).get();
-    const order = snapshot.data() || {};
     reviewUrl = await reviewUrlFor(order, orderId, flow.round || 1, resolveOrderLocale(order), deps);
   }
   // Open questions and the required documents still missing (school reports, test results…).

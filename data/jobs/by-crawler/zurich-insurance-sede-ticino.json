@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1376657457",
-      "slug": "working-student-market-management-60-80-6-months-zurich-insurance-sede-ticino-zurich",
+      "slug": "gestione-del-mercato-degli-studenti-di-lavoro-60-80-6-mesi-zurich-insurance-zurich-1376657457",
       "slugByLocale": {
         "en": "working-student-market-management-60-80-6-months-zurich-insurance-sede-ticino-zurich",
-        "it": "working-student-market-management-60-80-6-months-zurich-insurance-sede-ticino-zurich",
+        "it": "gestione-del-mercato-degli-studenti-di-lavoro-60-80-6-mesi-zurich-insurance-zurich-1376657457",
         "de": "working-student-market-management-60-80-6-months-zurich-insurance-sede-ticino-zurich",
-        "fr": "working-student-market-management-60-80-6-months-zurich-insurance-sede-ticino-zurich"
+        "fr": "gestion-du-marche-etudiant-60-80-6-mois-zurich-insurance-zurich-1376657457"
       },
       "slugDisambiguator": "1376657457",
       "company": "Zurich Insurance",
@@ -73,16 +73,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:34:39.485Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:34:39.485Z"
+      "firstSeenAt": "2026-11-04T21:34:39.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-market-management-60-80-6-months-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "working-student-market-management-60-80-6-months-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-market-management-60-80-6-months-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1376648757",
-      "slug": "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-bern-1376648757",
+      "slug": "specialista-di-perdita-team-online-bern-m-f-d-zurich-insurance-bern-1376648757",
       "slugByLocale": {
         "de": "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-sede-ticino-bern",
-        "it": "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-bern-1376648757",
-        "en": "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-bern-1376648757",
-        "fr": "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-bern-1376648757"
+        "it": "specialista-di-perdita-team-online-bern-m-f-d-zurich-insurance-bern-1376648757",
+        "en": "loss-specialist-online-team-bern-m-f-d-zurich-insurance-bern-1376648757",
+        "fr": "specialiste-des-pertes-equipe-en-ligne-bern-h-f-d-zurich-insurance-bern-1376648757"
       },
       "slugDisambiguator": "1376648757",
       "company": "Zurich Insurance",
@@ -131,11 +142,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-sede-ticino-bern"
+          "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-sede-ticino-bern",
+          "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-bern-1376648757"
+        ],
+        "en": [
+          "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-bern-1376648757"
+        ],
+        "fr": [
+          "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-bern-1376648757"
         ]
       },
       "previousSlugs": [
-        "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-sede-ticino-bern"
+        "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-sede-ticino-bern",
+        "schadenspezialist-online-team-bern-m-w-d-zurich-insurance-bern-1376648757"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -157,12 +176,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1376652657",
-      "slug": "schadeninspektor-sach-e-haftpflichtversicherung-region-zurich-e-aargau-m-w-d-zurich-insurance-zurich",
+      "slug": "ispettore-trice-sinistri-assicurazione-cose-e-responsabilita-civile-regione-di-zurigo-e-argovia-m-f-d-zurich-1376652657",
       "slugByLocale": {
         "de": "schadeninspektor-sach-und-haftpflichtversicherung-region-zurich-und-aargau-m-w-d-zurich",
-        "it": "schadeninspektor-sach-e-haftpflichtversicherung-region-zurich-e-aargau-m-w-d-zurich-insurance-zurich",
-        "en": "schadeninspektor-sach-und-haftpflichtversicherung-region-zurich-und-aargau-m-w-d-zurich",
-        "fr": "schadeninspektor-sach-und-haftpflichtversicherung-region-zurich-und-aargau-m-w-d-zurich"
+        "it": "ispettore-trice-sinistri-assicurazione-cose-e-responsabilita-civile-regione-di-zurigo-e-argovia-m-f-d-zurich-1376652657",
+        "en": "property-and-liability-insurance-region-of-zurich-and-aargau-m-f-d-zurich-insurance-zurich-1376652657",
+        "fr": "assurance-des-biens-et-de-la-responsabilite-region-de-zurich-et-aargau-h-f-d-zurich-insurance-zurich-1376652657"
       },
       "slugDisambiguator": "1376652657",
       "company": "Zurich Insurance",
@@ -212,11 +231,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "schadeninspektor-sach-und-haftpflichtversicherung-region-zurich-und-aargau-m-w-d-zurich",
+          "schadeninspektor-sach-e-haftpflichtversicherung-region-zurich-e-aargau-m-w-d-zurich-insurance-zurich"
+        ],
+        "en": [
+          "schadeninspektor-sach-und-haftpflichtversicherung-region-zurich-und-aargau-m-w-d-zurich"
+        ],
+        "fr": [
           "schadeninspektor-sach-und-haftpflichtversicherung-region-zurich-und-aargau-m-w-d-zurich"
         ]
       },
       "previousSlugs": [
-        "schadeninspektor-sach-und-haftpflichtversicherung-region-zurich-und-aargau-m-w-d-zurich"
+        "schadeninspektor-sach-und-haftpflichtversicherung-region-zurich-und-aargau-m-w-d-zurich",
+        "schadeninspektor-sach-e-haftpflichtversicherung-region-zurich-e-aargau-m-w-d-zurich-insurance-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -238,12 +265,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1376700957",
-      "slug": "multinational-insurance-account-executive-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "conto-multinazionale-di-assicurazione-esecutivo-m-f-d-zurich-insurance-zurich-1376700957",
       "slugByLocale": {
         "de": "multinational-insurance-account-executive-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "multinational-insurance-account-executive-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "it": "conto-multinazionale-di-assicurazione-esecutivo-m-f-d-zurich-insurance-zurich-1376700957",
         "en": "multinational-insurance-account-executive-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "multinational-insurance-account-executive-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "compte-d-assurance-multinational-executive-h-f-d-zurich-insurance-zurich-1376700957"
       },
       "slugDisambiguator": "1376700957",
       "company": "Zurich Insurance",
@@ -306,7 +333,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:34:39.485Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:34:39.485Z"
+      "firstSeenAt": "2026-11-04T21:34:39.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "multinational-insurance-account-executive-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "multinational-insurance-account-executive-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "multinational-insurance-account-executive-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1376684057",

@@ -160,7 +160,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
       return { changed: false, reason: 'preserved_answer_incompatible' };
     }
   }
-  const tick = transition(recoveryFlow, { type: 'tick' }, { draft: proposed, answers,
+  const tick = transition(recoveryFlow, { type: 'tick' }, { order, draft: proposed, answers,
     documents: flow.documents || {}, nowMs });
   return { changed: true, questions, updated, queue: tick.effects.some(effect => effect.type === 'dispatch'
     && effect.reason === 'resolved_candidate_answers') };

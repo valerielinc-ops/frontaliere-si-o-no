@@ -651,10 +651,10 @@
     },
     {
       "id": "evam-vaud-8497739",
-      "slug": "intendant-e-100-cdi-evam-vaud-ch",
+      "slug": "hosting-100-cdi-evam-gland",
       "slugByLocale": {
         "fr": "intendant-e-100-cdi-evam-vaud-ch",
-        "it": "intendant-e-100-cdi-evam-vaud-ch",
+        "it": "hosting-100-cdi-evam-gland",
         "en": "intendant-e-100-cdi-evam-vaud-ch",
         "de": "intendant-e-100-cdi-evam-vaud-ch"
       },
@@ -715,7 +715,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-03T21:34:19.376Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T21:39:55.400Z"
+      "firstSeenAt": "2026-10-05T21:39:55.400Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intendant-e-100-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intendant-e-100-cdi-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-8498507",
@@ -887,10 +895,10 @@
     },
     {
       "id": "evam-vaud-8530918",
-      "slug": "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains",
+      "slug": "host-manager-50-cdi-evam-yverdon-les-bains",
       "slugByLocale": {
         "fr": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
-        "it": "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains",
+        "it": "host-manager-50-cdi-evam-yverdon-les-bains",
         "en": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
         "de": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch"
       },
@@ -936,11 +944,13 @@
       "hiringOrganizationName": "EVAM",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-d-accueil-50-cdi-evam-vaud-ch"
+          "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
+          "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-d-accueil-50-cdi-evam-vaud-ch"
+        "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
+        "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains"
       ],
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -1472,11 +1482,11 @@
     },
     {
       "id": "evam-vaud-8642439",
-      "slug": "controleur-euse-de-gestion-100-cdi-evam-vaud-ch",
+      "slug": "controllore-di-gestione-100-cdi-evam-lausanne",
       "slugByLocale": {
         "fr": "controleur-euse-de-gestion-100-cdi-evam-vaud-ch",
-        "it": "controleur-euse-de-gestion-100-cdi-evam-vaud-ch",
-        "en": "controleur-euse-de-gestion-100-cdi-evam-vaud-ch",
+        "it": "controllore-di-gestione-100-cdi-evam-lausanne",
+        "en": "management-controller-100-cdi-evam-lausanne",
         "de": "controleur-euse-de-gestion-100-cdi-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -1536,7 +1546,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-28T21:34:18.985Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:34:18.985Z"
+      "firstSeenAt": "2026-11-04T21:34:18.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-euse-de-gestion-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "controleur-euse-de-gestion-100-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-euse-de-gestion-100-cdi-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-8511521",

@@ -6562,12 +6562,12 @@
     },
     {
       "id": "szb-chb-58a91c497821",
-      "slug": "culture-change-manager-50-szb-chb-biel-bienne",
+      "slug": "responsabile-della-cultura-e-del-cambiamento-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "de": "culture-change-manager-50-szb-chb-biel-bienne",
-        "it": "culture-change-manager-50-szb-chb-biel-bienne",
+        "it": "responsabile-della-cultura-e-del-cambiamento-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "culture-change-manager-50-szb-chb-biel-bienne",
-        "fr": "culture-change-manager-50-szb-chb-biel-bienne"
+        "fr": "gestionnaire-de-la-culture-et-du-changement-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6631,16 +6631,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:26:30.969Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:26:30.969Z"
+      "firstSeenAt": "2026-11-04T21:26:30.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "culture-change-manager-50-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "culture-change-manager-50-szb-chb-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "culture-change-manager-50-szb-chb-biel-bienne"
+      ]
     },
     {
       "id": "szb-chb-633f826e1aad",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "dipl-cura-dell-anestesia-esperto-esperta-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-szb-chb-biel-bienne",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "it": "dipl-cura-dell-anestesia-esperto-esperta-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "dipl-expert-expert-anesthesia-care-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "dipl-soins-d-anesthesie-expert-expert-snd-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6688,11 +6699,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-szb-chb-biel-bienne"
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-szb-chb-biel-bienne",
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-szb-chb-biel-bienne"
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-szb-chb-biel-bienne",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-20-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "salaryMin": 51000,
       "salaryMax": 71400,
