@@ -2516,14 +2516,44 @@ function normalizedQuestionText(value) {
     .replace(/[^\p{L}\p{N}]+/gu, ' ').trim().toLowerCase();
 }
 
+const OPTION_LANGUAGE_MARKERS = Object.freeze({
+  it: Object.freeze(['si', 'no', 'vero', 'falso', 'true', 'false', 'seleziona', 'selezionare']),
+  de: Object.freeze(['ja', 'nein', 'wahr', 'falsch', 'true', 'false', 'bitte wahlen', 'bitte waehlen', 'auswahlen', 'auswaehlen']),
+  fr: Object.freeze(['oui', 'non', 'vrai', 'faux', 'choisir', 'selectionner']),
+  en: Object.freeze(['yes', 'no', 'true', 'false', 'select', 'choose', 'please select', 'select an option']),
+});
+
+const OPTION_FALLBACK_MARKERS = Object.freeze({
+  yes: Object.freeze(['yes', 'ja', 'si', 'oui', 'vero', 'true']),
+  no: Object.freeze(['no', 'nein', 'non', 'falso', 'false']),
+  placeholder: Object.freeze([
+    'select', 'seleziona', 'selezionare', 'please select', 'bitte wahlen', 'bitte waehlen',
+    'auswahlen', 'auswaehlen', 'choisir', 'selectionner', 'choose', 'select an option',
+  ]),
+});
+
 function fallbackOption(option, language) {
   const text = String(option || '').trim();
   const normalized = normalizedQuestionText(text);
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  if (/^(?:yes|ja|si|sì|oui|vero|true)$/.test(normalized)) return fallback.yes;
-  if (/^(?:no|nein|non|falso|false)$/.test(normalized)) return fallback.no;
-  if (/^(?:select|seleziona|selezionare|please select|bitte wahlen|bitte waehlen|auswahlen|auswaehlen|choisir|selectionner|choose|select an option)$/.test(normalized)) return fallback.placeholder;
+  if (OPTION_FALLBACK_MARKERS.yes.includes(normalized)) return fallback.yes;
+  if (OPTION_FALLBACK_MARKERS.no.includes(normalized)) return fallback.no;
+  if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)) return fallback.placeholder;
   return text;
+}
+
+function optionsMatchCandidateLanguage(options, candidateLanguage) {
+  const candidateMarkers = OPTION_LANGUAGE_MARKERS[candidateLanguage] || [];
+  const hasKnownForeignMarker = options.some((option) => {
+    const normalized = normalizedQuestionText(option);
+    if (candidateMarkers.includes(normalized)) return false;
+    return Object.entries(OPTION_LANGUAGE_MARKERS)
+      .some(([language, markers]) => language !== candidateLanguage && markers.includes(normalized));
+  });
+  if (hasKnownForeignMarker) return false;
+  if (options.every((option) => candidateMarkers.includes(normalizedQuestionText(option)))) return true;
+  const detected = detectLanguageWithConfidence(options.join(' '), candidateLanguage);
+  return detected.lang === candidateLanguage && detected.confidence >= SAME_LANGUAGE_BATCH_MIN_CONFIDENCE;
 }
 
 // A provider outage must not strand a standard ATS form whose labels are
@@ -2687,9 +2717,7 @@ function sameLanguagePortalLocalization(items, candidateLanguage) {
       ? item.applicationOptions.map((option) => String(option || '').trim()).filter(Boolean)
       : [];
     if (!applicationOptions.length) return false;
-    const detectedOptions = detectLanguageWithConfidence(applicationOptions.join(' '), candidateLanguage);
-    return detectedOptions.lang !== candidateLanguage
-      || detectedOptions.confidence < SAME_LANGUAGE_BATCH_MIN_CONFIDENCE;
+    return !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage);
   });
   if (hasUnconfidentItem) return null;
   return items.map((item) => {
