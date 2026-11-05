@@ -1440,21 +1440,37 @@ function normalizePermitQuestion(label) {
 
 const PERMIT_QUESTION_START_RE = /^(?:do you|does the candidate|are you|can you|did you|have you|were you|est-ce que|avez[- ]vous|etes[- ]vous|as[- ]tu|es[- ]tu|haben sie|hast du|sind sie|bist du|besitzen sie|verfugen sie|halten sie|haltst du|hai|possiedi|detieni|sei|e|tienes|tiene usted|eres|estas(?: usted)?|esta(?: usted)?|puedes)\b/i;
 
-function permitQuestionText(label) {
-  const text = normalizePermitQuestion(label);
-  const prefixed = text.match(/^([^?¿!¡]+?)\s+(?:[-–—:]|\|)\s+([\s\S]+)$/);
-  if (!prefixed) return text;
-  const question = prefixed[2].replace(/^[\s¿¡]+/, '');
-  return PERMIT_QUESTION_START_RE.test(question) ? question : text;
+function startsPermitQuestion(text) {
+  const question = String(text || '')
+    .replace(/^(?:(?:currently|at present|right now|as of (?:today|now))\s*[,;:]?\s*)+/i, '')
+    .replace(/^[\s¿¡]+/, '');
+  return PERMIT_QUESTION_START_RE.test(question)
+    || /^(?:please\s+)?(?:confirm|indicate|state)\s+(?:whether|if)\s+(?:you|the candidate)\b/i.test(question);
 }
 
-function isPermitHistoricalQuestion(label) {
+function permitQuestionText(label) {
+  const text = normalizePermitQuestion(label);
+  const separator = /(?:\s+[-–—]|\s*[:|])\s*/g;
+  for (const match of text.matchAll(separator)) {
+    const prefix = text.slice(0, match.index);
+    if (/[?¿!¡]/.test(prefix)) continue;
+    const question = text.slice(match.index + match[0].length).replace(/^[\s¿¡]+/, '');
+    if (startsPermitQuestion(question)) return question;
+  }
+  return text;
+}
+
+const PERMIT_HISTORICAL_MARKER_BEFORE_ACTION_RE = /\b(?:ever|previously|formerly|in the past|used to)\b[^?]{0,90}\b(?:hold|held|have|had|possess(?:ed)?|own(?:ed)?|receive(?:d)?|obtain(?:ed)?|acquir(?:e|ed)|grant(?:ed)?|issu(?:e|ed))\b/i;
+const PERMIT_ACTION_BEFORE_HISTORICAL_MARKER_RE = /\b(?:hold|held|have|had|possess(?:ed)?|own(?:ed)?|receive(?:d)?|obtain(?:ed)?|acquir(?:e|ed)|grant(?:ed)?|issu(?:e|ed))\b[^?]{0,90}\b(?:ever|previously|formerly|in the past|before)\b/i;
+const PERMIT_PROSPECTIVE_START_RE = /\bbefore\s+(?:starting|beginning|commencing)\s+(?:work|employment)\b/gi;
+
+export function isPermitHistoricalQuestion(label) {
   const text = permitQuestionText(label);
   if (PERMIT_HISTORICAL_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return true;
-  const historicalAction = String.raw`(?:hold|held|have|had|possess(?:ed)?|own(?:ed)?|receive(?:d)?|obtain(?:ed)?|acquir(?:e|ed)|grant(?:ed)?|issu(?:e|ed))`;
-  const markerBeforeAction = new RegExp(String.raw`\b(?:ever|previously|formerly|in the past|used to)\b[^?]{0,90}\b${historicalAction}\b`, 'i');
-  const actionBeforeMarker = new RegExp(String.raw`\b${historicalAction}\b[^?]{0,90}\b(?:ever|previously|formerly|in the past|before)\b`, 'i');
-  return markerBeforeAction.test(text) || actionBeforeMarker.test(text);
+  // A prospective deadline is current status context, not a past-tense clue.
+  const historyText = text.replace(PERMIT_PROSPECTIVE_START_RE, '');
+  return PERMIT_HISTORICAL_MARKER_BEFORE_ACTION_RE.test(historyText)
+    || PERMIT_ACTION_BEFORE_HISTORICAL_MARKER_RE.test(historyText);
 }
 
 const PERMIT_EVIDENCE_QUESTION_PATTERNS = [
@@ -1936,9 +1952,9 @@ export function guardPlan(plan, fields, candidate = null) {
     };
     if (!missing.some((other) => other.fieldId === withProvenance.fieldId)) missing.push(withProvenance);
   }
-  const ask = (field) => {
-    if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), ...(field.section ? { section: String(field.section).slice(0, 240) } : {}), ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => typeof option === 'string' ? option : option.label) });
+  const ask = (field, { force = false } = {}) => {
+    if ((field.required || force) && !missing.some((item) => item.fieldId === field.id)) {
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), ...(field.section ? { section: String(field.section).slice(0, 240) } : {}), ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => typeof option === 'string' ? option : option.label), required: true });
     }
   };
   // Once a candidate-only action has been rejected, the recovery pass below
@@ -2126,8 +2142,12 @@ export function guardPlan(plan, fields, candidate = null) {
   // The page may expose a renamed/reworded version of a question already
   // answered in the review. Reuse it before turning the field into a new hold.
   for (const field of fields) {
-    if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id)) continue;
     const answer = candidateAnswerForField(candidate, field);
+    const exactHistoricalPermitAnswer = isPermitField(field.label)
+      && isPermitHistoricalQuestion(field.label) && Boolean(answer);
+    if (!field.required || answered.has(field.id)
+      || (holdsValue(field) && !exactHistoricalPermitAnswer)
+      || (rejectedActionFields.has(field.id) && !exactHistoricalPermitAnswer)) continue;
     if (!answer) continue;
     if (operationalAnswerAlreadyHeld(field, answer.value)) {
       answered.add(field.id);
@@ -2165,6 +2185,14 @@ export function guardPlan(plan, fields, candidate = null) {
       pendingUnchecks.add(field.id);
     }
     const holdsAfterActions = holdsValue(field) && !pendingUnchecks.has(field.id);
+    // A portal prefill is not the candidate's answer to a historical permit
+    // question. Current permit status cannot confirm whether one was held in
+    // the past; only a saved answer to this exact question can do that.
+    if (!answered.has(field.id) && isPermitField(field.label)
+      && isPermitHistoricalQuestion(field.label) && !answer && (field.required || holdsValue(field))) {
+      ask(field, { force: !field.required });
+      continue;
+    }
     // The application's own consent is no question for the candidate: the
     // mandate covers it, so the box the plan left alone is ticked here (umantis,
     // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,

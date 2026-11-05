@@ -263,4 +263,29 @@ describe('portal candidate question contract', () => {
       codex: async () => { throw new Error('unavailable'); },
     })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
   });
+
+  it('keeps an unconfirmed optional historical permit prefill in candidate review', () => {
+    const historical = {
+      id: 'permit-history',
+      kind: 'select',
+      label: 'Have you ever held a work permit?',
+      required: false,
+      value: 'no',
+      options: [{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }],
+    };
+    const result = portalRequirementsFromMissingRequired([historical], [{
+      fieldId: historical.id,
+      applicationQuestion: historical.label,
+      question: historical.label,
+      required: true,
+    }], { candidate: { profile: { permitStatus: 'none' }, answers: {} } });
+
+    expect(result.questions).toHaveLength(1);
+    expect(result.questions[0]).toMatchObject({
+      fieldId: historical.id,
+      applicationQuestion: historical.label,
+      options: ['Yes', 'No'],
+      required: true,
+    });
+  });
 });
