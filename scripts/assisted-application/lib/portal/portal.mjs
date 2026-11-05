@@ -39,7 +39,7 @@ import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQu
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
-import { operationalAnswerForOption, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
@@ -4541,6 +4541,8 @@ function missingCandidatePortalRequirements(fields, candidate) {
   for (const field of requiredFields) {
     const label = folded(field.label);
     const allText = folded(fieldText(field));
+    const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
+    const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
     const role = residenceFieldRole(field.label);
     const isBirthDate = String(field.autocomplete || '').toLowerCase() === 'bday'
       || /\b(?:date of birth|birth date|geburtsdatum|date de naissance|data di nascita)\b/.test(allText);
@@ -4582,8 +4584,9 @@ function missingCandidatePortalRequirements(fields, candidate) {
       continue;
     }
 
-    const retentionPrompt = /\b(?:attivazione dati|data retention|retention period|keep (?:my |your |the )?data|retain (?:my |your |the )?data|delete (?:my |your |the )?data|eliminat\w* dopo la procedura|conserv\w* dopo la candidatura)\b/.test(allText);
-    if (retentionPrompt && !hasAnswer('portal_data_retention')) {
+    const retentionPrompt = /\b(?:attivazione dati|data retention|retention period|keep (?:my |your |the )?data|retain (?:my |your |the )?data|delete (?:my |your |the )?data|eliminat\w* dopo la procedura|conserv\w* dopo la candidatura)\b/.test(allText)
+      || operationalQuestionTopic({ ...field, question: allText, applicationQuestion: field.label || allText, options: field.options }) === 'application_data_retention';
+    if (retentionPrompt && !hasOperationalDefault && !hasAnswer('portal_data_retention')) {
       add(field, 'portal_data_retention', 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?',
         'Il portale richiede di scegliere tra la conservazione per future offerte e la cancellazione dopo questa candidatura.',
         { type: 'choice', forceType: 'choice', requiresNativeOptions: true });
@@ -4593,7 +4596,7 @@ function missingCandidatePortalRequirements(fields, candidate) {
     const privacyConsent = /\b(?:privacy|data protection|protezione dei dati|protezione dati|datenschutz|confidentialite)\b/.test(allText)
       && /\b(?:acconsent\w*|consent\w*|accept\w*|agree\w*|einwillig\w*|zustimm\w*)\b/.test(allText)
       && /\b(?:tratt\w*|process\w*|verarbeit\w*|trait\w*)\b/.test(allText);
-    if (privacyConsent && !hasAnswer('portal_privacy_consent')) {
+    if (privacyConsent && !hasOperationalDefault && !hasAnswer('portal_privacy_consent')) {
       add(field, 'portal_privacy_consent', 'Dopo aver letto la dichiarazione sulla protezione dei dati dell’EOC, acconsenti al trattamento dei tuoi dati personali descritto nel modulo?',
         'Il portale richiede il tuo consenso per inviare la candidatura. Se non acconsenti, la candidatura non può essere inviata.',
         { type: 'yes_no', forceType: 'yes_no', options: ['Sì', 'No'], requiresAffirmativeConsent: true });

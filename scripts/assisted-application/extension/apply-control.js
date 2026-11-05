@@ -214,6 +214,72 @@ function hasConsentContradiction(value, ...semanticIds) {
     || consentContradictionPatterns.otherTerms.test(text)
     || consentContradictionPatterns.accuracy.test(text) || isOptionalPurpose(text);
 }
+function minimumDataRetentionOption(options, question = '') {
+  const normalize = value => String(value ?? '').replace(/\p{Cf}/gu, '').normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/['’`]/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
+  const rows = (Array.isArray(options) ? options : []).map(option => {
+    const label = typeof option === 'string' ? option : String(option?.label ?? option?.value ?? '');
+    const value = typeof option === 'string' ? label : String(option?.value ?? label);
+    return { label: label.trim(), value: [...new Set([normalize(label), normalize(value)].filter(Boolean))].join(' '), purpose: `${label} ${value}` };
+  }).filter(option => option.label && option.value);
+  if (!rows.length) return '';
+
+  const currentApplication = /\b(?:current application|this application|current candidatur\w*|questa candidatura|candidatura corrente|procedura di candidatura corrente|bewerbung(?:sverfahren)?|candidature en cours|after the application process|after this application|dopo la procedura|nach abschluss des bewerbungsverfahrens|apres la procedure de candidature)\b/.test(normalize(question));
+  const durationFactor = { day: 1, week: 7, month: 30, year: 365 };
+  const durationUnit = /\b(days?|giorn[io]|tage?n?|jours?)\b/;
+  const weekUnit = /\b(weeks?|settimane?|wochen|semaines?)\b/;
+  const monthUnit = /\b(months?|mesi?|monate?n?|mois)\b/;
+  const yearUnit = /\b(years?|anni?|jahre?n?|ans?)\b/;
+  const rank = option => {
+    const value = option.value;
+    const deleteAfterCurrent = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/.test(value)
+      && /\b(?:after|dopo|nach|apres|current application|questa candidatura|procedura di candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
+    const currentOnly = /\b(?:only|solo|uniquement|nur)\b/.test(value)
+      && /\b(?:this application|current application|questa candidatura|candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
+    if (deleteAfterCurrent || currentOnly) return 0;
+
+    const durationMatches = [...new Map([...value.matchAll(/\b(\d{1,3}(?:[.,]\d{1,2})?|one|uno|un|une|ein|eins|eine|two|due|zwei|deux|three|tre|drei|trois|four|quattro|vier|quatre|five|cinque|funf|fuenf|cinq|six|sei|sechs)\s*(days?|giorn[io]|tage?n?|jours?|weeks?|settimane?|wochen|semaines?|months?|mesi?|monate?n?|mois|years?|anni?|jahre?n?|ans?)\b/g)]
+      .map(match => [`${match[1]} ${match[2]}`, match])).values()];
+    if (durationMatches.length === 1) {
+      const [, amountText, unit] = durationMatches[0];
+      const numbers = { one: 1, uno: 1, un: 1, une: 1, ein: 1, eins: 1, eine: 1, two: 2, due: 2, zwei: 2, deux: 2,
+        three: 3, tre: 3, drei: 3, trois: 3, four: 4, quattro: 4, vier: 4, quatre: 4, five: 5, cinque: 5, funf: 5,
+        fuenf: 5, cinq: 5, six: 6, sei: 6, sechs: 6 };
+      const amount = /^\d/.test(amountText) ? Number(amountText.replace(',', '.')) : numbers[amountText];
+      const factor = durationUnit.test(unit) ? durationFactor.day : weekUnit.test(unit) ? durationFactor.week
+        : monthUnit.test(unit) ? durationFactor.month : yearUnit.test(unit) ? durationFactor.year : 0;
+      if (Number.isFinite(amount) && amount >= 0 && factor) return amount * factor;
+    }
+
+    const futureStorage = isOptionalPurpose(option.purpose)
+      && /\b(?:retain\w*|keep\w*|store\w*|memoriz\w*|conserv\w*|speicher\w*|aufbewahr\w*)\b/.test(value);
+    if (futureStorage) return Number.POSITIVE_INFINITY;
+    const answerIsNo = /^(?:no|non|nein|nein danke|non desidero|non acconsento|non consento)$/.test(value)
+      || /\b(?:do not consent|non acconsento|non consento|nicht einverstanden|ne suis pas d accord)\b/.test(value);
+    if (answerIsNo && (currentApplication || isOptionalPurpose(question))) return 0;
+    return null;
+  };
+
+  const ranked = rows.map(option => ({ ...option, rank: rank(option) }));
+  // A current-application deletion choice is unambiguously the minimum even
+  // when another option describes a future pool without a numeric duration.
+  const zero = ranked.filter(option => option.rank === 0);
+  if (zero.length === 1) return zero[0].label;
+  if (zero.length > 1 || ranked.some(option => option.rank === null || option.rank === Number.POSITIVE_INFINITY)) return '';
+  const minimum = Math.min(...ranked.map(option => option.rank));
+  const matches = ranked.filter(option => option.rank === minimum);
+  return matches.length === 1 ? matches[0].label : '';
+}
+function isApplicationDataProcessingConsent(value, ...semanticMetadata) {
+  const text = String(value || '').replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!text || hasConsentContradiction(text, ...semanticMetadata)) return false;
+  const asksConsent = /\b(?:consent\w*|acconsent\w*|agree\w*|accept\w*|einwillig\w*|zustimm\w*|akzeptier\w*|accepter\w*|autoriz\w*)\b/.test(text);
+  const processesData = /\b(?:process\w*|tratt\w*|verarbeit\w*|trait\w*)\b/.test(text);
+  const personalData = /\b(?:personal data|personal information|dati personali|dati di carattere personale|personenbezogen\w* daten|personliche daten|persoenliche daten|donnees personnelles|donnees a caractere personnel)\b/.test(text);
+  return asksConsent && processesData && personalData;
+}
 function privacyReviewAcknowledgmentShape(value) {
   const raw = ['string', 'number'].includes(typeof value) ? String(value) : '';
   const text = raw.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -234,5 +300,5 @@ function isPrivacyReviewAcknowledgment(value, ...semanticIds) {
   return Boolean(exact && !hasConsentContradiction(value, ...semanticIds));
 }
   // consent-purpose:end
-  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, nativeQuestionText, individualApplicationOriginQuestion, addressContextContract, hasAddressContextOwnership, isOptionalPurpose, privacySemanticIdentifiers, hasConsentContradiction, privacyReviewAcknowledgmentShape, isPrivacyReviewAcknowledgment });
+  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, nativeQuestionText, individualApplicationOriginQuestion, addressContextContract, hasAddressContextOwnership, isOptionalPurpose, privacySemanticIdentifiers, hasConsentContradiction, minimumDataRetentionOption, isApplicationDataProcessingConsent, privacyReviewAcknowledgmentShape, isPrivacyReviewAcknowledgment });
 })(globalThis);

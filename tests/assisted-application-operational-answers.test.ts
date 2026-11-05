@@ -5,7 +5,7 @@ import { evaluateRedFlags, transition } from '../functions/src/assistedApplicati
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { candidateAnswerForField, guardPlan, addressQuestionTopic, isAddressLikeQuestion, ownConsent } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { applyActions } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { runAutomationSweep } from '../functions/src/assistedApplicationAutomation.js';
 import { reconcileOperationalAnswers } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
@@ -380,6 +380,38 @@ describe('scope, languages and actual field options', () => {
     })).toBe(true);
   });
 
+  it.each(['application_data_processing_consent', 'application_data_retention'])('accepts a proven optional %s field', topic => {
+    const label = topic === 'application_data_processing_consent'
+      ? 'I consent to processing my personal data for this application.'
+      : 'How long should we retain your personal data?';
+    const question = {
+      source: 'portal', required: false, applicationQuestion: label,
+      portalNativeContract: {
+        version: 'native-contract-v1', round: 1, url: 'https://join.com/apply', observedAt: 1,
+        required: false, requiredEvidence: 'aria-required:false', topic,
+        frame: 0, form: 0, fieldId: topic, label,
+      },
+    };
+    expect(provenOptionalOperationalPortalQuestion(question, {
+      round: 1, channel: { applyUrl: 'https://join.com/apply' },
+    })).toBe(true);
+  });
+
+  it('rejects an optional data-processing contract that adds a third-party purpose', () => {
+    const label = 'I consent to processing my personal data and sharing it with marketing partners.';
+    const question = {
+      source: 'portal', required: false, applicationQuestion: label,
+      portalNativeContract: {
+        version: 'native-contract-v1', round: 1, url: 'https://join.com/apply', observedAt: 1,
+        required: false, requiredEvidence: 'aria-required:false', topic: 'application_data_processing_consent',
+        frame: 0, form: 0, fieldId: 'consent', label,
+      },
+    };
+    expect(provenOptionalOperationalPortalQuestion(question, {
+      round: 1, channel: { applyUrl: 'https://join.com/apply' },
+    })).toBe(false);
+  });
+
   it.each([
     ['country control', { controlId: 'country-of-residence' }],
     ['work permit semantic', { semanticId: 'workpermit' }],
@@ -468,6 +500,92 @@ describe('scope, languages and actual field options', () => {
     expect(operationalEmailBody(emailDraft)).toContain('3 mesi');
     expect(operationalEmailBody(emailDraft)).toContain('100%');
     expect(emailDraft.applicationEmail.body).toBe('Buongiorno');
+  });
+});
+
+describe('application consent and minimum retention defaults', () => {
+  const processingConsent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell’EOC. Acconsento che i miei dati personali vengano trattati e conservati in conformità con tale Dichiarazione e con le normative vigenti in materia di protezione dei dati in Svizzera.';
+  const retentionQuestion = 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?';
+  const retentionOptions = [
+    'Do il mio consenso affinché i miei dati vengano memorizzati anche successivamente a una concreta richiesta di occupazione e dopo essere stato informato di offerte di lavoro interessanti.',
+    'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.',
+  ];
+
+  it('defaults to the application data-processing consent without opting into other purposes', () => {
+    const question = { id: 'privacy', question: processingConsent, applicationQuestion: processingConsent, type: 'checkbox', required: false };
+    expect(operationalQuestionTopic(question)).toBe('application_data_processing_consent');
+    expect(operationalDefaultAnswer(question)).toMatchObject({ value: 'true', topic: 'application_data_processing_consent', source: 'policy_default' });
+    const native = { id: 'privacy', kind: 'checkbox', type: 'checkbox', label: processingConsent, required: false };
+    expect(ownConsent(native)).toBe(true);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [native], { identity: {}, profile: {}, answers: {} }).actions)
+      .toContainEqual(expect.objectContaining({ fieldId: 'privacy', action: 'check', source: 'policy_default' }));
+    expect(operationalDefaultAnswer({
+      ...question,
+      applicationQuestion: `${processingConsent} Accetto inoltre di ricevere offerte e comunicazioni promozionali.`,
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'I consent to the processing of my personal data for marketing and future job offers.', type: 'checkbox', required: true,
+    })).toBeNull();
+    expect(operationalDefaultAnswer({ ...question, question: `${processingConsent} Do you confirm your date of birth?` })).toBeNull();
+    expect(operationalDefaultAnswer({
+      ...question, type: 'choice', options: ['I agree to the processing of my personal data', 'No'],
+    })?.value).toBe('I agree to the processing of my personal data');
+    expect(operationalDefaultAnswer({
+      ...question, type: 'choice', options: ['I agree to share my personal data with marketing partners', 'No'],
+    })).toBeNull();
+  });
+
+  it('selects the shortest native retention option and leaves an ambiguous catalogue open', () => {
+    const question = {
+      id: 'retention', question: retentionQuestion, applicationQuestion: retentionQuestion,
+      type: 'choice', required: true, options: retentionOptions,
+    };
+    expect(operationalQuestionTopic(question)).toBe('application_data_retention');
+    expect(operationalDefaultAnswer(question)).toMatchObject({
+      value: retentionOptions[1], topic: 'application_data_retention', source: 'policy_default',
+    });
+    expect(withOperationalQuestionAnswers([question], {}).answers.retention).toBe(retentionOptions[1]);
+    expect(operationalDefaultAnswer({
+      question: 'How long should we retain your personal data?', type: 'choice',
+      options: ['Keep the data in the future talent pool', 'Retain it as required by law'],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'How long should we retain your personal data?', type: 'choice',
+      options: ['Retain the data for 2 years', 'Retain the data for 6 months'],
+    })?.value).toBe('Retain the data for 6 months');
+    expect(operationalDefaultAnswer({ question: retentionQuestion, type: 'choice', options: [] })).toBeNull();
+  });
+
+  it('fills optional native consent and retention controls from policy defaults', () => {
+    const consent = { id: 'consent', kind: 'checkbox', type: 'checkbox', label: processingConsent, required: false, checked: false };
+    const retention = {
+      id: 'retention', kind: 'radio', label: retentionQuestion, required: false,
+      options: retentionOptions.map(label => ({ label })),
+    };
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [consent, retention], { identity: {}, profile: {}, answers: {} });
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: 'consent', action: 'check', source: 'policy_default' }));
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: 'retention', action: 'select', value: retentionOptions[1], source: 'policy_default' }));
+    expect(guarded.missingRequired).toEqual([]);
+
+    const alreadyShortest = guardPlan({ actions: [], missingRequired: [] }, [{
+      ...retention,
+      value: retentionOptions[1],
+      options: retentionOptions.map((label, index) => ({ label, value: label, selected: index === 1 })),
+    }], { identity: {}, profile: {}, answers: {} });
+    expect(alreadyShortest.actions).toEqual([]);
+  });
+
+  it('does not turn safely auto-answered application defaults back into candidate questions', () => {
+    const fields = [
+      { id: 'consent', kind: 'checkbox', label: processingConsent, required: true, options: [] },
+      { id: 'retention', kind: 'radio', label: retentionQuestion, required: true,
+        options: retentionOptions.map(label => ({ label, value: label })) },
+    ];
+    const requirements = portalRequirementsFromMissingRequired(fields, [], {
+      candidate: { identity: { address: {} }, profile: {}, answers: {} },
+    });
+    expect(requirements.questions).toEqual([]);
+    expect(requirements.documents).toEqual([]);
   });
 });
 

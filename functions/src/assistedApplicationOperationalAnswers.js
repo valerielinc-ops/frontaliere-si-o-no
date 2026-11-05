@@ -4,9 +4,9 @@
  */
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
-import { isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
+import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v2';
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v3';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -21,6 +21,10 @@ const CONTACT = /\b(?:comunicazion\w*|contatt\w*|contact\w*|communication|kommun
 const CONTACT_PREFERENCE_LABEL = /^(?:(?:comunicazione|contatto) (?:via|tramite|su) whatsapp|(?:contact|communication) (?:via|on|through) whatsapp|whatsapp (?:contact|communication)|(?:kommunikation|kontakt) (?:via|per|uber) whatsapp|(?:contact|communication) (?:via|par|sur) whatsapp)$/;
 const CONTACT_FACT = /\b(?:do you use|do you have|usi|utilizzi|possiedi|nutzen sie|verwenden sie|utilisez vous|avez vous|number|numero|nummer|telephone|telefono)\b/;
 const OTHER_NOTICE_TOPIC = /\b(?:availability|disponibilita|verfugbarkeit|disponibilite|workload|pensum|grado di occupazione|taux d activite|taux d occupation)\b/;
+const RETENTION_ACTION = /\b(?:retention|retain\w*|keep\w*|stor\w*|conserv\w*|memoriz\w*|elimin\w*|cancell\w*|delet\w*|aufbewahr\w*|speicher\w*|conservation|stock\w*|effac\w*)\b/;
+const RETENTION_DATA = /\b(?:data|dati|donnees|daten|personal information|informazioni personali|informazioni di carattere personale|donnees personnelles|personenbezogen\w*)\b/;
+const RETENTION_TIME = /\b(?:how long|for how long|per quanto tempo|per quanto|duration|durata|period|periodo|after|dopo|successiv\w*|future|future offers|offerte di lavoro|nach|apres|combien de temps|wie lange|jahre?|anni?|months?|mesi?|mois|years?|ans?)\b/;
+const AFFIRMATIVE_CONSENT = /^(?:(?:i|io|je|ich) )?(?:si|yes|ja|oui|true|1|acconsent\w*|accett\w*|consent\w*|consens\w*|agree\w*|accept\w*|einwillig\w*|zustimm\w*|akzeptier\w*|autoris\w*)(?: .*)?$/;
 
 function optionsOf(question) {
   const raw = question?.options?.length ? question.options : question?.applicationOptions || [];
@@ -45,9 +49,15 @@ function noticeDuration(value) {
 
 /** Project a stated notice duration onto one actual option, without changing its value or provenance. */
 export function operationalAnswerForOption(question, answer) {
-  if (operationalQuestionTopic(question) !== 'notice_period') return null;
+  const topic = operationalQuestionTopic(question);
   const options = optionsOf(question);
   if (!options.length) return null;
+  if (topic === 'application_data_retention' || topic === 'application_data_processing_consent') {
+    const normalized = norm(answer);
+    const matching = options.filter(option => norm(option.label) === normalized || norm(option.value) === normalized);
+    return matching.length === 1 ? matching[0].label : null;
+  }
+  if (topic !== 'notice_period') return null;
   const duration = noticeDuration(answer);
   let matching;
   if (duration) {
@@ -117,6 +127,18 @@ export function operationalQuestionTopic(question) {
     && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
     && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, question, ...privacyRepresentations, ...supplementalPrivacyLabels));
   if (privacyReviewAck) return 'privacy_review_ack';
+  const consentText = [...privacyRepresentations, ...supplementalPrivacyLabels, question?.context]
+    .filter(value => typeof value === 'string' && value.trim()).join(' ');
+  if (isApplicationDataProcessingConsent(consentText, question, ...privacyRepresentations, ...supplementalPrivacyLabels)) {
+    return 'application_data_processing_consent';
+  }
+  const retentionText = [question?.question, question?.label, question?.applicationQuestion, question?.context,
+    ...optionsOf(question).flatMap(option => [option.label, option.value])]
+    .filter(value => typeof value === 'string' && value.trim()).join(' ');
+  const retentionFolded = norm(retentionText);
+  if (RETENTION_ACTION.test(retentionFolded) && RETENTION_DATA.test(retentionFolded) && RETENTION_TIME.test(retentionFolded)) {
+    return 'application_data_retention';
+  }
   if (!text || HARD_DECLARATION.test(text) || question?.type === 'date' || question?.inputType === 'date') return null;
   if (NOTICE.test(text) && OTHER_NOTICE_TOPIC.test(text)) return null;
   const workloadPrompt = [
@@ -148,7 +170,21 @@ export function operationalDefaultAnswer(question, { locale } = {}) {
   const text = norm(question?.applicationQuestion || question?.question || question?.label);
   const language = languageOf(text, locale);
   let value;
-  if (topic === 'privacy_review_ack') {
+  if (topic === 'application_data_processing_consent') {
+    if (question?.kind === 'checkbox' || question?.type === 'checkbox' || question?.inputType === 'checkbox') value = 'true';
+    else if (options.length) {
+      const matches = options.filter(option => (AFFIRMATIVE_CONSENT.test(norm(option.label))
+        || AFFIRMATIVE_CONSENT.test(norm(option.value)))
+        && !hasConsentContradiction(`${option.label} ${option.value}`));
+      if (matches.length !== 1) return null;
+      value = matches[0].label;
+    } else if (['yes_no', 'boolean'].includes(question?.type || question?.kind)) {
+      value = { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
+    } else return null;
+  } else if (topic === 'application_data_retention') {
+    value = minimumDataRetentionOption(options, text);
+    if (!value) return null;
+  } else if (topic === 'privacy_review_ack') {
     if (options.length) {
       const matches = options.filter(option => YES.test(norm(option.label)));
       if (matches.length !== 1) return null;

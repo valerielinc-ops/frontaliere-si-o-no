@@ -16,7 +16,7 @@ import { addressContextContract, hasAddressContextOwnership } from '../../../../
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } from '../../../../functions/src/lib/applicationConsent.js';
+import { hasConsentContradiction, isApplicationDataProcessingConsent, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
@@ -228,8 +228,9 @@ export function ownConsent(field) {
     && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
     && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, field, ...privacyRepresentations, ...supplementalPrivacyLabels));
   const privacyReviewShape = privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
-  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || isConsentPurpose(label);
-  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck) && ownText
+  const applicationDataProcessingConsent = isApplicationDataProcessingConsent(consentText, field, ...privacyRepresentations, ...supplementalPrivacyLabels);
+  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || applicationDataProcessingConsent || isConsentPurpose(label);
+  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck || applicationDataProcessingConsent) && ownText
     && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(consentText)
     && !languageFactMetadata
     && !(privacyReviewShape && !privacyReviewAck)
@@ -1186,7 +1187,7 @@ function isCheckboxField(field) {
 }
 
 function privacyCheckboxAction(field, value) {
-  if (operationalQuestionTopic(field) !== 'privacy_review_ack'
+  if (!['privacy_review_ack', 'application_data_processing_consent'].includes(operationalQuestionTopic(field))
     || !isCheckboxField(field)) return null;
   const checked = booleanAnswer(value);
   return checked === null ? null : checked ? 'check' : 'uncheck';
@@ -1206,6 +1207,23 @@ function operationalChoiceHasNoCatalogue(field) {
   return Boolean(operationalQuestionTopic(field)
     && (['select', 'radio', 'listbox'].includes(field?.kind) || field?.selectLike || field?.nativeSelectId)
     && !(field.options || []).some(option => option?.placeholder !== true && String(typeof option === 'string' ? option : option?.label ?? '').trim()));
+}
+
+function operationalAnswerAlreadyHeld(field, value) {
+  if (isCheckboxField(field)) return booleanAnswer(value) === true && field.checked === true;
+  const expected = comparableAnswer(value);
+  if (!expected) return false;
+  const options = Array.isArray(field?.options) ? field.options : [];
+  const selected = options.filter(option => typeof option === 'object' && (option.checked === true || option.selected === true));
+  if (selected.length === 1) {
+    const option = selected[0];
+    return [option.label, option.value].some(candidate => comparableAnswer(candidate) === expected);
+  }
+  if (field?.value) {
+    const current = options.find(option => typeof option === 'object' && String(option.value ?? '') === String(field.value));
+    return [current?.label, current?.value, field.value].some(candidate => comparableAnswer(candidate) === expected);
+  }
+  return false;
 }
 
 function optionForAnswer(field, answer) {
@@ -1779,7 +1797,32 @@ export function guardPlan(plan, fields, candidate = null) {
     rejectedActionFields.add(field.id);
     ask(field);
   }
-  for (const plannedAction of plan.actions || []) {
+  const operationalFields = new Set();
+  const operationalActions = [];
+  for (const field of fields) {
+    if (!operationalQuestionTopic(field)) continue;
+    operationalFields.add(field.id);
+    const answer = candidateAnswerForField(candidate, field);
+    if (!answer || !String(answer.value ?? '').trim()) continue;
+    if (operationalAnswerAlreadyHeld(field, answer.value)) continue;
+    const checked = isCheckboxField(field) ? booleanAnswer(answer.value) : null;
+    if (isCheckboxField(field) && checked === null) continue;
+    operationalActions.push({
+      fieldId: field.id,
+      action: isCheckboxField(field) ? checked ? 'check' : 'uncheck' : isChoiceField(field) ? 'select' : 'fill',
+      value: answer.value,
+      document: 'none',
+      source: answer.source,
+      evidence: '',
+    });
+  }
+  // Operational defaults and saved preferences are deterministic owner policy.
+  // The planner must not replace them with a different selection or a skip.
+  const plannedActions = [
+    ...(plan.actions || []).filter(action => !operationalFields.has(action.fieldId)),
+    ...operationalActions,
+  ];
+  for (const plannedAction of plannedActions) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
     if (!field || rejectedActionFields.has(field.id)) continue;
@@ -1793,8 +1836,11 @@ export function guardPlan(plan, fields, candidate = null) {
     const policyDefaultPrivacyAcknowledgment = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
+    const policyDefaultApplicationDataProcessingConsent = action.action === 'check'
+      && action.source === 'policy_default'
+      && privacyRepresentations.some(value => isApplicationDataProcessingConsent(value, field, ...privacyRepresentations));
     if (action.action === 'check'
-      && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment)
+      && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment || policyDefaultApplicationDataProcessingConsent)
       && !ownConsent(field)) {
       rejectedActionFields.add(field.id);
       ask(field);
@@ -1930,6 +1976,10 @@ export function guardPlan(plan, fields, candidate = null) {
     if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id)) continue;
     const answer = candidateAnswerForField(candidate, field);
     if (!answer) continue;
+    if (operationalAnswerAlreadyHeld(field, answer.value)) {
+      answered.add(field.id);
+      continue;
+    }
     const value = isCheckboxField(field)
       ? String(answer.value ?? '').trim()
       : field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);

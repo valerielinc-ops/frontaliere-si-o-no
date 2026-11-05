@@ -577,16 +577,12 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   if (availability) profile.availability = availability;
   const cv = cvPersonalFacts(draft?.factSources?.text);
   const locale = candidateLocaleOf(requestedLocale, order);
-  const requiredPortalSalutation = (draft?.questions || []).some(question =>
-    question?.id === 'salutation' && question?.source === 'portal' && question?.required === true);
-  const explicitlyChosenSalutation = clean(answers.salutation, 40)
-    || (has(overrides, 'salutation') ? clean(overrides.salutation, 40) : '');
   const salutation = salutationNow({ answers, overrides, cvGender: cv.gender || salutationGenderFromName(identity.firstName, locale), locale });
-  // A profile-derived title can format the cover letter, but it cannot answer
-  // a required title choice on the candidate's behalf. Keep the portal Q&A
-  // blank until a direct answer or an explicit review-page correction exists.
-  if (requiredPortalSalutation && !explicitlyChosenSalutation) delete answers.salutation;
-  else if (salutation) answers.salutation = salutation;
+  // An unambiguous first name is the owner's approved form-of-address default
+  // for application portals, including a required native title choice. A
+  // candidate answer or correction still wins; ambiguous names and an
+  // explicitly cleared correction stay blank.
+  if (salutation) answers.salutation = salutation;
   else delete answers.salutation;
   const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
   return { identity, profile, answers, overrides, personal };
