@@ -266,6 +266,25 @@ describe('what leaves by e-mail, and the record of it', () => {
     for (const text of [...lines, JSON.stringify(event)]) expect(text).not.toMatch(/Maria|Rossi/);
   }, 60_000);
 
+  it('uses a Maileroo provider reference for the receipt, without using it for reply threading', async () => {
+    const store = createMemoryFirestore();
+    const providerMessageId = 'a'.repeat(24);
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo', messageId: providerMessageId }], ambiguous: [] }));
+    const event: any = await submit({ sendCascade, submissionGuard: submissionGuard(store.db, ORDER, 1) });
+
+    expect(event).toMatchObject({
+      type: 'submit_succeeded',
+      channel: 'email',
+      followup: { messageId: null },
+      receiptId: expect.stringMatching(/^[a-f0-9]{40}$/),
+    });
+    expect(store.read(`${BASE}/automation/submission`)!.r1).toMatchObject({
+      state: 'sent', channel: 'email', provider: 'maileroo', providerMessageId,
+      messageId: null,
+      receipt: { proofKind: 'email_provider_accepted' },
+    });
+  }, 60_000);
+
   it('sends one PDF when the ad asks for it, even for an apprentice with the switch off, in the order letter, CV, documents', async () => {
     const bucket = fakeBucket();
     const sendCascade = delivered();
@@ -540,6 +559,21 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
     const view: any = await loadAutomationForAdmin(store.db, ORDER, { signUrl: async (key: string) => `https://signed.example/${key.split('/').pop()}` });
     expect(view.draft.sent).toMatchObject({ confirmedBy: 'owner', at: NOW });
     expect(sentSummaryIt(view.draft.sent)).toContain('invio dall’esito incerto, confermato da te');
+  }, 60_000);
+
+  it('keeps a provider-accepted e-mail with no identifier locked instead of producing an invalid receipt', async () => {
+    const { store, keepSentAttempt, draft } = await ambiguousSetup();
+    const bucket = fakeBucket();
+    const sendCascade = vi.fn(async () => {
+      const result = { provider: 'maileroo', messageId: null, ack: 'unidentifiable' };
+      return { failed: [], sent: [result], ambiguous: [result] };
+    });
+    const event: any = await submit({ bucket, sendCascade, keepSentAttempt, submissionGuard: submissionGuard(store.db, ORDER, 1) });
+
+    expect(event).toEqual({ type: 'submit_failed', error: 'email_ambiguous' });
+    expect(store.read(`${BASE}/automation/submission`)!.r1).toMatchObject({ state: 'sending', confirmedNotSent: false });
+    expect(draft().sentAttempt).toBeTruthy();
+    expect(draft().sent).toBeUndefined();
   }, 60_000);
 
   it('clears the attempt of an e-mail that failed for certain', async () => {

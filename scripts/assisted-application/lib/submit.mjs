@@ -427,28 +427,43 @@ export async function submitApplication(ctx) {
       await keepAttempt(null);
       return { type: 'submit_failed', error: 'answer_source_changed' };
     }
-    const { failed, sent } = await sendCascade(
+    const { failed = [], sent = [], ambiguous: unidentifiable = [] } = await sendCascade(
       [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
       { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS },
     );
-    if (failed.length) {
+    const provider = String(sent[0]?.provider || '').trim();
+    const providerMessageId = String(sent[0]?.messageId || '').trim();
+    // A provider can accept a message but omit its durable identifier. That
+    // is an unknown outcome, not a failed send: keep the guard locked so the
+    // next run cannot submit the application twice. The same applies to a
+    // transport error after the provider may already have accepted it.
+    const ambiguous = Boolean(
+      unidentifiable.length
+      || failed[0]?.ambiguousDelivery
+      || (sent.length > 0 && (!provider || !providerMessageId))
+      || (sent.length === 0 && failed.length === 0),
+    );
+    if (failed.length || ambiguous) {
       // An ambiguous delivery must never be retried blindly (career-ops: a
       // submit of unknown outcome is not re-submitted): the guard stays
       // "sending", so a later run reports it ambiguous too.
-      const ambiguous = Boolean(failed[0].ambiguousDelivery);
       if (guard && !ambiguous) await guard.release('email_failed', nowMs);
       // Failed for certain: nothing left, the attempt is no record. An ambiguous one keeps it.
       if (!ambiguous) await keepAttempt(null);
-      await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous, sent: sentRecord }, key: runKey, nowMs });
-      return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : emailInfrastructureFailure(failed[0]) ? 'email_provider_unavailable' : 'email_failed' };
+      const failure = failed[0] || {};
+      await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failure.error || (ambiguous ? 'provider_acceptance_unidentifiable' : '')).slice(0, 200), ambiguous, sent: sentRecord }, key: runKey, nowMs });
+      return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : emailInfrastructureFailure(failure) ? 'email_provider_unavailable' : 'email_failed' };
     }
     const threadMessageId = replyThreadMessageId(sent[0], messageId);
     let receiptId = null;
     if (guard) {
-      const provider = String(sent[0]?.provider || '');
-      const receipt = await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId: threadMessageId, provider: provider || null, sent: sentRecord }, nowMs, {
+      const receipt = await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId: threadMessageId, provider, providerMessageId, sent: sentRecord }, nowMs, {
         kind: 'email_provider_accepted', observedAt: nowMs,
-        evidence: { provider, messageId: threadMessageId },
+        // Maileroo's reference_id proves provider acceptance but is not the
+        // RFC Message-ID used for reply threading. Keep the two contracts
+        // separate: follow-ups may have no In-Reply-To, while the receipt
+        // still has a durable provider reference.
+        evidence: { provider, messageId: providerMessageId },
       });
       receiptId = receipt?.receiptId || null;
     }

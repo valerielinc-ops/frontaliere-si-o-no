@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { localizePortalQuestions, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -635,6 +635,54 @@ it('keeps a verified Umantis form when its accessibility text starts with skip-l
   expect(result.handoff).toBeUndefined();
   expect(codex).toHaveBeenCalledOnce();
   expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('pre-reads a public employer route without a planner and keeps unsafe channels out', async () => {
+  const url = 'https://apply.example.test/jobs/42';
+  expect(portalReadAheadCapability({ channelType: 'employer_site', entryUrl: url, applyUrl: url }))
+    .toEqual({ kind: 'mounted_read_only', source: 'public_application_route' });
+  expect(portalReadAheadCapability({ channelType: 'employer_site', entryUrl: 'http://apply.example.test/jobs/42', applyUrl: url }))
+    .toBeNull();
+  expect(portalReadAheadCapability({ channelType: 'pastahr', entryUrl: 'https://coop.pastahr.com/jobs/42', applyUrl: 'https://coop.pastahr.com/jobs/42' }))
+    .toBeNull();
+
+  const snapshot = {
+    url, buttons: [], links: [], captcha: false, passwordVisible: false, errors: [], text: 'Application form',
+    fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: true }],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = { frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}) };
+  const context = { newPage: async () => page };
+  const browser = { newContext: vi.fn(async () => context), close: vi.fn(async () => {}) };
+  const launch = vi.fn(async () => browser);
+  const result = await readPortalRequirements({
+    channelType: 'employer_site', applyUrl: url, language: 'en', candidateLocale: 'it',
+    candidate: { identity: {}, profile: {}, answers: {} },
+    resolvePublicHost: vi.fn(async () => true), launch,
+  });
+
+  expect(result.handoff).toBe('planner_unavailable');
+  expect(result.portalContract).toMatchObject({
+    status: 'unavailable',
+    form: { observed: true, requiredFieldCount: 1, requiredFileCount: 1 },
+    background: { readOnly: true },
+  });
+  expect(launch).toHaveBeenCalledOnce();
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('does not launch a generic preflight when the public route cannot be resolved safely', async () => {
+  const launch = vi.fn();
+  const result = await readPortalRequirements({
+    channelType: 'employer_site', applyUrl: 'https://apply.example.test/jobs/42',
+    resolvePublicHost: vi.fn(async () => false), launch,
+  });
+  expect(result).toMatchObject({
+    handoff: 'public_route_unavailable',
+    portalContract: { status: 'unavailable', handoff: 'public_route_unavailable' },
+  });
+  expect(launch).not.toHaveBeenCalled();
 });
 
 it('binds the native Umantis applicant address when applyUrl is the direct posting URL', async () => {

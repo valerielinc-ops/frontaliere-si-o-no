@@ -39,6 +39,7 @@ import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
+import { isFetchablePublicUrl, resolvesToPublicHost } from '../../../../functions/src/assistedApplicationAiJob.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
@@ -5081,11 +5082,6 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, {
       candidate,
       candidateLocale: ctx.candidateLocale,
-      // A planner pass triggered by a changing registration surface may mark
-      // an untrusted portal autofill as missing. Keep that explicit request;
-      // the normal mapper still suppresses values already grounded in the
-      // candidate or in a safe operational answer.
-      preservePlannerMissingValues: true,
     });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
@@ -5404,9 +5400,10 @@ export const PREREAD_CHANNELS = new Set([
 ]);
 
 // Solique exposes a public multi-step application form without an account.
-// Keep this an exact HTTPS host allowlist: an arbitrary employer site must not
-// be opened during drafting just because it happens to have an apply link.
+// Keep this an exact HTTPS host allowlist for the employer-specific exception;
+// unknown public routes use the bounded generic read-only capability below.
 const SAFE_EMPLOYER_PREREAD_HOSTS = new Set(['live.solique.ch']);
+const NON_BROWSER_APPLICATION_CHANNELS = new Set(['email', 'linkedin', 'pastahr']);
 
 export function isSafeEmployerSitePreread(url) {
   try {
@@ -5420,18 +5417,28 @@ export function isSafeEmployerSitePreread(url) {
 
 /**
  * The read-ahead capability is deliberately explicit. It permits one browser
- * snapshot of controls already mounted by an allowlisted ATS, but it never
- * permits a click, a fill, a wizard advance or a submit during draft creation.
- * Fields hidden by an actual conditional container are filtered by
- * extractFieldsInPage and are discovered only after the candidate answers the
- * step that reveals them.
+ * snapshot of controls already mounted by an allowlisted ATS or a public
+ * HTTPS application route, but it never permits a fill, a wizard advance or a
+ * submit during draft creation. Opening a public posting's named Apply link
+ * is navigation only. Fields hidden by an actual conditional container are
+ * filtered by extractFieldsInPage and are discovered only after the candidate
+ * answers the step that reveals them.
  */
-export function portalReadAheadCapability({ channelType = '', entryUrl = '', verifiedPostingEntry = false } = {}) {
-  if (PREREAD_CHANNELS.has(String(channelType || ''))) {
+export function portalReadAheadCapability({ channelType = '', entryUrl = '', applyUrl = '', verifiedPostingEntry = false } = {}) {
+  const channel = String(channelType || '');
+  if (NON_BROWSER_APPLICATION_CHANNELS.has(channel)) return null;
+  if (PREREAD_CHANNELS.has(channel)) {
     return { kind: 'mounted_read_only', source: 'ats_guest_form' };
   }
   if (verifiedPostingEntry || isSafeEmployerSitePreread(entryUrl)) {
     return { kind: 'mounted_read_only', source: 'verified_application_route' };
+  }
+  // The generic path is still intentionally narrow: both the source page and
+  // the saved application URL must be public HTTPS URLs. DNS resolution is
+  // checked immediately before launch, and every browser request is guarded
+  // again below so an employer link cannot turn drafting into an SSRF proxy.
+  if (isFetchablePublicUrl(entryUrl) && isFetchablePublicUrl(applyUrl || entryUrl)) {
+    return { kind: 'mounted_read_only', source: 'public_application_route' };
   }
   return null;
 }
@@ -5610,7 +5617,6 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
 export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   candidate = null,
   candidateLocale = 'it',
-  preservePlannerMissingValues = false,
 } = {}) {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
@@ -5657,8 +5663,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
       ? candidateAnswerForField(candidate, field, {
         includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
       }) : null;
-    if (field && field.invalid !== true
-      && ((!preservePlannerMissingValues && holdsValue(field)) || String(candidateAnswer?.value ?? '').trim())) continue;
+    if (field && field.invalid !== true && String(candidateAnswer?.value ?? '').trim()) continue;
     mergeRequired(item);
   }
   // Keep the planner's order when a deterministic candidate requirement
@@ -5825,6 +5830,7 @@ export async function readPortalRequirements(ctx) {
   const readAhead = portalReadAheadCapability({
     channelType,
     entryUrl,
+    applyUrl: stageApplyUrl,
     verifiedPostingEntry,
   });
   if (!readAhead || !ctx.applyUrl) {
@@ -5841,14 +5847,28 @@ export async function readPortalRequirements(ctx) {
       }),
     };
   }
-  if (!ctx.codex) return {
-    questions: [],
-    documents: [],
-    handoff: 'planner_unavailable',
-    portalContract: applicationContractFromPreflight({
-      channelType, applyUrl: ctx.applyUrl, sourceUrl: entryUrl, status: 'unavailable', handoff: 'planner_unavailable',
-    }),
-  };
+  const genericPublicRoute = readAhead.source === 'public_application_route';
+  if (genericPublicRoute) {
+    const resolvePublicHost = typeof ctx.resolvePublicHost === 'function' ? ctx.resolvePublicHost : resolvesToPublicHost;
+    const publicUrls = [...new Set([entryUrl, stageApplyUrl].map(value => String(value || '').trim()).filter(Boolean))];
+    const publicRouteAvailable = (await Promise.all(publicUrls.map(async (url) => {
+      try {
+        return await resolvePublicHost(url);
+      } catch {
+        return false;
+      }
+    }))).every(Boolean);
+    if (!publicRouteAvailable) {
+      return {
+        questions: [],
+        documents: [],
+        handoff: 'public_route_unavailable',
+        portalContract: applicationContractFromPreflight({
+          channelType, applyUrl: ctx.applyUrl, sourceUrl: entryUrl, status: 'unavailable', handoff: 'public_route_unavailable',
+        }),
+      };
+    }
+  }
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
   let page = null;
@@ -5889,6 +5909,29 @@ export async function readPortalRequirements(ctx) {
     });
     registerPortalChannelType(context, portalChannelType(ctx));
     await registerCookieSessionRecovery(context, { log: ctx.log });
+    if (genericPublicRoute && typeof context.route === 'function') {
+      const publicHostCache = new Map();
+      const requestIsPublic = async (requestUrl) => {
+        if (!/^(?:https?:|wss?:)/i.test(String(requestUrl || ''))) return true;
+        if (!isFetchablePublicUrl(requestUrl)) return false;
+        let check = publicHostCache.get(new URL(requestUrl).origin);
+        if (!check) {
+          check = Promise.resolve().then(() => resolvePublicHost(requestUrl)).catch(() => false);
+          publicHostCache.set(new URL(requestUrl).origin, check);
+        }
+        return check;
+      };
+      await context.route('**/*', async (route) => {
+        const requestUrl = route.request().url();
+        if (await requestIsPublic(requestUrl)) {
+          // Let the narrower cookie-session recovery route run first when it
+          // matches. `continue()` would bypass that already-registered route.
+          if (typeof route.fallback === 'function') await route.fallback();
+          else await route.continue();
+        }
+        else await route.abort().catch(() => {});
+      });
+    }
     // Reuse the bounded diagnostic listener for the preflight. It records only
     // request/response locations and methods; it never reads candidate data.
     // Deterministic portal fixtures may not expose a BrowserContext event API.
@@ -5946,6 +5989,10 @@ export async function readPortalRequirements(ctx) {
       contractPostingMatch = formMatch === 'mismatch' ? 'mismatch' : formMatch === 'match' ? 'match' : 'unknown';
       if (formMatch === 'mismatch') return await finish({ questions: [], documents: [], handoff: 'posting_mismatch' }, { status: 'blocked' });
     }
+    // A missing planner must not erase the technical preflight. The contract
+    // still records the mounted form and its background traffic so the owner
+    // sees whether the route was readable and what remains unknown.
+    if (!ctx.codex) return await finish({ questions: [], documents: [], handoff: 'planner_unavailable' }, { status: 'unavailable' });
     let plan;
     try {
       plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
@@ -6636,6 +6683,14 @@ export async function submitViaPortal(ctx) {
       const workable = (current) => current.fields.length > 0 || hasApplicationForm(current)
         || findButton(current.buttons, SUBMIT_RE) || findButton(current.buttons, NEXT_RE);
       if (!workable(snapshot)) snapshot = await awaitFields(page, snapshot);
+      // Site navigation alone is not an unreadable candidate question. Keep
+      // custom application widgets eligible for recovery, but do not ask the
+      // agent to fill a shell after its bounded field wait has expired.
+      if (!snapshot.fields.length && snapshot.buttons.length > 0
+        && snapshot.buttons.every((button) => button.chrome === true)
+        && !(snapshot.links || []).some((link) => !link.chrome)) {
+        return await handoff('application_stage_unknown');
+      }
       // Nothing the filler can read (a page of custom widgets): straight to the agent.
       let agentHint = workable(snapshot) ? 'next_disabled' : 'no_form_controls';
 

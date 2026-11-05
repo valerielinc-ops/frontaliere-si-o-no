@@ -64,10 +64,11 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     }),
   };
   const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
+  const codex = vi.fn();
   const run = () => submitViaPortal({ applyUrl: source?.url || options.applyUrl || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
     job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
-    codex: vi.fn(), launch: async () => browser, onBeforeSubmit: guard });
-  return { run, guard, click, openClick, page };
+    codex, launch: async () => browser, onBeforeSubmit: guard });
+  return { run, guard, click, openClick, page, codex };
 }
 
 beforeEach(() => vi.clearAllMocks());
@@ -125,6 +126,24 @@ describe('runner final guard across three application stages', () => {
     expect(result.event).toMatchObject({ type: 'submit_handoff' });
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('hands off the issue 17251 language-only shell without asking the candidate or guessing an apply URL', async () => {
+    // Synthetic route; the issue preserves only /job/*/* and Sprache.
+    const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Synthetic-Role/42/';
+    const shell = snapshot(postingUrl, 'Sprache', [{ id: 'language', text: 'Sprache', chrome: true }]);
+    const f = fixture(shell, null, review, null, {
+      applyUrl: postingUrl, postingUrl, channelType: 'successfactors',
+      job: { title },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+    expect(f.page.goto.mock.calls.every(([url]: [string]) => url === postingUrl)).toBe(true);
   });
 
   it('stops if the verified SuccessFactors apply route redirects away from the posting ID', async () => {
