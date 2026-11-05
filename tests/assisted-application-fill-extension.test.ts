@@ -1856,7 +1856,9 @@ describe('fill extension: owner-approved application defaults', () => {
       </form>`);
       const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
 
-      expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe('delete_current');
+      expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toMatchObject({
+        value: affirmativeDeletion, family: 'minimumDataRetention',
+      });
     }
   });
 
@@ -1879,7 +1881,9 @@ describe('fill extension: owner-approved application defaults', () => {
     </form>`);
     const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
 
-    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe('delete_current');
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toMatchObject({
+      value: affirmativeDeletion, family: 'minimumDataRetention',
+    });
   });
 
   it.each([
@@ -1896,7 +1900,9 @@ describe('fill extension: owner-approved application defaults', () => {
     </form>`);
     const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
 
-    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe('delete_current');
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toMatchObject({
+      value: conditionalDeletion, family: 'minimumDataRetention',
+    });
   });
 });
 
