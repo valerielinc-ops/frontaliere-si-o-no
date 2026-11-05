@@ -32,6 +32,7 @@ import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { postalPacketReadiness } from './assistedApplicationPostalPacket.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { checkPostingLiveness, resolvePostingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
@@ -162,7 +163,7 @@ export function computeDueAt(flow) {
   if (!flow) return null;
   if (needsFactRepair(flow)) return 1;
   if (flow.state === 'owner_takeover') {
-    return portalRetryDueAt(flow);
+    return draftRetryDueAt(flow) || portalRetryDueAt(flow);
   }
   if (TERMINAL_STATES.has(flow.state)) return null;
   if (['drafting', 'regenerating', 'submitting'].includes(flow.state)) {
@@ -718,16 +719,23 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
       }
       if (receiptResult?.receiptVerified) continue;
       if (flow.state === 'owner_takeover') {
+        const draftRetry = draftRetryDueAt(flow);
+        const event = needsFactRepair(flow)
+          ? { type: 'repair_facts' }
+          : draftRetry && draftRetry <= nowMs
+            ? { type: 'draft_auto_retry' }
+            : { type: 'portal_auto_retry' };
         const result = await applyAutomationEvent({
           db,
           orderId: doc.id,
-          event: { type: needsFactRepair(flow) ? 'repair_facts' : 'portal_auto_retry' },
-          actor: needsFactRepair(flow) ? 'fact-recovery' : 'portal-recovery',
+          event,
+          actor: needsFactRepair(flow) ? 'fact-recovery' : event.type === 'draft_auto_retry' ? 'draft-recovery' : 'portal-recovery',
           runEffect,
           nowMs,
         });
         if (result.ok) {
           if (needsFactRepair(flow)) summary.factRepairs += 1;
+          else if (event.type === 'draft_auto_retry') summary.redispatched += 1;
           else summary.portalRetries += 1;
         }
         else {
