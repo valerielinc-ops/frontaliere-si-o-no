@@ -457,7 +457,15 @@ export async function maybeStartAutomation(before, after, orderId, {
   const eligibility = automationEligibility(after, orderId);
   if (!eligibility.eligible) return { ok: true, skipped: eligibility.reason };
   if (!(await enabled(orderId))) return { ok: true, skipped: 'automation_disabled' };
-  return startAutomation({ db, orderId, runEffect, nowMs, reason: 'cv_verified', ensureAlias });
+  const reopenPending = after.reopenAfterWithdrawal?.status === 'pending';
+  return startAutomation({
+    db,
+    orderId,
+    runEffect,
+    nowMs,
+    reason: reopenPending ? 'owner_reopen_after_withdrawal' : 'cv_verified',
+    ensureAlias,
+  });
 }
 
 /** Create the flow (idempotent) and dispatch the first draft. */
@@ -477,13 +485,20 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
     if (!orderSnapshot.exists) return;
     const existing = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const withdrawalReopen = reason === 'owner_reopen_after_withdrawal'
+      && existing?.state === 'withdrawn'
+      && order.reopenAfterWithdrawal?.status === 'pending'
+      && String(order.reopenAfterWithdrawal.requestId || '').length > 0;
     // A live flow is never restarted; a finished takeover can be restarted by the owner.
-    if (existing && !(reason === 'owner_request' && existing.state === 'owner_takeover')) return;
+    // A withdrawn flow is restartable only after the explicit owner-only CV replacement
+    // operation has written its pending marker and reset the paid order to in_progress.
+    if (existing && !((reason === 'owner_request' && existing.state === 'owner_takeover') || withdrawalReopen)) return;
     if (!automationEligibility(order, orderId).eligible) return;
     const orderContext = orderQuestionAnswerContext({ orderId, order, flow: existing || {}, draft, nowMs });
+    const round = withdrawalReopen ? Math.max(1, Number(existing.round) || 1) + 1 : 1;
     const flow = {
       state: 'drafting',
-      round: 1,
+      round,
       deadlineAt: null,
       reminderAt: null,
       reminderSentAt: null,
@@ -493,7 +508,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       ...(existing?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
         ? { orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION }
         : {}),
-      feedback: existing?.feedback || [],
+      feedback: withdrawalReopen ? [] : existing?.feedback || [],
       answers: orderContext.answers,
       // Keep only order-local answers in Firestore. Verified cross-posting
       // facts are reloaded for the runner's execution context and not copied
@@ -505,18 +520,27 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       questionAnswerConfirmationHashes: orderContext.questionAnswerConfirmationHashes,
       questionAnswerSources: orderContext.questionAnswerSources,
       history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
-      dispatch: { mode: 'draft', round: 1, requestedAt: nowMs, attempts: 1, reason },
+      dispatch: { mode: 'draft', round, requestedAt: nowMs, attempts: 1, reason },
       startedAt: nowMs,
       updatedAt: nowMs,
     };
     transaction.set(flowRef, flow);
-    transaction.set(orderRef, mirrorFields(flow), { merge: true });
+    transaction.set(orderRef, {
+      ...mirrorFields(flow),
+      ...(withdrawalReopen ? {
+        reopenAfterWithdrawal: {
+          ...order.reopenAfterWithdrawal,
+          status: 'started',
+          startedAt: nowMs,
+        },
+      } : {}),
+    }, { merge: true });
     transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: 'system',
       eventType: `start:${reason}`,
       fromState: existing?.state || null,
       toState: 'drafting',
-      round: 1,
+      round,
     }));
     created = flow;
   });
