@@ -215,8 +215,9 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     + `<div id="job-${id}-desktop-section-adcode-value">${ref}</div></li>`;
   const listing = `<ul>${tile('1101', 'Gärtner*in', '51726')}${tile('1102', 'Werkstattleiter*in', '99999')}</ul>`;
   const detailIdentity = (url: string, ref: string) => `<link rel="canonical" href="${url}"><div>Referenz-Nr.: ${ref}</div>`;
+  const successFactorsDetail = (ref: string) => `<html lang="de"><head><title>Career Opportunities: Gärtner*in (${ref})</title></head><body><div class="joqReqDescription">${fixture}</div></body></html>`;
 
-  function mockPortal({ indexOk, directAdOk = false }: { indexOk: boolean; directAdOk?: boolean }) {
+  function mockPortal({ indexOk, directAdOk = false, successFactorsRefs = [] }: { indexOk: boolean; directAdOk?: boolean; successFactorsRefs?: string[] }) {
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       const u = String(url);
       if (u.startsWith('https://jobs.stadt-zuerich.ch/search/')) return new Response(listing, { status: 200 });
@@ -224,6 +225,12 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
         return indexOk
           ? new Response(JSON.stringify({ results: [{ href: '/content/web/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/job-detailseite.61759.html' }] }), { status: 200 })
           : new Response('unavailable', { status: 503 });
+      }
+      if (u.startsWith('https://career2.successfactors.eu/career?')) {
+        const ref = new URL(u).searchParams.get('career_job_req_id') || '';
+        return successFactorsRefs.includes(ref)
+          ? new Response(successFactorsDetail(ref), { status: 200 })
+          : new Response('', { status: 404 });
       }
       if (u.includes('job-detailseite.61759.html')) return new Response(fixture, { status: 200 });
       if (directAdOk && u.includes('job-detailseite.51726.html')) return new Response(fixture, { status: 200 });
@@ -248,6 +255,21 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     const jobs = await fetchAllStadtZuerichJobs();
     expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
     expect(jobs[0].description).toContain('Aufgaben');
+  }, 20_000);
+
+  it('recovers through the current SuccessFactors career detail when both legacy city sources are unavailable', async () => {
+    const fetchMock = mockPortal({ indexOk: false, successFactorsRefs: ['51726'] });
+    const jobs = await fetchAllStadtZuerichJobs();
+
+    expect(jobs.map((job) => job.referenceNumber)).toEqual(['51726']);
+    expect(jobs[0].description).toContain('Aufgaben');
+    const careerCalls = fetchMock.mock.calls
+      .map((call) => String(call[0]))
+      .filter((url) => url.startsWith('https://career2.successfactors.eu/career?'));
+    expect(careerCalls).toHaveLength(2);
+    expect(careerCalls[0]).toContain('company=STZH');
+    expect(careerCalls[0]).toContain('career_ns=job_application');
+    expect(careerCalls[0]).toContain('career_job_req_id=51726');
   }, 20_000);
 
   it('uses hydrated current detail pages when the official index cannot be read', async () => {

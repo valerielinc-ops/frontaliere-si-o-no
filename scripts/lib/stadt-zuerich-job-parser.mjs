@@ -61,6 +61,7 @@ import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-gua
 import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
 import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
+import { fetchSuccessFactorsJobs } from './ats-clients/successfactors-client.mjs';
 import {
   closeAll,
   createBrowser,
@@ -132,6 +133,9 @@ const CURRENT_DETAIL_SELECTORS = [
 ].join(', ');
 const CURRENT_DETAIL_WAIT_MS = 10_000;
 const CURRENT_DETAIL_MIN_DELAY_MS = 500;
+const SUCCESSFACTORS_CAREER_ORIGIN = 'https://career2.successfactors.eu';
+const SUCCESSFACTORS_COMPANY = 'STZH';
+const SUCCESSFACTORS_JOB_PIPELINE = 'eGovSTZH/de/stzh/jobs';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -585,6 +589,66 @@ async function fetchCurrentPortalAdTexts(wantedRefs, delayMs, detailRows, {
   return byRef;
 }
 
+function successFactorsDetailUrl(ref) {
+  const url = new URL('/career', SUCCESSFACTORS_CAREER_ORIGIN);
+  url.searchParams.set('company', SUCCESSFACTORS_COMPANY);
+  url.searchParams.set('career_ns', 'job_application');
+  url.searchParams.set('career_job_req_id', String(ref));
+  url.searchParams.set('jobPipeline', SUCCESSFACTORS_JOB_PIPELINE);
+  return url.href;
+}
+
+/**
+ * Read the current source of truth behind the branded jobs2web detail page.
+ * The vanity `/job/{slug}/{id}/` route exposes the title and application
+ * chrome but no vacancy body; its CTA carries the same Referenz-Nr. into the
+ * server-rendered SuccessFactors career page. Keep the reference check here
+ * so a redirect or stale requisition cannot attribute a neighbouring body's
+ * text to the listing row.
+ */
+async function fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef) {
+  const byRef = new Map();
+  const refs = [...wantedRefs].filter((ref) => /^\d+$/.test(String(ref)));
+
+  for (const ref of refs) {
+    const pageUrl = successFactorsDetailUrl(ref);
+    try {
+      let yielded = false;
+      for await (const posting of fetchSuccessFactorsJobs(pageUrl, {
+        company: STADT_ZUERICH_COMPANY_NAME,
+        tenant: SUCCESSFACTORS_COMPANY,
+        userAgent: USER_AGENT,
+        minDelayMs: 0,
+        lang: 'de_DE',
+      })) {
+        yielded = true;
+        const actualRef = String(posting?.jobReqId || '');
+        if (actualRef !== String(ref)) {
+          console.warn(`  ⚠️ SuccessFactors reference mismatch: expected ${ref}, got ${actualRef || 'none'} — ${pageUrl}`);
+          break;
+        }
+        const description = normalizeDescriptionBullets(stripHtml(posting?.descriptionHtml || ''));
+        if (meetsSourceBodyFloor(description)) {
+          byRef.set(String(ref), description);
+          const publication = sourcePostingDateFields(posting?.datePosted || posting?.postedDate || '');
+          if (publication.postedDate) publicationByRef?.set(String(ref), publication);
+        } else {
+          console.warn(`  ⚠️ SuccessFactors detail below source floor: ${pageUrl}`);
+        }
+        break;
+      }
+      if (!yielded) {
+        console.warn(`  ⚠️ SuccessFactors detail yielded no posting: ${pageUrl}`);
+      }
+    } catch (err) {
+      console.warn(`  ⚠️ SuccessFactors detail failed: ${pageUrl} — ${err?.message || err}`);
+    }
+    await new Promise((resolve) => setTimeout(resolve, delayMs));
+  }
+
+  return byRef;
+}
+
 /**
  * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
  * Prefer the portal index, then fetch each listed page politely. If the index
@@ -623,6 +687,8 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
     index = JSON.parse(await fetchPage(`${OFFICIAL_JOBSEARCH_URL}?${params}`));
   } catch (err) {
     console.warn(`  ⚠️ Official ad index unavailable; probing current detail URLs by reference — ${err?.message || err}`);
+    const successFactors = await fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef);
+    if (successFactors.size > 0) return successFactors;
     const direct = await fetchOfficialAdTextsByReference(wantedRefs, delayMs, publicationByRef);
     if (direct.size > 0) return direct;
     if (Array.isArray(detailRows) && detailRows.length > 0) {
@@ -639,6 +705,8 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
     .map((r) => String(r?.href || ''))
     .filter((href) => /\/job-detailseite\.\d+\.html$/.test(href)))];
   if (hrefs.length === 0 && Array.isArray(detailRows) && detailRows.length > 0) {
+    const successFactors = await fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef);
+    if (successFactors.size > 0) return successFactors;
     const direct = await fetchOfficialAdTextsByReference(wantedRefs, delayMs, publicationByRef);
     if (direct.size > 0) return direct;
     console.warn('  ⚠️ Official ad index returned no usable pages; using current portal detail pages.');
