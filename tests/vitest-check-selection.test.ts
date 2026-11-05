@@ -667,6 +667,32 @@ describe('selezione generation-aware del check-run (#1648)', () => {
     expect(latestCompletedRunByName([first, rerun], VITEST_CHECK_NAME)).toBe(rerun);
   });
 
+  it('non usa il check ID quando i metadati di generazione sono parziali', () => {
+    const sameTimestamp = '2026-09-20T12:30:00Z';
+    const withAttemptAndWorkflow = {
+      ...vitest('failure', '2026-09-20T12:32:00Z', 'completed', {
+        id: 503,
+        created_at: sameTimestamp,
+        run_attempt: 1,
+      }),
+      details_url: 'https://github.com/owner/repo/actions/runs/3001/job/503?attempt=1#summary',
+    };
+    const withoutAttemptOrWorkflow = vitest('success', '2026-09-20T12:31:00Z', 'completed', {
+      id: 502,
+      created_at: sameTimestamp,
+    });
+
+    for (const checkRuns of [
+      [withAttemptAndWorkflow, withoutAttemptOrWorkflow],
+      [withoutAttemptOrWorkflow, withAttemptAndWorkflow],
+    ]) {
+      const selection = latestCompletedRunSelectionByName(checkRuns, VITEST_CHECK_NAME);
+      expect(selection.state).toBe(RUN_SELECTION_STATES.AMBIGUOUS);
+      expect(selection.reason).toBe('incomparable-generation-metadata');
+      expect(latestCompletedRunByName(checkRuns, VITEST_CHECK_NAME)).toBeNull();
+    }
+  });
+
   it('rifiuta SHA misti, metadati mancanti e duplicati conflittuali', () => {
     const valid = vitest('success', '2026-09-20T13:00:00Z', 'completed', { id: 500 });
     const cases = [
