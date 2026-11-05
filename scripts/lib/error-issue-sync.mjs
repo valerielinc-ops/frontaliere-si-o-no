@@ -82,10 +82,10 @@ export const ISSUE_DENY_PATTERNS = [
   // 13628). Keep this byte-for-byte aligned with UNIVERSAL_BENIGN_PATTERNS.
   /Object Not Found Matching Id:\d+, MethodName:update, ParamCount:4/i,
   // Firebase Installations rejects the optional telemetry client when its
-  // public configuration is invalid or denied. GA4 truncates the value at 100
-  // characters, so the stable `INVA`/`PERM` prefix must be enough to prevent
+  // public configuration is invalid. GA4 truncates the value at 100
+  // characters, so the stable `INVA` prefix must be enough to prevent
   // residual events from reopening #16807.
-  /Installations:\s*Create Installation request failed with error ["']?(?:400\s+INVA|403\s+PERM)/i,
+  /Installations:\s*Create Installation request failed with error ["']?400\s+INVA/i,
   // Bare-URL <script>/<link> load failure during the CDN propagation window
   // (#4151 CSS-only fix, generalized to JS by #4592). The inline bootstrap
   // recovery snippet catches error events on ANY /assets/*.js|.css tag
