@@ -38,10 +38,10 @@ const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
 // A SuccessFactors profile/application page may keep the CV in «Meine
-// Dokumente» and expose no file input in the current snapshot. Job-specific
-// questions are still stronger evidence than a bare Apply button on a profile
-// page, so they may prove the same form before the final-click guard.
-const APPLICATION_QUESTION_RE = /(?:work\s+permit|permit\s+for|salary|workload|starting\s+date|notice\s+period|how\s+did\s+you\s+hear|motiv(?:ation|ated)|experience|nebenbeschäftigung|brutto[-\s]jahreslohn|stellenspezifische(?:n|s)?\s+information(?:en)?|wie\s+haben\s+sie\s+von\s+dieser\s+stelle\s+erfahren|was\s+hat\s+dich\s+motiviert|welche\s+erfahrungen|salaire|rémunération|expérience|esperienza|retribuzione)/iu;
+// Dokumente» and expose no file input in the current snapshot. Only a
+// question-specific label/name may prove the same form; section headings,
+// context inherited from an ancestor, and arbitrary profile text do not.
+const APPLICATION_QUESTION_RE = /(?:work\s+permit|permit\s+for|salary\s+expectations?|expected\s+salary|workload(?=[^?？]{0,100}[?？])|starting\s+date|earliest\s+start|notice\s+period|how\s+did\s+you\s+hear|motivat(?:ion|ed).{0,80}(?:apply|position|role|stelle|poste|posto|candidatur)|experience.{0,80}(?:position|role|stelle|job|poste|posto|emploi)|nebenbeschäftigung|brutto[-\s]jahreslohn(?:vorstellung)?|wie\s+haben\s+sie\s+von\s+dieser\s+stelle\s+erfahren|was\s+hat\s+dich\s+motiviert|welche\s+erfahrungen|salaire.{0,80}(?:attendu|souhait)|rémunération.{0,80}(?:attendue|souhait)|expérience.{0,80}(?:poste|emploi|fonction)|pourquoi.{0,80}(?:poste|emploi|candidature)|esperienza.{0,80}(?:ruolo|posizione|lavoro)|retribuzione(?:\s+attesa)?)/iu;
 // With no posting key, a submission handoff can bind only a recognized receipt
 // endpoint. A same-origin `/other/` page repeating the role title is not a
 // receipt proof, even when the preceding review route was observed.
@@ -237,9 +237,8 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
     || /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i.test(field.label || ''));
   const hasCv = snapshot?.uploadedCv === true
     || applicationFields.some(field => field.kind === 'file' || field.inputType === 'file');
-  const hasApplicationQuestion = applicationFields.some(field => field.kind === 'textarea'
-    || field.inputType === 'textarea'
-    || APPLICATION_QUESTION_RE.test([field.label, field.name, field.section, field.context].filter(Boolean).join(' ')));
+  const hasApplicationQuestion = applicationFields.some(field =>
+    APPLICATION_QUESTION_RE.test([field.label, field.name].filter(Boolean).join(' ')));
   const applicationForm = apply.length === 1 && !apply[0].href && apply[0].formId
     && hasApplicationIdentity
     && (hasCv || hasApplicationQuestion);
