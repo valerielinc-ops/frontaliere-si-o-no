@@ -5125,7 +5125,8 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
     const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
     const role = residenceFieldRole(field.label);
-    if (isPermitField(field.label) && asksHeldStatus(field.label) && !permitStatusPresent) {
+    if (isPermitField(field.label) && asksHeldStatus(field.label)
+      && !isPermitHistoricalQuestion(field.label) && !permitStatusPresent) {
       const question = permitStatusQuestion(candidateLocale);
       add(field, 'work_permit', question,
         permitStatusQuestionWhy(candidateLocale),

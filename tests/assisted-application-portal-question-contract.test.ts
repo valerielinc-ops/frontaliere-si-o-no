@@ -288,4 +288,28 @@ describe('portal candidate question contract', () => {
       required: true,
     });
   });
+
+  it('does not replace a historical permit field with the current-status backstop', () => {
+    const historical = {
+      id: 'permit-history',
+      kind: 'select',
+      label: 'Have you ever held a work permit?',
+      required: true,
+      options: [{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }],
+    };
+    const result = portalRequirementsFromMissingRequired([historical], [{
+      fieldId: historical.id,
+      applicationQuestion: historical.label,
+      question: historical.label,
+      required: true,
+    }], { candidate: { profile: {}, answers: {} } });
+
+    expect(result.questions).toHaveLength(1);
+    expect(result.questions[0]).toMatchObject({
+      fieldId: historical.id,
+      applicationQuestion: historical.label,
+      question: historical.label,
+      options: ['Yes', 'No'],
+    });
+  });
 });
