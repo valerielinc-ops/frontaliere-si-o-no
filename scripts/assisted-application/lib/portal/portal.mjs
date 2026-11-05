@@ -4854,7 +4854,13 @@ export async function readPortalRequirements(ctx) {
     // mismatch must stop before any job-specific question reaches the draft.
     const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
     if (hasJobContract) {
-      const formMatch = formPostingMatch(`${snapshot.text || ''}\n${page.url()}`, ctx.job, {
+      // Keep the page title as a separate line. Some ATS accessibility text
+      // starts with a skip-link preamble (for example Umantis' «Passa a
+      // Contenuto principale»); flattening it into the first line makes the
+      // employer-conflict guard mistake that chrome for another employer.
+      const pageTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
+      const formText = `${pageTitle}\n${snapshot.text || ''}\n${page.url()}`;
+      const formMatch = formPostingMatch(formText, ctx.job, {
         postingMatched: verifiedPostingEntry,
         postingEntry: verifiedPostingEntry,
         pageUrl: page.url(),

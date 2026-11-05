@@ -727,7 +727,12 @@ export function isPreDispatchLocatorClickFailure(error) {
   const message = String(error?.message || error);
   if (/performing click action|click action done|waiting for (?:scheduled )?navigations?|waiting for navigation|navigated to|waiting for load state/i.test(message)) return false;
   if (/locator resolved to 0 elements/i.test(message)) return true;
-  if (/locator resolved\b|element is visible, enabled and stable|scrolling into view/i.test(message)) return false;
+  // Playwright can resolve the refreshed node and still time out before it
+  // reaches the click phase. The resolution line alone is not evidence that
+  // a browser event was dispatched; the action-phase markers above are the
+  // boundary that makes a retry unsafe.
+  if (/locator resolved\b/i.test(message)) return true;
+  if (/element is visible, enabled and stable|scrolling into view/i.test(message)) return false;
   return /waiting for locator|strict mode violation/i.test(message);
 }
 

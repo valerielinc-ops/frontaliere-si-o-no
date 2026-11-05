@@ -504,6 +504,36 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
 });
 
+it('keeps a verified Umantis form when its accessibility text starts with skip-link chrome', async () => {
+  const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+  const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+  const snapshot = {
+    url: applicationUrl, buttons: [], captcha: false, passwordVisible: true, errors: [],
+    text: 'Passa a Contenuto principale Impiegato/a amministrativo - Candidatura I campi contrassegnati con * sono obbligatori.',
+    fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'Curriculum', required: true }],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => applicationUrl,
+    title: vi.fn(async () => 'Impiegato/a amministrativo - Candidatura | EOC candiDati'),
+    goto: vi.fn(async () => {}), evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'it', candidateLocale: 'it',
+    job: { title: 'Impiegato a amministrativo', company: 'EOC – Ente Ospedaliero Cantonale' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(result).toMatchObject({ questions: [], documents: [] });
+  expect(result.handoff).toBeUndefined();
+  expect(codex).toHaveBeenCalledOnce();
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('batches mounted later-step ATS questions in one read-only pre-read', async () => {
   const url = 'https://jobs.lever.co/example/1/apply';
   const visible = {
