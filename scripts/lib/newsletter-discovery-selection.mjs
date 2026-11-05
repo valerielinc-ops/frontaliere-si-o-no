@@ -17,7 +17,7 @@ export const DISCOVERY_ARTICLES_MAX_AGE_MS = 14 * 24 * 60 * 60 * 1000;
 export const DISCOVERY_ARTICLES_FUTURE_SKEW_MS = 5 * 60 * 1000;
 
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
-const PROVIDERS = new Set(['google_trends', 'reddit', 'other']);
+const PROVIDERS = new Set(['google_trends', 'other']);
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const MAX_RECENT_ARTICLE_AGE_MS = 60 * 24 * 60 * 60 * 1000;
 const MAX_ROTATION_POOL = 12;

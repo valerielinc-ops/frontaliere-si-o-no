@@ -126,6 +126,12 @@ describe('parseDiscoveryArticleIndex', () => {
     expect(parse(index(now), now).articles).toHaveLength(1);
   });
 
+  it('rejects Reddit provider data until the source is authorized', () => {
+    const now = Date.now();
+    expect(() => parse(index(now, [article('reddit-source', now, { provider: 'reddit' })]), now))
+      .toThrow(/invalid article contract/);
+  });
+
   it('rejects wrong bytes, counts, commit, and stale timestamps', () => {
     const now = Date.now();
     const payload = index(now);
