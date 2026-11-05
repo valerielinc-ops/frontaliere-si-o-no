@@ -298,9 +298,9 @@ describe('portal field extraction', () => {
         };
     const frame = {
       url: () => url,
-      evaluate: vi.fn(async () => currentSnapshot()),
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? true : currentSnapshot()),
       locator: vi.fn((selector: string) => ({
-        innerText: vi.fn(async () => stage < 2 ? 'Cookie preferences' : ''),
+        innerText: vi.fn(async () => stage < 2 ? 'Cookie preferences and cookies' : ''),
         first: () => ({
           click: vi.fn(async () => {
             expect(selector).toBe(stage === 0 ? '[data-aa-id="manage-consent"]' : '[data-aa-id="reject"]');
@@ -353,6 +353,21 @@ describe('portal field extraction', () => {
     const frame = {
       url: () => url,
       evaluate: vi.fn(async (evaluateInPage: Function) => evaluateInPage === extractFieldsInPage ? privacy : false),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not open Manage consent from a generic live banner marker', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const extracted = extract('<section class="banner"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
+    const privacy = { ...extracted, buttons: extracted.buttons.map((button: any) => ({ ...button, cookieSurface: 'banner' })) };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function, args: any) => args?.surfacePattern ? false : privacy),
     };
     const page = { url: () => url, frames: () => [frame] };
 

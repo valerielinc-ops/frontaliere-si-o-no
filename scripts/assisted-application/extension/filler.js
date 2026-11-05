@@ -40,6 +40,10 @@
   const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
   const COOKIE_WORD_RE = /\bcookies?\b/i;
   const COOKIE_MARKER_RE = /cookies?|consent|onetrust|usercentrics|didomi|trustarc/i;
+  // A generic banner/modal marker is not a cookie manager. The bare
+  // Yellowshark label needs a cookie-specific live surface and cookie copy;
+  // `cookie-consent` stays excluded because application privacy sections use it.
+  const COOKIE_MANAGER_SURFACE_RE = /\b(?:cookie[-_ ]?(?:banner|manager|policy|settings?|preferences?|notice|overlay|modal|dialog)|consent[-_ ]?manager|(?:onetrust|usercentrics|didomi|trustarc|cookiebot|quantcast|complianz|cmplz|iubenda|sourcepoint|cmpbox|sp_message|cky[-_ ]?consent|cookie[-_ ]?script))\b/i;
   // `cookie-consent` is also used for application privacy copy; the marker
   // alone is not evidence that a live cookie manager is covering the page.
   const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager)\b/i;
@@ -1895,11 +1899,23 @@
       .map((element) => ({ element, text: (textOf(element) || element.getAttribute('value') || element.getAttribute('aria-label') || '').trim() }))
       .filter((button) => button.text);
   }
+  function cookieManagerSurfaceIsLive(element) {
+    for (let node = element.parentElement; node && node !== element.ownerDocument.body; node = node.parentElement) {
+      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (!COOKIE_MANAGER_SURFACE_RE.test(marker)) continue;
+      if (node.matches('form, [role="form"]')) continue;
+      if (!COOKIE_WORD_RE.test(textOf(node))) continue;
+      return true;
+    }
+    return false;
+  }
   function cookieControlIsActive(button) {
     const element = button.element;
     const manageConsent = COOKIE_MANAGE_CONSENT_RE.test(button.text);
     if (manageConsent && element.closest('form, [role="form"]')) return false;
     if (element.closest('header, nav, footer, [role="navigation"], [role="contentinfo"]')) return false;
+    if (manageConsent) return cookieManagerSurfaceIsLive(element);
     for (let node = element; node && node !== element.ownerDocument.body; node = node.parentElement) {
       const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
