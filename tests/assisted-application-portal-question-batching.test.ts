@@ -325,6 +325,46 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 }
 
 describe('assisted portal question batching', () => {
+  it('does not promote a prefilled current permit from the CV into agent answers', async () => {
+    const fixture = fakePage({ conditional: false });
+    const { page, window } = fixture;
+    window.document.querySelector('form')?.insertAdjacentHTML('beforeend', '<label for="permit">Which work authorization do you hold?</label><input id="permit" value="Permesso G">');
+    window.document.getElementById('next')?.remove();
+    const candidate = {
+      identity: { email: 'candidate@example.test', address: { country: 'Italia' } },
+      profile: { workPermit: 'Permesso G' },
+      answers: {},
+      portalQuestionsAnswered: [],
+    };
+    let agentCandidate: any = null;
+    const codex = async ({ prompt, schema }: any) => {
+      if (schema?.properties?.status) {
+        const text = String(prompt);
+        const start = text.indexOf('{"agentPage":');
+        const end = text.indexOf('\n\nPage snapshot:', start);
+        agentCandidate = JSON.parse(text.slice(start, end)).candidate;
+        return { status: 'stuck', reason: 'synthetic handoff', actions: [], advanceRef: '', submitRef: '', questions: [] };
+      }
+      return { actions: [], missingRequired: [] };
+    };
+    const context: any = {
+      on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
+      close: async () => {}, waitForEvent: async () => null,
+    };
+    page.context = () => context;
+    const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
+
+    await submitViaPortal({
+      applyUrl: page.url(), job: { title: 'Synthetic role', company: 'Example AG' },
+      language: 'en', candidateLocale: 'en', candidate,
+      files: {}, skipPostingCheck: true, maxSteps: 1, codex, launch: async () => browser,
+      accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
+    });
+
+    expect(agentCandidate).not.toBeNull();
+    expect(agentCandidate.portalQuestionsAnswered).toEqual([]);
+  });
+
   it('replans after privacy acceptance and does not create an account when it reveals an unknown required answer', async () => {
     const fixture = fakePage({ registration: true, privacyRevealsUnknown: true });
     const { page, window, ctaClicks } = fixture;
