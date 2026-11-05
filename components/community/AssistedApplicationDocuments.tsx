@@ -7,13 +7,12 @@ import type { ReviewDocument } from '@/services/assistedApplicationReviewService
 /**
  * The documents the posting requires besides the CV and the letter (Rolex,
  * 2026-10-02: school reports, the EVA and GRI test results), on the
- * candidate's review page. Each file is checked in the browser first: a file
- * identified as a different document gets a warning; unrecognized readable
- * text stays uncertain, never a block — which file to send is the candidate's choice (owner decision
- * 2026-10-02). Sending without a required document is not: the application
- * waits for it (owner decision 2026-10-08).
+ * candidate's review page. Electronic documents are checked in the browser
+ * first; paper-application scans are not text-checked, and local-only files
+ * stay in the page for on-device packet assembly. A required document cannot
+ * be skipped (owner decision 2026-10-08).
  */
-export function AssistedApplicationDocuments({ documents, limits, disabled, onUpload, onRemove, onSetPrepared, onSetExemption }: {
+export function AssistedApplicationDocuments({ documents, limits, disabled, onUpload, onRemove, onSetPrepared, onSetExemption, postalSubmission = false, localFiles = {}, onLocalFilesChange, localDocumentsOnly = false }: {
   documents: ReviewDocument[];
   limits: { maxBytes: number; maxFiles: number };
   disabled: boolean;
@@ -21,29 +20,48 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
   onRemove: (document: ReviewDocument, fileId: string) => Promise<boolean>;
   onSetPrepared: (document: ReviewDocument, prepared: boolean) => Promise<boolean>;
   onSetExemption: (document: ReviewDocument, exemption: string) => Promise<boolean>;
+  postalSubmission?: boolean;
+  localFiles?: Record<string, File[]>;
+  onLocalFilesChange?: (document: ReviewDocument, files: File[]) => void;
+  localDocumentsOnly?: boolean;
 }) {
   const { t } = useTranslation();
-  // The document whose file is being checked and sent, and a file refused before sending.
+  // The document whose file is being selected or uploaded, and a file refused before sending.
   const [working, setWorking] = useState<string | null>(null);
   const [localError, setLocalError] = useState<Record<string, string>>({});
   const [exemptionChoice, setExemptionChoice] = useState<Record<string, string>>({});
   const maxMb = Math.round(limits.maxBytes / (1024 * 1024));
 
-  const pick = async (document: ReviewDocument, list: FileList | null) => {
-    const room = Math.max(0, limits.maxFiles - document.files.length);
+  const pick = async (document: ReviewDocument, list: FileList | null, localOnly: boolean) => {
+    const existingLocalFiles = localFiles[document.id] || [];
+    const existingCount = localOnly ? existingLocalFiles.length : document.files.length;
+    const room = Math.max(0, limits.maxFiles - existingCount);
     const files = [...(list || [])].slice(0, room);
     if (!files.length) return;
     setLocalError((current) => ({ ...current, [document.id]: '' }));
     setWorking(document.id);
     try {
+      const acceptedLocal: File[] = [];
       for (const file of files) {
         if (file.size > limits.maxBytes) {
           setLocalError((current) => ({ ...current, [document.id]: t('jobBoard.assisted.review.documents.tooLarge', { name: file.name, mb: maxMb }) }));
           continue;
         }
-        const check = await checkDocumentFile(file, document);
+        const extension = file.name.split('.').pop()?.toLowerCase();
+        if (postalSubmission && !['pdf', 'jpg', 'jpeg', 'png'].includes(extension || '')) {
+          setLocalError((current) => ({ ...current, [document.id]: t('jobBoard.assisted.review.documents.postalFormat') }));
+          continue;
+        }
+        if (localOnly) {
+          acceptedLocal.push(file);
+          continue;
+        }
+        const check = postalSubmission
+          ? { verdict: 'unreadable' as const, matched: '', version: DOCUMENT_CHECK_VERSION }
+          : await checkDocumentFile(file, document);
         if (!(await onUpload(document, file, check))) break;
       }
+      if (localOnly && acceptedLocal.length) onLocalFilesChange?.(document, [...existingLocalFiles, ...acceptedLocal]);
     } finally {
       setWorking(null);
     }
@@ -62,15 +80,23 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
       <div>
         <h2 id="assisted-documents-title" className="text-base font-bold text-heading">{t('jobBoard.assisted.review.documents.title')}</h2>
         <p className="mt-1 text-sm text-body">{t('jobBoard.assisted.review.documents.intro')}</p>
-        {documents.some((document) => (document.delivery || 'upload') === 'upload') && <p className="mt-1 text-xs text-subtle">{t('jobBoard.assisted.review.documents.formats', { mb: maxMb, max: limits.maxFiles })}</p>}
+        {documents.some((document) => (document.delivery || 'upload') === 'upload' || (postalSubmission && document.delivery === 'offline' && !document.localOnly)) && (
+          <p className="mt-1 text-xs text-subtle">{t(postalSubmission ? 'jobBoard.assisted.review.documents.postalFormats' : 'jobBoard.assisted.review.documents.formats', { mb: maxMb, max: limits.maxFiles })}</p>
+        )}
       </div>
-      {documents.map((document) => {
+      {documents.filter((document) => !localDocumentsOnly || (postalSubmission && document.localOnly)).map((document) => {
         const inputId = `assisted-document-${document.id}`;
-        const full = document.files.length >= limits.maxFiles;
+        const localOnly = postalSubmission && Boolean(document.localOnly);
+        const selectedLocalFiles = localFiles[document.id] || [];
+        const existingCount = localOnly ? selectedLocalFiles.length : document.files.length;
+        const full = existingCount >= limits.maxFiles;
         const selectedExemption = exemptionChoice[document.id] || '';
         const delivery = document.delivery || 'upload';
         const exemptions = document.exemptions || [];
         const hasExemption = Boolean(document.exemption && exemptions.includes(document.exemption));
+        const canUpload = !localOnly && (delivery === 'upload' || (postalSubmission && delivery === 'offline'));
+        const isReady = delivery === 'service' || (localOnly ? selectedLocalFiles.length > 0 : document.files.length > 0)
+          || (!postalSubmission && delivery === 'offline' && Boolean(document.preparedAt));
         return (
           <div key={document.id} className="space-y-2 rounded-lg border border-edge bg-surface p-3">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -85,9 +111,11 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
             {document.quote && <p className="text-xs italic text-subtle">{t('jobBoard.assisted.review.documents.askedBy', { quote: document.quote })}</p>}
             {document.instructions && <p className="rounded-md border border-info-border bg-info-subtle/40 px-3 py-2 text-sm text-body">{document.instructions}</p>}
 
-            {delivery === 'offline' && (
+            {delivery === 'offline' && !postalSubmission && (
               <p className="text-xs text-subtle">{t('jobBoard.assisted.review.documents.offlineNote')}</p>
             )}
+            {localOnly && <p className="rounded-md border border-info-border bg-info-subtle/40 px-3 py-2 text-xs text-body">{t('jobBoard.assisted.review.documents.localOnlyNote')}</p>}
+            {postalSubmission && delivery === 'offline' && !localOnly && <p className="rounded-md border border-info-border bg-info-subtle/40 px-3 py-2 text-xs text-body">{t('jobBoard.assisted.review.documents.postalScanNote')}</p>}
             {delivery === 'service' && !hasExemption && (
               <p className="inline-flex items-center gap-2 text-xs text-success" role="status"><CheckCircle2 className="h-4 w-4" aria-hidden="true" />{t('jobBoard.assisted.review.documents.servicePreparedNote')}</p>
             )}
@@ -110,7 +138,7 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
               </div>
             ) : null}
 
-            {delivery === 'upload' && document.files.length > 0 && (
+            {(delivery === 'upload' || (postalSubmission && delivery === 'offline')) && document.files.length > 0 && (
               <ul className="space-y-2">
                 {document.files.map((file) => {
                   const ok = file.clientCheck.verdict === 'match';
@@ -136,11 +164,13 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
                         </button>
                         </span>
                       </div>
-                      <p className={`mt-1 flex items-start gap-1.5 text-xs ${ok ? 'text-success' : legacy || uncertain ? 'text-subtle' : 'text-warning'}`} role="status">
-                        {ok
-                          ? <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                          : legacy || uncertain ? <FileText className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" /> : <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
-                        <span>{legacy ? t('jobBoard.assisted.review.documents.check.legacy') : checkMessage(document, file.clientCheck.verdict)}</span>
+                      <p className={`mt-1 flex items-start gap-1.5 text-xs ${postalSubmission ? 'text-subtle' : ok ? 'text-success' : legacy || uncertain ? 'text-subtle' : 'text-warning'}`} role="status">
+                        {postalSubmission || legacy || uncertain
+                          ? <FileText className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                          : ok ? <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" /> : <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
+                        <span>{postalSubmission
+                          ? t('jobBoard.assisted.review.documents.postalUploadSaved')
+                          : legacy ? t('jobBoard.assisted.review.documents.check.legacy') : checkMessage(document, file.clientCheck.verdict)}</span>
                       </p>
                     </li>
                   );
@@ -148,28 +178,47 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
               </ul>
             )}
 
-            {delivery === 'upload' && !hasExemption && !full && (
+            {canUpload && !hasExemption && !full && (
               <div>
                 <label
                   htmlFor={inputId}
                   className={`inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-lg border border-accent px-4 text-sm font-semibold text-accent hover:bg-accent-subtle ${disabled || working ? 'pointer-events-none opacity-60' : ''}`}
                 >
                   {working === document.id ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Upload className="h-4 w-4" aria-hidden="true" />}
-                  {working === document.id ? t('jobBoard.assisted.review.documents.checking') : t('jobBoard.assisted.review.documents.upload')}
+                  {working === document.id ? t(postalSubmission ? 'jobBoard.assisted.review.documents.uploading' : 'jobBoard.assisted.review.documents.checking') : t('jobBoard.assisted.review.documents.upload')}
                 </label>
                 <input
                   id={inputId}
                   type="file"
                   multiple
                   className="sr-only"
-                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+                  accept={postalSubmission ? '.pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png' : '.pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png'}
                   disabled={disabled || Boolean(working)}
-                  onChange={(event) => { const { files } = event.target; void pick(document, files).finally(() => { event.target.value = ''; }); }}
+                  onChange={(event) => { const { files } = event.target; void pick(document, files, false).finally(() => { event.target.value = ''; }); }}
                 />
               </div>
             )}
+            {localOnly && !hasExemption && (
+              <div className="space-y-2">
+                {selectedLocalFiles.length > 0 && <ul className="space-y-2">{selectedLocalFiles.map((file, index) => (
+                  <li key={`${file.name}-${file.size}-${index}`} className="flex items-center justify-between gap-2 rounded-md border border-edge p-2 text-sm text-body">
+                    <span className="min-w-0 truncate">{file.name}</span>
+                    <button type="button" disabled={disabled} onClick={() => onLocalFilesChange?.(document, selectedLocalFiles.filter((_, selectedIndex) => selectedIndex !== index))} className="inline-flex min-h-[40px] items-center gap-1 rounded px-2 text-xs font-semibold text-subtle hover:text-heading disabled:opacity-60">
+                      <Trash2 className="h-4 w-4" aria-hidden="true" />{t('jobBoard.assisted.review.documents.remove')}
+                    </button>
+                  </li>
+                ))}</ul>}
+                {!full && <div>
+                  <label htmlFor={inputId} className={`inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-lg border border-accent px-4 text-sm font-semibold text-accent hover:bg-accent-subtle ${disabled || working ? 'pointer-events-none opacity-60' : ''}`}>
+                    {working === document.id ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Upload className="h-4 w-4" aria-hidden="true" />}
+                    {t('jobBoard.assisted.review.documents.selectLocal')}
+                  </label>
+                  <input id={inputId} type="file" multiple className="sr-only" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" disabled={disabled || Boolean(working)} onChange={(event) => { const { files } = event.target; void pick(document, files, true).finally(() => { event.target.value = ''; }); }} />
+                </div>}
+              </div>
+            )}
             {delivery === 'offline' && !hasExemption && (
-              <div className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-edge p-2">
+              !postalSubmission && <div className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-edge p-2">
                 <span className={`inline-flex items-center gap-2 text-sm ${document.preparedAt ? 'text-success' : 'text-subtle'}`} role="status">
                   {document.preparedAt ? <CheckCircle2 className="h-4 w-4" aria-hidden="true" /> : <FileText className="h-4 w-4" aria-hidden="true" />}
                   {document.preparedAt ? t('jobBoard.assisted.review.documents.prepared') : t('jobBoard.assisted.review.documents.notPrepared')}
@@ -181,7 +230,7 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
             )}
             {localError[document.id] && <p className="text-xs text-danger" role="alert">{localError[document.id]}</p>}
 
-            {document.required && !hasExemption && !(delivery === 'service' || (delivery === 'offline' ? document.preparedAt : document.files.length > 0)) && (
+            {document.required && !hasExemption && !isReady && (
               <p className="text-xs text-subtle">{t('jobBoard.assisted.review.documents.requiredNote', { label: document.label })}</p>
             )}
           </div>

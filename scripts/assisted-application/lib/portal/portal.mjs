@@ -1,5 +1,5 @@
 import { createHash, randomUUID } from 'node:crypto';
-import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
+import { hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
 /**
@@ -30,7 +30,7 @@ import path from 'node:path';
 import { applicationReceipt, applicationStage, isApplicationRegionUnsupported } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
-import { extractFields, registerPortalChannelType } from './fields.mjs';
+import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
@@ -61,7 +61,114 @@ const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
-export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence } = globalThis.AssistedApplyControls;
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence, isIdentityEmailCaption, addressContextContract } = globalThis.AssistedApplyControls;
+const verifiedUmantisApplicantPages = new WeakMap();
+// Umantis' verified Application/New surface can omit a semantic section around
+// its base applicant fields. Bind only an otherwise ownerless address cluster
+// when the same native form also exposes the applicant's name and email. A
+// named native owner always wins and remains subject to the usual provenance
+// checks.
+const UMANTIS_APPLICANT_IDENTITY_RE = {
+  givenName: /^(?:first name|given name|firstname|forename|vorname|prénom|prename|nome)$/i,
+  familyName: /^(?:last name|family name|surname|lastname|nachname|nom de famille|nom|cognome|name)$/i,
+};
+const UMANTIS_PHONE_CONTEXT_RE = /\b(?:phone|telephone|mobile|tel(?:ephone)?|telefon|telefono|natel|country code|dialling code|dialing code|indicativo|prefisso|vorwahl)\b/i;
+const umantisIdentityCaption = field => String(field?.label || '').normalize('NFKC').replace(/\s+/g, ' ')
+  .replace(/\s*\((?:required|mandatory|obbligatorio|erforderlich|pflichtfeld|obligatoire)\)\s*$/i, '')
+  .replace(/[＊*]/g, '').replace(/[:?]\s*$/, '').trim();
+
+function verifiedUmantisApplicantContext(stageContext, currentUrl) {
+  if (stageContext?.postingEntry !== true || !stageContext.applyUrl || !stageContext.postingUrl) return null;
+  try {
+    const application = new URL(String(stageContext.applyUrl));
+    const posting = new URL(String(stageContext.postingUrl));
+    const current = new URL(String(currentUrl || ''));
+    if (application.protocol !== 'https:' || posting.protocol !== 'https:' || current.protocol !== 'https:'
+      || application.username || application.password || posting.username || posting.password || current.username || current.password
+      || !/(?:^|\.)umantis\.com$/i.test(application.hostname)
+      || !isUmantisPostingEntry({ applyUrl: application.href, postingUrl: posting.href })
+      || current.origin !== application.origin
+      || current.pathname.replace(/\/+$/, '').toLowerCase() !== application.pathname.replace(/\/+$/, '').toLowerCase()
+      || !/^\/vacancies\/\d+\/application\/new\/\d+\/?$/i.test(application.pathname)) return null;
+    return { applyUrl: application.href, postingUrl: posting.href };
+  } catch {
+    return null;
+  }
+}
+
+function verifiedUmantisApplicantAddressSnapshot(snapshot, pageUrl, context) {
+  if (!context || !Array.isArray(snapshot?.fields)) return snapshot;
+  const fields = snapshot.fields;
+  let current;
+  try { current = new URL(String(pageUrl || '')); } catch { return snapshot; }
+  if (current.origin !== new URL(context.applyUrl).origin
+    || current.pathname.replace(/\/+$/, '').toLowerCase() !== new URL(context.applyUrl).pathname.replace(/\/+$/, '').toLowerCase()) return snapshot;
+
+  const fieldsByForm = new Map();
+  for (const field of fields) {
+    if (!Number.isSafeInteger(field?.form) || field.form < 0) continue;
+    const group = fieldsByForm.get(field.form) || [];
+    group.push(field);
+    fieldsByForm.set(field.form, group);
+  }
+  const applicantForms = [...fieldsByForm.values()].map(group => {
+    const hasEmail = group.some(field => field?.inputType === 'email' || field?.autocomplete === 'email'
+      || isIdentityEmailCaption(umantisIdentityCaption(field)));
+    const hasGivenName = group.some(field => field?.autocomplete === 'given-name'
+      || UMANTIS_APPLICANT_IDENTITY_RE.givenName.test(umantisIdentityCaption(field)));
+    const hasFamilyName = group.some(field => field?.autocomplete === 'family-name'
+      || UMANTIS_APPLICANT_IDENTITY_RE.familyName.test(umantisIdentityCaption(field)));
+    if (!hasEmail || !hasGivenName || !hasFamilyName) return null;
+    let bestCluster = null;
+    let ambiguousCluster = false;
+    for (let street = 0; street < group.length; street += 1) {
+      if (residenceFieldRole(group[street]?.label) !== 'street') continue;
+      for (let city = 0; city < group.length; city += 1) {
+        if (residenceFieldRole(group[city]?.label) !== 'city') continue;
+        for (let country = 0; country < group.length; country += 1) {
+          if (residenceFieldRole(group[country]?.label) !== 'country') continue;
+          const start = Math.min(street, city, country);
+          const end = Math.max(street, city, country);
+          const span = end - start;
+          if (span > 5) continue;
+          if (!bestCluster || span < bestCluster.span) {
+            bestCluster = { start, end, span, tuple: `${street}:${city}:${country}` };
+            ambiguousCluster = false;
+          } else if (span === bestCluster.span && bestCluster.tuple !== `${street}:${city}:${country}`) {
+            ambiguousCluster = true;
+          }
+        }
+      }
+    }
+    return bestCluster && !ambiguousCluster
+      ? { fields: group.slice(bestCluster.start, bestCluster.end + 1) } : null;
+  }).filter(Boolean);
+  if (applicantForms.length !== 1) return snapshot;
+
+  const applicantFields = new Set(applicantForms[0].fields);
+  let changed = false;
+  const applicantOwner = { section: 'Personal information', owners: ['Personal information'], unknown: false };
+  const nextFields = fields.map(field => {
+    if (!applicantFields.has(field)) return field;
+    const owner = addressContextContract(field);
+    if (!owner || owner.unknown || owner.section.trim() || owner.owners.length
+      || !residenceFieldRole(field?.label)
+      || /tel-country-code/i.test(String(field?.autocomplete || ''))
+      || UMANTIS_PHONE_CONTEXT_RE.test(`${field?.label || ''} ${field?.context || ''}`)
+      || /(?:employer|company|work history|work experience|employment|emergency|reference|contact person|birthplace|place of birth)/i
+        .test(`${field?.label || ''} ${field?.section || ''} ${field?.context || ''}`)) return field;
+    changed = true;
+    return { ...field, addressContext: applicantOwner };
+  });
+  return changed ? { ...snapshot, fields: nextFields } : snapshot;
+}
+
+async function extractFields(page, options) {
+  const snapshot = await extractFieldsRaw(page, options);
+  const context = verifiedUmantisApplicantPages.get(page);
+  return context ? verifiedUmantisApplicantAddressSnapshot(snapshot, page.url(), context) : snapshot;
+}
+
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
@@ -652,6 +759,15 @@ const GALLERY_VIEW_RE = /(?:grossansicht|full[-\s]?size|large view|schermo inter
 const GALLERY_PRINT_RE = /(?:seite drucken|print page|stampa pagina|imprimer la page)/i;
 const GENERIC_ATTACHMENT_RE = /(?:eine oder mehrere dateien auswählen|select (?:one or more )?files?|choose (?:one or more )?files?|file upload|attachment|anhang|allegato|pi[èe]ce jointe)/iu;
 const APPLICATION_CONTROL_RE = /(?:application|bewerb(?:ung)?|candidat(?:ure|ura)?|postul|resume|r[ée]sum[ée]|lebenslauf|\bcv\b|curriculum(?:\s+vitae)?|anschreiben|cover\s+letter|work\s+permit|salary|starting\s+date|notice\s+period|workload|motivation)/iu;
+const PUBLIC_JOB_KEYWORD_RE = /(?:keyword|suchbegriff|stichw[öo]rter|search\s+(?:for\s+)?jobs?|suche\s+nach)/iu;
+const PUBLIC_JOB_FILTER_PATTERNS = [
+  ['category', /(?:tätigkeitsbereich|job\s+categor(?:y|ies)|job\s+type|category|bereich)/iu],
+  ['employment', /(?:anstellung|employment(?:\s+type)?|contract\s+type|beschäftigungsart)/iu],
+  ['department', /(?:dienstabteilung|department|organizational\s+unit|organisationseinheit)/iu],
+  ['workload', /(?:pensum|workload|beschäftigungsumfang|arbeitspensum)/iu],
+];
+const PUBLIC_JOB_ACTION_RE = /^(?:search|suche|reset|zurücksetzen|mehr\s+anzeigen|show\s+more|load\s+more|seite\s+drucken|print\s+page)\b/iu;
+const APPLICATION_IDENTITY_FIELD_RE = /(?:e-?mail|vorname|nachname|first\s+name|last\s+name|telefon|phone|adresse|address|geburts|birth|nationality|staatsangehörigkeit|bewilligung|permit|lebenslauf|resume|\bcv\b|anschreiben|cover\s+letter|motivation)/iu;
 
 const isGalleryPagingButton = (button, pattern) => !button?.chrome && pattern.test(String(button.text || ''));
 const isGalleryNavigationButton = (button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE)
@@ -733,8 +849,56 @@ function isNonApplicationGallerySurface(snapshot = {}) {
   return fields.length === 0 || fields.every(isGenericOptionalAttachment);
 }
 
+/**
+ * Public job indexes are forms too, but their controls search and filter
+ * vacancies rather than answer an application. Stadt Zürich's branded
+ * SuccessFactors page exposes both a native select and a combobox for each
+ * filter, plus «Suche», «Zurücksetzen», «Mehr anzeigen» and «Seite drucken».
+ * Require the whole search-shaped fingerprint and no candidate/application
+ * evidence so a real application question about a department or workload is
+ * never discarded on a single label.
+ */
+function isNonApplicationJobSearchSurface(snapshot = {}, { applicationEvidence = false } = {}) {
+  const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const fieldText = field => [field?.label, field?.name, field?.id, field?.context, field?.section]
+    .filter(Boolean).join(' ');
+  const keywordField = fields.some(field => PUBLIC_JOB_KEYWORD_RE.test(fieldText(field)));
+  const filterKinds = new Set();
+  for (const field of fields) {
+    const text = fieldText(field);
+    for (const [kind, pattern] of PUBLIC_JOB_FILTER_PATTERNS) {
+      if (pattern.test(text)) filterKinds.add(kind);
+    }
+  }
+  const publicActions = buttons
+    .filter(button => !button?.chrome && !button?.disabled)
+    .map(button => String(button.text || '').replace(/\s+/g, ' ').trim())
+    .filter(text => PUBLIC_JOB_ACTION_RE.test(text));
+  const hasSearchControls = publicActions.some(text => /^(?:search|suche|reset|zurücksetzen)\b/iu.test(text));
+  const hasResultsControls = publicActions.some(text => /^(?:mehr\s+anzeigen|show\s+more|load\s+more|seite\s+drucken|print\s+page)\b/iu.test(text));
+  const hasCandidateField = fields.some(field => field.kind === 'file'
+    || ['email', 'password'].includes(String(field.inputType || '').toLowerCase())
+    || APPLICATION_IDENTITY_FIELD_RE.test(fieldText(field)));
+  const hasApplicationButton = buttons.some(button => !button?.chrome && !button?.disabled
+    && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || ''))));
+  return keywordField && filterKinds.size >= 2 && hasSearchControls && hasResultsControls
+    && !hasCandidateField && !hasApplicationButton && !applicationEvidence;
+}
+
+function isNonApplicationSurface(snapshot = {}, options = {}) {
+  return isNonApplicationGallerySurface(snapshot) || isNonApplicationJobSearchSurface(snapshot, options);
+}
+
+function learnedApplicationControls(buttons, known, path) {
+  return {
+    next: learnedButton(buttons, labelsAt(known?.nextButtons || [], path)),
+    submit: learnedButton(buttons, labelsAt(known?.finalButtons || [], path)),
+  };
+}
+
 function hasApplicationForm(snapshot) {
-  if (isNonApplicationGallerySurface(snapshot)) return false;
+  if (isNonApplicationSurface(snapshot)) return false;
   const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
   const kinds = fields.map((field) => field.kind);
   const textish = fields.filter((field) => field.kind === 'text' || field.kind === 'textarea').length;
@@ -749,7 +913,7 @@ function hasApplicationForm(snapshot) {
  * buttons are still actionable and must reach the agentic fallback.
  */
 export function hasApplicationSurface(snapshot) {
-  if (isNonApplicationGallerySurface(snapshot)) return false;
+  if (isNonApplicationSurface(snapshot)) return false;
   return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
 }
 
@@ -1376,7 +1540,14 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     const cookies = await dismissCookieBanner(page, snapshot);
     snapshot = cookies.snapshot || snapshot;
     if (cookies.status === 'unresolved') return { page, snapshot, handoff: 'cookie_preferences_unresolved' };
-    if (hasApplicationForm(snapshot)) return { page, snapshot };
+    if (hasApplicationForm(snapshot)) {
+      const applicantContext = verifiedUmantisApplicantContext(stageContext, page.url());
+      if (applicantContext) {
+        verifiedUmantisApplicantPages.set(page, applicantContext);
+        snapshot = verifiedUmantisApplicantAddressSnapshot(snapshot, page.url(), applicantContext);
+      }
+      return { page, snapshot };
+    }
     if (stageContext) {
       const stage = applicationStage({ ...snapshot, text: await pageText(page) }, { ...stageContext, url: page.url() });
       // A resumed account/review page is already inside the application.
@@ -1390,7 +1561,35 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     const linkVisible = link
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
       : false;
-    if (!manual && !apply && !linkVisible) return { page, snapshot };
+    if (!manual && !apply && !linkVisible) {
+      // Some Jobs2Web postings render an empty shell (often only the language
+      // selector) while their same-ID apply route is ready. Warm the posting
+      // first, then open that exact verified endpoint; a redirect or mismatched
+      // form is still checked below and handed off without a final click.
+      if (hop === 0 && stageContext?.postingEntry
+        && isSuccessFactorsPostingEntry({ applyUrl: stageContext.applyUrl, postingUrl: page.url() })) {
+        const applicationUrl = new URL(stageContext.applyUrl).toString();
+        if (applicationUrl !== page.url()) {
+          await page.goto(applicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          await page.waitForTimeout(1200);
+          snapshot = await extractFields(page, NAVIGATION);
+          if (!isSuccessFactorsPostingEntry({ applyUrl: page.url(), postingUrl: stageContext.postingUrl })) {
+            return { page, snapshot, handoff: 'posting_mismatch' };
+          }
+          continue;
+        }
+      }
+      const directApplicationUrl = verifiedDirectApplicationUrl(stageContext, page.url());
+      if (directApplicationUrl) {
+        await page.goto(directApplicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await settle(page);
+        await page.waitForTimeout(1200);
+        snapshot = await extractFields(page, NAVIGATION);
+        continue;
+      }
+      return { page, snapshot };
+    }
     if (manual || apply) {
       const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
       await clickButton(page, manual || apply);
@@ -1403,6 +1602,21 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     snapshot = await extractFields(page, NAVIGATION);
   }
   return { page, snapshot };
+}
+
+function verifiedDirectApplicationUrl(stageContext, currentUrl) {
+  if (stageContext?.postingEntry !== true || !stageContext.applyUrl) return '';
+  try {
+    const current = new URL(String(currentUrl || ''));
+    const application = new URL(String(stageContext.applyUrl));
+    if (current.protocol !== 'https:' || application.protocol !== 'https:'
+      || current.username || current.password || application.username || application.password
+      || current.href === application.href
+      || !isVerifiedPostingEntry({ applyUrl: application.href, postingUrl: current.href })) return '';
+    return application.href;
+  } catch {
+    return '';
+  }
 }
 
 const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
@@ -4451,18 +4665,21 @@ export function pageControls(buttons, known, url, context = null) {
     if (['receipt', 'unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
   }
   const here = anonymizePath(url);
+  const learned = learnedApplicationControls(buttons, known, here);
   const gallerySnapshot = { buttons, fields: context?.snapshot?.fields };
-  const gallerySurface = isNonApplicationGallerySurface(gallerySnapshot);
+  const nonApplicationSurface = isNonApplicationSurface(gallerySnapshot, {
+    applicationEvidence: learned.next || learned.submit,
+  });
   const galleryButtons = galleryNavigationButtons(buttons);
-  const applicationButtons = galleryButtons.size
+  const applicationButtons = nonApplicationSurface ? [] : galleryButtons.size
     ? buttons.filter((button) => !galleryButtons.has(portalControlIdentity(button)))
     : buttons;
-  const submit = gallerySurface ? null : findButton(applicationButtons, SUBMIT_RE);
-  const usualNext = gallerySurface ? null : findButton(applicationButtons, NEXT_RE);
-  const taughtNext = gallerySurface || submit || usualNext ? null : learnedButton(applicationButtons, labelsAt(known.nextButtons, here));
-  const learnedSubmit = gallerySurface ? null : learnedButton(applicationButtons, labelsAt(known.finalButtons, here));
+  const submit = nonApplicationSurface ? null : findButton(applicationButtons, SUBMIT_RE);
+  const usualNext = nonApplicationSurface ? null : findButton(applicationButtons, NEXT_RE);
+  const taughtNext = nonApplicationSurface || submit || usualNext ? null : learned.next;
+  const taughtSubmit = nonApplicationSurface ? null : learned.submit;
   return {
-    submit: submit || (usualNext || taughtNext ? null : learnedSubmit),
+    submit: submit || (usualNext || taughtNext ? null : taughtSubmit),
     next: usualNext || taughtNext,
     ...(stage ? { stage } : {}),
   };
@@ -4874,7 +5091,9 @@ export async function readPortalRequirements(ctx) {
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot;
-    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job, postingEntry: verifiedPostingEntry });
+    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
+      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, job: ctx.job, postingEntry: verifiedPostingEntry,
+    });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
     // An allowlisted ATS may keep later, unconditional steps mounted with
@@ -5109,7 +5328,10 @@ export async function submitViaPortal(ctx) {
     if (postingNamed && isApplicationRegionUnsupported(initialPageText)) {
       return await handoff('application_region_unsupported');
     }
-    const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
+    const opened = await openApplicationForm(context, page, snapshot, {
+      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol,
+      postingEntry: enteredFromMatchingPosting, job: ctx.job,
+    });
     ({ page, snapshot } = opened);
     if (opened.handoff) return await handoff(opened.handoff);
     const initialReceipt = await confirmedReceipt(snapshot);
@@ -5374,7 +5596,10 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
+            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol,
+            postingEntry: enteredFromMatchingPosting, job: ctx.job,
+          });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
@@ -5477,7 +5702,10 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
+            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol,
+            postingEntry: enteredFromMatchingPosting, job: ctx.job,
+          });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);

@@ -49,6 +49,8 @@ export interface AutomationRequestedDocumentView {
   quote: string;
   instructions: string;
   delivery: 'upload' | 'offline' | 'service';
+  /** Keep the candidate's file in browser memory and append it to the postal packet locally. */
+  localOnly?: boolean;
   exemptions: Array<'municipal_resident' | 'municipal_employee'>;
 }
 

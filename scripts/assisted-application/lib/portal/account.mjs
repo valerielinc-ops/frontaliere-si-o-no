@@ -66,6 +66,14 @@ export function accountResponseText(snapshot = {}) {
 const EXISTING_ACCOUNT_RE = /(?:\b(?:already have an? (?:application )?account|an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:sie haben bereits ein(?:en)? (?:bewerbungs?)?konto|es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:vous avez déjà un compte|un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:hai già un account|esiste già un account|sei già registrato)\b)/iu;
 const EXISTING_ACCOUNT_NAV_QUESTION_RE = /(?:\balready have an? (?:application )?account|\bsie haben bereits ein(?:en)? (?:bewerbungs?)?konto|\bvous avez déjà un compte|\bhai già un account)\s*\?/iu;
 const EXPLICIT_EXISTING_ACCOUNT_RE = /(?:\b(?:an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:esiste già un account|sei già registrato)\b)/iu;
+const REGISTRATION_EMAIL_FIELD_RE = /(?:e[-\s]?mail|emailadresse|mailadresse|benutzer(?:name)?|username|login)/iu;
+
+function hasRegistrationEmailField(snapshot) {
+  return Array.isArray(snapshot.fields)
+    && authPageKind(snapshot) === 'create'
+    && snapshot.fields.some((field) => field.inputType !== 'password'
+      && REGISTRATION_EMAIL_FIELD_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+}
 
 /** The portal says this candidate already has an account; registration must stop. */
 export function hasExistingAccountPrompt(snapshot = {}) {
@@ -73,9 +81,16 @@ export function hasExistingAccountPrompt(snapshot = {}) {
     .map((value) => String(value ?? '').trim())
     .filter(Boolean)
     .flatMap((message) => message.split(/(?<=[.!?;])\s+|[\r\n]+/u).map((part) => part.trim()).filter(Boolean));
-  return messages.some((message) => EXISTING_ACCOUNT_NAV_QUESTION_RE.test(message)
-    ? EXPLICIT_EXISTING_ACCOUNT_RE.test(message)
-    : EXISTING_ACCOUNT_RE.test(message));
+  const registrationSurface = hasRegistrationEmailField(snapshot);
+  return messages.some((message) => {
+    // A concrete e-mail/account error remains authoritative even when the
+    // portal leaves the registration form mounted. Generic account copy on a
+    // complete create form is only navigation, not proof that this candidate
+    // already owns an account; let the registration flow inspect its fields.
+    if (EXPLICIT_EXISTING_ACCOUNT_RE.test(message)) return true;
+    if (EXISTING_ACCOUNT_NAV_QUESTION_RE.test(message)) return false;
+    return !registrationSurface && EXISTING_ACCOUNT_RE.test(message);
+  });
 }
 
 const ACCOUNT_VERIFICATION_RE = /(?:\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b[^.\n]{0,80}\b(?:account|konto|compte)\b|\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b\s+(?:(?:your|the|ihr(?:e|en)?|dein(?:e|en)?|die|votre|ton|ta|son|sa|il|la|l['’])\s+){0,2}(?:e-?mail(?:[-\s]?(?:address|adresse))?|(?:address|adresse|indirizzo)\s+e-?mail))/iu;

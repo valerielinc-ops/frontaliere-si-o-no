@@ -52,7 +52,7 @@ const COMPLETE_EVENT: EventFixture = {
   '@type': 'Event',
   name: 'Concerto di prova',
   startDate: '2026-12-01T19:00:00+01:00',
-  endDate: '2026-12-01',
+  endDate: '2026-12-01T21:00:00+01:00',
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   url: 'https://example.test/events/concerto/',
@@ -85,6 +85,23 @@ const COMPLETE_EVENT: EventFixture = {
 describe('Google Event data quality publication gate', () => {
   it('accepts complete Event data with source-backed ticket details', () => {
     expect(hasCompleteGoogleEventData(COMPLETE_EVENT)).toBe(true);
+  });
+
+  it('compares event dates as instants after normalizing timezone offsets', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    event.startDate = '2026-12-01T19:00:00+01:00';
+    event.endDate = '2026-12-01T19:30:00+02:00';
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
+
+    event.endDate = '2026-12-01T20:30:00+02:00';
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+  });
+
+  it('compares timezone-free ISO dates as UTC consistently across host timezones', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    event.startDate = '2025-07-21T00:15';
+    event.endDate = '2025-07-21';
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
   });
 
   it.each([
@@ -178,6 +195,23 @@ describe('Google Event data quality publication gate', () => {
     const incompleteMixed = structuredClone(COMPLETE_EVENT);
     incompleteMixed.eventAttendanceMode = 'https://schema.org/MixedEventAttendanceMode';
     expect(hasCompleteGoogleEventData(incompleteMixed)).toBe(false);
+  });
+
+  it('accepts events moved online when their location matches the attendance mode', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    event.eventStatus = 'https://schema.org/EventMovedOnline';
+    event.eventAttendanceMode = 'https://schema.org/OnlineEventAttendanceMode';
+    event.location = {
+      '@type': 'VirtualLocation',
+      url: 'https://example.test/events/concerto/stream/',
+    };
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+  });
+
+  it('rejects EventMovedOnline with an offline attendance mode', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    event.eventStatus = 'https://schema.org/EventMovedOnline';
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
   });
 
   it('rejects location types that do not match the attendance mode', () => {

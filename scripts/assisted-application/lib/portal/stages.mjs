@@ -37,6 +37,23 @@ const APPLICATION_ANAPHORIC_BRIDGE_RE = new RegExp([
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
+const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
+
+/**
+ * SuccessFactors prefixes required labels with a visual marker (for example
+ * "* E-Mail") while keeping the control itself as a plain text input. Strip
+ * only that marker before checking the semantic identity label; an arbitrary
+ * nearby field must not substitute for applicant identity.
+ */
+function applicantIdentityLabel(value) {
+  return String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/\s+/gu, ' ').trim()
+    .replace(/^(?:[*•·]\s*)+/u, '').trim();
+}
+
+function isApplicantIdentity(field) {
+  return field?.inputType === 'email' || APPLICANT_IDENTITY_LABEL_RE.test(applicantIdentityLabel(field?.label));
+}
+
 // A SuccessFactors profile/application page may keep the CV in «Meine
 // Dokumente» and expose no file input in the current snapshot. Only a
 // question-specific label/name may prove the same form; section headings,
@@ -248,8 +265,7 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   const applicationFields = apply.length === 1
     ? (snapshot?.fields || []).filter(field => field.formId === apply[0].formId && (field.frame || 0) === (apply[0].frame || 0))
     : [];
-  const hasApplicationIdentity = applicationFields.some(field => field.inputType === 'email'
-    || /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i.test(field.label || ''));
+  const hasApplicationIdentity = applicationFields.some(isApplicantIdentity);
   const hasCv = snapshot?.uploadedCv === true
     || applicationFields.some(field => field.kind === 'file' || field.inputType === 'file');
   const hasApplicationQuestion = applicationFields.some(field =>
@@ -263,8 +279,6 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   const sameFrameFields = apply.length === 1
     ? (snapshot?.fields || []).filter(field => (field.frame || 0) === (apply[0].frame || 0))
     : [];
-  const isApplicantIdentity = field => field.inputType === 'email'
-    || /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i.test(field.label || '');
   const profileIdentity = sameFrameFields.some(field => isApplicantIdentity(field)
     && Boolean(apply[0]?.applicationScopeId)
     && field.applicationScopeId === apply[0].applicationScopeId
