@@ -97,6 +97,8 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl: moduleUrl, postingUrl })).toBe(moduleUrl);
     expect(isVerifiedPostingEntry({ applyUrl: moduleWithoutQuery, postingUrl, postingRouteProof: proof })).toBe(false);
     expect(portalEntryUrl({ applyUrl: moduleUrl, postingUrl, postingRouteProof: proof })).toBe(postingUrl);
+    const normalizedModuleUrl = 'https://career5.successfactors.eu/career?career_ns=job_application&career_job_req_id=34525&company=helsana&login_ns=login';
+    expect(portalEntryUrl({ applyUrl: normalizedModuleUrl, postingUrl, postingRouteProof: proof })).toBe(postingUrl);
     const genericForm = 'Karrierechancen: Anmelden\nE-Mail-Adresse\nKennwort\nAnmelden';
     const job = { company: 'Helsana', title: 'IT Management Assistenz (a) 80%' };
     expect(formPostingMatch(genericForm, job, {
