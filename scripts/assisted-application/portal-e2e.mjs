@@ -1300,9 +1300,16 @@ async function main() {
   const executablePath = process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined;
   const run = (extra = {}) => {
     const applyUrl = bindReceiptJobId(extra.applyUrl || `${base}/job`);
+    const fixturePath = new URL(applyUrl).pathname;
+    // These posting pages are verified only when the test supplies the selected
+    // role, just as the production runner receives it from the application order.
+    const fixtureJob = fixturePath === '/job' ? { title: 'Pflegefachperson 80%' }
+      : fixturePath === '/widget-job' ? { title: 'Pflegefachperson 60%' }
+        : undefined;
     return submitViaPortal({
       language: 'de',
       candidateLocale: 'it',
+      ...(fixtureJob ? { job: fixtureJob } : {}),
       candidate: { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } },
       files,
       codex: fakeCodex,
