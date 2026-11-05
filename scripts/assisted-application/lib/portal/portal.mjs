@@ -79,8 +79,16 @@ const umantisIdentityCaption = field => String(field?.label || '').normalize('NF
 
 function verifiedUmantisApplicantContext(stageContext, currentUrl) {
   if (stageContext?.postingEntry !== true || !stageContext.applyUrl || !stageContext.postingUrl) return null;
+  // A direct Umantis order can store the posting URL in `applyUrl` while the
+  // verified application page is derived from its vacancy/description path.
+  // Resolve that route before validating the native applicant form; otherwise
+  // the address cluster stays ownerless and is correctly (but unnecessarily)
+  // held as unreadable.
+  const applicationUrl = stageContext.applicationUrl
+    || umantisApplicationEntryUrl(stageContext)
+    || stageContext.applyUrl;
   try {
-    const application = new URL(String(stageContext.applyUrl));
+    const application = new URL(String(applicationUrl));
     const posting = new URL(String(stageContext.postingUrl));
     const current = new URL(String(currentUrl || ''));
     if (application.protocol !== 'https:' || posting.protocol !== 'https:' || current.protocol !== 'https:'
