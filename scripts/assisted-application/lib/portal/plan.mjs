@@ -610,7 +610,7 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
     // Whether the candidate needs a permit, a visa or sponsorship is never answered from the data: they say it.
     if (!asksHeldStatus(questionFromLabel(label))) return false;
     const swissStatus = permitStatusOf(candidate.swissStatus?.code);
-    const status = permitStatusFromCandidate(candidate);
+    const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit: false });
     const code = option ? permitOptionCode(value) : permitStatusOf(value) || permitOptionCode(value);
     if (status) {
       if (code === status || (swissStatus === status && same(value, candidate.swissStatus?.statement))) return true;
@@ -618,9 +618,8 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
       if (yesNo !== null) return yesNo === (status !== 'none');
       return false;
     }
-    // Nothing chosen: only the CV's own words (decision 2).
-    const own = permitStatusOf(profile.workPermit);
-    return same(value, profile.workPermit) || (Boolean(own) && code === own);
+    // A CV can establish what was written there, not what the candidate holds today.
+    return false;
   }
   if (isNationalityField(label)) {
     // Every nationality the candidate gave (a dual national names two), and Swiss for the status «swiss».
@@ -1497,8 +1496,8 @@ function phoneCountryOption(candidate, field) {
   return selected || (!options.length ? phoneCountryLabel(phone) : '');
 }
 
-/** A safe answer already stated by the candidate, or the current institution from the CV. */
-export function candidateAnswerForField(candidate, field, { includeProfileWorkPermit = true } = {}) {
+/** A safe answer from the candidate or their profile; CV-only permit evidence is opt-in. */
+export function candidateAnswerForField(candidate, field, { includeProfileWorkPermit = false } = {}) {
   const topic = questionTopic(field?.label, field?.context, field);
   const fieldKind = String(field?.kind || '').trim().toLowerCase();
   const inputType = String(field?.inputType || '').trim().toLowerCase();

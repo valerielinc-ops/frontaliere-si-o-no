@@ -33,7 +33,11 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents, eventsBasePathForCanton, resolveCantonUrlKey, UNRESOLVED_CANTON_KEY, UNRESOLVED_CANTON_LABEL } from './lib/events-utils.mjs';
 import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE, MONTHS_IT, GRAPH_API } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
-import { facebookUrl, FACEBOOK_CAMPAIGN_EVENT } from './lib/facebook-links.mjs';
+import {
+  facebookUrl,
+  FACEBOOK_CAMPAIGN_EVENT,
+  FACEBOOK_CRAWLER_USER_AGENT,
+} from './lib/facebook-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { withoutPrivateEvents } from './lib/private-event-sources.mjs';
 import {
@@ -507,7 +511,7 @@ export async function run(opts = {}) {
   // by more than the gap to this cron). Runs concurrently so a single slow
   // comune can't stall the rest of the batch.
   const preflight = await Promise.allSettled(
-    payloads.map((p) => isLandingPageLive(p.url, { fetchImpl })),
+    payloads.map((p) => isLandingPageLive(p.url, { fetchImpl, userAgent: FACEBOOK_CRAWLER_USER_AGENT })),
   );
   const liveSet = new Set();
   const notLiveIds = [];

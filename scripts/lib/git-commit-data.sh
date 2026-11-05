@@ -72,6 +72,7 @@ set -euo pipefail
 
 BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
 MAIN_PUSH_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/main-push-guard.mjs"
+CRAWLER_GENERATION_LEDGER_PATH='data/crawler-generation-ledger.jsonl'
 
 # The fetch ceiling is supported by issue 12175's 61.6, 62.6, 83.0 and
 # 95.1-second commit-graph measurements. The pull ceiling has no direct
@@ -2498,6 +2499,32 @@ if (lines.length > 0) {
 NODE
 }
 
+# The append-only ledger is allowed to be absent on a first write, but a path
+# present in the checkout's base tree must resolve to a readable blob. Do not
+# let `git rev-parse ...:path` collapse an unreadable existing object into the
+# same empty string as an absent path: that would let the isolated commit
+# publish a candidate without proving the history it is extending.
+validate_crawler_generation_ledger_baseline() {
+  local base_sha="$1" tree_entry baseline_blob
+  if ! tree_entry="$(git ls-tree "$base_sha" -- "$CRAWLER_GENERATION_LEDGER_PATH")"; then
+    echo "❌ grouped-isolated: cannot inspect crawler generation ledger baseline at ${base_sha} — refusing to guess between absent and unreadable history"
+    return 1
+  fi
+  if [ -z "$tree_entry" ]; then
+    echo "ℹ️ crawler generation ledger baseline is absent from ${base_sha} — allowing first write"
+    return 0
+  fi
+  if ! baseline_blob="$(git rev-parse -q --verify "${base_sha}:${CRAWLER_GENERATION_LEDGER_PATH}" 2>/dev/null)" || [ -z "$baseline_blob" ]; then
+    echo "❌ grouped-isolated: crawler generation ledger baseline is present but its blob cannot be resolved — refusing to publish"
+    return 1
+  fi
+  if ! git cat-file -e "${baseline_blob}^{blob}" 2>/dev/null; then
+    echo "❌ grouped-isolated: crawler generation ledger baseline blob ${baseline_blob} is unreadable — refusing to publish"
+    return 1
+  fi
+  echo "ℹ️ crawler generation ledger baseline ${baseline_blob} is present and readable"
+}
+
 # ── The private index on a partial clone ─────────────────────────────────────
 # The private index is seeded with the WHOLE remote tree (`read-tree
 # "$remote_sha"`) and then receives only this writer's files. A plain
@@ -2710,6 +2737,13 @@ commit_isolated_from_worktree() {
   # (see the identical-to-remote filter inside the retry loop).
   # shellcheck disable=SC2064
   trap "rm -f '$tmp_index'; rm -rf '$merge_dir'" RETURN
+
+  for f in "${RESOLVED_FILES[@]}"; do
+    if [ "$f" = "$CRAWLER_GENERATION_LEDGER_PATH" ]; then
+      validate_crawler_generation_ledger_baseline "$base_sha" || return 1
+      break
+    fi
+  done
 
   # The isolated path can process hundreds of job slices in one invocation.
   # Keep only the remote ownership view (which is intentionally shared by all
