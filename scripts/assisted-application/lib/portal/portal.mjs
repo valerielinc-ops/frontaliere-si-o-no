@@ -742,6 +742,18 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+// A posting may show an informational region notice and still expose its own
+// application entry. Keep the notice terminal only when no proved entry
+// control remains; an unrelated site button must not count as an escape hatch.
+function hasApplicationEntryControl(snapshot = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ];
+  return controls.some((control) => !control?.disabled && !control?.chrome
+    && [control.text, control.label, control.ariaLabel, control.title].some((value) => startsApplication(value)));
+}
+
 /**
  * A page with only the employer site's header/footer controls is not an
  * application form. Keeping this separate from hasApplicationForm matters:
@@ -5089,7 +5101,7 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    if (postingNamed && isApplicationRegionUnsupported(initialPageText)) {
+    if (postingNamed && isApplicationRegionUnsupported(initialPageText) && !hasApplicationEntryControl(snapshot)) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });

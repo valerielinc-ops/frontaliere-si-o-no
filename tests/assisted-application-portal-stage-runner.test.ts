@@ -23,7 +23,7 @@ const profile = snapshot(profileUrl, 'Since you have already submitted your pers
 const review = snapshot(reviewUrl, 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [{ id: 'commit', text: 'Apply' }]);
 const receipt = snapshot(receiptUrl, 'Thank you for your application.', [{ text: 'My profile' }]);
 
-function fixture(initial = profile, source: any = null, finalReview = review, finalClickError: Error | null = null) {
+function fixture(initial = profile, source: any = null, finalReview = review, finalClickError: Error | null = null, buttonTransitions: Record<string, () => Promise<void>> = {}) {
   state.snapshot = source || initial;
   const guard = vi.fn(async () => {
     expect(state.snapshot.url).toBe(reviewUrl);
@@ -43,12 +43,16 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
       return source.includes('document.body') ? state.snapshot.text : false;
     },
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
-    locator: () => ({
+    locator: (selector: string) => ({
       count: async () => 0,
       first: () => ({
-        click: () => finalClickError && state.snapshot.url === reviewUrl
-          ? Promise.reject(finalClickError)
-          : state.snapshot === source ? openClick() : click(),
+        click: (_options?: unknown) => {
+          const transition = buttonTransitions[selector];
+          if (transition) return transition();
+          return finalClickError && state.snapshot.url === reviewUrl
+            ? Promise.reject(finalClickError)
+            : state.snapshot === source ? openClick() : click();
+        },
         evaluate: async (_fn: Function, argument: any) => ({ ok: true, contractJson: JSON.stringify(argument) }),
       }),
     }),
@@ -136,7 +140,7 @@ describe('runner final guard across three application stages', () => {
   it('stops on an explicit posting region restriction before clicking its Apply control', async () => {
     const blockedPosting = snapshot(applyUrl,
       'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
-      [{ id: 'apply', text: 'Jetzt bewerben', href: '', disabled: false }]);
+      [{ id: 'details', text: 'Mehr erfahren', href: '', disabled: false }]);
     const f = fixture(blockedPosting);
 
     const result = await f.run();
@@ -145,6 +149,35 @@ describe('runner final guard across three application stages', () => {
     expect(f.openClick).not.toHaveBeenCalled();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('passes Yellowshark regional copy when its cookie dialog leaves an application entry', async () => {
+    const yellowsharkPosting = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen. Einreichen deiner Bewerbung in 10 Minuten.',
+      [
+        { id: 'close', text: 'Close dialog', chrome: true, cookieSurface: 'banner', cookieContextId: 'yellowshark', disabled: false },
+        { id: 'accept', text: 'Alle akzeptieren', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'reject', text: 'Ablehnen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'settings', text: 'Einstellungen anzeigen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'apply', text: 'JETZT BEWERBEN', disabled: false },
+      ]);
+    yellowsharkPosting.dialogs = [{ dialogId: 'd1' }];
+    yellowsharkPosting.buttons.slice(0, 4).forEach((button: any) => { button.dialog = true; button.dialogId = 'd1'; });
+    const afterCookie = {
+      ...yellowsharkPosting,
+      dialogs: [],
+      buttons: [yellowsharkPosting.buttons.at(-1)],
+    };
+    const f = fixture(yellowsharkPosting, null, review, null, {
+      '[data-aa-id="reject"]': async () => { state.snapshot = afterCookie; },
+      '[data-aa-id="apply"]': async () => { state.snapshot = profile; },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
   });
 
   it('hands off a proven pre-dispatch timeout from the agent-named advance locator', async () => {
