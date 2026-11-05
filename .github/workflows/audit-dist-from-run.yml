@@ -146,6 +146,15 @@ jobs:
         with:
           ref: ${{ inputs.deploy_ref }}
 
+      - name: Checkout current publisher index validator
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          path: current-index-validator
+          sparse-checkout: |
+            /scripts/ci/page-audit-index.mjs
+          sparse-checkout-cone-mode: false
+
       # Rehydrating both shard families onto the extracted tarball needs room
       # the 14 GB default partition doesn't have. Mirrors the identical step in
       # post-deploy-validate-dist.yml (added there after run 26287421188 ran the
@@ -383,29 +392,31 @@ jobs:
           repository: ${{ github.repository }}
           run-id: ${{ inputs.shard_artifact_run_id }}
 
-      - name: Detect a schema v2 publisher page index
+      - name: Detect a complete schema v2 publisher page index
         id: publisher-index
         env:
           PAGE_MANIFEST_DIR: ${{ runner.temp }}/publisher-audit-manifests/pages
+          SECTION_MANIFEST_DIR: ${{ runner.temp }}/publisher-audit-manifests/sections
         run: |
           set -euo pipefail
           if node --input-type=module - <<'NODE'
-          import fs from 'node:fs';
-          const dir = process.env.PAGE_MANIFEST_DIR;
-          const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter((name) => name.endsWith('.json')) : [];
-          const valid = files.length > 0 && files.every((name) => {
-            try {
-              const manifest = JSON.parse(fs.readFileSync(`${dir}/${name}`, 'utf8'));
-              return manifest?.kind === 'publisher-page-manifest' && manifest.schemaVersion === 2 && Array.isArray(manifest.entries);
-            } catch { return false; }
-          });
-          process.exit(valid ? 0 : 1);
+          import { loadPublisherPageIndex } from './current-index-validator/scripts/ci/page-audit-index.mjs';
+          try {
+            const entries = loadPublisherPageIndex({
+              pageManifestDir: process.env.PAGE_MANIFEST_DIR,
+              sectionManifestDir: process.env.SECTION_MANIFEST_DIR,
+            });
+            if (entries.length === 0) throw new Error('publisher page index is empty');
+          } catch (error) {
+            console.error(`Publisher page index is incomplete; use the full audit path: ${error.message}`);
+            process.exitCode = 1;
+          }
           NODE
           then
             echo 'enabled=true' >> "$GITHUB_OUTPUT"
           else
             echo 'enabled=false' >> "$GITHUB_OUTPUT"
-            echo 'No schema v2 page index found; this replay uses the full legacy audit path.'
+            echo 'No complete publisher page index found; this replay uses the full legacy audit path.'
           fi
 
       - name: Restore incremental audit receipts

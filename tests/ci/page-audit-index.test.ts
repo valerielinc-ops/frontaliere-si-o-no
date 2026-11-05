@@ -6,6 +6,7 @@ import path from 'node:path';
 import { executeIncrementalPageAudit, loadPublisherPageIndex } from '../../scripts/ci/page-audit-index.mjs';
 
 const roots: string[] = [];
+const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const sha = (letter: string) => letter.repeat(64);
 
 function tempRoot() {
@@ -25,6 +26,24 @@ function makeEntries(count = 64) {
   }));
 }
 
+function writeManifestFixtures(
+  pagesDir: string,
+  sectionsDir: string,
+  overrides: Record<string, { page?: Record<string, unknown>; section?: Record<string, unknown> }> = {},
+) {
+  for (const locale of LOCALES) {
+    const override = overrides[locale] ?? {};
+    fs.writeFileSync(path.join(pagesDir, `${locale}.json`), JSON.stringify({
+      kind: 'publisher-page-manifest', schemaVersion: 2, locale,
+      requiredSections: [], entries: [], ...override.page,
+    }));
+    fs.writeFileSync(path.join(sectionsDir, `${locale}.json`), JSON.stringify({
+      kind: 'publisher-section-manifest', schemaVersion: 2, locale,
+      requiredSections: [], shards: [], ...override.section,
+    }));
+  }
+}
+
 afterEach(() => {
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
 });
@@ -36,14 +55,18 @@ describe('publisher page audit index', () => {
     const sections = path.join(root, 'sections');
     fs.mkdirSync(pages);
     fs.mkdirSync(sections);
-    fs.writeFileSync(path.join(pages, 'en.json'), JSON.stringify({
-      kind: 'publisher-page-manifest', schemaVersion: 2, locale: 'en',
-      entries: [{ url: 'https://frontaliereticino.ch/en/jobs-im-tessin/', path: 'en/jobs-im-tessin/index.html', sha256: sha('a'), locale: 'en', section: 'ticino' }],
-    }));
-    fs.writeFileSync(path.join(sections, 'en.json'), JSON.stringify({
-      kind: 'publisher-section-manifest', schemaVersion: 2, locale: 'en',
-      shards: [{ locale: 'en', section: 'ticino', pages: [{ url: 'https://frontaliereticino.ch/en/jobs-im-tessin/', path: 'en/jobs-im-tessin/index.html', sha256: sha('b'), locale: 'en', section: 'ticino' }] }],
-    }));
+    writeManifestFixtures(pages, sections, {
+      en: {
+        page: {
+          requiredSections: ['ticino'],
+          entries: [{ url: 'https://frontaliereticino.ch/en/jobs-im-tessin/', path: 'en/jobs-im-tessin/index.html', sha256: sha('a'), locale: 'en', section: 'ticino' }],
+        },
+        section: {
+          requiredSections: ['ticino'],
+          shards: [{ locale: 'en', section: 'ticino', pages: [{ url: 'https://frontaliereticino.ch/en/jobs-im-tessin/', path: 'en/jobs-im-tessin/index.html', sha256: sha('b'), sourceSha256: sha('a'), locale: 'en', section: 'ticino' }] }],
+        },
+      },
+    });
 
     expect(loadPublisherPageIndex({ pageManifestDir: pages, sectionManifestDir: sections })).toEqual([{
       url: 'https://frontaliereticino.ch/en/jobs-im-tessin/',
@@ -57,17 +80,61 @@ describe('publisher page audit index', () => {
     const sections = path.join(root, 'sections');
     fs.mkdirSync(pages);
     fs.mkdirSync(sections);
-    fs.writeFileSync(path.join(pages, 'en.json'), JSON.stringify({
-      kind: 'publisher-page-manifest', schemaVersion: 2, locale: 'en',
-      entries: [{ url: 'https://frontaliereticino.ch/en/known/', path: 'en/known/index.html', sha256: sha('a'), locale: 'en', section: 'ticino' }],
-    }));
-    fs.writeFileSync(path.join(sections, 'en.json'), JSON.stringify({
-      kind: 'publisher-section-manifest', schemaVersion: 2, locale: 'en',
-      shards: [{ locale: 'en', section: 'ticino', pages: [{ url: 'https://frontaliereticino.ch/en/extra/', path: 'en/extra/index.html', sha256: sha('b'), locale: 'en', section: 'ticino' }] }],
-    }));
+    writeManifestFixtures(pages, sections, {
+      en: {
+        page: {
+          entries: [{ url: 'https://frontaliereticino.ch/en/known/', path: 'en/known/index.html', sha256: sha('a'), locale: 'en', section: 'ticino' }],
+        },
+        section: {
+          shards: [{ locale: 'en', section: 'ticino', pages: [{ url: 'https://frontaliereticino.ch/en/extra/', path: 'en/extra/index.html', sha256: sha('b'), sourceSha256: sha('a'), locale: 'en', section: 'ticino' }] }],
+        },
+      },
+    });
 
     expect(() => loadPublisherPageIndex({ pageManifestDir: pages, sectionManifestDir: sections }))
       .toThrow('section page is absent from source page index');
+  });
+
+  it('rejects a page index with a missing locale manifest', () => {
+    const root = tempRoot();
+    const pages = path.join(root, 'pages');
+    const sections = path.join(root, 'sections');
+    fs.mkdirSync(pages);
+    fs.mkdirSync(sections);
+    writeManifestFixtures(pages, sections, {
+      en: {
+        page: {
+          entries: [{ url: 'https://frontaliereticino.ch/en/known/', path: 'en/known/index.html', sha256: sha('a'), locale: 'en', section: null }],
+        },
+      },
+    });
+    fs.rmSync(path.join(pages, 'fr.json'));
+
+    expect(() => loadPublisherPageIndex({ pageManifestDir: pages, sectionManifestDir: sections }))
+      .toThrow('publisher page manifest missing for locale fr');
+  });
+
+  it('rejects a missing final receipt for a required shard page', () => {
+    const root = tempRoot();
+    const pages = path.join(root, 'pages');
+    const sections = path.join(root, 'sections');
+    fs.mkdirSync(pages);
+    fs.mkdirSync(sections);
+    writeManifestFixtures(pages, sections, {
+      en: {
+        page: {
+          requiredSections: ['ticino'],
+          entries: [{ url: 'https://frontaliereticino.ch/en/known/', path: 'en/known/index.html', sha256: sha('a'), locale: 'en', section: 'ticino' }],
+        },
+        section: {
+          requiredSections: ['ticino'],
+          shards: [{ locale: 'en', section: 'ticino', pages: [] }],
+        },
+      },
+    });
+
+    expect(() => loadPublisherPageIndex({ pageManifestDir: pages, sectionManifestDir: sections }))
+      .toThrow('required shard page receipt is missing');
   });
 
   it('scans the complete population without receipts, then rotates and invalidates by digest', () => {
