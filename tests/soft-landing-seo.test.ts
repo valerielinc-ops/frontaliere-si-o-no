@@ -43,6 +43,20 @@ describe('Soft-landing SEO pages for expired jobs', () => {
     expect(pluginSource).toContain('sitemap-jobs-expired.xml');
   });
 
+  it('keeps sitemap-eligible unknown archives on the closed JobPosting path', () => {
+    const start = pluginSource.indexOf('const getCurrentJobPostingLd = ');
+    const end = pluginSource.indexOf('const jobPostingLd = getCurrentJobPostingLd();', start);
+    const schemaBlock = pluginSource.slice(start, end);
+
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    expect(schemaBlock).not.toMatch(/if \(!hasRealTitle\)\s*\{[\s\S]*?currentJobPostingLd = '';/);
+    expect(schemaBlock).toContain("postingDateSource: hasRealTitle ? ejData?.postingDateSource : 'unknown'");
+    expect(schemaBlock).toContain('buildArchivedJobPosting(expiredInput');
+    expect(pluginSource).toContain('itBodyWordCount >= MIN_INDEXABLE_WORDS');
+    expect(pluginSource).toContain('expiredSitemapEntries.push');
+  });
+
   it('keeps the native canton for EXPIRED canton-drifted slugs (no Ticino hijack)', () => {
     // COMPAT_JOB_PATTERNS only match Ticino sections, so a canton-drifted job
     // indexed under its native non-TI canton (e.g. Zurich) AND a legacy TI

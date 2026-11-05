@@ -14621,43 +14621,42 @@ ${staticAnalyticsHtml}
  let currentJobPostingLd: string | undefined;
  const getCurrentJobPostingLd = (): string => {
   if (currentJobPostingLd !== undefined) return currentJobPostingLd;
-  // Keep the complete historical identity, but never advertise an archive as
-  // open: only real past timestamps may supply its explicit validThrough.
-  if (!hasRealTitle) {
-   currentJobPostingLd = '';
-   return currentJobPostingLd;
-  }
+  // Keep recorded identity when available. Unknown route references still
+  // need the closed schema contract, but their parsed slug is not an
+  // employer or job identity source.
   const realTitle = String(jobDisplayTitle(ejData) || jobDisplayTitle(gscInfo) || '').trim();
   const realCompany = String(ejData?.company || gscInfo?.company || '').trim();
   const expiredInput: JobInput = {
-   id: ejData?.id,
-   slug,
-   title: realTitle,
-   description: renderJobPostingDescription(jobDescription, locale, jobRequirements),
-   company: realCompany,
-   companyKey: ejData?.companyKey || slugInfo?.companyKey,
-   companySlug: ejData?.companySlug || ejData?.companyKey || slugInfo?.companyKey,
-   companyWebsite: ejData?.companyWebsite,
-   companyDomain: ejData?.companyDomain,
-   companyLogoUrl: ejData?.companyLogoUrl,
-   addressLocality: jobLocation || undefined,
-   addressRegion: jobCanton || undefined,
-   postalCode: ejData?.postalCode || slugInfo?.postalCode,
-   streetAddress: ejData?.streetAddress,
-   postingDateSource: ejData?.postingDateSource,
-   datePosted: ejData?.datePosted,
-   postedDate: ejData?.postedDate,
+   id: hasRealTitle ? ejData?.id : undefined,
+   slug: hasRealTitle ? slug : undefined,
+   title: hasRealTitle ? realTitle : undefined,
+   description: hasRealTitle
+    ? renderJobPostingDescription(jobDescription, locale, jobRequirements)
+    : undefined,
+   company: hasRealTitle ? realCompany : undefined,
+   companyKey: hasRealTitle ? ejData?.companyKey || slugInfo?.companyKey : undefined,
+   companySlug: hasRealTitle ? ejData?.companySlug || ejData?.companyKey || slugInfo?.companyKey : undefined,
+   companyWebsite: hasRealTitle ? ejData?.companyWebsite : undefined,
+   companyDomain: hasRealTitle ? ejData?.companyDomain : undefined,
+   companyLogoUrl: hasRealTitle ? ejData?.companyLogoUrl : undefined,
+   addressLocality: hasRealTitle ? jobLocation || undefined : undefined,
+   addressRegion: hasRealTitle ? jobCanton || undefined : undefined,
+   postalCode: hasRealTitle ? ejData?.postalCode || slugInfo?.postalCode : undefined,
+   streetAddress: hasRealTitle ? ejData?.streetAddress : undefined,
+   postingDateSource: hasRealTitle ? ejData?.postingDateSource : 'unknown',
+   datePosted: hasRealTitle ? ejData?.datePosted : undefined,
+   postedDate: hasRealTitle ? ejData?.postedDate : undefined,
    crawledAt: ejData?.crawledAt,
    expiredAt: ejData?.expiredAt,
-   employmentType: ejData?.employmentType,
-   contract: ejData?.contract,
-   contractType: ejData?.contractType,
-   salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
-   salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
-   salaryCurrency: ejData?.salaryCurrency || ejData?.currency,
-   salarySource: ejData?.salarySource,
-   category: ejData?.category,
-   sector: ejData?.sector || ejData?.category,
+   employmentType: hasRealTitle ? ejData?.employmentType : undefined,
+   contract: hasRealTitle ? ejData?.contract : undefined,
+   contractType: hasRealTitle ? ejData?.contractType : undefined,
+   salaryMin: hasRealTitle && typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : undefined,
+   salaryMax: hasRealTitle && typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : undefined,
+   salaryCurrency: hasRealTitle ? ejData?.salaryCurrency || ejData?.currency : undefined,
+   salarySource: hasRealTitle ? ejData?.salarySource : undefined,
+   category: hasRealTitle ? ejData?.category : undefined,
+   sector: hasRealTitle ? ejData?.sector || ejData?.category : undefined,
    url: undefined,
   };
   const expiredSchema = buildArchivedJobPosting(expiredInput, copy.banner, {

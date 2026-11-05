@@ -184,7 +184,7 @@ describe('recorded versus URL-inferred job identity', () => {
       expect(copy.details).not.toBe('');
     }
   });
-  it('does not promote dates or JobPosting from an unverified partial archive record', () => {
+  it('keeps unverified facts out of the schema while retaining the closed archive contract', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     expect(source).toContain("const expiredAt = hasRealTitle ? ejData?.expiredAt || '' : ''");
     expect(source).toContain('if (hasRealTitle && jobDatePosted) detailItems.push(');
@@ -193,7 +193,11 @@ describe('recorded versus URL-inferred job identity', () => {
     const end = source.indexOf('const jobPostingLd = getCurrentJobPostingLd();', start);
     expect(start).toBeGreaterThan(-1);
     expect(end).toBeGreaterThan(start);
-    expect(source.slice(start, end)).toMatch(/if \(!hasRealTitle\) \{\s+currentJobPostingLd = '';/);
+    const schemaBlock = source.slice(start, end);
+    expect(schemaBlock).not.toMatch(/if \(!hasRealTitle\) \{\s+currentJobPostingLd = '';/);
+    expect(schemaBlock).toContain("postingDateSource: hasRealTitle ? ejData?.postingDateSource : 'unknown'");
+    expect(schemaBlock).toContain('companyKey: hasRealTitle ?');
+    expect(schemaBlock).toContain('buildArchivedJobPosting(expiredInput');
     const search = source.slice(source.indexOf('// --- Search suggestions ---'), source.indexOf('// --- Frontalier info section:'));
     expect(search.match(/hasRealTitle && jobLocation/g)).toHaveLength(4);
     expect(source).toContain("${recordedIdentity ? `${copy.nextBody} ` : ''}");
