@@ -127,10 +127,13 @@ export function minimumDataRetentionOption(options, question = '') {
     const deletionWords = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/;
     const deletes = deletionWords.test(value);
     // normalize() turns English n't contractions into a word ending in n + "t".
-    const negationWords = /\b(?:not|never|no|non|nicht|nie|pas|kein\w*|\w+n t|cannot)\b/;
-    const negatesDeletion = new RegExp(
-      `${negationWords.source}.{0,40}${deletionWords.source}|${deletionWords.source}.{0,40}${negationWords.source}`,
-    ).test(value);
+    const negationWords = /\b(?:not|never|no|non|nicht|nie|pas|kein\w*|\w+n t|cannot|without)\b/;
+    // Keep the relation inside the same sentence; a character window misses
+    // emphatic negation and can cross into an unrelated sentence.
+    const negatesDeletion = deletes && option.purpose.split(/[.!?]+\s+|[\r\n]+/u).some(clause => {
+      const normalizedClause = normalize(clause);
+      return deletionWords.test(normalizedClause) && negationWords.test(normalizedClause);
+    });
     const afterCurrentApplication = /\b(?:after|dopo|nach|apres)\b.{0,80}\b(?:current application|this application|application process|questa candidatura|candidatura corrente|procedura di candidatura corrente|candidature en cours|bewerbung(?:sverfahren)?)\b/;
     const onceCurrentApplicationCompletes = /\bonce\b.{0,80}\b(?:(?:the )?(?:current|present)|this) application process\b.{0,40}\b(?:complet(?:e|ed|ion)|finish(?:ed)?|ends?|ended|over|conclud(?:e|es|ed)|terminat(?:e|ed|es))\b/;
     const followsCurrentApplication = afterCurrentApplication.test(value) || onceCurrentApplicationCompletes.test(value);
