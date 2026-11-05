@@ -23,11 +23,11 @@ function fixture() {
   });
 }
 describe('automatic recovery after a portal fix', () => {
-  it('requeues an unsent portal email confirmation from the existing candidate identity after a runner change', async () => {
+  it.each(['text', ' Email ', 'EMAIL', 'email_address'])('requeues an unsent portal email confirmation with question type %j', async questionType => {
     const store = fixture();
     const flowPath = `${base}/automation/flow`, draftPath = `${base}/ai_drafts/current`, submissionPath = `${base}/automation/submission`;
     const question = { id: 'email-repeat', source: 'portal', question: 'E-Mail-Adresse erneut eingeben',
-      applicationQuestion: 'E-Mail-Adresse erneut eingeben', required: true, type: 'text', options: [] };
+      applicationQuestion: 'E-Mail-Adresse erneut eingeben', required: true, type: questionType, options: [] };
     store.docs.set(base, { ...store.read(base), automationState: 'needs_candidate_action',
       candidateAlias: { active: true, address: 'alias@example.test' }, consentVersion: 'assisted-application-v2', consentedAt: now,
       talentPoolConsent: true });

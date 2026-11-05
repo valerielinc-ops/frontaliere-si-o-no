@@ -2658,6 +2658,13 @@ describe('portal runner helpers', () => {
     };
     const repeatEmail = { id: 'email-again', kind: 'text', label: 'E-Mail-Adresse erneut eingeben: *', required: true, options: [] };
     const email = { id: 'email', kind: 'text', label: 'E-Mail-Adresse', required: true, options: [] };
+    const emailConfirmationCheckbox = {
+      id: 'email-confirmation-checkbox', kind: 'checkbox', label: 'Confirm email notifications', required: true, options: [],
+    };
+    const emailConfirmationSelect = {
+      id: 'email-confirmation-select', kind: 'select', label: 'Please confirm email address', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
     const street = { id: 'street-name', kind: 'text', label: 'Street Name', context: 'My Information', required: true, options: [] };
     const postcode = { id: 'postcode', kind: 'text', label: 'Postcode', context: 'My Information', required: true, options: [] };
     const country = { id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true, options: [{ label: '- Bitte auswählen -' }, { label: 'Schweiz' }, { label: 'Italien' }] };
@@ -2678,6 +2685,8 @@ describe('portal runner helpers', () => {
       .toEqual({ value: 'Svizzera', source: 'identity' });
     expect(candidateAnswerForField(candidate, email)).toEqual({ value: candidate.identity.email, source: 'identity' });
     expect(candidateAnswerForField(candidate, repeatEmail)).toEqual({ value: candidate.identity.email, source: 'identity' });
+    expect(candidateAnswerForField(candidate, emailConfirmationCheckbox)).toBeNull();
+    expect(candidateAnswerForField(candidate, emailConfirmationSelect)).toBeNull();
     expect(candidateAnswerForField(candidate, street)).toEqual({ value: 'Via Esempio', source: 'identity' });
     expect(candidateAnswerForField(candidate, postcode)).toEqual({ value: '6830', source: 'identity' });
     expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Schweiz', source: 'identity' });

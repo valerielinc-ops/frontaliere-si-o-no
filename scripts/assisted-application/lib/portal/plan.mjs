@@ -1480,6 +1480,10 @@ function phoneCountryOption(candidate, field) {
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context, field);
+  const fieldKind = String(field?.kind || '').trim().toLowerCase();
+  const inputType = String(field?.inputType || '').trim().toLowerCase();
+  const isTextEmailInput = ['text', 'email'].includes(fieldKind)
+    && (!inputType || ['text', 'email'].includes(inputType));
   if (operationalChoiceHasNoCatalogue(field)) return null;
   if (topic === 'phone') {
     const value = formatInternationalPhone(candidate?.identity?.phone);
@@ -1489,7 +1493,7 @@ export function candidateAnswerForField(candidate, field) {
     const value = phoneCountryOption(candidate, field);
     return value ? { value, source: 'identity' } : null;
   }
-  if (isIdentityEmailConfirmationField(field) && candidate?.identity?.email) {
+  if (isTextEmailInput && isIdentityEmailConfirmationField(field) && candidate?.identity?.email) {
     return { value: candidate.identity.email, source: 'identity' };
   }
   const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context, field);

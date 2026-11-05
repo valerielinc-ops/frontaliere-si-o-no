@@ -27,7 +27,8 @@ function identityEmailConfirmationAnswer({ order, draft, flow, nowMs }) {
   const matches = (Array.isArray(draft?.questions) ? draft.questions : []).filter(question => question?.id === heldId);
   if (matches.length !== 1) return null;
   const question = matches[0];
-  if (question.source !== 'portal' || question.required !== true || !['text', 'email', 'email_address'].includes(question.type)) return null;
+  const questionType = String(question.type || '').trim().toLowerCase();
+  if (question.source !== 'portal' || question.required !== true || !['text', 'email', 'email_address'].includes(questionType)) return null;
   const label = [question.applicationQuestion, question.question].filter(Boolean).join(' ').trim();
   const field = { id: heldId, kind: 'text', label, context: String(question.context || ''), section: String(question.section || ''),
     autocomplete: String(question.autocomplete || ''), required: true, options: [] };
