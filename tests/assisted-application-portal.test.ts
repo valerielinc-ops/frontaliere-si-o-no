@@ -3125,6 +3125,11 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const spanish = permitField('¿Tienes permiso de trabajo en Suiza?', ['Sí', 'No']);
     expect(guardPlan({ actions: [], missingRequired: [] }, [spanish], held).actions).toEqual([select('p1', 'Sí')]);
 
+    for (const label of ['Are you legally allowed to work in Switzerland?', 'Are you legally able to work in Switzerland?']) {
+      const english = permitField(label, ['Yes', 'No']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [english], held).actions).toEqual([select('p1', 'Yes')]);
+    }
+
     const spanishNeed = permitField('¿Necesitas un permiso de trabajo en Suiza?', ['Sí', 'No']);
     expect(guardPlan({ actions: [], missingRequired: [] }, [spanishNeed], held).actions).toEqual([]);
   });
@@ -3153,6 +3158,11 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const indirectResult = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [indirect], candidateWithPermit);
     expect(indirectResult.actions).toEqual([]);
     expect(indirectResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
+    const application = permitField('Do you have to apply for a work permit?', ['Yes', 'No']);
+    const applicationResult = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [application], candidateWithPermit);
+    expect(applicationResult.actions).toEqual([]);
+    expect(applicationResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
 
     const yesNo = permitField('Do you hold a valid work permit for Switzerland?', ['Yes', 'No']);
     expect(guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [yesNo], candidateWithPermit).actions)
