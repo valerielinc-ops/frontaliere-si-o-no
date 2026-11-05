@@ -1,6 +1,6 @@
 import { GRAPH_API } from './instagram-graph-constants.mjs';
 import {
-  isMissingSocialPublishReservationDocumentError,
+  isMissingSocialPublishReservationError,
   socialPublishReservationKey,
 } from './social-publish-reservations.mjs';
 
@@ -142,11 +142,11 @@ export async function reconcileFacebookScheduledPosts({
           now: nowDate,
         });
       } catch (error) {
-        if (isMissingSocialPublishReservationDocumentError(error)) {
-          // Rows written before the shared reservation gate was introduced
-          // have native publication evidence but no Firestore document to
-          // settle. The next reservation batch seeds its state from this
-          // reconciled ledger; this is not an uncertain publication.
+        if (isMissingSocialPublishReservationError(error)) {
+          // A native Facebook post confirmed as published is authoritative.
+          // Older ledger rows may have no matching reservation entry even
+          // when the shared Firestore document now exists; the next batch
+          // seeds its state from this reconciled ledger.
           legacyReservationMissing += 1;
           continue;
         }

@@ -24,6 +24,12 @@ on:
         default: 'true'
         type: choice
         options: ['true', 'false']
+      reconcile_only:
+        description: 'Recover accepted scheduled posts into the ledger without scheduling more'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
 permissions:
   contents: write  # to commit fb-posted-jobs.json
   issues: write
@@ -101,13 +107,14 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FB_JOB_VOLUME: ${{ github.event.inputs.volume || '24' }}
+          FB_JOB_RECONCILE_ONLY: ${{ github.event.inputs.reconcile_only || 'false' }}
           DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
           ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
           EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
         run: node scripts/schedule-fb-jobs-daily.mjs
 
       - name: Commit posted-jobs tracking
-        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
+        if: always() && inputs.dry_run != true && inputs.dry_run != 'true' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
