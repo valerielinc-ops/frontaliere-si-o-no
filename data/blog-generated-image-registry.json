@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1052,
-  "generatedAt": "2026-11-05T11:16:07.777Z",
+  "assetCount": 1053,
+  "generatedAt": "2026-11-05T13:35:10.585Z",
   "assets": [
     {
       "schema": 1,
@@ -43966,6 +43966,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a fiscal planning desk with budget documents and calculator; no readable text, logos, people, or specific event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-sciaffusa-mercato-lavoro-ottobre",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "19fcc2adf5a480a9156036d73cbcb5f57ff9db8741a6497298dbbb1952632530",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "e92946e8f7fef28d7ffc252a59661dd27197d4f1ad4968d59f60b3b48448b47a",
+      "bytes": 205340,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-05T12:20:00.061Z",
+      "verifiedAt": "2026-11-05T12:20:12.013Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-sciaffusa-mercato-lavoro-ottobre.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic illustration of a Schaffhausen/Rhine landscape with historic architecture; no people, text, signage, logos, or event-specific content."
       }
     },
     {

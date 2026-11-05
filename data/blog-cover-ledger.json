@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1050,
+      "5": 1051,
       "6": 5061
     },
-    "publishedCovers": 7793,
+    "publishedCovers": 7794,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213854,6 +213854,39 @@
         "provider": "openai-codex",
         "assetId": "article-schuebelbach-aliquote-2027",
         "imageUrl": "/images/blog/article-schuebelbach-aliquote-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sciaffusa-mercato-lavoro-ottobre": {
+      "cover": "/images/blog/article-sciaffusa-mercato-lavoro-ottobre.webp",
+      "hash": "e92946e8f7fef28d7ffc252a59661dd27197d4f1ad4968d59f60b3b48448b47a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "sciaffusa-mercato-lavoro-ottobre",
+          "category": "pratico",
+          "date": "2026-11-05T12:20:12.097Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sciaffusa-mercato-lavoro-ottobre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-05",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sciaffusa-mercato-lavoro-ottobre",
+        "imageUrl": "/images/blog/article-sciaffusa-mercato-lavoro-ottobre.webp",
         "evidence": "generated-engine-record"
       }
     },
