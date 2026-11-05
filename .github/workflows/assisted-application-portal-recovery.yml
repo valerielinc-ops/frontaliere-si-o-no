@@ -32,6 +32,7 @@ on:
       - 'functions/src/assistedApplicationFlow.js'
       - 'functions/src/assistedApplicationPortalRetryPolicy.js'
       - 'functions/src/assistedApplicationDraftRetryPolicy.js'
+      - 'functions/src/assistedApplicationDispatchRetryPolicy.js'
       - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'
       - 'functions/src/assistedApplicationSubmissionGuard.js'
       - 'functions/src/lib/applicationConsent.js'
