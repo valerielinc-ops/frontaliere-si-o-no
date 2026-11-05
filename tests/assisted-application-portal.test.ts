@@ -3147,10 +3147,22 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const italianDeclarative = permitField('Sei autorizzato a lavorare in Svizzera?', ['Sì', 'No']);
     expect(guardPlan({ actions: [], missingRequired: [] }, [italianDeclarative], held).actions).toEqual([select('p1', 'Sì')]);
 
-    const spanish = permitField('¿Tienes permiso de trabajo en Suiza?', ['Sí', 'No']);
-    expect(guardPlan({ actions: [], missingRequired: [] }, [spanish], held).actions).toEqual([select('p1', 'Sí')]);
+    for (const label of [
+      '¿Tienes permiso de trabajo en Suiza?',
+      '¿Tiene permiso de trabajo en Suiza?',
+      '¿Tiene usted permiso de trabajo en Suiza?',
+      '¿Está usted autorizado para trabajar?',
+      '¿Está autorizado para trabajar?',
+    ]) {
+      const spanish = permitField(label, ['Sí', 'No']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [spanish], held).actions).toEqual([select('p1', 'Sí')]);
+    }
 
     for (const label of [
+      'Currently, do you hold a valid work permit for Switzerland?',
+      'Please confirm whether you currently hold a valid work permit for Switzerland.',
+      'Work permit: do you currently hold a valid permit?',
+      'Work authorization — Do you currently have a permit?',
       'Are you legally allowed to work in Switzerland?',
       'Are you legally able to work in Switzerland?',
       'Are you legally authorized to work in Switzerland?',
@@ -3246,7 +3258,15 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const noCurrentPermit = candidate({ permitStatus: 'none' });
     for (const { label, options, negative } of [
       { label: 'Have you ever received a work permit?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Have you ever possessed a work permit?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Avez-vous déjà détenu un permis de travail ?', options: ['Oui', 'Non'], negative: 'Non' },
+      { label: 'Hai mai avuto un permesso di lavoro?', options: ['Sì', 'No'], negative: 'No' },
+      { label: '¿Has tenido alguna vez un permiso de trabajo?', options: ['Sí', 'No'], negative: 'No' },
       { label: 'Have you been issued a work permit?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Did you hold a work permit in the past?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Have you ever had a work permit?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Do you currently hold a work permit, or did you previously hold one?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Do you hold a work permit that you held before?', options: ['Yes', 'No'], negative: 'No' },
       { label: 'Avez-vous obtenu une autorisation de travail ?', options: ['Oui', 'Non'], negative: 'Non' },
       { label: 'Haben Sie eine Arbeitserlaubnis erhalten?', options: ['Ja', 'Nein'], negative: 'Nein' },
     ]) {

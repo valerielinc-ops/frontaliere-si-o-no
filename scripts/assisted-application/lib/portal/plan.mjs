@@ -1424,23 +1424,37 @@ function languageAnswerForField(candidate, field) {
 }
 
 const PERMIT_HISTORICAL_QUESTION_PATTERNS = [
-  /^have you(?:\s+(?:ever|previously))?\s+(?:held|had|received|obtained|been\s+(?:granted|issued))\b/i,
+  /^have you(?:\s+(?:ever|previously))?\s+(?:held|had|possessed|owned|received|obtained|been\s+(?:granted|issued))\b/i,
   /^did you(?:\s+(?:ever|previously))?\s+(?:hold|have|receive|obtain|possess)\b/i,
   /^were you(?:\s+(?:ever|previously))?\s+(?:granted|issued|given)\b/i,
-  /^(?:est[- ]ce que\s*)?(?:vous|tu)\s+(?:avez|as)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?)\b/i,
-  /^(?:avez|as)[- ](?:vous|tu)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?)\b/i,
+  /^(?:est[- ]ce que\s*)?(?:vous|tu)\s+(?:avez|as)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?|detenu|possede|eu)\b/i,
+  /^(?:avez|as)[- ](?:vous|tu)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?|detenu|possede|eu)\b/i,
   /^(?:haben sie|hast du)(?:\s+(?:schon|bereits|jemals|fruher))?\s+(?:ein(?:e|en|em|er)?|den|die|das)\b[^,?]*\b(?:erhalten|erhielt|bekommen|bekam|erteilt|ausgestellt|erworben|verliehen|gehabt)\b/i,
-  /^(?:hai|ha|avete|hanno)\s+(?:(?:gia|precedentemente)\s+)?(?:ricevut[oaie]|ottenut[oaie]|concess[oaie]|rilasciat[oaie]|emess[oaie])\b/i,
-  /^(?:has|ha|han|habeis)\s+(?:(?:alguna vez|antes|previamente)\s+)?(?:recibid[oa]s?|obtenid[oa]s?|concedid[oa]s?|expedid[oa]s?|emitid[oa]s?|otorgad[oa]s?)\b/i,
+  /^(?:hai|ha|avete|hanno)\s+(?:(?:mai|gia|precedentemente)\s+)?(?:ricevut[oaie]|ottenut[oaie]|concess[oaie]|rilasciat[oaie]|emess[oaie]|avuto|avuta|avuti|avute|posseduto|posseduta|detenuto|detenuta)\b/i,
+  /^(?:has|ha|han|habeis)\s+(?:(?:alguna vez|antes|previamente)\s+)?(?:recibid[oa]s?|obtenid[oa]s?|concedid[oa]s?|expedid[oa]s?|emitid[oa]s?|otorgad[oa]s?|tenid[oa]s?|poseid[oa]s?)\b/i,
 ];
 
 function normalizePermitQuestion(label) {
   return String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/^[\s¿¡]+/, '');
 }
 
-function isPermitHistoricalQuestion(label) {
+const PERMIT_QUESTION_START_RE = /^(?:do you|does the candidate|are you|can you|did you|have you|were you|est-ce que|avez[- ]vous|etes[- ]vous|as[- ]tu|es[- ]tu|haben sie|hast du|sind sie|bist du|besitzen sie|verfugen sie|halten sie|haltst du|hai|possiedi|detieni|sei|e|tienes|tiene usted|eres|estas(?: usted)?|esta(?: usted)?|puedes)\b/i;
+
+function permitQuestionText(label) {
   const text = normalizePermitQuestion(label);
-  return PERMIT_HISTORICAL_QUESTION_PATTERNS.some((pattern) => pattern.test(text));
+  const prefixed = text.match(/^([^?¿!¡]+?)\s+(?:[-–—:]|\|)\s+([\s\S]+)$/);
+  if (!prefixed) return text;
+  const question = prefixed[2].replace(/^[\s¿¡]+/, '');
+  return PERMIT_QUESTION_START_RE.test(question) ? question : text;
+}
+
+function isPermitHistoricalQuestion(label) {
+  const text = permitQuestionText(label);
+  if (PERMIT_HISTORICAL_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return true;
+  const historicalAction = String.raw`(?:hold|held|have|had|possess(?:ed)?|own(?:ed)?|receive(?:d)?|obtain(?:ed)?|acquir(?:e|ed)|grant(?:ed)?|issu(?:e|ed))`;
+  const markerBeforeAction = new RegExp(String.raw`\b(?:ever|previously|formerly|in the past|used to)\b[^?]{0,90}\b${historicalAction}\b`, 'i');
+  const actionBeforeMarker = new RegExp(String.raw`\b${historicalAction}\b[^?]{0,90}\b(?:ever|previously|formerly|in the past|before)\b`, 'i');
+  return markerBeforeAction.test(text) || actionBeforeMarker.test(text);
 }
 
 const PERMIT_EVIDENCE_QUESTION_PATTERNS = [
@@ -1473,13 +1487,17 @@ function isYesNoPermitQuestion(label) {
   // A later "do you hold" can belong to a wh-question asking which permit the
   // candidate has. Require a held-status predicate, so neither that question
   // nor an indirect "do you know which permit" converts status into a boolean.
-  const text = normalizePermitQuestion(label);
+  const text = permitQuestionText(label);
   if (isPermitHistoricalQuestion(text)) return false;
   // A permit status does not establish that the candidate can produce its
   // proof, certificate, or other supporting document.
   if (PERMIT_EVIDENCE_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return false;
-  const currentPredicate = text.replace(/^before\s+(?:starting|beginning|commencing)\s+(?:work|employment),\s*/i, '');
+  const currentPredicate = text
+    .replace(/^before\s+(?:starting|beginning|commencing)\s+(?:work|employment),\s*/i, '')
+    .replace(/^(?:(?:currently|at present|right now|as of (?:today|now))\s*[,;:]?\s*)+/i, '')
+    .replace(/^(?:work permit|work authorization|right to work|permit status)\s*:\s*/i, '');
   const patterns = [
+    /^(?:please\s+)?(?:confirm|indicate|state)\s+(?:whether|if)\s+(?:you|the candidate)(?:\s+(?:currently|at present|right now))?\s+(?:hold|have(?!\s+to\b)|possess|own)\b/i,
     /^(?:do you|does the candidate)(?:\s+(?:currently|at present))?\s+(?:hold|have(?!\s+to\b)|possess|own)\b/i,
     /^are you(?:\s+(?:currently|legally))?\s+(?:authorized|authorised|permitted|entitled)\s+to\s+(?:work|be employed)\b/i,
     /^are you(?:\s+legally)?\s+(?:allowed|able)\s+to\s+work\b/i,
@@ -1504,8 +1522,8 @@ function isYesNoPermitQuestion(label) {
     /^(?:haltst du|halten sie)\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
     /^(?:hai|possiedi|detieni)\s+(?:(?:un|una|il|la)\s+)?(?:permesso|autorizzazione|visa)\b/i,
     /^(?:sei|e)\s+(?:in possesso|autorizzat\w*|abilitat\w*|titolare)\b/i,
-    /^(?:tienes|tiene usted)\s+(?:(?:un|una|el|la)\s+)?(?:permiso|visa|autorizacion|derecho)\b/i,
-    /^(?:eres|estas(?: usted)?)\s+(?:autorizad[oa]|habilitad[oa]|titular|en posesion)\b/i,
+    /^(?:tienes|tiene(?: usted)?)\s+(?:(?:un|una|el|la)\s+)?(?:permiso|visa|autorizacion|derecho)\b/i,
+    /^(?:eres|estas(?: usted)?|esta(?: usted)?)\s+(?:autorizad[oa]|habilitad[oa]|titular|en posesion)\b/i,
     /^puedes\s+trabajar\b/i,
   ];
   return patterns.some((pattern) => pattern.test(currentPredicate));
