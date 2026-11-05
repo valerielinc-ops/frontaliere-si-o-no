@@ -246,6 +246,14 @@ jobs:
               type == "object"
               and .encoding == "base64"
               and (.content | (type == "string" and length > 0))
+              and (.content | @base64d | fromjson
+                | type == "object"
+                  and .schemaVersion == 1
+                  and (.groupCount | type == "number" and floor == . and . >= 1 and . <= 99)
+                  and (.artifacts | type == "array" and length > 0)
+                  and all(.artifacts[];
+                    type == "object" and (.file | type == "string" and length > 0))
+                )
             ' "$response_file" >/dev/null
           }
 
@@ -308,12 +316,12 @@ jobs:
                   | if length == 1 then "0" + . else . end]))
               then $groupKeys else empty end
           ' "$contract_file"); then
-            echo "::notice::Generation contract group set cannot be read; observer stays dormant."
-            exit 0
+            echo "::error::Generation contract group set cannot be read; observer probe failed closed."
+            exit 1
           fi
           if [ -z "$expected_group_keys" ]; then
-            echo "::notice::Generation contract group set is invalid; observer stays dormant."
-            exit 0
+            echo "::error::Generation contract group set is invalid; observer probe failed closed."
+            exit 1
           fi
 
           artifact_json="$PROBE_ROOT/artifacts.json"

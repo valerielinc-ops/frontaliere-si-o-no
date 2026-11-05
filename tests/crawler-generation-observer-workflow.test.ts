@@ -1,4 +1,6 @@
 import fs from 'node:fs';
+import os from 'node:os';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
@@ -159,4 +161,43 @@ describe('portable crawler generation observer workflow', () => {
     expect(contractProbe).toMatch(/Generation contract response is invalid[\s\S]*?exit 1/);
     expect(contractProbe).toMatch(/Generation contract cannot be decoded[\s\S]*?exit 1/);
   });
+  it('executes the probe fail-closed for invalid decoded contracts and accepts the generated group set', () => {
+    const doc = YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8'));
+    const run = doc.jobs.probe.steps[0].run;
+    const validator = run.slice(run.indexOf('validateObserverResponse()'), run.indexOf('trigger_run='));
+    const probe = run.slice(run.indexOf('contract_response='), run.indexOf('artifact_json='));
+    const contract = JSON.parse(fs.readFileSync(path.join(ROOT, '.github/corpus-workflows/contract.json'), 'utf8'));
+    const missingGroup = structuredClone(contract);
+    missingGroup.artifacts = missingGroup.artifacts.filter((entry: any) => entry.file !== 'crawler-group-01.yml');
+    const duplicateGroup = structuredClone(contract);
+    duplicateGroup.artifacts.push(duplicateGroup.artifacts[0]);
+    const malformedArtifact = structuredClone(contract);
+    malformedArtifact.artifacts.push({ file: 42 });
+    const payloads = [
+      'foo', '{', 'null', '[]', '{}', JSON.stringify({ ...contract, artifacts: {} }),
+      JSON.stringify(missingGroup), JSON.stringify(duplicateGroup), JSON.stringify(malformedArtifact),
+      JSON.stringify(contract) + '\n{}', JSON.stringify(contract),
+    ];
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'observer-contract-'));
+    try {
+      for (const payload of payloads) {
+        const response = path.join(root, 'response.json');
+        fs.writeFileSync(response, JSON.stringify({ encoding: 'base64', content: Buffer.from(payload).toString('base64') }));
+        const result = spawnSync('bash', ['-c', `set -euo pipefail
+          github_get_with_retry() { cp "$RESPONSE" "$1"; }
+          ${validator}
+          ${probe}
+        `], {
+          encoding: 'utf8',
+          env: { ...process.env, RESPONSE: response, PROBE_ROOT: root, REPOSITORY: 'owner/repo', TRIGGER_HEAD_SHA: 'a'.repeat(40) },
+        });
+        const valid = payload === JSON.stringify(contract);
+        expect(result.status, payload.slice(0, 80)).toBe(valid ? 0 : 1);
+        if (!valid) expect(result.stdout).toContain('::error::');
+      }
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
 });
