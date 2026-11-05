@@ -140,13 +140,13 @@ describe('portable crawler generation observer workflow', () => {
     const text = fs.readFileSync(WORKFLOW_PATH, 'utf8');
     const validatorStart = text.indexOf('validateObserverResponse()');
     const contractStart = text.indexOf('contract_response=');
-    const artifactStart = text.indexOf('artifact_json=', contractStart);
+    const groupValidationStart = text.indexOf('if ! expected_group_keys=', contractStart);
     expect(validatorStart).toBeGreaterThanOrEqual(0);
     expect(contractStart).toBeGreaterThan(validatorStart);
-    expect(artifactStart).toBeGreaterThan(contractStart);
+    expect(groupValidationStart).toBeGreaterThan(contractStart);
 
     const validator = text.slice(validatorStart, contractStart);
-    const contractProbe = text.slice(contractStart, artifactStart);
+    const contractProbe = text.slice(contractStart, groupValidationStart);
     expect(validator).toContain('type == "object"');
     expect(validator).toContain('.encoding == "base64"');
     expect(validator).toContain('type == "string" and length > 0');
