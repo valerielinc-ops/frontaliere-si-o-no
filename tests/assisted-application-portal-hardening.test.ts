@@ -343,6 +343,32 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe('mismatch');
   });
 
+  it('accepts a bound Umantis form with a generic heading and employer-owned fields', () => {
+    const applicationUrl = umantisAccountStepFixture.url;
+    const postingUrl = applicationUrl.replace('/Application/New/4', '/Description/4');
+    const job = { company: 'EOC – Ente Ospedaliero Cantonale', title: 'Impiegato/a amministrativo' };
+    const form = [
+      'Application Tracking System',
+      ...umantisAccountStepFixture.fields.map(field => field.label),
+      'Avanti',
+    ].join('\n');
+    const verified = isVerifiedPostingEntry({ applyUrl: applicationUrl, postingUrl });
+
+    expect(namesAnotherEmployer(form, job)).toBe(true);
+    expect(formPostingMatch(form, job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applicationUrl,
+      postingUrl,
+    })).toBe('match');
+    expect(formPostingMatch(`Other Employer — Application Tracking System\n${form}`, job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applicationUrl,
+      postingUrl,
+    })).toBe('mismatch');
+  });
+
   it('accepts ALTEN’s generic form only when the matching posting route was the entry', () => {
     const job = { company: 'ALTEN Switzerland', title: 'Project Manager – IT & Banking' };
     const genericForm = [
