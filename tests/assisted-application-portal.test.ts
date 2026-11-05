@@ -3080,6 +3080,10 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(fromPlan.actions).toEqual([select('p1', 'Yes')]);
     expect(fromPlan.missingRequired).toEqual([]);
 
+    const unrecognized = { identity, profile: {}, answers: {}, swissStatus: { code: 'pending', statement: 'Yes' } };
+    expect(candidateAnswerForField(unrecognized, field)).toBeNull();
+    expect(guardPlan({ actions: [select('p1', 'Yes')], missingRequired: [] }, [field], unrecognized).actions).toEqual([]);
+
     // SuccessFactors can expose the same combobox before its lazy list has
     // been read.  The status still maps to the localized boolean answer, so
     // the agent never sends «G Permit» to a yes/no control.
@@ -3117,5 +3121,16 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(known).not.toContain('aufenthaltsbewilligung');
     expect(known).not.toContain('permesso g');
     expect(planSystemPrompt('it')).toContain('swissStatus.statement is the candidate\'s own statement of their Swiss status today');
+  });
+
+  it('does not promote an unrecognized profile status into a candidate permit', () => {
+    const form = candidateForForm({ identity, profile: { permitStatus: 'pending' }, answers: {}, language: 'it' });
+    expect(form.swissStatus).toBeNull();
+    const field = permitField('Statuto di soggiorno', ['B', 'G']);
+    expect(candidateAnswerForField(form, field)).toBeNull();
+
+    const answered = candidateForForm({ identity, profile: { permitStatus: 'pending' }, answers: { work_permit: 'permit_b' }, language: 'it' });
+    expect(answered.swissStatus?.code).toBe('permit_b');
+    expect(answered.answers).not.toHaveProperty('work_permit');
   });
 });

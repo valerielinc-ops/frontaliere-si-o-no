@@ -41,7 +41,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { asksHeldStatus, isPermitField, nationalityOf, permitOptions, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { asksHeldStatus, isPermitField, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
@@ -539,7 +539,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
-  const status = profile.permitStatus || '';
+  const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit);
   const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
@@ -4966,8 +4966,7 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
   const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
   const residenceCountryPresent = Boolean(String(addressQuestionAnswer(candidate, 'residence_country') || '').trim());
   const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
-  const permitStatusPresent = [candidate.swissStatus?.code, profile.permitStatus, profile.workPermit, answers.work_permit]
-    .some(value => Boolean(permitStatusOf(value)));
+  const permitStatusPresent = Boolean(permitStatusFromCandidate(candidate));
   const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
 
   for (const field of requiredFields) {

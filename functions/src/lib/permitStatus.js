@@ -177,6 +177,16 @@ export function permitStatusOf(value) {
   return codes.size === 1 && codes.has(positive) ? positive : '';
 }
 
+/** The first recognized Swiss status in the candidate's explicit status fields. */
+export function permitStatusFromCandidate(candidate) {
+  for (const value of [candidate?.swissStatus?.code, candidate?.profile?.permitStatus,
+    candidate?.answers?.work_permit, candidate?.profile?.workPermit]) {
+    const status = permitStatusOf(value);
+    if (status) return status;
+  }
+  return '';
+}
+
 /** A stored value as the candidate's language shows it: its status's label, else the value as written. */
 export function permitLabel(value, locale) {
   const text = String(value ?? '').trim();
