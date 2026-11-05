@@ -23,6 +23,9 @@ export const VD_BROWSER_USER_AGENT =
 
 const ECARI_DATE_RE = /^(\d{4})\/(\d{2})\/(\d{2})\s+(\d{2}):(\d{2}):(\d{2})$/;
 
+const AI_AUTO_PDF_PATTERN = /liste-freie-auto-kontrollschilder\/(?:download|@@download\/file)(?:\/|[?#]|$)/i;
+const AI_MOTORCYCLE_PDF_PATTERN = /liste-freier-motorrad-kontrollschilder\.pdf\/(?:download|@@download\/file)(?:\/|[?#]|$)/i;
+
 function zurichLocalToUtcIso(year, month, day, hour, minute, second) {
   const utcGuess = Date.UTC(year, month - 1, day, hour, minute, second);
   const parts = Object.fromEntries(
@@ -520,17 +523,17 @@ export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
     officialUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder#liste-freie-kontrollschilder',
     pageUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder',
     fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download',
-    pdfUrlPattern: /liste-freie-auto-kontrollschilder\/(?:download|@@download\/file\/)/i,
+    pdfUrlPattern: AI_AUTO_PDF_PATTERN,
     pdfVariants: [
       {
         vehicleType: 'car',
         fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download',
-        pdfUrlPattern: /liste-freie-auto-kontrollschilder\/(?:download|@@download\/file\/)/i,
+        pdfUrlPattern: AI_AUTO_PDF_PATTERN,
       },
       {
         vehicleType: 'motorcycle',
         fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download',
-        pdfUrlPattern: /liste-freier-motorrad-kontrollschilder\.pdf\/(?:download|@@download\/file\/)/i,
+        pdfUrlPattern: AI_MOTORCYCLE_PDF_PATTERN,
       },
     ],
     parserVersion: 'fixed-price-1.0.0',
@@ -897,7 +900,7 @@ export function extractPdfUrl(html, { baseUrl, pattern } = {}) {
         return null;
       }
     })
-    .filter((value) => value && (/(?:\.pdf(?:$|[?#])|\/download(?:$|[?#]))/i.test(value)));
+    .filter((value) => value && (/(?:\.pdf(?:$|[?#])|\/download(?:$|[?#])|\/@@download\/file(?:\/|$|[?#]))/i.test(value)));
   const matching = typeof pattern?.test === 'function'
     ? hrefs.find((href) => {
       pattern.lastIndex = 0;

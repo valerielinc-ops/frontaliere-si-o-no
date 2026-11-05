@@ -3,8 +3,10 @@ const PLATE_AUCTION_HOST_ALIASES = Object.freeze({
 });
 
 const AI_BASE_PATH = '/themen/mobilitaet-und-verkehr/strassenverkehr';
-const AI_AUTO_PDF_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download`;
-const AI_MOTORCYCLE_PDF_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download`;
+const AI_AUTO_DOCUMENT_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder`;
+const AI_MOTORCYCLE_DOCUMENT_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf`;
+const AI_AUTO_PDF_PATH = `${AI_AUTO_DOCUMENT_PATH}/download`;
+const AI_MOTORCYCLE_PDF_PATH = `${AI_MOTORCYCLE_DOCUMENT_PATH}/download`;
 const ECARI_ROOTS = Object.freeze({
   'eauktion.gr.ch': { root: '/ecari-auction/ui/app/init', locale: 'de_CH' },
   'ecarinwprod.ilz.info': { root: '/ecari-auction/ui/app/init', locale: 'de_CH' },
@@ -29,15 +31,13 @@ function rewriteKnownPlateAuctionUrl(url) {
       url.hash = 'liste-freie-kontrollschilder';
       return url;
     }
-    if (path === `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download`
-      || path === `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder`) {
+    if (isAiDocumentDownloadPath(path, AI_AUTO_DOCUMENT_PATH)) {
       url.pathname = AI_AUTO_PDF_PATH;
       url.search = '';
       url.hash = '';
       return url;
     }
-    if (path === `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download`
-      || path === `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf`) {
+    if (isAiDocumentDownloadPath(path, AI_MOTORCYCLE_DOCUMENT_PATH)) {
       url.pathname = AI_MOTORCYCLE_PDF_PATH;
       url.search = '';
       url.hash = '';
@@ -66,6 +66,15 @@ function rewriteKnownPlateAuctionUrl(url) {
   }
 
   return url;
+}
+
+function isAiDocumentDownloadPath(path, documentPath) {
+  // The bare Plone route is a redirect endpoint. A named
+  // `@@download/file/<name>.pdf` is already the direct audited document URL;
+  // rewriting it would mutate historical rows that intentionally preserve it.
+  return path === documentPath
+    || path === `${documentPath}/download`
+    || path === `${documentPath}/@@download/file`;
 }
 
 /**
