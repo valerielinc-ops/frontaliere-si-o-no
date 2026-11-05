@@ -1176,14 +1176,26 @@ export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
 }
 
-const fieldHasNativeOptions = (field) => ['select', 'radio', 'listbox'].includes(String(field?.kind || '').toLowerCase())
+const usableChoiceOption = (option) => typeof option === 'string'
+  ? Boolean(option.trim())
+  : Boolean(option && option.placeholder !== true && option.disabled !== true && String(option.label || '').trim());
+
+const hasChoiceCatalogue = (field) => Array.isArray(field?.options)
+  && field.options.some(usableChoiceOption);
+
+const editableCombobox = (field) => String(field?.kind || '').toLowerCase() === 'combobox'
+  && field?.selectLike === false && !field?.nativeSelectId;
+
+const fieldHasNativeOptions = (field) => ['combobox', 'select', 'radio', 'listbox'].includes(String(field?.kind || '').toLowerCase())
   || field?.selectLike === true
   || Boolean(field?.nativeSelectId);
+
+const fieldRequiresNativeOptions = (field) => fieldHasNativeOptions(field) && !editableCombobox(field);
 
 export function needsPortalOptionRead(snapshot = {}) {
   return snapshot.fields?.some((field) => {
     if (!fieldHasNativeOptions(field)) return false;
-    return !Array.isArray(field.options) || field.options.length === 0;
+    return !hasChoiceCatalogue(field);
   }) || false;
 }
 
@@ -5182,7 +5194,7 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     ...(Array.isArray(field?.labels) ? field.labels : []),
   ].filter(Boolean).join(' '));
   const optionLabels = field => (Array.isArray(field?.options) ? field.options : [])
-    .filter(option => option?.placeholder !== true)
+    .filter(usableChoiceOption)
     .map(option => String(typeof option === 'string' ? option : option?.label || '').trim())
     .filter(Boolean);
   const missing = [];
@@ -5223,7 +5235,7 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
           // Free-text ATS controls can accept the candidate's selected
           // canonical status. Native controls need their own option catalogue
           // so that the answer can be mapped back safely.
-          requiresNativeOptions: fieldHasNativeOptions(field),
+          requiresNativeOptions: fieldRequiresNativeOptions(field),
           candidatePrompt: question,
         });
       continue;
@@ -5407,9 +5419,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
         }
-        const editableCombobox = field?.kind === 'combobox' && field.selectLike === false && !field.nativeSelectId;
         const applicationOptions = (field ? editableCombobox ? [] : field.options || [] : item.applicationOptions || item.options || [])
-          .filter(option => option?.placeholder !== true)
+          .filter(usableChoiceOption)
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);
@@ -5426,8 +5437,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
         }
         // A native choice with no usable catalogue needs another portal read,
         // never a text question whose arbitrary answer the ATS cannot accept.
-        if (field && type === 'choice' && !applicationOptions.length
-          && (fieldHasNativeOptions(field) || item.requiresNativeOptions === true)) {
+        if (field && type === 'choice' && !hasChoiceCatalogue(field)
+          && (fieldRequiresNativeOptions(field) || item.requiresNativeOptions === true)) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }

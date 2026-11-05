@@ -1422,6 +1422,33 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       { candidate: { identity: {}, profile: {}, answers: {} }, candidateLocale: 'en' },
     );
     expect(restoredRequirements.unreadableFields || []).toEqual([]);
+
+    const lazyCombobox = {
+      id: 'lazy-combobox',
+      kind: 'combobox',
+      selectLike: false,
+      nativeSelectId: '',
+      label: 'Current permit status',
+      required: true,
+      options: [],
+    };
+    expect(needsPortalOptionRead({ fields: [lazyCombobox] })).toBe(true);
+    expect(needsPortalOptionRead({ fields: [{ ...lazyCombobox, options: ['yes'] }] })).toBe(false);
+    const restoredComboboxRequirements = portalRequirementsFromMissingRequired(
+      [{ ...lazyCombobox, options: ['yes'] }],
+      [{ fieldId: lazyCombobox.id, question: lazyCombobox.label, type: 'choice', options: [] }],
+    );
+    expect(restoredComboboxRequirements.unreadableFields || []).toEqual([]);
+
+    const placeholderOnly = { id: 'placeholder-only', kind: 'select', options: [{ label: 'Choose', placeholder: true }] };
+    const disabledOnly = { id: 'disabled-only', kind: 'listbox', options: [{ label: 'Unavailable', disabled: true }] };
+    expect(needsPortalOptionRead({ fields: [placeholderOnly] })).toBe(true);
+    expect(needsPortalOptionRead({ fields: [disabledOnly] })).toBe(true);
+    const restoredPlaceholderRequirements = portalRequirementsFromMissingRequired(
+      [{ ...placeholderOnly, label: 'Permit', options: [{ label: 'Yes', value: 'yes' }] }],
+      [{ fieldId: placeholderOnly.id, question: 'Permit', type: 'choice', options: [] }],
+    );
+    expect(restoredPlaceholderRequirements.unreadableFields || []).toEqual([]);
   });
 
   it('chooses the canonical French label when a native nationality select has equivalent options', async () => {
