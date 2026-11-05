@@ -329,9 +329,9 @@ describe('approval flow', () => {
 
   it('reminds the candidate of the portal\'s questions too, each wait with its own reminders', () => {
     const questions = [{ id: 'screening_1', required: true }];
-    let step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions }, { draft: cleanDraft, nowMs: T0 });
+    let draft = { ...cleanDraft, questions };
+    let step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions }, { draft, nowMs: T0 });
     expect(step.flow).toMatchObject({ state: 'needs_candidate_action', heldSince: T0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0] });
-    const draft = { ...cleanDraft, questions };
     step = transition(step.flow, { type: 'tick' }, { draft, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] });
     expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
 
@@ -340,11 +340,13 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({ state: 'submitting', heldSince: null, heldNudges: 0, reminderAt: null });
     // The portal asks again: a new wait, with reminders of its own.
     const again = T0 + 3 * HELD_REMINDERS_AFTER_MS[0];
+    draft = { ...draft, questions: [...questions, { id: 'screening_2', required: true }] };
     step = transition(step.flow, { type: 'submit_needs_candidate', questions: [{ id: 'screening_2', required: true }] }, { draft, nowMs: again });
     expect(step.flow).toMatchObject({ heldSince: again, heldNudges: 0, reminderAt: again + HELD_REMINDERS_AFTER_MS[0] });
   });
 
   it('stores only bounded candidate-request telemetry for a newly revealed portal step', () => {
+    const draft = { ...cleanDraft, questions: [{ id: 'notice_period', required: true }] };
     const step = transition(
       { state: 'submitting', round: 1 },
       {
@@ -352,7 +354,7 @@ describe('approval flow', () => {
         questions: [{ id: 'notice_period' }],
         candidateRequestTelemetry: { round: 1, questionCount: 1, afterNewlyRevealedPortalFields: true },
       },
-      { draft: cleanDraft, nowMs: T0 },
+      { draft, nowMs: T0 },
     );
     expect(step.flow).toMatchObject({
       state: 'needs_candidate_action',
@@ -367,7 +369,7 @@ describe('approval flow', () => {
     const malformed = transition(
       { state: 'submitting', round: 1 },
       { type: 'submit_needs_candidate', questions: [{ id: 'notice_period' }], candidateRequestTelemetry: { round: 1, questionCount: 999, afterNewlyRevealedPortalFields: true } },
-      { draft: cleanDraft, nowMs: T0 },
+      { draft, nowMs: T0 },
     );
     expect(malformed.flow).not.toHaveProperty('candidateRequestTelemetry');
   });
@@ -393,6 +395,20 @@ describe('approval flow', () => {
     }]);
   });
 
+  it('hands a portal question missing from the current draft to owner takeover', () => {
+    const step = transition(
+      { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },
+      { type: 'submit_needs_candidate', questions: [{ id: 'stale_portal_question' }], documents: [] },
+      { draft: cleanDraft, nowMs: T0 },
+    );
+    expect(step.flow).toMatchObject({
+      state: 'owner_takeover',
+      heldBy: ['portal:portal_needs_candidate'],
+      portalAutoRetryAt: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0],
+    });
+    expect(step.effects).not.toContainEqual(expect.objectContaining({ kind: 'candidate_action_needed' }));
+  });
+
   it('does not schedule retries when the posting blocks applications from the candidate region', () => {
     const step = transition(
       { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },
@@ -411,16 +427,17 @@ describe('approval flow', () => {
   it('retries once without a candidate email when the portal repeats questions that already have answers', () => {
     const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
     const event = { type: 'submit_needs_candidate', questions: ['work_permit'] };
-    const retry = transition(submitting, event, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
+    const draft = { ...cleanDraft, questions: [{ id: 'work_permit', required: true }] };
+    const retry = transition(submitting, event, { draft, answers: { work_permit: 'G' }, nowMs: T0 });
     expect(retry.flow).toMatchObject({ state: 'submitting', heldBy: [], heldSince: null });
     expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
 
     const negativeAnswer = transition(submitting, { ...event, questions: ['can_work_in_switzerland'] }, {
-      draft: cleanDraft, answers: { can_work_in_switzerland: false }, nowMs: T0,
+      draft: { ...cleanDraft, questions: [{ id: 'can_work_in_switzerland', required: true }] }, answers: { can_work_in_switzerland: false }, nowMs: T0,
     });
     expect(negativeAnswer.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
 
-    const repeated = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: 2 } }, event, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
+    const repeated = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: 2 } }, event, { draft, answers: { work_permit: 'G' }, nowMs: T0 });
     expect(repeated.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
     expect(repeated.effects).toEqual([{
       type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit', attempts: 2,
@@ -430,11 +447,13 @@ describe('approval flow', () => {
   it('still asks the candidate when an existing answer is missing or a document is requested', () => {
     const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
     const question = { type: 'submit_needs_candidate', questions: ['work_permit'] };
-    const missing = transition(submitting, question, { draft: cleanDraft, answers: {}, nowMs: T0 });
+    const questionDraft = { ...cleanDraft, questions: [{ id: 'work_permit', required: true }] };
+    const missing = transition(submitting, question, { draft: questionDraft, answers: {}, nowMs: T0 });
     expect(missing.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:work_permit'] });
     expect(missing.effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
 
-    const document = transition(submitting, { ...question, documents: ['certificate'] }, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
+    const documentDraft = { ...questionDraft, requiredDocuments: [{ id: 'certificate', label: 'Certificate', kind: 'certificate', required: true }] };
+    const document = transition(submitting, { ...question, documents: ['certificate'] }, { draft: documentDraft, answers: { work_permit: 'G' }, nowMs: T0 });
     // The required document still blocks; an answer already provided is not asked again.
     expect(document.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['document:certificate'] });
   });
@@ -470,7 +489,8 @@ describe('approval flow', () => {
   });
 
   it('holds a portal send that reached a document only the candidate can give', () => {
-    const step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions: [{ id: 'q1' }], documents: ['reports'] }, { draft: cleanDraft, nowMs: T0 });
+    const draft = { ...cleanDraft, questions: [{ id: 'q1', required: true }], requiredDocuments: [{ id: 'reports', label: 'Reports', kind: 'school_report', required: true }] };
+    const step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions: [{ id: 'q1' }], documents: ['reports'] }, { draft, nowMs: T0 });
     expect(step.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:q1', 'document:reports'], heldSince: T0 });
   });
 
@@ -490,9 +510,9 @@ describe('approval flow', () => {
 
   it('pauses a submission that needs the candidate and resumes after the answers', () => {
     const questions = [{ id: 'screening_1', required: true }];
-    let step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions }, { draft: cleanDraft, nowMs: T0 });
-    expect(step.flow.state).toBe('needs_candidate_action');
     const draft = { ...cleanDraft, questions };
+    let step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions }, { draft, nowMs: T0 });
+    expect(step.flow.state).toBe('needs_candidate_action');
     expect(transition(step.flow, { type: 'candidate_answers' }, { draft, answers: {}, nowMs: T0 }).ignored).toBe('questions_open');
     step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { screening_1: 'Sì' }, nowMs: T0 });
     expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'candidate_answered' }]);

@@ -204,6 +204,35 @@ function candidateHolds(flags) {
   return [...flags.candidate.map((id) => `question:${id}`), ...(flags.documents || []).map((id) => `document:${id}`)];
 }
 
+/** A persisted candidate hold must still be backed by the current draft. */
+function candidateHoldBelongsToDraft(hold, draft, flow) {
+  const value = String(hold || '');
+  const separator = value.indexOf(':');
+  if (separator < 1) return false;
+  const kind = value.slice(0, separator);
+  const id = value.slice(separator + 1);
+  if (!id) return false;
+  if (kind === 'question') return (Array.isArray(draft?.questions) ? draft.questions : [])
+    .some((question) => String(question?.id || '') === id);
+  if (kind === 'document') return requiredDocumentsFor(draft, flow)
+    .some((document) => String(document?.id || '') === id);
+  return false;
+}
+
+function candidateHoldsBelongToDraft(holds, draft, flow) {
+  return (Array.isArray(holds) ? holds : [])
+    .filter((hold) => /^(question|document):/.test(String(hold)))
+    .every((hold) => candidateHoldBelongsToDraft(hold, draft, flow));
+}
+
+/** Do not ask the candidate about a runner requirement the review page cannot show. */
+function candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments) {
+  const visibleQuestions = new Set((flags.candidate || []).map(String));
+  const visibleDocuments = new Set((flags.documents || []).map(String));
+  return unresolvedQuestions.every((id) => visibleQuestions.has(id))
+    && eventDocuments.every((id) => visibleDocuments.has(String(id)));
+}
+
 /** Current flow with every field present; transitions overwrite only what changes. */
 function base(flow) {
   return {
@@ -682,6 +711,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
         state === 'candidate_review'
         && current.heldBy.length > 0
         && current.heldBy.every((held) => /^(question|document):/.test(String(held)))
+        && candidateHoldsBelongToDraft(current.heldBy, draft, flow)
         && candidateHolds(flags).length === 0
       ) {
         effects = enterCandidateReview(next, flags, nowMs, { resend: false });
@@ -961,6 +991,14 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
           questionAnswers: flow?.questionAnswers || {},
         }));
       });
+      // The review page is generated from the draft, not from the runner
+      // event. If a live requirement was not persisted into that draft, a
+      // candidate-action e-mail would open a page with nothing to answer.
+      // Fail closed into the bounded owner recovery path instead.
+      if (!candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments)) {
+        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        break;
+      }
       const answersAlreadyExist = questionIds.length > 0 && unresolvedQuestions.length === 0;
       // A portal can report a validation step as a candidate question even
       // after the runner filled it from an answer already saved in the flow.
@@ -990,10 +1028,10 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
         break;
       }
       next.state = 'needs_candidate_action';
-      next.heldBy = [
-        ...unresolvedQuestions.map((id) => `question:${id}`),
-        ...eventDocuments.map((id) => `document:${id}`),
-      ];
+      // Red flags are the authoritative projection used by the review API.
+      // Persist all visible open requirements so a legacy event cannot create
+      // an empty hold even when it only reported an already-known field.
+      next.heldBy = candidateHolds(flags);
       next.heldSince = null;
       waitForCandidate(next, nowMs);
       effects = [{ type: 'email', kind: 'candidate_action_needed' }];
