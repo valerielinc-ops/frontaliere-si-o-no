@@ -24,13 +24,15 @@ describe('assisted application recovery marker', () => {
       deployWorkflow.jobs['deploy-functions'].steps,
     ];
     const applyGate = "${{ steps.application_recovery.outputs.apply == 'true' }}";
-    for (const steps of workflows) {
+    for (const [index, steps] of workflows.entries()) {
       expect(steps.find((step: any) => step.id === 'application_recovery')?.run)
         .toContain('resolve-application-recovery-marker.mjs');
       const applySteps = steps.filter((step: any) => String(step.run || '').includes('--apply'));
-      expect(applySteps).toHaveLength(2);
+      expect(applySteps).toHaveLength(index === 0 ? 2 : 3);
       expect(applySteps.every((step: any) => step.if === applyGate)).toBe(true);
     }
+    expect(deployWorkflow.jobs['deploy-functions'].steps.find((step: any) =>
+      String(step.run || '').includes('reconcile-draft-failures.mjs --apply'))?.if).toBe(applyGate);
     expect(recoveryWorkflow.jobs.recover.steps.find((step: any) => step.uses === 'actions/checkout@v7').with.ref)
       .toBe('${{ github.sha }}');
     expect(deployWorkflow.jobs['deploy-functions'].steps.filter((step: any) => step.id === 'checkout_primary' || step.id === 'checkout_retry')
