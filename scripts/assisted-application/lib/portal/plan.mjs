@@ -1429,7 +1429,7 @@ const PERMIT_HISTORICAL_QUESTION_PATTERNS = [
   /^were you(?:\s+(?:ever|previously))?\s+(?:granted|issued|given)\b/i,
   /^(?:est[- ]ce que\s*)?(?:vous|tu)\s+(?:avez|as)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?)\b/i,
   /^(?:avez|as)[- ](?:vous|tu)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?)\b/i,
-  /^(?:haben sie|hast du)(?:\s+(?:schon|bereits|jemals|fruher))?\s+(?:ein(?:e|en|em|er)?|den|die|das)\b.*\b(?:erhalten|erhielt|bekommen|bekam|erteilt|ausgestellt|erworben|verliehen|gehabt)\b/i,
+  /^(?:haben sie|hast du)(?:\s+(?:schon|bereits|jemals|fruher))?\s+(?:ein(?:e|en|em|er)?|den|die|das)\b[^,?]*\b(?:erhalten|erhielt|bekommen|bekam|erteilt|ausgestellt|erworben|verliehen|gehabt)\b/i,
   /^(?:hai|ha|avete|hanno)\s+(?:(?:gia|precedentemente)\s+)?(?:ricevut[oaie]|ottenut[oaie]|concess[oaie]|rilasciat[oaie]|emess[oaie])\b/i,
   /^(?:has|ha|han|habeis)\s+(?:(?:alguna vez|antes|previamente)\s+)?(?:recibid[oa]s?|obtenid[oa]s?|concedid[oa]s?|expedid[oa]s?|emitid[oa]s?|otorgad[oa]s?)\b/i,
 ];
