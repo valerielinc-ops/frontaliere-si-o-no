@@ -5047,7 +5047,9 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
   const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
   const residenceCountryPresent = Boolean(String(addressQuestionAnswer(candidate, 'residence_country') || '').trim());
   const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
-  const permitStatusPresent = Boolean(permitStatusFromCandidate(candidate));
+  // CV text is evidence to review, not the candidate's confirmation of a
+  // required current residence or permit status.
+  const permitStatusPresent = Boolean(permitStatusFromCandidate(candidate, { includeProfileWorkPermit: false }));
   const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
 
   for (const field of requiredFields) {
@@ -5165,8 +5167,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
     // The planner may label an untouched field missing during its read pass;
     // that alone must not ask the candidate to repeat profile data or a safe
     // operational default. An explicitly rejected field still needs review.
+    const candidateAnswer = candidate && field
+      ? candidateAnswerForField(candidate, field, {
+        includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
+      }) : null;
     if (field && field.invalid !== true
-      && (holdsValue(field) || (candidate && String(candidateAnswerForField(candidate, field)?.value ?? '').trim()))) continue;
+      && (holdsValue(field) || String(candidateAnswer?.value ?? '').trim())) continue;
     const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
     if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
   }

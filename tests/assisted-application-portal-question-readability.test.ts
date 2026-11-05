@@ -743,7 +743,7 @@ it('asks only for the missing EOC residence street and permit after resolving kn
     job: { title: 'Assistente sociale (80-100%)', company: 'EOC – Ente Ospedaliero Cantonale' },
     candidate: {
       identity: { name: 'Mario Rossi', firstName: 'Mario', lastName: 'Rossi', email: 'candidate@example.invalid', phone: '+41791234567', address },
-      profile: { dateOfBirth: '1990-05-12', nationality: 'Italia', location: 'Lugano', address },
+      profile: { dateOfBirth: '1990-05-12', nationality: 'Italia', location: 'Lugano', address, workPermit: 'Permesso B' },
       answers: { salutation: 'Signor' },
     },
     codex, launch: async () => browser,

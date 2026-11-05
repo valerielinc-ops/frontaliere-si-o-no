@@ -1498,7 +1498,7 @@ function phoneCountryOption(candidate, field) {
 }
 
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
-export function candidateAnswerForField(candidate, field) {
+export function candidateAnswerForField(candidate, field, { includeProfileWorkPermit = true } = {}) {
   const topic = questionTopic(field?.label, field?.context, field);
   const fieldKind = String(field?.kind || '').trim().toLowerCase();
   const inputType = String(field?.inputType || '').trim().toLowerCase();
@@ -1617,7 +1617,7 @@ export function candidateAnswerForField(candidate, field) {
   if (language) return language;
   if (topic === 'permit') {
     const swissStatus = permitStatusOf(candidate?.swissStatus?.code);
-    const status = permitStatusFromCandidate(candidate);
+    const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit });
     if (!status || !asksHeldStatus(field?.label)) return null;
     const statusSource = swissStatus ? 'rule'
       : permitStatusOf(candidate?.profile?.permitStatus) ? 'profile'
@@ -1629,7 +1629,7 @@ export function candidateAnswerForField(candidate, field) {
       const rawStatus = swissStatus === status ? candidate?.swissStatus?.statement
         : permitStatusOf(candidate?.profile?.permitStatus) ? candidate?.profile?.permitStatus
           : permitStatusOf(candidate?.answers?.work_permit) ? candidate?.answers?.work_permit
-            : candidate?.profile?.workPermit;
+          : includeProfileWorkPermit ? candidate?.profile?.workPermit : '';
       return { value: String(rawStatus || status).trim(), source: statusSource };
     }
     return null;

@@ -3071,6 +3071,11 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
       .toEqual({ value: 'permit_b', source: 'profile' });
     expect(candidateAnswerForField({ profile: {}, answers: { work_permit: 'permit_g' } }, { kind: 'text', label: 'Work permit', options: [] }))
       .toEqual({ value: 'permit_g', source: 'answers' });
+    expect(candidateAnswerForField(
+      { profile: { workPermit: 'Permesso B' }, answers: {} },
+      { kind: 'text', label: 'Work permit', options: [] },
+      { includeProfileWorkPermit: false },
+    )).toBeNull();
   });
 
   it('maps a held permit to the positive answer when an ATS qualifies its negative choices', () => {
