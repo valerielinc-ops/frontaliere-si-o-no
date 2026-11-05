@@ -676,6 +676,47 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
   fetchCurrentDetailPage,
 } = {}) {
   const byRef = new Map();
+  const mergeByRef = (source) => {
+    for (const [ref, description] of source) {
+      const key = String(ref);
+      if (!byRef.has(key)) byRef.set(key, description);
+    }
+  };
+  const missingRefs = () => new Set(
+    [...wantedRefs]
+      .map((ref) => String(ref))
+      .filter((ref) => !byRef.has(ref)),
+  );
+  const recoverReferenceBoundFallbacks = async () => {
+    const successFactors = await fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef);
+    mergeByRef(successFactors);
+    let refsToFill = missingRefs();
+    if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
+
+    const direct = await fetchOfficialAdTextsByReference(refsToFill, delayMs, publicationByRef);
+    mergeByRef(direct);
+    refsToFill = missingRefs();
+    if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
+
+    if (Array.isArray(detailRows) && detailRows.length > 0) {
+      console.warn('  ⚠️ Official reference pages unavailable; using current portal detail pages.');
+      try {
+        const current = await fetchCurrentPortalAdTexts(
+          wantedRefs.size > 0 ? refsToFill : wantedRefs,
+          delayMs,
+          detailRows,
+          { publicationByRef, fetchCurrentDetailPage },
+        );
+        mergeByRef(current);
+      } catch (err) {
+        if (byRef.size === 0) throw err;
+        console.warn(`  ⚠️ Current portal detail fallback yielded no additional vacancy text — ${err?.message || err}`);
+      }
+      return byRef;
+    }
+
+    return byRef.size > 0 ? byRef : null;
+  };
   let index;
   try {
     const params = new URLSearchParams({
@@ -689,17 +730,8 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
     index = JSON.parse(await fetchPage(`${OFFICIAL_JOBSEARCH_URL}?${params}`));
   } catch (err) {
     console.warn(`  ⚠️ Official ad index unavailable; probing current detail URLs by reference — ${err?.message || err}`);
-    const successFactors = await fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef);
-    if (successFactors.size > 0) return successFactors;
-    const direct = await fetchOfficialAdTextsByReference(wantedRefs, delayMs, publicationByRef);
-    if (direct.size > 0) return direct;
-    if (Array.isArray(detailRows) && detailRows.length > 0) {
-      console.warn('  ⚠️ Official reference pages unavailable; using current portal detail pages.');
-      return fetchCurrentPortalAdTexts(wantedRefs, delayMs, detailRows, {
-        publicationByRef,
-        fetchCurrentDetailPage,
-      });
-    }
+    const recovered = await recoverReferenceBoundFallbacks();
+    if (recovered) return recovered;
     throw new Error(`Stadt Zürich official ad index unavailable (${err?.message || err}): no posting has its vacancy text`);
   }
   const hrefs = [...new Set((Array.isArray(index?.results) ? index.results : [])
@@ -707,15 +739,10 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
     .map((r) => String(r?.href || ''))
     .filter((href) => /\/job-detailseite\.\d+\.html$/.test(href)))];
   if (hrefs.length === 0 && Array.isArray(detailRows) && detailRows.length > 0) {
-    const successFactors = await fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef);
-    if (successFactors.size > 0) return successFactors;
-    const direct = await fetchOfficialAdTextsByReference(wantedRefs, delayMs, publicationByRef);
-    if (direct.size > 0) return direct;
-    console.warn('  ⚠️ Official ad index returned no usable pages; using current portal detail pages.');
-    return fetchCurrentPortalAdTexts(wantedRefs, delayMs, detailRows, {
-      publicationByRef,
-      fetchCurrentDetailPage,
-    });
+    console.warn('  ⚠️ Official ad index returned no usable pages; probing current detail URLs by reference.');
+    const recovered = await recoverReferenceBoundFallbacks();
+    if (recovered) return recovered;
+    throw new Error('Stadt Zürich official ad index returned no usable pages: no posting has its vacancy text');
   }
   console.log(`  📰 Official ad pages listed: ${hrefs.length}`);
   for (const href of hrefs) {
