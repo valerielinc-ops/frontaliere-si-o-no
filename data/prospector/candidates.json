@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-05T14:23:21.641Z",
+  "updatedAt": "2026-11-05T14:25:17.258Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -250321,12 +250321,12 @@
     },
     "caisse-des-medecins@thonex": {
       "key": "caisse-des-medecins@thonex",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-09T08:17:17.455Z",
-      "updatedAt": "2026-11-04T13:56:34.185Z",
+      "updatedAt": "2026-11-05T14:25:17.131Z",
       "name": "CAISSE DES MEDECINS",
       "city": "Thônex",
       "zip": "1226",
@@ -250605,7 +250605,13 @@
         }
       ],
       "promotionPr": "16976",
-      "promotionBranch": "prospector/promote-2026-11-04"
+      "promotionBranch": "prospector/promote-2026-11-04",
+      "promotedAt": "2026-11-04T15:45:06Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-05T09:36:51.263Z",
+      "firstCrawlerJobCount": 6
     },
     "caiv.ch": {
       "key": "caiv.ch",
@@ -277399,12 +277405,12 @@
     },
     "cdg-beratungen@winterthur": {
       "key": "cdg-beratungen@winterthur",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-04T10:01:44.194Z",
-      "updatedAt": "2026-11-04T13:56:34.185Z",
+      "updatedAt": "2026-11-05T14:25:17.131Z",
       "name": "cdg Beratungen AG",
       "city": "Winterthur",
       "zip": "8400",
@@ -277646,7 +277652,13 @@
         }
       ],
       "promotionPr": "16976",
-      "promotionBranch": "prospector/promote-2026-11-04"
+      "promotionBranch": "prospector/promote-2026-11-04",
+      "promotedAt": "2026-11-04T15:45:06Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-05T09:36:37.303Z",
+      "firstCrawlerJobCount": 1
     },
     "cdi-conseils-et-developpements-informatiques@givisiez": {
       "key": "cdi-conseils-et-developpements-informatiques@givisiez",
@@ -416065,12 +416077,12 @@
     },
     "elektriker-elektromonteur-jobs.ch": {
       "key": "elektriker-elektromonteur-jobs.ch",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-09-20T08:57:48.192Z",
-      "updatedAt": "2026-11-04T13:55:58.201Z",
+      "updatedAt": "2026-11-05T14:25:17.131Z",
       "name": "elektriker-elektromonteur-jobs",
       "domain": "elektriker-elektromonteur-jobs.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -416323,11 +416335,11 @@
       "promotionPr": "15918",
       "promotionBranch": "prospector/promote-2026-10-29",
       "promotedAt": "2026-10-29T19:26:07Z",
-      "firstCrawlerOutputStatus": "empty",
-      "firstCrawlerOutputAttention": true,
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-04T09:45:06.685Z",
-      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAt": "2026-11-05T09:43:38.736Z",
+      "firstCrawlerJobCount": 1,
       "firstCrawlerOutputAttentionAt": "2026-11-01T13:57:59.589Z"
     },
     "elektrisola-feindraht@escholzmatt": {
@@ -432248,12 +432260,12 @@
     },
     "engadin-st-moritz-mountains@st-moritz": {
       "key": "engadin-st-moritz-mountains@st-moritz",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:07:32.170Z",
-      "updatedAt": "2026-11-04T13:55:58.202Z",
+      "updatedAt": "2026-11-05T14:25:17.132Z",
       "name": "Engadin St. Moritz Mountains AG",
       "city": "St. Moritz",
       "zip": "7500",
@@ -432533,11 +432545,11 @@
       "promotionPr": "16793",
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-05T09:35:59.505Z",
+      "firstCrawlerJobCount": 4
     },
     "engadin.ch": {
       "key": "engadin.ch",
@@ -710500,12 +710512,12 @@
     },
     "invias@maienfeld": {
       "key": "invias@maienfeld",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:07:32.170Z",
-      "updatedAt": "2026-11-04T13:55:58.202Z",
+      "updatedAt": "2026-11-05T14:25:17.132Z",
       "name": "Invias AG",
       "city": "Maienfeld",
       "zip": "7304",
@@ -710779,11 +710791,11 @@
       "promotionPr": "16793",
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-05T09:35:48.755Z",
+      "firstCrawlerJobCount": 7
     },
     "invicto-advisory.ch": {
       "key": "invicto-advisory.ch",
@@ -726606,12 +726618,12 @@
     },
     "jobdoor@baar": {
       "key": "jobdoor@baar",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-28T15:31:22.989Z",
-      "updatedAt": "2026-11-04T13:55:58.202Z",
+      "updatedAt": "2026-11-05T14:25:17.133Z",
       "name": "Jobdoor AG",
       "city": "Baar",
       "zip": "6340",
@@ -726851,11 +726863,11 @@
       "promotionPr": "16793",
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-05T09:36:05.868Z",
+      "firstCrawlerJobCount": 1
     },
     "jobgate@aarau": {
       "key": "jobgate@aarau",
@@ -831427,12 +831439,12 @@
     },
     "lemco-precision@vionnaz": {
       "key": "lemco-precision@vionnaz",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-05T07:54:30.884Z",
-      "updatedAt": "2026-11-04T13:55:58.202Z",
+      "updatedAt": "2026-11-05T14:25:17.133Z",
       "name": "Lemco Précision SA",
       "city": "Vionnaz",
       "zip": "1895",
@@ -831710,11 +831722,11 @@
       "promotionPr": "16793",
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-05T09:36:14.198Z",
+      "firstCrawlerJobCount": 1
     },
     "lemidi.ch": {
       "key": "lemidi.ch",
@@ -854236,12 +854248,12 @@
     },
     "lip@crans-montana": {
       "key": "lip@crans-montana",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-17T08:02:03.267Z",
-      "updatedAt": "2026-11-04T13:55:58.202Z",
+      "updatedAt": "2026-11-05T14:25:17.133Z",
       "name": "LIP SUISSE",
       "city": "Crans-Montana",
       "zip": "3963",
@@ -854478,11 +854490,11 @@
       "promotionPr": "16793",
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-05T09:36:15.363Z",
+      "firstCrawlerJobCount": 1
     },
     "lip@geneve": {
       "key": "lip@geneve",
@@ -1270809,7 +1270821,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-04T13:55:58.202Z",
+      "updatedAt": "2026-11-05T14:25:17.133Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1271030,7 +1271042,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-03T09:44:15.678Z",
+      "firstCrawlerOutputAt": "2026-11-05T09:36:05.223Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
@@ -1789307,12 +1789319,12 @@
     },
     "zindel@maienfeld": {
       "key": "zindel@maienfeld",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-24T08:17:50.048Z",
-      "updatedAt": "2026-11-04T13:55:58.203Z",
+      "updatedAt": "2026-11-05T14:25:17.134Z",
       "name": "Zindel + Co. AG",
       "secoEmployerName": "Zindel + Co. AG",
       "city": "Maienfeld",
@@ -1789591,11 +1789603,11 @@
       "promotionPr": "16793",
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-05T09:36:38.842Z",
+      "firstCrawlerJobCount": 7
     },
     "dekra-arbeit@chur": {
       "key": "dekra-arbeit@chur",
@@ -1816623,12 +1816635,12 @@
     },
     "favre-s-a@corcelles-pres-payerne": {
       "key": "favre-s-a@corcelles-pres-payerne",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-27T09:11:10.673Z",
-      "updatedAt": "2026-11-04T13:56:34.185Z",
+      "updatedAt": "2026-11-05T14:25:17.134Z",
       "name": "Favre S.A.",
       "secoEmployerName": "Favre S.A.",
       "city": "Corcelles-près-Payerne",
@@ -1816889,7 +1816901,13 @@
         }
       ],
       "promotionPr": "16976",
-      "promotionBranch": "prospector/promote-2026-11-04"
+      "promotionBranch": "prospector/promote-2026-11-04",
+      "promotedAt": "2026-11-04T15:45:06Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-05T09:36:32.375Z",
+      "firstCrawlerJobCount": 1
     },
     "brauchli@forel-lavaux": {
       "key": "brauchli@forel-lavaux",
@@ -1824411,12 +1824429,12 @@
     },
     "az-systems@landquart": {
       "key": "az-systems@landquart",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-28T09:51:59.078Z",
-      "updatedAt": "2026-11-04T13:55:58.203Z",
+      "updatedAt": "2026-11-05T14:25:17.134Z",
       "name": "AZ systems AG",
       "secoEmployerName": "AZ systems AG",
       "city": "Landquart",
@@ -1824680,11 +1824698,11 @@
       "promotionPr": "16793",
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-05T09:35:33.667Z",
+      "firstCrawlerJobCount": 2
     },
     "norkom-formation@montfavergier": {
       "key": "norkom-formation@montfavergier",
@@ -1882348,12 +1882366,12 @@
     },
     "creditx@sion": {
       "key": "creditx@sion",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-11-03T11:02:22.714Z",
-      "updatedAt": "2026-11-04T13:56:34.185Z",
+      "updatedAt": "2026-11-05T14:25:17.134Z",
       "name": "CreditX Sàrl",
       "secoEmployerName": "CreditX Sàrl",
       "secoEmployerClassification": "direct",
@@ -1882615,7 +1882633,13 @@
         }
       ],
       "promotionPr": "16976",
-      "promotionBranch": "prospector/promote-2026-11-04"
+      "promotionBranch": "prospector/promote-2026-11-04",
+      "promotedAt": "2026-11-04T15:45:06Z",
+      "firstCrawlerOutputStatus": "empty",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-05T09:37:09.659Z",
+      "firstCrawlerJobCount": 0
     },
     "garage-pro-service@ardon": {
       "key": "garage-pro-service@ardon",
