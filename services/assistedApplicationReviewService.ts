@@ -7,6 +7,7 @@ import type { EmployerResponse } from './assistedApplicationEmployerResponse';
  */
 
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
+import { mergeLocalPostalDocuments, type LocalPostalDocument } from './assistedApplicationPostalPacket';
 
 export type ReviewAction = 'approve' | 'reject' | 'withdraw' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip'
   | 'document_upload' | 'document_remove' | 'document_recheck' | 'document_set_prepared' | 'document_set_exemption' | 'photo_upload' | 'photo_remove' | 'cv_lines';
@@ -46,6 +47,8 @@ export interface ReviewDocument {
   /** Instructions supplied by the operator, e.g. the six-month issue date. */
   instructions: string;
   delivery: 'upload' | 'offline' | 'service';
+  /** Files stay in the browser and are appended to the postal packet on device. */
+  localOnly?: boolean;
   exemptions: Array<'municipal_resident' | 'municipal_employee'>;
   preparedAt: number | null;
   exemption: 'municipal_resident' | 'municipal_employee' | null;
@@ -197,6 +200,8 @@ export interface ReviewPayload {
   postalPacket?: {
     ready: boolean;
     unsupportedFiles: string[];
+    missingDocuments: string[];
+    localDocuments: Array<{ id: string; label: string; required: boolean }>;
     missingSizes: boolean;
     tooLarge: boolean;
     sourceBytes: number;
@@ -305,7 +310,13 @@ export function reviewWordUrl(token: string, file: ReviewWordFile): string {
 }
 
 /** Downloads the assembled postal dossier and surfaces a structured API error to the page. */
-export async function downloadPostalPacket(token: string): Promise<void> {
+export async function downloadPostalPacket(
+  token: string,
+  localDocuments: LocalPostalDocument[] = [],
+  sourceBytes = 0,
+  maxBytes = 0,
+  locale = 'it',
+): Promise<void> {
   const response = await fetch(reviewFileUrl(token, 'postal-packet.pdf'), { method: 'GET', cache: 'no-store' });
   if (!response.ok) {
     const body = await response.json().catch(() => ({}));
@@ -313,7 +324,19 @@ export async function downloadPostalPacket(token: string): Promise<void> {
   }
   const blob = await response.blob();
   if (blob.type !== 'application/pdf') throw new ReviewRequestError('postal_packet_download_failed');
-  const href = URL.createObjectURL(blob);
+  let packetBlob = blob;
+  if (localDocuments.some((document) => document.files.length > 0)) {
+    if (!maxBytes) throw new ReviewRequestError('postal_packet_download_failed');
+    try {
+      const bytes = await mergeLocalPostalDocuments({ basePdf: await blob.arrayBuffer(), documents: localDocuments, sourceBytes, maxBytes, locale });
+      packetBlob = new Blob([bytes], { type: 'application/pdf' });
+    } catch (error) {
+      const code = error instanceof Error && 'code' in error && typeof error.code === 'string'
+        ? error.code : 'postal_packet_download_failed';
+      throw new ReviewRequestError(code);
+    }
+  }
+  const href = URL.createObjectURL(packetBlob);
   const link = document.createElement('a');
   link.href = href;
   link.download = 'dossier-candidatura-cartacea.pdf';
