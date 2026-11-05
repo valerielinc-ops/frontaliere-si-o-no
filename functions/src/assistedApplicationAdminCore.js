@@ -861,17 +861,20 @@ function normalizeReopenReason(value) {
   return String(value ?? '').normalize('NFC').replace(/\s+/gu, ' ').trim();
 }
 
-function storageKeysIn(orderId, value, keys = new Set()) {
+// Local recursive walker: the reopen transaction may need to remove every
+// previous upload referenced by the order or draft, while keeping arbitrary
+// strings and external URLs untouched.
+function collectStorageKeys(orderId, value, keys = new Set()) {
   if (typeof value === 'string') {
     if (isAssistedApplicationStorageKey(orderId, value)) keys.add(value);
     return keys;
   }
   if (Array.isArray(value)) {
-    value.forEach((item) => storageKeysIn(orderId, item, keys));
+    value.forEach((item) => collectStorageKeys(orderId, item, keys));
     return keys;
   }
   if (value && typeof value === 'object') {
-    Object.values(value).forEach((item) => storageKeysIn(orderId, item, keys));
+    Object.values(value).forEach((item) => collectStorageKeys(orderId, item, keys));
   }
   return keys;
 }
@@ -999,7 +1002,7 @@ async function handleOwnerCvReplacementAfterWithdrawal(db, raw, adminEmail) {
         idempotentState = order.reopenAfterWithdrawal?.status || 'started';
         return;
       }
-      previousKeys = storageKeysIn(orderId, { order, draft });
+      previousKeys = collectStorageKeys(orderId, { order, draft });
       const timestamp = FieldValue.serverTimestamp();
       transaction.set(orderRef, {
         submissionStatus: 'in_progress',
