@@ -295,7 +295,9 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
 
   it('publishes the tile with its official ad and skips the one without, never inventing text', async () => {
     mockPortal({ indexOk: true });
-    const jobs = await fetchAllStadtZuerichJobs();
+    const jobs = await fetchAllStadtZuerichJobs({
+      fetchCurrentOfficialIndexPage: async () => '',
+    });
     expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
     expect(jobs[0].description).toContain('Aufgaben');
     for (const job of jobs) expect(job.description).not.toMatch(/bei der Stadtverwaltung Zürich/);

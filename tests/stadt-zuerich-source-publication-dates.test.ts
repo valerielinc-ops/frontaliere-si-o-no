@@ -31,7 +31,9 @@ describe('Stadt Zürich consumer publicationByRef opt-in', () => {
   }
   it('does not borrow another reference ad text or publication date',async () => {
     setup(date,{otherRef:true});
-    expect(await fetchAllStadtZuerichJobs()).toEqual([]);
+    expect(await fetchAllStadtZuerichJobs({
+      fetchCurrentOfficialIndexPage: async () => '',
+    })).toEqual([]);
   });
   it('keeps the dedicated Stadtspital exclusion',async () => {
     setup(date,{unit:'Stadtspital Zürich'});
