@@ -405,6 +405,7 @@ export function trackedLedgerFileOids(ledgerDir) {
       stdio: ['ignore', 'pipe', 'ignore'],
     });
     const result = new Map();
+    const trackedPaths = [];
     for (const relativeFile of trackedOutput.split('\0')) {
       if (!relativeFile || !relativeFile.startsWith(ledgerPrefix)) continue;
       const name = relativeFile.slice(ledgerPrefix.length);
@@ -412,6 +413,7 @@ export function trackedLedgerFileOids(ledgerDir) {
           || name === LOOP_FLEET_LEDGER_MANIFEST_FILE || name.includes('/')) continue;
       if (name.includes('\n') || name.includes('\r')) throw new Error(`ledger path contains a newline: ${name}`);
       result.set(name, null);
+      trackedPaths.push(relativeFile);
     }
     const names = [...result.keys()];
     if (names.length === 0) return result;
@@ -419,7 +421,7 @@ export function trackedLedgerFileOids(ledgerDir) {
     try {
       oidOutput = execFileSync('git', ['-C', root, 'hash-object', '--stdin-paths'], {
         encoding: 'utf8',
-        input: `${names.join('\n')}\n`,
+        input: `${trackedPaths.join('\n')}\n`,
         stdio: ['pipe', 'pipe', 'ignore'],
       });
     } catch {
