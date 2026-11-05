@@ -1,7 +1,7 @@
 {
   "key": "klinik-im-hasel",
   "label": "Klinik im Hasel",
-  "generatedAt": "2026-11-04T21:25:36.788Z",
+  "generatedAt": "2026-11-05T09:20:06.311Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 11615,
-  "avgDurationMs": 11615,
+  "durationMs": 9818,
+  "avgDurationMs": 9818,
   "durationHistory": [
-    11615
+    9818
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-im-hasel-f6918b25ef27",
-      "slug": "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil",
+      "slug": "segretario-a-m-f-d-50-60-klinik-im-hasel-gontenschwil",
       "company": "Klinik im Hasel",
       "companyKey": "klinik-im-hasel",
       "companyDomain": "klinikimhasel.ch",
       "title": "Sekretär:in (w/m/d), 50% - 60%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Gontenschwil",
       "canton": "AG",
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/492/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:25:15.588Z",
+      "crawledAt": "2026-11-05T09:19:44.197Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -52,6 +53,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/492/Application/CheckLogin/1",
+      "firstSeenAt": "2026-11-04T21:25:15.588Z",
       "salaryMin": 37200,
       "salaryMax": 56400,
       "salarySource": "estimated",
@@ -68,19 +70,17 @@
       },
       "streetAddress": "Hasel 837",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:25:15.588Z",
+      "validThrough": "2027-02-03T09:19:44.197Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:25:15.588Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -96,7 +96,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/330/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:25:19.831Z",
+      "crawledAt": "2026-11-05T09:19:48.297Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -131,7 +131,7 @@
       },
       "streetAddress": "Hasel 837",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T21:25:19.831Z",
+      "validThrough": "2026-12-05T09:19:48.297Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -154,7 +154,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/413/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:25:19.199Z",
+      "crawledAt": "2026-11-05T09:19:47.601Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       },
       "streetAddress": "Hasel 837",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T21:25:19.199Z",
+      "validThrough": "2026-12-05T09:19:47.601Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -212,7 +212,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/475/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:25:18.400Z",
+      "crawledAt": "2026-11-05T09:19:46.892Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -246,7 +246,7 @@
       },
       "streetAddress": "Hasel 837",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T21:25:18.400Z",
+      "validThrough": "2026-12-05T09:19:46.892Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -268,7 +268,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/477/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:25:17.762Z",
+      "crawledAt": "2026-11-05T09:19:46.217Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -302,7 +302,7 @@
       },
       "streetAddress": "Hasel 837",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T21:25:17.762Z",
+      "validThrough": "2026-12-05T09:19:46.217Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -324,7 +324,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/478/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:25:17.174Z",
+      "crawledAt": "2026-11-05T09:19:45.560Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       },
       "streetAddress": "Hasel 837",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T21:25:17.174Z",
+      "validThrough": "2026-12-05T09:19:45.560Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -380,7 +380,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/490/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:25:16.365Z",
+      "crawledAt": "2026-11-05T09:19:44.888Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -415,7 +415,7 @@
       },
       "streetAddress": "Hasel 837",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T21:25:16.365Z",
+      "validThrough": "2027-01-25T09:19:44.888Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -426,5 +426,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }
