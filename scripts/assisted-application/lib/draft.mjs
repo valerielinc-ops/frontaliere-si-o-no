@@ -91,6 +91,9 @@ const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
 // profile ∥ requirements, match, documents and the repair still fit the job's 120 minutes.
 const REPAIR_TIMEOUT_MS = 10 * 60 * 1000;
 const MAX_REPAIR_FINDINGS = 12;
+const PORTAL_PRE_READ_HANDOFFS = new Set([
+  'cookie_preferences_unresolved', 'posting_mismatch', 'question_label_unreadable', 'requirements_unavailable',
+]);
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 const PORTAL_ANSWER_PERSONAL_OR_OPERATIONAL_RE = /\b(?:e-?mail|courriel|t[eé]l[eé]phone\w*|telefon\w*|mobiltelefon\w*|telefono\w*|phone|mobile|cellulaire|num[eé]ro de t[eé]l[eé]phone|religion|religious|faith|pregnan\w*|sexual orientation|political affiliation|political views|race|ethnic\w*|disabil\w*|consent|privacy|terms and conditions|newsletter|marketing)\b/i;
 const PORTAL_ANSWER_NAME_FIELD_RE = /^\s*(?:first\s+name|given\s+name|last\s+name|family\s+name|full\s+name|surname|name|vorname|nachname|familienname|pr[eé]nom|nom\s+de\s+famille|nom|nome|nome\s+completo|cognome|nome\s+e\s+cognome)(?:\s*(?:\/|,|&|and|e)\s*(?:first\s+name|given\s+name|last\s+name|family\s+name|full\s+name|surname|name|vorname|nachname|familienname|pr[eé]nom|nom\s+de\s+famille|nom|nome|nome\s+completo|cognome|nome\s+e\s+cognome))*(?:\s*\((?:required|obligatoire|obbligatorio|pflichtfeld)\))?\s*[:*?]?\s*$/i;
@@ -459,7 +462,12 @@ export async function buildDraft(ctx) {
     // reader also returns required file fields so they reach the upload picker
     // before the first submission attempt.
     const portal = Array.isArray(portalResult) ? { questions: portalResult, documents: [] } : (portalResult || { questions: [], documents: [] });
-    if (portal.handoff) throw new DraftAbort('draft_failed', 'portal_requirements_unavailable');
+    if (portal.handoff) {
+      // Keep the automation event useful after Actions logs are purged. Only
+      // this fixed set of reader outcomes is copied into its error code.
+      const reason = PORTAL_PRE_READ_HANDOFFS.has(portal.handoff) ? portal.handoff : 'unknown';
+      throw new DraftAbort('draft_failed', `portal_requirements_unavailable:${reason}`);
+    }
     requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
     // The document requirement is the answer to a narrow "do you hold it?"
     // question. Re-run this filter after the portal has contributed its own

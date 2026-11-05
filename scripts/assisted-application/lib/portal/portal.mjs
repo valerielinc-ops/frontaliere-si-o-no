@@ -5041,6 +5041,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
  */
 export async function readPortalRequirements(ctx) {
   const entryUrl = portalEntryUrl(ctx);
+  // Umantis can publish the posting itself as its applyUrl. portalEntryUrl
+  // turns that exact, same-vacancy pair into Application/New; carry the
+  // verified application route through form recognition as well, so the
+  // applicant identity can own an otherwise ungrouped address cluster.
+  const umantisApplyUrl = umantisApplicationEntryUrl(ctx);
+  const stageApplyUrl = umantisApplyUrl || ctx.applyUrl;
   const channelType = portalChannelType(ctx);
   // Some employer sites expose a Jobs2Web application URL without using a
   // SuccessFactors hostname. Only pre-read those when the validated same-ID
@@ -5075,7 +5081,7 @@ export async function readPortalRequirements(ctx) {
     await settle(page);
     let snapshot;
     const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
-      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, job: ctx.job, postingEntry: verifiedPostingEntry,
+      applyUrl: stageApplyUrl, postingUrl: ctx.postingUrl, job: ctx.job, postingEntry: verifiedPostingEntry,
     });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
