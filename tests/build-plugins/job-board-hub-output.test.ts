@@ -411,7 +411,6 @@ describe('job-board emitted output', () => {
 
   it.each([
     ['archived-audit-position', archiveDates.posted, archiveDates.expired],
-    ['archived-future-expiry', archiveDates.posted, archiveDates.crawled],
     ['archived-short-description', archiveDates.posted, archiveDates.expired],
     ['archived-medium-description', archiveDates.posted, archiveDates.expired],
     ['archived-markup-short', archiveDates.posted, archiveDates.expired],
@@ -449,7 +448,7 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it.each(['archived-first-seen', 'archived-unverified', 'archived-crawl-only', 'archived-expiry-only', 'archived-late-posting', 'archived-sparse', 'archived-no-dates', 'archived-invalid-dates', 'archived-no-employer', 'archived-no-title'])(
+  it.each(['archived-first-seen', 'archived-unverified', 'archived-crawl-only', 'archived-expiry-only', 'archived-sparse', 'archived-no-dates', 'archived-invalid-dates', 'archived-no-employer', 'archived-no-title'])(
     'emits a complete closed JobPosting when archive evidence is incomplete: %s', (slug) => {
       for (const locale of locales) {
         const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);
@@ -474,8 +473,8 @@ describe('job-board emitted output', () => {
     },
   );
 
-  it.each(['archived-source-on-expiry', 'archived-posted-only', 'archived-future-only'])(
-    'does not emit JobPosting without a safe archive boundary: %s', (slug) => {
+  it.each(['archived-source-on-expiry', 'archived-posted-only', 'archived-future-only', 'archived-future-expiry', 'archived-late-posting'])(
+    'does not emit JobPosting for contradictory or missing archive evidence: %s', (slug) => {
       for (const locale of locales) {
         const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);
         const entries = structured(document);
