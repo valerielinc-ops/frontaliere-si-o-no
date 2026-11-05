@@ -41418,3 +41418,5 @@
 {"eventType":"candidate_transition","key":"favre-s-a@corcelles-pres-payerne","from":"awaiting_first_crawl","to":"production","at":"2026-11-05T14:25:17.134Z","runId":"42015555016","runAttempt":1,"phase":"promote","eventId":"a870d9aaef9a76385325bc28"}
 {"eventType":"candidate_transition","key":"az-systems@landquart","from":"awaiting_first_crawl","to":"production","at":"2026-11-05T14:25:17.134Z","runId":"42015555016","runAttempt":1,"phase":"promote","eventId":"d39020607d6432431ceeefe4"}
 {"eventType":"candidate_attempt","key":"creditx@sion","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-05T14:25:17.134Z","runId":"42015555016","runAttempt":1,"phase":"promote","eventId":"5e33f1b8c10336c2a3bdffbd"}
+{"eventType":"candidate_transition","key":"unidistance@brig","from":"promoted","to":"promoting","at":"2026-11-05T14:25:53.197Z","runId":"42015555016","runAttempt":1,"phase":"promote","eventId":"992fd857566a9f5094bbca58"}
+{"eventType":"candidate_transition","key":"skan","from":"promoted","to":"promoting","at":"2026-11-05T14:25:53.197Z","runId":"42015555016","runAttempt":1,"phase":"promote","eventId":"3213ef0a7eb6fe84bd742f52"}

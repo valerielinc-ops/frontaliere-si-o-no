@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-05T14:25:17.258Z",
+  "updatedAt": "2026-11-05T14:25:53.285Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1273223,12 +1273223,12 @@
     },
     "skan": {
       "key": "skan",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-05T14:00:31.651Z",
+      "updatedAt": "2026-11-05T14:25:53.197Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1273821,7 +1273821,9 @@
       },
       "secoEmployerName": "Skan AG",
       "qualityContractVersion": 3,
-      "validationAnomalyIds": []
+      "validationAnomalyIds": [],
+      "promotionPr": "17189",
+      "promotionBranch": "prospector/promote-2026-11-05"
     },
     "skan@allschwil": {
       "key": "skan@allschwil",
@@ -1828257,12 +1828259,12 @@
     },
     "unidistance@brig": {
       "key": "unidistance@brig",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-28T09:54:20.180Z",
-      "updatedAt": "2026-11-05T13:59:30.587Z",
+      "updatedAt": "2026-11-05T14:25:53.197Z",
       "name": "UniDistance Suisse",
       "secoEmployerName": "UniDistance Suisse",
       "city": "Brig",
@@ -1828666,7 +1828668,9 @@
           "logoSourceUrl": "https://unidistance.ch/_assets/f200f2b342988484c16ea558f791f2f1/Images/logos/logo-fernuni-default.svg",
           "employerSiteName": "UniDistance Suisse"
         }
-      ]
+      ],
+      "promotionPr": "17189",
+      "promotionBranch": "prospector/promote-2026-11-05"
     },
     "we-make-it@reinach-bl": {
       "key": "we-make-it@reinach-bl",
