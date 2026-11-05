@@ -1047,7 +1047,7 @@ jobs:
               --source-sha "$SOURCE_SHA" \
               --artifact-run-id "$GITHUB_RUN_ID" \
               --tar "$RUNNER_TEMP/$section-dist-$loc.tar" \
-              --page-manifest "dist/locale-sitemap-manifest.json" \
+              --page-manifest "$PUBLISHER_DIST/locale-sitemap-manifest.json" \
               --out "$RUNNER_TEMP/shard-content-manifests/$loc/$section.json"
             rm -rf "$src"
           }
