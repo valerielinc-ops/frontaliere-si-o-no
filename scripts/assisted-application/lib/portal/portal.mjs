@@ -1204,8 +1204,27 @@ export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
 }
 
+const portalUsableChoiceOption = (option) => typeof option === 'string'
+  ? Boolean(option.trim())
+  : Boolean(option && option.placeholder !== true && option.disabled !== true && String(option.label || '').trim());
+
+const portalHasChoiceCatalogue = (field) => Array.isArray(field?.options)
+  && field.options.some(portalUsableChoiceOption);
+
+const editableCombobox = (field) => String(field?.kind || '').toLowerCase() === 'combobox'
+  && field?.selectLike === false && !field?.nativeSelectId;
+
+const fieldHasNativeOptions = (field) => ['combobox', 'select', 'radio', 'listbox'].includes(String(field?.kind || '').toLowerCase())
+  || field?.selectLike === true
+  || Boolean(field?.nativeSelectId);
+
+const fieldRequiresNativeOptions = (field) => fieldHasNativeOptions(field) && !editableCombobox(field);
+
 export function needsPortalOptionRead(snapshot = {}) {
-  return snapshot.fields?.some((field) => field.kind === 'listbox' || field.selectLike) || false;
+  return snapshot.fields?.some((field) => {
+    if (!fieldHasNativeOptions(field)) return false;
+    return !portalHasChoiceCatalogue(field);
+  }) || false;
 }
 
 const choiceField = field => ['combobox', 'listbox', 'radio', 'select'].includes(field?.kind) || field?.selectLike === true;
@@ -1216,7 +1235,48 @@ const usableChoiceOption = option => {
 };
 const hasChoiceCatalogue = field => Array.isArray(field?.options) && field.options.some(usableChoiceOption);
 const fieldFrame = field => Number.isInteger(field?.frame) ? field.frame : 0;
-const fieldKey = field => field?.id ? `${fieldFrame(field)}:${String(field.id)}` : '';
+const fieldFrameUrl = (snapshot, field) => {
+  const index = fieldFrame(field);
+  const frame = (Array.isArray(snapshot?.frames) ? snapshot.frames : [])
+    .find((item) => item?.index === index);
+  return String(frame?.url || (index === 0 ? snapshot?.url : '') || '').trim();
+};
+const fieldKey = (snapshot, field) => {
+  const id = String(field?.id || '').trim();
+  const url = fieldFrameUrl(snapshot, field);
+  return id && url ? JSON.stringify([fieldFrame(field), url, id]) : '';
+};
+const fieldsByIdentity = (snapshot) => {
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const byIdentity = new Map();
+  const ambiguous = new Set();
+  for (const field of fields) {
+    const key = fieldKey(snapshot, field);
+    if (!key) continue;
+    if (byIdentity.has(key)) {
+      byIdentity.delete(key);
+      ambiguous.add(key);
+    } else if (!ambiguous.has(key)) byIdentity.set(key, field);
+  }
+  return byIdentity;
+};
+
+/** Merge a lazy catalogue only when both snapshots identify the same page and exact control. */
+export function mergePortalChoiceOptions(current, refreshed) {
+  const currentUrl = String(current?.url || '').trim();
+  if (!currentUrl || String(refreshed?.url || '').trim() !== currentUrl) return current;
+  const refreshedByIdentity = fieldsByIdentity(refreshed);
+  const currentFields = Array.isArray(current?.fields) ? current.fields : [];
+  let changed = false;
+  const fields = currentFields.map((field) => {
+    if (portalHasChoiceCatalogue(field)) return field;
+    const live = refreshedByIdentity.get(fieldKey(current, field));
+    if (!portalHasChoiceCatalogue(live)) return field;
+    changed = true;
+    return { ...field, options: live.options };
+  });
+  return changed ? { ...current, fields } : current;
+}
 
 /**
  * A portal can expose a choice control before its native options have been
@@ -1231,11 +1291,11 @@ async function refreshChoiceCatalogues(page, snapshot) {
   const live = await extractFields(page).catch(() => null);
   const expectedUrl = String(snapshot?.url || page.url() || '');
   if (!live?.fields?.length || String(live.url || '') !== expectedUrl || String(page.url() || '') !== expectedUrl) return snapshot;
-  const liveByKey = new Map(live.fields.map(field => [fieldKey(field), field]).filter(([key]) => key));
+  const liveByKey = fieldsByIdentity(live);
   let changed = false;
   const nextFields = fields.map((field) => {
     if (!choiceField(field) || hasChoiceCatalogue(field)) return field;
-    const observed = liveByKey.get(fieldKey(field));
+    const observed = liveByKey.get(fieldKey(snapshot, field));
     if (!hasChoiceCatalogue(observed)) return field;
     changed = true;
     return { ...field, options: observed.options };
@@ -1314,9 +1374,12 @@ function questionSurfaceSignature(snapshot = {}) {
 
 /** The planned question shape plus whether each required answer is still present. */
 function registrationSurfaceSignature(snapshot = {}) {
+  const fields = (Array.isArray(snapshot.fields) ? snapshot.fields : [])
+    .filter((field) => field.inputType !== 'password');
+  const questionSurface = { ...snapshot, fields };
   return JSON.stringify({
-    questions: questionSurfaceSignature(snapshot),
-    required: (Array.isArray(snapshot.fields) ? snapshot.fields : [])
+    questions: questionSurfaceSignature(questionSurface),
+    required: fields
       .filter((field) => field.required === true || field.invalid === true)
       .map((field) => [field.id || '', field.kind || '', field.inputType || '', field.required === true,
         field.invalid === true, field.checked === true, holdsValue(field)]),
@@ -4985,7 +5048,13 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         await parkRegistrationCredential('privacy_question_surface_unstable');
         return noted({ handoff: 'portal_needs_candidate' });
       }
-      privacyPlan = questionSurfaceSignature(settled.snapshot) === questionSurfaceSignature(registrationSnapshot)
+      // A known answer can redraw the registration form before credentials are
+      // typed. Keep one post-credential planner pass in that case: the
+      // password itself is excluded from the planner surface, but some ATSs
+      // reveal a hard question only after the credential fields change.
+      const knownAnswerRedraw = registrationReplans > 0;
+      privacyPlan = !knownAnswerRedraw
+        && registrationSurfaceSignature(settled.snapshot) === registrationSurfaceSignature(registrationSnapshot)
         ? { status: 'stable', snapshot: accountRegistrationSnapshot(settled.snapshot), plan: registrationPlan }
         : await planStableRegistrationSurface(settled.snapshot, privacyUrl);
     }
@@ -4995,7 +5064,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate, candidateLocale: ctx.candidateLocale });
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, {
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+      // A planner pass triggered by a changing registration surface may mark
+      // an untrusted portal autofill as missing. Keep that explicit request;
+      // the normal mapper still suppresses values already grounded in the
+      // candidate or in a safe operational answer.
+      preservePlannerMissingValues: true,
+    });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
@@ -5400,7 +5477,7 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     ...(Array.isArray(field?.labels) ? field.labels : []),
   ].filter(Boolean).join(' '));
   const optionLabels = field => (Array.isArray(field?.options) ? field.options : [])
-    .filter(option => option?.placeholder !== true)
+    .filter(portalUsableChoiceOption)
     .map(option => String(typeof option === 'string' ? option : option?.label || '').trim())
     .filter(Boolean);
   const missing = [];
@@ -5439,7 +5516,10 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
           type: 'choice',
           forceType: 'choice',
           options: permitOptions(candidateLocale),
-          requiresNativeOptions: true,
+          // Free-text ATS controls can accept the candidate's selected
+          // canonical status. Native controls need their own option catalogue
+          // so that the answer can be mapped back safely.
+          requiresNativeOptions: fieldRequiresNativeOptions(field),
           candidatePrompt: question,
         });
       continue;
@@ -5513,7 +5593,11 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
   return { questions: missing, stableQuestionIds };
 }
 
-export function portalRequirementsFromMissingRequired(fields, missingRequired, { candidate = null, candidateLocale = 'it' } = {}) {
+export function portalRequirementsFromMissingRequired(fields, missingRequired, {
+  candidate = null,
+  candidateLocale = 'it',
+  preservePlannerMissingValues = false,
+} = {}) {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
@@ -5543,10 +5627,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   };
   const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate, candidateLocale);
   const mergedRequired = new Map();
-  for (const item of candidateRequirements.questions) {
-    const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
-    if (key) mergedRequired.set(key, item);
-  }
+  const mergeRequired = (item, { preferIncoming = false } = {}) => {
+    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
+    if (!key) return;
+    const existing = mergedRequired.get(key);
+    mergedRequired.set(key, existing && !preferIncoming ? { ...existing, ...item } : item);
+  };
   for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
     const field = fieldFor(item);
     // Candidate questions are for facts the runner cannot already supply.
@@ -5557,9 +5643,16 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
       ? candidateAnswerForField(candidate, field, {
         includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
       }) : null;
-    if (field && field.invalid !== true && String(candidateAnswer?.value ?? '').trim()) continue;
-    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
-    if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
+    if (field && field.invalid !== true
+      && ((!preservePlannerMissingValues && holdsValue(field)) || String(candidateAnswer?.value ?? '').trim())) continue;
+    mergeRequired(item);
+  }
+  // Keep the planner's order when a deterministic candidate requirement
+  // enriches the same live field (for example, the permit question replacing
+  // a generic work-authorisation prompt). Candidate-only requirements are
+  // appended after the planner's explicit missing fields.
+  for (const item of candidateRequirements.questions) {
+    mergeRequired(item, { preferIncoming: true });
   }
   const fieldIndexes = new Map(availableFields.map((field, index) => [field, index]));
   const orderedRequirements = [...mergedRequired.values()].sort((left, right) => {
@@ -5619,13 +5712,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
         }
-        const editableCombobox = field?.kind === 'combobox' && field.selectLike === false && !field.nativeSelectId;
-        const applicationOptions = (field ? editableCombobox ? [] : field.options || [] : item.applicationOptions || item.options || [])
-          .filter(option => option?.placeholder !== true)
+        const applicationOptions = (field ? editableCombobox(field) ? [] : field.options || [] : item.applicationOptions || item.options || [])
+          .filter(portalUsableChoiceOption)
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);
-        const nativeChoiceField = Boolean(field && !editableCombobox && (
+        const nativeChoiceField = Boolean(field && fieldRequiresNativeOptions(field) && (
           ['select', 'radio', 'listbox'].includes(field.kind)
           || field.selectLike === true
           || field.nativeSelectId
@@ -5636,15 +5728,14 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
         if (field) {
           if (item.forceType) type = item.forceType;
           else if (['select', 'radio', 'listbox'].includes(field.kind) || field.selectLike || field.nativeSelectId || applicationOptions.length) type = 'choice';
-          else if (editableCombobox) type = 'text';
+          else if (editableCombobox(field)) type = 'text';
           else if (field.kind === 'checkbox') type = 'yes_no';
           else if (field.kind === 'date' || field.inputType === 'date' || field.autocomplete === 'bday') type = 'date';
           else if (field.inputType === 'number') type = 'number';
           else if (['text', 'textarea'].includes(field.kind)) type = 'text';
         }
-        // A native choice with no usable catalogue needs another portal read,
-        // never a text question whose arbitrary answer the ATS cannot accept.
-        if (nativeChoiceField && type === 'choice' && !applicationOptions.length) {
+        if (field && type === 'choice' && !portalHasChoiceCatalogue(field)
+          && (fieldRequiresNativeOptions(field) || item.requiresNativeOptions === true)) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
@@ -5664,8 +5755,15 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           required: true,
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
-          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate)
-            : applicationOptions.length ? applicationOptions : safeTextChoiceOptions : item.options,
+          options: field
+            ? optionMap.length
+              ? optionMap.map((pair) => pair.candidate)
+              : applicationOptions.length
+                ? applicationOptions
+                : safeTextChoiceOptions.length
+                  ? safeTextChoiceOptions
+                  : (item.forceType || item.candidatePrompt ? item.options || [] : [])
+            : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
@@ -6293,8 +6391,26 @@ export async function submitViaPortal(ctx) {
       }
       return agent;
     };
-    const askCandidate = async (questions) => {
-      const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions, { candidate: ctx.candidate, candidateLocale: ctx.candidateLocale });
+    // Polling and control discovery deliberately use NAVIGATION, which does
+    // not open lazy listboxes. Restore that catalogue at the planning boundary
+    // so a readable SuccessFactors picklist is not downgraded to an unreadable
+    // question merely because the stable-surface poll omitted its options.
+    const snapshotWithPortalOptions = async (current) => {
+      if (!needsPortalOptionRead(current)) return current;
+      const refreshed = await extractFields(page).catch(() => null);
+      if (!refreshed) return current;
+      // Keep the navigation snapshot's field set. A full extraction can reveal
+      // unrelated required controls and must not add them to this candidate
+      // request; it only supplies the lazy catalogue for controls already in
+      // the current planning surface.
+      return mergePortalChoiceOptions(current, refreshed);
+    };
+    const askCandidate = async (questions, current = snapshot) => {
+      const questionSnapshot = await snapshotWithPortalOptions(current);
+      const requirements = portalRequirementsFromMissingRequired(questionSnapshot.fields, questions, {
+        candidate: ctx.candidate,
+        candidateLocale: ctx.candidateLocale,
+      });
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
       let request;
       try {
@@ -6610,8 +6726,9 @@ export async function submitViaPortal(ctx) {
           for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {
             await page.waitForTimeout(500);
             const now = await extractFields(page, NAVIGATION).catch(() => null);
-            redrawn = Boolean(now) && now.fields.length > 0
-              && questionSurfaceSignature(now) !== questionSurfaceSignature(snapshot);
+            const comparableNow = now ? await snapshotWithPortalOptions(now) : null;
+            redrawn = Boolean(comparableNow) && comparableNow.fields.length > 0
+              && questionSurfaceSignature(comparableNow) !== questionSurfaceSignature(snapshot);
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
@@ -6729,6 +6846,7 @@ export async function submitViaPortal(ctx) {
             continue;
           }
           if (stable.status !== 'stable') return await handoff('portal_needs_candidate');
+          after = await snapshotWithPortalOptions(after);
           if (questionSurfaceSignature(after) !== questionSurfaceSignature(snapshot)) {
             const redrawCount = redraws.get(redrawKey) || 0;
             if (redrawCount >= MAX_REDRAWS_PER_PAGE) return await handoff('portal_needs_candidate');
@@ -6747,7 +6865,7 @@ export async function submitViaPortal(ctx) {
               unclearQuestions = candidateQuestions;
               agentHint = 'unclear_fields';
             } else {
-              const request = await askCandidate(candidateQuestions);
+              const request = await askCandidate(candidateQuestions, snapshot);
               if (request) return request;
             }
           }
@@ -6779,14 +6897,14 @@ export async function submitViaPortal(ctx) {
         const agentUrl = page.url();
         const agent = await runAgent(after, agentHint);
         if (agent?.status === 'needs_candidate') {
-          const request = await askCandidate(agent.questions);
+          const request = await askCandidate(agent.questions, after);
           if (request) return request;
         }
         // Required fields left unanswered: the owner looks when the agent could
         // not answer them; without the agent, the planner's questions as before.
         if (unclearQuestions.length && agent?.status !== 'done') {
           if (!agent || agent.status === 'unavailable') {
-            const request = await askCandidate(unclearQuestions);
+            const request = await askCandidate(unclearQuestions, after);
             if (request) return request;
           } else return await handoff('portal_needs_candidate');
         }
@@ -6881,7 +6999,7 @@ export async function submitViaPortal(ctx) {
         if (stuckOnPage >= 2) {
           const agent = await runAgent(snapshot, 'refused');
           if (agent?.status === 'needs_candidate') {
-            const request = await askCandidate(agent.questions);
+            const request = await askCandidate(agent.questions, snapshot);
             if (request) return request;
           }
           if (agent?.status === 'done') snapshot = await extractFields(page);
@@ -6933,7 +7051,7 @@ export async function submitViaPortal(ctx) {
         const repairUrl = page.url();
         const repair = await runAgent(after, 'required_fields_unfilled');
         if (repair?.status === 'needs_candidate') {
-          const request = await askCandidate(repair.questions);
+          const request = await askCandidate(repair.questions, after);
           if (request) return request;
         }
         if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
