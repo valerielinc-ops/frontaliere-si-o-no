@@ -5120,6 +5120,16 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   const fieldFor = (item) => {
     const direct = availableFields.filter(field => field.id && field.id === item?.fieldId);
     if (direct.length === 1) return direct[0];
+    const requestedId = String(item?.fieldId || '').trim();
+    if (requestedId) {
+      // The planner contract names the generated field id, but older agent
+      // traces can carry the native DOM/name alias. Resolve it only when the
+      // alias identifies one live field; ambiguity must remain unknown.
+      const aliases = ['domId', 'name', 'controlId', 'nativeControlId', 'nativeSelectId', 'semanticId',
+        'dataAutomationId', 'dataControlId', 'dataSemanticId', 'elementId', 'nativeFieldId'];
+      const aliased = availableFields.filter(field => aliases.some(alias => String(field?.[alias] || '').trim() === requestedId));
+      if (aliased.length === 1) return aliased[0];
+    }
     const questions = [item?.applicationQuestion, item?.portalQuestion, item?.question].map(folded).filter(Boolean);
     if (!questions.length) return null;
     const matching = availableFields.filter((field) => {
@@ -5138,7 +5148,11 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
     if (field?.required === false && !field.invalid) {
-      reducedRequirement = true;
+      const optionalTechnicalFile = (field.kind === 'file' || field.inputType === 'file') && machineLabel(field.label);
+      // Umantis exposes optional attachment slots as names such as
+      // `form_data41`. They are not candidate questions and must not turn a
+      // harmless optional slot into question_label_unreadable.
+      if (!optionalTechnicalFile) reducedRequirement = true;
       continue;
     }
     if (unreadableNativeOwner(field || item)) {
