@@ -51,6 +51,22 @@ const SOCIAL_WORKFLOW_RC_SCOPES = {
 } as const;
 
 describe('social workflow Remote Config scopes', () => {
+  it('skips the optional private Facebook token loader when Firebase credentials are absent', () => {
+    const workflow = YAML.parse(readFileSync(resolve(ROOT, '.github/workflows/topic-candidates-mining.yml'), 'utf8'));
+    const steps = workflow.jobs.mine.steps;
+    const credentialsStep = steps.find((step: any) => step.name === 'Write Firebase service-account JSON to /tmp');
+    const privateLoaderIndex = steps.findIndex((step: any) => step.name === 'Load Facebook Page token from private Remote Config');
+    const privateLoader = steps[privateLoaderIndex];
+    const mineIndex = steps.findIndex((step: any) => step.name === 'Mine topic candidates');
+
+    expect(credentialsStep.id).toBe('firebase_credentials');
+    expect(credentialsStep.run).toContain('echo "available=true" >> "$GITHUB_OUTPUT"');
+    expect(credentialsStep.run).toContain('echo "available=false" >> "$GITHUB_OUTPUT"');
+    expect(privateLoader.if).toBe("${{ steps.firebase_credentials.outputs.available == 'true' }}");
+    expect(privateLoader.run).toContain('--only-env=FB_PAGE_ACCESS_TOKEN --include-social-secrets');
+    expect(mineIndex).toBeGreaterThan(privateLoaderIndex);
+  });
+
   it('maps every allowlisted private social parameter to an environment variable', () => {
     const missing = [...SOCIAL_SERVER_SECRET_RC_KEYS].filter((rcKey) => !(rcKey in RC_TO_ENV));
     expect(missing).toEqual([]);

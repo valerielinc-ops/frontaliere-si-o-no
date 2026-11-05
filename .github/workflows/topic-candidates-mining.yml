@@ -48,13 +48,16 @@ jobs:
 
       - name: Write Firebase service-account JSON to /tmp
         # Required by load-rc-env.mjs to authenticate against Firebase RC.
+        id: firebase_credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+            echo "available=true" >> "$GITHUB_OUTPUT"
           else
+            echo "available=false" >> "$GITHUB_OUTPUT"
             echo "::notice::No FIREBASE_SERVICE_ACCOUNT_JSON — RC load + Facebook will be skipped gracefully."
           fi
 
@@ -65,7 +68,9 @@ jobs:
 
       - name: Load Facebook Page token from private Remote Config
         # Keep the publisher token in firebase-server and expose only the exact
-        # mapped environment variable to this workflow.
+        # mapped environment variable to this workflow. This credential is
+        # optional so generic topic sources still run without Firebase auth.
+        if: ${{ steps.firebase_credentials.outputs.available == 'true' }}
         run: node scripts/load-rc-env.mjs --only-env=FB_PAGE_ACCESS_TOKEN --include-social-secrets
 
       - name: Mine topic candidates
