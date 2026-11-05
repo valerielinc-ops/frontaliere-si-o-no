@@ -91,6 +91,12 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 // guards its presence here) — the implementation is the canonical shared helper.
 import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle } from './lib/articleContent.mjs';
 import { resolveNewsletterArticle } from './lib/newsletter-article-selection.mjs';
+import {
+  freezeCampaignDiscoverySelection,
+  loadDiscoveryArticleIndex,
+  nonPersistedDiscoverySelection,
+  omitDuplicateDiscoveryArticle,
+} from './lib/newsletter-discovery-selection.mjs';
 import { readSliceDirectory } from './lib/crawler-slice-files.mjs';
 import { excludeHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
@@ -1770,12 +1776,18 @@ const resumeLogOpts = (campaignId) => ({
   extraFields: { lastRunAt: new Date(), updatedAt: new Date() },
 });
 
+let campaignResumeLookupKnown = true;
 async function fetchAlreadySent(campaignId) {
-  if (!db) return new Set();
+  if (!db) {
+    campaignResumeLookupKnown = false;
+    return new Set();
+  }
   try {
     const { sent } = await fetchCampaignAlreadySent(db, resumeLogOpts(campaignId));
+    campaignResumeLookupKnown = true;
     return sent;
   } catch (e) {
+    campaignResumeLookupKnown = false;
     console.warn('\u26a0\ufe0f Campaign resume fetch failed:', e?.message);
     return new Set();
   }
@@ -1896,6 +1908,8 @@ async function persistDelivery(recipient, messageId, meta) {
       // cascade provider), variant/subject mirror the sent email so the
       // open-rate-by-provider×variant report has a self-contained send record.
       provider: meta.provider || null,
+      discovery_article_id: meta.discoveryArticleId || null,
+      discovery_provider: meta.discoveryProvider || null,
       variant: meta.variant || null,
       subject: meta.subject || null,
       // Content segment (#4299) — engagement level x inferred interest, e.g.
@@ -2317,6 +2331,39 @@ async function main() {
   const campaignId = weeklyCampaignId();
   const alreadySentForCampaign = mode === 'send' ? await fetchAlreadySent(campaignId) : new Set();
   const isResume = alreadySentForCampaign.size > 0;
+  const allowNewDiscoverySelection = mode !== 'send'
+    || (campaignResumeLookupKnown && !isResume);
+  const discoveryIndex = loadDiscoveryArticleIndex();
+  const discoveryByLocale = new Map();
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    if (mode === 'send') {
+      if (db) {
+        // The selection (including an intentional null) is persisted before any
+        // recipient is sent. A resumed campaign reuses its existing snapshot;
+        // if it predates this feature (or its resume ledger is unreadable), a
+        // frozen null prevents the new slot appearing only for the unsent tail.
+        discoveryByLocale.set(
+          locale,
+          await freezeCampaignDiscoverySelection(db, campaignId, locale, discoveryIndex, {
+            allowNewSelection: allowNewDiscoverySelection,
+          }),
+        );
+      } else {
+        discoveryByLocale.set(locale, null);
+      }
+    } else {
+      discoveryByLocale.set(
+        locale,
+        nonPersistedDiscoverySelection(discoveryIndex, campaignId, locale),
+      );
+    }
+  }
+  const discoveryLocales = [...discoveryByLocale.values()].filter(Boolean).length;
+  if (mode === 'send' && !db) {
+    console.warn('⚠️ Firestore unavailable; discovery newsletter slot is disabled for this run.');
+  } else {
+    console.log(`📰 Discovery newsletter slot: ${discoveryLocales}/4 locales frozen`);
+  }
   const featuredArticle = await pickFeaturedArticle();
   const issueNumber = isResume ? null : await getNextIssueNumber({ persist: mode === 'send' });
   if (issueNumber) console.log(`📰 Issue #${issueNumber}`);
@@ -2351,6 +2398,11 @@ async function main() {
       campaignId,
       featuredArticleFn: featuredArticle,
     });
+    const discoverySelection = omitDuplicateDiscoveryArticle(
+      discoveryByLocale.get(locale) || null,
+      articleContent.article,
+    );
+    articleContent.discoveryArticle = discoverySelection?.article || null;
     if (segmentOverride) console.error(`🎯 Preview segment: ${articleContent.segment}`);
 
     const html = buildNewsletter({
@@ -2359,6 +2411,7 @@ async function main() {
       matchedJobs: previewJobs,
       totalJobs: jobs.length,
       article: articleContent.article,
+      discoveryArticle: articleContent.discoveryArticle,
       featuredTool: previewFeaturedTool,
       weeklyFact: getWeeklyFact(locale),
       metrics: loadDashboardMetrics(),
@@ -2735,6 +2788,11 @@ async function main() {
       campaignId,
       featuredArticleFn: featuredArticle,
     });
+    const discoverySelection = omitDuplicateDiscoveryArticle(
+      discoveryByLocale.get(locale) || null,
+      articleContent.article,
+    );
+    articleContent.discoveryArticle = discoverySelection?.article || null;
     const rankingDeliveryId = buildJobEmailDeliveryId({
       surface: 'newsletter',
       surfaceId: 'newsletter_weekly',
@@ -2749,6 +2807,7 @@ async function main() {
       matchedJobs,
       totalJobs: jobs.length,
       article: articleContent.article,
+      discoveryArticle: articleContent.discoveryArticle,
       featuredTool: getFeaturedToolForLocale(locale),
       weeklyFact: getWeeklyFact(locale),
       metrics,
@@ -2844,6 +2903,8 @@ async function main() {
         variant,
         sendTimeSource,
         segment: articleContent.segment,
+        discoveryArticleId: discoverySelection?.articleId || null,
+        discoveryProvider: discoverySelection?.provider || null,
         isOperatorVerification: mode === 'test',
         rankingDeliveryId,
         rankingVariant: rankingVariant || 'control',

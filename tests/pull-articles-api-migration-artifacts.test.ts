@@ -135,6 +135,7 @@ ${(['it', 'en', 'de', 'fr'] as const).map((locale) => `    <xhtml:link rel="alte
 const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-archive.xml'];
 const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
 const BLOG_CREDITS_PATH = 'data/image-credits-blog.json';
+const DISCOVERY_ARTICLES_PATH = 'data/discovery-articles.json';
 const SLUGS_PATH = 'slugs.json';
 const CANTON_ARTICLES_PATH = 'canton-articles.json';
 const CANTON_ARTICLES = JSON.stringify([{
@@ -381,6 +382,32 @@ function routesWithCredits(credits: string): Routes {
   manifest.files[BLOG_CREDITS_PATH] = Buffer.byteLength(credits);
   result['manifest.json'] = JSON.stringify(manifest);
   result[BLOG_CREDITS_PATH] = credits;
+  return result;
+}
+
+function discoveryArticlesRaw({
+  generatedAt = new Date().toISOString(),
+  articles = [],
+}: { generatedAt?: string; articles?: Array<Record<string, unknown>> } = {}) {
+  return JSON.stringify({
+    schema: 1,
+    commit: API_COMMIT,
+    generatedAt,
+    count: articles.length,
+    articles,
+  });
+}
+
+function routesWithDiscoveryArticles(
+  raw: string,
+  { count = JSON.parse(raw).count, byteDelta = 0 }: { count?: number; byteDelta?: number } = {},
+): Routes {
+  const result = baseRoutes();
+  const manifest = JSON.parse(result['manifest.json'] as string);
+  manifest.counts.discoveryArticles = count;
+  manifest.files[DISCOVERY_ARTICLES_PATH] = Buffer.byteLength(raw, 'utf8') + byteDelta;
+  result['manifest.json'] = JSON.stringify(manifest);
+  result[DISCOVERY_ARTICLES_PATH] = raw;
   return result;
 }
 
@@ -1055,6 +1082,74 @@ describe('pull-articles-api: hero-image manifest', () => {
 
     expect(code).toBe(1);
     expect(out).toContain('lists zero images');
+  });
+});
+
+describe('pull-articles-api: discovery article index', () => {
+  const sampleArticle = {
+    id: 'trend-topic-example',
+    publishedAt: new Date().toISOString(),
+    provider: 'google_trends',
+    title: { it: 'Tema in crescita' },
+    excerpt: { it: 'Un tema utile per i frontalieri.' },
+    url: { it: 'https://frontaliereticino.ch/articoli-frontaliere/trend-topic-example/' },
+  };
+
+  it('pulls the optional discovery index when the manifest declares the release-pinned artifact', async () => {
+    const raw = discoveryArticlesRaw({ articles: [sampleArticle] });
+    routes = routesWithDiscoveryArticles(raw);
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 published discovery articles');
+    expect(readPub(dir, DISCOVERY_ARTICLES_PATH)).toBe(raw);
+  });
+
+  it('removes an old snapshot when the legacy manifest does not publish discovery articles yet', async () => {
+    routes = baseRoutes();
+    const dir = makeCheckout();
+    const destination = path.join(dir, 'public', DISCOVERY_ARTICLES_PATH);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, 'stale discovery index');
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('not published yet');
+    expect(fs.existsSync(destination)).toBe(false);
+  });
+
+  it('refuses stale or manifest-mismatched discovery data without changing the served copy', async () => {
+    const previous = 'previous discovery snapshot';
+    const dir = makeCheckout();
+    const destination = path.join(dir, 'public', DISCOVERY_ARTICLES_PATH);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, previous);
+
+    const stale = discoveryArticlesRaw({
+      generatedAt: hoursAgo(24 * 15),
+      articles: [sampleArticle],
+    });
+    routes = routesWithDiscoveryArticles(stale);
+    const staleResult = await run(dir);
+    expect(staleResult.code).toBe(1);
+    expect(staleResult.out).toContain('generatedAt is stale or in the future');
+    expect(readPub(dir, DISCOVERY_ARTICLES_PATH)).toBe(previous);
+
+    const fresh = discoveryArticlesRaw({ articles: [sampleArticle] });
+    routes = routesWithDiscoveryArticles(fresh, { count: 2 });
+    const countResult = await run(dir);
+    expect(countResult.code).toBe(1);
+    expect(countResult.out).toContain('count differs from manifest');
+    expect(readPub(dir, DISCOVERY_ARTICLES_PATH)).toBe(previous);
+
+    routes = routesWithDiscoveryArticles(fresh, { byteDelta: 1 });
+    const byteResult = await run(dir);
+    expect(byteResult.code).toBe(1);
+    expect(byteResult.out).toContain('byte count differs from manifest');
+    expect(readPub(dir, DISCOVERY_ARTICLES_PATH)).toBe(previous);
   });
 });
 

@@ -49,6 +49,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
+import {
+  DISCOVERY_ARTICLES_ARTIFACT,
+  DISCOVERY_ARTICLES_DESTINATION,
+  parseDiscoveryArticleIndex,
+} from './lib/newsletter-discovery-selection.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import {
   dropArticleIndexExcludedSitemapUrlBlocks,
@@ -78,6 +83,7 @@ const CHECK_ONLY = process.argv.includes('--check');
 const BLOG_CREDITS_ARTIFACT = 'data/image-credits-blog.json';
 const SLUGS_ARTIFACT = 'slugs.json';
 const BLOG_GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
+const DISCOVERY_ARTICLES_PATH = path.join(PUBLIC_DIR, DISCOVERY_ARTICLES_DESTINATION);
 
 /**
  * Sitemaps this site serves verbatim from the articles repo.
@@ -953,6 +959,40 @@ staged.set(BLOG_GENERATED_EVIDENCE_SNAPSHOT, `${JSON.stringify({
 }, null, 2)}\n`);
 log(`${BLOG_CREDITS_ARTIFACT}: validated ${Object.keys(credits.generated).length} article image evidence records`);
 
+// Discovery articles are optional until the corpus publisher starts emitting
+// the artifact. Once it is declared, the count, byte size, release pin, schema,
+// and freshness are all mandatory before the batch can write anything.
+const discoveryBytes = manifest.files?.[DISCOVERY_ARTICLES_ARTIFACT];
+const discoveryCount = manifest.counts?.discoveryArticles;
+const discoveryArtifactAbsent = discoveryBytes === undefined && discoveryCount === undefined;
+if (discoveryArtifactAbsent) {
+  log(`${DISCOVERY_ARTICLES_ARTIFACT}: not published yet — current newsletter behavior remains active`);
+} else {
+  if (!Number.isSafeInteger(discoveryBytes) || discoveryBytes <= 0) {
+    fail(`manifest is missing a valid byte count for ${DISCOVERY_ARTICLES_ARTIFACT} — refusing`);
+  }
+  if (!Number.isSafeInteger(discoveryCount) || discoveryCount < 0) {
+    fail(`manifest is missing a valid discoveryArticles count for ${DISCOVERY_ARTICLES_ARTIFACT} — refusing`);
+  }
+  let discoveryRaw;
+  try {
+    discoveryRaw = await get(DISCOVERY_ARTICLES_ARTIFACT);
+  } catch (err) {
+    fail(`${DISCOVERY_ARTICLES_ARTIFACT} unavailable: ${err.message}`);
+  }
+  try {
+    parseDiscoveryArticleIndex(discoveryRaw, {
+      expectedBytes: discoveryBytes,
+      expectedCount: discoveryCount,
+      expectedCommit: manifest.commit,
+    });
+  } catch (err) {
+    fail(err.message);
+  }
+  staged.set(DISCOVERY_ARTICLES_PATH, discoveryRaw);
+  log(`${DISCOVERY_ARTICLES_ARTIFACT}: validated ${discoveryCount} published discovery articles`);
+}
+
 for (const name of SITEMAPS) {
   let xml;
   try {
@@ -1558,5 +1598,9 @@ for (const [dest, body] of staged) {
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.writeFileSync(dest, body);
   log(`wrote ${path.relative(ROOT, dest)}`);
+}
+if (discoveryArtifactAbsent && fs.existsSync(DISCOVERY_ARTICLES_PATH)) {
+  fs.rmSync(DISCOVERY_ARTICLES_PATH);
+  log(`removed stale ${path.relative(ROOT, DISCOVERY_ARTICLES_PATH)} because the manifest no longer declares it`);
 }
 log(`done — ${staged.size} artifact(s) from ${API_BASE}`);
