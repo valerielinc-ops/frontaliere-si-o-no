@@ -33,7 +33,7 @@ export async function reconcileOperationalAnswers({ db, apply = false, nowMs = D
         ])).digest('hex');
         if (order.operationalAnswerReconciledKey === waitKey) return 'alreadyQueued';
         const result = transition(flow, { type: 'tick' }, {
-          draft: draftDoc.data(), answers: flow?.answers || {}, documents: flow?.documents || {}, nowMs,
+          order, draft: draftDoc.data(), answers: flow?.answers || {}, documents: flow?.documents || {}, nowMs,
         });
         if (!result.effects.some(effect => effect.type === 'dispatch' && effect.reason === 'resolved_candidate_answers')) return null;
         // Only repair the query clock. The scheduled sweep rechecks the current

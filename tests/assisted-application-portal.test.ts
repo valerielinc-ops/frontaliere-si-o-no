@@ -2677,7 +2677,7 @@ describe('portal runner helpers', () => {
     expect(candidateAnswerForField(candidate, { label: 'Nazione (di residenza)', context: flattenedPersonalContext, options: [{ label: 'Svizzera' }, { label: 'Italia' }] }))
       .toEqual({ value: 'Svizzera', source: 'identity' });
     expect(candidateAnswerForField(candidate, email)).toEqual({ value: candidate.identity.email, source: 'identity' });
-    expect(candidateAnswerForField(candidate, repeatEmail)).toBeNull();
+    expect(candidateAnswerForField(candidate, repeatEmail)).toEqual({ value: candidate.identity.email, source: 'identity' });
     expect(candidateAnswerForField(candidate, street)).toEqual({ value: 'Via Esempio', source: 'identity' });
     expect(candidateAnswerForField(candidate, postcode)).toEqual({ value: '6830', source: 'identity' });
     expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Schweiz', source: 'identity' });

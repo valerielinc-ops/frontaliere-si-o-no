@@ -44,6 +44,31 @@ function draft(extra: Record<string, any> = {}) {
 const plan = (raw: any, options: Record<string, any> = {}) => planCandidateEdits(raw, { order, draft: draft(options.draft), flow: options.flow || { answers: {} }, locale: 'it' });
 
 describe('candidate edits', () => {
+  it('resolves only the applicant email confirmation and keeps unknown personal data in candidate Q&A', () => {
+    const emailConfirmation = {
+      id: 'portal_email_confirmation', source: 'portal', question: 'Inserisci il tuo indirizzo e-mail',
+      applicationQuestion: 'Confirm email address', type: 'text', required: true,
+    };
+    const birthDate = {
+      id: 'portal_birth_date', source: 'portal', question: 'Qual è la tua data di nascita?',
+      type: 'date', required: true,
+    };
+    const emergencyEmail = {
+      id: 'portal_emergency_email', source: 'portal', question: 'Confirm emergency contact email',
+      type: 'text', required: true,
+    };
+    const currentDraft = draft({ questions: [emailConfirmation, birthDate, emergencyEmail] });
+    const candidate = candidateWithEdits({ order, draft: currentDraft, flow: { answers: {} } });
+
+    expect(candidate.answers.portal_email_confirmation).toBe(order.candidateAlias.address);
+    expect(candidate.answers).not.toHaveProperty('portal_birth_date');
+    expect(candidate.answers).not.toHaveProperty('portal_emergency_email');
+    expect(questionsForCandidate(currentDraft.questions, candidate.profile, candidate.answers, {}, currentDraft)
+      .map(question => question.id)).toEqual(['portal_birth_date', 'portal_emergency_email']);
+    expect(candidateWithEdits({ order, draft: currentDraft, flow: { answers: { portal_email_confirmation: 'different@example.test' } } })
+      .answers.portal_email_confirmation).toBe(order.candidateAlias.address);
+  });
+
   it('reads the candidate with their corrections over the order and the CV', () => {
     const flow = { answers: {}, formOverrides: { firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese', languages: 'Italiano C2, Tedesco B2', salary: 'CHF 80k', unknown: 'x' } };
     const edited = candidateWithEdits({ order, draft: draft(), flow });

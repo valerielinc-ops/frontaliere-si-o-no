@@ -32,7 +32,8 @@ export function portalCodeFingerprintFiles(root = defaultRoot) {
     'functions/src/assistedApplicationCvCommit.js', 'functions/src/assistedApplicationReview.js',
     'functions/src/lib/addressContextContract.js', 'functions/src/lib/permitStatus.js', 'functions/src/lib/applicationConsent.js',
     'functions/src/lib/portalNativeContract.js', 'functions/src/lib/answerRules.js', 'functions/src/lib/portalQuestionText.js',
-    'functions/src/lib/assistedApplicationQuestionConstraints.js', 'scripts/assisted-application/install-nopecha.sh',
+    'functions/src/lib/assistedApplicationQuestionConstraints.js', 'functions/src/lib/identityEmail.js',
+    'scripts/assisted-application/install-nopecha.sh',
   ])].sort();
 }
 

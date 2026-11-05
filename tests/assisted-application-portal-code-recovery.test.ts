@@ -23,6 +23,53 @@ function fixture() {
   });
 }
 describe('automatic recovery after a portal fix', () => {
+  it('requeues an unsent portal email confirmation from the existing candidate identity after a runner change', async () => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`, draftPath = `${base}/ai_drafts/current`, submissionPath = `${base}/automation/submission`;
+    const question = { id: 'email-repeat', source: 'portal', question: 'E-Mail-Adresse erneut eingeben',
+      applicationQuestion: 'E-Mail-Adresse erneut eingeben', required: true, type: 'text', options: [] };
+    store.docs.set(base, { ...store.read(base), automationState: 'needs_candidate_action',
+      candidateAlias: { active: true, address: 'alias@example.test' }, consentVersion: 'assisted-application-v2', consentedAt: now,
+      talentPoolConsent: true });
+    store.docs.set(flowPath, { ...store.read(flowPath), state: 'needs_candidate_action', heldBy: ['question:email-repeat'],
+      portalCodeVersion: 'a'.repeat(64), dispatch: { mode: 'submit', round: 1, requestedAt: now } });
+    store.docs.set(draftPath, { ...store.read(draftPath), completedAt: now - 1,
+      channel: { type: 'employer_site', applyUrl: 'https://jobs.example.test/apply' }, questions: [question] });
+
+    const ctx = { db: store.db, version, nowMs: now, isEnabled: async () => true };
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 1, queued: 0, identityQuestionsQueued: 0 });
+    expect(store.read(flowPath).answers?.['email-repeat']).toBeUndefined();
+    expect(await reconcilePortalCode({ ...ctx, apply: true })).toMatchObject({ eligible: 1, queued: 1, identityQuestionsQueued: 1 });
+    expect(store.read(flowPath)).toMatchObject({
+      state: 'needs_candidate_action', portalRecoveryVersion: version,
+      answers: { 'email-repeat': 'alias@example.test' },
+    });
+    expect(store.read(base).automationDueAt).toBe(now);
+    expect(store.read(submissionPath).portalCodeRecovery).toMatchObject({
+      version, round: 1, queuedAt: now, kind: 'identity_email_confirmation',
+    });
+    expect(await reconcilePortalCode({ ...ctx, apply: true })).toMatchObject({ eligible: 0, queued: 0 });
+  });
+
+  it('keeps a required birth date as a candidate question during portal recovery', async () => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`, draftPath = `${base}/ai_drafts/current`;
+    const question = { id: 'birth-date', source: 'portal', question: 'Geburtsdatum',
+      applicationQuestion: 'Geburtsdatum', required: true, type: 'date', options: [] };
+    store.docs.set(base, { ...store.read(base), automationState: 'needs_candidate_action',
+      candidateAlias: { active: true, address: 'alias@example.test' }, consentVersion: 'assisted-application-v2', consentedAt: now,
+      talentPoolConsent: true });
+    store.docs.set(flowPath, { ...store.read(flowPath), state: 'needs_candidate_action', heldBy: ['question:birth-date'],
+      portalCodeVersion: 'a'.repeat(64), dispatch: { mode: 'submit', round: 1, requestedAt: now } });
+    store.docs.set(draftPath, { ...store.read(draftPath), completedAt: now - 1,
+      channel: { type: 'employer_site', applyUrl: 'https://jobs.example.test/apply' }, questions: [question] });
+
+    expect(await reconcilePortalCode({ db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true }))
+      .toMatchObject({ eligible: 0, queued: 0, identityQuestionsQueued: 0 });
+    expect(store.read(flowPath).answers?.['birth-date']).toBeUndefined();
+    expect(store.read(base).automationDueAt).toBeNull();
+  });
+
   it('previews and queues an approved unsent application exactly once per engine version', async () => {
     const store = fixture();
     const ctx = { db: store.db, version, nowMs: now, isEnabled: async () => true };
@@ -206,8 +253,11 @@ describe('automatic recovery after a portal fix', () => {
       write('functions/src/assistedApplicationAnswerEvidence.js', 'updated attested answer resolver');
       expect(currentPortalCodeVersion(root)).not.toBe(afterPortalSites);
       const afterAnswerEvidence = currentPortalCodeVersion(root);
-      write('functions/src/assistedApplicationAutomation.js', 'updated runner answer resolver integration');
+      write('functions/src/lib/identityEmail.js', 'shared applicant email confirmation semantics');
       expect(currentPortalCodeVersion(root)).not.toBe(afterAnswerEvidence);
+      const afterIdentityEmail = currentPortalCodeVersion(root);
+      write('functions/src/assistedApplicationAutomation.js', 'updated runner answer resolver integration');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterIdentityEmail);
       const afterAutomation = currentPortalCodeVersion(root);
       write('functions/src/assistedApplicationCvCommit.js', 'updated answer evidence marker writer');
       expect(currentPortalCodeVersion(root)).not.toBe(afterAutomation);

@@ -41,6 +41,7 @@ on:
       - 'functions/src/lib/permitStatus.js'
       - 'functions/src/lib/portalQuestionText.js'
       - 'functions/src/lib/assistedApplicationQuestionConstraints.js'
+      - 'functions/src/lib/identityEmail.js'
   workflow_dispatch:
 
 permissions:

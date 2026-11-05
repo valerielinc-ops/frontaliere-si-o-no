@@ -19,6 +19,7 @@ import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicat
 import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
+import { isIdentityEmailConfirmation } from '../../../../functions/src/lib/identityEmail.js';
 import {
   explicitLanguageEntries,
   explicitLanguageEntry,
@@ -170,7 +171,6 @@ const CONTACT_ADDRESS_RE = /\b(?:e[-\s]?mail|email|courriel|correo|contact\s+(?:
 const CANDIDATE_CONTACT_ADDRESS_RE = /\b(?:candidate|applicant|candidate['’]s|applicant['’]s|my|your)\s+(?:contact\s+)?address\b|\b(?:contact\s+)?address\s+(?:of|for)\s+(?:the\s+)?(?:candidate|applicant)\b/i;
 const CONTACT_ADDRESS_ONLY_RE = /^\s*(?:e[-\s]?mail|email|courriel|correo)(?:\s*[-–—:]?\s*(?:address|adresse|indirizzo))?(?:\s*[/|]\s*(?:login|identifiant))?(?:\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld|erforderlich)\)|[*:?!]))*\s*$/i;
 const IDENTITY_EMAIL_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
-const EMAIL_CONFIRMATION_RE = /\b(?:re[- ]?enter|enter again|repeat|confirm(?:ation)?|again|erneut|wiederholen|bestätigen|bestaetigen|nochmals|ripeti|conferma|répéter|repeter|confirmer|à nouveau|de nouveau)\b/i;
 const STREET_NAME_ONLY_RE = /\b(?:street|road|strasse|straße|rue)\s+name\b|\b(?:name|nom|nome)\s+(?:of\s+)?(?:the\s+)?(?:street|road|rue|via)\b/i;
 export const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
 const SENSITIVE_TERMS = String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|\bdob\b|ethnic|criminal|strafregister|casellario|${DATE_OF_BIRTH_RE.source}|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`;
@@ -1489,6 +1489,9 @@ export function candidateAnswerForField(candidate, field) {
     const value = phoneCountryOption(candidate, field);
     return value ? { value, source: 'identity' } : null;
   }
+  if (isIdentityEmailConfirmationField(field) && candidate?.identity?.email) {
+    return { value: candidate.identity.email, source: 'identity' };
+  }
   const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context, field);
   const salutation = salutationFieldAnswer(candidate, field, previous);
   if (salutation) return salutation;
@@ -1534,12 +1537,16 @@ export function candidateAnswerForField(candidate, field) {
   }
   const label = String(field?.label || '');
   const identity = candidate?.identity || {};
-  const otherPersonField = NON_CANDIDATE_NAME_RE.test(`${label} ${field?.context || ''}`);
+  const fieldOwnershipContext = [field?.context, field?.section, field?.autocomplete].filter(Boolean).join(' ');
+  const otherPersonField = NON_CANDIDATE_NAME_RE.test(`${label} ${fieldOwnershipContext}`);
   let identityValue = '';
   if ((FIRST_NAME_FIELD_RE.test(label) || BARE_FIRST_NAME_FIELD_RE.test(questionFromLabel(label))) && !otherPersonField) identityValue = identity.firstName || '';
   else if ((LAST_NAME_FIELD_RE.test(label) || BARE_LAST_NAME_FIELD_RE.test(questionFromLabel(label))) && !otherPersonField) identityValue = identity.lastName || '';
   else if (FULL_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.fullName || '';
-  else if (IDENTITY_EMAIL_RE.test(label) && !EMAIL_CONFIRMATION_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
+  // ATS registration forms can require the same identity email twice. The
+  // second field is still the applicant's email; never substitute it into a
+  // field owned by a referee, emergency contact, or another person.
+  else if (IDENTITY_EMAIL_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
   else if (PHONE_CODE_FIELD_RE.test(label) && !PHONE_COUNTRY_CODE_LABEL_RE.test(label) && !otherPersonField) identityValue = identity.phone || '';
   else if (/\blinkedin\b/i.test(label) && !otherPersonField) identityValue = identity.linkedin || '';
   if (identityValue) {
@@ -1616,6 +1623,13 @@ export function candidateAnswerForField(candidate, field) {
   if (exact) return { value: exact, source: 'profile' };
   const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
   return other ? { value: other.label, source: 'profile' } : null;
+}
+
+/** A required applicant e-mail confirmation that can safely reuse identity.email. */
+export function isIdentityEmailConfirmationField(field) {
+  const label = String(field?.label || '');
+  const context = [field?.context, field?.section, field?.autocomplete].filter(Boolean).join(' ');
+  return isIdentityEmailConfirmation({ label, context });
 }
 
 /**

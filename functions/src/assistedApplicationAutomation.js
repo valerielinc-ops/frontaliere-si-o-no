@@ -327,7 +327,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       return;
     }
     const result = transition(flowForTransition, event, {
-      draft, answers: transitionAnswers, documents: flow.documents || {}, postalPacketReady, nowMs,
+      order, draft, answers: transitionAnswers, documents: flow.documents || {}, postalPacketReady, nowMs,
     });
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
