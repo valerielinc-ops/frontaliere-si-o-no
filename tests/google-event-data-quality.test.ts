@@ -36,7 +36,7 @@ type EventFixture = {
   endDate?: string;
   eventStatus: string;
   eventAttendanceMode: string;
-  previousStartDate?: string;
+  previousStartDate?: string | string[];
   isAccessibleForFree?: boolean;
   url: string;
   description: string;
@@ -96,7 +96,6 @@ describe('Google Event data quality publication gate', () => {
     ['offer price', (event) => { delete event.offers.price; }],
     ['offer currency', (event) => { delete event.offers.priceCurrency; }],
     ['offer availability', (event) => { delete event.offers.availability; }],
-    ['offer validFrom', (event) => { delete event.offers.validFrom; }],
     ['ticket URL', (event) => { delete event.offers.url; }],
   ])('rejects missing %s', (_field, removeField) => {
     const event = structuredClone(COMPLETE_EVENT);
@@ -107,7 +106,11 @@ describe('Google Event data quality publication gate', () => {
   it('does not infer a validFrom date or free admission', () => {
     const event = structuredClone(COMPLETE_EVENT);
     delete event.offers.validFrom;
-    expect(hasCompleteGoogleEventData(event)).toBe(false);
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+
+    const invalidValidFrom = structuredClone(COMPLETE_EVENT);
+    invalidValidFrom.offers.validFrom = '2026-02-31';
+    expect(hasCompleteGoogleEventData(invalidValidFrom)).toBe(false);
 
     const freeEvent = structuredClone(COMPLETE_EVENT);
     freeEvent.offers.price = 0;
@@ -124,6 +127,22 @@ describe('Google Event data quality publication gate', () => {
 
     event.previousStartDate = '2026-11-30';
     expect(hasCompleteGoogleEventData(event)).toBe(true);
+
+    event.previousStartDate = ['2026-11-30', '2026-11-29'];
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+
+    event.previousStartDate = ['2026-11-30', '2026-02-31'];
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
+  });
+
+  it('accepts valid ISO local datetimes without a timezone offset', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    event.startDate = '2025-07-21T19:00';
+    event.endDate = '2025-07-21T21:30';
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+
+    event.startDate = '2025-07-21T25:00';
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
   });
 
   it('rejects impossible calendar dates and accepts complete organizer arrays', () => {

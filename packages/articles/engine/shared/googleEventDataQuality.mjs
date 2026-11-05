@@ -49,8 +49,14 @@ function isValidDateTime(value) {
   if (year < 1 || month < 1 || month > 12 || day < 1 || day > daysInMonth[month - 1]) return false;
 
   const isDateOnly = /^\d{4}-\d{2}-\d{2}$/u.test(value);
+  const isLocalDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/u.test(value);
   const isZonedDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})$/u.test(value);
-  return (isDateOnly || isZonedDateTime) && Number.isFinite(Date.parse(value));
+  return (isDateOnly || isLocalDateTime || isZonedDateTime) && Number.isFinite(Date.parse(value));
+}
+
+function isValidPreviousStartDate(value) {
+  const dates = Array.isArray(value) ? value : [value];
+  return dates.length > 0 && dates.every(isValidDateTime);
 }
 
 function isHttpUrl(value) {
@@ -147,7 +153,7 @@ function hasCompleteOffer(offer, event) {
     && offer.price >= 0
     && isValidCurrency(offer.priceCurrency)
     && availability.some((value) => EVENT_AVAILABILITY.has(value))
-    && isValidDateTime(offer.validFrom)
+    && (offer.validFrom === undefined || isValidDateTime(offer.validFrom))
     && isHttpUrl(offer.url)
     && (offer.price !== 0 || event.isAccessibleForFree === true);
 }
@@ -180,6 +186,6 @@ export function hasCompleteGoogleEventData(event) {
     && offers.length > 0
     && offers.every((offer) => hasCompleteOffer(offer, event))
     && (status.includes('EventRescheduled')
-      ? isValidDateTime(event.previousStartDate)
+      ? isValidPreviousStartDate(event.previousStartDate)
       : !event.previousStartDate);
 }

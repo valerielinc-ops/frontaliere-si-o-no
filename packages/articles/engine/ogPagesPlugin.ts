@@ -35,6 +35,7 @@ import {
   readStaticBooleanProperty,
   readStaticCompositeProperty,
   readStaticObjectProperty,
+  readStaticStringOrStringArrayProperty,
   readStructuredSeoDescriptionState,
   readStructuredSeoObjectBlocks,
   staticPropertyState,
@@ -1716,11 +1717,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const endDate = sdStr('endDate');
  const eventStatus = sdStr('eventStatus');
  const eventAttendanceMode = sdStr('eventAttendanceMode');
- const previousStartDate = sdStr('previousStartDate');
+ const previousStartDate = readStaticStringOrStringArrayProperty(sd, 'previousStartDate');
  const isAccessibleForFree = readStaticBooleanProperty(sd, 'isAccessibleForFree');
  if (startDate) ldObj.startDate = startDate;
  if (endDate) ldObj.endDate = endDate;
- if (previousStartDate) ldObj.previousStartDate = previousStartDate;
+ if (previousStartDate !== undefined) ldObj.previousStartDate = previousStartDate;
  if (eventStatus) ldObj.eventStatus = eventStatus;
  if (eventAttendanceMode) ldObj.eventAttendanceMode = eventAttendanceMode;
  if (isAccessibleForFree !== undefined) ldObj.isAccessibleForFree = isAccessibleForFree;

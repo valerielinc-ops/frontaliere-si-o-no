@@ -6,6 +6,7 @@ import {
   readStaticBooleanProperty,
   readStaticCompositeProperty,
   readStaticObjectProperty,
+  readStaticStringOrStringArrayProperty,
   readStructuredSeoObjectProperty,
   readStructuredSeoBlock,
   readStructuredSeoDescriptionState,
@@ -131,6 +132,20 @@ describe('articles engine SEO-entry compatibility contract', () => {
     expect(readStaticObjectProperty(block, 'offers')).toBeUndefined();
     expect(readStaticBooleanProperty(block, 'isAccessibleForFree')).toBe(false);
     expect(readStaticBooleanProperty(block, 'missing')).toBeUndefined();
+  });
+
+  it('preserves the final static string or string-array property', () => {
+    const block = String.raw`{
+      previousStartDate: '2026-10-18',
+      previousStartDate: ['2026-10-19', '2026-10-20'],
+    }`;
+    expect(readStaticStringOrStringArrayProperty(block, 'previousStartDate'))
+      .toEqual(['2026-10-19', '2026-10-20']);
+
+    expect(readStaticStringOrStringArrayProperty(
+      '{ previousStartDate: ["2026-10-19"], previousStartDate: getDate() }',
+      'previousStartDate',
+    )).toBeUndefined();
   });
 
   it('reads a structured author with balanced braces and decoded fields', () => {

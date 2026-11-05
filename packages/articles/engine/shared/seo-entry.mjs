@@ -749,6 +749,52 @@ export function readStaticCompositeProperty(block, field) {
 }
 
 /**
+ * Return the final static string or an array of static strings assigned to a property.
+ * @returns {string | string[] | undefined}
+ */
+export function readStaticStringOrStringArrayProperty(block, field) {
+  /** @type {string | string[] | undefined} */
+  let value;
+  forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
+    if (key !== field) return;
+    const state = readPropertyState(block, valueStart, valueEnd);
+    if (state.dynamic) {
+      value = undefined;
+    } else if (typeof state.value === 'string') {
+      value = state.value;
+    } else if (block[valueStart] === '[') {
+      value = readStaticStringArray(block, valueStart, valueEnd);
+    } else {
+      value = undefined;
+    }
+  });
+  return value;
+}
+
+function readStaticStringArray(block, valueStart, valueEnd) {
+  /** @type {string[]} */
+  const values = [];
+  let cursor = valueStart + 1;
+  while (cursor < valueEnd) {
+    cursor = skipStaticTrivia(block, cursor, 'SEO entry', 'string-array');
+    if (cursor >= valueEnd || block[cursor] === ']') return values;
+
+    const itemEnd = valueExpressionEnd(block, cursor);
+    const item = readPropertyState(block, cursor, itemEnd);
+    if (item.dynamic || typeof item.value !== 'string' || !item.valueEnd) return undefined;
+    values.push(item.value);
+    cursor = skipStaticTrivia(block, item.valueEnd, 'SEO entry', 'string-array');
+    if (block[cursor] === ',') {
+      cursor += 1;
+      continue;
+    }
+    if (block[cursor] === ']') return values;
+    return undefined;
+  }
+  return undefined;
+}
+
+/**
  * Return the final static object assigned to a property.
  * @returns {string | undefined}
  */
