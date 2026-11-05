@@ -8,7 +8,7 @@
  * endpoints; CVs are returned only as short-lived signed URLs.
  */
 
-import { randomUUID } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { assertSiteAdmin } from './adminAuth.js';
@@ -31,6 +31,9 @@ import {
   loadAutomationForAdmin,
   recordOwnerSubmission,
 } from './assistedApplicationAutomationAdmin.js';
+import { deleteStored } from './assistedApplicationCvCommit.js';
+import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
+import { isUnconfirmedSubmission, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { runAutomationEffect } from './assistedApplicationAutomationEffects.js';
 import { readRendererCheck } from './assistedApplicationRendererCheck.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from './assistedApplicationCvCheck.js';
@@ -38,6 +41,7 @@ import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_ADMIN_STATUSES,
   ASSISTED_APPLICATION_ADMIN_STATUS_SET,
+  ASSISTED_APPLICATION_ORDER_ID_RE,
   hasAssistedApplicationConsent,
 } from './assistedApplicationConstants.js';
 
@@ -850,6 +854,209 @@ const CV_CONTENT_TYPES = {
   docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 };
 const OWNER_UPLOAD_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress', 'blocked']);
+const REOPEN_REQUEST_ID_RE = /^[A-Za-z0-9_-]{8,100}$/;
+const MAX_REOPEN_REASON_CHARS = 500;
+
+function normalizeReopenReason(value) {
+  return String(value ?? '').normalize('NFC').replace(/\s+/gu, ' ').trim();
+}
+
+function storageKeysIn(orderId, value, keys = new Set()) {
+  if (typeof value === 'string') {
+    if (isAssistedApplicationStorageKey(orderId, value)) keys.add(value);
+    return keys;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item) => storageKeysIn(orderId, item, keys));
+    return keys;
+  }
+  if (value && typeof value === 'object') {
+    Object.values(value).forEach((item) => storageKeysIn(orderId, item, keys));
+  }
+  return keys;
+}
+
+function cvContentFrom(raw) {
+  const content = String(raw.contentBase64 || '').trim();
+  if (!content || content.length > Math.ceil(MAX_CV_BYTES / 3) * 4 + 8
+    || !/^[A-Za-z0-9+/]+={0,2}$/u.test(content) || content.length % 4 === 1) {
+    throw new AssistedApplicationAdminError('invalid_input', 400);
+  }
+  const buffer = Buffer.from(content, 'base64');
+  const type = detectCvFileType(buffer.subarray(0, 8));
+  if (!type || buffer.length === 0 || buffer.length > MAX_CV_BYTES) {
+    throw new AssistedApplicationAdminError('invalid_cv_file', 400);
+  }
+  return { buffer, type, sha256: createHash('sha256').update(buffer).digest('hex') };
+}
+
+function reopenMarkerFor(raw, sha256) {
+  const requestId = boundedString(raw.reopenRequestId, 100);
+  const authorizedOrderId = boundedString(raw.authorizedOrderId, 200);
+  const reason = normalizeReopenReason(raw.reopenReason);
+  if (!requestId || !REOPEN_REQUEST_ID_RE.test(requestId)
+    || !ASSISTED_APPLICATION_ORDER_ID_RE.test(authorizedOrderId)
+    || reason.length < 3 || reason.length > MAX_REOPEN_REASON_CHARS) {
+    throw new AssistedApplicationAdminError('invalid_input', 400);
+  }
+  return { requestId, authorizedOrderId, reason, sha256 };
+}
+
+function assertReopenEligibility({ order, flow, draft, submission, orderId, marker }) {
+  if (!order) throw new AssistedApplicationAdminError('order_not_found', 404);
+  if (marker.authorizedOrderId !== orderId || !ASSISTED_APPLICATION_ORDER_ID_RE.test(orderId)) {
+    throw new AssistedApplicationAdminError('invalid_input', 400);
+  }
+  const previous = order.reopenAfterWithdrawal;
+  if (previous?.requestId === marker.requestId) {
+    if (previous.cvSha256 !== marker.sha256) throw new AssistedApplicationAdminError('reopen_request_conflict', 409);
+    return { idempotent: true };
+  }
+  if (previous?.status === 'pending') throw new AssistedApplicationAdminError('reopen_in_progress', 409);
+  if (order.billingMode === 'application_concierge') throw new AssistedApplicationAdminError('concierge_reopen_not_supported', 409);
+  if (order.paymentStatus !== 'paid') throw new AssistedApplicationAdminError('payment_not_confirmed', 409);
+  if (order.submissionStatus !== 'withdrawn' || !order.withdrawnAt || flow?.state !== 'withdrawn') {
+    throw new AssistedApplicationAdminError('reopen_unavailable', 409);
+  }
+  if (order.retentionPurgingAt || order.retentionPurgedAt || order.retentionPayloadPurgedAt) {
+    throw new AssistedApplicationAdminError('reopen_unavailable', 409);
+  }
+  if (['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
+    || order.paymentStatus === 'refunded' || order.submissionStatus === 'submitted') {
+    throw new AssistedApplicationAdminError('reopen_unavailable', 409);
+  }
+  if (draft?.sent || draft?.sentAttempt) throw new AssistedApplicationAdminError('already_submitted', 409);
+  if (Object.values(submission || {}).some((record) => record?.state === 'sent' || isUnconfirmedSubmission(record))) {
+    throw new AssistedApplicationAdminError('submission_unconfirmed', 409);
+  }
+  return { idempotent: false };
+}
+
+/**
+ * Reopens one withdrawn standalone order after the owner has received a
+ * clarification that only the CV should change. The request names the order
+ * twice, carries an idempotency key and replaces the current draft before the
+ * normal CV check/automation trigger is allowed to run.
+ */
+async function handleOwnerCvReplacementAfterWithdrawal(db, raw, adminEmail) {
+  const orderId = boundedString(raw.orderId, 200);
+  const nowMs = Date.now();
+  const content = cvContentFrom(raw);
+  const marker = reopenMarkerFor(raw, content.sha256);
+  if (marker.authorizedOrderId !== orderId) throw new AssistedApplicationAdminError('invalid_input', 400);
+
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  const initial = await Promise.all([
+    orderRef.get(), flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(), submissionRefFor(db, orderId).get(),
+  ]);
+  const initialOrder = initial[0].data() || null;
+  const initialCheck = assertReopenEligibility({
+    order: initialOrder,
+    flow: initial[1].data() || null,
+    draft: initial[2].data() || null,
+    submission: initial[3].data() || {},
+    orderId,
+    marker,
+  });
+  if (initialCheck.idempotent) {
+    return {
+      status: 200,
+      body: {
+        ok: true,
+        orderId,
+        alreadyReopened: true,
+        reopenState: initialOrder.reopenAfterWithdrawal.status || 'started',
+        submissionStatus: initialOrder.submissionStatus,
+      },
+    };
+  }
+
+  const fileName = boundedString(raw.fileName, 120);
+  const stem = fileName.replace(/\.[A-Za-z0-9]{1,5}$/u, '').replace(/[^A-Za-z0-9_-]+/gu, '-').slice(0, 60) || 'cv';
+  const key = `assisted-application-uploads/${orderId}/reopen-${marker.requestId}-${content.sha256.slice(0, 16)}-${stem}.${content.type}`;
+  const bucket = getStorage().bucket(STORAGE_BUCKET);
+  await bucket.file(key).save(content.buffer, { contentType: CV_CONTENT_TYPES[content.type], resumable: false });
+
+  let committed = false;
+  let idempotent = false;
+  let idempotentState = 'started';
+  let previousKeys = new Set();
+  try {
+    await db.runTransaction(async (transaction) => {
+      const [orderSnapshot, flowSnapshot, draftSnapshot, submissionSnapshot] = await Promise.all([
+        transaction.get(orderRef),
+        transaction.get(flowRefFor(db, orderId)),
+        transaction.get(draftRefFor(db, orderId)),
+        transaction.get(submissionRefFor(db, orderId)),
+      ]);
+      const order = orderSnapshot.data() || null;
+      const flow = flowSnapshot.data() || null;
+      const draft = draftSnapshot.data() || null;
+      const submission = submissionSnapshot.data() || {};
+      const check = assertReopenEligibility({ order, flow, draft, submission, orderId, marker });
+      if (check.idempotent) {
+        idempotent = true;
+        idempotentState = order.reopenAfterWithdrawal?.status || 'started';
+        return;
+      }
+      previousKeys = storageKeysIn(orderId, { order, draft });
+      const timestamp = FieldValue.serverTimestamp();
+      transaction.set(orderRef, {
+        submissionStatus: 'in_progress',
+        statusChangedAt: timestamp,
+        updatedAt: timestamp,
+        automationState: FieldValue.delete(),
+        automationDueAt: null,
+        withdrawnAt: FieldValue.delete(),
+        withdrawalReason: FieldValue.delete(),
+        cvStorageKey: key,
+        cvUploadedAt: Timestamp.fromMillis(nowMs),
+        cvUploadedBy: 'owner',
+        cvFileCheck: FieldValue.delete(),
+        reopenAfterWithdrawal: {
+          status: 'pending',
+          requestId: marker.requestId,
+          cvSha256: marker.sha256,
+          requestedAt: nowMs,
+        },
+      }, { merge: true });
+      if (submissionSnapshot.exists) transaction.set(submissionRefFor(db, orderId), { withdrawnAt: FieldValue.delete() }, { merge: true });
+      transaction.delete(draftRefFor(db, orderId));
+      transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_reopened_after_withdrawal', {
+        actorEmail: adminEmail,
+        requestId: marker.requestId,
+        detectedType: content.type,
+        cvSha256: marker.sha256,
+        reopenReason: marker.reason,
+        fromStatus: 'withdrawn',
+        toStatus: 'in_progress',
+      }));
+      committed = true;
+    });
+  } catch (error) {
+    await bucket.file(key).delete({ ignoreNotFound: true }).catch(() => {});
+    throw error;
+  }
+
+  if (idempotent) {
+    return {
+      status: 200,
+      body: {
+        ok: true,
+        orderId,
+        alreadyReopened: true,
+        reopenState: idempotentState,
+        submissionStatus: initialOrder.submissionStatus,
+      },
+    };
+  }
+  if (!committed) throw new AssistedApplicationAdminError('reopen_unavailable', 409);
+  await deleteStored(bucket, orderId, [...previousKeys].filter((oldKey) => oldKey !== key));
+  return {
+    status: 200,
+    body: { ok: true, orderId, alreadyReopened: false, reopenState: 'pending', submissionStatus: 'in_progress' },
+  };
+}
 
 /**
  * The CV arrived as an e-mail attachment: the owner uploads it for the
@@ -911,6 +1118,7 @@ async function handleMutate(db, req, adminEmail) {
   if (action === 'candidateView') return handleCandidateView(db, raw);
   if (action === 'refund') return handleRefund(db, raw, adminEmail);
   if (action === 'uploadCv') return handleOwnerCvUpload(db, raw, adminEmail);
+  if (action === 'reopenAfterWithdrawal') return handleOwnerCvReplacementAfterWithdrawal(db, raw, adminEmail);
   if (AUTOMATION_ADMIN_ACTIONS.has(action)) {
     try {
       const body = await handleAutomationAdminAction(db, raw, adminEmail, {
