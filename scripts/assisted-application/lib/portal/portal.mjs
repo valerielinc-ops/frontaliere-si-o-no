@@ -1727,11 +1727,11 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
     };
     const cookieShadowManagerSurfaceIsActive = (host) => {
       const managerSurface = new RegExp(managerSurfacePattern, 'i');
-      for (let node = host; node && node !== document.body; node = node.parentElement) {
+      for (let node = host; node && node !== document.documentElement; node = node.parentElement) {
         const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
           .filter(Boolean).join(' ');
         if (!managerSurface.test(marker)) continue;
-        if (node.matches('form, [role="form"]') || node.querySelector('form, [role="form"]')) continue;
+        if (node.matches('form, [role="form"]')) continue;
         if (!/\bcookies?\b/i.test(`${node.innerText || node.textContent || ''} ${host.textContent || ''}`)) continue;
         return true;
       }
