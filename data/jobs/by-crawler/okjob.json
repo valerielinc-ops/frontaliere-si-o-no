@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-4c69eb82fc59",
-      "slug": "charpentier-wood-m-f-postor-ok-job-sa-succursale-di-mendrisio-bulle-4c69eb82",
+      "slug": "charpentier-wood-m-f-postor-ok-job-sa-succursale-di-mendrisio-1630-bulle-4c69eb82",
       "slugByLocale": {
         "fr": "charpentier-bois-h-f-poseur-ok-job-sa-succursale-di-mendrisio-1630-bulle-4c69eb82",
-        "it": "charpentier-wood-m-f-postor-ok-job-sa-succursale-di-mendrisio-bulle-4c69eb82",
+        "it": "charpentier-wood-m-f-postor-ok-job-sa-succursale-di-mendrisio-1630-bulle-4c69eb82",
         "en": "charpentier-wood-m-f-postor-ok-job-sa-succursale-di-mendrisio-bulle-4c69eb82",
-        "de": "charpentier-wood-m-w-postor-ok-job-sa-succursale-di-mendrisio-bulle-4c69eb82"
+        "de": "charpentier-wood-m-w-postor-ok-job-sa-succursale-di-mendrisio-1630-bulle-4c69eb82"
       },
       "slugDisambiguator": "4c69eb82",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -83,21 +83,23 @@
           "charpentier-bois-h-f-poseur-ok-job-sa-succursale-di-mendrisio-1630-bulle-4c69eb82"
         ],
         "de": [
-          "charpentier-bois-h-f-poseur-ok-job-sa-succursale-di-mendrisio-1630-bulle-4c69eb82"
+          "charpentier-bois-h-f-poseur-ok-job-sa-succursale-di-mendrisio-1630-bulle-4c69eb82",
+          "charpentier-wood-m-w-postor-ok-job-sa-succursale-di-mendrisio-bulle-4c69eb82"
         ]
       },
       "previousSlugs": [
-        "charpentier-bois-h-f-poseur-ok-job-sa-succursale-di-mendrisio-1630-bulle-4c69eb82"
+        "charpentier-bois-h-f-poseur-ok-job-sa-succursale-di-mendrisio-1630-bulle-4c69eb82",
+        "charpentier-wood-m-w-postor-ok-job-sa-succursale-di-mendrisio-bulle-4c69eb82"
       ]
     },
     {
       "id": "okjob-a61ba9812033",
-      "slug": "menuisier-wood-workshop-m-f-ok-job-sa-succursale-di-mendrisio-bulle-a61ba981",
+      "slug": "menuisier-wood-workshop-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
       "slugByLocale": {
         "fr": "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
-        "it": "menuisier-wood-workshop-m-f-ok-job-sa-succursale-di-mendrisio-bulle-a61ba981",
+        "it": "menuisier-wood-workshop-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
         "en": "menuisier-wood-workshop-m-f-ok-job-sa-succursale-di-mendrisio-bulle-a61ba981",
-        "de": "menuisier-wood-workshop-m-w-ok-job-sa-succursale-di-mendrisio-bulle-a61ba981"
+        "de": "menuisier-wood-workshop-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981"
       },
       "slugDisambiguator": "a61ba981",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -170,21 +172,23 @@
           "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981"
         ],
         "de": [
-          "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981"
+          "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
+          "menuisier-wood-workshop-m-w-ok-job-sa-succursale-di-mendrisio-bulle-a61ba981"
         ]
       },
       "previousSlugs": [
-        "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981"
+        "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
+        "menuisier-wood-workshop-m-w-ok-job-sa-succursale-di-mendrisio-bulle-a61ba981"
       ]
     },
     {
       "id": "okjob-658602963b57",
-      "slug": "carico-ok-job-sa-succursale-di-mendrisio-geneve-65860296",
+      "slug": "carico-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296",
       "slugByLocale": {
         "fr": "cariste-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296",
-        "it": "carico-ok-job-sa-succursale-di-mendrisio-geneve-65860296",
-        "en": "carist-ok-job-sa-succursale-di-mendrisio-geneve-65860296",
-        "de": "carrier-ok-job-sa-succursale-di-mendrisio-geneve-65860296"
+        "it": "carico-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296",
+        "en": "carist-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296",
+        "de": "carrier-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296"
       },
       "slugDisambiguator": "65860296",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -251,27 +255,33 @@
       "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
-          "cariste-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296"
+          "cariste-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296",
+          "carico-ok-job-sa-succursale-di-mendrisio-geneve-65860296"
         ],
         "en": [
-          "cariste-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296"
+          "cariste-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296",
+          "carist-ok-job-sa-succursale-di-mendrisio-geneve-65860296"
         ],
         "de": [
-          "cariste-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296"
+          "cariste-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296",
+          "carrier-ok-job-sa-succursale-di-mendrisio-geneve-65860296"
         ]
       },
       "previousSlugs": [
-        "cariste-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296"
+        "cariste-ok-job-sa-succursale-di-mendrisio-1201-geneve-65860296",
+        "carico-ok-job-sa-succursale-di-mendrisio-geneve-65860296",
+        "carist-ok-job-sa-succursale-di-mendrisio-geneve-65860296",
+        "carrier-ok-job-sa-succursale-di-mendrisio-geneve-65860296"
       ]
     },
     {
       "id": "okjob-c75de57285b1",
-      "slug": "operatrice-operatore-sociosanitario-afc-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572",
+      "slug": "operatrice-operatore-sociosanitario-afc-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
-        "it": "operatrice-operatore-sociosanitario-afc-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572",
-        "en": "professional-health-efz-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572",
-        "fr": "sante-professionnelle-efz-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572"
+        "it": "operatrice-operatore-sociosanitario-afc-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
+        "en": "professional-health-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
+        "fr": "sante-professionnelle-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
       },
       "slugDisambiguator": "c75de572",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -339,27 +349,33 @@
       "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
+          "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
+          "operatrice-operatore-sociosanitario-afc-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572"
         ],
         "en": [
-          "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
+          "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
+          "professional-health-efz-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
+          "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
+          "sante-professionnelle-efz-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
+        "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
+        "operatrice-operatore-sociosanitario-afc-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572",
+        "professional-health-efz-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572",
+        "sante-professionnelle-efz-40-100-ok-job-sa-succursale-di-mendrisio-zurich-c75de572"
       ]
     },
     {
       "id": "okjob-4fb555324eb8",
-      "slug": "chauffagister-m-f-ok-job-sa-succursale-di-mendrisio-bulle-4fb55532",
+      "slug": "chauffagister-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-4fb55532",
       "slugByLocale": {
         "fr": "chauffagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-4fb55532",
-        "it": "chauffagister-m-f-ok-job-sa-succursale-di-mendrisio-bulle-4fb55532",
+        "it": "chauffagister-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-4fb55532",
         "en": "chauffagister-m-f-ok-job-sa-succursale-di-mendrisio-bulle-4fb55532",
-        "de": "chauffagister-m-w-ok-job-sa-succursale-di-mendrisio-bulle-4fb55532"
+        "de": "chauffagister-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-4fb55532"
       },
       "slugDisambiguator": "4fb55532",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -432,21 +448,23 @@
           "chauffagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-4fb55532"
         ],
         "de": [
-          "chauffagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-4fb55532"
+          "chauffagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-4fb55532",
+          "chauffagister-m-w-ok-job-sa-succursale-di-mendrisio-bulle-4fb55532"
         ]
       },
       "previousSlugs": [
-        "chauffagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-4fb55532"
+        "chauffagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-4fb55532",
+        "chauffagister-m-w-ok-job-sa-succursale-di-mendrisio-bulle-4fb55532"
       ]
     },
     {
       "id": "okjob-b92f4b8c3e28",
-      "slug": "menusier-pvc-alu-worker-m-f-ok-job-sa-succursale-di-mendrisio-bulle-b92f4b8c",
+      "slug": "menusier-pvc-alu-worker-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-b92f4b8c",
       "slugByLocale": {
         "fr": "menuisier-pvc-alu-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-b92f4b8c",
-        "it": "menusier-pvc-alu-worker-m-f-ok-job-sa-succursale-di-mendrisio-bulle-b92f4b8c",
+        "it": "menusier-pvc-alu-worker-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-b92f4b8c",
         "en": "menusier-pvc-alu-worker-m-f-ok-job-sa-succursale-di-mendrisio-bulle-b92f4b8c",
-        "de": "menusier-pvc-alu-worker-m-w-ok-job-sa-succursale-di-mendrisio-bulle-b92f4b8c"
+        "de": "menusier-pvc-alu-worker-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-b92f4b8c"
       },
       "slugDisambiguator": "b92f4b8c",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -519,21 +537,23 @@
           "menuisier-pvc-alu-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-b92f4b8c"
         ],
         "de": [
-          "menuisier-pvc-alu-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-b92f4b8c"
+          "menuisier-pvc-alu-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-b92f4b8c",
+          "menusier-pvc-alu-worker-m-w-ok-job-sa-succursale-di-mendrisio-bulle-b92f4b8c"
         ]
       },
       "previousSlugs": [
-        "menuisier-pvc-alu-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-b92f4b8c"
+        "menuisier-pvc-alu-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-b92f4b8c",
+        "menusier-pvc-alu-worker-m-w-ok-job-sa-succursale-di-mendrisio-bulle-b92f4b8c"
       ]
     },
     {
       "id": "okjob-6eec22249af5",
-      "slug": "menuisier-butter-m-f-ok-job-sa-succursale-di-mendrisio-bulle-6eec2224",
+      "slug": "menuisier-butter-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-6eec2224",
       "slugByLocale": {
         "fr": "menuisier-bois-poseur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-6eec2224",
-        "it": "menuisier-butter-m-f-ok-job-sa-succursale-di-mendrisio-bulle-6eec2224",
+        "it": "menuisier-butter-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-6eec2224",
         "en": "menuisier-butter-m-f-ok-job-sa-succursale-di-mendrisio-bulle-6eec2224",
-        "de": "menuisier-butter-m-w-ok-job-sa-succursale-di-mendrisio-bulle-6eec2224"
+        "de": "menuisier-butter-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-6eec2224"
       },
       "slugDisambiguator": "6eec2224",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -606,21 +626,23 @@
           "menuisier-bois-poseur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-6eec2224"
         ],
         "de": [
-          "menuisier-bois-poseur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-6eec2224"
+          "menuisier-bois-poseur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-6eec2224",
+          "menuisier-butter-m-w-ok-job-sa-succursale-di-mendrisio-bulle-6eec2224"
         ]
       },
       "previousSlugs": [
-        "menuisier-bois-poseur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-6eec2224"
+        "menuisier-bois-poseur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-6eec2224",
+        "menuisier-butter-m-w-ok-job-sa-succursale-di-mendrisio-bulle-6eec2224"
       ]
     },
     {
       "id": "okjob-66794d1634dd",
-      "slug": "country-agist-h-f-ok-job-sa-succursale-di-mendrisio-bulle-66794d16",
+      "slug": "country-agist-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-66794d16",
       "slugByLocale": {
         "fr": "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-66794d16",
-        "it": "country-agist-h-f-ok-job-sa-succursale-di-mendrisio-bulle-66794d16",
+        "it": "country-agist-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-66794d16",
         "en": "country-agist-h-f-ok-job-sa-succursale-di-mendrisio-bulle-66794d16",
-        "de": "landeragiste-h-f-ok-job-sa-succursale-di-mendrisio-bulle-66794d16"
+        "de": "landeragiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-66794d16"
       },
       "slugDisambiguator": "66794d16",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -693,21 +715,23 @@
           "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-66794d16"
         ],
         "de": [
-          "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-66794d16"
+          "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-66794d16",
+          "landeragiste-h-f-ok-job-sa-succursale-di-mendrisio-bulle-66794d16"
         ]
       },
       "previousSlugs": [
-        "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-66794d16"
+        "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-66794d16",
+        "landeragiste-h-f-ok-job-sa-succursale-di-mendrisio-bulle-66794d16"
       ]
     },
     {
       "id": "okjob-61c9b66ea811",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-con-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-zurich",
+      "slug": "infermiere-a-diplomato-a-hf-fh-con-responsabilita-rai-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-con-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-zurich",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
+        "it": "infermiere-a-diplomato-a-hf-fh-con-responsabilita-rai-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
+        "en": "qualified-nurse-hf-fh-with-rai-responsibility-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
+        "fr": "infirmier-ere-diplome-e-es-hes-avec-responsabilite-rai-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
       },
       "slugDisambiguator": "61c9b66e",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -756,11 +780,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
+          "dipl-pflegefachfrau-mann-hf-fh-con-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
+        "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
+        "dipl-pflegefachfrau-mann-hf-fh-con-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

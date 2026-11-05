@@ -278,9 +278,12 @@
     },
     {
       "id": "alpiq-722140b8ffd5",
-      "slug": "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen",
+      "slug": "addetto-a-tecnico-a-all-esercizio-della-centrale-idroelettrica-di-gosgen-alpiq-niedergosgen",
       "slugByLocale": {
-        "de": "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
+        "de": "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen",
+        "it": "addetto-a-tecnico-a-all-esercizio-della-centrale-idroelettrica-di-gosgen-alpiq-niedergosgen",
+        "en": "technical-operations-employee-at-gosgen-hydroelectric-power-plant-alpiq-niedergosgen",
+        "fr": "collaborateur-trice-technique-d-exploitation-de-la-centrale-hydroelectrique-de-gosgen-alpiq-niedergosgen"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -321,7 +324,6 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-11-05T09:33:37.978Z",
-      "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:33:37.978Z",
       "validThroughSource": "last-observed-window",
@@ -337,7 +339,16 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T15:00:06.553Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
+      ]
     },
     {
       "id": "alpiq-71ae31ebaa33",
@@ -405,9 +416,12 @@
     },
     {
       "id": "alpiq-0d54e1b2a0a9",
-      "slug": "stagiaire-employee-de-commerce-alpiq-suisse",
+      "slug": "interno-dipendente-commerciale-alpiq-suisse",
       "slugByLocale": {
-        "fr": "stagiaire-employee-de-commerce-alpiq-suisse"
+        "fr": "stagiaire-employee-de-commerce-alpiq-suisse",
+        "it": "interno-dipendente-commerciale-alpiq-suisse",
+        "en": "intern-commercial-employee-alpiq-suisse",
+        "de": "angestellter-von-intern-commercial-alpiq-suisse"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -464,7 +478,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-04T22:03:16.706Z"
+      "firstSeenAt": "2026-11-04T22:03:16.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-employee-de-commerce-alpiq-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-employee-de-commerce-alpiq-suisse"
+      ]
     }
   ]
 }
