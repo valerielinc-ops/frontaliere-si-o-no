@@ -426,6 +426,42 @@ it('asks for a separately required house number when the residence street has no
   expect(result.questions.map((question: any) => question.id)).toContain('portal_residence_house_number');
 });
 
+it('asks for a missing residence country and reads it from a partial profile address', () => {
+  const country = {
+    id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true,
+    options: [{ value: 'CH', label: 'Schweiz' }, { value: 'IT', label: 'Italien' }],
+  };
+  const partialIdentity = { identity: { address: { street: 'Via Roma' } }, profile: { address: { country: 'Svizzera' } }, answers: {} };
+  expect(portalRequirementsFromMissingRequired([country], [], { candidate: partialIdentity }).questions).toEqual([]);
+
+  const missing = portalRequirementsFromMissingRequired([country], [], {
+    candidate: { identity: { address: { street: 'Via Roma' } }, profile: { address: { street: 'Via Roma' } }, answers: {} },
+  });
+  expect(missing.questions).toEqual([expect.objectContaining({
+    id: 'portal_residence_country',
+    question: 'In quale Paese risiedi?',
+    applicationQuestion: country.label,
+    type: 'choice',
+    required: true,
+    applicationOptions: ['Schweiz', 'Italien'],
+  })]);
+
+  const contextualCountry = { ...country, label: 'Country', context: 'Residence address' };
+  const contextual = portalRequirementsFromMissingRequired([contextualCountry], [], {
+    candidate: { identity: { address: {} }, profile: { address: {} }, answers: {} },
+  });
+  expect(contextual.questions).toEqual([expect.objectContaining({
+    id: 'portal_residence_country',
+    applicationQuestion: 'Country',
+    question: 'In quale Paese risiedi?',
+  })]);
+
+  const genericCountry = { ...country, id: 'generic-country', label: 'Country' };
+  expect(portalRequirementsFromMissingRequired([genericCountry], [], {
+    candidate: { identity: { address: {} }, profile: { address: {} }, answers: {} },
+  }).questions).toEqual([]);
+});
+
 it('does not create a candidate request when the real reduction contains no questions or documents', async () => {
   const requirements = portalRequirementsFromMissingRequired([{ id: 'cv', kind: 'file', label: 'Resume / CV', required: true }], [{ fieldId: 'cv', type: 'text', question: 'Upload your CV' }]);
   expect(requirements).toMatchObject({ questions: [], documents: [] });

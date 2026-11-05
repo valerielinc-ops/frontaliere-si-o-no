@@ -4190,7 +4190,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired);
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
@@ -4300,7 +4300,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const repairSnapshot = accountRegistrationSnapshot({ ...after, fields: after.fields.filter((field) => field.inputType !== 'password') });
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
-      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
+      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired, { candidate });
       if (repairedRequirements.unreadableFields?.length) {
         await ctx.accounts.mark(host, { status: 'unanswered' });
         return noted({ handoff: 'question_label_unreadable' });
@@ -4579,7 +4579,6 @@ function missingCandidatePortalRequirements(fields, candidate) {
   if (!candidate || typeof candidate !== 'object') return { questions: [], stableQuestionIds: new Map() };
   const requiredFields = (Array.isArray(fields) ? fields : []).filter(field => field?.required === true);
   const profile = candidate.profile || {};
-  const address = candidate.identity?.address || profile.address || {};
   const answers = candidate.answers || {};
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
@@ -4588,6 +4587,10 @@ function missingCandidatePortalRequirements(fields, candidate) {
     ...(Array.isArray(field?.labels) ? field.labels : []),
     ...(Array.isArray(field?.options) ? field.options.map(option => typeof option === 'string' ? option : option?.label) : []),
   ].filter(Boolean).join(' ');
+  const fieldHasResidenceContext = (field) => explicitResidence([
+    field?.label, field?.ariaLabel, field?.description, field?.ariaDescription, field?.context, field?.section,
+    ...(Array.isArray(field?.labels) ? field.labels : []),
+  ].filter(Boolean).join(' '));
   const optionLabels = field => (Array.isArray(field?.options) ? field.options : [])
     .filter(option => option?.placeholder !== true)
     .map(option => String(typeof option === 'string' ? option : option?.label || '').trim())
@@ -4604,8 +4607,9 @@ function missingCandidatePortalRequirements(fields, candidate) {
   };
   const hasAnswer = id => String(answers[id] ?? '').trim().length > 0;
   const datePresent = String(profile.dateOfBirth || '').trim().length > 0;
-  const streetPresent = String(address.street || '').trim().length > 0;
+  const streetPresent = String(addressQuestionAnswer(candidate, 'address_street') || '').trim().length > 0;
   const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
+  const residenceCountryPresent = Boolean(String(addressQuestionAnswer(candidate, 'residence_country') || '').trim());
   const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
   const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
 
@@ -4633,6 +4637,14 @@ function missingCandidatePortalRequirements(fields, candidate) {
       add(field, 'salutation', 'Quale appellativo vuoi usare nei moduli di candidatura?',
         'Il portale richiede una scelta esplicita. Il valore proposto dal profilo non vale come conferma.',
         { type: 'choice' });
+      continue;
+    }
+
+    if (role === 'country' && fieldHasResidenceContext(field)
+      && !residenceCountryPresent && !hasAnswer('portal_residence_country')) {
+      add(field, 'portal_residence_country', 'In quale Paese risiedi?',
+        'Il portale richiede il Paese di residenza per creare il profilo candidato.',
+        { type: 'choice', forceType: 'choice', requiresNativeOptions: true });
       continue;
     }
 
