@@ -414,11 +414,14 @@ export async function buildDraft(ctx) {
     postingText,
     applicationEmail: requirements.applicationEmail,
   });
-  // The employer's page may only pass «Apply» on to its ATS (Coop: Prospective.ch
-  // → SAP SuccessFactors), or expose that ATS in its Jobs2Web boot config
-  // (ORIOR): the channel is the ATS's, with its account.
-  if (channel.type === 'employer_site') {
-    const postingUrl = posting.postingUrl || channel.applyUrl;
+  const postingUrl = posting.postingUrl || order.jobUrl || (channel.type === 'employer_site' ? channel.applyUrl : '');
+  // The employer's page is the native source of truth for its «Apply» control.
+  // Re-read it when the published apply URL is a separate portal address too:
+  // Prospective listings can retain a SuccessFactors sign-in bookmark while
+  // the live posting's online application is a different channel (PastaHR).
+  // A failed/ambiguous lookup keeps the published address, so this remains a
+  // bounded, fail-open repair rather than a guessed URL rewrite.
+  if (postingUrl && (channel.type === 'employer_site' || postingUrl !== channel.applyUrl)) {
     const target = await resolveApplyUrl(postingUrl, { fetchImpl, resolve: ctx.resolve });
     const applyUrl = target.via ? target.applyUrl : postingUrl;
     const resolvedChannel = classifyApplicationChannel({ applyUrl, postingText, applicationEmail: requirements.applicationEmail });
