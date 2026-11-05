@@ -483,30 +483,56 @@ function savePosted(repoRoot, posted) {
 // ── Pre-flight: occupied scheduled-posts ────────────────────
 
 async function fetchScheduledPosts({ pageId, token, fetchImpl, log }) {
-  // FB rejects limit > 100 with error #100. Even at volume=144 we only
-  // need to read the queue to detect minute-collisions, not exhaustively
-  // page through it — the next free :05/:15/… slot ≥ now+10min is what
-  // pickNextSlots picks anyway. Attachments retain the tracked link so a
-  // prior partial run can rebuild ledger rows for posts already accepted by Meta.
-  const url = `${GRAPH_BASE}/${pageId}/scheduled_posts?fields=id,scheduled_publish_time,attachments&limit=100&access_token=${encodeURIComponent(token)}`;
+  // Meta limits each page to 100 rows. Recovery needs every accepted post,
+  // including entries past the first page when a 144-post batch was queued.
+  // Attachments retain the tracked link needed to rebuild those ledger rows.
+  const endpoint = new URL(`${GRAPH_BASE}/${pageId}/scheduled_posts`);
+  endpoint.searchParams.set('fields', 'id,scheduled_publish_time,attachments');
+  endpoint.searchParams.set('limit', '100');
+  endpoint.searchParams.set('access_token', token);
+  const expectedPath = endpoint.pathname;
+  const seenPages = new Set();
+  const posts = [];
+  const occupied = new Set();
+  let nextUrl = endpoint;
+  let pageCount = 0;
   try {
-    const res = await fetchImpl(url);
-    const data = await res.json();
-    if (!res.ok) {
-      log('⚠️', `pre-flight scheduled_posts → HTTP ${res.status}: ${JSON.stringify(data).slice(0, 200)}`);
-      return { ok: false, posts: [], occupied: new Set() };
+    while (nextUrl) {
+      if (pageCount >= 100) throw new Error('scheduled_posts pagination exceeded 100 pages');
+      if (nextUrl.protocol !== 'https:' || nextUrl.hostname !== 'graph.facebook.com'
+        || nextUrl.pathname !== expectedPath || nextUrl.username || nextUrl.password) {
+        throw new Error('scheduled_posts pagination returned an unexpected URL');
+      }
+      nextUrl.searchParams.set('access_token', token);
+      const requestUrl = nextUrl.toString();
+      if (seenPages.has(requestUrl)) throw new Error('scheduled_posts pagination repeated a page');
+      seenPages.add(requestUrl);
+
+      const res = await fetchImpl(requestUrl);
+      const data = await res.json();
+      if (!res.ok) {
+        log('⚠️', `pre-flight scheduled_posts page ${pageCount + 1} → HTTP ${res.status}: ${JSON.stringify(data).slice(0, 200)}`);
+        return { ok: false, posts, occupied };
+      }
+      const list = Array.isArray(data?.data) ? data.data : [];
+      posts.push(...list);
+      for (const item of list) {
+        const ts = Number(item?.scheduled_publish_time);
+        if (Number.isFinite(ts) && ts > 0) occupied.add(ts);
+      }
+      pageCount += 1;
+      const next = data?.paging?.next;
+      if (!next) {
+        nextUrl = null;
+      } else {
+        nextUrl = new URL(next);
+      }
     }
-    const list = Array.isArray(data?.data) ? data.data : [];
-    const occupied = new Set();
-    for (const item of list) {
-      const ts = Number(item?.scheduled_publish_time);
-      if (Number.isFinite(ts) && ts > 0) occupied.add(ts);
-    }
-    log('ℹ️', `pre-flight: ${occupied.size} scheduled_publish_time slots already occupied`);
-    return { ok: true, posts: list, occupied };
+    log('ℹ️', `pre-flight: ${posts.length} scheduled post(s) across ${pageCount} page(s); ${occupied.size} scheduled_publish_time slots occupied`);
+    return { ok: true, posts, occupied };
   } catch (err) {
-    log('⚠️', `pre-flight scheduled_posts failed: ${err.message}`);
-    return { ok: false, posts: [], occupied: new Set() };
+    log('⚠️', `pre-flight scheduled_posts failed on page ${pageCount + 1}: ${err.message}`);
+    return { ok: false, posts, occupied };
   }
 }
 
