@@ -407,13 +407,15 @@ export async function fetchWithRetry(attemptFn, opts = {}) {
  *
  * @param {string|URL} url
  * @param {RequestInit} [options]  native fetch options (headers, method, body…)
- * @param {Object} [opts] — { retries, retryBaseMs, timeout, label }
+ * @param {Object} [opts] — { retries, retryBaseMs, timeout, label, fetchImpl }
  *   timeout: per-attempt abort timeout in ms (default 30000)
+ *   fetchImpl: optional fetch implementation for deterministic callers/tests
  * @returns {Promise<Response>}
  */
 export async function httpFetchWithRetry(url, options = {}, opts = {}) {
   const timeout = Number.isFinite(opts.timeout) ? opts.timeout : 30000;
   const label = opts.label || String(url);
+  const fetchImpl = typeof opts.fetchImpl === 'function' ? opts.fetchImpl : globalThis.fetch;
   return fetchWithRetry(
     async () => {
       // Bound ONLY the connection/header phase, never the body read. We use a
@@ -426,12 +428,12 @@ export async function httpFetchWithRetry(url, options = {}, opts = {}) {
       // signal still takes precedence (left as-is, no extra timer).
       let res;
       if (options.signal || !(timeout > 0)) {
-        res = await fetch(url, options);
+        res = await fetchImpl(url, options);
       } else {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), timeout);
         try {
-          res = await fetch(url, { ...options, signal: controller.signal });
+          res = await fetchImpl(url, { ...options, signal: controller.signal });
         } finally {
           clearTimeout(timer);
         }
@@ -463,4 +465,86 @@ export async function httpFetchWithRetry(url, options = {}, opts = {}) {
     }
     throw err;
   });
+}
+
+/**
+ * Fetch and consume a bounded response body as one retryable attempt.
+ *
+ * `httpFetchWithRetry()` deliberately stops its timeout when response headers
+ * arrive because most of its callers stream large archives after the helper
+ * returns. Article-hub validation has the opposite safety requirement: a
+ * manifest, registry, HTML shell, or CDN index is not usable until its body
+ * has been consumed, and a stalled body must not escape the retry boundary.
+ * This opt-in helper keeps the fetch and `readResponse(response)` operation in
+ * the same per-attempt timeout/retry loop without changing the archive callers.
+ *
+ * Non-OK responses fail fast unless their status is retryable. The returned
+ * value is the result of `readResponse`, not the intermediate Response.
+ *
+ * @param {string|URL} url
+ * @param {RequestInit} [options]
+ * @param {Object} opts — { readResponse, retries, retryBaseMs, timeout, label,
+ *   fetchImpl }
+ * @returns {Promise<unknown>}
+ */
+export async function httpFetchAndReadWithRetry(url, options = {}, opts = {}) {
+  const { readResponse, ...retryOptions } = opts;
+  if (typeof readResponse !== 'function') {
+    throw new TypeError('httpFetchAndReadWithRetry requires readResponse(response)');
+  }
+
+  const timeout = Number.isFinite(opts.timeout) ? opts.timeout : 30000;
+  const label = opts.label || String(url);
+  const fetchImpl = typeof opts.fetchImpl === 'function' ? opts.fetchImpl : globalThis.fetch;
+
+  return fetchWithRetry(
+    async () => {
+      const consumeAttempt = async (requestOptions) => {
+        const response = await fetchImpl(url, requestOptions);
+        if (RETRYABLE_STATUS.has(response.status)) {
+          const err = new Error(`HTTP ${response.status} ${response.statusText} for ${label}`);
+          err.status = response.status;
+          err.retryable = true;
+          err.response = response;
+          throw err;
+        }
+        if (!response.ok) {
+          const err = new Error(`HTTP ${response.status} ${response.statusText} for ${label}`);
+          err.status = response.status;
+          err.response = response;
+          throw err;
+        }
+        return readResponse(response);
+      };
+
+      // Keep the timer armed until the body reader resolves. The explicit
+      // race also bounds injected/test transports whose body reader does not
+      // observe AbortController, while the controller cancels native fetch
+      // streams as soon as the attempt budget expires.
+      if (!(timeout > 0)) return consumeAttempt(options);
+
+      const controller = options.signal ? null : new AbortController();
+      const requestOptions = controller
+        ? { ...options, signal: controller.signal }
+        : options;
+      let timer;
+      const timeoutError = new Error(`${label} timed out after ${timeout}ms`);
+      timeoutError.name = 'TimeoutError';
+      const timeoutPromise = new Promise((_, reject) => {
+        timer = setTimeout(() => {
+          controller?.abort();
+          reject(timeoutError);
+        }, timeout);
+      });
+      try {
+        return await Promise.race([
+          consumeAttempt(requestOptions),
+          timeoutPromise,
+        ]);
+      } finally {
+        clearTimeout(timer);
+      }
+    },
+    { ...retryOptions, label },
+  );
 }
