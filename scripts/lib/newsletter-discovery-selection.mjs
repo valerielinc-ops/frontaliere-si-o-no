@@ -17,7 +17,8 @@ export const DISCOVERY_ARTICLES_MAX_AGE_MS = 14 * 24 * 60 * 60 * 1000;
 export const DISCOVERY_ARTICLES_FUTURE_SKEW_MS = 5 * 60 * 1000;
 
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
-const PROVIDERS = new Set(['google_trends', 'other']);
+const NEWSLETTER_PROVIDERS = new Set(['google_trends', 'other']);
+const KNOWN_INDEX_PROVIDERS = new Set([...NEWSLETTER_PROVIDERS, 'reddit']);
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const MAX_RECENT_ARTICLE_AGE_MS = 60 * 24 * 60 * 60 * 1000;
 const MAX_ROTATION_POOL = 12;
@@ -138,7 +139,7 @@ export function parseDiscoveryArticleIndex(raw, {
       || seenIds.has(article.id)
       || typeof article.publishedAt !== 'string'
       || !Number.isFinite(Date.parse(article.publishedAt))
-      || !PROVIDERS.has(article.provider)) {
+      || !KNOWN_INDEX_PROVIDERS.has(article.provider)) {
       throw new Error(`${label} has an invalid article contract`);
     }
     seenIds.add(article.id);
@@ -222,6 +223,10 @@ export function chooseDiscoveryArticle(index, campaignId, locale, { now = Date.n
   const nowMs = now instanceof Date ? now.getTime() : Number(now);
   const candidates = index.articles
     .filter((article) => {
+      // Reddit rows can be valid in the public feed, but newsletter eligibility
+      // is a separate editorial policy. Filter per row so one disallowed record
+      // cannot discard eligible Google Trends or other discoveries.
+      if (!NEWSLETTER_PROVIDERS.has(article?.provider)) return false;
       const publishedAt = Date.parse(article?.publishedAt || '');
       return Number.isFinite(publishedAt)
         && publishedAt <= nowMs + DISCOVERY_ARTICLES_FUTURE_SKEW_MS
@@ -249,12 +254,12 @@ export function chooseDiscoveryArticle(index, campaignId, locale, { now = Date.n
 
 function validateStoredSelection(value, locale) {
   if (value === null) return null;
-  if (isRecord(value) && typeof value.provider === 'string' && !PROVIDERS.has(value.provider)) {
+  if (isRecord(value) && typeof value.provider === 'string' && !NEWSLETTER_PROVIDERS.has(value.provider)) {
     return null;
   }
   if (!isRecord(value)
     || typeof value.articleId !== 'string'
-    || !PROVIDERS.has(value.provider)
+    || !NEWSLETTER_PROVIDERS.has(value.provider)
     || !isRecord(value.article)
     || value.article.id !== value.articleId
     || value.article.provider !== value.provider
