@@ -2295,18 +2295,29 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   const identity = fields.map(umantisIdentityCaption);
   const hasIdentity = identity.some(label => UMANTIS_APPLICANT_IDENTITY_RE.givenName.test(label))
     && identity.some(label => UMANTIS_APPLICANT_IDENTITY_RE.familyName.test(label));
-  const residenceRoles = new Set(fields.map(field => residenceFieldRole(field.label)).filter(Boolean));
-  const hasResidence = ['street', 'postalCode', 'city', 'country'].every(role => residenceRoles.has(role));
+  // EOC's live Application/New form has postal code and city but no street or
+  // country fields. Keep the account/application distinction strong with
+  // multiple applicant details instead of requiring one particular address
+  // schema across Umantis tenants.
+  const profileDetails = new Set();
+  for (const field of fields) {
+    const label = `${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`;
+    const residenceRole = residenceFieldRole(label);
+    if (residenceRole === 'postalCode' || residenceRole === 'city') profileDetails.add(residenceRole);
+    if (UMANTIS_PHONE_CONTEXT_RE.test(label)) profileDetails.add('phone');
+    if (/\b(?:birth date|date of birth|data di nascita|geburtsdatum|date de naissance)\b/iu.test(label)) profileDetails.add('birthDate');
+    if (/\b(?:degree|diploma|education|formazione|titolo accademico)\b/iu.test(label)) profileDetails.add('education');
+  }
+  const hasApplicantDetails = profileDetails.size >= 2;
   const hasCoverLetter = fields.some(field => isFileField(field)
     && COVER_LETTER_DOCUMENT_CONTEXT_RE.test(`${field.label || ''} ${field.name || ''} ${field.id || ''} ${field.context || ''}`));
   const hasCv = fields.some(isCvFileField);
 
-  // #17174: the live Application/New step exposes the account password next
-  // to the candidate's identity/address and required CV + cover letter, but
-  // its only action is «Avanti». This exact surface is an application form,
-  // not a sign-in page; keep the proof bounded to the verified Umantis route.
+  // #17174: Umantis Application/New can expose the account password beside
+  // identity, a partial address/profile, required CV + cover letter, and only
+  // «Avanti». This observed application surface is not a sign-in page.
   return Boolean(findButton(snapshot.buttons || [], NEXT_RE, { includeDisabled: true })
-    && hasIdentity && hasResidence && hasCv && hasCoverLetter);
+    && hasIdentity && hasApplicantDetails && hasCv && hasCoverLetter);
 }
 const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;

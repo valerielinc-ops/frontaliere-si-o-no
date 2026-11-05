@@ -624,6 +624,37 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     }, 'umantis')).toBe(false);
   });
 
+  it('recognizes the live EOC Umantis profile step without street or country fields', () => {
+    const snapshot = {
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4',
+      text: 'Impiegato/a amministrativo - Candidatura | EOC candiDati',
+      passwordVisible: true,
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', form: 0 },
+        { id: 'first-name', kind: 'text', inputType: 'text', label: 'Nome', form: 0 },
+        { id: 'last-name', kind: 'text', inputType: 'text', label: 'Cognome', form: 0 },
+        { id: 'birth-date', kind: 'text', inputType: 'text', label: 'Data di nascita', form: 0 },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Password', form: 0 },
+        { id: 'postal-code', kind: 'text', inputType: 'text', label: 'NAP', form: 0 },
+        { id: 'city', kind: 'text', inputType: 'text', label: 'Località', form: 0 },
+        { id: 'phone', kind: 'text', inputType: 'tel', label: 'Telefono', form: 0 },
+        { id: 'cv', kind: 'file', inputType: 'file', label: 'Curriculum', form: 0 },
+        { id: 'cover-letter', kind: 'file', inputType: 'file', label: 'Lettera di presentazione', form: 0 },
+      ],
+      buttons: [{ text: 'Avanti' }],
+      links: [{ text: 'Login' }],
+    };
+
+    expect(authPageKind(snapshot)).toBe('sign_in');
+    expect(ownAccountForm(snapshot, 'umantis')).toBe(true);
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.filter(field => !['birth-date', 'postal-code', 'city', 'phone'].includes(field.id)),
+    }, 'umantis')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, buttons: [{ text: 'Login' }] }, 'umantis')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('/Application/New/4', '/Application/Login/4') }, 'umantis')).toBe(false);
+  });
+
   it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
     const successFactors = {
       url: 'https://career5.successfactors.eu/careers',
