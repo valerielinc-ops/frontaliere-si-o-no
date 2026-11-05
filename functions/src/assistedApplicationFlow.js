@@ -32,7 +32,7 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
@@ -295,7 +295,9 @@ function base(flow) {
     lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,
     postingExpiredAt: Number(flow?.postingExpiredAt) || null,
     portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
-    portalAutoRetryCount: Number(flow?.portalAutoRetryCount) || 0,
+    // An explicitly malformed persisted count must not be normalized to zero:
+    // that would silently mint a fresh automatic retry budget.
+    portalAutoRetryCount: portalAutoRetryCountValue(flow) ?? -1,
     portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
     portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
     transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,

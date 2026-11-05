@@ -32,6 +32,18 @@ export function isAutoRetryablePortalHold(flow) {
     || reason === 'portal:portal_needs_candidate');
 }
 
+/** Parse the persisted portal retry counter without coercing malformed values. */
+export function portalAutoRetryCountValue(flow) {
+  const raw = flow?.portalAutoRetryCount;
+  if (raw === undefined) return 0;
+  if (typeof raw === 'number') return Number.isSafeInteger(raw) && raw >= 0 ? raw : null;
+  if (typeof raw !== 'string') return null;
+  const text = raw.trim();
+  if (!/^\d+$/.test(text)) return null;
+  const attempts = Number(text);
+  return Number.isSafeInteger(attempts) ? attempts : null;
+}
+
 /**
  * The unsupported-portal recovery lane has a finite budget.  Keep this
  * check in the shared policy so the scheduler and the source-version
@@ -40,9 +52,8 @@ export function isAutoRetryablePortalHold(flow) {
  * fail closed instead of receiving a fresh retry budget.
  */
 export function portalAutoRetryAttemptsRemaining(flow) {
-  const raw = flow?.portalAutoRetryCount;
-  const attempts = raw === undefined || raw === null || raw === '' ? 0 : Number(raw);
-  return Number.isSafeInteger(attempts) && attempts >= 0 && attempts < PORTAL_AUTO_RETRY_DELAYS_MS.length;
+  const attempts = portalAutoRetryCountValue(flow);
+  return attempts !== null && attempts < PORTAL_AUTO_RETRY_DELAYS_MS.length;
 }
 
 export function portalRetryDueAt(flow) {
