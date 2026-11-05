@@ -1043,10 +1043,10 @@ function isNonApplicationJobSearchSurface(snapshot = {}, { applicationEvidence =
  * sharing for the posting, not an application surface; keep the fingerprint
  * narrow so a field-less application widget still reaches the agent.
  */
-function isNonApplicationJobDetailSurface(snapshot = {}) {
+function isNonApplicationJobDetailSurface(snapshot = {}, { applicationEvidence = false } = {}) {
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
-  if (fields.length) return false;
+  if (fields.length || applicationEvidence) return false;
 
   const publicButtons = buttons
     .filter(button => !button?.chrome && !button?.disabled)
@@ -1054,13 +1054,15 @@ function isNonApplicationJobDetailSurface(snapshot = {}) {
   const hasBackToResults = publicButtons.some(text => PUBLIC_JOB_RESULTS_BACK_RE.test(text));
   const hasJobInfo = publicButtons.some(text => PUBLIC_JOB_DETAIL_INFO_RE.test(text));
   const hasDetailTool = publicButtons.some(text => PUBLIC_JOB_DETAIL_TOOL_RE.test(text));
-  const hasApplicationButton = publicButtons.some(text => NEXT_RE.test(text) || SUBMIT_RE.test(text));
+  // Disabled application controls still identify an application surface.
+  const hasApplicationButton = buttons.some(button => !button?.chrome
+    && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || ''))));
   return hasBackToResults && hasJobInfo && hasDetailTool && !hasApplicationButton;
 }
 
 function isNonApplicationSurface(snapshot = {}, options = {}) {
   return isNonApplicationGallerySurface(snapshot)
-    || isNonApplicationJobDetailSurface(snapshot)
+    || isNonApplicationJobDetailSurface(snapshot, options)
     || isNonApplicationJobSearchSurface(snapshot, options);
 }
 

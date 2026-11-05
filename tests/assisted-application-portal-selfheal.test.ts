@@ -440,6 +440,46 @@ describe('portal runner self-correction', () => {
       .toMatchObject({ submit: null, next: null });
   });
 
+  it.each(['Bewerbung absenden', 'Weiter'])('keeps a fieldless detail-shaped application with a disabled %s control', (text) => {
+    const snapshot = {
+      fields: [],
+      buttons: [
+        { text: 'Tornare ai risultati della ricerca', disabled: false },
+        { text: 'Informazioni sul posto', disabled: false },
+        { text: 'Stampare', disabled: false },
+        { text, disabled: true },
+      ],
+    };
+
+    expect(hasApplicationSurface(snapshot)).toBe(true);
+    // Classification must preserve the application without clicking disabled controls.
+    expect(pageControls(snapshot.buttons, {}, 'https://www.job-room.ch/job-search/example/'))
+      .toEqual({ submit: null, next: null });
+  });
+
+  it.each(['nextButtons', 'finalButtons'])('keeps learned %s as application evidence on a fieldless detail shell', (kind) => {
+    const url = 'https://www.job-room.ch/job-search/example/';
+    const learnedControl = { id: 'application-control', text: 'Fertigstellen', disabled: false };
+    const snapshot = {
+      fields: [],
+      buttons: [
+        { text: 'Tornare ai risultati della ricerca', disabled: false },
+        { text: 'Informazioni sul posto', disabled: false },
+        { text: 'Stampare', disabled: false },
+        learnedControl,
+      ],
+    };
+    const known = { [kind]: [{ path: anonymizePath(url), label: learnedControl.text }] };
+
+    expect(pageControls(snapshot.buttons, {}, url)).toEqual({ submit: null, next: null });
+    expect(pageControls(snapshot.buttons, known, url)).toEqual(kind === 'nextButtons'
+      ? { submit: null, next: learnedControl }
+      : { submit: learnedControl, next: null });
+    // Evidence learned on another page cannot authorize this control.
+    expect(pageControls(snapshot.buttons, { [kind]: [{ path: '/other/', label: learnedControl.text }] }, url))
+      .toEqual({ submit: null, next: null });
+  });
+
   it('keeps a learned application control on a public search-shaped step', () => {
     const snapshot = {
       url: 'https://www.stadt-zuerich.ch/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs.html',
