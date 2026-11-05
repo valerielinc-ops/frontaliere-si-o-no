@@ -25,12 +25,25 @@ export function installHouseAds(
   const variants = ['control', 'time_saved', 'profile_match', 'in_control', 'swiss_work', 'next_chapter'];
   const entries = new Map<HTMLElement, Entry>();
   const eligibleFrames = new Set<HTMLElement>();
+  const observedFrames = new Set<HTMLElement>();
   const eligibleSince = new WeakMap<HTMLElement, number>();
+  const observedWidths = new WeakMap<HTMLElement, number>();
   const counted = new WeakMap<HTMLElement, Set<string>>();
   let assignment: { variant: HouseAdVariant; enrolled: boolean } = { variant: 'control', enrolled: false };
   let ready = false;
   let scheduled: ReturnType<typeof setTimeout> | undefined;
   let path = location.pathname;
+  const resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver((records) => {
+    let changed = false;
+    for (const record of records) {
+      const frame = record.target as HTMLElement;
+      const width = record.contentRect.width;
+      const previous = observedWidths.get(frame);
+      observedWidths.set(frame, width);
+      if (previous === undefined || Math.abs(previous - width) >= 1) changed = true;
+    }
+    if (changed) schedule();
+  }) : null;
   const read = (key: string, local = false) => { try { return (local ? localStorage : sessionStorage).getItem(key); } catch { return null; } };
   const analyticsAllowed = () => { try { return JSON.parse(read('frontaliere_consent', true) || '{}').analytics !== false; } catch { return false; } };
   const visible = (element: Element) => {
@@ -83,19 +96,31 @@ export function installHouseAds(
     }
   };
   const chooseSize = (width: number, height: number): { format: HouseAdFormat; height: number } => {
-    if (height >= 500 && width <= 360) return { format: 'skyscraper', height: 600 };
-    if (width >= 700 && height >= 200) return { format: 'billboard', height };
-    if (width >= 700) return { format: 'leaderboard', height: 90 };
-    if (height < 80) return { format: 'mobile_banner', height: 50 };
-    if (height < 180) return { format: 'mobile_large', height: 100 };
-    return { format: 'rectangle', height: height >= 200 ? height : 250 };
+    const actualHeight = Number.isFinite(height) && height > 0 ? height : 0;
+    if (actualHeight >= 500 && width <= 360) return { format: 'skyscraper', height: actualHeight };
+    if (width >= 700) return actualHeight >= 200
+      ? { format: 'billboard', height: actualHeight }
+      : { format: 'leaderboard', height: actualHeight || 90 };
+    if (actualHeight < 80) return { format: 'mobile_banner', height: Math.max(50, actualHeight || 50) };
+    if (actualHeight < 200) return { format: 'mobile_large', height: actualHeight };
+    return { format: 'rectangle', height: actualHeight };
   };
   function refresh() {
     if (!document.body) return;
+    for (const frame of observedFrames) if (!frame.isConnected) {
+      resizeObserver?.unobserve(frame);
+      observedFrames.delete(frame);
+      observedWidths.delete(frame);
+      remove(frame);
+    }
     if (path !== location.pathname) { for (const frame of eligibleFrames) remove(frame); path = location.pathname; }
     for (const frame of eligibleFrames) if (!frame.isConnected || !permitted()) remove(frame);
     if (!ready || !permitted()) return;
     for (const frame of document.querySelectorAll<HTMLElement>('[data-house]')) {
+      if (!observedFrames.has(frame)) {
+        observedFrames.add(frame);
+        resizeObserver?.observe(frame);
+      }
       const google = frame.querySelector<HTMLElement>('[data-ft-house-google],ins[data-ad-slot]');
       if (!google) continue;
       let host = frame.querySelector<HTMLElement>('[data-ft-house-host]');
