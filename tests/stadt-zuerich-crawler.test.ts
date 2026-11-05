@@ -296,6 +296,9 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
   it('publishes the tile with its official ad and skips the one without, never inventing text', async () => {
     mockPortal({ indexOk: true });
     const jobs = await fetchAllStadtZuerichJobs({
+      // The legacy index is intentionally partial; keep the missing tile's
+      // final browser-backed fallback deterministic and offline.
+      fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
       fetchCurrentOfficialIndexPage: async () => '',
     });
     expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
