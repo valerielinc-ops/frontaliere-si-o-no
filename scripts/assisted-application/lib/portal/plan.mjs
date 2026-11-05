@@ -1419,11 +1419,35 @@ function languageAnswerForField(candidate, field) {
     : null;
 }
 
+const PERMIT_EVIDENCE_QUESTION_PATTERNS = [
+  /\b(?:proof|evidence)\b/i,
+  /\bdocument(?:s|ation(?:s)?|azione|azioni|acion(?:es)?|o(?:s)?|i)?\b/i,
+  /\bcertificat(?:e|es|s|o|os|i)?\b/i,
+  /\b(?:cop(?:y|ies)|copi(?:a|as|e|es))\b/i,
+  /\bpreuve(?:s)?\b/i,
+  /\bpiece(?:s)?\b/i,
+  /\bjustificatif(?:s)?\b/i,
+  /\bjustificativ[ae]s?\b/i,
+  /\bjustificativo(?:s)?\b/i,
+  /\bjustificante(?:s)?\b/i,
+  /\battestation(?:s)?\b/i,
+  /\bnachweis(?:e|en)?\b/i,
+  /\bdokument(?:e|en)?\b/i,
+  /\bbescheinigung(?:en)?\b/i,
+  /\bprov[ae]\b/i,
+  /\bcomprobante(?:s)?\b/i,
+  /\bprueba(?:s)?\b/i,
+  /\bevidencia(?:s)?\b/i,
+];
+
 function isYesNoPermitQuestion(label) {
   // A later "do you hold" can belong to a wh-question asking which permit the
   // candidate has. Require a held-status predicate, so neither that question
   // nor an indirect "do you know which permit" converts status into a boolean.
   const text = String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/^[\s¿¡]+/, '');
+  // A permit status does not establish that the candidate can produce its
+  // proof, certificate, or other supporting document.
+  if (PERMIT_EVIDENCE_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return false;
   const patterns = [
     /^(?:do you|does the candidate)(?:\s+(?:currently|at present))?\s+(?:hold|have(?!\s+to\b)|possess|own)\b/i,
     /^are you(?:\s+(?:currently|legally))?\s+(?:authorized|authorised|permitted|entitled)\b/i,
@@ -1432,16 +1456,20 @@ function isYesNoPermitQuestion(label) {
     /^can you(?:\s+legally)?\s+(?:work|be employed)\b/i,
     /^(?:est[- ]ce que\s*)?vous\s+(?:avez|detenez|possedez)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
     /^(?:est[- ]ce que\s*)?vous\s+avez\s+(?:obtenu|recu)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
-    /^(?:est[- ]ce que\s*)?vous\s+etes\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession)\b/i,
+    /^(?:est[- ]ce que\s*)?vous\s+etes\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
+    /^(?:est[- ]ce que\s*)?vous\s+avez\s+le\s+droit\s+de\s+travailler\b/i,
     /^(?:avez|detenez|possedez)[- ]vous\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
     /^avez[- ]vous\s+(?:obtenu|recu)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
-    /^etes[- ]vous\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession)\b/i,
+    /^etes[- ]vous\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
+    /^avez[- ]vous\s+le\s+droit\s+de\s+travailler\b/i,
     /^(?:est[- ]ce que\s*)?tu\s+(?:as|detiens|possedes)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
     /^(?:est[- ]ce que\s*)?tu\s+as\s+(?:obtenu|recu)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
-    /^(?:est[- ]ce que\s*)?tu\s+es\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession)\b/i,
+    /^(?:est[- ]ce que\s*)?tu\s+es\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
+    /^(?:est[- ]ce que\s*)?tu\s+as\s+le\s+droit\s+de\s+travailler\b/i,
     /^(?:as|detiens|possedes)[- ]tu\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
     /^as[- ]tu\s+(?:obtenu|recu)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
-    /^es[- ]tu\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession)\b/i,
+    /^es[- ]tu\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
+    /^as[- ]tu\s+le\s+droit\s+de\s+travailler\b/i,
     /^(?:haben sie|hast du)(?:\s+(?:aktuell|derzeit|schon|bereits))?\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
     /^(?:sind sie|bist du)\s+(?:berechtigt|autorisiert|im besitz)\b/i,
     /^besitzen sie\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
