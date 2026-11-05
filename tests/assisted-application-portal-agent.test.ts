@@ -10,6 +10,7 @@ import {
   compactSnapshot,
   completeWithAgent,
   guardAgentStep,
+  isPreDispatchLocatorClickFailure,
   refusal,
   runAction,
   withoutSecrets,
@@ -20,6 +21,20 @@ import { candidateForForm, machineLabel } from '../scripts/assisted-application/
 
 const act = (action: Record<string, string>) => ({ ref: 'e5', action: 'click', value: '', document: 'none', question: '', answer: '', source: 'widget', ...action });
 const turn = (status: string, actions: any[] = [], questions: any[] = []) => ({ status, reason: '', advanceRef: '', actions, questions });
+
+describe('pre-dispatch locator click classification', () => {
+  it('combines the action code and wait evidence from an error wrapper', () => {
+    const waiting = Object.assign(new Error('Timeout 6000ms exceeded waiting for locator'), {
+      code: 'locator.click: Timeout 6000ms exceeded',
+    });
+    expect(isPreDispatchLocatorClickFailure(waiting)).toBe(true);
+
+    const dispatched = Object.assign(new Error('Timeout 6000ms exceeded waiting for locator'), {
+      code: 'locator.click: click action done; waiting for navigation',
+    });
+    expect(isPreDispatchLocatorClickFailure(dispatched)).toBe(false);
+  });
+});
 
 describe('fallback DOM provenance', () => {
   const field = { label: 'Adresse 8 / 100 Zeichen', section: 'Persönliche Angaben', autocomplete: 'street-address' };

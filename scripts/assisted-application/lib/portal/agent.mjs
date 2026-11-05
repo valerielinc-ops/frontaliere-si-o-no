@@ -724,7 +724,9 @@ export async function clickSubmitButton(page, target) {
 
 /** True only when Playwright proves the click did not reach a locator. */
 export function isPreDispatchLocatorClickFailure(error) {
-  const message = String(error?.message || error);
+  const message = [error?.message, error?.code]
+    .filter((value) => typeof value === 'string' && value.trim())
+    .join('\n') || String(error);
   if (/performing click action|click action done|waiting for (?:scheduled )?navigations?|waiting for navigation|navigated to|waiting for load state/i.test(message)) return false;
   if (/locator resolved to 0 elements/i.test(message)) return true;
   // Playwright can resolve the refreshed node and still time out before it
