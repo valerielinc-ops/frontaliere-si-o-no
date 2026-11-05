@@ -1,8 +1,238 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-11-01T09:40:40.322Z",
-  "runId": "41292695324",
+  "assembledAt": "2026-11-05T09:34:49.600Z",
+  "runId": "42001549588",
   "jobs": [
+    {
+      "id": "hfr-hopital-fribourgeois-c7afaf5ded4c",
+      "slug": "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg",
+      "slugByLocale": {
+        "fr": "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg",
+        "it": "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg",
+        "en": "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg",
+        "de": "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
+      },
+      "company": "Hôpital fribourgeois (HFR)",
+      "companyKey": "hfr-hopital-fribourgeois",
+      "companyDomain": "h-fr.ch",
+      "title": "Chef-fe de clinique adjoint-e",
+      "titleByLocale": {
+        "fr": "Chef-fe de clinique adjoint-e",
+        "it": "Chef-fe de clinique adjoint-e",
+        "en": "Chef-fe de clinique adjoint-e",
+        "de": "Chef-fe de clinique adjoint-e"
+      },
+      "description": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :",
+      "descriptionByLocale": {
+        "fr": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :",
+        "it": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :",
+        "en": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :",
+        "de": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :"
+      },
+      "needsRetranslation": true,
+      "location": "Fribourg, Switzerland",
+      "canton": "FR",
+      "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1421",
+      "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-05T09:34:38.377Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "streetAddress": "Fribourg",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-29T11:18:39+00:00",
+      "postedDate": "2026-10-29T11:18:39+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1421",
+      "jobReqId": "1421",
+      "externalId": "1421",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:34:38.377Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T09:34:38.377Z"
+    },
+    {
+      "id": "hfr-hopital-fribourgeois-0fc4713bc8fd",
+      "slug": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers",
+      "slugByLocale": {
+        "fr": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers",
+        "it": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers",
+        "en": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers",
+        "de": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers"
+      },
+      "company": "Hôpital fribourgeois (HFR)",
+      "companyKey": "hfr-hopital-fribourgeois",
+      "companyDomain": "h-fr.ch",
+      "title": "Assistant-e en soins et santé communautaire",
+      "titleByLocale": {
+        "fr": "Assistant-e en soins et santé communautaire",
+        "it": "Assistant-e en soins et santé communautaire",
+        "en": "Assistant-e en soins et santé communautaire",
+        "de": "Assistent-e en soins et santé communautaire"
+      },
+      "description": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e",
+      "descriptionByLocale": {
+        "fr": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e",
+        "it": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e",
+        "en": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e",
+        "de": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e"
+      },
+      "needsRetranslation": true,
+      "location": "Tafers, Switzerland",
+      "canton": "FR",
+      "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1605",
+      "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-05T09:34:36.276Z",
+      "addressLocality": "Tafers",
+      "addressRegion": "FR",
+      "streetAddress": "Tafers",
+      "postalCode": "1712",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-04T10:20:00+00:00",
+      "postedDate": "2026-11-04T10:20:00+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1605",
+      "jobReqId": "1605",
+      "externalId": "1605",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-03T09:34:36.276Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T09:34:36.276Z"
+    },
+    {
+      "id": "hfr-hopital-fribourgeois-959146abc73a",
+      "slug": "infirmier-ere-hfr-hopital-fribourgeois-tafers",
+      "slugByLocale": {
+        "fr": "infirmier-ere-hfr-hopital-fribourgeois-tafers",
+        "it": "infirmier-ere-hfr-hopital-fribourgeois-tafers",
+        "en": "infirmier-ere-hfr-hopital-fribourgeois-tafers",
+        "de": "infirmier-ere-hfr-hopital-fribourgeois-tafers"
+      },
+      "company": "Hôpital fribourgeois (HFR)",
+      "companyKey": "hfr-hopital-fribourgeois",
+      "companyDomain": "h-fr.ch",
+      "title": "Infirmier-ère",
+      "titleByLocale": {
+        "fr": "Infirmier-ère",
+        "it": "Infirmier-ère",
+        "en": "Infirmier-ère",
+        "de": "Infirmier-ère"
+      },
+      "description": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e",
+      "descriptionByLocale": {
+        "fr": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e",
+        "it": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e",
+        "en": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e",
+        "de": "Au sein de l'HFR Tafers, hôpital de proximité ancré dans sa région, vous évoluez dans un environnement à taille humaine, favorisant la collaboration et la proximité avec les patients.\n La Direction des soins recherche, pour le service de médecine interne de l’HFR Tafers, composé de deux unités de 24 et 30 lits accueillant une patientèle germanophone et francophone un/e"
+      },
+      "needsRetranslation": true,
+      "location": "Tafers, Switzerland",
+      "canton": "FR",
+      "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1604",
+      "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-05T09:34:35.683Z",
+      "addressLocality": "Tafers",
+      "addressRegion": "FR",
+      "streetAddress": "Tafers",
+      "postalCode": "1712",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-04T10:21:04+00:00",
+      "postedDate": "2026-11-04T10:21:04+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1604",
+      "jobReqId": "1604",
+      "externalId": "1604",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-03T09:34:35.683Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T09:34:35.683Z"
+    },
     {
       "id": "hfr-hopital-fribourgeois-1dbca3e8d552",
       "slug": "mutua-80-100-hopital-fribourgeois-hfr-fribourg",
@@ -94,7 +324,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:40:32.219Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-c97d1ba83852",
@@ -178,7 +409,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:40:31.572Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-85bbeef1d414",
@@ -262,7 +494,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:40:30.957Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-a23f8840ce01",
@@ -344,7 +577,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:30.364Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-6419dccd40fc",
@@ -436,7 +670,8 @@
       "streetAddress": "HFR Tafers",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:29.670Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-ab7297895d04",
@@ -521,7 +756,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:29.073Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-7286e564210b",
@@ -599,7 +835,8 @@
       "streetAddress": "HFR Tafers",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:28.481Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-d1d1dc288493",
@@ -677,7 +914,8 @@
       "streetAddress": "HFR Riaz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:27.870Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-ce162dc73d8b",
@@ -773,7 +1011,8 @@
       "streetAddress": "HFR Riaz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:40:27.255Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-2d06e35b0abb",
@@ -864,7 +1103,8 @@
       "streetAddress": "HFR Tafers",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:40:26.656Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-37bd23b43f2d",
@@ -953,7 +1193,8 @@
       "streetAddress": "HFR Meyriez-Murten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:40:25.850Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-79c8ac4cc609",
@@ -1036,7 +1277,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:25.245Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-2afb1c801bb3",
@@ -1120,7 +1362,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:40:24.625Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-65e52e26e895",
@@ -1224,7 +1467,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:24.014Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-504cbdd9044a",
@@ -1314,7 +1558,8 @@
       "streetAddress": "HFR Riaz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:40:23.396Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-2d0ad211d085",
@@ -1403,7 +1648,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:40:22.806Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-ecbc1574f8c8",
@@ -1516,7 +1762,8 @@
       "streetAddress": "HFR Tafers",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:22.120Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-bc93850bea82",
@@ -1624,7 +1871,8 @@
       "streetAddress": "HFR Tafers",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:21.449Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-6de1045cface",
@@ -1714,7 +1962,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:40:20.651Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-984c803dd531",
@@ -1730,7 +1979,7 @@
       "companyDomain": "h-fr.ch",
       "title": "Chef-fe de clinique ou chef-fe de clinique adjoint-e en neurologie 60 - 70 % / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt Neurologie 60–70 %",
       "titleByLocale": {
-        "it": "Chef-fe de clinique ou chef-fe de clinique adjoint-e en neurology 60-70 % / Medico senior o medico supplente Neurologia 60-70 %",
+        "it": "Chef-fe de clinique ou chef-fe de clinique adjoint-e en neurologie 60 - 70 % / Oberärztin/Oberarzt o stellvertretende/n Oberärztin/Oberarzt Neurologie 60–70 %",
         "en": "Chef-fe de clinique ou chef-fe de clinique adjoint-e en neurologie 60 - 70 % / Senior physician or deputy senior physician in neurology 60–70 %",
         "de": "Chef-fe de clinique ou chef-fe de clinique adjoint-e en neurologie 60 - 70 % / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt Neurologie 60–70 %",
         "fr": "Chef-fe de clinique ou chef-fe de clinique adjoint-e en neurologie 60 - 70 % / Médecin-chef/Médecin-chef adjoint Médecin-chef/Médecin-chef en neurologie 60–70 %"
@@ -1812,7 +2061,9 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:19.332Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "hfr-hopital-fribourgeois-5d0b3e262685",
@@ -1898,7 +2149,8 @@
       "streetAddress": "HFR Riaz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:18.593Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-ef67494b6229",
@@ -1998,7 +2250,8 @@
       "streetAddress": "HFR Riaz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:16.995Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-9f31f7882911",
@@ -2096,7 +2349,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:16.228Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-c873995d6fa1",
@@ -2175,7 +2429,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:15.585Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-51ff5fed2338",
@@ -2271,7 +2526,8 @@
       "streetAddress": "HFR Tafers",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:14.881Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-7ba5bc452613",
@@ -2380,7 +2636,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:14.248Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-2aab7fd2d635",
@@ -2485,7 +2742,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:40:13.502Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

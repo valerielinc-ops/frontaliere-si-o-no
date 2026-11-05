@@ -1,5 +1,6 @@
 // @vitest-environment node
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -159,6 +160,34 @@ afterEach(() => {
 });
 
 describe('publisher fast provenance gate', () => {
+  it('hashes section tar files in bounded chunks without whole-file reads', () => {
+    const root = tempRoot();
+    const tarPath = path.join(root, 'section.tar');
+    const tarBytes = Buffer.alloc(2 * 1024 * 1024 + 17, 0x61);
+    fs.writeFileSync(tarPath, tarBytes);
+    const expectedTarDigest = crypto.createHash('sha256').update(tarBytes).digest('hex');
+    const readFileSpy = vi.spyOn(fs, 'readFileSync').mockImplementation(() => {
+      throw new Error('whole-file reads are not supported for shard artifacts');
+    });
+
+    try {
+      const manifest = createSectionManifest({
+        root,
+        prefix: 'cerca-lavoro-ticino',
+        locale: 'it',
+        section: 'ticino',
+        sourceRunId: SOURCE_RUN_ID,
+        sourceSha: SOURCE_SHA,
+        artifactRunId: SOURCE_RUN_ID,
+        tarPath,
+      });
+
+      expect(manifest.tarSha256).toBe(expectedTarDigest);
+    } finally {
+      readFileSpy.mockRestore();
+    }
+  });
+
   it('accepts complete sitemap, path, digest, and Ticino shard evidence', () => {
     expect(fixture().result).toMatchObject({ passed: true, errorCount: 0, sampleRate: 1 });
   });

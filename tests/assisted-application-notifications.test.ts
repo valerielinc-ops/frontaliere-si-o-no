@@ -567,6 +567,37 @@ describe('follow-up emails', () => {
   });
 });
 
+describe('withdrawn application confirmation', () => {
+  it('includes the no-refund statement and safely echoes the candidate reason', () => {
+    const email = buildCustomerEmail('withdrawn', paidOrder({
+      locale: 'it',
+      submissionStatus: 'withdrawn',
+      withdrawalReason: '<script>alert(1)</script>',
+    }), 'order-1', { nowMs: NOW });
+    expect(email.subject).toBe("Conferma: ho annullato l'invio della tua candidatura per Infermiere/a cure acute");
+    expect(email.text).toContain('non sarà rimborsato');
+    expect(email.text).toContain('<script>alert(1)</script>');
+    expect(email.html).toContain('&lt;script&gt;alert(1)&lt;/script&gt;');
+    expect(email.html).not.toContain('<script>alert(1)</script>');
+  });
+
+  it('sends the confirmation once when the paid order becomes withdrawn', async () => {
+    const before = paidOrder({ submissionStatus: 'in_progress' });
+    const after = paidOrder({ submissionStatus: 'withdrawn', withdrawalReason: 'La posizione non mi interessa più' });
+    store['order-1'] = after;
+
+    await handleAssistedApplicationOrderWritten(before, after, 'order-1', { db, nowMs: NOW });
+    expect(payloads()).toHaveLength(1);
+    expect(payloads()[0].subject).toContain('annullato');
+    expect(payloads()[0].text).toContain('La posizione non mi interessa più');
+    expect(payloads()[0].text).toContain('non sarà rimborsato');
+    expect(store['order-1'].notifications.customer_withdrawn).toMatchObject({ status: 'sent' });
+
+    await handleAssistedApplicationOrderWritten(before, after, 'order-1', { db, nowMs: NOW + HOUR });
+    expect(payloads()).toHaveLength(1);
+  });
+});
+
 // Close-out P8 (owner decisions of 2026-10-03): the «inviata» e-mail of an automated order links the page
 // where the candidate keeps the documents, until the retention purge deletes them; in a WhatsApp
 // application the candidate sends the CV they choose there.

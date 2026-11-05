@@ -18,9 +18,25 @@ const SECTION_BATCHES = Object.freeze({
 
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const SHA_RE = /^[0-9a-f]{40}$/u;
+const DIGEST_CHUNK = Buffer.allocUnsafe(1024 * 1024);
 
 function digestFile(file) {
-  return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+  // Shard tars can exceed 2 GiB; hash them in bounded reads instead of asking
+  // Node to materialize the whole artifact as one Buffer.
+  const hash = crypto.createHash('sha256');
+  const fd = fs.openSync(file, 'r');
+  try {
+    let position = 0;
+    while (true) {
+      const bytesRead = fs.readSync(fd, DIGEST_CHUNK, 0, DIGEST_CHUNK.length, position);
+      if (bytesRead === 0) break;
+      hash.update(DIGEST_CHUNK.subarray(0, bytesRead));
+      position += bytesRead;
+    }
+    return hash.digest('hex');
+  } finally {
+    fs.closeSync(fd);
+  }
 }
 
 function walkHtml(root, prefix = '', rows = []) {

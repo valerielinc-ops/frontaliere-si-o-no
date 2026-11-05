@@ -1686,6 +1686,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  return JSON.parse(jsonStr);
  } catch { return null; }
  };
+ const normalizeOfferPrice = (offer: unknown): unknown => {
+ if (!offer || typeof offer !== 'object' || Array.isArray(offer)) return offer;
+ const record = offer as Record<string, unknown>;
+ if (typeof record.price !== 'string') return offer;
+ const rawPrice = record.price.trim();
+ if (!/^\d+(?:\.\d+)?$/u.test(rawPrice)) return offer;
+ const price = Number(rawPrice);
+ return Number.isFinite(price) ? { ...record, price } : offer;
+ };
 
  ldObj = {
  '@context': 'https://schema.org',
@@ -1731,7 +1740,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const organizer = parseNestedValue('organizer');
  if (organizer) ldObj.organizer = organizer;
  const offers = parseNestedValue('offers');
- if (offers) ldObj.offers = offers;
+ if (Array.isArray(offers)) ldObj.offers = offers.map(normalizeOfferPrice);
+ else if (offers) ldObj.offers = normalizeOfferPrice(offers);
  const performer = parseNestedValue('performer');
  if (performer) ldObj.performer = performer;
  if (!hasCompleteGoogleEventData(ldObj)) {

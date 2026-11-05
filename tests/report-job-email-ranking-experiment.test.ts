@@ -8,6 +8,7 @@ import {
   aggregateStats,
   buildExperimentReport,
   classifyRankingEvent,
+  DELIVERY_FIELDS,
   filterClicks,
   findIdentifierLeaks,
   parseArgs,
@@ -238,6 +239,12 @@ describe('argomenti', () => {
   });
 });
 
+describe('paginazione delle consegne', () => {
+  it('seleziona il campo usato dal cursore orderBy/startAfter', () => {
+    expect(DELIVERY_FIELDS).toContain('sent_at');
+  });
+});
+
 describe('fotografia dell\'esperimento CTR (2026-09-08 → 2026-10-03)', () => {
   const path = 'scripts/measurements/job-email-ranking-ctr-experiment-2026-09-08_2026-10-03.json';
 
@@ -258,5 +265,31 @@ describe('fotografia dell\'esperimento CTR (2026-09-08 → 2026-10-03)', () => {
       expect(row.clicks_dropped_by_filter).toBe(snap.events.by_variant_surface[variant].all.clicks_before_filter - snap.events.by_variant_surface[variant].all.clicks);
     }
     expect(snap.stats_exact.totals.impressions_by_variant_sum).toBe(snap.stats_exact.totals.impressions);
+  });
+});
+
+describe('fotografia dell\'esperimento affinity (2026-10-05 → 2026-11-05)', () => {
+  const path = 'scripts/measurements/job-email-ranking-affinity-experiment-2026-10-05_2026-11-05.json';
+
+  it('è aggregata, riconciliata e non trasforma il risultato in un claim di successo', () => {
+    if (!existsSync(path)) {
+      throw new Error('report-job-email-ranking-experiment: fotografia affinity mancante');
+    }
+    const snap = JSON.parse(readFileSync(path, 'utf8'));
+    expect(findIdentifierLeaks(snap)).toEqual([]);
+    expect(snap.period).toMatchObject({
+      from: '2026-10-05T00:00:00.000Z',
+      to: '2026-11-05T00:00:00.000Z',
+      truncated_to_run_time: false,
+    });
+    expect(snap.parameters.code_defaults).toMatchObject({ enabled: false, rollout: 0.5, affinityWeight: 0.5 });
+    expect(snap.parameters.remote_config).toMatchObject({ checked: true, job_email_ranking_parameters: {} });
+    expect(snap.reads.total).toBe(1166390);
+    expect(snap.consistency.by_variant.affinity.position_sum_matches_total).toBe(true);
+    expect(snap.consistency.by_variant.control.position_sum_matches_total).toBe(true);
+    const trueProfile = snap.by_affinity_profile.true;
+    expect(trueProfile.by_variant_surface.affinity.all).toMatchObject({ impressions: 21431, clicks: 344, ctr_pct: 1.6052 });
+    expect(trueProfile.by_variant_surface.control.all).toMatchObject({ impressions: 18274, clicks: 340, ctr_pct: 1.8606 });
+    expect(trueProfile.comparisons_vs_control.affinity_vs_control.all.clicks_per_delivery_user_clustered.excludes_zero).toBe(false);
   });
 });

@@ -27,7 +27,7 @@ import '../../extension/apply-control.js';
  */
 
 import path from 'node:path';
-import { applicationReceipt, applicationStage, isApplicationRegionUnsupported } from './stages.mjs';
+import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
@@ -79,8 +79,16 @@ const umantisIdentityCaption = field => String(field?.label || '').normalize('NF
 
 function verifiedUmantisApplicantContext(stageContext, currentUrl) {
   if (stageContext?.postingEntry !== true || !stageContext.applyUrl || !stageContext.postingUrl) return null;
+  // A direct Umantis order can store the posting URL in `applyUrl` while the
+  // verified application page is derived from its vacancy/description path.
+  // Resolve that route before validating the native applicant form; otherwise
+  // the address cluster stays ownerless and is correctly (but unnecessarily)
+  // held as unreadable.
+  const applicationUrl = stageContext.applicationUrl
+    || umantisApplicationEntryUrl(stageContext)
+    || stageContext.applyUrl;
   try {
-    const application = new URL(String(stageContext.applyUrl));
+    const application = new URL(String(applicationUrl));
     const posting = new URL(String(stageContext.postingUrl));
     const current = new URL(String(currentUrl || ''));
     if (application.protocol !== 'https:' || posting.protocol !== 'https:' || current.protocol !== 'https:'
@@ -426,6 +434,43 @@ export function isVerifiedPostingEntry({ applyUrl, postingUrl } = {}) {
   return isSuccessFactorsPostingEntry({ applyUrl, postingUrl })
     || isDirectJobApplyEntry({ applyUrl, postingUrl })
     || isUmantisPostingEntry({ applyUrl, postingUrl });
+}
+
+/** The selected posting address, ignoring only its canonical trailing slash. */
+function samePostingAddress(firstUrl, secondUrl) {
+  try {
+    const first = new URL(String(firstUrl || ''));
+    const second = new URL(String(secondUrl || ''));
+    return first.origin === second.origin
+      && !first.username && !first.password && !second.username && !second.password
+      && first.pathname.replace(/\/+$/, '') === second.pathname.replace(/\/+$/, '')
+      && first.search === second.search
+      && first.hash === second.hash;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Stadt Zürich's Jobs2Web detail shell can stay on the selected posting while
+ * its application widget is mounting. Other hosts need an actual form surface
+ * or a verified same-requisition apply route before they count as bound.
+ */
+function isStadtZurichPostingRoute({ pageUrl, postingUrl } = {}) {
+  try {
+    const page = new URL(String(pageUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    return page.hostname === 'jobs.stadt-zuerich.ch'
+      && posting.hostname === page.hostname
+      && samePostingAddress(page.href, posting.href);
+  } catch {
+    return false;
+  }
+}
+
+export function isPostingRouteBound({ pageUrl, postingUrl } = {}) {
+  return isStadtZurichPostingRoute({ pageUrl, postingUrl })
+    || isVerifiedPostingEntry({ applyUrl: pageUrl, postingUrl });
 }
 
 export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
@@ -906,15 +951,114 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+function comparablePortalRoute(value, base = '') {
+  try {
+    const url = new URL(String(value || ''), base || undefined);
+    return {
+      origin: url.origin,
+      pathname: url.pathname.replace(/\/+$/, '') || '/',
+      search: url.search,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function samePortalRoute(one, other, base = '') {
+  const left = comparablePortalRoute(one, base);
+  const right = comparablePortalRoute(other, base);
+  return Boolean(left && right && left.origin === right.origin
+    && left.pathname === right.pathname && left.search === right.search);
+}
+
+const POSTING_ID_FIELDS = [
+  'postingId', 'postingKey', 'jobId', 'jobKey', 'requisitionId', 'requisitionKey', 'careerJobReqId',
+  'dataPostingId', 'dataJobId', 'dataRequisitionId', 'dataCareerJobReqId',
+];
+const POSTING_ID_MARKER_RE = /(?:^|[\s([{"'·|,;:/?&#])(?:career[_ -]?job[_ -]?req(?:uisition)?|job|posting|requisition|req)[\s_-]*(?:id|key)\s*(?:[:=#]|is)?\s*([a-z0-9][a-z0-9_-]{0,99})(?=$|[\s)\]}"'·|,;/?&#])/giu;
+
+function normalizedPostingIdentity(value) {
+  const marker = String(value ?? '').normalize('NFKC').trim();
+  return /^[a-z0-9_-]{1,100}$/i.test(marker) ? marker.toLowerCase() : '';
+}
+
+function uniquePostingIdentity(values) {
+  const markers = [...new Set(values.map(normalizedPostingIdentity).filter(Boolean))];
+  return markers.length === 1 ? markers[0] : '';
+}
+
+function postingIdentityMarkers(value) {
+  const text = String(value || '');
+  const markers = [];
+  for (const url of text.match(/https?:\/\/[^\s<>"')]+/giu) || []) {
+    const key = portalJobKey(url);
+    if (key) markers.push(key);
+  }
+  for (const match of text.matchAll(POSTING_ID_MARKER_RE)) markers.push(match[1]);
+  return markers;
+}
+
+function expectedPostingIdentity({ applyUrl = '', postingUrl = '', sourceProtocol = null, job = {} } = {}) {
+  return uniquePostingIdentity([
+    portalJobKey(postingUrl, sourceProtocol),
+    portalJobKey(applyUrl, sourceProtocol),
+    ...POSTING_ID_FIELDS.map((field) => job?.[field]),
+  ]);
+}
+
+function controlPostingIdentity(control) {
+  const direct = POSTING_ID_FIELDS.flatMap((field) => {
+    const value = control?.[field];
+    const explicit = normalizedPostingIdentity(value);
+    return explicit ? [explicit] : postingIdentityMarkers(value);
+  });
+  const context = [control?.section, control?.context].flatMap(postingIdentityMarkers);
+  return uniquePostingIdentity([...direct, ...context]);
+}
+
+function applicationEntryBelongsToPosting(control, { applyUrl = '', postingUrl = '', sourceProtocol = null, job = {} } = {}) {
+  const href = String(control?.href || '').trim();
+  if (href && [applyUrl, postingUrl].some((route) => samePortalRoute(href, route, postingUrl))) return true;
+  if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl })) return true;
+
+  // A posting can use a button with no URL (Yellowshark). Its nearest heading
+  // or explicit section must contain the selected role and a unique posting
+  // identity; a title alone can be shared by distinct neighbouring cards.
+  const localContext = [control?.section, control?.context].filter(Boolean).join(' ');
+  const expectedIdentity = expectedPostingIdentity({ applyUrl, postingUrl, sourceProtocol, job });
+  return Boolean(expectedIdentity && controlPostingIdentity(control) === expectedIdentity
+    && localContext && job?.title
+    && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
+}
+
+function applicationEntryControls(snapshot = {}, context = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ];
+  return controls.filter((control) => !control?.disabled && !control?.chrome
+    && startsApplication(control?.text || control?.label)
+    && applicationEntryBelongsToPosting(control, context));
+}
+
+// A posting may show an informational region notice and still expose its own
+// application entry. Keep the notice terminal only when no proved entry
+// control remains; an unrelated job button must not count as an escape hatch.
+function hasApplicationEntryControl(snapshot = {}, context = {}) {
+  return applicationEntryControls(snapshot, context).length > 0;
+}
+
 /**
  * A page with only the employer site's header/footer controls is not an
- * application form. Keeping this separate from hasApplicationForm matters:
- * custom application widgets may have no native fields yet, but their own
- * buttons are still actionable and must reach the agentic fallback.
+ * application form. The thin-shell exception is limited to Stadt Zürich's
+ * exact posting route; a verified apply URL alone still needs a form surface.
+ * Custom widgets may have no native fields yet, but their own buttons are
+ * actionable and must reach the agentic fallback.
  */
-export function hasApplicationSurface(snapshot) {
+export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '', postingMatch = '' } = {}) {
   if (isNonApplicationSurface(snapshot)) return false;
-  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
+  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome)
+    || (postingMatch === 'match' && isStadtZurichPostingRoute({ pageUrl, postingUrl })));
 }
 
 /**
@@ -1206,6 +1350,10 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
 export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
 export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
 export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
+// Yellowshark exposes this bare label without the word "cookie". Keep it out
+// of the general preference vocabulary: it is accepted only after the live
+// control has proved that it belongs to a cookie manager surface.
+export const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
 const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
@@ -1260,7 +1408,7 @@ async function genericCookieControlsShareContainer(page, button, closeControls) 
       const accept = controlFor(acceptId);
       const closes = ids.map(controlFor).filter(Boolean);
       if (!accept || !closes.length) return false;
-      const markerRe = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
+      const markerRe = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_]?(?:policy|manager)\b/i;
       const explicitSurfaceFor = (element) => {
         for (let node = element; node && node !== document.body; node = node.parentElement) {
           const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('role'), node.getAttribute('aria-label')]
@@ -1329,6 +1477,9 @@ async function isPageCookieConsentControl(page, snapshot, button) {
 }
 
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
+  // A privacy/consent action can use the same bare label inside the
+  // application form. It is never a cookie-manager entry point there.
+  if (COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button)) && (button.formId || button.roleFormId)) return false;
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -1344,11 +1495,13 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   return isPageCookieConsentControl(page, snapshot, button);
 }
 
-async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
+async function findCookieControl(page, snapshot, pattern, { genericPreferences = false, manageConsent = false } = {}) {
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || (button.chrome && button.cookieSurface !== 'banner')) continue;
     const label = cookieControlLabel(button);
-    if (!pattern.test(label) && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))) continue;
+    if (!pattern.test(label)
+      && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))
+      && !(manageConsent && COOKIE_MANAGE_CONSENT_RE.test(label))) continue;
     if (await cookieControlHasCookieContext(page, button, snapshot)) return button;
   }
   return null;
@@ -1382,7 +1535,7 @@ async function clickCookieChoice(page, snapshot, button) {
   const current = await cookiePageSnapshot(page);
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
   if (await cookieChoice(page, current)
-    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })
     || cookieDialogRemains(current, button)) return { status: 'unresolved', snapshot: current };
   return { status: 'dismissed', snapshot: current };
 }
@@ -1404,7 +1557,7 @@ async function clickMarkedShadowCookie(page) {
 
 async function markShadowCookieButton(page, { includePreferences = false } = {}) {
   try {
-    return await page.evaluate(([reject, accept, customize, genericPreferences, include]) => {
+    return await page.evaluate(([reject, accept, customize, manageConsent, genericPreferences, include]) => {
     const roots = [document];
     const shadows = [];
     for (let index = 0; index < roots.length && index < 50; index += 1) {
@@ -1414,27 +1567,32 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
         shadows.push(element.shadowRoot);
       }
     }
-    const cookieShadowSurfaceIsActive = (host) => {
+    const cookieShadowSurfaceIsActive = (host, manageConsentAction = false) => {
       for (let node = host; node && node !== document.body; node = node.parentElement) {
         const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
           .filter(Boolean).join(' ');
         if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
-          || /\b(?:banner|notice|overlay|modal|dialog|consent)\b/i.test(marker)) return true;
+          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)
+          || (manageConsentAction && /\bconsent\b/i.test(marker))) return true;
       }
       return false;
     };
     const actions = [{ kind: 'decision', source: reject }, { kind: 'decision', source: accept }];
-    if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: genericPreferences });
+    if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: manageConsent }, { kind: 'preferences', source: genericPreferences });
     for (const action of actions) {
       const pattern = new RegExp(action.source, 'i');
       for (const shadow of shadows) {
+        const manageConsentAction = action.kind === 'preferences' && action.source === manageConsent;
         if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
-          || !cookieShadowSurfaceIsActive(shadow.host))) continue;
+          || !cookieShadowSurfaceIsActive(shadow.host, manageConsentAction))) continue;
         const button = [...shadow.querySelectorAll('button, [role="button"]')]
           .find((element) => {
             const label = String(element.innerText || element.textContent || '').trim();
             return element.getBoundingClientRect().width > 0
               && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
+              && !(action.kind === 'preferences' && new RegExp(manageConsent, 'i').test(label)
+                && (element.closest('form, [role="form"]')
+                  || shadow.host.closest('form, [role="form"]')))
               && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
           });
         if (button) {
@@ -1444,7 +1602,7 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
       }
     }
     return '';
-    }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source,
+    }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source, COOKIE_MANAGE_CONSENT_RE.source,
       COOKIE_GENERIC_PREFERENCES_RE.source, includePreferences]);
   } catch {
     return '';
@@ -1455,7 +1613,7 @@ export async function dismissCookieBanner(page, snapshot) {
   let choice = await cookieChoice(page, snapshot);
   if (choice) return clickCookieChoice(page, snapshot, choice);
 
-  const preferences = await findCookieControl(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true });
+  const preferences = await findCookieControl(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true });
   if (preferences) {
     const origin = pageOrigin(page);
     try {
@@ -1480,7 +1638,7 @@ export async function dismissCookieBanner(page, snapshot) {
     await page.waitForTimeout(800);
     const current = await cookiePageSnapshot(page);
     if (!current || await cookieChoice(page, current)
-      || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })) return { status: 'unresolved', snapshot: current || snapshot };
+      || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) return { status: 'unresolved', snapshot: current || snapshot };
     shadowAction = await markShadowCookieButton(page, { includePreferences: true });
     if (shadowAction) {
       await clearShadowCookieMarker(page);
@@ -1504,7 +1662,7 @@ export async function dismissCookieBanner(page, snapshot) {
   await page.waitForTimeout(800);
   current = await cookiePageSnapshot(page);
   if (!current || await cookieChoice(page, current)
-    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })) return { status: 'unresolved', snapshot: current || snapshot };
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) return { status: 'unresolved', snapshot: current || snapshot };
   shadowAction = await markShadowCookieButton(page, { includePreferences: true });
   if (shadowAction) {
     await clearShadowCookieMarker(page);
@@ -1538,9 +1696,14 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return { page, snapshot };
     }
-    const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
-    const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
-    const link = manual || apply ? null : page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first();
+    const ownedEntries = applicationEntryControls(snapshot, stageContext);
+    const buttonEntries = ownedEntries.filter((control) => (snapshot.buttons || []).includes(control));
+    const manual = buttonEntries.find((button) => MANUAL_APPLY_RE.test(button.text || button.label || '')) || null;
+    const apply = manual ? null : buttonEntries[0] || null;
+    const linkEntry = manual || apply
+      ? null
+      : ownedEntries.find((control) => (snapshot.links || []).includes(control)) || null;
+    const link = linkEntry ? locatorFor(page, linkEntry) : null;
     const linkVisible = link
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
       : false;
@@ -1773,6 +1936,20 @@ export function namesAnotherEmployer(formText, job = {}) {
   return false;
 }
 
+// The exact Stadt Zürich detail shell can put its tenant marker and the
+// posting URL in the form text. They are route evidence, not a second
+// employer; remove only those proven shell tokens before the conflict guard.
+function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = '' } = {}) {
+  const text = String(formText || '');
+  const firstLine = text.split(/\r?\n/, 1)[0];
+  if (!isStadtZurichPostingRoute({ pageUrl, postingUrl })
+    || !/\bSTZH\b/iu.test(firstLine)
+    || !titleMatches(firstLine, job?.title)) return text;
+  const routeEvidence = [pageUrl, postingUrl].map(value => String(value || '')).filter(Boolean);
+  return routeEvidence.reduce((current, value) => current.split(value).join(' '), text)
+    .replace(/\b(?:Stellendetails|STZH)\b/giu, ' ');
+}
+
 /**
  * The form the posting's own apply button opened. An ATS on another host
  * often names the role and never the company (umantis for Grand Hotel
@@ -1788,8 +1965,22 @@ export function namesAnotherEmployer(formText, job = {}) {
  * a URL pair that proves this exact posting's apply route; the route is
  * provenance, not a generic employer-site fallback.
  */
-export function formPostingMatch(formText, job = {}, { postingMatched = false, postingEntry = false, pageUrl = '' } = {}) {
+export function formPostingMatch(formText, job = {}, {
+  postingMatched = false,
+  postingEntry = false,
+  pageUrl = '',
+  postingUrl = '',
+} = {}) {
   const direct = postingMatch(formText, job, pageUrl);
+  const bound = isPostingRouteBound({ pageUrl, postingUrl });
+  // The selected detail route is authoritative even when its dynamic shell
+  // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
+  // Do not apply this to another page on the same host: route identity must be
+  // exact, and an apply route still goes through the employer-conflict guard.
+  if (bound && samePostingAddress(pageUrl, postingUrl)) {
+    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl }), job)) return 'mismatch';
+    return 'match';
+  }
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
@@ -5041,6 +5232,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
  */
 export async function readPortalRequirements(ctx) {
   const entryUrl = portalEntryUrl(ctx);
+  // Umantis can publish the posting itself as its applyUrl. portalEntryUrl
+  // turns that exact, same-vacancy pair into Application/New; carry the
+  // verified application route through form recognition as well, so the
+  // applicant identity can own an otherwise ungrouped address cluster.
+  const umantisApplyUrl = umantisApplicationEntryUrl(ctx);
+  const stageApplyUrl = umantisApplyUrl || ctx.applyUrl;
   const channelType = portalChannelType(ctx);
   // Some employer sites expose a Jobs2Web application URL without using a
   // SuccessFactors hostname. Only pre-read those when the validated same-ID
@@ -5056,7 +5253,7 @@ export async function readPortalRequirements(ctx) {
   if (!readAhead || !ctx.applyUrl) {
     return { questions: [], documents: [] };
   }
-  if (!ctx.codex) return { questions: [], documents: [], handoff: 'requirements_unavailable' };
+  if (!ctx.codex) return { questions: [], documents: [], handoff: 'planner_unavailable' };
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
   try {
@@ -5073,9 +5270,13 @@ export async function readPortalRequirements(ctx) {
     let page = await context.newPage();
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
-    let snapshot;
-    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
-      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, job: ctx.job, postingEntry: verifiedPostingEntry,
+    let snapshot = await extractFields(page, NAVIGATION);
+    const opened = await openApplicationForm(context, page, snapshot, {
+      applyUrl: stageApplyUrl,
+      postingUrl: ctx.postingUrl,
+      sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
+      job: ctx.job,
+      postingEntry: verifiedPostingEntry,
     });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
@@ -5089,7 +5290,8 @@ export async function readPortalRequirements(ctx) {
       : NAVIGATION));
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
-    if (snapshot.captcha || !readableApplication) return { questions: [], documents: [], handoff: 'requirements_unavailable' };
+    if (snapshot.captcha) return { questions: [], documents: [], handoff: 'captcha_present' };
+    if (!readableApplication) return { questions: [], documents: [], handoff: 'application_form_unreadable' };
     // The live form is authoritative for the selected posting. A verified
     // route is sufficient provenance for a generic ATS form; otherwise a
     // mismatch must stop before any job-specific question reaches the draft.
@@ -5105,10 +5307,17 @@ export async function readPortalRequirements(ctx) {
         postingMatched: verifiedPostingEntry,
         postingEntry: verifiedPostingEntry,
         pageUrl: page.url(),
+        postingUrl: ctx.postingUrl,
       });
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
     }
-    const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    let plan;
+    try {
+      plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    } catch {
+      (ctx.log || (() => {}))('portal pre-read skipped: question_planning_failed');
+      return { questions: [], documents: [], handoff: 'question_planning_failed' };
+    }
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, { candidate: ctx.candidate });
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
@@ -5121,12 +5330,15 @@ export async function readPortalRequirements(ctx) {
       log: ctx.log,
     });
     if (questions.some((question) => question.localizationStatus === 'fallback')) {
-      throw new PortalQuestionLocalizationError();
+      return { questions: [], documents: [], handoff: 'question_localization_unavailable' };
     }
     return { ...requirements, questions };
   } catch (error) {
-    (ctx.log || (() => {}))(`portal pre-read skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return { questions: [], documents: [], handoff: 'requirements_unavailable' };
+    const handoff = error instanceof PortalQuestionLocalizationError
+      ? 'question_localization_unavailable'
+      : 'portal_reader_failed';
+    (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`);
+    return { questions: [], documents: [], handoff };
   } finally {
     await browser?.close().catch(() => {});
   }
@@ -5308,7 +5520,8 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    if (postingNamed && isApplicationRegionUnsupported(initialPageText)) {
+    if (postingNamed && isApplicationRegionUnsupported(initialPageText)
+      && !hasApplicationEntryControl(snapshot, { applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job })) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, {
@@ -5332,6 +5545,7 @@ export async function submitViaPortal(ctx) {
         postingMatched: enteredFromMatchingPosting || (postingNamed && page.url() !== postingUrl),
         postingEntry: enteredFromMatchingPosting,
         pageUrl,
+        postingUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
       if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
@@ -5354,7 +5568,11 @@ export async function submitViaPortal(ctx) {
     // pass postingMatch, while exposing only the site's Menu/Search controls.
     // Do not send that chrome to the agent as if it were an unanswered
     // candidate question; it is not the application form for this posting.
-    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
+    if (!hasApplicationSurface(snapshot, {
+      pageUrl: page.url(),
+      postingUrl,
+      postingMatch: match,
+    }) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
@@ -5980,7 +6198,11 @@ export async function submitViaPortal(ctx) {
       // generic optional upload and gallery controls. The entry-point guard
       // above does not run again, so stop before the no-controls agent fallback
       // treats that content as an unanswered application question.
-      if (!hasApplicationSurface(after)) return await handoff('posting_mismatch');
+      if (!hasApplicationSurface(after, {
+        pageUrl: page.url(),
+        postingUrl,
+        postingMatch: evidence.postingMatch,
+      })) return await handoff('posting_mismatch');
       let advance = null;
       let finalByAgent = null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's

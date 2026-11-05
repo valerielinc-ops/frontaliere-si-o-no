@@ -25,6 +25,13 @@ describe('validateEventStructuredData', () => {
     expect(validateEventStructuredData(EVENT, '/dist/event/index.html')).toEqual([]);
   });
 
+  it('accepts a physical event address with locality and country but no street or postal code', () => {
+    const location = structuredClone(EVENT.location);
+    delete (location.address as Record<string, unknown>).streetAddress;
+    delete (location.address as Record<string, unknown>).postalCode;
+    expect(validateEventStructuredData({ ...EVENT, location }, '/dist/event/index.html')).toEqual([]);
+  });
+
   it('accepts supported Event status arrays and rejects arrays with unknown members', () => {
     const valid = validateEventStructuredData({
       ...EVENT,

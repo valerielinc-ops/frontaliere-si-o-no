@@ -44,7 +44,8 @@ export async function fetchTrendsDiscoveryCandidates(evidence, opts = {}) {
       ...(Number.isFinite(opts.deadlineMs) ? { deadlineMs: Number(opts.deadlineMs) } : {}),
     });
   } catch (err) {
-    console.warn(`[discovery/trends] fetcher threw: ${err?.message || err}`);
+    const errorType = err instanceof Error ? err.constructor?.name || 'Error' : typeof err;
+    console.warn(`[discovery/trends] fetcher threw error_type=${errorType}`);
     return [];
   }
 

@@ -235,11 +235,11 @@ async function main() {
     console.error(`❌ Unreadable source images: ${failures.length}`);
     for (const { file, message } of failures) {
       const shown = displayPath(file);
-      console.error(`   ${shown}: ${message}`);
       if (process.env.GITHUB_ACTIONS === 'true') {
-        // Annotation on the run summary, so the broken file is visible without
-        // opening the step log.
-        console.error(`::error file=${shown},title=Miniature: immagine sorgente illeggibile::${message}`);
+        console.error('   thumbnail failed; source details withheld');
+        console.error('::error title=Miniature: immagine sorgente illeggibile::thumbnail generation failed');
+      } else {
+        console.error(`   ${shown}: ${message}`);
       }
     }
     console.error('   Fix or replace the files above; no thumbnail is kept for them (a previous one, if any, was removed).');
@@ -248,6 +248,10 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(`❌ Failed to generate thumbnails: ${err?.message || err}`);
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    console.error('❌ Failed to generate thumbnails error_type=Error');
+  } else {
+    console.error(`❌ Failed to generate thumbnails: ${err?.message || err}`);
+  }
   process.exit(1);
 });

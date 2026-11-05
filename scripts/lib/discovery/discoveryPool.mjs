@@ -50,6 +50,10 @@ function hasDeadlineWindow(value, minimumMs = 0) {
   return deadlineMs - Date.now() >= safeMinimumMs;
 }
 
+export function safeDiscoveryErrorType(err) {
+  return err instanceof Error ? 'Error' : typeof err;
+}
+
 function isOrphanDisabled() {
   return ENV_TRUE(process.env.DISABLE_DISCOVERY_ORPHAN);
 }
@@ -186,7 +190,7 @@ export async function fetchAll(evidence, opts = {}) {
       perSource.orphan = orphans.length;
       for (const c of orphans) merged.push(c);
     } catch (err) {
-      console.warn(`[discovery] orphan source failed: ${err?.message || err}`);
+      console.warn(`[discovery] orphan source failed error_type=${safeDiscoveryErrorType(err)}`);
     }
   }
 
@@ -202,7 +206,7 @@ export async function fetchAll(evidence, opts = {}) {
       })
         .then((arr) => ({ kind: 'suggest', arr: Array.isArray(arr) ? arr : [] }))
         .catch((err) => {
-          console.warn(`[discovery] suggest source failed: ${err?.message || err}`);
+          console.warn(`[discovery] suggest source failed error_type=${safeDiscoveryErrorType(err)}`);
           return { kind: 'suggest', arr: [] };
         }),
     );
@@ -214,7 +218,7 @@ export async function fetchAll(evidence, opts = {}) {
       newsFn(evidence, newsOptions)
         .then((arr) => ({ kind: 'news', arr: Array.isArray(arr) ? arr : [] }))
         .catch((err) => {
-          console.warn(`[discovery] news source failed: ${err?.message || err}`);
+          console.warn(`[discovery] news source failed error_type=${safeDiscoveryErrorType(err)}`);
           return { kind: 'news', arr: [] };
         }),
     );
@@ -227,7 +231,7 @@ export async function fetchAll(evidence, opts = {}) {
       })
         .then((arr) => ({ kind: 'trends', arr: Array.isArray(arr) ? arr : [] }))
         .catch((err) => {
-          console.warn(`[discovery] trends source failed: ${err?.message || err}`);
+          console.warn(`[discovery] trends source failed error_type=${safeDiscoveryErrorType(err)}`);
           return { kind: 'trends', arr: [] };
         }),
     );
@@ -283,7 +287,7 @@ export async function fetchAll(evidence, opts = {}) {
         Number.isFinite(opts.nowMs) ? Number(opts.nowMs) : Date.now(),
       );
     } catch (err) {
-      console.warn(`[discovery/trends] evidence search failed: ${err?.message || err}`);
+      console.warn(`[discovery/trends] evidence search failed error_type=${safeDiscoveryErrorType(err)}`);
     }
   } else if (
     !isNewsDisabled()
@@ -347,12 +351,13 @@ export function dedupAgainstProven(candidates, provenHeadlines, threshold = SLUG
 export function scoreCandidates(candidates, evidence) {
   if (!Array.isArray(candidates) || candidates.length === 0) return [];
   const scored = [];
-  for (const c of candidates) {
+  for (let index = 0; index < candidates.length; index += 1) {
+    const c = candidates[index];
     let breakdown;
     try {
       breakdown = discoveryScore(c, evidence);
     } catch (err) {
-      console.warn(`[discovery] scoring failed for "${String(c.headline).slice(0, 60)}": ${err?.message || err}`);
+      console.warn(`[discovery] scoring failed candidate_index=${index + 1} error_type=${safeDiscoveryErrorType(err)}; candidate skipped`);
       continue;
     }
     scored.push({

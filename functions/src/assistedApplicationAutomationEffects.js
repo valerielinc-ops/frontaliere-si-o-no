@@ -24,11 +24,12 @@ import {
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { fitNoticeOf, fitNoticeWording } from './assistedApplicationFitNotice.js';
-import { candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from './assistedApplicationCandidateEdits.js';
 import { withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 
 const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
+const CANDIDATE_REQUIREMENT_EMAILS = new Set(['candidate_action_needed', 'candidate_questions_reminder', 'owner_candidate_silent']);
 
 function formatPrice(order, locale) {
   const amount = Number(order?.amountTotal);
@@ -86,15 +87,34 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   const formAnswers = withOperationalQuestionAnswers(candidateQuestions, answers).answers;
   const key = automationEmailKey(effect, flow);
   const isOwner = effect.kind.startsWith('owner_');
+  // Open questions and the required documents still missing (school reports, test results…).
+  const openQuestionIds = candidateQuestions.filter((question) => question.required
+    && (!String(formAnswers?.[question.id] ?? '').trim()
+      || !requiredPortalConsentAffirmed(question, formAnswers?.[question.id]))).map((question) => String(question.id));
+  const openDocumentIds = openRequiredDocuments(draft, flow.documents || {}, flow).map((id) => String(id));
+  const openQuestions = openQuestionIds.length + openDocumentIds.length;
+  const visibleHolds = new Set([
+    ...openQuestionIds.map((id) => `question:${id}`),
+    ...openDocumentIds.map((id) => `document:${id}`),
+  ]);
+  const waitingForCandidateRequirements = CANDIDATE_REQUIREMENT_EMAILS.has(effect.kind)
+    || (effect.kind === 'candidate_review' && effect.held === true);
+  const heldRequirements = (Array.isArray(flow?.heldBy) ? flow.heldBy : [])
+    .filter((held) => /^(question|document):/.test(String(held)))
+    .map(String);
+  // A notification is actionable only when the current draft can render the
+  // exact hold that caused it. This is the last line of defence for legacy or
+  // truncated flows: no blank candidate link, no reminder for a stale hold.
+  if (waitingForCandidateRequirements && (openQuestions === 0
+    || heldRequirements.length === 0
+    || heldRequirements.some((held) => !visibleHolds.has(held)))) {
+    return { ok: true, skipped: 'no_candidate_requirements' };
+  }
   // Build inside sendOrderNotification's claim (it hands us the fresh order).
   let reviewUrl = '';
   if (!isOwner && effect.kind !== 'candidate_posting_closed') {
     reviewUrl = await reviewUrlFor(order, orderId, flow.round || 1, resolveOrderLocale(order), deps);
   }
-  // Open questions and the required documents still missing (school reports, test results…).
-  const openQuestions = candidateQuestions.filter((question) => question.required
-    && !String(formAnswers?.[question.id] ?? '').trim()).length
-    + openRequiredDocuments(draft, flow.documents || {}, flow).length;
   // The profile is not a full match: said in the review e-mail too, worded as the page words it
   // (no list without gaps, no answers without questions).
   const fit = effect.kind === 'candidate_review' ? fitNoticeWording(fitNoticeOf(draft), { questions: candidateQuestions.length > 0 }) : null;

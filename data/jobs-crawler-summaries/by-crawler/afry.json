@@ -1,18 +1,21 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-11-04T21:28:17.709Z",
+  "generatedAt": "2026-11-05T09:22:16.370Z",
   "total": 55,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 54,
-  "durationMs": 102531,
-  "avgDurationMs": 102531,
+  "unchangedCount": 55,
+  "durationMs": 128004,
+  "avgDurationMs": 128004,
   "durationHistory": [
-    102531
+    128004
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Bauleiter:in Hochbau / Gesamtplanung 80-100% - Zürich",
       "slug": "construction-manager-costruzione-pianificazione-complessiva-80-100-zurigo-afry-zurich",
@@ -38,7 +41,6 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-b63c6df60fac",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "currency": "CHF",
@@ -48,18 +50,14 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-04T21:28:03.334Z",
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Projektingenieur:in Untertagbau 80-100% - Zürich",
       "slug": "ingegnere-di-progetto-nel-settore-delle-costruzioni-sotterranee-80-100-zurigo-afry-zurich",
@@ -1296,50 +1294,7 @@
         "translation": 25,
         "completeness": 23
       }
-    },
-    {
-      "title": "Projektleiter:in im Bereich Wasser & Abwasser 80–100% – Zürich",
-      "slug": "project-manager-per-acqua-e-acque-reflue-80-100-zurigo-afry-zurich",
-      "url": "https://afry.com/en/careers/available-jobs/REF15249M-projektleiterin-im-bereich-wasser-abwasser-80-100-zurich",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000138104269-projektleiter-in-im-bereich-wasser-abwasser-80-100-zurich?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "",
-      "validThrough": "2026-12-18T23:01:35.571Z",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-bb20e0028415",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:01:35.571Z",
-      "sourceIdentity": "url:https://afry.com/en/careers/available-jobs/ref15249m-projektleiterin-im-bereich-wasser-abwasser-80-100-zurich",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

@@ -1,7 +1,7 @@
 {
   "key": "michel-gruppe-ag",
   "label": "Michel Gruppe AG",
-  "generatedAt": "2026-11-04T21:26:15.428Z",
+  "generatedAt": "2026-11-05T09:21:09.617Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6352,
-  "avgDurationMs": 6352,
+  "durationMs": 5950,
+  "avgDurationMs": 5950,
   "durationHistory": [
-    6352
+    5950
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://my.jobalino.ch/job/8533e277f138525befd8580c9b046915/standortleiter-in-kueche-hasliberg-mit-diaetkochausbildung",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:04.220Z",
+      "crawledAt": "2026-11-05T09:20:53.926Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "salarySource": "estimated",
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:26:04.220Z",
+      "validThrough": "2026-12-30T09:20:53.926Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://my.jobalino.ch/job/1af8bea8f78facaf3dc9f46b4b3caf47/koechin-koch-efz_1202",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:03.581Z",
+      "crawledAt": "2026-11-05T09:20:53.353Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "salarySource": "estimated",
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:26:03.581Z",
+      "validThrough": "2026-12-30T09:20:53.353Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -134,7 +134,7 @@
       "url": "https://my.jobalino.ch/job/4da43dc0116f1c31265b4d1d07b4d31e/sommer-2027-lehrstelle-koechin-efz-koch-efz",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:02.936Z",
+      "crawledAt": "2026-11-05T09:20:52.791Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -159,7 +159,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meiringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:26:02.936Z",
+      "validThrough": "2026-12-05T09:20:52.791Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -182,7 +182,7 @@
       "url": "https://my.jobalino.ch/job/aff82dad9268305578669c43be1c4d24/mitarbeiter-in-innenbegruenung_5324",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:02.282Z",
+      "crawledAt": "2026-11-05T09:20:52.236Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meiringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:26:02.282Z",
+      "validThrough": "2027-01-05T09:20:52.236Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -230,7 +230,7 @@
       "url": "https://my.jobalino.ch/job/a3e800c4b889aa753df4eb03b9bb3625/fachfrau-fachmann-betreuung-efz-kind_9709",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:01.631Z",
+      "crawledAt": "2026-11-05T09:20:51.664Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -256,7 +256,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meiringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:26:01.631Z",
+      "validThrough": "2026-12-05T09:20:51.664Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -267,5 +267,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

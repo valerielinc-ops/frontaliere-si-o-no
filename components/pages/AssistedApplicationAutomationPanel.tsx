@@ -98,7 +98,7 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
   whatsapp: 'candidatura solo via WhatsApp: con un link PastaHR (https) «Riprova l’invio automatico» la chiude mandando il link al candidato per email, altrimenti «Affida al candidato»',
 };
 
-const MUNICIPAL_DOCUMENT_CHECKLIST: AutomationRequestedDocumentView[] = [
+const LOSONE_DOCUMENT_CHECKLIST: AutomationRequestedDocumentView[] = [
   { id: 'handwritten_letter', label: 'Lettera manoscritta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Ricopia a mano la bozza mostrata nella pagina, indica il termine di disponibilità, poi aggiungi una scansione leggibile al dossier.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
   { id: 'curriculum_vitae', label: 'Curriculum vitae', kind: 'other', keywords: [], required: true, quote: '', instructions: '', delivery: 'service', exemptions: ['municipal_employee'] },
   { id: 'study_work_certificates', label: 'Certificati di studio con note e certificati di lavoro', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica scansioni leggibili; stampa i documenti caricati per inserirli nella busta.', delivery: 'upload', exemptions: ['municipal_employee'] },
@@ -108,6 +108,16 @@ const MUNICIPAL_DOCUMENT_CHECKLIST: AutomationRequestedDocumentView[] = [
   { id: 'health_questionnaire', label: 'Questionario sullo stato di salute', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Compila il questionario ufficiale, poi aggiungi la scansione al dossier. Il file resta su questo dispositivo e non viene caricato sui nostri server né analizzato automaticamente.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
   { id: 'passport_photo', label: 'Fotografia formato passaporto', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Aggiungi una fotografia recente: sarà impaginata in formato passaporto nel PDF. Verifica che la foto sia quella richiesta dal bando.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
 ];
+
+const LOSONE_POSTAL_SUBMISSION: PostalSubmissionView = {
+  enabled: true,
+  recipient: 'Municipio di Losone',
+  address: 'Via Municipio 7\nCasella postale 863\n6616 Losone\nSvizzera',
+  deadline: 'Entro le ore 16:00 di giovedì 12 novembre 2026',
+  envelopeMarking: 'Concorso impiegato/a amministrativo/a',
+  instructions: 'La candidatura deve pervenire al Municipio di Losone in busta chiusa entro le ore 16:00 di giovedì 12 novembre 2026. Spedisci con anticipo sufficiente perché arrivi entro la scadenza. Ricopia a mano la lettera indicata nel dossier e aggiungi gli eventuali originali cartacei richiesti dal bando. Non inserire nella busta le pagine del PDF contrassegnate come istruzioni o indice.',
+  officialFormUrl: 'https://www.losone.ch/Questionario-sullo-stato-di-salute-per-concorsi-95f1a700?i=1',
+};
 
 const EMPTY_POSTAL_SUBMISSION: PostalSubmissionView = {
   enabled: false, recipient: '', address: '', deadline: '', envelopeMarking: '', instructions: '', officialFormUrl: '',
@@ -205,11 +215,11 @@ export default function AssistedApplicationAutomationPanel({
     setPostalSubmissionDirty(true);
     setPostalSubmission((current) => ({ ...current, [field]: value }));
   };
-  const useMunicipalChecklist = () => {
+  const useLosoneChecklist = () => {
     setRequestedDocumentsDirty(true);
     setPostalSubmissionDirty(true);
-    setRequestedDocuments(MUNICIPAL_DOCUMENT_CHECKLIST.map((item) => ({ ...item, exemptions: [...item.exemptions] })));
-    setPostalSubmission((current) => ({ ...current, enabled: true }));
+    setRequestedDocuments(LOSONE_DOCUMENT_CHECKLIST.map((item) => ({ ...item, exemptions: [...item.exemptions] })));
+    setPostalSubmission(LOSONE_POSTAL_SUBMISSION);
   };
 
   const retrySubmit = async () => {
@@ -697,8 +707,8 @@ export default function AssistedApplicationAutomationPanel({
             <p className="mt-1 text-xs text-subtle">Configura tutto prima di approvare: le richieste e le risposte saranno gestite nella pagina protetta della candidata. Le email inviano soltanto il collegamento. Il CV già caricato sarà disponibile tra i materiali.</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={useMunicipalChecklist}>
-              <FileText size={14} aria-hidden="true" /> Inserisci checklist bando comunale
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={useLosoneChecklist}>
+              <FileText size={14} aria-hidden="true" /> Precompila checklist e invio bando Losone (12 novembre 2026)
             </button>
             <button type="button" className={secondary} disabled={Boolean(busy) || requestedDocuments.length >= MAX_REQUESTED_DOCUMENTS} onClick={addRequestedDocument}>
               <Plus size={14} aria-hidden="true" /> Aggiungi documento

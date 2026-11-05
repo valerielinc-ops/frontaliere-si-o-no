@@ -718,6 +718,23 @@ describe('fixed-price PDF url resolution', () => {
       sourceKey: 'ai', pageUrl: String(ai.pageUrl), indexHtml: '<a href="/unrelated.pdf">PDF</a>',
     })).toBe(motorcyclePdf);
   });
+
+  it('resolves AI Plone download links before falling back to the evergreen endpoint', () => {
+    const ai = FIXED_PRICE_SOURCE_CONFIGS.ai as Record<string, unknown> & {
+      pdfVariants: Record<string, unknown>[];
+    };
+    const autoPdf = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download';
+    const motorcyclePdf = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download';
+    const autoLegacy = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file';
+    const motorcycleLegacy = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/@@download/file';
+
+    expect(resolveVariantPdfUrl(ai.pdfVariants[0], {
+      sourceKey: 'ai', pageUrl: String(ai.pageUrl), indexHtml: `<a href="${autoLegacy}">PDF</a>`,
+    })).toBe(autoPdf);
+    expect(resolveVariantPdfUrl(ai.pdfVariants[1], {
+      sourceKey: 'ai', pageUrl: String(ai.pageUrl), indexHtml: `<a href="${motorcycleLegacy}">PDF</a>`,
+    })).toBe(motorcyclePdf);
+  });
 });
 
 describe('plate-auction redirect URL normalization', () => {

@@ -1,7 +1,7 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-11-04T21:33:15.955Z",
+  "generatedAt": "2026-11-05T09:35:30.402Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3182,
-  "avgDurationMs": 3182,
+  "durationMs": 3700,
+  "avgDurationMs": 3700,
   "durationHistory": [
-    3182
+    3700
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:33:04.602Z",
+      "crawledAt": "2026-11-05T09:35:10.449Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -59,7 +59,7 @@
       "salarySource": "estimated",
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:33:04.602Z",
+      "validThrough": "2026-12-05T09:35:10.449Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:33:04.603Z",
+      "crawledAt": "2026-11-05T09:35:10.451Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salarySource": "estimated",
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:33:04.603Z",
+      "validThrough": "2026-12-05T09:35:10.451Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:33:04.601Z",
+      "crawledAt": "2026-11-05T09:35:10.447Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salarySource": "estimated",
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:33:04.601Z",
+      "validThrough": "2026-12-05T09:35:10.447Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:33:04.595Z",
+      "crawledAt": "2026-11-05T09:35:10.437Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -210,7 +210,7 @@
       },
       "streetAddress": "Via Paracelsus 2a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T21:33:04.595Z",
+      "validThrough": "2026-12-05T09:35:10.437Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -221,5 +221,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }
