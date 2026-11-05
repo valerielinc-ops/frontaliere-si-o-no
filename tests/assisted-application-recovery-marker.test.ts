@@ -24,11 +24,11 @@ describe('assisted application recovery marker', () => {
       deployWorkflow.jobs['deploy-functions'].steps,
     ];
     const applyGate = "${{ steps.application_recovery.outputs.apply == 'true' }}";
-    for (const [index, steps] of workflows.entries()) {
+    for (const steps of workflows) {
       expect(steps.find((step: any) => step.id === 'application_recovery')?.run)
         .toContain('resolve-application-recovery-marker.mjs');
       const applySteps = steps.filter((step: any) => String(step.run || '').includes('--apply'));
-      expect(applySteps).toHaveLength(index === 0 ? 2 : 3);
+      expect(applySteps).toHaveLength(3);
       expect(applySteps.every((step: any) => step.if === applyGate)).toBe(true);
     }
     expect(deployWorkflow.jobs['deploy-functions'].steps.find((step: any) =>

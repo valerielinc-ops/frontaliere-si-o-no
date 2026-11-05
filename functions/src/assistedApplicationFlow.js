@@ -695,6 +695,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       if (!Array.isArray(current.heldBy) || current.heldBy.length !== 1 || current.heldBy[0] !== 'draft_failed') {
         return ignore('not_draft_retryable');
       }
+      if (current.postingExpiredAt) return ignore('posting_expired');
       const retryAt = draftRetryDueAt(current);
       if (!retryAt || retryAt > nowMs) return ignore('draft_retry_not_due');
       if (!roundDraftMissing(current, draft)) return ignore('draft_available');

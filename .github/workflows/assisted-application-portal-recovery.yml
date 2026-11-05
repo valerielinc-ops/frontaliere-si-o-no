@@ -57,7 +57,7 @@ jobs:
   recover:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    # Includes two npm installs, apt/browser setup and two bounded Firestore
+    # Includes two npm installs, apt/browser setup and three bounded Firestore
     # reconciliation steps. Keep enough headroom for slow hosted-runner mirrors.
     timeout-minutes: 30
     steps:
@@ -103,3 +103,10 @@ jobs:
       - name: Queue recoverable applications through the normal clock
         if: ${{ steps.application_recovery.outputs.apply == 'true' }}
         run: node scripts/assisted-application/reconcile-portal-code.mjs --apply
+      - name: Queue one safe recovery for failed draft runs
+        # A failed regeneration has no send authority: the normal clock will
+        # regenerate the missing draft, then the existing review gate decides
+        # whether it can ever reach submission.
+        if: ${{ steps.application_recovery.outputs.apply == 'true' }}
+        run: node scripts/assisted-application/reconcile-draft-failures.mjs --apply
+        timeout-minutes: 5

@@ -58,6 +58,20 @@ describe('automatic recovery after a failed draft run', () => {
     expect(draftRetryDueAt(result.flow)).toBeNull();
   });
 
+  it('does not dispatch a queued retry after the posting expired', () => {
+    const result = transition({
+      state: 'owner_takeover', round: 2, heldBy: ['draft_failed'],
+      draftAutoRetryCount: 0, draftAutoRetryAt: now,
+      postingExpiredAt: now - 1,
+      dispatch: { mode: 'draft', round: 2, attempts: 1 },
+    }, { type: 'draft_auto_retry' }, {
+      draft: { status: 'ready', round: 1 }, nowMs: now,
+    });
+
+    expect(result.ignored).toBe('posting_expired');
+    expect(result.effects).toEqual([]);
+  });
+
   it.each(['sent', 'sending', 'clicked'])('does not queue when the application may have left: %s', async state => {
     const store = fixture();
     store.docs.set(`${base}/automation/submission`, {
