@@ -338,7 +338,7 @@ describe('assisted portal question batching', () => {
   it('replans after privacy acceptance and does not create an account when it reveals an unknown required answer', async () => {
     const fixture = fakePage({ registration: true, privacyRevealsUnknown: true });
     const { page, window, ctaClicks } = fixture;
-    const candidate = { identity: { email: 'candidate@example.test' }, profile: {} };
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
@@ -386,7 +386,7 @@ describe('assisted portal question batching', () => {
   it('batches already visible hard questions with hard questions revealed by privacy acceptance', async () => {
     const fixture = fakePage({ registration: true, privacyRevealsUnknown: true });
     const { page, window } = fixture;
-    const candidate = { identity: { email: 'candidate@example.test' }, profile: {} };
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
     const form = window.document.querySelector('form')!;
     form.insertAdjacentHTML('beforeend', '<label for="initial-requirement">When could you start?</label><input id="initial-requirement" name="initial-requirement" required>');
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
@@ -555,7 +555,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: { cv: '/tmp/cv.pdf' },
@@ -640,7 +640,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test' }, profile: { region: 'Lombardy' } },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: { region: 'Lombardy' } },
         candidateLocale: 'en',
         language: 'en',
         files: {},
