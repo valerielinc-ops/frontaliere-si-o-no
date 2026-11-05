@@ -799,8 +799,8 @@ describe('prospector public-only polite transport', () => {
 
   it('rescues a non-empty partial listing when the browser exposes the full board', async () => {
     const seed = 'https://ipersonal.example/offene-stellen/';
-    const details = [1, 2, 3].map((id) => `${seed}jobs/position-${id}/`);
-    const directListing = [1, 2].map((id) => JSON.stringify({
+    const details = [1, 2, 3, 4].map((id) => `${seed}jobs/position-${id}/`);
+    const directListing = [1, 2, 3].map((id) => JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'JobPosting',
       title: `Position ${id}`,
@@ -833,7 +833,7 @@ describe('prospector public-only polite transport', () => {
       sleepImpl: async () => {},
     });
 
-    expect(rows).toHaveLength(3);
+    expect(rows).toHaveLength(4);
     expect(rows.map((row) => row.url)).toEqual(details);
     expect(browserFetchImpl).toHaveBeenCalledWith(seed, expect.objectContaining({ timeoutMs: undefined }));
   });
