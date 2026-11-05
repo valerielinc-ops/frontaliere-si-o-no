@@ -1496,6 +1496,12 @@ export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settin
 export const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
+const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager)\b/i;
+// Generic banner/modal markers are not proof that a bare Manage consent
+// control belongs to a cookie manager. Require a cookie-specific live surface
+// identity and cookie copy; `cookie-consent` is deliberately not included
+// because application privacy sections reuse that marker.
+const COOKIE_MANAGER_SURFACE_RE = /\b(?:cookie[-_ ]?(?:banner|manager|policy|settings?|preferences?|notice|overlay|modal|dialog)|consent[-_ ]?manager|(?:onetrust|usercentrics|didomi|trustarc|cookiebot|quantcast|complianz|cmplz|iubenda|sourcepoint|cmpbox|sp_message|cky[-_ ]?consent|cookie[-_ ]?script))\b/i;
 const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
 const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accepter)$/i;
 // Some employer-hosted SuccessFactors pages expose the cookie statement and
@@ -1616,6 +1622,32 @@ async function isPageCookieConsentControl(page, snapshot, button) {
   return genericCookieControlsShareContainer(page, button, closeControls);
 }
 
+async function hasLiveCookieManagerSurface(page, button) {
+  if (!button?.id) return false;
+  const frameNumber = Number(button.frame) || 0;
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  const frame = frames[frameNumber]
+    || (frameNumber === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
+  const surfaceIsLive = await frame?.evaluate?.(({ controlId, surfacePattern }) => {
+    const control = [...document.querySelectorAll('[data-aa-id]')]
+      .find(element => element.getAttribute('data-aa-id') === controlId);
+    if (!control) return false;
+    if (control.closest('form, [role="form"]')) return false;
+    const managerSurface = new RegExp(surfacePattern, 'i');
+    const cookieCopy = /\bcookies?\b/i;
+    for (let node = control.parentElement; node && node !== document.documentElement; node = node.parentElement) {
+      const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (!managerSurface.test(marker)) continue;
+      if (node.matches('form, [role="form"]')) continue;
+      if (!cookieCopy.test(node.innerText || node.textContent || '')) continue;
+      return true;
+    }
+    return false;
+  }, { controlId: String(button.id), surfacePattern: COOKIE_MANAGER_SURFACE_RE.source }).catch(() => false);
+  return surfaceIsLive === true;
+}
+
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   const label = cookieControlLabel(button);
   const isPreferenceControl = COOKIE_CUSTOMIZE_RE.test(label)
@@ -1627,7 +1659,11 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   if (isPreferenceControl && hasApplicationFormInCookieScope(snapshot, button)) return false;
   // A privacy/consent action can use the same bare label inside the
   // application form. It is never a cookie-manager entry point there.
-  if (COOKIE_MANAGE_CONSENT_RE.test(label) && (button.formId || button.roleFormId)) return false;
+  const manageConsent = COOKIE_MANAGE_CONSENT_RE.test(label);
+  if (manageConsent && (button.formId || button.roleFormId)) return false;
+  // The live manager check is affirmative proof for this label. Do not fall
+  // through to the generic Accept control check, which rejects "Manage consent".
+  if (manageConsent) return await hasLiveCookieManagerSurface(page, button);
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -1705,7 +1741,7 @@ async function clickMarkedShadowCookie(page) {
 
 async function markShadowCookieButton(page, { includePreferences = false } = {}) {
   try {
-    return await page.evaluate(([reject, accept, customize, manageConsent, genericPreferences, include]) => {
+    return await page.evaluate(([reject, accept, customize, manageConsent, genericPreferences, managerSurfacePattern, include]) => {
     const roots = [document];
     const shadows = [];
     for (let index = 0; index < roots.length && index < 50; index += 1) {
@@ -1720,8 +1756,19 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
         const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
           .filter(Boolean).join(' ');
         if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
-          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)
-          || (manageConsentAction && /\bconsent\b/i.test(marker))) return true;
+          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)) return true;
+      }
+      return false;
+    };
+    const cookieShadowManagerSurfaceIsActive = (host) => {
+      const managerSurface = new RegExp(managerSurfacePattern, 'i');
+      for (let node = host; node && node !== document.documentElement; node = node.parentElement) {
+        const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+          .filter(Boolean).join(' ');
+        if (!managerSurface.test(marker)) continue;
+        if (node.matches('form, [role="form"]')) continue;
+        if (!/\bcookies?\b/i.test(`${node.innerText || node.textContent || ''} ${host.textContent || ''}`)) continue;
+        return true;
       }
       return false;
     };
@@ -1729,16 +1776,19 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
     if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: manageConsent }, { kind: 'preferences', source: genericPreferences });
     for (const action of actions) {
       const pattern = new RegExp(action.source, 'i');
+      const isManageConsent = action.source === manageConsent;
       for (const shadow of shadows) {
         const manageConsentAction = action.kind === 'preferences' && action.source === manageConsent;
         if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
-          || !cookieShadowSurfaceIsActive(shadow.host, manageConsentAction))) continue;
+          || (manageConsentAction
+            ? !cookieShadowManagerSurfaceIsActive(shadow.host)
+            : !cookieShadowSurfaceIsActive(shadow.host)))) continue;
         const button = [...shadow.querySelectorAll('button, [role="button"]')]
           .find((element) => {
             const label = String(element.innerText || element.textContent || '').trim();
             return element.getBoundingClientRect().width > 0
               && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
-              && !(action.kind === 'preferences' && new RegExp(manageConsent, 'i').test(label)
+              && !(action.kind === 'preferences' && isManageConsent
                 && (element.closest('form, [role="form"]')
                   || shadow.host.closest('form, [role="form"]')))
               && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
@@ -1751,7 +1801,7 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
     }
     return '';
     }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source, COOKIE_MANAGE_CONSENT_RE.source,
-      COOKIE_GENERIC_PREFERENCES_RE.source, includePreferences]);
+      COOKIE_GENERIC_PREFERENCES_RE.source, COOKIE_MANAGER_SURFACE_RE.source, includePreferences]);
   } catch {
     return '';
   }
