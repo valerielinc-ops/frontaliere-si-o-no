@@ -664,7 +664,7 @@ it('pre-reads a public employer route without a planner and keeps unsafe channel
 
   expect(result.handoff).toBe('planner_unavailable');
   expect(result.portalContract).toMatchObject({
-    status: 'handoff',
+    status: 'unavailable',
     form: { observed: true, requiredFieldCount: 1, requiredFileCount: 1 },
     background: { readOnly: true },
   });

@@ -5985,7 +5985,7 @@ export async function readPortalRequirements(ctx) {
     // A missing planner must not erase the technical preflight. The contract
     // still records the mounted form and its background traffic so the owner
     // sees whether the route was readable and what remains unknown.
-    if (!ctx.codex) return await finish({ questions: [], documents: [], handoff: 'planner_unavailable' });
+    if (!ctx.codex) return await finish({ questions: [], documents: [], handoff: 'planner_unavailable' }, { status: 'unavailable' });
     let plan;
     try {
       plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
