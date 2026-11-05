@@ -1288,7 +1288,7 @@ function nativeQuestionText(value, counter = null) {
     field.formId = form ? idFor(form) : '';
   }
   // A plain link is no button, so that no button search meets an ordinary link, yet a required notice can
-  // be printed as one. Read apart and without its address: nothing follows it (portal.mjs, clickButton).
+  // be printed as one. Read apart with its target: portal.mjs can verify a unique external Apply handoff.
   const links = [...document.querySelectorAll('a[href]')]
     .filter((element) => !actionControl(element) && visible(element) && !behindModal(element) && !isSiteChromeControl(element) && buttonName(element))
     .slice(0, 60)
@@ -1298,6 +1298,7 @@ function nativeQuestionText(value, counter = null) {
       label: buttonAccessibleLabel(element),
       title: clean(element.getAttribute('title') || ''),
       ariaLabel: clean(element.getAttribute('aria-label') || ''),
+      href: /^https?:/.test(element.href || '') ? element.href : '',
       ...noticeMetadata(element),
     }));
   // Saved after the buttons got their ids too, or the next scan hands them out again.

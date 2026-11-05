@@ -603,9 +603,9 @@ describe('portal field extraction', () => {
     expect(clicks).toEqual(['[data-aa-id="customize"]']);
   });
 
-  it('dismisses Manage consent from a consent-marked shadow host', async () => {
+  it('dismisses Manage consent from a cookie-manager-marked shadow host', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
-    const { window } = new JSDOM('<!doctype html><html><body><div id="cookie" class="consent"></div></body></html>', { url });
+    const { window } = new JSDOM('<!doctype html><html><body><div id="cookie-manager" class="cookie-manager"><p>This website uses cookies.</p></div></body></html>', { url });
     Object.defineProperty(window.HTMLElement.prototype, 'innerText', {
       configurable: true,
       get() { return this.textContent || ''; },
@@ -613,7 +613,7 @@ describe('portal field extraction', () => {
     window.Element.prototype.getBoundingClientRect = function rect() {
       return { width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON: () => ({}) } as DOMRect;
     };
-    const host = window.document.getElementById('cookie')!;
+    const host = window.document.getElementById('cookie-manager')!;
     const shadow = host.attachShadow({ mode: 'open' });
     const show = (label: string) => {
       shadow.innerHTML = label ? `<p>This website uses cookies.</p><button>${label}</button>` : '<p>Cookies handled.</p>';
