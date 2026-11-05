@@ -2,7 +2,7 @@ import { AssistedApplicationEmployerResponse } from '@/components/community/Assi
 import { getHouseAdAttribution, trackHouseAdLanding } from '@/services/houseAdAttribution';
 import { useCallback, useEffect, useMemo, useRef, useState, lazy, Suspense } from 'react';
 import type { ReactNode } from 'react';
-import { ArrowRight, BriefcaseBusiness, CheckCircle2, Clock3, FileText, Loader2, Plus, ShieldCheck, Sparkles, Target, UploadCloud, X, XCircle } from 'lucide-react';
+import { ArrowRight, BriefcaseBusiness, CheckCircle2, ChevronDown, Clock3, FileText, Loader2, Plus, ShieldCheck, Sparkles, Target, UploadCloud, X, XCircle } from 'lucide-react';
 import { useLocale, useTranslation } from '@/services/i18n';
 import { conciergeServiceHref, conciergeProposalJobHref } from '@/services/applicationConciergeNavigation';
 import { Analytics } from '@/services/analyticsProxy';
@@ -30,7 +30,6 @@ import {
   saveApplicationConciergeProfile,
   saveApplicationConciergeCandidateLanguageFacts,
   type ApplicationConciergeProposal,
-  type ApplicationConciergeProposalCategory,
   type ApplicationConciergeService,
 } from '@/services/applicationConciergeService';
 
@@ -180,7 +179,6 @@ export default function ApplicationConciergePortal({
     [locale],
   );
   const [service, setService] = useState<ApplicationConciergeService | null>(previewService || null);
-  const [selectedProposalCategory, setSelectedProposalCategory] = useState<ApplicationConciergeProposalCategory | null>(null);
   const [childReview, setChildReview] = useState<{ childId: string; token: string } | null>(null);
   const [childReviewError, setChildReviewError] = useState(false);
   const requestedChildId = new URLSearchParams(locationSearch).get('application_concierge_application_id');
@@ -219,7 +217,6 @@ export default function ApplicationConciergePortal({
   const [consent, setConsent] = useState(previewService?.hasConsent || false);
   const [renewalConsent, setRenewalConsent] = useState(false);
   useEffect(() => { setRenewalConsent(false); }, [serviceId]);
-  useEffect(() => { setSelectedProposalCategory(null); }, [serviceId, previewService?.serviceId]);
   useEffect(() => {
     locationEditedByUser.current = false;
     serviceLocationLoaded.current = Boolean(previewService?.applicantLocation);
@@ -1075,8 +1072,6 @@ export default function ApplicationConciergePortal({
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
   const visibleProposals = getCandidateVisibleApplicationConciergeProposals(service.proposals);
   const proposalGroups = groupApplicationConciergeProposals(visibleProposals);
-  const activeProposalGroup = proposalGroups.find(group => group.category === selectedProposalCategory) || proposalGroups[0] || null;
-  const activeProposalLabelStatus = activeProposalGroup?.category === 'reviewing' ? 'technical_review' : activeProposalGroup?.category;
 
   const matchingStatus = String(service.matchingStatus || '');
   const matchingActive = MATCHING_STATES.has(matchingStatus);
@@ -1150,7 +1145,52 @@ export default function ApplicationConciergePortal({
         {displayError && <p role="alert" className="rounded-xl border border-danger-border bg-danger-subtle p-3 text-sm text-danger">{displayError}</p>}
         {!pending && service.paymentStatus === 'paid' && (
           <>
-            <div className="grid gap-5 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)]">
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)]">
+              <section className="min-w-0 rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-proposals-title">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <SectionTitle id="concierge-proposals-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.proposalsTitle')}</SectionTitle>
+                    <p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.proposalsIntro')}</p>
+                  </div>
+                  <div className="shrink-0 space-y-1 text-right">
+                    <p className="rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-muted">
+                      {t('jobBoard.concierge.openProposalCount')}: {service.openProposalsCount ?? visibleProposals.filter(proposal => proposal.status === 'proposed').length}/{service.maxOpenProposals ?? 3}
+                    </p>
+                    <div>
+                      <p className="text-xs font-medium text-subtle">{t('jobBoard.concierge.acceptedProposalCount')}</p>
+                      <p aria-label={`${t('jobBoard.concierge.acceptedProposalCount')}: ${service.acceptedPositionsCount}/${service.maxPositions}`} className="text-xs font-semibold text-heading">
+                        {service.acceptedPositionsCount}/{service.maxPositions}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {matchingActive && <div className="mt-5 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status"><div className="flex items-center gap-2 text-sm font-semibold text-info"><Loader2 size={16} className="animate-spin" aria-hidden="true" />{t('jobBoard.concierge.matchingRunning')}</div><p className="mt-1 text-xs leading-5 text-body">{t('jobBoard.concierge.matchingRunningHint')}</p><div className="mt-4 space-y-2" aria-hidden="true"><div className="h-16 animate-pulse rounded-lg bg-surface" /><div className="h-16 animate-pulse rounded-lg bg-surface" /></div></div>}
+                {matchingNeedsReview && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.matchingNeedsReview')} /></div>}
+                {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
+                {verificationPending && <div className="mt-5"><Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.verificationPending')} /></div>}
+                {qualificationNeedsDetails && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.qualificationNeedsDetails')} /></div>}
+                <div className="mt-5">
+                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && !verificationPending && !qualificationNeedsDetails && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
+                  {proposalGroups.length > 0 && <div className="space-y-3">
+                    {proposalGroups.map(({ category, proposals: groupProposals }, index) => {
+                      const labelStatus = category === 'reviewing' ? 'technical_review' : category;
+                      return (
+                        <details key={category} open={index === 0} className="group overflow-hidden rounded-xl border border-edge bg-surface open:border-accent-border">
+                          <summary className="flex min-h-[52px] cursor-pointer list-none items-center gap-3 px-4 py-3 text-sm font-semibold text-body focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent marker:content-none [&::-webkit-details-marker]:hidden">
+                            <span className="min-w-0 flex-1">{t('jobBoard.concierge.proposalStatus.' + labelStatus)}</span>
+                            <span className="shrink-0 rounded-full bg-surface-raised px-2.5 py-1 text-xs tabular-nums text-muted">{groupProposals.length}</span>
+                            <ChevronDown size={17} className="shrink-0 text-muted transition-transform group-open:rotate-180" aria-hidden="true" />
+                          </summary>
+                          <div className="space-y-3 border-t border-edge p-3">
+                            {groupProposals.map((proposal) => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} onInterest={recordInterest} t={t} />)}
+                          </div>
+                        </details>
+                      );
+                    })}
+                  </div>}
+                </div>
+              </section>
+
               <section className="min-w-0 rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-profile-title">
                 <div className="flex items-start gap-3">
                   <div className="rounded-xl bg-accent-subtle p-2.5 text-accent"><ShieldCheck size={20} aria-hidden="true" /></div>
@@ -1274,61 +1314,6 @@ export default function ApplicationConciergePortal({
                     {(!service.hasConsent || !service.hasCv) && <p className="text-xs leading-5 text-subtle">{t('jobBoard.concierge.candidateLanguagesPrerequisite')}</p>}
                   </form>}
                 </section>
-              </section>
-
-              <section className="min-w-0 rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-proposals-title">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <SectionTitle id="concierge-proposals-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.proposalsTitle')}</SectionTitle>
-                    <p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.proposalsIntro')}</p>
-                  </div>
-                  <div className="shrink-0 space-y-1 text-right">
-                    <p className="rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-muted">
-                      {t('jobBoard.concierge.openProposalCount')}: {service.openProposalsCount ?? visibleProposals.filter(proposal => proposal.status === 'proposed').length}/{service.maxOpenProposals ?? 3}
-                    </p>
-                    <div>
-                      <p className="text-xs font-medium text-subtle">{t('jobBoard.concierge.acceptedProposalCount')}</p>
-                      <p aria-label={`${t('jobBoard.concierge.acceptedProposalCount')}: ${service.acceptedPositionsCount}/${service.maxPositions}`} className="text-xs font-semibold text-heading">
-                        {service.acceptedPositionsCount}/{service.maxPositions}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                {matchingActive && <div className="mt-5 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status"><div className="flex items-center gap-2 text-sm font-semibold text-info"><Loader2 size={16} className="animate-spin" aria-hidden="true" />{t('jobBoard.concierge.matchingRunning')}</div><p className="mt-1 text-xs leading-5 text-body">{t('jobBoard.concierge.matchingRunningHint')}</p><div className="mt-4 space-y-2" aria-hidden="true"><div className="h-16 animate-pulse rounded-lg bg-surface" /><div className="h-16 animate-pulse rounded-lg bg-surface" /></div></div>}
-                {matchingNeedsReview && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.matchingNeedsReview')} /></div>}
-                {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
-                {verificationPending && <div className="mt-5"><Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.verificationPending')} /></div>}
-                {qualificationNeedsDetails && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.qualificationNeedsDetails')} /></div>}
-                <div className="mt-5">
-                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && !verificationPending && !qualificationNeedsDetails && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
-                  {proposalGroups.length > 0 && <>
-                    <div role="group" aria-label={t('jobBoard.concierge.proposalsTitle')} className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-2">
-                      {proposalGroups.map(({ category, proposals: groupProposals }) => {
-                        const labelStatus = category === 'reviewing' ? 'technical_review' : category;
-                        const selected = activeProposalGroup?.category === category;
-                        return <button
-                          key={category}
-                          type="button"
-                          aria-pressed={selected}
-                          aria-controls="concierge-proposal-category-panel"
-                          onClick={() => setSelectedProposalCategory(category)}
-                          className={`inline-flex min-h-[44px] shrink-0 items-center gap-2 whitespace-nowrap rounded-lg border px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${selected ? 'border-accent bg-accent-subtle text-accent' : 'border-edge bg-surface text-body hover:border-accent-border hover:text-accent'}`}
-                        >
-                          <span>{t('jobBoard.concierge.proposalStatus.' + labelStatus)}</span>
-                          <span className="rounded-full bg-surface/80 px-2 py-0.5 tabular-nums text-muted">{groupProposals.length}</span>
-                        </button>;
-                      })}
-                    </div>
-                    {activeProposalGroup && <div id="concierge-proposal-category-panel" className="mt-4" role="region" aria-labelledby="concierge-proposal-category-title">
-                      <h3 id="concierge-proposal-category-title" className="mb-2 text-sm font-semibold text-heading">
-                        {t('jobBoard.concierge.proposalStatus.' + activeProposalLabelStatus)}
-                      </h3>
-                      <div className="space-y-3">
-                        {activeProposalGroup.proposals.map((proposal) => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} onInterest={recordInterest} t={t} />)}
-                      </div>
-                    </div>}
-                  </>}
-                </div>
               </section>
             </div>
             <p className="text-xs leading-5 text-muted">{t('jobBoard.concierge.noGuarantee')}</p>

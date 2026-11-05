@@ -40,6 +40,28 @@ export interface AutomationQuestionView {
   required: boolean;
 }
 
+export interface AutomationRequestedDocumentView {
+  id: string;
+  label: string;
+  kind: string;
+  keywords: string[];
+  required: boolean;
+  quote: string;
+  instructions: string;
+  delivery: 'upload' | 'offline' | 'service';
+  exemptions: Array<'municipal_resident' | 'municipal_employee'>;
+}
+
+export interface PostalSubmissionView {
+  enabled: boolean;
+  recipient: string;
+  address: string;
+  deadline: string;
+  envelopeMarking: string;
+  instructions: string;
+  officialFormUrl: string;
+}
+
 /** Automated flow + AI draft, as functions/src/assistedApplicationAutomationAdmin.js returns them. */
 export interface AtsReportView {
   structural: { score: number; grade: string; pass: boolean; issues: Array<{ code: string; severity: 'critical' | 'warning' | 'info' }>; notChecked: string[] };
@@ -90,6 +112,7 @@ export interface AssistedApplicationAutomationView {
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
+    postalSubmission?: PostalSubmissionView | null;
     /** The fields the candidate corrected on the review page. */
     formOverrides?: Record<string, string>;
     dispatch: { mode: string; round: number; requestedAt: number; attempts: number; reason: string | null } | null;
@@ -110,6 +133,7 @@ export interface AssistedApplicationAutomationView {
     requirements: AutomationRequirementView[];
     matches: Array<{ index: number; status: 'met' | 'partial' | 'missing'; evidence: string }>;
     questions: AutomationQuestionView[];
+    requiredDocuments: AutomationRequestedDocumentView[];
     questionSnapshots?: Record<string, string>;
     coverLetter: { text: string; subject: string } | null;
     applicationEmail: { to: string; subject: string; body: string } | null;
@@ -296,6 +320,11 @@ function errorMessage(error: unknown, status: number): string {
     no_approved_draft: 'Non c’è una bozza approvata per questo giro.',
     already_started_or_ineligible: 'Automazione già avviata, oppure ordine senza CV verificato.',
     no_flow: 'L’automazione non è stata avviata per questo ordine.',
+    invalid_documents: 'Controlla i documenti richiesti e completa ogni riga prima di salvarla.',
+    invalid_postal_form_url: 'Il link al modulo deve essere un indirizzo HTTPS valido.',
+    postal_submission_incomplete: 'Inserisci destinatario, indirizzo, scadenza, dicitura sulla busta e istruzioni.',
+    postal_submission_documents_missing: 'Salva prima la checklist dei documenti richiesta alla candidata.',
+    postal_submission_requires_candidate: 'Per questo bando cartaceo, il candidato deve completare la spedizione dalla propria pagina.',
     invalid_email: 'Indirizzo email non valido.',
     already_sent: 'Questa candidatura risulta già inviata.',
     submission_unconfirmed: 'Il pulsante d’invio è già stato premuto senza conferma del portale.',
@@ -411,6 +440,8 @@ export type AutomationAdminAction =
   | 'automationHandoff'
   | 'automationEditDraft'
   | 'automationSetAnswers'
+  | 'automationSetRequiredDocuments'
+  | 'automationSetPostalSubmission'
   | 'automationRevealAccount'
   | 'automationFillKit'
   | 'automationMarkClicked'

@@ -517,7 +517,7 @@ describe('locale publish workflow wiring', () => {
     expect(String(deployJob.if)).toContain("needs.resolve-publish-receipts.result == 'success'");
     expect(String(deployJob.if)).toContain("needs.resolve-nonit-publish.outputs.allowed == 'true'");
     expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
-    expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
+    expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish', 'publish-nonit-shards']);
     expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
     expect(publish.jobs['resolve-nonit-publish'].needs)
       .toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'publish-nonit-shards']);

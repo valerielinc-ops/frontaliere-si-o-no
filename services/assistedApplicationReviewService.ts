@@ -9,7 +9,7 @@ import type { EmployerResponse } from './assistedApplicationEmployerResponse';
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
 
 export type ReviewAction = 'approve' | 'reject' | 'withdraw' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip'
-  | 'document_upload' | 'document_remove' | 'document_recheck' | 'photo_upload' | 'photo_remove' | 'cv_lines';
+  | 'document_upload' | 'document_remove' | 'document_recheck' | 'document_set_prepared' | 'document_set_exemption' | 'photo_upload' | 'photo_remove' | 'cv_lines';
 
 /** The candidate's choice for one line of the tailored CV (functions/src/assistedApplicationReview.js cvChangesView). */
 export interface ReviewCvLineChoice {
@@ -43,6 +43,12 @@ export interface ReviewDocument {
   required: boolean;
   /** The posting's own words asking for it. */
   quote: string;
+  /** Instructions supplied by the operator, e.g. the six-month issue date. */
+  instructions: string;
+  delivery: 'upload' | 'offline' | 'service';
+  exemptions: Array<'municipal_resident' | 'municipal_employee'>;
+  preparedAt: number | null;
+  exemption: 'municipal_resident' | 'municipal_employee' | null;
   files: Array<{
     id: string;
     name: string;
@@ -50,6 +56,7 @@ export interface ReviewDocument {
     detectedType: string | null;
     uploadedAt: number | null;
     clientCheck: { verdict: 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable' | 'unknown'; matched: string; version?: number };
+    url: string | null;
   }>;
 }
 
@@ -136,6 +143,7 @@ export interface ReviewFormField {
 
 /** An editable Word copy the server builds on request (functions/src/assistedApplicationReview.js buildWordCopy): never the file that leaves. */
 export type ReviewWordFile = 'letter.docx' | 'cv.docx';
+export type ReviewDownloadFile = ReviewWordFile | 'postal-packet.pdf';
 
 /** A file the candidate keeps after the sending (keptDocumentsOf). */
 export interface ReviewKeptDocument {
@@ -176,11 +184,30 @@ export interface ReviewPayload {
     channel: string | null;
     channelLabel: string | null;
   };
+  /** Postal submission details, visible only on this signed candidate page. */
+  postalSubmission?: {
+    recipient: string;
+    address: string;
+    deadline: string;
+    envelopeMarking: string;
+    instructions: string;
+    officialFormUrl: string | null;
+  } | null;
+  /** Preflight for the single PDF offered when a paper application is ready. */
+  postalPacket?: {
+    ready: boolean;
+    unsupportedFiles: string[];
+    missingSizes: boolean;
+    tooLarge: boolean;
+    sourceBytes: number;
+    maxBytes: number;
+  } | null;
   /** Sent as a WhatsApp application (PastaHR): the link the candidate opens from the phone. */
   whatsappUrl?: string | null;
   ready: boolean;
   coverLetter: { subject: string; text: string } | null;
   coverLetterUrl: string | null;
+  originalCvUrl?: string | null;
   applicationEmail: { to: string; subject: string; body: string } | null;
   formAnswers: ReviewFormField[];
   /** Opaque HMAC of the exact locale-specific edit contract shown on this review. */
@@ -264,12 +291,34 @@ export async function fetchReview(token: string): Promise<ReviewPayload | Follow
   return parse(await fetch(url.toString(), { method: 'GET' })) as Promise<ReviewPayload | FollowupPayload>;
 }
 
-/** The download link of a Word copy: the page's token, the file the server builds. */
-export function reviewWordUrl(token: string, file: ReviewWordFile): string {
+/** Download link from the signed candidate page. */
+export function reviewFileUrl(token: string, file: ReviewDownloadFile): string {
   const url = new URL(ASSISTED_APPLICATION_REVIEW_URL);
   url.searchParams.set('t', token);
   url.searchParams.set('file', file);
   return url.toString();
+}
+
+/** Backwards-compatible helper for an editable Word copy. */
+export function reviewWordUrl(token: string, file: ReviewWordFile): string {
+  return reviewFileUrl(token, file);
+}
+
+/** Downloads the assembled postal dossier and surfaces a structured API error to the page. */
+export async function downloadPostalPacket(token: string): Promise<void> {
+  const response = await fetch(reviewFileUrl(token, 'postal-packet.pdf'), { method: 'GET', cache: 'no-store' });
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    throw new ReviewRequestError(typeof body?.error === 'string' ? body.error : 'postal_packet_download_failed', body?.fields || {});
+  }
+  const blob = await response.blob();
+  if (blob.type !== 'application/pdf') throw new ReviewRequestError('postal_packet_download_failed');
+  const href = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = href;
+  link.download = 'dossier-candidatura-cartacea.pdf';
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(href), 30_000);
 }
 
 export async function sendReviewAction(
@@ -284,6 +333,8 @@ export async function sendReviewAction(
     contentBase64?: string;
     clientCheck?: { verdict: string; matched: string; version?: number };
     fileId?: string;
+    prepared?: boolean;
+    exemption?: string;
     editSnapshot?: string;
   } = {},
 ): Promise<{ ok: true; state: string }> {

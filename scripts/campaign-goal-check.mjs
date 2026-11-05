@@ -121,6 +121,12 @@ function fmtNum(n) {
   return n === null || n === undefined || Number.isNaN(n) ? 'n/a' : (Math.round(n * 100) / 100).toString();
 }
 
+function fmtDiagnosticValues(values) {
+  if (values === null) return 'n/a';
+  const entries = Object.entries(values || {}).sort(([a], [b]) => a.localeCompare(b));
+  return entries.length > 0 ? entries.map(([key, value]) => `${key}=${value}`).join(', ') : '0';
+}
+
 // Issue #7763: only these surfaces emit the preceding
 // `job_alert_cta_shown` impression. The other `job_alert_created` surfaces are
 // valid product events, but they do not belong in this impression funnel.
@@ -134,8 +140,28 @@ export const ALERT_CTA_SURFACES = Object.freeze([
   'end_card',
 ]);
 export const ALERT_FUNNEL_EVENT_NAMES = Object.freeze(['job_alert_cta_shown', 'job_alert_created']);
+// Diagnostic-only event set for the same seven-surface allowlist. Keep this
+// separate from ALERT_FUNNEL_EVENT_NAMES: the goal denominator is still the
+// person-scoped shown→created pair, while these events explain where the
+// anonymous/authenticated path drops without changing that score.
+export const ALERT_DIAGNOSTIC_EVENT_NAMES = Object.freeze([
+  'job_alert_cta_shown',
+  'job_alert_cta_click',
+  'job_alert_auth_handoff',
+  'job_alert_cta_skipped',
+  'job_alert_created',
+]);
 export const ALERT_CTA_SURFACE_DIMENSION = 'customEvent:cta_surface';
+export const ALERT_CTA_ACTION_DIMENSION = 'customEvent:cta_action';
+export const ALERT_AUTH_STAGE_DIMENSION = 'customEvent:auth_stage';
+export const ALERT_SKIP_REASON_DIMENSION = 'customEvent:skip_reason';
+export const ALERT_AUTH_PATH_DIMENSION = 'customEvent:alert_auth_path';
 export const ALERT_CTA_SURFACE_NOT_SET = '(not set)';
+export const ALERT_CTA_ACTION_ERROR = 'error';
+export const ALERT_AUTH_STAGE_REPLAY_STARTED = 'replay_started';
+export const ALERT_AUTH_STAGE_REPLAY_SUCCEEDED = 'replay_succeeded';
+export const ALERT_AUTH_STAGE_REPLAY_FAILED = 'replay_failed';
+export const ALERT_AUTH_PATH_REPLAY = 'post_auth_replay';
 // A registered dimension is still unusable when more than 5% of the observed
 // users have no surface value. This is deliberately explicit and observable;
 // tighten it only after the scheduled preflight has produced evidence.
@@ -166,6 +192,8 @@ export function alertFunnelOutcome({
   viaGa4 = false,
   ctaSurfaceNotSetShare = null,
   surfaceBreakdown = null,
+  dropPointBreakdown = null,
+  diagnosticAvailability = null,
 }) {
   const shownN = Number(shown) || 0;
   const createdN = Number(created) || 0;
@@ -185,6 +213,42 @@ export function alertFunnelOutcome({
         `| ${surface} | ${surfaceShown} | ${surfaceCreated} | ${fmtPct(surfaceRate)} |`),
     ].join('\n')
     : '';
+  const dropPointTable = viaGa4 && Array.isArray(dropPointBreakdown)
+    ? [
+      'Diagnostica drop-point GA4 per utenti; le righe per superficie possono sovrapporsi.',
+      '',
+      '| cta_surface | click | auth handoff | skip | click error | replay start | replay ok | replay fail | created replay |',
+      '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',
+      ...dropPointBreakdown.map((row) => [
+        row.surface,
+        row.click,
+        row.authHandoff,
+        row.skipped,
+        row.clickErrorUsers === null ? 'n/a' : row.clickErrorUsers,
+        row.replayStartedUsers === null ? 'n/a' : row.replayStartedUsers,
+        row.replaySucceededUsers === null ? 'n/a' : row.replaySucceededUsers,
+        row.replayFailedUsers === null ? 'n/a' : row.replayFailedUsers,
+        row.createdReplayUsers === null ? 'n/a' : row.createdReplayUsers,
+      ].join(' | ')).map((row) => `| ${row} |`),
+    ].join('\n')
+    : '';
+  const dropPointDetailTable = viaGa4 && Array.isArray(dropPointBreakdown)
+    ? [
+      'Dettagli delle categorie diagnostiche GA4; anche queste popolazioni possono sovrapporsi.',
+      '',
+      '| cta_surface | click actions | auth stages | skip reasons | create auth path |',
+      '| --- | --- | --- | --- | --- |',
+      ...dropPointBreakdown.map((row) => `| ${row.surface} | ${fmtDiagnosticValues(row.clickActions)} | ${fmtDiagnosticValues(row.authStages)} | ${fmtDiagnosticValues(row.skipReasons)} | ${fmtDiagnosticValues(row.authPaths)} |`),
+    ].join('\n')
+    : '';
+  const unavailableDiagnostics = diagnosticAvailability
+    ? Object.entries(diagnosticAvailability)
+      .filter(([, status]) => !status.available)
+      .map(([name, status]) => `${name}: ${status.reason}`)
+    : [];
+  const diagnosticAvailabilityDetail = unavailableDiagnostics.length > 0
+    ? `Dimensioni diagnostiche GA4 non disponibili: ${unavailableDiagnostics.join('; ')}`
+    : '';
   return {
     passed: rate !== null && rate >= 0.05,
     value: {
@@ -193,10 +257,15 @@ export function alertFunnelOutcome({
       shown: shownN,
       ...(viaGa4 && ctaSurfaceNotSetShare !== null ? { ctaSurfaceNotSetShare } : {}),
       ...(viaGa4 && Array.isArray(surfaceBreakdown) ? { surfaceBreakdown } : {}),
+      ...(viaGa4 && Array.isArray(dropPointBreakdown) ? { dropPointBreakdown } : {}),
+      ...(viaGa4 && diagnosticAvailability ? { diagnosticAvailability } : {}),
     },
     targetDescription: `>= 5% (${unit} job_alert_created / ${unit} job_alert_cta_shown, 14gg${viaGa4 ? ', GA4' : ''})`,
     detail: `${createdN}/${shownN} ${unit} = ${fmtPct(rate)}${coverageDetail}${viaGa4 ? ' [GA4]' : ''}`
-      + (surfaceTable ? `\n\n${surfaceTable}` : ''),
+      + (surfaceTable ? `\n\n${surfaceTable}` : '')
+      + (dropPointTable ? `\n\n${dropPointTable}` : '')
+      + (dropPointDetailTable ? `\n\n${dropPointDetailTable}` : '')
+      + (diagnosticAvailabilityDetail ? `\n\n${diagnosticAvailabilityDetail}` : ''),
   };
 }
 
@@ -233,16 +302,43 @@ export async function evalAlertFunnelConversionGa4({
         { name: ALERT_CTA_SURFACE_DIMENSION },
       ],
       metrics: ['totalUsers'],
-      dimensionFilter: buildAlertFunnelGa4Filter(),
+      dimensionFilter: buildAlertFunnelGa4Filter(ALERT_DIAGNOSTIC_EVENT_NAMES),
       windowDays: 14,
     }),
   ]);
+  const diagnosticQueries = {
+    clickActions: { eventName: 'job_alert_cta_click', dimension: ALERT_CTA_ACTION_DIMENSION },
+    authStages: { eventName: 'job_alert_auth_handoff', dimension: ALERT_AUTH_STAGE_DIMENSION },
+    skipReasons: { eventName: 'job_alert_cta_skipped', dimension: ALERT_SKIP_REASON_DIMENSION },
+    authPaths: { eventName: 'job_alert_created', dimension: ALERT_AUTH_PATH_DIMENSION },
+  };
+  const diagnosticEntries = await Promise.all(
+    Object.entries(diagnosticQueries).map(async ([key, query]) => [key, await readAlertFunnelDimensionBreakdown({
+      token: accessToken,
+      ...query,
+      windowDays: 14,
+      runReportImpl,
+      logImpl,
+    })]),
+  );
+  const diagnosticReports = Object.fromEntries(diagnosticEntries);
+  const surfaceBreakdown = inspectAlertFunnelSurfaceBreakdown(surfaceReport);
   return alertFunnelOutcome({
     created: counts.get('job_alert_created') || 0,
     shown: counts.get('job_alert_cta_shown') || 0,
     viaGa4: true,
     ctaSurfaceNotSetShare: preflight.notSetShare,
-    surfaceBreakdown: inspectAlertFunnelSurfaceBreakdown(surfaceReport),
+    surfaceBreakdown,
+    dropPointBreakdown: buildAlertFunnelDropPointBreakdown({
+      surfaceBreakdown,
+      ...diagnosticReports,
+    }),
+    diagnosticAvailability: Object.fromEntries(
+      Object.entries(diagnosticReports).map(([key, report]) => [key, {
+        available: report.available,
+        ...(report.reason ? { reason: report.reason } : {}),
+      }]),
+    ),
   });
 }
 
@@ -664,22 +760,132 @@ export function inspectAlertCtaSurfaceReport({
 /** Return the alert funnel's two user counts in allowlist order, including empty surfaces. */
 export function inspectAlertFunnelSurfaceBreakdown(report) {
   const countsBySurface = new Map(
-    ALERT_CTA_SURFACES.map((surface) => [surface, { shown: 0, created: 0 }]),
+    ALERT_CTA_SURFACES.map((surface) => [surface, {
+      shown: 0,
+      click: 0,
+      authHandoff: 0,
+      skipped: 0,
+      created: 0,
+    }]),
   );
   for (const row of report?.rows || []) {
     const eventName = row.dimensionValues?.[0]?.value;
     const surface = row.dimensionValues?.[1]?.value;
     const users = Number(row.metricValues?.[0]?.value || 0);
-    if (!ALERT_FUNNEL_EVENT_NAMES.includes(eventName) || !countsBySurface.has(surface)) continue;
+    if (!ALERT_DIAGNOSTIC_EVENT_NAMES.includes(eventName) || !countsBySurface.has(surface)) continue;
     if (!Number.isFinite(users) || users < 0) continue;
-    const eventMetric = eventName === 'job_alert_cta_shown' ? 'shown' : 'created';
-    countsBySurface.get(surface)[eventMetric] = users;
+    const eventMetric = {
+      job_alert_cta_shown: 'shown',
+      job_alert_cta_click: 'click',
+      job_alert_auth_handoff: 'authHandoff',
+      job_alert_cta_skipped: 'skipped',
+      job_alert_created: 'created',
+    }[eventName];
+    if (!eventMetric) continue;
+    countsBySurface.get(surface)[eventMetric] += users;
   }
 
   return ALERT_CTA_SURFACES.map((surface) => {
-    const { shown, created } = countsBySurface.get(surface);
-    return { surface, shown, created, rate: shown > 0 ? created / shown : null };
+    const { shown, click, authHandoff, skipped, created } = countsBySurface.get(surface);
+    return {
+      surface,
+      shown,
+      click,
+      authHandoff,
+      skipped,
+      created,
+      rate: shown > 0 ? created / shown : null,
+    };
   });
+}
+
+/**
+ * Parse one optional categorical GA4 dimension without folding an unknown
+ * value into a known bucket. The four dimensions below are diagnostic-only;
+ * `cta_surface` remains the required, preflighted dimension.
+ */
+export function inspectAlertFunnelDimensionBreakdown(report) {
+  const bySurface = new Map(ALERT_CTA_SURFACES.map((surface) => [surface, new Map()]));
+  for (const row of report?.rows || []) {
+    const surface = row.dimensionValues?.[0]?.value;
+    if (!bySurface.has(surface)) continue;
+    const users = Number(row.metricValues?.[0]?.value || 0);
+    if (!Number.isFinite(users) || users < 0) continue;
+    const rawValue = row.dimensionValues?.[1]?.value;
+    const value = typeof rawValue === 'string' && rawValue.trim()
+      ? rawValue.trim()
+      : ALERT_CTA_SURFACE_NOT_SET;
+    const values = bySurface.get(surface);
+    values.set(value, (values.get(value) || 0) + users);
+  }
+  return ALERT_CTA_SURFACES.map((surface) => ({
+    surface,
+    values: Object.fromEntries(bySurface.get(surface)),
+  }));
+}
+
+function diagnosticValue(report, surface, value) {
+  if (!report?.available) return null;
+  const row = report.rows.find((candidate) => candidate.surface === surface);
+  return row?.values?.[value] ?? 0;
+}
+
+function diagnosticValues(report, surface) {
+  if (!report?.available) return null;
+  const row = report.rows.find((candidate) => candidate.surface === surface);
+  return row?.values || {};
+}
+
+/** Combine the event matrix with optional action/stage/reason/path detail. */
+export function buildAlertFunnelDropPointBreakdown({
+  surfaceBreakdown,
+  clickActions,
+  authStages,
+  skipReasons,
+  authPaths,
+} = {}) {
+  if (!Array.isArray(surfaceBreakdown)) return null;
+  return surfaceBreakdown.map((row) => ({
+    ...row,
+    clickErrorUsers: diagnosticValue(clickActions, row.surface, ALERT_CTA_ACTION_ERROR),
+    replayStartedUsers: diagnosticValue(authStages, row.surface, ALERT_AUTH_STAGE_REPLAY_STARTED),
+    replaySucceededUsers: diagnosticValue(authStages, row.surface, ALERT_AUTH_STAGE_REPLAY_SUCCEEDED),
+    replayFailedUsers: diagnosticValue(authStages, row.surface, ALERT_AUTH_STAGE_REPLAY_FAILED),
+    createdReplayUsers: diagnosticValue(authPaths, row.surface, ALERT_AUTH_PATH_REPLAY),
+    clickActions: diagnosticValues(clickActions, row.surface),
+    authStages: diagnosticValues(authStages, row.surface),
+    skipReasons: diagnosticValues(skipReasons, row.surface),
+    authPaths: diagnosticValues(authPaths, row.surface),
+  }));
+}
+
+async function readAlertFunnelDimensionBreakdown({
+  token,
+  eventName,
+  dimension,
+  windowDays,
+  runReportImpl,
+  logImpl,
+}) {
+  try {
+    const report = await runReportImpl(token, {
+      dimensions: [
+        { name: ALERT_CTA_SURFACE_DIMENSION },
+        { name: dimension },
+      ],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter([eventName]),
+      windowDays,
+    });
+    return { available: true, rows: inspectAlertFunnelDimensionBreakdown(report) };
+  } catch (error) {
+    const message = String(error?.message || error).slice(0, 240);
+    const reason = error?.status === 400 || /^GA4 400:/.test(message)
+      ? `dimensione ${dimension} non registrata`
+      : `query non disponibile (${message})`;
+    logImpl(`[campaign-goal-check] alert funnel diagnostic ${eventName}/${dimension}: ${reason}`);
+    return { available: false, reason, rows: [] };
+  }
 }
 
 /**

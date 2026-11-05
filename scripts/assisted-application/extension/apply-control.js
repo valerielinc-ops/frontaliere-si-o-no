@@ -5,7 +5,7 @@
 // Match complete human-readable action tokens, with optional decorative
 // punctuation. URL/query/email fragments are never standalone action words.
 // This same expression is also used by the accessible-link fallback.
-const APPLY_RE = /(?:^|\s)[([{«»“”‘’"'›•*-]*(apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (la tua )?candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i;
+const APPLY_RE = /(?:^|\s)[([{«»“”‘’"'›•*-]*(apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (la (?:tua|sua) )?candidatura|invii la sua candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i;
 // «Später bewerben» on Prospective.ch's career pages (Coop, 2026-10-02) keeps
 // the posting for later by e-mail: never the way into the form.
 const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;

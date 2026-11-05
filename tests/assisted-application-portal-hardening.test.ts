@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
+import { CREATE_ACCOUNT_RE, isExplicitSignInNavigationLabel } from '../scripts/assisted-application/lib/portal/account.mjs';
 import {
   candidateForForm,
   COOKIE_ACCEPT_RE,
@@ -27,6 +28,7 @@ import {
   isSafeEmployerSitePreread,
   readPortalQuestions,
   realisticUserAgent,
+  startsApplication,
   urlConfirms,
 } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalAnswerForApplication, portalOptionMap } from '../scripts/assisted-application/lib/portal/question-key.mjs';
@@ -185,6 +187,23 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl, postingUrl: 'https://other.example/Vacancies/717' })).toBe(applyUrl);
   });
 
+  it('opens the direct Umantis form when the saved apply URL is the exact vacancy page', () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4';
+    const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Application/New/4';
+    const job = { company: 'EOC', title: 'Assistente sociale (80-100%)' };
+    const verified = isVerifiedPostingEntry({ applyUrl: applicationUrl, postingUrl });
+
+    expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl })).toBe(applicationUrl);
+    expect(verified).toBe(true);
+    expect(formPostingMatch('Assistente sociale - Candidatura | EOC candiDati\nApplication Tracking System', job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applicationUrl,
+    })).toBe('match');
+    expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('/2806/', '/2807/') })).toBe(postingUrl);
+    expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('recruitingapp-2761', 'other') })).toBe(postingUrl);
+  });
+
   it('accepts ALTEN’s generic form only when the matching posting route was the entry', () => {
     const job = { company: 'ALTEN Switzerland', title: 'Project Manager – IT & Banking' };
     const genericForm = [
@@ -278,6 +297,10 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch('Concierge - Application | Esempio Resort', job, { postingMatched: true })).toBe('mismatch');
     // …while one that is silent about the employer goes on with the role alone.
     expect(formPostingMatch('Concierge — Application Tracking System', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('match');
+  });
+
+  it('recognizes the EOC formal Italian application link on a Umantis description page', () => {
+    expect(startsApplication('Invii la sua candidatura')).toBe(true);
   });
 
   // Reviews of #11033 on the employer a form names. Their acceptances as written, for
@@ -401,6 +424,27 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(ownAccountForm(page('Submit final application', { fields: [fields[0], { ...fields[1], form: 1 }] }))).toBe(false);
   });
 
+  it('recognizes Umantis profile creation when submitting the application creates the account', () => {
+    const snapshot = {
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Application/New/4',
+      text: 'Inviando la candidatura viene creato un profilo utente.',
+      passwordVisible: true,
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Indirizzo e-mail/login*' },
+        { id: 'password', kind: 'text', inputType: 'password', form: 1, label: 'Password*' },
+        { id: 'cv', kind: 'file', inputType: 'file', form: 2, label: 'Curriculum*' },
+      ],
+      buttons: [{ text: 'Invia candidatura definitiva' }],
+    };
+
+    expect(sendsApplication(snapshot)).toBe(true);
+    expect(ownAccountForm(snapshot, 'umantis')).toBe(true);
+    expect(ownAccountForm({ ...snapshot, text: 'Inviando la candidatura,\nviene creato un profilo utente.' }, 'umantis')).toBe(true);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('recruitingapp-2761.umantis.com', 'careers.example.org') }, 'umantis')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('https:', 'http:') }, 'umantis')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, text: '' }, 'umantis')).toBe(false);
+  });
+
   it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
     const successFactors = {
       url: 'https://career5.successfactors.eu/careers',
@@ -505,6 +549,29 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(controls.review?.id).not.toBe('outside-review');
     expect(controls.accept).toMatchObject({ id: 'accept', disabled: true });
     expect(controls.accept?.id).not.toBe('outside-accept');
+  });
+
+  it('binds the career74 registration CTA to its privacy trigger', () => {
+    const snapshot = {
+      url: 'https://career74.sapsf.eu/career',
+      fields: [
+        { id: 'email', kind: 'text', label: 'E-Mail-Adresse: *', form: 0 },
+        { id: 'email-repeat', kind: 'text', label: 'E-Mail-Adresse wiederholen: *', form: 0 },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort *', form: 0 },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Passwort wiederholen: *', form: 0 },
+        { id: 'first-name', kind: 'text', label: 'Vorname: *', form: 0 },
+        { id: 'last-name', kind: 'text', label: 'Nachname: *', form: 0 },
+        { id: 'country', kind: 'select', label: 'Land des Wohnorts:*', form: 0 },
+      ],
+      buttons: [
+        { id: 'privacy', text: 'Lesen und akzeptieren Sie die Datenschutzerklärung', form: 0, disabled: false },
+        { id: 'create', text: 'Bewerbungskonto erstellen', form: 0, disabled: true },
+      ],
+    };
+
+    expect(CREATE_ACCOUNT_RE.test(snapshot.buttons[1].text)).toBe(true);
+    expect(isExplicitSignInNavigationLabel('Anmelden / Bewerbungskonto erstellen')).toBe(false);
+    expect(privacyConsentControls(snapshot).trigger).toMatchObject({ id: 'privacy', form: 0 });
   });
 
   it('prefers the newly opened DPCS dialog when an earlier modal has a matching review', () => {

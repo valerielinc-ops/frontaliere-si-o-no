@@ -40,7 +40,7 @@ import { renderCvDocx, renderLetterDocx } from './assistedApplicationDocx.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { applyCvLineChoices, checkTailoredCvFacts, cvChoicesOf, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, requiredPortalConsentAffirmed, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
@@ -53,6 +53,17 @@ import { answerMessage, validateAnswer } from './lib/answerRules.js';
 import { permitOmitted, permitStatusOf } from './lib/permitStatus.js';
 import { portalQuestionText, readablePortalQuestionText } from './lib/portalQuestionText.js';
 import { defaultStartDate, minDateFor, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
+import {
+  buildPostalApplicationPacket,
+  POSTAL_PACKET_CONTENT_TYPE,
+  POSTAL_PACKET_FILE_NAME,
+  POSTAL_PACKET_MAX_SOURCE_BYTES,
+  postalPacketChecklistStatus,
+  postalPacketExemptionLabel,
+  postalPacketReadiness,
+  postalPacketSources,
+  PostalPacketError,
+} from './assistedApplicationPostalPacket.js';
 import { decideFollowup, followupReviewPayload } from './assistedApplicationFollowupSweep.js';
 import { randomUUID } from 'node:crypto';
 import {
@@ -63,14 +74,16 @@ import {
   detectDocumentType,
   documentFileId,
   documentsView,
+  documentFilesOf,
   openRequiredDocuments,
   requiredDocumentsOf,
+  requiredDocumentsFor,
   sanitizeClientCheck,
 } from './assistedApplicationExtraDocuments.js';
 
-const ACTIONS = new Set(['approve', 'reject', 'withdraw', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'document_recheck', 'photo_upload', 'photo_remove', 'cv_lines']);
+const ACTIONS = new Set(['approve', 'reject', 'withdraw', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'document_recheck', 'document_set_prepared', 'document_set_exemption', 'photo_upload', 'photo_remove', 'cv_lines']);
 const PHOTO_ACTIONS = new Set(['photo_upload', 'photo_remove']);
-const DOCUMENT_ACTIONS = new Set(['document_upload', 'document_remove']);
+const DOCUMENT_ACTIONS = new Set(['document_upload', 'document_remove', 'document_set_prepared', 'document_set_exemption']);
 // Where the candidate can still give a document: their review, or a portal waiting for them.
 const DOCUMENT_STATES = new Set(['candidate_review', 'needs_candidate_action']);
 // What the candidate wrote vouches for itself in the fact check (bounded).
@@ -82,12 +95,23 @@ const MAX_ANSWER_CHARS = 500;
 const MIN_FEEDBACK_CHARS = 5;
 // The candidate's editable Word copies (owner decision 2026-10-03): built at each request, never stored, never sent.
 const WORD_FILES = new Set(['letter.docx', 'cv.docx']);
+const POSTAL_PACKET_FILE = 'postal-packet.pdf';
 // What the runner records as sent (draft.sent.files).
 const KEPT_KINDS = new Set(['letter', 'cv', 'dossier', 'documents', 'document']);
 // The letter, the CV and every file of every requested document, at most.
 const MAX_KEPT_FILES = 2 + MAX_REQUIRED_DOCUMENTS * MAX_FILES_PER_DOCUMENT;
 const CV_KEPT_KIND = { tailored: 'cvTailored', inplace: 'cvInplace', original: 'cvOriginal' };
 const CV_KEPT_KINDS = new Set(Object.values(CV_KEPT_KIND));
+
+function safeHttpsUrl(value) {
+  try {
+    const url = new URL(String(value || ''));
+    if (url.protocol !== 'https:' || url.username || url.password) return null;
+    return url.toString().slice(0, 2048);
+  } catch {
+    return null;
+  }
+}
 
 class ReviewError extends Error {
   constructor(code, status = 400, details = null) {
@@ -146,6 +170,7 @@ function questionView(question, nowMs = Date.now(), cvText = '') {
     type: question.type,
     options: question.options || [],
     required: Boolean(question.required),
+    ...(question.requiresAffirmativeConsent === true ? { requiresAffirmativeConsent: true } : {}),
     minDate: minDateFor(question, nowMs),
     // The rule the page checks while the candidate types (answerRules.js).
     validation: question.validation || null,
@@ -225,6 +250,77 @@ export function buildWordCopy(file, { order, orderId, flow, draft, nowMs }) {
   return null;
 }
 
+function postalPacketChecklist({ draft, flow, orderId, locale }) {
+  return requiredDocumentsFor(draft, flow).map((document) => {
+    const given = flow?.documents?.[document.id] || {};
+    const exemption = (document.exemptions || []).includes(given.exemption) ? given.exemption : '';
+    const files = documentFilesOf(flow, orderId, document.id);
+    const status = exemption ? 'exempt'
+      : document.delivery === 'offline' ? (Number(given.preparedAt) ? 'prepared' : 'manual')
+        : document.delivery === 'service' || files.length ? 'included' : 'missing';
+    const reason = exemption ? ` (${postalPacketExemptionLabel(locale, exemption)})` : '';
+    return {
+      documentId: document.id,
+      label: `${document.label}${reason}`,
+      status: postalPacketChecklistStatus(locale, status),
+      instructions: document.instructions || '',
+    };
+  });
+}
+
+async function postalPacketFile({ bucket, order, orderId, flow, draft }) {
+  if (!bucket) throw new PostalPacketError('storage_unavailable', 503);
+  const readiness = postalPacketReadiness({ order, orderId, flow, draft });
+  if (!readiness.ready) throw new PostalPacketError('postal_packet_not_ready', 409, readiness);
+  const { cv, documents, includeHandwrittenLetter } = postalPacketSources({ order, orderId, flow, draft });
+  const sources = [
+    ...(cv ? [{ key: cv.key, type: String(cv.type || '').toLowerCase(), name: cv.name, label: 'Curriculum vitae', purpose: 'document' }] : []),
+    ...documents.map((file) => ({ key: file.key, type: String(file.detectedType || '').toLowerCase(), name: file.name, label: file.label, purpose: file.purpose })),
+  ];
+  const metadata = [];
+  let totalBytes = 0;
+  for (const source of sources) {
+    if (!isAssistedApplicationCvKey(orderId, source.key)) throw new PostalPacketError('postal_packet_file_unavailable', 409);
+    let details;
+    try {
+      [details] = await bucket.file(source.key).getMetadata();
+    } catch {
+      throw new PostalPacketError('postal_packet_file_unavailable', 409, { fileName: source.name });
+    }
+    const size = Number(details?.size);
+    if (!Number.isSafeInteger(size) || size <= 0) throw new PostalPacketError('postal_packet_file_unavailable', 409, { fileName: source.name });
+    totalBytes += size;
+    if (totalBytes > POSTAL_PACKET_MAX_SOURCE_BYTES) throw new PostalPacketError('postal_packet_too_large', 413, { maxBytes: POSTAL_PACKET_MAX_SOURCE_BYTES });
+    metadata.push({ ...source, size });
+  }
+
+  const files = [];
+  for (const source of metadata) {
+    let buffer;
+    try {
+      [buffer] = await bucket.file(source.key).download();
+    } catch {
+      throw new PostalPacketError('postal_packet_file_unavailable', 409, { fileName: source.name });
+    }
+    if (!Buffer.isBuffer(buffer) || buffer.length !== source.size || detectDocumentType(buffer.subarray(0, 16)) !== source.type) {
+      throw new PostalPacketError('postal_packet_file_invalid', 422, { fileName: source.name });
+    }
+    files.push({ ...source, buffer });
+  }
+
+  const buffer = await buildPostalApplicationPacket({
+    locale: draft?.language || order?.locale || 'it',
+    jobTitle: draft?.job?.title || order?.jobTitle || '',
+    companyName: order?.companyName || '',
+    postalSubmission: flow.postalSubmission,
+    coverLetterText: includeHandwrittenLetter ? draft?.coverLetter?.text || '' : '',
+    includeHandwrittenLetter,
+    checklist: postalPacketChecklist({ draft, flow, orderId, locale: draft?.language || order?.locale || 'it' }),
+    files,
+  });
+  return { buffer, contentType: POSTAL_PACKET_CONTENT_TYPE, fileName: POSTAL_PACKET_FILE_NAME };
+}
+
 /**
  * What the candidate keeps once the application left (owner decision 2026-10-03): the files the runner
  * recorded as sent or, for an older order and a record of which nothing can be signed, the stored letter
@@ -299,7 +395,7 @@ export function sendReviewResponse(res, { status, body, file, noStore }) {
   return res.status(status).json(body);
 }
 
-export function buildReviewPayload({ order, orderId = '', flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, answerEvidence = [],
+export function buildReviewPayload({ order, orderId = '', flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, originalCvUrl = null, documentUrls = {}, keptDocuments = null, submission = {}, answerEvidence = [],
   communicationLocale = order?.locale || 'it', editSnapshotSecret = '', nowMs = Date.now() }) {
   const locale = normalizeAnswerCommunicationLocale(communicationLocale)
     || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
@@ -318,7 +414,8 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     answers.work_permit = value;
     return { ...view, options };
   });
-  const openRequired = questions.filter((question) => question.required && !String(answers[question.id] ?? '').trim());
+  const openRequired = questions.filter((question) => question.required
+    && (!String(answers[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, answers[question.id])));
   const suggestedAnswerIds = new Set(questions.filter((question) => question.suggestedAnswer).map((question) => question.id));
   const answerSuggestionDismissals = flow?.answerSuggestionDismissals;
   const dismissedAnswerSuggestionIds = Number(answerSuggestionDismissals?.round) === current
@@ -326,8 +423,11 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     ? [...new Set(answerSuggestionDismissals.ids.filter(id => typeof id === 'string' && suggestedAnswerIds.has(id)))].slice(0, 80)
     : [];
   // School reports, test results… the posting requires besides the CV and the letter.
-  const documents = documentsView(draft, flow);
-  const openDocuments = openRequiredDocuments(draft, flow?.documents || {});
+  const documents = documentsView(draft, flow, documentUrls);
+  const openDocuments = openRequiredDocuments(draft, flow?.documents || {}, flow);
+  const postalPacket = flow?.postalSubmission?.enabled === true
+    ? postalPacketReadiness({ order, orderId, flow, draft })
+    : null;
   const channel = draft?.channel || {};
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
   const formAnswers = formAnswersWithEdits({ order, draft, flow: candidateFlow, locale });
@@ -359,12 +459,22 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
       channel: channel.type || null,
       channelLabel: channel.label || null,
     },
+    postalSubmission: flow?.postalSubmission?.enabled === true ? {
+      recipient: clean(flow.postalSubmission.recipient, 200),
+      address: cleanBlock(flow.postalSubmission.address, 1000),
+      deadline: clean(flow.postalSubmission.deadline, 160),
+      envelopeMarking: clean(flow.postalSubmission.envelopeMarking, 200),
+      instructions: cleanBlock(flow.postalSubmission.instructions, 2000),
+      officialFormUrl: safeHttpsUrl(flow.postalSubmission.officialFormUrl),
+    } : null,
+    postalPacket,
     // A WhatsApp application: done once the candidate has its link and steps
     // (the «inviata» e-mail); the page repeats the link.
     whatsappUrl: whatsappUrlOf(order, state),
     ready,
     coverLetter: draft ? { subject: draft.coverLetter?.subject || '', text: draft.coverLetter?.text || '' } : null,
     coverLetterUrl: coverLetterUrl || null,
+    originalCvUrl: originalCvUrl || null,
     applicationEmail,
     formAnswers: formAnswers.map((field) => fieldView(field, { draft, flow: candidateFlow, locale })),
     editSnapshot,
@@ -409,12 +519,14 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     keptDocuments: state === 'submitted' && keptDocuments?.files?.length ? keptDocuments : null,
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
-      approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
+      approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0
+        && (flow?.postalSubmission?.enabled !== true || postalPacket?.ready === true),
       reject: !stale && state === 'candidate_review',
       withdraw: !stale && canWithdrawApplication({ order, flow, draft, submission }),
       answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),
       uploadDocuments: !stale && DOCUMENT_STATES.has(state) && documents.length > 0,
-      confirmSubmitted: !stale && state === 'candidate_handoff',
+      confirmSubmitted: !stale && state === 'candidate_handoff'
+        && (flow?.postalSubmission?.enabled !== true || postalPacket?.ready === true),
       chooseCv: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
       // A tailored CV kept on the draft can be rebuilt with a photo (drafts from before it was kept cannot).
       uploadPhoto: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
@@ -446,8 +558,8 @@ async function loadAll(db, orderId) {
  * failure refuses the whole save with a message per field.
  * @param {object} [stored] the answers as stored: one kept unchanged is not checked again
  */
-export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', stored = {}, questionAnswers = {}) {
-  const { profile, answers } = candidateWithEdits({ order: {}, draft, flow: { answers: stored, questionAnswers } });
+export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', stored = {}, questionAnswers = {}, order = {}) {
+  const { profile, answers } = candidateWithEdits({ order, draft, flow: { answers: stored, questionAnswers } });
   const allowed = new Map(questionsForCandidate(draft?.questions, profile, answers, questionAnswers, draft).map((question) => [question.id, question]));
   const todayIso = zurichToday(nowMs);
   const out = {};
@@ -531,7 +643,7 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
       factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
       // With the writer that produced the letter now on the draft.
       ...(coverLetterPdfKey ? { coverLetterPdfKey, coverLetterRenderer } : {}),
-      ...(tailored ? { tailoredCv: { pdfKey: tailored.pdfKey, renderer: tailored.renderer, photo: tailored.photo } } : {}),
+      ...(tailored ? { tailoredCv: { pdfKey: tailored.pdfKey, renderer: tailored.renderer, photo: tailored.photo, size: tailored.size } } : {}),
       candidateEditedAt: nowMs,
     },
   });
@@ -607,7 +719,7 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
     db, bucket, orderId, flow, draft, nowMs,
     created: [rebuilt.pdfKey],
     flowPatch: { cvChoices: choices, cvChoicesRound },
-    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo, ...(inplace ? { inplace } : {}) } },
+    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo, size: rebuilt.size, ...(inplace ? { inplace } : {}) } },
   });
   await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
   await orderRefFor(db, orderId).collection('events').doc().set(buildAssistedApplicationEvent('automation_candidate_cv_reviewed', {
@@ -665,7 +777,7 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
     db, bucket, orderId, flow, draft, nowMs, created,
     flowPatch: { photo },
     // `photo`: what the PDF carries, not what was given (the standard-font writer prints none).
-    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
+    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo, size: rebuilt.size } },
   });
   // Only now, with the commit in, does no document name the photo it replaces.
   await deleteStored(bucket, orderId, [flow.photo?.key !== photo?.key ? flow.photo?.key : null, supersededPhotoPdf(draft)]);
@@ -680,8 +792,9 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
  */
 async function saveDocumentChange({ db, bucket, orderId, flow, requested, action, body, nowMs }) {
   const flowRef = flowRefFor(db, orderId);
-  const filesOf = (current) => (Array.isArray(current?.documents?.[requested.id]?.files) ? current.documents[requested.id].files : []);
+  const filesOf = (current) => documentFilesOf(current, orderId, requested.id);
   if (action === 'document_upload') {
+    if ((requested.delivery || 'upload') !== 'upload') throw new ReviewError('not_allowed', 409);
     const base64 = String(body.contentBase64 || '');
     if (base64.length > Math.ceil(MAX_DOCUMENT_BYTES / 3) * 4 + 4) throw new ReviewError('file_too_large', 413);
     const buffer = Buffer.from(base64, 'base64');
@@ -701,7 +814,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
       const current = (await transaction.get(flowRef)).data() || {};
       const files = filesOf(current);
       if (files.length >= MAX_FILES_PER_DOCUMENT) return false;
-      transaction.set(flowRef, { documents: { [requested.id]: { files: [...files, file] } }, updatedAt: nowMs }, { merge: true });
+      transaction.set(flowRef, { documents: { [requested.id]: { files: [...files, file], exemption: null } }, updatedAt: nowMs }, { merge: true });
       return true;
     });
     if (!added) {
@@ -711,6 +824,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     return;
   }
   if (action === 'document_remove') {
+    if ((requested.delivery || 'upload') !== 'upload') throw new ReviewError('not_allowed', 409);
     const fileId = String(body.fileId || '');
     let removed = null;
     await db.runTransaction(async (transaction) => {
@@ -722,6 +836,33 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     });
     if (!removed) throw new ReviewError('invalid_file');
     if (bucket) await bucket.file(removed.key).delete().catch(() => {});
+    return;
+  }
+  if (action === 'document_set_prepared') {
+    if (requested.delivery !== 'offline') throw new ReviewError('not_allowed', 409);
+    const prepared = body.prepared === true;
+    await db.runTransaction(async (transaction) => {
+      await transaction.get(flowRef);
+      transaction.set(flowRef, {
+        documents: { [requested.id]: { preparedAt: prepared ? nowMs : null, ...(prepared ? { exemption: null } : {}) } },
+        updatedAt: nowMs,
+      }, { merge: true });
+    });
+    return;
+  }
+  if (action === 'document_set_exemption') {
+    const exemption = String(body.exemption || '');
+    if (exemption && !(requested.exemptions || []).includes(exemption)) throw new ReviewError('invalid_exemption');
+    let removed = [];
+    await db.runTransaction(async (transaction) => {
+      const current = (await transaction.get(flowRef)).data() || {};
+      removed = exemption ? filesOf(current) : [];
+      transaction.set(flowRef, {
+        documents: { [requested.id]: { exemption: exemption || null, ...(exemption ? { files: [], preparedAt: null } : {}) } },
+        updatedAt: nowMs,
+      }, { merge: true });
+    });
+    if (bucket) await Promise.all(removed.map((file) => bucket.file(file.key).delete().catch(() => {})));
   }
 }
 
@@ -740,11 +881,20 @@ export async function handleAssistedApplicationReview(req, deps) {
       const token = String(req.query?.t || '');
       const authorization = await authorize(token, { ...deps, nowMs });
       const { orderId, round, kind } = authorization;
-      // An editable Word copy: the page's token checks, then built in memory and answered as a file.
+      // Editable Word copies and the protected paper packet are built only for this signed page.
       if (req.query?.file !== undefined) {
-        if (kind !== 'review' || !WORD_FILES.has(String(req.query.file))) throw new ReviewError('not_found', 404);
+        if (kind !== 'review') throw new ReviewError('not_found', 404);
         const { order, flow, draft } = await loadAll(deps.db, orderId);
-        const file = buildWordCopy(String(req.query.file), { order, orderId, flow, draft, nowMs });
+        const requestedFile = String(req.query.file);
+        if (requestedFile === POSTAL_PACKET_FILE) {
+          if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
+          if (flow.state !== 'candidate_handoff' || flow?.postalSubmission?.enabled !== true || draft?.status !== 'ready') {
+            throw new ReviewError('not_allowed', 409);
+          }
+          return { status: 200, file: await postalPacketFile({ bucket: deps.bucket, order, orderId, flow, draft }) };
+        }
+        if (!WORD_FILES.has(requestedFile)) throw new ReviewError('not_found', 404);
+        const file = buildWordCopy(requestedFile, { order, orderId, flow, draft, nowMs });
         if (!file) throw new ReviewError('not_found', 404);
         return { status: 200, file };
       }
@@ -762,7 +912,15 @@ export async function handleAssistedApplicationReview(req, deps) {
       // The candidate may inspect and confirm a legacy answer on this page.
       // Keep that display-only projection here, but never pass it to the
       // runner/fill-kit path (loadRunnerAnswerContext remains fail-closed).
-      const reviewFlow = candidateReviewFlow(flow, runnerContext);
+      const reviewFlow = {
+        ...candidateReviewFlow(flow, runnerContext),
+        ...(flow?.requestedDocumentsOverride === true ? {
+          requestedDocumentsOverride: true,
+          requestedDocuments: flow.requestedDocuments,
+        } : {}),
+        ...(flow?.postalSubmission ? { postalSubmission: flow.postalSubmission } : {}),
+        ...(flow?.documents ? { documents: flow.documents } : {}),
+      };
       // One signature per key and request: the letter can be both the review's and a kept file.
       const signed = new Map();
       const sign = (key) => {
@@ -771,12 +929,21 @@ export async function handleAssistedApplicationReview(req, deps) {
         return signed.get(key);
       };
       const kept = keptDocumentsOf({ order, orderId, flow, draft });
-      const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, ...keptUrls] = await Promise.all([
+      const documentFiles = flow?.postalSubmission?.enabled === true
+        ? requiredDocumentsFor(draft, reviewFlow).flatMap((document) => documentFilesOf(flow, orderId, document.id))
+        : [];
+      const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, originalCvUrl, ...documentAndKeptUrls] = await Promise.all([
         sign(draft?.coverLetterPdfKey),
         sign(draft?.tailoredCv?.status === 'ready' ? draft.tailoredCv.pdfKey : null),
         sign(inPlaceReady(draft) ? draft.tailoredCv.inplace.docxKey : null),
+        sign(isAssistedApplicationCvKey(orderId, order?.cvStorageKey) ? order.cvStorageKey : null),
+        ...documentFiles.map((file) => sign(file.key)),
         ...(kept?.files || []).map((file) => sign(file.key)),
       ]);
+      const documentUrls = Object.fromEntries(documentFiles.map((file, index) => [
+        documentFileId(file.key), documentAndKeptUrls[index] || null,
+      ]));
+      const keptUrls = documentAndKeptUrls.slice(documentFiles.length);
       // Signed links only: the storage keys never reach the page. A file without a link is not offered.
       const keptDocuments = kept && {
         source: kept.source,
@@ -790,7 +957,7 @@ export async function handleAssistedApplicationReview(req, deps) {
         loadEmployerResponse(orderRef, order),
         loadEmployerResponseTimeline(orderRef, order),
       ]);
-      return { status: 200, body: { ...buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission,
+      return { status: 200, body: { ...buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, originalCvUrl, documentUrls, keptDocuments, submission,
         answerEvidence: runnerContext.answerEvidence,
         communicationLocale: normalizeAnswerCommunicationLocale(runnerContext.communicationLocale)
           || normalizeAnswerCommunicationLocale(order?.locale) || 'it', editSnapshotSecret: authorization.reviewSecret, nowMs }),
@@ -866,7 +1033,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     }
     if (DOCUMENT_ACTIONS.has(action)) {
       if (!DOCUMENT_STATES.has(flow.state)) throw new ReviewError('not_allowed', 409);
-      const requested = requiredDocumentsOf(draft).find((item) => item.id === String(body.documentId || ''));
+      const requested = requiredDocumentsFor(draft, flow).find((item) => item.id === String(body.documentId || ''));
       if (!requested) throw new ReviewError('invalid_document');
       await saveDocumentChange({ db: deps.db, bucket: deps.bucket, orderId, flow, requested, action, body, nowMs });
       // The holds are evaluated again: the last document given starts the 12 h clock,
@@ -892,7 +1059,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       const reviewFlow = { ...runnerContext.flow, answers: storedAnswers, questionAnswers };
       const candidate = candidateWithEdits({ order, draft, flow: reviewFlow, locale: communicationLocale });
       const visibleQuestions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, questionAnswers, draft);
-      const answers = sanitizeAnswers(body.answers, draft, nowMs, communicationLocale, storedAnswers, questionAnswers);
+      const answers = sanitizeAnswers(body.answers, draft, nowMs, communicationLocale, storedAnswers, questionAnswers, order);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
       const currentRound = Number(runnerContext.flow?.round || flow?.round) || 1;
       const previousDismissals = runnerContext.flow?.answerSuggestionDismissals || flow?.answerSuggestionDismissals;
@@ -944,6 +1111,12 @@ export async function handleAssistedApplicationReview(req, deps) {
         answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions, confirmedAnswerOrigins: confirmedOrigins,
         answerSuggestionDismissals, nowMs, answerActor: 'candidate', communicationLocale, requireAnswerContracts: deps.requireAnswerContracts === true });
     }
+    const postalPacket = flow?.postalSubmission?.enabled === true
+      ? postalPacketReadiness({ order, orderId, flow, draft })
+      : null;
+    if (['approve', 'confirm_submitted'].includes(action) && postalPacket && !postalPacket.ready) {
+      throw new ReviewError('postal_packet_not_ready', 409, postalPacket);
+    }
     const event = {
       approve: { type: 'candidate_approve' },
       reject: { type: 'candidate_reject', feedback: cleanBlock(body.feedback, 2000) },
@@ -952,7 +1125,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     }[action];
     let writeSubmissionReceipt = null;
     if (action === 'confirm_submitted') {
-      const allowed = transition(flow, event, { nowMs });
+      const allowed = transition(flow, event, { nowMs, postalPacketReady: postalPacket?.ready !== false });
       if (allowed.ignored) throw new ReviewError(allowed.ignored, 409);
       const guard = submissionGuard(deps.db, orderId, round);
       const existing = await guard.read();
@@ -976,7 +1149,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409);
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
   } catch (error) {
-    if (error instanceof ReviewError || error instanceof WithdrawalError || error instanceof DocumentRecheckError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
+    if (error instanceof ReviewError || error instanceof WithdrawalError || error instanceof DocumentRecheckError || error instanceof PostalPacketError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     // A guarded commit refused (another request saved first) or no Storage for the rebuild.
     if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     throw error;

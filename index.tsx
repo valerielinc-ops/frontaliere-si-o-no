@@ -257,8 +257,8 @@ const bootstrapApp = async () => {
  // jumping the footer (live desktop CLS ~0.2 job detail, up to ~0.9 thin
  // search). MOVE that fallback into #root so React+s createRoot().render()
  // replaces it IN-PLACE (reusing the reserve+crossfade below) instead of an
- // external collapse. Most job-board hubs already emit inside #root; the bare
- // Ticino listing keeps its external snapshot outside until its first result set.
+ // external collapse. The bare Ticino listing keeps its external snapshot
+ // outside until its first result set.
  // parsePath is dynamic-imported (NOT a static entry import) so router+s heavy
  // route registries stay out of the entry chunk — it is already loaded with App
  // above, so this resolves from cache.
@@ -269,7 +269,7 @@ const bootstrapApp = async () => {
 
  try {
    const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
-   keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(rootElement, fallback);
+   keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(fallback);
    const { parsePath } = await import('./services/router');
    const parsedRoute = parsePath(window.location.pathname).route;
    const fallbackKind: StaticFallbackKind = fallback?.querySelector('article.ft-blog-article')
@@ -336,14 +336,15 @@ const bootstrapApp = async () => {
  // the layout SHIFT. Reserve #root's prerendered height as a min-height floor so
  // its transient collapse can't move the blocks below; released after the React
  // content paints (heights match — same page — so the release is shift-free).
- // The job-board static main has already supplied the mobile LCP by this
- // point. Keep the painted root visible while React takes over it: hiding the
- // settled candidate before replacement makes Lighthouse select a much later
- // SPA candidate and regresses mobile LCP. Desktop uses the same preserve path
- // because it intentionally does not wait for the static LCP candidate (#15770).
+ // The job-board static snapshot has already supplied the mobile LCP by this
+ // point. Keep the painted handoff visible while React takes over: hiding the
+ // settled candidate (or its header reserve) before the snapshot is released
+ // makes Lighthouse select a much later SPA candidate and regresses mobile LCP.
+ // Desktop uses the same preserve path because it intentionally does not wait
+ // for the static LCP candidate (#15770).
  if (keepStaticRootVisible) {
-   // The job-board static main is already inside #root and is the useful LCP
-   // candidate. Keep it visible while React takes over the same root.
+   // The canonical job-board snapshot is outside #root and owns the body until
+   // the first result set is ready; legacy in-root snapshots use the same path.
    staticHandoff.preserveRootForPaint(rootElement);
  } else {
    staticHandoff.hideRootForCrossfade(rootElement);

@@ -3,6 +3,8 @@ import {
   localeReceiptContext,
   pagesReceiptContext,
   resolvePublishReceipts,
+  isRetryableGithubReadError,
+  withGithubReadRetry,
 } from '../scripts/ci/publish-receipts.mjs';
 
 const sourceRunId = '39606182063';
@@ -77,5 +79,46 @@ describe('durable build -> publish receipts', () => {
     });
     expect(state.publishedLocales).toEqual(['en']);
     expect(state.pagesDeployed).toBe(false);
+  });
+
+  it('retries transient GitHub gateway failures with bounded backoff', () => {
+    let calls = 0;
+    const sleeps = [];
+    const warnings = [];
+    const result = withGithubReadRetry(() => {
+      calls += 1;
+      if (calls < 3) throw Object.assign(new Error('gh: Server Error (HTTP 502)'), {
+        stderr: 'gh: Server Error (HTTP 502)',
+      });
+      return 'ok';
+    }, {
+      backoffMs: [11, 22],
+      sleep: (delayMs) => sleeps.push(delayMs),
+      onRetry: (...args) => warnings.push(args),
+    });
+    expect(result).toBe('ok');
+    expect(calls).toBe(3);
+    expect(sleeps).toEqual([11, 22]);
+    expect(warnings).toHaveLength(2);
+  });
+
+  it('does not retry permanent or malformed GitHub failures', () => {
+    expect(isRetryableGithubReadError(new Error('gh: HTTP 400'))).toBe(false);
+    expect(isRetryableGithubReadError(new Error('invalid JSON response'))).toBe(false);
+    let calls = 0;
+    expect(() => withGithubReadRetry(() => {
+      calls += 1;
+      throw new Error('gh: HTTP 400');
+    }, { sleep: () => { throw new Error('unexpected retry'); } })).toThrow('HTTP 400');
+    expect(calls).toBe(1);
+  });
+
+  it('fails after the bounded number of transient attempts', () => {
+    let calls = 0;
+    expect(() => withGithubReadRetry(() => {
+      calls += 1;
+      throw new Error('gh: HTTP 503');
+    }, { maxAttempts: 3, backoffMs: [1, 1], sleep: () => {} })).toThrow('HTTP 503');
+    expect(calls).toBe(3);
   });
 });

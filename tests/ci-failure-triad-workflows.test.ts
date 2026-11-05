@@ -6,6 +6,38 @@ import { validatePrBody } from '../scripts/ci/pr-body-check-gate.mjs';
 
 const WORKFLOW_DIR = '.github/workflows';
 
+const THIN_PROMOTION_RUNTIME_SPARSE_PATHS = [
+  '/.gitattributes',
+  '/.npmrc',
+  '/data/thin-page-promotions-active.json',
+  '/data/thin-page-promotions.jsonl',
+  '/package-lock.json',
+  '/package.json',
+  '/scripts/ci/',
+  '/scripts/fetch-thin-page-promotions.mjs',
+  '/scripts/lib/',
+  '/scripts/load-rc-env.mjs',
+];
+
+const THIN_PROMOTION_LEGACY_SPARSE_PATHS = [
+  '/*',
+  '!/public/images/',
+  '!/data/jobs/',
+  '!/data/translation-cache/',
+  '!/packages/articles/content/',
+  '!/data/related-search-candidates.json',
+  '!/data/cf-hot-404s.json',
+  '!/data/jobs-ai-cache.json',
+  '!/data/dist-size-history.jsonl',
+  '!/data/jobs-stats-history.json',
+  '!/data/url-first-seen.json',
+  '!/data/jobs-snapshots-history/',
+  '!/data/slug-registry.json',
+  '!/data/evidence-index.json',
+  '!/data/health-premiums/',
+  '!/data/jobs-crawler-summaries/',
+];
+
 function workflow(name: string): any {
   return YAML.parse(fs.readFileSync(`${WORKFLOW_DIR}/${name}`, 'utf8'));
 }
@@ -69,6 +101,12 @@ describe('CI failure triad workflow regressions (#12926, #12902)', () => {
     expect(checkout?.with?.ref).toBe('${{ github.ref }}');
     expect(checkout?.with?.['fetch-depth']).toBe(1);
     expect(checkout?.with?.filter).toBe('blob:none');
+    const sparsePaths = String(checkout?.with?.['sparse-checkout'] || '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+    expect(sparsePaths).toEqual(THIN_PROMOTION_RUNTIME_SPARSE_PATHS);
+    expect(sparsePaths).not.toContain('/*');
     expect(checkout?.['timeout-minutes']).toBe(7);
     expect(historyIndex).toBeGreaterThan(steps.indexOf(checkout));
     expect(historyIndex).toBeLessThan(setupNodeIndex);
@@ -85,24 +123,81 @@ describe('CI failure triad workflow regressions (#12926, #12902)', () => {
     const steps = validation.steps;
     const checkout = steps.find((step: any) => step.uses?.startsWith('actions/checkout@'));
     const history = steps.find((step: any) => step.name === 'Measure blobless history fetch');
+    const sparsePaths = String(checkout?.with?.['sparse-checkout'] || '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
 
     expect(config.on.pull_request.paths).toContain('.github/workflows/refresh-thin-promotions.yml');
-    expect(validation.if).toBe("github.event_name == 'pull_request'");
+    expect(validation.if).toBe("github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && (inputs.benchmark_only == true || inputs.benchmark_only == 'true'))");
     expect(validation.permissions).toEqual({ contents: 'read' });
     expect(validation['timeout-minutes']).toBe(15);
-    expect(checkout?.with?.ref).toBe('${{ github.event.pull_request.head.sha }}');
+    expect(checkout?.with?.ref).toBe('${{ github.event.pull_request.head.sha || github.sha }}');
     expect(checkout?.with?.['fetch-depth']).toBe(1);
     expect(checkout?.with?.filter).toBe('blob:none');
     expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(sparsePaths).toEqual(THIN_PROMOTION_RUNTIME_SPARSE_PATHS);
+    expect(sparsePaths).not.toContain('/*');
     expect(checkout?.['timeout-minutes']).toBe(7);
-    expect(history?.env?.BRANCH).toBe('${{ github.event.pull_request.head.ref }}');
-    expect(history?.env?.HEAD_SHA).toBe('${{ github.event.pull_request.head.sha }}');
+    expect(history?.env?.BRANCH).toBe('${{ github.event.pull_request.head.ref || github.ref_name }}');
+    expect(history?.env?.HEAD_SHA).toBe('${{ github.event.pull_request.head.sha || github.sha }}');
     expect(history?.['timeout-minutes']).toBe(5);
     expect(history?.run).toContain('git fetch --no-tags --filter=blob:none --unshallow origin');
     expect(history?.run).toContain('duration_ms');
     expect(history?.run).toContain('GITHUB_RUN_ID');
     expect(history?.run).toContain('if [ "$duration_ms" -ge 300000 ]');
-    expect(config.jobs.refresh.if).toBe("github.event_name != 'pull_request'");
+    expect(config.jobs.refresh.if).toBe("github.event_name != 'pull_request' && inputs.benchmark_only != true && inputs.benchmark_only != 'true'");
+  });
+
+  it('compares legacy and narrowed checkout materialization on the same PR head', () => {
+    const config = workflow('refresh-thin-promotions.yml');
+    const benchmark = config.jobs['compare-checkout-materialization'];
+    const steps = benchmark.steps;
+    const legacy = steps.find((step: any) => step.id === 'legacy_checkout');
+    const narrowed = steps.find((step: any) => step.id === 'narrowed_checkout');
+    const summary = steps.find((step: any) => step.name === 'Publish linked checkout materialization comparison');
+
+    expect(config.on.workflow_dispatch.inputs.benchmark_only).toEqual({
+      description: 'Run the PR checkout-materialization comparison only',
+      required: false,
+      default: false,
+      type: 'boolean',
+    });
+    expect(benchmark.if).toBe("github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && (inputs.benchmark_only == true || inputs.benchmark_only == 'true'))");
+    expect(benchmark['runs-on']).toBe('ubuntu-latest');
+    expect(benchmark.permissions).toEqual({ contents: 'read' });
+    expect(benchmark['timeout-minutes']).toBe(16);
+    expect(legacy?.uses).toBe('actions/checkout@v7');
+    expect(legacy?.['continue-on-error']).toBe(true);
+    expect(narrowed?.uses).toBe('actions/checkout@v7');
+    expect(narrowed?.['continue-on-error']).toBeUndefined();
+
+    for (const checkout of [legacy, narrowed]) {
+      expect(checkout?.with?.ref).toBe('${{ github.event.pull_request.head.sha || github.sha }}');
+      expect(checkout?.with?.['fetch-depth']).toBe(1);
+      expect(checkout?.with?.filter).toBe('blob:none');
+      expect(checkout?.with?.['persist-credentials']).toBe(false);
+      expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+      expect(checkout?.['timeout-minutes']).toBe(7);
+    }
+
+    const legacyPaths = String(legacy?.with?.['sparse-checkout'] || '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+    const narrowedPaths = String(narrowed?.with?.['sparse-checkout'] || '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+    expect(legacy?.with?.path).toBe('checkout-legacy');
+    expect(narrowed?.with?.path).toBe('checkout-narrowed');
+    expect(legacyPaths).toEqual(THIN_PROMOTION_LEGACY_SPARSE_PATHS);
+    expect(narrowedPaths).toEqual(THIN_PROMOTION_RUNTIME_SPARSE_PATHS);
+    expect(summary?.if).toBe('always()');
+    expect(summary?.run).toContain('GITHUB_STEP_SUMMARY');
+    expect(summary?.run).toContain('GITHUB_RUN_ID');
+    expect(summary?.run).toContain('NARROWED_OUTCOME');
+    expect(summary?.run).toContain('seven-minute step cap');
   });
 
   it('refreshes keyword pages after the ranking writer succeeds, not only on a racing schedule', () => {

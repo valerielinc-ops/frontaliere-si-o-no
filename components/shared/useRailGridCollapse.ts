@@ -32,6 +32,11 @@ export interface RailGridCollapse {
   style: CSSProperties;
 }
 
+export interface RailGridCollapseOptions {
+  /** Keep the reserved desktop gutters stable after a post-paint empty verdict. */
+  collapseOnEmpty?: boolean;
+}
+
 /** Reserved width of the compact article tier when a side's rail is not collapsed. */
 const RAIL_COMPACT_PX = 160;
 /** Reserved width of the existing `xl` tier when a side's rail is not collapsed. */
@@ -39,24 +44,26 @@ const RAIL_MEDIUM_PX = 180;
 /** Reserved width of the `xlw` tier when a side's rail is not collapsed. */
 const RAIL_WIDE_PX = 300;
 
-export function useRailGridCollapse(): RailGridCollapse {
+export function useRailGridCollapse({ collapseOnEmpty = true }: RailGridCollapseOptions = {}): RailGridCollapse {
   const [collapsed, setCollapsed] = useState<{ left: boolean; right: boolean }>({ left: false, right: false });
 
   const onLeftEmptyResolved = useCallback((allEmpty: boolean) => {
+    if (!collapseOnEmpty) return;
     setCollapsed((s) => (s.left === allEmpty ? s : { ...s, left: allEmpty }));
-  }, []);
+  }, [collapseOnEmpty]);
   const onRightEmptyResolved = useCallback((allEmpty: boolean) => {
+    if (!collapseOnEmpty) return;
     setCollapsed((s) => (s.right === allEmpty ? s : { ...s, right: allEmpty }));
-  }, []);
+  }, [collapseOnEmpty]);
 
   const style = useMemo<CSSProperties>(() => ({
-    ['--ft-rail-w-c-l' as string]: collapsed.left ? '0px' : `${RAIL_COMPACT_PX}px`,
-    ['--ft-rail-w-c-r' as string]: collapsed.right ? '0px' : `${RAIL_COMPACT_PX}px`,
-    ['--ft-rail-w-m-l' as string]: collapsed.left ? '0px' : `${RAIL_MEDIUM_PX}px`,
-    ['--ft-rail-w-m-r' as string]: collapsed.right ? '0px' : `${RAIL_MEDIUM_PX}px`,
-    ['--ft-rail-w-l' as string]: collapsed.left ? '0px' : `${RAIL_WIDE_PX}px`,
-    ['--ft-rail-w-r' as string]: collapsed.right ? '0px' : `${RAIL_WIDE_PX}px`,
-  } as CSSProperties), [collapsed.left, collapsed.right]);
+    ['--ft-rail-w-c-l' as string]: collapseOnEmpty && collapsed.left ? '0px' : `${RAIL_COMPACT_PX}px`,
+    ['--ft-rail-w-c-r' as string]: collapseOnEmpty && collapsed.right ? '0px' : `${RAIL_COMPACT_PX}px`,
+    ['--ft-rail-w-m-l' as string]: collapseOnEmpty && collapsed.left ? '0px' : `${RAIL_MEDIUM_PX}px`,
+    ['--ft-rail-w-m-r' as string]: collapseOnEmpty && collapsed.right ? '0px' : `${RAIL_MEDIUM_PX}px`,
+    ['--ft-rail-w-l' as string]: collapseOnEmpty && collapsed.left ? '0px' : `${RAIL_WIDE_PX}px`,
+    ['--ft-rail-w-r' as string]: collapseOnEmpty && collapsed.right ? '0px' : `${RAIL_WIDE_PX}px`,
+  } as CSSProperties), [collapseOnEmpty, collapsed.left, collapsed.right]);
 
   return { onLeftEmptyResolved, onRightEmptyResolved, style };
 }

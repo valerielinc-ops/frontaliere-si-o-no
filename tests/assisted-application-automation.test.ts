@@ -1199,7 +1199,10 @@ describe('account failure observability', () => {
       url: () => 'https://ats.example/login',
       frames: () => [missingCreateLink],
       mainFrame: () => missingCreateLink,
-      getByRole: vi.fn(() => ({ first: () => ({ waitFor: vi.fn().mockRejectedValue(new Error('not-visible')) }) })),
+      getByRole: vi.fn(() => ({
+        filter: () => ({ first: () => ({ waitFor: vi.fn().mockRejectedValue(new Error('not-visible')) }) }),
+        first: () => ({ waitFor: vi.fn().mockRejectedValue(new Error('not-visible')) }),
+      })),
     };
     const stopped = await handleAuth({
       page: missingCreateLink,

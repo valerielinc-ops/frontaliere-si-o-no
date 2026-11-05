@@ -92,6 +92,41 @@ describe('red flags', () => {
     expect(flags).toEqual({ owner: ['fact_check', 'channel_unknown'], candidate: ['permit'], documents: [] });
   });
 
+  it('keeps required portal consent open until the candidate explicitly agrees', () => {
+    const draft = {
+      ...cleanDraft,
+      questions: [{ id: 'portal_privacy_consent', source: 'portal', question: 'Acconsenti al trattamento dei tuoi dati personali?',
+        required: true, requiresAffirmativeConsent: true }],
+    };
+    for (const answer of ['No', 'I don’t agree', 'I cannot accept']) {
+      expect(evaluateRedFlags(draft, { portal_privacy_consent: answer }).candidate).toEqual(['portal_privacy_consent']);
+    }
+    expect(evaluateRedFlags(draft, { portal_privacy_consent: 'Sì' }).candidate).toEqual([]);
+  });
+
+  it('clears a known applicant email confirmation while still waiting for an unknown date of birth', () => {
+    const order = {
+      applicantEmail: 'candidate@example.test',
+      candidateAlias: { active: true, address: 'alias@example.test' },
+    };
+    const draft = {
+      ...cleanDraft,
+      questions: [
+        { id: 'portal_email_confirmation', source: 'portal', question: 'Confirm email address', type: 'text', required: true },
+        { id: 'portal_birth_date', source: 'portal', question: 'What is your date of birth?', type: 'date', required: true },
+      ],
+    };
+    expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual(['portal_birth_date']);
+
+    const waiting = { state: 'needs_candidate_action', round: 1, heldBy: ['question:portal_email_confirmation', 'question:portal_birth_date'] };
+    expect(transition(waiting, { type: 'candidate_answers' }, { order, draft, answers: {}, nowMs: T0 }).ignored).toBe('questions_open');
+    const resumed = transition(waiting, { type: 'candidate_answers' }, {
+      order, draft, answers: { portal_birth_date: '1990-01-01' }, nowMs: T0,
+    });
+    expect(resumed.flow.state).toBe('submitting');
+    expect(resumed.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'candidate_answered' }]);
+  });
+
   it('does not hold a legacy draft on a language question already answered by a complete CV list', () => {
     const draft = {
       ...cleanDraft,
@@ -682,6 +717,13 @@ describe('CAPTCHA provider stops are handed to Valerie', () => {
     let result = transition({ state: 'submitting', round: 1, dispatch }, { type: 'submit_handoff', reason: 'captcha_provider_unavailable' }, { draft, nowMs: now });
     expect(result.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: null });
     expect(result.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover', reason: 'portal:captcha_provider_unavailable' })]);
+  });
+  it.each(['portal_antibot_ambiguous', 'portal:portal_antibot_ambiguous'])('keeps legacy invisible CAPTCHA reason %s with Valerie', reason => {
+    const draft = { ...cleanDraft, round: 1 };
+    const held = { state: 'owner_takeover', round: 1, heldBy: [reason], dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    expect(canOwnerHandoffToCandidate(held)).toBe(false);
+    expect(transition(held, { type: 'owner_handoff' }, { draft, nowMs: T0 }).ignored).toBe('captcha_requires_owner');
+    expect(transition(held, { type: 'owner_retry_submit' }, { draft, nowMs: T0 }).ignored).toBe('captcha_requires_owner');
   });
   it('does not retry a draft that the candidate has not approved', () => {
     const now = Date.now();

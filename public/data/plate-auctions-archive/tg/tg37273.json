@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "tg-109677",
+      "id": "tg-109864",
       "sourceKey": "TG",
-      "sourceRecordId": "109677",
+      "sourceRecordId": "109864",
       "canton": "Turgovia",
       "platePrefix": "TG",
       "plateNumber": "37273",
@@ -12,18 +12,18 @@
       "listingType": "auction",
       "vehicleType": "car",
       "auctionStatus": "closed",
-      "currentBidChf": 620,
-      "bidCount": 3,
-      "endsAt": "2026-10-21T17:00:00.000Z",
-      "closedAt": "2026-10-21T17:00:00.000Z",
-      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
-      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109677",
-      "sourceFetchedAt": "2026-10-21T04:46:43.306Z",
-      "lastVerifiedAt": "2026-10-21T04:46:43.306Z",
-      "firstSeenAt": "2026-10-07T06:06:06.221Z",
-      "lastSeenAt": "2026-10-21T04:46:43.306Z",
+      "currentBidChf": 600,
+      "bidCount": 0,
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-11-04T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109864",
+      "sourceFetchedAt": "2026-11-03T23:23:32.391Z",
+      "lastVerifiedAt": "2026-11-03T23:23:32.391Z",
+      "firstSeenAt": "2026-10-22T11:51:25.324Z",
+      "lastSeenAt": "2026-11-03T23:23:32.391Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "88b46446466b"
+      "rawSnapshotHash": "ea728c6d6a42"
     }
   ]
 }

@@ -48,7 +48,7 @@ describe('candidate proposal status with the shared progress helper', () => {
     expect(screen.getByText('0/10')).toBeInTheDocument();
   });
 
-  it('switches between distinct proposal categories and keeps every status available', () => {
+  it('prioritizes candidate actions and keeps every proposal category available without horizontal tabs', () => {
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
     const proposals: ApplicationConciergeProposal[] = [
       { ...proposal, proposalId: 'proposal-offered', jobTitle: 'Offerta da valutare', status: 'proposed', childApplicationId: null },
@@ -64,23 +64,31 @@ describe('candidate proposal status with the shared progress helper', () => {
     const snapshot = { ...service, proposals };
     render(<ApplicationConciergePortal serviceId={snapshot.serviceId} previewService={snapshot} locationSearch="" />);
 
-    const categories = screen.getByRole('group', { name: translations['jobBoard.concierge.proposalsTitle'] });
-    const expectedStatuses = ['proposed', 'needs_information', 'accepted', 'queued', 'submitted', 'failed', 'unknown', 'declined', 'retracted'] as const;
-    expect(within(categories).getAllByRole('button')).toHaveLength(expectedStatuses.length);
-    for (const status of expectedStatuses) {
+    const proposalsHeading = screen.getByRole('heading', { name: translations['jobBoard.concierge.proposalsTitle'] });
+    const proposalsPanel = proposalsHeading.closest('section');
+    expect(proposalsPanel).not.toBeNull();
+    const profileHeading = screen.getByRole('heading', { name: translations['jobBoard.concierge.profileTitle'] });
+    expect(proposalsHeading.compareDocumentPosition(profileHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+
+    const categories = Array.from(proposalsPanel!.querySelectorAll('details'));
+    const expectedStatuses = ['needs_information', 'proposed', 'accepted', 'queued', 'submitted', 'failed', 'unknown', 'declined', 'retracted'] as const;
+    expect(categories).toHaveLength(expectedStatuses.length);
+    for (const [index, status] of expectedStatuses.entries()) {
       const label = translations[`jobBoard.concierge.proposalStatus.${status}`];
-      expect(within(categories).getByRole('button', { name: new RegExp(label) })).toHaveTextContent('1');
+      const summary = categories[index].querySelector('summary');
+      expect(summary).toHaveTextContent(label);
+      expect(summary).toHaveTextContent('1');
     }
 
-    const offered = within(categories).getByRole('button', { name: new RegExp(translations['jobBoard.concierge.proposalStatus.proposed']) });
-    expect(offered).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByRole('region', { name: translations['jobBoard.concierge.proposalStatus.proposed'] })).toHaveTextContent('Offerta da valutare');
+    const needsInformation = categories[0];
+    expect(needsInformation).toHaveAttribute('open');
+    expect(within(needsInformation).getByRole('heading', { name: 'Informazioni richieste' })).toBeInTheDocument();
 
-    const queued = within(categories).getByRole('button', { name: new RegExp(translations['jobBoard.concierge.proposalStatus.queued']) });
-    fireEvent.click(queued);
-    expect(queued).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByRole('region', { name: translations['jobBoard.concierge.proposalStatus.queued'] })).toHaveTextContent('Candidatura in coda');
-    expect(screen.queryByRole('heading', { name: 'Offerta da valutare' })).not.toBeInTheDocument();
+    const offered = categories[1];
+    expect(offered).not.toHaveAttribute('open');
+    fireEvent.click(offered.querySelector('summary')!);
+    expect(offered).toHaveAttribute('open');
+    expect(within(offered).getByRole('heading', { name: 'Offerta da valutare' })).toBeInTheDocument();
   });
 
   it('keeps the existing child link for an accepted queued application without another accept action', () => {

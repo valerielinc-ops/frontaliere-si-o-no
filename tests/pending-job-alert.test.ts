@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import {
+  acknowledgePendingJobAlert,
   savePendingJobAlert,
   peekPendingJobAlert,
   consumePendingJobAlert,
@@ -51,6 +52,24 @@ describe('pendingJobAlert', () => {
     expect(peekPendingJobAlert()).toEqual(pending);
     expect(localStorage.getItem('pending_job_alert')).not.toBeNull();
     expect(consumePendingJobAlert()).toEqual(pending);
+  });
+
+  it('acknowledges only after the matching create succeeds', () => {
+    savePendingJobAlert(config, 'inline_card');
+    const replay = peekPendingJobAlert();
+
+    expect(replay).toEqual(pending);
+    expect(acknowledgePendingJobAlert(replay!)).toBe(true);
+    expect(peekPendingJobAlert()).toBeNull();
+  });
+
+  it('does not acknowledge a newer intent while an older replay is in flight', () => {
+    savePendingJobAlert(config, 'inline_card');
+    const firstReplay = peekPendingJobAlert();
+    savePendingJobAlert(config, 'job_detail_button');
+
+    expect(acknowledgePendingJobAlert(firstReplay!)).toBe(false);
+    expect(peekPendingJobAlert()).toEqual({ config, origin: 'job_detail_button' });
   });
 
   it('returns null when nothing is pending', () => {

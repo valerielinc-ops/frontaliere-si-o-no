@@ -413,14 +413,20 @@ export async function buildDraft(ctx) {
   // → SAP SuccessFactors), or expose that ATS in its Jobs2Web boot config
   // (ORIOR): the channel is the ATS's, with its account.
   if (channel.type === 'employer_site') {
-    const target = await resolveApplyUrl(channel.applyUrl, { fetchImpl, resolve: ctx.resolve });
-    if (target.via) {
+    const postingUrl = posting.postingUrl || channel.applyUrl;
+    const target = await resolveApplyUrl(postingUrl, { fetchImpl, resolve: ctx.resolve });
+    const applyUrl = target.via ? target.applyUrl : postingUrl;
+    const resolvedChannel = classifyApplicationChannel({ applyUrl, postingText, applicationEmail: requirements.applicationEmail });
+    // A published posting URL can already be the ATS's job-bound route. In
+    // that case there is no redirect to resolve, but the channel still needs
+    // to be classified from the route rather than the stale saved apply URL.
+    if (target.via || resolvedChannel.type !== 'employer_site') {
       channel = {
-        ...classifyApplicationChannel({ applyUrl: target.applyUrl, postingText, applicationEmail: requirements.applicationEmail }),
-        postingUrl: channel.applyUrl,
-        via: target.via,
+        ...resolvedChannel,
+        postingUrl,
+        ...(target.via ? { via: target.via } : {}),
       };
-      log('apply redirect', target.via, channel.type);
+      log('apply redirect', target.via || 'posting URL', channel.type);
     }
   }
   // The portal's own required questions, read ahead on a single-page form
@@ -429,14 +435,23 @@ export async function buildDraft(ctx) {
   const formAnswers = buildFormAnswers({ identity, profile, documents, answers, locale, personal });
   const readPortal = ctx.readPortalRequirements || ctx.readPortalQuestions;
   if (readPortal && channel.applyUrl) {
+    // `candidateWithEdits` may derive a salutation from CV wording or a name
+    // for letter formatting. That inference is useful for the letter, but it
+    // is not the candidate's choice for a required portal title field.
+    const portalAnswers = { ...answers };
+    const explicitlyChosenSalutation = Object.hasOwn(edited.overrides, 'salutation')
+      ? String(edited.overrides.salutation || '').trim()
+      : String(flow?.answers?.salutation || '').trim();
+    if (explicitlyChosenSalutation) portalAnswers.salutation = explicitlyChosenSalutation;
+    else delete portalAnswers.salutation;
     const portalResult = await readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
-      postingUrl: order.jobUrl || '',
+      postingUrl: posting.postingUrl || order.jobUrl || '',
       job: { title, company: order.companyName || '' },
       language,
       candidateLocale: locale,
-      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' } }),
+      candidate: candidateForForm({ identity, profile, answers: portalAnswers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' } }),
       codex,
       log,
     });
@@ -444,6 +459,7 @@ export async function buildDraft(ctx) {
     // reader also returns required file fields so they reach the upload picker
     // before the first submission attempt.
     const portal = Array.isArray(portalResult) ? { questions: portalResult, documents: [] } : (portalResult || { questions: [], documents: [] });
+    if (portal.handoff) throw new DraftAbort('draft_failed', 'portal_requirements_unavailable');
     requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
     // The document requirement is the answer to a narrow "do you hold it?"
     // question. Re-run this filter after the portal has contributed its own
@@ -516,7 +532,12 @@ export async function buildDraft(ctx) {
     completedAt: nowMs,
     language,
     candidateLocale: locale,
-    job: { source: posting.source, title, applyUrl: channel.applyUrl || String(order.jobUrl || '').slice(0, 1000) },
+    job: {
+      source: posting.source,
+      title,
+      postingUrl: posting.postingUrl || order.jobUrl || '',
+      applyUrl: channel.applyUrl || String(order.jobUrl || '').slice(0, 1000),
+    },
     liveness: { result: liveness.page?.result || null, code: liveness.page?.code || null, datasetGone: liveness.datasetGone },
     channel,
     requirementsRaw: requirements,
@@ -621,7 +642,7 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log });
     // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
     // `photo`: this PDF carries it (not what was given: the standard-font writer prints none).
-    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}), ...(repaired ? { repaired: true } : {}) }, text };
+    return { record: { status: 'ready', pdfKey, size: pdf.byteLength ?? pdf.length, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}), ...(repaired ? { repaired: true } : {}) }, text };
   } catch (error) {
     log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
     return { record: { status: 'failed', language }, text: '' };

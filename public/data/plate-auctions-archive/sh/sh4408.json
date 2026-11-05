@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "sh-69628",
+      "id": "sh-69705",
       "sourceKey": "SH",
-      "sourceRecordId": "69628",
+      "sourceRecordId": "69705",
       "canton": "Sciaffusa",
       "platePrefix": "SH",
       "plateNumber": "4408",
@@ -14,16 +14,16 @@
       "auctionStatus": "closed",
       "currentBidChf": 1000,
       "bidCount": 0,
-      "endsAt": "2026-10-21T20:00:00.000Z",
-      "closedAt": "2026-10-21T20:00:00.000Z",
-      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/",
-      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69628",
-      "sourceFetchedAt": "2026-10-21T11:48:27.823Z",
-      "lastVerifiedAt": "2026-10-21T11:48:27.823Z",
-      "firstSeenAt": "2026-10-15T04:44:13.382Z",
-      "lastSeenAt": "2026-10-21T11:48:27.823Z",
+      "endsAt": "2026-11-04T21:00:00.000Z",
+      "closedAt": "2026-11-04T21:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/de/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69705",
+      "sourceFetchedAt": "2026-11-04T14:33:11.884Z",
+      "lastVerifiedAt": "2026-11-04T14:33:11.884Z",
+      "firstSeenAt": "2026-10-29T05:47:27.965Z",
+      "lastSeenAt": "2026-11-04T14:33:11.884Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "e19c6d10f5e9"
+      "rawSnapshotHash": "3560ccbcbe66"
     }
   ]
 }

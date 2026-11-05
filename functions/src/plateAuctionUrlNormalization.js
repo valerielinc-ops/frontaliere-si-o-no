@@ -3,8 +3,8 @@ const PLATE_AUCTION_HOST_ALIASES = Object.freeze({
 });
 
 const AI_BASE_PATH = '/themen/mobilitaet-und-verkehr/strassenverkehr';
-const AI_AUTO_PDF_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file/Freie%20Auto-Kontrollschilder.pdf`;
-const AI_MOTORCYCLE_PDF_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/@@download/file/Freie%20Motorrad-Kontrollschilder.pdf`;
+const AI_AUTO_PDF_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download`;
+const AI_MOTORCYCLE_PDF_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download`;
 const ECARI_ROOTS = Object.freeze({
   'eauktion.gr.ch': { root: '/ecari-auction/ui/app/init', locale: 'de_CH' },
   'ecarinwprod.ilz.info': { root: '/ecari-auction/ui/app/init', locale: 'de_CH' },

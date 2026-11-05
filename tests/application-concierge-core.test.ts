@@ -291,6 +291,17 @@ describe('application concierge candidate API', () => {
     expect(renewalRollout.isEnabledFor).not.toHaveBeenCalled();
   });
 
+  it('reports no remaining positions when a legacy service stores a limit above the product cap', async () => {
+    const key = 'application_concierge_services/service-1';
+    mocks.documents.set(key, { ...mocks.documents.get(key), maxPositions: 20, acceptedPositionsCount: 10 });
+
+    const result = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+
+    expect(result).toMatchObject({ status: 200, body: { service: {
+      maxPositions: 10, acceptedPositionsCount: 10, remainingPositions: 0,
+    } } });
+  });
+
   it('shows renewal offers only to candidates in the configured rollout', async () => {
     const service = mocks.documents.get('application_concierge_services/service-1')!;
     service.serviceStatus = 'expired';
@@ -362,6 +373,42 @@ describe('application concierge candidate API', () => {
       jobId: 'job-1',
     }));
     expect([...mocks.files].some((path) => path.startsWith('assisted-application-uploads/child-1/'))).toBe(true);
+  });
+
+  it('blocks candidate acceptance at the product cap even when a legacy service stores a larger limit', async () => {
+    const key = 'application_concierge_services/service-1';
+    mocks.documents.set(key, { ...mocks.documents.get(key), maxPositions: 20, acceptedPositionsCount: 10 });
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result).toMatchObject({ status: 409, body: { ok: false, error: 'position_limit_reached' } });
+    expect(mocks.documents.get(key)).toMatchObject({ maxPositions: 20, acceptedPositionsCount: 10 });
+    expect(mocks.documents.get(`${key}/proposals/proposal-1`)).toMatchObject({ status: 'proposed' });
+    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+  });
+
+  it('reports the position limit when another acceptance fills the last slot during CV copy', async () => {
+    const key = 'application_concierge_services/service-1';
+    mocks.documents.set(key, { ...mocks.documents.get(key), maxPositions: 20, acceptedPositionsCount: 9 });
+    mocks.setCopyHook(() => {
+      mocks.documents.set(key, { ...mocks.documents.get(key), acceptedPositionsCount: 10 });
+    });
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result).toMatchObject({ status: 409, body: { ok: false, error: 'position_limit_reached' } });
+    expect(mocks.documents.get(key)).toMatchObject({ acceptedPositionsCount: 10 });
+    expect(mocks.documents.get(`${key}/proposals/proposal-1`)).toMatchObject({ status: 'proposed' });
+    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+    expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
   });
 
   it('keeps the existing cv_not_found API error when the source disappears before copying', async () => {

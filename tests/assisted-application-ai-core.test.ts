@@ -482,6 +482,7 @@ describe('job posting fetch', () => {
         return new Response(JSON.stringify({
           description: 'Cerchiamo un infermiere.',
           requirements: ['Diploma SUP'],
+          url: 'https://acme.ch/jobs/1',
           applyUrl: 'https://acme.wd3.myworkdayjobs.com/x/apply',
           titleByLocale: { it: 'Infermiere' },
           addressLocality: 'Lugano',
@@ -490,7 +491,27 @@ describe('job posting fetch', () => {
       },
     });
     expect(calls).toEqual(['https://cdn.frontaliereticino.ch/data/job-detail/acme-123.json']);
-    expect(posting).toMatchObject({ source: 'job_detail', text: 'Cerchiamo un infermiere.\n\n- Diploma SUP', location: 'Lugano', salary: 'CHF 70000–90000 / YEAR' });
+    expect(posting).toMatchObject({ source: 'job_detail', postingUrl: 'https://acme.ch/jobs/1', text: 'Cerchiamo un infermiere.\n\n- Diploma SUP', location: 'Lugano', salary: 'CHF 70000–90000 / YEAR' });
+  });
+
+  it('falls back to the order URL when a retained legacy detail has no posting URL', async () => {
+    const posting = await fetchJobPosting({ jobId: 'acme-123', jobUrl: 'https://acme.ch/jobs/1' }, {
+      fetchImpl: async () => new Response(JSON.stringify({ description: 'Descrizione del lavoro.' }), { status: 200 }),
+    });
+    expect(posting).toMatchObject({ source: 'job_detail', postingUrl: 'https://acme.ch/jobs/1' });
+  });
+
+  it('reconstructs a SuccessFactors posting route from the published locale slug and apply URL', async () => {
+    const applyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const posting = await fetchJobPosting({ jobId: 'helsana-872317162e36', jobUrl: applyUrl }, {
+      fetchImpl: async () => new Response(JSON.stringify({
+        description: 'Published posting description',
+        applyUrl,
+        slugByLocale: { de: 'it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff' },
+      }), { status: 200 }),
+    });
+    const canonicalUrl = 'https://careers.helsana.ch/job/it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff/1426391333/';
+    expect(posting).toMatchObject({ source: 'job_detail', postingUrl: canonicalUrl, publishedPostingUrl: canonicalUrl });
   });
 
   it('falls back to the employer page but never follows a redirect to a private host', async () => {

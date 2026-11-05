@@ -1,7 +1,7 @@
 {
   "crawlerKey": "avantgarten-ch",
-  "assembledAt": "2026-11-03T09:43:44.159Z",
-  "runId": "41610882546",
+  "assembledAt": "2026-11-04T21:49:18.496Z",
+  "runId": "41916006663",
   "jobs": [
     {
       "id": "avantgarten-ch-1d9f78de2ddc",
@@ -34,7 +34,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12402210-gaertner-in-efz-garten-und-landschaftsbau-riehen-bs-avantgarten-ag",
       "source": "AvantGarten Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:43:37.424Z",
+      "crawledAt": "2026-11-04T21:49:11.185Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -70,7 +70,6 @@
           "lehrstelle-als-gartner-in-efz-garten-und-landschaftsbau-riehen-bs-avantgarten-ch-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-11-02T21:56:27.762Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -86,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:43:37.424Z",
+      "validThrough": "2026-12-04T21:49:11.185Z",
       "validThroughSource": "last-observed-window"
     }
   ]

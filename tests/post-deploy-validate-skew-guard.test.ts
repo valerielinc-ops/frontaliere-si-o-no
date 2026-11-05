@@ -52,14 +52,14 @@ const reportWorkflow = YAML.parse(readFileSync(REPORT_WORKFLOW_PATH, 'utf8')) as
  * here would suppress issue reporting precisely for those old builds.
  */
 const DIRECT_CALL_EXCEPTIONS: Record<string, string> = {
-  'validate-dist-report\u0000Report failure to GitHub Issues\u0000node:scripts/ci/report-validate-dist-failure.mjs':
-    'diagnostic reporter has an explicit file-existence branch and falls back to the legacy reporter; it is not a dist validator',
-  'validate-dist-report\u0000Report failure to GitHub Issues\u0000node:scripts/lib/github-issue-creator.mjs':
-    'legacy failure reporter is the deliberate fallback for old build checkouts; skew-skipping it would suppress issue reporting',
-  'validate-dist-report\u0000Resolve GitHub Issue on success\u0000node:scripts/ci/report-validate-dist-failure.mjs':
-    'diagnostic resolver has an explicit file-existence branch and falls back to the legacy resolver; it is not a dist validator',
-  'validate-dist-report\u0000Resolve GitHub Issue on success\u0000node:scripts/lib/github-issue-creator.mjs':
-    'legacy resolver is the deliberate fallback for old build checkouts; skew-skipping it would leave validation issues open',
+  [['validate-dist-report', 'Report failure to GitHub Issues', 'node:scripts/ci/report-validate-dist-failure.mjs'].join('\u0000')]:
+    'Reporter fallback must still run when an older source checkout lacks the current reporter module.',
+  [['validate-dist-report', 'Report failure to GitHub Issues', 'node:scripts/lib/github-issue-creator.mjs'].join('\u0000')]:
+    'Legacy issue-creation fallback is diagnostic plumbing, not a dist validator.',
+  [['validate-dist-report', 'Resolve GitHub Issue on success', 'node:scripts/ci/report-validate-dist-failure.mjs'].join('\u0000')]:
+    'Reporter fallback must still resolve an issue when an older source checkout lacks the current reporter module.',
+  [['validate-dist-report', 'Resolve GitHub Issue on success', 'node:scripts/lib/github-issue-creator.mjs'].join('\u0000')]:
+    'Legacy issue-resolution fallback is diagnostic plumbing, not a dist validator.',
 };
 
 function buildCheckoutJobs(): Array<[string, Job]> {
@@ -211,11 +211,11 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
     expect(guard).not.toMatch(/origin\/main:/);
     expect(guard).toContain('skipped-deploy_ref-drift');
 
-    const sourceStep = workflow.jobs?.['validate-dist-postbuild']?.steps?.find(
-      (step) => step.name === 'Run source validators (parallel — 4 vCPU)',
+    const sourceStep = workflow.jobs?.['fast-gate']?.steps?.find(
+      (step) => step.id === 'publisher-fast-gate',
     );
-    expect(sourceStep?.run).toContain('build_skew_guard_run "$kind" "$target" "$@"');
-    expect(sourceStep?.run).toContain('build_skew_guard_skip_row "$name" > "$RESDIR/$name"');
+    expect(sourceStep?.run).toContain('build_skew_guard_run node scripts/ci/publisher-fast-gate.mjs');
+    expect(sourceStep?.run).toContain('build_skew_guard_skip_row scripts/ci/publisher-fast-gate.mjs');
   });
 
   it('pins published corpus image evidence in the independent OG report', () => {
@@ -228,17 +228,16 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
     expect(auditStep?.run).toContain('--require-published-blog-image-evidence');
   });
 
-  it('does not lose the source-validator calls from the census', () => {
-    const calls = buildCheckoutJobs().flatMap(([jobName, job]) =>
-      (job.steps ?? []).flatMap((step) => directCalls(jobName, step)),
-    );
-    expect(calls.map((call) => `${call.kind}:${call.target}`)).toEqual(
-      expect.arrayContaining([
-        'node:scripts/validate-translation-completeness.mjs',
-        'npm:validate:crawler-summaries',
-        'npm:validate:third-party-secrets',
-      ]),
-    );
+  it('keeps full source validators out of the fast publisher gate', () => {
+    const gateJob = workflow.jobs?.['fast-gate'];
+    const calls = (gateJob?.steps ?? []).flatMap((step) => directCalls('fast-gate', step));
+    expect(calls.map((call) => `${call.kind}:${call.target}`)).toEqual([
+      'node:scripts/ci/publisher-fast-gate.mjs',
+      'node:scripts/ci/publisher-fast-gate.mjs',
+    ]);
+    expect(workflowText).not.toContain('scripts/validate-translation-completeness.mjs');
+    expect(workflowText).not.toContain('validate:crawler-summaries');
+    expect(workflowText).not.toContain('validate:third-party-secrets');
   });
 
   it('guard behavior: npm script — present, drift, missing, and unreadable main', () => {

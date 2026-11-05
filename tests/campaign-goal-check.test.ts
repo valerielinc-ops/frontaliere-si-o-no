@@ -11,10 +11,17 @@ import {
   alertFunnelOutcome,
   ALERT_CTA_SURFACES,
   ALERT_FUNNEL_EVENT_NAMES,
+  ALERT_DIAGNOSTIC_EVENT_NAMES,
   ALERT_CTA_SURFACE_DIMENSION,
+  ALERT_CTA_ACTION_DIMENSION,
+  ALERT_AUTH_STAGE_DIMENSION,
+  ALERT_SKIP_REASON_DIMENSION,
+  ALERT_AUTH_PATH_DIMENSION,
   ALERT_CTA_SURFACE_NOT_SET,
   ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE,
   buildAlertFunnelGa4Filter,
+  buildAlertFunnelDropPointBreakdown,
+  inspectAlertFunnelDimensionBreakdown,
   checkAlertCtaSurfaceDimension,
   evalAlertFunnelConversionGa4,
   GA4_ERROR_RATE_EVENT_NAMES,
@@ -535,6 +542,13 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
       'end_card',
     ]);
     expect(ALERT_FUNNEL_EVENT_NAMES).toEqual(['job_alert_cta_shown', 'job_alert_created']);
+    expect(ALERT_DIAGNOSTIC_EVENT_NAMES).toEqual([
+      'job_alert_cta_shown',
+      'job_alert_cta_click',
+      'job_alert_auth_handoff',
+      'job_alert_cta_skipped',
+      'job_alert_created',
+    ]);
 
     const filter = buildAlertFunnelGa4Filter();
     expect(filter.andGroup.expressions).toContainEqual({
@@ -568,6 +582,20 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     // through the very same surface predicate.
     const filter = buildAlertFunnelGa4Filter();
     expect(filter.andGroup.expressions).toHaveLength(2);
+  });
+
+  it('keeps unknown optional diagnostic dimension values observable', () => {
+    const rows = inspectAlertFunnelDimensionBreakdown({
+      rows: [
+        { dimensionValues: [{ value: 'inline_card' }, { value: 'error' }], metricValues: [{ value: '3' }] },
+        { dimensionValues: [{ value: 'inline_card' }, { value: 'new_future_value' }], metricValues: [{ value: '2' }] },
+        { dimensionValues: [{ value: 'job_match_pill' }, { value: '' }], metricValues: [{ value: '1' }] },
+        { dimensionValues: [{ value: 'not_a_surface' }, { value: 'error' }], metricValues: [{ value: '50' }] },
+      ],
+    });
+
+    expect(rows.find(({ surface }) => surface === 'inline_card')?.values).toEqual({ error: 3, new_future_value: 2 });
+    expect(rows.find(({ surface }) => surface === 'job_match_pill')?.values).toEqual({ '(not set)': 1 });
   });
 
   it('fails closed when GA4 rejects the unregistered custom dimension with 400', async () => {
@@ -648,6 +676,27 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
           },
           {
             dimensionValues: [
+              { value: 'job_alert_cta_click' },
+              { value: 'inline_card' },
+            ],
+            metricValues: [{ value: '50' }],
+          },
+          {
+            dimensionValues: [
+              { value: 'job_alert_auth_handoff' },
+              { value: 'inline_card' },
+            ],
+            metricValues: [{ value: '20' }],
+          },
+          {
+            dimensionValues: [
+              { value: 'job_alert_cta_skipped' },
+              { value: 'inline_card' },
+            ],
+            metricValues: [{ value: '5' }],
+          },
+          {
+            dimensionValues: [
               { value: 'job_alert_cta_shown' },
               { value: 'sticky_banner' },
             ],
@@ -660,6 +709,31 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
             ],
             metricValues: [{ value: '2' }],
           },
+        ],
+      })
+      .mockResolvedValueOnce({
+        rows: [{
+          dimensionValues: [{ value: 'inline_card' }, { value: 'error' }],
+          metricValues: [{ value: '3' }],
+        }],
+      })
+      .mockResolvedValueOnce({
+        rows: [
+          { dimensionValues: [{ value: 'inline_card' }, { value: 'replay_started' }], metricValues: [{ value: '4' }] },
+          { dimensionValues: [{ value: 'inline_card' }, { value: 'replay_succeeded' }], metricValues: [{ value: '3' }] },
+          { dimensionValues: [{ value: 'inline_card' }, { value: 'replay_failed' }], metricValues: [{ value: '1' }] },
+        ],
+      })
+      .mockResolvedValueOnce({
+        rows: [{
+          dimensionValues: [{ value: 'inline_card' }, { value: 'get_alerts_failed' }],
+          metricValues: [{ value: '5' }],
+        }],
+      })
+      .mockResolvedValueOnce({
+        rows: [
+          { dimensionValues: [{ value: 'inline_card' }, { value: 'post_auth_replay' }], metricValues: [{ value: '2' }] },
+          { dimensionValues: [{ value: 'inline_card' }, { value: 'direct' }], metricValues: [{ value: '6' }] },
         ],
       });
     const logImpl = vi.fn();
@@ -675,19 +749,36 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     expect(result.detail).toContain('| aggregate | 100 | 10 | 10.00% |');
     expect(result.value.surfaceBreakdown.map(({ surface }) => surface)).toEqual(ALERT_CTA_SURFACES);
     expect(result.value.surfaceBreakdown[0]).toEqual({
-      surface: 'inline_card', shown: 80, created: 8, rate: 0.1,
+      surface: 'inline_card', shown: 80, click: 50, authHandoff: 20, skipped: 5, created: 8, rate: 0.1,
     });
     expect(result.value.surfaceBreakdown.find(({ surface }) => surface === 'sticky_banner')).toEqual({
-      surface: 'sticky_banner', shown: 40, created: 2, rate: 0.05,
+      surface: 'sticky_banner', shown: 40, click: 0, authHandoff: 0, skipped: 0, created: 2, rate: 0.05,
     });
     expect(result.value.surfaceBreakdown.find(({ surface }) => surface === 'end_card')).toEqual({
-      surface: 'end_card', shown: 0, created: 0, rate: null,
+      surface: 'end_card', shown: 0, click: 0, authHandoff: 0, skipped: 0, created: 0, rate: null,
+    });
+    expect(result.value.dropPointBreakdown[0]).toMatchObject({
+      surface: 'inline_card',
+      click: 50,
+      authHandoff: 20,
+      skipped: 5,
+      clickErrorUsers: 3,
+      replayStartedUsers: 4,
+      replaySucceededUsers: 3,
+      replayFailedUsers: 1,
+      createdReplayUsers: 2,
+      clickActions: { error: 3 },
+      authStages: { replay_started: 4, replay_succeeded: 3, replay_failed: 1 },
+      skipReasons: { get_alerts_failed: 5 },
+      authPaths: { post_auth_replay: 2, direct: 6 },
     });
     expect(result.detail).toContain('| inline_card | 80 | 8 | 10.00% |');
     expect(result.detail).toContain('| sticky_banner | 40 | 2 | 5.00% |');
     expect(result.detail).toContain('| end_card | 0 | 0 | n/a |');
+    expect(result.detail).toContain('| inline_card | 50 | 20 | 5 | 3 | 4 | 3 | 1 | 2 |');
+    expect(result.detail).toContain('| inline_card | error=3 | replay_failed=1, replay_started=4, replay_succeeded=3 | get_alerts_failed=5 | direct=6, post_auth_replay=2 |');
     expect(logImpl).toHaveBeenCalledWith(expect.stringContaining('5/100'));
-    expect(runReportImpl).toHaveBeenCalledTimes(6);
+    expect(runReportImpl).toHaveBeenCalledTimes(10);
     expect(runReportImpl.mock.calls[1][1]).toMatchObject({
       dimensions: [],
       metrics: ['totalUsers'],
@@ -737,7 +828,43 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
         { name: ALERT_CTA_SURFACE_DIMENSION },
       ],
       metrics: ['totalUsers'],
-      dimensionFilter: buildAlertFunnelGa4Filter(),
+      dimensionFilter: buildAlertFunnelGa4Filter(ALERT_DIAGNOSTIC_EVENT_NAMES),
+      windowDays: 14,
+    });
+    expect(runReportImpl.mock.calls[6][1]).toMatchObject({
+      dimensions: [
+        { name: ALERT_CTA_SURFACE_DIMENSION },
+        { name: ALERT_CTA_ACTION_DIMENSION },
+      ],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter(['job_alert_cta_click']),
+      windowDays: 14,
+    });
+    expect(runReportImpl.mock.calls[7][1]).toMatchObject({
+      dimensions: [
+        { name: ALERT_CTA_SURFACE_DIMENSION },
+        { name: ALERT_AUTH_STAGE_DIMENSION },
+      ],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter(['job_alert_auth_handoff']),
+      windowDays: 14,
+    });
+    expect(runReportImpl.mock.calls[8][1]).toMatchObject({
+      dimensions: [
+        { name: ALERT_CTA_SURFACE_DIMENSION },
+        { name: ALERT_SKIP_REASON_DIMENSION },
+      ],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter(['job_alert_cta_skipped']),
+      windowDays: 14,
+    });
+    expect(runReportImpl.mock.calls[9][1]).toMatchObject({
+      dimensions: [
+        { name: ALERT_CTA_SURFACE_DIMENSION },
+        { name: ALERT_AUTH_PATH_DIMENSION },
+      ],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter(['job_alert_created']),
       windowDays: 14,
     });
   });

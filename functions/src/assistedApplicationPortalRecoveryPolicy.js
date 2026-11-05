@@ -7,7 +7,7 @@ import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js
 import { validateAnswer } from './lib/answerRules.js';
 
 export const portalCodeVersion = value => /^[a-f0-9]{64}$/.test(String(value || '')) ? String(value) : null;
-const RECOVERABLE = new Set(['portal:account', 'portal:account_create_unanswered', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:posting_mismatch', 'portal:portal_needs_candidate']);
+const RECOVERABLE = new Set(['portal:account', 'portal:account_create_unanswered', 'portal:privacy_not_accepted', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:posting_mismatch', 'portal:portal_needs_candidate']);
 
 export function portalCodeChanged(flow, version) {
   return Boolean(portalCodeVersion(version)) && flow?.state === 'owner_takeover'
@@ -27,6 +27,27 @@ export function portalRecoveryDefinitelyUnsent({ order, flow, draft, submission 
     && !Object.values(submission).some(record => record?.state === 'sent' || isUnconfirmedSubmission(record))
     && (flow.heldBy[0] !== 'portal:portal_needs_candidate'
       || !Object.values(submission).some(record => record?.clickedAt || record?.state === 'sending'));
+}
+
+/** A portal email-confirmation hold can resume only when the exact identity answer is known. */
+export function portalIdentityQuestionDefinitelyUnsent({ order, flow, draft, submission = {}, version,
+  questionId, identityQuestionReady = false, approvedRound = false, retentionAllowed = false, receiptVersion }) {
+  const round = Number(flow?.round) || 1;
+  const send = submission[`r${round}`];
+  return Boolean(portalCodeVersion(version)) && identityQuestionReady === true && approvedRound === true
+    && flow?.state === 'needs_candidate_action' && order?.automationState === 'needs_candidate_action'
+    && flow.heldBy?.length === 1 && flow.heldBy[0] === `question:${questionId}`
+    && flow.portalCodeVersion !== version && flow.portalRecoveryVersion !== version && receiptVersion !== version
+    && order?.paymentStatus === 'paid' && hasAssistedApplicationConsent(order)
+    && retentionAllowed === true
+    && !order.withdrawnAt && !order.retentionPurgingAt && !order.retentionPurgedAt && !order.retentionPayloadPurgedAt
+    && !['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus)
+    && !['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
+    && !flow.postingExpiredAt && flow.dispatch?.mode === 'submit' && Number(flow.dispatch.round) === round
+    && Number(draft?.completedAt) > 0 && Number(flow.dispatch.requestedAt) >= Number(draft.completedAt)
+    && draft?.status === 'ready' && Number(draft.round) === round && !draft.sent && !draft.sentAttempt
+    && send?.state === 'failed' && send.channel === 'portal' && !send.clickedAt && Number(send.releasedAt) > 0
+    && !Object.values(submission).some(record => record?.state === 'sent' || record?.clickedAt || isUnconfirmedSubmission(record));
 }
 
 const hasAnswer = value => typeof value === 'boolean'

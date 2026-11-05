@@ -47,6 +47,7 @@ import { EDGE_RETIRED_PATHS } from '../infra/cloudflare-worker/locale-router.js'
 // @ts-expect-error — plain .mjs module, no type declarations.
 import {
   dropRetiredSitemapUrlBlocks,
+  fullyRetiredArticleIds,
   isRetiredLoc,
   retiredLocsIn,
 } from '../scripts/lib/sitemap-retired-urls.mjs';
@@ -113,6 +114,28 @@ describe('the gate can actually see both sides of the intersection', () => {
     }
     expect(isRetiredLoc(`${APEX}/cerca-lavoro-ticino/`), 'a live URL must not match').toBe(false);
     expect(isRetiredLoc('not a url'), 'garbage must not match').toBe(false);
+  });
+
+  it('only treats an article as retired after all four locale URLs are retired', () => {
+    const slugs = {
+      'big-bend': {
+        it: 'sospensione-lavori-muro-anti-migranti-big-bend-texas',
+        en: 'suspension-of-work-on-anti-migrant-wall-in-big-bend-texas',
+        de: 'arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen',
+        fr: 'suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas',
+      },
+    };
+    const bases = {
+      it: `${APEX}/articoli-svizzera/`,
+      en: `${APEX}/en/swiss-articles/`,
+      de: `${APEX}/de/schweiz-artikel/`,
+      fr: `${APEX}/fr/articles-suisse/`,
+    };
+
+    expect(fullyRetiredArticleIds(slugs, bases)).toEqual(new Set(['big-bend']));
+    expect(
+      fullyRetiredArticleIds({ 'partial-article': { ...slugs['big-bend'], fr: 'live-article' } }, bases),
+    ).toEqual(new Set());
   });
 });
 

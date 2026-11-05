@@ -37,7 +37,7 @@ const SOCIAL_WORKFLOW_RC_SCOPES = {
   '.github/workflows/monitor-telegram-member-count.yml':
     ['TELEGRAM_BOT_TOKEN,TELEGRAM_CHANNEL_ID,GITHUB_PAT'],
   '.github/workflows/topic-candidates-mining.yml':
-    ['FB_PAGE_ACCESS_TOKEN'],
+    [null, 'FB_PAGE_ACCESS_TOKEN'],
   '.github/workflows/reddit-jobs-daily-schedule.yml':
     [
       'REDDIT_CLIENT_ID,REDDIT_CLIENT_SECRET,REDDIT_USERNAME,REDDIT_PASSWORD,REDDIT_USER_AGENT,REDDIT_DATA_API_APPROVED,SOCIAL_COPY_EXPERIMENT_CONFIG',

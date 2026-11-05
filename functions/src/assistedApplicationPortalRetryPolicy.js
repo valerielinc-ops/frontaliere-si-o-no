@@ -9,7 +9,9 @@ const TRANSPORT_HOLDS = new Set([
 
 /** CAPTCHA holds belong to the owner and never enter automatic retry or candidate handoff. */
 export function isCaptchaHandoffReason(reason) {
-  return /^(?:portal:)?(?:captcha|recaptcha|hcaptcha|turnstile)(?:_|$)/i.test(String(reason || ''));
+  // Legacy JOIN outcome explicitly names its invisible reCAPTCHA, but predates
+  // the typed CAPTCHA stop and must keep the same owner-only recovery path.
+  return /^(?:portal:)?(?:(?:captcha|recaptcha|hcaptcha|turnstile)(?:_|$)|portal_antibot_ambiguous$)/i.test(String(reason || ''));
 }
 
 export function isCaptchaPortalHold(flow) {

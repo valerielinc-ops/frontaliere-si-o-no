@@ -3,7 +3,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { FieldPath } from 'firebase-admin/firestore';
 import {
   APPLICATION_CONCIERGE_CONSENT_VERSION, APPLICATION_CONCIERGE_SERVICES_COLLECTION,
-  APPLICATION_CONCIERGE_MAX_POSITIONS, acceptedPositionsCount, serviceIsActive, timestampMillis,
+  acceptedPositionsCount, serviceIsActive, servicePositionLimit, timestampMillis,
 } from './applicationConciergeConstants.js';
 import { uploadOwnedArtifact, ownedArtifactGeneration, deleteOwnedArtifactGeneration } from './lib/ownedGcsArtifact.js';
 
@@ -80,7 +80,7 @@ function allowed(record, context, now) {
   return record.sourceServiceId === record.serviceId && freshConsent(service, 'consentVersion', now)
     && !target && proposal?.status === 'proposed' && proposal.eligibilityStatus === 'compatible'
     && proposal.eligibilityCvStorageKey === source.cvStorageKey && proposalRevision(proposal) === record.proposalRevision
-    && acceptedPositionsCount(service) < (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS);
+    && acceptedPositionsCount(service) < servicePositionLimit(service);
 }
 function revokedRecord(record, nowMs) {
   return { purpose: record.purpose, serviceId: record.serviceId, sourceServiceId: record.sourceServiceId,

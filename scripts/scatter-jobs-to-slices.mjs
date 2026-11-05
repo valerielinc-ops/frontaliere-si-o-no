@@ -525,21 +525,41 @@ function diagnosticFindProjectionJob(projectionEntries, entry, sliceJob) {
   )) || null;
 }
 
-function diagnosticPendingChangeSummary(sliceJob, projectedJob, missingBridges) {
+/**
+ * Classify the bounded changes a scatter projection would apply.
+ *
+ * The parity gate may fail for a write that changes no locale field: the
+ * assembled side can carry a monotone `needsRetranslation` mark onto the
+ * committed slice. Keeping that class in the same dispatcher as title,
+ * description, slug, and bridge changes prevents the diagnostic from falling
+ * back to `unknown` and losing the evidence needed for the next repair.
+ *
+ * This is intentionally descriptive only. The existing projection remains
+ * the single mutating path, so class handling cannot bypass caps, ownership,
+ * or the slug-preservation guard.
+ *
+ * @param {{sliceJob?: object, projectedJob?: object, missingBridges?: Array<object>}} options
+ * @returns {{classes: string[], changes: object}}
+ */
+export function scatterParityClassHandler({ sliceJob = {}, projectedJob = {}, missingBridges = [] } = {}) {
+  const classes = [];
   const changes = {};
   if (!localeMapsEqual(projectedJob.titleByLocale, sliceJob.titleByLocale)) {
+    classes.push('title');
     changes.title = {
       before: diagnosticTextLocaleMap(sliceJob.titleByLocale),
       after: diagnosticTextLocaleMap(projectedJob.titleByLocale),
     };
   }
   if (!localeMapsEqual(projectedJob.descriptionByLocale, sliceJob.descriptionByLocale)) {
+    classes.push('description');
     changes.description = {
       before: diagnosticTextLocaleMap(sliceJob.descriptionByLocale),
       after: diagnosticTextLocaleMap(projectedJob.descriptionByLocale),
     };
   }
   if (!localeMapsEqual(projectedJob.slugByLocale, sliceJob.slugByLocale)) {
+    classes.push('slug');
     // Report entry, not a job mutation: built with Object.assign so the
     // slug-write encapsulation scan does not read it as a direct slug write.
     Object.assign(changes, {
@@ -549,14 +569,22 @@ function diagnosticPendingChangeSummary(sliceJob, projectedJob, missingBridges) 
       },
     });
   }
-  if (missingBridges.length > 0) {
+  if (Array.isArray(missingBridges) && missingBridges.length > 0) {
+    classes.push('bridge');
     changes.bridge = {
       candidates: missingBridges.slice(0, 8).map(({ locale, slug }) => ({ locale, slug })),
       before: diagnosticHistory(sliceJob),
       after: diagnosticHistory(projectedJob),
     };
   }
-  return changes;
+  if (projectedJob.needsRetranslation === true && sliceJob.needsRetranslation !== true) {
+    classes.push('retranslation');
+    changes.retranslation = {
+      before: sliceJob.needsRetranslation === true,
+      after: true,
+    };
+  }
+  return { classes, changes };
 }
 
 function diagnosticProjectionTouched(sliceJob, projectionJob) {
@@ -564,7 +592,8 @@ function diagnosticProjectionTouched(sliceJob, projectionJob) {
   return !localeMapsEqual(sliceJob.titleByLocale, projectionJob.titleByLocale)
     || !localeMapsEqual(sliceJob.descriptionByLocale, projectionJob.descriptionByLocale)
     || !localeMapsEqual(sliceJob.slugByLocale, projectionJob.slugByLocale)
-    || JSON.stringify(diagnosticHistory(sliceJob)) !== JSON.stringify(diagnosticHistory(projectionJob));
+    || JSON.stringify(diagnosticHistory(sliceJob)) !== JSON.stringify(diagnosticHistory(projectionJob))
+    || (sliceJob.needsRetranslation === true) !== (projectionJob.needsRetranslation === true);
 }
 
 /**
@@ -660,18 +689,19 @@ export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionE
       });
       if (applied.changed) {
         pendingWrites.total++;
-        const classes = [];
-        if (!localeMapsEqual(applied.job.titleByLocale, sliceJob.titleByLocale)) classes.push('title');
-        if (!localeMapsEqual(applied.job.descriptionByLocale, sliceJob.descriptionByLocale)) classes.push('description');
-        if (!localeMapsEqual(applied.job.slugByLocale, sliceJob.slugByLocale)) classes.push('slug');
-        if (missing.length > 0) classes.push('bridge');
+        const classReport = scatterParityClassHandler({
+          sliceJob,
+          projectedJob: applied.job,
+          missingBridges: missing,
+        });
+        const { classes } = classReport;
         const className = classes.length === 1 ? classes[0] : (classes.length > 1 ? 'multiple' : 'unknown');
         increment(pendingWrites, className);
         if (pendingWrites.examples.length < budgets.pendingWrites) {
           pendingWrites.examples.push({
             ...diagnosticJobRef(entry, sliceJob),
             classes,
-            changes: diagnosticPendingChangeSummary(sliceJob, applied.job, missing),
+            changes: classReport.changes,
           });
         }
       }

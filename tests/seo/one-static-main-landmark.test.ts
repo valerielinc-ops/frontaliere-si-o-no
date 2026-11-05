@@ -12,8 +12,8 @@ describe('static SEO page landmarks', () => {
     ].map((relativePath) => fs.readFileSync(path.join(root, relativePath), 'utf8'));
 
     for (const source of sources) {
-      expect(source).not.toContain('<main class="s-EDtWsL">');
-      expect(source).toContain('<div class="s-EDtWsL">');
+      expect(source).not.toMatch(/<main class="[^"]*\bs-EDtWsL\b[^"]*">/);
+      expect(source).toMatch(/<div class="[^"]*\bs-EDtWsL\b[^"]*">/);
     }
   });
 

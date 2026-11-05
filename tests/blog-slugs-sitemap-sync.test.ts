@@ -45,6 +45,7 @@ import {
   loadSectionCanonicalOverrides,
   shadowedArticleIds,
 } from '../scripts/lib/article-canonical-overrides.mjs';
+import { fullyRetiredArticleIds } from '../scripts/lib/sitemap-retired-urls.mjs';
 
 // Canonical blog article URL bases per locale (matches sitemap-blog.xml entries).
 const BLOG_URL_BASE: Record<string, string> = {
@@ -173,7 +174,7 @@ function announce(what: string, frontierLabel: string, frontier: string | undefi
 // IT slugs → <loc>. EN/DE/FR slugs → <xhtml:link hreflang> href.
 // Catches: slug renamed in routerBlogData.ts but sitemap not regenerated (#3012 class).
 describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)', () => {
-  it('every non-shadowed BLOG_SLUG must appear in sitemap-blog.xml (IT: <loc>, others: hreflang href)', async () => {
+  it('every non-excluded BLOG_SLUG must appear in sitemap-blog.xml (IT: <loc>, others: hreflang href)', async () => {
     const { BLOG_SLUGS } = await import('../services/routerBlogData');
     const { ARTICLES } = await import('../data/blog-articles-data');
     const xml = readSitemap('sitemap-blog.xml');
@@ -186,7 +187,10 @@ describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)'
     // its near-duplicate group. The page stays live — this only removes the
     // sitemap's crawl signal. Excluded here, asserted ABSENT in the dedicated
     // test below, exactly like the SWISS_SLUGS block further down.
-    const shadowedIds = blogShadowedIds(BLOG_SLUGS as Record<string, Record<string, string>>);
+    const sitemapExcludedIds = new Set([
+      ...blogShadowedIds(BLOG_SLUGS as Record<string, Record<string, string>>),
+      ...fullyRetiredArticleIds(BLOG_SLUGS as Record<string, Record<string, string>>, BLOG_URL_BASE),
+    ]);
 
     const { reported, inTransit } = partitionMissingSlugs({
       slugs: BLOG_SLUGS as Record<string, Record<string, string>>,
@@ -195,7 +199,7 @@ describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)'
       locUrls,
       hreflangUrls,
       sitemapFrontier: frontier,
-      skipIds: shadowedIds,
+      skipIds: sitemapExcludedIds,
     });
     announce('BLOG_SLUGS', 'sitemap-blog.xml', frontier, inTransit);
 
@@ -287,7 +291,7 @@ describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)'
 // dead URLs). #3120 is the follow-up hardening: without this block, a future
 // swiss slug rename can silently desync sitemap-news.xml again.
 describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: prevents #3120 recidivism)', () => {
-  it('every non-shadowed SWISS_SLUG must appear in sitemap-blog-ch.xml (IT: <loc>, others: hreflang href)', async () => {
+  it('every non-excluded SWISS_SLUG must appear in sitemap-blog-ch.xml (IT: <loc>, others: hreflang href)', async () => {
     const { SWISS_SLUGS } = await import('../services/routerSwissData');
     const { SWISS_ARTICLES } = await import('../data/swiss-articles-data');
     const { loadSwissArticleCanonicalOverrides } = await import('../build-plugins/shared/swissArticleCanonicalOverrides');
@@ -306,6 +310,10 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
         .filter(([, slugMap]) => slugMap.it && Object.prototype.hasOwnProperty.call(overrides, slugMap.it))
         .map(([id]) => id),
     );
+    const sitemapExcludedIds = new Set([
+      ...shadowedIds,
+      ...fullyRetiredArticleIds(SWISS_SLUGS as Record<string, Record<string, string>>, SWISS_URL_BASE),
+    ]);
 
     const { reported, inTransit } = partitionMissingSlugs({
       slugs: SWISS_SLUGS as Record<string, Record<string, string>>,
@@ -314,7 +322,7 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
       locUrls,
       hreflangUrls,
       sitemapFrontier: frontier,
-      skipIds: shadowedIds,
+      skipIds: sitemapExcludedIds,
     });
     announce('SWISS_SLUGS', 'sitemap-blog-ch.xml', frontier, inTransit);
 

@@ -99,7 +99,7 @@ function SourceCard({ source, locale, copy, onNavigate }: { key?: React.Key; sou
 export function PlateAuctionsPage(): React.ReactElement {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isDesktopLg = useMediaQuery('(min-width: 1024px)');
-  const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
+  const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse({ collapseOnEmpty: true });
   const { locale } = useTranslation(); const copy = COPY[locale] || COPY.it; const initialQuery = useMemo(() => readQueryState(), []);
   const [pathname, setPathname] = useState(() => (typeof window === 'undefined' ? '/' : window.location.pathname)); const [snapshot, setSnapshot] = useState<PlateAuctionApiSnapshot | null>(null); const [editorial, setEditorial] = useState<PlateAuctionEditorialSnapshot | null>(null); const [loading, setLoading] = useState(true); const [error, setError] = useState<string | null>(null); const [refreshing, setRefreshing] = useState(false); const [mode, setMode] = useState<PlateAuctionRankingMode>(initialQuery.mode); const [period, setPeriod] = useState<PlateAuctionRankingPeriod>(initialQuery.period); const [canton, setCanton] = useState(initialQuery.canton); const [search, setSearch] = useState(initialQuery.q); const [listingType, setListingType] = useState<PlateAuctionListingType | ''>(initialQuery.type); const [sort, setSort] = useState<SortKey>(initialQuery.sort); const [watchlist, setWatchlist] = useState<string[]>(readWatchlist); const [revealKey, setRevealKey] = useState(''); const [hasStaticFallback] = useState(staticFallbackExists); const liveHandshakeRef = useRef(false);
 

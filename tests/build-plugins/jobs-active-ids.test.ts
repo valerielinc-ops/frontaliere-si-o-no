@@ -35,5 +35,7 @@ describe('published active job ID index', () => {
     expect(index.total).toBe(2);
     expect(index.ids).toEqual(['active-job-1', 'slug-only-job']);
     expect(new Set(index.ids).size).toBe(index.ids.length);
+    const detail = JSON.parse(fs.readFileSync(path.join(root, 'dist/data/job-detail/active-job-1.json'), 'utf8'));
+    expect(detail.url).toBe(active.url);
   });
 });

@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { BellRing, X } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { BellRing, Check, Loader2, X } from 'lucide-react';
+import { useTranslation, type Locale } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { openJobAlertForm } from '@/services/jobAlertOpenSignal';
+import { savePendingJobAlert } from '@/services/pendingJobAlert';
+import { subscribeJobAlertOneTap, stripKeywordEmoji, type JobAlertConfig } from '@/services/jobAlertService';
+import type { JobAlert } from '@/services/jobAlertService';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
 import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
@@ -15,14 +18,34 @@ const DISMISS_DAYS = 7;
 
 interface JobAlertStickyBannerProps {
  userId?: string | null;
+ email?: string | null;
+ locale?: Locale;
  authResolved?: boolean;
  keyword?: string | null;
+ onRequireAuth?: () => void;
+ onSubscribed?: (alert: JobAlert) => void;
+ subscribe?: typeof subscribeJobAlertOneTap;
+}
+
+type StickyBannerStatus = 'idle' | 'submitting' | 'success' | 'error';
+
+function track(emit: (analytics: typeof Analytics) => void): void {
+ try {
+  emit(Analytics);
+ } catch {
+  // Analytics is best-effort and must never break the one-tap path.
+ }
 }
 
 export default function JobAlertStickyBanner({
  userId = null,
+ email = null,
+ locale = 'it',
  authResolved = true,
  keyword = null,
+ onRequireAuth,
+ onSubscribed,
+ subscribe = subscribeJobAlertOneTap,
 }: JobAlertStickyBannerProps) {
  const { t } = useTranslation();
  const eligibility = useJobAlertEligibility({
@@ -39,6 +62,8 @@ export default function JobAlertStickyBanner({
  // but impressions weren't → surface read as "ineffective" because unmeasured.
  const shownTrackedRef = useRef(false);
  const finishedRef = useRef(false);
+ const submissionStartedRef = useRef(false);
+ const [status, setStatus] = useState<StickyBannerStatus>('idle');
 
  useEffect(() => {
  if (eligibility !== true || !readingIntent || !canShowJobAlertPrompt()) {
@@ -82,19 +107,71 @@ export default function JobAlertStickyBanner({
  if (shownTrackedRef.current) return;
  shownTrackedRef.current = true;
  markJobAlertPromptShown('job-alert-sticky-banner');
- Analytics.trackJobAlertCtaShown('sticky_banner');
+ track((a) => a.trackJobAlertCtaShown('sticky_banner', keyword || undefined));
  };
 
- const handleOpen = () => {
+ const handleOpen = async () => {
+ const alertKeyword = stripKeywordEmoji(keyword?.trim() || '').trim();
+ if (status === 'submitting') return;
+
+ if (!alertKeyword || !userId || !email) {
+  if (alertKeyword && onRequireAuth) {
+   const config: JobAlertConfig = {
+    keywords: [alertKeyword],
+    locations: [],
+    contractTypes: [],
+    sectors: [],
+    cantonFilter: null,
+    frequency: 'weekly',
+    locale,
+   };
+   const saved = savePendingJobAlert(config, 'sticky_banner');
+   if (saved.ok) {
+    track((a) => a.trackJobAlertCtaClick('sticky_banner', 'open', alertKeyword));
+    track((a) => a.trackJobAlertAuthHandoff('sticky_banner', 'pending_saved', alertKeyword));
+    finishedRef.current = true;
+    setVisible(false);
+    onRequireAuth();
+    return;
+   }
+  }
+
+  // Keep the existing manager fallback for an empty search, unavailable
+  // storage, or a caller that cannot start auth. The form owns validation and
+  // still receives the sticky origin for its eventual create event.
+  track((a) => a.trackJobAlertCtaClick('sticky_banner', 'open'));
+  openJobAlertForm(keyword || undefined, 'sticky_banner');
+  finishedRef.current = true;
+  setVisible(false);
+  return;
+ }
+
+ if (submissionStartedRef.current) return;
+ submissionStartedRef.current = true;
  finishedRef.current = true;
- Analytics.trackJobAlertCtaClick('sticky_banner', 'open');
- openJobAlertForm(keyword || undefined, 'sticky_banner');
- setVisible(false);
+ setStatus('submitting');
+ track((a) => a.trackJobAlertCtaClick('sticky_banner', 'accept', alertKeyword));
+ try {
+  const alert = await subscribe(userId, email, alertKeyword, locale);
+  track((a) => a.trackJobAlertCtaClick('sticky_banner', 'success', alertKeyword));
+  track((a) => a.trackJobAlertCreated({
+   keywords: alertKeyword,
+   frequency: 'weekly',
+   surface: 'sticky_banner',
+   authPath: 'direct',
+  }));
+  try { onSubscribed?.(alert); } catch { /* cache invalidation is best-effort */ }
+  setStatus('success');
+ } catch {
+  submissionStartedRef.current = false;
+  setStatus('error');
+  track((a) => a.trackJobAlertCtaClick('sticky_banner', 'error', alertKeyword));
+ }
  };
 
  const handleDismiss = () => {
  finishedRef.current = true;
- Analytics.trackJobAlertCtaClick('sticky_banner', 'dismiss');
+ track((a) => a.trackJobAlertCtaClick('sticky_banner', 'dismiss'));
  dismissJobAlertPrompt();
  localStorage.setItem(DISMISS_KEY, String(Date.now() + DISMISS_DAYS * 24 * 60 * 60 * 1000));
  setVisible(false);
@@ -121,13 +198,28 @@ export default function JobAlertStickyBanner({
  {t('jobAlert.stickyBannerText') || 'Ti avvisiamo quando escono offerte come queste.'}
  </p>
  </div>
+ {status === 'success' ? (
+ <p role="status" className="inline-flex w-full flex-shrink-0 items-center justify-center gap-1.5 px-3 py-2.5 min-h-[48px] text-sm font-semibold text-success sm:w-auto sm:min-h-[44px] sm:text-xs">
+ <Check className="w-4 h-4" aria-hidden="true" />
+ {t('jobAlert.boardFilterCta.success', 'Alert attivato ✓')}
+ </p>
+ ) : (
  <button
  type="button"
  onClick={handleOpen}
- className="inline-flex w-full flex-shrink-0 items-center justify-center px-3 py-2.5 min-h-[48px] text-sm font-semibold rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover active:bg-accent-strong-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:w-auto sm:min-h-[44px] sm:text-xs"
+ disabled={status === 'submitting'}
+ aria-busy={status === 'submitting'}
+ className="inline-flex w-full flex-shrink-0 items-center justify-center gap-1.5 px-3 py-2.5 min-h-[48px] text-sm font-semibold rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover active:bg-accent-strong-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto sm:min-h-[44px] sm:text-xs"
  >
+ {status === 'submitting' && <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />}
  {t('jobAlert.stickyBannerCta') || 'Crea alert gratis'}
  </button>
+ )}
+ {status === 'error' && (
+ <p role="alert" className="text-xs text-danger sm:max-w-40">
+ {t('jobAlert.boardFilterCta.error', "Non sono riuscito a creare l'alert. Riprova.")}
+ </p>
+ )}
  <button
  type="button"
  onClick={handleDismiss}

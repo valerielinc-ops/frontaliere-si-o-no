@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { appendFileSync, existsSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import {
   CIRCUIT_BREAKER_THRESHOLD,
   DEFAULT_EVENTS_PER_SHARD,
@@ -9,8 +9,15 @@ import {
   adaptThroughput,
   normalizeEventsPerShard,
   normalizeShardCount,
-  readJsonFile,
-} from './lib/event-description-throughput.mjs';
+} from './lib/event-description-throughput-plan.mjs';
+
+function readJsonFile(filePath, fallback = null) {
+  try {
+    return JSON.parse(readFileSync(filePath, 'utf8'));
+  } catch {
+    return fallback;
+  }
+}
 
 function argument(name, fallback = '') {
   const index = process.argv.indexOf(name);

@@ -67,11 +67,10 @@ const EVENT = {
 // `&#39;`, which would make the rendered length assertion below measure escape
 // sequences rather than characters.
 const LONG_DESC =
-  'La rassegna estiva porta in citta venti giorni di concerti, letture e proiezioni all aperto, ' +
-  'distribuiti fra il parco, il lungolago e i cortili del centro storico, con ingresso libero a tutti gli appuntamenti diurni.';
+  'La rassegna estiva a Lugano. L’evento musicale al LAC Lugano Arte e Cultura presenta le informazioni disponibili sulla manifestazione, accompagnando la lettura del programma, del luogo e del contesto per chi desidera conoscere la proposta culturale prima della visita e orientarsi tra i dettagli descritti nella scheda.';
 const SIBLINGS = [
   EVENT,
-  { ...EVENT, id: 'guidle:2', title: 'Mostra fotografica', startTime: undefined, description: 'Una retrospettiva sul reportage alpino del Novecento.' },
+  { ...EVENT, id: 'guidle:2', title: 'Mostra fotografica', startTime: undefined, description: 'Una retrospettiva sul reportage alpino. La mostra fotografica a Lugano è ospitata al LAC Lugano Arte e Cultura.' },
   { ...EVENT, id: 'guidle:3', title: 'Mercato contadino', description: undefined, descriptionRewriteValidated: undefined },
   { ...EVENT, id: 'guidle:4', title: 'Rassegna estiva', description: LONG_DESC },
 ];
@@ -208,7 +207,7 @@ describe('event card excerpt', () => {
 
   it('shows the start of each sibling event’s own description', () => {
     const html = renderDetail().html;
-    expect(html).toContain('Una retrospettiva sul reportage alpino del Novecento.');
+    expect(html).toContain('Una retrospettiva sul reportage alpino.');
     expect(html).toMatch(/<p class=(?:"ev-x"|ev-x)>/);
   });
 
@@ -232,7 +231,7 @@ describe('event card excerpt', () => {
   });
 
   it('collapses source whitespace instead of shipping it into the cap', () => {
-    const messy = { ...SIBLINGS[1], id: 'guidle:9', description: '  Righe\n\n  spezzate\tdalla   fonte.  ' };
+    const messy = { ...SIBLINGS[1], id: 'guidle:9', description: '  Righe\n\n  spezzate\tdalla   fonte.  L’evento si svolge a Lugano al LAC Lugano Arte e Cultura.  ' };
     const html = renderEventDetailPage({
       locale: 'it',
       event: EVENT as never,
@@ -251,7 +250,7 @@ describe('event card excerpt', () => {
       ...SIBLINGS[1],
       id: 'guidle:8',
       description: 'Fallback italiano.',
-      descriptionByLocale: { en: 'An English summary of the exhibition.' },
+      descriptionByLocale: { en: 'A photographic exhibition in Lugano. The music event takes place at LAC Lugano Arte e Cultura.' },
     };
     const html = renderEventDetailPage({
       locale: 'en',
@@ -263,7 +262,7 @@ describe('event card excerpt', () => {
       distDir,
       detailHref: detailHref as never,
     }).html;
-    expect(html).toContain('An English summary of the exhibition.');
+    expect(html).toContain('A photographic exhibition in Lugano.');
     expect(html).not.toContain('Fallback italiano.');
   });
 });

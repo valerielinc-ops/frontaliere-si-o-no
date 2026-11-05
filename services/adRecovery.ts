@@ -9,7 +9,7 @@ export function installAdRecovery(
   allowed: () => boolean,
   config: { consentKey: string; consentEvent: string; publisherId: string; inlineHouseAds?: boolean },
 ) {
-  type RecoveryWindow = Window & { __ftAdRecovery?: { refresh: () => void }; __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean }; googlefc?: { showRevocationMessage?: () => void; callbackQueue?: unknown[]; __ftRevocationQueued?: boolean }; __ftAdBlockProbe?: string };
+  type RecoveryWindow = Window & { __ftAdRecovery?: { refresh: () => void }; __ftHouseAds?: { refresh: () => void }; __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean }; googlefc?: { showRevocationMessage?: () => void; callbackQueue?: unknown[]; __ftRevocationQueued?: boolean }; __ftAdBlockProbe?: string };
   const w = window as RecoveryWindow;
   if (w.__ftAdRecovery) { w.__ftAdRecovery.refresh(); return w.__ftAdRecovery; }
   const rawLanguage = (document.documentElement.lang || 'it').slice(0, 2);
@@ -171,7 +171,13 @@ export function installAdRecovery(
     const age = Date.now() - started;
     if (!probed && age >= 6000) {
       probed = true;
-      void probe().then((result) => { probeResult = result; w.__ftAdBlockProbe = result; emit('ad_block_probe', { source: 'iab_quick_bait', result }); refresh(); }).catch(() => {});
+      void probe().then((result) => {
+        probeResult = result;
+        w.__ftAdBlockProbe = result;
+        emit('ad_block_probe', { source: 'iab_quick_bait', result });
+        try { w.__ftHouseAds?.refresh(); } catch { /* Keep recovery independent of the creative renderer. */ }
+        refresh();
+      }).catch(() => {});
     }
     if (age < 12000) { timer = setTimeout(refresh, age < 6000 ? 6000 - age : 12000 - age); return; }
     // Merely waiting for a response is not failure: do not cover late Auto Ads

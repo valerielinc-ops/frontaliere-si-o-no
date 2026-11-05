@@ -2,8 +2,10 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
+import { normalizeEventPeople, withoutAddressPeople } from '../scripts/lib/event-metadata.mjs';
 import { publishedEventRoutes } from '../scripts/lib/events-retention.mjs';
 import {
+  eventLd,
   historicalEventSlugMigrations,
   pathForEventDetail,
   renderEventDetailPage,
@@ -11,6 +13,7 @@ import {
 } from '../build-plugins/eventsSeoPagesPlugin';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { readAttr, readTagByAttr } from '../scripts/lib/html-attr.mjs';
+import { hasCompleteGoogleEventData } from '../packages/articles/engine/shared/googleEventDataQuality.mjs';
 
 type Event = Parameters<typeof renderEventDetailPage>[0]['event'];
 const seed = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8')) as { events: Event[] };
@@ -161,8 +164,29 @@ describe('reported GSC event archive coverage', () => {
       const canonical = readTagByAttr(page.html, 'rel', 'canonical');
       expect(readAttr(canonical, ['href']), reportedPath).toBe(`https://frontaliereticino.ch${page.urlPath}`);
       expect(page.html, reportedPath).not.toContain('Pagina archiviata');
-      expect(page.html, reportedPath).toMatch(/"@type"\s*:\s*"Event"/);
       expect(page.html, reportedPath).toContain(event.startDate);
+      const structuredEvent = eventLd(event, locale, `https://frontaliereticino.ch${page.urlPath}`);
+      if (!structuredEvent) {
+        const hasSupportedLocation = Boolean(
+          event.comune || event.address?.locality || event.address?.street || event.address?.postalCode,
+        );
+        const locality = event.address?.locality?.trim() || event.comune?.trim() || '';
+        const cleanedPeople = withoutAddressPeople({
+          ...event,
+          venue: event.venue?.trim() || locality,
+        }, { label: event.sourceName });
+        const hasSourceBackedPerformer = Boolean(
+          normalizeEventPeople(cleanedPeople.performer, event.url, event.url),
+        );
+        expect(event.recurring === true || !hasSupportedLocation || !hasSourceBackedPerformer, reportedPath).toBe(true);
+        expect(page.html, reportedPath).not.toMatch(/"@type"\s*:\s*"Event"/);
+        continue;
+      }
+      if (!hasCompleteGoogleEventData(structuredEvent)) {
+        expect(page.html, reportedPath).not.toMatch(/"@type"\s*:\s*"Event"/);
+        continue;
+      }
+      expect(page.html, reportedPath).toMatch(/"@type"\s*:\s*"Event"/);
       const expectedStatus = event.eventStatus === 'cancelled'
         ? 'https://schema.org/EventCancelled'
         : event.eventStatus === 'postponed'

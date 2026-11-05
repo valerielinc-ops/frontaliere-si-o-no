@@ -13,7 +13,12 @@ import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 import { listCantonOptions, getCantonLabel, CANTON_CODES, type CantonLocale } from '@/services/cantonList';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
-import { savePendingJobAlert, consumePendingJobAlert, type PendingJobAlertOrigin } from '@/services/pendingJobAlert';
+import {
+  acknowledgePendingJobAlert,
+  peekPendingJobAlert,
+  savePendingJobAlert,
+  type PendingJobAlertOrigin,
+} from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import { Analytics } from '@/services/analytics';
@@ -520,16 +525,17 @@ export default function JobAlertForm({
   // After the auth round-trip, replay a stashed alert intent so a logged-out
   // "create" completes itself instead of forcing a re-entry + re-submit
   // (the 536 click -> 39 create / 93% drop at exactly this step).
- const pendingConsumedRef = useRef(false);
+ const pendingReplayInFlightRef = useRef(false);
  useEffect(() => {
     // Firebase may expose a signed-in user before the provider email has been
-    // copied to the top-level user object (notably Facebook). Do not consume
-    // the intent until the shared resolver has a usable address, or the alert
-    // would be lost before `createAlert` can validate it.
-    if (!authUser || !authEmail || pendingConsumedRef.current) return;
-    const pending = consumePendingJobAlert();
+    // copied to the top-level user object (notably Facebook). Do not read the
+    // intent until the shared resolver has a usable address, or the replay
+    // would start before `createAlert` can validate it.
+    if (!authUser || !authEmail || pendingReplayInFlightRef.current) return;
+    const pending = peekPendingJobAlert();
     if (!pending) return;
-    pendingConsumedRef.current = true;
+    pendingReplayInFlightRef.current = true;
+    setSaving(true);
     // Issue 9576: the replay is attributed to the CTA the guest submitted from
     // (the surface that emitted the impression), with the auth hop recorded
     // apart in `authPath`. Only an intent stored before the origin was carried
@@ -542,6 +548,7 @@ export default function JobAlertForm({
     (async () => {
       try {
         const created = await persistAlert(authUser.uid, authEmail, pending.config, replaySurface, "post_auth_replay");
+        acknowledgePendingJobAlert(pending);
         if (pending.origin) {
           trackCtaAction(pending.origin, "success", replayKeyword);
           track((a) => a.trackJobAlertAuthHandoff(pending.origin, "replay_succeeded", replayKeyword));
@@ -553,14 +560,18 @@ export default function JobAlertForm({
         maybeShowEnrichmentPrompt(authEmail, created);
         try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
       } catch (err: any) {
-        // Surface the failure (e.g. quota full = permanent) instead of swallowing
-        // it. Leave pendingConsumedRef set so we don't retry-loop on re-render;
-        // the now-authenticated user can re-submit manually if needed.
+        // Surface the failure instead of swallowing it, but leave the exact
+        // intent parked. A later auth recovery/remount retries the same
+        // idempotent create; the in-flight guard prevents duplicate attempts
+        // during this render while the request is unresolved.
+        pendingReplayInFlightRef.current = false;
         if (pending.origin) {
           trackCtaAction(pending.origin, "error", replayKeyword);
           track((a) => a.trackJobAlertAuthHandoff(pending.origin, "replay_failed", replayKeyword));
         }
         showToast(err?.message || (t("jobAlert.error.generic") as string) || "Errore durante la creazione dell'alert.");
+      } finally {
+        setSaving(false);
       }
     })();
   }, [authEmail, authUser, persistAlert, showToast, resetForm, t, maybeShowEnrichmentPrompt, trackCtaAction]);
@@ -585,6 +596,10 @@ export default function JobAlertForm({
  const saved = savePendingJobAlert(config, ctaOrigin);
  if (!saved.ok) {
  setPendingStorageFailed(true);
+ // The inline card can submit without opening the form first. Keep the
+ // storage failure visible so the guest can still choose an explicit sign-in
+ // retry instead of losing the only actionable feedback below the card.
+ setExpanded(true);
  trackCurrentCtaAction('error', ctaKeyword);
  return;
  }
@@ -602,6 +617,10 @@ export default function JobAlertForm({
  setSaving(true);
  try {
       const created = await persistAlert(authUser.uid, authEmail, config, ctaOrigin, 'direct');
+      // A replay can fail while the authenticated form remains available for
+      // a manual retry. Once that exact config succeeds, consume the parked
+      // intent so a later auth remount cannot create the same alert again.
+      acknowledgePendingJobAlert({ config, origin: ctaOrigin });
       trackCurrentCtaAction('success', ctaKeyword);
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
  resetForm();
@@ -634,6 +653,27 @@ export default function JobAlertForm({
    } finally {
      setSaving(false);
    }
+ };
+
+ const handleInlineCardClick = () => {
+   if (!expanded && inlineCardHasExplicitIntent) {
+     // Anonymous visitors use the same pending-intent/auth replay as the
+     // expanded form. Authenticated eligible visitors use the existing
+     // one-tap writer, preserving the keyword, canton and direct auth path.
+     if (!authUser && authResolved) {
+       void handleCreate();
+       return;
+     }
+     if (authUser && oneTapEligible) {
+       if (saving) return;
+       void handleOneTapCreate();
+       return;
+     }
+   }
+   if (!expanded) {
+     track((a) => a.trackJobAlertCtaClick('inline_card', 'open', initialKeyword));
+   }
+   setExpanded(!expanded);
  };
 
  const handleDelete = async (alertId: string) => {
@@ -762,12 +802,7 @@ export default function JobAlertForm({
  hasExplicitSearchIntent={inlineCardHasExplicitIntent}
  initialKeyword={initialKeyword}
  loadingAlerts={loadingAlerts}
- onToggle={() => {
- if (!expanded) {
- track((a) => a.trackJobAlertCtaClick('inline_card', 'open', initialKeyword));
- }
- setExpanded(!expanded);
- }}
+ onToggle={handleInlineCardClick}
  title={alerts.length > 0
  ? (t('jobAlert.cardTitleActive') || 'Le tue alert lavoro')
  : (t('jobAlert.cardTitle') || 'Ricevi nuovi lavori via email')}

@@ -1,0 +1,25 @@
+{
+  "companyKey": "lcionline",
+  "companyName": "LCI-Lawinger Consulting",
+  "companyHost": "lcionline.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://lcionline.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 15,
+  "sampleTitles": [
+    "BTS Solutions Development/Salesforce Consultant",
+    "Swiss Machinist II - 2nd Shift",
+    "Swiss Machinist II - Weekend Days",
+    "Swiss Machinist II - Weekend Nights",
+    "Swiss Machinist Lead - Weekend Nights"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:13:33.558Z",
+  "candidateKey": "lcionline@applytojob.com"
+}

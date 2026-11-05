@@ -542,6 +542,12 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     )).toEqual([]);
   });
 
+  it('accepts the ETH acronym in the verified KOF institution name', () => {
+    expect(checkFabricatedInstitutionAcronyms(
+      'L\'Istituto KOF del Politecnico federale di Zurigo (ETH) ha pubblicato l\'indicatore.',
+    )).toEqual([]);
+  });
+
   // ── 2026-07-29 corpus triage ──
   it('accepts the non-Italian acronym of an office already listed', () => {
     // Swiss federal offices publish under three or four acronyms and the writer

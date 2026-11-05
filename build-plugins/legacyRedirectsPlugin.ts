@@ -41,34 +41,7 @@ import {
 import { shouldEmitPath } from './shared/localeEmitFilter';
 import { earlyRejectEnabled } from './shared/midPluginFlags';
 import { makeStartsWithAnyPrefix } from './shared/prefixMatcher';
-
-// These legacy URLs are intercepted by the apex Worker with a real 301. Keep
-// their static fallback free of a second, weaker redirect mechanism: the
-// origin may still serve the canonical bridge, but must not advertise a
-// meta-refresh for a route whose HTTP contract is already server-side.
-const EDGE_HTTP_REDIRECT_PATHS = new Set([
- '/cookie/',
- '/nav:health/',
- '/nav:pension/',
- '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/',
- '/job-board/',
- '/calcola-stipendio/confronta-permesso-g-vs-b/',
- '/guida-frontaliere/comuni-di-frontiera/',
- '/vivere-in-ticino/vivere-in-svizzera/',
- '/statistiche/traffico-dogane/',
- '/guida-frontaliere/tempi-attesa-dogana/',
- '/guida-frontaliere/diritto-lavoro-frontalieri/',
- '/tfr-calculator/',
- '/calcolatore/',
- '/guida-frontaliere/diritto-opzione-lamal/',
- '/statistiche/confronta-premi/',
- '/stipendi-frontalieri-ticino/',
- '/tredicesima-svizzera/',
- '/comparatori/cambio-valuta/',
- '/costo-della-vita/',
- '/guida-frontaliere/nuova-legge-frontalieri-2024/',
- '/fisco-frontalieri/',
-]);
+import { isApexHttpRedirectPath } from './shared/edgeRedirectMembership';
 
 // These aliases were emitted by older salary landing templates and can still
 // exist in an incremental dist. They must be replaced even when an older
@@ -82,7 +55,7 @@ const FORCE_CANONICAL_BRIDGE_PATHS = new Set([
 
 function addLegacyBridgeHead(html: string, from: string, to: string, extraHead = ''): string {
  const normalizedFrom = from === '/' ? from : `${from.replace(/\/+$/, '')}/`;
- const refresh = EDGE_HTTP_REDIRECT_PATHS.has(normalizedFrom)
+ const refresh = isApexHttpRedirectPath(normalizedFrom)
    ? ''
    : ` <meta http-equiv="refresh" content="0; url=${BASE_URL}${to}">\n`;
  return html.replace('</head>', `${refresh}${extraHead}\n </head>`);

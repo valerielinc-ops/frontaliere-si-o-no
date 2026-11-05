@@ -1,0 +1,21 @@
+{
+  "companyKey": "aitia",
+  "companyName": "Aitia",
+  "companyHost": "aitia.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aitia.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Senior Director, Alliance Management"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:13:31.024Z",
+  "candidateKey": "aitia@applytojob.com"
+}

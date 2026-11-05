@@ -32,6 +32,37 @@ describe('hub corpus-main registry drift decisions', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 
+  it('retries a transient manifest body failure before returning the commit', async () => {
+    vi.useFakeTimers();
+    const random = vi.spyOn(Math, 'random').mockReturnValue(0);
+    try {
+      let bodyAttempts = 0;
+      const commit = 'b'.repeat(40);
+      const fetchImpl = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        json: async () => {
+          bodyAttempts += 1;
+          if (bodyAttempts === 1) throw new TypeError('fetch failed while reading manifest');
+          return { commit };
+        },
+      }));
+
+      const pending = fetchPublishedCorpusCommit({
+        manifestUrl: 'https://example.invalid/manifest.json',
+        fetchImpl,
+      });
+      await vi.runAllTimersAsync();
+
+      await expect(pending).resolves.toBe(commit);
+      expect(fetchImpl).toHaveBeenCalledTimes(2);
+      expect(bodyAttempts).toBe(2);
+    } finally {
+      random.mockRestore();
+      vi.useRealTimers();
+    }
+  });
+
   const cases = [
     {
       name: 'converged registries proceed',
@@ -209,6 +240,48 @@ describe('hub freshness regression from the stale site copy', () => {
     expect(verdict.ok).toBe(true);
     expect(verdict.note).toContain('registry and live hub identities converge');
     expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it('retries a transient published registry timeout before applying the identity gate', async () => {
+    vi.useFakeTimers();
+    const random = vi.spyOn(Math, 'random').mockReturnValue(0);
+    try {
+      let registryAttempts = 0;
+      const fetchMock = vi.fn(async (input: string | URL) => {
+        const url = String(input);
+        if (url.endsWith('/manifest.json')) {
+          return { ok: true, json: async () => ({ counts: { articles: 1 } }) };
+        }
+        if (url.endsWith('/slugs.json')) {
+          registryAttempts += 1;
+          if (registryAttempts === 1) {
+            throw Object.assign(new Error('The operation was aborted due to timeout'), {
+              name: 'TimeoutError',
+            });
+          }
+          return { ok: true, json: async () => ({ blog: { stable: { it: 'stable' } } }) };
+        }
+        if (url === 'https://frontaliereticino.ch/articoli-frontaliere/') {
+          return {
+            ok: true,
+            text: async () => '<main class="ssg-article-grid"><a class="ssg-art-card" href="/articoli-frontaliere/stable/"></a></main>',
+          };
+        }
+        throw new Error(`unexpected fetch: ${url}`);
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      const pending = checkCorpusFreshness('frontaliere', 1, {
+        localRegistry: registryFor(['stable']),
+      });
+      await vi.runAllTimersAsync();
+      await expect(pending).resolves.toMatchObject({ ok: true });
+      expect(registryAttempts).toBe(2);
+      expect(fetchMock).toHaveBeenCalledTimes(4);
+    } finally {
+      random.mockRestore();
+      vi.useRealTimers();
+    }
   });
 
   it('defers when the live hub is ahead of the pinned corpus snapshot', async () => {

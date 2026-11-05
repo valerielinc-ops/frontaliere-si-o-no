@@ -43,6 +43,7 @@ import CompanyFollowCta, { CompanyFollowPopup } from '@/components/community/Com
 import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
+import type { JobBoardFilterAlertHandoff } from '@/components/community/JobBoardFilterAlertCta';
 const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
 const SumUpPaymentWidget = lazyRetry(() => import('@/components/community/SumUpPaymentWidget'));
 const RewardedApplicationOffer = lazyRetry(() => import('@/components/community/RewardedApplicationOffer'));
@@ -801,7 +802,7 @@ interface JobBoardFilterParams {
 }
 
 interface JobBoardProps {
- /** Called after useful listing content commits over an external static snapshot. */
+ /** Called after authoritative listing content commits over an external static snapshot. */
  onInitialContentReady?: () => void;
  onPostJob?: () => void;
  initialJobSlug?: string;
@@ -1001,6 +1002,44 @@ function yieldToMainThread(): Promise<void> {
   }
   setTimeout(resolve, 0);
  });
+}
+
+/** Keep the first full-catalog work out of the input task that requests it. */
+function scheduleAfterInteractionPaint(callback: () => void): () => void {
+ if (typeof window === 'undefined') {
+  callback();
+  return () => {};
+ }
+
+ let cancelled = false;
+ let idleHandle: number | null = null;
+ let frameHandle: number | null = null;
+ let timeoutHandle: number | null = null;
+ const run = (): void => {
+  if (!cancelled) callback();
+ };
+ const browserWindow = window as Window & {
+  requestIdleCallback?: (idleCallback: () => void, options?: { timeout: number }) => number;
+  cancelIdleCallback?: (handle: number) => void;
+ };
+
+ // Idle callbacks are scheduled outside the input event. The fallback adds a
+ // frame plus a timer so browsers without requestIdleCallback get a paint
+ // boundary before the catalog continuation starts.
+ if (typeof browserWindow.requestIdleCallback === 'function') {
+  idleHandle = browserWindow.requestIdleCallback(run, { timeout: 1000 });
+ } else {
+  frameHandle = browserWindow.requestAnimationFrame(() => {
+   timeoutHandle = browserWindow.setTimeout(run, 0);
+  });
+ }
+
+ return () => {
+  cancelled = true;
+  if (idleHandle !== null) browserWindow.cancelIdleCallback?.(idleHandle);
+  if (frameHandle !== null) browserWindow.cancelAnimationFrame(frameHandle);
+  if (timeoutHandle !== null) browserWindow.clearTimeout(timeoutHandle);
+ };
 }
 
 async function normalizeJobPool(rawJobs: readonly unknown[]): Promise<JobListing[]> {
@@ -2415,10 +2454,12 @@ JobCard.displayName = 'JobCard';
  *
  * The center column keeps its own `space-y-6` rhythm (the wrapped branch root),
  * so existing listing/editorial spacing is unchanged; the shell only adds the
- * banner above and the rail gutters beside it.
+ * banner above and the rail gutters beside it. Listing geometry stays reserved
+ * after a rail reports empty: collapsing a desktop track after the first paint
+ * reallocates its width to `min-w-0`, rewraps job cards, and records CLS.
  */
 const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactNode }> = ({ isDesktopLg, children }) => {
- const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse({ collapseOnEmpty: false });
  return (
  <div className="space-y-6">
  {isDesktopLg && (
@@ -2656,7 +2697,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Collapses the 300px xlw rail gutter (both auth-gate and job-detail views
  // below) when ArticleRailAdStack resolves an all-empty verdict per side —
  // shared with JobOrphanView/JobExpiredView/BlogArticles (issue 4830).
- const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse({ collapseOnEmpty: true });
 
  // Canton-aware {canton}/{cantonPrep} interpolation params for the H1,
  // subtitle and CTAs. Derived from the URL-driven `initialFilterCanton`
@@ -2781,11 +2822,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [jobBoardInteractionObserved, setJobBoardInteractionObserved] = useState(false);
  const jobBoardInteractionSeenRef = useRef(false);
  const catalogInteractionWaitersRef = useRef(new Set<() => void>());
+ const catalogInteractionReadyRef = useRef(false);
+ const catalogInteractionReleaseCancelRef = useRef<(() => void) | null>(null);
  const noteJobBoardInteraction = useCallback(() => {
   if (jobBoardInteractionSeenRef.current) return;
   jobBoardInteractionSeenRef.current = true;
-  setJobBoardInteractionObserved(true);
-  for (const resume of [...catalogInteractionWaitersRef.current]) resume();
+  catalogInteractionReleaseCancelRef.current = scheduleAfterInteractionPaint(() => {
+   catalogInteractionReleaseCancelRef.current = null;
+   catalogInteractionReadyRef.current = true;
+   setJobBoardInteractionObserved(true);
+   for (const resume of [...catalogInteractionWaitersRef.current]) resume();
+  });
+ }, []);
+ useEffect(() => () => {
+  catalogInteractionReleaseCancelRef.current?.();
+  catalogInteractionReleaseCancelRef.current = null;
  }, []);
  useEffect(() => {
   const interactionSurface = '#main-content, main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
@@ -2999,10 +3050,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (JobSaveMount renders it on every page); the board only reads whether it is up.
  const saveAuthPromptOpen = useSyncExternalStore(subscribeSavePrompt, isSavePromptOpen, () => false);
  const [jobBoardAlertAuthPromptOpen, setJobBoardAlertAuthPromptOpen] = useState(false);
+ const [jobBoardAlertAuthHandoff, setJobBoardAlertAuthHandoff] = useState<JobBoardFilterAlertHandoff | null>(null);
  useEffect(() => {
   if (!authUser?.uid) return;
   releaseSlot('job-board-alert-auth-prompt');
   setJobBoardAlertAuthPromptOpen(false);
+  setJobBoardAlertAuthHandoff(null);
  }, [authUser?.uid]);
  const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null; savedCount: number; category: string } | null>(null);
  // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
@@ -3654,7 +3707,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setFullLoadPending(true);
 
  const waitForCatalogInteraction = (): Promise<void> => new Promise((resolve) => {
-  if (jobBoardInteractionSeenRef.current) {
+  // `seen` records intent; only `ready` means the input has crossed a paint
+  // boundary and the full catalog may safely start.
+  if (catalogInteractionReadyRef.current) {
    resolve();
    return;
   }
@@ -4188,7 +4243,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // localStorage gating allows it, AND no existing alert covers this category.
  const isJobDetailView = selectedJob !== null;
  const conciergeAction = useConciergeProposalAction({ user: authUser, authLoading, onRequireAuth, locale, search: locationSearch });
- const userEmail = authUser?.email || null;
+ // Facebook can expose the account address only through providerData. The
+ // alert prompt and every CTA below use this value to decide whether the user
+ // can create directly, so keep the same resolver as JobAlertForm/App.
+ const userEmail = getAuthEmail(authUser);
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
  const assistedApplicationReviewToken = readReviewToken();
@@ -4269,17 +4327,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const appliedAlertSurfaceVisible = Boolean(
   appliedJobId && selectedJob && appliedJobId === selectedJob.id,
  );
- const appliedAlertKeyword = appliedAlertSurfaceVisible && selectedJob
+ // Publisher ads expose a stable job id for the hard `specificJobId` matcher
+ // pin. The same detail CTA is reused after apply; ordinary listings fall back
+ // to keyword+canton criteria.
+ const isPublisherAd = Boolean((selectedJob as { publisherJobId?: string | null } | null)?.publisherJobId);
+ const detailAlertKeyword = selectedJob
   ? (t(categoryTranslationKey(selectedJob)) || '').trim()
   : '';
- const appliedAlertEligible = useJobAlertEligibility({
-  enabled: enableJobAlerts && appliedAlertSurfaceVisible,
+ const detailAlertEligible = useJobAlertEligibility({
+  enabled: enableJobAlerts && Boolean(
+   selectedJob && (isPublisherAd || (appliedAlertSurfaceVisible && detailAlertKeyword)),
+  ),
   authResolved,
   userId,
-  keyword: appliedAlertKeyword,
+  keyword: detailAlertKeyword,
   surface: 'job_detail_button',
  });
- const appliedAlertCtaVisible = appliedAlertSurfaceVisible && appliedAlertEligible === true;
+ const detailAlertButtonVisible = Boolean(
+  enableJobAlerts
+  && isJobDetailView
+  && selectedJob
+  && (isPublisherAd || (appliedAlertSurfaceVisible && detailAlertKeyword))
+  && userId
+  && userEmail
+  && detailAlertEligible === true,
+ );
 
  // Job-match profile, part 2: merge in the newsletter_subscribers doc's
  // sector_interest/location_interest for logged-in subscribers (issue #3648
@@ -4661,15 +4733,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // re-runs / re-arms.
  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [isJobDetailView, selectedJob?.id, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t, jobReadingIntent]);
-
- // Impression for the peak-intent alert offer inside the applied receipt. Fired
- // on appearance rather than via IntersectionObserver because the receipt is
- // rendered directly under the button the user just pressed — it is on screen by
- // construction, so an in-view check would add machinery without adding truth.
- useEffect(() => {
- if (!appliedAlertCtaVisible) return;
- Analytics.trackJobAlertCtaShown('job_detail_button', appliedAlertKeyword);
- }, [appliedAlertCtaVisible, appliedAlertKeyword]);
 
  // Drop the applied receipt when the user moves to a different job / leaves the
  // detail view, so it never leaks onto an unrelated listing.
@@ -5965,10 +6028,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ) || returnVisitResultsPending;
  const initialContentReadyRef = useRef(false);
  useLayoutEffect(() => {
-  if (initialContentReadyRef.current || jobsLoading || jobs.length === 0 || resultsResolving) return;
+  // The slim first page is enough to paint the SPA, but not enough to release
+  // the external snapshot: the authoritative catalog can still replace the
+  // result set and card/ad geometry after the deferred interaction load.
+  if (initialContentReadyRef.current || jobsLoading || fullLoadPending || jobs.length === 0 || resultsResolving) return;
   initialContentReadyRef.current = true;
   onInitialContentReady?.();
- }, [jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
+ }, [fullLoadPending, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
 
  // The canonical unfiltered TI/aggregate listing has a deterministic first
  // viewport: its first-page asset is `pageSize` cards. Reserve that footprint
@@ -8533,17 +8599,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  ) : null;
 
- // Post-apply receipt + peak-intent alert offer (issues #5040, #5039).
- //
- // The alert CTA here deliberately does NOT require an authenticated session.
- // The only surface that converts today (`job_detail_prompt`, 5 creations on
- // 410 impressions over 14d) is hard-gated on userId+email and logs a `no_auth`
- // skip for everyone else, so anonymous visitors — the bulk of organic search
- // traffic — are never offered an alert at the one moment their intent is
- // provably highest: they just applied. This routes them through the always-
- // mounted JobAlertForm, which owns auth + email capture, using the same
- // queued-request + backToList hand-off SavedJobsAlertNudge already uses from
- // the detail view.
+ // Post-apply receipt (issue #5040). The authenticated detail CTA is rendered
+ // once below this receipt, through the same component and writer as the
+ // pre-apply publisher path. Anonymous visitors keep the dedicated
+ // `job_detail_anonymous` CTA, whose form/auth handoff remains diagnostically
+ // separate from the measured `job_detail_button` surface.
  const appliedNoticeJsx = appliedAlertSurfaceVisible ? (
  <div
  role="status"
@@ -8559,21 +8619,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  <div className="flex flex-wrap gap-2">
- {appliedAlertCtaVisible && (
- <button
- type="button"
- onClick={() => {
- const category = (t(categoryTranslationKey(selectedJob)) || '').trim();
- Analytics.trackJobAlertCtaClick('job_detail_button', 'open', category);
- requestJobAlertOpen(category || undefined, 'job_detail_button');
- backToList();
- }}
- className="inline-flex items-center gap-2 px-3 py-2 min-h-[44px] text-xs font-semibold font-display rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover transition-colors"
- >
- <BellRing className="w-3.5 h-3.5" aria-hidden="true" />
- {t('jobBoard.applied.alertCta')}
- </button>
- )}
  <button
  type="button"
  onClick={() => handleApply(selectedJob)}
@@ -8690,6 +8735,46 @@ const JobBoard: React.FC<JobBoardProps> = ({
     onAnonymousOpen={() => {
      Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open', detailAlertCategoryLabel);
      backToList();
+    }}
+   />
+ </Suspense>
+ ) : null;
+
+ // One authenticated detail CTA owns both placements: before apply for a
+ // publisher ad, and after apply for an ordinary listing (or the same pinned
+ // publisher ad). Keeping one component mounted avoids a second impression
+ // when the receipt appears, while its service branch preserves the job pin,
+ // keyword, canton and source provenance at write time.
+ const detailAlertJobId = isPublisherAd && selectedJob
+  ? String(selectedJob.id || (selectedJob as { publisherJobId?: string | null }).publisherJobId || '')
+  : null;
+ const detailAlertButtonJsx = detailAlertButtonVisible && selectedJob ? (
+  <Suspense key="job-detail-alert-button" fallback={null}>
+   <JobDetailJobAlertButton
+    jobId={detailAlertJobId}
+    keyword={detailAlertKeyword}
+    cantonCode={selectedJob.canton ?? null}
+    userId={userId}
+    email={userEmail}
+    locale={locale}
+    sourceJobSlug={selectedJob.slug ?? null}
+    sourceJobUrl={selectedJob.url ?? null}
+    sourceJobTitle={selectedJob.title ?? null}
+    label={appliedAlertSurfaceVisible ? t('jobBoard.applied.alertCta') : undefined}
+    onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button', detailAlertKeyword || selectedJob.title)}
+    onAccepted={() => Analytics.trackJobAlertCtaClick('job_detail_button', 'accept', detailAlertKeyword || selectedJob.title)}
+    onSubscribed={() => {
+     Analytics.trackJobAlertCtaClick('job_detail_button', 'success', detailAlertKeyword || selectedJob.title);
+     Analytics.trackJobAlertCreated({
+      keywords: detailAlertJobId ? selectedJob.title || '' : detailAlertKeyword,
+      location: selectedJob.canton || '',
+      frequency: detailAlertJobId ? 'daily' : 'weekly',
+      surface: 'job_detail_button',
+     });
+     invalidateUserAlertsCache();
+    }}
+    onErrored={() => {
+     Analytics.trackJobAlertCtaClick('job_detail_button', 'error', detailAlertKeyword || selectedJob.title);
     }}
    />
   </Suspense>
@@ -10815,9 +10900,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
    </section>
   ) : null
  );
- // Publisher / sponsored ad: a paid submission carries a `publisherJobId`. Used
- // to gate the per-job "Avvisami per questo annuncio" CTA (specificJobId alert).
- const isPublisherAd = Boolean((selectedJob as { publisherJobId?: string | null }).publisherJobId);
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const detailJobCanton = resolveJobCanton(selectedJob);
@@ -11121,6 +11203,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {renderApplicationIntentDisclosure()}
  </article>
  {detailAlertCtaJsx}
+ {detailAlertButtonJsx}
  {jobDetailPromptJsx}
  {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
@@ -11510,32 +11593,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
  {renderApplicationIntentConsent()}
- {isPublisherAd && userId && userEmail && (
- <Suspense fallback={null}>
- <JobDetailJobAlertButton
- jobId={String(selectedJob.id || (selectedJob as { publisherJobId?: string }).publisherJobId || '')}
- userId={userId}
- email={userEmail}
- locale={locale}
- sourceJobSlug={selectedJob.slug ?? null}
- sourceJobUrl={selectedJob.url ?? null}
- sourceJobTitle={selectedJob.title ?? null}
- onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button', selectedJob.title)}
- onAccepted={() => Analytics.trackJobAlertCtaClick('job_detail_button', 'accept', selectedJob.title)}
- onSubscribed={() => {
- Analytics.trackJobAlertCtaClick('job_detail_button', 'success', selectedJob.title);
- Analytics.trackJobAlertCreated({ keywords: selectedJob.title || '', frequency: 'daily', surface: 'job_detail_button' });
- // Review PR #4338, bug G: keep the shared getUserAlerts cache correct —
- // this surface just created a new alert every other surface's cached
- // eligibility read needs to see.
- invalidateUserAlertsCache();
- }}
- onErrored={() => {
- Analytics.trackJobAlertCtaClick('job_detail_button', 'error', selectedJob.title);
- }}
- />
- </Suspense>
- )}
+ {detailAlertButtonJsx}
 
  {/* Job-specific FAQ accordion — visible counterpart of the FAQPage JSON-LD
  injected by services/seoService.ts (content-parity rule, CLAUDE.md §
@@ -11664,40 +11722,44 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
 
- const handleBoardFilterAlertAuthRequired = () => {
+ const handleBoardFilterAlertAuthRequired = (handoff: JobBoardFilterAlertHandoff) => {
+  const keyword = handoff.config.keywords.join(', ');
+  setJobBoardAlertAuthHandoff(handoff);
   Analytics.trackJobAlertAuthHandoff(
    'job_board_filters',
    'pending_saved',
-   boardFilterAlertKeywordLabel,
+   keyword,
   );
   requestSlot('job-board-alert-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
   setJobBoardAlertAuthPromptOpen(true);
   Analytics.trackJobAlertAuthHandoff(
    'job_board_filters',
    'prompt_shown',
-   boardFilterAlertKeywordLabel,
+   keyword,
   );
  };
 
  const handleBoardFilterAlertAuthPromptDismiss = () => {
+  const keyword = jobBoardAlertAuthHandoff?.config.keywords.join(', ') || boardFilterAlertKeywordLabel;
   Analytics.trackJobAlertAuthHandoff(
    'job_board_filters',
    'dismissed',
-   boardFilterAlertKeywordLabel,
+   keyword,
   );
   releaseSlot('job-board-alert-auth-prompt');
   setJobBoardAlertAuthPromptOpen(false);
+  setJobBoardAlertAuthHandoff(null);
  };
 
  // This surface stays next to the filters so a category/sector intent is
  // actionable before the first result on mobile. Anonymous visitors keep the
  // exact filter intent parked while the contextual auth gate is shown;
  // authenticated visitors keep the one-tap create path below.
- const boardFilterAlertAuthPromptJsx = jobBoardAlertAuthPromptOpen ? (
+ const boardFilterAlertAuthPromptJsx = jobBoardAlertAuthPromptOpen && jobBoardAlertAuthHandoff ? (
  <Suspense fallback={null}>
  <JobAlertAuthPromptModal
  locale={locale}
- keyword={boardFilterAlertKeywordLabel}
+ handoff={jobBoardAlertAuthHandoff}
  onDismiss={handleBoardFilterAlertAuthPromptDismiss}
  />
  </Suspense>
@@ -11721,8 +11783,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  formOrigin="job_board_filters"
  onAnonymousAuthRequired={handleBoardFilterAlertAuthRequired}
  onAccepted={() => Analytics.trackJobAlertCtaClick('job_board_filters', 'accept', boardFilterAlertKeywordLabel)}
- onAnonymousOpen={() => {
- Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);
+ onAnonymousOpen={(handoff) => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'open', handoff.config.keywords.join(', '));
  }}
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
@@ -12557,8 +12619,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Suspense fallback={null}>
  <JobAlertStickyBanner
  userId={userId}
+ email={userEmail}
+ locale={locale}
  authResolved={authResolved}
  keyword={deferredSearchQuery.trim()}
+ onRequireAuth={onRequireAuth}
+ onSubscribed={() => invalidateUserAlertsCache()}
  />
  </Suspense>
  )}

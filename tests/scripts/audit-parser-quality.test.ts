@@ -1633,6 +1633,24 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationAuthority).toBe('source-detail');
   });
 
+  it('matches a detail office against another advertised office on a multi-location posting', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Zurich | Lausanne',
+        sourceLang: 'en',
+        description: 'Complete enterprise sales role. '.repeat(20),
+      },
+      {
+        location: 'Lausanne, Vaud',
+        description: 'Complete enterprise sales role. '.repeat(20),
+      },
+      { locationEvidence: 'jsonld', crawlerKey: 'mistral-ai' },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationInconclusive).toBe(false);
+  });
+
   it('keeps the mismatch when the page names the canton without postal geography', () => {
     const result = compareSourceDetail(
       {

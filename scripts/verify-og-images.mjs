@@ -19,6 +19,7 @@ import {
   SITE_ORIGIN,
   loadPublishedImagePolicy,
 } from './lib/published-image-policy.mjs';
+import { executeIncrementalPageAudit, loadPublisherPageIndex } from './ci/page-audit-index.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -199,6 +200,89 @@ export function collectOgImageReferences(distDir, { sampleSize = 3 } = {}) {
   return { references, total, counts };
 }
 
+function scanOgImageBucket(entries, distDir) {
+  const byFamily = new Map(FAMILIES.map((family) => [family, new Map()]));
+  const missingPages = [];
+  let total = 0;
+  for (const entry of entries) {
+    const filePath = path.resolve(distDir, entry.path);
+    const relative = path.relative(distDir, filePath);
+    if (!relative || relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+      throw new Error(`indexed page path escapes dist/: ${entry.path}`);
+    }
+    let html;
+    try { html = fs.readFileSync(filePath, 'utf8'); }
+    catch (error) {
+      if (error?.code === 'ENOENT') { missingPages.push(entry.path); continue; }
+      throw error;
+    }
+    for (const url of extractOgImageUrls(html, entry.url)) {
+      total += 1;
+      const family = familyFor(url);
+      const refs = byFamily.get(family);
+      const identity = `${entry.path}\0${url}`;
+      if (!refs.has(url)) refs.set(url, { file: entry.path, url, identity });
+    }
+  }
+  const counts = {};
+  const references = [];
+  for (const family of FAMILIES) {
+    const rows = [...byFamily.get(family).values()].sort((a, b) => a.identity.localeCompare(b.identity));
+    counts[family] = rows.length;
+    references.push(...rows.slice(0, 3).map(({ file, url }) => ({ file, url })));
+  }
+  return { total, counts, references, missingPages };
+}
+
+function runIndexedOgAudit({ distDir, sampleSize, requireFamilies, policy }) {
+  const entries = loadPublisherPageIndex({
+    pageManifestDir: process.env.PUBLISHER_PAGE_MANIFEST_DIR,
+    sectionManifestDir: process.env.PUBLISHER_SECTION_MANIFEST_DIR,
+  });
+  const requestedRate = Number(process.env.AUDIT_SAMPLE_RATE);
+  const sampleRate = Number.isFinite(requestedRate) && requestedRate > 0 && requestedRate <= 1 ? requestedRate : 1;
+  const plan = executeIncrementalPageAudit({
+    name: 'verify-og-images',
+    validatorVersion: 'verify-og-images-indexed-v1',
+    entries,
+    receiptFile: process.env.PUBLISHER_AUDIT_RECEIPT_DIR
+      ? path.join(process.env.PUBLISHER_AUDIT_RECEIPT_DIR, 'verify-og-images.json')
+      : '',
+    sampleRate,
+    sampleSalt: Number(process.env.AUDIT_SAMPLE_SALT) || 0,
+    forceFull: process.env.AUDIT_FORCE_FULL === '1',
+    scanBucket: (bucketEntries) => scanOgImageBucket(bucketEntries, distDir),
+  });
+  const counts = Object.fromEntries(FAMILIES.map((family) => [family, 0]));
+  const references = [];
+  const missingPages = [];
+  let total = 0;
+  for (const result of plan.results) {
+    total += result.total;
+    for (const family of FAMILIES) counts[family] += result.counts[family] ?? 0;
+    references.push(...result.references);
+    missingPages.push(...result.missingPages);
+  }
+  const result = verifyOgImageReferences(references, { policy, sampleSize, requireFamilies, counts });
+  if (missingPages.length) {
+    result.valid = false;
+    result.errors.unshift(...missingPages.slice(0, 20).map((file) => `${file}: indexed page is absent from dist`));
+  }
+  if (policy.registryErrors.length > 0) {
+    result.valid = false;
+    result.errors.unshift(...policy.registryErrors.map((error) => `registry: ${error}`));
+  }
+  const errorRate = plan.population ? (result.errors.length / plan.population) : 0;
+  console.log(`og:image population=${plan.population} scanned=${plan.scannedPages} reused=${plan.reusedPages} sampleRate=${(plan.sampleRate * 100).toFixed(2)}% errorRate=${(errorRate * 100).toFixed(3)}% references=${total}; family observations events=${counts.events} articles=${counts.articles} static=${counts.static}`);
+  for (const sample of result.samples) console.log(`  sample ${sample.family}: ${sample.file} → ${sample.url}`);
+  if (!result.valid) {
+    for (const error of result.errors) console.error(`::error::og-image gate: ${error}`);
+    return 1;
+  }
+  console.log('✅ og:image registry/ownership gate passed');
+  return 0;
+}
+
 function representative(rows, sampleSize) {
   const unique = new Map();
   for (const row of rows) unique.set(`${familyFor(row.url)}\n${row.url}`, row);
@@ -258,6 +342,9 @@ export function run(argv = process.argv.slice(2), { root = ROOT } = {}) {
     root,
     requirePublishedBlogImageEvidence: argv.includes('--require-published-blog-image-evidence'),
   });
+  if (process.env.PUBLISHER_PAGE_MANIFEST_DIR) {
+    return runIndexedOgAudit({ distDir, sampleSize, requireFamilies, policy });
+  }
   const { references, total, counts } = collectOgImageReferences(distDir, { sampleSize });
   const result = verifyOgImageReferences(references, { policy, sampleSize, requireFamilies, counts });
   if (policy.registryErrors.length > 0) {

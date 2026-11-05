@@ -18,7 +18,7 @@ const distText = fs.readFileSync(distPath, 'utf8');
 const auditText = fs.readFileSync(auditPath, 'utf8');
 const distWorkflow = YAML.parse(distText) as any;
 const auditWorkflow = YAML.parse(auditText) as any;
-const distJob = distWorkflow.jobs['validate-dist-postbuild'];
+const distJob = distWorkflow.jobs['fast-gate'];
 const auditJob = auditWorkflow.jobs.audit;
 
 const stepNames = (job: any): string[] => (job?.steps ?? []).map((step: any) => String(step?.name ?? ''));
@@ -32,13 +32,13 @@ describe('validate-dist: quality reports stay outside the blocking gate', () => 
     expect(distText).not.toContain('VALIDATE_DIST_STARTED_AT=');
   });
 
-  it('keeps the blocking job fail-closed and bounded at 350 minutes', () => {
-    expect(distJob['timeout-minutes']).toBe(350);
-    expect(distText).toContain('collect_failed source /tmp/source-val-results.txt');
-    expect(distText).toContain('collect_failed postbuild /tmp/post-build-timings.txt');
-    expect(distText).not.toContain('collect_failed bfs /tmp/bfs-timings.txt');
-    expect(distText).toContain('missing validator result file');
-    expect(distText).toContain('[ "$FAIL" -eq 0 ] || exit 1');
+  it('keeps the blocking job fail-closed and bounded at 10 minutes', () => {
+    expect(distJob['timeout-minutes']).toBe(10);
+    expect(distText).toContain('publisher-fast-gate.mjs');
+    expect(distText).toContain("echo 'integrity_ok=false' >> \"$GITHUB_OUTPUT\"");
+    expect(distText).toContain('exit "$result"');
+    expect(distText).toContain('name: sitemaps-${{ inputs.deploy_run_id }}');
+    expect(distText).not.toContain('npm run validate:page-seo');
   });
 
   it('exposes audit-dist-from-run as a reusable report workflow', () => {

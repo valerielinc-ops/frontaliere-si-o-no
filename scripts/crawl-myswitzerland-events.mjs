@@ -315,18 +315,52 @@ export function zurichParts(date) {
   return { date: `${parts.year}-${parts.month}-${parts.day}`, time: `${parts.hour}:${parts.minute}` };
 }
 
+function collectCurrentDateBetweenRanges(value, out = []) {
+  if (!value || typeof value !== 'object') return out;
+  if (String(value.type || '').toLowerCase() === 'currentdatebetween') {
+    const from = parseCompactUtc(value.from);
+    const to = parseCompactUtc(value.to);
+    if (from || to) out.push({ from, to });
+  }
+  for (const child of Object.values(value)) collectCurrentDateBetweenRanges(child, out);
+  return out;
+}
+
+function hasRecurringDateCondition(value) {
+  if (!value || typeof value !== 'object') return false;
+  if (['dayofweek', 'dayofmonth', 'dayofyear', 'weeknumber'].includes(String(value.type || '').toLowerCase())) return true;
+  return Object.values(value).some((child) => hasRecurringDateCondition(child));
+}
+
 /**
- * Extract {startDate, startTime, endDate, recurring} from an Algolia hit's
- * `applicableDates.rules[].conditions.{from,to}` (each a real UTC instant —
- * verified live against the same event's naive-local JSON-LD startDate/
- * endDate, which matched exactly once converted to Europe/Zurich). Falls back
- * to `executionDates` (unix seconds) when no rules are present. Multiple
- * rules/executionDates ⇒ a recurring event (multiple real occurrences).
- * Returns null when the hit has no usable date at all (dropped by the caller
- * — `startDate` is required downstream).
+ * Extract the actual date bounds and time for an Algolia hit. `executionDates`
+ * may contain generated daily opening-hour occurrences for a long-running
+ * listing; those are not the start/end instants of one event. Prefer an
+ * explicit nested `currentdatebetween` window when present and keep it
+ * date-only. Repeated occurrences are marked recurring and have no inferred
+ * start time. Returns null when the hit has no usable date at all.
  */
 export function extractDateInfo(hit) {
   const rules = Array.isArray(hit?.applicableDates?.rules) ? hit.applicableDates.rules : [];
+  const currentDateRanges = collectCurrentDateBetweenRanges(hit?.applicableDates);
+  const boundedRanges = currentDateRanges.filter(({ from, to }) => from && to && from <= to);
+  if (boundedRanges.length) {
+    const starts = boundedRanges.map(({ from }) => from).sort((a, b) => a - b);
+    const ends = boundedRanges.map(({ to }) => to).sort((a, b) => a - b);
+    const first = starts[0];
+    const last = ends[ends.length - 1];
+    if (first && last) {
+      return {
+        startDate: zurichParts(first).date,
+        endDate: zurichParts(last).date,
+        recurring: boundedRanges.length > 1
+          || rules.length > 1
+          || (Array.isArray(hit?.executionDates) && hit.executionDates.length > 1)
+          || rules.some((rule) => hasRecurringDateCondition(rule?.conditions)),
+      };
+    }
+  }
+
   const starts = [];
   const ends = [];
   for (const rule of rules) {
@@ -353,7 +387,7 @@ export function extractDateInfo(hit) {
 
   return {
     startDate: startParts.date,
-    startTime: startParts.time,
+    ...(occurrences === 1 ? { startTime: startParts.time } : {}),
     endDate: endParts.date,
     recurring: occurrences > 1,
   };
@@ -625,8 +659,16 @@ export function extractEventJsonLd(html) {
  * from another locale variant of the same source event.
  */
 export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SITE_ORIGIN, candidateUrl = SITE_ORIGIN) {
-  if (!primaryLd) return candidateLd || null;
   if (!candidateLd) return primaryLd;
+  if (!primaryLd) {
+    const candidate = { ...candidateLd };
+    for (const field of ['organizer', 'performer']) {
+      const people = normalizeEventPeople(candidate[field], candidateUrl, candidateUrl);
+      if (people) candidate[field] = people;
+      else delete candidate[field];
+    }
+    return candidate;
+  }
   const merged = { ...primaryLd };
 
   if (!firstEventImageUrl(merged.image, primaryUrl)) {
@@ -634,8 +676,8 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
     if (image) merged.image = image;
   }
   for (const field of ['organizer', 'performer']) {
-    const primaryPeople = normalizeEventPeople(merged[field], primaryUrl);
-    const candidatePeople = normalizeEventPeople(candidateLd[field], candidateUrl);
+    const primaryPeople = normalizeEventPeople(merged[field], primaryUrl, primaryUrl);
+    const candidatePeople = normalizeEventPeople(candidateLd[field], candidateUrl, candidateUrl);
     const candidateAddsOrganizerUrl = field === 'organizer'
       && candidatePeople
       && hasCompleteEventPeopleUrls(candidatePeople)
@@ -712,10 +754,10 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
     organizer: detailPeople?.organizer || detailPeopleFromHtml.organizer || indexedPeople.organizer,
     performer: detailPeople?.performer || detailPeopleFromHtml.performer || indexedPeople.performer || indexedTitlePeople,
   };
-  const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN, detailUrl)
-    || normalizeEventPeople(sourcePeople.organizer, SITE_ORIGIN, detailUrl)
+  const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN)
+    || normalizeEventPeople(sourcePeople.organizer, SITE_ORIGIN)
     || (detailContactName
-      ? normalizeEventPeople({ '@type': 'Organization', name: detailContactName }, detailUrl || SITE_ORIGIN, detailUrl)
+      ? normalizeEventPeople({ '@type': 'Organization', name: detailContactName }, detailUrl || SITE_ORIGIN)
       : undefined);
   const performer = normalizeEventPeople(detailLd?.performer, detailUrl || SITE_ORIGIN)
     || normalizeEventPeople(sourcePeople.performer, SITE_ORIGIN);
@@ -857,7 +899,7 @@ export async function fetchDetailEnrichment(perLocaleHits, {
     } else if (ld && enrichment.detailLd) {
       enrichment.detailLd = mergeDetailEventMetadata(enrichment.detailLd, ld, enrichment.detailUrl, url);
     } else if (ld) {
-      enrichment.detailLd = ld;
+      enrichment.detailLd = mergeDetailEventMetadata(null, ld, enrichment.detailUrl, url);
     }
 
     if (!enrichment.detailAddress && candidateAddress) enrichment.detailAddress = candidateAddress;

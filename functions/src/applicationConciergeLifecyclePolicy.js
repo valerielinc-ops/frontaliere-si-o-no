@@ -1,11 +1,11 @@
 /** Shared server policy for refresh cadence and the time-limited renewal offer. */
 import { createHash } from 'node:crypto';
 import {
-  APPLICATION_CONCIERGE_MAX_POSITIONS,
   APPLICATION_CONCIERGE_MATCHING_VERSION,
   APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
   acceptedPositionsCount,
   serviceIsActive,
+  servicePositionLimit,
   timestampMillis,
 } from './applicationConciergeConstants.js';
 
@@ -74,7 +74,7 @@ export function conciergeMatchingVersionRefreshReady(service, nowMs = Date.now()
 
 export function conciergeRefreshDue(service, nowMs = Date.now()) {
   if (!serviceIsActive(service, nowMs) || !service.cvStorageKey || !service.consentedAt) return false;
-  const cap = Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
+  const cap = servicePositionLimit(service);
   if (acceptedPositionsCount(service) >= cap) return false;
   if (service.matchingStatus === 'running') {
     const started = timestampMillis(service.matchingStartedAt);

@@ -27,13 +27,13 @@ import { retentionPurgeDueAt } from './assistedApplicationRetention.js';
 import { CANDIDATE_LANGUAGE_OPTIONS } from './lib/languageFacts.js';
 import {
   APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION,
-  APPLICATION_CONCIERGE_MAX_POSITIONS,
   APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS,
   APPLICATION_CONCIERGE_MATCHING_VERSION,
   APPLICATION_CONCIERGE_SERVICES_COLLECTION,
   acceptedPositionsCount,
   openProposalsCount,
   serviceIsActive,
+  servicePositionLimit,
   timestampMillis,
 } from './applicationConciergeConstants.js';
 
@@ -955,7 +955,7 @@ async function updateExistingProposal(db, serviceRef, ref, update, expectedStatu
     if (current.status !== expectedStatus) return false;
     if (nextStatus === 'proposed' && current.status !== 'proposed') {
       const openCount = openProposalsCount(service, fallbackOpenCount);
-      const cap = Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
+      const cap = servicePositionLimit(service);
       if (!serviceIsActive(service) || acceptedPositionsCount(service) >= cap
         || openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
       transaction.set(serviceRef, { matchingOpenProposalCount: openCount + 1 }, { merge: true });
@@ -989,7 +989,7 @@ async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expecte
     const current = snapshot.data() || {};
     if (!isLegacyUnverifiedRetraction(current)) return false;
     appliedUpdate = typeof update === 'function' ? update(current) : update;
-    const cap = Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
+    const cap = servicePositionLimit(service);
     if (appliedUpdate.status === 'proposed' && acceptedPositionsCount(service) >= cap) return false;
     const openCount = openProposalsCount(service, fallbackOpenCount);
     if (appliedUpdate.status === 'proposed' && current.status !== 'proposed') {
@@ -1072,7 +1072,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
   const service = serviceSnapshot.data() || {};
   if (!service.userId || service.paymentStatus !== 'paid' || !serviceIsActive(service)) return { status: 'skipped', reason: 'service_inactive' };
 
-  if (acceptedPositionsCount(service) >= (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) return { status: 'skipped', reason: 'position_limit_reached' };
+  if (acceptedPositionsCount(service) >= servicePositionLimit(service)) return { status: 'skipped', reason: 'position_limit_reached' };
 
   const profileSnapshot = await db.collection('user_cv_profiles').doc(service.userId).get();
   const profileRecord = profileSnapshot.exists ? profileSnapshot.data() || {} : {};
@@ -1091,7 +1091,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       const data = doc.data() || {};
       return `${data.jobId || ''}|${data.jobUrl || ''}`;
     }));
-    const available = Math.max(0, (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS) - acceptedPositionsCount(service));
+    const available = Math.max(0, servicePositionLimit(service) - acceptedPositionsCount(service));
     const candidateLocation = String(service.applicantLocation || '').trim();
     const matchingNowMs = Date.now();
     const existingData = existing.map(doc => doc.data() || {});
@@ -1549,7 +1549,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         const [currentServiceDoc, currentProposalDoc] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
         const currentService = currentServiceDoc.data();
         if (currentProposalDoc.exists || !serviceIsActive(currentService) || currentService.cvStorageKey !== service.cvStorageKey
-          || acceptedPositionsCount(currentService) >= (Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)
+          || acceptedPositionsCount(currentService) >= servicePositionLimit(currentService)
           || openProposalsCount(currentService, fallbackOpenCount) >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
         const openCount = openProposalsCount(currentService, fallbackOpenCount);
         transaction.set(serviceRef, { matchingOpenProposalCount: openCount + 1 }, { merge: true });

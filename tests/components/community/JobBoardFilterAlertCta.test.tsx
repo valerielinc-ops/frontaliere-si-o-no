@@ -13,6 +13,7 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, screen, fireEvent, cleanup, act, waitFor } from '@testing-library/react';
 import JobBoardFilterAlertCta from '@/components/community/JobBoardFilterAlertCta';
+import type { JobBoardFilterAlertHandoff } from '@/components/community/JobBoardFilterAlertCta';
 import type { JobAlert, JobAlertOneTapFilters, subscribeJobAlertOneTap } from '@/services/jobAlertService';
 import type { PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 import { clearPendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
@@ -54,6 +55,8 @@ interface RenderOpts {
   formOrigin?: PendingJobAlertOrigin;
   filters?: JobAlertOneTapFilters;
   onAccepted?: () => void;
+  onAnonymousOpen?: (handoff: JobBoardFilterAlertHandoff) => void;
+  onAnonymousAuthRequired?: (handoff: JobBoardFilterAlertHandoff) => void;
 }
 
 function renderCta(opts: RenderOpts = {}) {
@@ -76,6 +79,8 @@ function renderCta(opts: RenderOpts = {}) {
       onSubscribed={onSubscribed}
       onAccepted={onAccepted}
       onErrored={onErrored}
+      onAnonymousOpen={opts.onAnonymousOpen}
+      onAnonymousAuthRequired={opts.onAnonymousAuthRequired}
       subscribe={subscribe}
     />,
   );
@@ -213,7 +218,7 @@ describe('JobBoardFilterAlertCta', () => {
   });
 
   it('parks an anonymous one-tap intent before requiring auth', () => {
-    const onAnonymousAuthRequired = vi.fn();
+    const onAnonymousAuthRequired = vi.fn<(handoff: JobBoardFilterAlertHandoff) => void>();
     const onAnonymousOpen = vi.fn();
     const filters = {
       locations: ['lugano'],
@@ -239,6 +244,18 @@ describe('JobBoardFilterAlertCta', () => {
 
     expect(onAnonymousOpen).toHaveBeenCalledTimes(1);
     expect(onAnonymousAuthRequired).toHaveBeenCalledTimes(1);
+    expect(onAnonymousAuthRequired).toHaveBeenCalledWith({
+      origin: 'job_board_filters',
+      config: {
+        keywords: ['Tecnologia'],
+        locations: ['lugano'],
+        contractTypes: ['part-time'],
+        sectors: ['healthcare'],
+        cantonFilter: ['TI'],
+        frequency: 'weekly',
+        locale: 'it',
+      },
+    });
     expect(consumeJobAlertOpen()).toBeNull();
     expect(consumePendingJobAlert()).toEqual({
       origin: 'job_board_filters',
@@ -252,6 +269,37 @@ describe('JobBoardFilterAlertCta', () => {
         locale: 'it',
       },
     });
+  });
+
+  it('does not downgrade a failed auth handoff to the generic form', () => {
+    const onAnonymousOpen = vi.fn();
+    const onAnonymousAuthRequired = vi.fn();
+    const onErrored = vi.fn();
+    vi.spyOn(window.localStorage, 'setItem').mockImplementation(() => {
+      throw new Error('quota');
+    });
+
+    render(
+      <JobBoardFilterAlertCta
+        userId={null}
+        email={null}
+        locale="it"
+        keywordLabel="Tecnologia"
+        cantonCode="TI"
+        formOrigin="job_board_filters"
+        onAnonymousOpen={onAnonymousOpen}
+        onAnonymousAuthRequired={onAnonymousAuthRequired}
+        onErrored={onErrored}
+      />,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Avvisami per questa ricerca' }));
+
+    expect(onAnonymousOpen).not.toHaveBeenCalled();
+    expect(onAnonymousAuthRequired).not.toHaveBeenCalled();
+    expect(onErrored).toHaveBeenCalledWith(expect.any(Error));
+    expect(consumeJobAlertOpen()).toBeNull();
+    expect(screen.getByText(/Non sono riuscito a creare l'alert/)).toBeTruthy();
   });
 
   it('preserves the allowlisted board-filter origin for the form handoff', () => {

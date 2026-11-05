@@ -133,6 +133,17 @@ describe('Mistral AI crawler parser', () => {
       expect(pickSwissLocationLabel(zurichPrimary)).toBe('Zurich');
     });
 
+    it('preserves every advertised Swiss office for a multi-location posting', () => {
+      expect(pickSwissLocationLabel({
+        location: 'Zurich',
+        address: { postalAddress: { addressCountry: 'Switzerland' } },
+        secondaryLocations: [
+          { location: 'Lausanne', address: { postalAddress: { addressCountry: 'Switzerland' } } },
+          { location: 'Zurich', address: { postalAddress: { addressCountry: 'Switzerland' } } },
+        ],
+      })).toBe('Zurich | Lausanne');
+    });
+
     it('flattens primary + secondary locations in order', () => {
       const entries = ashbyLocationEntries(zurichSecondary);
       expect(entries.map((e) => e.location)).toEqual(['Paris', 'Zurich', 'Warsaw']);

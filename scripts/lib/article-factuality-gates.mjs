@@ -1055,6 +1055,7 @@ export const KNOWN_INSTITUTION_ACRONYMS = new Set([
   'DFI', 'DFGP', 'DFF', 'DFAE', 'DDPS', 'DATEC', 'DEFR', 'DFE', 'EDI', 'EJPD', 'EFD', 'EDA',
   // Swiss institutions / oversight
   'FINMA', 'BNS', 'SNB', 'COMCO', 'WEKO', 'IFD', 'SUVA', 'CDF', 'EFK', 'PFPDT', 'IFPDT',
+  'ETH',      // ETH Zurich / Politecnico federale di Zurigo — ethz.ch
   'ETHZ', 'EPFL', 'PSI', 'EMPA', 'WSL', 'AGROSCOPE', 'IUFFP', 'SUPSI', 'USI', 'SUP', 'SUFFP',
   // Swiss social insurance / schemes
   'AVS', 'AHV', 'AI', 'IV', 'LPP', 'BVG', 'LAMal', 'KVG', 'LAINF', 'UVG', 'AD', 'ALV', 'CMI',

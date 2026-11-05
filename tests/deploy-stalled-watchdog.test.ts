@@ -22,6 +22,10 @@ describe('deploy-stalled-watchdog.yml', () => {
 
   it('is a read/dispatch resolver, never a second build or publisher', () => {
     expect(workflow.concurrency).toEqual({
+      group: "${{ github.event_name == 'workflow_run' && format('deploy-stalled-watchdog-workflow-run-{0}', github.run_id) || 'deploy-stalled-watchdog' }}",
+      'cancel-in-progress': false,
+    });
+    expect(workflow.jobs.reconcile.concurrency).toEqual({
       group: 'deploy-rearm-dispatch',
       'cancel-in-progress': false,
     });
@@ -31,5 +35,14 @@ describe('deploy-stalled-watchdog.yml', () => {
     expect(source).not.toContain('npm ci');
     expect(source).not.toContain('vite build');
     expect(source).not.toContain('deploy-publish.yml');
+  });
+
+  it('keeps healthy workflow_run completions observable without acquiring the resolver claim', () => {
+    expect(workflow.jobs.reconcile.if).toContain("github.event.workflow_run.conclusion != 'success'");
+    const noop = workflow.jobs['skip-successful-source'];
+    expect(noop.if).toContain("github.event.workflow_run.conclusion == 'success'");
+    expect(noop['runs-on']).toBe('ubuntu-latest');
+    expect(source).toContain('Record healthy source run');
+    expect(source).toContain('no re-arm needed');
   });
 });

@@ -9,7 +9,12 @@
 //
 // Spec: docs/superpowers/specs/2026-05-07-traffic-quality-algorithm-design.md § 6.3.3
 
-import { fetchNewsRssCandidates } from '../../topic-sources/googleNewsRss.mjs';
+import {
+  fetchNewsRssCandidates,
+  NEWS_RSS_MAX_SEED_DURATION_MS,
+} from '../../topic-sources/googleNewsRss.mjs';
+
+export { NEWS_RSS_MAX_SEED_DURATION_MS };
 
 const SOURCE_TAG = 'news';
 const FALLBACK_AGE_HOURS = 48;
@@ -65,7 +70,7 @@ export function ageHoursFromPubDate(pubDate, nowMs = Date.now()) {
  * failure — never throws.
  *
  * @param {object} evidence
- * @param {{ fetchImpl?: Function, newsFn?: Function, seeds?: string[], nowMs?: number }} [opts]
+ * @param {{ fetchImpl?: Function, newsFn?: Function, seeds?: string[], nowMs?: number, deadlineMs?: number }} [opts]
  * @returns {Promise<NewsCandidate[]>}
  */
 export async function fetchNewsRssDiscoveryCandidates(evidence, opts = {}) {
@@ -77,6 +82,7 @@ export async function fetchNewsRssDiscoveryCandidates(evidence, opts = {}) {
     result = await newsFn({
       seeds: Array.isArray(opts.seeds) && opts.seeds.length > 0 ? opts.seeds : undefined,
       fetchImpl: opts.fetchImpl,
+      ...(Number.isFinite(opts.deadlineMs) ? { deadlineMs: Number(opts.deadlineMs) } : {}),
     });
   } catch (err) {
     console.warn(`[discovery/news] fetcher threw: ${err?.message || err}`);

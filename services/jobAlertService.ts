@@ -200,15 +200,20 @@ export function stableAlertIdempotencyKey(
   config: JobAlertConfig,
   canonicalCompanyKey: string | null,
 ): string {
+  // A job pin is the whole scope of the alert. Keep the descriptive criteria
+  // in the document for provenance, but do not let adding them to the
+  // unified detail path create a second alert beside a legacy pin that was
+  // written with empty criteria.
+  const isJobPinned = Boolean(String(config.specificJobId || '').trim());
   const material = JSON.stringify({
     version: 1,
     userId,
     email,
-    keywords: [...(config.keywords || [])].map(String).sort(),
-    locations: [...(config.locations || [])].map(String).sort(),
-    contractTypes: [...(config.contractTypes || [])].map(String).sort(),
-    sectors: [...(config.sectors || [])].map(String).sort(),
-    cantonFilter: normalizeCantonFilter(config.cantonFilter),
+    keywords: isJobPinned ? [] : [...(config.keywords || [])].map(String).sort(),
+    locations: isJobPinned ? [] : [...(config.locations || [])].map(String).sort(),
+    contractTypes: isJobPinned ? [] : [...(config.contractTypes || [])].map(String).sort(),
+    sectors: isJobPinned ? [] : [...(config.sectors || [])].map(String).sort(),
+    cantonFilter: isJobPinned ? null : normalizeCantonFilter(config.cantonFilter),
     frequency: config.frequency,
     frequencyOverride: config.frequencyOverride === true,
     locale: config.locale || 'it',
@@ -732,6 +737,22 @@ export interface JobAlertSource {
   title?: string | null;
 }
 
+export interface JobAlertJobPinOptions {
+  /** Descriptive keyword retained alongside the hard job pin. */
+  keyword?: string | null;
+  /** Canton retained alongside the hard job pin for reporting/provenance. */
+  cantonCode?: string | null;
+}
+
+export interface JobAlertDetailIntent {
+  /** Publisher job id: when present, this remains the hard matcher scope. */
+  jobId?: string | null;
+  /** Category/search keyword used when the detail is not a pinned publisher ad. */
+  keyword?: string | null;
+  /** Canton carried from the viewed detail into a generic alert. */
+  cantonCode?: string | null;
+}
+
 /**
  * 1-tap subscribe helper for the job-detail prompt AND the job-match profile
  * CTA (JobBoard.tsx, issue #3650 — "Avvisami per ruoli come questo").
@@ -972,9 +993,10 @@ export async function findCompanyAlert(
  *
  * Pins the alert to a single job id via `specificJobId` so the matcher
  * (services/jobAlertMatching.mjs) HARD-filters to that exact job (the `pub-…`
- * id of a publisher / sponsored ad), bypassing keyword/location scoring. No
- * keyword/location/sector filters are set — the pin IS the scope. The max-3
- * active-alerts limit enforced by `createAlert` propagates to the caller.
+ * id of a publisher / sponsored ad), bypassing keyword/location scoring.
+ * Descriptive keyword/canton fields may accompany the pin for provenance, but
+ * they never broaden the matcher scope. The max-3 active-alerts limit enforced
+ * by `createAlert` propagates to the caller.
  *
  * `source` records the job's slug/url/title for funnel provenance (same field
  * set written by `subscribeJobAlertOneTap`).
@@ -986,16 +1008,21 @@ export async function subscribeJobAlertForJob(
   locale: 'it' | 'en' | 'de' | 'fr',
   source?: JobAlertSource,
   emailConsent?: import('./newsletterSubscribers').UnifiedEmailConsentInput | null,
+  options?: JobAlertJobPinOptions,
 ): Promise<JobAlert> {
+  const normalizedJobId = String(jobId || '').trim();
+  if (!normalizedJobId) throw new Error('subscribeJobAlertForJob: missing job id.');
+  const keyword = stripKeywordEmoji(String(options?.keyword || '')).trim();
+  const cantonCode = String(options?.cantonCode || '').trim().toUpperCase() || null;
   const config: JobAlertConfig = {
-    keywords: [],
+    keywords: keyword ? [keyword] : [],
     locations: [],
     contractTypes: [],
     sectors: [],
-    cantonFilter: null,
+    cantonFilter: cantonCode ? [cantonCode] : null,
     frequency: 'daily',
     locale,
-    specificJobId: jobId,
+    specificJobId: normalizedJobId,
     specificCompanyKey: null,
     sourceJobSlug: source?.slug ?? null,
     sourceJobUrl: source?.url ?? null,
@@ -1003,6 +1030,46 @@ export async function subscribeJobAlertForJob(
     emailConsent,
   };
   return createAlert(userId, email, config);
+}
+
+/**
+ * Canonical detail CTA writer. Publisher ads keep the hard `specificJobId`
+ * matcher scope; ordinary/post-apply detail alerts use the same keyword +
+ * canton + source fields as the existing one-tap prompt. Keeping the branch in
+ * the service prevents the direct and post-apply components from drifting.
+ */
+export async function subscribeJobAlertForDetail(
+  userId: string,
+  email: string,
+  intent: JobAlertDetailIntent,
+  locale: 'it' | 'en' | 'de' | 'fr',
+  source?: JobAlertSource,
+  emailConsent?: import('./newsletterSubscribers').UnifiedEmailConsentInput | null,
+): Promise<JobAlert> {
+  const jobId = String(intent.jobId || '').trim();
+  const keyword = stripKeywordEmoji(String(intent.keyword || '')).trim();
+  const cantonCode = String(intent.cantonCode || '').trim().toUpperCase() || null;
+  if (jobId) {
+    return subscribeJobAlertForJob(
+      userId,
+      email,
+      jobId,
+      locale,
+      source,
+      emailConsent,
+      { keyword, cantonCode },
+    );
+  }
+  if (!keyword) throw new Error('subscribeJobAlertForDetail: missing keyword.');
+  return subscribeJobAlertOneTap(
+    userId,
+    email,
+    keyword,
+    locale,
+    source,
+    cantonCode,
+    emailConsent,
+  );
 }
 
 /**

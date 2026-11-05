@@ -157,6 +157,18 @@ describe('singleton script recovery', () => {
     w.document.scripts[0].dispatchEvent(new w.Event('load'));
     expect(loader.state()).toBe('loaded');
   });
+  it('retries a script that emits neither load nor error after the hard timeout', () => {
+    const loader = local(createAdScriptLoader)('adsense', src, () => true, emit);
+    loader.load();
+    vi.advanceTimersByTime(41_999);
+    expect(loader.state()).toBe('waiting_response');
+    expect(loader.attempts()).toBe(1);
+    vi.advanceTimersByTime(1);
+    expect(loader.state()).toBe('retry_wait');
+    vi.advanceTimersByTime(2000);
+    expect(loader.attempts()).toBe(2);
+    expect(w.document.scripts).toHaveLength(1);
+  });
   it('recovers a removed bootstrap without resetting the attempt budget', () => {
     const loader = local(createAdScriptLoader)('adsense', src, () => true, emit);
     loader.load(); w.document.head.innerHTML = ''; loader.load();
@@ -231,6 +243,14 @@ describe('IAB detection and independent recovery surface', () => {
   function recovery(result = 'blocked', state = 'failed') {
     return local(installAdRecovery)(() => Promise.resolve(result), () => ({ load() {}, state: () => state, subscribe() { return () => {}; } }), emit, () => true, { consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', publisherId: 'pub-example' });
   }
+  it('refreshes inline creatives when the local blocker probe resolves', async () => {
+    const houseRefresh = vi.fn();
+    w.__ftHouseAds = { refresh: houseRefresh };
+    recovery('blocked', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(6000);
+    expect(w.__ftAdBlockProbe).toBe('blocked');
+    expect(houseRefresh).toHaveBeenCalled();
+  });
   it('does not hide a real script failure behind an unarmed GPT loading placeholder', async () => {
     w.localStorage.setItem('frontaliere_ads_consent', 'granted');
     const placeholder = w.document.createElement('div'); placeholder.setAttribute('data-ad-state', 'loading');

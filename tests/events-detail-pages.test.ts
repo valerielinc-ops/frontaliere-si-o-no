@@ -61,6 +61,7 @@ const EVENT = {
   url: 'https://www.tio.ch/agenda/day/20260704/42',
   sourceKey: 'tio-agenda',
   sourceName: 'Tio.ch Agenda',
+  performer: { '@type': 'Person', name: 'Artista di prova' },
 };
 
 describe('slugifyEvent', () => {
@@ -244,23 +245,18 @@ describe('eventLd canonical', () => {
     expect(ld.location.address.addressLocality).toBe('Genève');
   });
 
-  it('never emits an empty location.name when all specific venue fields are absent', () => {
+  it('omits Event markup when there is no source-backed physical location', () => {
     const withoutLocation = { ...EVENT, venue: '  ', comune: '', canton: '' };
-    const ld = eventLd(withoutLocation as never, 'it') as Record<string, any>;
-    expect(ld.location.name).toBe('Svizzera');
+    expect(eventLd(withoutLocation as never, 'it')).toBeNull();
   });
 });
 
 describe('eventLd source attribution (#3125)', () => {
-  it('fills the organizer default and no performer without source metadata', () => {
+  it('does not substitute the event catalog for a missing organizer', () => {
     const guidleEvent = { ...EVENT, id: 'guidle:abc', sourceKey: 'guidle', sourceName: 'Guidle' };
     const ld = eventLd(guidleEvent as never, 'it') as Record<string, any>;
-    expect(ld.organizer).toEqual({
-      '@type': 'Organization',
-      name: 'Guidle',
-      url: 'https://www.guidle.com/de',
-    });
-    expect(ld.performer).toBeUndefined();
+    expect(ld.organizer).toBeUndefined();
+    expect(ld.performer.name).toBe('Artista di prova');
   });
 
   it('emits named organizer/performer metadata when the crawler supplies it', () => {
@@ -274,7 +270,7 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.performer).toEqual(withPeople.performer);
   });
 
-  it('uses explicitly named source-description performers and leaves generic concert copy unknown', () => {
+  it('omits Event markup when the source has no verified performer', () => {
     const description = 'Il trio con la cantante albanese-svizzera Elina Duni, il chitarrista britannico Rob Luft e il flicornista svizzero Matthieu Michel è noto per il suo dialogo fluido tra jazz, folk e chanson. Incontra il Vision String Quartet di Berlino.';
     const sourceEvent = {
       ...EVENT,
@@ -285,24 +281,19 @@ describe('eventLd source attribution (#3125)', () => {
       venue: 'Teatro del Gatto',
       url: 'https://www.tio.ch/agenda/day/20260928/63833',
     };
-    const ld = eventLd(sourceEvent as never, 'it') as Record<string, any>;
-    expect(ld.performer).toEqual([
-      { name: 'Elina Duni', url: sourceEvent.url },
-      { name: 'Rob Luft', url: sourceEvent.url },
-      { name: 'Matthieu Michel', url: sourceEvent.url },
-      { '@type': 'PerformingGroup', name: 'Vision String Quartet', url: sourceEvent.url },
-    ]);
+    expect(eventLd(sourceEvent as never, 'it')).toBeNull();
 
     const unknown = eventLd({
       ...EVENT,
       title: 'Zytturm Konzert',
       category: 'Konzert',
       description: 'Ein toller Abend mit Musik.',
-    } as never, 'it') as Record<string, any>;
-    expect(unknown.performer).toBeUndefined();
+      performer: undefined,
+    } as never, 'it');
+    expect(unknown).toBeNull();
   });
 
-  it('fills a missing organizer URL with the verified source event page', () => {
+  it('does not use the event page as an organizer homepage', () => {
     const withOrganizer = {
       ...EVENT,
       organizer: { '@type': 'Organization', name: 'Vokalensemble VIVAT' },
@@ -311,7 +302,6 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.organizer).toEqual({
       '@type': 'Organization',
       name: 'Vokalensemble VIVAT',
-      url: EVENT.url,
     });
   });
 
@@ -327,6 +317,37 @@ describe('eventLd source attribution (#3125)', () => {
     };
     const ld = eventLd(withDescription as never, 'it') as Record<string, any>;
     expect(ld.description).toBe(withDescription.description);
+  });
+
+  it('suppresses a stale published rewrite when its price is not source-backed', () => {
+    const stale = {
+      ...EVENT,
+      price: { amount: 10, currency: 'CHF', isFree: false },
+      descriptionRewriteValidated: true,
+      description: 'L’ingresso costa 10 CHF. La visita si svolge a Lugano.',
+      descriptionByLocale: {
+        it: 'L’ingresso costa 10 CHF. La visita si svolge a Lugano.',
+      },
+    };
+    const ld = eventLd(stale as never, 'it') as Record<string, any>;
+    expect(ld.description).not.toContain('10 CHF');
+
+    const tempDistDir = mkdtempSync(path.join(os.tmpdir(), 'events-stale-description-'));
+    try {
+      const page = renderEventDetailPage({
+        locale: 'it',
+        event: stale as never,
+        comune: 'Lugano',
+        eventSlug: slugifyEvent(stale),
+        sameComuneEvents: [stale] as never,
+        dateStamp: '2026-06-30',
+        distDir: tempDistDir,
+        detailHref: (() => null) as never,
+      });
+      expect(page.html).not.toContain('10 CHF');
+    } finally {
+      rmSync(tempDistDir, { recursive: true, force: true });
+    }
   });
 
   it('uses factual JSON-LD when a legacy cache miss carries a short description', () => {
@@ -355,9 +376,9 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('emits an unpriced Offer without claiming the event is free', () => {
+  it('omits offers when the source provides no confident price', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({ '@type': 'Offer' });
+    expect(ld.offers).toBeUndefined();
     expect(ld.isAccessibleForFree).toBeUndefined();
   });
 
@@ -365,11 +386,19 @@ describe('eventLd source attribution (#3125)', () => {
     const ld = eventLd({
       ...EVENT,
       venue: 'Fiescheralp 4',
-      performer: { '@type': 'Organization', name: 'Fiescheralp 4' },
+      performer: { '@type': 'Person', name: 'Artista di prova' },
       organizer: { '@type': 'Organization', name: 'Schweizer Skischule Fiesch Fiescheralp 4', url: 'https://example.com/e' },
     } as never, 'it') as Record<string, any>;
-    expect(ld.performer).toBeUndefined();
+    expect(ld.performer.name).toBe('Artista di prova');
     expect(ld.organizer).toEqual({ '@type': 'Organization', name: 'Schweizer Skischule Fiesch', url: 'https://example.com/e' });
+  });
+
+  it('omits Event markup when the venue is the only apparent performer', () => {
+    expect(eventLd({
+      ...EVENT,
+      venue: 'Fiescheralp 4',
+      performer: { '@type': 'Organization', name: 'Fiescheralp 4' },
+    } as never, 'it')).toBeNull();
   });
 
   it('keeps a named act that only looks like an address, and a venue organizing its own show', () => {
@@ -383,26 +412,33 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.organizer.name).toBe('Teatro Sociale');
   });
 
-  it('models a recurring series as first occurrence plus eventSchedule', () => {
+  it('omits schema for a multi-occurrence event schedule', () => {
     const ld = eventLd({
       ...EVENT,
       startDate: '2026-12-30',
       startTime: '16:30',
       endDate: '2027-02-24',
       recurring: true,
-    } as never, 'it') as Record<string, any>;
-    expect(ld.startDate).toBe('2026-12-30T16:30:00+01:00');
-    expect(ld.endDate).toBeUndefined();
-    expect(ld.eventSchedule).toEqual({
-      '@type': 'Schedule',
-      startDate: '2026-12-30',
-      endDate: '2027-02-24',
-      startTime: '16:30:00',
-      scheduleTimezone: 'Europe/Zurich',
-    });
+    } as never, 'it');
+    expect(ld).toBeNull();
   });
 
-  it('leaves a continuous multi-day event as one event', () => {
+  it('omits EventSeries for multiple occurrences on one date', () => {
+    const ld = eventLd({
+      ...EVENT,
+      startDate: '2026-12-30',
+      startTime: '16:30',
+      endDate: '2026-12-30',
+      recurring: true,
+    } as never, 'it');
+    expect(ld).toBeNull();
+  });
+
+  it('omits Google Event markup for recurring listings rather than using EventSeries', () => {
+    expect(eventLd({ ...EVENT, recurring: true } as never, 'it')).toBeNull();
+  });
+
+  it('leaves a continuous multi-day event as one Event', () => {
     const ld = eventLd({ ...EVENT, startDate: '2026-12-01', endDate: '2026-12-05' } as never, 'it') as Record<string, any>;
     expect(ld.endDate).toBe('2026-12-05');
     expect(ld.eventSchedule).toBeUndefined();
@@ -417,9 +453,9 @@ describe('eventLd source attribution (#3125)', () => {
       priceCurrency: 'CHF',
     });
     expect(ld.isAccessibleForFree).toBe(true);
-    expect(ld.offers.availability).toBe('https://schema.org/InStock');
-    expect(ld.offers.validFrom).toBe(EVENT.startDate);
-    expect(ld.offers.url).toBe(EVENT.url);
+    expect(ld.offers.availability).toBeUndefined();
+    expect(ld.offers.validFrom).toBeUndefined();
+    expect(ld.offers.url).toBeUndefined();
   });
 
   it('emits verified price fields for a paid event', () => {
@@ -427,9 +463,9 @@ describe('eventLd source attribution (#3125)', () => {
     const ld = eventLd(paidEvent as never, 'it') as Record<string, any>;
     expect(ld.offers.price).toBe(25);
     expect(ld.offers.priceCurrency).toBe('CHF');
-    expect(ld.offers.availability).toBe('https://schema.org/InStock');
-    expect(ld.offers.validFrom).toBe(EVENT.startDate);
-    expect(ld.offers.url).toBe(EVENT.url);
+    expect(ld.offers.availability).toBeUndefined();
+    expect(ld.offers.validFrom).toBeUndefined();
+    expect(ld.offers.url).toBeUndefined();
   });
 
   it('emits an ImageObject only for the allowlisted open-licence source', () => {
@@ -740,7 +776,7 @@ describe('renderEventDetailPage', () => {
     expect(new Set(titles).size).toBe(titles.length);
   });
 
-  it('uses a source-provided multi-day range in metadata, Event description and FAQ without changing the start-date URL', () => {
+  it('uses a source-provided multi-day range in metadata and FAQ without partial Event markup', () => {
     const multiDayEvent = {
       ...EVENT,
       id: 'myswitzerland:14afb8e8eff74937bc703ae26d632bdb',
@@ -778,10 +814,8 @@ describe('renderEventDetailPage', () => {
     expect(title).toContain('11–15 nov 2026');
     expect(descriptionTag).toContain('15 nov 2026');
     expect(rendered.html).toContain('href="' + canonicalUrl + '"');
-    expect(eventSchema?.startDate).toBe('2026-11-11');
-    expect(eventSchema?.endDate).toBe('2026-11-15');
-    expect(eventSchema?.url).toBe(canonicalUrl);
-    expect(String(eventSchema?.description)).toContain('15 nov 2026');
+    expect(eventSchema).toBeUndefined();
+    expect(rendered.html).not.toContain('"@type":"Event"');
     expect(String(faqSchema?.mainEntity?.[0]?.acceptedAnswer?.text)).toContain('15 nov 2026');
   });
 
@@ -794,28 +828,19 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('max-image-preview:large');
     expect(page.html).not.toContain('noindex');
   });
-  it('carries the title, an Event JSON-LD with our canonical + sameAs, breadcrumb and FAQ', () => {
+  it('keeps incomplete Event facts out of JSON-LD while preserving canonical, breadcrumb and FAQ', () => {
     // (HTML is minified — JSON-LD has no spaces after colons)
     expect(page.html).toContain('Concerto sinfonico al LAC');
-    expect(page.html).toContain('"@context":"https://schema.org","@type":"Event"');
-    expect(page.html).toContain('"@type":"Event"');
-    expect(page.html).toContain(`"url":"https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/"`);
-    expect(page.html).toContain(`"sameAs":["${EVENT.url}"]`);
-    const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
-      .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
-      .find((schema) => schema['@type'] === 'Event');
-    expect(eventSchema?.offers).toMatchObject({ '@type': 'Offer' });
-    expect((eventSchema?.offers as Record<string, unknown>)?.price).toBeUndefined();
-    expect(eventSchema?.isAccessibleForFree).toBeUndefined();
+    expect(page.html).not.toContain('"@type":"Event"');
+    expect(page.html).toContain(`href="https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/"`);
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
   });
   it('keeps the detail page factual and indexable while the rewrite is pending', () => {
-    const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
-      .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
-      .find((schema) => schema['@type'] === 'Event');
-    expect(String(eventSchema?.description)).toContain('Concerto sinfonico al LAC');
-    expect(String(eventSchema?.description).length).toBeGreaterThanOrEqual(30);
+    expect(page.html).not.toContain('"@type":"Event"');
+    const eventSchema = eventLd(EVENT as never, 'it') as Record<string, unknown>;
+    expect(String(eventSchema.description)).toContain('Concerto sinfonico al LAC');
+    expect(String(eventSchema.description).length).toBeGreaterThanOrEqual(30);
     expect(page.html).toContain("Per date e dettagli aggiornati, consulta il sito ufficiale dell'evento.");
     expect(page.html).toContain('LAC Lugano Arte e Cultura');
     expect(page.html).not.toContain('Descrizione reale raccolta dal crawler');
@@ -851,7 +876,9 @@ describe('renderEventDetailPage', () => {
     expect(markedUpPage.html).toContain('L’exposition présente un programme musical. La séance se déroule à Bâle.');
     expect(markedUpPage.html).not.toContain('&lt;b&gt;');
     expect(markedUpPage.html).not.toContain('<b>');
-    expect(markedUpPage.html).toContain('"description":"L’exposition présente un programme musical. La séance se déroule à Bâle.');
+    expect(markedUpPage.html).not.toContain('"@type":"Event"');
+    const candidate = eventLd(markedUpEvent as never, 'fr') as Record<string, unknown>;
+    expect(String(candidate.description)).toContain('L’exposition présente un programme musical. La séance se déroule à Bâle.');
   });
   it('falls back from corrupt venue fields and cleans event markup in visible copy and schema', () => {
     const corruptEvent = {
@@ -872,14 +899,13 @@ describe('renderEventDetailPage', () => {
       distDir,
       detailHref: (() => null) as never,
     });
-    const schema = [...corruptPage.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
-      .map((match) => JSON.parse(match[1]!) as Record<string, any>)
-      .find((entry) => entry['@type'] === 'Event') as Record<string, any>;
+    const schema = eventLd(corruptEvent as never, 'it') as Record<string, any>;
     expect(corruptPage.html).toContain('Braunwald');
     expect(corruptPage.html).toContain('Alpine Gouache');
     expect(corruptPage.html).not.toContain('Ch�mistube');
     expect(corruptPage.html).not.toContain('Grotzenb�el');
     expect(corruptPage.html).not.toContain('*Alpine Gouache*');
+    expect(corruptPage.html).not.toContain('"@type":"Event"');
     expect(schema.location.name).toBe('Braunwald');
     expect(schema.location.address.streetAddress).toBeUndefined();
     expect(schema.location.address.addressLocality).toBe('Braunwald');
@@ -920,6 +946,11 @@ describe('renderEventDetailPage', () => {
     expect(generatedPage.html).toContain('/images/events/library/event-musica-ticino-confine-primavera-estate.webp');
     expect(generatedPage.html).toContain('Immagine illustrativa generata con IA');
     expect(generatedPage.html).toContain('https://openai.com/policies/terms-of-use/');
+    expect(generatedPage.html).not.toContain('"@type":"Event"');
+    const imageSchema = [...generatedPage.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]!) as Record<string, any>)
+      .find((schema) => schema['@type'] === 'ImageObject');
+    expect(imageSchema?.license).toBe('https://openai.com/policies/terms-of-use/');
     expect(generatedPage.html).toContain('image/webp');
   });
 
@@ -1043,7 +1074,7 @@ describe('renderEventDetailPage', () => {
     expect(guidlePage.html).toContain('/images/events/catalog/');
     expect(guidlePage.html).not.toContain('/images/events/guidle-abc.jpg');
   });
-  it('keeps historical detail pages indexable with honest past Event JSON-LD', () => {
+  it('keeps historical detail pages indexable without incomplete past Event JSON-LD', () => {
     const pastEvent = { ...EVENT, startDate: '2026-05-04', endDate: '2026-05-04' };
     const pastPage = renderEventDetailPage({
       locale: 'it',
@@ -1058,14 +1089,12 @@ describe('renderEventDetailPage', () => {
     });
     expect(pastPage.html).toContain('index, follow');
     expect(pastPage.html).not.toContain('noindex');
-    expect(pastPage.html).toContain('"@context":"https://schema.org","@type":"Event"');
-    const eventSchema = [...pastPage.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
-      .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
-      .find((schema) => schema['@type'] === 'Event');
-    expect(eventSchema?.startDate).toBe('2026-05-04T20:00:00+02:00');
-    expect(eventSchema?.endDate).toBe('2026-05-04T20:00:00+02:00');
-    expect(eventSchema?.endDate).toBe(eventSchema?.startDate);
-    expect(eventSchema?.eventStatus).toBe('https://schema.org/EventScheduled');
+    expect(pastPage.html).not.toContain('"@type":"Event"');
+    const eventSchema = eventLd(pastEvent as never, 'it') as Record<string, unknown>;
+    expect(eventSchema.startDate).toBe('2026-05-04T20:00:00+02:00');
+    expect(eventSchema.endDate).toBe('2026-05-04');
+    expect(eventSchema.endDate).not.toBe(eventSchema.startDate);
+    expect(eventSchema.eventStatus).toBe('https://schema.org/EventScheduled');
     expect(pastPage.html).toContain('"@type":"BreadcrumbList"');
     expect(pastPage.html).toContain('data-events-lifecycle=past');
     expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}`));
@@ -1868,7 +1897,7 @@ describe('renderEventDetailPage about-paragraph venue differentiation (#3141 ite
 describe('events schema data quality (#3508)', () => {
   const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-3508-'));
 
-  it('eventLd uses the real crawled venue for canton-less events instead of stamping Ticino/TI', () => {
+  it('omits Event markup when a crawled venue has no locality or address details', () => {
     const glarus = {
       ...EVENT,
       id: 'myswitzerland:9',
@@ -1880,14 +1909,7 @@ describe('events schema data quality (#3508)', () => {
       sourceName: 'MySwitzerland',
       geo: { lat: 47.125875, lng: 9.058327 },
     };
-    const ld = eventLd(glarus as never, 'it') as {
-      location: { address: Record<string, unknown> };
-      description?: string;
-    };
-    expect(ld.location.address.addressLocality).toBe('Niederurnen');
-    expect(ld.location.address.addressRegion).toBeUndefined();
-    expect(ld.description).toContain('Niederurnen');
-    expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
+    expect(eventLd(glarus as never, 'it')).toBeNull();
   });
 
   it('eventLd keeps comune + canton for canton-resolved events', () => {

@@ -9,6 +9,7 @@ describe('assisted portal account navigation', () => {
     const click = vi.fn(async () => { pageKind = 'create'; });
     const linkLocator = {
       first: () => linkLocator,
+      filter: () => linkLocator,
       waitFor: vi.fn(async () => {}),
       getAttribute: vi.fn(async () => '/career?login_ns=register'),
       click,
@@ -86,12 +87,75 @@ describe('assisted portal account navigation', () => {
     ]);
   });
 
+  it('opens the explicit job-bound SuccessFactors registration view when sign-in has no create link', async () => {
+    let currentUrl = 'https://career5.successfactors.eu/career?career_job_req_id=20604&career_ns=job_application&company=tenant1&lang=de_CH';
+    let pageKind: 'sign_in' | 'create' = 'sign_in';
+    const loginFields = [
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, frame: 0, formId: 'login-form' },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Kennwort:*', required: true, frame: 0, formId: 'login-form' },
+    ];
+    const registrationFields = [
+      ...loginFields,
+      { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Kennwort bestätigen:*', required: true, frame: 0, formId: 'registration-form' },
+    ];
+    const frame = {
+      url: () => currentUrl,
+      goto: vi.fn(async (target: string) => { currentUrl = target; pageKind = 'create'; }),
+      getByRole: vi.fn(() => ({
+        filter: () => ({ first: () => ({ waitFor: vi.fn(async () => { throw new Error('create link not found'); }) }) }),
+      })),
+      evaluate: vi.fn(async () => ({
+        url: currentUrl,
+        fields: pageKind === 'sign_in' ? loginFields : registrationFields,
+        buttons: pageKind === 'sign_in' ? [{ id: 'login', text: 'Anmelden', frame: 0, formId: 'login-form' }] : [],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: true,
+        errors: [],
+        text: '',
+      })),
+    };
+    const page = {
+      url: () => currentUrl,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+      getByRole: vi.fn(() => ({
+        filter: () => ({ first: () => ({ waitFor: vi.fn(async () => { throw new Error('page-level create link not found'); }) }) }),
+      })),
+    };
+    const snapshot = {
+      url: currentUrl,
+      fields: loginFields,
+      buttons: [{ id: 'login', text: 'Anmelden', frame: 0, formId: 'login-form' }],
+      links: [],
+      dialogs: [],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+
+    const result = await handleAuth({ page: page as any, snapshot: snapshot as any, ctx: { accounts: { load: vi.fn(async () => null) } } as any });
+
+    expect(frame.goto).toHaveBeenCalledWith(
+      'https://career5.successfactors.eu/career?career_job_req_id=20604&career_ns=job_application&company=tenant1&lang=de_CH&login_ns=register',
+      { waitUntil: 'domcontentloaded', timeout: 60_000 },
+    );
+    expect(result.snapshot.fields.map((field: any) => field.label)).toEqual([
+      'E-Mail-Adresse:*', 'Kennwort:*', 'Kennwort bestätigen:*',
+    ]);
+  });
+
   it('finds a late account link in the login form frame when the snapshot contains only Login', async () => {
     let pageKind: 'sign_in' | 'create' = 'sign_in';
     const click = vi.fn(async () => { pageKind = 'create'; });
     const unrelatedClick = vi.fn(async () => {});
     const linkLocator = {
       first: () => linkLocator,
+      filter: () => linkLocator,
       waitFor: vi.fn(async () => {}),
       getAttribute: vi.fn(async () => '/career?login_ns=register'),
       click,
@@ -135,6 +199,7 @@ describe('assisted portal account navigation', () => {
     };
     const unrelatedLink = {
       first: () => unrelatedLink,
+      filter: () => unrelatedLink,
       waitFor: vi.fn(async () => {}),
       getAttribute: vi.fn(async () => '/career?login_ns=register'),
       click: unrelatedClick,
@@ -185,6 +250,152 @@ describe('assisted portal account navigation', () => {
     ]);
   });
 
+  it('finds the visible late create-account button when a hidden duplicate comes first', async () => {
+    let pageKind: 'sign_in' | 'create' = 'sign_in';
+    const click = vi.fn(async () => { pageKind = 'create'; });
+    const hiddenAccountButton = {
+      waitFor: vi.fn(async () => { throw new Error('hidden account button selected'); }),
+    };
+    const visibleAccountButton = {
+      waitFor: vi.fn(async () => {}),
+      getAttribute: vi.fn(async () => null),
+      click,
+    };
+    const accountButtons = {
+      first: () => hiddenAccountButton,
+      filter: vi.fn((options: { visible: boolean }) => {
+        expect(options).toEqual({ visible: true });
+        return { first: () => visibleAccountButton };
+      }),
+    };
+    const missingLink = {
+      first: () => missingLink,
+      filter: () => missingLink,
+      waitFor: vi.fn(async () => { throw new Error('form link not found'); }),
+    };
+    const loginFields = [
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, formId: 'login-form' },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', required: true, formId: 'login-form' },
+    ];
+    const registrationFields = [
+      ...loginFields,
+      { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Passwort bestätigen:*', required: true },
+    ];
+    const formFrame = {
+      url: () => URL,
+      getByRole: vi.fn((role: string) => role === 'button' ? accountButtons : missingLink),
+      evaluate: vi.fn(async () => ({
+        url: URL,
+        fields: pageKind === 'sign_in' ? loginFields : registrationFields,
+        buttons: pageKind === 'sign_in' ? [{ id: 'login', text: 'Login', formId: 'login-form' }] : [],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: true,
+        errors: [],
+        text: '',
+      })),
+    };
+    const hostFrame = {
+      url: () => URL,
+      evaluate: vi.fn(async () => ({
+        url: URL,
+        fields: [],
+        buttons: [],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: false,
+        errors: [],
+        text: '',
+      })),
+    };
+    const page = {
+      url: () => URL,
+      frames: () => [hostFrame, formFrame],
+      mainFrame: () => hostFrame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+      getByRole: vi.fn(() => ({
+        first: () => ({ waitFor: vi.fn(async () => { throw new Error('main-frame control not found'); }) }),
+      })),
+    };
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: {
+        url: URL,
+        fields: loginFields.map((field) => ({ ...field, frame: 1 })),
+        buttons: [{ id: 'login', text: 'Login', frame: 1, formId: 'login-form' }],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: true,
+        errors: [],
+        text: '',
+      } as any,
+      ctx: { accounts: { load: vi.fn(async () => null) } } as any,
+    });
+
+    expect(click).toHaveBeenCalledOnce();
+    expect(accountButtons.filter).toHaveBeenCalledOnce();
+    expect(formFrame.getByRole).toHaveBeenCalledWith('button', { name: expect.any(RegExp) });
+    expect(page.getByRole).not.toHaveBeenCalled();
+    expect(result.snapshot.fields.map((field: any) => field.label)).toEqual([
+      'E-Mail-Adresse:*', 'Passwort:*', 'Passwort bestätigen:*',
+    ]);
+  });
+
+  it('does not click a matching main-frame account button when auth fields are in a child frame', async () => {
+    const mainClick = vi.fn(async () => {});
+    const mainButton = {
+      getAttribute: vi.fn(async () => null),
+      waitFor: vi.fn(async () => {}),
+      click: mainClick,
+    };
+    const mainButtons = {
+      first: () => mainButton,
+      filter: vi.fn(() => ({ first: () => mainButton })),
+    };
+    const missingControl = {
+      first: () => missingControl,
+      filter: () => missingControl,
+      waitFor: vi.fn(async () => { throw new Error('auth-frame control not found'); }),
+    };
+    const formFrame = {
+      url: () => URL,
+      getByRole: vi.fn(() => missingControl),
+    };
+    const hostFrame = { url: () => URL };
+    const page = {
+      url: () => URL,
+      frames: () => [hostFrame, formFrame],
+      mainFrame: () => hostFrame,
+      getByRole: vi.fn(() => mainButtons),
+    };
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: {
+        url: URL,
+        fields: [
+          { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', frame: 1, formId: 'login-form' },
+          { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', frame: 1, formId: 'login-form' },
+        ],
+        buttons: [{ id: 'login', text: 'Login', frame: 1, formId: 'login-form' }],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: true,
+        errors: [],
+        text: '',
+      } as any,
+      ctx: { accounts: { load: vi.fn(async () => null) } } as any,
+    });
+
+    expect(result).toMatchObject({ handoff: 'account', accountFailure: { code: 'no_create_button', stage: 'login' } });
+    expect(page.getByRole).not.toHaveBeenCalled();
+    expect(mainClick).not.toHaveBeenCalled();
+  });
+
   it('does not use a matching account link from an unrelated frame', async () => {
     const unrelatedClick = vi.fn(async () => {});
     const unrelatedLink = {
@@ -195,6 +406,7 @@ describe('assisted portal account navigation', () => {
     };
     const formFrame = {
       getByRole: vi.fn(() => ({
+        filter: () => ({ first: () => ({ waitFor: vi.fn(async () => { throw new Error('form link not found'); }) }) }),
         first: () => ({ waitFor: vi.fn(async () => { throw new Error('form link not found'); }) }),
       })),
     };
@@ -256,5 +468,109 @@ describe('assisted portal account navigation', () => {
     });
 
     expect(result).toEqual({ dryRun: true });
+  });
+
+  it('uses a saved unverified SuccessFactors account when /career exposes only Anmelden', async () => {
+    const url = 'https://career5.successfactors.eu/career';
+    const values = new Map<string, string>();
+    let signedIn = false;
+    let showRegistration = false;
+    const registrationClick = vi.fn(async () => {});
+    const account = {
+      email: 'runner@example.test',
+      password: 'synthetic-password',
+      status: 'pending',
+      verifiedAt: null as number | null,
+    };
+    const accountMark = vi.fn(async (_host: string, patch: Record<string, unknown>) => {
+      Object.assign(account, patch);
+    });
+    const loginFields = [
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, formId: 'login-form', frame: 0 },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Kennwort:*', required: true, formId: 'login-form', frame: 0 },
+    ];
+    const currentSnapshot = () => signedIn
+      ? {
+        url,
+        fields: [{ id: 'first-name', kind: 'text', inputType: 'text', label: 'Vorname', frame: 0 }],
+        buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: 'Bewerbung',
+      }
+      : {
+        url,
+        fields: loginFields.map((field) => ({ ...field, value: values.get(field.id) || '' })),
+        buttons: [
+          { id: 'login', text: 'Anmelden', disabled: false, frame: 0, formId: 'login-form' },
+          ...(showRegistration ? [{ id: 'register', text: 'Registrieren', disabled: false, frame: 0, formId: 'login-form' }] : []),
+        ],
+        links: [], dialogs: [], captcha: false, passwordVisible: true, errors: [], text: '',
+      };
+    const unavailableRole = {
+      filter: () => unavailableRole,
+      first: () => unavailableRole,
+      waitFor: vi.fn(async () => { throw new Error('registration-control-not-found'); }),
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_fn: unknown, args?: unknown) => args ? currentSnapshot() : null),
+      getByRole: vi.fn(() => unavailableRole),
+      locator: vi.fn((selector: string) => {
+        const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1] || '';
+        const locator: any = {
+          first: () => locator,
+          click: vi.fn(async () => {
+            if (id === 'login') signedIn = true;
+            if (id === 'register') await registrationClick();
+          }),
+          fill: vi.fn(async (value: string) => { values.set(id, value); }),
+          inputValue: vi.fn(async () => values.get(id) || ''),
+          count: vi.fn(async () => 0),
+        };
+        return locator;
+      }),
+    };
+    const page = {
+      url: () => url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+      getByRole: vi.fn(() => unavailableRole),
+    };
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: currentSnapshot() as any,
+      ctx: {
+        accounts: {
+          load: vi.fn(async () => account),
+          mark: accountMark,
+        },
+      },
+    });
+
+    expect(values).toEqual(new Map([
+      ['email', 'runner@example.test'],
+      ['password', 'synthetic-password'],
+    ]));
+    expect(result).toMatchObject({ snapshot: { text: 'Bewerbung' }, reopen: true, pressed: 'id' });
+    expect(accountMark).toHaveBeenCalledWith('career5.successfactors.eu', expect.objectContaining({
+      status: 'created',
+      verifiedAt: expect.any(Number),
+    }));
+
+    signedIn = false;
+    showRegistration = true;
+    const secondRun = await handleAuth({
+      page: page as any,
+      snapshot: currentSnapshot() as any,
+      ctx: {
+        accounts: {
+          load: vi.fn(async () => account),
+          mark: accountMark,
+        },
+      },
+    });
+
+    expect(secondRun).toMatchObject({ snapshot: { text: 'Bewerbung' }, reopen: true, pressed: 'id' });
+    expect(registrationClick).not.toHaveBeenCalled();
   });
 });

@@ -79,8 +79,8 @@ describe('proposal decision and actual application progress', () => {
     ] as ApplicationConciergeProposal[];
 
     expect(groupApplicationConciergeProposals(proposals).map(({ category }) => category)).toEqual([
-      'proposed',
       'needs_information',
+      'proposed',
       'accepted',
       'queued',
       'submitted',

@@ -1,0 +1,26 @@
+{
+  "companyKey": "univativ-schweiz-ag",
+  "companyName": "univativ Schweiz AG",
+  "companyHost": "univativ-group.jobs.personio.de",
+  "verifiedEmployerDomain": "univativ.ch",
+  "platform": "personio.de",
+  "mode": "template",
+  "seedUrls": [
+    "https://univativ-group.jobs.personio.de/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "(Senior) Consultant (m/w/d) <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5.82",
+    "Junior Account Manager (m/w/d) <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5",
+    "Werkstudent Sales (m/w/d) <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5.8254",
+    "Talent Scout / Recruiter (m/w/d) <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249"
+  ],
+  "canton": "ZH",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:28:29.242Z",
+  "candidateKey": "univativ@zurich"
+}

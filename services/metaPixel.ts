@@ -5,12 +5,13 @@ import {
   getAdsConsentDecisionAt,
   isAdsConsentGranted,
 } from './adsConsent';
+import { SECTION_LEGACY_TI_PATH } from '../build-plugins/shared/cantonSection';
 import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
 import { isSensitiveThirdPartyDocument } from './thirdPartyDocumentPrivacy.js';
 
 export const META_PIXEL_ID = '1090503593451766';
 export const META_PIXEL_CANONICAL_PATH = '/automatizza-ricerca-lavoro-svizzera';
-export const META_PIXEL_AD_FALLBACK_PATH = '/cerca-lavoro-ticino';
+export const META_PIXEL_AD_FALLBACK_PATH = SECTION_LEGACY_TI_PATH.it.replace(/\/+$/u, '');
 
 const META_COOKIE_VALUE_RE = /^fb\.[0-9]{1,4}\.[0-9]{1,16}\.[A-Za-z0-9_-]{1,200}$/;
 

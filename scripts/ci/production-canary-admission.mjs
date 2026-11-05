@@ -17,7 +17,7 @@ import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 const API = 'https://api.github.com';
 const API_TIMEOUT_MS = 30_000;
 const PAGE_SIZE = 100;
-const MAX_PAGES = 50;
+const ADMISSION_PAGE_SIZE = 1;
 const STATUS_PAGE_RETRY_ATTEMPTS = 3;
 const STATUS_PAGE_RETRY_DELAY_MS = 250;
 const ACTIVE_STATUSES = Object.freeze(['queued', 'in_progress', 'waiting', 'requested', 'pending']);
@@ -87,6 +87,19 @@ function repositoryPath(repository) {
   return parts.map((part) => encodeURIComponent(part)).join('/');
 }
 
+function workflowFileName(workflowPath) {
+  const normalized = normalizePath(workflowPath);
+  const prefix = '.github/workflows/';
+  if (!normalized.startsWith(prefix)) {
+    throw new Error(`Production writer path is not a workflow file (got ${workflowPath || '<empty>'})`);
+  }
+  const fileName = normalized.slice(prefix.length);
+  if (!fileName || fileName.includes('/')) {
+    throw new Error(`Production writer path is not a workflow file (got ${workflowPath || '<empty>'})`);
+  }
+  return fileName;
+}
+
 async function readJson(url, token, fetchImpl) {
   const response = await fetchImpl(url, {
     headers: githubApiHeaders(authToken(token)),
@@ -115,60 +128,36 @@ function sleep(ms) {
 }
 
 /**
- * Actions can move a run between status buckets while a page is being read.
- * GitHub may then return the old total_count with an empty/short page. The
- * response's Link header is the pagination contract; total_count is only a
- * fallback for a full page because it can remain stale during a transition.
- * Retry a short page only when GitHub explicitly advertises another page.
+ * The repository-wide Actions run collection can be large and can change
+ * while it is paginated. A stale Link header on a later global page made the
+ * canary fail even though it only needed to know whether one of five known
+ * writer workflows had an active run.
+ *
+ * Query each writer workflow directly and ask for one row: any row proves the
+ * writer is active, while an empty response without a next page proves there
+ * is no matching run. Retry an empty response only when GitHub advertises a
+ * next page; a persistent inconsistency remains fail-closed.
  */
-async function readConsistentStatusPage({
+async function readWorkflowStatusRuns({
   repositoryPath: repoPath,
+  workflow,
   status,
   token,
   fetchImpl,
-  page,
-  alreadyRead,
 }) {
-  const url = `${API}/repos/${repoPath}/actions/runs?status=${encodeURIComponent(status)}&per_page=${PAGE_SIZE}&page=${page}`;
+  const workflowId = workflowFileName(workflow.path);
+  const url = `${API}/repos/${repoPath}/actions/workflows/${encodeURIComponent(workflowId)}/runs?status=${encodeURIComponent(status)}&per_page=${ADMISSION_PAGE_SIZE}`;
   for (let attempt = 1; attempt <= STATUS_PAGE_RETRY_ATTEMPTS; attempt += 1) {
     const { body, hasNextPage } = await readJson(url, token, fetchImpl);
-    const countSuggestsNextPage = body.workflow_runs.length === PAGE_SIZE
-      && alreadyRead + body.workflow_runs.length < body.total_count;
-    const needsNextPage = hasNextPage || countSuggestsNextPage;
-    if (!needsNextPage || body.workflow_runs.length === PAGE_SIZE) {
-      return { body, hasNextPage: needsNextPage };
-    }
+    if (body.workflow_runs.length > 0 || !hasNextPage) return body.workflow_runs;
     if (attempt < STATUS_PAGE_RETRY_ATTEMPTS) await sleep(STATUS_PAGE_RETRY_DELAY_MS);
   }
-  throw new Error(`GitHub API ${status} run listing was truncated after ${STATUS_PAGE_RETRY_ATTEMPTS} retries`);
-}
-
-async function readStatusRuns({ repositoryPath: repoPath, status, token, fetchImpl }) {
-  const runs = [];
-  let page = 1;
-
-  while (true) {
-    const { body, hasNextPage } = await readConsistentStatusPage({
-      repositoryPath: repoPath,
-      status,
-      token,
-      fetchImpl,
-      page,
-      alreadyRead: runs.length,
-    });
-    runs.push(...body.workflow_runs);
-
-    if (!hasNextPage) return runs;
-    page += 1;
-    if (page > MAX_PAGES) {
-      throw new Error(`GitHub API ${status} run listing exceeded ${MAX_PAGES} pages`);
-    }
-  }
+  throw new Error(`GitHub API ${status} run listing for ${workflowId} remained paginated after ${STATUS_PAGE_RETRY_ATTEMPTS} retries`);
 }
 
 /**
- * Read all active statuses in parallel and deduplicate runs returned by more
- * than one status query while the API state changes.
+ * Read every active status for each known writer in parallel and deduplicate a
+ * run observed while it changes status.
  */
 export async function readActiveProductionWriters({
   repository,
@@ -178,12 +167,15 @@ export async function readActiveProductionWriters({
   if (!repository) throw new Error('GITHUB_REPOSITORY required');
   const repoPath = repositoryPath(repository);
 
-  const batches = await Promise.all(ACTIVE_STATUSES.map((status) => readStatusRuns({
-    repositoryPath: repoPath,
-    status,
-    token,
-    fetchImpl,
-  })));
+  const batches = await Promise.all(PRODUCTION_WRITERS.flatMap((workflow) => (
+    ACTIVE_STATUSES.map((status) => readWorkflowStatusRuns({
+      repositoryPath: repoPath,
+      workflow,
+      status,
+      token,
+      fetchImpl,
+    }))
+  )));
   const byId = new Map();
   for (const run of batches.flat()) {
     const selected = selectActiveProductionWriters([run]);

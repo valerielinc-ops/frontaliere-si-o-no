@@ -1,12 +1,21 @@
 import crypto from 'node:crypto';
 import { appendFileSync, chmodSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import {
+  EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
+  EVENT_DESCRIPTION_POLICY_VERSION,
+  EVENT_DESCRIPTION_PROMPT_VERSION,
+  EVENT_DESCRIPTION_REWRITE_MODEL,
+} from './event-description-empty-shard.mjs';
+import { hasConfidentPrice, isFromEventPrice } from './events-utils.mjs';
 
 export const EVENT_DESCRIPTION_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
-export const EVENT_DESCRIPTION_REWRITE_MODEL = 'gpt-5.6-luna';
-export const EVENT_DESCRIPTION_PROMPT_VERSION = 'event-description-rewrite-v3';
-export const EVENT_DESCRIPTION_POLICY_VERSION = 'event-description-policy-v3';
-export const EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION = 2;
+export {
+  EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
+  EVENT_DESCRIPTION_POLICY_VERSION,
+  EVENT_DESCRIPTION_PROMPT_VERSION,
+  EVENT_DESCRIPTION_REWRITE_MODEL,
+};
 export const EVENT_DESCRIPTION_MIN_SHARED_NGRAM = 8;
 export const EVENT_DESCRIPTION_MIN_CHARS = 30;
 const ACCEPTED_CACHE_PROMPT_VERSIONS = new Set([
@@ -323,7 +332,7 @@ export function sourceDescriptionTexts(event) {
 export function sourceDescriptionRecord(event) {
   const fields = readDescriptionFields(event, DESCRIPTION_FIELDS);
   if (!fields.fallback && Object.keys(fields.byLocale).length === 0) return null;
-  const facts = Object.fromEntries(FACT_FIELDS.filter((field) => event?.[field] !== undefined).map((field) => [field, event[field]]));
+  const facts = descriptionFacts(event);
   return {
     id: event.id,
     sourceKey: event.sourceKey,
@@ -333,6 +342,21 @@ export function sourceDescriptionRecord(event) {
     ...(Object.keys(fields.byLocale).length ? { sourceDescriptionByLocale: fields.byLocale } : {}),
     facts,
   };
+}
+
+function descriptionFacts(event) {
+  const facts = Object.fromEntries(FACT_FIELDS.filter((field) => event?.[field] !== undefined).map((field) => [field, event[field]]));
+  if (!hasConfidentPrice(event?.price)) {
+    delete facts.price;
+  } else {
+    facts.price = {
+      amount: event.price.amount,
+      currency: event.price.currency,
+      isFree: event.price.isFree === true || event.price.amount === 0,
+      ...(isFromEventPrice(event.price) ? { isFrom: true } : {}),
+    };
+  }
+  return facts;
 }
 
 /**
@@ -410,12 +434,13 @@ export function isValidRewriteCacheEntry(entry, { id, sourceHash } = {}) {
   if (!usableText(entry.rewrittenAt) || Number.isNaN(Date.parse(entry.rewrittenAt))) return false;
   const descriptions = cacheEntryDescriptions(entry);
   if (!descriptions || normalizeDescriptionText(entry.description) !== descriptions.it) return false;
-  // The publication gate has no private source export to compare against.
-  // Reuse the candidate as factual context only for structural checks (length,
-  // markup and promotional language); source-overlap and new-fact checks run
-  // at generation time while the private input is still available.
+  // The publication gate has no private source export or current structured
+  // event facts to compare against. Reuse the candidate as context for cache
+  // structure checks; applyDescriptionRewrite rechecks factual claims against
+  // the current event before a cached description can be used.
   return EVENT_DESCRIPTION_LOCALES.every((locale) => validateRewriteDescription(descriptions[locale], {
     factTexts: [descriptions[locale]],
+    requireStructuredPriceEvidence: false,
   }).ok);
 }
 
@@ -428,6 +453,11 @@ export function applyDescriptionRewrite(event, cache) {
   const entry = entries?.[rewriteCacheKey(factual.id, hash)];
   if (!isValidRewriteCacheEntry(entry, { id: factual.id, sourceHash: hash })) return factual;
   const descriptionByLocale = cacheEntryDescriptions(entry);
+  const validation = validateRewriteBundle(descriptionByLocale, {
+    sourceTexts: sourceDescriptionTexts(event),
+    factTexts: [JSON.stringify(factsForPrompt(event))],
+  });
+  if (!validation.ok) return factual;
   return {
     ...factual,
     description: descriptionByLocale.it,
@@ -908,6 +938,69 @@ function nameFailureDetail(run) {
   return 'single-token-unknown-name';
 }
 
+function trustedStructuredPrices(factTexts) {
+  const prices = [];
+  for (const factText of factTexts) {
+    try {
+      const parsed = JSON.parse(String(factText));
+      const price = parsed && typeof parsed === 'object' && !Array.isArray(parsed) && parsed.price && typeof parsed.price === 'object'
+        ? parsed.price
+        : parsed;
+      if (!price || typeof price !== 'object' || Array.isArray(price) || typeof price.currency !== 'string') continue;
+      const amount = typeof price.amount === 'number' && Number.isFinite(price.amount) ? price.amount : null;
+      if (amount !== null || price.isFree === true) {
+        prices.push({
+          amount,
+          isFree: price.isFree === true || amount === 0,
+          isFrom: price.isFrom === true,
+        });
+      }
+    } catch {
+      // Facts that are not a serialized structured object cannot establish a price.
+    }
+  }
+  return prices;
+}
+
+function buildFactValidationContext(factTexts, requireStructuredPriceEvidence = true) {
+  const factualContext = factTexts.join(' ');
+  return {
+    allowedNumbers: numericValues(factualContext),
+    allowedStructuredFacts: structuredFactSignatures(factualContext),
+    allowedCurrencies: currencySignatures(factualContext),
+    ...(requireStructuredPriceEvidence ? { trustedPrices: trustedStructuredPrices(factTexts) } : {}),
+    names: allowedNamePhrases([], factTexts),
+  };
+}
+
+function hasAdmissionPriceLanguage(text) {
+  return /\b(?:admission|admissions|entry|entrance|ticket|tickets|price|prices|fee|fees|cost|costs|costing|ingresso|ingressi|entrata|entrate|accesso|accessi|biglietto|biglietti|prezzo|prezzi|costo|costi|tariffa|tariffe|eintritt|eintritte|eintrittspreis|preis|preise|kosten|gebühr|gebühren|entrée|entrées|billet|billets|prix|tarif|tarifs|coût|coûts)\b/iu.test(text);
+}
+
+function admissionPriceAmounts(text) {
+  const terms = String.raw`(?:admission|admissions|entry|entrance|ticket|tickets|price|prices|fee|fees|cost|costs|ingresso|ingressi|entrata|entrate|accesso|accessi|biglietto|biglietti|prezzo|prezzi|costo|costi|tariffa|tariffe|eintritt|eintritte|eintrittspreis|preis|preise|kosten|gebühr|gebühren|entrée|entrées|billet|billets|prix|tarif|tarifs|coût|coûts)`;
+  const amounts = new Set();
+  for (const pattern of [
+    new RegExp(String.raw`\b${terms}\b[^.!?]{0,36}?(\d+(?:[.,]\d+)?)`, 'giu'),
+    new RegExp(String.raw`(\d+(?:[.,]\d+)?)[^.!?]{0,36}?\b${terms}\b`, 'giu'),
+  ]) {
+    for (const match of text.matchAll(pattern)) {
+      const amount = Number(match[1].replace(',', '.'));
+      if (Number.isFinite(amount)) {
+        const amountIndex = match.index + match[0].lastIndexOf(match[1]);
+        const beforeAmount = text.slice(Math.max(0, amountIndex - 48), amountIndex);
+        const isFromClaim = /\b(?:from|start(?:s|ing)?\s+(?:at|from)|da|dès|ab|a\s+partire\s+da|à\s+partir\s+de)\b[^.!?]{0,32}$/iu.test(beforeAmount);
+        amounts.add({ amount, isFromClaim });
+      }
+    }
+  }
+  return amounts;
+}
+
+function hasFreeAdmissionLanguage(text) {
+  return /\b(?:free\s+(?:admission|entry|entrance)|(?:admission|entry|entrance)\s+(?:is\s+)?free|no\s+(?:charge|fee)|ingresso\s+(?:è\s+)?(?:gratuito|gratuita|gratis|libero|libera)|entrata\s+(?:è\s+)?(?:gratuita|gratis|libera)|accesso\s+(?:è\s+)?(?:gratuito|gratuita|gratis|libero|libera)|(?:eintritt|eintrittspreis)\s+(?:ist\s+)?(?:frei|kostenlos|gratis)|(?:frei|kostenlos|gratis)\s+eintritt|entrée\s+(?:est\s+)?(?:gratuite|libre)|entrée\s+libre|gratuit(?:e|s)?\s+(?:entrée|accès)|(?:gratuit|gratuitement|libre)\s+(?:pour\s+)?(?:l['’]entrée|accès))\b/iu.test(text);
+}
+
 function containsPromotionalLanguage(candidate) {
   return comparisonTokens(candidate).some((token) => PROMOTIONAL_WORDS.has(token));
 }
@@ -920,7 +1013,12 @@ function sentenceCount(text) {
  * Validate one generated locale without ever returning source prose in the
  * diagnostic. Error codes are safe for logs and retry prompts.
  */
-export function validateRewriteDescription(candidate, { sourceTexts = [], factTexts = [] } = {}) {
+export function validateRewriteDescription(candidate, {
+  sourceTexts = [],
+  factTexts = [],
+  requireStructuredPriceEvidence = true,
+  factValidationContext,
+} = {}) {
   const text = normalizeDescriptionText(candidate);
   if (!text) return { ok: false, code: 'empty' };
   if (text.length < EVENT_DESCRIPTION_MIN_CHARS) return { ok: false, code: 'too-short' };
@@ -929,19 +1027,41 @@ export function validateRewriteDescription(candidate, { sourceTexts = [], factTe
   if (findSharedSourceNgram(text, sourceTexts)) return { ok: false, code: 'source-ngram-8' };
   if (containsPromotionalLanguage(text)) return { ok: false, code: 'promotional-language' };
 
-  const allowedContext = [...sourceTexts, ...factTexts].join(' ');
-  const allowedNumbers = numericValues(allowedContext);
+  // Source prose can mention unrelated tariffs (for example, a museum's
+  // reduced admission price). Numeric, date, time, and currency claims in a
+  // rewrite must be backed by the structured event facts, never by nearby
+  // prose alone.
+  const validationContext = factValidationContext || buildFactValidationContext(factTexts, requireStructuredPriceEvidence);
+  const allowedNumbers = validationContext.allowedNumbers;
   if ([...numericValues(text)].some((number) => !allowedNumbers.has(number))) return { ok: false, code: 'new-number' };
-  const allowedStructuredFacts = structuredFactSignatures(allowedContext);
+  const allowedStructuredFacts = validationContext.allowedStructuredFacts;
   if ([...structuredFactSignatures(text)].some((signature) => !allowedStructuredFacts.has(signature))) {
     return { ok: false, code: 'new-date-or-price' };
   }
-  const allowedCurrencies = currencySignatures(allowedContext);
+  const allowedCurrencies = validationContext.allowedCurrencies;
   if ([...currencySignatures(text)].some((currency) => !allowedCurrencies.has(currency))) {
     return { ok: false, code: 'new-date-or-price' };
   }
 
-  const names = allowedNamePhrases(sourceTexts, factTexts);
+  if (requireStructuredPriceEvidence) {
+    const trustedPrices = validationContext.trustedPrices;
+    if ([...admissionPriceAmounts(text)].some(({ amount, isFromClaim }) => (
+      !trustedPrices.some((price) => price.amount === amount && (!price.isFrom || isFromClaim))
+    ))) {
+      return { ok: false, code: 'new-date-or-price' };
+    }
+    const freeAdmissionClaim = hasFreeAdmissionLanguage(text);
+    if (freeAdmissionClaim && !trustedPrices.some((price) => price.isFree)) {
+      return { ok: false, code: 'new-date-or-price' };
+    }
+    if (hasAdmissionPriceLanguage(text) && trustedPrices.length === 0) {
+      return { ok: false, code: 'new-date-or-price' };
+    }
+  }
+
+  const names = sourceTexts.length
+    ? allowedNamePhrases(sourceTexts, factTexts)
+    : validationContext.names;
   const invalidNameRun = capitalizedNameRuns(text, { withMetadata: true })
     .find((run) => !containsAllowedNamePhrase(run.text, names) && !isKnownNameVariant(run.text, names));
   if (invalidNameRun) return { ok: false, code: 'new-name', detail: nameFailureDetail(invalidNameRun) };
@@ -949,12 +1069,20 @@ export function validateRewriteDescription(candidate, { sourceTexts = [], factTe
   return { ok: true };
 }
 
-export function validateRewriteBundle(descriptions, { sourceTexts = [], factTexts = [] } = {}) {
+export function validateRewriteBundle(descriptions, {
+  sourceTexts = [],
+  factTexts = [],
+  requireStructuredPriceEvidence = true,
+} = {}) {
   if (!descriptions || typeof descriptions !== 'object') return { ok: false, errors: { bundle: 'missing' } };
   const errors = {};
   const details = {};
   for (const locale of EVENT_DESCRIPTION_LOCALES) {
-    const result = validateRewriteDescription(descriptions[locale], { sourceTexts, factTexts });
+    const result = validateRewriteDescription(descriptions[locale], {
+      sourceTexts,
+      factTexts,
+      requireStructuredPriceEvidence,
+    });
     if (!result.ok) {
       errors[locale] = result.code;
       if (result.detail) details[locale] = result.detail;
@@ -965,5 +1093,42 @@ export function validateRewriteBundle(descriptions, { sourceTexts = [], factText
 
 export function factsForPrompt(event) {
   const factual = sanitizeEventForPublication(event);
-  return Object.fromEntries(FACT_FIELDS.filter((field) => factual?.[field] !== undefined).map((field) => [field, factual[field]]));
+  return descriptionFacts(factual);
+}
+
+const EVENT_DESCRIPTION_SUPPORT_CACHE = new WeakMap();
+
+/** Revalidate stored public prose against the event's current structured facts. */
+export function isDescriptionSupportedByEventFacts(description, event) {
+  const normalizedDescription = normalizeDescriptionText(description);
+  if (!normalizedDescription) return false;
+
+  if (event && typeof event === 'object') {
+    // Keep the cache signature on the same sanitized fact boundary as the
+    // publication path. This also makes the optimization safe if a caller
+    // mutates an event object between renders.
+    const factText = JSON.stringify(factsForPrompt(event));
+    let cached = EVENT_DESCRIPTION_SUPPORT_CACHE.get(event);
+    if (!cached || cached.factText !== factText) {
+      const factTexts = [factText];
+      cached = {
+        factText,
+        factTexts,
+        factValidationContext: buildFactValidationContext(factTexts),
+        results: new Map(),
+      };
+      EVENT_DESCRIPTION_SUPPORT_CACHE.set(event, cached);
+    }
+    if (cached.results.has(normalizedDescription)) return cached.results.get(normalizedDescription);
+    const result = validateRewriteDescription(normalizedDescription, {
+      factTexts: cached.factTexts,
+      factValidationContext: cached.factValidationContext,
+    }).ok;
+    cached.results.set(normalizedDescription, result);
+    return result;
+  }
+
+  return validateRewriteDescription(description, {
+    factTexts: [JSON.stringify(factsForPrompt(event))],
+  }).ok;
 }

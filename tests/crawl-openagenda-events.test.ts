@@ -127,7 +127,12 @@ describe('OpenAgenda: mappatura sul record evento', () => {
     expect(mapOpenAgendaEvent(raw(70000003), ACG)).toBeNull();
     const cancelled = mapOpenAgendaEvent(raw(70000004), ACG)!;
     expect(cancelled.eventStatus).toBe('cancelled');
-    const ld = eventLd({ ...cancelled, sourceKey: 'openagenda', sourceName: 'OpenAgenda' } as never, 'it') as Record<string, unknown>;
+    const ld = eventLd({
+      ...cancelled,
+      performer: { '@type': 'Person', name: 'Artista annullato di prova' },
+      sourceKey: 'openagenda',
+      sourceName: 'OpenAgenda',
+    } as never, 'it') as Record<string, unknown>;
     expect(ld.eventStatus).toBe('https://schema.org/EventCancelled');
   });
 });
@@ -363,8 +368,20 @@ describe('OpenAgenda: attribuzione richiesta dalla licenza', () => {
     expect(renderOpenAgendaAttribution({ ...record, sourceUpdatedAt: undefined } as never, 'it')).toBe('');
   });
 
-  it('attribuisce l\'immagine al suo autore nei dati strutturati', () => {
-    const ld = eventLd(record as never, 'it') as { image: { creditText?: string } };
+  it('non pubblica un singolo Event per una mostra con date ricorrenti', () => {
+    expect(eventLd(record as never, 'it')).toBeNull();
+  });
+
+  it('include il credito immagine in un Event ammissibile con una sola data', () => {
+    const oneOffRaw = { ...raw(70000002), imageCredits: 'Commune de Carouge' };
+    const oneOff = {
+      ...mapOpenAgendaEvent(oneOffRaw, ACG)!,
+      imageUrl: '/images/events/openagenda-70000002.webp',
+      sourceKey: 'openagenda',
+      sourceName: EVENT_SOURCES.openagenda.label,
+      performer: { '@type': 'Person', name: 'Artista di prova' },
+    };
+    const ld = eventLd(oneOff as never, 'it') as { image: { creditText?: string } };
     expect(ld.image.creditText).toBe('Commune de Carouge');
   });
 });

@@ -28,8 +28,8 @@ import '../../extension/apply-control.js';
 
 import path from 'node:path';
 import { applicationReceipt, applicationStage } from './stages.mjs';
-import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
+import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -44,7 +44,7 @@ import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
-import { residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
+import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
@@ -281,6 +281,36 @@ function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
 }
 
 /**
+ * Umantis vacancy pages use the same tenant and vacancy id for their direct
+ * application form. This route is used only when the saved apply URL is the
+ * exact same posting address; a matching numeric id by itself is not enough.
+ */
+function umantisApplicationEntryUrl({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    if (apply.protocol !== 'https:' || posting.protocol !== 'https:'
+      || !/(?:^|\.)umantis\.com$/i.test(apply.hostname)
+      || apply.origin !== posting.origin
+      || apply.pathname.replace(/\/+$/, '') !== posting.pathname.replace(/\/+$/, '')) return '';
+    const match = /^\/vacancies\/(\d+)\/description\/(\d+)\/?$/i.exec(posting.pathname);
+    if (!match) return '';
+    return `${posting.origin}/Vacancies/${match[1]}/Application/New/${match[2]}`;
+  } catch {
+    return '';
+  }
+}
+
+function verifiedPostingEntryFor(ctx = {}) {
+  if (isVerifiedPostingEntry(ctx)) return true;
+  const applicationUrl = umantisApplicationEntryUrl(ctx);
+  return Boolean(applicationUrl && isVerifiedPostingEntry({
+    applyUrl: applicationUrl,
+    postingUrl: ctx.postingUrl,
+  }));
+}
+
+/**
  * A URL pair that proves the application belongs to the selected posting.
  * This is stronger than the rendered posting text: Umantis can show a generic
  * application form without repeating the employer or vacancy title.
@@ -300,7 +330,7 @@ export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
-  return directUrl;
+  return umantisApplicationEntryUrl({ applyUrl: directUrl, postingUrl }) || directUrl;
 }
 
 function portalChannelType(ctx = {}) {
@@ -640,6 +670,11 @@ const isGenericOptionalAttachment = (field) => isFileField(field)
   && field.required !== true
   && GENERIC_ATTACHMENT_RE.test([field.label, field.name, field.id, field.context].filter(Boolean).join(' '));
 
+// A page heading or an ancestor's descriptive context is not ownership proof:
+// Stadt Zürich's public «Bewerbungstipps» gallery puts that word into the
+// section/context of every pager button. Keep those broad fields out of the
+// gallery-vs-application decision; the control's own identity and label are
+// the evidence that can safely distinguish a mixed surface.
 const controlOwnershipText = (button) => [
   button?.text,
   button?.id,
@@ -649,9 +684,7 @@ const controlOwnershipText = (button) => [
   button?.title,
   button?.ariaLabel,
   button?.dataAutomationId,
-  button?.section,
-  button?.context,
-  button?.fileContext,
+  button?.href,
 ].filter(Boolean).join(' ');
 const isApplicationControl = (button) => APPLICATION_CONTROL_RE.test(controlOwnershipText(button));
 const galleryToolScopes = (buttons) => new Set(buttons.filter(isGalleryToolButton).map(portalControlScope));
@@ -856,19 +889,75 @@ async function settle(page) {
   await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {});
 }
 
-/**
- * The control a snapshot named, found again in a fresh reading of the page: the same name in the same place
- * (the page or the site's header, a dialog or not).
- */
+/** The uniquely matching visible control from a fresh snapshot, in the same frame and ownership scope. */
 async function sameControl(page, button) {
   const fresh = await extractFields(page, NAVIGATION).catch(() => null);
-  return fresh?.buttons.find((candidate) => candidate.text === button.text && !candidate.disabled
+  const matches = fresh?.buttons.filter((candidate) => candidate.text === button.text && !candidate.disabled
     && Boolean(candidate.chrome) === Boolean(button.chrome) && Boolean(candidate.dialog) === Boolean(button.dialog)
+    && String(candidate.dialogId || '') === String(button.dialogId || '')
+    && String(candidate.formId || '') === String(button.formId || '')
+    && String(candidate.href || '') === String(button.href || '')
     && (candidate.frame || 0) === (button.frame || 0)) || null;
+  return matches?.length === 1 ? matches[0] : null;
 }
 
-/** Presses a control of a snapshot; says how it was found (`id`, `again`, `text`, `href`). */
-async function clickButton(page, button) {
+/** A unique, visible semantic match survives a portal replacing its generated DOM id. */
+async function clickUniqueNamedControl(frame, button) {
+  if (!button.text) return null;
+  const formId = String(button.formId || '');
+  const dialogId = String(button.dialogId || '');
+  if (formId && !/^[\w-]{1,80}$/.test(formId)) return null;
+  if (button.dialog && !/^[\w-]{1,80}$/.test(dialogId)) return null;
+  if (!formId && !button.dialog) return null;
+  if (typeof frame?.getByRole !== 'function') return null;
+  const matches = [];
+  for (const role of ['button', 'link']) {
+    const candidates = frame.getByRole(role, { name: button.text, exact: true });
+    const count = await candidates.count().catch(() => 0);
+    for (let index = 0; index < count; index += 1) {
+      const candidate = candidates.nth(index);
+      if (!await candidate.isVisible().catch(() => false)) continue;
+      if (!await candidate.isEnabled({ timeout: 2_000 }).catch(() => false)) continue;
+      const owner = await candidate.evaluate((element) => {
+        const form = element.form || element.closest?.('form');
+        const dialog = element.closest?.('dialog, [role="dialog"], [aria-modal="true"]');
+        return {
+          formId: form?.getAttribute('data-aa-id') || '',
+          dialogId: dialog?.getAttribute('data-aa-dialog-id') || '',
+          href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
+        };
+      }).catch(() => null);
+      if (!owner || owner.formId !== formId || owner.dialogId !== dialogId) continue;
+      if (Object.hasOwn(button, 'href') && owner.href !== String(button.href || '')) continue;
+      matches.push(candidate);
+      if (matches.length > 1) return null;
+    }
+  }
+  if (matches.length !== 1) return null;
+  await matches[0].click({ timeout: 6_000 });
+  return 'role';
+}
+
+function unresolvedPreDispatchControlClick() {
+  const error = new Error('portal_control_click_unresolved');
+  error.code = 'portal_control_click_unresolved';
+  return error;
+}
+
+async function clickUniqueNamedControlAfterTimeout(frame, button) {
+  try {
+    return await clickUniqueNamedControl(frame, button);
+  } catch (error) {
+    // A timed-out locator can be retried only when Playwright proves that it
+    // never dispatched. Once the scoped fallback also proves that, stop here:
+    // the portal runner will hand the page to the owner with encrypted evidence.
+    if (isPreDispatchLocatorClickFailure(error)) throw unresolvedPreDispatchControlClick();
+    throw error;
+  }
+}
+
+/** Presses a control from a snapshot; recovery must preserve the control's click handler. */
+export async function clickButton(page, button) {
   const frameNumber = Number(button.frame) || 0;
   const frames = typeof page.frames === 'function' ? page.frames() : [];
   const frame = frames[frameNumber]
@@ -879,25 +968,31 @@ async function clickButton(page, button) {
     return 'id';
   } catch (error) {
     // Workday animates its apply modal and re-renders its forms, dropping our data-aa-id: the same control
-    // is found again in a fresh reading, by its name and its place. Its visible text alone finds the first
-    // thing on the page that says so: for the form's «Sign In» on Workday that is the header's, which opens
-    // a dialog over the form (dry run of 2026-10-07). A control found again that still cannot be pressed
-    // is covered by something: nothing else is pressed in its place.
-    if (!button.text) throw error;
+    // is found again in a fresh reading. A text-only selector can find the header's «Sign In» instead of
+    // the form's and open a dialog over the form (dry run of 2026-10-07). A role retry needs a unique match
+    // inside the same form or dialog; without a verified scope, nothing else is pressed in its place.
+    if (!isPreDispatchLocatorClickFailure(error)) throw error;
+    if (!button.text) throw unresolvedPreDispatchControlClick();
     const again = await sameControl(page, button);
     if (again) {
-      await frame.locator(`[data-aa-id="${again.id}"]`).first().click({ timeout: 6_000 });
-      return 'again';
+      const retryFrames = typeof page.frames === 'function' ? page.frames() : [];
+      const retryFrameNumber = Number(again.frame) || 0;
+      const retryFrame = retryFrames[retryFrameNumber]
+        || (retryFrameNumber === 0 ? (typeof page.mainFrame === 'function' ? page.mainFrame() : page) : null);
+      if (typeof retryFrame?.locator !== 'function') throw unresolvedPreDispatchControlClick();
+      try {
+        await retryFrame.locator(`[data-aa-id="${again.id}"]`).first().click({ timeout: 6_000 });
+        return 'again';
+      } catch (retryError) {
+        if (!isPreDispatchLocatorClickFailure(retryError)) throw retryError;
+        const recovered = await clickUniqueNamedControlAfterTimeout(retryFrame, again);
+        if (recovered) return recovered;
+        throw unresolvedPreDispatchControlClick();
+      }
     }
-    try {
-      await frame.getByText(button.text, { exact: true }).first().click({ timeout: 6_000 });
-      return 'text';
-    } catch (textError) {
-      // A link that never settles is followed by its address.
-      if (!button.href) throw textError;
-      await page.goto(button.href, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-      return 'href';
-    }
+    const recovered = await clickUniqueNamedControlAfterTimeout(frame, button);
+    if (recovered) return recovered;
+    throw unresolvedPreDispatchControlClick();
   }
 }
 
@@ -1506,6 +1601,29 @@ const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
 export const uploadedPortalFieldKey = (url, field) => `${url}|${field?.id || field?.label || ''}`;
+const portalUploadFieldIdentity = (field) => [
+  field?.domId && `dom:${field.domId}`,
+  field?.name && `name:${field.name}`,
+  field?.label && `label:${field.label}`,
+  field?.section && `section:${field.section}`,
+  field?.context && `context:${field.context}`,
+].filter(Boolean).join('|') || field?.id || '';
+export const portalUploadActionKey = (url, pageEpoch, field, fileFields = [field], selectedRecords = []) => {
+  const fieldIdentity = portalUploadFieldIdentity(field);
+  const baseKey = uploadedPortalFieldKey(`${url}|step:${pageEpoch}`, { id: fieldIdentity });
+  const matchingFields = fileFields.filter((item) => portalUploadFieldIdentity(item) === fieldIdentity);
+  const groupIndex = matchingFields.findIndex((item) => item.id === field?.id);
+  const selectedRecord = selectedRecords.find((item) => item.fieldId === field?.id)
+    || (matchingFields.length === 1 && selectedRecords.find((item) => item.domId && item.domId === field?.domId))
+    || (matchingFields.length === 1 && selectedRecords.find((item) => item.groupSize === 1 && item.groupIndex === groupIndex));
+  if (selectedRecord) return selectedRecord.key;
+  if (matchingFields.length > 1 && selectedRecords.some((item) => !matchingFields.some((candidate) =>
+    candidate.id === item.fieldId || (item.domId && candidate.domId === item.domId)))) return null;
+  if (matchingFields.length === 1 && selectedRecords.some((item) => item.groupSize > 1)) return null;
+  return matchingFields.length > 1
+    ? `${baseKey}|field:${field?.id || `index:${groupIndex}`}`
+    : baseKey;
+};
 
 const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
 const isCvFileField = (field) => {
@@ -1532,6 +1650,22 @@ const APPLICATION_ACCOUNT_FIELD_RE = new RegExp(
   `(?<![\\p{L}\\p{N}\\p{M}])(?:work\\s+permit|permit\\s+for|salary|workload|starting\\s+date|notice\\s+period|criminal\\s+record|proficiency\\s+level|how\\s+did\\s+you\\s+hear|region\\s+of\\s+residence|${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|candidatur|bewerbung)(?![\\p{L}\\p{N}\\p{M}])`,
   'iu',
 );
+const UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE = new RegExp([
+  String.raw`inviando la candidatura.{0,100}(?:viene creato|crea).{0,60}profilo utente`,
+  String.raw`submitting (?:the )?application.{0,100}(?:creates?|is created).{0,60}user profile`,
+  String.raw`(?:einreichung|bewerbung).{0,100}(?:benutzerprofil|profil).{0,60}(?:wird erstellt|erstellt)`,
+  String.raw`(?:soumission|envoi) de la candidature.{0,100}(?:crée|créé).{0,60}profil utilisateur`,
+].join('|'), 'iu');
+function isUmantisApplicationRoute(url) {
+  try {
+    const parsed = new URL(String(url || ''));
+    return parsed.protocol === 'https:'
+      && /(?:^|\.)umantis\.com$/i.test(parsed.hostname)
+      && /^\/vacancies\/\d+\/application\/new\/\d+\/?$/i.test(parsed.pathname);
+  } catch {
+    return false;
+  }
+}
 const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
 const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
@@ -1564,7 +1698,12 @@ export function ownAccountForm(snapshot, channelType = '') {
     && !hasCvFileField
     && sendsApplication(snapshot)
     && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
-  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication);
+  const umantisProfileCreatedOnSubmit = channelType === 'umantis'
+    && isUmantisApplicationRoute(snapshot.url)
+    && hasCvFileField
+    && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || '').replace(/\s+/g, ' '));
+  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot)
+    && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit);
 }
 
 /** The page's button sends an application («Submit final application»), whatever else the page asks. */
@@ -1588,7 +1727,7 @@ const portalQuestionMetadata = field => {
 };
 
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
-function questionsFrom(missingRequired) {
+function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
   const questions = [];
   const seen = new Set();
   const readableQuestionCandidate = value => {
@@ -1596,16 +1735,21 @@ function questionsFrom(missingRequired) {
     return text && !machineLabel(text) ? text : '';
   };
   for (const item of missingRequired) {
-    const id = portalQuestionId(item);
+    const stableLabel = String(item?.applicationQuestion || item?.portalQuestion || item?.question || '').trim();
+    const id = stableQuestionIds.get(String(item?.fieldId || ''))
+      || stableQuestionIds.get(`label:${stableLabel}`)
+      || portalQuestionId(item);
     const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
     const applicationQuestion = [item.applicationQuestion, item.portalQuestion, item.question]
       .map(readableQuestionCandidate)
       .find(Boolean)?.slice(0, 300) || '';
-    const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
-      ? item.applicationOptions
-      : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    const applicationOptions = (item.applicationOptionsKnown === true
+      ? item.applicationOptions || []
+      : Array.isArray(item.applicationOptions) && item.applicationOptions.length
+        ? item.applicationOptions
+        : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
     const options = (Array.isArray(item.options) ? item.options : []).map((option) => String(option || '').trim()).filter(Boolean);
     const optionMap = portalOptionMap({ options, applicationOptions, optionMap: item.optionMap });
     questions.push({
@@ -1625,6 +1769,7 @@ function questionsFrom(missingRequired) {
       required: item.required !== false,
       validation: sanitizeValidation(item.validation, { type: item.type }),
       source: 'portal',
+      ...(item.requiresAffirmativeConsent === true ? { requiresAffirmativeConsent: true } : {}),
     });
   }
   return questions;
@@ -1720,6 +1865,109 @@ function fallbackOption(option, language) {
   return text;
 }
 
+// A provider outage must not strand a standard ATS form whose labels are
+// already part of the portal contract. These are exact German field captions
+// observed on employer-site forms; arbitrary questions still require the
+// translation provider so the candidate never receives an invented meaning.
+const DETERMINISTIC_GERMAN_QUESTION_COPIES = Object.freeze({
+  anrede: { key: 'salutation', it: 'Come preferisci essere indicato/a?', de: 'Anrede', fr: 'Comment souhaitez-vous être appelé·e ?', en: 'How would you like to be addressed?' },
+  vorname: { key: 'first_name', it: 'Nome', de: 'Vorname', fr: 'Prénom', en: 'First name' },
+  nachname: { key: 'last_name', it: 'Cognome', de: 'Nachname', fr: 'Nom de famille', en: 'Last name' },
+  'e mail': { key: 'email', it: 'E-mail', de: 'E-Mail', fr: 'E-mail', en: 'Email' },
+  strasse: { key: 'street', it: 'Via', de: 'Strasse', fr: 'Rue', en: 'Street' },
+  straße: { key: 'street', it: 'Strasse', de: 'Straße', fr: 'Rue', en: 'Street' },
+  hausnummer: { key: 'house_number', it: 'Numero civico', de: 'Hausnummer', fr: 'Numéro', en: 'House number' },
+  plz: { key: 'postal_code', it: 'CAP', de: 'PLZ', fr: 'NPA', en: 'Postal code' },
+  ort: { key: 'city', it: 'Località', de: 'Ort', fr: 'Localité', en: 'City' },
+  land: { key: 'country', it: 'Paese', de: 'Land', fr: 'Pays', en: 'Country' },
+  nationalitat: { key: 'nationality', it: 'Nazionalità', de: 'Nationalität', fr: 'Nationalité', en: 'Nationality' },
+  mobile: { key: 'mobile', it: 'Cellulare', de: 'Mobile', fr: 'Portable', en: 'Mobile phone' },
+  'telefon optional': { key: 'phone_optional', it: 'Telefono (facoltativo)', de: 'Telefon (optional)', fr: 'Téléphone (facultatif)', en: 'Phone (optional)' },
+  geburtstag: { key: 'birth_day', it: 'Giorno di nascita', de: 'Geburtstag', fr: 'Jour de naissance', en: 'Day of birth' },
+  monat: { key: 'birth_month', it: 'Mese di nascita', de: 'Monat', fr: 'Mois de naissance', en: 'Birth month' },
+  jahr: { key: 'birth_year', it: 'Anno di nascita', de: 'Jahr', fr: 'Année de naissance', en: 'Birth year' },
+  'ich akzeptiere die datenschutzerklarung': {
+    key: 'privacy',
+    it: 'Accetto l’informativa sulla privacy',
+    de: 'Ich akzeptiere die Datenschutzerklärung',
+    fr: 'J’accepte la politique de confidentialité',
+    en: 'I accept the privacy policy',
+  },
+});
+
+const DETERMINISTIC_GERMAN_OPTION_COPIES = Object.freeze({
+  salutation: Object.freeze({
+    'bitte wahlen': { it: 'Seleziona', de: 'Bitte wählen', fr: 'Sélectionner', en: 'Select' },
+    frau: { it: 'Signora', de: 'Frau', fr: 'Madame', en: 'Ms' },
+    herr: { it: 'Signor', de: 'Herr', fr: 'Monsieur', en: 'Mr' },
+    divers: { it: 'Diverso/a', de: 'Divers', fr: 'Autre', en: 'Other' },
+    andere: { it: 'Altro', de: 'Andere', fr: 'Autre', en: 'Other' },
+  }),
+  birth_month: Object.freeze({
+    januar: { it: 'Gennaio', de: 'Januar', fr: 'Janvier', en: 'January' },
+    februar: { it: 'Febbraio', de: 'Februar', fr: 'Février', en: 'February' },
+    marz: { it: 'Marzo', de: 'März', fr: 'Mars', en: 'March' },
+    april: { it: 'Aprile', de: 'April', fr: 'Avril', en: 'April' },
+    mai: { it: 'Maggio', de: 'Mai', fr: 'Mai', en: 'May' },
+    juni: { it: 'Giugno', de: 'Juni', fr: 'Juin', en: 'June' },
+    juli: { it: 'Luglio', de: 'Juli', fr: 'Juillet', en: 'July' },
+    august: { it: 'Agosto', de: 'August', fr: 'Août', en: 'August' },
+    september: { it: 'Settembre', de: 'September', fr: 'Septembre', en: 'September' },
+    oktober: { it: 'Ottobre', de: 'Oktober', fr: 'Octobre', en: 'October' },
+    november: { it: 'Novembre', de: 'November', fr: 'Novembre', en: 'November' },
+    dezember: { it: 'Dicembre', de: 'Dezember', fr: 'Décembre', en: 'December' },
+  }),
+});
+
+function deterministicGermanQuestionEntry(item) {
+  const sourceQuestion = nativePortalQuestion(item);
+  return DETERMINISTIC_GERMAN_QUESTION_COPIES[normalizedQuestionText(sourceQuestion)] || null;
+}
+
+function deterministicGermanOption(option, entry, language) {
+  const text = String(option || '').trim();
+  const normalized = normalizedQuestionText(text);
+  const known = DETERMINISTIC_GERMAN_OPTION_COPIES[entry.key]?.[normalized]?.[language];
+  if (known) return known;
+  const booleanOrPlaceholder = fallbackOption(text, language);
+  if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
+  if (/^\d{1,4}$/.test(text)) return text;
+  return null;
+}
+
+function deterministicGermanLocalization(item, language) {
+  const entry = deterministicGermanQuestionEntry(item);
+  if (!entry || !language) return null;
+  const sourceQuestion = nativePortalQuestion(item);
+  const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
+    ? item.applicationOptions
+    : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+  const candidateOptions = applicationOptions.map((option) => deterministicGermanOption(option, entry, language));
+  // A known label is safe to translate, but an unknown option is not: keep
+  // the old fail-closed behavior instead of showing a mixed-language choice.
+  if (candidateOptions.some((option) => !option)) return null;
+  const optionMap = applicationOptions.length
+    ? portalOptionMap({
+      options: candidateOptions,
+      applicationOptions,
+      optionMap: applicationOptions.map((application, index) => ({ candidate: candidateOptions[index], application })),
+    })
+    : [];
+  if (applicationOptions.length && optionMap.length !== applicationOptions.length) return null;
+  const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
+  const sameLanguage = language === 'de';
+  return {
+    ...item,
+    question: entry[language] || entry.en,
+    applicationQuestion: sourceQuestion,
+    applicationQuestionLocale: 'de',
+    why: String(item.why || '').trim() || fallback.why,
+    ...(applicationOptions.length ? { applicationOptions, options: optionMap.map((pair) => pair.candidate), optionMap } : {}),
+    ...(item.validation ? { validation: { ...item.validation, message: String(item.validation.message || '').trim() || fallback.validation } } : {}),
+    localizationStatus: sameLanguage ? 'same_language' : 'translated',
+  };
+}
+
 function nativePortalQuestion(item) {
   return readablePortalQuestionText(item?.applicationQuestion)
     || readablePortalQuestionText(item?.portalQuestion)
@@ -1786,10 +2034,13 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const candidateLanguage = localeCode(candidateLocale);
   const applicationLanguageHint = localeCode(applicationLocale);
   if (!items.length || !candidateLanguage) return items;
+  const deterministic = items.map((item) => deterministicGermanLocalization(item, candidateLanguage));
+  const unresolved = items.filter((_item, index) => !deterministic[index]);
+  if (!unresolved.length) return deterministic;
   // Posting/letter language is only a hint. An ATS may render a German form
   // for an Italian-language job, so compare against the native question text.
-  if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
-  const input = items.map((item) => ({
+  if (typeof codex !== 'function') return items.map((item, index) => deterministic[index] || fallbackLocalizedQuestion(item, candidateLanguage));
+  const input = unresolved.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
     why: String(item.why || ''),
@@ -1811,10 +2062,11 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     });
   } catch (error) {
     log(`portal question localization skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
+    return items.map((item, index) => deterministic[index] || fallbackLocalizedQuestion(item, candidateLanguage));
   }
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
-  const localizedQuestions = items.map((item) => {
+  const localizedQuestions = items.map((item, index) => {
+    if (deterministic[index]) return deterministic[index];
     const copy = byId.get(String(item.id || ''));
     const sourceLocale = localeCode(copy?.sourceLocale);
     if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
@@ -1954,20 +2206,32 @@ async function clickFirst(page, snapshot, patterns) {
         && (!authForm.formId || String(control.formId || '').trim() === authForm.formId);
     }).map((control) => Number(control.frame)).filter((frame) => Number.isSafeInteger(frame) && frame >= 0))];
     const formFrames = formFrameNumbers.map((frame) => frames[frame]).filter(Boolean);
+    const lateRoles = pattern === CREATE_ACCOUNT_RE ? ['link', 'button'] : ['link'];
+    const firstVisibleRole = (root, role) => root.getByRole(role, { name: pattern })
+      .filter({ visible: true })
+      .first();
     for (const frame of formFrames) {
       if (typeof frame?.getByRole !== 'function') continue;
-      const frameLink = frame.getByRole('link', { name: pattern }).first();
-      const frameLinkVisible = await frameLink.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
-      if (frameLinkVisible) {
-        await clickPortalLink(page, frameLink);
-        return 'link';
+      for (const role of lateRoles) {
+        const frameControl = firstVisibleRole(frame, role);
+        const frameControlVisible = await frameControl.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+        if (frameControlVisible) {
+          await clickPortalLink(page, frameControl);
+          return role;
+        }
       }
     }
-    const link = page.getByRole('link', { name: pattern }).first();
-    const linkVisible = await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
-    if (linkVisible) {
-      await clickPortalLink(page, link);
-      return 'link';
+    // Once the snapshot identifies an auth form in a child frame, a same-named
+    // main-frame control is site chrome, not the auth action we are looking for.
+    if (!authForm || authForm.frame === 0) {
+      for (const role of lateRoles) {
+        const control = firstVisibleRole(page, role);
+        const controlVisible = await control.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+        if (controlVisible) {
+          await clickPortalLink(page, control);
+          return role;
+        }
+      }
     }
   }
   return false;
@@ -2171,10 +2435,16 @@ async function ownPrivacyDialog(page, token, review) {
 
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
 export async function acceptPrivacyStatement(page, snapshot, { targetControl = registrationButton(snapshot) } = {}) {
-  const sameTargetForm = control => targetControl && targetControl.form >= 0
-    && control.form === targetControl.form && control.frame === targetControl.frame;
+  const controlFrame = control => Number.isInteger(control?.frame) ? control.frame : 0;
+  const controlForm = control => Number.isInteger(control?.form) ? control.form : null;
+  const targetForm = controlForm(targetControl);
+  const sameTargetFrame = control => Boolean(targetControl) && controlFrame(control) === controlFrame(targetControl);
+  // SuccessFactors places its required privacy notice outside the registration
+  // form. Bind it to the CTA's frame and allow only that form or page-level controls.
+  const belongsToTarget = control => targetForm !== null && targetForm >= 0 && sameTargetFrame(control)
+    && (controlForm(control) === targetForm || controlForm(control) === -1);
   const targetControls = current => privacyConsentControls({ ...current,
-    buttons: (current.buttons || []).filter(sameTargetForm), links: (current.links || []).filter(sameTargetForm) });
+    buttons: (current.buttons || []).filter(belongsToTarget), links: (current.links || []).filter(belongsToTarget) });
   if (!targetControls(snapshot).trigger) return privacyConsentControls(snapshot).trigger ? 'unavailable' : 'none';
   // The last field filled (the password repeat) checks itself on blur:
   // SuccessFactors asks its password policy and a click on the statement's
@@ -3439,6 +3709,30 @@ async function awaitAuthView(page, before) {
   return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
 
+/** Open only the job-bound SuccessFactors registration view on the same HTTPS origin. */
+async function openSuccessFactorsRegistrationNavigation(page, snapshot) {
+  const identity = authFormIdentity(snapshot);
+  const frame = identity && page.frames()[identity.frame];
+  const currentUrl = frame?.url?.() || '';
+  const target = successFactorsRegistrationTarget(currentUrl);
+  if (!frame || !target) return null;
+  let before;
+  try {
+    before = new URL(currentUrl);
+    await frame.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const after = new URL(frame.url());
+    if (after.protocol !== 'https:' || after.origin !== before.origin || after.pathname !== before.pathname
+      || after.searchParams.get('career_ns') !== before.searchParams.get('career_ns')
+      || after.searchParams.get('career_job_req_id') !== before.searchParams.get('career_job_req_id')
+      || after.searchParams.get('company') !== before.searchParams.get('company')
+      || after.searchParams.get('login_ns') !== 'register') return null;
+  } catch {
+    return null;
+  }
+  const registration = await awaitAuthView(page, snapshot).catch(() => null);
+  return registration && authPageKind(registration) === 'create' ? registration : null;
+}
+
 /** Only classify a dialog as a cookie manager when its live copy and own choice agree. */
 async function knownCookieDialogSnapshot(page, snapshot) {
   for (const dialog of snapshot?.dialogs || []) {
@@ -3588,8 +3882,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   }
 
   if (kind === 'sign_in' && !account) {
-    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account', 'no_create_button', 'login');
-    return { snapshot: await awaitAuthView(page, snapshot) };
+    if (await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { snapshot: await awaitAuthView(page, snapshot) };
+    const registration = await openSuccessFactorsRegistrationNavigation(page, snapshot);
+    return registration
+      ? { snapshot: registration }
+      : accountHandoff('account', 'no_create_button', 'login');
   }
 
   // With SuccessFactors' OTP verification the candidate is not an account
@@ -3600,10 +3897,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // issue a fresh OTP; do not throw the credential away and try to create a
   // second one.
   if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
-    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account_verification', 'no_create_button', 'verification');
-    const registration = await awaitAuthView(page, snapshot);
-    if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
-    return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
+    // Some SuccessFactors tenants reopen `/career` on the sign-in form and
+    // expose only «Anmelden». The saved credential is the safe recovery path
+    // there; only restart registration when the page actually offers that
+    // navigation control.
+    const openedRegistration = await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE]);
+    if (openedRegistration) {
+      const registration = await awaitAuthView(page, snapshot);
+      if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
+      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
+    }
   }
 
   if (kind === 'sign_in') {
@@ -3657,8 +3960,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
-    // later sign-in that fails is then no reason to create it again.
-    await ctx.accounts.mark(host, { status: 'created', lastSignInAt: Date.now() });
+    // later sign-in that fails is then no reason to create it again. A successful saved-credential login also
+    // proves an unverified account is usable (including SuccessFactors' login-only recovery), so do not restart
+    // OTP registration on the next run.
+    const signedInAt = Date.now();
+    await ctx.accounts.mark(host, {
+      status: 'created',
+      lastSignInAt: signedInAt,
+      verifiedAt: account.verifiedAt || signedInAt,
+    });
     return { snapshot: after, reopen: true, pressed };
   }
 
@@ -4088,13 +4398,13 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
  * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
  * whether the CV went in; an upload widget that clears its input reads as empty.
  */
-async function requiredLeftEmpty(page, uploaded = new Set()) {
+async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField = null) {
   const url = page.url();
   const snapshot = await extractFields(page, NAVIGATION);
   const fields = snapshot.fields || [];
   for (const field of fields) {
     if (!field.required) continue;
-    const uploadedKey = uploadedPortalFieldKey(url, field);
+    const uploadedKey = uploadedKeyForField ? uploadedKeyForField(field, fields, url) : uploadedPortalFieldKey(url, field);
     const filled = field.kind === 'file' || field.inputType === 'file'
       ? uploaded.has(uploadedKey)
         || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
@@ -4265,10 +4575,118 @@ export function portalRequiredDocumentFromField(field) {
  * question: the review page must show it in the same document picker as the
  * posting's requested documents.
  */
-export function portalRequirementsFromMissingRequired(fields, missingRequired) {
+function missingCandidatePortalRequirements(fields, candidate) {
+  if (!candidate || typeof candidate !== 'object') return { questions: [], stableQuestionIds: new Map() };
+  const requiredFields = (Array.isArray(fields) ? fields : []).filter(field => field?.required === true);
+  const profile = candidate.profile || {};
+  const address = candidate.identity?.address || profile.address || {};
+  const answers = candidate.answers || {};
+  const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+  const fieldText = (field) => [
+    field?.label, field?.ariaLabel, field?.description, field?.ariaDescription,
+    ...(Array.isArray(field?.labels) ? field.labels : []),
+    ...(Array.isArray(field?.options) ? field.options.map(option => typeof option === 'string' ? option : option?.label) : []),
+  ].filter(Boolean).join(' ');
+  const optionLabels = field => (Array.isArray(field?.options) ? field.options : [])
+    .filter(option => option?.placeholder !== true)
+    .map(option => String(typeof option === 'string' ? option : option?.label || '').trim())
+    .filter(Boolean);
+  const missing = [];
+  const stableQuestionIds = new Map();
+  const add = (field, id, question, why, extra = {}) => {
+    const fieldId = String(field?.id || '').trim();
+    const applicationQuestion = String(field?.label || '').trim();
+    if (!fieldId && !applicationQuestion) return;
+    missing.push({ ...(fieldId ? { fieldId } : {}), applicationQuestion, question, why, required: true, ...extra });
+    if (fieldId) stableQuestionIds.set(fieldId, id);
+    stableQuestionIds.set(`label:${applicationQuestion}`, id);
+  };
+  const hasAnswer = id => String(answers[id] ?? '').trim().length > 0;
+  const datePresent = String(profile.dateOfBirth || '').trim().length > 0;
+  const streetPresent = String(address.street || '').trim().length > 0;
+  const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
+  const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
+  const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
+
+  for (const field of requiredFields) {
+    const label = folded(field.label);
+    const allText = folded(fieldText(field));
+    const role = residenceFieldRole(field.label);
+    const isBirthDate = String(field.autocomplete || '').toLowerCase() === 'bday'
+      || /\b(?:date of birth|birth date|geburtsdatum|date de naissance|data di nascita)\b/.test(allText);
+    if (isBirthDate && !datePresent && !hasAnswer('portal_date_of_birth')) {
+      add(field, 'portal_date_of_birth', 'Qual è la tua data di nascita completa?',
+        'Il portale richiede la data di nascita per completare la candidatura.',
+        { type: 'date', forceType: 'date', autocomplete: 'bday' });
+      continue;
+    }
+
+    const isSalutation = /\b(?:appellativo|anrede|salutation|form of address|civilite|titolo)\b/.test(label)
+      || /\b(?:signora|signor|madame|monsieur|herr|frau|mr|mrs|ms|miss)\b/.test(allText);
+    const addressTitleOnly = /^titolo accademico$/.test(label);
+    const salutationOptions = optionLabels(field).filter(option => /^(?:signora|signor(?:e)?|madame|monsieur|herr|frau|mr|mrs|ms|miss)\.?$/i.test(folded(option)));
+    if (isSalutation && !addressTitleOnly && salutationOptions.length >= 2
+      && !explicitSalutationPresent && !hasAnswer('salutation')) {
+      add(field, 'salutation', 'Quale appellativo vuoi usare nei moduli di candidatura?',
+        'Il portale richiede una scelta esplicita. Il valore proposto dal profilo non vale come conferma.',
+        { type: 'choice' });
+      continue;
+    }
+
+    const addressQuestionId = role === 'houseNumber' ? 'portal_residence_house_number'
+      : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address';
+    const addressValuePresent = role === 'houseNumber' ? houseNumberPresent
+      : role === 'street' && separateHouseNumber ? streetPresent
+        : streetPresent && houseNumberPresent;
+    if (['street', 'address', 'houseNumber'].includes(role) && !addressValuePresent && !hasAnswer(addressQuestionId)) {
+      const id = role === 'houseNumber' ? 'portal_residence_house_number'
+        : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address';
+      const question = role === 'houseNumber'
+        ? 'Qual è il numero civico del tuo indirizzo di residenza?'
+        : role === 'street' && separateHouseNumber
+          ? 'Qual è la via del tuo indirizzo di residenza?'
+          : 'Qual è la via e il numero civico del tuo indirizzo di residenza?';
+      add(field, id, question,
+        'Il portale richiede l’indirizzo stradale. CAP, località e Paese vengono letti dai dati già presenti.',
+        { type: 'text' });
+      continue;
+    }
+
+    const retentionPrompt = /\b(?:attivazione dati|data retention|retention period|keep (?:my |your |the )?data|retain (?:my |your |the )?data|delete (?:my |your |the )?data|eliminat\w* dopo la procedura|conserv\w* dopo la candidatura)\b/.test(allText);
+    if (retentionPrompt && !hasAnswer('portal_data_retention')) {
+      add(field, 'portal_data_retention', 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?',
+        'Il portale richiede di scegliere tra la conservazione per future offerte e la cancellazione dopo questa candidatura.',
+        { type: 'choice', forceType: 'choice', requiresNativeOptions: true });
+      continue;
+    }
+
+    const privacyConsent = /\b(?:privacy|data protection|protezione dei dati|protezione dati|datenschutz|confidentialite)\b/.test(allText)
+      && /\b(?:acconsent\w*|consent\w*|accept\w*|agree\w*|einwillig\w*|zustimm\w*)\b/.test(allText)
+      && /\b(?:tratt\w*|process\w*|verarbeit\w*|trait\w*)\b/.test(allText);
+    if (privacyConsent && !hasAnswer('portal_privacy_consent')) {
+      add(field, 'portal_privacy_consent', 'Dopo aver letto la dichiarazione sulla protezione dei dati dell’EOC, acconsenti al trattamento dei tuoi dati personali descritto nel modulo?',
+        'Il portale richiede il tuo consenso per inviare la candidatura. Se non acconsenti, la candidatura non può essere inviata.',
+        { type: 'yes_no', forceType: 'yes_no', options: ['Sì', 'No'], requiresAffirmativeConsent: true });
+    }
+  }
+  return { questions: missing, stableQuestionIds };
+}
+
+export function portalRequirementsFromMissingRequired(fields, missingRequired, { candidate = null } = {}) {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
+  const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate);
+  const mergedRequired = new Map();
+  for (const item of candidateRequirements.questions) {
+    const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
+    if (key) mergedRequired.set(key, item);
+  }
+  for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
+    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
+    if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
+  }
   const fieldFor = (item) => {
     const direct = availableFields.filter(field => field.id && field.id === item?.fieldId);
     if (direct.length === 1) return direct[0];
@@ -4284,7 +4702,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
   const readable = [];
   const unreadableFields = [];
   let reducedRequirement = false;
-  for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
+  for (const item of mergedRequired.values()) {
     const field = fieldFor(item);
     // A planner calling a field missing is not proof that it is mandatory.
     // A rejected live field remains a request even if it lacks a required marker;
@@ -4325,16 +4743,21 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
         const optionMap = portalOptionMap({ options: item.options, applicationOptions, optionMap: item.optionMap });
         let type = item.type;
         if (field) {
-          if (['select', 'radio', 'listbox'].includes(field.kind) || field.selectLike || field.nativeSelectId || applicationOptions.length) type = 'choice';
+          if (item.forceType) type = item.forceType;
+          else if (['select', 'radio', 'listbox'].includes(field.kind) || field.selectLike || field.nativeSelectId || applicationOptions.length) type = 'choice';
           else if (editableCombobox) type = 'text';
           else if (field.kind === 'checkbox') type = 'yes_no';
-          else if (field.kind === 'date' || field.inputType === 'date') type = 'date';
+          else if (field.kind === 'date' || field.inputType === 'date' || field.autocomplete === 'bday') type = 'date';
           else if (field.inputType === 'number') type = 'number';
           else if (['text', 'textarea'].includes(field.kind)) type = 'text';
         }
         // A native choice with no usable catalogue needs another portal read,
         // never a text question whose arbitrary answer the ATS cannot accept.
         if (field && type === 'choice' && !applicationOptions.length) {
+          unreadableFields.push(field.id || item.fieldId || 'unknown');
+          continue;
+        }
+        if (field && item.requiresNativeOptions === true && !applicationOptions.length) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
@@ -4346,6 +4769,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           validation: field && (type !== item.type || ['choice', 'yes_no'].includes(type)) ? {} : item.validation,
           required: true,
           applicationOptions,
+          applicationOptionsKnown: Boolean(field),
           options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
@@ -4357,7 +4781,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     }
     if (!documents.some((candidate) => candidate.id === document.id)) documents.push(document);
   }
-  const questions = questionsFrom(readable);
+  const questions = questionsFrom(readable, candidateRequirements.stableQuestionIds);
   return {
     questions,
     documents,
@@ -4371,8 +4795,9 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
  * identify ALL the questions before answering), so the candidate answers them
  * on the first review instead of in a second round at submit time. The form
  * is opened and read, never filled, and nothing is pressed but "apply".
- * Never fails the draft: browser failures return no questions. An unreadable
- * required field is a technical handoff, never a question for the candidate.
+ * A supported portal that cannot be read is a technical handoff, never an
+ * empty requirement list. An unreadable required field is not a question for
+ * the candidate.
  * @returns {Promise<{questions:Array<object>,documents:Array<object>,handoff?:string,unreadableFields?:Array<string>}>} requirements for the review page
  */
 export async function readPortalRequirements(ctx) {
@@ -4383,16 +4808,16 @@ export async function readPortalRequirements(ctx) {
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
-  const verifiedPostingEntry = verifiedJobs2WebEntry || isVerifiedPostingEntry(ctx);
+  const verifiedPostingEntry = verifiedJobs2WebEntry || verifiedPostingEntryFor(ctx);
   const readAhead = portalReadAheadCapability({
     channelType,
     entryUrl,
     verifiedPostingEntry,
   });
-  if (!readAhead
-    || !ctx.applyUrl || !ctx.codex) {
+  if (!readAhead || !ctx.applyUrl) {
     return { questions: [], documents: [] };
   }
+  if (!ctx.codex) return { questions: [], documents: [], handoff: 'requirements_unavailable' };
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
   try {
@@ -4423,13 +4848,19 @@ export async function readPortalRequirements(ctx) {
       : NAVIGATION));
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
-    if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };
+    if (snapshot.captcha || !readableApplication) return { questions: [], documents: [], handoff: 'requirements_unavailable' };
     // The live form is authoritative for the selected posting. A verified
     // route is sufficient provenance for a generic ATS form; otherwise a
     // mismatch must stop before any job-specific question reaches the draft.
     const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
     if (hasJobContract) {
-      const formMatch = formPostingMatch(`${snapshot.text || ''}\n${page.url()}`, ctx.job, {
+      // Keep the page title as a separate line. Some ATS accessibility text
+      // starts with a skip-link preamble (for example Umantis' «Passa a
+      // Contenuto principale»); flattening it into the first line makes the
+      // employer-conflict guard mistake that chrome for another employer.
+      const pageTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
+      const formText = `${pageTitle}\n${snapshot.text || ''}\n${page.url()}`;
+      const formMatch = formPostingMatch(formText, ctx.job, {
         postingMatched: verifiedPostingEntry,
         postingEntry: verifiedPostingEntry,
         pageUrl: page.url(),
@@ -4437,7 +4868,7 @@ export async function readPortalRequirements(ctx) {
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
     }
     const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
-    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired);
+    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, { candidate: ctx.candidate });
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
       return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
@@ -4454,7 +4885,7 @@ export async function readPortalRequirements(ctx) {
     return { ...requirements, questions };
   } catch (error) {
     (ctx.log || (() => {}))(`portal pre-read skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return { questions: [], documents: [] };
+    return { questions: [], documents: [], handoff: 'requirements_unavailable' };
   } finally {
     await browser?.close().catch(() => {});
   }
@@ -4513,7 +4944,7 @@ export async function submitViaPortal(ctx) {
   let diagnostics = null;
   let finalClickAttempt = null;
   let activeFinalFormGuard = null;
-  const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
+  const enteredFromMatchingPosting = verifiedPostingEntryFor(ctx);
   const clearActiveFinalFormGuard = async () => {
     if (!activeFinalFormGuard?.token) return;
     if (activeFinalFormGuard.frame?.evaluate) {
@@ -4691,10 +5122,37 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
+    // Exclude this run's selections from prior-file cleanup checks; upload retry
+    // suppression remains field-scoped in `uploaded`.
+    const selectedDocumentsThisRun = new Set();
+    const selectedUploadFieldsThisRun = new Map();
     const privacyAcceptedPages = new Set();
     // Bounded redraw recovery follows the logical wizard page, not the URL or
     // the loop counter (portals often keep one address for every SPA step).
     let pageEpoch = 0;
+    const uploadKeyForField = (fieldId, fields, url = page.url(), epoch = pageEpoch) => {
+      const field = fields.find((item) => item.id === fieldId) || { id: fieldId };
+      const baseKey = uploadedPortalFieldKey(`${url}|step:${epoch}`, { id: portalUploadFieldIdentity(field) });
+      const fileFields = fields.filter(isFileField);
+      const matchingFields = fileFields.filter((item) => portalUploadFieldIdentity(item) === portalUploadFieldIdentity(field));
+      const records = selectedUploadFieldsThisRun.get(baseKey) || [];
+      return portalUploadActionKey(url, epoch, field, matchingFields, records);
+    };
+    const rememberUploadSelection = (fieldId, fields, url = page.url(), epoch = pageEpoch) => {
+      const field = fields.find((item) => item.id === fieldId) || { id: fieldId };
+      const baseKey = uploadedPortalFieldKey(`${url}|step:${epoch}`, { id: portalUploadFieldIdentity(field) });
+      const fileFields = fields.filter(isFileField);
+      const matchingFields = fileFields.filter((item) => portalUploadFieldIdentity(item) === portalUploadFieldIdentity(field));
+      const groupIndex = matchingFields.findIndex((item) => item.id === field.id);
+      const records = selectedUploadFieldsThisRun.get(baseKey) || [];
+      const key = portalUploadActionKey(url, epoch, field, matchingFields, records);
+      if (key === null) return null;
+      if (!records.some((item) => item.key === key || item.fieldId === field.id)) {
+        records.push({ key, fieldId: field.id, domId: field.domId || '', groupIndex, groupSize: matchingFields.length });
+        selectedUploadFieldsThisRun.set(baseKey, records);
+      }
+      return key;
+    };
     const redraws = new Map();
     // How often a page was loaded again because the portal asked for it, by address.
     const refreshes = new Map();
@@ -4893,7 +5351,14 @@ export async function submitViaPortal(ctx) {
             noteUpload('cv');
             uploadedCvUrls.add(page.url());
           }
-          if (opened.cv !== 'unavailable' && opened.cvFieldKey) uploaded.add(opened.cvFieldKey);
+          if (opened.cv !== 'unavailable' && opened.cvFieldKey) {
+            const uploadedField = snapshot.fields.find((field) => uploadedPortalFieldKey(page.url(), field) === opened.cvFieldKey)
+              || snapshot.fields.find(isCvFileField);
+            if (uploadedField) {
+              const key = rememberUploadSelection(uploadedField.id, snapshot.fields);
+              if (key) uploaded.add(key);
+            }
+          }
           if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
         }
         if (opened.coverLetter) {
@@ -4942,7 +5407,7 @@ export async function submitViaPortal(ctx) {
           kind: authPageKind(snapshot),
           outcome: auth.handoff || (auth.questions?.length || auth.documents?.length ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
           ...(auth.privacy ? { privacy: auth.privacy } : {}),
-          // How the sign-in button was found (clickButton): by its id, again after a redraw, or by its text.
+          // How the sign-in button was found (clickButton): by id, again after a redraw, or scoped role.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
         };
         if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
@@ -5011,13 +5476,14 @@ export async function submitViaPortal(ctx) {
       // draft written since (a planner that sees «successfully uploaded» leaves the field alone). What this
       // run uploaded itself stays.
       const sentNow = new Set(evidence.uploads.map((upload) => upload.document));
-      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document))
+      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document) && !selectedDocumentsThisRun.has(document))
         .flatMap((document) => {
           const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
           const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
           return removals;
         });
-      for (const document of Object.keys(ctx.files || {}).filter((item) => !sentNow.has(item))) {
+      for (const document of Object.keys(ctx.files || {}).filter((item) =>
+        !sentNow.has(item) && !selectedDocumentsThisRun.has(item))) {
         const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
         const matchingRemoval = earlier.some((item) => item.document === document);
         for (const name of names) {
@@ -5071,10 +5537,17 @@ export async function submitViaPortal(ctx) {
         candidateQuestions = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
         // A file already uploaded on this page is not uploaded again when the
         // page is planned a second time (Personio empties the input after the upload).
-        const uploadKey = (fieldId) => uploadedPortalFieldKey(
-          page.url(), snapshot.fields.find((field) => field.id === fieldId) || { id: fieldId },
-        );
-        const actions = plannedActions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
+        const uploadKey = (fieldId) => uploadKeyForField(fieldId, snapshot.fields, page.url(), pageEpoch);
+        const uploadKeys = new Map(plannedActions.filter((action) => action.action === 'upload')
+          .map((action) => [action.fieldId, uploadKey(action.fieldId)]));
+        if ([...uploadKeys.values()].some((key) => key === null)) {
+          evidence.steps.at(-1).uploadIdentityAmbiguous = true;
+          return await handoff('portal_needs_candidate');
+        }
+        const actions = plannedActions.filter((action) => {
+          if (action.action !== 'upload') return true;
+          return !uploaded.has(uploadKeys.get(action.fieldId));
+        });
         const plannedUrl = page.url();
         const redrawKey = `${pageEpoch}|${plannedUrl}`;
         // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
@@ -5103,14 +5576,39 @@ export async function submitViaPortal(ctx) {
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
-          onUploadSelection: (fieldId, paths) => selectedUploads.set(fieldId, paths),
+          onUploadSelection: (fieldId, paths) => {
+            selectedUploads.set(fieldId, paths);
+            if (paths.length) {
+              rememberUploadSelection(fieldId, snapshot.fields, page.url(), pageEpoch);
+              const selectedAction = actions.find((action) => action.fieldId === fieldId && action.action === 'upload');
+              if (selectedAction?.document) selectedDocumentsThisRun.add(selectedAction.document);
+            }
+          },
         }));
         if (!redrawn) {
           for (const action of actions.filter((item) => item.action === 'upload')) {
             const result = results.find((item) => item.fieldId === action.fieldId);
             const field = snapshot.fields.find((item) => item.id === action.fieldId);
             const files = selectedUploads.get(action.fieldId) || [];
-            if (!result?.ok || !field || !await uploadReceipt(page, locatorFor(page, field), files, { acceptedResponse: result.uploadAccepted === true })) {
+            const confirmed = result?.ok && field
+              && await uploadReceipt(page, locatorFor(page, field), files, { acceptedResponse: result.uploadAccepted === true });
+            if (!confirmed) {
+              // A generated cover letter is optional. If its upload is not
+              // confirmed, omit it and continue; a missing required file still
+              // stops the application below the same fail-closed boundary.
+              const optionalCoverLetter = action.document === 'cover_letter'
+                && field?.required === false && !field.invalid;
+              if (optionalCoverLetter) {
+                // This selection belongs to the current run, even when its
+                // upload receipt is missing. Do not retry it on a redraw or
+                // mistake its still-visible filename for an older upload.
+                uploaded.add(uploadKey(action.fieldId));
+                if (result) {
+                  result.ok = false;
+                  result.error ||= 'upload_not_confirmed';
+                } else results.push({ fieldId: action.fieldId, ok: false, error: 'upload_not_confirmed' });
+                continue;
+              }
               if (result) {
                 result.ok = false;
                 result.error ||= 'upload_not_confirmed';
@@ -5271,7 +5769,9 @@ export async function submitViaPortal(ctx) {
           // the agent names it, the runner presses it below, behind the submission guard,
           // only when nothing required is left empty on the page.
           if (!submit && !next && !advance && agent.submitRef) {
-            if (!await requiredLeftEmpty(page, uploaded)) finalByAgent = await submitLocator(page, agent.submitRef);
+            if (!await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
+              finalByAgent = await submitLocator(page, agent.submitRef);
+            }
           }
         }
       }
@@ -5355,6 +5855,7 @@ export async function submitViaPortal(ctx) {
           by: 'runner',
           buttonId: id,
           formId: String(button.formId || ''),
+          dialogId: String(button.dialogId || ''),
           frame,
           locator: frame.locator(`[data-aa-id="${id}"]`).first(),
           click: () => clickButton(page, button),
@@ -5365,6 +5866,7 @@ export async function submitViaPortal(ctx) {
         by: 'agent',
         buttonId: String(button.buttonId || ''),
         formId: String(button.formId || ''),
+        dialogId: String(button.dialogId || ''),
         frame: button.frame || page.mainFrame(),
         locator: button.locator,
         click: () => clickSubmitButton(page, button),
@@ -5383,7 +5885,7 @@ export async function submitViaPortal(ctx) {
       // A normal send button is not evidence that the portal form is complete.
       // Let the agent repair any required fields the deterministic fill missed;
       // never click Send while a required answer or upload is still empty.
-      if (await requiredLeftEmpty(page, uploaded)) {
+      if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
         evidence.steps.at(-1).requiredFieldsUnfilled = true;
         const repairUrl = page.url();
         const repair = await runAgent(after, 'required_fields_unfilled');
@@ -5399,7 +5901,9 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         after = await extractFields(page, NAVIGATION);
-        if (await requiredLeftEmpty(page, uploaded)) return await handoff('portal_required_fields_unfilled');
+        if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
+          return await handoff('portal_required_fields_unfilled');
+        }
         const repairedControls = await controlsFor(after, known);
         const receiptResult = await confirmedReceipt(after);
         if (receiptResult) return receiptResult;
@@ -5520,6 +6024,19 @@ export async function submitViaPortal(ctx) {
       return { event: { type: 'submit_failed', error: outcome === 'validation' ? 'portal_validation' : antibot ? 'portal_antibot_ambiguous' : 'portal_ambiguous' }, evidence };
     }
     return await handoff('portal_needs_candidate');
+  } catch (error) {
+    const currentAttempt = diagnostics?.currentAttempt?.();
+    const finalClickInCurrentAttempt = Number.isSafeInteger(finalClickAttempt)
+      && Number.isSafeInteger(currentAttempt)
+      && finalClickAttempt === currentAttempt;
+    const message = String(error?.message || error);
+    const exhaustedPreDispatchLocatorClick = /\blocator\.click\b/i.test(message)
+      && isPreDispatchLocatorClickFailure(error);
+    if ((error?.code === 'portal_control_click_unresolved' || exhaustedPreDispatchLocatorClick) && !finalClickInCurrentAttempt) {
+      evidence.controlClickFailure = { stage: 'intermediate', outcome: 'pre_dispatch' };
+      return await handoff('portal_control_click_unresolved');
+    }
+    throw error;
   } finally {
     await clearActiveFinalFormGuard();
     await diagnostics?.finish();

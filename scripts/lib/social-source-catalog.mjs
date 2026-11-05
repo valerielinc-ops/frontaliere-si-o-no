@@ -277,4 +277,3 @@ export function buildSocialJobSourceCatalog(jobs, { asOf = new Date(), maxAgeDay
   };
   return { ...catalog, catalogId: socialSourceCatalogId(sources) };
 }
-

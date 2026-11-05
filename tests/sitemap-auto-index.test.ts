@@ -56,15 +56,16 @@ function seedSitemapWithLocs(distDir: string, filename: string, locs: string[]):
 function seedHtmlPage(
   distDir: string,
   urlPath: string,
-  options: { canonical?: string; noindex?: boolean } = {},
+  options: { canonical?: string | null; noindex?: boolean } = {},
 ): void {
   const pageDir = path.join(distDir, urlPath.replace(/^\/+/, ''));
   fs.mkdirSync(pageDir, { recursive: true });
-  const canonical = options.canonical ?? `${BASE_URL}${urlPath}`;
+  const canonical = options.canonical === undefined ? `${BASE_URL}${urlPath}` : options.canonical;
   const robots = options.noindex ? '<meta name="robots" content="noindex,follow">' : '';
+  const canonicalTag = canonical === null ? '' : `<link rel="canonical" href="${canonical}">`;
   fs.writeFileSync(
     path.join(pageDir, 'index.html'),
-    `<!doctype html><html><head>${robots}<link rel="canonical" href="${canonical}"></head><body>Fuel station</body></html>`,
+    `<!doctype html><html><head>${robots}${canonicalTag}</head><body>Fuel station</body></html>`,
     'utf-8',
   );
 }
@@ -138,7 +139,8 @@ describe('sitemapAliasPlugin — auto-discovery', () => {
     const names = discovered.map((s) => s.file);
 
     expect(names).not.toContain('sitemap-index.xml');
-    expect(names).toEqual(['sitemap-jobs-ticino.xml', 'sitemap-pages.xml']);
+    expect(names).not.toContain('sitemap-jobs-ticino.xml');
+    expect(names).toEqual(['sitemap-pages.xml']);
   });
 
   it('does not pick up non-sitemap files or files with the wrong prefix', async () => {
@@ -301,7 +303,17 @@ describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
       new URL('../scripts/ci/reconcile-rehydrated-sitemaps.ts', import.meta.url),
       'utf8',
     );
-    expect(source).toMatch(/reconcileFinalSitemapsWithDist\(distDir, \[\], \{\s*keepMissing: false,\s*ignoreShardOwnership: true,\s*\}\)/);
+    expect(source).toContain('const REHYDRATED_SITEMAP_OPTIONS = Object.freeze({');
+    expect(source).toMatch(/keepMissing: false,\s*ignoreShardOwnership: true/);
+    expect(source).toContain('reconcileFinalSitemapsWithDist(distDir, [], REHYDRATED_SITEMAP_OPTIONS)');
+  });
+
+  it('uses strict missing-page checks at the build finalization boundary', () => {
+    const source = fs.readFileSync(
+      new URL('../build-plugins/sitemapAliasPlugin.ts', import.meta.url),
+      'utf8',
+    );
+    expect(source).toMatch(/reconcileFinalSitemapsWithDist\(distDir, getFinalSitemapMirrorLocs\(\), \{\s*keepMissing: false,\s*ignoreShardOwnership: false,\s*\}\)/);
   });
 
   it('keeps healthy recovered URLs and removes noindex, noncanonical, and final-dist 404 URLs', async () => {
@@ -322,10 +334,7 @@ describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
       .map((match) => match[1]!);
     expect(shardBuildLocs).toEqual([healthy, missing]);
 
-    await reconcileFinalSitemapsWithDist(distDir, [], {
-      keepMissing: false,
-      ignoreShardOwnership: true,
-    });
+    await reconcileFinalSitemapsWithDist(distDir, []);
     const finalLocs = [...fs.readFileSync(path.join(distDir, file), 'utf8').matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
       .map((match) => match[1]!);
     expect(finalLocs).toEqual([healthy]);
@@ -352,6 +361,24 @@ describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
       else process.env.BUILD_LOCALE = previousBuildLocale;
       vi.resetModules();
     }
+  });
+
+  it('removes an edge 301 URL even when the assembled origin HTML is self-canonical', async () => {
+    const edgeRedirect = `${BASE_URL}/cookie/`;
+    const canonical = `${BASE_URL}/privacy/`;
+    const file = 'sitemap-pages.xml';
+    seedSitemapWithLocs(distDir, file, [edgeRedirect, canonical]);
+    seedHtmlPage(distDir, '/cookie/');
+    seedHtmlPage(distDir, '/privacy/');
+
+    await reconcileFinalSitemapsWithDist(distDir, [], {
+      keepMissing: false,
+      ignoreShardOwnership: true,
+    });
+
+    const finalLocs = [...fs.readFileSync(path.join(distDir, file), 'utf8').matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
+      .map((match) => match[1]!);
+    expect(finalLocs).toEqual([canonical]);
   });
 });
 
@@ -427,7 +454,8 @@ describe('sitemapAliasPlugin — final fuel dist reconciliation', () => {
     const livePath = '/prezzi-benzina/chiasso/oggi/';
     const noindexPath = '/prezzi-benzina/mendrisio/oggi/';
     const driftPath = '/prezzi-benzina/lugano/oggi/';
-    const missingPath = '/prezzi-benzina/locarno/oggi/';
+    const missingCanonicalPath = '/prezzi-benzina/locarno/oggi/';
+    const missingPath = '/prezzi-benzina/ascona/oggi/';
     const staleShardPath = '/prezzi-benzina/bellinzona/oggi/';
     const loc = (urlPath: string) => `${BASE_URL}${urlPath}`;
 
@@ -435,15 +463,17 @@ describe('sitemapAliasPlugin — final fuel dist reconciliation', () => {
       loc(livePath),
       loc(noindexPath),
       loc(driftPath),
+      loc(missingCanonicalPath),
       loc(missingPath),
     ]);
     seedSitemapWithLocs(distDir, 'sitemap-fuel-stations-1.xml', [loc(staleShardPath)]);
     seedHtmlPage(distDir, livePath);
     seedHtmlPage(distDir, noindexPath, { noindex: true });
     seedHtmlPage(distDir, driftPath, { canonical: `${BASE_URL}/prezzi-benzina/oggi/` });
+    seedHtmlPage(distDir, missingCanonicalPath, { canonical: null });
     seedHtmlPage(distDir, staleShardPath);
 
-    await expect(reconcileSitemapFuelWithDist(distDir)).resolves.toBe(3);
+    await expect(reconcileSitemapFuelWithDist(distDir)).resolves.toBe(4);
 
     expect(fs.existsSync(path.join(distDir, 'sitemap-fuel-stations-1.xml'))).toBe(false);
     const remaining = fs.readFileSync(
@@ -453,6 +483,7 @@ describe('sitemapAliasPlugin — final fuel dist reconciliation', () => {
     expect(remaining).toContain(`<loc>${loc(livePath)}</loc>`);
     expect(remaining).not.toContain(`<loc>${loc(noindexPath)}</loc>`);
     expect(remaining).not.toContain(`<loc>${loc(driftPath)}</loc>`);
+    expect(remaining).not.toContain(`<loc>${loc(missingCanonicalPath)}</loc>`);
     expect(remaining).not.toContain(`<loc>${loc(missingPath)}</loc>`);
   });
 });

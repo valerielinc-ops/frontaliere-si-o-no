@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { isDeepStrictEqual } from 'node:util';
 import { renderPdf } from '../functions/src/assistedApplicationAiDocuments.js';
-import { JOB_ACTIVE_IDS_URL } from '../functions/src/assistedApplicationAiJob.js';
+import { JOB_ACTIVE_IDS_URL, JOB_DETAIL_BASE } from '../functions/src/assistedApplicationAiJob.js';
 import {
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
@@ -60,6 +60,7 @@ function fakeFetch({ employerStatus = 200, employerHtml = '<main><p>Descrizione 
       if (init.method === 'HEAD') return new Response(null, { status: 200 });
       return new Response(JSON.stringify({
         description: POSTING,
+        url: 'https://jobs.lever.co/ospedale/1',
         applyUrl: 'https://jobs.lever.co/ospedale/1/apply',
         titleByLocale: { it: title },
         addressLocality: 'Lugano',
@@ -185,6 +186,7 @@ describe('draft mode', () => {
     expect(draft.ats.tailored.keywords).toBeTruthy();
     expect(['high_confidence', 'caution', 'suspicious']).toContain(draft.legitimacy.tier);
     expect(draft).toMatchObject({ status: 'ready', round: 1, verdict: 'good', language: 'it', channel: { type: 'lever' } });
+    expect(draft.job.postingUrl).toBe('https://jobs.lever.co/ospedale/1');
     // Inferred rows are never critical; unverified quotes and invented addresses are dropped.
     expect(draft.requirements[2]).toMatchObject({ basis: 'inferred', importance: 'meaningful', quote: '' });
     expect(draft.requirements[3]).toMatchObject({ quote: '', quoteUnverified: true });
@@ -210,6 +212,72 @@ describe('draft mode', () => {
     expect(draft.applicationEmail.body).toBe('Gentili signore e signori,\n\nin allegato CV e lettera.\n\nCordiali saluti\n\nMaria Rossi\nmaria.rossi@example.com\n+41 79 123 45 67');
     const documentsPrompt = (codex.mock.calls as any[]).find(([request]) => request.schema === DOCUMENTS_SCHEMA)[0].prompt;
     expect(documentsPrompt).toContain('emailBody is the message only: no greeting, no closing formula and no signature');
+  });
+
+  it('resolves SuccessFactors from the published job page when the saved apply URL is retired', async () => {
+    const postingUrl = 'https://careers.helsana.ch/job/it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff/1426391333/';
+    const applyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const successFactorsUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
+    const page = `<html><body><h1>IT Management Assistenz (a) 80%</h1><p>${'IT Management Assistenz bei Helsana. '.repeat(30)}</p><a>Jetzt bewerben</a><script>j2w.init({ ssoCompanyId: 'Helsana', ssoUrl: 'https://career5.successfactors.eu', locale: 'de_DE' }); j2w.Apply.init({ applyWithLinkedIn2Config: { internalId: '34525-de_DE' } });</script></body></html>`;
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      calls.push(`${init.method || 'GET'} ${url}`);
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) {
+        if (init.method === 'HEAD') return new Response(null, { status: 200 });
+        return new Response(JSON.stringify({
+          description: POSTING,
+          applyUrl,
+          slugByLocale: { de: 'it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff' },
+          titleByLocale: { de: 'IT Management Assistenz (a) 80%' },
+          addressLocality: 'Dübendorf',
+        }), { status: 200 });
+      }
+      if (url === postingUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+      if (url === applyUrl) return new Response(null, { status: 301, headers: { location: '/' } });
+      return new Response('', { status: 404 });
+    });
+
+    const draft = await buildDraft({
+      order: { ...order, jobId: 'helsana-872317162e36', jobUrl: applyUrl, jobTitle: 'IT Management Assistenz (a) 80%', companyName: 'Helsana' },
+      orderId: ORDER_ID,
+      flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl, nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+
+    expect(draft.job).toMatchObject({ postingUrl, applyUrl: successFactorsUrl });
+    expect(draft.channel).toMatchObject({ type: 'successfactors', applyUrl: successFactorsUrl, postingUrl, via: 'successfactors' });
+    expect(calls).toContain(`GET ${postingUrl}`);
+    expect(calls).not.toContain(`GET ${applyUrl}`);
+  });
+
+  it('classifies a published SuccessFactors job route even when the saved apply URL is stale', async () => {
+    const postingUrl = 'https://career5.successfactors.eu/career/job/34525';
+    const applyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const page = `<html><body><h1>IT Management Assistenz (a) 80%</h1><p>${'IT Management Assistenz bei Helsana. '.repeat(30)}</p><a>Jetzt bewerben</a></body></html>`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) {
+        return new Response(JSON.stringify({
+          description: POSTING,
+          url: postingUrl,
+          applyUrl,
+          titleByLocale: { de: 'IT Management Assistenz (a) 80%' },
+          addressLocality: 'Dübendorf',
+        }), { status: 200 });
+      }
+      if (url === postingUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+      return new Response('', { status: 404 });
+    });
+
+    const draft = await buildDraft({
+      order: { ...order, jobId: 'helsana-872317162e36', jobUrl: applyUrl, jobTitle: 'IT Management Assistenz (a) 80%', companyName: 'Helsana' },
+      orderId: ORDER_ID,
+      flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl, nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+
+    expect(draft.channel).toMatchObject({ type: 'successfactors', applyUrl: postingUrl, postingUrl });
   });
 
   it('writes an apprenticeship’s subject from the trade, and the fact gate reads that subject as a name', async () => {
@@ -613,24 +681,26 @@ describe('submit mode', () => {
     expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
   });
 
-  it('passes the selected posting URL alongside a SuccessFactors apply URL', async () => {
+  it('uses the published posting URL for liveness and the SuccessFactors runner when the order URL is stale', async () => {
     const bucket = fakeBucket();
     await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
     const applyUrl = 'https://jobs.six-group.com/talentcommunity/apply/1448418433/?locale=en_US';
     const postingUrl = 'https://jobs.six-group.com/job/Zurich-Senior-IT-Manager/1448418433/';
     const portalDraft = {
       ...baseDraft,
-      job: { title: 'Senior IT Manager - CIO Office', applyUrl },
-      channel: { type: 'successfactors', applyUrl, host: 'jobs.six-group.com', requiresAccount: false },
+      job: { title: 'Senior IT Manager - CIO Office', postingUrl, applyUrl },
+      channel: { type: 'successfactors', applyUrl, postingUrl: applyUrl, host: 'jobs.six-group.com', requiresAccount: false },
     };
+    const fetchImpl = fakeFetch();
     const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
     await submitApplication({
-      order: { ...order, jobUrl: postingUrl }, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      order: { ...order, jobUrl: applyUrl }, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       flow: { answers: { salary_expectation: 'CHF 80k' } },
-      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
     });
 
     expect(runner).toHaveBeenCalledWith(expect.objectContaining({ applyUrl, postingUrl }));
+    expect(fetchImpl).toHaveBeenCalledWith(postingUrl, expect.objectContaining({ redirect: 'manual' }));
   });
 
   it('resolves a required portal age question from the CV before the submit gate', async () => {
@@ -671,6 +741,47 @@ describe('submit mode', () => {
     expect(runner).toHaveBeenCalledTimes(1);
   });
 
+  it('resolves a legacy Helsana submit from published detail when the saved apply URL is retired', async () => {
+    const jobId = 'helsana-872317162e36';
+    const postingUrl = 'https://careers.helsana.ch/job/it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff/1426391333/';
+    const staleApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const successFactorsUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const page = `<html><body><h1>IT Management Assistenz (a) 80%</h1><p>${'IT Management Assistenz bei Helsana. '.repeat(30)}</p><a>Jetzt bewerben</a><script>j2w.init({ ssoCompanyId: 'Helsana', ssoUrl: 'https://career5.successfactors.eu', locale: 'de_DE' }); j2w.Apply.init({ applyWithLinkedIn2Config: { internalId: '34525-de_DE' } });</script></body></html>`;
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      calls.push(`${init.method || 'GET'} ${url}`);
+      if (url === detailUrl) return new Response(JSON.stringify({
+        description: POSTING,
+        applyUrl: staleApplyUrl,
+        slugByLocale: { de: 'it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff' },
+      }), { status: 200 });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url === postingUrl && init.method === 'HEAD') return new Response(null, { status: 200 });
+      if (url === postingUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+      if (url === staleApplyUrl) return new Response(null, { status: 301, headers: { location: '/' } });
+      return new Response('', { status: 404 });
+    });
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+
+    const event = await submitApplication({
+      order: { ...order, jobId, jobUrl: staleApplyUrl, jobTitle: 'IT Management Assistenz (a) 80%', companyName: 'Helsana' },
+      orderId: ORDER_ID,
+      draft: { ...baseDraft, channel: { type: 'employer_site', applyUrl: staleApplyUrl, host: 'careers.helsana.ch', requiresAccount: false }, job: { applyUrl: staleApplyUrl } },
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      cvBuffer: cvPdf(), cvType: 'pdf', bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns,
+      fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+
+    expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
+    expect(runner).toHaveBeenCalledTimes(1);
+    expect((runner.mock.calls as any)[0][0]).toMatchObject({ applyUrl: successFactorsUrl, postingUrl, channelType: 'successfactors' });
+    expect(calls).toContain(`GET ${postingUrl}`);
+    expect(calls.some((call) => call.endsWith(staleApplyUrl))).toBe(false);
+  });
+
   // Coop, 2026-10-02: jobs.coopjobs.ch → Prospective.ch redirect → SAP SuccessFactors.
   it('starts Coop on SuccessFactors and checks the posting, not the ATS sign-in, for liveness', async () => {
     const bucket = fakeBucket();
@@ -687,7 +798,7 @@ describe('submit mode', () => {
     });
     const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
     const submit = (draft: any) => submitApplication({
-      order, orderId: ORDER_ID, draft, cvBuffer: cvPdf(), cvType: 'pdf', flow: { answers: { salary_expectation: 'CHF 80k' } },
+      order: { ...order, jobUrl: posting }, orderId: ORDER_ID, draft, cvBuffer: cvPdf(), cvType: 'pdf', flow: { answers: { salary_expectation: 'CHF 80k' } },
       bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
     });
     // A draft made before the redirect was resolved: resolved at submit time.

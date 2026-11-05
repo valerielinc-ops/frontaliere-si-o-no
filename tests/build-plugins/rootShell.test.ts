@@ -51,11 +51,6 @@ describe('rootShell — header-reserve spacer is gated on the SPA bundle', () =>
 describe('SPA-takeover generators — static main ownership', () => {
   const generators = [
     {
-      sourcePath: 'build-plugins/staticPagesPlugin.ts',
-      mainVariable: 'staticHubMainHtml',
-      mainClass: 'job-board-static-hub',
-    },
-    {
       sourcePath: 'build-plugins/jobsSeoPagesPlugin.ts',
       mainVariable: 'staticJobMainHtml',
       mainClass: 'static-job-page',
@@ -79,4 +74,13 @@ describe('SPA-takeover generators — static main ownership', () => {
       );
     });
   }
+
+  it('keeps the canonical job-board hub snapshot outside #root', () => {
+    const source = readFileSync(resolve(ROOT, 'build-plugins/staticPagesPlugin.ts'), 'utf-8');
+    const bodySection = source.slice(source.indexOf('const bodySection ='));
+
+    expect(bodySection).toContain('${rootShell(hasSpaBundle)}\n${staticHubMainHtml}');
+    expect(bodySection).not.toContain('rootShell(hasSpaBundle, staticHubMainHtml)');
+    expect(source).toContain("'seo-static-content job-board-static-hub job-board-static-content'");
+  });
 });

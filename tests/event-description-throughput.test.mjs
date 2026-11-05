@@ -29,6 +29,7 @@ import {
   EVENT_DESCRIPTION_ARTIFACT_KEY_NAME,
   stageEventDescriptionArtifactKey,
 } from '../scripts/lib/event-description-artifact-key.mjs';
+import { scanImportClosure } from '../scripts/ci/check-dependency-free-import-closure.mjs';
 
 const workflow = readFileSync(path.join(process.cwd(), '.github/workflows/event-description-rewrite.yml'), 'utf8');
 
@@ -149,6 +150,37 @@ test('planner emits every workflow output without replacing existing step output
     direction: plan.direction,
     reason: plan.reason,
   });
+});
+
+test('adaptive planner stays dependency-free for its no-npm-ci workflow job', () => {
+  const { files, packageImports } = scanImportClosure({
+    entries: ['scripts/plan-event-description-rewrite.mjs'],
+  });
+  assert.equal(packageImports.length, 0);
+  assert.deepEqual(files, [
+    'scripts/lib/event-description-throughput-plan.mjs',
+    'scripts/plan-event-description-rewrite.mjs',
+  ]);
+});
+
+test('pre-install shard initialization stays dependency-free', () => {
+  const initializationStart = workflow.indexOf('- name: Initialize private shard artifact');
+  const setupStart = workflow.indexOf('- name: Setup Node.js', initializationStart);
+  assert.ok(initializationStart >= 0, 'pre-install initialization step not found');
+  assert.ok(setupStart > initializationStart, 'initialization must remain before runtime setup');
+  const initialization = workflow.slice(initializationStart, setupStart);
+  assert.match(initialization, /node scripts\/initialize-event-description-shard\.mjs/u);
+  assert.doesNotMatch(initialization, /node scripts\/event-description-rewrite\.mjs/u);
+
+  const { files, packageImports } = scanImportClosure({
+    entries: ['scripts/initialize-event-description-shard.mjs'],
+  });
+  assert.equal(packageImports.length, 0);
+  assert.deepEqual(files, [
+    'scripts/initialize-event-description-shard.mjs',
+    'scripts/lib/event-description-empty-shard.mjs',
+    'scripts/lib/event-description-throughput-plan.mjs',
+  ]);
 });
 
 test('hash partition is deterministic, disjoint and exhaustive', () => {

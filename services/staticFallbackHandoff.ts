@@ -7,8 +7,7 @@
  * usually wrapped in the build-time `.ft-rail-grid`. index.tsx moves it INTO
  * `#root` right before `createRoot().render()`, so React replaces it in place
  * under the reserved height instead of App.tsx collapsing it from outside.
- * Most job-board hub emitters keep their static main inside `#root`. The bare
- * Ticino listing instead keeps its external `.job-board-static-content` main
+ * The bare Ticino listing keeps its external `.job-board-static-content` main
  * outside the root until the first real result set is ready.
  *
  * Legacy generic hub fallbacks can also emit the static hub sub-nav
@@ -199,16 +198,15 @@ export function shouldAdoptStaticFallbackIntoRoot(
 }
 
 /**
- * The current job-board hub is prerendered inside `#root`, so its static main
- * is the useful first-paint content rather than a disposable outside fallback.
+ * Preserve the header reserve while the job-board snapshot owns the body. The
+ * canonical Ticino hub is outside `#root`; legacy emitters may still place the
+ * same snapshot inside it. In either case, hiding the root before the first
+ * React render would remove the only already-painted LCP surface.
  */
 export function shouldKeepStaticRootVisible(
-  root: HTMLElement,
   fallback: HTMLElement | null,
 ): boolean {
-  return fallback !== null
-    && root.contains(fallback)
-    && fallback.classList.contains('job-board-static-hub');
+  return fallback !== null && fallback.classList.contains('job-board-static-hub');
 }
 
 export interface StaticFallbackAdoption {

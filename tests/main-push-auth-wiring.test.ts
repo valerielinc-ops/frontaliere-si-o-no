@@ -80,7 +80,19 @@ function codeBefore(src: string, line: number): string {
 }
 
 function hasCredentialLoad(code: string): boolean {
-  return code.includes('load-rc-env.mjs') || code.includes('mint-app-token.mjs');
+  if (code.includes('mint-app-token.mjs')) return true;
+
+  // A restricted Remote Config load is only a push-auth path when it includes
+  // GITHUB_PAT. Social publishers use --only-env for their API credentials;
+  // treating that partial load as sufficient lets the shared push helper reach
+  // the main ruleset with neither PAT nor App token (#15777).
+  const calls = [...code.matchAll(
+    /node scripts\/load-rc-env\.mjs(?:[ \t]+--only-env=([A-Z0-9_,]+)|\n[ \t]*--only-env=([A-Z0-9_,]+))?/g,
+  )];
+  return calls.some(([, inlineKeys, foldedKeys]) => {
+    const keys = inlineKeys || foldedKeys;
+    return !keys || keys.split(',').includes('GITHUB_PAT');
+  });
 }
 
 function hasInlineConfigure(code: string): boolean {

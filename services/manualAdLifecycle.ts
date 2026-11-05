@@ -7,6 +7,9 @@ export function observeManualAd(
   onState: (state: 'waiting_width' | 'loading' | 'waiting_response' | 'filled' | 'unfilled' | 'unavailable' | 'collapsed', reason?: string) => void,
   emitEvent: (event: 'ad_request' | 'ad_unavailable' | 'ad_waiting' | 'ad_filled' | 'ad_unfilled' | 'ad_collapsed' | 'ad_measurable' | 'ad_viewable', metrics?: Record<string, string | number>) => void,
 ) {
+  // Preserve late Google fills (including known 30s+ creatives), then expose a
+  // bounded stall signal so the publisher-owned fallback can occupy the slot.
+  const STALLED_AD_FALLBACK_MS = 45_000;
   const requestId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
   const emit: typeof emitEvent = (event, data = {}) => emitEvent(event, { request_id: requestId, ...data });
   let stopped = false;
@@ -19,6 +22,7 @@ export function observeManualAd(
   let viewable = false;
   let inView = false;
   let responseTimer: ReturnType<typeof setTimeout> | undefined;
+  let stallTimer: ReturnType<typeof setTimeout> | undefined;
   let pollTimer: ReturnType<typeof setInterval> | undefined;
   let viewTimer: ReturnType<typeof setTimeout> | undefined;
   let offscreen: IntersectionObserver | undefined;
@@ -47,6 +51,7 @@ export function observeManualAd(
     creative_height: Math.round(findCreative()?.getBoundingClientRect().height || 0),
   });
   const clearViewTimer = () => { clearTimeout(viewTimer); viewTimer = undefined; };
+  const clearStallTimer = () => { clearTimeout(stallTimer); stallTimer = undefined; };
   const updateView = () => {
     clearViewTimer();
     if (!filled || !inView || document.visibilityState === 'hidden' || viewable) return;
@@ -120,6 +125,7 @@ export function observeManualAd(
     setRequestPending(false);
     failureReason = reason;
     clearTimeout(responseTimer);
+    clearStallTimer();
     terminal = reason;
     if (reason !== 'unfilled') emit('ad_unavailable', { reason, ...metrics() });
     onState(reason === 'unfilled' ? 'unfilled' : 'unavailable', reason);
@@ -146,6 +152,8 @@ export function observeManualAd(
       filled = true;
       terminal = '';
       clearTimeout(responseTimer);
+      clearStallTimer();
+      el.removeAttribute('data-ft-ad-stalled');
       offscreen?.disconnect();
       window.removeEventListener('scroll', collapse);
       window.removeEventListener('resize', collapse);
@@ -171,12 +179,14 @@ export function observeManualAd(
     defer() {
       if (stopped || filled) return;
       setRequestPending(false); clearTimeout(responseTimer);
+      clearStallTimer(); el.removeAttribute('data-ft-ad-stalled');
       requested = false; terminal = ''; failureReason = '';
       onState('waiting_width');
     },
     request() {
       if (stopped || requested) return;
       requested = true;
+      clearStallTimer(); el.removeAttribute('data-ft-ad-stalled');
       setRequestPending(true);
       onState('loading');
       emit('ad_request', metrics());
@@ -187,6 +197,13 @@ export function observeManualAd(
         // creatives can arrive after 30 seconds, including 1534px frames.
         onState('waiting_response');
         emit('ad_waiting', { reason: 'response_pending', ...metrics() });
+        stallTimer = setTimeout(() => {
+          stallTimer = undefined;
+          check();
+          if (filled || terminal || stopped || !requestPending || el.getAttribute('data-ad-status') === 'unfilled') return;
+          el.setAttribute('data-ft-ad-stalled', 'response_stalled');
+          emit('ad_waiting', { reason: 'response_stalled', ...metrics() });
+        }, Math.max(0, STALLED_AD_FALLBACK_MS - timeoutMs));
       }, timeoutMs);
       check();
     },
@@ -195,6 +212,8 @@ export function observeManualAd(
       setRequestPending(false);
       stopped = true;
       clearTimeout(responseTimer);
+      clearStallTimer();
+      el.removeAttribute('data-ft-ad-stalled');
       clearViewTimer();
       observer?.disconnect();
       clearInterval(pollTimer); pollTimer = undefined;

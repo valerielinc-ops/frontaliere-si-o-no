@@ -58,7 +58,7 @@ const DETAIL_FIELDS = new Set([
  'description', 'descriptionByLocale',
  'requirements', 'requirementsByLocale',
  'canonicalContent',
- 'baseSalary', 'streetAddress', 'postalCode', 'applyUrl',
+ 'baseSalary', 'streetAddress', 'postalCode', 'url', 'applyUrl',
  'addressLocality', 'addressRegion', 'addressCountry',
  'employmentType', 'contractType', 'hiringOrganization',
  'titleByLocale', 'slugByLocale',

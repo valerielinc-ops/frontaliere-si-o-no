@@ -127,6 +127,13 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
     routes.push({ route: { activeTab: tab }, label: tab });
   }
 
+  // The social bio landing is a real static-overlay route, emitted by
+  // socialHubPlugin into its own localized sitemap.
+  routes.push({
+    route: { activeTab: 'social-hub', staticOverlay: true },
+    label: 'social-hub',
+  });
+
   // The public application-concierge landing uses the job-board shell, but
   // has locale-specific SEO entries and canonical paths of its own.
   for (const locale of ['it', 'en', 'de', 'fr'] as const) {
@@ -225,6 +232,11 @@ function isGeneratedBorderWaitRoute(route: AppRoute): boolean {
   const candidate = route as AppRoute & { guidaSubTab?: string };
   return candidate.activeTab === 'guida'
     && candidate.guidaSubTab === 'border';
+}
+
+/** Social bio pages are emitted into sitemap-social-hub.xml at build time. */
+function isGeneratedSocialHubRoute(route: AppRoute): boolean {
+  return route.activeTab === 'social-hub';
 }
 // sitemap.xml is now a sitemap index — read all sub-sitemaps for URL checking
 const sitemapContent = ['public/sitemap-pages.xml', 'public/sitemap-blog.xml', 'public/sitemap-blog-ch.xml', 'public/sitemap-glossario.xml']
@@ -581,6 +593,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
     if (isRetiredArticleRoute(route)) continue; // Retired locale groups are intentionally absent from sitemap.
     if (isGeneratedBorderWaitRoute(route)) continue; // emitted into sitemap-border-wait.xml at build time
+    if (isGeneratedSocialHubRoute(route)) continue; // emitted into sitemap-social-hub.xml at build time
     if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
     it(`${label} → sitemap has ${buildPath(route, 'it')}`, () => {
@@ -668,6 +681,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
     if (isRetiredArticleRoute(route)) continue; // Retired locale groups are intentionally absent from sitemap.
     if (isGeneratedBorderWaitRoute(route)) continue; // emitted into sitemap-border-wait.xml at build time
+    if (isGeneratedSocialHubRoute(route)) continue; // emitted into sitemap-social-hub.xml at build time
     if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
     it(`${label} → sitemap contains ${buildPath(route, 'it')} (indexed via IndexNow)`, () => {
@@ -725,6 +739,7 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
     if (isRetiredArticleRoute(route)) continue; // Retired locale groups are intentionally absent from sitemap.
+    if (isGeneratedSocialHubRoute(route)) continue; // emitted into sitemap-social-hub.xml at build time
     for (const locale of locales) {
       const bridgeTarget = getBorderWaitBridgeTarget(route, locale);
       if (isGeneratedBorderWaitRoute(route)) {

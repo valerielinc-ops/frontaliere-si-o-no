@@ -1,7 +1,7 @@
 {
   "key": "guggerbach",
   "label": "Bistro Guggerzyt",
-  "generatedAt": "2026-11-03T21:33:48.560Z",
+  "generatedAt": "2026-11-04T21:19:43.591Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9731,
-  "avgDurationMs": 9731,
+  "durationMs": 9054,
+  "avgDurationMs": 9054,
   "durationHistory": [
-    9731
+    9054
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:33:30.139Z",
+      "crawledAt": "2026-11-04T21:19:26.668Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:33:30.139Z",
+      "validThrough": "2026-12-08T21:19:26.668Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:33:30.138Z",
+      "crawledAt": "2026-11-04T21:19:26.667Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:33:30.138Z",
+      "validThrough": "2026-12-08T21:19:26.667Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:33:30.137Z",
+      "crawledAt": "2026-11-04T21:19:26.666Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "salaryMax": 52200,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:33:30.137Z",
+      "validThrough": "2026-12-27T21:19:26.666Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:33:30.134Z",
+      "crawledAt": "2026-11-04T21:19:26.664Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:33:30.134Z",
+      "validThrough": "2026-12-22T21:19:26.664Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -208,5 +208,5 @@
       }
     }
   ],
-  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

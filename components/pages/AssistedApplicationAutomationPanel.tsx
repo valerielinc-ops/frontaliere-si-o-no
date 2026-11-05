@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import { AlertTriangle, CheckCircle2, FileText, Loader2, Pause, Play, RefreshCw, Save, Send, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, FileText, Loader2, Pause, Play, Plus, RefreshCw, Save, Send, Trash2, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
 import {
   runAutomationAdminAction,
   uploadAssistedApplicationCv,
   type AssistedApplicationAdminOrder,
   type AutomationAdminAction,
+  type AutomationRequestedDocumentView,
+  type PostalSubmissionView,
 } from '@/services/assistedApplicationAdminService';
 import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererStatus';
 import { sentSummaryIt } from '@/services/assistedApplicationSentRecord';
@@ -25,7 +27,7 @@ const STATE_LABELS: Record<string, string> = {
   candidate_review: 'In revisione dal candidato',
   submitting: 'Invio in corso',
   needs_candidate_action: 'Attende risposte del candidato',
-  candidate_handoff: 'Handoff: il candidato completa sul portale',
+  candidate_handoff: 'Passaggio al candidato: spedizione cartacea o ultimo passaggio online',
   submitted: 'Inviata',
   owner_takeover: 'Sospesa: presa in carico da te',
   failed: 'Fallita',
@@ -71,6 +73,9 @@ const HELD_LABELS: Record<string, string> = {
   fact_repair_failed: 'correzione automatica non riuscita: serve una verifica tecnica',
   sent_files_not_stored: 'file della candidatura non salvati: l’email non è partita',
   sent_attempt_not_stored: 'tentativo d’invio non registrato: la candidatura non è partita',
+  postal_submission_missing: 'configurare destinatario e istruzioni per la spedizione cartacea',
+  postal_packet_not_ready: 'dossier postale non pronto: verificare il CV e i documenti caricati',
+  postal_application: 'materiali pronti: il candidato deve spedire la busta',
   owner: 'presa in carico manuale',
 };
 
@@ -92,6 +97,24 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
   // #11161: a retry completes it when the channel has a PastaHR https link (the candidate gets it by e-mail).
   whatsapp: 'candidatura solo via WhatsApp: con un link PastaHR (https) «Riprova l’invio automatico» la chiude mandando il link al candidato per email, altrimenti «Affida al candidato»',
 };
+
+const MUNICIPAL_DOCUMENT_CHECKLIST: AutomationRequestedDocumentView[] = [
+  { id: 'handwritten_letter', label: 'Lettera manoscritta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Ricopia a mano la bozza della lettera mostrata nella pagina della candidatura e indica il termine di disponibilità.', delivery: 'offline', exemptions: ['municipal_employee'] },
+  { id: 'curriculum_vitae', label: 'Curriculum vitae', kind: 'other', keywords: [], required: true, quote: '', instructions: '', delivery: 'service', exemptions: ['municipal_employee'] },
+  { id: 'study_work_certificates', label: 'Certificati di studio con note e certificati di lavoro', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica scansioni leggibili; stampa i documenti caricati per inserirli nella busta.', delivery: 'upload', exemptions: ['municipal_employee'] },
+  { id: 'civil_status', label: 'Certificato individuale di stato civile o atto di famiglia', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica una scansione leggibile del certificato rilasciato da meno di 6 mesi. Se il bando richiede l’originale, inseriscilo anche nella busta. Non è richiesto se sei domiciliato/a nel Comune.', delivery: 'upload', exemptions: ['municipal_resident', 'municipal_employee'] },
+  { id: 'good_conduct', label: 'Certificato di buona condotta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica una scansione leggibile del certificato rilasciato da meno di 6 mesi. Se il bando richiede l’originale, inseriscilo anche nella busta. Non è richiesto se sei domiciliato/a nel Comune.', delivery: 'upload', exemptions: ['municipal_resident', 'municipal_employee'] },
+  { id: 'criminal_record', label: 'Estratto del casellario giudiziale', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica una scansione leggibile dell’estratto rilasciato da meno di 6 mesi. Se il bando richiede l’originale, inseriscilo anche nella busta.', delivery: 'upload', exemptions: ['municipal_employee'] },
+  { id: 'health_questionnaire', label: 'Questionario sullo stato di salute', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Compila il questionario ufficiale e inseriscilo nella busta. Non caricarne il contenuto nella pagina.', delivery: 'offline', exemptions: ['municipal_employee'] },
+  { id: 'passport_photo', label: 'Fotografia formato passaporto', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica una fotografia recente; stampa la foto o prepara una copia formato passaporto da inserire nella busta.', delivery: 'upload', exemptions: ['municipal_employee'] },
+];
+
+const EMPTY_POSTAL_SUBMISSION: PostalSubmissionView = {
+  enabled: false, recipient: '', address: '', deadline: '', envelopeMarking: '', instructions: '', officialFormUrl: '',
+};
+
+// Keep aligned with MAX_REQUIRED_DOCUMENTS in functions/src/assistedApplicationExtraDocuments.js.
+const MAX_REQUESTED_DOCUMENTS = 16;
 
 export function heldLabel(reason: string): string {
   if (reason.startsWith('question:')) return `domanda aperta: ${reason.slice(9)}`;
@@ -121,6 +144,10 @@ export default function AssistedApplicationAutomationPanel({
   const [emailBody, setEmailBody] = useState(draft?.applicationEmail?.body || '');
   const [answers, setAnswers] = useState<Record<string, string>>(flow?.answers || {});
   const [ackFlags, setAckFlags] = useState<Record<string, boolean>>({});
+  const [requestedDocuments, setRequestedDocuments] = useState<AutomationRequestedDocumentView[]>(draft?.requiredDocuments || []);
+  const [postalSubmission, setPostalSubmission] = useState<PostalSubmissionView>(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
+  const [requestedDocumentsDirty, setRequestedDocumentsDirty] = useState(false);
+  const [postalSubmissionDirty, setPostalSubmissionDirty] = useState(false);
 
   useEffect(() => {
     setLetter(draft?.coverLetter?.text || '');
@@ -129,6 +156,14 @@ export default function AssistedApplicationAutomationPanel({
     setEmailBody(draft?.applicationEmail?.body || '');
     setAnswers(flow?.answers || {});
   }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, draft?.questionSnapshots, flow?.answers]);
+
+  useEffect(() => {
+    if (!requestedDocumentsDirty) setRequestedDocuments(draft?.requiredDocuments || []);
+  }, [draft?.requiredDocuments, requestedDocumentsDirty]);
+
+  useEffect(() => {
+    if (!postalSubmissionDirty) setPostalSubmission(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
+  }, [flow?.postalSubmission, postalSubmissionDirty]);
 
   const act = async (action: AutomationAdminAction, extra: Record<string, unknown> = {}, success = 'Fatto.') => {
     if (busy) return false;
@@ -143,6 +178,38 @@ export default function AssistedApplicationAutomationPanel({
     } finally {
       setBusy(null);
     }
+  };
+
+  const updateRequestedDocument = (id: string, update: Partial<AutomationRequestedDocumentView>) => {
+    setRequestedDocumentsDirty(true);
+    setRequestedDocuments((current) => current.map((item) => item.id === id ? { ...item, ...update } : item));
+  };
+  const addRequestedDocument = () => {
+    const id = `requested_${crypto.randomUUID().replace(/-/g, '').slice(0, 16)}`;
+    setRequestedDocumentsDirty(true);
+    setRequestedDocuments((current) => [...current, {
+      id, label: '', kind: 'other', keywords: [], required: true, quote: '', instructions: '', delivery: 'upload', exemptions: [],
+    }]);
+  };
+  const saveRequestedDocuments = async () => {
+    const saved = await act('automationSetRequiredDocuments', { documents: requestedDocuments }, 'Richiesta documenti salvata nel dossier.');
+    if (saved) setRequestedDocumentsDirty(false);
+    return saved;
+  };
+  const savePostalSubmission = async () => {
+    const saved = await act('automationSetPostalSubmission', { postalSubmission }, 'Istruzioni per la candidatura cartacea salvate.');
+    if (saved) setPostalSubmissionDirty(false);
+    return saved;
+  };
+  const setPostalField = (field: keyof PostalSubmissionView, value: string | boolean) => {
+    setPostalSubmissionDirty(true);
+    setPostalSubmission((current) => ({ ...current, [field]: value }));
+  };
+  const useMunicipalChecklist = () => {
+    setRequestedDocumentsDirty(true);
+    setPostalSubmissionDirty(true);
+    setRequestedDocuments(MUNICIPAL_DOCUMENT_CHECKLIST.map((item) => ({ ...item, exemptions: [...item.exemptions] })));
+    setPostalSubmission((current) => ({ ...current, enabled: true }));
   };
 
   const retrySubmit = async () => {
@@ -623,6 +690,89 @@ export default function AssistedApplicationAutomationPanel({
         </div>
       )}
 
+      {flow?.state === 'owner_review' && draft?.status === 'ready' && (
+        <section className="space-y-4 rounded-stripe border border-edge bg-surface p-4" aria-labelledby="candidate-document-requests-title">
+          <div>
+            <h3 id="candidate-document-requests-title" className="text-sm font-semibold text-heading">Richiesta documenti e candidatura cartacea</h3>
+            <p className="mt-1 text-xs text-subtle">Configura tutto prima di approvare: le richieste e le risposte saranno gestite nella pagina protetta della candidata. Le email inviano soltanto il collegamento. Il CV già caricato sarà disponibile tra i materiali.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={useMunicipalChecklist}>
+              <FileText size={14} aria-hidden="true" /> Inserisci checklist bando comunale
+            </button>
+            <button type="button" className={secondary} disabled={Boolean(busy) || requestedDocuments.length >= MAX_REQUESTED_DOCUMENTS} onClick={addRequestedDocument}>
+              <Plus size={14} aria-hidden="true" /> Aggiungi documento
+            </button>
+          </div>
+          <div className="space-y-3">
+            {requestedDocuments.map((document) => (
+              <div key={document.id} className="space-y-2 rounded-stripe border border-edge p-3">
+                <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_12rem]">
+                  <label className="block text-xs font-medium text-body">
+                    Documento richiesto
+                    <input value={document.label} onChange={(event) => updateRequestedDocument(document.id, { label: event.target.value })} maxLength={160} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" />
+                  </label>
+                  <label className="block text-xs font-medium text-body">
+                    Modalità
+                    <select value={document.delivery} onChange={(event) => updateRequestedDocument(document.id, { delivery: event.target.value as 'upload' | 'offline' })} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm">
+                      <option value="upload">Carica nella pagina</option>
+                      <option value="offline">Prepara su carta, senza caricarlo</option>
+                      {document.id === 'curriculum_vitae' && <option value="service">Già fornito: prepara il servizio</option>}
+                    </select>
+                  </label>
+                </div>
+                <label className="block text-xs font-medium text-body">
+                  Indicazioni per la candidata
+                  <textarea value={document.instructions} onChange={(event) => updateRequestedDocument(document.id, { instructions: event.target.value })} rows={2} maxLength={500} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" />
+                </label>
+                <label className="block text-xs font-medium text-body">
+                  Estratto dell’annuncio (facoltativo)
+                  <input value={document.quote} onChange={(event) => updateRequestedDocument(document.id, { quote: event.target.value })} maxLength={300} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" />
+                </label>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-body">
+                  <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.required} onChange={(event) => updateRequestedDocument(document.id, { required: event.target.checked })} /> Obbligatorio prima di preparare il pacchetto</label>
+                  <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.exemptions.includes('municipal_resident')} onChange={(event) => updateRequestedDocument(document.id, { exemptions: event.target.checked ? [...document.exemptions, 'municipal_resident'] : document.exemptions.filter((item) => item !== 'municipal_resident') })} /> Esonero per domiciliati nel Comune</label>
+                  <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.exemptions.includes('municipal_employee')} onChange={(event) => updateRequestedDocument(document.id, { exemptions: event.target.checked ? [...document.exemptions, 'municipal_employee'] : document.exemptions.filter((item) => item !== 'municipal_employee') })} /> Esonero per dipendenti comunali</label>
+                  <button type="button" className="inline-flex min-h-[36px] items-center gap-1 rounded px-2 font-semibold text-danger hover:bg-danger-subtle" onClick={() => { setRequestedDocumentsDirty(true); setRequestedDocuments((current) => current.filter((item) => item.id !== document.id)); }}>
+                    <Trash2 size={14} aria-hidden="true" /> Rimuovi
+                  </button>
+                </div>
+              </div>
+            ))}
+            {requestedDocuments.length === 0 && <p className="rounded-stripe border border-edge p-3 text-xs text-subtle">Nessuna richiesta configurata. Inserisci la checklist o aggiungi i documenti dell’annuncio.</p>}
+          </div>
+          <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void saveRequestedDocuments(); }}>
+            {spinner('automationSetRequiredDocuments') || <Save size={14} aria-hidden="true" />} Salva richieste nel portale
+          </button>
+
+          <div className="space-y-3 border-t border-edge pt-4">
+            <label className="flex items-start gap-2 text-sm font-semibold text-body">
+              <input type="checkbox" checked={postalSubmission.enabled} onChange={(event) => setPostalField('enabled', event.target.checked)} />
+              Il bando richiede una candidatura cartacea
+            </label>
+            {postalSubmission.enabled && (
+              <>
+                <p className="text-xs text-subtle">Copia dal bando il destinatario e l’indirizzo completo (ufficio, via, CAP, località e Paese), insieme a scadenza e istruzioni. La pagina mostrerà tutto alla candidata e il dossier riporterà dove spedire. La candidata imbusta e spedisce; il sistema non invia la busta.</p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <label className="block text-xs font-medium text-body">Destinatario<input value={postalSubmission.recipient} onChange={(event) => setPostalField('recipient', event.target.value)} maxLength={200} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                  <label className="block text-xs font-medium text-body">Scadenza<input value={postalSubmission.deadline} onChange={(event) => setPostalField('deadline', event.target.value)} maxLength={160} placeholder="es. 30 giugno 2026" className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                </div>
+                <label className="block text-xs font-medium text-body">Indirizzo postale<textarea value={postalSubmission.address} onChange={(event) => setPostalField('address', event.target.value)} rows={3} maxLength={1000} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                <label className="block text-xs font-medium text-body">Dicitura da scrivere sulla busta<input value={postalSubmission.envelopeMarking} onChange={(event) => setPostalField('envelopeMarking', event.target.value)} maxLength={200} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                <label className="block text-xs font-medium text-body">Istruzioni per preparare e spedire<textarea value={postalSubmission.instructions} onChange={(event) => setPostalField('instructions', event.target.value)} rows={4} maxLength={2000} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                <label className="block text-xs font-medium text-body">Link HTTPS al modulo ufficiale (facoltativo)<input type="url" value={postalSubmission.officialFormUrl} onChange={(event) => setPostalField('officialFormUrl', event.target.value)} maxLength={2048} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+              </>
+            )}
+            {requestedDocuments.some((document) => document.delivery === 'offline') && !postalSubmission.enabled && (
+              <p className="rounded-stripe border border-warning-border bg-warning-subtle/50 p-3 text-xs text-body" role="status">Hai richiesto documenti da preparare su carta: completa e salva le istruzioni postali prima di approvare. In questo modo la candidatura non potrà essere inviata per via elettronica.</p>
+            )}
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void savePostalSubmission(); }}>
+              {spinner('automationSetPostalSubmission') || <Save size={14} aria-hidden="true" />} Salva impostazioni cartacee
+            </button>
+          </div>
+        </section>
+      )}
+
       {flow && (
         <>
         {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && Boolean(draft?.portalAnswers?.answers?.length) && (
@@ -640,7 +790,7 @@ export default function AssistedApplicationAutomationPanel({
         )}
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
           {flow.state === 'owner_review' && !repairingFacts && (
-            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
+            <button type="button" className={primary} disabled={Boolean(busy) || requestedDocumentsDirty || postalSubmissionDirty || (requestedDocuments.some((document) => document.delivery === 'offline') && !postalSubmission.enabled)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, postalSubmission.enabled ? 'Approvata: ora tocca al candidato (12 ore).' : 'Approvata: il candidato riceve la pagina della candidatura.'); }}>
               {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
             </button>
           )}
@@ -656,6 +806,7 @@ export default function AssistedApplicationAutomationPanel({
           )}
           {['owner_takeover', 'candidate_handoff'].includes(flow.state || '')
             && draft?.round === flow.round && flow.roundSent
+            && flow.postalSubmission?.enabled !== true
             && !repairingFacts && !isCaptchaPortalHold(flow) && (
             <>
               <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void retrySubmit(); }}>
@@ -663,19 +814,19 @@ export default function AssistedApplicationAutomationPanel({
               </button>
             </>
           )}
-          {flow.state === 'owner_takeover' && draft?.round === flow.round && !repairingFacts && portalUrl && !isCaptchaPortalHold(flow) && (extensionVersion ? (
+          {flow.state === 'owner_takeover' && flow.postalSubmission?.enabled !== true && draft?.round === flow.round && !repairingFacts && portalUrl && !isCaptchaPortalHold(flow) && (extensionVersion ? (
             <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void fillWithExtension(); }}>
               {spinner('automationFillKit') || <Wand2 size={14} aria-hidden="true" />} Compila con l’estensione
             </button>
           ) : (
             <p className="w-full text-xs text-subtle">Per compilare il portale con un clic installa l’estensione «Compila candidatura» (cartella <code>scripts/assisted-application/extension</code>, istruzioni nel README).</p>
           ))}
-          {flow.state === 'owner_takeover' && !isCaptchaPortalHold(flow) && draft?.round === flow.round && (
+          {flow.state === 'owner_takeover' && flow.postalSubmission?.enabled !== true && !isCaptchaPortalHold(flow) && draft?.round === flow.round && (
             <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void markSubmitted(); }}>
               {spinner('automationMarkSubmitted') || <CheckCircle2 size={14} aria-hidden="true" />} Segna come inviata
             </button>
           )}
-          {flow.state === 'owner_takeover' && !isCaptchaPortalHold(flow) && draft?.round === flow.round && (
+          {flow.state === 'owner_takeover' && flow.postalSubmission?.enabled !== true && !isCaptchaPortalHold(flow) && draft?.round === flow.round && (
             <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void handoffToCandidate(); }}>
               {spinner('automationHandoff') || <UserCheck size={14} aria-hidden="true" />} Affida al candidato
             </button>

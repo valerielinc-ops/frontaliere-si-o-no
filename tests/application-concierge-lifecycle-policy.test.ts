@@ -28,6 +28,7 @@ describe('three-day proposal refresh', () => {
     const legacy = active({ matchingStatus: 'complete', matchingVersion: 'legacy-version', matchingCompletedAt: now });
     expect(conciergeRefreshDue(legacy, now)).toBe(true);
     expect(conciergeRefreshDue({ ...legacy, matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION }, now)).toBe(false);
+    expect(conciergeRefreshDue({ ...legacy, acceptedPositionsCount: 10, maxPositions: 20 }, now)).toBe(false);
     for (const patch of [{ acceptedPositionsCount: 10 }, { expiresAt: now }, { consentedAt: null }, { paymentStatus: 'refunded' }]) {
       expect(conciergeRefreshDue({ ...legacy, ...patch }, now)).toBe(false);
     }

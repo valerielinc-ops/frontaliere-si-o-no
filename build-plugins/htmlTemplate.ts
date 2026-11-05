@@ -160,11 +160,11 @@ export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  * shove that sibling content down by the header height on mount (live: ~0.08
  * desktop CLS on `/cerca-lavoro-*`). The `.ft-hdr-reserve` spacer (height pinned
  * in `shared/criticalCss.ts`'s `ROOT_HEADER_RESERVE_CSS`) holds the header height
- * from first paint so nothing jumps. The job-board hub is the deliberate
- * exception: its static main is passed as `innerHtml` so content and reserve
- * share one root before React mounts. `createRoot().render()` REPLACES #root's
- * children (client render, not hydration), so the spacer leaves no residue and
- * the real same-height header takes its place shift-free.
+ * from first paint so nothing jumps. Job-board hub emitters keep their
+ * snapshot outside `#root` until the first result set is ready; legacy callers
+ * may still pass an `innerHtml` snapshot here, but `createRoot().render()`
+ * REPLACES #root's children (client render, not hydration), so a body-owning
+ * snapshot must not rely on that legacy mode.
  *
  * Single source of truth so the literal `<div id="root"></div>` emitters in the
  * funnel plugins (`jobsSeoPagesPlugin`, `seoHubsPlugin`, `jobSectorPagesPlugin`,

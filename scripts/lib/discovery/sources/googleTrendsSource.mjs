@@ -29,7 +29,7 @@ function trendScore(value) {
 
 /**
  * @param {object} evidence
- * @param {{ trendsFn?: Function, fetchImpl?: Function }} [opts]
+ * @param {{ trendsFn?: Function, fetchImpl?: Function, deadlineMs?: number }} [opts]
  * @returns {Promise<Array<{headline:string,url:null,source:'trends',meta:object}>>}
  */
 export async function fetchTrendsDiscoveryCandidates(evidence, opts = {}) {
@@ -41,6 +41,7 @@ export async function fetchTrendsDiscoveryCandidates(evidence, opts = {}) {
     result = await trendsFn({
       fetchImpl: opts.fetchImpl,
       winnerFingerprint: evidence?.winnerFingerprint || null,
+      ...(Number.isFinite(opts.deadlineMs) ? { deadlineMs: Number(opts.deadlineMs) } : {}),
     });
   } catch (err) {
     console.warn(`[discovery/trends] fetcher threw: ${err?.message || err}`);

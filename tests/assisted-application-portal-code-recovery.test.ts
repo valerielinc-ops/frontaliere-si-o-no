@@ -5,7 +5,7 @@ import path from 'node:path';
 import YAML from 'yaml';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
-import { currentPortalCodeVersion } from '../scripts/assisted-application/lib/portal-code-version.mjs';
+import { currentPortalCodeVersion, portalCodeFingerprintFiles } from '../scripts/assisted-application/lib/portal-code-version.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { operationalPortalRecoveryReady } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
@@ -23,6 +23,53 @@ function fixture() {
   });
 }
 describe('automatic recovery after a portal fix', () => {
+  it.each(['text', ' Email ', 'EMAIL', 'email_address'])('requeues an unsent portal email confirmation with question type %j', async questionType => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`, draftPath = `${base}/ai_drafts/current`, submissionPath = `${base}/automation/submission`;
+    const question = { id: 'email-repeat', source: 'portal', question: 'E-Mail-Adresse erneut eingeben',
+      applicationQuestion: 'E-Mail-Adresse erneut eingeben', required: true, type: questionType, options: [] };
+    store.docs.set(base, { ...store.read(base), automationState: 'needs_candidate_action',
+      candidateAlias: { active: true, address: 'alias@example.test' }, consentVersion: 'assisted-application-v2', consentedAt: now,
+      talentPoolConsent: true });
+    store.docs.set(flowPath, { ...store.read(flowPath), state: 'needs_candidate_action', heldBy: ['question:email-repeat'],
+      portalCodeVersion: 'a'.repeat(64), dispatch: { mode: 'submit', round: 1, requestedAt: now } });
+    store.docs.set(draftPath, { ...store.read(draftPath), completedAt: now - 1,
+      channel: { type: 'employer_site', applyUrl: 'https://jobs.example.test/apply' }, questions: [question] });
+
+    const ctx = { db: store.db, version, nowMs: now, isEnabled: async () => true };
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 1, queued: 0, identityQuestionsQueued: 0 });
+    expect(store.read(flowPath).answers?.['email-repeat']).toBeUndefined();
+    expect(await reconcilePortalCode({ ...ctx, apply: true })).toMatchObject({ eligible: 1, queued: 1, identityQuestionsQueued: 1 });
+    expect(store.read(flowPath)).toMatchObject({
+      state: 'needs_candidate_action', portalRecoveryVersion: version,
+      answers: { 'email-repeat': 'alias@example.test' },
+    });
+    expect(store.read(base).automationDueAt).toBe(now);
+    expect(store.read(submissionPath).portalCodeRecovery).toMatchObject({
+      version, round: 1, queuedAt: now, kind: 'identity_email_confirmation',
+    });
+    expect(await reconcilePortalCode({ ...ctx, apply: true })).toMatchObject({ eligible: 0, queued: 0 });
+  });
+
+  it('keeps a required birth date as a candidate question during portal recovery', async () => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`, draftPath = `${base}/ai_drafts/current`;
+    const question = { id: 'birth-date', source: 'portal', question: 'Geburtsdatum',
+      applicationQuestion: 'Geburtsdatum', required: true, type: 'date', options: [] };
+    store.docs.set(base, { ...store.read(base), automationState: 'needs_candidate_action',
+      candidateAlias: { active: true, address: 'alias@example.test' }, consentVersion: 'assisted-application-v2', consentedAt: now,
+      talentPoolConsent: true });
+    store.docs.set(flowPath, { ...store.read(flowPath), state: 'needs_candidate_action', heldBy: ['question:birth-date'],
+      portalCodeVersion: 'a'.repeat(64), dispatch: { mode: 'submit', round: 1, requestedAt: now } });
+    store.docs.set(draftPath, { ...store.read(draftPath), completedAt: now - 1,
+      channel: { type: 'employer_site', applyUrl: 'https://jobs.example.test/apply' }, questions: [question] });
+
+    expect(await reconcilePortalCode({ db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true }))
+      .toMatchObject({ eligible: 0, queued: 0, identityQuestionsQueued: 0 });
+    expect(store.read(flowPath).answers?.['birth-date']).toBeUndefined();
+    expect(store.read(base).automationDueAt).toBeNull();
+  });
+
   it('previews and queues an approved unsent application exactly once per engine version', async () => {
     const store = fixture();
     const ctx = { db: store.db, version, nowMs: now, isEnabled: async () => true };
@@ -73,7 +120,7 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.read(base).automationDueAt).toBeNull();
   });
 
-  it.each(['portal:account_create_unanswered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
+  it.each(['portal:account_create_unanswered', 'portal:privacy_not_accepted', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: [reason] });
     const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
@@ -181,22 +228,7 @@ describe('automatic recovery after a portal fix', () => {
 
   it('changes the fingerprint only for runner sources and covers those files in the workflow trigger', () => {
     const root = mkdtempSync(path.join(tmpdir(), 'portal-source-version-'));
-    const sourceFiles = [
-      'scripts/lib/prospector/public-fetch-policy.mjs',
-      'scripts/assisted-application/verify-portal.mjs',
-      'scripts/assisted-application/reconcile-portal-code.mjs', 'scripts/assisted-application/reconcile-portal-questions.mjs',
-      'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
-      'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
-      'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
-      ...['assistedApplicationConstants.js', 'assistedApplicationPortalSites.js', 'assistedApplicationRetention.js', 'assistedApplicationExtraDocuments.js',
-        'assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
-        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js',
-        'assistedApplicationAutomation.js', 'assistedApplicationAutomationAdmin.js', 'assistedApplicationCvCommit.js', 'assistedApplicationReview.js',
-        'assistedApplicationAnswerEvidence.js', 'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js',
-        'lib/candidateAnswerFacts.js', 'lib/languageFacts.js', 'lib/addressContextContract.js', 'lib/permitStatus.js',
-        'lib/applicationConsent.js', 'lib/portalNativeContract.js', 'lib/answerRules.js', 'lib/portalQuestionText.js',
-        'lib/assistedApplicationQuestionConstraints.js'].map(file => `functions/src/${file}`),
-    ];
+    const sourceFiles = portalCodeFingerprintFiles();
     const write = (file: string, text: string) => { mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); writeFileSync(path.join(root, file), text); };
     try {
       for (const file of sourceFiles) write(file, 'original source');
@@ -206,8 +238,11 @@ describe('automatic recovery after a portal fix', () => {
       write('scripts/assisted-application/lib/portal/fields.mjs', 'fixed selector');
       expect(currentPortalCodeVersion(root)).not.toBe(before);
       const afterFields = currentPortalCodeVersion(root);
-      write('scripts/assisted-application/reconcile-portal-questions.mjs', 'fixed question recovery provenance');
+      write('scripts/assisted-application/lib/draft.mjs', 'fixed candidate requirement collection');
       expect(currentPortalCodeVersion(root)).not.toBe(afterFields);
+      const afterDraft = currentPortalCodeVersion(root);
+      write('scripts/assisted-application/reconcile-portal-questions.mjs', 'fixed question recovery provenance');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterDraft);
       const afterQuestionRecovery = currentPortalCodeVersion(root);
       write('functions/src/lib/portalQuestionText.js', 'fixed question readability');
       expect(currentPortalCodeVersion(root)).not.toBe(afterQuestionRecovery);
@@ -218,8 +253,11 @@ describe('automatic recovery after a portal fix', () => {
       write('functions/src/assistedApplicationAnswerEvidence.js', 'updated attested answer resolver');
       expect(currentPortalCodeVersion(root)).not.toBe(afterPortalSites);
       const afterAnswerEvidence = currentPortalCodeVersion(root);
-      write('functions/src/assistedApplicationAutomation.js', 'updated runner answer resolver integration');
+      write('functions/src/lib/identityEmail.js', 'shared applicant email confirmation semantics');
       expect(currentPortalCodeVersion(root)).not.toBe(afterAnswerEvidence);
+      const afterIdentityEmail = currentPortalCodeVersion(root);
+      write('functions/src/assistedApplicationAutomation.js', 'updated runner answer resolver integration');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterIdentityEmail);
       const afterAutomation = currentPortalCodeVersion(root);
       write('functions/src/assistedApplicationCvCommit.js', 'updated answer evidence marker writer');
       expect(currentPortalCodeVersion(root)).not.toBe(afterAutomation);

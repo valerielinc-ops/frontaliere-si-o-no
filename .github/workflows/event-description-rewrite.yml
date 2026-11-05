@@ -178,6 +178,8 @@ jobs:
         id: plan
         if: steps.admission.outputs.admitted == 'true'
         run: |
+          # The planner is dependency-free by contract; this job intentionally
+          # skips npm ci and must not import the full event policy graph.
           node scripts/plan-event-description-rewrite.mjs \
             --requested-shards "$REQUESTED_SHARDS" \
             --requested-events-per-shard "$REQUESTED_EVENTS_PER_SHARD" \
@@ -210,8 +212,10 @@ jobs:
       - name: Initialize private shard artifact
         run: |
           mkdir -p "$RUNNER_TEMP/event-description-shard"
-          node scripts/event-description-rewrite.mjs \
-            --empty \
+          # This entrypoint is dependency-free because initialization runs
+          # before npm ci and must still leave a valid artifact on later
+          # failures. The rewrite runtime is initialized after dependencies.
+          node scripts/initialize-event-description-shard.mjs \
             --shard-count "$EFFECTIVE_SHARDS" \
             --shard-index "$EVENT_DESCRIPTION_SHARD_INDEX" \
             --limit "$EVENTS_PER_SHARD" \

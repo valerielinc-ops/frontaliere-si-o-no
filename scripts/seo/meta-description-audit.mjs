@@ -45,10 +45,11 @@ import { realpathSync } from 'node:fs';
 import { readFileSync, writeFileSync, mkdirSync, existsSync, openSync, writeSync, readSync, closeSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
-import { join, relative, resolve } from 'node:path';
+import { isAbsolute, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractMetaDescription } from '../lib/meta-description-extract.mjs';
 import { walkHtml } from './lib/walk-html.mjs';
+import { executeIncrementalPageAudit, loadPublisherPageIndex } from '../ci/page-audit-index.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
@@ -135,7 +136,9 @@ function writeReportJson(file, report, duplicateGroups) {
     writeSync(fd, `${head.slice(0, head.lastIndexOf('\n}'))},\n  "duplicates": {`);
     let first = true;
     for (const g of duplicateGroups) {
-      writeSync(fd, `${first ? '' : ','}\n    ${JSON.stringify(g.desc)}: ${JSON.stringify({ count: g.count, urls: g.urls })}`);
+      const key = g.key ?? g.desc;
+      const value = g.key ? { description: g.desc, count: g.count, urls: g.urls } : { count: g.count, urls: g.urls };
+      writeSync(fd, `${first ? '' : ','}\n    ${JSON.stringify(key)}: ${JSON.stringify(value)}`);
       first = false;
     }
     writeSync(fd, `${first ? '' : '\n  '}}\n}\n`);
@@ -184,9 +187,184 @@ class UrlSpool {
   }
 }
 
+function analyzeIndexedDescription(entry, distRoot) {
+  const file = resolve(distRoot, entry.path);
+  const relativePath = relative(distRoot, file);
+  if (!relativePath || relativePath === '..' || relativePath.startsWith(`..${sep}`) || isAbsolute(relativePath)) {
+    throw new Error(`indexed page path escapes dist/: ${entry.path}`);
+  }
+  let html;
+  try { html = readFileSync(file, 'utf8'); }
+  catch (error) {
+    if (error?.code === 'ENOENT') return { url: entry.url, urlPath: new URL(entry.url).pathname, missingPage: true, missing: true, flags: [] };
+    throw error;
+  }
+  const description = extractMetaDescription(html);
+  if (!description) return { url: entry.url, urlPath: new URL(entry.url).pathname, missing: true, flags: [] };
+  const urlPath = new URL(entry.url).pathname;
+  const flags = [];
+  if (description.length < MIN_LENGTH) flags.push('too-short');
+  if (description.length > MAX_LENGTH) flags.push('too-long');
+  const kwSource = primaryKeywordSource(urlPath);
+  if (kwSource) {
+    const slugTokens = tokenize(kwSource);
+    const descriptionTokens = new Set(tokenize(description));
+    if (slugTokens.length > 0 && !slugTokens.some((token) => descriptionTokens.has(token))) flags.push('missing-keyword');
+  }
+  return {
+    url: entry.url,
+    urlPath,
+    missing: false,
+    descriptionKey: descKey(description),
+    descriptionPreview: description.slice(0, 120),
+    description: flags.length > 0 ? description : null,
+    length: description.length,
+    flags,
+  };
+}
+
+function scanMetaDescriptionBucket(entries, distRoot) {
+  const result = {
+    pages: entries.length,
+    withDescription: 0,
+    missing: 0,
+    tooShort: 0,
+    tooLong: 0,
+    missingKeyword: 0,
+    flaggedPages: 0,
+    recordsByDescription: {},
+    issueSamples: { 'missing-description': [], 'missing-page': [], 'too-short': [], 'too-long': [], 'missing-keyword': [] },
+  };
+  for (const entry of entries) {
+    const row = analyzeIndexedDescription(entry, distRoot);
+    if (row.missingPage) {
+      result.missing++;
+      if (result.issueSamples['missing-page'].length < MAX_ISSUE_SAMPLES) result.issueSamples['missing-page'].push({ url: row.url, type: 'missing-page' });
+      continue;
+    }
+    if (row.missing) {
+      result.missing++;
+      if (result.issueSamples['missing-description'].length < MAX_ISSUE_SAMPLES) result.issueSamples['missing-description'].push({ url: row.url, type: 'missing-description', description: null, length: 0 });
+      continue;
+    }
+    result.withDescription++;
+    const group = result.recordsByDescription[row.descriptionKey] ?? {
+      count: 0,
+      urls: [],
+      description: row.descriptionPreview,
+    };
+    group.count++;
+    if (group.urls.length < MAX_DUP_URLS) group.urls.push(row.urlPath);
+    result.recordsByDescription[row.descriptionKey] = group;
+    if (row.flags.length > 0) result.flaggedPages++;
+    for (const flag of row.flags) {
+      if (flag === 'too-short') result.tooShort++;
+      else if (flag === 'too-long') result.tooLong++;
+      else if (flag === 'missing-keyword') result.missingKeyword++;
+      if (result.issueSamples[flag].length < MAX_ISSUE_SAMPLES) {
+        result.issueSamples[flag].push({ url: row.urlPath, description: row.description, length: row.length, flags: row.flags });
+      }
+    }
+  }
+  return result;
+}
+
+function writeIndexedMetaDescriptionReport(args, plan) {
+  const totals = { pages: 0, withDescription: 0, missing: 0, duplicates: 0, duplicatePages: 0, tooShort: 0, tooLong: 0, missingKeyword: 0, flaggedPages: 0 };
+  const descriptions = new Map();
+  const samples = { 'missing-description': [], 'missing-page': [], 'too-short': [], 'too-long': [], 'missing-keyword': [] };
+  for (const result of plan.results) {
+    for (const key of ['pages', 'withDescription', 'missing', 'tooShort', 'tooLong', 'missingKeyword', 'flaggedPages']) totals[key] += result[key] ?? 0;
+    for (const [key, row] of Object.entries(result.recordsByDescription ?? {})) {
+      const group = descriptions.get(key) ?? { key, desc: row.description, count: 0, urls: [] };
+      group.count += row.count;
+      if (!group.desc) group.desc = row.description;
+      for (const url of row.urls ?? []) if (group.urls.length < MAX_DUP_URLS && !group.urls.includes(url)) group.urls.push(url);
+      descriptions.set(key, group);
+    }
+    for (const [kind, items] of Object.entries(result.issueSamples ?? {})) {
+      for (const item of items) if (samples[kind].length < MAX_ISSUE_SAMPLES) samples[kind].push(item);
+    }
+  }
+  const duplicateGroups = [...descriptions.values()].filter((group) => group.count > 1).sort((a, b) => b.count - a.count);
+  totals.duplicates = duplicateGroups.length;
+  totals.duplicatePages = duplicateGroups.reduce((sum, group) => sum + group.count, 0);
+  const duplicateRate = totals.pages ? totals.duplicatePages / totals.pages : 0;
+  const pageErrorRate = totals.pages ? (totals.missing + totals.flaggedPages) / totals.pages : 0;
+  const sampling = {
+    mode: 'deterministic-stratified-incremental',
+    population: plan.population,
+    sampled: plan.scannedPages,
+    reused: plan.reusedPages,
+    rate: plan.sampleRate,
+    activeBucket: plan.activeBucket,
+    bucketCount: plan.bucketCount,
+    pageErrorRate,
+    duplicatePageRate: duplicateRate,
+  };
+  mkdirSync(args.out, { recursive: true });
+  const today = isoDate();
+  const report = {
+    version: 3,
+    date: today,
+    generatedAt: new Date().toISOString(),
+    distRoot: args.dist,
+    config: { minLength: MIN_LENGTH, maxLength: MAX_LENGTH, maxDupUrls: MAX_DUP_URLS, maxIssueSamples: MAX_ISSUE_SAMPLES },
+    sampling,
+    totals,
+    issueSamples: samples,
+  };
+  writeReportJson(join(args.out, `meta-description-audit-${today}.json`), report, duplicateGroups);
+  const md = [
+    `# Meta Description Audit — ${today}`,
+    '',
+    `- Population: **${plan.population}** pages`,
+    `- Scanned this run: **${plan.scannedPages}** (${(plan.sampleRate * 100).toFixed(2)}%); reused receipts: **${plan.reusedPages}**`,
+    `- Page error rate: **${(pageErrorRate * 100).toFixed(3)}%**`,
+    `- Pages with description: **${totals.withDescription}**`,
+    `- Missing description/page: **${totals.missing}**`,
+    `- Duplicate descriptions: **${totals.duplicates}** (${totals.duplicatePages} pages)`,
+    `- Too short (<${MIN_LENGTH}): **${totals.tooShort}**`,
+    `- Too long (>${MAX_LENGTH}): **${totals.tooLong}**`,
+    `- Missing primary keyword: **${totals.missingKeyword}**`,
+    '',
+  ];
+  if (duplicateGroups.length) {
+    md.push('## Duplicate descriptions (top 20)', '');
+    duplicateGroups.slice(0, 20).forEach((group) => {
+      md.push(`- _${(group.desc || `digest:${group.key}`).slice(0, 80)}…_ → ${group.count} URLs`);
+      group.urls.slice(0, 5).forEach((url) => md.push(`  - \`${url}\``));
+    });
+  }
+  writeFileSync(join(args.out, `meta-description-audit-${today}.md`), md.join('\n'));
+  console.log(`[meta-description-audit] population=${plan.population} scanned=${plan.scannedPages} reused=${plan.reusedPages} rate=${(plan.sampleRate * 100).toFixed(2)}% page-error-rate=${(pageErrorRate * 100).toFixed(3)}% duplicates=${totals.duplicates} tooShort=${totals.tooShort} tooLong=${totals.tooLong} missingKw=${totals.missingKeyword} missing=${totals.missing}`);
+}
+
 function main() {
   const args = parseArgs(process.argv.slice(2));
   if (!existsSync(args.dist)) { writeStubReport(args, `dist-missing (${args.dist})`); return; }
+
+  const pageManifestDir = process.env.PUBLISHER_PAGE_MANIFEST_DIR;
+  const sectionManifestDir = process.env.PUBLISHER_SECTION_MANIFEST_DIR;
+  if (pageManifestDir) {
+    const entries = loadPublisherPageIndex({ pageManifestDir, sectionManifestDir });
+    const receiptDir = process.env.PUBLISHER_AUDIT_RECEIPT_DIR;
+    const requestedRate = Number(process.env.AUDIT_SAMPLE_RATE);
+    const sampleRate = Number.isFinite(requestedRate) && requestedRate > 0 && requestedRate <= 1 ? requestedRate : 1;
+    const sampleSalt = Number(process.env.AUDIT_SAMPLE_SALT) || 0;
+    const plan = executeIncrementalPageAudit({
+      name: 'meta-description-audit',
+      validatorVersion: 'meta-description-audit-v3',
+      entries,
+      receiptFile: receiptDir ? join(receiptDir, 'meta-description-audit.json') : '',
+      sampleRate,
+      sampleSalt,
+      forceFull: process.env.AUDIT_FORCE_FULL === '1',
+      scanBucket: (bucketEntries) => scanMetaDescriptionBucket(bucketEntries, args.dist),
+    });
+    writeIndexedMetaDescriptionReport(args, plan);
+    return;
+  }
 
   // key -> ordinal of the first page in `spool` while the description is unique
   // on the site, -> { desc, count, urls[<=MAX_DUP_URLS] } from its second

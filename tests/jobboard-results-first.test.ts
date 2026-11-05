@@ -25,6 +25,19 @@ describe('JobBoard category pages — results-first ordering', () => {
     );
   });
 
+  it('keeps desktop listing rail geometry stable after a post-paint empty verdict', () => {
+    const shellStart = source.indexOf('const JobBoardRailShell');
+    const shellEnd = source.indexOf('JobBoardRailShell.displayName', shellStart);
+    const shell = source.slice(shellStart, shellEnd);
+
+    expect(shellStart).toBeGreaterThanOrEqual(0);
+    expect(shellEnd).toBeGreaterThan(shellStart);
+    expect(shell).toContain('useRailGridCollapse({ collapseOnEmpty: false })');
+    expect(shell).toContain('onEmptyResolved={onLeftEmptyResolved}');
+    expect(shell).toContain('onEmptyResolved={onRightEmptyResolved}');
+    expect(shell).toContain('<div className={RAIL_GRID_CLASS_X} style={railStyle}>');
+  });
+
   it('reserves the first-page ad footprint before the real cards mount', () => {
     expect(source).toContain('const loadingInfeedAdSlots = resultsResolving && isUnfilteredListing && loadingCardCount > 0');
     expect(source).toContain('const loadingCardCount = isUnfilteredListing');

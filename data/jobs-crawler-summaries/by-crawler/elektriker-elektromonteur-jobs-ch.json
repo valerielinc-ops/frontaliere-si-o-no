@@ -1,7 +1,7 @@
 {
   "key": "elektriker-elektromonteur-jobs-ch",
   "label": "elektriker-elektromonteur-jobs",
-  "generatedAt": "2026-11-03T22:02:27.676Z",
+  "generatedAt": "2026-11-04T21:43:02.263Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7328,
-  "avgDurationMs": 7328,
+  "durationMs": 7579,
+  "avgDurationMs": 7579,
   "durationHistory": [
-    7328
+    7579
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T22:02:09.007Z",
+      "crawledAt": "2026-11-04T21:42:47.576Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -57,9 +57,9 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T22:02:09.007Z",
+      "validThrough": "2027-02-02T21:42:47.576Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:02:09.007Z",
+      "firstSeenAt": "2026-11-04T21:42:47.576Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -69,18 +69,18 @@
       }
     },
     {
-      "id": "elektriker-elektromonteur-jobs-ch-7b8befefd66e",
-      "slug": "risorse-umane-generalist-in-40-60-sie-verwalten-keine-patrimonio-dafur-das-wertvollste-kapital-risorse-umane-generalist-in-40-60-in-der-bankenbranche-elektriker-elektromonteur-jobs",
+      "id": "elektriker-elektromonteur-jobs-ch-c916dccbf332",
+      "slug": "hr-professional-60-mit-payroll-erfahrung-4102-binningen-elektriker-elektromonteur-jobs-ch",
       "company": "elektriker-elektromonteur-jobs",
       "companyKey": "elektriker-elektromonteur-jobs-ch",
       "companyDomain": "pks-personal.ch",
-      "title": "HR-Generalist/in 40 – 60% - Sie verwalten keine Vermögen. Dafür das wertvollste Kapital. HR-Generalist/in 40 – 60% in der Bankenbranche",
+      "title": "HR Professional 60% (mit Payroll-Erfahrung)",
       "location": "4102 Binningen",
       "canton": "BL",
-      "url": "https://www.pks-personal.ch/stellen/hr-generalist-in-40-60-in-der-bankenbranche/basel/hrm/1c106405",
+      "url": "https://www.pks-personal.ch/stellen/hr-professional-60-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T22:02:09.005Z",
+      "crawledAt": "2026-11-04T21:42:47.575Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -97,15 +97,15 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://www.pks-personal.ch/stellen/hr-generalist-in-40-60-in-der-bankenbranche/basel/hrm/1c106405",
+      "applyUrl": "https://www.pks-personal.ch/stellen/hr-professional-60-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T22:02:09.005Z",
+      "validThrough": "2027-02-02T21:42:47.575Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:02:09.005Z",
+      "firstSeenAt": "2026-11-04T21:42:47.575Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -118,5 +118,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

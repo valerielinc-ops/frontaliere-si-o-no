@@ -7,7 +7,7 @@
  * published as `offers.price`/`isAccessibleForFree` and in the visible price
  * line — only when read from a structured field. Unverified tariff text stays
  * in the data but is never emitted as a numeric price: JSON-LD still carries
- * an unpriced Offer without inventing a ticket URL, and the visible page omits
+ * no Offer when the price is unknown, and the visible page omits
  * its price line.
  *
  * Fixtures under tests/fixtures/event-price-sources/ are real, PII-free
@@ -58,6 +58,7 @@ const BASE_EVENT = {
   venue: 'zondacrypto-Arena',
   comune: 'Davos',
   canton: 'GR',
+  performer: { '@type': 'Person', name: 'Giocatore di prova' },
   url: 'https://www.tio.ch/agenda/day/20261226/7001',
   sourceKey: 'tio-agenda',
   sourceName: 'Tio.ch Agenda',
@@ -121,7 +122,7 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
   ])('%s → no numeric price is admitted by the per-source registry', (_label, price) => {
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
-      offers: { '@type': 'Offer' },
+      offers: undefined,
       isAccessibleForFree: undefined,
       priceLine: false,
     });
@@ -146,7 +147,7 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     expect(hasParsedPrice(price)).toBe(true);
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
-      offers: { '@type': 'Offer' },
+      offers: undefined,
       isAccessibleForFree: undefined,
       priceLine: false,
     });
@@ -156,7 +157,7 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     const mapped = mapDetailPageToLocaleData(fixture('guidle-price-accordion.html'), 'it', GUIDLE_URL);
     expect(mapped?.price).toMatchObject({ amount: 18, priceSource: 'guidle', priceField: 'price-accordion' });
     expect(hasConfidentPrice(mapped?.price)).toBe(false);
-    expect(publishedPrice(mapped?.price).offers).toEqual({ '@type': 'Offer' });
+    expect(publishedPrice(mapped?.price).offers).toBeUndefined();
     expect(publishedPrice(mapped?.price).isAccessibleForFree).toBeUndefined();
   });
 
@@ -178,7 +179,7 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
   ])('%s → no numeric price, no visible price line', (_label, price) => {
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
-      offers: { '@type': 'Offer' },
+      offers: undefined,
       isAccessibleForFree: undefined,
       priceLine: false,
     });

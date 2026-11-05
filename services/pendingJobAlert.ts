@@ -14,7 +14,13 @@
  */
 
 import type { JobAlertConfig } from '@/services/jobAlertService';
-import { saveIntent, consumeIntent, peekIntent, clearIntent } from '@/services/pendingIntentStore';
+import {
+  acknowledgeIntentIf,
+  saveIntent,
+  consumeIntent,
+  peekIntent,
+  clearIntent,
+} from '@/services/pendingIntentStore';
 
 const KEY = 'pending_job_alert';
 
@@ -88,6 +94,23 @@ function parsePendingJobAlert(raw: unknown): PendingJobAlert | null {
 /** Read a still-valid intent without clearing it, for auth-route recovery. */
 export function peekPendingJobAlert(): PendingJobAlert | null {
   return parsePendingJobAlert(peekIntent<unknown>(KEY));
+}
+
+/**
+ * Clear the pending alert only after the matching create has succeeded. A
+ * changed config/origin remains parked for its own replay instead of being
+ * removed by an older async attempt.
+ */
+export function acknowledgePendingJobAlert(expected: PendingJobAlert): boolean {
+  return acknowledgeIntentIf<unknown>(KEY, (stored) => {
+    const current = parsePendingJobAlert(stored);
+    if (!current || current.origin !== expected.origin) return false;
+    try {
+      return JSON.stringify(current.config) === JSON.stringify(expected.config);
+    } catch {
+      return false;
+    }
+  });
 }
 
 /**

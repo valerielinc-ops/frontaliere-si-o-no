@@ -1,6 +1,6 @@
 // @vitest-environment node
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   mkdtempSync,
   readFileSync,
@@ -105,6 +105,83 @@ describe('refreshArticleHubLandings', () => {
       expect(result.errors).toEqual([]);
       expect(readFileSync(join(dist, 'articoli-frontaliere/index.html'), 'utf-8')).not.toContain('__CF$cv$params');
     } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('retries a transient live-shell timeout before refusing the landing', async () => {
+    vi.useFakeTimers();
+    const random = vi.spyOn(Math, 'random').mockReturnValue(0);
+    const root = mkdtempSync(join(tmpdir(), 'article-hub-landing-retry-'));
+    try {
+      writeFixture(root);
+      let attempts = 0;
+      const fetchImpl = vi.fn(async () => {
+        attempts += 1;
+        if (attempts === 1) {
+          throw Object.assign(new Error('The operation was aborted due to timeout'), {
+            name: 'TimeoutError',
+          });
+        }
+        return { ok: true, status: 200, text: async () => SHELL };
+      });
+
+      const pending = refreshArticleHubLandings({
+        rootDir: root,
+        distDir: join(root, 'dist'),
+        section: 'frontaliere',
+        locales: ['it'],
+        siteBase: 'https://example.test',
+        fetchImpl,
+      });
+      await vi.runAllTimersAsync();
+      const result = await pending;
+
+      expect(result.errors).toEqual([]);
+      expect(result.written).toBe(1);
+      expect(attempts).toBe(2);
+    } finally {
+      random.mockRestore();
+      vi.useRealTimers();
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('retries a transient live-shell body failure before writing the landing', async () => {
+    vi.useFakeTimers();
+    const random = vi.spyOn(Math, 'random').mockReturnValue(0);
+    const root = mkdtempSync(join(tmpdir(), 'article-hub-landing-body-retry-'));
+    try {
+      writeFixture(root);
+      let bodyAttempts = 0;
+      const fetchImpl = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        text: async () => {
+          bodyAttempts += 1;
+          if (bodyAttempts === 1) throw new TypeError('fetch failed while reading shell');
+          return SHELL;
+        },
+      }));
+
+      const pending = refreshArticleHubLandings({
+        rootDir: root,
+        distDir: join(root, 'dist'),
+        section: 'frontaliere',
+        locales: ['it'],
+        siteBase: 'https://example.test',
+        fetchImpl,
+      });
+      await vi.runAllTimersAsync();
+      const result = await pending;
+
+      expect(result.errors).toEqual([]);
+      expect(result.written).toBe(1);
+      expect(fetchImpl).toHaveBeenCalledTimes(2);
+      expect(bodyAttempts).toBe(2);
+    } finally {
+      random.mockRestore();
+      vi.useRealTimers();
       rmSync(root, { recursive: true, force: true });
     }
   });

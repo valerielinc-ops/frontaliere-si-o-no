@@ -79,7 +79,9 @@ export function automationEmailKey(effect, flow) {
 async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   const draftSnapshot = await draftRefFor(db, orderId).get();
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
-  const { profile, answers } = candidateWithEdits({ order: {}, draft, flow });
+  const orderSnapshot = await orderRefFor(db, orderId).get();
+  const order = orderSnapshot.data() || {};
+  const { profile, answers } = candidateWithEdits({ order, draft, flow });
   const candidateQuestions = questionsForCandidate(draft.questions, profile, answers, flow?.questionAnswers, draft);
   const formAnswers = withOperationalQuestionAnswers(candidateQuestions, answers).answers;
   const key = automationEmailKey(effect, flow);
@@ -87,14 +89,12 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   // Build inside sendOrderNotification's claim (it hands us the fresh order).
   let reviewUrl = '';
   if (!isOwner && effect.kind !== 'candidate_posting_closed') {
-    const snapshot = await orderRefFor(db, orderId).get();
-    const order = snapshot.data() || {};
     reviewUrl = await reviewUrlFor(order, orderId, flow.round || 1, resolveOrderLocale(order), deps);
   }
   // Open questions and the required documents still missing (school reports, test results…).
   const openQuestions = candidateQuestions.filter((question) => question.required
     && !String(formAnswers?.[question.id] ?? '').trim()).length
-    + openRequiredDocuments(draft, flow.documents || {}).length;
+    + openRequiredDocuments(draft, flow.documents || {}, flow).length;
   // The profile is not a full match: said in the review e-mail too, worded as the page words it
   // (no list without gaps, no answers without questions).
   const fit = effect.kind === 'candidate_review' ? fitNoticeWording(fitNoticeOf(draft), { questions: candidateQuestions.length > 0 }) : null;
@@ -134,6 +134,7 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
       fit: fit?.kind || null,
       fitVia: fit?.via || null,
       openQuestions,
+      postalSubmission: flow.postalSubmission?.enabled === true,
       reason: effect.reason || flow.heldBy?.[0],
       price: formatPrice(order, locale),
     });
@@ -156,6 +157,8 @@ async function markSubmitted({ db, orderId, effect, flow }) {
       : `automazione (${flow.submittedVia || 'invio'})`;
   const notes = flow.submittedVia === 'whatsapp'
     ? 'Candidatura via WhatsApp: link e istruzioni inviati al candidato, che la completa dal proprio telefono.'
+    : flow.submittedVia === 'postal'
+      ? 'Candidatura cartacea: materiali e istruzioni resi disponibili nella pagina protetta; il candidato ha confermato la spedizione della busta.'
     : `Candidatura inviata da ${via}.`;
   let changed = false;
   await db.runTransaction(async (transaction) => {

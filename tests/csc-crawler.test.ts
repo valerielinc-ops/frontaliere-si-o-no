@@ -124,6 +124,35 @@ describe('CSC authoritative Drupal discovery', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(3);
   });
 
+  it('retries a transient careers HTTP 500 before parsing the official source', async () => {
+    const responses = new Map([
+      [careersUrl, htmlResponse(careersUrl, ncoreMigratedCareersPage)],
+      [ncoreBoardUrl, htmlResponse(ncoreBoardUrl, ncoreListingPage)],
+      [ncoreDetailUrl, htmlResponse(ncoreDetailUrl, ncoreDetailPage)],
+    ]);
+    let careersAttempts = 0;
+    const fetchImpl = vi.fn(async (url: string | URL) => {
+      const key = String(url);
+      if (key === careersUrl && careersAttempts++ === 0) {
+        return htmlResponse(careersUrl, '<html><body>temporary upstream error</body></html>', 500);
+      }
+      const response = responses.get(key);
+      if (!response) throw new Error(`Unexpected URL ${url}`);
+      return response;
+    });
+
+    await expect(fetchCscJobUrls({
+      fetchImpl,
+      retries: 1,
+      retryBaseMs: 0,
+      timeoutMs: 1000,
+    })).resolves.toEqual({
+      urls: [ncoreDetailUrl],
+      authoritativeEmpty: false,
+    });
+    expect(fetchImpl).toHaveBeenCalledTimes(4);
+  });
+
   it('recovers detail URLs embedded in the NCore filter-board state', () => {
     expect(parseCscNcoreBoardPage(ncoreFilterBoardStatePage)).toEqual({
       urls: [ncoreEmbeddedDetailUrl],
@@ -529,8 +558,13 @@ describe('CSC authoritative Drupal discovery', () => {
 
     const failedUrl = fixture.details[1].url;
     const fetchImpl = fixtureFetch({ [failedUrl]: htmlResponse(failedUrl, '<html>upstream error</html>', 503) });
-    await expect(fetchCscJobUrls({ fetchImpl, timeoutMs: 1000 })).rejects.toThrow(/HTTP 503/);
-    expect(fetchImpl).toHaveBeenCalledTimes(3);
+    await expect(fetchCscJobUrls({
+      fetchImpl,
+      retries: 1,
+      retryBaseMs: 0,
+      timeoutMs: 1000,
+    })).rejects.toThrow(/HTTP 503/);
+    expect(fetchImpl).toHaveBeenCalledTimes(4);
   });
 
   it('rejects detail redirects and non-job response shells', async () => {

@@ -81,9 +81,9 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     expect(byJob.get('deploy')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
     expect(byJob.get('publish-nonit-shards')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
     expect(byJob.get('resolve-nonit-publish')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
-    expect(byJob.get('validate-dist / validate-dist-postbuild')?.with['workflow-file'])
+    expect(byJob.get('validate-dist / fast-gate')?.with['workflow-file'])
       .toBe('.github/workflows/post-deploy-validate-dist.yml');
-    expect(byJob.get('validate-dist / validate-dist-postbuild')?.with['build-sha'])
+    expect(byJob.get('validate-dist / fast-gate')?.with['build-sha'])
       .toBe('${{ inputs.source_sha }}');
     expect(byJob.get('validate-live / validate-live')?.with['workflow-file'])
       .toBe('.github/workflows/post-deploy-validate-live.yml');

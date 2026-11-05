@@ -548,7 +548,8 @@ function expectedJobOgImagePath(url) {
 export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}, options = {}) {
   // Meta's scraper accepts the caller token through the normal Graph bearer auth.
   const scrapeUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true`;
-  const checkUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}`;
+  const checkFields = encodeURIComponent('og_object{image,title}');
+  const checkUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&fields=${checkFields}`;
   const auth = { headers: { Authorization: `Bearer ${token}` } };
   const backoffMs = [0, 1500, 3000];
   const fallbackTitlePattern = /offerta\s+non\s+(?:verificata|trovata|disponibile)|job\s+not\s+found|position\s+not\s+verified|offre\s+(?:introuvable|non\s+v[ée]rifi[ée]e)|stelle\s+nicht\s+gefunden/i;

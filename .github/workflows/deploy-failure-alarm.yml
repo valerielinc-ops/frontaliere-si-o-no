@@ -95,11 +95,15 @@ jobs:
     name: open or update the deploy alarm
     # Le conclusion di GUASTO, elencate. NON `!= 'success'`: quella forma
     # farebbe partire un runner per ognuno dei ~90 `cancelled` al giorno.
+    # GitHub può consegnare un evento `workflow_run` completed senza la
+    # conclusion: il reporter ha già il fallback API, quindi ammettiamo solo
+    # quel caso anomalo e lasciamo escluse le `cancelled` con esito noto.
     if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event.workflow_run.conclusion == 'failure' ||
       github.event.workflow_run.conclusion == 'timed_out' ||
-      github.event.workflow_run.conclusion == 'startup_failure'
+      github.event.workflow_run.conclusion == 'startup_failure' ||
+      !github.event.workflow_run.conclusion
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -185,6 +189,23 @@ jobs:
             --workflow "Deploy to GitHub Pages" \
             --run-url "${ALARM_RUN_URL}"
 
+      - name: Resolve deploy alarm when the API confirms green
+        # Se GitHub ha omesso la conclusion nell'evento, il digest la recupera
+        # dalla run osservata. In quel solo percorso il job `resolve` non può
+        # essere selezionato dalla sua guardia basata sull'evento.
+        if: >-
+          (github.event_name != 'workflow_dispatch' || !inputs.dry_run) &&
+          steps.digest.outputs.verdict == 'resolve'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "Workflow Failure: Deploy to GitHub Pages" \
+            --workflow "Deploy to GitHub Pages" \
+            --run-url "${RUN_URL}"
+
       - name: Open or update deploy alarm without the checkout (fallback)
         # Se checkout/setup/digest falliscono, lo step principale non parte o
         # non può leggere il creator. Il fallback scarica soltanto quel file
@@ -197,7 +218,8 @@ jobs:
            github.event.workflow_run.conclusion == 'failure' ||
            github.event.workflow_run.conclusion == 'timed_out' ||
            github.event.workflow_run.conclusion == 'startup_failure' ||
-           steps.digest.outputs.verdict == 'report')
+           steps.digest.outputs.verdict == 'report' ||
+           (!github.event.workflow_run.conclusion && steps.digest.outcome != 'success'))
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}

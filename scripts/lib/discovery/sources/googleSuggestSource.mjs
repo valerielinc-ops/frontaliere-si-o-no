@@ -79,7 +79,7 @@ function buildProvenSet(gscBlock) {
  * failure — never throws.
  *
  * @param {object} evidence
- * @param {{ fetchImpl?: Function, suggestFn?: Function, seeds?: string[] }} [opts]
+ * @param {{ fetchImpl?: Function, suggestFn?: Function, seeds?: string[], deadlineMs?: number }} [opts]
  * @returns {Promise<SuggestCandidate[]>}
  */
 export async function fetchSuggestDiscoveryCandidates(evidence, opts = {}) {
@@ -95,6 +95,7 @@ export async function fetchSuggestDiscoveryCandidates(evidence, opts = {}) {
     result = await suggestFn({
       seeds: seeds.length > 0 ? seeds : undefined,
       fetchImpl: opts.fetchImpl,
+      ...(Number.isFinite(opts.deadlineMs) ? { deadlineMs: Number(opts.deadlineMs) } : {}),
     });
   } catch (err) {
     console.warn(`[discovery/suggest] fetcher threw: ${err?.message || err}`);

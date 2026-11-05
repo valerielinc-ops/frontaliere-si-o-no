@@ -25,7 +25,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
-import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
@@ -38,7 +38,7 @@ import path from 'node:path';
 import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
-import { postingAddressOf } from './liveness.mjs';
+import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { portalPassFrom } from './portal/stop-report.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
@@ -70,9 +70,13 @@ export function openRequiredQuestions(draft, answers = {}, { deferPortal = false
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
   const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
-  return questions.filter((question) => question.required
-    && !(deferPortal && question.source === 'portal')
-    && !String(projected?.[question.id] ?? '').trim());
+  return questions.filter((question) => {
+    const answer = projected?.[question.id];
+    const unresolvedConsent = !requiredPortalConsentAffirmed(question, answer);
+    return question.required
+      && !(deferPortal && question.source === 'portal' && !unresolvedConsent)
+      && (!String(answer ?? '').trim() || unresolvedConsent);
+  });
 }
 
 /** Project answers already recorded by the portal onto the current draft ids. */
@@ -272,11 +276,14 @@ export async function submitApplication(ctx) {
     }
   };
 
+  const fetchImpl = ctx.fetchImpl || fetch;
+  const publishedPostingUrl = await resolvePublishedPostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve });
+  const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve, publishedPostingUrl });
   const liveness = await checkPostingLiveness({
     order,
-    // The posting's own page when the channel is the ATS behind it (postingAddressOf).
-    posting: { applyUrl: postingAddressOf(draft) },
-    fetchImpl: ctx.fetchImpl || fetch,
+    // The published job detail is canonical for legacy drafts whose order URL is an old application endpoint.
+    posting: { postingUrl },
+    fetchImpl,
     resolve: ctx.resolve,
   });
   log('liveness before submit', liveness.page?.result, liveness.page?.code);
@@ -287,7 +294,7 @@ export async function submitApplication(ctx) {
   // the current form and apply its structural safety checks; if the question
   // is still unanswered, the runner hands it back with its context preserved.
   const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers });
-  const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {});
+  const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {}, submitFlow);
   if (open.length || missingDocuments.length) {
     // Keep the legacy id list for the flow and add the bounded descriptor so
     // the backend can match an answer after an ATS regenerates that id.
@@ -468,16 +475,23 @@ export async function submitApplication(ctx) {
 
   // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login
   // or anything it must not bypass ends in the career-ops handoff below.
-  let applyUrl = channel.applyUrl || draft.job?.applyUrl || '';
+  let applyUrl = channel.applyUrl || draft.job?.applyUrl || postingUrl || '';
   let channelType = channel.type;
   // A draft from before the ATS route was resolved (Coop's first order,
-  // 2026-10-02, or an ORIOR Jobs2Web draft): the runner starts on the ATS,
-  // not on the career page in front of it.
-  if (channel.type === 'employer_site' && !channel.via && applyUrl && ctx.codex) {
-    const target = await resolveApplyUrl(applyUrl, { fetchImpl: ctx.fetchImpl || fetch, resolve: ctx.resolve });
-    if (target.via) {
-      applyUrl = target.applyUrl;
-      channelType = classifyApplicationChannel({ applyUrl }).type;
+  // 2026-10-02, an ORIOR Jobs2Web draft, or Helsana's retired apply URL):
+  // resolve from the published posting, not a stale saved application endpoint.
+  if (channel.type === 'employer_site' && (postingUrl || applyUrl)) {
+    const routeUrl = publishedPostingUrl || channel.postingUrl || channel.applyUrl || draft.job?.applyUrl || postingUrl;
+    const directChannel = classifyApplicationChannel({ applyUrl: routeUrl }).type;
+    if (directChannel !== 'employer_site' && WAVE1_CHANNELS.has(directChannel)) {
+      applyUrl = routeUrl;
+      channelType = directChannel;
+    } else {
+      const target = await resolveApplyUrl(routeUrl, { fetchImpl, resolve: ctx.resolve });
+      applyUrl = target.applyUrl || routeUrl;
+      if (target.via) {
+        channelType = classifyApplicationChannel({ applyUrl }).type;
+      }
     }
   }
   if (WAVE1_CHANNELS.has(channelType) && applyUrl && ctx.codex) {
@@ -555,7 +569,7 @@ export async function submitApplication(ctx) {
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
-        postingUrl: order.jobUrl || channel.postingUrl || '',
+        postingUrl,
         channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
         // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.

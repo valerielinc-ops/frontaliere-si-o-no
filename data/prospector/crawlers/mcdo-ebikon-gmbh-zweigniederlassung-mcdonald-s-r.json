@@ -1,0 +1,25 @@
+{
+  "companyKey": "mcdo-ebikon-gmbh-zweigniederlassung-mcdonald-s-r",
+  "companyName": "McDo Ebikon GmbH, Zweigniederlassung McDonald's Restaurant Küssnacht Drive",
+  "companyHost": "jobs.mcdonalds.ch",
+  "verifiedEmployerDomain": "mcdoebikon.ch",
+  "platform": "mcdonalds.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.mcdonalds.ch/de/jobs-gastronomie"
+  ],
+  "detailTemplate": "/de-ch/assistant-restaurant-manager/job/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Assistant Restaurant Manager",
+    "Assistant Restaurant Manager",
+    "Assistant Restaurant Manager"
+  ],
+  "canton": "SZ",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-04T13:28:31.308Z",
+  "candidateKey": "mcdo-ebikon-zweigniederlassung-mcdonald-s-restaurant-kussnacht-drive@kussnacht-am-rigi"
+}

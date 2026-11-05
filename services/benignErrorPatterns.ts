@@ -81,7 +81,6 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   //   Chrome:  TypeError: Failed to fetch        ← 1689 events/3d, top bucket
   //   Firefox: TypeError: NetworkError when attempting to fetch resource.
   /^(?:TypeError: )?Load failed$/i,
-  /^(?:TypeError: )?cancelled$/i,
   /^(?:TypeError: )?Failed to fetch$/i,
   /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
 

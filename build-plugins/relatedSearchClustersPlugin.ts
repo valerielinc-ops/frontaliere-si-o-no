@@ -4903,6 +4903,8 @@ export async function dropOverwrittenLocs(
   options: {
     inspectForeignPresent?: boolean;
     keepMissing?: boolean;
+    /** Keep a present literal asset (for example a PDF); missing paths still follow keepMissing. */
+    keepPresentNonHtmlFiles?: boolean;
     /** Treat the input as a complete dist assembled from every locale shard. */
     ignoreShardOwnership?: boolean;
     preserveCanonicalExemptions?: boolean;
@@ -5011,7 +5013,9 @@ export async function dropOverwrittenLocs(
             if (path.extname(urlPath).toLowerCase() === '.html') {
               html = await readHeadOrAll(routePath, { throwOnError: true });
             } else {
-              flags[i] = foreignLocale || options.keepMissing ? KEEP : DROP_MISSING;
+              flags[i] = foreignLocale || options.keepPresentNonHtmlFiles || options.keepMissing
+                ? KEEP
+                : DROP_MISSING;
               continue;
             }
           }
@@ -5310,7 +5314,16 @@ function shardLocsListedInLegacyJobSitemap(
  * different ownership contracts and must not be filtered by the cluster
  * locale-shard rule.
  */
-export async function reconcileSitemapSearchClustersWithDist(distDir: string): Promise<number> {
+export async function reconcileSitemapSearchClustersWithDist(
+  distDir: string,
+  options: {
+    inspectForeignPresent?: boolean;
+    keepMissing?: boolean;
+    /** Treat the input as a complete dist assembled from every locale shard. */
+    ignoreShardOwnership?: boolean;
+    foreignDirectoryIndex?: ForeignDirectoryIndex;
+  } = {},
+): Promise<number> {
   if (!fs.existsSync(distDir)) return 0;
   const files = fs
     .readdirSync(distDir)
@@ -5321,7 +5334,14 @@ export async function reconcileSitemapSearchClustersWithDist(distDir: string): P
   const advertised = files.flatMap(({ xml }) => extractSitemapLocs(xml));
   if (advertised.length === 0) return 0;
   const kept = new Set(
-    (await dropOverwrittenLocs(distDir, advertised, { preserveCanonicalExemptions: true, label: 'alias-clusters' }))
+    (await dropOverwrittenLocs(distDir, advertised, {
+      inspectForeignPresent: options.inspectForeignPresent ?? true,
+      keepMissing: options.keepMissing,
+      ignoreShardOwnership: options.ignoreShardOwnership,
+      foreignDirectoryIndex: options.foreignDirectoryIndex,
+      preserveCanonicalExemptions: true,
+      label: 'alias-clusters',
+    }))
       .map(normalizeLocForCanonicalCmp),
   );
   const droppedLocs = advertised.filter((loc) => !kept.has(normalizeLocForCanonicalCmp(loc)));
@@ -5386,6 +5406,9 @@ export async function reconcileSitemapJobsWithDist(
   options: {
     /** Skip the expensive final-HTML predicate; the sitemap-alias hook owns it. */
     checkDistTruth?: boolean;
+    keepMissing?: boolean;
+    /** Treat the input as a complete dist assembled from every locale shard. */
+    ignoreShardOwnership?: boolean;
     foreignDirectoryIndex?: ForeignDirectoryIndex;
   } = {},
 ): Promise<void> {
@@ -5438,6 +5461,8 @@ export async function reconcileSitemapJobsWithDist(
     ? new Set(
         (await dropOverwrittenLocs(distDir, locs, {
           inspectForeignPresent: true,
+          keepMissing: options.keepMissing,
+          ignoreShardOwnership: options.ignoreShardOwnership,
           preserveCanonicalExemptions: true,
           dropClosedJobPages: true,
           foreignDirectoryIndex: options.foreignDirectoryIndex,

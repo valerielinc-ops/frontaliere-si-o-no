@@ -65,6 +65,13 @@ export function acceptedPositionsCount(service) {
   return Number.isSafeInteger(value) && value >= 0 ? value : 0;
 }
 
+/** Clamp stored service limits to the product-wide maximum. */
+export function servicePositionLimit(service) {
+  const configured = Number(service?.maxPositions);
+  if (!Number.isFinite(configured) || configured === 0) return APPLICATION_CONCIERGE_MAX_POSITIONS;
+  return Math.min(APPLICATION_CONCIERGE_MAX_POSITIONS, Math.max(0, Math.floor(configured)));
+}
+
 export function openProposalsCount(service, fallback = 0) {
   const value = Number(service?.matchingOpenProposalCount);
   if (Number.isSafeInteger(value) && value >= 0) return value;

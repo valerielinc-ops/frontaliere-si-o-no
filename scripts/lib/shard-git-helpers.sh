@@ -28,6 +28,12 @@
 # scripts/lib/push-article-shard-incremental.sh:185.
 # ─────────────────────────────────────────────────────────────────────────────
 
+# Resolve the helper directory while this file is sourced. Callers perform
+# integrity checks after changing into a staging clone, so resolving
+# BASH_SOURCE inside a function would reinterpret this relative source path
+# against that clone.
+SHARD_GIT_HELPERS_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
 # shard_read_counter <clone_dir> <path-in-repo>
 # Prints the numeric content of <path> at HEAD in <clone_dir>, or 0 if the
 # path is absent, the clone has no commits yet, or the content isn't numeric.
@@ -296,7 +302,7 @@ shard_assert_source_paths_indexed() {
     canonical) ;;
     ticino-hash-v1)
       mapped_paths="$work/expected-physical-paths"
-      if ! node "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/ticino-tree-fanout.mjs" \
+      if ! node "$SHARD_GIT_HELPERS_DIR/ticino-tree-fanout.mjs" \
           map-paths < "$source_paths" > "$mapped_paths" \
         || ! LC_ALL=C sort -z -o "$mapped_paths" "$mapped_paths"; then
         echo "::error::$label source path integrity check could not map Ticino fan-out paths" >&2
@@ -1320,7 +1326,7 @@ shard_push_error_is_transport() {
 # the retry budget on a credential that cannot succeed.
 shard_push_error_is_transient() {
   shard_push_error_is_transport "$1" \
-    || grep -qEi 'remote: (internal server error|service unavailable|bad gateway|gateway timeout)|returned error: (429|5[0-9][0-9])' "$1"
+    || grep -qEi 'remote: (internal server error|service unavailable|bad gateway|gateway timeout|fatal error in commit_refs_rules)|returned error: (429|5[0-9][0-9])' "$1"
 }
 
 # shard_push_failure_reason <logfile>

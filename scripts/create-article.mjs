@@ -9514,6 +9514,14 @@ const LOCAL_MIN_VIABLE_MS = 11 * 60_000;
  */
 const MIN_VIABLE_ATTEMPT_MS = 2 * 60_000;
 
+function discoveryPoolBudgetOptions(options = {}) {
+  return {
+    ...options,
+    deadlineMs: RUN_START_MS + RUN_WALL_BUDGET_MS,
+    deadlineReserveMs: MIN_VIABLE_ATTEMPT_MS,
+  };
+}
+
 /**
  * Turn a fail-closed verifier outage into a typed run-level error. The
  * `unverified` result must not enter the content-remediation loop: retrying
@@ -9776,9 +9784,9 @@ async function main() {
       _provenHeadlinesForDiscovery = provenHeadlinesForDedup || [];
       const provenStrings = (provenHeadlinesForDedup || []).map((h) => String(h.headline || ''));
       try {
-        const pool = await _buildDiscoveryPool(evidenceForDiscovery, {
+        const pool = await _buildDiscoveryPool(evidenceForDiscovery, discoveryPoolBudgetOptions({
           provenHeadlines: provenStrings,
-        });
+        }));
         console.error(`DISCOVERY_POOL_BUILD orphan=${pool.perSource.orphan} suggest=${pool.perSource.suggest} news=${pool.perSource.news} postDedup=${pool.postDedupCount}`);
         _discoveryHeadlines = _discoveryCandidatesToHeadlines(pool.candidates);
       } catch (err) {
@@ -9848,7 +9856,7 @@ async function main() {
         try {
           _provenHeadlinesForDiscovery = headlines.slice();
           const provenStrings = headlines.map((h) => String(h.headline || ''));
-          const gnPool = await _buildDiscoveryPool(evidenceForDiscovery, { provenHeadlines: provenStrings });
+          const gnPool = await _buildDiscoveryPool(evidenceForDiscovery, discoveryPoolBudgetOptions({ provenHeadlines: provenStrings }));
           const newsOnly = (gnPool.candidates || []).filter((c) => c && c.source === 'news');
           const gnHeadlines = _discoveryCandidatesToHeadlines(newsOnly).slice(0, GOOGLE_NEWS_INJECT_MAX);
           if (gnHeadlines.length > 0) {
@@ -10287,7 +10295,7 @@ async function main() {
             : (headlines || []);
           const provenStrings = atlas.map((h) => String(h.headline || ''));
           _provenHeadlinesForDiscovery = atlas;
-          const pool = await _buildDiscoveryPool(evidenceForDiscovery, { provenHeadlines: provenStrings });
+          const pool = await _buildDiscoveryPool(evidenceForDiscovery, discoveryPoolBudgetOptions({ provenHeadlines: provenStrings }));
           console.error(`DISCOVERY_POOL_BUILD_FALLBACK orphan=${pool.perSource.orphan} suggest=${pool.perSource.suggest} news=${pool.perSource.news} postDedup=${pool.postDedupCount}`);
           const fbHeadlines = _discoveryCandidatesToHeadlines(pool.candidates);
           if (fbHeadlines.length > 0) {

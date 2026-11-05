@@ -117,8 +117,6 @@ const DEFAULT_WINDOW_H = readDefaultWindowHours();
  * finestra.
  */
 const NARROWING_ALLOWLIST: Record<string, string> = {
-  '.github/workflows/post-deploy-validate-dist.yml :: title:Validation Failure (dist): post-deploy :: --reopen-within-hours 6':
-    'validatore post-deploy: il fallback verificato passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
   '.github/workflows/post-deploy-validate-live.yml :: title:Validation Failure (live): post-deploy :: reopen-within-hours: 6':
     'codice verificato in post-deploy-validate-live.yml: lo step Report failure to GitHub Issues passa esplicitamente 6h; report-failure/action.yml ha default vuoto e il resolve gemello usa lo stesso titolo, quindi la finestra è intenzionale e limitata al ciclo corrente.',
   '.github/workflows/deploy-publish.yml :: title:CI Failure (deploy): ${{ github.workflow }} :: reopen-within-hours: 6':
@@ -371,11 +369,8 @@ describe('lo scanner trova davvero i call site (anti-gate-vacuo)', () => {
     expect(windows.length).toBeGreaterThanOrEqual(8);
   });
 
-  it('legge una finestra che sta DOPO una --description multilinea', () => {
-    // Il caso che una continuazione a soli backslash perderebbe: la finestra di
-    // post-deploy-validate-dist.yml è separata dal `node …` da ~90 righe di
-    // description fra virgolette.
-    const deep = windows.filter((w) => w.file.endsWith('post-deploy-validate-dist.yml'));
+  it('legge la finestra del reporter dist dopo che il workflow è passato al modulo condiviso', () => {
+    const deep = windows.filter((w) => w.file.endsWith('scripts/ci/report-validate-dist-failure.mjs'));
     expect(deep.length).toBeGreaterThanOrEqual(1);
     expect(deep[0].hours).toBe(6);
   });

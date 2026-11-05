@@ -20,10 +20,25 @@ function extract(html: string) {
   Object.defineProperty(dom.window.HTMLElement.prototype, 'innerText', { get() { return this.textContent || ''; } });
   dom.window.Element.prototype.getBoundingClientRect = () => ({ width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON() {} });
   vi.stubGlobal('window', dom.window); vi.stubGlobal('document', dom.window.document); vi.stubGlobal('location', dom.window.location);
-  vi.stubGlobal('CSS', { escape: (value: string) => value });
+  const css = { escape: (value: string) => value };
+  vi.stubGlobal('CSS', css);
+  (dom.window as any).CSS = css;
   return { dom, snapshot: extractFieldsInPage() };
 }
 afterEach(() => vi.unstubAllGlobals());
+
+it('keeps collapsed future fields out of read-ahead in the portal and extension readers', () => {
+  const { dom } = extract(`<form>
+    <label for="active-cv">Current CV *</label><input id="active-cv" type="file" required>
+    <section style="visibility:collapse"><label for="collapsed-cv">Later CV *</label><input id="collapsed-cv" type="file" required></section>
+  </form>`);
+  const readAheadLabels = extractFieldsInPage({ includeHidden: true }).fields.map((field: any) => field.label);
+  expect(readAheadLabels).toEqual(['Current CV *']);
+  dom.window.eval(readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8'));
+  const extensionReadAheadLabels = (dom.window as any).CompilaRunnerFields({ includeHidden: true }).fields.map((field: any) => field.label);
+  expect(extensionReadAheadLabels).toEqual(['Current CV *']);
+  dom.window.close();
+});
 
 const mirrorPrompt = 'I accept the Candidates Privacy Notice. *';
 const mirrorQuestion = `<label for="resumator-questionnaire-q722664">${mirrorPrompt}</label><input type="hidden" id="resumator-questionnaire-q722664" name="resumator-questionnaire[722664]" value="I agree">`;
@@ -402,6 +417,15 @@ it('routes unreadable source labels to a technical hold instead of manufacturing
     [{ fieldId: 'f1', question: 'A plausible but invented question?' }])).toMatchObject({ questions: [], unreadableFields: ['f1'] });
 });
 
+it('asks for a separately required house number when the residence street has no number', () => {
+  const result = portalRequirementsFromMissingRequired([
+    { id: 'street', kind: 'text', label: 'Via', required: true },
+    { id: 'house-number', kind: 'text', label: 'Numero civico', required: true },
+  ], [], { candidate: { identity: { address: { street: 'Via Roma' } }, profile: { address: { street: 'Via Roma' } }, answers: {} } });
+
+  expect(result.questions.map((question: any) => question.id)).toContain('portal_residence_house_number');
+});
+
 it('does not create a candidate request when the real reduction contains no questions or documents', async () => {
   const requirements = portalRequirementsFromMissingRequired([{ id: 'cv', kind: 'file', label: 'Resume / CV', required: true }], [{ fieldId: 'cv', type: 'text', question: 'Upload your CV' }]);
   expect(requirements).toMatchObject({ questions: [], documents: [] });
@@ -478,6 +502,36 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(frame.evaluate).toHaveBeenCalled();
   expect(browser.close).toHaveBeenCalledOnce();
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
+});
+
+it('keeps a verified Umantis form when its accessibility text starts with skip-link chrome', async () => {
+  const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+  const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+  const snapshot = {
+    url: applicationUrl, buttons: [], captcha: false, passwordVisible: true, errors: [],
+    text: 'Passa a Contenuto principale Impiegato/a amministrativo - Candidatura I campi contrassegnati con * sono obbligatori.',
+    fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'Curriculum', required: true }],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => applicationUrl,
+    title: vi.fn(async () => 'Impiegato/a amministrativo - Candidatura | EOC candiDati'),
+    goto: vi.fn(async () => {}), evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'it', candidateLocale: 'it',
+    job: { title: 'Impiegato a amministrativo', company: 'EOC – Ente Ospedaliero Cantonale' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(result).toMatchObject({ questions: [], documents: [] });
+  expect(result.handoff).toBeUndefined();
+  expect(codex).toHaveBeenCalledOnce();
+  expect(browser.close).toHaveBeenCalledOnce();
 });
 
 it('batches mounted later-step ATS questions in one read-only pre-read', async () => {
@@ -558,7 +612,7 @@ it('does not expose fallback-language questions from a pre-read when localizatio
     candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser };
 
   const result = await readPortalRequirements(ctx);
-  expect(result).toEqual({ questions: [], documents: [] });
+  expect(result).toEqual({ questions: [], documents: [], handoff: 'requirements_unavailable' });
   expect(codex).toHaveBeenCalledTimes(2);
   expect(browser.close).toHaveBeenCalledOnce();
 });

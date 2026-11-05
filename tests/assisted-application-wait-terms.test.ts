@@ -18,7 +18,7 @@ import {
 import { POSTING_LOOKS_AT_ONCE, applyAutomationEvent, postingClosedForOrder, runAutomationSweep, startAutomation } from '../functions/src/assistedApplicationAutomation.js';
 import { automationEmailKey } from '../functions/src/assistedApplicationAutomationEffects.js';
 import { buildCandidateAutomationEmail, buildOwnerAutomationEmail, describeTakeover } from '../functions/src/assistedApplicationAutomationEmails.js';
-import { fetchWorkdayPosting } from '../functions/src/assistedApplicationAiJob.js';
+import { JOB_DETAIL_BASE, JOB_ACTIVE_IDS_URL, fetchWorkdayPosting } from '../functions/src/assistedApplicationAiJob.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from '../functions/src/assistedApplicationLiveness.js';
 import { buildCustomerEmail } from '../functions/src/assistedApplicationNotifications.js';
 import { getTermsLegalDocument } from '../services/legal/terms';
@@ -280,15 +280,45 @@ describe('the ad\'s own word that it is closed', () => {
     expect(postingSaysClosed(null)).toBe(false);
   });
 
+  it('checks the published posting for a legacy reminder when both saved URLs are stale', async () => {
+    const jobId = 'helsana-872317162e36';
+    const staleApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const postingUrl = 'https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-IT-Management-Assistenz/1426391333/';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      calls.push(`${init.method || 'GET'} ${url}`);
+      if (url === detailUrl) return json({ description: 'Published role description', url: postingUrl, applyUrl: staleApplyUrl });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url === postingUrl && init.method === 'HEAD') return new Response(null, { status: 200 });
+      if (url === postingUrl) return new Response(`<main><p>${'Open position at Helsana. '.repeat(20)}</p><a href="/apply">Jetzt bewerben</a></main>`, { status: 200, headers: { 'content-type': 'text/html' } });
+      if (url === staleApplyUrl) return new Response(null, { status: 404 });
+      return new Response('', { status: 404 });
+    });
+    const store = createMemoryFirestore({
+      'assisted_applications/legacy/ai_drafts/current': { channel: { type: 'employer_site', postingUrl: staleApplyUrl, applyUrl: staleApplyUrl } },
+    });
+
+    expect(await postingClosedForOrder({ db: store.db, orderId: 'legacy', order: { jobId, jobUrl: staleApplyUrl }, fetchImpl, resolve })).toBe(false);
+    expect(calls).toContain(`GET ${postingUrl}`);
+    expect(calls.some((call) => call.endsWith(staleApplyUrl))).toBe(false);
+  });
+
   it('is read for an order at the address the runner reads before it submits', async () => {
     expect(postingAddressOf({ channel: { postingUrl: 'https://a.example/p', applyUrl: 'https://ats.example/apply' }, job: { applyUrl: 'https://b.example' } })).toBe('https://a.example/p');
+    expect(postingAddressOf({ channel: { postingUrl: 'https://stale.example/job' } }, { jobUrl: posting })).toBe(posting);
     expect(postingAddressOf({ channel: { applyUrl: 'https://ats.example/apply' } })).toBe('https://ats.example/apply');
     expect(postingAddressOf({ job: { applyUrl: 'https://b.example' } })).toBe('https://b.example');
     expect(postingAddressOf(null)).toBe('');
 
-    const store = createMemoryFirestore({ 'assisted_applications/o1/ai_drafts/current': { channel: { type: 'workday', applyUrl: posting } } });
+    const stalePosting = 'https://acme.wd3.myworkdayjobs.com/en-US/Careers/job/Lugano/Old-Store-Assistant_JR09999';
+    const store = createMemoryFirestore({ 'assisted_applications/o1/ai_drafts/current': { channel: { type: 'workday', postingUrl: stalePosting, applyUrl: stalePosting } } });
     const order = { jobId: 'acme-1', jobUrl: posting };
-    expect(await postingClosedForOrder({ db: store.db, orderId: 'o1', order, fetchImpl: workday(denied, () => json({ total: 0, jobPostings: [] })), resolve })).toBe(true);
+    const unlisted = workday(denied, () => json({ total: 0, jobPostings: [] }));
+    expect(await postingClosedForOrder({ db: store.db, orderId: 'o1', order, fetchImpl: unlisted, resolve })).toBe(true);
+    const readPostingUrls = unlisted.mock.calls.map(([url]) => String(url));
+    expect(readPostingUrls.some((url) => url.includes('JR01234-1'))).toBe(true);
+    expect(readPostingUrls.some((url) => url.includes('JR09999'))).toBe(false);
     const open = workday(() => json({ jobPostingInfo: { canApply: true, posted: true, jobDescription: 'x' } }), () => json({ total: 0, jobPostings: [] }));
     expect(await postingClosedForOrder({ db: store.db, orderId: 'o1', order, fetchImpl: open, resolve })).toBe(false);
   });

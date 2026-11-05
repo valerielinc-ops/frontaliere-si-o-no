@@ -1,20 +1,64 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-11-03T21:30:05.009Z",
-  "total": 10,
+  "generatedAt": "2026-11-04T21:19:02.969Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 4226,
-  "avgDurationMs": 4226,
+  "removedCount": 1,
+  "unchangedCount": 9,
+  "durationMs": 2643,
+  "avgDurationMs": 2643,
   "durationHistory": [
-    4226
+    2643
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
+      "slug": "sales-associate-zona-di-zurigo-contratto-a-pagamento-guess-europe-sagl-zurich",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/E4DDE183A1/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/E4DDE183A1/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "employmentType": "temporary",
+      "contractType": "temporary",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-20T00:00:00.000Z",
+      "validThrough": "2026-10-04T21:37:24.333Z",
+      "benefits": [],
+      "id": "guess-europe-edd49f72b008",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-20T21:37:24.333Z",
+      "salarySource": "estimated",
+      "datePosted": "2026-08-20T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Buyers Administrator Intern",
@@ -405,49 +449,6 @@
       }
     },
     {
-      "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
-      "slug": "sales-associate-zona-di-zurigo-contratto-a-pagamento-guess-europe-sagl-zurich",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/E4DDE183A1/",
-      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/E4DDE183A1/apply/",
-      "company": "Guess Europe Sagl",
-      "companyKey": "guess-europe",
-      "companyDomain": "guess.eu",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "employmentType": "temporary",
-      "contractType": "temporary",
-      "category": "other",
-      "sector": "Lusso & Moda",
-      "source": "guess-europe-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-20T00:00:00.000Z",
-      "validThrough": "2026-10-04T21:37:24.333Z",
-      "benefits": [],
-      "id": "guess-europe-edd49f72b008",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-20T21:37:24.333Z",
-      "salarySource": "estimated",
-      "datePosted": "2026-08-20T00:00:00.000Z",
-      "postingDateSource": "reported",
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Social Media Manager",
       "slug": "gestore-dei-social-media-guess-europe-sagl-bioggio",
       "url": "https://apply.workable.com/guess-europe-sagl/j/1389DB96D4/",
@@ -566,5 +567,5 @@
       }
     }
   ],
-  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

@@ -69,6 +69,7 @@ function makeValueSignal<T>(): { promise: Promise<T>; resolve: (v: T) => void } 
 const staticPagesSignal = makeSignal();
 const professionLandingsSignal = makeSignal();
 const salaryHubSignal = makeSignal();
+const fuelDailyPagesSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
 let activeJobSitemapLocs: ReadonlySet<string> | null = null;
 let jobSitemapAllowlist: ReadonlySet<string> | null = null;
@@ -134,6 +135,12 @@ export function resolveProfessionLandingsFlushed(): void {
 export const salaryHubFlushed: Promise<void> = salaryHubSignal.promise;
 export function resolveSalaryHubFlushed(): void {
   salaryHubSignal.resolve();
+}
+
+/** Resolves when {@link fuelDailyPagesPlugin} has flushed its pages and sitemaps. */
+export const fuelDailyPagesFlushed: Promise<void> = fuelDailyPagesSignal.promise;
+export function resolveFuelDailyPagesFlushed(): void {
+  fuelDailyPagesSignal.resolve();
 }
 
 /**

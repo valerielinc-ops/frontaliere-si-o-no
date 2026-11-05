@@ -36,6 +36,8 @@
 // eslint-disable-next-line import/no-relative-parent-imports
 import { lookupRetired } from '../../infra/cloudflare-worker/locale-router.js';
 
+const ARTICLE_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
+
 /** Pathname of a sitemap `<loc>`, or null when it is not a parseable URL. */
 function locPathname(loc) {
   try {
@@ -56,6 +58,41 @@ function locPathname(loc) {
 export function isRetiredLoc(loc) {
   const pathname = locPathname(loc);
   return pathname !== null && lookupRetired(pathname) !== undefined;
+}
+
+/**
+ * Article ids for which the edge has retired every published locale URL.
+ *
+ * A corpus mirror can briefly retain a registry row after the publisher has
+ * removed its sitemap block. Do not treat that row as live merely because one
+ * locale happens to match: a partial/ambiguous retirement must remain visible
+ * to the sitemap integrity gate. The caller supplies the section-specific
+ * absolute URL bases so this helper cannot infer a path from an unrelated
+ * section or fall back to the Italian slug.
+ *
+ * @param {Record<string, Record<string, string>>} slugs
+ * @param {Record<string, string>} urlBases locale → absolute base ending `/`
+ * @returns {Set<string>}
+ */
+export function fullyRetiredArticleIds(slugs, urlBases) {
+  if (!slugs || typeof slugs !== 'object' || !urlBases || typeof urlBases !== 'object') {
+    return new Set();
+  }
+
+  return new Set(
+    Object.entries(slugs)
+      .filter(([, slugMap]) => ARTICLE_LOCALES.every((locale) => {
+        const slug = slugMap?.[locale];
+        const base = urlBases[locale];
+        return typeof slug === 'string'
+          && slug.trim().length > 0
+          && !slug.includes('/')
+          && typeof base === 'string'
+          && base.endsWith('/')
+          && isRetiredLoc(`${base}${slug}/`);
+      }))
+      .map(([articleId]) => articleId),
+  );
 }
 
 /**

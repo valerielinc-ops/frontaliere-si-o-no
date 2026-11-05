@@ -6405,7 +6405,7 @@ ${hrefTags}
  ? ''
  : hubChromeSplit?.subnavHtml ?? '';
  const staticHubMainClass = isJobBoardHub
- ? 'seo-static-content job-board-static-hub'
+ ? 'seo-static-content job-board-static-hub job-board-static-content'
  : 'seo-static-content';
  // `<div id="footer-root"></div>` is the portal target App.tsx reads via
  // `document.getElementById('footer-root')` in lite-shell mode. Without it,
@@ -6422,10 +6422,10 @@ ${hrefTags}
    true,
    isJobBoardHub ? 'job-board' : 'default',
  );
- // A non-staticOverlay handoff moves the fallback <main> into #root and hides
- // its old outer `.ft-rail-grid` wrapper. Keep the job-board rail shell inside
- // that main so the three-column geometry survives the move and matches the
- // SPA's `ft-rail-grid-x` wrapper instead of reverting to a full-width body.
+ // A non-staticOverlay handoff keeps the job-board fallback outside #root until
+ // the first real result set is ready. Keep its rail shell inside that main so
+ // the three-column geometry survives the later snapshot removal and matches
+ // the SPA's `ft-rail-grid-x` wrapper instead of reverting to a full-width body.
  const staticHubMainHtml = isJobBoardHub
    ? `<main class="${staticHubMainClass}">
  <div class="job-board-static-top-stack">
@@ -6454,7 +6454,8 @@ ${hubChromeSplit?.bodyHtml ?? ''}
    ARTICLES_INDEX_RX.test(canonicalPath) || SVIZZERA_ARTICLES_INDEX_RX.test(canonicalPath);
  const bodySection = hubChromeSplit
  ? isJobBoardHub
-   ? `${rootShell(hasSpaBundle, staticHubMainHtml)}
+   ? `${rootShell(hasSpaBundle)}
+${staticHubMainHtml}
  <div id="footer-root"></div>`
    : `${rootShell(hasSpaBundle)}
 ${staticHubSubnavHtml}

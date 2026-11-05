@@ -55,10 +55,12 @@ import {
 } from './bing-finding-codes.mjs';
 import { BING_TEMPLATE_TABLE, templateIndexFor } from './bing-template-inventory.mjs';
 
-// v4 adds the remaining known route families to the compact referrer table.
+// v5 keeps the sitemap producer references aligned with every manifest URL,
+// so a persistent finding can be traced back to the sitemap file(s) that
+// emitted it without duplicating the source URL in the manifest.
 // The table is embedded in each frontier manifest, so older artifacts remain
 // inspectable with their own table.
-export const CRAWLER_SCHEMA_VERSION = 4;
+export const CRAWLER_SCHEMA_VERSION = 5;
 export const SITEMAP_SCOPE = 'sitemap';
 export const FRONTIER_SCOPE = 'discovered-frontier';
 export const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';
@@ -781,6 +783,7 @@ export async function collectSitemapInventory({
   const visited = new Set();
   const sitemapUrls = [];
   const pageUrls = new Set();
+  const producerRefsByUrl = new Map();
   const errors = [];
   while (pending.length > 0) {
     const current = pending.shift();
@@ -794,8 +797,14 @@ export async function collectSitemapInventory({
         throw new Error(`sitemap vuoto o formato non supportato: ${current}`);
       }
       sitemapUrls.push(current);
+      const producerIndex = sitemapUrls.length - 1;
       for (const nested of parsed.sitemapUrls) if (!visited.has(nested)) pending.push(nested);
-      for (const page of parsed.pageUrls) pageUrls.add(page);
+      for (const page of parsed.pageUrls) {
+        pageUrls.add(page);
+        const refs = producerRefsByUrl.get(page) || new Set();
+        refs.add(producerIndex);
+        producerRefsByUrl.set(page, refs);
+      }
     } catch (error) {
       errors.push({ url: current, error: error?.message || String(error) });
     }
@@ -819,6 +828,11 @@ export async function collectSitemapInventory({
     sitemapUrls,
     manifestCount: urls.length,
     urls,
+    // Aligned with `urls`; each integer indexes `sitemapUrls`. Keeping the
+    // source list compact matters because the full-tree manifest can contain
+    // hundreds of thousands of pages, while duplicate URL membership still
+    // needs to remain observable.
+    sitemapProducerRefs: urls.map((url) => [...(producerRefsByUrl.get(url) || [])].sort((a, b) => a - b)),
     folders,
     partitions,
     errors,
@@ -1360,6 +1374,7 @@ export async function crawlPartition({
   const selected = manifest.urls.filter((url) => partitionFor(url, totalPartitions) === part);
   const manifestSet = new Set(manifest.urls);
   const manifestIndexes = new Map(manifest.urls.map((url, index) => [url, index]));
+  const sitemapUrls = Array.isArray(manifest.sitemapUrls) ? manifest.sitemapUrls : [];
   const entries = selected.map((url, index) => ({ url, index }));
   const results = new Array(selected.length);
 
@@ -1419,7 +1434,21 @@ export async function crawlPartition({
     increment(statusCounts, String(result.status));
     increment(stats.statuses, String(result.status));
     for (const item of result.findings || []) {
-      findings.push({ ...item, root: folder, status: result.status });
+      const manifestIndex = manifestIndexes.get(url);
+      const producerRefs = Number.isInteger(manifestIndex)
+        ? manifest.sitemapProducerRefs?.[manifestIndex]
+        : null;
+      const sitemapProducers = Array.isArray(producerRefs)
+        ? producerRefs
+          .map((producerIndex) => sitemapUrls[producerIndex])
+          .filter((producer) => typeof producer === 'string' && producer.length > 0)
+        : [];
+      findings.push({
+        ...item,
+        root: folder,
+        status: result.status,
+        ...(sitemapProducers.length > 0 ? { sitemapProducers } : {}),
+      });
       increment(codeCounts, item.code);
       increment(stats.findings, item.code);
     }
@@ -1544,6 +1573,7 @@ async function main() {
         sitemapUrls: [],
         manifestCount: 0,
         urls: [],
+        sitemapProducerRefs: [],
         folders: {},
         partitions: {},
         errors: [{ url: sitemapUrl, error: error?.message || String(error) }],
