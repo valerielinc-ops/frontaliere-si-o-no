@@ -5186,7 +5186,7 @@ export async function readPortalRequirements(ctx) {
   if (!readAhead || !ctx.applyUrl) {
     return { questions: [], documents: [] };
   }
-  if (!ctx.codex) return { questions: [], documents: [], handoff: 'requirements_unavailable' };
+  if (!ctx.codex) return { questions: [], documents: [], handoff: 'planner_unavailable' };
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
   try {
@@ -5223,7 +5223,8 @@ export async function readPortalRequirements(ctx) {
       : NAVIGATION));
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
-    if (snapshot.captcha || !readableApplication) return { questions: [], documents: [], handoff: 'requirements_unavailable' };
+    if (snapshot.captcha) return { questions: [], documents: [], handoff: 'captcha_present' };
+    if (!readableApplication) return { questions: [], documents: [], handoff: 'application_form_unreadable' };
     // The live form is authoritative for the selected posting. A verified
     // route is sufficient provenance for a generic ATS form; otherwise a
     // mismatch must stop before any job-specific question reaches the draft.
@@ -5242,7 +5243,13 @@ export async function readPortalRequirements(ctx) {
       });
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
     }
-    const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    let plan;
+    try {
+      plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    } catch {
+      (ctx.log || (() => {}))('portal pre-read skipped: question_planning_failed');
+      return { questions: [], documents: [], handoff: 'question_planning_failed' };
+    }
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, { candidate: ctx.candidate });
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
@@ -5255,12 +5262,15 @@ export async function readPortalRequirements(ctx) {
       log: ctx.log,
     });
     if (questions.some((question) => question.localizationStatus === 'fallback')) {
-      throw new PortalQuestionLocalizationError();
+      return { questions: [], documents: [], handoff: 'question_localization_unavailable' };
     }
     return { ...requirements, questions };
   } catch (error) {
-    (ctx.log || (() => {}))(`portal pre-read skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return { questions: [], documents: [], handoff: 'requirements_unavailable' };
+    const handoff = error instanceof PortalQuestionLocalizationError
+      ? 'question_localization_unavailable'
+      : 'portal_reader_failed';
+    (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`);
+    return { questions: [], documents: [], handoff };
   } finally {
     await browser?.close().catch(() => {});
   }
