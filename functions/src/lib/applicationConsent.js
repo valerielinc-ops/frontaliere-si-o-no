@@ -162,17 +162,28 @@ export function minimumDataRetentionOption(options, question = '') {
     // excluded from the minimum so a separate, affirmative finite option can
     // still be selected. Keep ambiguous anti-deletion wording unresolved above.
     const consentActionWords = /\b(?:consent\w*|acconsent\w*|agree\w*|accept\w*|authoriz\w*|authoris\w*|autoriz\w*|autoris\w*|allow\w*|permit\w*|erlaub\w*|gestatt\w*|einwillig\w*|zustimm\w*|akzeptier\w*|accepter\w*|willing\w*|want\w*|wish\w*|bereit|dispost\w*|einverstanden|accord\w*)\b/;
-    const storageActionWords = /\b(?:retain\w*|kept|keep\w*|held|hold\w*|store\w*|stor\w*|preserv\w*|conserv\w*|memorizz\w*|behalten\w*|aufbewahr\w*)\b/;
+    const storageActionWords = /\b(?:retain\w*|kept|keep\w*|held|hold\w*|stor(?:e|es|ed|ing)|preserv\w*|conserv\w*|memorizz\w*|behalten\w*|aufbewahr\w*)\b/;
     const negationBefore = actionWords => clauseText => new RegExp(
       `${negationWords.source}(?: [a-z0-9]+){0,12} ${actionWords.source}`,
     ).test(clauseText);
-    const negatesConsentChoice = scopedClauseTexts.some(negationBefore(consentActionWords));
+    const noAdditionalStoragePermission = /\bno\b(?: [a-z0-9]+){0,3} storage\b.{0,20}\b(?:permit\w*|allow\w*)\b/;
+    const negatesConsentChoice = scopedClauseTexts.some(clauseText =>
+      negationBefore(consentActionWords)(clauseText.replace(noAdditionalStoragePermission, ' ')));
     const firstPersonDataChoice = /\b(?:i|me|my|we|our|io|me|mio|mia|ich|mir|mich|mein\w*|je|moi|mon|ma|mes|nous|notre)\b/;
     const negatesPersonalRetention = clauseTexts.some((clauseText, index) => scopedClauseTexts[index] === clauseText
       && firstPersonDataChoice.test(clauseText) && negationBefore(storageActionWords)(clauseText));
     const negatesRetentionAction = scopedClauseTexts.some(negationBefore(storageActionWords));
     const refusalWords = /\b(?:refus\w*|declin\w*|reject\w*|disagree\w*|unwilling\w*|unwillig\w*|reluctant\w*|rifiut\w*|verweiger\w*)\b/;
-    const explicitlyRefuses = scopedClauseTexts.some(clauseText => refusalWords.test(clauseText));
+    const candidateInitiatedRejection = /\b(?:i|you)\b(?: (?:have|has|had))? (?:reject\w*|refus\w*|declin\w*)\b/;
+    const candidateAsRejectionAgent = /\b(?:reject\w*|refus\w*|declin\w*|rifiut\w*|verweiger\w*|abgelehn\w*)\b(?: [a-z0-9]+){0,8} \b(?:by (?:me|you|the candidate|the applicant)|da (?:me|te|candidat\w*)|par (?:moi|vous|candidat\w*)|von (?:mir|ihnen|dem bewerber\w*))\b/;
+    const applicationOutcomeRejection = /\b(?:application(?: process)?|candidac\w*|candidatur\w*|bewerbung(?:sverfahren)?|job|position|stelle)\b(?: (?:is|was|are|were|has been|have been|had been|got|ist|war|wurde|wird|sind|wurden|e stato|e stata|sono stati|sono state|a ete|ont ete|est|sont))? (?:not )?(?:reject\w*|refus\w*|declin\w*|abgelehn\w*|verworfen|not selected|nicht ausgewahlt|non selezionat\w*|pas selectionne\w*)\b/;
+    const passiveApplicantRejection = /\b(?:i|you|he|she|they|candidate|applicant)\b.{0,18}\b(?:am|is|are|was|were|have been|has been|got)\b.{0,18}\b(?:rejected|refused|declined|abgelehnt|verworfen)\b/;
+    const employerRejection = /\b(?:we|they|the employer|the company)\b.{0,20}\b(?:reject(?:ed)?|refuse(?:d)?|decline(?:d)?|abgelehnt|verworfen)\b.{0,25}\b(?:you|your application|candidate|applicant|(?:the|an|my) application|candidac\w*|candidatur\w*)\b/;
+    const removeAtsRejectionOutcome = clauseText => [applicationOutcomeRejection, passiveApplicantRejection, employerRejection]
+      .reduce((remaining, pattern) => remaining.replace(new RegExp(pattern.source, 'g'), ' '), clauseText);
+    const explicitlyRefuses = scopedClauseTexts.some(clauseText => candidateInitiatedRejection.test(clauseText)
+      || candidateAsRejectionAgent.test(clauseText)
+      || refusalWords.test(removeAtsRejectionOutcome(clauseText)));
     const answerIsNo = /^(?:no|non|nein|nein danke|non desidero|non acconsento|non consento|i do not consent|i don t consent)$/
       .test(normalize(option.label));
     if (negatesDeletion || negatesCurrentTiming || negatesPostTemporalProhibition || negatesPreTemporalProhibition) return null;
