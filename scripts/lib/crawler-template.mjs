@@ -375,8 +375,10 @@ export async function fetchJson(url, options = {}) {
       }
       const text = await res.text();
       try {
-        const data = JSON.parse(text);
-        return options.returnResponse ? { data, response: res } : data;
+        if (options.returnResponse) {
+          return { data: JSON.parse(text), response: res };
+        }
+        return JSON.parse(text);
       } catch (parseErr) {
         const err = new Error(`Invalid JSON from ${url}: ${parseErr?.message || parseErr}`);
         err.retryable = true;
