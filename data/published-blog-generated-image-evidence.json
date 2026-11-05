@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "7de74312c92f8b294f67b7a9ad2eeb1eb95b30a9",
+  "commit": "bda7ce2771b42232d7e349e6c79a7b3f1fcaad7d",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -46671,6 +46671,92 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic urban development illustration with no people, readable text, signage, logos, watermark, or signature."
+      }
+    },
+    "/images/blog/article-adeguamento-merkblatt-beteiligungen-zrh.webp": {
+      "schema": 1,
+      "assetId": "article-adeguamento-merkblatt-beteiligungen-zrh",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "e12d256f8b2c78d636fd1dcf6684e82a75b0e2422af6b0f22ae3d7b00a12e4b8",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "dc959b18ad47cafb86db076bfc92381c1d99aba70fad019b68fb812e6736ed81",
+      "bytes": 164498,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-05T22:53:52.651Z",
+      "verifiedAt": "2026-11-05T22:54:21.401Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-adeguamento-merkblatt-beteiligungen-zrh.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic Zurich cityscape; no readable text, logos, recognizable faces, or specific event."
+      }
+    },
+    "/images/blog/article-mercato-immobiliare-sciaffusa-crescita.webp": {
+      "schema": 1,
+      "assetId": "article-mercato-immobiliare-sciaffusa-crescita",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "68ab067a7473fd65b94ad769ad5708ec2888bad37d86846c81d82ed926d3db8f",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "552ea87b5bdfeaaf554a24c8e37ef6e1dafbb3d0f12489ff09316326d3740b8d",
+      "bytes": 187192,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-05T22:54:14.798Z",
+      "verifiedAt": "2026-11-05T22:54:26.212Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-mercato-immobiliare-sciaffusa-crescita.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of residential buildings near a historic Swiss landmark; no people, text, signage, logos, or event-specific documentation."
       }
     },
     "/images/places/lugano-view.webp": {
