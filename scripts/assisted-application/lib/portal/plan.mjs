@@ -1550,7 +1550,7 @@ export function candidateAnswerForField(candidate, field) {
   // ATS registration forms can require the same identity email twice. The
   // second field is still the applicant's email; never substitute it into a
   // field owned by a referee, emergency contact, or another person.
-  else if (IDENTITY_EMAIL_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
+  else if (isTextEmailInput && IDENTITY_EMAIL_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
   else if (PHONE_CODE_FIELD_RE.test(label) && !PHONE_COUNTRY_CODE_LABEL_RE.test(label) && !otherPersonField) identityValue = identity.phone || '';
   else if (/\blinkedin\b/i.test(label) && !otherPersonField) identityValue = identity.linkedin || '';
   if (identityValue) {
