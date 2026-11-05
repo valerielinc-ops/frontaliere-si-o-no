@@ -45,6 +45,7 @@ describe('Google Event data quality publication gate', () => {
     ['endDate', (event) => { delete event.endDate; }],
     ['performer', (event) => { delete event.performer; }],
     ['organizer', (event) => { delete event.organizer; }],
+    ['organizer URL', (event) => { delete event.organizer.url; }],
     ['location.name', (event) => { delete event.location.name; }],
     ['offer price', (event) => { delete event.offers.price; }],
     ['offer currency', (event) => { delete event.offers.priceCurrency; }],
@@ -74,5 +75,18 @@ describe('Google Event data quality publication gate', () => {
 
     event.previousStartDate = '2026-11-30';
     expect(hasCompleteGoogleEventData(event)).toBe(true);
+  });
+
+  it('rejects impossible calendar dates and accepts complete organizer arrays', () => {
+    const invalidDate = structuredClone(COMPLETE_EVENT);
+    invalidDate.startDate = '2026-02-31';
+    expect(hasCompleteGoogleEventData(invalidDate)).toBe(false);
+
+    const organizers = structuredClone(COMPLETE_EVENT);
+    organizers.organizer = [
+      organizers.organizer,
+      { '@type': 'Organization', name: 'Second organizer', url: 'https://example.test/second-organizer/' },
+    ];
+    expect(hasCompleteGoogleEventData(organizers)).toBe(true);
   });
 });

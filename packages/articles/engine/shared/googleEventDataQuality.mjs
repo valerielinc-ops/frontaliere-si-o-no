@@ -33,6 +33,15 @@ function isNonEmpty(value) {
 
 function isValidDateTime(value) {
   if (!isNonEmpty(value)) return false;
+  const dateParts = /^(\d{4})-(\d{2})-(\d{2})/u.exec(value);
+  if (!dateParts) return false;
+  const year = Number(dateParts[1]);
+  const month = Number(dateParts[2]);
+  const day = Number(dateParts[3]);
+  const leapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const daysInMonth = [31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  if (year < 1 || month < 1 || month > 12 || day < 1 || day > daysInMonth[month - 1]) return false;
+
   const isDateOnly = /^\d{4}-\d{2}-\d{2}$/u.test(value);
   const isZonedDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})$/u.test(value);
   return (isDateOnly || isZonedDateTime) && Number.isFinite(Date.parse(value));
@@ -66,6 +75,11 @@ function hasNamedEntities(value, allowedTypes) {
     && isNonEmpty(entity.name)
     && typeNames(entity['@type']).some((type) => allowedTypes.has(type))
   ));
+}
+
+function hasHttpUrls(value) {
+  const entities = Array.isArray(value) ? value : [value];
+  return entities.length > 0 && entities.every((entity) => isHttpUrl(entity?.url));
 }
 
 function imageUrls(value) {
@@ -125,7 +139,7 @@ export function hasCompleteGoogleEventData(event) {
     && isNonEmpty(address.addressCountry)
     && hasNamedEntities(event.performer, PERFORMER_TYPES)
     && hasNamedEntities(event.organizer, ORGANIZER_TYPES)
-    && isHttpUrl(event.organizer?.url)
+    && hasHttpUrls(event.organizer)
     && status.some((value) => EVENT_STATUSES.has(value))
     && attendanceModes.some((value) => EVENT_ATTENDANCE_MODES.has(value))
     && offers.length > 0
