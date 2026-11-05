@@ -999,9 +999,23 @@ function applicationEntryControls(snapshot = {}, context = {}) {
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
   ];
-  return controls.filter((control) => !control?.disabled && !control?.chrome
+  const matching = controls.filter((control) => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label)
     && applicationEntryBelongsToPosting(control, context));
+  if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
+
+  // A verified posting can hand off to an ATS on another route or origin
+  // without a URL that carries the vacancy id (common on employer career
+  // pages). A single explicit Apply link is enough provenance; a listing with
+  // several such links remains unresolved rather than choosing one by position.
+  const posting = comparablePortalRoute(context.postingUrl);
+  const unbound = controls.filter((control) => {
+    if (control?.disabled || control?.chrome || !startsApplication(control?.text || control?.label)) return false;
+    const target = comparablePortalRoute(control?.href);
+    return Boolean(target && posting
+      && (target.origin !== posting.origin || target.pathname !== posting.pathname || target.search !== posting.search));
+  });
+  return unbound.length === 1 ? unbound : [];
 }
 
 // A posting may show an informational region notice and still expose its own
@@ -5225,7 +5239,7 @@ export async function readPortalRequirements(ctx) {
     let snapshot = await extractFields(page, NAVIGATION);
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
-      postingUrl: ctx.postingUrl,
+      postingUrl: ctx.postingUrl || page.url(),
       sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
       job: ctx.job,
       postingEntry: verifiedPostingEntry,
@@ -5459,15 +5473,28 @@ export async function submitViaPortal(ctx) {
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
     // the page: the posting is the order's.
-    const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
-    const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
+    const companyNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match';
+    const organizationCompatible = !ctx.job?.company || !ctx.job?.organization
+      || sameEmployerFamily(ctx.job.organization, ctx.job.company);
+    // The posting may use a brand while the order carries a legal entity, but
+    // two unrelated employer names are a source-data conflict, not permission
+    // to fall back to the role alone on an otherwise silent ATS form.
+    if (companyNamed && !organizationCompatible) return await handoff('posting_mismatch');
+    const namedByItsData = organizationCompatible
+      && sameEmployerFamily(ctx.job?.organization, ctx.job?.company)
+      && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
+    const postingNamed = organizationCompatible && (companyNamed || namedByItsData);
     if (postingNamed && isApplicationRegionUnsupported(initialPageText)
-      && !hasApplicationEntryControl(snapshot, { applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job })) {
+      && !hasApplicationEntryControl(snapshot, {
+        applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job,
+        allowSingleExternalApplicationEntry: true,
+      })) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, {
-      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol,
+      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
       postingEntry: enteredFromMatchingPosting, job: ctx.job,
+      allowSingleExternalApplicationEntry: postingNamed,
     });
     ({ page, snapshot } = opened);
     if (opened.handoff) return await handoff(opened.handoff);
@@ -5504,6 +5531,11 @@ export async function submitViaPortal(ctx) {
     };
     const match = await formMatch();
     evidence.postingMatch = match;
+    const initialOtpAccount = await pendingOtpAccount(snapshot);
+    const initialPostingCheckPending = match === 'mismatch'
+      && (snapshot.passwordVisible || initialOtpAccount)
+      && !ownAccountForm(snapshot, channelType)
+      && !ctx.skipPostingCheck;
     // A generic careers landing page can mention the employer and therefore
     // pass postingMatch, while exposing only the site's Menu/Search controls.
     // Do not send that chrome to the agent as if it were an unanswered
@@ -5511,15 +5543,16 @@ export async function submitViaPortal(ctx) {
     // No recognizable form or control is unknown page state, not evidence that
     // the runner reached a different vacancy. Keep explicit identity conflicts
     // on the posting_mismatch path below.
-    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('portal_needs_candidate');
-    const initialOtpAccount = await pendingOtpAccount(snapshot);
+    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) {
+      if (match === 'mismatch' && (snapshot.passwordVisible || initialOtpAccount) && !initialPostingCheckPending) {
+        return await handoff('posting_mismatch');
+      }
+      return await handoff('portal_needs_candidate');
+    }
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
-    let postingCheckPending = match === 'mismatch'
-      && (snapshot.passwordVisible || initialOtpAccount)
-      && !ownAccountForm(snapshot, channelType)
-      && !ctx.skipPostingCheck;
+    let postingCheckPending = initialPostingCheckPending;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
     let stuckOnPage = 0;
@@ -5737,8 +5770,9 @@ export async function submitViaPortal(ctx) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
-            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol,
+            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, job: ctx.job,
+            allowSingleExternalApplicationEntry: postingNamed,
           });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
@@ -5801,7 +5835,9 @@ export async function submitViaPortal(ctx) {
           // A control of the account page that could not be pressed or typed into (covered by a dialog,
           // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
           // and, read as a timeout, the run was started again twice; the owner gets the page instead.
-          if (!/^locator\./.test(String(error?.message || ''))) throw error;
+          const controlClickFailure = /^locator\./.test(String(error?.message || ''))
+            || error?.code === 'portal_control_click_unresolved';
+          if (!controlClickFailure) throw error;
           evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'control_error' };
           // A registration whose password was stored and whose button then could not be pressed: whether the
           // account exists is not known. Left `pending`, the next run would sign in, fail and stop there;
@@ -5843,8 +5879,9 @@ export async function submitViaPortal(ctx) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
-            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol,
+            applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, job: ctx.job,
+            allowSingleExternalApplicationEntry: postingNamed,
           });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
