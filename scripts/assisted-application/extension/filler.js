@@ -40,8 +40,7 @@
   const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
   const COOKIE_WORD_RE = /\bcookies?\b/i;
   const COOKIE_MARKER_RE = /cookies?|consent|onetrust|usercentrics|didomi|trustarc/i;
-  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_]?(?:policy|manager)\b/i;
-  const COOKIE_MANAGE_CONSENT_SURFACE_RE = /\bconsent\b/i;
+  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager|consent)\b/i;
   // The portal waits for the address to be verified (JOIN after the send
   // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
   const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
@@ -1903,8 +1902,7 @@
       const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
       if (COOKIE_MARKER_RE.test(marker)) {
-        if (!COOKIE_ACTIVE_SURFACE_RE.test(marker)
-          && !(manageConsent && COOKIE_MANAGE_CONSENT_SURFACE_RE.test(marker))) continue;
+        if (!COOKIE_ACTIVE_SURFACE_RE.test(marker)) continue;
         return COOKIE_WORD_RE.test(`${marker} ${textOf(node)}`);
       }
       if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')) return COOKIE_WORD_RE.test(textOf(node));
