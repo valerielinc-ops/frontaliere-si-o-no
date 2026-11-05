@@ -364,7 +364,7 @@ const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
 // Some ATSes put a qualification after the boolean label («No, I would have
 // to apply as EU/EFTA citizen»).  Keep this broader match scoped to permit
 // questions; a generic yes/no helper must not reinterpret a third choice.
-const PERMIT_YES_OPTION_RE = /^(?:ja|sì|si|yes|oui|vero|true)(?![\p{L}\p{N}])/iu;
+const PERMIT_YES_OPTION_RE = /^(?:ja|sì|sí|si|yes|oui|vero|true)(?![\p{L}\p{N}])/iu;
 const PERMIT_NO_OPTION_RE = /^(?:nein|no|non|ne|falso|false)(?![\p{L}\p{N}])/iu;
 const EXPLICIT_NEGATIVE_PERMIT_RE = /^(?:nein|no|non|ne|falso|false|✕|x)\b/iu;
 /** Resolve a qualified yes/no permit label after a lazy ATS list has loaded. */
