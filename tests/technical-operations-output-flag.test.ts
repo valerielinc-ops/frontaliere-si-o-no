@@ -108,6 +108,46 @@ describe('technical operations output audit', () => {
     expect(outputFindings.map((finding: any) => finding.evidence)).not.toContain('steps.generated.outputs.real');
   });
 
+  it('ignora stdout.write dentro regex literal preservando divisioni e writer reali', () => {
+    const scriptPath = path.resolve('scripts/ci/stdout-output-regex-decoy.mjs');
+    const delegatedSource = [
+      'const pattern = /process.stdout.write("fake=ok")/;',
+      'const classPattern = /[/]process.stdout.write("fake=class")/;',
+      'const quotient = left / process.stdout.write("division=yes\\n") / right;',
+      'process.stdout.write("real=yes\\n");',
+    ].join('\n');
+    const source = [
+      'name: stdout output regex decoys',
+      'on: [push]',
+      'jobs:',
+      '  resolve:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: generated',
+      '        run: node scripts/ci/stdout-output-regex-decoy.mjs >> "$GITHUB_OUTPUT"',
+      '      - run: echo "${{ steps.generated.outputs.real }} ${{ steps.generated.outputs.division }} ${{ steps.generated.outputs.fake }} ${{ steps.generated.outputs.fake_class }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/stdout-output-regex-decoys.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => candidate === scriptPath,
+      readFile: (candidate: string) => {
+        if (candidate !== scriptPath) throw new Error(`unexpected fixture path: ${candidate}`);
+        return delegatedSource;
+      },
+    });
+    const outputFindings = findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced');
+
+    expect(outputFindings).toHaveLength(2);
+    expect(outputFindings.map((finding: any) => finding.evidence)).toEqual(expect.arrayContaining([
+      'steps.generated.outputs.fake',
+      'steps.generated.outputs.fake_class',
+    ]));
+    expect(outputFindings.map((finding: any) => finding.evidence)).not.toEqual(expect.arrayContaining([
+      'steps.generated.outputs.division',
+      'steps.generated.outputs.real',
+    ]));
+  });
+
   it('follows --github-output into args[github-output] writers', () => {
     const scriptPath = path.resolve('scripts/ci/publish-receipts.mjs');
     const source = [

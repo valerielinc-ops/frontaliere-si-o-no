@@ -955,8 +955,9 @@ function stringLiterals(source) {
 }
 
 /**
- * Preserve source offsets while hiding JavaScript comments and quoted
- * literals from lexical scans. Newlines remain intact for line accounting.
+ * Preserve source offsets while hiding JavaScript comments, quoted literals,
+ * and regex literals from lexical scans. Newlines remain intact for line
+ * accounting.
  */
 function maskCommentsAndLiterals(source) {
   const raw = String(source || '');
@@ -965,6 +966,47 @@ function maskCommentsAndLiterals(source) {
   let escaped = false;
   let lineComment = false;
   let blockComment = false;
+  let canStartRegex = true;
+  let lastTokenKind = null;
+  const regexPrefixKeywords = new Set([
+    'case', 'default', 'delete', 'do', 'else', 'extends', 'in', 'instanceof',
+    'of', 'return', 'throw', 'typeof', 'void', 'while', 'with', 'yield',
+  ]);
+  const isIdentifierStart = (char) => /[A-Za-z_$]/u.test(char || '');
+  const isIdentifierPart = (char) => /[A-Za-z0-9_$]/u.test(char || '');
+  const setToken = (kind, startsRegex) => {
+    lastTokenKind = kind;
+    canStartRegex = startsRegex;
+  };
+  const regexLiteralEnd = (start) => {
+    let regexEscaped = false;
+    let characterClass = false;
+    for (let cursor = start + 1; cursor < raw.length; cursor += 1) {
+      const char = raw[cursor];
+      if (char === '\n' || char === '\r') return -1;
+      if (regexEscaped) {
+        regexEscaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        regexEscaped = true;
+        continue;
+      }
+      if (characterClass) {
+        if (char === ']') characterClass = false;
+        continue;
+      }
+      if (char === '[') {
+        characterClass = true;
+        continue;
+      }
+      if (char !== '/') continue;
+      cursor += 1;
+      while (isIdentifierPart(raw[cursor])) cursor += 1;
+      return cursor;
+    }
+    return -1;
+  };
   const mask = (index) => {
     if (raw[index] !== '\n' && raw[index] !== '\r') masked[index] = ' ';
   };
@@ -996,7 +1038,10 @@ function maskCommentsAndLiterals(source) {
         escaped = true;
         continue;
       }
-      if (char === quote) quote = null;
+      if (char === quote) {
+        quote = null;
+        setToken('literal', false);
+      }
       continue;
     }
     if (char === '/' && next === '/') {
@@ -1016,8 +1061,63 @@ function maskCommentsAndLiterals(source) {
     if (char === "'" || char === '"' || char === '`') {
       mask(index);
       quote = char;
+      escaped = false;
+      setToken('literal', false);
       continue;
     }
+    if (char === '/' && canStartRegex) {
+      const end = regexLiteralEnd(index);
+      if (end >= 0) {
+        for (let cursor = index; cursor < end; cursor += 1) mask(cursor);
+        index = end - 1;
+        setToken('literal', false);
+        continue;
+      }
+    }
+    if (char === '/') {
+      // A slash after an expression is division; after it, another slash may
+      // begin the following regex operand. Do not mask either expression here.
+      setToken('operator', true);
+      continue;
+    }
+    if (isIdentifierStart(char)) {
+      let end = index + 1;
+      while (isIdentifierPart(raw[end])) end += 1;
+      const word = raw.slice(index, end);
+      const startsRegex = lastTokenKind !== 'member-access' && regexPrefixKeywords.has(word);
+      setToken('identifier', startsRegex);
+      index = end - 1;
+      continue;
+    }
+    if (/[0-9]/u.test(char)) {
+      let end = index + 1;
+      while (/[0-9A-Za-z_]/u.test(raw[end] || '')) end += 1;
+      setToken('literal', false);
+      index = end - 1;
+      continue;
+    }
+    if ((char === '+' && next === '+') || (char === '-' && next === '-')) {
+      const postfix = lastTokenKind === 'identifier' || lastTokenKind === 'literal' || lastTokenKind === 'close';
+      setToken('operator', !postfix);
+      index += 1;
+      continue;
+    }
+    if (char === '(' || char === '[' || char === '{' || char === ',' || char === ';'
+      || char === ':' || char === '?' || char === '=' || char === '!' || char === '&'
+      || char === '|' || char === '+' || char === '-' || char === '*' || char === '%'
+      || char === '^' || char === '~' || char === '<' || char === '>') {
+      setToken('operator', true);
+      continue;
+    }
+    if (char === ')' || char === ']' || char === '}') {
+      setToken('close', false);
+      continue;
+    }
+    if (char === '.') {
+      setToken('member-access', false);
+      continue;
+    }
+    setToken('other', false);
   }
   return masked.join('');
 }
