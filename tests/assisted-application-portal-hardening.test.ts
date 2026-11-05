@@ -23,6 +23,7 @@ import {
   portalRequirementsFromMissingRequired,
   portalRequiredDocumentFromField,
   portalEntryUrl,
+  verifiedUmantisPostingAddress,
   localizePortalQuestions,
   isPostingRouteBound,
   isVerifiedPostingEntry,
@@ -308,6 +309,16 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe('match');
     expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('/2806/', '/2807/') })).toBe(postingUrl);
     expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('recruitingapp-2761', 'other') })).toBe(postingUrl);
+  });
+
+  it('retains the Umantis posting route only when it binds the current application to the same vacancy', () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+    const otherVacancy = 'https://recruitingapp-2761.umantis.com/Vacancies/1154/Description/4';
+
+    expect(verifiedUmantisPostingAddress({ applyUrl: postingUrl, postingUrls: [
+      'https://frontaliereticino.ch/it/lavoro/impiegato-amministrativo-eoc/', postingUrl,
+    ] })).toBe(postingUrl);
+    expect(verifiedUmantisPostingAddress({ applyUrl: postingUrl, postingUrls: [otherVacancy] })).toBe('');
   });
 
   it('uses a bound Umantis vacancy route when EOC application questions mention the employer', () => {

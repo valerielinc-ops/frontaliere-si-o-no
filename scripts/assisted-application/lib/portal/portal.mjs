@@ -547,6 +547,15 @@ export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof } = {})
   return umantisApplicationEntryUrl({ applyUrl: directUrl, postingUrl }) || directUrl;
 }
 
+/** A saved Umantis vacancy address, only when it proves the current application route. */
+export function verifiedUmantisPostingAddress({ applyUrl, postingUrls = [] } = {}) {
+  for (const postingUrl of [...new Set(postingUrls.map((value) => String(value || '').trim()).filter(Boolean))]) {
+    const entryUrl = portalEntryUrl({ applyUrl, postingUrl });
+    if (isUmantisPostingEntry({ applyUrl: entryUrl, postingUrl })) return postingUrl;
+  }
+  return '';
+}
+
 function portalChannelType(ctx = {}) {
   if (ctx.channelType === 'successfactors') return ctx.channelType;
   // A branded SuccessFactors tenant has an employer hostname, so the draft's

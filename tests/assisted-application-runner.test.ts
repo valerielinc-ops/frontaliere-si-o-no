@@ -251,6 +251,43 @@ describe('draft mode', () => {
     expect(calls).not.toContain(`GET ${applyUrl}`);
   });
 
+  it('pre-reads Umantis requirements against the verified ATS vacancy route', async () => {
+    const jobId = 'eoc-umantis-1153';
+    const umantisPostingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+    const publishedPostingUrl = 'https://frontaliereticino.ch/it/lavoro/impiegato-amministrativo-eoc/';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === detailUrl) return new Response(JSON.stringify({
+        description: POSTING,
+        url: publishedPostingUrl,
+        applyUrl: umantisPostingUrl,
+        titleByLocale: { it: 'Impiegato/a amministrativo' },
+      }), { status: 200 });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url === publishedPostingUrl) {
+        return new Response(`<main><h1>Impiegato/a amministrativo</h1><p>${'Posizione amministrativa presso EOC. '.repeat(30)}</p><button>Candidati ora</button></main>`, {
+          status: 200, headers: { 'content-type': 'text/html' },
+        });
+      }
+      return new Response('', { status: 404 });
+    });
+    const readPortalRequirements = vi.fn(async () => ({ questions: [], documents: [] }));
+
+    const draft = await buildDraft({
+      order: { ...order, jobId, jobUrl: umantisPostingUrl, jobTitle: 'Impiegato/a amministrativo', companyName: 'EOC' },
+      orderId: ORDER_ID,
+      flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl,
+      readPortalRequirements, nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    } as any);
+
+    expect(draft.job).toMatchObject({ postingUrl: publishedPostingUrl, applyUrl: umantisPostingUrl });
+    expect(readPortalRequirements).toHaveBeenCalledWith(expect.objectContaining({
+      applyUrl: umantisPostingUrl,
+      postingUrl: umantisPostingUrl,
+    }));
+  });
+
   it('classifies a published SuccessFactors job route even when the saved apply URL is stale', async () => {
     const postingUrl = 'https://career5.successfactors.eu/career/job/34525';
     const applyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
@@ -735,6 +772,52 @@ describe('submit mode', () => {
 
     expect(runner).toHaveBeenCalledWith(expect.objectContaining({ applyUrl, postingUrl }));
     expect(fetchImpl).toHaveBeenCalledWith(postingUrl, expect.objectContaining({ redirect: 'manual' }));
+  });
+
+  it('keeps the verified Umantis vacancy URL for portal matching when liveness uses the published page', async () => {
+    const jobId = 'eoc-umantis-1153';
+    const umantisPostingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+    const publishedPostingUrl = 'https://frontaliereticino.ch/it/lavoro/impiegato-amministrativo-eoc/';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === detailUrl) return new Response(JSON.stringify({
+        description: POSTING,
+        url: publishedPostingUrl,
+        applyUrl: umantisPostingUrl,
+        titleByLocale: { it: 'Impiegato/a amministrativo' },
+      }), { status: 200 });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url === publishedPostingUrl) {
+        return new Response(`<main>${'Impiegato amministrativo EOC. '.repeat(30)}<a>Candidati ora</a></main>`, {
+          status: 200, headers: { 'content-type': 'text/html' },
+        });
+      }
+      return new Response('', { status: 404 });
+    });
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+
+    const event = await submitApplication({
+      order: { ...order, jobId, jobUrl: umantisPostingUrl, jobTitle: 'Impiegato/a amministrativo', companyName: 'EOC' },
+      orderId: ORDER_ID,
+      draft: {
+        ...baseDraft,
+        job: { ...baseDraft.job, title: 'Impiegato/a amministrativo', postingUrl: umantisPostingUrl, applyUrl: umantisPostingUrl },
+        channel: { type: 'umantis', applyUrl: umantisPostingUrl, postingUrl: umantisPostingUrl },
+      },
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      cvBuffer: cvPdf(), cvType: 'pdf', bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns,
+      fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+
+    expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
+    expect(runner).toHaveBeenCalledWith(expect.objectContaining({
+      applyUrl: umantisPostingUrl,
+      postingUrl: umantisPostingUrl,
+      channelType: 'umantis',
+    }));
+    expect(fetchImpl.mock.calls.map(([url]) => url)).toContain(publishedPostingUrl);
   });
 
   it('resolves a required portal age question from the CV before the submit gate', async () => {
