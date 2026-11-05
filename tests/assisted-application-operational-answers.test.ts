@@ -571,10 +571,32 @@ describe('application consent and minimum retention defaults', () => {
         'I would like my data to be deleted once this application process is complete.',
       ],
     })?.value).toBe('I would like my data to be deleted once this application process is complete.');
+    const unicodeWording = 'I would like my data to be deleted once the\u200B “present” application process is complete — thank you.';
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.',
+        unicodeWording,
+      ],
+    })?.value).toBe(unicodeWording);
     expect(operationalDefaultAnswer({
       question: 'Data release *', type: 'choice',
       options: [
         'I would like my data deleted once an application process has ended.',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I do not want my data to be deleted once the present application process is complete.',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I would like my data to be deleted once the present application process is rejected.',
         'Retain the data for 6 months',
       ],
     })).toBeNull();

@@ -1759,6 +1759,7 @@ describe('fill extension: owner-approved application defaults', () => {
   it.each([
     'I would like my data to be deleted once the present application process is complete.',
     'I would like my data to be deleted once this application process is complete.',
+    'I would like my data to be deleted once the\u200B “present” application process is complete — thank you.',
   ])('recognizes current application process deletion in the extension bundle: %s', deletion => {
     const { document, F } = page(`<form>
       <label for="retention">How long may we retain your personal data?</label>
@@ -1772,6 +1773,22 @@ describe('fill extension: owner-approved application defaults', () => {
     expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toEqual({
       value: deletion, family: 'minimumDataRetention',
     });
+  });
+
+  it.each([
+    'I do not want my data to be deleted once the present application process is complete.',
+    'I would like my data to be deleted once the present application process is rejected.',
+  ])('leaves negated or non-completion deletion wording unresolved in the extension bundle: %s', deletion => {
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data?</label>
+      <select id="retention">
+        <option value="current">${deletion}</option>
+        <option value="6_months">Retain my data for 6 months</option>
+      </select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe(null);
   });
 });
 
