@@ -83,11 +83,12 @@ export function minimumDataRetentionOption(options, question = '') {
   const normalize = value => String(value ?? '').replace(/\p{Cf}/gu, '').normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/['’`]/g, ' ')
     .replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
+  const selectionPrompt = /^(?:(?:please )?(?:choose|select)(?: (?:one|a|an|the|your))?(?: (?:option|answer|response|choice|retention period|period|duration|term))?|(?:seleziona(?:re)?|selezioni|scegli(?:ere)?)(?: (?:un|uno|una|il|la|l))?(?: (?:opzione|risposta|durata|periodo|scelta|termine|voce|valore))?|(?:bitte )?(?:wahlen|auswahlen)(?: sie)?(?: (?:ein|eine|einen|einer|den|die|das))?(?: (?:option|auswahl|antwort|dauer|frist|zeitraum))?(?: aus(?: der liste)?)?|(?:veuillez )?(?:selectionnez?|selectionner|choisir|choisissez)(?: (?:un|une|le|la|les|votre))?(?: (?:option|reponse|choix|duree|periode|selection))?|aucune selection|keine auswahl|no selection|nothing selected)$/;
   const rows = (Array.isArray(options) ? options : []).map(option => {
     const label = typeof option === 'string' ? option : String(option?.label ?? option?.value ?? '');
     const value = typeof option === 'string' ? label : String(option?.value ?? label);
     return { label: label.trim(), value: [...new Set([normalize(label), normalize(value)].filter(Boolean))].join(' '), purpose: `${label} ${value}` };
-  }).filter(option => option.label && option.value);
+  }).filter(option => option.label && option.value && !selectionPrompt.test(normalize(option.label)));
   if (!rows.length) return '';
 
   const currentApplication = /\b(?:current application|this application|current candidatur\w*|questa candidatura|candidatura corrente|procedura di candidatura corrente|bewerbung(?:sverfahren)?|candidature en cours|after the application process|after this application|dopo la procedura|nach abschluss des bewerbungsverfahrens|apres la procedure de candidature)\b/.test(normalize(question));

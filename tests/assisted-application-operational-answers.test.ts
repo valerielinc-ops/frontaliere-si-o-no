@@ -584,10 +584,34 @@ describe('application consent and minimum retention defaults', () => {
     })?.value).toBe('Keep my data for six months');
     expect(operationalDefaultAnswer({
       question: 'How long may we retain my personal data?', type: 'choice',
+      options: [
+        { label: 'Choose', value: '' },
+        { label: 'Retain the data for 2 years', value: 'retention_2_years' },
+        { label: 'Retain the data for 6 months', value: 'retention_6_months' },
+      ],
+    })?.value).toBe('Retain the data for 6 months');
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain my personal data?', type: 'choice',
       options: ['Delete my data after 2 years', 'Keep my data for 6 months'],
     })?.value).toBe('Keep my data for 6 months');
     expect(operationalDefaultAnswer({ question: retentionQuestion, type: 'choice', options: [] })).toBeNull();
   });
+
+  it.each([
+    'Choose', 'Please choose one', 'Choose an answer', 'Select a retention period',
+    'Scegli una risposta', 'Scegliere un valore', 'Selezionare una durata', 'Seleziona una voce',
+    'Bitte wählen Sie', 'Bitte wählen Sie aus', 'Bitte wählen Sie aus der Liste', 'Veuillez sélectionner', 'Veuillez choisir',
+  ])(
+    'ignores the localized empty-choice prompt %s when ranking retention options', prompt => {
+      expect(operationalDefaultAnswer({
+        question: retentionQuestion, type: 'choice',
+        options: [
+          { label: prompt, value: '' },
+          { label: 'Retain the data for 2 years', value: 'retention_2_years' },
+          { label: 'Retain the data for 6 months', value: 'retention_6_months' },
+        ],
+      })?.value).toBe('Retain the data for 6 months');
+    });
 
   it('fills optional native consent and retention controls from policy defaults', () => {
     const consent = { id: 'consent', kind: 'checkbox', type: 'checkbox', label: processingConsent, required: false, checked: false };
