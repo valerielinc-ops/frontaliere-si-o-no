@@ -259,6 +259,27 @@ describe('decideLatestPublish', () => {
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
   });
 
+  it('does not suppress a retry when recognized publisher titles disagree on source SHA', () => {
+    const publishRun = {
+      id: 125,
+      head_sha: SHA_OLDER_TAIL,
+      display_title: `Publish Pages build 42 @ ${SHA_LATEST}`,
+      run_name: `Publish Pages build 41 @ ${SHA_OLD}`,
+    };
+    const sourceSha = deploymentSourceSha(
+      { sha: SHA_OLDER_TAIL },
+      { target_url: 'https://github.com/o/r/actions/runs/125/job/456' },
+      [publishRun],
+    );
+
+    expect(sourceSha).toBe('');
+    expect(decideLatestPublish({
+      builds: [build(42, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [publishRun],
+      lastSuccessfulDeployment: { sha: SHA_OLDER_TAIL, sourceSha },
+    })).toMatchObject({ action: 'dispatch', reason: 'retry-publish' });
+  });
+
   it('dispatches when the live deployment has a different revision, even if it finished later', () => {
     expect(decideLatestPublish({
       builds: [build(2, SHA_OLD, '2026-10-20T12:00:00Z')],
