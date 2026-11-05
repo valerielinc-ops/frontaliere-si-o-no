@@ -204,7 +204,7 @@ async function fetchPage(url) {
  * Fetch all Stadtspital Zürich jobs from the facet-filtered city portal.
  * Returns an array of ParsedJob objects (source-locale only, German).
  */
-export async function fetchAllStadtspitalZuerichJobs({ fetchCurrentDetailPage } = {}) {
+export async function fetchAllStadtspitalZuerichJobs({ fetchCurrentDetailPage, fetchCurrentOfficialIndexPage } = {}) {
   console.log('🔍 Fetching Stadtspital Zürich jobs');
   console.log(`   Source: ${SEARCH_BASE}?${FACET_QUERY}\n`);
 
@@ -262,6 +262,7 @@ export async function fetchAllStadtspitalZuerichJobs({ fetchCurrentDetailPage } 
       publicationByRef,
       detailRows: rows,
       fetchCurrentDetailPage,
+      fetchCurrentOfficialIndexPage,
     },
   );
   let withoutText = 0;

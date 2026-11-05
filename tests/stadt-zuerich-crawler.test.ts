@@ -9,7 +9,36 @@ import { slugify } from '../scripts/lib/crawler-template.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseOfficialAdPage, fetchAllStadtZuerichJobs } from '../scripts/lib/stadt-zuerich-job-parser.mjs';
+import {
+  parseOfficialAdPage,
+  parseCurrentOfficialAdPage,
+  parseCurrentOfficialJobLinks,
+  fetchAllStadtZuerichJobs,
+} from '../scripts/lib/stadt-zuerich-job-parser.mjs';
+
+const CURRENT_OFFICIAL_FIXTURE = `
+  <main>
+    <h1>Gärtner*in</h1>
+    <p>Referenz-Nr.: 51726</p>
+    <h2>Aufgaben</h2>
+    <ul>
+      <li>Sie pflegen und entwickeln öffentliche Grünanlagen fachgerecht.</li>
+      <li>Sie planen die saisonalen Arbeiten und koordinieren die Einsätze.</li>
+      <li>Sie beraten interne Stellen zu Pflanzen, Pflege und Biodiversität.</li>
+    </ul>
+    <h2>Profil</h2>
+    <p>Sie verfügen über eine abgeschlossene Ausbildung im Gartenbau und
+      arbeiten selbstständig, zuverlässig und gerne im Team.</p>
+    <h2>Wir bieten</h2>
+    <p>Wir bieten eine vielseitige Aufgabe, faire Anstellungsbedingungen,
+      gute Sozialleistungen und zeitgemässe Arbeitsmittel.</p>
+    <h2>Über uns</h2>
+    <p>Grün Stadt Zürich gestaltet und pflegt die öffentlichen Freiräume
+      der Stadt und arbeitet dabei eng mit der Bevölkerung zusammen.</p>
+    <h2>Interessiert?</h2>
+    <p>Kontaktperson und Telefonnummer stehen in diesem Abschnitt.</p>
+  </main>
+`;
 
 describe('Stadt Zürich crawler parser', () => {
   // ── Constants ──
@@ -172,7 +201,6 @@ describe('parseOfficialAdPage', () => {
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'stadt-zuerich-official-ad-gaertner.html'),
     'utf8',
   );
-
   it('reads the Referenz-Nr. that joins the ad to its jobs2web tile', () => {
     expect(parseOfficialAdPage(fixture)?.ref).toBe('51726');
   });
@@ -223,12 +251,14 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     directAdRefs = directAdOk ? ['51726'] : [],
     successFactorsRefs = [],
     listingHtml = listing,
+    currentOfficialHtml = '',
   }: {
     indexOk: boolean;
     directAdOk?: boolean;
     directAdRefs?: string[];
     successFactorsRefs?: string[];
     listingHtml?: string;
+    currentOfficialHtml?: string;
   }) {
     const fetchMock = vi.fn(async (url: string) => {
       const u = String(url);
@@ -248,6 +278,9 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
       const directRef = u.match(/job-detailseite\.(\d+)\.html$/)?.[1];
       if (directRef && directAdRefs.includes(directRef)) {
         return new Response(fixture.replace(/51726/g, directRef), { status: 200 });
+      }
+      if (u.includes('/jobs/de/gsz-51726.html')) {
+        return new Response(currentOfficialHtml, { status: currentOfficialHtml ? 200 : 404 });
       }
       return new Response('', { status: 404 });
     });
@@ -316,6 +349,36 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     expect(careerCalls).toHaveLength(2);
   }, 20_000);
 
+  it('recovers from the migrated current official jobportal before using the jobs2web detail fallback', async () => {
+    mockPortal({ indexOk: false, currentOfficialHtml: CURRENT_OFFICIAL_FIXTURE });
+    const jobs = await fetchAllStadtZuerichJobs({
+      fetchCurrentOfficialIndexPage: async () => '<a href="/jobs/de/gsz-51726.html">Gärtner*in</a>',
+    });
+
+    expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
+    expect(jobs[0].description).toContain('Grün Stadt Zürich gestaltet');
+    expect(jobs[0].description).not.toContain('Kontaktperson');
+  }, 20_000);
+
+  it('parses only current official detail links bound to requested references', () => {
+    const links = parseCurrentOfficialJobLinks(`
+      <a href="/jobs/de/gsz-51726.html">wanted</a>
+      <a href="https://jobs.stadt-zuerich.ch/jobs/de/gsz-99999.html">wrong host</a>
+      <a href="/jobs/de/gsz-12345.html">unwanted</a>
+    `, new Set(['51726']));
+    expect([...links]).toEqual([
+      ['51726', 'https://www.stadt-zuerich.ch/jobs/de/gsz-51726.html'],
+    ]);
+  });
+
+  it('parses the current official page template and excludes the contact section', () => {
+    const parsed = parseCurrentOfficialAdPage(CURRENT_OFFICIAL_FIXTURE);
+    expect(parsed?.ref).toBe('51726');
+    expect(parsed?.description).toContain('Aufgaben');
+    expect(parsed?.description).toContain('Über uns');
+    expect(parsed?.description).not.toContain('Kontaktperson');
+  });
+
   it('uses hydrated current detail pages when the official index cannot be read', async () => {
     mockPortal({ indexOk: false });
     const detailCalls: string[] = [];
@@ -326,6 +389,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
           ? { html: detailIdentity(url, String(row.ref)), descriptionHtml: fixture }
           : { html: '', descriptionHtml: '<p>Nur ein kurzer Eintrag.</p>' };
       },
+      fetchCurrentOfficialIndexPage: async () => '',
     });
 
     expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
@@ -351,6 +415,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
           descriptionHtml: fixture.replace(/51726/g, '99999'),
         };
       },
+      fetchCurrentOfficialIndexPage: async () => '',
     });
 
     expect(jobs.map((job) => job.referenceNumber)).toEqual(['99999']);
@@ -365,6 +430,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
           html: '',
           descriptionHtml: '<p>Nur ein kurzer Eintrag.</p>',
         }),
+        fetchCurrentOfficialIndexPage: async () => '',
       });
     } catch (error) {
       caught = error;
