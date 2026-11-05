@@ -253,17 +253,19 @@ function javascriptConfigValue(html, key) {
  * Jobs2Web pages hosted by an employer can expose a valid SuccessFactors
  * application while their public "Apply" endpoint redirects back to the
  * employer home page. The page's own boot configuration contains the ATS
- * tenant, requisition and locale; use that exact data to open the normal
- * account/application route. Empty or untrusted configuration is ignored.
+ * tenant and locale. When it also has the internal requisition, use the normal
+ * SuccessFactors route; otherwise use the same-origin CSB endpoint only when
+ * its jobID matches the canonical posting URL. Empty or untrusted config is
+ * ignored.
  *
  * @returns {string} a public SuccessFactors application URL, or ''
  */
-export function successFactorsApplyUrlFromPosting(html) {
+export function successFactorsApplyUrlFromPosting(html, postingUrl = '') {
   const ssoUrl = javascriptConfigValue(html, 'ssoUrl');
   const company = javascriptConfigValue(html, 'ssoCompanyId');
   const internalId = javascriptConfigValue(html, 'internalId');
   const configuredLocale = javascriptConfigValue(html, 'locale');
-  if (!ssoUrl || !company || !internalId) return '';
+  if (!ssoUrl || !company) return '';
   let host;
   try {
     const url = new URL(ssoUrl);
@@ -272,17 +274,36 @@ export function successFactorsApplyUrlFromPosting(html) {
   } catch {
     return '';
   }
-  // Jobs2Web writes «<requisition>-<locale>», for example «2190-it_IT».
-  const match = /^([0-9]+)-([a-z]{2}(?:[_-][A-Z]{2})?)$/i.exec(internalId.trim());
-  if (!match) return '';
-  const locale = (configuredLocale || match[2]).replace('-', '_');
-  const params = new URLSearchParams({
-    company: company.trim(),
-    career_job_req_id: match[1],
-    lang: locale,
-    career_ns: 'job_application',
-  });
-  return `${host}/career?${params.toString()}`;
+  if (internalId) {
+    // Jobs2Web writes «<requisition>-<locale>», for example «2190-it_IT».
+    const match = /^([0-9]+)-([a-z]{2}(?:[_-][A-Z]{2})?)$/i.exec(internalId.trim());
+    if (!match) return '';
+    const locale = (configuredLocale || match[2]).replace('-', '_');
+    const params = new URLSearchParams({
+      company: company.trim(),
+      career_job_req_id: match[1],
+      lang: locale,
+      career_ns: 'job_application',
+    });
+    return `${host}/career?${params.toString()}`;
+  }
+
+  // Some branded SuccessFactors pages expose only the public job ID in their
+  // boot config. Keep the application endpoint on the posting origin and bind
+  // it to the same numeric ID before opening it from the warmed posting page.
+  const jobId = javascriptConfigValue(html, 'jobID').trim();
+  const localeMatch = /^([a-z]{2})[_-]([a-z]{2})$/i.exec(configuredLocale.trim());
+  if (!/^[0-9]+$/.test(jobId) || !localeMatch) return '';
+  const locale = `${localeMatch[1].toLowerCase()}_${localeMatch[2].toUpperCase()}`;
+  try {
+    const posting = new URL(postingUrl);
+    if (posting.protocol !== 'https:' || posting.username || posting.password) return '';
+    const postingId = posting.pathname.match(/^\/(?:[a-zA-Z0-9%._-]+\/)?job\/[^/]+\/([0-9]+)\/?$/i)?.[1];
+    if (postingId !== jobId) return '';
+    return new URL(`/talentcommunity/apply/${jobId}/?locale=${encodeURIComponent(locale)}`, posting.origin).toString();
+  } catch {
+    return '';
+  }
 }
 
 /**
@@ -336,7 +357,7 @@ export async function resolveApplyUrl(applyUrl, { fetchImpl = fetch, resolve = l
       const html = (await response.text()).slice(0, MAX_PAGE_BYTES);
       redirect = postingAtsRedirect(url, html);
       if (!redirect) {
-        const successFactors = successFactorsApplyUrlFromPosting(html);
+        const successFactors = successFactorsApplyUrlFromPosting(html, url);
         if (successFactors && await resolvesToPublicHost(successFactors, resolve)) {
           return { applyUrl: successFactors, via: 'successfactors' };
         }

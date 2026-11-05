@@ -244,6 +244,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [busy, setBusy] = useState<string | null>(null);
   const [packetDownloadError, setPacketDownloadError] = useState<string | null>(null);
+  // Sensitive scans for a paper application remain File objects in this page's memory.
+  const [postalLocalFiles, setPostalLocalFiles] = useState<Record<string, File[]>>({});
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState('');
   const [showFeedback, setShowFeedback] = useState(false);
@@ -288,6 +290,13 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   }, [token]);
 
   useEffect(() => { void load(); }, [load]);
+
+  useEffect(() => { setPostalLocalFiles({}); }, [token]);
+
+  useEffect(() => {
+    const eligibleIds = new Set((data?.documents || []).filter((document) => document.localOnly && !document.exemption).map((document) => document.id));
+    setPostalLocalFiles((current) => Object.fromEntries(Object.entries(current).filter(([id, files]) => eligibleIds.has(id) && Array.isArray(files) && files.length > 0)));
+  }, [data?.documents]);
 
   useAssistedApplicationDocumentRechecks(token, loadedToken.current === token ? data : null, setData);
 
@@ -354,7 +363,10 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     setBusy('postal_packet');
     setPacketDownloadError(null);
     try {
-      await downloadPostalPacket(token);
+      const localDocuments = (data?.documents || [])
+        .filter((document) => document.localOnly && !document.exemption)
+        .map((document) => ({ id: document.id, label: document.label, files: postalLocalFiles[document.id] || [] }));
+      await downloadPostalPacket(token, localDocuments, data?.postalPacket?.sourceBytes || 0, data?.postalPacket?.maxBytes || 0, pageLocale);
     } catch (reason) {
       setPacketDownloadError(reason instanceof ReviewRequestError ? reason.code : 'postal_packet_download_failed');
     } finally {
@@ -404,7 +416,14 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   };
   const removeDocument = (document: { id: string }, fileId: string) => run('document_remove', { documentId: document.id, fileId });
   const setDocumentPrepared = (document: { id: string }, prepared: boolean) => run('document_set_prepared', { documentId: document.id, prepared });
-  const setDocumentExemption = (document: { id: string }, exemption: string) => run('document_set_exemption', { documentId: document.id, exemption });
+  const setDocumentExemption = (document: { id: string }, exemption: string) => {
+    if (exemption) setPostalLocalFiles((current) => ({ ...current, [document.id]: [] }));
+    return run('document_set_exemption', { documentId: document.id, exemption });
+  };
+  const setLocalDocumentFiles = (document: { id: string }, files: File[]) => {
+    setPostalLocalFiles((current) => ({ ...current, [document.id]: files }));
+    setPacketDownloadError(null);
+  };
 
   // Fields shown to the candidate: an e-mail application uses the letter header and what the tailored CV prints.
   const shownFields = useMemo(
@@ -489,11 +508,21 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     [data, answers],
   );
   // Required documents not uploaded yet: they hold the send like an open question.
-  const openDocuments = useMemo(
-    () => (data?.documents || []).filter((document) => document.required && !document.files.length),
-    [data],
-  );
   const pageLocale = data?.locale || locale || 'it';
+  const localPostalDocuments = (data?.documents || []).filter((document) => document.localOnly && !document.exemption);
+  const missingLocalDocuments = (data?.postalPacket?.localDocuments || [])
+    .filter((document) => document.required && !(postalLocalFiles[document.id] || []).length)
+    .map((document) => document.label);
+  const localSourceBytes = localPostalDocuments.reduce((sum, document) => sum + (postalLocalFiles[document.id] || []).reduce((bytes, file) => bytes + file.size, 0), 0);
+  const localPacketTooLarge = Boolean(data?.postalPacket && data.postalPacket.sourceBytes + localSourceBytes > data.postalPacket.maxBytes);
+  const postalPacketReady = Boolean(data?.postalPacket?.ready && !missingLocalDocuments.length && !localPacketTooLarge);
+  const openDocuments = useMemo(() => (data?.documents || []).filter((document) => {
+    if (!document.required || document.exemption) return false;
+    if (data?.postalSubmission && document.localOnly) return !(postalLocalFiles[document.id] || []).length;
+    if (document.delivery === 'service') return false;
+    if (document.delivery === 'offline' && !data?.postalSubmission) return !document.preparedAt;
+    return !document.files.length;
+  }), [data, postalLocalFiles]);
 
   const errorText = error ? t(`jobBoard.assisted.review.error.${error}`, t('jobBoard.assisted.review.error.generic')) : null;
 
@@ -662,25 +691,32 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           </form>
         )}
 
-        {data && data.can.uploadDocuments && (data.documents?.length ?? 0) > 0 && (
+        {data && (data.can.uploadDocuments && data.state !== 'candidate_handoff'
+          || (data.postalSubmission && data.state === 'candidate_handoff' && data.documents?.some((document) => document.localOnly))) && (data.documents?.length ?? 0) > 0 && (
           <AssistedApplicationDocuments
-            documents={data.documents || []}
+            documents={data.state === 'candidate_handoff' ? (data.documents || []).filter((document) => document.localOnly) : data.documents || []}
             limits={data.documentLimits || { maxBytes: 10 * 1024 * 1024, maxFiles: 5 }}
             disabled={Boolean(busy)}
             onUpload={uploadDocument}
             onRemove={removeDocument}
             onSetPrepared={setDocumentPrepared}
             onSetExemption={setDocumentExemption}
+            postalSubmission={Boolean(data.postalSubmission)}
+            localFiles={postalLocalFiles}
+            onLocalFilesChange={setLocalDocumentFiles}
+            localDocumentsOnly={data.state === 'candidate_handoff'}
           />
         )}
 
-        {data?.postalSubmission && data.state === 'candidate_review' && data.postalPacket && !data.postalPacket.ready && (
+        {data?.postalSubmission && data.state === 'candidate_review' && data.postalPacket && !postalPacketReady && (
           <div className="rounded-lg border border-warning-border bg-warning-subtle/40 p-3 text-sm text-body" role="status">
-            {data.postalPacket.tooLarge
+            {data.postalPacket.tooLarge || localPacketTooLarge
               ? t('jobBoard.assisted.review.postal.packetTooLarge', { mb: Math.round(data.postalPacket.maxBytes / (1024 * 1024)) })
               : data.postalPacket.unsupportedFiles.length > 0
                 ? t('jobBoard.assisted.review.postal.packetUnsupported', { files: data.postalPacket.unsupportedFiles.join(', ') })
-                : t('jobBoard.assisted.review.postal.packetSizeUnavailable')}
+                : data.postalPacket.missingDocuments.length > 0 || missingLocalDocuments.length > 0
+                  ? t('jobBoard.assisted.review.postal.packetMissing', { documents: [...data.postalPacket.missingDocuments, ...missingLocalDocuments].join(', ') })
+                  : t('jobBoard.assisted.review.postal.packetSizeUnavailable')}
           </div>
         )}
 
@@ -907,21 +943,23 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               <h2 id="postal-submission-title" className="text-base font-bold text-heading">{t('jobBoard.assisted.review.postal.title')}</h2>
               <p className="mt-1 text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.postal.body')}</p>
             </div>
-            {data.postalPacket?.ready ? (
+            {postalPacketReady ? (
               <button type="button" onClick={() => { void downloadPacket(); }} disabled={Boolean(busy)} aria-busy={busy === 'postal_packet'} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:opacity-60">
                 {busy === 'postal_packet' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Download className="h-4 w-4" aria-hidden="true" />}
                 {t('jobBoard.assisted.review.postal.downloadPacket')}
               </button>
             ) : (
               <p className="rounded-lg border border-warning-border bg-warning-subtle/40 p-3 text-sm text-body" role="status">
-                {data.postalPacket?.tooLarge
+                {data.postalPacket?.tooLarge || localPacketTooLarge
                   ? t('jobBoard.assisted.review.postal.packetTooLarge', { mb: Math.round((data.postalPacket?.maxBytes || 0) / (1024 * 1024)) })
                   : (data.postalPacket?.unsupportedFiles.length || 0) > 0
                     ? t('jobBoard.assisted.review.postal.packetUnsupported', { files: data.postalPacket?.unsupportedFiles.join(', ') })
-                    : t('jobBoard.assisted.review.postal.packetSizeUnavailable')}
+                    : (data.postalPacket?.missingDocuments.length || 0) > 0 || missingLocalDocuments.length > 0
+                      ? t('jobBoard.assisted.review.postal.packetMissing', { documents: [...(data.postalPacket?.missingDocuments || []), ...missingLocalDocuments].join(', ') })
+                      : t('jobBoard.assisted.review.postal.packetSizeUnavailable')}
               </p>
             )}
-            {packetDownloadError && <p className="text-sm text-danger" role="alert">{t('jobBoard.assisted.review.postal.packetDownloadError')}</p>}
+            {packetDownloadError && <p className="text-sm text-danger" role="alert">{t(`jobBoard.assisted.review.postal.${packetDownloadError}`, t('jobBoard.assisted.review.postal.packetDownloadError'))}</p>}
             <dl className="grid gap-3 rounded-lg border border-edge bg-surface p-3 text-sm sm:grid-cols-2">
               <div><dt className="text-xs font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.postal.recipient')}</dt><dd className="mt-1 break-words text-body">{data.postalSubmission.recipient}</dd></div>
               <div><dt className="text-xs font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.postal.deadline')}</dt><dd className="mt-1 break-words text-body">{data.postalSubmission.deadline}</dd></div>
@@ -938,7 +976,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                 {(data.documents || []).filter((document) => !document.exemption).flatMap((document) => document.files.filter((file) => file.url).map((file) => ({ document, file }))).map(({ document, file }) => (
                   <li key={file.id}><a href={file.url || undefined} target="_blank" rel="noreferrer" className="inline-flex min-h-[40px] items-center gap-2 text-link hover:underline"><FileText className="h-4 w-4" aria-hidden="true" />{t('jobBoard.assisted.review.postal.documentFile', { document: document.label, name: file.name })}</a></li>
                 ))}
-                {(data.documents || []).filter((document) => document.delivery === 'offline').map((document) => (
+                {(data.documents || []).filter((document) => document.delivery === 'offline'
+                  && !document.files.length && !(postalLocalFiles[document.id] || []).length).map((document) => (
                   <li key={`offline-${document.id}`} className="flex flex-wrap items-start justify-between gap-2">
                     <span className="font-medium text-body">{document.label}</span>
                     <span className="text-xs text-subtle">{document.exemption
@@ -961,7 +1000,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <button
               type="button"
               onClick={() => { void run('confirm_submitted'); }}
-              disabled={Boolean(busy) || !data.can.confirmSubmitted}
+              disabled={Boolean(busy) || !data.can.confirmSubmitted || !postalPacketReady}
               className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:opacity-60"
             >
               {busy === 'confirm_submitted' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <CheckCircle2 className="h-4 w-4" aria-hidden="true" />}
@@ -1012,7 +1051,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <button
               type="button"
               onClick={() => { void run('approve'); }}
-              disabled={Boolean(busy) || !data.can.approve || editing}
+              disabled={Boolean(busy) || !data.can.approve || (Boolean(data.postalSubmission) && !postalPacketReady) || editing}
               className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
             >
               {busy === 'approve' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Send className="h-4 w-4" aria-hidden="true" />}

@@ -260,6 +260,7 @@ function normalizedRequestedDocuments(raw) {
     usedLabels.add(labelKey);
     const proposed = String(item?.id || label).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
       .replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 32) || `requested_${index + 1}`;
+    if (item?.localOnly === true && item?.delivery === 'service') throw new AutomationAdminError('invalid_documents', 400);
     let id = proposed;
     let suffix = 2;
     while (used.has(id)) {
@@ -275,6 +276,7 @@ function normalizedRequestedDocuments(raw) {
       required: item?.required !== false,
       quote: clean(item?.quote, 300),
       instructions: clean(item?.instructions, 500),
+      ...(item?.localOnly === true ? { localOnly: true } : {}),
       delivery: item?.delivery === 'offline' ? 'offline'
         : item?.delivery === 'service' && proposed === 'curriculum_vitae' ? 'service' : 'upload',
       exemptions: [...new Set((Array.isArray(item?.exemptions) ? item.exemptions : [])
@@ -322,10 +324,14 @@ async function saveCandidateRequests(db, orderId, raw, { nowMs }) {
   const previous = requiredDocumentsFor(draft, flow);
   const nextById = new Map(requestedDocuments.map((item) => [item.id, item]));
   const removedKeys = previous
-    .filter((item) => !nextById.has(item.id) || nextById.get(item.id)?.delivery !== item.delivery)
+    .filter((item) => !nextById.has(item.id)
+      || nextById.get(item.id)?.delivery !== item.delivery
+      || Boolean(nextById.get(item.id)?.localOnly) !== Boolean(item.localOnly))
     .flatMap((item) => documentFilesOf(flow, orderId, item.id).map((file) => file.key));
   const removedIds = previous
-    .filter((item) => !nextById.has(item.id) || nextById.get(item.id)?.delivery !== item.delivery)
+    .filter((item) => !nextById.has(item.id)
+      || nextById.get(item.id)?.delivery !== item.delivery
+      || Boolean(nextById.get(item.id)?.localOnly) !== Boolean(item.localOnly))
     .map((item) => item.id);
   const removedDocumentState = Object.fromEntries(removedIds.map((id) => [id, null]));
   await flowRefFor(db, orderId).set({
@@ -506,7 +512,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       const [approvalFlowSnapshot, approvalDraftSnapshot] = await Promise.all([
         flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(),
       ]);
-      if (requiredDocumentsFor(approvalDraftSnapshot.data() || {}, approvalFlowSnapshot.data() || {}).some((document) => document.delivery === 'offline')
+      if (requiredDocumentsFor(approvalDraftSnapshot.data() || {}, approvalFlowSnapshot.data() || {}).some((document) => document.delivery === 'offline' || document.localOnly)
         && approvalFlowSnapshot.data()?.postalSubmission?.enabled !== true) {
         throw new AutomationAdminError('postal_submission_incomplete', 409);
       }

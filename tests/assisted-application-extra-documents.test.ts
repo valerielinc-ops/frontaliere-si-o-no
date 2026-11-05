@@ -89,6 +89,23 @@ describe('requested documents', () => {
     expect(view.every((document: any) => !('waived' in document))).toBe(true);
   });
 
+  it('keeps local-only scans out of server document state while requiring uploaded paper scans', () => {
+    const draft = { requiredDocuments: [
+      { id: 'health', label: 'Health questionnaire', required: true, delivery: 'offline', localOnly: true },
+      { id: 'study', label: 'Study certificates', required: true, delivery: 'offline' },
+    ] };
+    const flow = { postalSubmission: { enabled: true }, documents: {
+      health: { files: [{ key: key('doc-health-1.pdf'), detectedType: 'pdf' }] },
+      study: { preparedAt: 1, files: [] },
+    } };
+    expect(requiredDocumentsOf(draft)[0]).toMatchObject({ localOnly: true, delivery: 'offline' });
+    expect(documentsView(draft, flow)[0].files).toEqual([]);
+    expect(openRequiredDocuments(draft, flow.documents, flow)).toEqual(['study']);
+
+    const uploaded = { ...flow.documents, study: { files: [{ key: key('doc-study-1.pdf'), detectedType: 'pdf' }] } };
+    expect(openRequiredDocuments(draft, uploaded, flow)).toEqual([]);
+  });
+
   it('names files after the document and the candidate', () => {
     expect(extraDocumentFileName({ label: 'Résultats du test EVA', name: 'Maria Rossi', type: 'pdf' })).toBe('Resultats_du_test_EVA_Maria_Rossi.pdf');
     expect(extraDocumentFileName({ label: 'Pagelle', index: 1, count: 3, name: 'Maria Rossi', type: 'jpg' })).toBe('Pagelle_2_Maria_Rossi.jpg');
