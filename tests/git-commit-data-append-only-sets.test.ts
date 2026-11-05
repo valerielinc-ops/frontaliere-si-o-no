@@ -430,6 +430,7 @@ exec ${JSON.stringify(realRm)} "$@"
   it('fails closed before pushing when an existing ledger baseline blob is unreadable', () => {
     const h = initHarness();
     const ledger = 'data/crawler-generation-ledger.jsonl';
+    const shimDir = mkdtempSync(join(tmpdir(), 'gcd-ledger-git-shim-'));
     try {
       const base = ledgerEntry('1001');
       mkdirSync(dirname(join(h.repoDir, ledger)), { recursive: true });
@@ -440,13 +441,23 @@ exec ${JSON.stringify(realRm)} "$@"
         encoding: 'utf8',
       }).trim();
       writeFileSync(join(h.repoDir, ledger), `${JSON.stringify(base)}\n${JSON.stringify(ledgerEntry('1002'))}\n`);
-      rmSync(join(h.repoDir, '.git/objects', baselineBlob.slice(0, 2), baselineBlob.slice(2)));
+      const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+      writeFileSync(join(shimDir, 'git'), `#!/bin/bash
+if [ "$1" = "cat-file" ] && [ "$2" = "-e" ] && [ "\${3:-}" = "$GIT_SPY_FAIL_OBJECT" ]; then
+  echo "fatal: simulated missing ledger baseline blob" >&2
+  exit 128
+fi
+exec "$GIT_REAL" "$@"
+`, { mode: 0o755 });
       const before = execFileSync('git', ['rev-parse', 'main'], { cwd: h.originDir, encoding: 'utf8' }).trim();
       const result = spawnSync(BASH_BIN, [SCRIPT_PATH, '--extra-only', 'record generation ledger', ledger], {
         cwd: h.repoDir,
         encoding: 'utf8',
         env: {
           ...process.env,
+          PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
+          GIT_REAL: realGit,
+          GIT_SPY_FAIL_OBJECT: `${baselineBlob}^{blob}`,
           SKIP_AI_TRANSLATION: '1',
           SLUG_HISTORY_SUMMARY_FILE: join(h.repoDir, 'none.txt'),
           GH_TOKEN: '',
@@ -461,7 +472,10 @@ exec ${JSON.stringify(realRm)} "$@"
       expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(1);
       expect(`${result.stdout}\n${result.stderr}`).toContain('ledger baseline blob');
       expect(execFileSync('git', ['rev-parse', 'main'], { cwd: h.originDir, encoding: 'utf8' }).trim()).toBe(before);
-    } finally { cleanup(h); }
+    } finally {
+      cleanup(h);
+      rmSync(shimDir, { recursive: true, force: true });
+    }
   });
   it('stages only the explicit ledger path in extra-only mode', () => {
     const h = initHarness();

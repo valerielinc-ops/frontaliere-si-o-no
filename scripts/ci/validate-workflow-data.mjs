@@ -358,7 +358,7 @@ export function readHeadFile(root, relative) {
       stdio: ['ignore', 'pipe', 'pipe'],
     }).trim();
     const blobSize = Number(blobSizeRaw);
-    if (!Number.isSafeInteger(blobSize) || blobSize < 0 || blobSize >= Number.MAX_SAFE_INTEGER) {
+    if (!/^[0-9]+$/u.test(blobSizeRaw) || !Number.isSafeInteger(blobSize) || blobSize >= Number.MAX_SAFE_INTEGER) {
       throw new Error(`dimensione blob Git non valida: ${blobSizeRaw}`);
     }
     return execFileSync('git', ['show', `HEAD:${relative}`], {

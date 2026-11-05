@@ -427,7 +427,13 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(generated.translateContent).toContain(
         'echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"',
       );
-      expect(generated.translateContent).not.toContain('crawler-generation');
+      // The portable checkout deliberately materializes the append-only ledger
+      // so the site validator can read an existing baseline. That path is not
+      // crawler-generation runtime logic and must remain the only exception.
+      expect(generated.translateContent).toContain('/data/crawler-generation-ledger.jsonl');
+      expect(generated.translateContent).not.toContain('crawler-generation-finalizer');
+      expect(generated.translateContent).not.toContain('Record crawler generation ledger');
+      expect(generated.translateContent).not.toContain('CRAWLER_GENERATION_TOKEN');
       const orchestrator = fs.readFileSync(path.join(WORKFLOWS, 'orchestrate-crawlers.yml'), 'utf8');
       expect(orchestrator).not.toContain('crawler_generation_barrier_shadow');
       expect(orchestrator).toContain('gh workflow run translate-pending.yml');
