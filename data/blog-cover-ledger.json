@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1049,
+      "5": 1050,
       "6": 5061
     },
-    "publishedCovers": 7792,
+    "publishedCovers": 7793,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -214448,6 +214448,39 @@
         "provider": "openai-codex",
         "assetId": "article-val-de-bagnes-sostenibilita-2024",
         "imageUrl": "/images/blog/article-val-de-bagnes-sostenibilita-2024.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-vallese-piano-risparmi-2030": {
+      "cover": "/images/blog/article-vallese-piano-risparmi-2030.webp",
+      "hash": "80e860fe7dd6a5fdb3bbcf2ec41ad1e526ff2fbdb027a5928ed72689dbfa4d2d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vs",
+          "id": "vallese-piano-risparmi-2030",
+          "category": "fiscale",
+          "date": "2026-11-05T04:21:02.956Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-vallese-piano-risparmi-2030.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-05",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-vallese-piano-risparmi-2030",
+        "imageUrl": "/images/blog/article-vallese-piano-risparmi-2030.webp",
         "evidence": "generated-engine-record"
       }
     },

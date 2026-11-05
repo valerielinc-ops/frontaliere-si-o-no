@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1051,
-  "generatedAt": "2026-11-05T00:56:54.869Z",
+  "assetCount": 1052,
+  "generatedAt": "2026-11-05T04:52:39.784Z",
   "assets": [
     {
       "schema": 1,
@@ -44740,6 +44740,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic Alpine landscape with sustainable community activity in the background; no text, logos, or recognizable people."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-vallese-piano-risparmi-2030",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "85d93e9fa62f37be74a9ca8cda8f428f4013adb796172b8abf0f9c2411fd39ea",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "80e860fe7dd6a5fdb3bbcf2ec41ad1e526ff2fbdb027a5928ed72689dbfa4d2d",
+      "bytes": 192216,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-05T04:20:51.083Z",
+      "verifiedAt": "2026-11-05T04:21:02.862Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-vallese-piano-risparmi-2030.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a modern civic building in an alpine Valais-like setting; no people, text, logos, or event-specific documentation."
       }
     },
     {
