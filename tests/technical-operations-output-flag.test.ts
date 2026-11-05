@@ -70,6 +70,44 @@ describe('technical operations output audit', () => {
     expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('ignora stdout.write dentro commenti e literal quando calcola le chiavi', () => {
+    const scriptPath = path.resolve('scripts/ci/stdout-output-decoys.mjs');
+    const delegatedSource = [
+      '// process.stdout.write("fake_comment=yes")',
+      'const documentation = `process.stdout.write("fake_string=yes")`;',
+      '/* process.stdout.write("fake_block=yes") */',
+      'process.stdout.write("real=yes\\n");',
+    ].join('\n');
+    const source = [
+      'name: stdout output decoys',
+      'on: [push]',
+      'jobs:',
+      '  resolve:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: generated',
+      '        run: node scripts/ci/stdout-output-decoys.mjs >> "$GITHUB_OUTPUT"',
+      '      - run: echo "${{ steps.generated.outputs.real }} ${{ steps.generated.outputs.fake_comment }} ${{ steps.generated.outputs.fake_string }} ${{ steps.generated.outputs.fake_block }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/stdout-output-decoys.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => candidate === scriptPath,
+      readFile: (candidate: string) => {
+        if (candidate !== scriptPath) throw new Error(`unexpected fixture path: ${candidate}`);
+        return delegatedSource;
+      },
+    });
+    const outputFindings = findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced');
+
+    expect(outputFindings).toHaveLength(3);
+    expect(outputFindings.map((finding: any) => finding.evidence)).toEqual(expect.arrayContaining([
+      'steps.generated.outputs.fake_comment',
+      'steps.generated.outputs.fake_string',
+      'steps.generated.outputs.fake_block',
+    ]));
+    expect(outputFindings.map((finding: any) => finding.evidence)).not.toContain('steps.generated.outputs.real');
+  });
+
   it('follows --github-output into args[github-output] writers', () => {
     const scriptPath = path.resolve('scripts/ci/publish-receipts.mjs');
     const source = [

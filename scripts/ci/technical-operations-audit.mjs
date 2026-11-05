@@ -954,6 +954,74 @@ function stringLiterals(source) {
   return literals;
 }
 
+/**
+ * Preserve source offsets while hiding JavaScript comments and quoted
+ * literals from lexical scans. Newlines remain intact for line accounting.
+ */
+function maskCommentsAndLiterals(source) {
+  const raw = String(source || '');
+  const masked = raw.split('');
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  const mask = (index) => {
+    if (raw[index] !== '\n' && raw[index] !== '\r') masked[index] = ' ';
+  };
+
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      mask(index);
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      mask(index);
+      if (char === '*' && next === '/') {
+        mask(index + 1);
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      mask(index);
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      mask(index);
+      mask(index + 1);
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      mask(index);
+      mask(index + 1);
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      mask(index);
+      quote = char;
+      continue;
+    }
+  }
+  return masked.join('');
+}
+
 function matchingParen(source, openingIndex) {
   const raw = String(source || '');
   let depth = 0;
@@ -1212,8 +1280,9 @@ function outputSinkRanges(source) {
 
 function stdoutOutputRanges(source) {
   const raw = String(source || '');
+  const searchable = maskCommentsAndLiterals(raw);
   const ranges = [];
-  for (const match of raw.matchAll(/(?<![\w.])(?:process\.)?stdout\.write\s*\(/g)) {
+  for (const match of searchable.matchAll(/(?<![\w.])(?:process\.)?stdout\.write\s*\(/g)) {
     const openingIndex = raw.indexOf('(', match.index ?? 0);
     const closingIndex = matchingParen(raw, openingIndex);
     ranges.push({
