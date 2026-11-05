@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-11-05T09:18:24.194Z",
-  "runId": "41999657952",
+  "assembledAt": "2026-11-05T21:25:23.952Z",
+  "runId": "42109579100",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -34,7 +34,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:16.714Z",
+      "crawledAt": "2026-11-05T21:25:17.388Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,7 +84,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:16.714Z",
+      "validThrough": "2026-12-05T21:25:17.388Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -92,7 +92,7 @@
       "slug": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
       "slugByLocale": {
         "it": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
-        "en": "lab-technician-ad-siegfried-evionnaz",
+        "en": "nb-t-a-siegfried-evionnaz",
         "de": "lab-techniker-ad-siegfried-evionnaz",
         "fr": "lab-technician-ad-siegfried-ch"
       },
@@ -118,7 +118,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:15.989Z",
+      "crawledAt": "2026-11-05T21:25:16.718Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,14 +163,14 @@
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
         "tecnico-di-cambio-3-8-siegfried-evionnaz",
-        "nb-t-a-siegfried-evionnaz"
+        "lab-technician-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-ad-siegfried-ch"
         ],
         "en": [
-          "nb-t-a-siegfried-evionnaz"
+          "lab-technician-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -197,7 +197,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:15.989Z",
+      "validThrough": "2026-12-05T21:25:16.718Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -231,7 +231,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:15.257Z",
+      "crawledAt": "2026-11-05T21:25:16.051Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,7 +284,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:15.257Z",
+      "validThrough": "2026-12-05T21:25:16.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:14.559Z",
+      "crawledAt": "2026-11-05T21:25:15.398Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -369,7 +369,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:14.559Z",
+      "validThrough": "2026-12-05T21:25:15.398Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -403,7 +403,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:13.922Z",
+      "crawledAt": "2026-11-05T21:25:14.759Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -451,7 +451,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:13.922Z",
+      "validThrough": "2026-12-05T21:25:14.759Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -485,7 +485,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:13.148Z",
+      "crawledAt": "2026-11-05T21:25:14.064Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -536,7 +536,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:13.148Z",
+      "validThrough": "2026-12-05T21:25:14.064Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -570,7 +570,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:12.472Z",
+      "crawledAt": "2026-11-05T21:25:13.337Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,7 +621,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:12.472Z",
+      "validThrough": "2026-12-05T21:25:13.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -655,7 +655,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:11.758Z",
+      "crawledAt": "2026-11-05T21:25:12.638Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -704,7 +704,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:11.758Z",
+      "validThrough": "2026-12-05T21:25:12.638Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -714,7 +714,7 @@
         "it": "manutenzione-testa-siegfried-zofingen",
         "en": "head-maintenance-siegfried-zofingen",
         "de": "head-maintenance-siegfried-ch",
-        "fr": "entretien-de-la-tete-siegfried-zofingen"
+        "fr": "responsable-de-la-maintenance-de-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -738,7 +738,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:10.994Z",
+      "crawledAt": "2026-11-05T21:25:11.908Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -767,14 +767,14 @@
         "fr": [
           "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
           "production-maintenance-manager-siegfried-zofingen",
-          "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+          "entretien-de-la-tete-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "production-maintenance-manager-siegfried-ch",
         "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
         "production-maintenance-manager-siegfried-zofingen",
-        "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+        "entretien-de-la-tete-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-09-09T14:06:01.758Z",
       "salaryMin": 85500,
@@ -794,7 +794,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:18:10.994Z",
+      "validThrough": "2026-12-08T21:25:11.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -828,7 +828,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:10.294Z",
+      "crawledAt": "2026-11-05T21:25:11.251Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -878,7 +878,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:18:10.294Z",
+      "validThrough": "2026-12-13T21:25:11.251Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -912,7 +912,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Maintenance-Manager_R26_795",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:09.621Z",
+      "crawledAt": "2026-11-05T21:25:10.602Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -963,7 +963,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:18:09.621Z",
+      "validThrough": "2027-01-18T21:25:10.602Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -997,7 +997,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-HSE_R26_804",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:08.903Z",
+      "crawledAt": "2026-11-05T21:25:09.966Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1048,7 +1048,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:18:08.903Z",
+      "validThrough": "2027-01-24T21:25:09.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1082,7 +1082,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-analytische-Entwicklung_R26_805",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:08.202Z",
+      "crawledAt": "2026-11-05T21:25:09.322Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1133,7 +1133,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:18:08.202Z",
+      "validThrough": "2027-01-26T21:25:09.322Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1141,7 +1141,7 @@
       "slug": "lab-supervisore-stability-siegfried-evionnaz",
       "slugByLocale": {
         "it": "lab-supervisore-stability-siegfried-evionnaz",
-        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
+        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
         "de": "lab-vorgesetzter-stability-siegfried-evionnaz",
         "fr": "lab-supervisor-stability-siegfried-ch"
       },
@@ -1167,7 +1167,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-Stability_R26_813",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:07.521Z",
+      "crawledAt": "2026-11-05T21:25:08.671Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1188,14 +1188,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "lab-supervisor-stability-siegfried-ch",
-        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-stability-siegfried-ch"
         ],
         "en": [
-          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
         ],
         "de": [
           "lab-supervisor-stability-siegfried-ch"
@@ -1219,7 +1219,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:18:07.521Z",
+      "validThrough": "2027-01-27T21:25:08.671Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1253,7 +1253,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:06.787Z",
+      "crawledAt": "2026-11-05T21:25:07.986Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1304,7 +1304,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:18:06.787Z",
+      "validThrough": "2027-01-31T21:25:07.986Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1338,7 +1338,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Engineering---Maintenance_R26_827",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:18:06.105Z",
+      "crawledAt": "2026-11-05T21:25:07.110Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1389,8 +1389,82 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:18:06.105Z",
+      "validThrough": "2027-02-02T21:25:07.110Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "siegfried-c1a1cdc29832",
+      "slug": "senior-manager-business-development-dp-siegfried-ch",
+      "slugByLocale": {
+        "en": "senior-manager-business-development-dp-siegfried-ch",
+        "it": "senior-manager-business-development-dp-siegfried-ch",
+        "de": "senior-manager-business-development-dp-siegfried-ch",
+        "fr": "senior-manager-business-development-dp-siegfried-ch"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Senior Manager Business Development DP",
+      "titleByLocale": {
+        "en": "Senior Manager Business Development DP",
+        "it": "Senior Manager Business Development DP",
+        "de": "Senior Manager Business Development DP",
+        "fr": "Senior Manager Business Development DP"
+      },
+      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nWe are looking for a motivated and ambitious Senior Manager Business Development DP to join our team, based in Zofingen, Switzerland.\n\nReporting to the Global Head of Sales Drug Product your main responsibilities would be:\n\n· Manage and maintain the existing drug product portfolio and customer base within the assigned territories.\n\n· Be responsible for achieving the sales targets for the drug product portfolio within the assigned territories.\n\n· Manage and develop relationships with existing customers.\n\n· Establish and maintain long-term relationships with customers and co-development partners.\n\n· Identify and develop new prospective customers within the assigned territories for the licensing of Siegfried’s proprietary technologies and for contract development and manufacturing of drug products.\n\n· Negotiate pricing, term sheets and commercial contracts.\n\n· Negotiate licence and supply agreements and, in collaboration with the Quality department, support the negotiation of technical and quality agreements.\n\n· Coordinate the successful customer launch of new generic products into the market.\n\n· Provide the project team with relevant market information, customer insights and sales forecasts during the development of new products.\n\n· Prepare the annual budget and medium-term plan for the drug product business.\n\nSpecific Tasks, Responsibilities and Skills:\n\n· Prepare the annual sales budget and contribute to the medium-term planning process.\n\n· Support portfolio management by analysing market access and commercial potential for targeted drug products and providing relevant input to project teams.\n\n· Identify and assess potential partners for co-development agreements.\n\n· Participate in launch team meetings for new drug products.\n\n· Participate in project team meetings related to product development.\n\n· Monitor customer payments and support the timely resolution of overdue receivables.\n\n· Negotiate term sheets with partners and customers for new projects.\n\n· Participate in opening and introductory meetings during customer audits, as required.\n\n· Ensure that customer quality-related requests are directed to the appropriate stakeholders within Siegfried.\n\n· Coordinate the follow-up of customer claims and complaints in collaboration with the Quality department, Supply Chain and Customer Service.\n\n· Evaluate and analyse market opportunities for the current and future drug product portfolio.\n\n· Conduct competitor intelligence and market analyses to support commercial and portfolio decisions.\n Your Profile:\n Specific Competencies and Authorities:\n\n• Good understanding of GMP requirements and their relevance to drug product development and manufacturing.\n\n• Basic understanding of applicable regulatory requirements for drug products.\n\n• Basic working knowledge of SAP.\nFluent in English\n\nYour Benefits:\n\n• Flexible working hours make it possible to combine family, leisure time and career\n\n• You can park at a discounted rate\n\n• Health insurance: Discounts of up to 10% on additional insurances with our partners for you and your partner/family\n\n• Our stock purchase plan is generous and individually tailored\n\n• Family allowance: all employees entitled to child and/or education allowances receive an additional monthly family allowance\n\n• Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal statutory rate\n\n• Individual further training opportunities by arrangement\n\n• Pension fund: Our company pension fund is attractive and contributions can be arranged individually\n\n• Staff restaurant / cafeteria: meals at preferential conditions\n\n• Central location: Close to the train station with very good public transport connections\n\n• Exclusive corporate benefits and discounts for our employees\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nWe are looking for a motivated and ambitious Senior Manager Business Development DP to join our team, based in Zofingen, Switzerland.\n\nReporting to the Global Head of Sales Drug Product your main responsibilities would be:\n\n· Manage and maintain the existing drug product portfolio and customer base within the assigned territories.\n\n· Be responsible for achieving the sales targets for the drug product portfolio within the assigned territories.\n\n· Manage and develop relationships with existing customers.\n\n· Establish and maintain long-term relationships with customers and co-development partners.\n\n· Identify and develop new prospective customers within the assigned territories for the licensing of Siegfried’s proprietary technologies and for contract development and manufacturing of drug products.\n\n· Negotiate pricing, term sheets and commercial contracts.\n\n· Negotiate licence and supply agreements and, in collaboration with the Quality department, support the negotiation of technical and quality agreements.\n\n· Coordinate the successful customer launch of new generic products into the market.\n\n· Provide the project team with relevant market information, customer insights and sales forecasts during the development of new products.\n\n· Prepare the annual budget and medium-term plan for the drug product business.\n\nSpecific Tasks, Responsibilities and Skills:\n\n· Prepare the annual sales budget and contribute to the medium-term planning process.\n\n· Support portfolio management by analysing market access and commercial potential for targeted drug products and providing relevant input to project teams.\n\n· Identify and assess potential partners for co-development agreements.\n\n· Participate in launch team meetings for new drug products.\n\n· Participate in project team meetings related to product development.\n\n· Monitor customer payments and support the timely resolution of overdue receivables.\n\n· Negotiate term sheets with partners and customers for new projects.\n\n· Participate in opening and introductory meetings during customer audits, as required.\n\n· Ensure that customer quality-related requests are directed to the appropriate stakeholders within Siegfried.\n\n· Coordinate the follow-up of customer claims and complaints in collaboration with the Quality department, Supply Chain and Customer Service.\n\n· Evaluate and analyse market opportunities for the current and future drug product portfolio.\n\n· Conduct competitor intelligence and market analyses to support commercial and portfolio decisions.\n Your Profile:\n Specific Competencies and Authorities:\n\n• Good understanding of GMP requirements and their relevance to drug product development and manufacturing.\n\n• Basic understanding of applicable regulatory requirements for drug products.\n\n• Basic working knowledge of SAP.\nFluent in English\n\nYour Benefits:\n\n• Flexible working hours make it possible to combine family, leisure time and career\n\n• You can park at a discounted rate\n\n• Health insurance: Discounts of up to 10% on additional insurances with our partners for you and your partner/family\n\n• Our stock purchase plan is generous and individually tailored\n\n• Family allowance: all employees entitled to child and/or education allowances receive an additional monthly family allowance\n\n• Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal statutory rate\n\n• Individual further training opportunities by arrangement\n\n• Pension fund: Our company pension fund is attractive and contributions can be arranged individually\n\n• Staff restaurant / cafeteria: meals at preferential conditions\n\n• Central location: Close to the train station with very good public transport connections\n\n• Exclusive corporate benefits and discounts for our employees\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "it": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nWe are looking for a motivated and ambitious Senior Manager Business Development DP to join our team, based in Zofingen, Switzerland.\n\nReporting to the Global Head of Sales Drug Product your main responsibilities would be:\n\n· Manage and maintain the existing drug product portfolio and customer base within the assigned territories.\n\n· Be responsible for achieving the sales targets for the drug product portfolio within the assigned territories.\n\n· Manage and develop relationships with existing customers.\n\n· Establish and maintain long-term relationships with customers and co-development partners.\n\n· Identify and develop new prospective customers within the assigned territories for the licensing of Siegfried’s proprietary technologies and for contract development and manufacturing of drug products.\n\n· Negotiate pricing, term sheets and commercial contracts.\n\n· Negotiate licence and supply agreements and, in collaboration with the Quality department, support the negotiation of technical and quality agreements.\n\n· Coordinate the successful customer launch of new generic products into the market.\n\n· Provide the project team with relevant market information, customer insights and sales forecasts during the development of new products.\n\n· Prepare the annual budget and medium-term plan for the drug product business.\n\nSpecific Tasks, Responsibilities and Skills:\n\n· Prepare the annual sales budget and contribute to the medium-term planning process.\n\n· Support portfolio management by analysing market access and commercial potential for targeted drug products and providing relevant input to project teams.\n\n· Identify and assess potential partners for co-development agreements.\n\n· Participate in launch team meetings for new drug products.\n\n· Participate in project team meetings related to product development.\n\n· Monitor customer payments and support the timely resolution of overdue receivables.\n\n· Negotiate term sheets with partners and customers for new projects.\n\n· Participate in opening and introductory meetings during customer audits, as required.\n\n· Ensure that customer quality-related requests are directed to the appropriate stakeholders within Siegfried.\n\n· Coordinate the follow-up of customer claims and complaints in collaboration with the Quality department, Supply Chain and Customer Service.\n\n· Evaluate and analyse market opportunities for the current and future drug product portfolio.\n\n· Conduct competitor intelligence and market analyses to support commercial and portfolio decisions.\n Your Profile:\n Specific Competencies and Authorities:\n\n• Good understanding of GMP requirements and their relevance to drug product development and manufacturing.\n\n• Basic understanding of applicable regulatory requirements for drug products.\n\n• Basic working knowledge of SAP.\nFluent in English\n\nYour Benefits:\n\n• Flexible working hours make it possible to combine family, leisure time and career\n\n• You can park at a discounted rate\n\n• Health insurance: Discounts of up to 10% on additional insurances with our partners for you and your partner/family\n\n• Our stock purchase plan is generous and individually tailored\n\n• Family allowance: all employees entitled to child and/or education allowances receive an additional monthly family allowance\n\n• Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal statutory rate\n\n• Individual further training opportunities by arrangement\n\n• Pension fund: Our company pension fund is attractive and contributions can be arranged individually\n\n• Staff restaurant / cafeteria: meals at preferential conditions\n\n• Central location: Close to the train station with very good public transport connections\n\n• Exclusive corporate benefits and discounts for our employees\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nWe are looking for a motivated and ambitious Senior Manager Business Development DP to join our team, based in Zofingen, Switzerland.\n\nReporting to the Global Head of Sales Drug Product your main responsibilities would be:\n\n· Manage and maintain the existing drug product portfolio and customer base within the assigned territories.\n\n· Be responsible for achieving the sales targets for the drug product portfolio within the assigned territories.\n\n· Manage and develop relationships with existing customers.\n\n· Establish and maintain long-term relationships with customers and co-development partners.\n\n· Identify and develop new prospective customers within the assigned territories for the licensing of Siegfried’s proprietary technologies and for contract development and manufacturing of drug products.\n\n· Negotiate pricing, term sheets and commercial contracts.\n\n· Negotiate licence and supply agreements and, in collaboration with the Quality department, support the negotiation of technical and quality agreements.\n\n· Coordinate the successful customer launch of new generic products into the market.\n\n· Provide the project team with relevant market information, customer insights and sales forecasts during the development of new products.\n\n· Prepare the annual budget and medium-term plan for the drug product business.\n\nSpecific Tasks, Responsibilities and Skills:\n\n· Prepare the annual sales budget and contribute to the medium-term planning process.\n\n· Support portfolio management by analysing market access and commercial potential for targeted drug products and providing relevant input to project teams.\n\n· Identify and assess potential partners for co-development agreements.\n\n· Participate in launch team meetings for new drug products.\n\n· Participate in project team meetings related to product development.\n\n· Monitor customer payments and support the timely resolution of overdue receivables.\n\n· Negotiate term sheets with partners and customers for new projects.\n\n· Participate in opening and introductory meetings during customer audits, as required.\n\n· Ensure that customer quality-related requests are directed to the appropriate stakeholders within Siegfried.\n\n· Coordinate the follow-up of customer claims and complaints in collaboration with the Quality department, Supply Chain and Customer Service.\n\n· Evaluate and analyse market opportunities for the current and future drug product portfolio.\n\n· Conduct competitor intelligence and market analyses to support commercial and portfolio decisions.\n Your Profile:\n Specific Competencies and Authorities:\n\n• Good understanding of GMP requirements and their relevance to drug product development and manufacturing.\n\n• Basic understanding of applicable regulatory requirements for drug products.\n\n• Basic working knowledge of SAP.\nFluent in English\n\nYour Benefits:\n\n• Flexible working hours make it possible to combine family, leisure time and career\n\n• You can park at a discounted rate\n\n• Health insurance: Discounts of up to 10% on additional insurances with our partners for you and your partner/family\n\n• Our stock purchase plan is generous and individually tailored\n\n• Family allowance: all employees entitled to child and/or education allowances receive an additional monthly family allowance\n\n• Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal statutory rate\n\n• Individual further training opportunities by arrangement\n\n• Pension fund: Our company pension fund is attractive and contributions can be arranged individually\n\n• Staff restaurant / cafeteria: meals at preferential conditions\n\n• Central location: Close to the train station with very good public transport connections\n\n• Exclusive corporate benefits and discounts for our employees\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nWe are looking for a motivated and ambitious Senior Manager Business Development DP to join our team, based in Zofingen, Switzerland.\n\nReporting to the Global Head of Sales Drug Product your main responsibilities would be:\n\n· Manage and maintain the existing drug product portfolio and customer base within the assigned territories.\n\n· Be responsible for achieving the sales targets for the drug product portfolio within the assigned territories.\n\n· Manage and develop relationships with existing customers.\n\n· Establish and maintain long-term relationships with customers and co-development partners.\n\n· Identify and develop new prospective customers within the assigned territories for the licensing of Siegfried’s proprietary technologies and for contract development and manufacturing of drug products.\n\n· Negotiate pricing, term sheets and commercial contracts.\n\n· Negotiate licence and supply agreements and, in collaboration with the Quality department, support the negotiation of technical and quality agreements.\n\n· Coordinate the successful customer launch of new generic products into the market.\n\n· Provide the project team with relevant market information, customer insights and sales forecasts during the development of new products.\n\n· Prepare the annual budget and medium-term plan for the drug product business.\n\nSpecific Tasks, Responsibilities and Skills:\n\n· Prepare the annual sales budget and contribute to the medium-term planning process.\n\n· Support portfolio management by analysing market access and commercial potential for targeted drug products and providing relevant input to project teams.\n\n· Identify and assess potential partners for co-development agreements.\n\n· Participate in launch team meetings for new drug products.\n\n· Participate in project team meetings related to product development.\n\n· Monitor customer payments and support the timely resolution of overdue receivables.\n\n· Negotiate term sheets with partners and customers for new projects.\n\n· Participate in opening and introductory meetings during customer audits, as required.\n\n· Ensure that customer quality-related requests are directed to the appropriate stakeholders within Siegfried.\n\n· Coordinate the follow-up of customer claims and complaints in collaboration with the Quality department, Supply Chain and Customer Service.\n\n· Evaluate and analyse market opportunities for the current and future drug product portfolio.\n\n· Conduct competitor intelligence and market analyses to support commercial and portfolio decisions.\n Your Profile:\n Specific Competencies and Authorities:\n\n• Good understanding of GMP requirements and their relevance to drug product development and manufacturing.\n\n• Basic understanding of applicable regulatory requirements for drug products.\n\n• Basic working knowledge of SAP.\nFluent in English\n\nYour Benefits:\n\n• Flexible working hours make it possible to combine family, leisure time and career\n\n• You can park at a discounted rate\n\n• Health insurance: Discounts of up to 10% on additional insurances with our partners for you and your partner/family\n\n• Our stock purchase plan is generous and individually tailored\n\n• Family allowance: all employees entitled to child and/or education allowances receive an additional monthly family allowance\n\n• Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal statutory rate\n\n• Individual further training opportunities by arrangement\n\n• Pension fund: Our company pension fund is attractive and contributions can be arranged individually\n\n• Staff restaurant / cafeteria: meals at preferential conditions\n\n• Central location: Close to the train station with very good public transport connections\n\n• Exclusive corporate benefits and discounts for our employees\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Manager-Business-Development-DP_R26_830",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-05T21:25:06.434Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-05",
+      "postedDate": "2026-11-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Manager-Business-Development-DP_R26_830",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "jobReqId": "R26_830",
+      "hiringOrganization": "Siegfried AG",
+      "needsRetranslation": true,
+      "salaryMin": 99500,
+      "salaryMax": 169500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 99500,
+          "maxValue": 169500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4800",
+      "addressRegion": "AG",
+      "streetAddress": "Zofingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-03T21:25:06.434Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:25:06.434Z"
     }
   ]
 }
