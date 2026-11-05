@@ -214,7 +214,7 @@ describe('runner final guard across three application stages', () => {
         { id: 'accept', text: 'Alle akzeptieren', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
         { id: 'reject', text: 'Ablehnen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
         { id: 'settings', text: 'Einstellungen anzeigen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
-        { id: 'apply', text: 'JETZT BEWERBEN', section: title, disabled: false },
+        { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Job ID: 42', disabled: false },
       ]);
     yellowsharkPosting.dialogs = [{ dialogId: 'd1' }];
     yellowsharkPosting.buttons.slice(0, 4).forEach((button: any) => { button.dialog = true; button.dialogId = 'd1'; });
@@ -242,6 +242,46 @@ describe('runner final guard across three application stages', () => {
       'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
       [{ id: 'other-apply', text: 'JETZT BEWERBEN', section: 'Senior Data Analyst', disabled: false }]);
     const f = fixture(unrelatedCta);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('opens the posting-owned CTA when an unrelated Apply control comes first', async () => {
+    const headerClick = vi.fn(async () => {});
+    const matchingClick = vi.fn(async () => { state.snapshot = profile; });
+    const mixedPosting = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+      [
+        { id: 'header-apply', text: 'JETZT BEWERBEN', href: 'https://careers.example/Careers/ApplicationMethods?jobId=99', disabled: false },
+        { id: 'matching-apply', text: 'JETZT BEWERBEN', href: applyUrl, disabled: false },
+      ]);
+    const f = fixture(mixedPosting, null, review, null, {
+      buttonTransitions: {
+        '[data-aa-id="header-apply"]': headerClick,
+        '[data-aa-id="matching-apply"]': matchingClick,
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(headerClick).not.toHaveBeenCalled();
+    expect(matchingClick).toHaveBeenCalledOnce();
+  });
+
+  it('keeps a regional notice terminal when a same-title no-href CTA lacks the current posting identity', async () => {
+    const ambiguousPosting = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+      [
+        { id: 'other-apply', text: 'JETZT BEWERBEN', section: title, context: 'Job ID: 43', disabled: false },
+        { id: 'title-only-apply', text: 'JETZT BEWERBEN', section: title, disabled: false },
+      ]);
+    const f = fixture(ambiguousPosting);
 
     const result = await f.run();
 
@@ -343,7 +383,7 @@ describe('runner final guard across three application stages', () => {
   it('uses captured protocol for a slug/path posting and guards only the review commit', async () => {
     const postingUrl = 'https://careers.example/Careers/JobDetail/Infrastructure-Strategy-Manager/42';
     const markup = (page: string) => `<meta name="avature.portal.id" content="87"><meta name="avature.portal.urlPath" content="Careers"><meta name="avature.portal.page" content="${page}"><portal-data id="synapserBootstrap" data-applicationName="customPortal" data-applicationCode="customPortal_87"></portal-data>`;
-    const source = { ...snapshot(postingUrl, 'Read this vacancy and apply.', [{ id: 'open', text: 'Apply' }]), protocol: await portalProtocolFromHtml(markup('JobDetail'), postingUrl) };
+    const source = { ...snapshot(postingUrl, 'Read this vacancy and apply.', [{ id: 'open', text: 'Apply', section: title, context: 'Posting ID: 42' }]), protocol: await portalProtocolFromHtml(markup('JobDetail'), postingUrl) };
     const first = { ...profile, protocol: await portalProtocolFromHtml(markup('ApplicationConfirmation'), profileUrl) };
     const final = { ...review, protocol: await portalProtocolFromHtml(markup('ApplicationReview'), reviewUrl) };
     const f = fixture(first, source, final);
