@@ -1626,12 +1626,12 @@
     },
     {
       "id": "ksgl-bf4fbb4e721a",
-      "slug": "apprendistato-fachfrau-mann-betriebsunterhalt-cfc-kantonsspital-glarus-ksgl-glarus",
+      "slug": "posto-di-apprendistato-per-operatrice-operatore-di-manutenzione-efz-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-ksgl-glarus",
-        "it": "apprendistato-fachfrau-mann-betriebsunterhalt-cfc-kantonsspital-glarus-ksgl-glarus",
-        "en": "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-ksgl-glarus",
-        "fr": "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-ksgl-glarus"
+        "it": "posto-di-apprendistato-per-operatrice-operatore-di-manutenzione-efz-kantonsspital-glarus-ksgl-glarus",
+        "en": "apprenticeship-as-a-facility-maintenance-specialist-efz-kantonsspital-glarus-ksgl-glarus",
+        "fr": "place-d-apprentissage-d-agent-e-d-exploitation-cfc-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1679,11 +1679,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-ksgl-glarus",
+          "apprendistato-fachfrau-mann-betriebsunterhalt-cfc-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-ksgl-glarus"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-ksgl-glarus"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-ksgl-glarus"
+        "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-ksgl-glarus",
+        "apprendistato-fachfrau-mann-betriebsunterhalt-cfc-kantonsspital-glarus-ksgl-glarus"
       ],
       "salaryMin": 72000,
       "salaryMax": 101000,

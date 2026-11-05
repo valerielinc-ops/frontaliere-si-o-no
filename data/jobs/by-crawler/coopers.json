@@ -3481,10 +3481,10 @@
     },
     {
       "id": "coopers-46c542c8390e",
-      "slug": "media-intelligence-manager-m-f-d-coopers-basel-stadt",
+      "slug": "gestione-dell-intelligence-multimediale-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "en": "media-intelligence-manager-m-f-d-coopers-basel-stadt",
-        "it": "media-intelligence-manager-m-f-d-coopers-basel-stadt",
+        "it": "gestione-dell-intelligence-multimediale-m-f-d-coopers-group-ag-basel-stadt",
         "de": "media-intelligence-manager-m-f-d-coopers-basel-stadt",
         "fr": "media-intelligence-manager-m-f-d-coopers-basel-stadt"
       },
@@ -3562,7 +3562,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:26:37.485Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:26:37.485Z"
+      "firstSeenAt": "2026-11-05T09:26:37.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "media-intelligence-manager-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "media-intelligence-manager-m-f-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-a1ac85be867c",

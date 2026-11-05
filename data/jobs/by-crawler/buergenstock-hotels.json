@@ -4089,12 +4089,12 @@
     },
     {
       "id": "buergenstock-hotels-55512569f086",
-      "slug": "kinderbetreuer-in-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "assistente-all-infanzia-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "kinderbetreuer-in-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "kinderbetreuer-in-100-w-m-i-buergenstock-hotels-obburgen",
-        "en": "kinderbetreuer-in-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "kinderbetreuer-in-100-w-m-i-buergenstock-hotels-obburgen"
+        "it": "assistente-all-infanzia-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "en": "childcare-worker-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "fr": "garde-d-enfants-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -4168,7 +4168,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-03T09:41:35.307Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:41:35.307Z"
+      "firstSeenAt": "2026-11-05T09:41:35.307Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kinderbetreuer-in-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "kinderbetreuer-in-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "kinderbetreuer-in-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "kinderbetreuer-in-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-99109993feaa",

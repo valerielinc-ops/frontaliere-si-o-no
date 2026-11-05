@@ -26361,12 +26361,12 @@
     {
       "id": "hirslanden-fd1315c6b71e",
       "externalId": "1453919433",
-      "slug": "head-it-service-delivery-zentralschweiz-a-100-hirslanden-hirslanden-corporate-office",
+      "slug": "responsabile-servizio-it-consegna-svizzera-centrale-a-100-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "head-it-service-delivery-zentralschweiz-a-100-hirslanden-hirslanden-corporate-office",
-        "it": "head-it-service-delivery-zentralschweiz-a-100-hirslanden-hirslanden-corporate-office",
+        "it": "responsabile-servizio-it-consegna-svizzera-centrale-a-100-hirslanden-klinik-hirslanden-corporate-office",
         "en": "head-it-service-delivery-zentralschweiz-a-100-hirslanden-hirslanden-corporate-office",
-        "fr": "head-it-service-delivery-zentralschweiz-a-100-hirslanden-hirslanden-corporate-office"
+        "fr": "chef-de-la-prestation-des-services-informatiques-suisse-centrale-a-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26428,17 +26428,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:20:40.330Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:20:40.330Z"
+      "firstSeenAt": "2026-11-05T09:20:40.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-it-service-delivery-zentralschweiz-a-100-hirslanden-hirslanden-corporate-office"
+        ],
+        "fr": [
+          "head-it-service-delivery-zentralschweiz-a-100-hirslanden-hirslanden-corporate-office"
+        ]
+      },
+      "previousSlugs": [
+        "head-it-service-delivery-zentralschweiz-a-100-hirslanden-hirslanden-corporate-office"
+      ]
     },
     {
       "id": "hirslanden-982565066df4",
       "externalId": "1453730033",
-      "slug": "praktikumsstelle-im-kaufm-bereich-a-80-100-hirslanden-hirslanden-klinik-stephanshorn",
+      "slug": "stage-a-kaufm-range-a-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
       "slugByLocale": {
         "de": "praktikumsstelle-im-kaufm-bereich-a-80-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "it": "praktikumsstelle-im-kaufm-bereich-a-80-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "en": "praktikumsstelle-im-kaufm-bereich-a-80-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "fr": "praktikumsstelle-im-kaufm-bereich-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+        "it": "stage-a-kaufm-range-a-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "en": "internship-at-kaufm-range-a-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "stage-a-kaufm-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26500,17 +26511,31 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:20:37.872Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:20:37.872Z"
+      "firstSeenAt": "2026-11-05T09:20:37.872Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikumsstelle-im-kaufm-bereich-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "en": [
+          "praktikumsstelle-im-kaufm-bereich-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "fr": [
+          "praktikumsstelle-im-kaufm-bereich-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ]
+      },
+      "previousSlugs": [
+        "praktikumsstelle-im-kaufm-bereich-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+      ]
     },
     {
       "id": "hirslanden-66847e0bb666",
       "externalId": "1453844033",
-      "slug": "infirmier-ere-anesthesiste-a-80-hirslanden-hirslanden-clinique-bois-cerf",
+      "slug": "80-anestetista-infermiera-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
         "fr": "infirmier-ere-anesthesiste-a-80-hirslanden-hirslanden-clinique-bois-cerf",
-        "it": "infirmier-ere-anesthesiste-a-80-hirslanden-hirslanden-clinique-bois-cerf",
-        "en": "infirmier-ere-anesthesiste-a-80-hirslanden-hirslanden-clinique-bois-cerf",
-        "de": "infirmier-ere-anesthesiste-a-80-hirslanden-hirslanden-clinique-bois-cerf"
+        "it": "80-anestetista-infermiera-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "en": "80-anaesthetist-nurse-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "de": "80-anasthesist-krankenschwester-hirslanden-klinik-hirslanden-clinique-bois-cerf"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26572,7 +26597,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:20:36.644Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:20:36.644Z"
+      "firstSeenAt": "2026-11-05T09:20:36.644Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-anesthesiste-a-80-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "en": [
+          "infirmier-ere-anesthesiste-a-80-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "de": [
+          "infirmier-ere-anesthesiste-a-80-hirslanden-hirslanden-clinique-bois-cerf"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-anesthesiste-a-80-hirslanden-hirslanden-clinique-bois-cerf"
+      ]
     },
     {
       "id": "hirslanden-784074d715bd",
@@ -27060,12 +27099,12 @@
     {
       "id": "hirslanden-5c39aed55407",
       "externalId": "1454360233",
-      "slug": "hr-specialist-a-100-hirslanden-hirslanden-corporate-office",
+      "slug": "risorse-umane-specialista-a-100-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "hr-specialist-a-100-hirslanden-hirslanden-corporate-office",
-        "it": "hr-specialist-a-100-hirslanden-hirslanden-corporate-office",
+        "it": "risorse-umane-specialista-a-100-hirslanden-klinik-hirslanden-corporate-office",
         "en": "hr-specialist-a-100-hirslanden-hirslanden-corporate-office",
-        "fr": "hr-specialist-a-100-hirslanden-hirslanden-corporate-office"
+        "fr": "ressources-humaines-specialiste-a-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27128,7 +27167,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:20:29.256Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:20:29.256Z"
+      "firstSeenAt": "2026-11-05T09:20:29.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-a-100-hirslanden-hirslanden-corporate-office"
+        ],
+        "fr": [
+          "hr-specialist-a-100-hirslanden-hirslanden-corporate-office"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-a-100-hirslanden-hirslanden-corporate-office"
+      ]
     },
     {
       "id": "hirslanden-f33bf83e7f75",
@@ -27138,7 +27188,7 @@
         "de": "business-unit-controllerin-controller-a-80-100-hirslanden-hirslanden-klinik-hirslanden",
         "it": "business-unit-controllerin-controller-a-80-100-hirslanden-hirslanden-klinik-hirslanden",
         "en": "business-unit-controllerin-controller-a-80-100-hirslanden-hirslanden-klinik-hirslanden",
-        "fr": "business-unit-controllerin-controller-a-80-100-hirslanden-hirslanden-klinik-hirslanden"
+        "fr": "controleur-d-unite-d-affaires-en-controleur-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27205,12 +27255,12 @@
     {
       "id": "hirslanden-5c45c1d93b3f",
       "externalId": "1454319133",
-      "slug": "praktikantin-praktikant-pflege-a-80-100-hirslanden-hirslanden-salem-spital",
+      "slug": "infermieristica-interna-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "praktikantin-praktikant-pflege-a-80-100-hirslanden-hirslanden-salem-spital",
-        "it": "praktikantin-praktikant-pflege-a-80-100-hirslanden-hirslanden-salem-spital",
-        "en": "praktikantin-praktikant-pflege-a-80-100-hirslanden-hirslanden-salem-spital",
-        "fr": "praktikantin-praktikant-pflege-a-80-100-hirslanden-hirslanden-salem-spital"
+        "it": "infermieristica-interna-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "intern-internship-nursing-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "soins-infirmiers-internes-a-80-100-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27272,17 +27322,31 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:20:26.741Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:20:26.741Z"
+      "firstSeenAt": "2026-11-05T09:20:26.741Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-pflege-a-80-100-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "praktikantin-praktikant-pflege-a-80-100-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
+          "praktikantin-praktikant-pflege-a-80-100-hirslanden-hirslanden-salem-spital"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-pflege-a-80-100-hirslanden-hirslanden-salem-spital"
+      ]
     },
     {
       "id": "hirslanden-2b096b1762d9",
       "externalId": "1454378733",
-      "slug": "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden-klinik-hirslanden",
+      "slug": "capo-reparto-letto-concentrarsi-sulla-chirurgia-viscerale-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden",
-        "it": "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden-klinik-hirslanden",
-        "en": "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden",
-        "fr": "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden"
+        "it": "capo-reparto-letto-concentrarsi-sulla-chirurgia-viscerale-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "en": "head-of-bed-department-focus-on-visceral-surgery-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "chef-du-service-de-lit-se-concentrer-sur-la-chirurgie-viscerale-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27329,11 +27393,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden",
+          "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden-klinik-hirslanden"
+        ],
+        "en": [
+          "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden"
+        ],
+        "fr": [
           "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden"
+        "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden",
+        "leiterin-leiter-bettenabteilung-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden-klinik-hirslanden"
       ],
       "salaryMin": 124000,
       "salaryMax": 173000,
@@ -27357,11 +27429,11 @@
     {
       "id": "hirslanden-51015d98ec4b",
       "externalId": "1454394033",
-      "slug": "assistant-administratif-en-sterilisation-et-tracabilite-en-cdd-a-100-hirslanden-hirslanden",
+      "slug": "assistente-amministrativo-in-sterilizzazione-e-tracciabilita-in-cdd-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
         "fr": "assistant-administratif-en-sterilisation-et-tracabilite-en-cdd-a-100-hirslanden-hirslanden",
-        "it": "assistant-administratif-en-sterilisation-et-tracabilite-en-cdd-a-100-hirslanden-hirslanden",
-        "en": "assistant-administratif-en-sterilisation-et-tracabilite-en-cdd-a-100-hirslanden-hirslanden",
+        "it": "assistente-amministrativo-in-sterilizzazione-e-tracciabilita-in-cdd-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "en": "administrative-assistant-in-sterilization-and-traceability-in-100-cdd-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "de": "assistant-administratif-en-sterilisation-et-tracabilite-en-cdd-a-100-hirslanden-hirslanden"
       },
       "company": "Hirslanden Klinik",
@@ -27424,7 +27496,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:20:24.303Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:20:24.303Z"
+      "firstSeenAt": "2026-11-05T09:20:24.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-administratif-en-sterilisation-et-tracabilite-en-cdd-a-100-hirslanden-hirslanden"
+        ],
+        "en": [
+          "assistant-administratif-en-sterilisation-et-tracabilite-en-cdd-a-100-hirslanden-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-administratif-en-sterilisation-et-tracabilite-en-cdd-a-100-hirslanden-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-1239aabe2c7b",

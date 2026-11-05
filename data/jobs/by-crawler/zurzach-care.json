@@ -177,7 +177,7 @@
         "it": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
         "en": "certified-nurse-nurse-specialist-60-80-department-of-cardiology-zurzach-care-bad-zurzach",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "fr": "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
+        "fr": "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -234,13 +234,13 @@
         ],
         "fr": [
           "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-          "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+          "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
         ]
       },
       "previousSlugs": [
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach",
-        "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+        "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
       ],
       "firstSeenAt": "2026-10-08T21:15:07.730Z",
       "salaryMin": 70400,
@@ -5665,12 +5665,12 @@
     },
     {
       "id": "zurzach-care-633e62f4311c",
-      "slug": "oberarztin-oberarzt-neurologie-40-100-zurzach-care-baden-dattwil",
+      "slug": "medico-senior-neurologo-senior-40-100-zurzach-care-baden-dattwil",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-neurologie-40-100-zurzach-care-baden-dattwil",
-        "it": "oberarztin-oberarzt-neurologie-40-100-zurzach-care-baden-dattwil",
-        "en": "oberarztin-oberarzt-neurologie-40-100-zurzach-care-baden-dattwil",
-        "fr": "oberarztin-oberarzt-neurologie-40-100-zurzach-care-baden-dattwil"
+        "it": "medico-senior-neurologo-senior-40-100-zurzach-care-baden-dattwil",
+        "en": "senior-physician-senior-neurologist-40-100-zurzach-care-baden-dattwil",
+        "fr": "medecin-principal-neurologue-principal-40-100-zurzach-care-baden-dattwil"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5732,7 +5732,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:18:46.371Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:18:46.371Z"
+      "firstSeenAt": "2026-11-05T09:18:46.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-neurologie-40-100-zurzach-care-baden-dattwil"
+        ],
+        "en": [
+          "oberarztin-oberarzt-neurologie-40-100-zurzach-care-baden-dattwil"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-neurologie-40-100-zurzach-care-baden-dattwil"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-neurologie-40-100-zurzach-care-baden-dattwil"
+      ]
     },
     {
       "id": "zurzach-care-a74c94a7aac1",

@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -70,7 +70,7 @@
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -79,7 +79,7 @@
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,
@@ -365,12 +365,12 @@
     },
     {
       "id": "bcv-11af5c449c40",
-      "slug": "stage-de-master-80-infrastructures-it-banque-cantonale-vaudoise-lausanne",
+      "slug": "laurea-magistrale-80-infrastruttura-it-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "stage-de-master-80-infrastructures-it-bcv-lausanne",
-        "it": "stage-de-master-80-infrastructures-it-banque-cantonale-vaudoise-lausanne",
-        "en": "stage-de-master-80-infrastructures-it-banque-cantonale-vaudoise-lausanne",
-        "de": "stage-de-master-80-infrastructures-it-bcv-lausanne"
+        "it": "laurea-magistrale-80-infrastruttura-it-banque-cantonale-vaudoise-lausanne",
+        "en": "master-s-degree-80-it-infrastructure-banque-cantonale-vaudoise-lausanne",
+        "de": "master-abschluss-80-it-infrastruktur-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -419,11 +419,19 @@
       "sfJobId": "1454190133",
       "previousSlugsByLocale": {
         "it": [
+          "stage-de-master-80-infrastructures-it-bcv-lausanne",
+          "stage-de-master-80-infrastructures-it-banque-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "stage-de-master-80-infrastructures-it-banque-cantonale-vaudoise-lausanne"
+        ],
+        "de": [
           "stage-de-master-80-infrastructures-it-bcv-lausanne"
         ]
       },
       "previousSlugs": [
-        "stage-de-master-80-infrastructures-it-bcv-lausanne"
+        "stage-de-master-80-infrastructures-it-bcv-lausanne",
+        "stage-de-master-80-infrastructures-it-banque-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 45600,
       "salaryMax": 77600,

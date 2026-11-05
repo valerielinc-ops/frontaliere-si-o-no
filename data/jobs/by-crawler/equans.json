@@ -9384,12 +9384,12 @@
     },
     {
       "id": "equans-a1b353f01b83",
-      "slug": "emsr-engineer-equans-olten",
+      "slug": "emsr-ingegnere-equans-switzerland-olten",
       "slugByLocale": {
         "de": "emsr-engineer-equans-olten",
-        "it": "emsr-engineer-equans-olten",
+        "it": "emsr-ingegnere-equans-switzerland-olten",
         "en": "emsr-engineer-equans-olten",
-        "fr": "emsr-engineer-equans-olten"
+        "fr": "emsr-ingenieur-equans-switzerland-olten"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9463,7 +9463,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-03T09:15:34.875Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:15:34.875Z"
+      "firstSeenAt": "2026-11-05T09:15:34.875Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "emsr-engineer-equans-olten"
+        ],
+        "fr": [
+          "emsr-engineer-equans-olten"
+        ]
+      },
+      "previousSlugs": [
+        "emsr-engineer-equans-olten"
+      ]
     },
     {
       "id": "equans-a4a45f66b8b7",

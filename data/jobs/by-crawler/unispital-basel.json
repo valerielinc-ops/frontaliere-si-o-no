@@ -4529,7 +4529,7 @@
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "en": "physiotherapist-universitatsspital-basel",
+        "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapiste-universitatsspital-basel-basel"
       },
@@ -4578,7 +4578,7 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+        "physiotherapist-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4588,7 +4588,7 @@
         "en": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+          "physiotherapist-universitatsspital-basel"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
@@ -10755,7 +10755,7 @@
       "slug": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
-        "en": "platform-manager-op-universitatsspital-basel",
+        "en": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
         "de": "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
         "fr": "gestionnaire-de-plateforme-gestionnaire-de-plateforme-op-universitatsspital-basel-basel"
       },
@@ -10802,7 +10802,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
-        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+        "platform-manager-op-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10810,7 +10811,7 @@
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
         ],
         "en": [
-          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+          "platform-manager-op-universitatsspital-basel"
         ],
         "fr": [
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
@@ -11086,12 +11087,12 @@
     },
     {
       "id": "unispital-basel-e4f523c3e234",
-      "slug": "mitarbeiterin-collaboratore-trice-interne-post-universitatsspital-basel",
+      "slug": "addetta-addetto-alla-posta-interna-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-interne-post-unispital-basel-ch",
-        "it": "mitarbeiterin-collaboratore-trice-interne-post-universitatsspital-basel",
-        "en": "mitarbeiterin-mitarbeiter-interne-post-universitatsspital-basel-basel",
-        "fr": "mitarbeiterin-mitarbeiter-interne-post-universitatsspital-basel-basel"
+        "it": "addetta-addetto-alla-posta-interna-universitatsspital-basel-basel",
+        "en": "employee-employee-internal-post-universitatsspital-basel-basel",
+        "fr": "employe-employe-poste-interne-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11139,11 +11140,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-interne-post-unispital-basel-ch"
+          "mitarbeiterin-mitarbeiter-interne-post-unispital-basel-ch",
+          "mitarbeiterin-collaboratore-trice-interne-post-universitatsspital-basel"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-interne-post-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-interne-post-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-interne-post-unispital-basel-ch"
+        "mitarbeiterin-mitarbeiter-interne-post-unispital-basel-ch",
+        "mitarbeiterin-collaboratore-trice-interne-post-universitatsspital-basel",
+        "mitarbeiterin-mitarbeiter-interne-post-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11334,12 +11344,12 @@
     },
     {
       "id": "unispital-basel-49ef5c23e885",
-      "slug": "study-nurse-study-coordinator-unispital-basel-ch",
+      "slug": "study-nurse-study-coordinatore-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "study-nurse-study-coordinator-unispital-basel-ch",
-        "it": "study-nurse-study-coordinator-unispital-basel-ch",
-        "en": "study-nurse-study-coordinator-unispital-basel-ch",
-        "fr": "study-nurse-study-coordinator-unispital-basel-ch"
+        "it": "study-nurse-study-coordinatore-universitatsspital-basel-basel",
+        "en": "study-nurse-study-pier-universitatsspital-basel-basel",
+        "fr": "study-nurse-study-coordinateur-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11401,7 +11411,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:24:12.242Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:24:12.242Z"
+      "firstSeenAt": "2026-11-05T09:24:12.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-study-coordinator-unispital-basel-ch"
+        ],
+        "en": [
+          "study-nurse-study-coordinator-unispital-basel-ch"
+        ],
+        "fr": [
+          "study-nurse-study-coordinator-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-study-coordinator-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-98af16df4fc4",
@@ -11410,7 +11434,7 @@
         "de": "dipl-pflegefachfrau-mann-hf-fh-pain-service-80-unispital-basel-ch",
         "it": "dipl-pflegefachfrau-mann-hf-fh-pain-service-80-universitatsspital-basel",
         "en": "dipl-pflegefachfrau-mann-hf-fh-pain-service-80-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-pain-service-80-unispital-basel-ch"
+        "fr": "infirmiere-diplomee-mann-hf-fh-service-de-la-douleur-80-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11458,6 +11482,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-pain-service-80-unispital-basel-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-pain-service-80-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
@@ -11484,12 +11511,12 @@
     },
     {
       "id": "unispital-basel-697af666e99c",
-      "slug": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
+      "slug": "terapeuta-del-lavoro-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "it": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
-        "en": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
-        "fr": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+        "it": "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "en": "occupational-therapist-universitatsspital-basel-basel",
+        "fr": "ergotherapeute-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11536,11 +11563,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-unispital-basel-ch"
+          "ergotherapeutin-ergotherapeut-unispital-basel-ch",
+          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "ergotherapeutin-ergotherapeut-unispital-basel-ch"
+        "ergotherapeutin-ergotherapeut-unispital-basel-ch",
+        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

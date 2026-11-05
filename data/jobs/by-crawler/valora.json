@@ -3036,10 +3036,10 @@
     },
     {
       "id": "valora-52f1f28db60b",
-      "slug": "consumer-finance-specialist-w-m-d-valora-zurich",
+      "slug": "consumer-finanza-specialista-w-m-d-valora-group-zurich",
       "slugByLocale": {
         "de": "consumer-finance-specialist-w-m-d-valora-zurich",
-        "it": "consumer-finance-specialist-w-m-d-valora-zurich",
+        "it": "consumer-finanza-specialista-w-m-d-valora-group-zurich",
         "en": "consumer-finance-specialist-w-m-d-valora-zurich",
         "fr": "consumer-finance-specialist-w-m-d-valora-zurich"
       },
@@ -3104,7 +3104,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:18:22.532Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:18:22.532Z"
+      "firstSeenAt": "2026-11-05T09:18:22.532Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consumer-finance-specialist-w-m-d-valora-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "consumer-finance-specialist-w-m-d-valora-zurich"
+      ]
     },
     {
       "id": "valora-fbd5c8e06a8f",
@@ -3180,12 +3188,12 @@
     },
     {
       "id": "valora-75fed9a1c1f4",
-      "slug": "compliance-officer-legal-counsel-w-m-d-valora-muttenz",
+      "slug": "responsabile-della-compliance-consulente-legale-m-f-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "compliance-officer-legal-counsel-w-m-d-valora-muttenz",
-        "it": "compliance-officer-legal-counsel-w-m-d-valora-muttenz",
+        "it": "responsabile-della-compliance-consulente-legale-m-f-d-valora-group-muttenz",
         "en": "compliance-officer-legal-counsel-w-m-d-valora-muttenz",
-        "fr": "compliance-officer-legal-counsel-w-m-d-valora-muttenz"
+        "fr": "agent-de-conformite-conseiller-juridique-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3249,7 +3257,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:18:22.526Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:18:22.526Z"
+      "firstSeenAt": "2026-11-05T09:18:22.526Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-legal-counsel-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "compliance-officer-legal-counsel-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-legal-counsel-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-56c811114c00",

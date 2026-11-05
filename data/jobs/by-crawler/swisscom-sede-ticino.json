@@ -2834,9 +2834,9 @@
         "de": "SAP Logistics Business Consultant",
         "fr": "SAP Logistique Business Consultant"
       },
-      "slug": "sap-logistics-business-consultant-swisscom-zurich-drxc6r",
+      "slug": "sap-logistica-business-consulente-swisscom-zurich",
       "slugByLocale": {
-        "it": "sap-logistics-business-consultant-swisscom-zurich-drxc6r",
+        "it": "sap-logistica-business-consulente-swisscom-zurich",
         "en": "sap-logistics-business-consultant-swisscom-zurich-drxc6r",
         "de": "sap-logistics-business-consultant-swisscom-zurich-drxc6r",
         "fr": "sap-logistique-business-consultant-swisscom-zurich"
@@ -2878,7 +2878,15 @@
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:36:21.870Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-logistics-business-consultant-swisscom-zurich-drxc6r"
+        ]
+      },
+      "previousSlugs": [
+        "sap-logistics-business-consultant-swisscom-zurich-drxc6r"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Sales-Manager-Digital-Media---LMS_R-0006622",

@@ -26,9 +26,12 @@
       "employmentType": "50 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-05T09:34:21.577Z",
-      "slug": "oberarzt-oberarztin-endokrinologie-diabetologie-kantonsspital-graubunden-chur",
+      "slug": "medico-senior-endocrinologia-diabetologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "oberarzt-oberarztin-endokrinologie-diabetologie-kantonsspital-graubunden-chur"
+        "de": "oberarzt-oberarztin-endokrinologie-diabetologie-kantonsspital-graubunden-chur",
+        "it": "medico-senior-endocrinologia-diabetologia-kantonsspital-graubunden-chur",
+        "en": "senior-physician-endocrinology-diabetology-kantonsspital-graubunden-chur",
+        "fr": "medecin-principal-endocrinologie-diabetologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Oberarzt / Oberärztin Endokrinologie / Diabetologie",
@@ -62,7 +65,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-11-05T09:34:21.577Z"
+      "firstSeenAt": "2026-11-05T09:34:21.577Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-endokrinologie-diabetologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-endokrinologie-diabetologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10251397",
@@ -87,9 +98,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-05T09:34:21.577Z",
-      "slug": "spitaltechniker-in-schwachstrom-kantonsspital-graubunden-chur",
+      "slug": "tecnico-ospedaliero-a-bassa-corrente-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "spitaltechniker-in-schwachstrom-kantonsspital-graubunden-chur"
+        "de": "spitaltechniker-in-schwachstrom-kantonsspital-graubunden-chur",
+        "it": "tecnico-ospedaliero-a-bassa-corrente-kantonsspital-graubunden-chur",
+        "en": "low-current-hospital-technician-kantonsspital-graubunden-chur",
+        "fr": "technicien-hospitalier-a-faible-effectif-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Spitaltechniker:in Schwachstrom",
@@ -123,7 +137,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-11-05T09:34:21.577Z"
+      "firstSeenAt": "2026-11-05T09:34:21.577Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spitaltechniker-in-schwachstrom-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "spitaltechniker-in-schwachstrom-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10251084",

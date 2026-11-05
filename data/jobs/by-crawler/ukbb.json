@@ -664,12 +664,12 @@
     },
     {
       "id": "ukbb-46d386542120",
-      "slug": "oberarzt-in-kinderkardiologie-70-universitats-kinderspital-beider-basel-basel",
+      "slug": "medico-a-capoclinica-di-cardiologia-pediatrica-70-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "oberarzt-in-kinderkardiologie-70-ukbb-basel",
-        "it": "oberarzt-in-kinderkardiologie-70-universitats-kinderspital-beider-basel-basel",
-        "en": "oberarzt-in-kinderkardiologie-70-universitats-kinderspital-beider-basel-basel",
-        "fr": "oberarzt-in-kinderkardiologie-70-universitats-kinderspital-beider-basel-basel"
+        "it": "medico-a-capoclinica-di-cardiologia-pediatrica-70-universitats-kinderspital-beider-basel-basel",
+        "en": "senior-physician-in-pediatric-cardiology-70-universitats-kinderspital-beider-basel-basel",
+        "fr": "medecin-adjoint-e-en-cardiologie-pediatrique-70-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -718,11 +718,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-in-kinderkardiologie-70-ukbb-basel"
+          "oberarzt-in-kinderkardiologie-70-ukbb-basel",
+          "oberarzt-in-kinderkardiologie-70-universitats-kinderspital-beider-basel-basel"
+        ],
+        "en": [
+          "oberarzt-in-kinderkardiologie-70-universitats-kinderspital-beider-basel-basel"
+        ],
+        "fr": [
+          "oberarzt-in-kinderkardiologie-70-universitats-kinderspital-beider-basel-basel"
         ]
       },
       "previousSlugs": [
-        "oberarzt-in-kinderkardiologie-70-ukbb-basel"
+        "oberarzt-in-kinderkardiologie-70-ukbb-basel",
+        "oberarzt-in-kinderkardiologie-70-universitats-kinderspital-beider-basel-basel"
       ],
       "salaryMin": 61600,
       "salaryMax": 86100,

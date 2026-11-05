@@ -9088,12 +9088,12 @@
     },
     {
       "id": "upd-06e84c95a162",
-      "slug": "oberpsychologin-oberpsychologe-familientagesklinik-delfin-upd-bern",
+      "slug": "senior-psychologist-senior-psychologist-family-day-clinic-dolphin-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "oberpsychologin-oberpsychologe-familientagesklinik-delfin-upd-bern",
-        "it": "oberpsychologin-oberpsychologe-familientagesklinik-delfin-upd-bern",
+        "it": "senior-psychologist-senior-psychologist-family-day-clinic-dolphin-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "oberpsychologin-oberpsychologe-familientagesklinik-delfin-upd-bern",
-        "fr": "oberpsychologin-oberpsychologe-familientagesklinik-delfin-upd-bern"
+        "fr": "psychologue-principal-psychologue-principal-clinique-de-jour-de-famille-dolphin-universitare-psychiatrische-dienste-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9155,7 +9155,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:22:45.596Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:22:45.596Z"
+      "firstSeenAt": "2026-11-05T09:22:45.596Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberpsychologin-oberpsychologe-familientagesklinik-delfin-upd-bern"
+        ],
+        "fr": [
+          "oberpsychologin-oberpsychologe-familientagesklinik-delfin-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberpsychologin-oberpsychologe-familientagesklinik-delfin-upd-bern"
+      ]
     },
     {
       "id": "upd-3b5cdc066678",
@@ -9491,12 +9502,12 @@
     },
     {
       "id": "upd-fcab1d6421e7",
-      "slug": "diplomierte-pflegefachperson-mobile-alterspsychiatrie-upd-bern",
+      "slug": "infermiere-certificato-psichiatria-dell-eta-mobile-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-mobile-alterspsychiatrie-upd-bern",
-        "it": "diplomierte-pflegefachperson-mobile-alterspsychiatrie-upd-bern",
-        "en": "diplomierte-pflegefachperson-mobile-alterspsychiatrie-upd-bern",
-        "fr": "diplomierte-pflegefachperson-mobile-alterspsychiatrie-upd-bern"
+        "it": "infermiere-certificato-psichiatria-dell-eta-mobile-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "certified-nurse-mobile-age-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "infirmiere-agreee-psychiatrie-d-age-mobile-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9558,7 +9569,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:22:45.566Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:22:45.566Z"
+      "firstSeenAt": "2026-11-05T09:22:45.566Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-mobile-alterspsychiatrie-upd-bern"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-mobile-alterspsychiatrie-upd-bern"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-mobile-alterspsychiatrie-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-mobile-alterspsychiatrie-upd-bern"
+      ]
     },
     {
       "id": "upd-45110cb71bd7",

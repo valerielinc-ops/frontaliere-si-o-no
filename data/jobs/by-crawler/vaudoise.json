@@ -3557,12 +3557,12 @@
     },
     {
       "id": "vaudoise-5c63d8c417ac",
-      "slug": "comptable-h-f-x-80-100-vaudoise-ch",
+      "slug": "contabile-m-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "comptable-h-f-x-80-100-vaudoise-ch",
-        "it": "comptable-h-f-x-80-100-vaudoise-ch",
-        "en": "comptable-h-f-x-80-100-vaudoise-ch",
-        "de": "comptable-h-f-x-80-100-vaudoise-ch"
+        "it": "contabile-m-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "accountant-m-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "buchhalter-m-w-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3625,16 +3625,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:16:43.982Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:16:43.982Z"
+      "firstSeenAt": "2026-11-05T09:16:43.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "comptable-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "comptable-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "comptable-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "comptable-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-bd727a4e0e48",
-      "slug": "ingenieur-ingenieure-systeme-h-f-x-80-100-vaudoise-ch",
+      "slug": "ingegnere-sistema-di-ingegnere-m-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "ingenieur-ingenieure-systeme-h-f-x-80-100-vaudoise-ch",
-        "it": "ingenieur-ingenieure-systeme-h-f-x-80-100-vaudoise-ch",
-        "en": "ingenieur-ingenieure-systeme-h-f-x-80-100-vaudoise-ch",
-        "de": "ingenieur-ingenieure-systeme-h-f-x-80-100-vaudoise-ch"
+        "it": "ingegnere-sistema-di-ingegnere-m-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "engineer-engineer-system-m-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "ingenieur-ingenieur-system-m-w-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3697,7 +3711,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:16:43.702Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:16:43.702Z"
+      "firstSeenAt": "2026-11-05T09:16:43.702Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-ingenieure-systeme-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "ingenieur-ingenieure-systeme-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "ingenieur-ingenieure-systeme-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-ingenieure-systeme-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-5e55608d84fa",

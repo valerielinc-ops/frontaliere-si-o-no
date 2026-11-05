@@ -1134,12 +1134,12 @@
     },
     {
       "id": "gz-dielsdorf-45f7022fbd72",
-      "slug": "dipl-pflegefachperson-hf-come-hauptnachtwache-gesundheitszentrum-dielsdorf",
+      "slug": "infermiere-a-diplomato-a-hf-come-responsabile-principale-del-turno-di-notte-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-als-hauptnachtwache-gz-dielsdorf-dielsdorf",
-        "it": "dipl-pflegefachperson-hf-come-hauptnachtwache-gesundheitszentrum-dielsdorf",
-        "en": "dipl-pflegefachperson-hf-als-hauptnachtwache-gz-dielsdorf-dielsdorf",
-        "fr": "dipl-pflegefachperson-hf-als-hauptnachtwache-gz-dielsdorf-dielsdorf"
+        "it": "infermiere-a-diplomato-a-hf-come-responsabile-principale-del-turno-di-notte-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "dipl-nurse-hf-as-main-night-watch-gesundheitszentrum-dielsdorf-dielsdorf",
+        "fr": "dipl-infirmiere-hf-comme-veille-de-nuit-principale-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1188,11 +1188,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-als-hauptnachtwache-gz-dielsdorf-dielsdorf",
+          "dipl-pflegefachperson-hf-come-hauptnachtwache-gesundheitszentrum-dielsdorf"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-als-hauptnachtwache-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-als-hauptnachtwache-gz-dielsdorf-dielsdorf"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-als-hauptnachtwache-gz-dielsdorf-dielsdorf"
+        "dipl-pflegefachperson-hf-als-hauptnachtwache-gz-dielsdorf-dielsdorf",
+        "dipl-pflegefachperson-hf-come-hauptnachtwache-gesundheitszentrum-dielsdorf"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

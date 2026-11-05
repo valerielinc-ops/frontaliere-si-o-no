@@ -17678,12 +17678,12 @@
     },
     {
       "id": "usz-fb921de64feb",
-      "slug": "fachperson-betreuung-kind-60-100-usz-ch",
+      "slug": "assistenza-ai-bambini-specialisti-60-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "fachperson-betreuung-kind-60-100-usz-ch",
-        "it": "fachperson-betreuung-kind-60-100-usz-ch",
-        "en": "fachperson-betreuung-kind-60-100-usz-ch",
-        "fr": "fachperson-betreuung-kind-60-100-usz-ch"
+        "it": "assistenza-ai-bambini-specialisti-60-100-universitatsspital-zurich-usz-zurich",
+        "en": "specialist-child-care-60-100-universitatsspital-zurich-usz-zurich",
+        "fr": "garde-d-enfants-specialisee-60-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17745,7 +17745,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:20:25.223Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:20:25.223Z"
+      "firstSeenAt": "2026-11-05T09:20:25.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-kind-60-100-usz-ch"
+        ],
+        "en": [
+          "fachperson-betreuung-kind-60-100-usz-ch"
+        ],
+        "fr": [
+          "fachperson-betreuung-kind-60-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-kind-60-100-usz-ch"
+      ]
     },
     {
       "id": "usz-086245db1f90",
@@ -17753,8 +17767,8 @@
       "slugByLocale": {
         "de": "fage-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch",
         "it": "fage-per-la-kardiologie-e-herzchirurgie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "fage-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch",
-        "fr": "fage-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch"
+        "en": "fage-for-cardiology-and-heart-surgery-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "fage-pour-la-cardiologie-et-la-chirurgie-cardiaque-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17802,6 +17816,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fage-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch"
+        ],
+        "en": [
+          "fage-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch"
+        ],
+        "fr": [
+          "fage-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -17828,12 +17848,12 @@
     },
     {
       "id": "usz-d5d4bc935d23",
-      "slug": "arztin-arzt-o-medizinstudierende-r-im-6-studienjahr-m-w-d-universitatsspital-zurich-usz-zurich",
+      "slug": "medica-medico-o-studentessa-studente-di-medicina-al-6-anno-di-studi-m-f-d-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "arztin-arzt-oder-medizinstudierende-r-im-6-studienjahr-w-m-d-usz-ch",
-        "it": "arztin-arzt-o-medizinstudierende-r-im-6-studienjahr-m-w-d-universitatsspital-zurich-usz-zurich",
-        "en": "arztin-arzt-oder-medizinstudierende-r-im-6-studienjahr-w-m-d-usz-ch",
-        "fr": "arztin-arzt-oder-medizinstudierende-r-im-6-studienjahr-w-m-d-usz-ch"
+        "it": "medica-medico-o-studentessa-studente-di-medicina-al-6-anno-di-studi-m-f-d-universitatsspital-zurich-usz-zurich",
+        "en": "doctor-doctor-or-medical-student-r-in-the-6th-study-year-m-f-d-universitatsspital-zurich-usz-zurich",
+        "fr": "docteur-medecin-ou-etudiant-en-medecine-r-dans-le-6eme-annee-d-etude-h-f-d-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17881,11 +17901,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "arztin-arzt-oder-medizinstudierende-r-im-6-studienjahr-w-m-d-usz-ch",
+          "arztin-arzt-o-medizinstudierende-r-im-6-studienjahr-m-w-d-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "arztin-arzt-oder-medizinstudierende-r-im-6-studienjahr-w-m-d-usz-ch"
+        ],
+        "fr": [
           "arztin-arzt-oder-medizinstudierende-r-im-6-studienjahr-w-m-d-usz-ch"
         ]
       },
       "previousSlugs": [
-        "arztin-arzt-oder-medizinstudierende-r-im-6-studienjahr-w-m-d-usz-ch"
+        "arztin-arzt-oder-medizinstudierende-r-im-6-studienjahr-w-m-d-usz-ch",
+        "arztin-arzt-o-medizinstudierende-r-im-6-studienjahr-m-w-d-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

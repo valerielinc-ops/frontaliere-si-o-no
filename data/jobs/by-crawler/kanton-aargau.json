@@ -6083,12 +6083,12 @@
     },
     {
       "id": "kanton-aargau-338abf1e2156",
-      "slug": "vollzugsangestellte-vollzugsangestellter-fachablosung-schlosserei-100-kanton-aargau-ch",
+      "slug": "imprisonamento-dipendenti-imprisonment-dipendenti-professionale-distacco-fabbro-100-kanton-aargau-lenzburg",
       "slugByLocale": {
         "de": "vollzugsangestellte-vollzugsangestellter-fachablosung-schlosserei-100-kanton-aargau-ch",
-        "it": "vollzugsangestellte-vollzugsangestellter-fachablosung-schlosserei-100-kanton-aargau-ch",
-        "en": "vollzugsangestellte-vollzugsangestellter-fachablosung-schlosserei-100-kanton-aargau-ch",
-        "fr": "vollzugsangestellte-vollzugsangestellter-fachablosung-schlosserei-100-kanton-aargau-ch"
+        "it": "imprisonamento-dipendenti-imprisonment-dipendenti-professionale-distacco-fabbro-100-kanton-aargau-lenzburg",
+        "en": "imprisonment-employees-imprisonment-employees-professional-detachment-locksmith-100-kanton-aargau-lenzburg",
+        "fr": "employes-d-emprisonnement-employes-d-emprisonnement-serrurier-de-detachement-professionnel-100-kanton-aargau-lenzburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6151,16 +6151,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-05T09:20:57.812Z"
+      "firstSeenAt": "2026-11-05T09:20:57.812Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vollzugsangestellte-vollzugsangestellter-fachablosung-schlosserei-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "vollzugsangestellte-vollzugsangestellter-fachablosung-schlosserei-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "vollzugsangestellte-vollzugsangestellter-fachablosung-schlosserei-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vollzugsangestellte-vollzugsangestellter-fachablosung-schlosserei-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-188bd39ab562",
-      "slug": "vollzugsangestellte-vollzugsangestellter-loge-zentralgefangnis-100-kanton-aargau-ch",
+      "slug": "prigionieri-prigionieri-lodge-prigione-centrale-100-kanton-aargau-lenzburg",
       "slugByLocale": {
         "de": "vollzugsangestellte-vollzugsangestellter-loge-zentralgefangnis-100-kanton-aargau-ch",
-        "it": "vollzugsangestellte-vollzugsangestellter-loge-zentralgefangnis-100-kanton-aargau-ch",
-        "en": "vollzugsangestellte-vollzugsangestellter-loge-zentralgefangnis-100-kanton-aargau-ch",
-        "fr": "vollzugsangestellte-vollzugsangestellter-loge-zentralgefangnis-100-kanton-aargau-ch"
+        "it": "prigionieri-prigionieri-lodge-prigione-centrale-100-kanton-aargau-lenzburg",
+        "en": "prisoners-prisoners-lodge-central-prison-100-kanton-aargau-lenzburg",
+        "fr": "prisonniers-prisonniers-lodge-prison-centrale-100-kanton-aargau-lenzburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6223,7 +6237,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-05T09:20:57.285Z"
+      "firstSeenAt": "2026-11-05T09:20:57.285Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vollzugsangestellte-vollzugsangestellter-loge-zentralgefangnis-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "vollzugsangestellte-vollzugsangestellter-loge-zentralgefangnis-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "vollzugsangestellte-vollzugsangestellter-loge-zentralgefangnis-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vollzugsangestellte-vollzugsangestellter-loge-zentralgefangnis-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-e6bad268ebe8",

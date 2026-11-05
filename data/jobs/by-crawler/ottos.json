@@ -4335,9 +4335,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4388,17 +4388,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -9545,12 +9546,12 @@
     },
     {
       "id": "ottos-9a4c700c24b7",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-murten",
+      "slug": "addetto-a-alle-vendite-a-chiamata-food-non-food-otto-s-ag-murten",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-murten",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-murten",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-murten",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-murten"
+        "it": "addetto-a-alle-vendite-a-chiamata-food-non-food-otto-s-ag-murten",
+        "en": "temporary-sales-assistant-food-non-food-otto-s-ag-murten",
+        "fr": "auxiliaire-de-vente-food-non-food-otto-s-ag-murten"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9618,7 +9619,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:40:51.773Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:40:51.773Z"
+      "firstSeenAt": "2026-11-05T09:40:51.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-murten"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-murten"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-murten"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-murten"
+      ]
     },
     {
       "id": "ottos-eb58875f4f1e",

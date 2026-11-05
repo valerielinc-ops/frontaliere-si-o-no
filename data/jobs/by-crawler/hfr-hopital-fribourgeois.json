@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-c7afaf5ded4c",
-      "slug": "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg",
+      "slug": "capo-della-clinica-aggiunto-hopital-fribourgeois-hfr-fribourg-switzerland",
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg",
-        "it": "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg",
-        "en": "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg",
-        "de": "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
+        "it": "capo-della-clinica-aggiunto-hopital-fribourgeois-hfr-fribourg-switzerland",
+        "en": "deputy-head-of-clinic-hopital-fribourgeois-hfr-fribourg-switzerland",
+        "de": "stellvertretender-leiter-der-klinik-hopital-fribourgeois-hfr-fribourg-switzerland"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -60,11 +60,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg",
+          "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg"
+        ],
+        "en": [
+          "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "de": [
           "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
         ]
       },
       "previousSlugs": [
-        "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
+        "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg",
+        "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -86,11 +94,11 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-0fc4713bc8fd",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-hopital-fribourgeois-hfr-tafers-switzerland",
       "slugByLocale": {
         "fr": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers",
-        "it": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers",
-        "en": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-hopital-fribourgeois-hfr-tafers-switzerland",
+        "en": "community-health-and-care-assistant-hopital-fribourgeois-hfr-tafers-switzerland",
         "de": "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -155,16 +163,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:34:36.276Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:34:36.276Z"
+      "firstSeenAt": "2026-11-05T09:34:36.276Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-hfr-hopital-fribourgeois-tafers"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-959146abc73a",
-      "slug": "infirmier-ere-hfr-hopital-fribourgeois-tafers",
+      "slug": "infermiera-hopital-fribourgeois-hfr-tafers-switzerland",
       "slugByLocale": {
         "fr": "infirmier-ere-hfr-hopital-fribourgeois-tafers",
-        "it": "infirmier-ere-hfr-hopital-fribourgeois-tafers",
-        "en": "infirmier-ere-hfr-hopital-fribourgeois-tafers",
-        "de": "infirmier-ere-hfr-hopital-fribourgeois-tafers"
+        "it": "infermiera-hopital-fribourgeois-hfr-tafers-switzerland",
+        "en": "nurse-hopital-fribourgeois-hfr-tafers-switzerland",
+        "de": "krankenschwester-hopital-fribourgeois-hfr-tafers-switzerland"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -228,7 +247,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:34:35.683Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:34:35.683Z"
+      "firstSeenAt": "2026-11-05T09:34:35.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-hfr-hopital-fribourgeois-tafers"
+        ],
+        "en": [
+          "infirmier-ere-hfr-hopital-fribourgeois-tafers"
+        ],
+        "de": [
+          "infirmier-ere-hfr-hopital-fribourgeois-tafers"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-hfr-hopital-fribourgeois-tafers"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-1dbca3e8d552",

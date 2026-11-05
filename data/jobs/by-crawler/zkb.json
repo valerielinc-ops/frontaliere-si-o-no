@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zkb-7b11f5ebf7b5",
-      "slug": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf",
+      "slug": "consulente-alla-clientela-privata-affluent-zurcher-kantonalbank-dubendorf",
       "slugByLocale": {
         "de": "kundenberater-in-privatkunden-affluent-zkb-dubendorf",
-        "it": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf",
-        "en": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf",
-        "fr": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf"
+        "it": "consulente-alla-clientela-privata-affluent-zurcher-kantonalbank-dubendorf",
+        "en": "customer-advisor-for-affluent-private-clients-zurcher-kantonalbank-dubendorf",
+        "fr": "conseiller-ere-a-la-clientele-privee-affluent-zurcher-kantonalbank-dubendorf"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -62,11 +62,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-privatkunden-affluent-zkb-dubendorf"
+          "kundenberater-in-privatkunden-affluent-zkb-dubendorf",
+          "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf"
+        ],
+        "en": [
+          "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf"
+        ],
+        "fr": [
+          "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-privatkunden-affluent-zkb-dubendorf"
+        "kundenberater-in-privatkunden-affluent-zkb-dubendorf",
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -89,12 +97,12 @@
     },
     {
       "id": "zkb-4711172b3a4a",
-      "slug": "ai-engineer-m-w-d-zkb-zurich",
+      "slug": "ai-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "ai-engineer-m-w-d-zkb-zurich",
-        "it": "ai-engineer-m-w-d-zkb-zurich",
+        "it": "ai-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
         "en": "ai-engineer-m-w-d-zkb-zurich",
-        "fr": "ai-engineer-m-w-d-zkb-zurich"
+        "fr": "ai-ingenieur-m-w-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -160,7 +168,18 @@
       "streetAddressSource": "curated-company-city",
       "validThrough": "2027-02-03T09:16:22.510Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:16:22.510Z"
+      "firstSeenAt": "2026-11-05T09:16:22.510Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-engineer-m-w-d-zkb-zurich"
+        ],
+        "fr": [
+          "ai-engineer-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ai-engineer-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-82ceebd575dd",

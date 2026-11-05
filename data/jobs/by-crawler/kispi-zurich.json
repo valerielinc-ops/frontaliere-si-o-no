@@ -3752,7 +3752,7 @@
       "slug": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
         "de": "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
         "fr": "psychomotherapeute-h-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -3799,14 +3799,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
+        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
+        "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
         ],
         "en": [
-          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+          "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
@@ -5012,12 +5013,12 @@
     },
     {
       "id": "kispi-zurich-d65b4dca7c7a",
-      "slug": "leiter-leistungsmanagement-tarife-90-100-m-w-d-universitats-kinderspital-zurich-kispi-zurich",
+      "slug": "responsabile-gestione-delle-prestazioni-e-tariffe-90-100-m-f-d-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "leiter-leistungsmanagement-tarife-90-100-m-w-d-kispi-zurich-zurich",
-        "it": "leiter-leistungsmanagement-tarife-90-100-m-w-d-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "leiter-leistungsmanagement-tarife-90-100-m-w-d-kispi-zurich-zurich",
-        "fr": "leiter-leistungsmanagement-tarife-90-100-m-w-d-kispi-zurich-zurich"
+        "it": "responsabile-gestione-delle-prestazioni-e-tariffe-90-100-m-f-d-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "head-of-performance-management-tariffs-90-100-m-f-d-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "responsable-de-la-gestion-du-rendement-et-des-tarifs-90-100-h-f-d-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -5064,11 +5065,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-leistungsmanagement-tarife-90-100-m-w-d-kispi-zurich-zurich",
+          "leiter-leistungsmanagement-tarife-90-100-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "leiter-leistungsmanagement-tarife-90-100-m-w-d-kispi-zurich-zurich"
+        ],
+        "fr": [
           "leiter-leistungsmanagement-tarife-90-100-m-w-d-kispi-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "leiter-leistungsmanagement-tarife-90-100-m-w-d-kispi-zurich-zurich"
+        "leiter-leistungsmanagement-tarife-90-100-m-w-d-kispi-zurich-zurich",
+        "leiter-leistungsmanagement-tarife-90-100-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "salaryMin": 124000,
       "salaryMax": 173000,

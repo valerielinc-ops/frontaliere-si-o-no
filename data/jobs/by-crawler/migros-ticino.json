@@ -5,7 +5,7 @@
   "jobs": [
     {
       "id": "company-ree35w",
-      "slug": "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-ree35w",
+      "slug": "responsabile-del-reparto-frutta-e-verdura-m-f-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
       "company": "Société coopérative Migros Vaud",
       "title": "Responsable de rayon Fruits & Légumes (H/F/D)",
       "location": "Romanel s/Lausanne",
@@ -64,9 +64,9 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-ree35w",
-        "en": "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-ree35w",
-        "de": "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-ree35w",
+        "it": "responsabile-del-reparto-frutta-e-verdura-m-f-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
+        "en": "head-of-department-fruits-vegetables-m-f-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
+        "de": "abteilungsleiter-obst-gemuse-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
         "fr": "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-ree35w"
       },
       "requirementsByLocale": {
@@ -87,11 +87,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne"
+          "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
+          "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-ree35w"
+        ],
+        "en": [
+          "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-ree35w"
+        ],
+        "de": [
+          "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-ree35w"
         ]
       },
       "previousSlugs": [
-        "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne"
+        "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
+        "responsable-de-rayon-fruits-legumes-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-ree35w"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -117,7 +125,7 @@
     },
     {
       "id": "company-j5s0n3",
-      "slug": "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon-j5s0n3",
+      "slug": "responsabile-del-reparto-alimentari-genossenschaft-migros-zurich-hombrechtikon",
       "company": "Genossenschaft Migros Zürich",
       "title": "Fachleiter*in Food",
       "location": "Hombrechtikon",
@@ -180,10 +188,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon-j5s0n3",
-        "en": "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon-j5s0n3",
+        "it": "responsabile-del-reparto-alimentari-genossenschaft-migros-zurich-hombrechtikon",
+        "en": "food-department-manager-genossenschaft-migros-zurich-hombrechtikon",
         "de": "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon-j5s0n3",
-        "fr": "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon-j5s0n3"
+        "fr": "responsable-de-secteur-food-genossenschaft-migros-zurich-hombrechtikon"
       },
       "requirementsByLocale": {
         "it": [],
@@ -201,11 +209,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon"
+          "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon",
+          "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon-j5s0n3"
+        ],
+        "en": [
+          "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon-j5s0n3"
+        ],
+        "fr": [
+          "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon-j5s0n3"
         ]
       },
       "previousSlugs": [
-        "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon"
+        "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon",
+        "fachleiter-in-food-genossenschaft-migros-zurich-hombrechtikon-j5s0n3"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -231,7 +247,7 @@
     },
     {
       "id": "company-j6qxqj",
-      "slug": "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel-j6qxqj",
+      "slug": "responsabile-del-reparto-vendita-assistita-migros-drachen-genossenschaft-migros-basel-basel",
       "company": "Genossenschaft Migros Basel",
       "title": "Bereichsleiter*in Bedienung Migros Drachen",
       "location": "Basel",
@@ -288,10 +304,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel-j6qxqj",
-        "en": "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel-j6qxqj",
+        "it": "responsabile-del-reparto-vendita-assistita-migros-drachen-genossenschaft-migros-basel-basel",
+        "en": "service-counter-department-manager-migros-drachen-genossenschaft-migros-basel-basel",
         "de": "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel-j6qxqj",
-        "fr": "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel-j6qxqj"
+        "fr": "responsable-de-secteur-service-migros-drachen-genossenschaft-migros-basel-basel"
       },
       "requirementsByLocale": {
         "it": [],
@@ -310,11 +326,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel"
+          "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel",
+          "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel-j6qxqj"
+        ],
+        "en": [
+          "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel-j6qxqj"
+        ],
+        "fr": [
+          "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel-j6qxqj"
         ]
       },
       "previousSlugs": [
-        "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel"
+        "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel",
+        "bereichsleiter-in-bedienung-migros-drachen-genossenschaft-migros-basel-j6qxqj"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -340,7 +364,7 @@
     },
     {
       "id": "company-lqihc7",
-      "slug": "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh-lqihc7",
+      "slug": "responsabile-del-reparto-non-alimentari-genossenschaft-migros-zurich-gossau-zh",
       "company": "Genossenschaft Migros Zürich",
       "title": "Fachleiter*in Non-Food",
       "location": "Gossau (ZH)",
@@ -405,10 +429,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh-lqihc7",
-        "en": "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh-lqihc7",
+        "it": "responsabile-del-reparto-non-alimentari-genossenschaft-migros-zurich-gossau-zh",
+        "en": "non-food-department-manager-genossenschaft-migros-zurich-gossau-zh",
         "de": "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh-lqihc7",
-        "fr": "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh-lqihc7"
+        "fr": "responsable-de-secteur-non-food-genossenschaft-migros-zurich-gossau-zh"
       },
       "requirementsByLocale": {
         "it": [],
@@ -426,11 +450,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh"
+          "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh",
+          "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh-lqihc7"
+        ],
+        "en": [
+          "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh-lqihc7"
+        ],
+        "fr": [
+          "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh-lqihc7"
         ]
       },
       "previousSlugs": [
-        "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh"
+        "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh",
+        "fachleiter-in-non-food-genossenschaft-migros-zurich-gossau-zh-lqihc7"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -454,7 +486,7 @@
     },
     {
       "id": "company-89w0b9",
-      "slug": "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern-89w0b9",
+      "slug": "dipendente-dell-ufficio-m-f-d-60-80-molino-bern-pizzeria-ristorante-molino-bern",
       "company": "Pizzeria Ristorante Molino",
       "title": "Officemitarbeiter (m/w/d) 60 - 80%, Molino Bern",
       "location": "Bern",
@@ -515,10 +547,10 @@
         "fr": "Que ce soit des pizzas croustillantes, les meilleures créations de pâtes, des plats traditionnels de poisson et de viande ou des dolci maison, l'équipe Molino gâte ses invités dans une ambiance élégante avec les normes de qualité les plus élevées. Aimeriez-vous également fournir le sentiment extra italianità? Alors appliquez maintenant !\n\nLuogo di lavoro: Pizzeria Ristorante Molino, Pizzeria Ristorante Molino Thurm, Berne, orphelinat Square 13, 3011 Berne\n\n## Mansioni\n- Divers travaux de nettoyage selon les règles d'hygiène\n- Entretien, nettoyage, entretien et tri des lave-vaisselle et vaisselle\n- Tri et élimination des marchandises et déchets vides\n- Avec l'aide de la cuisine froide\n\n## Exigences\n- Déjà première expérience professionnelle: dans une position comparable\n- Achevé l'enseignement de base ou complémentaire: gastronomie\n- Vous êtes consciencieux, dynamique, orienté vers le service et physiquement résistant\n- Vous avez une appréhension rapide, êtes un joueur d'équipe et avez l'habitude de travailler indépendamment\n- Allemand (connaissances de base)\n- Français (connaissances de base)\n\n## Cosa de friamo\n- Durée de travail flexible: Nous offrons des horaires de travail flexibles et des emplois à temps partiel\n- Congé de maternité / congé de paternité: Nous offrons 14 semaines de congé de maternité et 2 semaines de congé de paternité\n- Salaire équitable: Avec nous, vous avez un 13. Salaire mensuel et salaire supérieur aux exigences de L-GAV\n- Abonnement pratique: Bénéficiez de conditions avantageuses sur les abonnements pratiques\n- Prestations sociales: Bénéficiez d'attractives réductions de primes sur certaines assurances complémentaires chez SWICA\n- Alimentation: nourriture gratuite pendant les heures de travail\n- Migros Bank: Bénéficiez de conditions spéciales à Migros Bank / Generali Insurance\n- Offres d'employés: Avantages sociaux attractifs de l'offre Migros et 25% de réduction dans toutes les entreprises du groupe Ospena AG\n- Offres sportives et de fitness: CHF 200 réduction pour un abonnement Activ Fitness\n- Promotion ciblée : Nous exigeons, promouvons et rendons hommage\n- Éducation et formation : Nos employés sont soutenus et soutenus par des possibilités de formation internes et externes\n\n## Contatto\n Demande et contact * *\nIdda Karina Egüez\nSpécialiste des ressources humaines\n\nGrade di occupation: 60-80 %"
       },
       "slugByLocale": {
-        "it": "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern-89w0b9",
-        "en": "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern-89w0b9",
+        "it": "dipendente-dell-ufficio-m-f-d-60-80-molino-bern-pizzeria-ristorante-molino-bern",
+        "en": "office-employee-m-f-d-60-80-molino-bern-pizzeria-ristorante-molino-bern",
         "de": "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern-89w0b9",
-        "fr": "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern-89w0b9"
+        "fr": "employe-de-bureau-h-f-d-60-80-molino-bern-pizzeria-ristorante-molino-bern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -536,11 +568,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern"
+          "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern",
+          "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern-89w0b9"
+        ],
+        "en": [
+          "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern-89w0b9"
+        ],
+        "fr": [
+          "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern-89w0b9"
         ]
       },
       "previousSlugs": [
-        "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern"
+        "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern",
+        "officemitarbeiter-m-w-d-60-80-molino-bern-pizzeria-ristorante-molino-bern-89w0b9"
       ],
       "salaryMin": 54800,
       "salaryMax": 83200,
@@ -623,7 +663,7 @@
         "it": "fachverkaufer-in-non-food-migros-drachen-genossenschaft-migros-basel-19615d",
         "en": "fachverkaufer-in-non-food-migros-drachen-genossenschaft-migros-basel-19615d",
         "de": "fachverkaufer-in-non-food-migros-drachen-genossenschaft-migros-basel-19615d",
-        "fr": "fachverkaufer-in-non-food-migros-drachen-genossenschaft-migros-basel-19615d"
+        "fr": "vendeur-euse-specialise-e-non-food-migros-drachen-genossenschaft-migros-basel-basel"
       },
       "requirementsByLocale": {
         "it": [],
@@ -671,7 +711,7 @@
     },
     {
       "id": "company-o39ctd",
-      "slug": "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen-o39ctd",
+      "slug": "addetto-a-alla-griglia-il-sabato-genossenschaft-migros-ostschweiz-beringen",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Grilleur*in (Samstags)",
       "location": "Beringen",
@@ -727,10 +767,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen-o39ctd",
-        "en": "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen-o39ctd",
+        "it": "addetto-a-alla-griglia-il-sabato-genossenschaft-migros-ostschweiz-beringen",
+        "en": "grill-cook-saturdays-genossenschaft-migros-ostschweiz-beringen",
         "de": "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen-o39ctd",
-        "fr": "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen-o39ctd"
+        "fr": "grilleur-euse-les-samedis-genossenschaft-migros-ostschweiz-beringen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -749,11 +789,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen"
+          "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen",
+          "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen-o39ctd"
+        ],
+        "en": [
+          "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen-o39ctd"
+        ],
+        "fr": [
+          "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen-o39ctd"
         ]
       },
       "previousSlugs": [
-        "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen"
+        "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen",
+        "grilleur-in-samstags-genossenschaft-migros-ostschweiz-beringen-o39ctd"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -940,8 +988,8 @@
       "firstSeenAt": "2026-07-02T12:16:59.926Z",
       "slugByLocale": {
         "de": "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1",
-        "en": "privatkundenberater-alle-migros-bank-frauenfeld",
-        "fr": "privatkundenberater-alle-migros-bank-frauenfeld",
+        "en": "private-client-advisors-all-migros-bank-frauenfeld",
+        "fr": "conseillers-clients-prives-tous-migros-bank-frauenfeld",
         "it": "consulenti-per-clienti-privati-tutti-migros-bank-frauenfeld"
       },
       "titleByLocale": {
@@ -972,15 +1020,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "private-client-advisors-all-migros-bank-frauenfeld"
+          "privatkundenberater-alle-migros-bank-frauenfeld"
         ],
         "fr": [
-          "conseillers-clients-prives-tous-migros-bank-frauenfeld"
+          "privatkundenberater-alle-migros-bank-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "private-client-advisors-all-migros-bank-frauenfeld",
-        "conseillers-clients-prives-tous-migros-bank-frauenfeld"
+        "privatkundenberater-alle-migros-bank-frauenfeld"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -1057,9 +1104,9 @@
       "firstSeenAt": "2026-11-05T09:39:32.502Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-produktion-migros-restaurant-wallisellen-x3gqk5",
-        "en": "mitarbeiter-in-produktion-migros-restaurant-wallisellen",
+        "en": "employee-in-production-migros-restaurant-wallisellen",
         "de": "mitarbeiter-in-produktion-migros-restaurant-wallisellen-x3gqk5",
-        "fr": "mitarbeiter-in-produktion-migros-restaurant-wallisellen"
+        "fr": "employe-en-production-migros-restaurant-wallisellen"
       },
       "titleByLocale": {
         "de": "Mitarbeiter*in Produktion",
@@ -1092,15 +1139,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "employee-in-production-migros-restaurant-wallisellen"
+          "mitarbeiter-in-produktion-migros-restaurant-wallisellen"
         ],
         "fr": [
-          "employe-en-production-migros-restaurant-wallisellen"
+          "mitarbeiter-in-produktion-migros-restaurant-wallisellen"
         ]
       },
       "previousSlugs": [
-        "employee-in-production-migros-restaurant-wallisellen",
-        "employe-en-production-migros-restaurant-wallisellen"
+        "mitarbeiter-in-produktion-migros-restaurant-wallisellen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1126,7 +1172,7 @@
     },
     {
       "id": "company-z04qi2",
-      "slug": "koch-kochin-migros-restaurant-uzwil-z04qi2",
+      "slug": "cucina-chef-migros-restaurant-uzwil",
       "company": "Migros Restaurant",
       "title": "Koch/Köchin",
       "location": "Uzwil",
@@ -1181,10 +1227,10 @@
         "fr": "La gastronomie de la coopérative Migros Est Suisse est diversifiée, moderne et dynamique. Que ce soit le restaurant Migros, Migros emporter, la gastronomie partagée ou les services de restauration – nous offrons à chaque client une expérience de bon goût.\n\nLuogo di lavoro: Restaurant Migros, Migros-Restaurant Uzwil, Neudorfstrasse 2, 9240 Uzwil\n\n## Mansioni\n- Vous préparez avec passion des plats chauds et froids ainsi que des spécialités de saison fraîches et fournir des moments agréables avec nos invités.\n- Vous servez et conseillez activement nos clients au point de vente. Avec votre engagement, vous contribuez à rendre les invités à l'aise partout.\n- Vous implémentez le plan de marketing et de vente interne et aidez à présenter la nourriture d'une manière attrayante et habile.\n- Vous veillez à ce que les règlements d'hygiène en fonction de la sécurité alimentaire soient respectés et appliqués de manière cohérente.\n\n## Exigences\n- Expérience professionnelle: en gastronomie\n- Achevé l'enseignement de base ou complémentaire: dans la gastronomie (cuisson*cuisson)\n- Vous aimez être en contact avec les gens et profiter de l'excitation de nos invités.\n- Les aliments frais sont exactement votre chose – vous savez comment les mettre parfaitement sur scène.\n- Vous êtes un joueur d'équipe, flexible et s'attaque partout.\n- Un travail indépendant et précis est bien sûr une question pour vous.\n- Vous voulez toujours développer et apprendre de nouvelles choses.\n- Allemand (très bonne connaissance)\n\n## Cosa de friamo\n- Heures de travail sans heure de chambre: 41h semaine et heures de travail normales sans heure de chambre\n- L-GAV: Contrat de travail collectif attrayant Land\n- Prestations de retraite professionnelle: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Points de cumul: Points de cumul multiples sur les produits alimentaires et non alimentaires\n\n## Contatto\n Demande et contact * *\nSimon Wild\nChef du restaurant Migros Uzwil\n+41 58 712 79 42\n\nGrado di occupationazione: 40-50 %"
       },
       "slugByLocale": {
-        "it": "koch-kochin-migros-restaurant-uzwil-z04qi2",
-        "en": "koch-kochin-migros-restaurant-uzwil-z04qi2",
+        "it": "cucina-chef-migros-restaurant-uzwil",
+        "en": "cook-chef-migros-restaurant-uzwil",
         "de": "koch-kochin-migros-restaurant-uzwil-z04qi2",
-        "fr": "koch-kochin-migros-restaurant-uzwil-z04qi2"
+        "fr": "cuisson-chef-migros-restaurant-uzwil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1204,11 +1250,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-migros-restaurant-uzwil"
+          "koch-kochin-migros-restaurant-uzwil",
+          "koch-kochin-migros-restaurant-uzwil-z04qi2"
+        ],
+        "en": [
+          "koch-kochin-migros-restaurant-uzwil-z04qi2"
+        ],
+        "fr": [
+          "koch-kochin-migros-restaurant-uzwil-z04qi2"
         ]
       },
       "previousSlugs": [
-        "koch-kochin-migros-restaurant-uzwil"
+        "koch-kochin-migros-restaurant-uzwil",
+        "koch-kochin-migros-restaurant-uzwil-z04qi2"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1449,7 +1503,7 @@
     },
     {
       "id": "company-hi609z",
-      "slug": "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau-hi609z",
+      "slug": "assistente-marketing-nell-ambito-markom-stab-genossenschaft-migros-ostschweiz-gossau",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Marketing-Assistent*in im Bereich Markom Stab",
       "location": "Gossau",
@@ -1508,10 +1562,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau-hi609z",
-        "en": "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau-hi609z",
+        "it": "assistente-marketing-nell-ambito-markom-stab-genossenschaft-migros-ostschweiz-gossau",
+        "en": "marketing-assistant-in-the-markom-staff-unit-genossenschaft-migros-ostschweiz-gossau",
         "de": "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau-hi609z",
-        "fr": "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau-hi609z"
+        "fr": "assistant-e-marketing-dans-le-domaine-de-l-etat-major-markom-genossenschaft-migros-ostschweiz-gossau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1531,11 +1585,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau"
+          "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau",
+          "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau-hi609z"
+        ],
+        "en": [
+          "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau-hi609z"
+        ],
+        "fr": [
+          "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau-hi609z"
         ]
       },
       "previousSlugs": [
-        "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau"
+        "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau",
+        "marketing-assistent-in-im-bereich-markom-stab-genossenschaft-migros-ostschweiz-gossau-hi609z"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3050,13 +3112,11 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "de": [
-          "gebaudeverwalter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
           "gebaudeleiter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-1w849e",
           "gebaudeleiter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier"
         ]
       },
       "previousSlugs": [
-        "gebaudeverwalter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
         "gebaudeleiter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-1w849e",
         "gebaudeleiter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier"
       ],
@@ -16676,17 +16736,12 @@
       "postalCode": "9000",
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-        "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
-        "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
         "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-          "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2",
           "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [

@@ -3863,12 +3863,12 @@
     },
     {
       "id": "sika-bb0100e14330",
-      "slug": "projekt-koordinator-anwendungstechniker-in-m-w-d-sika-ch",
+      "slug": "coordinatore-di-progetto-tecnico-a-applicativo-a-m-f-d-sika-widen-aargau",
       "slugByLocale": {
         "de": "projekt-koordinator-anwendungstechniker-in-m-w-d-sika-ch",
-        "it": "projekt-koordinator-anwendungstechniker-in-m-w-d-sika-ch",
-        "en": "projekt-koordinator-anwendungstechniker-in-m-w-d-sika-ch",
-        "fr": "projekt-koordinator-anwendungstechniker-in-m-w-d-sika-ch"
+        "it": "coordinatore-di-progetto-tecnico-a-applicativo-a-m-f-d-sika-widen-aargau",
+        "en": "project-coordinator-application-technician-m-f-d-sika-widen-aargau",
+        "fr": "coordinateur-de-projet-technicien-ne-d-application-h-f-d-sika-widen-aargau"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3931,7 +3931,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:25:16.023Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:25:16.023Z"
+      "firstSeenAt": "2026-11-05T09:25:16.023Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projekt-koordinator-anwendungstechniker-in-m-w-d-sika-ch"
+        ],
+        "en": [
+          "projekt-koordinator-anwendungstechniker-in-m-w-d-sika-ch"
+        ],
+        "fr": [
+          "projekt-koordinator-anwendungstechniker-in-m-w-d-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projekt-koordinator-anwendungstechniker-in-m-w-d-sika-ch"
+      ]
     },
     {
       "id": "sika-2f331b87fe12",
