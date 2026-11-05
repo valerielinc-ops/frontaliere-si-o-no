@@ -147,8 +147,10 @@ export function factCheckAcknowledged(draft, factCheck = draft?.factCheck) {
 /**
  * @param {object} draft the AI draft (ai_drafts/current)
  * @param {Record<string,string>} answers candidate answers by question id
+ * @param {object|null} flow current automation flow
+ * @param {object} order candidate identity and automation eligibility state
  */
-export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAnswers = {}, flow = null) {
+export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAnswers = {}, flow = null, order = {}) {
   const owner = [];
   // A flag the owner explicitly acknowledged in the queue no longer holds.
   const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
@@ -164,7 +166,8 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
   if (draft?.legitimacy?.tier === 'suspicious' && !acknowledged('legitimacy')) owner.push('legitimacy');
   if (requiredDocumentsFor(draft, flow).some((document) => document.delivery === 'offline')
     && flow?.postalSubmission?.enabled !== true) owner.push('postal_submission_missing');
-  const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
+  const candidateFlow = { ...(flow && typeof flow === 'object' ? flow : {}), answers, questionAnswers };
+  const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
   const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
   const candidate = questions
@@ -560,14 +563,14 @@ export function canOwnerHandoffToCandidate(flow, reason = '') {
 /**
  * @param {object|null} flow current flow (order.automation)
  * @param {{type:string, feedback?:string, questions?:Array, error?:string}} event
- * @param {{draft?:object, answers?:object, documents?:object, postalPacketReady?:boolean, nowMs?:number}} context
+ * @param {{order?:object, draft?:object, answers?:object, documents?:object, postalPacketReady?:boolean, nowMs?:number}} context
  * @returns {{flow:object, effects:Array<object>, ignored?:string}}
  */
-export function transition(flow, event, { draft = null, answers = {}, documents = {}, postalPacketReady = true, nowMs = Date.now() } = {}) {
+export function transition(flow, event, { order = {}, draft = null, answers = {}, documents = {}, postalPacketReady = true, nowMs = Date.now() } = {}) {
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
-  const flags = evaluateRedFlags(draft, answers, documents, flow?.questionAnswers, flow);
+  const flags = evaluateRedFlags(draft, answers, documents, flow?.questionAnswers, flow, order);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
   const enterReadyPostalHandoff = () => {
     if (postalPacketReady !== false) return enterPostalHandoff(next, nowMs);
