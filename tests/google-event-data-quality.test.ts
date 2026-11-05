@@ -130,6 +130,13 @@ describe('Google Event data quality publication gate', () => {
     expect(hasCompleteGoogleEventData(event)).toBe(false);
   });
 
+  it('accepts date-only start and end dates for all-day or unknown-hour events', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    event.startDate = '2026-12-01';
+    event.endDate = '2026-12-01';
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+  });
+
   it.each([
     ['endDate', (event) => { delete event.endDate; }],
     ['performer', (event) => { delete event.performer; }],
@@ -138,7 +145,6 @@ describe('Google Event data quality publication gate', () => {
     ['location.name', (event) => { delete (event.location as EventLocationFixture).name; }],
     ['offer price', (event) => { delete singleOffer(event).price; }],
     ['offer currency', (event) => { delete singleOffer(event).priceCurrency; }],
-    ['offer availability', (event) => { delete singleOffer(event).availability; }],
     ['ticket URL', (event) => { delete singleOffer(event).url; }],
   ])('rejects missing %s', (_field, removeField) => {
     const event = structuredClone(COMPLETE_EVENT);
@@ -163,12 +169,32 @@ describe('Google Event data quality publication gate', () => {
     expect(hasCompleteGoogleEventData(freeEvent)).toBe(true);
   });
 
+  it('allows an offer without availability only when validFrom is present', () => {
+    const withValidFrom = structuredClone(COMPLETE_EVENT);
+    delete singleOffer(withValidFrom).availability;
+    expect(hasCompleteGoogleEventData(withValidFrom)).toBe(true);
+
+    const withoutEither = structuredClone(COMPLETE_EVENT);
+    delete singleOffer(withoutEither).availability;
+    delete singleOffer(withoutEither).validFrom;
+    expect(hasCompleteGoogleEventData(withoutEither)).toBe(false);
+  });
+
   it('requires the previous date when an event is rescheduled', () => {
     const event = structuredClone(COMPLETE_EVENT);
     event.eventStatus = 'https://schema.org/EventRescheduled';
     expect(hasCompleteGoogleEventData(event)).toBe(false);
 
     event.previousStartDate = '2026-11-30';
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+
+    event.eventStatus = [
+      'https://schema.org/EventRescheduled',
+      'https://schema.org/EventScheduled',
+    ];
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
+
+    event.eventStatus = 'https://schema.org/EventRescheduled';
     expect(hasCompleteGoogleEventData(event)).toBe(true);
 
     event.previousStartDate = ['2026-11-30', '2026-11-29'];

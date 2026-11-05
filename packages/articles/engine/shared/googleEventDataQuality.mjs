@@ -44,6 +44,8 @@ function isValidDateTime(value) {
   const daysInMonth = [31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   if (year < 1 || month < 1 || month > 12 || day < 1 || day > daysInMonth[month - 1]) return false;
 
+  // Google Search Central accepts date-only values for all-day events and when
+  // the event hour is unknown; keep them distinct from synthetic midnight times.
   const isDateOnly = /^\d{4}-\d{2}-\d{2}$/u.test(value);
   const isLocalDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/u.test(value);
   const isZonedDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})$/u.test(value);
@@ -160,7 +162,9 @@ function hasCompleteOffer(offer, event) {
     && Number.isFinite(offer.price)
     && offer.price >= 0
     && isValidCurrency(offer.priceCurrency)
-    && isSupportedEventAvailability(offer.availability)
+    && (offer.availability === undefined
+      ? offer.validFrom !== undefined
+      : isSupportedEventAvailability(offer.availability))
     && (offer.validFrom === undefined || isValidDateTime(offer.validFrom))
     && isHttpUrl(offer.url)
     && (offer.price !== 0 || event.isAccessibleForFree === true);
@@ -197,6 +201,8 @@ export function hasCompleteGoogleEventData(event) {
     && offers.length > 0
     && offers.every((offer) => hasCompleteOffer(offer, event))
     && (status.includes('EventRescheduled')
-      ? isValidPreviousStartDate(event.previousStartDate)
+      ? status.length === 1
+        && status[0] === 'EventRescheduled'
+        && isValidPreviousStartDate(event.previousStartDate)
       : event.previousStartDate === undefined);
 }
