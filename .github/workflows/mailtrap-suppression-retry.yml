@@ -100,7 +100,7 @@ jobs:
 
       - name: Load secrets from Remote Config
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=MAILTRAP_API_TOKEN
 
       - name: Run suppression retry
         if: inputs.dry_run != true && inputs.dry_run != 'true'

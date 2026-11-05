@@ -18,6 +18,13 @@ import {
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
+function loadRcCommands(relativePath: string) {
+  const workflow = YAML.parse(readFileSync(resolve(ROOT, relativePath), 'utf8'));
+  return Object.values(workflow.jobs || {}).flatMap((job: any) => job.steps || [])
+    .filter((step: any) => typeof step.run === 'string' && step.run.includes('scripts/load-rc-env.mjs'))
+    .map((step: any) => step.run as string);
+}
+
 const SOCIAL_WORKFLOW_RC_SCOPES = {
   '.github/workflows/fb-articles-daily-schedule.yml':
     [
@@ -217,6 +224,8 @@ describe('social workflow Remote Config scopes', () => {
       'OPENROUTESERVICE_DAILY_BUDGET', 'GRAPHHOPPER_DAILY_BUDGET',
       'STADIA_MONTHLY_CREDITS', 'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN_HASH',
       'OPENTRANSPORTDATA_ASTRA_LSA_TOKEN_HASH', 'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN_HASH',
+      'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN', 'OPENTRANSPORTDATA_ASTRA_LSA_TOKEN',
+      'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN',
     ]));
     expect(new Set(privateScope)).toEqual(new Set([
       'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN',
@@ -224,6 +233,62 @@ describe('social workflow Remote Config scopes', () => {
       'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN',
     ]));
     expect(command).toContain('--include-private-server-secrets');
+
+    for (const [rcKey, envKey] of [
+      ['SERVER_OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN', 'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN'],
+      ['SERVER_OPENTRANSPORTDATA_ASTRA_LSA_TOKEN', 'OPENTRANSPORTDATA_ASTRA_LSA_TOKEN'],
+      ['SERVER_OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN', 'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN'],
+    ]) {
+      expect(selectMappedEnvKeysForLoad({
+        rcKey,
+        mappedEnvKeys: RC_TO_ENV[rcKey],
+        onlyEnvKeys: new Set(clientScope),
+        onlyPrivateServerEnvKeys: new Set(privateScope),
+        includePrivateServerSecrets: true,
+      }), rcKey).toEqual([envKey]);
+    }
+  });
+
+  it.each([
+    '.github/workflows/deploy-matrix-experiment.yml',
+    '.github/workflows/deploy-publish.yml',
+    '.github/workflows/persist-job-stats.yml',
+    '.github/workflows/post-build-matrix-test.yml',
+  ])('%s does not load unrelated Remote Config credentials', (relativePath) => {
+    expect(readFileSync(resolve(ROOT, relativePath), 'utf8')).not.toContain('scripts/load-rc-env.mjs');
+  });
+
+  it.each([
+    [
+      '.github/workflows/cleanup-mailjet-contacts.yml',
+      'MAILJET_API_KEY,MAILJET_SECRET_KEY',
+      null,
+    ],
+    [
+      '.github/workflows/mailtrap-suppression-retry.yml',
+      'MAILTRAP_API_TOKEN',
+      null,
+    ],
+    [
+      '.github/workflows/notify-journalist-article-live.yml',
+      'MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,CLOUDFLARE_EMAIL_API_TOKEN,CF_ACCOUNT_ID,CF_API_TOKEN,RESEND_API_KEY',
+      'MAILEROO_TRANSACTIONAL_API_KEY,MAILEROO_API_KEY,MAILEROO_ACCOUNT_API_KEY',
+    ],
+    [
+      '.github/workflows/send-newsletter.yml',
+      'NEWSLETTER_SECRET,NEWSLETTER_AC_SCHEME,NEWSLETTER_AC_TTL_DAYS,NEWSLETTER_AC_LEGACY_SUNSET,NEWSLETTER_TOKEN_SCHEME,NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS,NEWSLETTER_TOKEN_LEGACY_SUNSET,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,CLOUDFLARE_EMAIL_API_TOKEN,CF_ACCOUNT_ID,CF_API_TOKEN,RESEND_API_KEY,MAILTRAP_API_TOKEN,GEMINI_API_KEY,GITHUB_PAT,GH_MODELS_PAT_2,GH_MODELS_PAT_3,GH_MODELS_PAT_4,GH_MODELS_PAT_5,GH_MODELS_PAT_6,GH_MODELS_PAT_7,GH_MODELS_PAT_8,GH_MODELS_PAT_9,GROQ_API_KEY,OPENROUTER_API_KEY,MISTRAL_API_KEY',
+      'MAILEROO_NEWSLETTER_API_KEY,MAILEROO_API_KEY,MAILEROO_ACCOUNT_API_KEY',
+    ],
+  ])('%s exports only its declared client and private Remote Config values', (relativePath, clientScope, privateScope) => {
+    const commands = loadRcCommands(relativePath as string);
+    expect(commands).toHaveLength(1);
+    expect(commands[0]).toContain(`--only-env=${clientScope}`);
+    if (privateScope) {
+      expect(commands[0]).toContain('--include-private-server-secrets');
+      expect(commands[0]).toContain(`--only-private-server-env=${privateScope}`);
+    } else {
+      expect(commands[0]).not.toContain('--include-private-server-secrets');
+    }
   });
 
   it.each(Object.entries(SOCIAL_WORKFLOW_RC_SCOPES))(

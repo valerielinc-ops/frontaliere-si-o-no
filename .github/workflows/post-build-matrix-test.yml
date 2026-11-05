@@ -70,11 +70,6 @@ jobs:
 
       - run: npm ci
 
-      - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-
       - name: Assemble jobs dataset
         # assembleJobsDataset() only reads+aggregates committed per-slice
         # files; it never calls writeJobsCrawlerSlice()/the shrink/boilerplate

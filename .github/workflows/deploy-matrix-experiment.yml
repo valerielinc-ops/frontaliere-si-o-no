@@ -284,13 +284,6 @@ jobs:
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
-      - name: Load secrets from Remote Config
-        run: |
-          if test -f scripts/load-rc-env.mjs; then
-            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
-          else
-            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
-          fi
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
         # The assembler prints the key it checks itself: a hashFiles() over a
@@ -524,14 +517,6 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           else
             echo "⚠️ Firebase secrets not set — Remote Config secrets will not be loaded."
-          fi
-
-      - name: Load secrets from Remote Config
-        run: |
-          if test -f scripts/load-rc-env.mjs; then
-            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal for the build experiment)"
-          else
-            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal for the build experiment)"
           fi
 
       # Fase 3: consume the shared atomic snapshot from the prep job instead of
@@ -1218,13 +1203,6 @@ jobs:
           if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          fi
-      - name: Load secrets from Remote Config
-        run: |
-          if test -f scripts/load-rc-env.mjs; then
-            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
-          else
-            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
           fi
       - name: Download prepared snapshot
         uses: actions/download-artifact@v8

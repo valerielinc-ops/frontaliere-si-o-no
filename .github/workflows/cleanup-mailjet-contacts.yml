@@ -92,7 +92,7 @@ jobs:
 
       - name: Load secrets from Remote Config
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=MAILJET_API_KEY,MAILJET_SECRET_KEY
 
       - name: Cleanup Mailjet contacts
         if: inputs.dry_run != true && inputs.dry_run != 'true'

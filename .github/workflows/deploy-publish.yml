@@ -483,9 +483,6 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
 
-      - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs
-
       - name: Download non-IT source artifact
         id: download-locale-source
         uses: actions/download-artifact@v8
