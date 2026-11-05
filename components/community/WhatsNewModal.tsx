@@ -36,6 +36,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.101.0',
+    date: '2026-11-05',
+    titleKey: 'whatsNew.v31010.title',
+    items: [
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v31010.houseAds.title',
+        descKey: 'whatsNew.v31010.houseAds.desc',
+        href: '/automatizza-ricerca-lavoro-svizzera/',
+      },
+    ],
+  },
+  {
     version: '3.100.2',
     date: '2026-11-04',
     titleKey: 'whatsNew.v31002.title',

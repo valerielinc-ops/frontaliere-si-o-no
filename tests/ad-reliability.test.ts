@@ -460,7 +460,12 @@ describe('IAB detection and independent recovery surface', () => {
     const el = slot(300); el.setAttribute('data-ad-status', 'unfilled');
     recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(13000);
-    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+    const promo = w.document.querySelector('.ft-recovery-promo');
+    expect(promo).not.toBeNull();
+    expect(promo?.textContent).toContain('Lavoro in Svizzera? Lo cerchiamo noi per te.');
+    expect(promo?.textContent).toContain('Troviamo le offerte adatte al tuo mestiere e prepariamo le candidature per te.');
+    expect(promo?.textContent).toContain('Scopri come funziona');
+    expect(promo?.textContent).not.toMatch(/automatizza|intelligenza artificiale|su misura/i);
     el.setAttribute('data-ad-status', 'filled');
     await vi.advanceTimersByTimeAsync(200);
     expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();

@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const frWhatsnew: Record<string, string> = {
+  'whatsNew.v31010.title': 'Des créations plus claires pour travailler en Suisse',
+  'whatsNew.v31010.houseAds.title': 'Un format adapté à chaque espace',
+  'whatsNew.v31010.houseAds.desc': 'Quand une publicité payante ne remplit pas l’espace, une promotion pour notre service de recherche d’emploi en Suisse peut apparaître. Les images et les textes courts s’adaptent au mobile et à l’ordinateur, avec plusieurs variantes à comparer.',
   'whatsNew.v31002.title': 'Votre prochaine étape est plus facile à repérer',
   'whatsNew.v31002.concierge.title': 'Demandes et candidatures bien organisées',
   'whatsNew.v31002.concierge.desc': 'Les demandes d’information apparaissent en premier et les statuts des candidatures sont regroupés dans des sections dépliables.',
