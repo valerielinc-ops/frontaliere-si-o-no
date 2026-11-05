@@ -262,6 +262,19 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
+  it('does not call a control-free page a posting mismatch solely because its title is unfamiliar', async () => {
+    const otherTitle = { ...snapshot(applyUrl, 'Application portal is loading.', []),
+      title: 'Different role', text: 'Application portal is loading.', fields: [] };
+    const f = fixture(otherTitle);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_needs_candidate' });
+    expect(result.evidence.postingMatch).toBe('mismatch');
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('opens the posting-owned CTA when an unrelated Apply control comes first', async () => {
     const headerClick = vi.fn(async () => {});
     const matchingClick = vi.fn(async () => { state.snapshot = profile; });

@@ -83,9 +83,21 @@ const STATUS_QUESTIONS = {
   en: 'Are you a Swiss citizen, or do you hold a Swiss permit valid today?',
 };
 
+const STATUS_QUESTION_WHY = {
+  it: 'Il portale richiede di indicare la cittadinanza svizzera o il permesso svizzero valido che possiedi oggi.',
+  de: 'Das Portal verlangt deine Schweizer Staatsbürgerschaft oder eine heute gültige Schweizer Bewilligung.',
+  fr: 'Le portail demande votre nationalité suisse ou un permis suisse valable aujourd’hui.',
+  en: 'The portal asks for your Swiss citizenship or a Swiss permit valid today.',
+};
+
 /** The candidate-facing question used when an application requires current Swiss status. */
 export function permitStatusQuestion(locale) {
   return STATUS_QUESTIONS[languageOf(locale)];
+}
+
+/** Candidate-facing explanation for the required current Swiss status question. */
+export function permitStatusQuestionWhy(locale) {
+  return STATUS_QUESTION_WHY[languageOf(locale)];
 }
 
 /** Lowercase, no accents, Swiss «ss», every other sign a single space. */

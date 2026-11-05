@@ -41,7 +41,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { asksHeldStatus, isPermitField, nationalityOf, permitOptions, permitStatusOf, permitStatement, permitStatusQuestion, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { asksHeldStatus, isPermitField, nationalityOf, permitOptions, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
@@ -2294,7 +2294,8 @@ function nativePortalQuestion(item) {
 
 function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  const rawQuestion = readablePortalQuestionText(item?.candidatePrompt) || nativePortalQuestion(item);
+  const candidatePrompt = readablePortalQuestionText(item?.candidatePrompt);
+  const rawQuestion = candidatePrompt || nativePortalQuestion(item);
   const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length ? item.applicationOptions : item.options || [])
     .map((option) => String(option || '').trim()).filter(Boolean);
   const candidateOptions = applicationOptions
@@ -2311,7 +2312,7 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
     question: rawQuestion,
     applicationQuestion: nativePortalQuestion(item),
     applicationQuestionLocale: localeCode(sourceLocale) || null,
-    why: fallback.why,
+    why: candidatePrompt && String(item?.why || '').trim() ? String(item.why).trim() : fallback.why,
     ...(applicationOptions.length ? { applicationOptions } : {}),
     ...(item.validation ? { validation: { ...item.validation, message: fallback.validation } } : {}),
     ...(options.length ? { options } : {}),
@@ -2420,9 +2421,11 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     if (!translationIsValid) return fallbackLocalizedQuestion(item, candidateLanguage, sourceLocale);
     const fallback = LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it;
     const translatedWhy = String(copy?.why || '').trim();
-    const why = !translatedWhy || normalizedQuestionText(translatedWhy) === normalizedQuestionText(item.why)
+    const candidatePrompt = readablePortalQuestionText(item.candidatePrompt);
+    const candidateWhy = candidatePrompt && String(item.why || '').trim() ? String(item.why).trim() : '';
+    const why = candidateWhy || (!translatedWhy || normalizedQuestionText(translatedWhy) === normalizedQuestionText(item.why)
       ? fallback.why
-      : translatedWhy;
+      : translatedWhy);
     const translatedValidation = String(copy?.validationMessage || '').trim();
     const validationMessage = !translatedValidation
       || normalizedQuestionText(translatedValidation) === normalizedQuestionText(item.validation?.message)
@@ -4941,8 +4944,8 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
   const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
   const residenceCountryPresent = Boolean(String(addressQuestionAnswer(candidate, 'residence_country') || '').trim());
   const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
-  const permitStatusPresent = Boolean(candidate.swissStatus?.code || profile.permitStatus
-    || permitStatusOf(profile.workPermit) || permitStatusOf(answers.work_permit));
+  const permitStatusPresent = [candidate.swissStatus?.code, profile.permitStatus, profile.workPermit, answers.work_permit]
+    .some(value => Boolean(permitStatusOf(value)));
   const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
 
   for (const field of requiredFields) {
@@ -4954,7 +4957,7 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     if (isPermitField(field.label) && asksHeldStatus(field.label) && !permitStatusPresent) {
       const question = permitStatusQuestion(candidateLocale);
       add(field, 'work_permit', question,
-        'Il portale richiede di indicare la cittadinanza svizzera o il permesso svizzero valido che possiedi oggi.',
+        permitStatusQuestionWhy(candidateLocale),
         {
           type: 'choice',
           forceType: 'choice',
@@ -5486,9 +5489,9 @@ export async function submitViaPortal(ctx) {
     // pass postingMatch, while exposing only the site's Menu/Search controls.
     // Do not send that chrome to the agent as if it were an unanswered
     // candidate question; it is not the application form for this posting.
-    // No recognizable form or control is unknown page state, not evidence that
-    // the runner reached a different vacancy. Keep explicit identity conflicts
-    // on the posting_mismatch path below.
+    // No recognizable form or control is unknown page state. A mismatch based
+    // only on absent identity text cannot prove that this is another vacancy;
+    // reserve posting_mismatch for a recognized application surface below.
     if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('portal_needs_candidate');
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
