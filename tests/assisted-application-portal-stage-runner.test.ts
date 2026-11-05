@@ -93,7 +93,9 @@ describe('runner final guard across three application stages', () => {
       { id: 'step-next', text: 'Continue', formId: 'application', frame: 0, disabled: false },
     ]);
     state.snapshot.fields = [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: false, formId: 'application', frame: 0 }];
-    const clickTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator');
+    const clickTimeout = Object.assign(new Error('Timeout 6000ms exceeded waiting for locator'), {
+      code: 'locator.click: Timeout 6000ms exceeded',
+    });
     const candidates = { count: async () => 0, nth: () => null };
     const page: any = {
       url: () => state.snapshot.url,
@@ -134,7 +136,9 @@ describe('runner final guard across three application stages', () => {
   it('hands off a proven pre-dispatch timeout from the agent-named advance locator', async () => {
     state.snapshot = snapshot(applyUrl, 'Application step. Continue to the next part of the form.', []);
     state.snapshot.fields = [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: false, formId: 'application', frame: 0 }];
-    const clickTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator');
+    const clickTimeout = Object.assign(new Error('Timeout 6000ms exceeded waiting for locator'), {
+      code: 'locator.click: Timeout 6000ms exceeded',
+    });
     const advanceClick = vi.fn().mockRejectedValue(clickTimeout);
     const advanceLocator = {
       evaluate: async () => ({ button: true, leaves: false, name: 'Continue' }),
@@ -177,7 +181,9 @@ describe('runner final guard across three application stages', () => {
   });
 
   it('does not reclassify an exhausted final submit click as an intermediate handoff', async () => {
-    const clickTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator');
+    const clickTimeout = Object.assign(new Error('Timeout 6000ms exceeded waiting for locator'), {
+      code: 'locator.click: Timeout 6000ms exceeded',
+    });
     const finalReview = {
       ...review,
       buttons: [{ id: 'commit', text: 'Apply', formId: 'application', frame: 0, disabled: false }],

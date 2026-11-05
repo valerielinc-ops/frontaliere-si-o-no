@@ -6032,9 +6032,11 @@ export async function submitViaPortal(ctx) {
     const finalClickInCurrentAttempt = Number.isSafeInteger(finalClickAttempt)
       && Number.isSafeInteger(currentAttempt)
       && finalClickAttempt === currentAttempt;
-    const message = String(error?.message || error);
+    const message = [error?.message, error?.code]
+      .filter((value) => typeof value === 'string' && value.trim())
+      .join('\n') || String(error);
     const exhaustedPreDispatchLocatorClick = /\blocator\.click\b/i.test(message)
-      && isPreDispatchLocatorClickFailure(error);
+      && isPreDispatchLocatorClickFailure({ message });
     if ((error?.code === 'portal_control_click_unresolved' || exhaustedPreDispatchLocatorClick) && !finalClickInCurrentAttempt) {
       evidence.controlClickFailure = { stage: 'intermediate', outcome: 'pre_dispatch' };
       return await handoff('portal_control_click_unresolved');
