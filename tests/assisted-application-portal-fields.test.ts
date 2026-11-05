@@ -348,11 +348,15 @@ describe('portal field extraction', () => {
 
   it('recognizes Manage consent when the cookie-manager marker is on body', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
-    const { window } = new JSDOM('<!doctype html><html><body><form id="application"><input name="email"></form><button data-aa-id="f1">Manage consent</button><p>Manage your cookies</p></body></html>', { url });
+    const { window } = new JSDOM('<!doctype html><html><body><form id="application"><input name="first-name"><input name="last-name"><input name="email" type="email"></form><button data-aa-id="f1">Manage consent</button><p>Manage your cookies</p></body></html>', { url });
     vi.stubGlobal('document', window.document);
     const snapshot = {
       url,
-      fields: [{ id: 'email', kind: 'text', label: 'Email', formId: 'application', frame: 0 }],
+      fields: [
+        { id: 'first-name', kind: 'text', label: 'First name', formId: 'application', frame: 0 },
+        { id: 'last-name', kind: 'text', label: 'Last name', formId: 'application', frame: 0 },
+        { id: 'email', kind: 'text', inputType: 'email', label: 'Email', formId: 'application', frame: 0 },
+      ],
       buttons: [{ id: 'f1', text: 'Manage consent', context: 'Manage your cookies', formId: '', disabled: false, frame: 0 }],
       dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Manage your cookies',
     };
