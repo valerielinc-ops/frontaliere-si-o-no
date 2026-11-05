@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sygnum",
-  "assembledAt": "2026-11-05T09:40:15.555Z",
-  "runId": "42001258715",
+  "assembledAt": "2026-11-05T21:24:49.517Z",
+  "runId": "42111395021",
   "jobs": [
     {
       "id": "sygnum-8bd22c417d4f",
@@ -34,7 +34,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:40:03.712Z",
+      "crawledAt": "2026-11-05T21:24:37.484Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -78,7 +78,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:40:03.712Z",
+      "validThrough": "2026-12-30T21:24:37.484Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN305",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:40:02.995Z",
+      "crawledAt": "2026-11-05T21:24:36.837Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -133,15 +133,15 @@
       "jobReqId": "VN305",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-04T21:32:29.058Z",
+      "previousSlugs": [
+        "account-manager-client-business-switzerland-sygnum-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "account-manager-client-business-switzerland-sygnum-zurich"
         ]
       },
-      "previousSlugs": [
-        "account-manager-client-business-switzerland-sygnum-zurich"
-      ],
+      "firstSeenAt": "2026-11-04T21:32:29.058Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -156,7 +156,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:40:02.995Z",
+      "validThrough": "2027-01-28T21:24:36.837Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -190,7 +190,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:40:01.676Z",
+      "crawledAt": "2026-11-05T21:24:35.552Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -234,7 +234,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T09:40:01.676Z",
+      "validThrough": "2026-12-05T21:24:35.552Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -268,7 +268,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:40:00.477Z",
+      "crawledAt": "2026-11-05T21:24:34.780Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -304,7 +304,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T09:40:00.477Z",
+      "validThrough": "2026-12-05T21:24:34.780Z",
       "validThroughSource": "last-observed-window"
     }
   ]
