@@ -1424,7 +1424,26 @@ function isYesNoPermitQuestion(label) {
   // candidate has. Require a held-status predicate, so neither that question
   // nor an indirect "do you know which permit" converts status into a boolean.
   const text = String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/^[\s¿¡]+/, '');
-  return /^(?:do you(?:\s+(?:currently|at present))?\s+(?:hold|have(?!\s+to\b)|possess|own)|does the candidate(?:\s+(?:currently|at present))?\s+(?:hold|have(?!\s+to\b)|possess|own)|are you(?:\s+(?:currently|legally))?\s+(?:authorized|authorised|permitted|entitled|allowed|able)|have you(?:\s+ever)?\s+(?:been\s+(?:granted|issued|authorized|authorised)|received|obtained)|can you(?:\s+legally)?\s+(?:work|be employed)|(?:est[- ]ce que\s*)?(?:vous|tu)\s+(?:avez|etes|detenez|possedez)|(?:avez|etes|detenez|possedez)[- ]vous|(?:haben sie|hast du)(?:\s+(?:aktuell|derzeit|schon|bereits))?\s+(?:ein(?:e|en|em|er)?|den|die|das)|(?:sind sie|bist du)\s+(?:berechtigt|autorisiert|im besitz)|besitzen sie\s+(?:ein(?:e|en|em|er)?|den|die|das)|verfugen sie\s+(?:uber|ueber)|(?:haltst du|halten sie)\s+(?:ein(?:e|en|em|er)?|den|die|das)|(?:hai|possiedi|detieni)\s+(?:(?:un|una|il|la)\s+)?(?:permesso|autorizzazione|visa)|(?:sei|e)\s+(?:in possesso|autorizzat\w*|abilitat\w*|titolare)|(?:tienes|tiene usted)\s+(?:(?:un|una|el|la)\s+)?(?:permiso|visa|autorizacion|derecho)|(?:eres|estas(?: usted)?)\s+(?:autorizad[oa]|habilitad[oa]|titular|en posesion)|puedes\s+trabajar)\b/i.test(text);
+  const patterns = [
+    /^(?:do you|does the candidate)(?:\s+(?:currently|at present))?\s+(?:hold|have(?!\s+to\b)|possess|own)\b/i,
+    /^are you(?:\s+(?:currently|legally))?\s+(?:authorized|authorised|permitted|entitled)\b/i,
+    /^are you(?:\s+legally)?\s+(?:allowed|able)\s+to\s+work\b/i,
+    /^have you(?:\s+ever)?\s+(?:been\s+(?:granted|issued|authorized|authorised)|received|obtained)\b/i,
+    /^can you(?:\s+legally)?\s+(?:work|be employed)\b/i,
+    /^(?:est[- ]ce que\s*)?(?:vous|tu)\s+(?:avez|etes|detenez|possedez)\b/i,
+    /^(?:avez|etes|detenez|possedez)[- ]vous\b/i,
+    /^(?:haben sie|hast du)(?:\s+(?:aktuell|derzeit|schon|bereits))?\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
+    /^(?:sind sie|bist du)\s+(?:berechtigt|autorisiert|im besitz)\b/i,
+    /^besitzen sie\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
+    /^verfugen sie\s+(?:uber|ueber)\b/i,
+    /^(?:haltst du|halten sie)\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
+    /^(?:hai|possiedi|detieni)\s+(?:(?:un|una|il|la)\s+)?(?:permesso|autorizzazione|visa)\b/i,
+    /^(?:sei|e)\s+(?:in possesso|autorizzat\w*|abilitat\w*|titolare)\b/i,
+    /^(?:tienes|tiene usted)\s+(?:(?:un|una|el|la)\s+)?(?:permiso|visa|autorizacion|derecho)\b/i,
+    /^(?:eres|estas(?: usted)?)\s+(?:autorizad[oa]|habilitad[oa]|titular|en posesion)\b/i,
+    /^puedes\s+trabajar\b/i,
+  ];
+  return patterns.some((pattern) => pattern.test(text));
 }
 
 const SALUTATION_FIELD_RE = /\b(?:anrede|salutation|appellativo|civilit[ée]|form of address|how (?:would|should) you like to be addressed|how should you be addressed in (?:your )?application|how do you want to be addressed|how would you like us to address you|preferred form of address|come vuoi essere indicat[oa] (?:nei|negli) moduli(?: di candidatura)?|wie m(?:ö|oe)chten sie angesprochen werden|comment souhaitez[- ]vous (?:être|etre) appel[ée]e?|comment devons[- ]nous vous appeler)\b/i;

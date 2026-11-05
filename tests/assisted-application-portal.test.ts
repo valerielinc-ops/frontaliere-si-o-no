@@ -3164,6 +3164,18 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(applicationResult.actions).toEqual([]);
     expect(applicationResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
 
+    for (const label of ['Do you have an application for a work permit?', 'Are you able to provide proof of your work authorization?']) {
+      const nonStatusQuestion = permitField(label, ['Yes', 'No']);
+      const result = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [nonStatusQuestion], candidateWithPermit);
+      expect(result.actions).toEqual([]);
+      expect(result.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+    }
+
+    const germanApplication = permitField('Haben Sie einen Antrag auf Arbeitserlaubnis?', ['Ja', 'Nein']);
+    const germanResult = guardPlan({ actions: [select('p1', 'Ja', 'answers')], missingRequired: [] }, [germanApplication], candidateWithPermit);
+    expect(germanResult.actions).toEqual([]);
+    expect(germanResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
     const yesNo = permitField('Do you hold a valid work permit for Switzerland?', ['Yes', 'No']);
     expect(guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [yesNo], candidateWithPermit).actions)
       .toEqual([select('p1', 'Yes', 'answers')]);

@@ -496,7 +496,7 @@ export const BIRTH_FIELD_RE = /birth|geburt|nascita|\bnat[oa]\b|naissance/i;
 // A licence to practise or to drive is no residence permit.
 const NOT_RESIDENCE = /berufsaus(?:ü|ue)bung|practi[cs]e permit|permis de conduire|f[üu]hrerausweis|fahrausweis|driving|patente|permesso di guida/i;
 // A field that asks what the candidate needs or applies for, not what they hold.
-const NEEDS = /ben(?:ö|oe)tig|brauch|beantrag|sponsor|\bneed|requir|richied|serve un|bisogno|besoin|demand|necesit|solicit|aplic(?:ar|a|an)|\b(?:apply|applying|applied)\b/i;
+const NEEDS = /ben(?:ö|oe)tig|brauch|beantrag|\bantrag\b|sponsor|\bneed|requir|richied|serve un|bisogno|besoin|demand|necesit|solicit|aplic(?:ar|a|an)|\b(?:apply|applying|applied|application)\b/i;
 
 /** A field that asks the Swiss permit, the work authorisation or the residence status. */
 export function isPermitField(label) {
