@@ -5142,16 +5142,6 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
-  const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate, candidateLocale);
-  const mergedRequired = new Map();
-  for (const item of candidateRequirements.questions) {
-    const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
-    if (key) mergedRequired.set(key, item);
-  }
-  for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
-    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
-    if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
-  }
   const fieldFor = (item) => {
     const direct = availableFields.filter(field => field.id && field.id === item?.fieldId);
     if (direct.length === 1) return direct[0];
@@ -5163,6 +5153,23 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
     });
     return matching.length === 1 ? matching[0] : null;
   };
+  const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate, candidateLocale);
+  const mergedRequired = new Map();
+  for (const item of candidateRequirements.questions) {
+    const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
+    if (key) mergedRequired.set(key, item);
+  }
+  for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
+    const field = fieldFor(item);
+    // Candidate questions are for facts the runner cannot already supply.
+    // The planner may label an untouched field missing during its read pass;
+    // that alone must not ask the candidate to repeat profile data or a safe
+    // operational default. An explicitly rejected field still needs review.
+    if (field && field.invalid !== true
+      && (holdsValue(field) || (candidate && String(candidateAnswerForField(candidate, field)?.value ?? '').trim()))) continue;
+    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
+    if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
+  }
   const documents = [];
   const readable = [];
   const unreadableFields = [];
