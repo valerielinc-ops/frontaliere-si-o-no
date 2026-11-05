@@ -111,10 +111,10 @@ function nativeQuestionText(value, counter = null) {
   const MIN_TYPED_BOX_PX = 2;
   const typedInto = (element) => element.tagName === 'TEXTAREA'
     || (element.tagName === 'INPUT' && !['checkbox', 'radio', 'file', 'range', 'color', 'hidden'].includes((element.getAttribute('type') || 'text').toLowerCase()));
-  const hiddenAncestor = (element) => {
+  const hiddenAncestor = (element, includeAriaHidden = true) => {
     for (let node = element.parentElement; node; node = node.parentElement) {
       if (node.hasAttribute('hidden') || node.hasAttribute('inert')
-        || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return true;
+        || (includeAriaHidden && node.getAttribute('aria-hidden')?.toLowerCase() === 'true')) return true;
       const ancestorStyle = window.getComputedStyle(node);
       if (ancestorStyle.display === 'none' || ['hidden', 'collapse'].includes(ancestorStyle.visibility)) return true;
     }
@@ -123,7 +123,7 @@ function nativeQuestionText(value, counter = null) {
   const visible = (element) => {
     // Mounted background steps can retain layout boxes. Their controls must
     // not supply auth, cookie or candidate-question evidence for this step.
-    if (element.closest('[hidden], [inert], [aria-hidden="true" i]') || hiddenAncestor(element)) return false;
+    if (element.closest('[hidden], [inert]') || hiddenAncestor(element, false)) return false;
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
     // Keep a file input hidden only by its own styling: many portals pair it

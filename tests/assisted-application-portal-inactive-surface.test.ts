@@ -1,16 +1,18 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
 import { authPageKind } from '../scripts/assisted-application/lib/portal/account.mjs';
 
 let dom: JSDOM;
 function extract(html: string) {
   dom = new JSDOM(html, { url: 'https://portal.example/career/' });
   Object.defineProperty(dom.window.HTMLElement.prototype, 'innerText', { get() { return this.textContent || ''; } });
-  // aria-hidden and inert elements retain layout boxes in browsers.
+  // Inert elements retain layout boxes in browsers.
   dom.window.Element.prototype.getBoundingClientRect = () => ({ width: 20, height: 20 } as DOMRect);
   vi.stubGlobal('window', dom.window);
   vi.stubGlobal('document', dom.window.document);
+  vi.stubGlobal('getComputedStyle', dom.window.getComputedStyle);
   vi.stubGlobal('location', dom.window.location);
   vi.stubGlobal('CSS', { escape: (value: string) => value });
   return extractFieldsInPage();
@@ -33,7 +35,7 @@ const registration = (create: string, privacy: string) => `<form>
 </form>`;
 
 describe('portal inactive surface boundary', () => {
-  it.each(['aria-hidden="true"', 'aria-hidden="TRUE"', 'inert', 'hidden', 'style="display:none"'])('excludes mounted inactive controls (%s)', state => {
+  it.each(['inert', 'hidden', 'style="display:none"', 'style="visibility:hidden"'])('excludes mounted inactive controls (%s)', state => {
     const snapshot = extract(`<section ${state}>${registration('Konto anlegen', 'Lese und akzeptiere die Datenschutzerklärung.')}</section>
       <form><label>E-Mail<input type="email"></label><label>Password<input type="password"></label><button>Login</button></form>`);
     expect(snapshot.fields.map((field: any) => field.label)).toEqual(['E-Mail', 'Password']);
@@ -56,8 +58,14 @@ describe('portal inactive surface boundary', () => {
     expect(snapshot.fields.some((field: any) => field.kind === 'file')).toBe(false);
   });
 
+  it.each(['inert', 'hidden', 'style="display:none"', 'style="visibility:hidden"'])('does not mark an inactive optional-parser decline (%s)', state => {
+    extract(`<section ${state}><div role="dialog">Artificial intelligence may analyse this document for automatic form filling. Proceeding without AI has no effect on this application.<button type="button">Decline</button></div></section>`);
+    expect(markOptionalAutofillDeclineInPage()).toBe(false);
+    expect(document.querySelector('[data-aa-autofill-decline]')).toBeNull();
+  });
+
   it('excludes controls explicitly marked inactive without an inactive ancestor', () => {
-    const snapshot = extract('<button inert>Accept All Cookies</button><input aria-hidden="true" type="password"><label><input inert type="checkbox">Unknown approval</label>');
+    const snapshot = extract('<button inert>Accept All Cookies</button><input inert type="password"><label><input inert type="checkbox">Unknown approval</label>');
     expect(snapshot.fields).toEqual([]);
     expect(snapshot.buttons).toEqual([]);
     expect(snapshot.passwordVisible).toBe(false);
