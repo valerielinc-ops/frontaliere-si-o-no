@@ -1732,6 +1732,21 @@ describe('fill extension: owner-approved application defaults', () => {
     expect((document.getElementById('retention') as HTMLSelectElement).selectedOptions[0].text).toBe(current);
     expect((document.querySelector('input[name="title"]:checked') as HTMLInputElement).value).toBe('Signora');
   });
+
+  it('chooses the finite retention term over a future-opportunities option', () => {
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data?</label>
+      <select id="retention">
+        <option value="">Choose</option>
+        <option value="future">Keep my data for future opportunities</option>
+        <option value="6_months">Keep my data for 6 months</option>
+      </select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toEqual({
+      value: 'Keep my data for 6 months', family: 'minimumDataRetention',
+    });
+  });
 });
 
 

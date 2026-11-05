@@ -266,9 +266,14 @@ function minimumDataRetentionOption(options, question = '') {
   // when another option describes a future pool without a numeric duration.
   const zero = ranked.filter(option => option.rank === 0);
   if (zero.length === 1) return zero[0].label;
-  if (zero.length > 1 || ranked.some(option => option.rank === null || option.rank === Number.POSITIVE_INFINITY)) return '';
-  const minimum = Math.min(...ranked.map(option => option.rank));
-  const matches = ranked.filter(option => option.rank === minimum);
+  if (zero.length > 1 || ranked.some(option => option.rank === null)) return '';
+  // A future-purpose option has no finite retention term. It must not make a
+  // clear, finite application-retention choice ambiguous; when no finite
+  // option exists, leave the future-only catalogue unanswered.
+  const finite = ranked.filter(option => Number.isFinite(option.rank));
+  if (!finite.length) return '';
+  const minimum = Math.min(...finite.map(option => option.rank));
+  const matches = finite.filter(option => option.rank === minimum);
   return matches.length === 1 ? matches[0].label : '';
 }
 function isApplicationDataProcessingConsent(value, ...semanticMetadata) {
