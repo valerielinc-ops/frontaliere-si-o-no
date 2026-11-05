@@ -329,6 +329,8 @@ describe('application channel', () => {
     expect(classifyApplicationChannel({ applyUrl: 'https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/x/apply' })).toMatchObject({ type: 'workday', requiresAccount: true });
     expect(classifyApplicationChannel({ applyUrl: 'https://jobs.lever.co/tsmg/abc/apply' })).toMatchObject({ type: 'lever', requiresAccount: false });
     expect(classifyApplicationChannel({ applyUrl: 'https://recruitingapp-5181.umantis.com/Vacancies/1' }).type).toBe('umantis');
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.careers-page.com/convit-holding-gmbh/job/4R7V6VW5/apply' }))
+      .toMatchObject({ type: 'manatal', label: 'Career Page (Manatal)', requiresAccount: false });
     expect(classifyApplicationChannel({ applyUrl: 'https://careers.example.ch/jobs/1' }).type).toBe('employer_site');
     expect(classifyApplicationChannel({}).type).toBe('unknown');
   });
@@ -353,6 +355,8 @@ describe('application channel', () => {
     expect(classifyApplicationChannel({ applyUrl: 'https://spital.wd3.myworkdayjobs.com/de-DE/Careers/job/x/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }))
       .toMatchObject({ type: 'workday', email: '' });
     expect(classifyApplicationChannel({ applyUrl: 'https://jobs.lever.co/spital/abc/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('lever');
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.careers-page.com/spital/job/123/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }))
+      .toMatchObject({ type: 'manatal', email: '' });
     // Only the employer's own page, a job board or LinkedIn: the address is the way to apply.
     expect(classifyApplicationChannel({ applyUrl: 'https://www.spital.ch/jobs/pflege', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
     expect(classifyApplicationChannel({ applyUrl: 'https://www.jobs.ch/de/stellenangebote/detail/123/', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
