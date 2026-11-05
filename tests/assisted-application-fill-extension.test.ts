@@ -1807,6 +1807,94 @@ describe('fill extension: owner-approved application defaults', () => {
 
     expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe(null);
   });
+
+  it.each([
+    'Without deleting data after this application',
+    'Do not under any circumstances for any reason whatsoever delete after this application',
+    'My data will be retained without ever being deleted after this application process',
+    'Without my data getting deleted after this application',
+    'Senza che i dati siano cancellati dopo questa candidatura',
+    'Ohne die Daten nach diesem Bewerbungsverfahren zu löschen',
+    'Sans que les données soient supprimées après la candidature',
+    'Delete my data — not after this application process',
+    'Deleting data after this application process is not permitted',
+    'Deletion is prohibited after this application process',
+    'Deletion is not permitted after this application process',
+    'Deletion is not permitted once the current application process is complete',
+    'Deletion is prohibited once the current application process is complete',
+    'Deleting data once the current application process is complete is not permitted',
+  ])('does not rank a negated deletion as the minimum in the extension: %s', negatedDeletion => {
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data?</label>
+      <select id="retention">
+        <option value="negated">${negatedDeletion}</option>
+        <option value="6_months">Retain the data for 6 months</option>
+      </select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe(null);
+  });
+
+  it('keeps a separate affirmative deletion clause distinct from an unrelated negation in the extension', () => {
+    for (const affirmativeDeletion of [
+      'No additional storage is needed. Delete my data after this application process.',
+      'No additional storage is needed — delete my data after this application process.',
+      'No additional storage is needed - delete my data after this application process.',
+      'No additional storage is permitted. Delete my data after this application process.',
+      'Mes données seront supprimées après la candidature.',
+    ]) {
+      const { document, F } = page(`<form>
+        <label for="retention">How long may we retain your personal data?</label>
+        <select id="retention">
+          <option value="delete_current">${affirmativeDeletion}</option>
+          <option value="6_months">Retain the data for 6 months</option>
+        </select>
+      </form>`);
+      const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+
+      expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe('delete_current');
+    }
+  });
+
+  it.each([
+    ['after', 'Delete my data after this application process without delay.'],
+    ['before', 'Without delay, delete my data after this application process.'],
+    ['further delay', 'Without further delay, delete my data after this application process.'],
+    ['any further delay', 'Without any further delay, delete my data after this application process.'],
+    ['hesitation', 'Without hesitation, delete my data after this application process.'],
+    ['French delay', 'Sans délai, delete my data after this application process.'],
+    ['German delay', 'Ohne Verzögerung, delete my data after this application process.'],
+    ['Italian delay', 'Senza indugio, delete my data after this application process.'],
+  ])('does not treat “without delay” before or after deletion as negation in the extension (%s)', (_position, affirmativeDeletion) => {
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data?</label>
+      <select id="retention">
+        <option value="delete_current">${affirmativeDeletion}</option>
+        <option value="6_months">Retain the data for 6 months</option>
+      </select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe('delete_current');
+  });
+
+  it.each([
+    'Your personal data will be deleted after this application process if you are not selected.',
+    'If you are not selected, your personal data will be deleted after this application process.',
+    'If you aren’t selected, your personal data will be deleted after this application process.',
+  ])('does not treat an outcome condition as negation of deletion in the extension: %s', conditionalDeletion => {
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data?</label>
+      <select id="retention">
+        <option value="delete_current">${conditionalDeletion}</option>
+        <option value="6_months">Retain the data for 6 months</option>
+      </select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe('delete_current');
+  });
 });
 
 
