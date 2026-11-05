@@ -199,6 +199,12 @@ describe('Google Event data quality publication gate', () => {
     expect(hasCompleteGoogleEventData(onlineWithMixedLocations)).toBe(false);
   });
 
+  it('rejects @type arrays containing non-string members', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    (event.location as unknown as Record<string, unknown>)['@type'] = [null, 'Place'];
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
+  });
+
   it('accepts only currencies in the canonical ISO-4217 set', () => {
     const valid = structuredClone(COMPLETE_EVENT);
     valid.offers.priceCurrency = 'CHF';

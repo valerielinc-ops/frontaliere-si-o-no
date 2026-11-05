@@ -1681,7 +1681,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (!raw) return null;
  try {
  const jsonStr = raw
- .replace(/`\$\{BASE_URL\}([^`]*)`/g, `"${BASE_URL}$1"`)
+ .replace(/`\$\{BASE_URL\}([^`]*)`/g, (_match: string, suffix: string) => JSON.stringify(`${BASE_URL}${suffix}`))
  .replace(/,\s*([\]}])/g, '$1'); // strip trailing commas
  return JSON.parse(jsonStr);
  } catch { return null; }

@@ -11,6 +11,11 @@ const ATTENDANCE_MODES = new Set([
   'OnlineEventAttendanceMode',
   'MixedEventAttendanceMode',
 ]);
+const ISO_4217_CURRENCIES = new Set(
+  typeof Intl.supportedValuesOf === 'function'
+    ? Intl.supportedValuesOf('currency')
+    : [],
+);
 function isNonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
 }
@@ -22,17 +27,13 @@ function schemaTypeName(value) {
 
 function schemaTypeMatches(value, expected) {
   const types = Array.isArray(value) ? value : [value];
+  if (types.some((type) => typeof type !== 'string')) return false;
   return types.some((type) => schemaTypeName(type) === expected);
 }
 
 function isValidCurrency(value) {
   if (typeof value !== 'string' || !/^[A-Z]{3}$/u.test(value)) return false;
-  try {
-    return value !== 'XXX'
-      && new Intl.NumberFormat('en', { style: 'currency', currency: value }).resolvedOptions().currency === value;
-  } catch {
-    return false;
-  }
+  return value !== 'XXX' && ISO_4217_CURRENCIES.has(value);
 }
 
 function isValidDate(value) {
@@ -88,8 +89,15 @@ function validateEventLocation(schema, filePath, errors) {
         if (!schemaTypeMatches(address['@type'], 'PostalAddress')) {
           errors.push({ file: filePath, type: 'Event', field: `${field}.address.@type`, message: `Event "${field}.address" must use PostalAddress` });
         }
-        if (![address.streetAddress, address.addressLocality, address.postalCode].some(isNonEmpty)) {
-          errors.push({ file: filePath, type: 'Event', field: `${field}.address`, message: `Event "${field}.address" needs a street, locality, or postal code` });
+        const requiredAddressFields = [
+          address.streetAddress,
+          address.addressLocality,
+          address.addressRegion,
+          address.postalCode,
+          address.addressCountry,
+        ];
+        if (!requiredAddressFields.every(isNonEmpty)) {
+          errors.push({ file: filePath, type: 'Event', field: `${field}.address`, message: `Event "${field}.address" needs a complete postal address` });
         }
       }
     } else if (isVirtualLocation && !isPhysicalLocation) {

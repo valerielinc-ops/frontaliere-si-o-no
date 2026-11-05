@@ -28,8 +28,8 @@ const ORGANIZER_TYPES = new Set(['Organization', 'Person']);
 
 function typeNames(value) {
   const types = Array.isArray(value) ? value : [value];
+  if (types.some((type) => typeof type !== 'string')) return [];
   return types
-    .filter((type) => typeof type === 'string')
     .map((type) => type.trim().split(/[\/#]/u).pop());
 }
 

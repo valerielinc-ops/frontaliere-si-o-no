@@ -11,7 +11,10 @@ const EVENT = {
     name: 'Teatro Sociale',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Via della Prova 1',
       addressLocality: 'Bellinzona',
+      addressRegion: 'TI',
+      postalCode: '6500',
       addressCountry: 'CH',
     },
   },
@@ -83,6 +86,33 @@ describe('validateEventStructuredData', () => {
       },
     }, '/dist/event/index.html');
     expect(errors.map(({ field }) => field)).toContain('location.address');
+  });
+
+  it('rejects a partial physical address that the Event renderer cannot publish', () => {
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      location: {
+        ...EVENT.location,
+        address: { '@type': 'PostalAddress', streetAddress: 'Via della Prova 1' },
+      },
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('location.address');
+  });
+
+  it('rejects non-string members in a location @type array without throwing', () => {
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      location: { ...EVENT.location, '@type': [null, 'Place'] },
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('location.@type');
+  });
+
+  it('rejects well-formed but unknown currency codes', () => {
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      offers: { '@type': 'Offer', price: 25, priceCurrency: 'ZZZ' },
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('offers.priceCurrency');
   });
 
   it('rejects an empty Offer instead of treating unknown price as complete', () => {
