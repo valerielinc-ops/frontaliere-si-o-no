@@ -478,7 +478,7 @@ describe('runner final guard across three application stages', () => {
       skipPostingCheck: true, maxSteps: 3, codex, launch: async () => browser,
     });
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_needs_candidate' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(advance).toHaveBeenCalledOnce();
     expect(codex).not.toHaveBeenCalled();
   });

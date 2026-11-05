@@ -1770,10 +1770,13 @@ export function guardPlan(plan, fields, candidate = null) {
     })
     .map((field) => [field.id, permitAnswerForStatus(field, status)])
     .filter(([, value]) => value) : []);
+  const statusSource = permitStatusOf(candidate?.swissStatus?.code) ? 'rule'
+    : permitStatusOf(candidate?.profile?.permitStatus) ? 'profile'
+      : permitStatusOf(candidate?.answers?.work_permit) ? 'answers' : 'profile';
   for (const [fieldId, value] of statusPick) {
     const field = byId.get(fieldId);
     const action = isChoiceField(field) ? 'select' : 'fill';
-    actions.push({ fieldId, action, value, document: 'none', source: 'rule', evidence: '' });
+    actions.push({ fieldId, action, value, document: 'none', source: statusSource, evidence: '' });
   }
   // A yes/no field that only asks whether the candidate holds a document attached to this application: its
   // «yes», whatever the plan says (attachedDocumentYes). Before the gates below, which would turn «a driving
