@@ -794,7 +794,8 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
   const flowRef = flowRefFor(db, orderId);
   const filesOf = (current) => documentFilesOf(current, orderId, requested.id);
   const canStoreFile = !requested.localOnly
-    && (requested.delivery === 'upload' || (flow?.postalSubmission?.enabled === true && requested.delivery === 'offline'));
+    && requested.delivery !== 'service'
+    && (requested.delivery !== 'offline' || flow?.postalSubmission?.enabled === true);
   if (action === 'document_upload') {
     if (!canStoreFile) throw new ReviewError('not_allowed', 409);
     const base64 = String(body.contentBase64 || '');
