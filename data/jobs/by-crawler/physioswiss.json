@@ -19062,12 +19062,12 @@
     },
     {
       "id": "physioswiss-704933e110fb",
-      "slug": "therapeut-in-per-gruppentherapieangebot-migrant-innen-con-chronischen-schmerzen-physio-swiss-basel",
+      "slug": "terapeuta-per-l-offerta-di-terapia-di-gruppo-migranti-con-dolori-cronici-physio-swiss-lautengartenstrasse-12-4052-basel",
       "slugByLocale": {
-        "it": "therapeut-in-per-gruppentherapieangebot-migrant-innen-con-chronischen-schmerzen-physio-swiss-basel",
-        "en": "therapist-for-group-therapy-program-migrants-with-chronic-pain-physio-swiss-basel",
         "de": "therapeut-in-fur-gruppentherapieangebot-migrant-innen-mit-chronischen-schmerzen",
-        "fr": "therapeute-pour-l-offre-de-therapie-de-groupe-migrant-e-s-souffrant-de-douleurs-chroniques-physio-swiss-basel"
+        "it": "terapeuta-per-l-offerta-di-terapia-di-gruppo-migranti-con-dolori-cronici-physio-swiss-lautengartenstrasse-12-4052-basel",
+        "en": "therapist-for-group-therapy-program-migrants-with-chronic-pain-physio-swiss-lautengartenstrasse-12-4052-basel-kanton",
+        "fr": "therapeute-pour-l-offre-de-therapie-de-groupe-migrant-e-s-souffrant-de-douleurs-chroniques-physio-swiss"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19112,17 +19112,23 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "therapeut-in-fur-gruppentherapieangebot-migrant-innen-mit-chronischen-schmerzen"
+          "therapeut-in-fur-gruppentherapieangebot-migrant-innen-mit-chronischen-schmerzen",
+          "therapeut-in-per-gruppentherapieangebot-migrant-innen-con-chronischen-schmerzen-physio-swiss-basel"
         ],
         "en": [
-          "therapeut-in-fur-gruppentherapieangebot-migrant-innen-mit-chronischen-schmerzen"
+          "therapeut-in-fur-gruppentherapieangebot-migrant-innen-mit-chronischen-schmerzen",
+          "therapist-for-group-therapy-program-migrants-with-chronic-pain-physio-swiss-basel"
         ],
         "fr": [
-          "therapeut-in-fur-gruppentherapieangebot-migrant-innen-mit-chronischen-schmerzen"
+          "therapeut-in-fur-gruppentherapieangebot-migrant-innen-mit-chronischen-schmerzen",
+          "therapeute-pour-l-offre-de-therapie-de-groupe-migrant-e-s-souffrant-de-douleurs-chroniques-physio-swiss-basel"
         ]
       },
       "previousSlugs": [
-        "therapeut-in-fur-gruppentherapieangebot-migrant-innen-mit-chronischen-schmerzen"
+        "therapeut-in-fur-gruppentherapieangebot-migrant-innen-mit-chronischen-schmerzen",
+        "therapeut-in-per-gruppentherapieangebot-migrant-innen-con-chronischen-schmerzen-physio-swiss-basel",
+        "therapist-for-group-therapy-program-migrants-with-chronic-pain-physio-swiss-basel",
+        "therapeute-pour-l-offre-de-therapie-de-groupe-migrant-e-s-souffrant-de-douleurs-chroniques-physio-swiss-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -19314,12 +19320,12 @@
     },
     {
       "id": "physioswiss-4b42928d4916",
-      "slug": "physiotherapeut-in-80-100-physio-swiss-appenzell",
+      "slug": "fisioterapista-80-100-physio-swiss-9050-appenzell",
       "slugByLocale": {
-        "it": "physiotherapeut-in-80-100-physio-swiss-appenzell",
-        "en": "physiotherapeut-in-80-100-physio-swiss-appenzell",
         "de": "physiotherapeut-in-80-100-9050-appenzell-physioswiss-ch",
-        "fr": "physiotherapeut-in-80-100-physio-swiss-appenzell"
+        "it": "fisioterapista-80-100-physio-swiss-9050-appenzell",
+        "en": "physiotherapist-80-100-physio-swiss-9050-appenzell",
+        "fr": "physiotherapeute-dans-80-a-100-physio-swiss-9050-appenzell"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19365,11 +19371,19 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-80-100-9050-appenzell-physioswiss-ch"
+          "physiotherapeut-in-80-100-9050-appenzell-physioswiss-ch",
+          "physiotherapeut-in-80-100-physio-swiss-appenzell"
+        ],
+        "en": [
+          "physiotherapeut-in-80-100-physio-swiss-appenzell"
+        ],
+        "fr": [
+          "physiotherapeut-in-80-100-physio-swiss-appenzell"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-80-100-9050-appenzell-physioswiss-ch"
+        "physiotherapeut-in-80-100-9050-appenzell-physioswiss-ch",
+        "physiotherapeut-in-80-100-physio-swiss-appenzell"
       ],
       "salaryMin": 65000,
       "salaryMax": 98500,
