@@ -1763,6 +1763,17 @@ export function guardPlan(plan, fields, candidate = null) {
   const statusPick = new Map(status ? fields
     .filter((field) => {
       if (!isPermitField(field.label) || !asksHeldStatus(questionFromLabel(field.label))) return false;
+      // A portal prefill is not candidate evidence. When its current value is
+      // nevertheless verified against the candidate's confirmed status, leave
+      // it alone: rewriting it would turn a prefill into a recorded portal
+      // answer (and can map a free-text status to a misleading «Yes»). A
+      // mismatching prefill still falls through and is corrected below.
+      const selectedOption = Array.isArray(field.options)
+        ? field.options.find((option) => typeof option === 'object'
+          && String(option?.value ?? '') === String(field.value ?? '')) : null;
+      const currentValue = selectedOption?.label ?? field.value;
+      if (holdsValue(field)
+        && ownStatusAnswer(candidate, field.label, currentValue, { option: isChoiceField(field) }) === true) return false;
       const recorded = recordedAnswerForQuestion(candidate, field.label, field.context, field);
       // A saved portal answer such as «G Permit» is the candidate's own
       // status in free text, not a competing yes/no correction. Normalize it
