@@ -71,6 +71,14 @@ describe('automatic rechecks on the candidate review page', () => {
     expect(recheckReviewDocument).toHaveBeenCalledTimes(1); expect(setData).not.toHaveBeenCalled();
   });
 
+  it('does not recheck documents for a paper application', () => {
+    const postal = { ...payload(), postalSubmission: { recipient: 'Municipality', address: '1 Main Street', deadline: '31 May', envelopeMarking: 'Application', instructions: 'Mail the envelope', officialFormUrl: null } };
+    const setData = vi.fn();
+    renderHook(() => useAssistedApplicationDocumentRechecks('token', postal, setData));
+    expect(recheckReviewDocument).not.toHaveBeenCalled();
+    expect(setData).not.toHaveBeenCalled();
+  });
+
   it('cancels a replaced file and resumes the new identity without accepting the old response', async () => {
     const first = deferred(); const second = deferred();
     vi.mocked(recheckReviewDocument).mockReturnValueOnce(first.promise).mockReturnValueOnce(second.promise);

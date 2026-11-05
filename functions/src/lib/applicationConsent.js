@@ -101,12 +101,16 @@ export function minimumDataRetentionOption(options, question = '') {
   const numberWords = { one: 1, uno: 1, un: 1, une: 1, ein: 1, eins: 1, eine: 1, two: 2, due: 2, zwei: 2, deux: 2,
     three: 3, tre: 3, drei: 3, trois: 3, four: 4, quattro: 4, vier: 4, quatre: 4, five: 5, cinque: 5, funf: 5,
     fuenf: 5, cinq: 5, six: 6, sei: 6, sechs: 6 };
+  const deletionWords = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/;
+  const rejectedApplicationProcess = /\b(?:application|candidacy|candidature|bewerbung)\b(?: [a-z0-9]+){0,4} (?:is|was|were|has|have|had|gets?|got|a|est|sont|ete|werden|wurde)(?: [a-z0-9]+){0,2} (?:reject\w*|declin\w*|refus\w*|rejet\w*|abgelehnt|verworfen)\b/;
+  // Rejection of the application itself leaves the deletion timing ambiguous.
+  // Do not fall through to a longer-duration choice in that catalogue.
+  if (rows.some(option => deletionWords.test(option.value) && rejectedApplicationProcess.test(option.value))) return '';
   const rank = option => {
     const value = option.value;
     const futureStorage = isOptionalPurpose(option.purpose);
     if (futureStorage) return Number.POSITIVE_INFINITY;
 
-    const deletionWords = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/;
     const deletes = deletionWords.test(value);
     // normalize() turns English n't contractions into a word ending in n + "t".
     // Keep the negation and deletion in the same clause; words between them
@@ -166,13 +170,18 @@ export function minimumDataRetentionOption(options, question = '') {
     const negationBefore = actionWords => clauseText => new RegExp(
       `${negationWords.source}(?: [a-z0-9]+){0,12} ${actionWords.source}`,
     ).test(clauseText);
+    const consentSubjectContext = /\b(?:consent\w*|einwillig\w*|zustimm\w*|acconsent\w*|agree\w*|agreement|permission|authorization|authorisation|i|me|my|we|our|you|your|candidate|applicant|data|daten|donnee\w*|dati|personal)\b/;
     const noAdditionalStoragePermission = /\bno\b(?: [a-z0-9]+){0,3} storage\b.{0,20}\b(?:permit\w*|allow\w*)\b/;
-    const negatesConsentChoice = scopedClauseTexts.some(clauseText =>
-      negationBefore(consentActionWords)(clauseText.replace(noAdditionalStoragePermission, ' ')));
+    const negatesConsentChoice = scopedClauseTexts.some(clauseText => {
+      const consentClause = clauseText.replace(noAdditionalStoragePermission, ' ');
+      return consentSubjectContext.test(consentClause) && negationBefore(consentActionWords)(consentClause);
+    });
     const firstPersonDataChoice = /\b(?:i|me|my|we|our|io|me|mio|mia|ich|mir|mich|mein\w*|je|moi|mon|ma|mes|nous|notre)\b/;
     const negatesPersonalRetention = clauseTexts.some((clauseText, index) => scopedClauseTexts[index] === clauseText
       && firstPersonDataChoice.test(clauseText) && negationBefore(storageActionWords)(clauseText));
-    const negatesRetentionAction = scopedClauseTexts.some(negationBefore(storageActionWords));
+    const retentionSubjectContext = /\b(?:data|daten|donnee\w*|dati|personal|candidate|applicant|my|your|our|their|mio|mia|mein\w*|mon|ma|mes|notre)\b/;
+    const negatesRetentionAction = scopedClauseTexts.some(clauseText => retentionSubjectContext.test(clauseText)
+      && negationBefore(storageActionWords)(clauseText));
     const refusalWords = /\b(?:refus\w*|declin\w*|reject\w*|disagree\w*|unwilling\w*|unwillig\w*|reluctant\w*|rifiut\w*|verweiger\w*)\b/;
     const candidateInitiatedRejection = /\b(?:i|you)\b(?: (?:have|has|had))? (?:reject\w*|refus\w*|declin\w*)\b/;
     const candidateAsRejectionAgent = /\b(?:reject\w*|refus\w*|declin\w*|rifiut\w*|verweiger\w*|abgelehn\w*)\b(?: [a-z0-9]+){0,8} \b(?:by (?:me|you|the candidate|the applicant)|da (?:me|te|candidat\w*)|par (?:moi|vous|candidat\w*)|von (?:mir|ihnen|dem bewerber\w*))\b/;

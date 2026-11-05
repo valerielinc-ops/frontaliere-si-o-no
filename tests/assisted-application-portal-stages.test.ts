@@ -152,6 +152,67 @@ describe('application stage ownership', () => {
     expect(controls(form).submit).toBe(submit);
   });
 
+  it('recognizes the career5 SuccessFactors form when required text labels start with an asterisk', () => {
+    const submit = { text: 'Bewerben', formId: 'career5-application', frame: 0 };
+    const fields = [
+      ['Sprache', 'combobox'],
+      ['Anrede', 'combobox'],
+      ['* Vorname', 'text'],
+      ['* Name', 'text'],
+      ['* E-Mail', 'text'],
+      ['* Telefon Privat / Mobile', 'text'],
+      ['Telefon Geschäft', 'text'],
+      ['c/o', 'text'],
+      ['* Strasse, Nr.', 'text'],
+      ['PLZ', 'text'],
+      ['Ort', 'text'],
+      ['Land', 'combobox'],
+      ['Nationalität', 'combobox'],
+      ['Aufenthaltsgenehmigung (wenn nicht CH)', 'combobox'],
+      ['Link auf LinkedIn Profil', 'text'],
+      ['Link auf Xing Profil', 'text'],
+      ['* Übst du derzeit eine entgeltliche Nebenbeschäftigung aus bzw. beabsichtigst du, eine Nebenbeschäftigung auszuüben?', 'combobox'],
+      ['Arbeiten Sie bei Helsana?', 'combobox'],
+      ['Hat Sie jemand empfohlen?', 'text'],
+      ['* Wie haben Sie von dieser Stelle erfahren?', 'combobox'],
+      ['Andere:', 'text'],
+      ['* Was hat dich motiviert, dich auf diese Stelle zu bewerben?', 'textarea'],
+      ['* Welche Erfahrungen bringst du für diese Stelle mit?', 'textarea'],
+      ['Welchen Brutto-Jahreslohn stellst du dir bei 100% vor?', 'textarea'],
+      ['Was möchtest du uns sonst noch mitteilen?', 'textarea'],
+      ['Geburtsdatum', 'text'],
+    ].map(([label, kind]) => ({
+      label,
+      kind,
+      inputType: kind === 'textarea' ? 'textarea' : 'text',
+      required: label.startsWith('*'),
+      formId: submit.formId,
+      frame: 0,
+    }));
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/portalcareer',
+      text: 'Profilinformationen Stellenspezifische Informationen',
+      fields,
+      buttons: [
+        'Optionen',
+        'Alle Abschnitte einblenden',
+        'Alle Abschnitte ausblenden',
+        'Meine Dokumente',
+        '* Lebenslauf - Zeugnisse - Diplome Lebenslauf Öffnet ein Dialogfeld',
+        'Zusätzliche Dokumente Dokument hinzufügen Öffnet ein Dialogfeld',
+        'Profilinformationen',
+        '',
+        'Stellenspezifische Informationen',
+        'Profil anzeigen',
+        'Speichern',
+        submit.text,
+      ].map((text) => ({ text, formId: submit.formId, frame: 0 })),
+    };
+
+    expect(applicationStage(snapshot, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=103967', job }).kind).toBe('form');
+    expect(controls(snapshot).submit).toMatchObject({ text: submit.text });
+  });
+
   it('recognizes a title-bound SuccessFactors application split across profile and question forms', () => {
     const submit = {
       text: 'Bewerben', formId: 'apply-actions', frame: 0,

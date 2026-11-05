@@ -26,6 +26,8 @@ function sourceOf({ order, flow, draft }, claims, documentId, fileId, nowMs) {
   retained(order, claims, nowMs);
   if (!flow || Number(flow.round || 1) !== claims.round || Number(draft?.round) !== claims.round) fail('stale_link');
   if ((claims.consentBound && flow.state !== 'submitted') || ['withdrawn', 'refunded', 'cancelled'].includes(flow.state)) fail('not_allowed', 403);
+  // Paper-application scans are assembled for printing without document-content rechecks.
+  if (flow.postalSubmission?.enabled === true) fail('not_allowed', 403);
   const document = requiredDocumentsFor(draft, flow).find(item => item.id === documentId);
   const files = document ? documentFilesOf(flow, claims.orderId, documentId) : [];
   const file = files.find(item => documentFileId(item.key) === fileId);

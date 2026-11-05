@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120617",
+      "sourceKey": "VD",
+      "sourceRecordId": "120617",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "3133",
+      "normalizedPlate": "VD3133",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2000,
+      "bidCount": 0,
+      "closedAt": "2026-11-01T13:21:40.889Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/fr/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/fr/auction/120617",
+      "sourceFetchedAt": "2026-11-01T13:21:40.889Z",
+      "lastVerifiedAt": "2026-11-01T13:21:40.889Z",
+      "firstSeenAt": "2026-10-26T04:48:10.910Z",
+      "lastSeenAt": "2026-11-01T13:21:40.889Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "15da6bbaedc7"
+    }
+  ]
+}

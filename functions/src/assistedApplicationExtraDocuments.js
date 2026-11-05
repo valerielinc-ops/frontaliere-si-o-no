@@ -9,8 +9,9 @@
  *     [{ id, label, kind, keywords, required, quote }]
  *   flow.requestedDocuments when requestedDocumentsOverride is true, the
  *     owner-curated list that the candidate sees in the review interface.
- *   flow.documents           what the candidate gave on the review page:
+ *   flow.documents           uploaded or prepared material from the review page:
  *     { [id]: { preparedAt, files: [{ key, name, size, detectedType, uploadedAt, clientCheck }] } }
+ *   localOnly                files held in browser memory for a postal packet; no file data is stored here.
  *
  * A required document is uploaded or the application waits (owner decision
  * 2026-10-08): what the posting demands cannot be skipped, and an application
@@ -18,8 +19,9 @@
  * The «send without it» of 2026-10-02 is gone; a `waivedAt` an older flow
  * still holds is read by nothing.
  *
- * The files live in the order's own Storage folder (purged with it,
- * assistedApplicationRetention.js); a key outside it is never sent.
+ * Uploaded files live in the order's own Storage folder (purged with it,
+ * assistedApplicationRetention.js); a key outside it is never sent. Local-only
+ * files never enter Storage or Firestore.
  */
 
 import { safeFileStem } from './assistedApplicationAiDraftCore.js';
@@ -84,7 +86,9 @@ export function documentsView(draft, flow, fileUrls = {}) {
     const given = flow?.documents?.[document.id] || {};
     return {
       ...document,
-      files: (Array.isArray(given.files) ? given.files : []).map((file) => ({
+      files: flow?.postalSubmission?.enabled === true && document.localOnly
+        ? []
+        : (Array.isArray(given.files) ? given.files : []).map((file) => ({
         id: documentFileId(file.key),
         name: text(file.name, 120),
         url: fileUrls[documentFileId(file.key)] || null,
@@ -141,6 +145,10 @@ export function requiredDocumentsOf(draft) {
       keywords: (Array.isArray(item.keywords) ? item.keywords : []).map((word) => text(word, 40)).filter(Boolean).slice(0, 12),
       required: item.required !== false,
       quote: text(item.quote, 300),
+      // Files for these requirements stay in browser memory and are appended
+      // to the postal PDF locally; their contents never reach Storage or the
+      // document-text checker (health and criminal-record documents).
+      ...(item.localOnly === true ? { localOnly: true } : {}),
       // Official or sensitive records can be requested in the interface as
       // a paper task. Their contents stay with the candidate and are not
       // uploaded to the service.
@@ -214,6 +222,10 @@ export function openRequiredDocuments(draft, documents = {}, flow = null) {
     .filter((document) => {
       const given = documents?.[document.id];
       if (given?.exemption && (document.exemptions || []).includes(given.exemption)) return false;
+      if (flow?.postalSubmission?.enabled === true && document.localOnly) return false;
+      if (flow?.postalSubmission?.enabled === true && document.delivery === 'offline') {
+        return !(Array.isArray(given?.files) && given.files.length);
+      }
       if (document.delivery === 'offline') return !Number(given?.preparedAt);
       if (document.delivery === 'service') return false;
       return !(Array.isArray(given?.files) && given.files.length);

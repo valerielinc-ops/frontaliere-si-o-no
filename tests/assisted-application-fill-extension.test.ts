@@ -1857,7 +1857,7 @@ describe('fill extension: owner-approved application defaults', () => {
       const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
 
       expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toMatchObject({
-        value: 'delete_current', family: 'minimumDataRetention',
+        value: affirmativeDeletion, family: 'minimumDataRetention',
       });
     }
   });
@@ -1882,7 +1882,7 @@ describe('fill extension: owner-approved application defaults', () => {
     const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
 
     expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toMatchObject({
-      value: 'delete_current', family: 'minimumDataRetention',
+      value: affirmativeDeletion, family: 'minimumDataRetention',
     });
   });
 
@@ -1901,7 +1901,7 @@ describe('fill extension: owner-approved application defaults', () => {
     const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
 
     expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toMatchObject({
-      value: 'delete_current', family: 'minimumDataRetention',
+      value: conditionalDeletion, family: 'minimumDataRetention',
     });
   });
 });

@@ -45,6 +45,12 @@ beforeEach(() => {
 });
 
 describe('retained document browser recheck protocol', () => {
+  it('refuses every content recheck on a paper application before reading its stored file', async () => {
+    await patch(FLOW, { postalSubmission: { enabled: true } });
+    await expect(begin()).rejects.toMatchObject({ code: 'not_allowed', status: 403 });
+    expect(bucket.file).not.toHaveBeenCalled();
+  });
+
   it('uses only authorized review tokens and never dispatches an automation event', async () => {
     const secret = 's'.repeat(40);
     const runEffect = vi.fn();
