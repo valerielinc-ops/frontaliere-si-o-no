@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1053,
-  "generatedAt": "2026-11-05T14:33:57.183Z",
+  "assetCount": 1054,
+  "generatedAt": "2026-11-05T16:14:37.068Z",
   "assets": [
     {
       "schema": 1,
@@ -42289,6 +42289,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Synthetic architectural illustration of a Swiss cantonal administration building; no readable text, logos, recognizable faces, or foreground people."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-aumento-tasso-disoccupazione-ottobre",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "2f5c910b1b5df95cee96b6552c9237ceee320135c8396c2cf26323cad9410e30",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "c34289a5ba9a90a7a878549e3440bb963c0ddc11999d4cedacaac387cf958fbe",
+      "bytes": 187882,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-05T14:49:23.057Z",
+      "verifiedAt": "2026-11-05T14:49:33.482Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-aumento-tasso-disoccupazione-ottobre.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic scene showing typical Valais architecture, vineyards, and Alpine landscape; no people, text, signage, logos, or event-specific cues."
       }
     },
     {

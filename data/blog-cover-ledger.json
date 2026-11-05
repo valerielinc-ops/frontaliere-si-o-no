@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1051,
+      "5": 1052,
       "6": 5061
     },
-    "publishedCovers": 7794,
+    "publishedCovers": 7795,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -212567,6 +212567,39 @@
         "provider": "openai-codex",
         "assetId": "article-aumento-salari-soletta-2027",
         "imageUrl": "/images/blog/article-aumento-salari-soletta-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-aumento-tasso-disoccupazione-ottobre": {
+      "cover": "/images/blog/article-aumento-tasso-disoccupazione-ottobre.webp",
+      "hash": "c34289a5ba9a90a7a878549e3440bb963c0ddc11999d4cedacaac387cf958fbe",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vs",
+          "id": "aumento-tasso-disoccupazione-ottobre",
+          "category": "novita",
+          "date": "2026-11-05T14:49:33.548Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-aumento-tasso-disoccupazione-ottobre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-05",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-aumento-tasso-disoccupazione-ottobre",
+        "imageUrl": "/images/blog/article-aumento-tasso-disoccupazione-ottobre.webp",
         "evidence": "generated-engine-record"
       }
     },

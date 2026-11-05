@@ -308,6 +308,11 @@
     },
     {
       "section": "frontaliere",
+      "id": "lombardia-partenza-ritardo",
+      "rule": "senza-ancore"
+    },
+    {
+      "section": "frontaliere",
       "id": "luci-masnago-terza-puntata",
       "rule": "fuori-tema",
       "family": "sport",
