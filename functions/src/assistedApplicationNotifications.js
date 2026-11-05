@@ -94,6 +94,7 @@ export const NOTIFICATION_KEYS = Object.freeze({
   customerMaterialsReceived: 'customer_materials_received',
   ownerMaterialsUploaded: 'owner_materials_uploaded',
   customerSubmitted: 'customer_submitted',
+  customerWithdrawn: 'customer_withdrawn',
 });
 
 const CUSTOMER_KEYS = new Set([
@@ -102,6 +103,7 @@ const CUSTOMER_KEYS = new Set([
   NOTIFICATION_KEYS.customerReminder,
   NOTIFICATION_KEYS.customerMaterialsReceived,
   NOTIFICATION_KEYS.customerSubmitted,
+  NOTIFICATION_KEYS.customerWithdrawn,
 ]);
 
 function isCustomerAudience(key, audience) {
@@ -368,6 +370,7 @@ const COPY = {
       reminder: 'Mi mancano ancora i tuoi documenti',
       received: 'CV ricevuto',
       submitted: 'Candidatura inviata',
+      withdrawn: 'Invio annullato',
       whatsapp: "L'ultimo passo è su WhatsApp",
     },
     preheader: {
@@ -376,6 +379,7 @@ const COPY = {
       reminder: 'Basta rispondere a questa email con il CV allegato.',
       received: 'Preparo la candidatura e ti scrivo appena è inviata.',
       submitted: "La tua candidatura è stata inviata all'azienda.",
+      withdrawn: "L'invio della candidatura è stato annullato.",
       whatsapp: 'Ecco il link per candidarti via WhatsApp e come funziona.',
     },
     orderRef: 'Riferimento ordine',
@@ -389,6 +393,10 @@ const COPY = {
     submittedSubject: 'Ho inviato la tua candidatura a {company}',
     submittedLead: "ti confermo che il {date} ho inviato la tua candidatura per {job} presso {company}, attraverso il canale indicato nell'annuncio.",
     submittedNext: "Se l'azienda ti contatta, rispondi direttamente a loro. Se ricevi una risposta o hai bisogno di altro, scrivimi pure rispondendo a questa email. In bocca al lupo!",
+    withdrawnSubject: "Conferma: ho annullato l'invio della tua candidatura per {job}",
+    withdrawnLead: "come richiesto, ho annullato l'invio della tua candidatura per {job} presso {company}. La candidatura non verrà inviata e l'importo del servizio non sarà rimborsato, come previsto dai Termini (punto 6.5).",
+    withdrawnReasonLabel: 'Motivo indicato',
+    withdrawnNext: 'Grazie per avermelo fatto sapere: il tuo motivo mi aiuta a migliorare il servizio. Se vuoi aggiungere qualcosa, rispondi pure a questa email.',
     submittedContactPhone: "L'azienda può chiamarti al numero di telefono che mi hai dato oppure scriverti per email.",
     submittedContactAlias: "Nella candidatura ho indicato un indirizzo email creato apposta per questa candidatura: ogni messaggio dell'azienda arriva lì e te lo inoltro subito in questa casella. Per rispondere all'azienda basta rispondere all'email inoltrata: la risposta arriva direttamente a loro.",
     submittedNextAlias: 'Se qualcosa non funziona, scrivimi rispondendo a questa email. In bocca al lupo!',
@@ -445,6 +453,7 @@ const COPY = {
       reminder: 'Il me manque encore vos documents',
       received: 'CV bien reçu',
       submitted: 'Candidature envoyée',
+      withdrawn: 'Envoi annulé',
       whatsapp: 'La dernière étape se fait sur WhatsApp',
     },
     preheader: {
@@ -453,6 +462,7 @@ const COPY = {
       reminder: 'Il suffit de répondre à cet e-mail avec votre CV en pièce jointe.',
       received: "Je prépare la candidature et je vous écris dès qu'elle est envoyée.",
       submitted: "Votre candidature a été envoyée à l'entreprise.",
+      withdrawn: "L'envoi de la candidature a été annulé.",
       whatsapp: 'Voici le lien pour postuler par WhatsApp et comment faire.',
     },
     orderRef: 'Référence de commande',
@@ -466,6 +476,10 @@ const COPY = {
     submittedSubject: "J'ai envoyé votre candidature à {company}",
     submittedLead: "je vous confirme que le {date} j'ai envoyé votre candidature pour {job} chez {company}, par le canal indiqué dans l'annonce.",
     submittedNext: "Si l'entreprise vous contacte, répondez-lui directement. Si vous recevez une réponse ou avez besoin d'autre chose, écrivez-moi en répondant à cet e-mail. Bonne chance !",
+    withdrawnSubject: "Confirmation : l'envoi de votre candidature pour {job} a été annulé",
+    withdrawnLead: "comme demandé, j'ai annulé l'envoi de votre candidature pour {job} chez {company}. La candidature ne sera pas envoyée et le montant du service ne sera pas remboursé, conformément aux Conditions (point 6.5).",
+    withdrawnReasonLabel: 'Motif indiqué',
+    withdrawnNext: "Merci de me l'avoir indiqué : votre motif m'aide à améliorer le service. Si vous souhaitez ajouter quelque chose, répondez simplement à cet e-mail.",
     submittedContactPhone: "L'entreprise peut vous appeler au numéro de téléphone que vous m'avez donné ou vous écrire par e-mail.",
     submittedContactAlias: "Dans la candidature, j'ai indiqué une adresse e-mail créée spécialement pour cette candidature : chaque message de l'entreprise y arrive et je vous le transfère aussitôt dans cette boîte. Pour répondre à l'entreprise, il suffit de répondre à l'e-mail transféré : la réponse lui parvient directement.",
     submittedNextAlias: 'Si quelque chose ne fonctionne pas, écrivez-moi en répondant à cet e-mail. Bonne chance !',
@@ -522,6 +536,7 @@ const COPY = {
       reminder: 'Mir fehlen noch deine Unterlagen',
       received: 'Lebenslauf erhalten',
       submitted: 'Bewerbung versendet',
+      withdrawn: 'Versand annulliert',
       whatsapp: 'Der letzte Schritt läuft über WhatsApp',
     },
     preheader: {
@@ -530,6 +545,7 @@ const COPY = {
       reminder: 'Antworte einfach mit deinem Lebenslauf im Anhang.',
       received: 'Ich bereite die Bewerbung vor und melde mich, sobald sie verschickt ist.',
       submitted: 'Deine Bewerbung wurde an das Unternehmen gesendet.',
+      withdrawn: 'Der Versand deiner Bewerbung wurde annulliert.',
       whatsapp: 'Hier ist der Link für die Bewerbung per WhatsApp und so funktioniert es.',
     },
     orderRef: 'Bestellreferenz',
@@ -543,6 +559,10 @@ const COPY = {
     submittedSubject: 'Ich habe deine Bewerbung an {company} gesendet',
     submittedLead: 'hiermit bestätige ich, dass ich deine Bewerbung für {job} bei {company} am {date} über den in der Anzeige genannten Kanal versendet habe.',
     submittedNext: 'Wenn sich das Unternehmen meldet, antworte bitte direkt. Wenn du eine Antwort erhältst oder noch etwas brauchst, schreib mir einfach auf diese E-Mail. Viel Erfolg!',
+    withdrawnSubject: 'Bestätigung: Der Versand deiner Bewerbung für {job} wurde annulliert',
+    withdrawnLead: 'wie gewünscht habe ich den Versand deiner Bewerbung für {job} bei {company} annulliert. Die Bewerbung wird nicht versendet und der Betrag für den Service wird nicht zurückerstattet, wie in den Nutzungsbedingungen (Ziffer 6.5) vorgesehen.',
+    withdrawnReasonLabel: 'Angegebener Grund',
+    withdrawnNext: 'Danke für deine Rückmeldung: Dein Grund hilft mir, den Service zu verbessern. Wenn du noch etwas ergänzen möchtest, antworte einfach auf diese E-Mail.',
     submittedContactPhone: 'Das Unternehmen kann dich unter der Telefonnummer anrufen, die du mir gegeben hast, oder dir per E-Mail schreiben.',
     submittedContactAlias: 'In der Bewerbung habe ich eine E-Mail-Adresse angegeben, die eigens für diese Bewerbung eingerichtet wurde: Jede Nachricht des Unternehmens kommt dort an, und ich leite sie dir sofort in dieses Postfach weiter. Um dem Unternehmen zu antworten, antworte einfach auf die weitergeleitete E-Mail: Deine Antwort geht direkt an das Unternehmen.',
     submittedNextAlias: 'Wenn etwas nicht klappt, schreib mir einfach auf diese E-Mail. Viel Erfolg!',
@@ -598,6 +618,7 @@ const COPY = {
       reminder: 'I still need your documents',
       received: 'CV received',
       submitted: 'Application sent',
+      withdrawn: 'Sending cancelled',
       whatsapp: 'The last step is on WhatsApp',
     },
     preheader: {
@@ -606,6 +627,7 @@ const COPY = {
       reminder: 'Just reply to this email with your CV attached.',
       received: "I'm preparing your application and will write as soon as it's sent.",
       submitted: 'Your application has been sent to the company.',
+      withdrawn: 'The application sending was cancelled.',
       whatsapp: 'Here is the link to apply on WhatsApp and how it works.',
     },
     orderRef: 'Order reference',
@@ -619,6 +641,10 @@ const COPY = {
     submittedSubject: 'I sent your application to {company}',
     submittedLead: 'I can confirm that on {date} I sent your application for {job} at {company}, through the channel the ad asks for.',
     submittedNext: "If the company contacts you, reply to them directly. If you hear back or need anything else, just reply to this email. Good luck!",
+    withdrawnSubject: 'Confirmation: your application for {job} was cancelled',
+    withdrawnLead: 'as requested, I cancelled the sending of your application for {job} at {company}. The application will not be sent and the service amount will not be refunded, as provided by the Terms (section 6.5).',
+    withdrawnReasonLabel: 'Reason provided',
+    withdrawnNext: 'Thank you for letting me know: your reason helps me improve the service. If you would like to add anything, just reply to this email.',
     submittedContactPhone: 'The company may call you on the phone number you gave me or write to you by email.',
     submittedContactAlias: 'In the application I gave an email address created just for this application: every message from the company arrives there and I forward it to this inbox right away. To answer the company, just reply to the forwarded email: your reply goes straight to them.',
     submittedNextAlias: 'If something does not work, just reply to this email. Good luck!',
@@ -794,7 +820,7 @@ const WHATSAPP_CV_STEP = 2;
 
 /**
  * Build a customer-facing message.
- * @param {'intro'|'recovery'|'reminder'|'received'|'submitted'} kind
+ * @param {'intro'|'recovery'|'reminder'|'received'|'submitted'|'withdrawn'} kind
  * @param {{nowMs?:number, automation?:boolean, reviewUrl?:string, autologin?:object}} [options] reviewUrl: the review page of an
  *   automated order («inviata» only, submittedReviewUrl), where the candidate keeps the documents
  * @returns {{subject:string, html:string, text:string, locale:string}}
@@ -853,6 +879,16 @@ export function buildCustomerEmail(kind, order, orderId, {
     const receivedLead = automation ? copy.receivedLeadAuto : copy.receivedLead;
     htmlParts.push(paragraph(fillHtml(receivedLead, vars)));
     textParts.push(fill(receivedLead, vars));
+  } else if (kind === 'withdrawn') {
+    const withdrawnReason = clean(order?.withdrawalReason, 1000);
+    htmlParts.push(paragraph(fillHtml(copy.withdrawnLead, vars)), job.html);
+    textParts.push(fill(copy.withdrawnLead, vars), job.text);
+    if (withdrawnReason) {
+      htmlParts.push(brandInfoCard(copy.withdrawnReasonLabel, esc(withdrawnReason)));
+      textParts.push(`${copy.withdrawnReasonLabel}:\n${withdrawnReason}`);
+    }
+    htmlParts.push(paragraph(esc(copy.withdrawnNext)));
+    textParts.push(copy.withdrawnNext);
   } else if (kind === 'submitted' && whatsappUrl) {
     // With the page linked, the candidate sends the CV they choose among their documents there (owner
     // decision 2026-10-03); without it, the step names the CV they gave.
@@ -894,6 +930,7 @@ export function buildCustomerEmail(kind, order, orderId, {
     reminder: copy.reminderSubject,
     received: copy.receivedSubject,
     submitted: whatsappUrl ? copy.whatsappSubject : copy.submittedSubject,
+    withdrawn: copy.withdrawnSubject,
   }[kind];
 
   htmlParts.push(foot.html);
@@ -1460,6 +1497,15 @@ export async function handleAssistedApplicationOrderWritten(
           const [cardOrder] = await enrichJobCards([order]);
           return buildCustomerEmail('submitted', cardOrder, orderId, { nowMs, reviewUrl, autologin });
         },
+        nowMs,
+      }));
+    }
+    if (toStatus === 'withdrawn') {
+      results.push(await sendOrderNotification({
+        db,
+        orderId,
+        key: NOTIFICATION_KEYS.customerWithdrawn,
+        build: (order, { autologin } = {}) => buildCustomerEmail('withdrawn', order, orderId, { nowMs, autologin }),
         nowMs,
       }));
     }

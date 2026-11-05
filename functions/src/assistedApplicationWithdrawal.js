@@ -4,9 +4,12 @@ import { APPLICATION_CONCIERGE_SERVICES_COLLECTION, acceptedPositionsCount, serv
 import { isUnconfirmedSubmission, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 
 const WITHDRAWABLE = new Set(['drafting', 'owner_review', 'candidate_review', 'regenerating', 'submitting', 'needs_candidate_action', 'owner_takeover', 'failed']);
+export const MAX_WITHDRAWAL_REASON_CHARS = 1000;
+const MIN_WITHDRAWAL_REASON_CHARS = 3;
 
-export function canWithdrawApplication({ order, flow, draft, submission = {} }) {
-  return order?.billingMode === 'application_concierge' && Boolean(order?.userId && order?.parentServiceId && order?.parentProposalId)
+export function canWithdrawApplication({ order, flow, draft = null, submission = {} }) {
+  const conciergeChild = order?.billingMode === 'application_concierge';
+  return Boolean(order?.userId) && (!conciergeChild || Boolean(order?.parentServiceId && order?.parentProposalId))
     && order.paymentStatus === 'paid' && order.submissionStatus !== 'submitted'
     && !order.retentionPurgedAt && !['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
     && WITHDRAWABLE.has(flow?.state) && !draft?.sent && !draft?.sentAttempt
@@ -14,10 +17,21 @@ export function canWithdrawApplication({ order, flow, draft, submission = {} }) 
 }
 
 export class WithdrawalError extends Error {
-  constructor(code) { super(code); this.code = code; this.status = 409; }
+  constructor(code, status = 409) { super(code); this.code = code; this.status = status; }
 }
 
-export async function withdrawAssistedApplication({ db, orderId, round, nowMs = Date.now() }) {
+export function normalizeWithdrawalReason(value) {
+  return String(value ?? '').normalize('NFC').replace(/\s+/gu, ' ').trim();
+}
+
+function requiredWithdrawalReason(value) {
+  const reason = normalizeWithdrawalReason(value);
+  if (reason.length < MIN_WITHDRAWAL_REASON_CHARS) throw new WithdrawalError('withdrawal_reason_required', 400);
+  if (reason.length > MAX_WITHDRAWAL_REASON_CHARS) throw new WithdrawalError('withdrawal_reason_too_long', 400);
+  return reason;
+}
+
+export async function withdrawAssistedApplication({ db, orderId, round, withdrawalReason, nowMs = Date.now() }) {
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const flowRef = orderRef.collection('automation').doc('flow');
   const draftRef = orderRef.collection('ai_drafts').doc('current');
@@ -29,17 +43,30 @@ export async function withdrawAssistedApplication({ db, orderId, round, nowMs = 
     const order = orderDoc.data();
     const flow = flowDoc.data();
     if (Number(flow?.round || 1) !== Number(round)) throw new WithdrawalError('stale_link');
-    if (flow?.state === 'withdrawn' && order?.conciergeSlotReleasedAt) return { ok: true, state: 'withdrawn', slotReleased: true };
+    if (flow?.state === 'withdrawn') {
+      return {
+        ok: true,
+        state: 'withdrawn',
+        slotReleased: Boolean(order?.conciergeSlotReleasedAt),
+      };
+    }
+    const reason = requiredWithdrawalReason(withdrawalReason);
     if (!canWithdrawApplication({ order, flow, draft: draftDoc.data(), submission: submissionDoc.data() })) {
       throw new WithdrawalError('withdrawal_unavailable');
     }
-    const serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(order.parentServiceId);
-    const proposalRef = serviceRef.collection('proposals').doc(order.parentProposalId);
-    const [serviceDoc, proposalDoc] = await Promise.all([transaction.get(serviceRef), transaction.get(proposalRef)]);
-    const service = serviceDoc.data();
-    const proposal = proposalDoc.data();
-    if (service?.userId !== order.userId || proposal?.status !== 'accepted' || proposal?.childApplicationId !== orderId) {
-      throw new WithdrawalError('withdrawal_unavailable');
+    const conciergeChild = order?.billingMode === 'application_concierge';
+    let serviceRef = null;
+    let proposalRef = null;
+    let service = null;
+    if (conciergeChild) {
+      serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(order.parentServiceId);
+      proposalRef = serviceRef.collection('proposals').doc(order.parentProposalId);
+      const [serviceDoc, proposalDoc] = await Promise.all([transaction.get(serviceRef), transaction.get(proposalRef)]);
+      service = serviceDoc.data();
+      const proposal = proposalDoc.data();
+      if (service?.userId !== order.userId || proposal?.status !== 'accepted' || proposal?.childApplicationId !== orderId) {
+        throw new WithdrawalError('withdrawal_unavailable');
+      }
     }
     // A portal run may already be filling fields. Its markClicked and an
     // email's claim read this same fence, so exactly one action can win.
@@ -51,17 +78,23 @@ export async function withdrawAssistedApplication({ db, orderId, round, nowMs = 
     }, { merge: true });
     transaction.set(orderRef, {
       submissionStatus: 'withdrawn', automationState: 'withdrawn', automationDueAt: null,
-      withdrawnAt: nowMs, conciergeSlotReleasedAt: nowMs, updatedAt: nowMs,
+      withdrawnAt: nowMs, withdrawalReason: reason,
+      ...(conciergeChild ? { conciergeSlotReleasedAt: nowMs } : {}),
+      updatedAt: nowMs,
     }, { merge: true });
-    transaction.set(proposalRef, { status: 'declined', declinedAt: new Date(nowMs), withdrawnAt: nowMs, declineReason: 'candidate_withdrawn' }, { merge: true });
-    transaction.set(serviceRef, {
-      acceptedPositionsCount: Math.max(0, acceptedPositionsCount(service) - 1), updatedAt: new Date(nowMs),
-      // Queue replenishment through the existing worker; do not extend expiry.
-      ...(serviceIsActive(service, nowMs) ? {
-        proposalRefreshRequestId: `withdraw-${orderId}`, proposalRefreshRequestedBy: 'candidate_withdrawal',
-      } : {}),
-    }, { merge: true });
-    transaction.set(orderRef.collection('events').doc(), { type: 'candidate_withdrawn', actor: 'candidate', at: nowMs, slotReleased: true });
-    return { ok: true, state: 'withdrawn', slotReleased: true };
+    if (conciergeChild) {
+      transaction.set(proposalRef, { status: 'declined', declinedAt: new Date(nowMs), withdrawnAt: nowMs, declineReason: 'candidate_withdrawn' }, { merge: true });
+      transaction.set(serviceRef, {
+        acceptedPositionsCount: Math.max(0, acceptedPositionsCount(service) - 1), updatedAt: new Date(nowMs),
+        // Queue replenishment through the existing worker; do not extend expiry.
+        ...(serviceIsActive(service, nowMs) ? {
+          proposalRefreshRequestId: `withdraw-${orderId}`, proposalRefreshRequestedBy: 'candidate_withdrawal',
+        } : {}),
+      }, { merge: true });
+    }
+    transaction.set(orderRef.collection('events').doc(), {
+      type: 'candidate_withdrawn', actor: 'candidate', at: nowMs, slotReleased: conciergeChild, reason,
+    });
+    return { ok: true, state: 'withdrawn', slotReleased: conciergeChild };
   });
 }

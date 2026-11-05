@@ -1,6 +1,6 @@
 import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { CheckCircle2, Clock3, Copy, Download, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Clock3, Copy, Download, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
@@ -250,6 +250,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const [feedback, setFeedback] = useState('');
   const [showFeedback, setShowFeedback] = useState(false);
   const [confirmWithdrawal, setConfirmWithdrawal] = useState(false);
+  const [withdrawalReason, setWithdrawalReason] = useState('');
   const [done, setDone] = useState<string | null>(null);
   const [followup, setFollowup] = useState<FollowupPayload | null>(null);
   // The candidate's own changes to the letter, the e-mail and the fields.
@@ -307,6 +308,18 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     return () => window.clearInterval(timer);
   }, [data, load]);
 
+  useEffect(() => {
+    if (!confirmWithdrawal) return undefined;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && !busy) {
+        setConfirmWithdrawal(false);
+        setWithdrawalReason('');
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [confirmWithdrawal, busy]);
+
   const top = useRef<HTMLElement | null>(null);
   const run = async (action: ReviewAction, extra = {}): Promise<boolean> => {
     if (busy) return false;
@@ -317,6 +330,10 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     try {
       await sendReviewAction(token, action, extra);
       setDone(action);
+      if (action === 'withdraw') {
+        setConfirmWithdrawal(false);
+        setWithdrawalReason('');
+      }
       await load();
       // The buttons are at the bottom of a long page and the new state (sending,
       // a new version on its way, the follow-up decided) is shown at the top:
@@ -1079,14 +1096,103 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         )}
 
         {data?.can.withdraw && !data.stale && <div className="space-y-3 border-t border-edge pt-4">
-          {!confirmWithdrawal ? <button type="button" disabled={Boolean(busy)} onClick={() => setConfirmWithdrawal(true)} className="inline-flex min-h-[44px] items-center rounded-lg px-2 text-sm font-semibold text-danger hover:bg-danger-subtle disabled:opacity-60">{t('jobBoard.assisted.review.withdraw')}</button>
-            : <div className="space-y-3">
-              <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.withdrawConfirm')}</p>
-              <div className="flex flex-wrap gap-2">
-                <button type="button" disabled={Boolean(busy)} onClick={() => { void run('withdraw'); }} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-danger-border bg-danger-subtle px-4 text-sm font-semibold text-danger disabled:opacity-60">{busy === 'withdraw' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}{t('jobBoard.assisted.review.withdrawSubmit')}</button>
-                <button type="button" disabled={Boolean(busy)} onClick={() => setConfirmWithdrawal(false)} className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-edge px-4 text-sm font-semibold text-body disabled:opacity-60">{t('jobBoard.assisted.review.withdrawCancel')}</button>
+          <button
+            type="button"
+            disabled={Boolean(busy)}
+            onClick={() => {
+              setError(null);
+              setWithdrawalReason('');
+              setConfirmWithdrawal(true);
+            }}
+            className="inline-flex min-h-[44px] items-center rounded-lg px-2 text-sm font-semibold text-danger hover:bg-danger-subtle disabled:opacity-60"
+          >
+            {t('jobBoard.assisted.review.withdraw')}
+          </button>
+          {confirmWithdrawal && (
+            <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/55 px-4 py-6 backdrop-blur-sm">
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="assisted-withdrawal-title"
+                aria-describedby="assisted-withdrawal-description"
+                className="relative max-h-[90dvh] w-full max-w-lg overflow-y-auto rounded-2xl border border-edge bg-surface p-5 text-body shadow-2xl sm:p-6"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-danger" aria-hidden="true" />
+                    <div>
+                      <h2 id="assisted-withdrawal-title" className="text-lg font-bold text-heading">
+                        {t('jobBoard.assisted.review.withdrawModalTitle')}
+                      </h2>
+                      <p id="assisted-withdrawal-description" className="mt-2 text-sm leading-relaxed text-body">
+                        {t('jobBoard.assisted.review.withdrawConfirm')}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    disabled={Boolean(busy)}
+                    onClick={() => {
+                      setConfirmWithdrawal(false);
+                      setWithdrawalReason('');
+                    }}
+                    className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-muted hover:bg-surface-alt hover:text-heading disabled:opacity-60"
+                    aria-label={t('jobBoard.assisted.review.withdrawCancel')}
+                  >
+                    <X className="h-5 w-5" aria-hidden="true" />
+                  </button>
+                </div>
+                <form
+                  className="mt-5 space-y-4"
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    const reason = withdrawalReason.trim();
+                    if (reason.length < 3) return;
+                    void run('withdraw', { withdrawalReason: reason });
+                  }}
+                >
+                  <label htmlFor="assisted-withdrawal-reason" className="block text-sm font-semibold text-heading">
+                    {t('jobBoard.assisted.review.withdrawReasonLabel')}
+                    <textarea
+                      id="assisted-withdrawal-reason"
+                      value={withdrawalReason}
+                      onChange={(event) => setWithdrawalReason(event.target.value)}
+                      placeholder={t('jobBoard.assisted.review.withdrawReasonPlaceholder')}
+                      rows={4}
+                      minLength={3}
+                      maxLength={1000}
+                      required
+                      autoFocus
+                      className="mt-2 block w-full min-w-0 rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm font-normal text-heading outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
+                    />
+                  </label>
+                  <p className="text-xs leading-relaxed text-subtle">{t('jobBoard.assisted.review.withdrawReasonHelp')}</p>
+                  {errorText && <p className="text-sm text-danger" role="alert">{errorText}</p>}
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="submit"
+                      disabled={Boolean(busy) || withdrawalReason.trim().length < 3}
+                      className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-danger-border bg-danger-subtle px-4 text-sm font-semibold text-danger disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {busy === 'withdraw' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                      {t('jobBoard.assisted.review.withdrawSubmit')}
+                    </button>
+                    <button
+                      type="button"
+                      disabled={Boolean(busy)}
+                      onClick={() => {
+                        setConfirmWithdrawal(false);
+                        setWithdrawalReason('');
+                      }}
+                      className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-edge px-4 text-sm font-semibold text-body disabled:opacity-60"
+                    >
+                      {t('jobBoard.assisted.review.withdrawCancel')}
+                    </button>
+                  </div>
+                </form>
               </div>
-            </div>}
+            </div>
+          )}
         </div>}
 
         {errorText && (
