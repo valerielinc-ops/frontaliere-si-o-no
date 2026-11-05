@@ -101,6 +101,9 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
+      - name: Load private assisted-application evidence key
+        run: node scripts/load-rc-env.mjs --include-private-server-secrets --only-private-server-env=ASSISTED_APPLICATION_RUN_KEY
+
       - name: Verify agent entry point before handling candidate data
         env:
           AGENT_BOOT_ERROR_FILE: ${{ runner.temp }}/agent-boot-error.txt

@@ -187,6 +187,19 @@ describe('social workflow Remote Config scopes', () => {
     expect(sharedAiAction).toContain('--only-private-server-env=CHUTES_API_KEY,ZAI_API_KEY');
   });
 
+  it('loads the assisted-application evidence key privately before importing the agent', () => {
+    const workflow = YAML.parse(readFileSync(resolve(ROOT, '.github/workflows/assisted-application-agent.yml'), 'utf8'));
+    const steps = workflow.jobs.agent.steps;
+    const privateLoaderIndex = steps.findIndex((step: any) => step.name === 'Load private assisted-application evidence key');
+    const privateLoader = steps[privateLoaderIndex];
+    const genericLoaderIndex = steps.findIndex((step: any) => step.name === 'Load RC secrets');
+    const agentImportIndex = steps.findIndex((step: any) => step.name === 'Verify agent entry point before handling candidate data');
+
+    expect(privateLoader.run).toBe('node scripts/load-rc-env.mjs --include-private-server-secrets --only-private-server-env=ASSISTED_APPLICATION_RUN_KEY');
+    expect(privateLoaderIndex).toBeGreaterThan(genericLoaderIndex);
+    expect(agentImportIndex).toBeGreaterThan(privateLoaderIndex);
+  });
+
   it.each(Object.entries(SOCIAL_WORKFLOW_RC_SCOPES))(
     '%s exports only its declared social keys',
     (relativePath, expectedScope) => {
