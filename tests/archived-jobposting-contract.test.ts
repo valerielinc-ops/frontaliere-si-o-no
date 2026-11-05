@@ -23,10 +23,26 @@ describe('complete archived SEO without an active offer', () => {
   });
   it.each([
     { company: '' }, { title: '' }, { postingDateSource: 'unknown' },
-    { datePosted: 'invalid' }, { datePosted: ago(1) },
-    { expiredAt: ago(-3), datePosted: ago(-20) },
-  ])('does not invent a historical JobPosting for incomplete evidence %j', (change) => {
-    expect(buildArchivedJobPosting({ ...record, ...change }, 'Archived', options)).toBeNull();
+    { datePosted: 'invalid' },
+  ])('uses safe defaults for incomplete archive evidence %j', (change) => {
+    const schema = buildArchivedJobPosting({ ...record, ...change }, 'Archived', options);
+    expect(schema).toBeTruthy();
+    expect(schema?.hiringOrganization.name).toBeTruthy();
+    expect(Date.parse(schema?.validThrough || '')).toBeLessThan(Date.now());
+  });
+  it('rejects a reported publication date that is not before the archive cutoff', () => {
+    expect(buildArchivedJobPosting({ ...record, datePosted: ago(1) }, 'Archived', options)).toBeNull();
+  });
+  it('does not invent a historical deadline when every supplied deadline is in the future', () => {
+    expect(buildArchivedJobPosting({ ...record, expiredAt: ago(-3), datePosted: ago(-20) }, 'Archived', options)).toBeNull();
+  });
+  it('rejects future archive evidence even when an earlier cutoff exists', () => {
+    const now = new Date('2026-11-05T00:00:00Z');
+    expect(buildArchivedJobPosting(
+      { expiredAt: '2026-11-01T00:00:00Z', crawledAt: '2026-11-06T00:00:00Z' },
+      'Archived',
+      { ...options, now },
+    )).toBeNull();
   });
   it('uses archive facts rather than an invitation to apply when the original text is short', () => {
     const schema = buildArchivedJobPosting({ ...record, description: 'Reparto dati.' }, 'Offerta archiviata e non più disponibile.', options)!;

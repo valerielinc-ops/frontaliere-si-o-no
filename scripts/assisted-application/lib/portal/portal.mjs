@@ -2126,6 +2126,17 @@ export function formPostingMatch(formText, job = {}, {
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
   if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
+  // Umantis application forms can repeat the selected employer inside their
+  // own questions (the EOC form asks about EOC collaborators and acquaintances).
+  // On the verified same-origin vacancy route, the matching role in the page
+  // heading binds the form; keep the other-employer guard on that heading.
+  const heading = String(formText || '').split(/\r?\n/, 1)[0];
+  if (bound && isUmantisApplicationRoute(pageUrl)
+    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl })
+    && titleMatches(heading, job.title)) {
+    if (namesAnotherEmployer(heading, job)) return 'mismatch';
+    return 'match';
+  }
   // The selected detail route is authoritative even when its dynamic shell
   // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
   // Do not apply this to another page on the same host: route identity must be

@@ -109,9 +109,9 @@ describe('job-locale population identity', () => {
       // +18.6% slice/assembled swap as a synthetic out-of-band fixture.
       const inflatedDescriptionSlots = Math.round(DESCRIPTION_POPULATION.expectedSlots * 1.186);
       expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, inflatedDescriptionSlots)).toThrow(/\[population-changed\]/);
-      // Titles: the assembled artefact measured 90,712 on 2026-09-30. Keep
-      // the synthetic slice/assembled swap at the same +18.6% separation as
-      // the description fixture, so this assertion remains independent of
+      // Titles: the historical assembled measurement was 90,712 on 2026-09-30.
+      // Keep the synthetic slice/assembled swap at the same +18.6% separation
+      // as the description fixture, so this assertion remains independent of
       // the exact denominator chosen by the latest corpus measurement.
       const inflatedTitleSlots = Math.round(TITLE_POPULATION.expectedSlots * 1.186);
       expect(() => assertPopulationUnchanged(TITLE_POPULATION, inflatedTitleSlots)).toThrow(/\[population-changed\]/);
@@ -123,8 +123,9 @@ describe('job-locale population identity', () => {
       for (const n of [138160]) {
         expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, n)).not.toThrow();
       }
-      // Titles, assembled, latest full-checkout measurement on 2026-09-30.
-      expect(() => assertPopulationUnchanged(TITLE_POPULATION, 90712)).not.toThrow();
+      // Titles, assembled, 2026-11-05: 105,132 published slots plus 978 held
+      // translation slots, as recorded by the live-data run.
+      expect(() => assertPopulationUnchanged(TITLE_POPULATION, 106110)).not.toThrow();
     });
   });
 
