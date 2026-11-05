@@ -43,7 +43,7 @@ import { isFetchablePublicUrl, resolvesToPublicHost } from '../../../../function
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { asksHeldStatus, isPermitField, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { asksHeldStatus, isPermitField, nationalityLabelOf, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
@@ -2720,11 +2720,74 @@ function deterministicGermanQuestionEntry(item) {
   return DETERMINISTIC_GERMAN_QUESTION_COPIES[normalizedQuestionText(sourceQuestion)] || null;
 }
 
+const REGION_NAME_CATALOGUES = new Map();
+const REGION_UNKNOWN_LABELS = new Set([
+  'Unknown Region', 'Unbekannte Region', 'Région inconnue', 'Regione sconosciuta',
+].map(normalizedQuestionText));
+
+function regionNameCatalogue(language) {
+  const locale = String(language || '').trim().split(/[-_]/)[0].toLowerCase();
+  if (!locale) return null;
+  if (REGION_NAME_CATALOGUES.has(locale)) return REGION_NAME_CATALOGUES.get(locale);
+  if (typeof Intl?.DisplayNames !== 'function') {
+    REGION_NAME_CATALOGUES.set(locale, null);
+    return null;
+  }
+  try {
+    const displayNames = new Intl.DisplayNames([locale], { type: 'region' });
+    const byCode = new Map();
+    const byName = new Map();
+    const ambiguousNames = new Set();
+    for (let first = 65; first <= 90; first += 1) {
+      for (let second = 65; second <= 90; second += 1) {
+        const code = String.fromCharCode(first, second);
+        const label = String(displayNames.of(code) || '').trim();
+        const key = normalizedQuestionText(label);
+        if (!label || key === normalizedQuestionText(code) || REGION_UNKNOWN_LABELS.has(key)) continue;
+        byCode.set(code, label);
+        if (ambiguousNames.has(key)) continue;
+        if (byName.has(key) && byName.get(key) !== code) {
+          byName.delete(key);
+          ambiguousNames.add(key);
+        } else {
+          byName.set(key, code);
+        }
+      }
+    }
+    const catalogue = { byCode, byName };
+    REGION_NAME_CATALOGUES.set(locale, catalogue);
+    return catalogue;
+  } catch {
+    REGION_NAME_CATALOGUES.set(locale, null);
+    return null;
+  }
+}
+
+function localizedGermanRegionOption(option, language) {
+  const text = String(option || '').trim();
+  if (!text) return '';
+  const source = regionNameCatalogue('de');
+  const target = regionNameCatalogue(language);
+  if (!source || !target) return '';
+  const code = text.toUpperCase();
+  if (/^[A-Z]{2}$/.test(code) && source.byCode.has(code)) return target.byCode.get(code) || '';
+  const regionCode = source.byName.get(normalizedQuestionText(text));
+  return regionCode ? target.byCode.get(regionCode) || '' : '';
+}
+
 function deterministicGermanOption(option, entry, language) {
   const text = String(option || '').trim();
   const normalized = normalizedQuestionText(text);
   const known = DETERMINISTIC_GERMAN_OPTION_COPIES[entry.key]?.[normalized]?.[language];
   if (known) return known;
+  if (entry.key === 'country' || entry.key === 'nationality') {
+    const region = localizedGermanRegionOption(text, language);
+    if (region) return region;
+    if (entry.key === 'nationality') {
+      const nationality = nationalityOf(text);
+      if (nationality) return nationalityLabelOf(nationality.code, language) || null;
+    }
+  }
   const booleanOrPlaceholder = fallbackOption(text, language);
   if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
   if (/^\d{1,4}$/.test(text)) return text;
