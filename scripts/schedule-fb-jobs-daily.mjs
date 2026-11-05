@@ -724,7 +724,7 @@ export async function run(opts = {}) {
     ledger.posted = loadPosted(repoRoot).posted;
     log('ℹ️', `recovered ${recoveredRows.length} accepted Facebook job post(s) into the ledger`);
   }
-  const reconciliation = dryRun
+  const reconciliation = dryRun || reconcileOnly
     ? { checked: 0, reconciled: 0, pending: 0, uncertain: 0 }
     : await reconcileFacebookScheduledPosts({
       rows: ledger.posted,
