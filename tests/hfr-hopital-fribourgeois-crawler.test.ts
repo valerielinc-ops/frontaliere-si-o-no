@@ -112,6 +112,32 @@ describe('HFR Oracle HCM crawler parser', () => {
     expect(requestedUrls.filter((url) => url.includes('/recruitingCEJobRequisitionDetails/'))).toHaveLength(1);
   });
 
+  it('fails closed when every discovered requisition is filtered as foreign', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = String(input);
+      if (!url.includes('/recruitingCEJobRequisitions?')) return new Response('', { status: 404 });
+      return new Response(JSON.stringify({
+        items: [{
+          TotalJobsCount: 1,
+          requisitionList: [{
+            ...oracleRequisition(1002),
+            Title: 'Nurse outside Switzerland',
+            PrimaryLocation: 'Paris, France',
+            PrimaryLocationCountry: 'FR',
+          }],
+        }],
+      }), { status: 200 });
+    }));
+
+    const result = await fetchAllHfrJobs();
+
+    expect(result).toEqual({
+      jobs: [],
+      discoveredCount: 1,
+      fetchOutcome: 'selector_miss',
+    });
+  });
+
   it('reports a malformed Oracle envelope as selector_miss instead of a valid empty board', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ data: [] }), { status: 200 })));
 
@@ -147,6 +173,34 @@ describe('HFR Oracle HCM crawler parser', () => {
       });
     },
   );
+
+  it('fails closed when the page limit is exhausted with full pages and no total count', async () => {
+    const requestedOffsets: number[] = [];
+    vi.stubGlobal('setTimeout', ((callback: (...args: unknown[]) => void) => {
+      callback();
+      return 0;
+    }) as unknown as typeof globalThis.setTimeout);
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = String(input);
+      if (!url.includes('/recruitingCEJobRequisitions?')) return new Response('', { status: 404 });
+      const offset = oracleOffset(url);
+      requestedOffsets.push(offset);
+      const requisitions = Array.from(
+        { length: 50 },
+        (_, index) => oracleRequisition(offset + index + 1),
+      );
+      return new Response(JSON.stringify({ items: [{ requisitionList: requisitions }] }), { status: 200 });
+    }));
+
+    const result = await fetchAllHfrJobs();
+
+    expect(requestedOffsets).toHaveLength(100);
+    expect(requestedOffsets.at(-1)).toBe(4950);
+    expect(result).toMatchObject({
+      jobs: [],
+      fetchOutcome: 'selector_miss',
+    });
+  });
 
   it('fails closed when every discovered requisition lacks a publishable source body', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {

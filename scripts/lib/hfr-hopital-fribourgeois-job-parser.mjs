@@ -238,6 +238,12 @@ async function fetchOracleRequisitions() {
       totalCount,
     );
   }
+  if (totalCount === null && offset >= ORACLE_ITEMS_PER_PAGE * ORACLE_MAX_PAGES) {
+    return selectorMiss(
+      `pagination reached the ${ORACLE_MAX_PAGES}-page limit without a declared total`,
+      null,
+    );
+  }
   return {
     requisitions,
     discoveredCount: totalCount ?? requisitions.length,
@@ -436,10 +442,11 @@ export async function fetchAllHfrJobs() {
     `📋 Total ${HFR_COMPANY_NAME} jobs discovered: ${jobs.length}`
     + ` (${skippedForeign} foreign, ${skippedThin} without a source body)`,
   );
-  if (jobs.length === 0 && skippedThin > 0) {
+  if (jobs.length === 0 && discovery.requisitions.length > 0) {
     console.warn(
       `⚠️ HFR Oracle discovered ${discovery.requisitions.length} requisition(s), `
-      + 'but none produced a publishable source body; preserving the previous snapshot.',
+      + `but none produced a publishable job (${skippedForeign} foreign, `
+      + `${skippedThin} without a source body); preserving the previous snapshot.`,
     );
     return {
       jobs: [],
