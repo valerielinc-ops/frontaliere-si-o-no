@@ -24,7 +24,7 @@ import {
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { fitNoticeOf, fitNoticeWording } from './assistedApplicationFitNotice.js';
-import { candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from './assistedApplicationCandidateEdits.js';
 import { withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 
 const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
@@ -89,7 +89,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   const isOwner = effect.kind.startsWith('owner_');
   // Open questions and the required documents still missing (school reports, test results…).
   const openQuestionIds = candidateQuestions.filter((question) => question.required
-    && !String(formAnswers?.[question.id] ?? '').trim()).map((question) => String(question.id));
+    && (!String(formAnswers?.[question.id] ?? '').trim()
+      || !requiredPortalConsentAffirmed(question, formAnswers?.[question.id]))).map((question) => String(question.id));
   const openDocumentIds = openRequiredDocuments(draft, flow.documents || {}, flow).map((id) => String(id));
   const openQuestions = openQuestionIds.length + openDocumentIds.length;
   const visibleHolds = new Set([

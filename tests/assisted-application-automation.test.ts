@@ -1034,6 +1034,31 @@ describe('sweep', () => {
     expect(sendNotification).not.toHaveBeenCalled();
   });
 
+  it('sends a candidate-action email when required portal consent is still unconfirmed', async () => {
+    const question = {
+      id: 'privacy_ack',
+      question: 'Confermi di aver letto l’informativa?',
+      type: 'text',
+      required: true,
+      requiresAffirmativeConsent: true,
+    };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({
+      ...readyDraft(),
+      questions: [question],
+    });
+    const sendNotification = vi.fn(async (args: any) => ({ ok: true, message: args.build(paidOrder()) }));
+    const result: any = await runAutomationEffect({
+      db: store.db,
+      orderId: ORDER,
+      effect: { type: 'email', kind: 'candidate_action_needed' },
+      flow: { round: 1, heldBy: ['question:privacy_ack'], answers: { privacy_ack: 'No' } },
+      nowMs: T0,
+    }, { sendNotification, getSecret: async () => 's'.repeat(40) });
+
+    expect(sendNotification).toHaveBeenCalledTimes(1);
+    expect(result).toMatchObject({ ok: true, message: expect.any(Object) });
+  });
+
   it('computes no due time for terminal flows', () => {
     expect(computeDueAt({ state: 'submitted', deadlineAt: 5 })).toBeNull();
     expect(computeDueAt({ state: 'candidate_review', deadlineAt: 10, reminderAt: 7 })).toBe(7);
