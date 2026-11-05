@@ -73,10 +73,11 @@ export function isApplicationDataProcessingConsent(value, ...semanticMetadata) {
 }
 
 /**
- * Choose the shortest clearly described data-retention option. A current-
- * application deletion option outranks every duration; future-purpose options
- * are never selected when the form offers a shorter current-application term.
- * Unknown or tied catalogues stay unanswered.
+ * Choose the shortest clearly described data-retention option for this
+ * application. A current-application deletion option outranks every duration;
+ * future-purpose options authorize a distinct use and are never selected by
+ * this default, even when they include a numeric term. Unknown or tied
+ * catalogues stay unanswered.
  */
 export function minimumDataRetentionOption(options, question = '') {
   const normalize = value => String(value ?? '').replace(/\p{Cf}/gu, '').normalize('NFD')
@@ -93,22 +94,33 @@ export function minimumDataRetentionOption(options, question = '') {
   const durationFactor = { day: 1, week: 7, month: 30, year: 365 };
   const durationUnit = /\b(days?|giorn[io]|tage?n?|jours?)\b/;
   const weekUnit = /\b(weeks?|settimane?|wochen|semaines?)\b/;
-  const monthUnit = /\b(months?|mesi?|monate?n?|mois)\b/;
-  const yearUnit = /\b(years?|anni?|jahre?n?|ans?)\b/;
+  const monthUnit = /\b(months?|mes(?:e|i)|monate?n?|mois)\b/;
+  const yearUnit = /\b(years?|ann(?:o|i)|jahre?n?|ans?)\b/;
+  const durationPattern = /\b(\d{1,3}(?:[.,]\d{1,2})?|one|uno|un|une|ein|eins|eine|two|due|zwei|deux|three|tre|drei|trois|four|quattro|vier|quatre|five|cinque|funf|fuenf|cinq|six|sei|sechs)\s*(days?|giorn[io]|tage?n?|jours?|weeks?|settimane?|wochen|semaines?|months?|mes(?:e|i)|monate?n?|mois|years?|ann(?:o|i)|jahre?n?|ans?)\b/g;
+  const numberWords = { one: 1, uno: 1, un: 1, une: 1, ein: 1, eins: 1, eine: 1, two: 2, due: 2, zwei: 2, deux: 2,
+    three: 3, tre: 3, drei: 3, trois: 3, four: 4, quattro: 4, vier: 4, quatre: 4, five: 5, cinque: 5, funf: 5,
+    fuenf: 5, cinq: 5, six: 6, sei: 6, sechs: 6 };
   const rank = option => {
     const value = option.value;
-    const durationMatches = [...new Map([...value.matchAll(/\b(\d{1,3}(?:[.,]\d{1,2})?|one|uno|un|une|ein|eins|eine|two|due|zwei|deux|three|tre|drei|trois|four|quattro|vier|quatre|five|cinque|funf|fuenf|cinq|six|sei|sechs)\s*(days?|giorn[io]|tage?n?|jours?|weeks?|settimane?|wochen|semaines?|months?|mesi?|monate?n?|mois|years?|anni?|jahre?n?|ans?)\b/g)]
-      .map(match => [`${match[1]} ${match[2]}`, match])).values()];
-    if (durationMatches.length > 1) return null;
-    if (durationMatches.length === 1) {
-      const [, amountText, unit] = durationMatches[0];
-      const numbers = { one: 1, uno: 1, un: 1, une: 1, ein: 1, eins: 1, eine: 1, two: 2, due: 2, zwei: 2, deux: 2,
-        three: 3, tre: 3, drei: 3, trois: 3, four: 4, quattro: 4, vier: 4, quatre: 4, five: 5, cinque: 5, funf: 5,
-        fuenf: 5, cinq: 5, six: 6, sei: 6, sechs: 6 };
-      const amount = /^\d/.test(amountText) ? Number(amountText.replace(',', '.')) : numbers[amountText];
-      const factor = durationUnit.test(unit) ? durationFactor.day : weekUnit.test(unit) ? durationFactor.week
-        : monthUnit.test(unit) ? durationFactor.month : yearUnit.test(unit) ? durationFactor.year : 0;
-      return Number.isFinite(amount) && amount >= 0 && factor ? amount * factor : null;
+    const futureStorage = isOptionalPurpose(option.purpose);
+    if (futureStorage) return Number.POSITIVE_INFINITY;
+
+    // A form may repeat the same duration in a human label and a machine value
+    // (for example “six months” and “6_months”). Deduplicate the parsed tuple,
+    // not its source spelling, while still rejecting genuinely mixed terms.
+    const durationMatches = new Map();
+    for (const match of value.matchAll(durationPattern)) {
+      const [, amountText, unit] = match;
+      const amount = /^\d/.test(amountText) ? Number(amountText.replace(',', '.')) : numberWords[amountText];
+      const unitKey = durationUnit.test(unit) ? 'day' : weekUnit.test(unit) ? 'week'
+        : monthUnit.test(unit) ? 'month' : yearUnit.test(unit) ? 'year' : '';
+      if (!Number.isFinite(amount) || !unitKey) continue;
+      durationMatches.set(`${amount}:${unitKey}`, { amount, unitKey });
+    }
+    if (durationMatches.size > 1) return null;
+    if (durationMatches.size === 1) {
+      const [{ amount, unitKey }] = durationMatches.values();
+      return amount >= 0 ? amount * durationFactor[unitKey] : null;
     }
 
     const deletes = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/.test(value);
@@ -117,9 +129,6 @@ export function minimumDataRetentionOption(options, question = '') {
       && /\b(?:this application|current application|questa candidatura|candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
     if ((deletes && followsCurrentApplication) || currentOnly) return 0;
 
-    const futureStorage = isOptionalPurpose(option.purpose)
-      && /\b(?:retain\w*|keep\w*|store\w*|memoriz\w*|conserv\w*|speicher\w*|aufbewahr\w*)\b/.test(value);
-    if (futureStorage) return Number.POSITIVE_INFINITY;
     const answerIsNo = /^(?:no|non|nein|nein danke|non desidero|non acconsento|non consento)$/.test(value)
       || /\b(?:do not consent|non acconsento|non consento|nicht einverstanden|ne suis pas d accord)\b/.test(value);
     if (answerIsNo && (currentApplication || isOptionalPurpose(question))) return 0;
