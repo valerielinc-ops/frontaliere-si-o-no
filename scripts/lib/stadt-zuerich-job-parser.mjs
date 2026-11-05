@@ -727,6 +727,9 @@ async function fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, public
     await new Promise((resolve) => setTimeout(resolve, delayMs));
   }
 
+  return byRef;
+}
+
 async function readCurrentOfficialIndexHtml(wantedRefs, delayMs, fetchCurrentOfficialIndexPage) {
   if (fetchCurrentOfficialIndexPage) {
     return String(await fetchCurrentOfficialIndexPage([...wantedRefs]) || '');
