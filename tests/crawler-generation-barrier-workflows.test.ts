@@ -295,6 +295,9 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(persist.run).toContain('ne 42');
       expect(persist.run).toContain('eq 43');
       expect(persist.run).toContain('exit "$git_commit_exit"');
+      expect(persist.run.indexOf('validate-workflow-data.mjs')).toBeLessThan(
+        persist.run.indexOf('git-commit-data.sh --extra-only'),
+      );
       const finalizerFailure = stepByName(job.steps, 'Report crawler generation finalizer failure');
       expect(finalizerFailure.if).toBe(
         "always() && steps.crawler-generation-finalizer.outcome == 'failure'",
