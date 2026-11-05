@@ -77,7 +77,7 @@ import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, mergeRequiredDocuments, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
-import { candidateForForm, portalQuestionKey, verifiedUmantisPostingAddress } from './portal/portal.mjs';
+import { candidateForForm, portalQuestionKey, postingAddressForPortal } from './portal/portal.mjs';
 import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
@@ -442,10 +442,11 @@ export async function buildDraft(ctx) {
   // not in a second round at submit time. Questions already asked are kept.
   const formAnswers = buildFormAnswers({ identity, profile, documents, answers, locale, personal });
   const readPortal = ctx.readPortalRequirements || ctx.readPortalQuestions;
-  const portalPostingUrl = verifiedUmantisPostingAddress({
+  const portalPostingUrl = postingAddressForPortal({
     applyUrl: channel.applyUrl,
     postingUrls: [posting.postingUrl, channel.postingUrl, order.jobUrl, posting.applyUrl, channel.applyUrl],
-  }) || posting.postingUrl || order.jobUrl || '';
+    fallback: posting.postingUrl || order.jobUrl || '',
+  });
   if (readPortal && channel.applyUrl) {
     // `candidateWithEdits` may derive a salutation from CV wording or a name
     // for letter formatting. That inference is useful for the letter, but it
