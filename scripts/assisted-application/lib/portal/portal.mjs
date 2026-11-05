@@ -46,6 +46,7 @@ import { formatInternationalPhone, phoneCountryLabel } from '../../../../functio
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
+import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
@@ -2435,6 +2436,8 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
 
 const QUESTION_LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
 const QUESTION_LANGUAGE_CODES = Object.freeze([...Object.keys(QUESTION_LANGUAGE_NAMES), 'unknown']);
+const SAME_LANGUAGE_BATCH_MIN_CONFIDENCE = 0.6;
+const SAME_LANGUAGE_ITEM_OTHER_CONFIDENCE = 0.15;
 const QUESTION_LOCALIZATION_SCHEMA = {
   type: 'object',
   properties: {
@@ -2662,6 +2665,45 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   };
 }
 
+/**
+ * A readable batch already written in the candidate's language needs no model
+ * call. Keep the check conservative: the application locale must agree, the
+ * complete batch must have a high-confidence result, and no individual
+ * question may have a meaningful high-confidence result in another language.
+ * A mixed or ambiguous batch still goes through the source-language detector
+ * prompt below, because a posting-language hint is not proof of the ATS copy.
+ */
+function sameLanguagePortalLocalization(items, candidateLanguage, applicationLanguageHint) {
+  if (!candidateLanguage || applicationLanguageHint !== candidateLanguage) return null;
+  const sourceText = items.flatMap((item) => [
+    item.applicationQuestion,
+    ...(Array.isArray(item.applicationOptions) ? item.applicationOptions : []),
+  ]).filter(Boolean).join(' ');
+  const batch = detectLanguageWithConfidence(sourceText, applicationLanguageHint);
+  if (batch.lang !== candidateLanguage || batch.confidence < SAME_LANGUAGE_BATCH_MIN_CONFIDENCE) return null;
+  const hasOtherLanguageQuestion = items.some((item) => {
+    const questionText = [
+      item.applicationQuestion,
+      ...(Array.isArray(item.applicationOptions) ? item.applicationOptions : []),
+    ].filter(Boolean).join(' ');
+    if (questionText.length < 10) return false;
+    const detected = detectLanguageWithConfidence(questionText, candidateLanguage);
+    return detected.lang !== candidateLanguage && detected.confidence >= SAME_LANGUAGE_ITEM_OTHER_CONFIDENCE;
+  });
+  if (hasOtherLanguageQuestion) return null;
+  return items.map((item) => {
+    const applicationOptions = Array.isArray(item.applicationOptions) ? item.applicationOptions : [];
+    const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+    return {
+      ...item,
+      question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+      ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
+      applicationQuestionLocale: candidateLanguage,
+      localizationStatus: 'same_language',
+    };
+  });
+}
+
 export class PortalQuestionLocalizationError extends Error {
   constructor() {
     super('portal_question_localization_unavailable');
@@ -2698,6 +2740,8 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const deterministic = items.map((item) => deterministicGermanLocalization(item, candidateLanguage));
   const unresolved = items.filter((_item, index) => !deterministic[index]);
   if (!unresolved.length) return deterministic;
+  const sameLanguage = sameLanguagePortalLocalization(items, candidateLanguage, applicationLanguageHint);
+  if (sameLanguage) return sameLanguage;
   // Posting/letter language is only a hint. An ATS may render a German form
   // for an Italian-language job, so compare against the native question text.
   if (typeof codex !== 'function') return items.map((item, index) => deterministic[index] || fallbackLocalizedQuestion(item, candidateLanguage));
