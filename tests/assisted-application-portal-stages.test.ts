@@ -153,7 +153,12 @@ describe('application stage ownership', () => {
   });
 
   it('recognizes a title-bound SuccessFactors application split across profile and question forms', () => {
-    const submit = { text: 'Bewerben', formId: 'apply-actions', frame: 0 };
+    const submit = {
+      text: 'Bewerben', formId: 'apply-actions', frame: 0,
+      applicationScopeId: 'application-main',
+      sectionGroupId: 'questions-group',
+      sectionGroup: 'Stellenspezifische Informationen',
+    };
     const form = {
       url: 'https://career5.successfactors.eu/portalcareer',
       text: [job.title, 'Profilinformationen', 'Stellenspezifische Informationen', 'Wie hat dich diese Stelle motiviert?', submit.text].join('\n'),
@@ -162,7 +167,7 @@ describe('application stage ownership', () => {
         { label: '* E-Mail', kind: 'text', inputType: 'email', required: true, formId: 'profile', applicationScopeId: 'application-main', sectionGroupId: 'profile-group', sectionGroup: 'Profilinformationen', frame: 0 },
         { label: '* Was hat dich motiviert, dich auf diese Stelle zu bewerben?', kind: 'textarea', inputType: 'textarea', required: true, formId: 'questions', applicationScopeId: 'application-main', sectionGroupId: 'questions-group', sectionGroup: 'Stellenspezifische Informationen', frame: 0 },
       ],
-      buttons: [{ ...submit, applicationScopeId: 'application-main', sectionGroupId: 'questions-group', sectionGroup: 'Stellenspezifische Informationen' }],
+      buttons: [submit],
     };
 
     expect(applicationStage(form, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('form');
@@ -170,7 +175,7 @@ describe('application stage ownership', () => {
     expect(applicationStage({ ...form, buttons: [{ text: submit.text, frame: 0 }] }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
     expect(applicationStage({ ...form, text: 'Profilinformationen Stellenspezifische Informationen' }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
     expect(applicationStage({ ...form, fields: form.fields.map(field => ({ ...field, frame: 1 })) }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
-    expect(applicationStage({ ...form, buttons: [{ ...submit, section: 'Newsletter' }] }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
+    expect(applicationStage({ ...form, buttons: [{ ...submit, sectionGroupId: 'newsletter-group', sectionGroup: 'Newsletter' }] }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
     expect(applicationStage({
       ...form,
       fields: form.fields.map(field => field.formId === 'questions' ? { ...field, sectionGroupId: 'unrelated-group' } : field),
