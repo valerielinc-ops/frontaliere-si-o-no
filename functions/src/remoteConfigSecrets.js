@@ -81,10 +81,12 @@ export async function getRemoteConfigTemplate() {
  await getTemplatePromise();
  } catch (error) {
  if (!isFetchTimeoutError(error)) throw error;
- throw new Error(
+ const wrapped = new Error(
  `Remote Config template fetch timed out after ${REMOTE_CONFIG_FETCH_TIMEOUT_MS}ms and no cached template is available`,
  { cause: error },
  );
+ wrapped.code = REMOTE_CONFIG_FETCH_TIMEOUT_CODE;
+ throw wrapped;
  }
  } else {
  const age = now - cacheTimestamp;
