@@ -1,7 +1,7 @@
 {
   "crawlerKey": "georg-fischer",
-  "assembledAt": "2026-11-04T21:44:56.638Z",
-  "runId": "41915347941",
+  "assembledAt": "2026-11-05T09:43:54.070Z",
+  "runId": "42001694377",
   "jobs": [
     {
       "id": "georg-fischer-a0edd76948d9",
@@ -35,7 +35,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/SachbearbeiterIn-Kundeninnendienst--m-w-d-_JR11120",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:44:47.806Z",
+      "crawledAt": "2026-11-05T09:43:48.645Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T21:44:47.806Z",
+      "validThrough": "2026-12-05T09:43:48.645Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -99,7 +99,7 @@
       "slugByLocale": {
         "it": "stagista-qm-georg-fischer-sissach",
         "en": "qm-intern-georg-fischer-sissach",
-        "de": "praktikant-in-qm-georg-fischer-sissach",
+        "de": "praktikant-in-qm-georg-fischer-ch",
         "fr": "stagiaire-qm-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
@@ -125,7 +125,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/Praktikant-in-QM_JR10915",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:44:47.128Z",
+      "crawledAt": "2026-11-05T09:43:47.965Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -144,17 +144,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10915",
-      "previousSlugs": [
-        "praktikant-in-qm-georg-fischer-ch"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-qm-georg-fischer-ch"
-        ],
         "de": [
+          "praktikant-in-qm-georg-fischer-sissach"
+        ],
+        "it": [
           "praktikant-in-qm-georg-fischer-ch"
         ]
       },
+      "previousSlugs": [
+        "praktikant-in-qm-georg-fischer-ch",
+        "praktikant-in-qm-georg-fischer-sissach"
+      ],
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -171,7 +172,7 @@
       "postalCode": "4450",
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:44:47.128Z",
+      "validThrough": "2026-12-28T09:43:47.965Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -206,7 +207,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/EinrichterIn-Gussputzerei--m-w-d-_JR11347",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:44:46.446Z",
+      "crawledAt": "2026-11-05T09:43:47.269Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -249,7 +250,7 @@
       "postalCode": "4450",
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:44:46.446Z",
+      "validThrough": "2027-01-05T09:43:47.269Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -283,7 +284,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Application-Consultant-Product-Labeling--m-w-d-_JR11187",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:44:45.772Z",
+      "crawledAt": "2026-11-05T09:43:46.566Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -341,7 +342,7 @@
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-07T21:44:45.772Z",
+      "validThrough": "2027-01-07T09:43:46.566Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -350,7 +351,7 @@
       "slugByLocale": {
         "it": "pianificatore-di-produzione-in-m-f-d-80-georg-fischer-schaffhausen",
         "en": "production-planner-in-m-f-d-80-georg-fischer-schaffhausen",
-        "de": "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen",
+        "de": "produktionsplanerin-m-w-d-80-georg-fischer-ch",
         "fr": "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
@@ -376,7 +377,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/ProduktionsplanerIn--m-w-d---80-_JR11554",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:44:45.026Z",
+      "crawledAt": "2026-11-05T09:43:45.896Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -395,11 +396,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR11554",
-      "previousSlugs": [
-        "produktionsplanerin-m-w-d-80-georg-fischer-ch",
-        "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
+        ],
         "it": [
           "produktionsplanerin-m-w-d-80-georg-fischer-ch",
           "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
@@ -409,11 +409,12 @@
         ],
         "fr": [
           "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
-        ],
-        "de": [
-          "produktionsplanerin-m-w-d-80-georg-fischer-ch"
         ]
       },
+      "previousSlugs": [
+        "produktionsplanerin-m-w-d-80-georg-fischer-ch",
+        "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
+      ],
       "firstSeenAt": "2026-10-16T09:32:14.777Z",
       "salaryMin": 53600,
       "salaryMax": 81600,
@@ -442,7 +443,7 @@
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-14T21:44:45.026Z",
+      "validThrough": "2027-01-14T09:43:45.896Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -451,7 +452,7 @@
       "slugByLocale": {
         "it": "automatico-m-f-d-georg-fischer-sissach",
         "en": "automatician-m-f-d-georg-fischer-sissach",
-        "de": "automatikerin-m-w-d-georg-fischer-sissach",
+        "de": "automatikerin-m-w-d-georg-fischer-ch",
         "fr": "automatique-h-f-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
@@ -477,7 +478,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/AutomatikerIn--m-w-d-_JR11484-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:44:44.356Z",
+      "crawledAt": "2026-11-05T09:43:45.174Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -496,23 +497,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR11484",
-      "previousSlugs": [
-        "automatikerin-m-w-d-georg-fischer-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "automatikerin-m-w-d-georg-fischer-sissach"
+        ],
         "it": [
           "automatikerin-m-w-d-georg-fischer-ch"
         ],
         "en": [
           "automatikerin-m-w-d-georg-fischer-ch"
         ],
-        "de": [
-          "automatikerin-m-w-d-georg-fischer-ch"
-        ],
         "fr": [
           "automatikerin-m-w-d-georg-fischer-ch"
         ]
       },
+      "previousSlugs": [
+        "automatikerin-m-w-d-georg-fischer-ch",
+        "automatikerin-m-w-d-georg-fischer-sissach"
+      ],
       "firstSeenAt": "2026-10-16T09:32:14.038Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -530,7 +532,7 @@
       "postalCode": "4450",
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:44:44.356Z",
+      "validThrough": "2027-01-14T09:43:45.174Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -565,7 +567,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Microscopy---Analytics-Expert--m-f-d-_JR11455-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:44:43.675Z",
+      "crawledAt": "2026-11-05T09:43:44.480Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -630,7 +632,7 @@
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-20T21:44:43.675Z",
+      "validThrough": "2027-01-20T09:43:44.480Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -665,7 +667,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Anlagenfhrer-im-4-Schichtbetrieb-100---m-w-d-_JR11096",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:44:42.994Z",
+      "crawledAt": "2026-11-05T09:43:43.623Z",
       "addressLocality": "Seewis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -730,7 +732,7 @@
       "postalCode": "7000",
       "streetAddress": "Seewis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:42.994Z",
+      "validThrough": "2026-12-20T09:43:43.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -765,7 +767,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schlatt-Thurgau/Praktikant-in-GF-Konzernarchiv-und-Eisenbibliothek--w-m-d---100---9---12-Monate_JR11632",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:44:42.320Z",
+      "crawledAt": "2026-11-05T09:43:42.773Z",
       "addressLocality": "Schlatt, Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -817,16 +819,16 @@
       "postalCode": "8252",
       "streetAddress": "Schlatt, Thurgau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:44:42.320Z",
+      "validThrough": "2027-01-24T09:43:42.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-2bb94ecf6068",
       "slug": "controllo-testa-emea-m-f-d-georg-fischer-schaffhausen",
       "slugByLocale": {
-        "en": "head-controlling-emea-m-w-d-georg-fischer-ch",
         "it": "controllo-testa-emea-m-f-d-georg-fischer-schaffhausen",
-        "de": "head-controlling-emea-m-w-d-georg-fischer-ch",
+        "en": "head-controlling-emea-m-w-d-georg-fischer-ch",
+        "de": "leiter-controlling-emea-m-w-d-georg-fischer-schaffhausen",
         "fr": "controle-de-la-tete-emea-h-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
@@ -834,24 +836,25 @@
       "companyDomain": "georgfischer.com",
       "title": "Head Controlling EMEA (m/w/d)",
       "titleByLocale": {
-        "en": "Head Controlling EMEA (m/w/d)",
         "it": "Controllo testa EMEA (m/f/d)",
+        "en": "Head Controlling EMEA (m/w/d)",
         "de": "Leiter Controlling EMEA (m/w/d)",
         "fr": "Contrôle de la tête EMEA (h/f/d)"
       },
       "description": "We are looking for a new Head Controlling EMEA for our industrial and infrastructure business. In this role, you will be responsible for driving financial performance, transparency and decision support across the EMEA region with several 100MM turnover and more than a dozen entities. The role acts as a key finance partner to regional and business leadership, ensuring robust planning, forecasting and performance management while supporting strategic and operational decision-making across sales companies, production locations and regional functions. This role is a great opportunity for an experienced Financial Controlling Professional, who enjoys the diversity of this type of role and is eager to join a growing business. The role reports directly to the CFO of the division and is to be based at our HQ in Schaffhausen, Switzerland. It entails business travels of approximately 30%.\n\nYour main tasks\n\n• Leading financial performance management across EMEA, providing clear insight into sales, profitability, margins, costs, working capital and overall business performance\n\n• Leading and coordinate the EMEA budgeting, forecasting and strategic planning processes\n\n• Acting as a senior finance business partner to EMEA leadership and key functional stakeholders\n\n• Driving transparency regarding profitability by market, customer, product and operating entity\n\n• Supporting the development and operation of appropriate transfer-pricing and intercompany models across EMEA.\n\n• Driving simplification, standardisation and automation of controlling and reporting processes\n\n• Promoting strong financial governance, disciplined planning and consistent application of group finance principles\n\nYour profile\n\n• University degree in Finance, Accounting, Economics or Business Administration\n\n• At least 7 years of international controlling, FP&A or commercial finance experience in an industrial or manufacturing environment\n\n• Excellent understanding of P&L, balance sheet and cash-flow drivers, strong financial modelling and analytical skills\n\n• Working knowledge of transfer pricing and intercompany financial flows\n\n• Strong systems orientation, ideally including SAP, OneStream and Power BI, advanced Excel capability\n\n• Good balance of operational strength and strategic vision, combining strong problem-solving skills with a continuous improvement mindset\n\n• Ability to deal with ambiguity, with a bias for speed and simplification\n\n• Excellent communication skills, ability to influence remotely and across functions and hierarchies, fluent English is required, German is a plus\n\nNo agencies please, candidates are kindly asked to apply directly, thank you!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Manager\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
       "descriptionByLocale": {
-        "en": "We are looking for a new Head Controlling EMEA for our industrial and infrastructure business. In this role, you will be responsible for driving financial performance, transparency and decision support across the EMEA region with several 100MM turnover and more than a dozen entities. The role acts as a key finance partner to regional and business leadership, ensuring robust planning, forecasting and performance management while supporting strategic and operational decision-making across sales companies, production locations and regional functions. This role is a great opportunity for an experienced Financial Controlling Professional, who enjoys the diversity of this type of role and is eager to join a growing business. The role reports directly to the CFO of the division and is to be based at our HQ in Schaffhausen, Switzerland. It entails business travels of approximately 30%.\n\nYour main tasks\n\n• Leading financial performance management across EMEA, providing clear insight into sales, profitability, margins, costs, working capital and overall business performance\n\n• Leading and coordinate the EMEA budgeting, forecasting and strategic planning processes\n\n• Acting as a senior finance business partner to EMEA leadership and key functional stakeholders\n\n• Driving transparency regarding profitability by market, customer, product and operating entity\n\n• Supporting the development and operation of appropriate transfer-pricing and intercompany models across EMEA.\n\n• Driving simplification, standardisation and automation of controlling and reporting processes\n\n• Promoting strong financial governance, disciplined planning and consistent application of group finance principles\n\nYour profile\n\n• University degree in Finance, Accounting, Economics or Business Administration\n\n• At least 7 years of international controlling, FP&A or commercial finance experience in an industrial or manufacturing environment\n\n• Excellent understanding of P&L, balance sheet and cash-flow drivers, strong financial modelling and analytical skills\n\n• Working knowledge of transfer pricing and intercompany financial flows\n\n• Strong systems orientation, ideally including SAP, OneStream and Power BI, advanced Excel capability\n\n• Good balance of operational strength and strategic vision, combining strong problem-solving skills with a continuous improvement mindset\n\n• Ability to deal with ambiguity, with a bias for speed and simplification\n\n• Excellent communication skills, ability to influence remotely and across functions and hierarchies, fluent English is required, German is a plus\n\nNo agencies please, candidates are kindly asked to apply directly, thank you!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Manager\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
         "it": "Stiamo cercando un nuovo Head Controlling EMEA per il nostro business industriale e infrastrutturale. In questo ruolo, sarai responsabile della guida delle prestazioni finanziarie, della trasparenza e del supporto decisionale in tutta la regione dell'EMEA con più fatturato di 100MM e più di una dozzina di entità. Il ruolo funge da partner finanziario chiave per la leadership regionale e aziendale, assicurando una pianificazione robusta, la previsione e la gestione delle prestazioni, supportando il processo decisionale strategico e operativo in aziende di vendita, sedi di produzione e funzioni regionali. Questo ruolo è una grande opportunità per un esperto Financial Controlling Professional, che gode della diversità di questo tipo di ruolo ed è desideroso di unire un business in crescita. Il ruolo si riferisce direttamente al CFO della divisione e si basa sul nostro quartier generale a Schaffhausen, in Svizzera. Esso comporta viaggi d'affari di circa il 30%.\n\nI compiti principali\n\n• Leader della gestione delle prestazioni finanziarie in EMEA, fornendo una chiara comprensione delle vendite, della redditività, dei margini, dei costi, del capitale di lavoro e delle prestazioni aziendali globali\n\n• Leader e coordinare i processi di budgeting, previsioni e pianificazione strategica dell'EMEA\n\n• Agire come partner finanziario senior per la leadership EMEA e principali stakeholder funzionali\n\n• Trasparenza di guida per la redditività da parte del mercato, del cliente, del prodotto e dell'ente operativo\n\n• Sostenere lo sviluppo e il funzionamento di appropriati modelli di trasferimento-precing e intercompany in EMEA.\n\n• semplificazione, standardizzazione e automazione dei processi di controllo e reporting\n\n• Promuovere una forte governance finanziaria, una pianificazione disciplinata e un'applicazione coerente dei principi di finanza di gruppo\n\nIl tuo profilo\n\n• Laurea in finanza, contabilità, economia o amministrazione aziendale\n\n• Almeno 7 anni di esperienza di controllo internazionale, FP&A o finanza commerciale in un ambiente industriale o produttivo\n\n• Ottima comprensione della P&L, del bilancio e dei conducenti a flusso di cassa, forte modellazione finanziaria e competenze analitiche\n\n• Conoscenze di lavoro di trasferimento prezzi e flussi finanziari intercompany\n\n• Forte orientamento dei sistemi, ideale tra cui SAP, OneStream e Power BI, capacità avanzata di Excel\n\n• Un buon equilibrio tra forza operativa e visione strategica, unendo forti capacità di problem solving con una mentalità di miglioramento continuo\n\n• Capacità di affrontare l'ambiguità, con un pregiudizio per velocità e semplificazione\n\n• Eccellente capacità di comunicazione, capacità di influenzare da remoto e attraverso funzioni e gerarchie, fluente inglese è richiesto, tedesco è un plus\n\nNessuna agenzia per favore, i candidati sono gentilmente chiesto di applicare direttamente, grazie!\n\n#LI-DNI\n\nContatto:\n\nMoritz Nauer\nTalent Acquisizione Manager\nmoritz.nauer@georgfischer.com\nSi prega di inviare la domanda tramite il pulsante 'Applica'. L'email del reclutatore è solo per le richieste.",
+        "en": "We are looking for a new Head Controlling EMEA for our industrial and infrastructure business. In this role, you will be responsible for driving financial performance, transparency and decision support across the EMEA region with several 100MM turnover and more than a dozen entities. The role acts as a key finance partner to regional and business leadership, ensuring robust planning, forecasting and performance management while supporting strategic and operational decision-making across sales companies, production locations and regional functions. This role is a great opportunity for an experienced Financial Controlling Professional, who enjoys the diversity of this type of role and is eager to join a growing business. The role reports directly to the CFO of the division and is to be based at our HQ in Schaffhausen, Switzerland. It entails business travels of approximately 30%.\n\nYour main tasks\n\n• Leading financial performance management across EMEA, providing clear insight into sales, profitability, margins, costs, working capital and overall business performance\n\n• Leading and coordinate the EMEA budgeting, forecasting and strategic planning processes\n\n• Acting as a senior finance business partner to EMEA leadership and key functional stakeholders\n\n• Driving transparency regarding profitability by market, customer, product and operating entity\n\n• Supporting the development and operation of appropriate transfer-pricing and intercompany models across EMEA.\n\n• Driving simplification, standardisation and automation of controlling and reporting processes\n\n• Promoting strong financial governance, disciplined planning and consistent application of group finance principles\n\nYour profile\n\n• University degree in Finance, Accounting, Economics or Business Administration\n\n• At least 7 years of international controlling, FP&A or commercial finance experience in an industrial or manufacturing environment\n\n• Excellent understanding of P&L, balance sheet and cash-flow drivers, strong financial modelling and analytical skills\n\n• Working knowledge of transfer pricing and intercompany financial flows\n\n• Strong systems orientation, ideally including SAP, OneStream and Power BI, advanced Excel capability\n\n• Good balance of operational strength and strategic vision, combining strong problem-solving skills with a continuous improvement mindset\n\n• Ability to deal with ambiguity, with a bias for speed and simplification\n\n• Excellent communication skills, ability to influence remotely and across functions and hierarchies, fluent English is required, German is a plus\n\nNo agencies please, candidates are kindly asked to apply directly, thank you!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Manager\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
         "de": "Wir suchen einen neuen Head Controlling EMEA für unser Industrie- und Infrastrukturgeschäft. In dieser Rolle sind Sie dafür verantwortlich, die finanzielle Performance, Transparenz und Entscheidungsunterstützung in der gesamten EMEA-Region mit mehreren 100-MM-Umsätzen und mehr als einem Dutzend Unternehmen voranzutreiben. Die Rolle fungiert als wichtiger Finanzpartner für die regionale und geschäftliche Führung und gewährleistet eine robuste Planung, Prognose und Leistungsmanagement und unterstützt gleichzeitig die strategische und operative Entscheidungsfindung in Vertriebsgesellschaften, Produktionsstandorten und regionalen Funktionen. Diese Rolle ist eine großartige Gelegenheit für einen erfahrenen Financial Controlling Professional, der die Vielfalt dieser Art von Rolle genießt und sich einem wachsenden Unternehmen anschließen möchte. Die Rolle berichtet direkt an den CFO der Division und soll an unserem Hauptsitz in Schaffhausen, Schweiz, angesiedelt sein. Es geht um Geschäftsreisen von ca. 30%.\n\nIhre Hauptaufgaben\n\n• Führendes Finanz-Performance-Management in der gesamten EMEA-Region, das klare Einblicke in Umsatz, Rentabilität, Margen, Kosten, Betriebskapital und allgemeine Geschäftsentwicklung bietet\n\n• Leitung und Koordination der EMEA-Budgetierung, Prognose und strategischen Planungsprozesse\n\n• Als Senior Finance Business Partner für die EMEA-Führung und wichtige funktionale Stakeholder\n\n• Transparenz der Rentabilität nach Markt, Kunde, Produkt und operativer Einheit\n\n• Unterstützung der Entwicklung und des Betriebs geeigneter Transfer-Pricing- und Intercompany-Modelle in der gesamten EMEA-Region.\n\n• Vereinfachung, Standardisierung und Automatisierung von Controlling- und Reporting-Prozessen vorantreiben\n\n• Förderung einer starken finanziellen Governance, einer disziplinierten Planung und einer konsequenten Anwendung der Prinzipien der Gruppenfinanzierung\n\nDein Profil\n\n• Universitätsabschluss in Finanzen, Rechnungswesen, Wirtschaft oder Betriebswirtschaft\n\n• Mindestens 7 Jahre internationale Controlling-, FP&A- oder Commercial Finance-Erfahrung in einer Industrie- oder Fertigungsumgebung\n\n• Ausgezeichnetes Verständnis von P&L, Bilanz- und Cashflow-Treibern, starke Finanzmodellierung und analytische Fähigkeiten\n\n• Kenntnisse der Verrechnungspreise und der Finanzströme zwischen Unternehmen\n\n• Starke Systemorientierung, idealerweise einschließlich SAP, OneStream und Power BI, erweiterte Excel-Fähigkeit\n\n• Gute Balance zwischen operativer Stärke und strategischer Vision, die starke Problemlösungskompetenzen mit einer kontinuierlichen Verbesserung kombiniert\n\n• Fähigkeit, mit Mehrdeutigkeiten umzugehen, mit einer Neigung zu Geschwindigkeit und Vereinfachung\n\n• Hervorragende Kommunikationsfähigkeiten, Fähigkeit, Funktionen und Hierarchien zu beeinflussen, fließend Englisch ist erforderlich, Deutsch ist ein Plus\n\nKeine Agenturen bitte, Kandidaten werden gebeten, sich direkt zu bewerben, danke!\n\n#LI-DNI\n\nKontaktperson:\n\nMoritz Nauer\nManager Talent Acquisition\nmoritz.nauer@georgfischer.com\nBitte senden Sie Ihre Bewerbung über den Button „Bewerben. Die E-Mail des Recruiters ist nur für Anfragen bestimmt.",
         "fr": "Nous sommes à la recherche d'un nouveau Head Controlling EMEA pour nos activités industrielles et d'infrastructure. Dans ce rôle, vous serez responsable de la performance financière, de la transparence et du soutien à la décision dans l'ensemble de la région de l'EMEA avec plusieurs roulements de 100MM et plus d'une douzaine d'entités. Ce rôle joue le rôle de partenaire financier clé du leadership régional et commercial, assurant une planification, des prévisions et une gestion du rendement robustes, tout en appuyant la prise de décisions stratégiques et opérationnelles entre les sociétés de vente, les lieux de production et les fonctions régionales. Ce rôle est une excellente occasion pour un professionnel expérimenté du contrôle financier, qui jouit de la diversité de ce type de rôle et est impatient de rejoindre une entreprise en croissance. Le rôle relève directement du CFO de la division et doit être basé à notre siège social à Schaffhausen, en Suisse. Elle entraîne des voyages d'affaires d'environ 30 %.\n\nVos principales tâches\n\n• Diriger la gestion de la performance financière dans l'ensemble de l'EMEA, en donnant un aperçu clair des ventes, de la rentabilité, des marges, des coûts, du fonds de roulement et de la performance globale des entreprises\n\n• Diriger et coordonner les processus de budgétisation, de prévision et de planification stratégique de l'EMEA\n\n• Agissant en tant que partenaire principal de l'entreprise financière auprès du leadership de l'EMEA et des principales parties prenantes fonctionnelles\n\n• Favoriser la transparence en matière de rentabilité par marché, client, produit et entité opérationnelle\n\n• Soutenir l'élaboration et le fonctionnement de modèles appropriés de prix de transfert et d'interentreprises dans l'ensemble de l'EMEA.\n\n• Simplification, normalisation et automatisation des processus de contrôle et de déclaration\n\n• Promouvoir une gouvernance financière solide, une planification disciplinée et une application cohérente des principes financiers collectifs\n\nVotre profil\n\n• Diplôme universitaire en finance, comptabilité, économie ou administration des affaires\n\n• Au moins 7 ans d'expérience en matière de contrôle international, de FP&A ou de financement commercial dans un environnement industriel ou manufacturier\n\n• Excellente compréhension des facteurs de P&L, du bilan et des flux de trésorerie, des solides capacités de modélisation financière et d'analyse\n\n• Connaissance pratique des prix de transfert et des flux financiers interentreprises\n\n• Forte orientation des systèmes, incluant idéalement SAP, OneStream et Power BI, capacité Excel avancée\n\n• Bon équilibre entre la force opérationnelle et la vision stratégique, combinant des compétences solides en résolution de problèmes et un état d'esprit en amélioration continue\n\n• Capacité de traiter l'ambiguïté, avec un biais pour la rapidité et la simplification\n\n• Excellentes compétences en communication, capacité à influencer à distance et à travers les fonctions et les hiérarchies, l'anglais couramment est nécessaire, l'allemand est un plus\n\nPas d'agence s'il vous plaît, les candidats sont priés de postuler directement, merci!\n\n#LI-DNI\n\nPersonne à contacter:\n\nMoritz Nauer\nGestionnaire d'acquisition de talents\nMoritz.nauer@georgfischer.com\nVeuillez soumettre votre candidature via le bouton « Appliquer ». L'email du recruteur est réservé aux demandes de renseignements."
       },
+      "needsRetranslation": false,
       "location": "Schaffhausen",
       "canton": "SH",
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Head-Controlling-EMEA--m-w-d-_JR11642",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T21:44:41.597Z",
+      "crawledAt": "2026-11-05T09:43:42.097Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -868,10 +871,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Head-Controlling-EMEA--m-w-d-_JR11642",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "JR11642",
+      "previousSlugs": [
+        "head-controlling-emea-m-w-d-georg-fischer-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-controlling-emea-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "head-controlling-emea-m-w-d-georg-fischer-ch"
+        ],
+        "de": [
+          "head-controlling-emea-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-04T21:44:41.597Z",
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",
@@ -899,20 +915,8 @@
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:44:41.597Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:44:41.597Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "head-controlling-emea-m-w-d-georg-fischer-ch"
-        ],
-        "fr": [
-          "head-controlling-emea-m-w-d-georg-fischer-ch"
-        ]
-      },
-      "previousSlugs": [
-        "head-controlling-emea-m-w-d-georg-fischer-ch"
-      ]
+      "validThrough": "2027-02-02T09:43:42.097Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

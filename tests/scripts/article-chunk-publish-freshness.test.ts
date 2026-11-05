@@ -129,6 +129,7 @@ const SURFACE_PATHS = [
   ['root sitemap', 'public/sitemap.xml'],
   ['RSS glob', 'public/rss-it.xml'],
   ['news ticker', 'public/news-ticker-live.json'],
+  ['discovery article index', 'public/data/discovery-articles.json'],
   ['workflow trigger', '.github/workflows/sync-articles-sitemaps.yml'],
 ] as const;
 
@@ -170,6 +171,7 @@ describe('article chunk publish freshness fence', () => {
 
     expect(workflow.on.push.paths).toEqual([...ARTICLE_SURFACE_PATHS]);
     expect(isArticleSurfacePath('public/rss-it.xml')).toBe(true);
+    expect(isArticleSurfacePath('public/data/discovery-articles.json')).toBe(true);
     expect(isArticleSurfacePath('packages/articles/content/blog-body/it/x.ts')).toBe(true);
     expect(isArticleSurfacePath('public/rss-it.txt')).toBe(false);
     expect(isArticleSurfacePath('packages/articles/engine/index.mjs')).toBe(false);

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "suchthilfe-region-basel",
-  "assembledAt": "2026-11-04T21:27:33.309Z",
-  "runId": "41913970796",
+  "assembledAt": "2026-11-05T09:22:24.842Z",
+  "runId": "42000535256",
   "jobs": [
     {
       "id": "suchthilfe-region-basel-9ee6eb185429",
@@ -34,7 +34,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/10/PflegeHF_ESTA_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:27:27.181Z",
+      "crawledAt": "2026-11-05T09:22:18.174Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:27:27.181Z",
+      "validThrough": "2027-01-19T09:22:18.174Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:27:26.594Z",
+      "crawledAt": "2026-11-05T09:22:17.570Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:27:26.594Z",
+      "validThrough": "2026-12-05T09:22:17.570Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:27:26.033Z",
+      "crawledAt": "2026-11-05T09:22:16.982Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:27:26.033Z",
+      "validThrough": "2026-12-05T09:22:16.982Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -1,18 +1,19 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-11-04T21:35:32.335Z",
+  "generatedAt": "2026-11-05T09:36:50.168Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9132,
-  "avgDurationMs": 9132,
+  "durationMs": 8718,
+  "avgDurationMs": 8718,
   "durationHistory": [
-    9132
+    8718
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "CRM Application Engineer",
       "slug": "crm-application-engineer-chiasso",
@@ -56,9 +57,7 @@
         "translation": 21,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Administrative B2B Specialist",
       "slug": "administrative-b2b-specialist-chiasso",
@@ -325,5 +324,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

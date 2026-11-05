@@ -1,7 +1,7 @@
 {
   "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-11-03T09:19:23.850Z",
-  "runId": "41608705826",
+  "assembledAt": "2026-11-05T09:18:53.464Z",
+  "runId": "42000091665",
   "jobs": [
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
@@ -34,7 +34,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-apple-foundation-models-senior-ml-research-scientist-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:17.456Z",
+      "crawledAt": "2026-11-05T09:18:41.947Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,7 +99,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:19:17.456Z",
+      "validThrough": "2026-12-05T09:18:41.947Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -133,7 +133,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:15.862Z",
+      "crawledAt": "2026-11-05T09:18:40.502Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,7 +198,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:19:15.862Z",
+      "validThrough": "2026-12-05T09:18:40.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -213,26 +213,26 @@
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
       "companyDomain": "jobs.apple.com",
-      "title": "Applied Machine Learning Engineer - Security",
+      "title": "AI/ML Engineer - AI Systems for Security, SEAR",
       "titleByLocale": {
         "it": "Applied Machine Learning Ingegnere - Security",
-        "en": "Applied Machine Learning Engineer - Security",
+        "en": "AI/ML Engineer - AI Systems for Security, SEAR",
         "de": "Applied Machine Learning Ingenieur - Security",
         "fr": "Applied Machine Learning Ingénieur - Security"
       },
-      "description": "Summary\nApple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first.\n\nOur mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and we believe that ML techniques significantly enhance our ability to do so. We are seeking an Applied Machine Learning Engineer who will help us invent and deliver these new methods and techniques.\n\nThis position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries.\n\nCan you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.\n\nDescription\nIn this role, you will integrate deeply with security research teams to understand the challenges of analyzing large, complex systems across Apple’s full stack — from custom silicon and microarchitectural elements to boot ROMs, firmware, kernels, system frameworks, web browser and user applications.\n\nYou will design and develop ML‑enhanced systems — using large language models, generative modeling, agentic workflows and other approaches — that complement other analysis methods such as fuzzing, static & dynamic analysis, and manual inspection. Your work will leverage raw data and expert behavior to create practical, scalable approaches to help researchers navigate vast codebases, reason about intricate attack surfaces, and identify subtle weaknesses that are challenging to detect manually. You will also collaborate regularly with security researchers to validate and challenge your innovations during real-world security evaluations, ensuring that your work will directly affect meaningful impact.\n\nMinimum Qualifications\n• Expertise in ML, especially large language models and generative modeling\n• Experience with and/or strong enthusiasm for security, especially offensive security\n• Fluency with software engineering using languages such as C, C++, Python, Swift, Objective-C, Rust\n• Collaborative and effective problem-solving and analytical skills\n\nPreferred Qualifications\n• Familiarity with software‑analysis techniques such as fuzzing, static analysis, code‑analysis tooling, reverse engineering, binary-analysis\n• Familiarity with security mitigations in modern operating systems\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
+      "description": "Summary\nApple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first. Our mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and ML techniques have already significantly enhanced our ability to do so. We're hiring an AI/ML Engineer to join the team building and improving these systems. This position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries. Can you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.\n\nDescription\nIn this role, you will design and develop AI-enhanced systems that help security researchers navigate vast codebases, reason about intricate attack surfaces, and identify subtle weaknesses. Your systems will sit alongside and amplify the techniques the field already relies on: fuzzing, static and dynamic analysis, code review, and more. The scope is unusually broad, spanning the full stack: custom silicon and micro-architecture, boot ROMs, firmware, kernels, system frameworks, browsers, and user applications. To keep Apple ahead of emerging techniques, you will track the state of the art in fundamental and applied AI, and translate the ideas that hold up into practical, production-grade security tools. Alongside security researchers, you will put those systems through real security evaluations, which is the only feedback signal that tells you what's actually landing. As part of a fast-moving team, you will help build the software that lets Apple's products defend against advanced threats, strengthen critical security processes, and protect customers around the world. If the idea of doing frontier ML work with direct, measurable impact on Apple's security posture, and doing it at one of the most diverse and inclusive companies in the world, excites you, we'd love to hear from you.\n\nMinimum Qualifications\n• Solid understanding of machine learning algorithms (supervised, unsupervised, and reinforcement learning) and evaluation methods\n• Hands-on experience with agents design and frameworks, including MCP/tools, observability, evaluations, and self-improvement loops\n• Strong software engineering and programming skills in languages like Python, C, C++, Swift and Objective-C\n• Collaborative and effective problem-solving and analytical skills\n\nPreferred Qualifications\n• Experience scaling LLM training and fine-tuning (pretraining, SFT, alignment)\n• Strong enthusiasm for security\n• Familiarity with software‑analysis techniques such as fuzzing, static analysis, code‑analysis tooling, reverse engineering and binary-analysis\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
       "descriptionByLocale": {
         "it": "Sintesi\nL'organizzazione di Apple Security Engineering & Architecture è responsabile della sicurezza di tutti i prodotti Apple. Appassionato a salvaguardare gli utenti, crediamo che la migliore difesa richiede una grande offesa. Quando si tratta di garantire più di un miliardo di dispositivi che eseguono i sistemi operativi più sofisticati del mondo, questo significa trovare le vulnerabilità prima.\n\nLa nostra missione è scoprire, capire e sfruttare le vulnerabilità di tutti gli strati delle piattaforme di Apple, e crediamo che le tecniche ML migliorano significativamente la nostra capacità di farlo. Stiamo cercando un Ingegnere di Apprendimento della Macchina Applicata che ci aiuterà a inventare e fornire questi nuovi metodi e tecniche.\n\nQuesta posizione fornisce una rara esposizione a una visione completa della sicurezza insieme all'accesso diretto alle conoscenze di esperti, ai dataset unici e all'esperienza cross-domain. I vostri contributi aumenteranno materialmente la sicurezza dei prodotti utilizzati da miliardi e rafforzeranno la capacità di Apple di difendersi dagli avversari.\n\nPuoi fare la differenza su questa scala? Unisciti al nostro straordinario gruppo di ricercatori di sicurezza, sviluppatori di strumenti e esperti di machine learning e aiuta a proteggere tutti gli utenti Apple.\n\nDesignazione\nIn questo ruolo, si integra profondamente con i team di ricerca di sicurezza per capire le sfide di analizzare sistemi di grandi e complessi attraverso lo stack completo di Apple — da elementi di silicio e microarchitecturali personalizzati per avviare ROM, firmware, kernel, framework di sistema, browser web e applicazioni utente.\n\nProgettare e sviluppare sistemi ML-enhanced - utilizzando modelli di grande lingua, modellazione generativa, flussi di lavoro agentici e altri approcci - che completano altri metodi di analisi come fuzzing, analisi statica e dinamica e ispezione manuale. Il vostro lavoro leva i dati grezzi e il comportamento esperto per creare approcci pratici e scalabili per aiutare i ricercatori a navigare vaste basi di codice, la ragione su superfici di attacco intricate e identificare debolezze sottili che sono impegnati a rilevare manualmente. Potrai anche collaborare regolarmente con i ricercatori di sicurezza per convalidare e sfidare le tue innovazioni durante le valutazioni di sicurezza del mondo reale, assicurando che il tuo lavoro influenzerà direttamente impatto significativo.\n\nQualifiche minime\n• Competenza in ML, in particolare modelli di lingua e modellazione generativa\n• Esperienza con e/o forte entusiasmo per la sicurezza, soprattutto sicurezza offensiva\n• Fluency with software engineering utilizzando linguaggi come C, C++, Python, Swift, Objective-C, Rust\n• Capacità di problem solving ed analitiche collaborative ed efficaci\n\nQualificazioni predestinate\n• Familiarità con tecniche di analisi software come fuzzing, analisi statica, strumenti di code-analisi, reverse engineering, analisi binaria\n• Familiarità con le mitigazioni della sicurezza nei moderni sistemi operativi\n\nA Apple, non siamo tutti uguali. E questa e' la nostra piu' grande forza. Disegniamo le differenze di chi siamo, di ciò che abbiamo sperimentato e di come pensiamo. Perché per creare prodotti che servono tutti, crediamo in inclusi tutti. Pertanto, ci impegniamo a trattare tutti i candidati in modo equo ed equo. Collaboreremo con i candidati per fare qualsiasi alloggio ragionevole.\n\nA Apple, crediamo che l'accessibilità sia un diritto umano fondamentale. Troverete che l'idea riflessa in tutto qui — nella nostra cultura, i nostri benefici e i nostri strumenti digitali. Accogliendo quante più prospettive possibile, vi aiutiamo a costruire una carriera in cui vi sentite come voi appartenete.\n\nScopri l’accessibilità sul posto di lavoro di Apple",
-        "en": "Summary\nApple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first.\n\nOur mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and we believe that ML techniques significantly enhance our ability to do so. We are seeking an Applied Machine Learning Engineer who will help us invent and deliver these new methods and techniques.\n\nThis position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries.\n\nCan you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.\n\nDescription\nIn this role, you will integrate deeply with security research teams to understand the challenges of analyzing large, complex systems across Apple’s full stack — from custom silicon and microarchitectural elements to boot ROMs, firmware, kernels, system frameworks, web browser and user applications.\n\nYou will design and develop ML‑enhanced systems — using large language models, generative modeling, agentic workflows and other approaches — that complement other analysis methods such as fuzzing, static & dynamic analysis, and manual inspection. Your work will leverage raw data and expert behavior to create practical, scalable approaches to help researchers navigate vast codebases, reason about intricate attack surfaces, and identify subtle weaknesses that are challenging to detect manually. You will also collaborate regularly with security researchers to validate and challenge your innovations during real-world security evaluations, ensuring that your work will directly affect meaningful impact.\n\nMinimum Qualifications\n• Expertise in ML, especially large language models and generative modeling\n• Experience with and/or strong enthusiasm for security, especially offensive security\n• Fluency with software engineering using languages such as C, C++, Python, Swift, Objective-C, Rust\n• Collaborative and effective problem-solving and analytical skills\n\nPreferred Qualifications\n• Familiarity with software‑analysis techniques such as fuzzing, static analysis, code‑analysis tooling, reverse engineering, binary-analysis\n• Familiarity with security mitigations in modern operating systems\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
+        "en": "Summary\nApple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first. Our mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and ML techniques have already significantly enhanced our ability to do so. We're hiring an AI/ML Engineer to join the team building and improving these systems. This position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries. Can you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.\n\nDescription\nIn this role, you will design and develop AI-enhanced systems that help security researchers navigate vast codebases, reason about intricate attack surfaces, and identify subtle weaknesses. Your systems will sit alongside and amplify the techniques the field already relies on: fuzzing, static and dynamic analysis, code review, and more. The scope is unusually broad, spanning the full stack: custom silicon and micro-architecture, boot ROMs, firmware, kernels, system frameworks, browsers, and user applications. To keep Apple ahead of emerging techniques, you will track the state of the art in fundamental and applied AI, and translate the ideas that hold up into practical, production-grade security tools. Alongside security researchers, you will put those systems through real security evaluations, which is the only feedback signal that tells you what's actually landing. As part of a fast-moving team, you will help build the software that lets Apple's products defend against advanced threats, strengthen critical security processes, and protect customers around the world. If the idea of doing frontier ML work with direct, measurable impact on Apple's security posture, and doing it at one of the most diverse and inclusive companies in the world, excites you, we'd love to hear from you.\n\nMinimum Qualifications\n• Solid understanding of machine learning algorithms (supervised, unsupervised, and reinforcement learning) and evaluation methods\n• Hands-on experience with agents design and frameworks, including MCP/tools, observability, evaluations, and self-improvement loops\n• Strong software engineering and programming skills in languages like Python, C, C++, Swift and Objective-C\n• Collaborative and effective problem-solving and analytical skills\n\nPreferred Qualifications\n• Experience scaling LLM training and fine-tuning (pretraining, SFT, alignment)\n• Strong enthusiasm for security\n• Familiarity with software‑analysis techniques such as fuzzing, static analysis, code‑analysis tooling, reverse engineering and binary-analysis\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
         "de": "Zusammenfassung\nDie Security Engineering & Architecture Organisation von Apple ist für die Sicherheit aller Apple-Produkte verantwortlich. Leidenschaftlich über den Schutz der Benutzer, glauben wir, dass die beste Verteidigung eine große Offensive erfordert. Wenn es darum geht, mehr als eine Milliarde Geräte mit den weltweit anspruchsvollsten Betriebssystemen zu sichern, bedeutet dies, Schwachstellen zuerst zu finden.\n\nUnsere Mission ist es, Schwachstellen auf allen Ebenen der Apple-Plattformen zu entdecken, zu verstehen und auszunutzen, und wir glauben, dass ML-Techniken unsere Fähigkeit dazu erheblich verbessern. Wir suchen einen Applied Machine Learning Engineer, der uns helfen wird, diese neuen Methoden und Techniken zu erfinden und zu liefern.\n\nDiese Position bietet eine seltene Exposition gegenüber einer Full-Stack-Sicht der Sicherheit zusammen mit direktem Zugriff auf Expertenwissen, einzigartige Datensätze und bereichsübergreifende Erfahrung. Ihre Beiträge werden die Sicherheit von Milliardenprodukten wesentlich erhöhen und die Fähigkeit von Apple stärken, sich gegen Gegner zu verteidigen.\n\nKönnen Sie auf dieser Skala einen Unterschied machen? Schließen Sie sich unserer außergewöhnlichen Gruppe von Sicherheitsforschern, Werkzeugentwicklern und Experten für maschinelles Lernen an und helfen Sie dabei, alle Apple-Benutzer zu schützen.\n\nBeschreibung\nIn dieser Rolle integrieren Sie sich intensiv in Sicherheitsforschungsteams, um die Herausforderungen der Analyse großer, komplexer Systeme im gesamten Apple-Stack zu verstehen - von benutzerdefinierten Silizium- und Mikroarchitekturelementen bis hin zu Boot-ROMs, Firmware, Kerneln, System-Frameworks, Webbrowser und Benutzeranwendungen.\n\nSie entwerfen und entwickeln ML-verbesserte Systeme - unter Verwendung großer Sprachmodelle, generativer Modellierung, agentischer Workflows und anderer Ansätze -, die andere Analysemethoden wie Fuzzing, statische & dynamische Analyse und manuelle Inspektion ergänzen. Ihre Arbeit nutzt Rohdaten und Expertenverhalten, um praktische, skalierbare Ansätze zu erstellen, die Forschern helfen, riesige Codebasen zu navigieren, komplizierte Angriffsflächen zu begründen und subtile Schwächen zu identifizieren, die manuell schwer zu erkennen sind. Sie werden auch regelmäßig mit Sicherheitsforschern zusammenarbeiten, um Ihre Innovationen während realer Sicherheitsbewertungen zu validieren und herauszufordern, um sicherzustellen, dass Ihre Arbeit sich direkt auf sinnvolle Auswirkungen auswirkt.\n\nMindestqualifikationen\n• Expertise in ML, insbesondere in großen Sprachmodellen und generativen Modellen\n• Erfahrung und/oder starke Begeisterung für Sicherheit, insbesondere offensive Sicherheit\n• Fließend mit Software Engineering mit Sprachen wie C, C++, Python, Swift, Objective-C, Rust\n• Kollaborative und effektive Problemlösungs- und Analysefähigkeiten\n\nBevorzugte Qualifikationen\n• Vertrautheit mit Softwareanalysetechniken wie Fuzzing, statische Analyse, Codeanalyse-Tooling, Reverse Engineering, Binäranalyse\n• Vertrautheit mit Sicherheitsminderungen in modernen Betriebssystemen\n\nBei Apple sind wir nicht alle gleich. Und das ist unsere größte Stärke. Wir beziehen uns auf die Unterschiede darin, wer wir sind, was wir erlebt haben und wie wir denken. Denn um Produkte zu schaffen, die allen dienen, glauben wir daran, alle einzubeziehen. Daher verpflichten wir uns, alle Bewerber fair und gleich zu behandeln. Wir werden mit Bewerbern zusammenarbeiten, um angemessene Unterkünfte zu schaffen.\n\nBei Apple glauben wir, dass Zugänglichkeit ein grundlegendes Menschenrecht ist. Diese Idee spiegelt sich hier in allem wider - in unserer Kultur, unseren Vorteilen und unseren digitalen Tools. Indem wir so viele Perspektiven wie möglich begrüßen, helfen wir Ihnen, eine Karriere aufzubauen, in der Sie sich wie Sie gehören fühlen.\n\nErfahren Sie mehr über die Zugänglichkeit am Arbeitsplatz von Apple",
         "fr": "Résumé\nL'organisation d'Apple Security Engineering & Architecture est responsable de la sécurité de tous les produits Apple. Passionné de protéger les utilisateurs, nous croyons que la meilleure défense exige une grande offense. Lorsqu'il s'agit de sécuriser plus d'un milliard d'appareils utilisant les systèmes d'exploitation les plus sophistiqués du monde, cela signifie d'abord trouver des vulnérabilités.\n\nNotre mission est de découvrir, comprendre et exploiter les vulnérabilités de toutes les couches de plateformes Apple, et nous croyons que les techniques ML améliorent considérablement notre capacité à le faire. Nous sommes à la recherche d'un ingénieur en apprentissage automatique appliqué qui nous aidera à inventer et à livrer ces nouvelles méthodes et techniques.\n\nCe poste offre une exposition rare à une vue complète de la sécurité ainsi qu'un accès direct aux connaissances d'experts, à des ensembles de données uniques et à une expérience multidomaines. Vos contributions augmenteront matériellement la sécurité des produits utilisés par des milliards et renforceront la capacité d'Apple à se défendre contre les adversaires.\n\nPouvez-vous faire une différence sur cette échelle? Rejoignez notre groupe extraordinaire de chercheurs en sécurité, de développeurs d'outils et d'experts en apprentissage automatique, et aidez à protéger tous les utilisateurs d'Apple.\n\nDésignation des marchandises\nDans ce rôle, vous vous intégrerez profondément aux équipes de recherche sur la sécurité pour comprendre les défis de l'analyse des systèmes complexes de grande taille à travers la pile complète d'Apple: du silicium personnalisé et des éléments microarchitecturaux aux ROM de démarrage, au firmware, aux noyaux, aux cadres de système, au navigateur Web et aux applications utilisateur.\n\nVous concevrez et développerez des systèmes améliorés par ML — à l'aide de grands modèles de langage, de modélisation générative, de flux de travail d'agents et d'autres approches — qui complètent d'autres méthodes d'analyse telles que le flou, l'analyse statique et dynamique et l'inspection manuelle. Votre travail tirera parti des données brutes et du comportement d'expert pour créer des approches pratiques et évolutives pour aider les chercheurs à naviguer sur de vastes bases de code, à raisonner sur des surfaces d'attaque complexes et à identifier des faiblesses subtiles qui sont difficiles à détecter manuellement. Vous collaborerez également régulièrement avec des chercheurs en sécurité pour valider et remettre en question vos innovations lors d'évaluations de sécurité dans le monde réel, en veillant à ce que votre travail affecte directement un impact significatif.\n\nQualités minimales\n• Expertise en ML, en particulier les grands modèles linguistiques et la modélisation générative\n• Expérience et/ou grand enthousiasme pour la sécurité, en particulier la sécurité offensive\n• Connaissance du génie logiciel en utilisant des langages tels que C, C++, Python, Swift, Objective-C, Rust\n• Compétences collaboratives et efficaces en résolution de problèmes et en analyse\n\nQualifications privilégiées\n• Familiarité avec les techniques d'analyse logicielle comme le flou, l'analyse statique, l'outillage d'analyse de code, l'ingénierie inverse, l'analyse binaire\n• Familiarité avec les mesures de sécurité dans les systèmes d'exploitation modernes\n\nChez Apple, nous ne sommes pas tous les mêmes. Et c'est notre plus grande force. Nous tirons parti des différences dans notre identité, notre expérience et notre façon de penser. Parce que pour créer des produits qui servent tout le monde, nous croyons en l'inclusion de tous. Par conséquent, nous nous engageons à traiter tous les candidats de façon équitable et équitable. Nous travaillerons avec les demandeurs pour prendre des mesures d'adaptation raisonnables.\n\nChez Apple, nous croyons que l'accessibilité est un droit humain fondamental. Vous trouverez cette idée reflétée dans tout ici — dans notre culture, nos avantages et nos outils numériques. En accueillant autant de perspectives que possible, nous vous aidons à construire une carrière où vous vous sentez comme à votre place.\n\nDécouvrez l'accessibilité sur le lieu de travail Apple"
       },
       "location": "Zurich",
       "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
+      "url": "https://jobs.apple.com/en-us/details/200634000/ai-ml-engineer-ai-systems-for-security-sear?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:14.236Z",
+      "crawledAt": "2026-11-05T09:18:38.794Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -246,19 +246,14 @@
       "datePosted": "2025-11-26T15:22:44.904Z",
       "postedDate": "2025-11-26T15:22:44.904Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200634000/ai-ml-engineer-ai-systems-for-security-sear?team=SFTWR",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
-        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
-        "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich",
-        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
-        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-        "applied-machine-learning-engineer-security-apple-retail-switzerland-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+          "ai-ml-engineer-ai-systems-for-security-sear-apple-retail-switzerland-ch"
+        ],
         "it": [
           "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
           "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
@@ -266,15 +261,23 @@
           "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
           "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
           "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-          "applied-machine-learning-engineer-security-apple-retail-switzerland-ch"
-        ],
-        "en": [
-          "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch"
+          "applied-machine-learning-engineer-security-apple-retail-switzerland-ch",
+          "ai-ml-engineer-ai-systems-for-security-sear-apple-retail-switzerland-ch"
         ],
         "fr": [
           "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich"
         ]
       },
+      "previousSlugs": [
+        "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
+        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+        "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich",
+        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "applied-machine-learning-engineer-security-apple-retail-switzerland-ch",
+        "ai-ml-engineer-ai-systems-for-security-sear-apple-retail-switzerland-ch"
+      ],
       "firstSeenAt": "2026-07-03T21:19:38.774Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -304,7 +307,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:19:14.236Z",
+      "validThrough": "2026-12-05T09:18:38.794Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -338,7 +341,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:12.531Z",
+      "crawledAt": "2026-11-05T09:18:37.279Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -392,7 +395,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:19:12.531Z",
+      "validThrough": "2026-12-05T09:18:37.279Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -426,7 +429,7 @@
       "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:10.550Z",
+      "crawledAt": "2026-11-05T09:18:35.513Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -480,7 +483,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:19:10.550Z",
+      "validThrough": "2026-12-05T09:18:35.513Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -514,7 +517,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:09.403Z",
+      "crawledAt": "2026-11-05T09:18:34.421Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -557,7 +560,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:19:09.403Z",
+      "validThrough": "2026-12-05T09:18:34.421Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -591,7 +594,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:07.581Z",
+      "crawledAt": "2026-11-05T09:18:33.017Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -645,7 +648,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:19:07.581Z",
+      "validThrough": "2026-12-05T09:18:33.017Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -679,7 +682,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:05.739Z",
+      "crawledAt": "2026-11-05T09:18:31.467Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -744,7 +747,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:19:05.739Z",
+      "validThrough": "2026-12-05T09:18:31.467Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -778,7 +781,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672941/research-scientist-engineer-special-projects?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:03.744Z",
+      "crawledAt": "2026-11-05T09:18:29.723Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -832,7 +835,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:19:03.744Z",
+      "validThrough": "2026-12-05T09:18:29.723Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -854,10 +857,10 @@
         "de": "Content Engineering Author, Entwickler Publications",
         "fr": "Content Engineering Author, Développeur Publications"
       },
-      "description": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
+      "description": "Summary\nApple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.\n\nDescription\nIn this role, you will be responsible for authoring the developer documentation, reference, and sample code that Apple publishes to millions of developers. Your responsibilities include: - Exploring how the latest software technologies work by discussing design principles, analyzing engineering specifications, and writing code that exercises new API. - Researching developer needs, and crafting plans and schedules to provide extraordinary educational content for a technology. - Composing documents and code that teach highly technical concepts in a manner that is easily understood by developers. - Reviewing new APIs for correctness, completeness, clarity, and ease of use, and participating in conversations to improve the APIs with various software engineering teams. - Attending and contributing to cross-functional meetings to ensure Apple ships high-quality developer technologies and documentation. - Taking an active role in developing engaging presentations for Apple's annual Worldwide Developer Conference (WWDC).\n\nMinimum Qualifications\n• A passion for learning new technologies and teaching developers to write amazing apps.\n• Outstanding written and verbal communication skills, organizational skills, critical-thinking capabilities, and attention to detail.\n• The ability to interpret complex topics and distill them into clear, simplified prose and teachable sample code.\n• Proven experience developing apps or writing code that uses Xcode and Swift or Objective-C along with Apple frameworks.\n\nPreferred Qualifications\n• Familiarity with Appleʼs Human Interface Guidelines and an understanding of UX/UI design principles a plus.\n• Familiarity with JavaScript and REST APIs a plus.\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
       "descriptionByLocale": {
         "it": "Sintesi\nApple è dove le immaginazioni individuali si riuniscono, impegnando i valori che portano al grande lavoro. Ogni nuovo prodotto che costruiamo, il servizio che creiamo, o l'esperienza Apple Store che offriamo è il risultato di noi rendendo le idee l'un l'altro più forte. Questo accade perché ognuno di noi condivide una convinzione che possiamo fare qualcosa di meraviglioso e condividerlo con il mondo, cambiando vite per il meglio. È la diversità della nostra gente e il loro pensiero che ispira l’innovazione che attraversa tutto ciò che facciamo. Quando portiamo tutti dentro, possiamo fare il miglior lavoro della nostra vita. Qui, farai più che unire qualcosa — si aggiungerà qualcosa. Nelle pubblicazioni degli sviluppatori, insegniamo alle persone a progettare e costruire un software incredibile per le piattaforme Apple. Il nostro pubblico include sviluppatori che ottengono la loro prima introduzione a piattaforme Apple, progettisti che utilizzano le nostre linee guida per l'interfaccia umana, e ingegneri avanzati dettagli di apprendimento delle nostre centinaia di framework. Come Software Engineering Author, lavorerai a stretto contatto con editor, ingegneri, progettisti e team di Apple per produrre contenuti chiari, concisi e coinvolgenti. I tuoi articoli, il codice campione e la documentazione di riferimento API raggiungeranno milioni di sviluppatori e li aiuteranno a creare applicazioni che utilizzano le ultime tecnologie Apple per sorprendere e deliziare gli utenti.\n\nDesignazione\nIn questo ruolo, sarai responsabile dell'autore della documentazione, del riferimento e del codice campione che Apple pubblica a milioni di sviluppatori. Le tue responsabilità includono: - Esplorare come funzionano le ultime tecnologie software discutendo i principi di progettazione, analizzando le specifiche ingegneristiche e scrivendo codice che esercita nuove API. - Ricercare le esigenze dello sviluppatore e realizzare piani e programmi per fornire contenuti educativi straordinari per una tecnologia. - Comporre documenti e codice che insegnano concetti altamente tecnici in modo che è facilmente comprensibile dagli sviluppatori. - Rivedere nuove API per correttezza, completezza, chiarezza e facilità d'uso, e partecipare a conversazioni per migliorare le API con vari team di ingegneria del software. - Partecipare e contribuire a incontri interfunzionali per garantire le navi Apple tecnologie e documentazione di sviluppo di alta qualità. - No. Prendendo un ruolo attivo nello sviluppo di presentazioni coinvolgenti per la conferenza annuale degli sviluppatori di Apple (WWDC).\n\nQualifiche minime\n• Una passione per l'apprendimento di nuove tecnologie e sviluppatori di insegnamento per scrivere applicazioni incredibili.\n• Straordinarie capacità di comunicazione scritte e verbali, capacità organizzative, capacità di pensiero critico e attenzione ai dettagli.\n• La capacità di interpretare argomenti complessi e distillarli in chiaro, semplificato prosa e codice campione insegnabile.\n• Provata esperienza di sviluppo di applicazioni o codice di scrittura che utilizza Xcode e Swift o Obiettivo-C insieme a framework Apple.\n\nPreferiti\n• Familiarità con le linee guida di interfaccia umana di Apple e una comprensione dei principi di progettazione UX/UI un plus.\n• Familiarità con JavaScript e REST APIs a plus.\n\nA Apple, non siamo tutti uguali. E questa e' la nostra piu' grande forza. Disegniamo le differenze di chi siamo, di ciò che abbiamo sperimentato e di come pensiamo. Perché per creare prodotti che servono tutti, crediamo in inclusi tutti. Pertanto, ci impegniamo a trattare tutti i candidati in modo equo ed equo. Collaboreremo con i candidati per fare qualsiasi alloggio ragionevole.\n\nA Apple, crediamo che l'accessibilità sia un diritto umano fondamentale. Troverete che l'idea riflessa in tutto qui — nella nostra cultura, i nostri benefici e i nostri strumenti digitali. Accogliendo quante più prospettive possibile, vi aiutiamo a costruire una carriera in cui vi sentite come voi appartenete.\n\nScopri l’accessibilità sul posto di lavoro di Apple",
-        "en": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
+        "en": "Summary\nApple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.\n\nDescription\nIn this role, you will be responsible for authoring the developer documentation, reference, and sample code that Apple publishes to millions of developers. Your responsibilities include: - Exploring how the latest software technologies work by discussing design principles, analyzing engineering specifications, and writing code that exercises new API. - Researching developer needs, and crafting plans and schedules to provide extraordinary educational content for a technology. - Composing documents and code that teach highly technical concepts in a manner that is easily understood by developers. - Reviewing new APIs for correctness, completeness, clarity, and ease of use, and participating in conversations to improve the APIs with various software engineering teams. - Attending and contributing to cross-functional meetings to ensure Apple ships high-quality developer technologies and documentation. - Taking an active role in developing engaging presentations for Apple's annual Worldwide Developer Conference (WWDC).\n\nMinimum Qualifications\n• A passion for learning new technologies and teaching developers to write amazing apps.\n• Outstanding written and verbal communication skills, organizational skills, critical-thinking capabilities, and attention to detail.\n• The ability to interpret complex topics and distill them into clear, simplified prose and teachable sample code.\n• Proven experience developing apps or writing code that uses Xcode and Swift or Objective-C along with Apple frameworks.\n\nPreferred Qualifications\n• Familiarity with Appleʼs Human Interface Guidelines and an understanding of UX/UI design principles a plus.\n• Familiarity with JavaScript and REST APIs a plus.\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
         "de": "Zusammenfassung Apple ist, wo sich individuelle Fantasien zusammenfinden, die Werte, die zu großer Arbeit führen, verpflichten. Jedes neue Produkt, das wir bauen, Service, das wir schaffen, oder Apple Store Erfahrung, die wir liefern, ist das Ergebnis, dass wir einander, Ideen stärker machen. Das geschieht, weil jeder von uns einen Glauben teilt, dass wir etwas wunderbar machen können und teilen mit der Welt, Leben zum Besseren verändern. Es, die Vielfalt unserer Menschen und ihr Denken, die die Innovation inspiriert, die durch alles läuft, was wir tun.\n\nHier, Sie, werden mehr als etwas zu tun - Sie, fügen Sie etwas. In Developer Publications, lehren wir Menschen zu entwerfen und bauen unglaubliche Software für Apple`s Plattformen. Unser Publikum umfasst Entwickler bekommen ihre erste Einführung in Apple-Plattformen, Designer mit unseren Human Interface Guidelines, und fortgeschrittene Ingenieure lernen Details unserer Hunderte von Frameworks. Als Software Engineering Author, Sie werden eng mit Redakteuren, Ingenieuren, Designern und Teams in ganz Apple zu produzieren, klare, prägnante, ansprechende Inhalte.\n\nIhre Artikel, Beispielcode und API-Referenzdokumentation werden Millionen von Entwicklern erreichen und ihnen helfen, Apps zu entwickeln, die die neuesten Apple-Technologien nutzen, um Benutzer zu überraschen und zu begeistern.\n\nBeschreibung In dieser Rolle werden Sie für die Erstellung der Entwicklerdokumentation, Referenz- und Beispielcode, die Apple veröffentlicht, für Millionen von Entwicklern verantwortlich sein. Ihre Verantwortung umfasst: - Erforschen, wie die neuesten Software-Technologien arbeiten, indem Sie Designprinzipien diskutieren, technische Spezifikationen analysieren und Code schreiben, der neue API praktiziert. - Erforschung der Entwicklerbedürfnisse und Erstellung von Plänen und Plänen, um außergewöhnliche pädagogische Inhalte für eine Technologie zu liefern.\n\n- Komponieren von Dokumenten und Code, die hochtechnische Konzepte auf eine Weise lehren, die von Entwicklern leicht verstanden wird. - Überprüfung neuer APIs auf Richtigkeit, Vollständigkeit, Klarheit und Benutzerfreundlichkeit und Teilnahme an Gesprächen, um die APIs mit verschiedenen Software-Engineering-Teams zu verbessern. - Teilnahme und Beitrag zu funktionsübergreifenden Treffen, um sicherzustellen, dass Apple Schiffe hochwertige Entwicklertechnologien und Dokumentation. - Eine aktive Rolle bei der Entwicklung engagierter Präsentationen für die jährliche Worldwide Developer Conference (WWDC) von Apple.\n\nMindestqualifikationen\n• Eine Leidenschaft für das Lernen neuer Technologien und die Lehre Entwickler erstaunliche Apps zu schreiben.\n• Herausragende schriftliche und verbale Kommunikation Fähigkeiten, organisatorische Fähigkeiten, kritische Denkfähigkeiten und Liebe zum Detail.\n• Die Fähigkeit, komplexe Themen zu interpretieren und destillieren sie in klare, vereinfachte Prosa und Lehrprogramm-Code.\n• Bewährte Erfahrung Entwicklung von Apps oder Schreibcode, die Xcode und Swift oder Objective-C zusammen mit Apple Frameworks verwendet.\n\nBevorzugte Qualifikationen\n• Vertrautheit mit Apple®s Human Interface Guidelines und ein Verständnis von UX/UI Designprinzipien ein Plus.\n• Vertrautheit mit JavaScript und REST APIs ein Plus.\n\nBei Apple sind wir nicht alle gleich. Und das ist unsere größte Stärke. Wir stützen uns auf die Unterschiede, wer wir sind, was wir erlebt haben, und wie wir denken. Denn Produkte zu schaffen, die allen dienen, glauben wir an alle einbeziehen. Daher sind wir verpflichtet, alle Bewerber gerecht und gleich zu behandeln. Wir werden mit Bewerbern arbeiten, um angemessene Unterkünfte zu machen.\n\nBei Apple glauben wir, dass Zugänglichkeit ein grundlegendes Menschenrecht ist. Sie finden diese Idee in allem hier wider – in unserer Kultur, unseren Vorteilen und unseren digitalen Tools. Indem wir so viele Perspektiven wie möglich begrüßen, helfen wir Ihnen, eine Karriere aufzubauen, in der Sie sich wie Sie fühlen.\n\nErfahren Sie mehr über die Zugänglichkeit in Apple,s Arbeitsplatz",
         "fr": "Résumé\nApple est l'endroit où les imaginations individuelles se rassemblent, s'engageant aux valeurs qui mènent à un grand travail. Chaque nouveau produit que nous construisons, service que nous créons, ou expérience Apple Store que nous livrons est le résultat de nous rendre les idées les uns les autres plus fortes. Cela arrive parce que chacun d'entre nous partage la conviction que nous pouvons faire quelque chose de merveilleux et le partager avec le monde, changer des vies pour le mieux. C'est la diversité de nos gens et leur pensée qui inspire l'innovation qui traverse tout ce que nous faisons. Quand on amène tout le monde, on peut faire le meilleur travail de notre vie. Ici, vous ferez plus que rejoindre quelque chose — vous ajouterez quelque chose. Dans Developer Publications, nous apprenons aux gens à concevoir et à construire des logiciels incroyables pour les plateformes Apple. Notre public comprend les développeurs ayant leur première introduction sur les plateformes Apple, les concepteurs utilisant nos lignes directrices pour l'interface humaine et les ingénieurs de pointe qui apprennent les détails de nos centaines de cadres. En tant qu'auteur en génie logiciel, vous travaillerez en étroite collaboration avec les éditeurs, les ingénieurs, les concepteurs et les équipes d'Apple pour produire un contenu clair, concis et stimulant. Vos articles, votre exemple de code et la documentation de référence de l'API toucheront des millions de développeurs et les aideront à créer des applications qui utilisent les dernières technologies Apple pour surprendre et ravir les utilisateurs.\n\nDésignation des marchandises\nDans ce rôle, vous serez responsable de la rédaction de la documentation du développeur, de la référence et de l'échantillon de code qu'Apple publie à des millions de développeurs. Vos responsabilités comprennent : - Explorer comment fonctionnent les dernières technologies logicielles en discutant des principes de conception, en analysant les spécifications techniques et en écrivant du code qui exerce la nouvelle API. - Recherche des besoins des développeurs et élaboration de plans et de calendriers pour fournir un contenu éducatif extraordinaire pour une technologie. - Composer des documents et des codes qui enseignent des concepts hautement techniques d'une manière que les développeurs comprennent facilement. - Examiner les nouvelles API pour en vérifier l'exactitude, l'exhaustivité, la clarté et la facilité d'utilisation, et participer à des conversations pour améliorer les API avec diverses équipes de génie logiciel. - Assister et contribuer à des réunions interfonctionnelles pour assurer qu'Apple expédie des technologies de développement et de la documentation de haute qualité. - Oui. Prendre un rôle actif dans le développement de présentations engageantes pour la conférence annuelle des développeurs d'Apple (WWDC).\n\nQualités minimales\n• Une passion pour apprendre les nouvelles technologies et enseigner les développeurs à écrire des applications étonnantes.\n• Compétences exceptionnelles en communication écrite et verbale, compétences organisationnelles, capacités de pensée critique et attention aux détails.\n• La capacité d'interpréter des sujets complexes et de les distiller en prose claire et simplifiée et en code d'exemple didactique.\n• Expérience éprouvée de développement d'applications ou de code d'écriture utilisant Xcode et Swift ou Objective-C avec des cadres Apple.\n\nQualifications privilégiées\n• Familiarisation avec les lignes directrices sur l'interface humaine d'Apple et compréhension des principes de conception UX/UI a plus.\n• Familiarité avec les API JavaScript et REST un plus.\n\nChez Apple, nous ne sommes pas tous les mêmes. Et c'est notre plus grande force. Nous tirons parti des différences dans notre identité, notre expérience et notre façon de penser. Parce que pour créer des produits qui servent tout le monde, nous croyons en l'inclusion de tous. Par conséquent, nous nous engageons à traiter tous les candidats de façon équitable et équitable. Nous travaillerons avec les demandeurs pour prendre des mesures d'adaptation raisonnables.\n\nChez Apple, nous croyons que l'accessibilité est un droit humain fondamental. Vous trouverez cette idée reflétée dans tout ici — dans notre culture, nos avantages et nos outils numériques. En accueillant autant de perspectives que possible, nous vous aidons à construire une carrière où vous vous sentez comme à votre place.\n\nDécouvrez l'accessibilité sur le lieu de travail Apple"
       },
@@ -866,7 +869,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:19:01.210Z",
+      "crawledAt": "2026-11-05T09:18:28.174Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -891,6 +894,7 @@
           "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T10:01:12.124Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -909,9 +913,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:19:01.210Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThrough": "2026-12-05T09:18:28.174Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apple-retail-switzerland-049c1204c6e1",
@@ -944,7 +947,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679630/aiml-foundation-model-post-training-research-scientist?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:40.881Z",
+      "crawledAt": "2026-11-05T09:18:26.612Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1002,7 +1005,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:18:40.881Z",
+      "validThrough": "2026-12-05T09:18:26.612Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1036,7 +1039,7 @@
       "url": "https://jobs.apple.com/en-us/details/200680814/senior-machine-learning-engineer-siri-ai?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:39.114Z",
+      "crawledAt": "2026-11-05T09:18:25.142Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1095,7 +1098,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:18:39.114Z",
+      "validThrough": "2026-12-05T09:18:25.142Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1129,7 +1132,7 @@
       "url": "https://jobs.apple.com/en-us/details/200683178/aiml-machine-learning-researcher-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:37.661Z",
+      "crawledAt": "2026-11-05T09:18:23.657Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1183,7 +1186,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-11T09:18:37.661Z",
+      "validThrough": "2026-12-11T09:18:23.657Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1217,7 +1220,7 @@
       "url": "https://jobs.apple.com/en-us/details/200684066/channel-communications-manager-switzerland?team=SLDEV",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:36.009Z",
+      "crawledAt": "2026-11-05T09:18:21.865Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1263,7 +1266,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:18:36.009Z",
+      "validThrough": "2026-12-16T09:18:21.865Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1297,7 +1300,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685890/senior-ios-engineer-creativity-apps?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:34.338Z",
+      "crawledAt": "2026-11-05T09:18:20.416Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1351,7 +1354,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-05T09:18:34.338Z",
+      "validThrough": "2027-01-05T09:18:20.416Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1385,7 +1388,7 @@
       "url": "https://jobs.apple.com/en-us/details/200687755/machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:32.802Z",
+      "crawledAt": "2026-11-05T09:18:18.897Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1447,7 +1450,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-06T09:18:32.802Z",
+      "validThrough": "2027-01-06T09:18:18.897Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1481,7 +1484,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685035/internship-machine-learning-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:31.025Z",
+      "crawledAt": "2026-11-05T09:18:16.599Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1539,7 +1542,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:18:31.025Z",
+      "validThrough": "2027-01-12T09:18:16.599Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1573,7 +1576,7 @@
       "url": "https://jobs.apple.com/en-us/details/200688770/vulnerability-researcher-sear?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:29.358Z",
+      "crawledAt": "2026-11-05T09:18:14.433Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1633,7 +1636,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:18:29.358Z",
+      "validThrough": "2027-01-13T09:18:14.433Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1667,7 +1670,7 @@
       "url": "https://jobs.apple.com/en-us/details/200690121/human-centric-modeling-internship?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:27.256Z",
+      "crawledAt": "2026-11-05T09:18:13.000Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1727,7 +1730,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:18:27.256Z",
+      "validThrough": "2027-01-18T09:18:13.000Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1761,7 +1764,7 @@
       "url": "https://jobs.apple.com/en-us/details/200692868/ai-research-intern-foundation-models-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:25.044Z",
+      "crawledAt": "2026-11-05T09:18:11.492Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1778,7 +1781,9 @@
       "applyUrl": "https://jobs.apple.com/en-us/details/200692868/ai-research-intern-foundation-models-multimodal-intelligence?team=HRDWR",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-02T21:25:26.437Z",
+      "previousSlugs": [
+        "ai-research-intern-foundation-models-multimodal-intelligence-apple-retail-switzerland-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ai-research-intern-foundation-models-multimodal-intelligence-apple-retail-switzerland-ch"
@@ -1790,9 +1795,7 @@
           "ai-research-intern-foundation-models-multimodal-intelligence-apple-retail-switzerland-ch"
         ]
       },
-      "previousSlugs": [
-        "ai-research-intern-foundation-models-multimodal-intelligence-apple-retail-switzerland-ch"
-      ],
+      "firstSeenAt": "2026-11-02T21:25:26.437Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1821,7 +1824,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T09:18:25.044Z",
+      "validThrough": "2027-02-01T09:18:11.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1855,7 +1858,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:23.677Z",
+      "crawledAt": "2026-11-05T09:18:09.893Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1896,7 +1899,7 @@
       },
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:18:23.677Z",
+      "validThrough": "2026-12-05T09:18:09.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1930,7 +1933,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:22.278Z",
+      "crawledAt": "2026-11-05T09:18:08.526Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1971,7 +1974,7 @@
       },
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:18:22.278Z",
+      "validThrough": "2026-12-05T09:18:08.526Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2005,7 +2008,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:18:20.852Z",
+      "crawledAt": "2026-11-05T09:18:07.033Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -2046,188 +2049,8 @@
       },
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:18:20.852Z",
+      "validThrough": "2026-12-05T09:18:07.033Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "apple-retail-switzerland-d4e9f4582b6e",
-      "slug": "internship-computer-vision-machine-learning-ricerca-apple-retail-switzerland-zurich",
-      "slugByLocale": {
-        "it": "internship-computer-vision-machine-learning-ricerca-apple-retail-switzerland-zurich",
-        "en": "internship-computer-vision-machine-learning-research-apple-retail-switzerland-ch",
-        "de": "internship-computer-vision-machine-learning-forschung-apple-retail-switzerland-zurich",
-        "fr": "internship-computer-vision-machine-learning-recherche-apple-retail-switzerland-zurich"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "Internship Computer Vision & Machine Learning Research",
-      "titleByLocale": {
-        "it": "Internship Computer Vision & Machine Learning Ricerca",
-        "en": "Internship Computer Vision & Machine Learning Research",
-        "de": "Internship Computer Vision & Machine Learning Forschung",
-        "fr": "Internship Computer Vision & Machine Learning Recherche"
-      },
-      "description": "Summary\nWe're seeking research interns to create breakthrough innovations in machine learning, computer vision, computer graphics, and related areas. We are particularly interested in 3D reconstruction, depth estimation, neural rendering, view synthesis, and image and video synthesis. You will work directly with an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.\n\nDescription\nYou are in your final years of a PhD programme in Machine Learning, Statistics, or Computer Vision, and have already published some of your work at top-tier venues in the field. During your time with us, you will continue sharpening your research skills as we go through the various collaborative stages of an ML research project: Identifying a promising research opportunity, reviewing state-of-the-art methods and relevant literature, crafting novel approaches, implementing them as code prototypes, planning and running large-scale experiments across multi-node, multi-GPU systems, writing a paper, and seeing it through to submission.\n\nTopics of interest include but are not limited to 3D reconstruction, depth estimation, neural rendering, view synthesis, and image and video synthesis. You’ll further have the opportunity to collaborate with world-class researchers outside of your immediate internship location. Ultimately, you will work towards publishing new findings arising from the project, either or both as open source code and publications.\n\nMinimum Qualifications\n• You are working towards a doctoral degree in computer science, engineering, data science, applied mathematics, or equivalent.\n• At the end of the internship, you must return to school to continue your education or the internship must be the last requirement for you to graduate.\n• 6 months dedication is preferred, and starting no later than March 2026.\n• Solid software engineering skills in complex, multi-language systems. Fluency in Python.\n• Experience with PyTorch.\n• Proven research expertise in machine learning and/or computer vision.\n• Publication record in relevant conferences (e.g., CVPR, ECCV, ICCV, ICLR, ICML, NeurIPS, SIGGRAPH, etc).\n\nPreferred Qualifications\n• Ability to formulate a research problem, design, experiment, implement and communicate solutions.\n• Ability to work in a diverse collaborative environment.\n• Strong mathematical skills in linear algebra, probability, optimization and statistics.\n• Action oriented.\n• Strong overall software development approach. You deliver clean, well-tested code.\n• Research experience in 3D reconstruction, neural rendering, view synthesis, image & video synthesis.\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
-      "descriptionByLocale": {
-        "it": "Sintesi\nStiamo cercando degli stagisti di ricerca per creare innovazioni innovative nel machine learning, nella visione del computer, nella grafica del computer e nelle aree correlate. Siamo particolarmente interessati alla ricostruzione 3D, alla stima della profondità, al rendering neurale, alla sintesi delle immagini e alla sintesi video. Si lavorerà direttamente con un'organizzazione di ricercatori e ingegneri di livello mondiale di machine learning. Il nostro lavoro alimenta tecnologie all'avanguardia in tutto l'ecosistema Apple ed è pubblicato nelle più selettive riviste scientifiche e conferenze.\n\nDesignazione\nSiete negli ultimi anni di un programma di dottorato in Machine Learning, Statistica, o Computer Vision, e hanno già pubblicato alcuni dei vostri lavori in luoghi più importanti del settore. Durante il vostro tempo con noi, continuerete ad affinare le vostre capacità di ricerca mentre passiamo attraverso le varie fasi collaborative di un progetto di ricerca ML: Identificare una promettente opportunità di ricerca, rivedere i metodi all'avanguardia e la letteratura rilevante, creare approcci nuovi, implementandoli come prototipi di codice, pianificare e eseguire esperimenti su larga scala attraverso sistemi multi-nodo, multi-GPU, scrivere un giornale e vederlo attraverso la presentazione.\n\nGli argomenti di interesse includono ma non sono limitati alla ricostruzione 3D, alla stima della profondità, al rendering neurale, alla sintesi della vista e alla sintesi di immagini e video. Avrai inoltre l'opportunità di collaborare con ricercatori di livello mondiale al di fuori della tua posizione di stage immediata. In definitiva, lavorerai per pubblicare nuovi risultati derivanti dal progetto, sia come codice sorgente aperto che come pubblicazioni.\n\nQualifiche minime\n• Stai lavorando verso una laurea in informatica, ingegneria, scienza dei dati, matematica applicata o equivalente.\n• Alla fine dello stage, è necessario tornare a scuola per continuare la vostra formazione o lo stage deve essere l'ultimo requisito per voi di laurearsi.\n• 6 mesi di dedizione è preferito, e a partire non più tardi di marzo 2026.\n• Competenze di ingegneria del software solido in sistemi complessi e multilingua. Fluenza in Python.\n• Esperienza con PyTorch.\n• Prove competenze di ricerca nel machine learning e/o nella visione del computer.\n• Documento di pubblicazione in conferenze pertinenti (ad esempio, CVPR, ECCV, ICCV, ICLR, ICML, NeurIPS, SIGGRAPH, ecc).\n\nQualificazioni predestinate\n• Capacità di formulare un problema di ricerca, progettazione, sperimentazione, implementare e comunicare soluzioni.\n• Capacità di lavorare in un ambiente collaborativo diverso.\n• Forte abilità matematiche in algebra lineare, probabilità, ottimizzazione e statistiche.\n• Azione orientata.\n• Forte approccio globale di sviluppo del software. Consegni codice pulito e ben testato.\n• Esperienza di ricerca nella ricostruzione 3D, rendering neurale, sintesi di visualizzazione, immagine e sintesi video.\n\nA Apple, non siamo tutti uguali. E questa e' la nostra piu' grande forza. Disegniamo le differenze di chi siamo, di ciò che abbiamo sperimentato e di come pensiamo. Perché per creare prodotti che servono tutti, crediamo in inclusi tutti. Pertanto, ci impegniamo a trattare tutti i candidati in modo equo ed equo. Collaboreremo con i candidati per fare qualsiasi alloggio ragionevole.\n\nA Apple, crediamo che l'accessibilità sia un diritto umano fondamentale. Troverete che l'idea riflessa in tutto qui — nella nostra cultura, i nostri benefici e i nostri strumenti digitali. Accogliendo quante più prospettive possibile, vi aiutiamo a costruire una carriera in cui vi sentite come voi appartenete.\n\nScopri l’accessibilità sul posto di lavoro di Apple",
-        "en": "Summary\nWe're seeking research interns to create breakthrough innovations in machine learning, computer vision, computer graphics, and related areas. We are particularly interested in 3D reconstruction, depth estimation, neural rendering, view synthesis, and image and video synthesis. You will work directly with an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.\n\nDescription\nYou are in your final years of a PhD programme in Machine Learning, Statistics, or Computer Vision, and have already published some of your work at top-tier venues in the field. During your time with us, you will continue sharpening your research skills as we go through the various collaborative stages of an ML research project: Identifying a promising research opportunity, reviewing state-of-the-art methods and relevant literature, crafting novel approaches, implementing them as code prototypes, planning and running large-scale experiments across multi-node, multi-GPU systems, writing a paper, and seeing it through to submission.\n\nTopics of interest include but are not limited to 3D reconstruction, depth estimation, neural rendering, view synthesis, and image and video synthesis. You’ll further have the opportunity to collaborate with world-class researchers outside of your immediate internship location. Ultimately, you will work towards publishing new findings arising from the project, either or both as open source code and publications.\n\nMinimum Qualifications\n• You are working towards a doctoral degree in computer science, engineering, data science, applied mathematics, or equivalent.\n• At the end of the internship, you must return to school to continue your education or the internship must be the last requirement for you to graduate.\n• 6 months dedication is preferred, and starting no later than March 2026.\n• Solid software engineering skills in complex, multi-language systems. Fluency in Python.\n• Experience with PyTorch.\n• Proven research expertise in machine learning and/or computer vision.\n• Publication record in relevant conferences (e.g., CVPR, ECCV, ICCV, ICLR, ICML, NeurIPS, SIGGRAPH, etc).\n\nPreferred Qualifications\n• Ability to formulate a research problem, design, experiment, implement and communicate solutions.\n• Ability to work in a diverse collaborative environment.\n• Strong mathematical skills in linear algebra, probability, optimization and statistics.\n• Action oriented.\n• Strong overall software development approach. You deliver clean, well-tested code.\n• Research experience in 3D reconstruction, neural rendering, view synthesis, image & video synthesis.\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
-        "de": "Zusammenfassung\nWir suchen Forschungspraktikanten, um bahnbrechende Innovationen in den Bereichen maschinelles Lernen, Computer Vision, Computergrafik und verwandten Bereichen zu schaffen. Wir sind besonders an 3D-Rekonstruktion, Tiefenschätzung, neuronalem Rendering, Ansichtssynthese und Bild- und Videosynthese interessiert. Sie arbeiten direkt mit einer Organisation von Weltklasse-Forschern und Ingenieuren für maschinelles Lernen zusammen. Unsere Arbeit unterstützt Spitzentechnologien im gesamten Apple-Ökosystem und wird in den selektivsten wissenschaftlichen Zeitschriften und Konferenzen veröffentlicht.\n\nBeschreibung\nSie befinden sich in Ihren letzten Jahren eines PhD-Programms in Machine Learning, Statistik oder Computer Vision und haben bereits einige Ihrer Arbeiten an erstklassigen Orten in diesem Bereich veröffentlicht. Während Ihrer Zeit bei uns werden Sie Ihre Forschungsfähigkeiten weiter verbessern, während wir die verschiedenen kollaborativen Phasen eines ML-Forschungsprojekts durchlaufen: Identifizierung einer vielversprechenden Forschungsmöglichkeit, Überprüfung modernster Methoden und relevanter Literatur, Erstellung neuer Ansätze, Implementierung als Code-Prototypen, Planung und Durchführung groß angelegter Experimente über Multi-Node-, Multi-GPU-Systeme, Schreiben eines Papiers und Durchführen bis zur Einreichung.\n\nThemen von Interesse sind unter anderem 3D-Rekonstruktion, Tiefenschätzung, neuronales Rendering, Ansichtssynthese sowie Bild- und Videosynthese. Sie haben außerdem die Möglichkeit, mit Weltklasse-Forschern außerhalb Ihres unmittelbaren Praktikumsstandorts zusammenzuarbeiten. Letztendlich arbeiten Sie daran, neue Erkenntnisse aus dem Projekt zu veröffentlichen, entweder als Open-Source-Code oder als Publikationen.\n\nMindestqualifikationen\n• Sie arbeiten auf einen Doktortitel in Informatik, Ingenieurwissenschaften, Data Science, angewandter Mathematik oder gleichwertigem Niveau hin.\n• Am Ende des Praktikums müssen Sie zur Schule zurückkehren, um Ihre Ausbildung fortzusetzen, oder das Praktikum muss die letzte Voraussetzung für Ihren Abschluss sein.\n• 6 Monate Engagement wird bevorzugt und beginnt spätestens im März 2026.\n• Solide Software Engineering Fähigkeiten in komplexen, mehrsprachigen Systemen. Fließend in Python.\n• Erfahrung mit PyTorch.\n• Nachgewiesene Forschungskompetenz im Bereich Machine Learning und/oder Computer Vision.\n• Veröffentlichungsprotokoll in relevanten Konferenzen (z. B. CVPR, ECCV, ICCV, ICLR, ICML, NeurIPS, SIGGRAPH usw.).\n\nBevorzugte Qualifikationen\n• Fähigkeit, ein Forschungsproblem zu formulieren, zu entwerfen, zu experimentieren, zu implementieren und Lösungen zu kommunizieren.\n• Fähigkeit, in einer vielfältigen kollaborativen Umgebung zu arbeiten.\n• Starke mathematische Fähigkeiten in linearer Algebra, Wahrscheinlichkeit, Optimierung und Statistik.\n• Handlungsorientiert.\n• Starker Softwareentwicklungsansatz insgesamt. Sie liefern sauberen, gut getesteten Code.\n• Forschungserfahrung in 3D-Rekonstruktion, neuronalem Rendering, Ansichtssynthese, Bild- und Videosynthese.\n\nBei Apple sind wir nicht alle gleich. Und das ist unsere größte Stärke. Wir beziehen uns auf die Unterschiede darin, wer wir sind, was wir erlebt haben und wie wir denken. Denn um Produkte zu schaffen, die allen dienen, glauben wir daran, alle einzubeziehen. Daher verpflichten wir uns, alle Bewerber fair und gleich zu behandeln. Wir werden mit Bewerbern zusammenarbeiten, um angemessene Unterkünfte zu schaffen.\n\nBei Apple glauben wir, dass Zugänglichkeit ein grundlegendes Menschenrecht ist. Sie werden diese Idee in allem hier finden - in unserer Kultur, unseren Vorteilen und unseren digitalen Tools. Indem wir so viele Perspektiven wie möglich begrüßen, helfen wir Ihnen, eine Karriere aufzubauen, in der Sie sich wie Sie gehören.\n\nErfahren Sie mehr über die Zugänglichkeit am Arbeitsplatz von Apple",
-        "fr": "Résumé\nNous recherchons des stagiaires en recherche pour créer des innovations révolutionnaires dans l'apprentissage automatique, la vision informatique, l'infographie et les domaines connexes. Nous nous intéressons particulièrement à la reconstruction 3D, à l'estimation de profondeur, au rendu neuronal, à la synthèse des vues et à la synthèse d'images et de vidéos. Vous travaillerez directement avec une organisation de chercheurs et d'ingénieurs en apprentissage automatique de calibre mondial. Notre travail alimente les technologies de pointe dans l'écosystème Apple et est publié dans les revues et conférences scientifiques les plus sélectives.\n\nDésignation des marchandises\nVous êtes dans vos dernières années d'un programme de doctorat en apprentissage automatique, en statistiques ou en vision informatique, et avez déjà publié une partie de votre travail dans des lieux de premier plan dans le domaine. Pendant votre séjour chez nous, vous continuerez à affiner vos compétences en recherche à mesure que nous passerons par les différentes étapes de collaboration d'un projet de recherche ML : identifier une opportunité de recherche prometteuse, revoir les méthodes de pointe et la littérature pertinente, élaborer de nouvelles approches, les mettre en œuvre comme prototypes de code, planifier et exécuter des expériences à grande échelle à travers des systèmes multinoeuds, multi-GPU, rédiger un papier, et le voir jusqu'à la soumission.\n\nLes sujets d'intérêt comprennent, sans s'y limiter, la reconstruction 3D, l'estimation de profondeur, le rendu neuronal, la synthèse des vues et la synthèse d'images et de vidéos. Vous aurez également l'occasion de collaborer avec des chercheurs de calibre mondial en dehors de votre lieu de stage immédiat. En fin de compte, vous travaillerez à la publication de nouvelles conclusions découlant du projet, soit comme code source ouvert, soit comme publications.\n\nQualités minimales\n• Vous travaillez vers un doctorat en informatique, ingénierie, data science, mathématiques appliquées, ou équivalent.\n• À la fin du stage, vous devez retourner à l'école pour poursuivre vos études ou le stage doit être la dernière condition pour obtenir votre diplôme.\n• 6 mois de dévouement est préféré, et à partir de mars 2026.\n• Des compétences solides en génie logiciel dans des systèmes complexes et multilingues. La fluidité dans Python.\n• Expérience avec PyTorch.\n• Expertise de recherche éprouvée en apprentissage automatique et/ou vision informatique.\n• Compte rendu de publication dans les conférences pertinentes (par exemple CVPR, ECCV, ICCV, ICLR, ICML, NeurIPS, SIGGRAPH, etc.).\n\nQualifications privilégiées\n• Capacité de formuler un problème de recherche, de concevoir, d'expérimenter, de mettre en œuvre et de communiquer des solutions.\n• Capacité de travailler dans un environnement collaboratif diversifié.\n• Fortes compétences mathématiques en algèbre linéaire, probabilité, optimisation et statistiques.\n• Orientation vers l'action.\n• Forte approche globale de développement de logiciels. Vous livrez un code propre et éprouvé.\n• Expérience de recherche en reconstruction 3D, rendu neuronal, synthèse de vue, image et synthèse vidéo.\n\nChez Apple, nous ne sommes pas tous pareils. Et c'est notre plus grande force. Nous tirons parti des différences dans notre identité, notre expérience et notre façon de penser. Parce que pour créer des produits qui servent tout le monde, nous croyons en l'inclusion de tout le monde. Par conséquent, nous nous engageons à traiter tous les candidats de façon équitable et équitable. Nous travaillerons avec les demandeurs pour prendre des mesures d'adaptation raisonnables.\n\nChez Apple, nous pensons que l'accessibilité est un droit humain fondamental. Vous trouverez cette idée reflétée dans tout ici — dans notre culture, nos avantages et nos outils numériques. En accueillant autant de perspectives que possible, nous vous aidons à bâtir une carrière où vous vous sentez comme à votre place.\n\nDécouvrez l'accessibilité sur le lieu de travail Apple"
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200686336/internship-computer-vision-machine-learning-research?team=MLAI",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:46:22.575Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-29T12:36:55.458Z",
-      "postedDate": "2026-09-29T12:36:55.458Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200686336/internship-computer-vision-machine-learning-research?team=MLAI",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "internship-computer-vision-machine-learning-research-apple-retail-switzerland-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "internship-computer-vision-machine-learning-research-apple-retail-switzerland-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-29T21:19:02.445Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Apple Retail Switzerland",
-        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
-        "postalCode": "8001",
-        "addressLocality": "Zurich",
-        "addressRegion": "ZH",
-        "checkedAt": "2026-10-31T20:47:43.354Z"
-      },
-      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T09:46:22.575Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "apple-retail-switzerland-c03692b941a9",
-      "slug": "internship-computer-vision-machine-learning-ricerca-llm-efficiency-apple-retail-switzerland-zurich",
-      "slugByLocale": {
-        "it": "internship-computer-vision-machine-learning-ricerca-llm-efficiency-apple-retail-switzerland-zurich",
-        "en": "internship-computer-vision-machine-learning-research-llm-efficiency-apple-retail",
-        "de": "internship-computer-vision-machine-learning-forschung-llm-efficiency-apple-retail-switzerland-zurich",
-        "fr": "stage-recherche-sur-la-vision-informatique-et-l-apprentissage-automatique-llm-efficience-apple-retail-switzerland-zurich"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "Internship Computer Vision & Machine Learning Research - LLM Efficiency",
-      "titleByLocale": {
-        "it": "Tirocinio di ricerca in visione artificiale e apprendimento automatico - Efficienza degli LLM",
-        "en": "Internship Computer Vision & Machine Learning Research - LLM Efficiency",
-        "de": "Praktikum Computer Vision & Machine Learning Research - LLM Effizienz",
-        "fr": "Stage Recherche sur la vision informatique et l'apprentissage automatique - LLM Efficience"
-      },
-      "description": "Summary\nWe're seeking research interns to create breakthrough innovations in machine learning. We are particularly interested in efficiency of frontier models, including LLMs and diffusion models. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.\n\nDescription\nYou are in your final years of a PhD programme in Machine Learning and have already published some of your work at top-tier venues in the field. During your time with us, you will continue sharpening your research skills as we go through the various collaborative stages of an ML research project: Identifying a promising research opportunity, reviewing state-of-the-art methods and relevant literature, crafting novel approaches, implementing them as code prototypes, planning and running large-scale experiments across multi-node, multi-GPU systems, writing a paper, and seeing it through to submission.\n\nTopics of interest include but are not limited to frontier models, efficiency of LLM inference and training, on-device models, speculative decoding, contextual sparsity, quantization and compression. We are a team of best-in-the-world research scientists and engineers with deep experience in computer vision, machine learning, robotics, computer graphics, and related areas. We work on exciting new technologies that bring joy to millions of people.\n\nIn our daily work, the team stays innovative, productive, and fun by sharing some key values:\n\n- Passion for the mission: We're here to make something extraordinary. We seek whatever work is right and strive for the best possible results.\n- Modesty: The right answer is more significant than being right. We search for solutions as a team and value clear-eyed feedback.\n- Lean habits: You can't grow without limits. Time constraints and big goals encourage us to sharpen our focus and learn to make phenomenal decisions.\n\nMinimum Qualifications\n• You are working towards a doctoral degree in computer science, engineering, data science, applied mathematics, or equivalent.\n• 6 months dedication is preferred, and starting no later than March 2026\n• Proven research expertise in machine learning.\n• Publication record in relevant conferences (e.g., NeurIPS, ICLR, ICML, COLM, etc).\n• Solid software engineering skills in complex, multi-language systems. Fluency in Python.\n\nPreferred Qualifications\n• Expertise in ML algorithms and top practices for working with deep learning systems\n• Proficiency with ML modeling frameworks (PyTorch, Tensorflow, etc.)\n• Strong overall software development approach. You deliver clean, well-tested code.\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
-      "descriptionByLocale": {
-        "it": "Sintesi\nStiamo cercando degli stagisti di ricerca per creare innovazioni innovative nel machine learning. Siamo particolarmente interessati all'efficienza dei modelli di frontiera, tra cui LLM e modelli di diffusione. Si lavorerà in un'organizzazione di ricercatori e ingegneri di livello mondiale di machine learning. Il nostro lavoro alimenta tecnologie all'avanguardia in tutto l'ecosistema Apple ed è pubblicato nelle riviste scientifiche e conferenze più selettive.\n\nDesignazione\nSei nei tuoi ultimi anni di un programma di dottorato in Machine Learning e hai già pubblicato alcuni dei tuoi lavori nei luoghi più importanti del settore. Durante il vostro tempo con noi, continuerete ad affinare le vostre capacità di ricerca mentre passiamo attraverso le varie fasi collaborative di un progetto di ricerca ML: Identificare una promettente opportunità di ricerca, rivedere i metodi all'avanguardia e la letteratura rilevante, creare approcci nuovi, implementandoli come prototipi di codice, pianificare e eseguire esperimenti su larga scala attraverso sistemi multi-nodo, multi-GPU, scrivere un giornale e vederlo attraverso la presentazione.\n\nGli argomenti di interesse includono, ma non sono limitati ai modelli di frontiera, l'efficienza dell'inferenza LLM e della formazione, modelli on-device, decodifica speculativa, parsimonia contestuale, quantizzazione e compressione. Siamo un team di migliori scienziati e ingegneri di ricerca nel mondo con profonda esperienza nella visione del computer, nell'apprendimento automatico, nella robotica, nella grafica informatica e nelle aree correlate. Lavoriamo su nuove tecnologie emozionanti che portano gioia a milioni di persone.\n\nNel nostro lavoro quotidiano, il team rimane innovativo, produttivo e divertente condividendo alcuni valori chiave:\n\n- Passione per la missione: Siamo qui per rendere qualcosa di straordinario. Cerchiamo qualsiasi lavoro è giusto e ci sforziamo per i migliori risultati possibili.\n- Modesty: La risposta giusta è più significativa di essere giusta. Cerchiamo soluzioni come team e feedback chiari.\n- Abiti lievi: Non puoi crescere senza limiti. I vincoli di tempo e i grandi obiettivi ci incoraggiano ad affinare la nostra attenzione e imparare a prendere decisioni fenomenali.\n\nQualifiche minime\n• Stai lavorando verso una laurea in informatica, ingegneria, scienza dei dati, matematica applicata o equivalente.\n• 6 mesi di dedizione è preferito, e a partire non più tardi di marzo 2026\n• Prove competenze di ricerca nel machine learning.\n• Documento di pubblicazione in conferenze pertinenti (ad esempio, NeurIPS, ICLR, ICML, COLM, ecc).\n• Competenze di ingegneria del software solido in sistemi complessi e multilingua. Fluenza in Python.\n\nQualificazioni predestinate\n• Competenza negli algoritmi ML e nelle migliori pratiche per lavorare con sistemi di apprendimento approfonditi\n• Competenza con modelli ML (PyTorch, Tensorflow, ecc.)\n• Forte approccio globale di sviluppo del software. Consegni codice pulito e ben testato.\n\nA Apple, non siamo tutti uguali. E questa e' la nostra piu' grande forza. Disegniamo le differenze di chi siamo, di ciò che abbiamo sperimentato e di come pensiamo. Perché per creare prodotti che servono tutti, crediamo in inclusi tutti. Pertanto, ci impegniamo a trattare tutti i candidati in modo equo ed equo. Collaboreremo con i candidati per fare qualsiasi alloggio ragionevole.\n\nA Apple, crediamo che l'accessibilità sia un diritto umano fondamentale. Troverete che l'idea riflessa in tutto qui — nella nostra cultura, i nostri benefici e i nostri strumenti digitali. Accogliendo quante più prospettive possibile, vi aiutiamo a costruire una carriera in cui vi sentite come voi appartenete.\n\nScopri l’accessibilità sul posto di lavoro di Apple",
-        "en": "Summary\nWe're seeking research interns to create breakthrough innovations in machine learning. We are particularly interested in efficiency of frontier models, including LLMs and diffusion models. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.\n\nDescription\nYou are in your final years of a PhD programme in Machine Learning and have already published some of your work at top-tier venues in the field. During your time with us, you will continue sharpening your research skills as we go through the various collaborative stages of an ML research project: Identifying a promising research opportunity, reviewing state-of-the-art methods and relevant literature, crafting novel approaches, implementing them as code prototypes, planning and running large-scale experiments across multi-node, multi-GPU systems, writing a paper, and seeing it through to submission.\n\nTopics of interest include but are not limited to frontier models, efficiency of LLM inference and training, on-device models, speculative decoding, contextual sparsity, quantization and compression. We are a team of best-in-the-world research scientists and engineers with deep experience in computer vision, machine learning, robotics, computer graphics, and related areas. We work on exciting new technologies that bring joy to millions of people.\n\nIn our daily work, the team stays innovative, productive, and fun by sharing some key values:\n\n- Passion for the mission: We're here to make something extraordinary. We seek whatever work is right and strive for the best possible results.\n- Modesty: The right answer is more significant than being right. We search for solutions as a team and value clear-eyed feedback.\n- Lean habits: You can't grow without limits. Time constraints and big goals encourage us to sharpen our focus and learn to make phenomenal decisions.\n\nMinimum Qualifications\n• You are working towards a doctoral degree in computer science, engineering, data science, applied mathematics, or equivalent.\n• 6 months dedication is preferred, and starting no later than March 2026\n• Proven research expertise in machine learning.\n• Publication record in relevant conferences (e.g., NeurIPS, ICLR, ICML, COLM, etc).\n• Solid software engineering skills in complex, multi-language systems. Fluency in Python.\n\nPreferred Qualifications\n• Expertise in ML algorithms and top practices for working with deep learning systems\n• Proficiency with ML modeling frameworks (PyTorch, Tensorflow, etc.)\n• Strong overall software development approach. You deliver clean, well-tested code.\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
-        "de": "Zusammenfassung\nWir suchen Forschungspraktikanten, um bahnbrechende Innovationen im maschinellen Lernen zu schaffen. Wir sind besonders an der Effizienz von Grenzmodellen interessiert, einschließlich LLMs und Diffusionsmodellen. Sie arbeiten in einer Organisation von Weltklasse-Forschern und Ingenieuren für maschinelles Lernen. Unsere Arbeit unterstützt Spitzentechnologien im gesamten Apple-Ökosystem und wird in den selektivsten wissenschaftlichen Zeitschriften und Konferenzen veröffentlicht.\n\nBeschreibung\nSie befinden sich in Ihren letzten Jahren eines PhD-Programms in Machine Learning und haben bereits einige Ihrer Arbeiten an erstklassigen Orten in diesem Bereich veröffentlicht. Während Ihrer Zeit bei uns werden Sie Ihre Forschungsfähigkeiten weiter schärfen, während wir die verschiedenen kollaborativen Phasen eines ML-Forschungsprojekts durchlaufen: Eine vielversprechende Forschungsmöglichkeit identifizieren, modernste Methoden und relevante Literatur überprüfen, neuartige Ansätze erstellen, sie als Code-Prototypen implementieren, groß angelegte Experimente über Multi-Node-, Multi-GPU-Systeme planen und durchführen, ein Papier schreiben und es bis zur Einreichung durchführen.\n\nThemen von Interesse sind unter anderem Frontier-Modelle, Effizienz von LLM-Inferenz und -Training, On-Device-Modelle, spekulative Decodierung, kontextuelle Sparsity, Quantisierung und Kompression. Wir sind ein Team von Best-in-the-World-Forschungswissenschaftlern und Ingenieuren mit großer Erfahrung in den Bereichen Computer Vision, maschinelles Lernen, Robotik, Computergrafik und verwandten Bereichen. Wir arbeiten an aufregenden neuen Technologien, die Millionen von Menschen Freude bereiten.\n\nIn unserer täglichen Arbeit bleibt das Team innovativ, produktiv und macht Spaß, indem es einige Schlüsselwerte teilt:\n\n- Leidenschaft für die Mission: Wir sind hier, um etwas Außergewöhnliches zu machen. Wir suchen die richtige Arbeit und streben nach den bestmöglichen Ergebnissen.\n- Bescheidenheit: Die richtige Antwort ist wichtiger als richtig zu sein. Wir suchen als Team nach Lösungen und schätzen klares Feedback.\n- Lean Gewohnheiten: Man kann nicht ohne Grenzen wachsen. Zeitliche Einschränkungen und große Ziele ermutigen uns, unseren Fokus zu schärfen und phänomenale Entscheidungen zu treffen.\n\nMindestqualifikationen\n• Sie arbeiten auf einen Doktortitel in Informatik, Ingenieurwissenschaften, Data Science, angewandter Mathematik oder gleichwertigem Niveau hin.\n• 6 Monate Engagement wird bevorzugt und beginnt spätestens im März 2026\n• Nachgewiesene Forschungskompetenz im Bereich Machine Learning.\n• Veröffentlichungsprotokoll in relevanten Konferenzen (z. B. NeurIPS, ICLR, ICML, COLM usw.).\n• Solide Software Engineering Fähigkeiten in komplexen, mehrsprachigen Systemen. Fließend in Python.\n\nBevorzugte Qualifikationen\n• Expertise in ML-Algorithmen und Top Practices für die Arbeit mit Deep Learning Systemen\n• Kenntnisse mit ML-Modellierungs-Frameworks (PyTorch, Tensorflow, etc.)\n• Starker Softwareentwicklungsansatz insgesamt. Sie liefern sauberen, gut getesteten Code.\n\nBei Apple sind wir nicht alle gleich. Und das ist unsere größte Stärke. Wir beziehen uns auf die Unterschiede darin, wer wir sind, was wir erlebt haben und wie wir denken. Denn um Produkte zu schaffen, die allen dienen, glauben wir daran, alle einzubeziehen. Daher verpflichten wir uns, alle Bewerber fair und gleich zu behandeln. Wir werden mit Bewerbern zusammenarbeiten, um angemessene Unterkünfte zu schaffen.\n\nBei Apple glauben wir, dass Zugänglichkeit ein grundlegendes Menschenrecht ist. Diese Idee spiegelt sich hier in allem wider - in unserer Kultur, unseren Vorteilen und unseren digitalen Tools. Indem wir so viele Perspektiven wie möglich begrüßen, helfen wir Ihnen, eine Karriere aufzubauen, in der Sie sich wie Sie gehören fühlen.\n\nErfahren Sie mehr über die Zugänglichkeit am Arbeitsplatz von Apple",
-        "fr": "Résumé\nNous recherchons des stagiaires de recherche pour créer des innovations révolutionnaires dans l'apprentissage automatique. Nous sommes particulièrement intéressés par l'efficacité des modèles frontières, y compris les LLM et les modèles de diffusion. Vous travaillerez dans une organisation de classe mondiale de chercheurs et d'ingénieurs en apprentissage automatique. Notre travail alimente les technologies de pointe de l'écosystème Apple et est publié dans les revues et conférences scientifiques les plus sélectives.\n\nDésignation des marchandises\nVous êtes dans vos dernières années d'un programme de doctorat en apprentissage automatique et avez déjà publié une partie de votre travail dans des lieux de premier plan dans le domaine. Pendant votre séjour chez nous, vous continuerez à affiner vos compétences de recherche à mesure que nous passerons par les différentes étapes de collaboration d'un projet de recherche ML : identifier une opportunité de recherche prometteuse, revoir les méthodes de pointe et la littérature pertinente, élaborer de nouvelles approches, les mettre en œuvre comme prototypes de code, planifier et exécuter des expériences à grande échelle à travers des systèmes multinoeuds, multi-GPU, rédiger un papier, et le voir jusqu'à la soumission.\n\nLes sujets d'intérêt comprennent, sans s'y limiter, les modèles frontaliers, l'efficacité de l'inférence et de la formation LLM, les modèles sur les appareils, le décodage spéculatif, la sparosité contextuelle, la quantification et la compression. Nous sommes une équipe de chercheurs et d'ingénieurs ayant une grande expérience en vision informatique, en apprentissage automatique, en robotique, en graphisme informatique et dans des domaines connexes. Nous travaillons sur de nouvelles technologies passionnantes qui apportent de la joie à des millions de personnes.\n\nDans notre travail quotidien, l'équipe reste innovante, productive et amusante en partageant certaines valeurs clés :\n\n- Passion pour la mission : Nous sommes là pour rendre quelque chose d'extraordinaire. Nous cherchons à obtenir les meilleurs résultats possibles.\n- Modestie : La bonne réponse est plus importante que d'avoir raison. Nous recherchons des solutions en tant qu'équipe et valorisons les commentaires clairs.\n- Habitudes de fuite: Tu ne peux pas grandir sans limites. Les contraintes de temps et les grands objectifs nous encouragent à nous concentrer et à apprendre à prendre des décisions phénoménales.\n\nQualités minimales\n• Vous travaillez vers un doctorat en informatique, ingénierie, data science, mathématiques appliquées, ou l'équivalent.\n• 6 mois de dévouement est préféré, et à partir de mars 2026\n• Expertise de recherche éprouvée en apprentissage automatique.\n• Dossier de publication dans les conférences pertinentes (p. ex., NeurIPS, ICLR, ICML, COLM, etc.).\n• Compétences en génie logiciel solide dans des systèmes complexes et multilingues. La fluidité dans Python.\n\nQualifications privilégiées\n• Expertise dans les algorithmes ML et les meilleures pratiques pour travailler avec les systèmes d'apprentissage profond\n• Compétence avec les cadres de modélisation ML (PyTorch, Tensorflow, etc.)\n• Forte approche globale de développement de logiciels. Vous livrez un code propre et bien testé.\n\nChez Apple, nous ne sommes pas tous les mêmes. Et c'est notre plus grande force. Nous tirons parti des différences dans notre identité, notre expérience et notre façon de penser. Parce que pour créer des produits qui servent tout le monde, nous croyons en l'inclusion de tous. Par conséquent, nous nous engageons à traiter tous les candidats de façon équitable et équitable. Nous travaillerons avec les demandeurs pour prendre des mesures d'adaptation raisonnables.\n\nChez Apple, nous croyons que l'accessibilité est un droit humain fondamental. Vous trouverez cette idée reflétée dans tout ici — dans notre culture, nos avantages et nos outils numériques. En accueillant autant de perspectives que possible, nous vous aidons à construire une carrière où vous vous sentez comme à votre place.\n\nDécouvrez l'accessibilité sur le lieu de travail Apple"
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200686571/internship-computer-vision-machine-learning-research-llm-efficiency?team=MLAI",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:46:19.806Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-30T15:48:49.585Z",
-      "postedDate": "2026-09-30T15:48:49.585Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200686571/internship-computer-vision-machine-learning-research-llm-efficiency?team=MLAI",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "internship-computer-vision-machine-learning-research-llm-efficiency-apple-retail",
-        "internship-computer-vision-machine-learning-recherche-llm-efficiency-apple-retail-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "internship-computer-vision-machine-learning-research-llm-efficiency-apple-retail"
-        ],
-        "fr": [
-          "internship-computer-vision-machine-learning-recherche-llm-efficiency-apple-retail-switzerland-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-30T21:15:42.786Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Apple Retail Switzerland",
-        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
-        "postalCode": "8001",
-        "addressLocality": "Zurich",
-        "addressRegion": "ZH",
-        "checkedAt": "2026-10-31T20:47:43.354Z"
-      },
-      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:46:19.806Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

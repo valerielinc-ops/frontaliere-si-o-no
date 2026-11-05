@@ -1,7 +1,7 @@
 {
   "key": "adullam",
   "label": "Adullam-Stiftung",
-  "generatedAt": "2026-11-04T21:39:19.990Z",
+  "generatedAt": "2026-11-05T09:37:42.930Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 9125,
-  "avgDurationMs": 9125,
+  "unchangedCount": 10,
+  "durationMs": 12333,
+  "avgDurationMs": 12333,
   "durationHistory": [
-    9125
+    12333
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "adullam-17c8725593e5",
       "slug": "dipl-fisioterapia-in-adullam-stiftung-basel",
@@ -35,7 +37,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4009855",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:39:04.524Z",
+      "crawledAt": "2026-11-05T09:37:30.471Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -63,7 +65,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:39:04.524Z",
+      "validThrough": "2026-12-05T09:37:30.471Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -86,7 +88,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4029980",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:39:03.841Z",
+      "crawledAt": "2026-11-05T09:37:29.804Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -114,7 +116,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:39:03.841Z",
+      "validThrough": "2027-02-02T09:37:29.804Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -123,10 +125,7 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "adullam-cc3f32ef6ed8",
       "slug": "dipl-pflegefachfrau-mann-m-w-d-per-la-beatmungsstation-abwechslungsreich-herausfordernd-e-ohne-nachtdienst-adullam-stiftung-basel",
@@ -140,7 +139,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4019248",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:39:03.262Z",
+      "crawledAt": "2026-11-05T09:37:29.178Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -168,7 +167,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:39:03.262Z",
+      "validThrough": "2026-12-05T09:37:29.178Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -191,7 +190,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4052086",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:39:02.648Z",
+      "crawledAt": "2026-11-05T09:37:28.579Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -219,7 +218,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:39:02.648Z",
+      "validThrough": "2026-12-05T09:37:28.579Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -242,7 +241,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4028198",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:39:02.083Z",
+      "crawledAt": "2026-11-05T09:37:27.584Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -270,7 +269,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:39:02.083Z",
+      "validThrough": "2026-12-07T09:37:27.584Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -293,7 +292,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044685",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:39:01.467Z",
+      "crawledAt": "2026-11-05T09:37:26.889Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -321,7 +320,7 @@
       "salarySource": "estimated",
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:39:01.467Z",
+      "validThrough": "2026-12-05T09:37:26.889Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -344,7 +343,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044764",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:39:00.919Z",
+      "crawledAt": "2026-11-05T09:37:26.204Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -372,7 +371,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:39:00.919Z",
+      "validThrough": "2026-12-05T09:37:26.204Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -394,7 +393,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4049813",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:39:00.377Z",
+      "crawledAt": "2026-11-05T09:37:25.570Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -422,7 +421,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:39:00.377Z",
+      "validThrough": "2026-12-05T09:37:25.570Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -445,7 +444,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4064701",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:38:59.791Z",
+      "crawledAt": "2026-11-05T09:37:24.827Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -473,7 +472,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel und Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:38:59.791Z",
+      "validThrough": "2026-12-05T09:37:24.827Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -496,7 +495,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4087150",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:38:59.241Z",
+      "crawledAt": "2026-11-05T09:37:24.173Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -524,7 +523,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel und Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:38:59.241Z",
+      "validThrough": "2026-12-05T09:37:24.173Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -535,5 +534,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }

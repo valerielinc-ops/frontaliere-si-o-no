@@ -92,7 +92,9 @@ const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
 const REPAIR_TIMEOUT_MS = 10 * 60 * 1000;
 const MAX_REPAIR_FINDINGS = 12;
 const PORTAL_PRE_READ_HANDOFFS = new Set([
-  'cookie_preferences_unresolved', 'posting_mismatch', 'question_label_unreadable', 'requirements_unavailable',
+  'application_form_unreadable', 'captcha_present', 'cookie_preferences_unresolved', 'planner_unavailable',
+  'portal_reader_failed', 'posting_mismatch', 'question_label_unreadable', 'question_localization_unavailable',
+  'question_planning_failed', 'requirements_unavailable',
 ]);
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 const PORTAL_ANSWER_PERSONAL_OR_OPERATIONAL_RE = /\b(?:e-?mail|courriel|t[eé]l[eé]phone\w*|telefon\w*|mobiltelefon\w*|telefono\w*|phone|mobile|cellulaire|num[eé]ro de t[eé]l[eé]phone|religion|religious|faith|pregnan\w*|sexual orientation|political affiliation|political views|race|ethnic\w*|disabil\w*|consent|privacy|terms and conditions|newsletter|marketing)\b/i;
