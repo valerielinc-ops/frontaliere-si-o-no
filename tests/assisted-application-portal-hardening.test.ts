@@ -531,6 +531,12 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(authPageKind(snapshot)).toBe('sign_in');
     expect(sendsApplication(snapshot)).toBe(false);
     expect(ownAccountForm(snapshot, 'umantis')).toBe(true);
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.map(field => field.id === 'cover-letter'
+        ? { ...field, id: 'upload-1', name: 'attachment', label: 'Document', context: 'Cover letter' }
+        : field),
+    }, 'umantis')).toBe(true);
     expect(ownAccountForm(snapshot)).toBe(false);
     expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('/Application/New/4', '/Login') }, 'umantis')).toBe(false);
     expect(ownAccountForm({

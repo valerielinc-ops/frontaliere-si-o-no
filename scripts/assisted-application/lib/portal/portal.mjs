@@ -2098,7 +2098,7 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   const residenceRoles = new Set(fields.map(field => residenceFieldRole(field.label)).filter(Boolean));
   const hasResidence = ['street', 'postalCode', 'city', 'country'].every(role => residenceRoles.has(role));
   const hasCoverLetter = fields.some(field => isFileField(field)
-    && COVER_LETTER_DOCUMENT_CONTEXT_RE.test(`${field.label || ''} ${field.name || ''} ${field.id || ''}`));
+    && COVER_LETTER_DOCUMENT_CONTEXT_RE.test(`${field.label || ''} ${field.name || ''} ${field.id || ''} ${field.context || ''}`));
   const hasCv = fields.some(isCvFileField);
 
   // #17174: the live Application/New step exposes the account password next
