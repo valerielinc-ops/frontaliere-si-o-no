@@ -1586,8 +1586,7 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
         const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
           .filter(Boolean).join(' ');
         if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
-          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)
-          || (manageConsentAction && /\bconsent\b/i.test(marker))) return true;
+          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)) return true;
       }
       return false;
     };
