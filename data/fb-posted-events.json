@@ -2920,6 +2920,57 @@
       "copyAngleIntent": "both",
       "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
       "copyCta": "Apri le informazioni."
+    },
+    {
+      "id": "myswitzerland:2f4b0ab7ff61401991f025f065205e8e",
+      "url": "https://frontaliereticino.ch/eventi/argovia/spreitenbach/",
+      "postId": "951226518080080_122130641283272498",
+      "postedAt": "2026-11-05T16:55:59.416Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-music",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
+      "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:220beb7366b54e469b9157e4e5a19d64",
+      "url": "https://frontaliereticino.ch/eventi/grigioni/jenaz/",
+      "postId": "951226518080080_122130641319272498",
+      "postedAt": "2026-11-05T16:56:05.584Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-theatre",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Una proposta di teatro da controllare prima di inserirla in agenda.",
+      "copyCta": "Scopri l'evento."
+    },
+    {
+      "id": "myswitzerland:4ab2996571e14e54a4c5ff1844d37965",
+      "url": "https://frontaliereticino.ch/eventi/zurigo/",
+      "postId": "951226518080080_122130641355272498",
+      "postedAt": "2026-11-05T16:56:11.007Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-conference",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
+      "copyCta": "Apri le informazioni."
     }
   ]
 }
