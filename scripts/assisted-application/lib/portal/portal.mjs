@@ -1041,14 +1041,15 @@ function hasApplicationEntryControl(snapshot = {}, context = {}) {
 
 /**
  * A page with only the employer site's header/footer controls is not an
- * application form. Keeping this separate from hasApplicationForm matters:
- * custom application widgets may have no native fields yet, but their own
- * buttons are still actionable and must reach the agentic fallback.
+ * application form. The thin-shell exception is limited to Stadt Zürich's
+ * exact posting route; a verified apply URL alone still needs a form surface.
+ * Custom widgets may have no native fields yet, but their own buttons are
+ * actionable and must reach the agentic fallback.
  */
 export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '', postingMatch = '' } = {}) {
   if (isNonApplicationSurface(snapshot)) return false;
   return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome)
-    || (postingMatch === 'match' && isPostingRouteBound({ pageUrl, postingUrl })));
+    || (postingMatch === 'match' && isStadtZurichPostingRoute({ pageUrl, postingUrl })));
 }
 
 /**

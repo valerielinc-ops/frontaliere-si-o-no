@@ -119,6 +119,14 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       postingUrl: workdayUrl,
       postingMatch: 'match',
     })).toBe(false);
+    const umantisPostingUrl = 'https://company.umantis.com/Vacancies/123/Description/456';
+    const umantisApplyUrl = 'https://company.umantis.com/Vacancies/123/Application/New/456';
+    expect(isPostingRouteBound({ pageUrl: umantisApplyUrl, postingUrl: umantisPostingUrl })).toBe(true);
+    expect(hasApplicationSurface(snapshot, {
+      pageUrl: umantisApplyUrl,
+      postingUrl: umantisPostingUrl,
+      postingMatch: 'match',
+    })).toBe(false);
   });
 
   it('opens a same-job employer apply route from its matching posting page', () => {
