@@ -261,7 +261,8 @@ function minimumDataRetentionOption(options, question = '') {
 
     const deletionWords = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/;
     const deletes = deletionWords.test(value);
-    const negationWords = /\b(?:not|never|no|non|nicht|nie|pas|kein\w*|don t|doesn t|didn t|wouldn t|shouldn t|couldn t|mustn t|hasn t|haven t|hadn t|isn t|aren t|wasn t|weren t|won t|mightn t|cannot|can t)\b/;
+    // normalize() turns English n't contractions into a word ending in n + "t".
+    const negationWords = /\b(?:not|never|no|non|nicht|nie|pas|kein\w*|\w+n t|cannot)\b/;
     const negatesDeletion = new RegExp(
       `${negationWords.source}.{0,40}${deletionWords.source}|${deletionWords.source}.{0,40}${negationWords.source}`,
     ).test(value);
