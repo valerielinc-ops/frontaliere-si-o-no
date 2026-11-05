@@ -5067,11 +5067,6 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, {
       candidate,
       candidateLocale: ctx.candidateLocale,
-      // A planner pass triggered by a changing registration surface may mark
-      // an untrusted portal autofill as missing. Keep that explicit request;
-      // the normal mapper still suppresses values already grounded in the
-      // candidate or in a safe operational answer.
-      preservePlannerMissingValues: true,
     });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
@@ -5596,7 +5591,6 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
 export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   candidate = null,
   candidateLocale = 'it',
-  preservePlannerMissingValues = false,
 } = {}) {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
@@ -5643,8 +5637,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
       ? candidateAnswerForField(candidate, field, {
         includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
       }) : null;
-    if (field && field.invalid !== true
-      && ((!preservePlannerMissingValues && holdsValue(field)) || String(candidateAnswer?.value ?? '').trim())) continue;
+    if (field && field.invalid !== true && String(candidateAnswer?.value ?? '').trim()) continue;
     mergeRequired(item);
   }
   // Keep the planner's order when a deterministic candidate requirement
