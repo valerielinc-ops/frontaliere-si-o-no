@@ -1754,7 +1754,7 @@ export function guardPlan(plan, fields, candidate = null) {
   // The Swiss status the candidate chose, on a field that asks the permit held (decision 9): the one option that
   // says exactly that status, whatever the plan chose; none, or two, and the plan's answer is judged as any other.
   // A field that asks what the candidate needs or applies for is never answered by the code.
-  const status = permitStatusFromCandidate(candidate);
+  const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit: false });
   const statusPick = new Map(status ? fields
     .filter((field) => {
       if (!isPermitField(field.label) || !asksHeldStatus(questionFromLabel(field.label))) return false;

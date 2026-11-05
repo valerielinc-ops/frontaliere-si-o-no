@@ -177,10 +177,11 @@ export function permitStatusOf(value) {
   return codes.size === 1 && codes.has(positive) ? positive : '';
 }
 
-/** The first recognized Swiss status in the candidate's explicit status fields. */
-export function permitStatusFromCandidate(candidate) {
-  for (const value of [candidate?.swissStatus?.code, candidate?.profile?.permitStatus,
-    candidate?.answers?.work_permit, candidate?.profile?.workPermit]) {
+/** The first recognized Swiss status; callers can omit free-text CV evidence when they need a confirmed choice. */
+export function permitStatusFromCandidate(candidate, { includeProfileWorkPermit = true } = {}) {
+  const values = [candidate?.swissStatus?.code, candidate?.profile?.permitStatus, candidate?.answers?.work_permit];
+  if (includeProfileWorkPermit) values.push(candidate?.profile?.workPermit);
+  for (const value of values) {
     const status = permitStatusOf(value);
     if (status) return status;
   }
