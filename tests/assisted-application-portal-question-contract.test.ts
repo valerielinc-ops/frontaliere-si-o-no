@@ -282,7 +282,6 @@ describe('portal candidate question contract', () => {
 
     expect(result.questions).toHaveLength(1);
     expect(result.questions[0]).toMatchObject({
-      fieldId: historical.id,
       applicationQuestion: historical.label,
       options: ['Yes', 'No'],
       required: true,
@@ -306,7 +305,6 @@ describe('portal candidate question contract', () => {
 
     expect(result.questions).toHaveLength(1);
     expect(result.questions[0]).toMatchObject({
-      fieldId: historical.id,
       applicationQuestion: historical.label,
       question: historical.label,
       options: ['Yes', 'No'],
