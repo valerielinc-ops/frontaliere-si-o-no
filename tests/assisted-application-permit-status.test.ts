@@ -249,7 +249,7 @@ describe('form-field wordings (one source for the portal guard and the questions
       'Est-ce que vous détenez un permis suisse ?']) {
       expect([label, isPermitField(label)]).toEqual([label, true]);
     }
-    for (const label of ['Permis de conduire', 'Führerausweis', 'Fahrausweis Kategorie B', 'Berufsausübungsbewilligung', 'Country', 'Aufenthaltsort', 'Land', 'Wohnort', 'Privacy', 'Patente di guida', 'Ausweis-Nr.']) {
+    for (const label of ['Permis de conduire', 'Führerausweis', 'Fahrausweis Kategorie B', 'Berufsausübungsbewilligung', 'Permiso de conducir', 'Permiso de conducción', 'Permiso de conduccion', 'Permiso para conducir', 'Country', 'Aufenthaltsort', 'Land', 'Wohnort', 'Privacy', 'Patente di guida', 'Ausweis-Nr.']) {
       expect([label, isPermitField(label)]).toEqual([label, false]);
     }
   });

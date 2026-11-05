@@ -3122,6 +3122,11 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const germanRelative = permitField('Haben Sie eine Arbeitserlaubnis, die vom Kanton erteilt wurde?', ['Ja', 'Nein']);
     expect(guardPlan({ actions: [], missingRequired: [] }, [germanRelative], held).actions).toEqual([select('p1', 'Ja')]);
 
+    for (const label of ['¿Tienes un permiso de conducir?', '¿Tienes un permiso de conducción?', '¿Tienes un permiso de conduccion?']) {
+      const drivingPermit = permitField(label, ['Sí', 'No']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [drivingPermit], held).actions).toEqual([]);
+    }
+
     for (const label of ['Est-ce que tu as un permis suisse ?', 'Est-ce que tu es autorisé à travailler en Suisse ?']) {
       const informalFrench = permitField(label, ['Oui', 'Non']);
       expect(guardPlan({ actions: [], missingRequired: [] }, [informalFrench], held).actions).toEqual([select('p1', 'Oui')]);
