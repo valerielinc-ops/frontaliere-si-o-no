@@ -45,6 +45,10 @@ export function isMissingSocialPublishReservationDocumentError(error) {
   return error?.code === SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING;
 }
 
+export function isMissingSocialPublishReservationEntryError(error) {
+  return error?.code === SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING;
+}
+
 export function isMissingSocialPublishReservationError(error) {
   return isMissingSocialPublishReservationDocumentError(error)
     || error?.code === SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING;
