@@ -144,7 +144,7 @@ function nativeQuestionText(value, counter = null) {
   };
   const readable = (element) => includeHidden ? mountedForReadAhead(element) : visible(element);
   const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
-  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
+  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_]?(?:policy|manager)\b/i;
   const dialogIdFor = (element) => {
     const dialog = element.closest(DIALOG_SELECTOR);
     if (!dialog) return '';
@@ -879,10 +879,14 @@ function nativeQuestionText(value, counter = null) {
     const scope = element.closest('main, [role="main"], [role="application"]');
     return scope ? { applicationScopeId: idFor(scope) } : {};
   };
-  const applicationOwnershipFor = (element) => ({
-    ...applicationScopeFor(element),
-    ...sectionGroupFor(element),
-  });
+  const applicationOwnershipFor = (element) => {
+    const roleForm = element.closest('[role="form"]');
+    return {
+      ...applicationScopeFor(element),
+      ...sectionGroupFor(element),
+      ...(roleForm ? { roleFormId: idFor(roleForm) } : {}),
+    };
+  };
   // A portal may replace a file input while copying its data-aa-id. Keep a
   // page-local identity for the actual DOM node so a later snapshot cannot
   // mistake that fresh empty control for the one that received the file.

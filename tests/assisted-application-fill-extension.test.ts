@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { NOT_ADVANCE_RE } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
 const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'scripts/assisted-application/extension');
@@ -348,7 +348,7 @@ describe('fill extension: patterns', () => {
 
   it('uses the runner’s own patterns', () => {
     const { F } = page('');
-    for (const [name, pattern] of Object.entries({ NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, COOKIE_CUSTOMIZE_RE })) {
+    for (const [name, pattern] of Object.entries({ NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE })) {
       expect(`${name}: ${F[name].source}/${F[name].flags}`).toBe(`${name}: ${pattern.source}/${pattern.flags}`);
     }
   });
@@ -364,6 +364,12 @@ describe('fill extension: patterns', () => {
     expect(F.cookieRefusal(document)?.textContent).toBe('Alle Cookies ablehnen');
     document.body.innerHTML = '<div id="cookie-banner"><button type="button">Decline optional cookies</button></div>';
     expect(F.cookieRefusal(document)?.textContent).toBe('Decline optional cookies');
+    document.body.innerHTML = '<form class="consent"><button type="button">Manage consent</button></form>';
+    expect(F.cookieRefusal(document)).toBeNull();
+    document.body.innerHTML = '<div id="cookie-consent"><p>This website uses cookies.</p><button type="button">Manage consent</button></div>';
+    expect(F.cookieRefusal(document)?.textContent).toBe('Manage consent');
+    document.body.innerHTML = '<div id="cookie-banner"><button type="button">Manage consent</button></div>';
+    expect(F.cookieRefusal(document)?.textContent).toBe('Manage consent');
   });
 
   it('recognizes the Ticino portal’s classic online-application link', () => {
