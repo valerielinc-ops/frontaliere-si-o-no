@@ -515,6 +515,10 @@ describe('application consent and minimum retention defaults', () => {
     const question = { id: 'privacy', question: processingConsent, applicationQuestion: processingConsent, type: 'checkbox', required: false };
     expect(operationalQuestionTopic(question)).toBe('application_data_processing_consent');
     expect(operationalDefaultAnswer(question)).toMatchObject({ value: 'true', topic: 'application_data_processing_consent', source: 'policy_default' });
+    const frenchAuthorization = "J'autorise le traitement de mes données personnelles";
+    const frenchQuestion = { id: 'privacy_fr', question: frenchAuthorization, applicationQuestion: frenchAuthorization, type: 'checkbox', required: true };
+    expect(operationalQuestionTopic(frenchQuestion)).toBe('application_data_processing_consent');
+    expect(operationalDefaultAnswer(frenchQuestion)).toMatchObject({ value: 'true', topic: 'application_data_processing_consent', source: 'policy_default' });
     const native = { id: 'privacy', kind: 'checkbox', type: 'checkbox', label: processingConsent, required: false };
     expect(ownConsent(native)).toBe(true);
     expect(guardPlan({ actions: [], missingRequired: [] }, [native], { identity: {}, profile: {}, answers: {} }).actions)

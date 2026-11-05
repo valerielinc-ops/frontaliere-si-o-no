@@ -1733,6 +1733,13 @@ describe('fill extension: owner-approved application defaults', () => {
     expect((document.querySelector('input[name="title"]:checked') as HTMLInputElement).value).toBe('Signora');
   });
 
+  it('recognizes French authorization to process personal data', () => {
+    const authorization = "J'autorise le traitement de mes données personnelles";
+    const { document, F } = page(`<form><label for="privacy-fr">${authorization}</label><input id="privacy-fr" type="checkbox" required></form>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacy-fr');
+    expect(F.answerFor(entry, { ...kit, answers: [] })).toEqual({ check: true });
+  });
+
   it('chooses the shortest finite term over future storage and a later deletion', () => {
     const { document, F } = page(`<form>
       <label for="retention">How long may we retain your personal data?</label>
