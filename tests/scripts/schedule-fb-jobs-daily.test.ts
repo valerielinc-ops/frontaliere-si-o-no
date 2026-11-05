@@ -734,6 +734,7 @@ describe('run() — DRY_RUN mode', () => {
     expect(calls).toHaveLength(2);
     expect(calls.every(({ url }) => !url.includes('access_token'))).toBe(true);
     expect(calls.every(({ options }) => (options?.headers as Record<string, string>)?.Authorization === 'Bearer secret-token')).toBe(true);
+    expect(new URL(calls[1].url).searchParams.get('fields')).toBe('og_object{image,title}');
   });
 
   it('does not let a manual job batch bypass the shared Facebook Page cap', async () => {
