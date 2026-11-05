@@ -112,7 +112,7 @@ const LOSONE_DOCUMENT_CHECKLIST: AutomationRequestedDocumentView[] = [
 const LOSONE_POSTAL_SUBMISSION: PostalSubmissionView = {
   enabled: true,
   recipient: 'Municipio di Losone',
-  address: 'Via Municipio 7\nCasella postale 863\n6616 Losone',
+  address: 'Via Municipio 7\nCasella postale 863\n6616 Losone\nSvizzera',
   deadline: 'Entro le ore 16:00 di giovedì 12 novembre 2026',
   envelopeMarking: 'Concorso impiegato/a amministrativo/a',
   instructions: 'La candidatura deve pervenire al Municipio di Losone in busta chiusa entro le ore 16:00 di giovedì 12 novembre 2026. Spedisci con anticipo sufficiente perché arrivi entro la scadenza. Ricopia a mano la lettera indicata nel dossier e aggiungi gli eventuali originali cartacei richiesti dal bando. Non inserire nella busta le pagine del PDF contrassegnate come istruzioni o indice.',

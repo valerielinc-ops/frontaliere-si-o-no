@@ -394,7 +394,7 @@ describe('pull-articles-api: refuses to write sitemaps the registry will not mat
     const site = fs.mkdtempSync(path.join(os.tmpdir(), 'site-api-'));
     cleanup.push(site);
     fs.mkdirSync(path.join(site, 'public'));
-    manifestBody = JSON.stringify({ commit: SHA_B, counts: { articles: 3116 } });
+    manifestBody = JSON.stringify({ commit: SHA_B, counts: { articles: 3116, sitemapArchiveUrls: 1 } });
 
     const { code, out } = await runScript(API_SCRIPT, site, {
       ARTICLES_API_BASE: apiBase,
@@ -407,7 +407,7 @@ describe('pull-articles-api: refuses to write sitemaps the registry will not mat
     expect(code).toBe(0);
     expect(out).toContain('::warning::[pull-articles-api] sync skipped');
     // It bails at the manifest, before fetching — let alone writing — any of the
-    // fourteen artifacts. The 404-only fixture server proves it: reaching the
+    // artifacts. The 404-only fixture server proves it: reaching the
     // sitemaps would have failed loudly instead.
     expect(fs.readdirSync(path.join(site, 'public'))).toHaveLength(0);
   });

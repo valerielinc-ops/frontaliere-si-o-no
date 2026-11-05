@@ -87,7 +87,9 @@ describe('generate-image-thumbnails', () => {
     const result = run(dir, { GITHUB_ACTIONS: 'true' });
 
     expect(result.status).toBe(1);
-    expect(result.stderr).toContain(`::error file=${path.join(dir, 'broken.webp')},`);
+    expect(result.stderr).toContain('::error title=Miniature: immagine sorgente illeggibile::thumbnail generation failed');
+    expect(result.stderr).toContain('thumbnail failed; source details withheld');
+    expect(result.stderr).not.toContain(path.join(dir, 'broken.webp'));
   });
 
   it('exits 0 when every image is readable', async () => {

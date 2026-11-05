@@ -251,25 +251,25 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
-  it('classifies a page without application controls as unresolved instead of a posting mismatch', async () => {
+  it('classifies a non-form loading page outside the selected posting as a mismatch', async () => {
     const unrecognized = { ...snapshot(applyUrl, 'Please wait while the portal loads.', []), text: 'Please wait while the portal loads.', title: 'Careers' };
     const f = fixture(unrecognized);
 
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_needs_candidate' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
   });
 
-  it('does not call a control-free page a posting mismatch solely because its title is unfamiliar', async () => {
+  it('classifies a control-free page outside the selected route as a posting mismatch', async () => {
     const otherTitle = { ...snapshot(applyUrl, 'Application portal is loading.', []),
       title: 'Different role', text: 'Application portal is loading.', fields: [] };
     const f = fixture(otherTitle);
 
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_needs_candidate' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(result.evidence.postingMatch).toBe('mismatch');
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
