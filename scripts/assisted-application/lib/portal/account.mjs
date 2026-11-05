@@ -69,8 +69,9 @@ const EXPLICIT_EXISTING_ACCOUNT_RE = /(?:\b(?:an? (?:application )?account alrea
 const REGISTRATION_EMAIL_FIELD_RE = /(?:e[-\s]?mail|emailadresse|mailadresse|benutzer(?:name)?|username|login)/iu;
 
 function hasRegistrationEmailField(snapshot) {
-  return authPageKind(snapshot) === 'create'
-    && (snapshot.fields || []).some((field) => field.inputType !== 'password'
+  return Array.isArray(snapshot.fields)
+    && authPageKind(snapshot) === 'create'
+    && snapshot.fields.some((field) => field.inputType !== 'password'
       && REGISTRATION_EMAIL_FIELD_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
 }
 
