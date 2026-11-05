@@ -2145,7 +2145,7 @@ export function guardPlan(plan, fields, candidate = null) {
     const answer = candidateAnswerForField(candidate, field);
     const exactHistoricalPermitAnswer = isPermitField(field.label)
       && isPermitHistoricalQuestion(field.label) && Boolean(answer);
-    if (!field.required || answered.has(field.id)
+    if ((!field.required && !exactHistoricalPermitAnswer) || answered.has(field.id)
       || (holdsValue(field) && !exactHistoricalPermitAnswer)
       || (rejectedActionFields.has(field.id) && !exactHistoricalPermitAnswer)) continue;
     if (!answer) continue;

@@ -3306,6 +3306,11 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     }, [{ ...permitField(historyQuestion, ['Yes', 'No']), id: 'portal_history', value: 'No' }], candidateHistory);
     expect(staleHistoryPlan.actions).toEqual([select('portal_history', 'Yes', 'answers')]);
     expect(staleHistoryPlan.missingRequired).toEqual([]);
+    const optionalStaleHistoryPlan = guardPlan({
+      actions: [select('portal_history', 'No', 'profile')], missingRequired: [],
+    }, [{ ...permitField(historyQuestion, ['Yes', 'No']), id: 'portal_history', required: false, value: 'No' }], candidateHistory);
+    expect(optionalStaleHistoryPlan.actions).toEqual([select('portal_history', 'Yes', 'answers')]);
+    expect(optionalStaleHistoryPlan.missingRequired).toEqual([]);
 
     const yesNo = permitField('Do you hold a valid work permit for Switzerland?', ['Yes', 'No']);
     expect(guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [yesNo], candidateWithPermit).actions)
