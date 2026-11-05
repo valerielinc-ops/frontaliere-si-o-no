@@ -124,11 +124,18 @@ export function minimumDataRetentionOption(options, question = '') {
       return amount >= 0 ? amount * durationFactor[unitKey] : null;
     }
 
-    const deletes = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/.test(value);
-    const followsCurrentApplication = /(?:\b(?:after|dopo|nach|apres)\b.{0,80}\b(?:current application|this application|application process|questa candidatura|candidatura corrente|procedura di candidatura corrente|candidature en cours|bewerbung(?:sverfahren)?)\b|\bonce\b.{0,80}\b(?:the )?(?:current|present|this) application process\b)/.test(value);
+    const deletionWords = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/;
+    const deletes = deletionWords.test(value);
+    const negationWords = /\b(?:not|never|no|non|nicht|nie|pas|kein\w*|don t|doesn t|didn t|won t|cannot|can t)\b/;
+    const negatesDeletion = new RegExp(
+      `${negationWords.source}.{0,40}${deletionWords.source}|${deletionWords.source}.{0,40}${negationWords.source}`,
+    ).test(value);
+    const afterCurrentApplication = /\b(?:after|dopo|nach|apres)\b.{0,80}\b(?:current application|this application|application process|questa candidatura|candidatura corrente|procedura di candidatura corrente|candidature en cours|bewerbung(?:sverfahren)?)\b/;
+    const onceCurrentApplicationCompletes = /\bonce\b.{0,80}\b(?:(?:the )?(?:current|present)|this) application process\b.{0,40}\b(?:complet(?:e|ed|ion)|finish(?:ed)?|ends?|ended|over|conclud(?:e|es|ed)|terminat(?:e|ed|es))\b/;
+    const followsCurrentApplication = afterCurrentApplication.test(value) || onceCurrentApplicationCompletes.test(value);
     const currentOnly = /\b(?:only|solo|uniquement|nur)\b/.test(value)
       && /\b(?:this application|current application|questa candidatura|candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
-    if ((deletes && followsCurrentApplication) || currentOnly) return 0;
+    if ((deletes && !negatesDeletion && followsCurrentApplication) || currentOnly) return 0;
 
     const answerIsNo = /^(?:no|non|nein|nein danke|non desidero|non acconsento|non consento)$/.test(value)
       || /\b(?:do not consent|non acconsento|non consento|nicht einverstanden|ne suis pas d accord)\b/.test(value);
