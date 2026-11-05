@@ -46,6 +46,15 @@ describe('validateEventStructuredData', () => {
     expect(offlineEvent.map(({ field }) => field)).toContain('eventAttendanceMode');
   });
 
+  it('trims accepted date-time values before comparing timezone-free instants', () => {
+    const errors = validateEventStructuredData({
+      ...EVENT,
+      startDate: ' 2024-01-02T01:00',
+      endDate: '2024-01-02T00:30Z',
+    }, '/dist/event/index.html');
+    expect(errors.map(({ field }) => field)).toContain('endDate');
+  });
+
   it('requires a named physical location and PostalAddress details', () => {
     const errors = validateEventStructuredData({
       ...EVENT,

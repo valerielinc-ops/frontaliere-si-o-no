@@ -27,9 +27,10 @@ export function isGoogleEventStatusCompatible(status, attendanceMode) {
 }
 
 function eventDateTimestamp(value) {
-  const hasExplicitTimezone = /(?:Z|[+-]\d{2}:?\d{2})$/iu.test(value);
-  const isDateTime = /^\d{4}-\d{2}-\d{2}T/iu.test(value);
-  const normalized = value.replace(/([+-]\d{2})(\d{2})$/u, '$1:$2');
+  const trimmedValue = value.trim();
+  const hasExplicitTimezone = /(?:Z|[+-]\d{2}:?\d{2})$/iu.test(trimmedValue);
+  const isDateTime = /^\d{4}-\d{2}-\d{2}T/iu.test(trimmedValue);
+  const normalized = trimmedValue.replace(/([+-]\d{2})(\d{2})$/u, '$1:$2');
   const utcValue = isDateTime && !hasExplicitTimezone ? `${normalized}Z` : normalized;
   return Date.parse(utcValue);
 }
