@@ -144,6 +144,12 @@ function nativeQuestionText(value, counter = null) {
   };
   const readable = (element) => includeHidden ? mountedForReadAhead(element) : visible(element);
   const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
+  const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
+  // A generic banner/modal marker is not a cookie manager. The bare
+  // Yellowshark label is accepted only when the live ancestor carries a
+  // cookie-specific manager identity as well as cookie copy; `cookie-consent`
+  // is intentionally absent because application privacy sections reuse it.
+  const COOKIE_MANAGER_SURFACE_RE = /\b(?:cookie[-_ ]?(?:banner|manager|policy|settings?|preferences?|notice|overlay|modal|dialog)|consent[-_ ]?manager|(?:onetrust|usercentrics|didomi|trustarc|cookiebot|quantcast|complianz|cmplz|iubenda|sourcepoint|cmpbox|sp_message|cky[-_ ]?consent|cookie[-_ ]?script))\b/i;
   // `cookie-consent` is also used for application privacy copy; the marker
   // alone is not evidence that a live cookie manager is covering the page.
   const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager)\b/i;
@@ -164,10 +170,19 @@ function nativeQuestionText(value, counter = null) {
     return { dialog: Boolean(dialogId), dialogId };
   };
   const cookieSurfaceFor = (element) => {
-    if (element.closest(DIALOG_SELECTOR)) return 'dialog';
+    const manageConsent = COOKIE_MANAGE_CONSENT_RE.test([
+      element.innerText, element.textContent, element.getAttribute('aria-label'), element.getAttribute('title'),
+    ].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim());
     for (let node = element.parentElement; node; node = node.parentElement) {
       const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
+      if (manageConsent && COOKIE_MANAGER_SURFACE_RE.test(marker)) {
+        return node.matches(DIALOG_SELECTOR) ? 'dialog' : 'banner';
+      }
+      if (node.matches(DIALOG_SELECTOR)) {
+        if (!manageConsent) return 'dialog';
+        continue;
+      }
       if (COOKIE_ACTIVE_SURFACE_RE.test(marker)) return 'banner';
     }
     return '';
