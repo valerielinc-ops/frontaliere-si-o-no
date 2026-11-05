@@ -151,6 +151,19 @@ describe('per-slot first-party creative delivery', () => {
     expect(empty.google.hasAttribute('data-ft-ad-request-pending')).toBe(true);
     expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({ fallback_reason: 'response_stalled' }));
   });
+  it('starts the Firebase assignment during the definitive no-fill grace period', async () => {
+    let resolveAssignment!: (response: { ok: boolean; json: () => Promise<{ variant: string; enrolled: boolean; assignmentSource: string }> }) => void;
+    w.fetch = vi.fn(() => new Promise((resolve) => { resolveAssignment = resolve; }));
+    const empty = frame('unfilled');
+    const install = w.eval(`(${installHouseAds.toString()})`);
+    install(w.eval(`(${createHouseAdCreative.toString()})`), HOUSE_AD_CREATIVE_CSS, emit, () => true, config);
+    await vi.advanceTimersByTimeAsync(100);
+    expect(w.fetch).toHaveBeenCalledTimes(1);
+    expect(empty.host.querySelector('a')).toBeNull();
+    resolveAssignment({ ok: true, json: async () => ({ variant: 'time_saved', enrolled: true, assignmentSource: 'firebase_remote_config' }) });
+    await vi.advanceTimersByTimeAsync(1100);
+    expect(empty.host.querySelector('a')?.dataset.houseCreative).toBe('time_saved_v1');
+  });
   it('refreshes on a Funding Choices blocker signal and respects an allowlisted result', async () => {
     const empty = frame('waiting_response'); empty.google.setAttribute('data-ft-ad-request-pending', '1');
     await start();
