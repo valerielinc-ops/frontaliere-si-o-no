@@ -78,6 +78,7 @@ import { candidatePhoto } from '../../../functions/src/assistedApplicationTailor
 import { enclosedDocumentLabels, mergeRequiredDocuments, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
 import { candidateForForm, portalQuestionKey, postingAddressForPortal } from './portal/portal.mjs';
+import { compactApplicationContract } from './portal/application-contract.mjs';
 import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
@@ -109,10 +110,11 @@ function findingsOf(...results) {
 }
 
 export class DraftAbort extends Error {
-  constructor(eventType, code) {
+  constructor(eventType, code, { portalContract = null } = {}) {
     super(code);
     this.eventType = eventType;
     this.code = code;
+    this.portalContract = compactApplicationContract(portalContract);
   }
 }
 
@@ -447,6 +449,7 @@ export async function buildDraft(ctx) {
     postingUrls: [posting.postingUrl, channel.postingUrl, order.jobUrl, posting.applyUrl, channel.applyUrl],
     fallback: posting.postingUrl || order.jobUrl || '',
   });
+  let portalContract = null;
   if (readPortal && channel.applyUrl) {
     // `candidateWithEdits` may derive a salutation from CV wording or a name
     // for letter formatting. That inference is useful for the letter, but it
@@ -479,11 +482,12 @@ export async function buildDraft(ctx) {
     // reader also returns required file fields so they reach the upload picker
     // before the first submission attempt.
     const portal = Array.isArray(portalResult) ? { questions: portalResult, documents: [] } : (portalResult || { questions: [], documents: [] });
+    portalContract = compactApplicationContract(portal.portalContract);
     if (portal.handoff) {
       // Keep the automation event useful after Actions logs are purged. Only
       // this fixed set of reader outcomes is copied into its error code.
       const reason = PORTAL_PRE_READ_HANDOFFS.has(portal.handoff) ? portal.handoff : 'unknown';
-      throw new DraftAbort('draft_failed', `portal_requirements_unavailable:${reason}`);
+      throw new DraftAbort('draft_failed', `portal_requirements_unavailable:${reason}`, { portalContract });
     }
     requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
     // The document requirement is the answer to a narrow "do you hold it?"
@@ -565,6 +569,7 @@ export async function buildDraft(ctx) {
     },
     liveness: { result: liveness.page?.result || null, code: liveness.page?.code || null, datasetGone: liveness.datasetGone },
     channel,
+    ...(portalContract ? { portalContract } : {}),
     requirementsRaw: requirements,
     requirements: requirements.requirements,
     languageRequirements: requirements.languageRequirements,
