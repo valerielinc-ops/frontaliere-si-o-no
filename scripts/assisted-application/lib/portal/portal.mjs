@@ -917,6 +917,52 @@ export function hasApplicationSurface(snapshot) {
   return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
 }
 
+function comparablePortalRoute(value, base = '') {
+  try {
+    const url = new URL(String(value || ''), base || undefined);
+    return {
+      origin: url.origin,
+      pathname: url.pathname.replace(/\/+$/, '') || '/',
+      search: url.search,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function samePortalRoute(one, other, base = '') {
+  const left = comparablePortalRoute(one, base);
+  const right = comparablePortalRoute(other, base);
+  return Boolean(left && right && left.origin === right.origin
+    && left.pathname === right.pathname && left.search === right.search);
+}
+
+function applicationEntryBelongsToPosting(control, { applyUrl = '', postingUrl = '', job = {} } = {}) {
+  const href = String(control?.href || '').trim();
+  if (href && [applyUrl, postingUrl].some(route => samePortalRoute(href, route, postingUrl))) return true;
+  if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl })) return true;
+
+  // A posting can use a button with no URL (Yellowshark). Its nearest heading
+  // or explicit section must contain the selected role; an employer-only
+  // match could claim a neighbouring job card for the same company.
+  const localContext = [control?.section, control?.context].filter(Boolean).join(' ');
+  if (!localContext) return false;
+  return Boolean(job?.title && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
+}
+
+// A posting may show an informational region notice and still expose its own
+// application entry. Keep the notice terminal only when no proved entry
+// control remains; an unrelated job button must not count as an escape hatch.
+function hasApplicationEntryControl(snapshot = {}, context = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ];
+  return controls.some(control => !control?.disabled && !control?.chrome
+    && startsApplication(control?.text || control?.label)
+    && applicationEntryBelongsToPosting(control, context));
+}
+
 /**
  * An anti-bot interstitial is not evidence that the application belongs to a
  * different posting. The initial page is checked before the form loop, so an
@@ -1206,6 +1252,10 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
 export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
 export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
 export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
+// Yellowshark exposes this bare label without the word "cookie". Keep it out
+// of the general preference vocabulary: it is accepted only after the live
+// control has proved that it belongs to a cookie manager surface.
+export const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
 const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
@@ -1260,7 +1310,7 @@ async function genericCookieControlsShareContainer(page, button, closeControls) 
       const accept = controlFor(acceptId);
       const closes = ids.map(controlFor).filter(Boolean);
       if (!accept || !closes.length) return false;
-      const markerRe = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
+      const markerRe = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_]?(?:policy|manager)\b/i;
       const explicitSurfaceFor = (element) => {
         for (let node = element; node && node !== document.body; node = node.parentElement) {
           const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('role'), node.getAttribute('aria-label')]
@@ -1329,6 +1379,9 @@ async function isPageCookieConsentControl(page, snapshot, button) {
 }
 
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
+  // A privacy/consent action can use the same bare label inside the
+  // application form. It is never a cookie-manager entry point there.
+  if (COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button)) && button.formId) return false;
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -1344,11 +1397,13 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   return isPageCookieConsentControl(page, snapshot, button);
 }
 
-async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
+async function findCookieControl(page, snapshot, pattern, { genericPreferences = false, manageConsent = false } = {}) {
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || (button.chrome && button.cookieSurface !== 'banner')) continue;
     const label = cookieControlLabel(button);
-    if (!pattern.test(label) && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))) continue;
+    if (!pattern.test(label)
+      && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))
+      && !(manageConsent && COOKIE_MANAGE_CONSENT_RE.test(label))) continue;
     if (await cookieControlHasCookieContext(page, button, snapshot)) return button;
   }
   return null;
@@ -1382,7 +1437,7 @@ async function clickCookieChoice(page, snapshot, button) {
   const current = await cookiePageSnapshot(page);
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
   if (await cookieChoice(page, current)
-    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })
     || cookieDialogRemains(current, button)) return { status: 'unresolved', snapshot: current };
   return { status: 'dismissed', snapshot: current };
 }
@@ -1404,7 +1459,7 @@ async function clickMarkedShadowCookie(page) {
 
 async function markShadowCookieButton(page, { includePreferences = false } = {}) {
   try {
-    return await page.evaluate(([reject, accept, customize, genericPreferences, include]) => {
+    return await page.evaluate(([reject, accept, customize, manageConsent, genericPreferences, include]) => {
     const roots = [document];
     const shadows = [];
     for (let index = 0; index < roots.length && index < 50; index += 1) {
@@ -1419,12 +1474,12 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
         const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
           .filter(Boolean).join(' ');
         if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
-          || /\b(?:banner|notice|overlay|modal|dialog|consent)\b/i.test(marker)) return true;
+          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)) return true;
       }
       return false;
     };
     const actions = [{ kind: 'decision', source: reject }, { kind: 'decision', source: accept }];
-    if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: genericPreferences });
+    if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: manageConsent }, { kind: 'preferences', source: genericPreferences });
     for (const action of actions) {
       const pattern = new RegExp(action.source, 'i');
       for (const shadow of shadows) {
@@ -1435,6 +1490,9 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
             const label = String(element.innerText || element.textContent || '').trim();
             return element.getBoundingClientRect().width > 0
               && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
+              && !(action.kind === 'preferences' && new RegExp(manageConsent, 'i').test(label)
+                && (element.closest('form, [role="form"]')
+                  || shadow.host.closest('form, [role="form"]')))
               && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
           });
         if (button) {
@@ -1444,7 +1502,7 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
       }
     }
     return '';
-    }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source,
+    }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source, COOKIE_MANAGE_CONSENT_RE.source,
       COOKIE_GENERIC_PREFERENCES_RE.source, includePreferences]);
   } catch {
     return '';
@@ -1455,7 +1513,7 @@ export async function dismissCookieBanner(page, snapshot) {
   let choice = await cookieChoice(page, snapshot);
   if (choice) return clickCookieChoice(page, snapshot, choice);
 
-  const preferences = await findCookieControl(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true });
+  const preferences = await findCookieControl(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true });
   if (preferences) {
     const origin = pageOrigin(page);
     try {
@@ -1480,7 +1538,7 @@ export async function dismissCookieBanner(page, snapshot) {
     await page.waitForTimeout(800);
     const current = await cookiePageSnapshot(page);
     if (!current || await cookieChoice(page, current)
-      || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })) return { status: 'unresolved', snapshot: current || snapshot };
+      || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) return { status: 'unresolved', snapshot: current || snapshot };
     shadowAction = await markShadowCookieButton(page, { includePreferences: true });
     if (shadowAction) {
       await clearShadowCookieMarker(page);
@@ -1504,7 +1562,7 @@ export async function dismissCookieBanner(page, snapshot) {
   await page.waitForTimeout(800);
   current = await cookiePageSnapshot(page);
   if (!current || await cookieChoice(page, current)
-    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })) return { status: 'unresolved', snapshot: current || snapshot };
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) return { status: 'unresolved', snapshot: current || snapshot };
   shadowAction = await markShadowCookieButton(page, { includePreferences: true });
   if (shadowAction) {
     await clearShadowCookieMarker(page);
@@ -5308,7 +5366,8 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    if (postingNamed && isApplicationRegionUnsupported(initialPageText)) {
+    if (postingNamed && isApplicationRegionUnsupported(initialPageText)
+      && !hasApplicationEntryControl(snapshot, { applyUrl: ctx.applyUrl, postingUrl, job: ctx.job })) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, {
