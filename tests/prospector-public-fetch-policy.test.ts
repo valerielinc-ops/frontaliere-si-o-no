@@ -797,7 +797,7 @@ describe('prospector public-only polite transport', () => {
     expect(jinaFetchImpl).toHaveBeenCalledOnce();
   });
 
-  it('rescues a non-empty partial listing when the browser exposes the full board', async () => {
+  it('rescues a non-empty partial listing at the learned sample boundary', async () => {
     const seed = 'https://ipersonal.example/offene-stellen/';
     const details = [1, 2, 3, 4].map((id) => `${seed}jobs/position-${id}/`);
     const directListing = [1, 2, 3].map((id) => JSON.stringify({
