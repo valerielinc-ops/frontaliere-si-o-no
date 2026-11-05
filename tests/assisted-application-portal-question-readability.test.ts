@@ -930,6 +930,42 @@ it('keeps a readable same-language Umantis batch usable when localization is una
   expect(result.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
 });
 
+it('keeps known Italian EOC Umantis fields candidate-readable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const labels = [
+    'Titolo accademico', 'Nome', 'Cognome', 'Data di nascita', 'Indirizzo e-mail/login',
+    'Via', 'NAP', 'Località', 'Paese', 'Telefono', 'Cellulare', 'Profilo LinkedIn',
+    'Profilo XING', 'Nazionalità', 'Diploma', 'Annotazioni sulla formazione',
+    'Il suo diploma di riferimento è stato ottenuto',
+    'Come è venuto a conoscenza della nostra organizzazione?',
+    "Attualmente ho un contratto con l'EOC",
+    "In passato ho già lavorato per l'EOC",
+  ];
+  const questions = labels.map((question, index) => ({
+    id: `eoc-${index}`,
+    question,
+    applicationQuestion: question,
+    type: question.startsWith('Come è venuto') ? 'choice' : 'text',
+    options: question.startsWith('Come è venuto') ? ['Sito aziendale', 'Altro'] : [],
+    applicationOptions: question.startsWith('Come è venuto') ? ['Sito aziendale', 'Altro'] : [],
+  }));
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'de', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toHaveLength(labels.length);
+  expect(request.questions.every((question: any) => question.localizationStatus === 'same_language')).toBe(true);
+  expect(request.questions.map((question: any) => question.applicationQuestion)).toEqual(labels);
+  expect(request.questions.find((question: any) => question.applicationQuestion.startsWith('Come è venuto'))).toMatchObject({
+    options: ['Sito aziendale', 'Altro'],
+    optionMap: [
+      { candidate: 'Sito aziendale', application: 'Sito aziendale' },
+      { candidate: 'Altro', application: 'Altro' },
+    ],
+  });
+});
+
 it('keeps deterministic German field copies when an unresolved same-language question shares the batch', async () => {
   const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
   const result = await localizePortalQuestions([
