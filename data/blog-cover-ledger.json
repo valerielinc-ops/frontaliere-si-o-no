@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1052,
+      "5": 1053,
       "6": 5061
     },
-    "publishedCovers": 7795,
+    "publishedCovers": 7796,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213755,6 +213755,39 @@
         "provider": "openai-codex",
         "assetId": "article-premi-mercato-idroelettrico-2026",
         "imageUrl": "/images/blog/article-premi-mercato-idroelettrico-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-quartierplan-ebnat-west-pubblico": {
+      "cover": "/images/blog/article-quartierplan-ebnat-west-pubblico.webp",
+      "hash": "0365a77a4e2547aa63068f75c2c7f554748c6e828a02bc7200b09a82937744d9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "quartierplan-ebnat-west-pubblico",
+          "category": "novita",
+          "date": "2026-11-05T22:32:14.608Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-quartierplan-ebnat-west-pubblico.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-05",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-quartierplan-ebnat-west-pubblico",
+        "imageUrl": "/images/blog/article-quartierplan-ebnat-west-pubblico.webp",
         "evidence": "generated-engine-record"
       }
     },
