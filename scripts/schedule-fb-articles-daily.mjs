@@ -55,7 +55,11 @@ import {
   GRAPH_API,
 } from './lib/social-post-utils.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
-import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
+import {
+  facebookUrl,
+  FACEBOOK_CAMPAIGN_ARTICLE,
+  FACEBOOK_CRAWLER_USER_AGENT,
+} from './lib/facebook-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { parseStaticArticleTranslationSource } from '../packages/articles/engine/shared/articleStaticSource.mjs';
 import {
@@ -462,7 +466,7 @@ export async function run(opts = {}) {
     // 4xx rather than post a link that 404s (see isLandingPageLive doc).
     let pageIsLive = false;
     try {
-      pageIsLive = await isLandingPageLive(p.url, { fetchImpl });
+      pageIsLive = await isLandingPageLive(p.url, { fetchImpl, userAgent: FACEBOOK_CRAWLER_USER_AGENT });
     } catch {
       pageIsLive = false;
     }
