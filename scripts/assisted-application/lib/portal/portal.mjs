@@ -29,7 +29,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -303,7 +303,61 @@ function hasResendVerificationControl(snapshot = {}) {
       .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
 }
 
-function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
+function successFactorsModuleIdentity(url) {
+  if (!url || url.protocol !== 'https:' || url.username || url.password || url.hash
+    || !SUCCESS_FACTORS_HOST_RE.test(url.hostname)
+    || url.pathname.replace(/\/+$/, '') !== '/career') return null;
+  const valuesFor = (key) => [...url.searchParams.entries()]
+    .filter(([name]) => name.toLowerCase() === key)
+    .map(([, value]) => value);
+  const company = valuesFor('company');
+  const requisition = valuesFor('career_job_req_id');
+  const namespace = valuesFor('career_ns');
+  if (!(company.length === 1 && /^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company[0])
+    && requisition.length === 1 && /^[0-9]{1,20}$/.test(requisition[0])
+    && namespace.length === 1 && namespace[0].toLowerCase() === 'job_application')) return null;
+  return {
+    origin: url.origin,
+    path: url.pathname.replace(/\/+$/, ''),
+    company: company[0].toLowerCase(),
+    requisition: requisition[0],
+    namespace: namespace[0].toLowerCase(),
+  };
+}
+
+function isSuccessFactorsModuleRoute(url) {
+  return Boolean(successFactorsModuleIdentity(url));
+}
+
+function isSuccessFactorsCareerPath(value) {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' && !url.username && !url.password && !url.hash
+      && SUCCESS_FACTORS_HOST_RE.test(url.hostname)
+      && url.pathname.replace(/\/+$/, '') === '/career';
+  } catch {
+    return false;
+  }
+}
+
+function sameSuccessFactorsModuleAddress(firstUrl, secondUrl) {
+  try {
+    const first = new URL(String(firstUrl || ''));
+    const second = new URL(String(secondUrl || ''));
+    const expected = successFactorsModuleIdentity(first);
+    const actual = successFactorsModuleIdentity(second);
+    if (!expected || !actual) return false;
+    return expected.origin === actual.origin
+      && expected.path === actual.path
+      && expected.company === actual.company
+      && expected.requisition === actual.requisition
+      && expected.namespace === actual.namespace;
+  } catch {
+    return false;
+  }
+}
+
+function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof } = {}) {
   try {
     const apply = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
@@ -313,7 +367,15 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
     // `/<tenant>/job/...`). Keep the same single-segment boundary here so the
     // verified posting provenance survives on those tenants too.
     const postingId = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
-    return apply.origin === posting.origin && Boolean(applyId) && postingId === applyId;
+    if (apply.origin === posting.origin && Boolean(applyId) && postingId === applyId) return true;
+    // Career Site Builder may expose the actual SuccessFactors module on a
+    // different origin. Its requisition id is not the public job id, so the
+    // URL alone cannot bind it to this posting. Trust it only when the
+    // resolver recorded that exact posting as the source of the module URL.
+    return isSuccessFactorsModuleRoute(apply)
+      && postingRouteProof?.via === 'successfactors'
+      && sameSuccessFactorsModuleAddress(postingRouteProof.applyUrl, apply.href)
+      && samePostingAddress(postingRouteProof.postingUrl, posting.href);
   } catch {
     return false;
   }
@@ -430,8 +492,8 @@ function verifiedPostingEntryFor(ctx = {}) {
  * This is stronger than the rendered posting text: Umantis can show a generic
  * application form without repeating the employer or vacancy title.
  */
-export function isVerifiedPostingEntry({ applyUrl, postingUrl } = {}) {
-  return isSuccessFactorsPostingEntry({ applyUrl, postingUrl })
+export function isVerifiedPostingEntry({ applyUrl, postingUrl, postingRouteProof } = {}) {
+  return isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof })
     || isDirectJobApplyEntry({ applyUrl, postingUrl })
     || isUmantisPostingEntry({ applyUrl, postingUrl });
 }
@@ -468,17 +530,17 @@ function isStadtZurichPostingRoute({ pageUrl, postingUrl } = {}) {
   }
 }
 
-export function isPostingRouteBound({ pageUrl, postingUrl } = {}) {
+export function isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof } = {}) {
   return isStadtZurichPostingRoute({ pageUrl, postingUrl })
-    || isVerifiedPostingEntry({ applyUrl: pageUrl, postingUrl });
+    || isVerifiedPostingEntry({ applyUrl: pageUrl, postingUrl, postingRouteProof });
 }
 
-export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
+export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof } = {}) {
   const directUrl = String(applyUrl || '');
   try {
     const apply = new URL(directUrl);
     const posting = new URL(String(postingUrl || ''));
-    if (isVerifiedPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
+    if (isVerifiedPostingEntry({ applyUrl: apply.href, postingUrl: posting.href, postingRouteProof })) return posting.href;
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
@@ -673,8 +735,21 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  * the previous portal run when an ATS regenerates its field id.
  */
 const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') ? { addressContext: addressContextContract(field) } : {};
+// When a radio group has no accessible group caption, the field extractor
+// falls back to the first option as its label. That option can contain a
+// place name (for example, an employer's city) without making the control a
+// candidate-address field. Do not turn this structural fallback into an
+// unreadable-owner handoff; the planner still keeps the unknown choice as a
+// candidate question when no answer is present.
+const radioCaptionIsOption = (field) => {
+  if (field?.kind !== 'radio' || !Array.isArray(field.options)) return false;
+  const normalize = (value) => String(value || '').normalize('NFKC').replace(/\s+/g, ' ').trim();
+  const caption = normalize(field.label || field.applicationQuestion || field.question);
+  return Boolean(caption && field.options.some((option) => normalize(typeof option === 'string' ? option : option?.label) === caption));
+};
 const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.consentOwnershipUnknown === true)
   || (addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
+    && !radioCaptionIsOption(field)
     && Object.hasOwn(field || {}, 'addressContext') && !hasAddressContextOwnership(field));
 
 // An account-creation form is the candidate's own profile surface. Some ATSes
@@ -951,6 +1026,22 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+function hasApplicationFormInCookieScope(snapshot, button) {
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const frame = Number(button?.frame) || 0;
+  const formId = String(button?.formId || '');
+  const roleFormId = String(button?.roleFormId || '');
+  const dialogId = String(button?.dialogId || '');
+  const scopedFields = fields.filter((field) => {
+    if ((Number(field?.frame) || 0) !== frame) return false;
+    const sameForm = (formId && String(field?.formId || '') === formId)
+      || (roleFormId && String(field?.roleFormId || '') === roleFormId);
+    const sameDialog = dialogId && String(field?.dialogId || '') === dialogId;
+    return sameForm || sameDialog;
+  });
+  return scopedFields.length > 0 && hasApplicationForm({ ...snapshot, fields: scopedFields });
+}
+
 function comparablePortalRoute(value, base = '') {
   try {
     const url = new URL(String(value || ''), base || undefined);
@@ -1087,6 +1178,41 @@ export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}
 
 export function needsPortalOptionRead(snapshot = {}) {
   return snapshot.fields?.some((field) => field.kind === 'listbox' || field.selectLike) || false;
+}
+
+const choiceField = field => ['combobox', 'listbox', 'radio', 'select'].includes(field?.kind) || field?.selectLike === true;
+const usableChoiceOption = option => {
+  if (typeof option === 'string') return Boolean(option.trim());
+  return Boolean(option && option.disabled !== true && option.placeholder !== true
+    && String(option.label || option.value || '').trim());
+};
+const hasChoiceCatalogue = field => Array.isArray(field?.options) && field.options.some(usableChoiceOption);
+const fieldFrame = field => Number.isInteger(field?.frame) ? field.frame : 0;
+const fieldKey = field => field?.id ? `${fieldFrame(field)}:${String(field.id)}` : '';
+
+/**
+ * A portal can expose a choice control before its native options have been
+ * attached to the first snapshot. Re-read the live page only for that exact
+ * control and carry over its catalogue; labels, ids, values and field set
+ * remain owned by the original snapshot. An empty or ambiguous reread stays
+ * empty and therefore fails closed in the deterministic filler.
+ */
+async function refreshChoiceCatalogues(page, snapshot) {
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  if (!fields.some(field => choiceField(field) && !hasChoiceCatalogue(field))) return snapshot;
+  const live = await extractFields(page).catch(() => null);
+  const expectedUrl = String(snapshot?.url || page.url() || '');
+  if (!live?.fields?.length || String(live.url || '') !== expectedUrl || String(page.url() || '') !== expectedUrl) return snapshot;
+  const liveByKey = new Map(live.fields.map(field => [fieldKey(field), field]).filter(([key]) => key));
+  let changed = false;
+  const nextFields = fields.map((field) => {
+    if (!choiceField(field) || hasChoiceCatalogue(field)) return field;
+    const observed = liveByKey.get(fieldKey(field));
+    if (!hasChoiceCatalogue(observed)) return field;
+    changed = true;
+    return { ...field, options: observed.options };
+  });
+  return changed ? { ...snapshot, fields: nextFields } : snapshot;
 }
 
 /** A SuccessFactors page resumed between account creation and OTP submission. */
@@ -1491,9 +1617,17 @@ async function isPageCookieConsentControl(page, snapshot, button) {
 }
 
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
+  const label = cookieControlLabel(button);
+  const isPreferenceControl = COOKIE_CUSTOMIZE_RE.test(label)
+    || COOKIE_GENERIC_PREFERENCES_RE.test(label)
+    || COOKIE_MANAGE_CONSENT_RE.test(label);
+  // An ATS registration dialog can expose a persistent cookie-settings link
+  // next to its application fields. The form contract is stronger evidence
+  // of application ownership than the shared word "cookie" in that dialog.
+  if (isPreferenceControl && hasApplicationFormInCookieScope(snapshot, button)) return false;
   // A privacy/consent action can use the same bare label inside the
   // application form. It is never a cookie-manager entry point there.
-  if (COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button)) && (button.formId || button.roleFormId)) return false;
+  if (COOKIE_MANAGE_CONSENT_RE.test(label) && (button.formId || button.roleFormId)) return false;
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -1984,9 +2118,14 @@ export function formPostingMatch(formText, job = {}, {
   postingEntry = false,
   pageUrl = '',
   postingUrl = '',
+  postingRouteProof = null,
 } = {}) {
   const direct = postingMatch(formText, job, pageUrl);
-  const bound = isPostingRouteBound({ pageUrl, postingUrl });
+  const bound = isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
+  // A source-backed SuccessFactors module must still carry the requisition
+  // captured from that posting. Do not let its employer query alone turn a
+  // different or incomplete `/career` route into a generic form match.
+  if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
   // The selected detail route is authoritative even when its dynamic shell
   // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
   // Do not apply this to another page on the same host: route identity must be
@@ -1998,7 +2137,7 @@ export function formPostingMatch(formText, job = {}, {
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
-  if (postingEntry) return 'match';
+  if (postingEntry && (postingRouteProof?.via !== 'successfactors' || bound)) return 'match';
   return postingMatch(formText, { title: job.title }, pageUrl) === 'match' ? 'match' : 'mismatch';
 }
 
@@ -2085,6 +2224,29 @@ function isUmantisApplicationRoute(url) {
     return false;
   }
 }
+
+function isObservedUmantisApplicationStep(snapshot, channelType) {
+  if (channelType !== 'umantis' || !isUmantisApplicationRoute(snapshot.url)) return false;
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const { email, password } = loginFields(snapshot);
+  if (!email || !password || asksExistingPassword(password)) return false;
+
+  const identity = fields.map(umantisIdentityCaption);
+  const hasIdentity = identity.some(label => UMANTIS_APPLICANT_IDENTITY_RE.givenName.test(label))
+    && identity.some(label => UMANTIS_APPLICANT_IDENTITY_RE.familyName.test(label));
+  const residenceRoles = new Set(fields.map(field => residenceFieldRole(field.label)).filter(Boolean));
+  const hasResidence = ['street', 'postalCode', 'city', 'country'].every(role => residenceRoles.has(role));
+  const hasCoverLetter = fields.some(field => isFileField(field)
+    && COVER_LETTER_DOCUMENT_CONTEXT_RE.test(`${field.label || ''} ${field.name || ''} ${field.id || ''} ${field.context || ''}`));
+  const hasCv = fields.some(isCvFileField);
+
+  // #17174: the live Application/New step exposes the account password next
+  // to the candidate's identity/address and required CV + cover letter, but
+  // its only action is «Avanti». This exact surface is an application form,
+  // not a sign-in page; keep the proof bounded to the verified Umantis route.
+  return Boolean(findButton(snapshot.buttons || [], NEXT_RE, { includeDisabled: true })
+    && hasIdentity && hasResidence && hasCv && hasCoverLetter);
+}
 const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
 const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
@@ -2121,8 +2283,11 @@ export function ownAccountForm(snapshot, channelType = '') {
     && isUmantisApplicationRoute(snapshot.url)
     && hasCvFileField
     && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || '').replace(/\s+/g, ' '));
-  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot)
-    && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit);
+  const umantisApplicationStep = isObservedUmantisApplicationStep(snapshot, channelType);
+  return Boolean(snapshot.passwordVisible) && (
+    (sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit))
+    || umantisApplicationStep
+  );
 }
 
 /** The page's button sends an application («Submit final application»), whatever else the page asks. */
@@ -4418,6 +4583,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
+  snapshot = await refreshChoiceCatalogues(page, snapshot);
   const others = accountRegistrationSnapshot({ ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') });
   const candidate = account
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
@@ -4495,7 +4661,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     while (true) {
       const stable = await waitForStableQuestionSurface(page, current, expectedUrl);
       if (stable.status !== 'stable') return { status: 'unstable', snapshot: stable.snapshot };
-      const plannedSnapshot = accountRegistrationSnapshot(stable.snapshot);
+      const refreshed = await refreshChoiceCatalogues(page, stable.snapshot);
+      const plannedSnapshot = accountRegistrationSnapshot(refreshed);
       const planned = await planPage({
         snapshot: { ...plannedSnapshot, fields: plannedSnapshot.fields.filter((field) => field.inputType !== 'password') },
         candidate,
@@ -4505,7 +4672,9 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       // The planner can take minutes. Re-read immediately after it returns so
       // its plan cannot authorize a CTA on a surface that appeared meanwhile.
       const observedRaw = await extractFields(page, NAVIGATION).catch(() => null);
-      const observed = observedRaw ? accountRegistrationSnapshot(observedRaw) : null;
+      const observed = observedRaw
+        ? accountRegistrationSnapshot(await refreshChoiceCatalogues(page, observedRaw))
+        : null;
       if (!observed || page.url() !== expectedUrl || observed.url !== expectedUrl) {
         return { status: 'moved', snapshot: observed || plannedSnapshot };
       }
@@ -4534,7 +4703,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate' };
     const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl);
     if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
-    registrationSnapshot = accountRegistrationSnapshot(stable.snapshot);
+    registrationSnapshot = accountRegistrationSnapshot(await refreshChoiceCatalogues(page, stable.snapshot));
     registrationPlan = await planPage({
       snapshot: { ...registrationSnapshot, fields: registrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
       candidate,
@@ -5383,6 +5552,7 @@ export async function readPortalRequirements(ctx) {
         postingEntry: verifiedPostingEntry,
         pageUrl: page.url(),
         postingUrl: ctx.postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
       });
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
     }
@@ -5642,6 +5812,7 @@ export async function submitViaPortal(ctx) {
         postingEntry: enteredFromMatchingPosting,
         pageUrl,
         postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
       if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';

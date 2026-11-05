@@ -174,6 +174,23 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(auditStep.env.PUBLISHER_AUDIT_RECEIPT_DIR).toContain('publisher-audit-receipts');
   });
 
+  it('reconciles sitemap membership after shard rehydration and before final-dist audits', () => {
+    const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
+    const steps = workflow.jobs.audit.steps;
+    const provenanceIndex = steps.findIndex((step: any) => step.name === 'Verify replay shard provenance after rehydrate');
+    const reconcileIndex = steps.findIndex((step: any) => step.id === 'reconcile_rehydrated_sitemaps');
+    const completeIndex = steps.findIndex((step: any) => step.name === 'Assert dist/ is the complete logical site');
+    const auditIndex = steps.findIndex((step: any) => step.id === 'audits');
+
+    expect(PACKAGE_JSON.scripts['validate:rehydrated-sitemaps'])
+      .toBe('npx tsx scripts/ci/reconcile-rehydrated-sitemaps.ts');
+    expect(reconcileIndex).toBeGreaterThan(provenanceIndex);
+    expect(reconcileIndex).toBeLessThan(completeIndex);
+    expect(auditIndex).toBeGreaterThan(completeIndex);
+    expect(steps[reconcileIndex]?.run).toBe('npm run validate:rehydrated-sitemaps');
+    expect(steps[reconcileIndex]?.['continue-on-error']).not.toBe(true);
+  });
+
   it('schedules a periodic full audit outside the publisher workflow', () => {
     const workflow = YAML.parse(AUDIT_FULL_YML) as any;
     expect(workflow.on.schedule).toHaveLength(1);
