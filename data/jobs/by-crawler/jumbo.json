@@ -18796,12 +18796,12 @@
     },
     {
       "id": "jumbo-329fac78-9cf",
-      "slug": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-rickenbach",
+      "slug": "addetto-a-alle-vendite-all-amministrazione-e-al-servizio-clienti-jumbo-rickenbach",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-rickenbach",
-        "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-rickenbach",
-        "en": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-rickenbach",
-        "fr": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-rickenbach"
+        "it": "addetto-a-alle-vendite-all-amministrazione-e-al-servizio-clienti-jumbo-rickenbach",
+        "en": "sales-administration-and-customer-service-employee-jumbo-rickenbach",
+        "fr": "collaborateur-rice-vente-administration-et-service-clientele-jumbo-rickenbach"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18868,11 +18868,19 @@
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-rickenbach",
+          "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-rickenbach"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-rickenbach"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-rickenbach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-rickenbach"
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-rickenbach",
+        "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-rickenbach"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -18898,8 +18906,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-logistik-jumbo-arbon",
         "it": "addetto-a-alla-logistica-jumbo-arbon",
-        "en": "mitarbeiter-in-logistik-jumbo-arbon",
-        "fr": "mitarbeiter-in-logistik-jumbo-arbon"
+        "en": "associate-logistik-jumbo-arbon",
+        "fr": "collaborateur-trice-logistik-jumbo-arbon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18964,6 +18972,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-logistik-jumbo-arbon"
+        ],
+        "en": [
+          "mitarbeiter-in-logistik-jumbo-arbon"
+        ],
+        "fr": [
+          "mitarbeiter-in-logistik-jumbo-arbon"
         ]
       },
       "previousSlugs": [
@@ -18989,12 +19003,12 @@
     },
     {
       "id": "jumbo-554851b2-4bc",
-      "slug": "verkaufsberater-in-garden-jumbo-rickenbach",
+      "slug": "consulente-di-vendita-garden-jumbo-rickenbach",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-rickenbach",
-        "it": "verkaufsberater-in-garden-jumbo-rickenbach",
-        "en": "verkaufsberater-in-garden-jumbo-rickenbach",
-        "fr": "verkaufsberater-in-garden-jumbo-rickenbach"
+        "it": "consulente-di-vendita-garden-jumbo-rickenbach",
+        "en": "garden-sales-advisor-jumbo-rickenbach",
+        "fr": "conseiller-ere-de-vente-garden-jumbo-rickenbach"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19071,7 +19085,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:24:54.329Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:24:54.329Z"
+      "firstSeenAt": "2026-11-04T21:24:54.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-rickenbach"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-rickenbach"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-rickenbach"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-rickenbach"
+      ]
     },
     {
       "id": "jumbo-e50f07d2-684",

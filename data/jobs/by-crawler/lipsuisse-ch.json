@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "lipsuisse-ch-a9339341a457",
-      "slug": "carreleur-geneve-1200-lipsuisse-ch-ch",
+      "slug": "carriera-lip-suisse-geneve-1200",
       "slugByLocale": {
         "fr": "carreleur-geneve-1200-lipsuisse-ch-ch",
-        "it": "carreleur-geneve-1200-lipsuisse-ch-ch",
-        "en": "carreleur-geneve-1200-lipsuisse-ch-ch",
-        "de": "carreleur-geneve-1200-lipsuisse-ch-ch"
+        "it": "carriera-lip-suisse-geneve-1200",
+        "en": "carrier-lip-suisse-geneve-1200",
+        "de": "beforderer-lip-suisse-geneve-1200"
       },
       "company": "LIP Suisse",
       "companyKey": "lipsuisse-ch",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T21:49:56.499Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:49:56.499Z"
+      "firstSeenAt": "2026-11-04T21:49:56.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "carreleur-geneve-1200-lipsuisse-ch-ch"
+        ],
+        "en": [
+          "carreleur-geneve-1200-lipsuisse-ch-ch"
+        ],
+        "de": [
+          "carreleur-geneve-1200-lipsuisse-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "carreleur-geneve-1200-lipsuisse-ch-ch"
+      ]
     }
   ]
 }

@@ -759,12 +759,12 @@
     },
     {
       "id": "schulthess-klinik-528126d7f93d",
-      "slug": "pflegefachperson-hf-fh-per-la-bettenstationen-schulthess-klinik-zurich",
+      "slug": "infermiere-a-diplomato-a-hf-fh-per-i-reparti-di-degenza-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-fur-die-bettenstationen-schulthess-klinik-zurich",
-        "it": "pflegefachperson-hf-fh-per-la-bettenstationen-schulthess-klinik-zurich",
-        "en": "pflegefachperson-hf-fh-fur-die-bettenstationen-schulthess-klinik-zurich",
-        "fr": "pflegefachperson-hf-fh-fur-die-bettenstationen-schulthess-klinik-zurich"
+        "it": "infermiere-a-diplomato-a-hf-fh-per-i-reparti-di-degenza-schulthess-klinik-zurich",
+        "en": "care-specialist-hf-fh-for-the-bed-stations-schulthess-klinik-zurich",
+        "fr": "specialiste-des-soins-hf-fh-pour-les-postes-de-lit-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -813,11 +813,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-hf-fh-fur-die-bettenstationen-schulthess-klinik-zurich",
+          "pflegefachperson-hf-fh-per-la-bettenstationen-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-fur-die-bettenstationen-schulthess-klinik-zurich"
+        ],
+        "fr": [
           "pflegefachperson-hf-fh-fur-die-bettenstationen-schulthess-klinik-zurich"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-fh-fur-die-bettenstationen-schulthess-klinik-zurich"
+        "pflegefachperson-hf-fh-fur-die-bettenstationen-schulthess-klinik-zurich",
+        "pflegefachperson-hf-fh-per-la-bettenstationen-schulthess-klinik-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -839,12 +847,12 @@
     },
     {
       "id": "schulthess-klinik-bd5e333e2235",
-      "slug": "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-zurich",
+      "slug": "segretario-medico-chirurgia-medica-spine-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-zurich",
-        "it": "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-zurich",
-        "en": "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-zurich",
-        "fr": "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-zurich"
+        "it": "segretario-medico-chirurgia-medica-spine-schulthess-klinik-zurich",
+        "en": "medical-secretary-medical-secretary-spine-surgery-schulthess-klinik-zurich",
+        "fr": "secretaire-medical-secretaire-medical-chirurgie-spinale-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -906,16 +914,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:19:58.724Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:19:58.724Z"
+      "firstSeenAt": "2026-11-04T21:19:58.724Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-zurich"
+      ]
     },
     {
       "id": "schulthess-klinik-89aade13a1e5",
-      "slug": "disponentin-disponent-fusschirurgie-schulthess-klinik-zurich",
+      "slug": "chirurgia-del-piede-di-spacco-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "disponentin-disponent-fusschirurgie-schulthess-klinik-zurich",
-        "it": "disponentin-disponent-fusschirurgie-schulthess-klinik-zurich",
-        "en": "disponentin-disponent-fusschirurgie-schulthess-klinik-zurich",
-        "fr": "disponentin-disponent-fusschirurgie-schulthess-klinik-zurich"
+        "it": "chirurgia-del-piede-di-spacco-schulthess-klinik-zurich",
+        "en": "disponent-dispatch-foot-surgery-schulthess-klinik-zurich",
+        "fr": "chirurgie-des-pieds-depots-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -977,16 +999,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:19:58.713Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:19:58.713Z"
+      "firstSeenAt": "2026-11-04T21:19:58.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponentin-disponent-fusschirurgie-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "disponentin-disponent-fusschirurgie-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "disponentin-disponent-fusschirurgie-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "disponentin-disponent-fusschirurgie-schulthess-klinik-zurich"
+      ]
     },
     {
       "id": "schulthess-klinik-4e7050ccef3f",
-      "slug": "fachfrau-fachmann-gesundheit-per-la-bettenstationen-schulthess-klinik-zurich",
+      "slug": "operatrice-operatore-sociosanitario-per-i-reparti-di-degenza-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fur-die-bettenstationen-schulthess-klinik-zurich",
-        "it": "fachfrau-fachmann-gesundheit-per-la-bettenstationen-schulthess-klinik-zurich",
-        "en": "fachfrau-fachmann-gesundheit-fur-die-bettenstationen-schulthess-klinik-zurich",
-        "fr": "fachfrau-fachmann-gesundheit-fur-die-bettenstationen-schulthess-klinik-zurich"
+        "it": "operatrice-operatore-sociosanitario-per-i-reparti-di-degenza-schulthess-klinik-zurich",
+        "en": "specialist-health-specialist-for-the-bed-stations-schulthess-klinik-zurich",
+        "fr": "specialiste-specialiste-de-la-sante-pour-les-postes-de-lit-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -1035,11 +1071,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-fur-die-bettenstationen-schulthess-klinik-zurich",
+          "fachfrau-fachmann-gesundheit-per-la-bettenstationen-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-fur-die-bettenstationen-schulthess-klinik-zurich"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-fur-die-bettenstationen-schulthess-klinik-zurich"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-fur-die-bettenstationen-schulthess-klinik-zurich"
+        "fachfrau-fachmann-gesundheit-fur-die-bettenstationen-schulthess-klinik-zurich",
+        "fachfrau-fachmann-gesundheit-per-la-bettenstationen-schulthess-klinik-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

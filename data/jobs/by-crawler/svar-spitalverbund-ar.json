@@ -604,12 +604,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-4ce88916ff21",
-      "slug": "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau",
+      "slug": "capo-dello-sviluppo-della-cura-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau",
-        "it": "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau",
-        "en": "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau",
-        "fr": "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau"
+        "it": "capo-dello-sviluppo-della-cura-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "head-of-care-development-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "chef-du-developpement-des-soins-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -672,16 +672,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:18:33.849Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:18:33.849Z"
+      "firstSeenAt": "2026-11-04T21:18:33.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-6ce95ae5029f",
-      "slug": "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-infermiera-hf-fh-nel-campo-della-psicoterapia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "dipl-infermiera-hf-fh-nel-campo-della-psicoterapia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-nurse-hf-fh-in-the-field-of-psychotherapy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-infirmiere-hf-fh-dans-le-domaine-de-la-psychotherapie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -744,16 +758,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:18:33.307Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:18:33.307Z"
+      "firstSeenAt": "2026-11-04T21:18:33.307Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-8c8d23aa59e8",
-      "slug": "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-infermieristica-specialista-hf-fh-day-clinic-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "dipl-infermieristica-specialista-hf-fh-day-clinic-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-nursing-specialist-hf-fh-day-clinic-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-specialiste-des-soins-infirmiers-clinique-de-jour-hf-fh-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -816,7 +844,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:18:32.661Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:18:32.661Z"
+      "firstSeenAt": "2026-11-04T21:18:32.661Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-daaba3379cb7",

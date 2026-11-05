@@ -673,12 +673,12 @@
     },
     {
       "id": "vitrea-gesundheit-8e7b2639f39d",
-      "slug": "collaboratore-trice-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg",
+      "slug": "collaboratore-trice-amministrazione-pianificazione-delle-terapie-50-60-vitrea-gesundheit-tschugg",
       "slugByLocale": {
         "de": "mitarbeiter-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg",
-        "it": "collaboratore-trice-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg",
-        "en": "mitarbeiter-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg",
-        "fr": "mitarbeiter-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg"
+        "it": "collaboratore-trice-amministrazione-pianificazione-delle-terapie-50-60-vitrea-gesundheit-tschugg",
+        "en": "administration-therapy-planning-employee-50-60-vitrea-gesundheit-tschugg",
+        "fr": "collaborateur-trice-administration-planification-des-therapies-50-60-vitrea-gesundheit-tschugg"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -726,11 +726,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg",
+          "collaboratore-trice-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg"
+        ],
+        "en": [
+          "mitarbeiter-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg"
+        ],
+        "fr": [
           "mitarbeiter-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg"
+        "mitarbeiter-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg",
+        "collaboratore-trice-in-administration-therapieplanung-50-60-vitrea-gesundheit-tschugg"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -753,12 +761,12 @@
     },
     {
       "id": "vitrea-gesundheit-bbda919ab125",
-      "slug": "ergotherapeut-in-40-80-vitrea-gesundheit-tschugg",
+      "slug": "ergoterapista-40-80-vitrea-gesundheit-tschugg",
       "slugByLocale": {
         "de": "ergotherapeut-in-40-80-vitrea-gesundheit-tschugg",
-        "it": "ergotherapeut-in-40-80-vitrea-gesundheit-tschugg",
-        "en": "ergotherapeut-in-40-80-vitrea-gesundheit-tschugg",
-        "fr": "ergotherapeut-in-40-80-vitrea-gesundheit-tschugg"
+        "it": "ergoterapista-40-80-vitrea-gesundheit-tschugg",
+        "en": "occupational-therapist-40-80-vitrea-gesundheit-tschugg",
+        "fr": "ergotherapeute-40-80-vitrea-gesundheit-tschugg"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -821,7 +829,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:18:03.391Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:18:03.391Z"
+      "firstSeenAt": "2026-11-04T21:18:03.391Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-40-80-vitrea-gesundheit-tschugg"
+        ],
+        "en": [
+          "ergotherapeut-in-40-80-vitrea-gesundheit-tschugg"
+        ],
+        "fr": [
+          "ergotherapeut-in-40-80-vitrea-gesundheit-tschugg"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-40-80-vitrea-gesundheit-tschugg"
+      ]
     },
     {
       "id": "vitrea-gesundheit-a5729dbaa6ba",

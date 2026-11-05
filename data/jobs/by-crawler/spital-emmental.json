@@ -4425,12 +4425,12 @@
     },
     {
       "id": "spital-emmental-5b12c69357c0",
-      "slug": "assistenzarztin-assistenzarzt-a-spital-emmental-burgdorf",
+      "slug": "assistente-medico-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-a-spital-emmental-burgdorf",
-        "it": "assistenzarztin-assistenzarzt-a-spital-emmental-burgdorf",
-        "en": "assistenzarztin-assistenzarzt-a-spital-emmental-burgdorf",
-        "fr": "assistenzarztin-assistenzarzt-a-spital-emmental-burgdorf"
+        "it": "assistente-medico-a-spital-emmental-burgdorf",
+        "en": "assistant-doctor-a-spital-emmental-burgdorf",
+        "fr": "docteur-adjoint-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4498,7 +4498,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:17:10.052Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:17:10.052Z"
+      "firstSeenAt": "2026-11-04T21:17:10.052Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-a-spital-emmental-burgdorf"
+      ]
     }
   ]
 }

@@ -508,12 +508,12 @@
     },
     {
       "id": "medimeo-0fbd51f530d5",
-      "slug": "oberarztin-oberarzt-radiologie-90-100-bereit-per-la-erste-oberarztstelle-medimeo-ag-solothurn",
+      "slug": "medica-medico-capoclinica-in-radiologia-90-100-pronta-o-per-il-primo-incarico-come-medico-a-capoclinica-medimeo-ag-biel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-90-100-bereit-fur-die-erste-oberarztstelle-biel-solothurn",
-        "it": "oberarztin-oberarzt-radiologie-90-100-bereit-per-la-erste-oberarztstelle-medimeo-ag-solothurn",
-        "en": "oberarztin-oberarzt-radiologie-90-100-bereit-fur-die-erste-oberarztstelle-biel-solothurn",
-        "fr": "oberarztin-oberarzt-radiologie-90-100-bereit-fur-die-erste-oberarztstelle-biel-solothurn"
+        "it": "medica-medico-capoclinica-in-radiologia-90-100-pronta-o-per-il-primo-incarico-come-medico-a-capoclinica-medimeo-ag-biel",
+        "en": "senior-physician-senior-physician-radiology-90-100-ready-for-the-first-senior-medical-position-medimeo-ag-biel-solothurn",
+        "fr": "medecin-superieur-medecin-superieur-radiologie-90-100-pret-pour-le-premier-poste-medical-superieur-medimeo-ag-biel"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -560,11 +560,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-radiologie-90-100-bereit-fur-die-erste-oberarztstelle-biel-solothurn",
+          "oberarztin-oberarzt-radiologie-90-100-bereit-per-la-erste-oberarztstelle-medimeo-ag-solothurn"
+        ],
+        "en": [
+          "oberarztin-oberarzt-radiologie-90-100-bereit-fur-die-erste-oberarztstelle-biel-solothurn"
+        ],
+        "fr": [
           "oberarztin-oberarzt-radiologie-90-100-bereit-fur-die-erste-oberarztstelle-biel-solothurn"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-radiologie-90-100-bereit-fur-die-erste-oberarztstelle-biel-solothurn"
+        "oberarztin-oberarzt-radiologie-90-100-bereit-fur-die-erste-oberarztstelle-biel-solothurn",
+        "oberarztin-oberarzt-radiologie-90-100-bereit-per-la-erste-oberarztstelle-medimeo-ag-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

@@ -92,12 +92,12 @@
     },
     {
       "id": "spital-limmattal-da5183fc08e4",
-      "slug": "praktikant-in-bettenstation-spital-limmattal-ch",
+      "slug": "tirocinante-presso-il-reparto-di-degenza-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "praktikant-in-bettenstation-spital-limmattal-ch",
-        "it": "praktikant-in-bettenstation-spital-limmattal-ch",
-        "en": "praktikant-in-bettenstation-spital-limmattal-ch",
-        "fr": "praktikant-in-bettenstation-spital-limmattal-ch"
+        "it": "tirocinante-presso-il-reparto-di-degenza-spital-limmattal-schlieren",
+        "en": "inpatient-ward-intern-spital-limmattal-schlieren",
+        "fr": "stagiaire-en-service-d-hospitalisation-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -160,7 +160,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-04T21:22:57.916Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:22:57.916Z"
+      "firstSeenAt": "2026-11-04T21:22:57.916Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-bettenstation-spital-limmattal-ch"
+        ],
+        "en": [
+          "praktikant-in-bettenstation-spital-limmattal-ch"
+        ],
+        "fr": [
+          "praktikant-in-bettenstation-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-bettenstation-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-d1d1535360f2",
@@ -2829,7 +2843,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -2890,9 +2904,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

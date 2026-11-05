@@ -2416,12 +2416,12 @@
     },
     {
       "id": "vontobel-86a73244c856",
-      "slug": "product-manager-institutional-mandates-80-100-vontobel-ch",
+      "slug": "responsabile-del-prodotto-mandati-istituzionali-80-100-vontobel-zurich-genferstrasse-27",
       "slugByLocale": {
         "en": "product-manager-institutional-mandates-80-100-vontobel-ch",
-        "it": "product-manager-institutional-mandates-80-100-vontobel-ch",
-        "de": "product-manager-institutional-mandates-80-100-vontobel-ch",
-        "fr": "product-manager-institutional-mandates-80-100-vontobel-ch"
+        "it": "responsabile-del-prodotto-mandati-istituzionali-80-100-vontobel-zurich-genferstrasse-27",
+        "de": "produktmanager-institutionelle-mandate-80-100-vontobel-zurich-genferstrasse-27",
+        "fr": "gestionnaire-de-produits-mandats-institutionnels-80-100-vontobel-zurich-genferstrasse-27"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -2484,15 +2484,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:44:22.447Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:44:22.447Z"
+      "firstSeenAt": "2026-11-04T21:44:22.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-institutional-mandates-80-100-vontobel-ch"
+        ],
+        "de": [
+          "product-manager-institutional-mandates-80-100-vontobel-ch"
+        ],
+        "fr": [
+          "product-manager-institutional-mandates-80-100-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-institutional-mandates-80-100-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-40f4592962f8",
-      "slug": "experienced-finance-operations-specialist-vontobel-ch",
+      "slug": "experienced-finanza-operations-specialista-vontobel-zurich-bleicherweg-21",
       "slugByLocale": {
         "en": "experienced-finance-operations-specialist-vontobel-ch",
-        "it": "experienced-finance-operations-specialist-vontobel-ch",
-        "de": "experienced-finance-operations-specialist-vontobel-ch",
+        "it": "experienced-finanza-operations-specialista-vontobel-zurich-bleicherweg-21",
+        "de": "experienced-finanzen-operations-spezialist-vontobel-zurich-bleicherweg-21",
         "fr": "experienced-finance-operations-specialist-vontobel-ch"
       },
       "company": "Vontobel",
@@ -2556,7 +2570,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:44:21.628Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:44:21.628Z"
+      "firstSeenAt": "2026-11-04T21:44:21.628Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experienced-finance-operations-specialist-vontobel-ch"
+        ],
+        "de": [
+          "experienced-finance-operations-specialist-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "experienced-finance-operations-specialist-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-023a0e932a60",

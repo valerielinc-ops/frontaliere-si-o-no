@@ -2545,12 +2545,12 @@
     },
     {
       "id": "accor-acd47771f031",
-      "slug": "sous-chef-banquet-ibis-budget-geneva-switzerland-acd47771",
+      "slug": "vice-presidente-banquet-ibis-budget-geneva-switzerland-acd47771",
       "slugByLocale": {
         "fr": "sous-chef-banquet-ibis-budget-geneva-switzerland-acd47771",
-        "it": "sous-chef-banquet-ibis-budget-geneva-switzerland-acd47771",
-        "en": "sous-chef-banquet-ibis-budget-geneva-switzerland-acd47771",
-        "de": "sous-chef-banquet-ibis-budget-geneva-switzerland-acd47771"
+        "it": "vice-presidente-banquet-ibis-budget-geneva-switzerland-acd47771",
+        "en": "deputy-chief-banquet-ibis-budget-geneva-switzerland-acd47771",
+        "de": "stellvertretender-chefbankett-ibis-budget-geneva-switzerland-acd47771"
       },
       "slugDisambiguator": "acd47771",
       "company": "Ibis Budget",
@@ -2613,7 +2613,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:45:05.079Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:45:05.079Z"
+      "firstSeenAt": "2026-11-04T21:45:05.079Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sous-chef-banquet-ibis-budget-geneva-switzerland-acd47771"
+        ],
+        "en": [
+          "sous-chef-banquet-ibis-budget-geneva-switzerland-acd47771"
+        ],
+        "de": [
+          "sous-chef-banquet-ibis-budget-geneva-switzerland-acd47771"
+        ]
+      },
+      "previousSlugs": [
+        "sous-chef-banquet-ibis-budget-geneva-switzerland-acd47771"
+      ]
     }
   ]
 }
