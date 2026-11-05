@@ -607,6 +607,9 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
   const same = (left, right) => Boolean(String(left || '').trim()) && String(left).trim().toLowerCase() === String(right || '').trim().toLowerCase();
   if (ageQuestionTopic(label)) return ageAnswerMatches(candidate, label, value);
   if (isPermitField(label)) {
+    // Current status cannot answer whether a permit was received or held in
+    // the past. Exact candidate answers are preserved by the recorded-answer path.
+    if (isPermitHistoricalQuestion(label)) return false;
     // Whether the candidate needs a permit, a visa or sponsorship is never answered from the data: they say it.
     if (!asksHeldStatus(questionFromLabel(label))) return false;
     const swissStatus = permitStatusOf(candidate.swissStatus?.code);
@@ -1159,6 +1162,7 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
  * choice between EU/EFTA and non-EU/EFTA remains unknown rather than guessed.
  */
 function permitAnswerForStatus(field, status) {
+  if (isPermitHistoricalQuestion(field?.label)) return '';
   if (!status || questionTopic(field?.label, field?.context, field) !== 'permit') return '';
   const options = Array.isArray(field?.options) ? field.options : [];
   const labelOf = (option) => String(option?.label ?? option ?? '').trim();
@@ -1419,8 +1423,27 @@ function languageAnswerForField(candidate, field) {
     : null;
 }
 
+const PERMIT_HISTORICAL_QUESTION_PATTERNS = [
+  /\b(?:ever|previously|before|in the past)\b/i,
+  /\b(?:received|obtain(?:ed|ing)?|granted|issued)\b/i,
+  /\b(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?)\b/i,
+  /\b(?:erhalten|erhielt|bekommen|bekam|erteilt|ausgestellt|erworben|verliehen)\b/i,
+  /\b(?:ricevut[oaie]|ottenut[oaie]|concess[oaie]|rilasciat[oaie]|emess[oaie])\b/i,
+  /\b(?:recibid[oa]s?|obtenid[oa]s?|concedid[oa]s?|expedid[oa]s?|emitid[oa]s?|otorgad[oa]s?)\b/i,
+];
+
+function normalizePermitQuestion(label) {
+  return String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/^[\s¿¡]+/, '');
+}
+
+function isPermitHistoricalQuestion(label) {
+  const text = normalizePermitQuestion(label);
+  return PERMIT_HISTORICAL_QUESTION_PATTERNS.some((pattern) => pattern.test(text));
+}
+
 const PERMIT_EVIDENCE_QUESTION_PATTERNS = [
   /\b(?:proof|evidence)\b/i,
+  /\b(?:paperwork|papers?)\b/i,
   /\bdocument(?:s|ation(?:s)?|azione|azioni|acion(?:es)?|o(?:s)?|i)?\b/i,
   /\bcertificat(?:e|es|s|o|os|i)?\b/i,
   /\b(?:cop(?:y|ies)|copi(?:a|as|e|es))\b/i,
@@ -1432,10 +1455,14 @@ const PERMIT_EVIDENCE_QUESTION_PATTERNS = [
   /\bjustificante(?:s)?\b/i,
   /\battestation(?:s)?\b/i,
   /\bnachweis(?:e|en)?\b/i,
+  /\bunterlag(?:e|en)\b/i,
+  /\bbeleg(?:e|en|s)?\b/i,
   /\bdokument(?:e|en)?\b/i,
   /\bbescheinigung(?:en)?\b/i,
   /\bprov[ae]\b/i,
+  /\battestat(?:o|i)\b/i,
   /\bcomprobante(?:s)?\b/i,
+  /\bpapel(?:es)?\b/i,
   /\bprueba(?:s)?\b/i,
   /\bevidencia(?:s)?\b/i,
 ];
@@ -1444,30 +1471,27 @@ function isYesNoPermitQuestion(label) {
   // A later "do you hold" can belong to a wh-question asking which permit the
   // candidate has. Require a held-status predicate, so neither that question
   // nor an indirect "do you know which permit" converts status into a boolean.
-  const text = String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/^[\s¿¡]+/, '');
+  const text = normalizePermitQuestion(label);
+  if (isPermitHistoricalQuestion(text)) return false;
   // A permit status does not establish that the candidate can produce its
   // proof, certificate, or other supporting document.
   if (PERMIT_EVIDENCE_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return false;
   const patterns = [
     /^(?:do you|does the candidate)(?:\s+(?:currently|at present))?\s+(?:hold|have(?!\s+to\b)|possess|own)\b/i,
-    /^are you(?:\s+(?:currently|legally))?\s+(?:authorized|authorised|permitted|entitled)\b/i,
+    /^are you(?:\s+(?:currently|legally))?\s+(?:authorized|authorised|permitted|entitled)\s+to\s+(?:work|be employed)\b/i,
     /^are you(?:\s+legally)?\s+(?:allowed|able)\s+to\s+work\b/i,
-    /^have you(?:\s+ever)?\s+(?:been\s+(?:granted|issued|authorized|authorised)|received|obtained)\b/i,
     /^can you(?:\s+legally)?\s+(?:work|be employed)\b/i,
+    /^are you(?:\s+(?:currently|legally))?\s+eligible\s+to\s+work\b/i,
     /^(?:est[- ]ce que\s*)?vous\s+(?:avez|detenez|possedez)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
-    /^(?:est[- ]ce que\s*)?vous\s+avez\s+(?:obtenu|recu)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
     /^(?:est[- ]ce que\s*)?vous\s+etes\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
     /^(?:est[- ]ce que\s*)?vous\s+avez\s+le\s+droit\s+de\s+travailler\b/i,
     /^(?:avez|detenez|possedez)[- ]vous\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
-    /^avez[- ]vous\s+(?:obtenu|recu)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
     /^etes[- ]vous\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
     /^avez[- ]vous\s+le\s+droit\s+de\s+travailler\b/i,
     /^(?:est[- ]ce que\s*)?tu\s+(?:as|detiens|possedes)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
-    /^(?:est[- ]ce que\s*)?tu\s+as\s+(?:obtenu|recu)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
     /^(?:est[- ]ce que\s*)?tu\s+es\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
     /^(?:est[- ]ce que\s*)?tu\s+as\s+le\s+droit\s+de\s+travailler\b/i,
     /^(?:as|detiens|possedes)[- ]tu\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
-    /^as[- ]tu\s+(?:obtenu|recu)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
     /^es[- ]tu\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
     /^as[- ]tu\s+le\s+droit\s+de\s+travailler\b/i,
     /^(?:haben sie|hast du)(?:\s+(?:aktuell|derzeit|schon|bereits))?\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
@@ -1620,6 +1644,7 @@ export function candidateAnswerForField(candidate, field, { includeProfileWorkPe
     }
     if (topic === 'permit' || LANGUAGE_LEVEL_RE.test(String(field?.label || ''))) return null;
   }
+  if (topic === 'permit' && isPermitHistoricalQuestion(field?.label)) return null;
   const label = String(field?.label || '');
   const identity = candidate?.identity || {};
   const fieldOwnershipContext = [field?.context, field?.section, field?.autocomplete].filter(Boolean).join(' ');
