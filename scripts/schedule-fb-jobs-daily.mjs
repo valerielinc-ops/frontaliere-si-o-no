@@ -716,6 +716,7 @@ export async function run(opts = {}) {
   const jobs = reconcileOnly ? [] : loadJobs(repoRoot, log);
   const ledger = loadPosted(repoRoot);
   const scheduledQueue = !dryRun && pageId && token && typeof fetchImpl === 'function'
+    && (reconcileOnly || jobs.length > 0)
     ? await fetchScheduledPosts({ pageId, token, fetchImpl, log })
     : { ok: false, posts: [], occupied: new Set() };
   const recoveredRows = recoverScheduledJobLedgerRows(scheduledQueue.posts, ledger.posted, now);
