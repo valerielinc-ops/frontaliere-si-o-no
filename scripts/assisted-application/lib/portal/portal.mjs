@@ -1201,7 +1201,8 @@ async function refreshChoiceCatalogues(page, snapshot) {
   const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
   if (!fields.some(field => choiceField(field) && !hasChoiceCatalogue(field))) return snapshot;
   const live = await extractFields(page).catch(() => null);
-  if (!live?.fields?.length) return snapshot;
+  const expectedUrl = String(snapshot?.url || page.url() || '');
+  if (!live?.fields?.length || String(live.url || '') !== expectedUrl || String(page.url() || '') !== expectedUrl) return snapshot;
   const liveByKey = new Map(live.fields.map(field => [fieldKey(field), field]).filter(([key]) => key));
   let changed = false;
   const nextFields = fields.map((field) => {

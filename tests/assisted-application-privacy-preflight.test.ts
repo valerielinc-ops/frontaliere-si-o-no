@@ -644,12 +644,8 @@ describe('the registration, through the real handleAuth', () => {
       <label for="first">Vorname: *</label><input id="first" name="first" required>
       <label for="last">Nachname: *</label><input id="last" name="last" required>
       <label for="country">Land des Wohnorts:*</label><select id="country" name="country" required><option value="">Bitte wählen</option><option value="CH">Schweiz</option><option value="IT">Italien</option></select>
-      <input type="hidden" id="consent" value="">
-      <a id="notice" role="button" tabindex="0" aria-haspopup="dialog">Lesen und akzeptieren Sie die Datenschutzerklärung</a>
-      <button type="button" id="create" disabled>Bewerbungskonto erstellen</button>
-    </form>${NOTICE_DIALOG}`;
+    </form>`;
     const fixture = fakePage([markup], { url: 'https://career74.sapsf.eu/career' });
-    const seen = wireAccount(fixture);
     const initialSnapshot = await extractFields(fixture.page, { listboxOptions: false });
     const sparseSnapshot = {
       ...initialSnapshot,
@@ -667,8 +663,8 @@ describe('the registration, through the real handleAuth', () => {
       },
     });
 
-    expect(result).toMatchObject({ snapshot: expect.any(Object) });
-    expect(seen).toMatchObject({ noticeClicks: 1, accepted: 1, ctaClicks: 1, requests: 1 });
+    expect(result).toMatchObject({ handoff: 'account', accountFailure: { code: 'no_create_button' } });
+    expect(fixture.element('country').value).toBe('CH');
   });
 
   it.each([['a native disabled', NATIVE_CTA], ['a CSS-disabled', STYLED_CTA]])('accepts the notice before %s CTA and registers once', async (_name, cta) => {
