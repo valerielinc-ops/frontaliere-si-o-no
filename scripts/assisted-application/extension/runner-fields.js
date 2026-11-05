@@ -101,16 +101,19 @@ function nativeQuestionText(value, counter = null) {
   const MIN_TYPED_BOX_PX = 2;
   const typedInto = (element) => element.tagName === 'TEXTAREA'
     || (element.tagName === 'INPUT' && !['checkbox', 'radio', 'file', 'range', 'color', 'hidden'].includes((element.getAttribute('type') || 'text').toLowerCase()));
-  const hiddenAncestor = (element) => {
+  const hiddenAncestor = (element, includeAriaHidden = true) => {
     for (let node = element.parentElement; node; node = node.parentElement) {
       if (node.hasAttribute('hidden') || node.hasAttribute('inert')
-        || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return true;
+        || (includeAriaHidden && node.getAttribute('aria-hidden')?.toLowerCase() === 'true')) return true;
       const ancestorStyle = window.getComputedStyle(node);
       if (ancestorStyle.display === 'none' || ['hidden', 'collapse'].includes(ancestorStyle.visibility)) return true;
     }
     return false;
   };
   const visible = (element) => {
+    // Mounted background steps can retain layout boxes. Their controls must
+    // not supply auth, cookie or candidate-question evidence for this step.
+    if (element.closest('[hidden], [inert]') || hiddenAncestor(element, false)) return false;
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
     // Keep a file input hidden only by its own styling: many portals pair it
@@ -1386,6 +1389,11 @@ function nativeQuestionText(value, counter = null) {
   root.CompilaOptionalAutofillDecline = function markOptionalAutofillDeclineInPage() {
   const clean = value => String(value || '').normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/\s+/g, ' ').trim();
   const visible = element => {
+    if (element.closest('[hidden], [inert]')) return false;
+    for (let node = element; node; node = node.parentElement) {
+      const style = getComputedStyle(node);
+      if (style.display === 'none' || ['hidden', 'collapse'].includes(style.visibility)) return false;
+    }
     const rect = element.getBoundingClientRect();
     return rect.width > 0 && rect.height > 0 && getComputedStyle(element).visibility !== 'hidden';
   };
