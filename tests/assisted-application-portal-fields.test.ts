@@ -273,6 +273,7 @@ describe('portal field extraction', () => {
   it('does not open Manage consent from a generic live banner marker', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
     const extracted = extract('<section class="banner"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
+    expect(extracted.buttons.find((button: any) => button.text === 'Manage consent')).not.toHaveProperty('cookieSurface');
     const privacy = { ...extracted, buttons: extracted.buttons.map((button: any) => ({ ...button, cookieSurface: 'banner' })) };
     const frame = {
       url: () => url,

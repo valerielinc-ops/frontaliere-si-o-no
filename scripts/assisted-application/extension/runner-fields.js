@@ -170,9 +170,9 @@ function nativeQuestionText(value, counter = null) {
     return { dialog: Boolean(dialogId), dialogId };
   };
   const cookieSurfaceFor = (element) => {
-    const manageConsent = COOKIE_MANAGE_CONSENT_RE.test([
+    const manageConsent = [
       element.innerText, element.textContent, element.getAttribute('aria-label'), element.getAttribute('title'),
-    ].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim());
+    ].some(value => COOKIE_MANAGE_CONSENT_RE.test(String(value || '').replace(/\s+/g, ' ').trim()));
     for (let node = element.parentElement; node; node = node.parentElement) {
       const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
@@ -183,6 +183,7 @@ function nativeQuestionText(value, counter = null) {
         if (!manageConsent) return 'dialog';
         continue;
       }
+      if (manageConsent) continue;
       if (COOKIE_ACTIVE_SURFACE_RE.test(marker)) return 'banner';
     }
     return '';
