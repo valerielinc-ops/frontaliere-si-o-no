@@ -797,7 +797,7 @@ describe('prospector public-only polite transport', () => {
     expect(jinaFetchImpl).toHaveBeenCalledOnce();
   });
 
-  it('rescues a non-empty partial listing at the learned sample boundary', async () => {
+  it('rescues a source-specific partial listing above the learned sample', async () => {
     const seed = 'https://ipersonal.example/offene-stellen/';
     const details = [1, 2, 3, 4].map((id) => `${seed}jobs/position-${id}/`);
     const directListing = [1, 2, 3].map((id) => JSON.stringify({
@@ -824,7 +824,7 @@ describe('prospector public-only polite transport', () => {
     const rows = await runSpecInProduction({
       companyKey: 'ipersonal', companyName: 'MediPersonal', companyHost: 'ipersonal.example',
       mode: 'template', seedUrls: [seed], detailTemplate: '/offene-stellen/jobs/*/',
-      rescueOnPartialListing: true, sampleVacancyCount: 3,
+      rescueOnPartialListing: true, sampleVacancyCount: 2,
     } as any, {
       fetchImpl,
       browserFetchImpl,

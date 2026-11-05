@@ -1,7 +1,7 @@
 {
   "crawlerKey": "victorinox",
-  "assembledAt": "2026-11-05T09:25:17.761Z",
-  "runId": "41999948434",
+  "assembledAt": "2026-11-05T21:14:58.729Z",
+  "runId": "42109911073",
   "jobs": [
     {
       "id": "victorinox-c9a73ab3b99d",
@@ -35,7 +35,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-delemont-m-w-d_211.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:25:11.835Z",
+      "crawledAt": "2026-11-05T21:14:50.007Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:25:11.835Z",
+      "validThrough": "2026-12-05T21:14:50.007Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-m-w-d_259.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:25:11.264Z",
+      "crawledAt": "2026-11-05T21:14:49.504Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T09:25:11.264Z",
+      "validThrough": "2026-12-05T21:14:49.504Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-ibach-m-w-d_209.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:25:10.648Z",
+      "crawledAt": "2026-11-05T21:14:49.018Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -254,7 +254,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T09:25:10.648Z",
+      "validThrough": "2026-12-05T21:14:49.018Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-planificateur-de-production-60-70-h-f-d_266.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:25:09.470Z",
+      "crawledAt": "2026-11-05T21:14:48.529Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -325,7 +325,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:25:09.470Z",
+      "validThrough": "2027-01-19T21:14:48.529Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +360,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:25:08.895Z",
+      "crawledAt": "2026-11-05T21:14:48.029Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -396,7 +396,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T09:25:08.895Z",
+      "validThrough": "2026-12-05T21:14:48.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -404,7 +404,7 @@
       "slug": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
         "it": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
-        "en": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
+        "en": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
         "de": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
         "fr": "conseiller-juridique-h-f-d-victorinox-ibach-schwyz"
       },
@@ -431,7 +431,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-legal-counsel-m-w-d_250.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:25:08.321Z",
+      "crawledAt": "2026-11-05T21:14:47.513Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -458,9 +458,6 @@
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-m-w-d-victorinox-ibach-schwyz"
-        ],
-        "en": [
-          "legal-counsel-m-w-d-victorinox-ibach-schwyz"
         ]
       },
       "firstSeenAt": "2026-08-18T09:45:47.035Z",
@@ -478,7 +475,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T09:25:08.321Z",
+      "validThrough": "2026-12-05T21:14:47.513Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -513,7 +510,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle--senior-product-manager-swiss-army-knife-tools-m-w-d_267.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:25:07.735Z",
+      "crawledAt": "2026-11-05T21:14:47.025Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -549,7 +546,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:25:07.735Z",
+      "validThrough": "2027-01-28T21:14:47.025Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -584,7 +581,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-in-schleiftechnik-100-m-w-d_261.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:25:07.178Z",
+      "crawledAt": "2026-11-05T21:14:46.525Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -634,7 +631,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:25:07.178Z",
+      "validThrough": "2026-12-19T21:14:46.525Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -668,7 +665,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-application-integration-manager-erp-m-w-d_248.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:25:06.606Z",
+      "crawledAt": "2026-11-05T21:14:46.023Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -720,8 +717,81 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T09:25:06.606Z",
+      "validThrough": "2026-12-05T21:14:46.023Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "victorinox-25790a3baf5d",
+      "slug": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz",
+      "slugByLocale": {
+        "de": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz",
+        "it": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz",
+        "en": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz",
+        "fr": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz"
+      },
+      "company": "Victorinox",
+      "companyKey": "victorinox",
+      "companyDomain": "victorinox.com",
+      "title": "Marketing & Operations Coordinator Europe 60-80% m/w/d",
+      "titleByLocale": {
+        "de": "Marketing & Operations Coordinator Europe 60-80% m/w/d",
+        "it": "Marketing & Operations Coordinatore Europe 60-80% m/w/d",
+        "en": "Marketing & Operations Coordinator Europe 60-80% m/w/d",
+        "fr": "Marketing & Operations Coordinateur Europe 60-80% m/w/d"
+      },
+      "description": "Allgemeine Informationen Kennziffer 2026-272 BESCHREIBUNG DER STELLE Stellenbezeichnung Marketing & Operations Coordinator Europe 60-80% m/w/d Beschreibung der Aufgaben Assistenz & Administration\n• Organisation von Geschäftsreisen inklusive Flug- und Hotelbuchungen sowie Visa\n• Unterstützung bei der Termin- und Kalenderkoordination\n• Abwicklung von Kreditkarten- und Spesenabrechnungen\n• Koordination und Organisation von Besuchen an unserem Hauptsitz in Ibach\n• Unterstützung bei internen Veranstaltungen wie Management Meetings und Mitarbeiterevents\n• Übernahme der Stellvertretung bei definierten administrativen Prozessen\n• Ansprechperson für Themen rund um das Sicherheits- und Umweltmanagement Marketing & Events\n• Erstellung und Versand von Newslettern rund um Messen und Events\n• Koordination von Hotelbuchungen und Zimmerkontingenten für Veranstaltungen und Messen\n• Organisation von Marketingmaterialien sowie Koordination von Grafikanfragen\n• Organisation von Kunden- und Sales-Besuchen an unserem Hauptsitz\n• Unterstützung des Teams bei der administrativen Planung, Koordination und Umsetzung von Marketingprojekten\n• Enge Zusammenarbeit mit verschiedenen internen und externen Ansprechpartnern sowie Sicherstellung einer zuverlässigen und termingerechten Organisation Profil\n• Abgeschlossene kaufmännische Grundausbildung\n• Idealerweise 3–5 Jahre Berufserfahrung in einer vergleichbaren Funktion, beispielsweise in Administration, Assistenz, Marketingkoordination oder Eventorganisation\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Ausgeprägtes Organisations- und Koordinationstalent\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude daran, mehrere Themen gleichzeitig zu koordinieren und Prioritäten richtig zu setzen\n• Hohe Dienstleistungsorientierung und Freude am Kontakt mit unterschiedlichen internen und externen Ansprechpartnern\n• Kommunikationsstärke und Teamgeist\n• Flexibilität sowie eine pragmatische und lösungsorientierte Arbeitsweise\n• Qualitätsbewusstsein und ein gutes Auge für Details Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
+      "descriptionByLocale": {
+        "de": "Allgemeine Informationen Kennziffer 2026-272 BESCHREIBUNG DER STELLE Stellenbezeichnung Marketing & Operations Coordinator Europe 60-80% m/w/d Beschreibung der Aufgaben Assistenz & Administration\n• Organisation von Geschäftsreisen inklusive Flug- und Hotelbuchungen sowie Visa\n• Unterstützung bei der Termin- und Kalenderkoordination\n• Abwicklung von Kreditkarten- und Spesenabrechnungen\n• Koordination und Organisation von Besuchen an unserem Hauptsitz in Ibach\n• Unterstützung bei internen Veranstaltungen wie Management Meetings und Mitarbeiterevents\n• Übernahme der Stellvertretung bei definierten administrativen Prozessen\n• Ansprechperson für Themen rund um das Sicherheits- und Umweltmanagement Marketing & Events\n• Erstellung und Versand von Newslettern rund um Messen und Events\n• Koordination von Hotelbuchungen und Zimmerkontingenten für Veranstaltungen und Messen\n• Organisation von Marketingmaterialien sowie Koordination von Grafikanfragen\n• Organisation von Kunden- und Sales-Besuchen an unserem Hauptsitz\n• Unterstützung des Teams bei der administrativen Planung, Koordination und Umsetzung von Marketingprojekten\n• Enge Zusammenarbeit mit verschiedenen internen und externen Ansprechpartnern sowie Sicherstellung einer zuverlässigen und termingerechten Organisation Profil\n• Abgeschlossene kaufmännische Grundausbildung\n• Idealerweise 3–5 Jahre Berufserfahrung in einer vergleichbaren Funktion, beispielsweise in Administration, Assistenz, Marketingkoordination oder Eventorganisation\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Ausgeprägtes Organisations- und Koordinationstalent\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude daran, mehrere Themen gleichzeitig zu koordinieren und Prioritäten richtig zu setzen\n• Hohe Dienstleistungsorientierung und Freude am Kontakt mit unterschiedlichen internen und externen Ansprechpartnern\n• Kommunikationsstärke und Teamgeist\n• Flexibilität sowie eine pragmatische und lösungsorientierte Arbeitsweise\n• Qualitätsbewusstsein und ein gutes Auge für Details Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
+        "it": "Allgemeine Informationen Kennziffer 2026-272 BESCHREIBUNG DER STELLE Stellenbezeichnung Marketing & Operations Coordinator Europe 60-80% m/w/d Beschreibung der Aufgaben Assistenz & Administration\n• Organisation von Geschäftsreisen inklusive Flug- und Hotelbuchungen sowie Visa\n• Unterstützung bei der Termin- und Kalenderkoordination\n• Abwicklung von Kreditkarten- und Spesenabrechnungen\n• Koordination und Organisation von Besuchen an unserem Hauptsitz in Ibach\n• Unterstützung bei internen Veranstaltungen wie Management Meetings und Mitarbeiterevents\n• Übernahme der Stellvertretung bei definierten administrativen Prozessen\n• Ansprechperson für Themen rund um das Sicherheits- und Umweltmanagement Marketing & Events\n• Erstellung und Versand von Newslettern rund um Messen und Events\n• Koordination von Hotelbuchungen und Zimmerkontingenten für Veranstaltungen und Messen\n• Organisation von Marketingmaterialien sowie Koordination von Grafikanfragen\n• Organisation von Kunden- und Sales-Besuchen an unserem Hauptsitz\n• Unterstützung des Teams bei der administrativen Planung, Koordination und Umsetzung von Marketingprojekten\n• Enge Zusammenarbeit mit verschiedenen internen und externen Ansprechpartnern sowie Sicherstellung einer zuverlässigen und termingerechten Organisation Profil\n• Abgeschlossene kaufmännische Grundausbildung\n• Idealerweise 3–5 Jahre Berufserfahrung in einer vergleichbaren Funktion, beispielsweise in Administration, Assistenz, Marketingkoordination oder Eventorganisation\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Ausgeprägtes Organisations- und Koordinationstalent\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude daran, mehrere Themen gleichzeitig zu koordinieren und Prioritäten richtig zu setzen\n• Hohe Dienstleistungsorientierung und Freude am Kontakt mit unterschiedlichen internen und externen Ansprechpartnern\n• Kommunikationsstärke und Teamgeist\n• Flexibilität sowie eine pragmatische und lösungsorientierte Arbeitsweise\n• Qualitätsbewusstsein und ein gutes Auge für Details Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
+        "en": "Allgemeine Informationen Kennziffer 2026-272 BESCHREIBUNG DER STELLE Stellenbezeichnung Marketing & Operations Coordinator Europe 60-80% m/w/d Beschreibung der Aufgaben Assistenz & Administration\n• Organisation von Geschäftsreisen inklusive Flug- und Hotelbuchungen sowie Visa\n• Unterstützung bei der Termin- und Kalenderkoordination\n• Abwicklung von Kreditkarten- und Spesenabrechnungen\n• Koordination und Organisation von Besuchen an unserem Hauptsitz in Ibach\n• Unterstützung bei internen Veranstaltungen wie Management Meetings und Mitarbeiterevents\n• Übernahme der Stellvertretung bei definierten administrativen Prozessen\n• Ansprechperson für Themen rund um das Sicherheits- und Umweltmanagement Marketing & Events\n• Erstellung und Versand von Newslettern rund um Messen und Events\n• Koordination von Hotelbuchungen und Zimmerkontingenten für Veranstaltungen und Messen\n• Organisation von Marketingmaterialien sowie Koordination von Grafikanfragen\n• Organisation von Kunden- und Sales-Besuchen an unserem Hauptsitz\n• Unterstützung des Teams bei der administrativen Planung, Koordination und Umsetzung von Marketingprojekten\n• Enge Zusammenarbeit mit verschiedenen internen und externen Ansprechpartnern sowie Sicherstellung einer zuverlässigen und termingerechten Organisation Profil\n• Abgeschlossene kaufmännische Grundausbildung\n• Idealerweise 3–5 Jahre Berufserfahrung in einer vergleichbaren Funktion, beispielsweise in Administration, Assistenz, Marketingkoordination oder Eventorganisation\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Ausgeprägtes Organisations- und Koordinationstalent\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude daran, mehrere Themen gleichzeitig zu koordinieren und Prioritäten richtig zu setzen\n• Hohe Dienstleistungsorientierung und Freude am Kontakt mit unterschiedlichen internen und externen Ansprechpartnern\n• Kommunikationsstärke und Teamgeist\n• Flexibilität sowie eine pragmatische und lösungsorientierte Arbeitsweise\n• Qualitätsbewusstsein und ein gutes Auge für Details Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
+        "fr": "Allgemeine Informationen Kennziffer 2026-272 BESCHREIBUNG DER STELLE Stellenbezeichnung Marketing & Operations Coordinator Europe 60-80% m/w/d Beschreibung der Aufgaben Assistenz & Administration\n• Organisation von Geschäftsreisen inklusive Flug- und Hotelbuchungen sowie Visa\n• Unterstützung bei der Termin- und Kalenderkoordination\n• Abwicklung von Kreditkarten- und Spesenabrechnungen\n• Koordination und Organisation von Besuchen an unserem Hauptsitz in Ibach\n• Unterstützung bei internen Veranstaltungen wie Management Meetings und Mitarbeiterevents\n• Übernahme der Stellvertretung bei definierten administrativen Prozessen\n• Ansprechperson für Themen rund um das Sicherheits- und Umweltmanagement Marketing & Events\n• Erstellung und Versand von Newslettern rund um Messen und Events\n• Koordination von Hotelbuchungen und Zimmerkontingenten für Veranstaltungen und Messen\n• Organisation von Marketingmaterialien sowie Koordination von Grafikanfragen\n• Organisation von Kunden- und Sales-Besuchen an unserem Hauptsitz\n• Unterstützung des Teams bei der administrativen Planung, Koordination und Umsetzung von Marketingprojekten\n• Enge Zusammenarbeit mit verschiedenen internen und externen Ansprechpartnern sowie Sicherstellung einer zuverlässigen und termingerechten Organisation Profil\n• Abgeschlossene kaufmännische Grundausbildung\n• Idealerweise 3–5 Jahre Berufserfahrung in einer vergleichbaren Funktion, beispielsweise in Administration, Assistenz, Marketingkoordination oder Eventorganisation\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Ausgeprägtes Organisations- und Koordinationstalent\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude daran, mehrere Themen gleichzeitig zu koordinieren und Prioritäten richtig zu setzen\n• Hohe Dienstleistungsorientierung und Freude am Kontakt mit unterschiedlichen internen und externen Ansprechpartnern\n• Kommunikationsstärke und Teamgeist\n• Flexibilität sowie eine pragmatische und lösungsorientierte Arbeitsweise\n• Qualitätsbewusstsein und ein gutes Auge für Details Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart"
+      },
+      "needsRetranslation": true,
+      "location": "Ibach-Schwyz",
+      "canton": "SZ",
+      "url": "https://victorinox-career.talent-soft.com/stelle/stelle-marketing-operations-coordinator-europe-60-80-m-w-d_272.aspx",
+      "source": "Victorinox Dedicated Parser (Talentsoft)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-05T21:14:45.513Z",
+      "addressLocality": "Ibach-Schwyz",
+      "addressRegion": "SZ",
+      "streetAddress": "Schmiedgasse 57",
+      "postalCode": "6438",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifatturiero",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-marketing-operations-coordinator-europe-60-80-m-w-d_272.aspx",
+      "jobReqId": "2026-272",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 57600,
+      "salaryMax": 77600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57600,
+          "maxValue": 77600,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-03T21:14:45.513Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:14:45.513Z"
     }
   ]
 }

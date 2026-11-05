@@ -245,10 +245,11 @@ describe('form-field wordings (one source for the portal guard and the questions
   it('reads permit and work-authorisation fields in four languages, never a licence', () => {
     for (const label of ['Arbeitserlaubnis', 'Are you legally authorised to work in Switzerland?', 'Do you have the right to work in Switzerland?', 'Will you require sponsorship?',
       'Avez-vous un permis de travail valable en Suisse ?', 'Autorisation de travail', 'Aufenthaltsstatus', 'Titre de séjour', 'Statut de séjour', 'Work authorization status',
-      'Visa status', 'Ausweistyp', 'Qual è il suo stato di autorizzazione al lavoro per Svizzera?', 'Statuto di soggiorno', 'Work permit *']) {
+      'Visa status', 'Ausweistyp', 'Qual è il suo stato di autorizzazione al lavoro per Svizzera?', 'Statuto di soggiorno', 'Work permit *',
+      'Est-ce que vous détenez un permis suisse ?']) {
       expect([label, isPermitField(label)]).toEqual([label, true]);
     }
-    for (const label of ['Permis de conduire', 'Führerausweis', 'Fahrausweis Kategorie B', 'Berufsausübungsbewilligung', 'Country', 'Aufenthaltsort', 'Land', 'Wohnort', 'Privacy', 'Patente di guida', 'Ausweis-Nr.']) {
+    for (const label of ['Permis de conduire', 'Führerausweis', 'Fahrausweis Kategorie B', 'Berufsausübungsbewilligung', 'Permiso de conducir', 'Permiso de conducción', 'Permiso de conduccion', 'Permiso para conducir', 'Country', 'Aufenthaltsort', 'Land', 'Wohnort', 'Privacy', 'Patente di guida', 'Ausweis-Nr.']) {
       expect([label, isPermitField(label)]).toEqual([label, false]);
     }
   });

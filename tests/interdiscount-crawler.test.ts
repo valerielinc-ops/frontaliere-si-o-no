@@ -235,6 +235,18 @@ describe('Interdiscount source coverage and location contract', () => {
 
     expect(jobs).toEqual([]);
   });
+
+  it('publishes the posting-bound online route instead of the legacy ATS bookmark', async () => {
+    const listing = makeListing(2, { city: 'Canobbio', region: 'Ticino' });
+    listing.links.directlink = 'https://jobs.coopjobs.ch/posti-vacanti/impiegato-a/3a7435bb-c1f2-48ae-90ca-29e689e04a80';
+    listing.szas.sza_apply_link = 'https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168494';
+
+    const [job] = await fetchAllInterdiscountJobs({
+      fetchPage: async () => ({ total: 1, jobs: [listing] }),
+    });
+
+    expect(job.applyUrl).toBe('https://ohws.prospective.ch/public/v1/redirect/3a7435bb-c1f2-48ae-90ca-29e689e04a80/ats/');
+  });
 });
 
 // ──────────────────────────────────────────────────────────────

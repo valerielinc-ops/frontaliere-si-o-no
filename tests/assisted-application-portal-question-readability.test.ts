@@ -558,7 +558,7 @@ it.each([false, true])('preserves a real document request and hard question with
     question: 'Do you hold a Swiss work permit?', applicationQuestionLocale: 'en', localizationStatus: 'same_language',
   });
   expect(request).not.toHaveProperty('answers');
-  expect(codex).toHaveBeenCalledTimes(withQuestion ? 1 : 0);
+  expect(codex).not.toHaveBeenCalled();
 });
 
 it('never treats an unreadable required field as an empty resolved reduction', async () => {
@@ -905,6 +905,99 @@ it('retains native fallback-language questions for review when localization is u
   expect(result.handoff).toBeUndefined();
   expect(codex).toHaveBeenCalledTimes(2);
   expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('keeps a readable same-language Umantis batch usable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([
+    {
+      id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità',
+      type: 'choice', options: ['Italia', 'Svizzera'], applicationOptions: ['Italia', 'Svizzera'],
+    },
+    {
+      id: 'referral',
+      question: 'Come è venuto a conoscenza della nostra organizzazione?',
+      applicationQuestion: 'Come è venuto a conoscenza della nostra organizzazione?',
+      type: 'choice', options: ['Sito aziendale', 'Altro'], applicationOptions: ['Sito aziendale', 'Altro'],
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toEqual(expect.arrayContaining([
+    expect.objectContaining({ id: 'nationality', applicationQuestionLocale: 'it', localizationStatus: 'same_language' }),
+    expect.objectContaining({ id: 'referral', applicationQuestionLocale: 'it', localizationStatus: 'same_language' }),
+  ]));
+  expect(result.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
+});
+
+it('keeps known Italian EOC Umantis fields candidate-readable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const labels = [
+    'Titolo accademico', 'Nome', 'Cognome', 'Data di nascita', 'Indirizzo e-mail/login',
+    'Via', 'NAP', 'Località', 'Paese', 'Telefono', 'Cellulare', 'Profilo LinkedIn',
+    'Profilo XING', 'Nazionalità', 'Diploma', 'Annotazioni sulla formazione',
+    'Il suo diploma di riferimento è stato ottenuto',
+    'Come è venuto a conoscenza della nostra organizzazione?',
+    "Attualmente ho un contratto con l'EOC",
+    "In passato ho già lavorato per l'EOC",
+  ];
+  const questions = labels.map((question, index) => ({
+    id: `eoc-${index}`,
+    question,
+    applicationQuestion: question,
+    type: question.startsWith('Come è venuto') ? 'choice' : 'text',
+    options: question.startsWith('Come è venuto') ? ['Sito aziendale', 'Altro'] : [],
+    applicationOptions: question.startsWith('Come è venuto') ? ['Sito aziendale', 'Altro'] : [],
+  }));
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'de', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toHaveLength(labels.length);
+  expect(request.questions.every((question: any) => question.localizationStatus === 'same_language')).toBe(true);
+  expect(request.questions.map((question: any) => question.applicationQuestion)).toEqual(labels);
+  expect(request.questions.find((question: any) => question.applicationQuestion.startsWith('Come è venuto'))).toMatchObject({
+    options: ['Sito aziendale', 'Altro'],
+    optionMap: [
+      { candidate: 'Sito aziendale', application: 'Sito aziendale' },
+      { candidate: 'Altro', application: 'Altro' },
+    ],
+  });
+});
+
+it('keeps deterministic German field copies when an unresolved same-language question shares the batch', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([
+    { id: 'salutation', question: 'Anrede', applicationQuestion: 'Anrede', options: [] },
+    {
+      id: 'skills',
+      question: 'Quali requisiti e competenze hai per questa candidatura?',
+      applicationQuestion: 'Quali requisiti e competenze hai per questa candidatura?',
+      options: [],
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject([
+    { id: 'salutation', question: 'Come preferisci essere indicato/a?', applicationQuestionLocale: 'de', localizationStatus: 'translated' },
+    { id: 'skills', question: 'Quali requisiti e competenze hai per questa candidatura?', applicationQuestionLocale: 'it', localizationStatus: 'same_language' },
+  ]);
+});
+
+it('does not use the same-language fast path when options are in another language', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([{
+    id: 'skills',
+    question: 'Quali requisiti e competenze hai per questa candidatura?',
+    applicationQuestion: 'Quali requisiti e competenze hai per questa candidatura?',
+    options: ['Ja', 'Nein'],
+    applicationOptions: ['Ja', 'Nein'],
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).toHaveBeenCalledOnce();
+  expect(result[0]).toMatchObject({ localizationStatus: 'fallback', options: ['Sì', 'No'] });
+  expect(result[0].localizationStatus).not.toBe('same_language');
 });
 
 it('detects the ATS question language even when the posting language matches the candidate locale', async () => {

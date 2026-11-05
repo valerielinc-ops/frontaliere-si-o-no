@@ -36,6 +36,7 @@ import { loadRunnerAnswerContext } from '../../functions/src/assistedApplication
 import { createAnswerSourceGuard } from '../../functions/src/assistedApplicationAnswerSourceGuard.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 import { boundRunnerEvent, questionDetailsForEvent } from './lib/question-details.mjs';
+import { compactApplicationContract, mergeApplicationContracts } from './lib/portal/application-contract.mjs';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 // dry_run: the submission without the final click, for the owner's tests.
@@ -218,8 +219,12 @@ async function main() {
       summary(`draft ready in ${Math.round((Date.now() - started) / 1000)}s: verdict=${draft.verdict} channel=${draft.channel?.type} questions=${draft.questions.length} factWarnings=${draft.factCheck.unsupported.length}`);
       await report({ type: 'draft_ready' });
     } catch (error) {
-      if (error instanceof DraftAbort) await report({ type: error.eventType, error: safeErrorCode(error) });
-      else await report({ type: 'draft_failed', error: safeErrorCode(error) });
+      if (error instanceof DraftAbort) {
+        if (error.portalContract && !dryRun) {
+          await orderRef.collection('ai_drafts').doc('current').set({ portalContract: error.portalContract }, { merge: true }).catch(() => {});
+        }
+        await report({ type: error.eventType, error: safeErrorCode(error) });
+      } else await report({ type: 'draft_failed', error: safeErrorCode(error) });
     }
     return;
   }
@@ -331,6 +336,12 @@ async function main() {
       if (file) writeFileSync(file, JSON.stringify(portalPassRecord(portalPass, mode)));
     }
     delete event.portalPass;
+    const applicationContract = compactApplicationContract(event.applicationContract);
+    if (applicationContract && !dryRun) {
+      const mergedContract = mergeApplicationContracts(previousDraft?.portalContract || null, applicationContract);
+      if (mergedContract) await orderRef.collection('ai_drafts').doc('current').set({ portalContract: mergedContract }, { merge: true });
+    }
+    delete event.applicationContract;
     // The fact gate's result of a stopped submit, next to the draft before the
     // event moves the flow; never in the event or the log.
     const factCheckPatch = takeFactCheck(event, previousDraft);

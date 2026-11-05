@@ -17,7 +17,7 @@ function fixture() {
   return createMemoryFirestore({
     [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover', automationDueAt: null },
     [`${base}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal:account'], portalCodeVersion: 'a'.repeat(64),
-      dispatch: { mode: 'submit', round: 1 }, portalAutoRetryCount: 2 },
+      dispatch: { mode: 'submit', round: 1 }, portalAutoRetryCount: 0 },
     [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, questions: [], job: { source: 'job_detail' }, channel: { type: 'employer_site' }, factCheck: { ok: true } },
     [`${base}/automation/submission`]: { r1: { state: 'failed', channel: 'portal', releasedAt: now - 1000, clickedAt: null } },
   });
@@ -87,21 +87,70 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.list(`${base}/events/`)).toHaveLength(1);
   });
 
+  it('reopens an unreadable portal form when only required portal answers remain', async () => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`, draftPath = `${base}/ai_drafts/current`, submissionPath = `${base}/automation/submission`;
+    const question = { id: 'work_permit', source: 'portal', question: 'Statuto di soggiorno',
+      applicationQuestion: 'Statuto di soggiorno', required: true, type: 'choice', options: ['Permesso B', 'Permesso G'] };
+    store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['portal:question_label_unreadable'] });
+    store.docs.set(draftPath, { ...store.read(draftPath), profile: { workPermit: 'Permesso B' }, questions: [question] });
+
+    const ctx = { db: store.db, version, nowMs: now, isEnabled: async () => true };
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 1, queued: 0 });
+    expect(await reconcilePortalCode({ ...ctx, apply: true })).toMatchObject({ eligible: 1, queued: 1 });
+    expect(store.read(flowPath)).toMatchObject({
+      state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'],
+      portalAutoRetryAt: now, portalRecoveryVersion: version, portalAutoRetryCount: 0,
+    });
+    expect(store.read(flowPath).answers?.work_permit).toBeUndefined();
+    expect(store.read(base).automationDueAt).toBe(now);
+    expect(store.read(submissionPath).portalCodeRecovery).toMatchObject({ version, round: 1, queuedAt: now });
+    expect(await reconcilePortalCode({ ...ctx, apply: true })).toMatchObject({ eligible: 0, queued: 0 });
+  });
+
+  it('keeps an unreadable portal hold when a non-portal candidate answer is missing', async () => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`, draftPath = `${base}/ai_drafts/current`;
+    store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['portal:question_label_unreadable'] });
+    store.docs.set(draftPath, { ...store.read(draftPath), questions: [{ id: 'salary_expectation', source: 'job',
+      question: 'Stipendio desiderato', required: true, type: 'text' }] });
+
+    expect(await reconcilePortalCode({ db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true }))
+      .toMatchObject({ eligible: 0, queued: 0 });
+    expect(store.read(flowPath).heldBy).toEqual(['portal:question_label_unreadable']);
+    expect(store.read(base).automationDueAt).toBeNull();
+  });
+
   it('requeues an old recovery receipt once when the source resolver version changes', async () => {
     const store = fixture();
     const oldVersion = 'a'.repeat(64);
     const flowPath = `${base}/automation/flow`;
     const submissionPath = `${base}/automation/submission`;
-    store.docs.set(flowPath, { ...store.read(flowPath), portalCodeVersion: oldVersion, portalRecoveryVersion: oldVersion });
+    store.docs.set(flowPath, { ...store.read(flowPath), portalCodeVersion: oldVersion, portalRecoveryVersion: oldVersion, portalAutoRetryCount: 1 });
     store.docs.set(submissionPath, { ...store.read(submissionPath),
       portalCodeRecovery: { version: oldVersion, round: 1, queuedAt: now - 1000 } });
 
     const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
     expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 1, queued: 1 });
-    expect(store.read(flowPath).portalRecoveryVersion).toBe(version);
+    expect(store.read(flowPath)).toMatchObject({ portalRecoveryVersion: version, portalAutoRetryCount: 1 });
     expect(store.read(submissionPath).portalCodeRecovery).toMatchObject({ version, round: 1, queuedAt: now });
     expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 0, queued: 0 });
     expect(store.list(`${base}/events/`)).toHaveLength(1);
+  });
+
+  it('does not mint a new retry after the portal budget is exhausted', async () => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`;
+    store.docs.set(flowPath, { ...store.read(flowPath), portalAutoRetryCount: 2, portalAutoRetryAt: now });
+    store.docs.set(base, { ...store.read(base), automationDueAt: now });
+    const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
+
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 0, queued: 0 });
+    expect(store.read(base).automationDueAt).toBeNull();
+    expect(store.read(flowPath)).toMatchObject({
+      portalAutoRetryCount: 2, portalAutoRetryAt: null, portalRecoveryVersion: version,
+    });
+    expect(store.list(`${base}/events/`)).toHaveLength(0);
   });
 
   it.each(['not_approved', 'same_code', 'withdrawn', 'sent', 'ambiguous', 'clicked', 'hard_question', 'captcha', 'expired', 'disabled'])('does not resume %s', async kind => {

@@ -32,7 +32,9 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
+import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
@@ -111,7 +113,7 @@ export const FLOW_STATES = Object.freeze([
 
 export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed', 'withdrawn']);
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
-const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry']);
+const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry', 'draft_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
 const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged', 'repair_facts']);
 // The submit_failed errors of a send that may have reached the employer (never retried).
@@ -295,7 +297,17 @@ function base(flow) {
     lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,
     postingExpiredAt: Number(flow?.postingExpiredAt) || null,
     portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
-    portalAutoRetryCount: Number(flow?.portalAutoRetryCount) || 0,
+    // An explicitly malformed persisted count must not be normalized to zero:
+    // that would silently mint a fresh automatic retry budget.
+    portalAutoRetryCount: portalAutoRetryCountValue(flow) ?? -1,
+    draftAutoRetryAt: Number(flow?.draftAutoRetryAt) || null,
+    // An explicitly malformed persisted count must fail closed instead of
+    // creating another automatic draft run.
+    draftAutoRetryCount: draftAutoRetryCountValue(flow) ?? -1,
+    dispatchRecoveryAt: Number(flow?.dispatchRecoveryAt) || null,
+    // An explicitly malformed count must fail closed instead of minting a
+    // second retry after a pre-dispatch failure.
+    dispatchRecoveryCount: dispatchRecoveryCountValue(flow) ?? -1,
     portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
     portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
     transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,
@@ -394,6 +406,10 @@ function redraftSameRound(next, reason) {
   next.deadlineAt = null;
   next.reminderAt = null;
   next.heldBy = [];
+  next.portalAutoRetryAt = null;
+  next.draftAutoRetryAt = null;
+  next.dispatchRecoveryAt = null;
+  next.dispatchRecoveryCount = 0;
   return [{ type: 'dispatch', mode: 'draft', reason }];
 }
 
@@ -681,6 +697,21 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       effects = enterOwnerReview(next, { owner: [], candidate: flags.candidate, documents: flags.documents }, nowMs);
       break;
+    case 'draft_auto_retry': {
+      if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (!Array.isArray(current.heldBy) || current.heldBy.length !== 1 || current.heldBy[0] !== 'draft_failed') {
+        return ignore('not_draft_retryable');
+      }
+      if (current.postingExpiredAt) return ignore('posting_expired');
+      const retryAt = draftRetryDueAt(current);
+      if (!retryAt || retryAt > nowMs) return ignore('draft_retry_not_due');
+      if (!roundDraftMissing(current, draft)) return ignore('draft_available');
+      const attempts = draftAutoRetryCountValue(current);
+      if (attempts === null || attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS) return ignore('draft_retry_limit');
+      next.draftAutoRetryCount = attempts + 1;
+      effects = redraftSameRound(next, 'draft_auto_retry');
+      break;
+    }
     case 'tick': {
       if (needsFactRepair(current)) {
         effects = enterFactRepair(next, current);

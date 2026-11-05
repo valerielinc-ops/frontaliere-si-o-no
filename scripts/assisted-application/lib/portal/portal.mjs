@@ -32,8 +32,9 @@ import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isP
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
+import { applicationContractFromPreflight, applicationContractFromSubmission } from './application-contract.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -46,6 +47,7 @@ import { formatInternationalPhone, phoneCountryLabel } from '../../../../functio
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
+import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
@@ -437,6 +439,14 @@ function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+function isUmantisUrl(value) {
+  try {
+    return /(?:^|\.)umantis\.com$/i.test(new URL(String(value || '')).hostname);
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Umantis application URLs carry the vacancy id in the ATS route
  * (`/Vacancies/<id>/Application/...`). Only a posting on the same origin is
@@ -448,7 +458,7 @@ function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
   try {
     const apply = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
-    if (!/(?:^|\.)umantis\.com$/i.test(apply.hostname)) return false;
+    if (!isUmantisUrl(apply.href)) return false;
     const applyId = /\/vacancies\/(\d+)\/application(?:\/|$)/i.exec(apply.pathname)?.[1];
     const postingId = /\/vacancies\/(\d+)(?:\/description(?:\/[^/]+)?)?\/?$/i.exec(posting.pathname)?.[1];
     return apply.origin === posting.origin && Boolean(applyId && postingId && applyId === postingId);
@@ -545,6 +555,24 @@ export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof } = {})
     // Keep the given application URL when either address is absent or invalid.
   }
   return umantisApplicationEntryUrl({ applyUrl: directUrl, postingUrl }) || directUrl;
+}
+
+/** A saved Umantis vacancy address, only when it proves the current application route. */
+export function verifiedUmantisPostingAddress({ applyUrl, postingUrls = [] } = {}) {
+  const candidates = Array.isArray(postingUrls) ? postingUrls : [];
+  for (const postingUrl of [...new Set(candidates.map((value) => String(value || '').trim()).filter(Boolean))]) {
+    if (isUmantisPostingEntry({ applyUrl, postingUrl })) return postingUrl;
+    const entryUrl = portalEntryUrl({ applyUrl, postingUrl });
+    if (isUmantisPostingEntry({ applyUrl: entryUrl, postingUrl })) return postingUrl;
+  }
+  return '';
+}
+
+/** Use an Umantis fallback only when its vacancy route is proven against the application URL. */
+export function postingAddressForPortal({ applyUrl, postingUrls = [], fallback = '' } = {}) {
+  const verified = verifiedUmantisPostingAddress({ applyUrl, postingUrls });
+  if (verified) return verified;
+  return isUmantisUrl(applyUrl) ? '' : String(fallback || '');
 }
 
 function portalChannelType(ctx = {}) {
@@ -1176,8 +1204,27 @@ export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
 }
 
+const portalUsableChoiceOption = (option) => typeof option === 'string'
+  ? Boolean(option.trim())
+  : Boolean(option && option.placeholder !== true && option.disabled !== true && String(option.label || '').trim());
+
+const portalHasChoiceCatalogue = (field) => Array.isArray(field?.options)
+  && field.options.some(portalUsableChoiceOption);
+
+const editableCombobox = (field) => String(field?.kind || '').toLowerCase() === 'combobox'
+  && field?.selectLike === false && !field?.nativeSelectId;
+
+const fieldHasNativeOptions = (field) => ['combobox', 'select', 'radio', 'listbox'].includes(String(field?.kind || '').toLowerCase())
+  || field?.selectLike === true
+  || Boolean(field?.nativeSelectId);
+
+const fieldRequiresNativeOptions = (field) => fieldHasNativeOptions(field) && !editableCombobox(field);
+
 export function needsPortalOptionRead(snapshot = {}) {
-  return snapshot.fields?.some((field) => field.kind === 'listbox' || field.selectLike) || false;
+  return snapshot.fields?.some((field) => {
+    if (!fieldHasNativeOptions(field)) return false;
+    return !portalHasChoiceCatalogue(field);
+  }) || false;
 }
 
 const choiceField = field => ['combobox', 'listbox', 'radio', 'select'].includes(field?.kind) || field?.selectLike === true;
@@ -1188,7 +1235,48 @@ const usableChoiceOption = option => {
 };
 const hasChoiceCatalogue = field => Array.isArray(field?.options) && field.options.some(usableChoiceOption);
 const fieldFrame = field => Number.isInteger(field?.frame) ? field.frame : 0;
-const fieldKey = field => field?.id ? `${fieldFrame(field)}:${String(field.id)}` : '';
+const fieldFrameUrl = (snapshot, field) => {
+  const index = fieldFrame(field);
+  const frame = (Array.isArray(snapshot?.frames) ? snapshot.frames : [])
+    .find((item) => item?.index === index);
+  return String(frame?.url || (index === 0 ? snapshot?.url : '') || '').trim();
+};
+const fieldKey = (snapshot, field) => {
+  const id = String(field?.id || '').trim();
+  const url = fieldFrameUrl(snapshot, field);
+  return id && url ? JSON.stringify([fieldFrame(field), url, id]) : '';
+};
+const fieldsByIdentity = (snapshot) => {
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const byIdentity = new Map();
+  const ambiguous = new Set();
+  for (const field of fields) {
+    const key = fieldKey(snapshot, field);
+    if (!key) continue;
+    if (byIdentity.has(key)) {
+      byIdentity.delete(key);
+      ambiguous.add(key);
+    } else if (!ambiguous.has(key)) byIdentity.set(key, field);
+  }
+  return byIdentity;
+};
+
+/** Merge a lazy catalogue only when both snapshots identify the same page and exact control. */
+export function mergePortalChoiceOptions(current, refreshed) {
+  const currentUrl = String(current?.url || '').trim();
+  if (!currentUrl || String(refreshed?.url || '').trim() !== currentUrl) return current;
+  const refreshedByIdentity = fieldsByIdentity(refreshed);
+  const currentFields = Array.isArray(current?.fields) ? current.fields : [];
+  let changed = false;
+  const fields = currentFields.map((field) => {
+    if (portalHasChoiceCatalogue(field)) return field;
+    const live = refreshedByIdentity.get(fieldKey(current, field));
+    if (!portalHasChoiceCatalogue(live)) return field;
+    changed = true;
+    return { ...field, options: live.options };
+  });
+  return changed ? { ...current, fields } : current;
+}
 
 /**
  * A portal can expose a choice control before its native options have been
@@ -1203,11 +1291,11 @@ async function refreshChoiceCatalogues(page, snapshot) {
   const live = await extractFields(page).catch(() => null);
   const expectedUrl = String(snapshot?.url || page.url() || '');
   if (!live?.fields?.length || String(live.url || '') !== expectedUrl || String(page.url() || '') !== expectedUrl) return snapshot;
-  const liveByKey = new Map(live.fields.map(field => [fieldKey(field), field]).filter(([key]) => key));
+  const liveByKey = fieldsByIdentity(live);
   let changed = false;
   const nextFields = fields.map((field) => {
     if (!choiceField(field) || hasChoiceCatalogue(field)) return field;
-    const observed = liveByKey.get(fieldKey(field));
+    const observed = liveByKey.get(fieldKey(snapshot, field));
     if (!hasChoiceCatalogue(observed)) return field;
     changed = true;
     return { ...field, options: observed.options };
@@ -1286,9 +1374,12 @@ function questionSurfaceSignature(snapshot = {}) {
 
 /** The planned question shape plus whether each required answer is still present. */
 function registrationSurfaceSignature(snapshot = {}) {
+  const fields = (Array.isArray(snapshot.fields) ? snapshot.fields : [])
+    .filter((field) => field.inputType !== 'password');
+  const questionSurface = { ...snapshot, fields };
   return JSON.stringify({
-    questions: questionSurfaceSignature(snapshot),
-    required: (Array.isArray(snapshot.fields) ? snapshot.fields : [])
+    questions: questionSurfaceSignature(questionSurface),
+    required: fields
       .filter((field) => field.required === true || field.invalid === true)
       .map((field) => [field.id || '', field.kind || '', field.inputType || '', field.required === true,
         field.invalid === true, field.checked === true, holdsValue(field)]),
@@ -1496,6 +1587,12 @@ export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settin
 export const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
+const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager)\b/i;
+// Generic banner/modal markers are not proof that a bare Manage consent
+// control belongs to a cookie manager. Require a cookie-specific live surface
+// identity and cookie copy; `cookie-consent` is deliberately not included
+// because application privacy sections reuse that marker.
+const COOKIE_MANAGER_SURFACE_RE = /\b(?:cookie[-_ ]?(?:banner|manager|policy|settings?|preferences?|notice|overlay|modal|dialog)|consent[-_ ]?manager|(?:onetrust|usercentrics|didomi|trustarc|cookiebot|quantcast|complianz|cmplz|iubenda|sourcepoint|cmpbox|sp_message|cky[-_ ]?consent|cookie[-_ ]?script))\b/i;
 const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
 const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accepter)$/i;
 // Some employer-hosted SuccessFactors pages expose the cookie statement and
@@ -1616,6 +1713,32 @@ async function isPageCookieConsentControl(page, snapshot, button) {
   return genericCookieControlsShareContainer(page, button, closeControls);
 }
 
+async function hasLiveCookieManagerSurface(page, button) {
+  if (!button?.id) return false;
+  const frameNumber = Number(button.frame) || 0;
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  const frame = frames[frameNumber]
+    || (frameNumber === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
+  const surfaceIsLive = await frame?.evaluate?.(({ controlId, surfacePattern }) => {
+    const control = [...document.querySelectorAll('[data-aa-id]')]
+      .find(element => element.getAttribute('data-aa-id') === controlId);
+    if (!control) return false;
+    if (control.closest('form, [role="form"]')) return false;
+    const managerSurface = new RegExp(surfacePattern, 'i');
+    const cookieCopy = /\bcookies?\b/i;
+    for (let node = control.parentElement; node && node !== document.documentElement; node = node.parentElement) {
+      const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (!managerSurface.test(marker)) continue;
+      if (node.matches('form, [role="form"]')) continue;
+      if (!cookieCopy.test(node.innerText || node.textContent || '')) continue;
+      return true;
+    }
+    return false;
+  }, { controlId: String(button.id), surfacePattern: COOKIE_MANAGER_SURFACE_RE.source }).catch(() => false);
+  return surfaceIsLive === true;
+}
+
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   const label = cookieControlLabel(button);
   const isPreferenceControl = COOKIE_CUSTOMIZE_RE.test(label)
@@ -1627,7 +1750,11 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   if (isPreferenceControl && hasApplicationFormInCookieScope(snapshot, button)) return false;
   // A privacy/consent action can use the same bare label inside the
   // application form. It is never a cookie-manager entry point there.
-  if (COOKIE_MANAGE_CONSENT_RE.test(label) && (button.formId || button.roleFormId)) return false;
+  const manageConsent = COOKIE_MANAGE_CONSENT_RE.test(label);
+  if (manageConsent && (button.formId || button.roleFormId)) return false;
+  // The live manager check is affirmative proof for this label. Do not fall
+  // through to the generic Accept control check, which rejects "Manage consent".
+  if (manageConsent) return await hasLiveCookieManagerSurface(page, button);
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -1705,7 +1832,7 @@ async function clickMarkedShadowCookie(page) {
 
 async function markShadowCookieButton(page, { includePreferences = false } = {}) {
   try {
-    return await page.evaluate(([reject, accept, customize, manageConsent, genericPreferences, include]) => {
+    return await page.evaluate(([reject, accept, customize, manageConsent, genericPreferences, managerSurfacePattern, include]) => {
     const roots = [document];
     const shadows = [];
     for (let index = 0; index < roots.length && index < 50; index += 1) {
@@ -1720,8 +1847,19 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
         const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
           .filter(Boolean).join(' ');
         if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
-          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)
-          || (manageConsentAction && /\bconsent\b/i.test(marker))) return true;
+          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)) return true;
+      }
+      return false;
+    };
+    const cookieShadowManagerSurfaceIsActive = (host) => {
+      const managerSurface = new RegExp(managerSurfacePattern, 'i');
+      for (let node = host; node && node !== document.documentElement; node = node.parentElement) {
+        const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+          .filter(Boolean).join(' ');
+        if (!managerSurface.test(marker)) continue;
+        if (node.matches('form, [role="form"]')) continue;
+        if (!/\bcookies?\b/i.test(`${node.innerText || node.textContent || ''} ${host.textContent || ''}`)) continue;
+        return true;
       }
       return false;
     };
@@ -1729,16 +1867,19 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
     if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: manageConsent }, { kind: 'preferences', source: genericPreferences });
     for (const action of actions) {
       const pattern = new RegExp(action.source, 'i');
+      const isManageConsent = action.source === manageConsent;
       for (const shadow of shadows) {
         const manageConsentAction = action.kind === 'preferences' && action.source === manageConsent;
         if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
-          || !cookieShadowSurfaceIsActive(shadow.host, manageConsentAction))) continue;
+          || (manageConsentAction
+            ? !cookieShadowManagerSurfaceIsActive(shadow.host)
+            : !cookieShadowSurfaceIsActive(shadow.host)))) continue;
         const button = [...shadow.querySelectorAll('button, [role="button"]')]
           .find((element) => {
             const label = String(element.innerText || element.textContent || '').trim();
             return element.getBoundingClientRect().width > 0
               && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
-              && !(action.kind === 'preferences' && new RegExp(manageConsent, 'i').test(label)
+              && !(action.kind === 'preferences' && isManageConsent
                 && (element.closest('form, [role="form"]')
                   || shadow.host.closest('form, [role="form"]')))
               && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
@@ -1751,7 +1892,7 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
     }
     return '';
     }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source, COOKIE_MANAGE_CONSENT_RE.source,
-      COOKIE_GENERIC_PREFERENCES_RE.source, includePreferences]);
+      COOKIE_GENERIC_PREFERENCES_RE.source, COOKIE_MANAGER_SURFACE_RE.source, includePreferences]);
   } catch {
     return '';
   }
@@ -2128,12 +2269,13 @@ export function formPostingMatch(formText, job = {}, {
   if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
-  // On the verified same-origin vacancy route, the matching role in the page
-  // heading binds the form; keep the other-employer guard on that heading.
+  // The verified same-origin vacancy id binds the form even when the heading is
+  // generic; keep the other-employer guard on that heading, not on native field
+  // labels that describe the application itself.
   const heading = String(formText || '').split(/\r?\n/, 1)[0];
-  if (bound && isUmantisApplicationRoute(pageUrl)
-    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl })
-    && titleMatches(heading, job.title)) {
+  const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
+    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl });
+  if (boundUmantisApplication) {
     if (namesAnotherEmployer(heading, job)) return 'mismatch';
     return 'match';
   }
@@ -2245,18 +2387,29 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   const identity = fields.map(umantisIdentityCaption);
   const hasIdentity = identity.some(label => UMANTIS_APPLICANT_IDENTITY_RE.givenName.test(label))
     && identity.some(label => UMANTIS_APPLICANT_IDENTITY_RE.familyName.test(label));
-  const residenceRoles = new Set(fields.map(field => residenceFieldRole(field.label)).filter(Boolean));
-  const hasResidence = ['street', 'postalCode', 'city', 'country'].every(role => residenceRoles.has(role));
+  // EOC's live Application/New form has postal code and city but no street or
+  // country fields. Keep the account/application distinction strong with
+  // multiple applicant details instead of requiring one particular address
+  // schema across Umantis tenants.
+  const profileDetails = new Set();
+  for (const field of fields) {
+    const label = `${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`;
+    const residenceRole = residenceFieldRole(label);
+    if (residenceRole === 'postalCode' || residenceRole === 'city') profileDetails.add(residenceRole);
+    if (UMANTIS_PHONE_CONTEXT_RE.test(label)) profileDetails.add('phone');
+    if (/\b(?:birth date|date of birth|data di nascita|geburtsdatum|date de naissance)\b/iu.test(label)) profileDetails.add('birthDate');
+    if (/\b(?:degree|diploma|education|formazione|titolo accademico)\b/iu.test(label)) profileDetails.add('education');
+  }
+  const hasApplicantDetails = profileDetails.size >= 2;
   const hasCoverLetter = fields.some(field => isFileField(field)
     && COVER_LETTER_DOCUMENT_CONTEXT_RE.test(`${field.label || ''} ${field.name || ''} ${field.id || ''} ${field.context || ''}`));
   const hasCv = fields.some(isCvFileField);
 
-  // #17174: the live Application/New step exposes the account password next
-  // to the candidate's identity/address and required CV + cover letter, but
-  // its only action is «Avanti». This exact surface is an application form,
-  // not a sign-in page; keep the proof bounded to the verified Umantis route.
+  // #17174: Umantis Application/New can expose the account password beside
+  // identity, a partial address/profile, required CV + cover letter, and only
+  // «Avanti». This observed application surface is not a sign-in page.
   return Boolean(findButton(snapshot.buttons || [], NEXT_RE, { includeDisabled: true })
-    && hasIdentity && hasResidence && hasCv && hasCoverLetter);
+    && hasIdentity && hasApplicantDetails && hasCv && hasCoverLetter);
 }
 const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
@@ -2373,6 +2526,8 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
 
 const QUESTION_LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
 const QUESTION_LANGUAGE_CODES = Object.freeze([...Object.keys(QUESTION_LANGUAGE_NAMES), 'unknown']);
+const SAME_LANGUAGE_BATCH_MIN_CONFIDENCE = 0.6;
+const SAME_LANGUAGE_ITEM_MIN_CONFIDENCE = 0.15;
 const QUESTION_LOCALIZATION_SCHEMA = {
   type: 'object',
   properties: {
@@ -2451,14 +2606,58 @@ function normalizedQuestionText(value) {
     .replace(/[^\p{L}\p{N}]+/gu, ' ').trim().toLowerCase();
 }
 
+const OPTION_LANGUAGE_MARKERS = Object.freeze({
+  it: Object.freeze(['si', 'no', 'vero', 'falso', 'true', 'false', 'seleziona', 'selezionare']),
+  de: Object.freeze(['ja', 'nein', 'wahr', 'falsch', 'true', 'false', 'bitte wahlen', 'bitte waehlen', 'auswahlen', 'auswaehlen']),
+  fr: Object.freeze(['oui', 'non', 'vrai', 'faux', 'choisir', 'selectionner']),
+  en: Object.freeze(['yes', 'no', 'true', 'false', 'select', 'choose', 'please select', 'select an option']),
+});
+
+const OPTION_FALLBACK_MARKERS = Object.freeze({
+  yes: Object.freeze(['yes', 'ja', 'si', 'oui', 'vero', 'true']),
+  no: Object.freeze(['no', 'nein', 'non', 'falso', 'false']),
+  placeholder: Object.freeze([
+    'select', 'seleziona', 'selezionare', 'please select', 'bitte wahlen', 'bitte waehlen',
+    'auswahlen', 'auswaehlen', 'choisir', 'selectionner', 'choose', 'select an option',
+  ]),
+});
+
+// Exact Italian captions from Umantis forms are already candidate-readable.
+// Several are too short or contain shared technical words for the language
+// detector to classify (for example "Via", "Diploma" and "Indirizzo e-mail/login").
+const DETERMINISTIC_ITALIAN_PORTAL_LABELS = new Set([
+  'foto', 'titolo accademico', 'nome', 'cognome', 'data di nascita',
+  'indirizzo e mail login', 'password', 'via', 'nap', 'localita', 'paese',
+  'telefono', 'cellulare', 'profilo linkedin', 'profilo xing', 'nazionalita',
+  'diploma', 'annotazioni sulla formazione',
+  'il suo diploma di riferimento e stato ottenuto',
+  'come e venuto a conoscenza della nostra organizzazione',
+  'attualmente ho un contratto con l eoc',
+  'in passato ho gia lavorato per l eoc',
+]);
+
 function fallbackOption(option, language) {
   const text = String(option || '').trim();
   const normalized = normalizedQuestionText(text);
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  if (/^(?:yes|ja|si|sì|oui|vero|true)$/.test(normalized)) return fallback.yes;
-  if (/^(?:no|nein|non|falso|false)$/.test(normalized)) return fallback.no;
-  if (/^(?:select|seleziona|selezionare|please select|bitte wahlen|bitte waehlen|auswahlen|auswaehlen|choisir|selectionner|choose|select an option)$/.test(normalized)) return fallback.placeholder;
+  if (OPTION_FALLBACK_MARKERS.yes.includes(normalized)) return fallback.yes;
+  if (OPTION_FALLBACK_MARKERS.no.includes(normalized)) return fallback.no;
+  if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)) return fallback.placeholder;
   return text;
+}
+
+function optionsMatchCandidateLanguage(options, candidateLanguage) {
+  const candidateMarkers = OPTION_LANGUAGE_MARKERS[candidateLanguage] || [];
+  const hasKnownForeignMarker = options.some((option) => {
+    const normalized = normalizedQuestionText(option);
+    if (candidateMarkers.includes(normalized)) return false;
+    return Object.entries(OPTION_LANGUAGE_MARKERS)
+      .some(([language, markers]) => language !== candidateLanguage && markers.includes(normalized));
+  });
+  if (hasKnownForeignMarker) return false;
+  if (options.every((option) => candidateMarkers.includes(normalizedQuestionText(option)))) return true;
+  const detected = detectLanguageWithConfidence(options.join(' '), candidateLanguage);
+  return detected.lang === candidateLanguage && detected.confidence >= SAME_LANGUAGE_BATCH_MIN_CONFIDENCE;
 }
 
 // A provider outage must not strand a standard ATS form whose labels are
@@ -2600,6 +2799,56 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   };
 }
 
+/**
+ * A readable batch already written in the candidate's language needs no model
+ * call. Keep the check conservative: the unresolved questions must clear the
+ * batch and per-question confidence checks, while each option set is checked
+ * independently instead of borrowing confidence from its question. A mixed
+ * or ambiguous batch still goes through the source-language detector prompt
+ * below, because a posting-language hint is not proof of the ATS copy.
+ */
+function sameLanguagePortalLocalization(items, candidateLanguage) {
+  if (!candidateLanguage || !items.length) return null;
+  const questionTexts = items.map((item) => nativePortalQuestion(item)).filter(Boolean);
+  const batch = detectLanguageWithConfidence(questionTexts.join(' '), candidateLanguage);
+  if (batch.lang !== candidateLanguage || batch.confidence < SAME_LANGUAGE_BATCH_MIN_CONFIDENCE) return null;
+  const hasUnconfidentItem = items.some((item) => {
+    const question = nativePortalQuestion(item);
+    const detectedQuestion = detectLanguageWithConfidence(question, candidateLanguage);
+    if (detectedQuestion.lang !== candidateLanguage
+      || detectedQuestion.confidence < SAME_LANGUAGE_ITEM_MIN_CONFIDENCE) return true;
+    const applicationOptions = Array.isArray(item.applicationOptions)
+      ? item.applicationOptions.map((option) => String(option || '').trim()).filter(Boolean)
+      : [];
+    if (!applicationOptions.length) return false;
+    return !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage);
+  });
+  if (hasUnconfidentItem) return null;
+  return items.map((item) => sameLanguagePortalQuestion(item, candidateLanguage));
+}
+
+function sameLanguagePortalQuestion(item, candidateLanguage) {
+  const applicationOptions = Array.isArray(item.applicationOptions) ? item.applicationOptions : [];
+  const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+  return {
+    ...item,
+    question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+    ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
+    applicationQuestionLocale: candidateLanguage,
+    localizationStatus: 'same_language',
+  };
+}
+
+function deterministicItalianSameLanguage(item, candidateLanguage) {
+  if (candidateLanguage !== 'it'
+    || !DETERMINISTIC_ITALIAN_PORTAL_LABELS.has(normalizedQuestionText(nativePortalQuestion(item)))) return null;
+  const applicationOptions = Array.isArray(item.applicationOptions)
+    ? item.applicationOptions.map((option) => String(option || '').trim()).filter(Boolean)
+    : [];
+  if (applicationOptions.length && !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
+  return sameLanguagePortalQuestion(item, candidateLanguage);
+}
+
 export class PortalQuestionLocalizationError extends Error {
   constructor() {
     super('portal_question_localization_unavailable');
@@ -2633,9 +2882,15 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const candidateLanguage = localeCode(candidateLocale);
   const applicationLanguageHint = localeCode(applicationLocale);
   if (!items.length || !candidateLanguage) return items;
-  const deterministic = items.map((item) => deterministicGermanLocalization(item, candidateLanguage));
+  const deterministic = items.map((item) => deterministicGermanLocalization(item, candidateLanguage)
+    || deterministicItalianSameLanguage(item, candidateLanguage));
   const unresolved = items.filter((_item, index) => !deterministic[index]);
   if (!unresolved.length) return deterministic;
+  const sameLanguage = sameLanguagePortalLocalization(unresolved, candidateLanguage);
+  if (sameLanguage) {
+    let unresolvedIndex = 0;
+    return items.map((item, index) => deterministic[index] || sameLanguage[unresolvedIndex++]);
+  }
   // Posting/letter language is only a hint. An ATS may render a German form
   // for an Italian-language job, so compare against the native question text.
   if (typeof codex !== 'function') return items.map((item, index) => deterministic[index] || fallbackLocalizedQuestion(item, candidateLanguage));
@@ -4793,7 +5048,13 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         await parkRegistrationCredential('privacy_question_surface_unstable');
         return noted({ handoff: 'portal_needs_candidate' });
       }
-      privacyPlan = questionSurfaceSignature(settled.snapshot) === questionSurfaceSignature(registrationSnapshot)
+      // A known answer can redraw the registration form before credentials are
+      // typed. Keep one post-credential planner pass in that case: the
+      // password itself is excluded from the planner surface, but some ATSs
+      // reveal a hard question only after the credential fields change.
+      const knownAnswerRedraw = registrationReplans > 0;
+      privacyPlan = !knownAnswerRedraw
+        && registrationSurfaceSignature(settled.snapshot) === registrationSurfaceSignature(registrationSnapshot)
         ? { status: 'stable', snapshot: accountRegistrationSnapshot(settled.snapshot), plan: registrationPlan }
         : await planStableRegistrationSurface(settled.snapshot, privacyUrl);
     }
@@ -4803,7 +5064,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate, candidateLocale: ctx.candidateLocale });
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, {
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+      // A planner pass triggered by a changing registration surface may mark
+      // an untrusted portal autofill as missing. Keep that explicit request;
+      // the normal mapper still suppresses values already grounded in the
+      // candidate or in a safe operational answer.
+      preservePlannerMissingValues: true,
+    });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
@@ -5208,7 +5477,7 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     ...(Array.isArray(field?.labels) ? field.labels : []),
   ].filter(Boolean).join(' '));
   const optionLabels = field => (Array.isArray(field?.options) ? field.options : [])
-    .filter(option => option?.placeholder !== true)
+    .filter(portalUsableChoiceOption)
     .map(option => String(typeof option === 'string' ? option : option?.label || '').trim())
     .filter(Boolean);
   const missing = [];
@@ -5238,7 +5507,8 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
     const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
     const role = residenceFieldRole(field.label);
-    if (isPermitField(field.label) && asksHeldStatus(field.label) && !permitStatusPresent) {
+    if (isPermitField(field.label) && asksHeldStatus(field.label)
+      && !isPermitHistoricalQuestion(field.label) && !permitStatusPresent) {
       const question = permitStatusQuestion(candidateLocale);
       add(field, 'work_permit', question,
         permitStatusQuestionWhy(candidateLocale),
@@ -5246,7 +5516,10 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
           type: 'choice',
           forceType: 'choice',
           options: permitOptions(candidateLocale),
-          requiresNativeOptions: true,
+          // Free-text ATS controls can accept the candidate's selected
+          // canonical status. Native controls need their own option catalogue
+          // so that the answer can be mapped back safely.
+          requiresNativeOptions: fieldRequiresNativeOptions(field),
           candidatePrompt: question,
         });
       continue;
@@ -5320,7 +5593,11 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
   return { questions: missing, stableQuestionIds };
 }
 
-export function portalRequirementsFromMissingRequired(fields, missingRequired, { candidate = null, candidateLocale = 'it' } = {}) {
+export function portalRequirementsFromMissingRequired(fields, missingRequired, {
+  candidate = null,
+  candidateLocale = 'it',
+  preservePlannerMissingValues = false,
+} = {}) {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
@@ -5350,25 +5627,39 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   };
   const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate, candidateLocale);
   const mergedRequired = new Map();
-  for (const item of candidateRequirements.questions) {
-    const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
-    if (key) mergedRequired.set(key, item);
-  }
+  const mergeRequired = (item, { preferIncoming = false } = {}) => {
+    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
+    if (!key) return;
+    const existing = mergedRequired.get(key);
+    mergedRequired.set(key, existing && !preferIncoming ? { ...existing, ...item } : item);
+  };
   for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
     const field = fieldFor(item);
     // Candidate questions are for facts the runner cannot already supply.
-    // The planner may label an untouched field missing during its read pass;
-    // that alone must not ask the candidate to repeat profile data or a safe
-    // operational default. An explicitly rejected field still needs review.
+    // A value prefilled by the ATS is not candidate confirmation; suppress a
+    // planner question only when the candidate's own data supplies an answer.
+    // An explicitly rejected field still needs review.
     const candidateAnswer = candidate && field
       ? candidateAnswerForField(candidate, field, {
         includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
       }) : null;
     if (field && field.invalid !== true
-      && (holdsValue(field) || String(candidateAnswer?.value ?? '').trim())) continue;
-    const key = String(item?.fieldId || folded(item?.applicationQuestion || item?.portalQuestion || item?.question));
-    if (key && !mergedRequired.has(key)) mergedRequired.set(key, item);
+      && ((!preservePlannerMissingValues && holdsValue(field)) || String(candidateAnswer?.value ?? '').trim())) continue;
+    mergeRequired(item);
   }
+  // Keep the planner's order when a deterministic candidate requirement
+  // enriches the same live field (for example, the permit question replacing
+  // a generic work-authorisation prompt). Candidate-only requirements are
+  // appended after the planner's explicit missing fields.
+  for (const item of candidateRequirements.questions) {
+    mergeRequired(item, { preferIncoming: true });
+  }
+  const fieldIndexes = new Map(availableFields.map((field, index) => [field, index]));
+  const orderedRequirements = [...mergedRequired.values()].sort((left, right) => {
+    const leftIndex = fieldIndexes.get(fieldFor(left)) ?? Number.MAX_SAFE_INTEGER;
+    const rightIndex = fieldIndexes.get(fieldFor(right)) ?? Number.MAX_SAFE_INTEGER;
+    return leftIndex - rightIndex;
+  });
   const hasAmbiguousAlias = (item) => {
     if (directFieldsFor(item?.fieldId).length === 1) return false;
     const requestedId = String(item?.fieldId || '').trim();
@@ -5378,7 +5669,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   const readable = [];
   const unreadableFields = [];
   let reducedRequirement = false;
-  for (const item of mergedRequired.values()) {
+  for (const item of orderedRequirements) {
     const field = fieldFor(item);
     if (hasAmbiguousAlias(item)) {
       unreadableFields.push(item.fieldId || 'unknown');
@@ -5387,7 +5678,10 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
     // A planner calling a field missing is not proof that it is mandatory.
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
-    if (field?.required === false && !field.invalid) {
+    const unconfirmedHistoricalPermitPrefill = Boolean(field?.required === false
+      && isPermitField(field.label) && isPermitHistoricalQuestion(field.label) && holdsValue(field)
+      && !String(candidateAnswerForField(candidate, field)?.value ?? '').trim());
+    if (field?.required === false && !field.invalid && !unconfirmedHistoricalPermitPrefill) {
       const optionalTechnicalFile = (field.kind === 'file' || field.inputType === 'file') && machineLabel(field.label);
       // Umantis exposes optional attachment slots as names such as
       // `form_data41`. They are not candidate questions and must not turn a
@@ -5418,33 +5712,40 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
         }
-        const editableCombobox = field?.kind === 'combobox' && field.selectLike === false && !field.nativeSelectId;
-        const applicationOptions = (field ? editableCombobox ? [] : field.options || [] : item.applicationOptions || item.options || [])
-          .filter(option => option?.placeholder !== true)
+        const applicationOptions = (field ? editableCombobox(field) ? [] : field.options || [] : item.applicationOptions || item.options || [])
+          .filter(portalUsableChoiceOption)
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);
+        const nativeChoiceField = Boolean(field && fieldRequiresNativeOptions(field) && (
+          ['select', 'radio', 'listbox'].includes(field.kind)
+          || field.selectLike === true
+          || field.nativeSelectId
+          || applicationOptions.length
+        ));
         const optionMap = portalOptionMap({ options: item.options, applicationOptions, optionMap: item.optionMap });
         let type = item.type;
         if (field) {
           if (item.forceType) type = item.forceType;
           else if (['select', 'radio', 'listbox'].includes(field.kind) || field.selectLike || field.nativeSelectId || applicationOptions.length) type = 'choice';
-          else if (editableCombobox) type = 'text';
+          else if (editableCombobox(field)) type = 'text';
           else if (field.kind === 'checkbox') type = 'yes_no';
           else if (field.kind === 'date' || field.inputType === 'date' || field.autocomplete === 'bday') type = 'date';
           else if (field.inputType === 'number') type = 'number';
           else if (['text', 'textarea'].includes(field.kind)) type = 'text';
         }
-        // A native choice with no usable catalogue needs another portal read,
-        // never a text question whose arbitrary answer the ATS cannot accept.
-        if (field && type === 'choice' && !applicationOptions.length) {
+        if (field && type === 'choice' && !portalHasChoiceCatalogue(field)
+          && (fieldRequiresNativeOptions(field) || item.requiresNativeOptions === true)) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
-        if (field && item.requiresNativeOptions === true && !applicationOptions.length) {
+        if (nativeChoiceField && item.requiresNativeOptions === true && !applicationOptions.length) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
+        const safeTextChoiceOptions = field && !nativeChoiceField && type === 'choice'
+          && isPermitField(field.label) && asksHeldStatus(field.label)
+          ? item.options || [] : [];
         readable.push({
           ...item,
           applicationQuestion,
@@ -5454,7 +5755,15 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           required: true,
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
-          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,
+          options: field
+            ? optionMap.length
+              ? optionMap.map((pair) => pair.candidate)
+              : applicationOptions.length
+                ? applicationOptions
+                : safeTextChoiceOptions.length
+                  ? safeTextChoiceOptions
+                  : (item.forceType || item.candidatePrompt ? item.options || [] : [])
+            : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
@@ -5482,7 +5791,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
  * A supported portal that cannot be read is a technical handoff, never an
  * empty requirement list. An unreadable required field is not a question for
  * the candidate.
- * @returns {Promise<{questions:Array<object>,documents:Array<object>,handoff?:string,unreadableFields?:Array<string>}>} requirements for the review page
+ * @returns {Promise<{questions:Array<object>,documents:Array<object>,handoff?:string,unreadableFields?:Array<string>,portalContract?:object}>} requirements and the metadata-only portal contract for the review page
  */
 export async function readPortalRequirements(ctx) {
   const entryUrl = portalEntryUrl(ctx);
@@ -5505,11 +5814,56 @@ export async function readPortalRequirements(ctx) {
     verifiedPostingEntry,
   });
   if (!readAhead || !ctx.applyUrl) {
-    return { questions: [], documents: [] };
+    return {
+      questions: [],
+      documents: [],
+      portalContract: applicationContractFromPreflight({
+        channelType,
+        applyUrl: ctx.applyUrl,
+        sourceUrl: entryUrl,
+        status: readAhead ? 'unavailable' : 'handoff',
+        handoff: readAhead ? 'apply_url_unavailable' : channelType === 'pastahr' ? 'candidate_handoff' : 'channel_not_preread',
+        submitCapability: channelType === 'pastahr' ? 'candidate_handoff' : 'unknown',
+      }),
+    };
   }
-  if (!ctx.codex) return { questions: [], documents: [], handoff: 'planner_unavailable' };
+  if (!ctx.codex) return {
+    questions: [],
+    documents: [],
+    handoff: 'planner_unavailable',
+    portalContract: applicationContractFromPreflight({
+      channelType, applyUrl: ctx.applyUrl, sourceUrl: entryUrl, status: 'unavailable', handoff: 'planner_unavailable',
+    }),
+  };
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
+  let page = null;
+  let contractDiagnostics = null;
+  let contractFinished = false;
+  let contractSnapshot = null;
+  let contractPostingMatch = 'unknown';
+  const finish = async (result, { status = result?.handoff ? 'handoff' : 'ready', snapshot = contractSnapshot, postingMatch = contractPostingMatch } = {}) => {
+    if (contractDiagnostics && !contractFinished) {
+      await contractDiagnostics.finish().catch(() => {});
+      contractFinished = true;
+    }
+    return {
+      ...result,
+      portalContract: applicationContractFromPreflight({
+        channelType,
+        applyUrl: ctx.applyUrl,
+        sourceUrl: entryUrl,
+        currentUrl: page?.url?.() || entryUrl,
+        snapshot,
+        postingMatch,
+        status,
+        handoff: result?.handoff || null,
+        questions: result?.questions || [],
+        documents: result?.documents || [],
+        diagnostics: contractDiagnostics?.data || null,
+      }),
+    };
+  };
   try {
     browser = await launch();
     const context = await browser.newContext({
@@ -5521,10 +5875,18 @@ export async function readPortalRequirements(ctx) {
     });
     registerPortalChannelType(context, portalChannelType(ctx));
     await registerCookieSessionRecovery(context, { log: ctx.log });
-    let page = await context.newPage();
+    // Reuse the bounded diagnostic listener for the preflight. It records only
+    // request/response locations and methods; it never reads candidate data.
+    // Deterministic portal fixtures may not expose a BrowserContext event API.
+    if (typeof context.on === 'function') {
+      contractDiagnostics = startPortalDiagnostics(context, []);
+      await contractDiagnostics.beginAttempt().catch(() => {});
+    }
+    page = await context.newPage();
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
+    contractSnapshot = snapshot;
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
       postingUrl: ctx.postingUrl || page.url(),
@@ -5534,7 +5896,8 @@ export async function readPortalRequirements(ctx) {
       allowSingleExternalApplicationEntry: true,
     });
     ({ page, snapshot } = opened);
-    if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
+    contractSnapshot = snapshot;
+    if (opened.handoff) return await finish({ questions: [], documents: [], handoff: opened.handoff });
     // An allowlisted ATS may keep later, unconditional steps mounted with
     // zero-sized controls. Read the complete mounted contract once, without
     // pressing Next/Continue or fabricating an answer. Conditional containers
@@ -5543,10 +5906,11 @@ export async function readPortalRequirements(ctx) {
     snapshot = await awaitFields(page, await extractFields(page, readAhead
       ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
       : NAVIGATION));
+    contractSnapshot = snapshot;
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
-    if (snapshot.captcha) return { questions: [], documents: [], handoff: 'captcha_present' };
-    if (!readableApplication) return { questions: [], documents: [], handoff: 'application_form_unreadable' };
+    if (snapshot.captcha) return await finish({ questions: [], documents: [], handoff: 'captcha_present' });
+    if (!readableApplication) return await finish({ questions: [], documents: [], handoff: 'application_form_unreadable' });
     // The live form is authoritative for the selected posting. A verified
     // route is sufficient provenance for a generic ATS form; otherwise a
     // mismatch must stop before any job-specific question reaches the draft.
@@ -5565,14 +5929,15 @@ export async function readPortalRequirements(ctx) {
         postingUrl: ctx.postingUrl,
         postingRouteProof: ctx.postingRouteProof,
       });
-      if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
+      contractPostingMatch = formMatch === 'mismatch' ? 'mismatch' : formMatch === 'match' ? 'match' : 'unknown';
+      if (formMatch === 'mismatch') return await finish({ questions: [], documents: [], handoff: 'posting_mismatch' }, { status: 'blocked' });
     }
     let plan;
     try {
       plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     } catch {
       (ctx.log || (() => {}))('portal pre-read skipped: question_planning_failed');
-      return { questions: [], documents: [], handoff: 'question_planning_failed' };
+      return await finish({ questions: [], documents: [], handoff: 'question_planning_failed' });
     }
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, {
       candidate: ctx.candidate,
@@ -5580,7 +5945,7 @@ export async function readPortalRequirements(ctx) {
     });
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
-      return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
+      return await finish({ ...requirements, questions: [], handoff: 'question_label_unreadable' });
     }
     const questions = await localizePortalQuestions(requirements.questions, {
       candidateLocale: ctx.candidateLocale,
@@ -5596,14 +5961,18 @@ export async function readPortalRequirements(ctx) {
       // candidate's normal review and approval gate.
       (ctx.log || (() => {}))('portal pre-read retained native questions for candidate review');
     }
-    return { ...requirements, questions };
+    return await finish({ ...requirements, questions });
   } catch (error) {
     const handoff = error instanceof PortalQuestionLocalizationError
       ? 'question_localization_unavailable'
       : 'portal_reader_failed';
     (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`);
-    return { questions: [], documents: [], handoff };
+    return await finish({ questions: [], documents: [], handoff }, { status: 'unavailable' });
   } finally {
+    if (contractDiagnostics && !contractFinished) {
+      await contractDiagnostics.finish().catch(() => {});
+      contractFinished = true;
+    }
     await browser?.close().catch(() => {});
   }
 }
@@ -5948,7 +6317,11 @@ export async function submitViaPortal(ctx) {
     };
     const candidateWithRecordedAnswers = (candidate, current) => {
       const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
-      const recorded = [...given.values()];
+      const isHeldPermitQuestion = (question) => isPermitField(question) && asksHeldStatus(question);
+      // A held-permit value recorded during this run describes a runner form
+      // action, not a separate candidate portal response. Keep it in run
+      // evidence, but do not present it as an answered portal question.
+      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question));
       const recordedKeys = new Set(recorded.map(answerKey));
       const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
       const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));
@@ -5956,11 +6329,17 @@ export async function submitViaPortal(ctx) {
         .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
         .map((field) => {
           const answer = field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim();
+          // A portal's held-status prefill is never the candidate's statement.
+          // Their confirmed answer remains in the candidate record itself.
+          if (isHeldPermitQuestion(field.label)) return null;
           // A portal may prefill a default country or phone code before the
           // planner sees the form. Keep an explicit candidate fact above that
           // default; phone-code defaults are never candidate answers.
-          const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
-          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          const candidateAnswer = candidateAnswerForField(candidate, field, {
+            includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
+          })?.value || '';
+          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field)
+            || !candidateAnswer || fold(candidateAnswer) !== fold(answer)) return null;
           return {
             question: String(field.label || field.name || field.id || '').slice(0, 200),
             answer,
@@ -6012,8 +6391,26 @@ export async function submitViaPortal(ctx) {
       }
       return agent;
     };
-    const askCandidate = async (questions) => {
-      const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions, { candidate: ctx.candidate, candidateLocale: ctx.candidateLocale });
+    // Polling and control discovery deliberately use NAVIGATION, which does
+    // not open lazy listboxes. Restore that catalogue at the planning boundary
+    // so a readable SuccessFactors picklist is not downgraded to an unreadable
+    // question merely because the stable-surface poll omitted its options.
+    const snapshotWithPortalOptions = async (current) => {
+      if (!needsPortalOptionRead(current)) return current;
+      const refreshed = await extractFields(page).catch(() => null);
+      if (!refreshed) return current;
+      // Keep the navigation snapshot's field set. A full extraction can reveal
+      // unrelated required controls and must not add them to this candidate
+      // request; it only supplies the lazy catalogue for controls already in
+      // the current planning surface.
+      return mergePortalChoiceOptions(current, refreshed);
+    };
+    const askCandidate = async (questions, current = snapshot) => {
+      const questionSnapshot = await snapshotWithPortalOptions(current);
+      const requirements = portalRequirementsFromMissingRequired(questionSnapshot.fields, questions, {
+        candidate: ctx.candidate,
+        candidateLocale: ctx.candidateLocale,
+      });
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
       let request;
       try {
@@ -6329,8 +6726,9 @@ export async function submitViaPortal(ctx) {
           for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {
             await page.waitForTimeout(500);
             const now = await extractFields(page, NAVIGATION).catch(() => null);
-            redrawn = Boolean(now) && now.fields.length > 0
-              && questionSurfaceSignature(now) !== questionSurfaceSignature(snapshot);
+            const comparableNow = now ? await snapshotWithPortalOptions(now) : null;
+            redrawn = Boolean(comparableNow) && comparableNow.fields.length > 0
+              && questionSurfaceSignature(comparableNow) !== questionSurfaceSignature(snapshot);
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
@@ -6448,6 +6846,7 @@ export async function submitViaPortal(ctx) {
             continue;
           }
           if (stable.status !== 'stable') return await handoff('portal_needs_candidate');
+          after = await snapshotWithPortalOptions(after);
           if (questionSurfaceSignature(after) !== questionSurfaceSignature(snapshot)) {
             const redrawCount = redraws.get(redrawKey) || 0;
             if (redrawCount >= MAX_REDRAWS_PER_PAGE) return await handoff('portal_needs_candidate');
@@ -6466,7 +6865,7 @@ export async function submitViaPortal(ctx) {
               unclearQuestions = candidateQuestions;
               agentHint = 'unclear_fields';
             } else {
-              const request = await askCandidate(candidateQuestions);
+              const request = await askCandidate(candidateQuestions, snapshot);
               if (request) return request;
             }
           }
@@ -6498,14 +6897,14 @@ export async function submitViaPortal(ctx) {
         const agentUrl = page.url();
         const agent = await runAgent(after, agentHint);
         if (agent?.status === 'needs_candidate') {
-          const request = await askCandidate(agent.questions);
+          const request = await askCandidate(agent.questions, after);
           if (request) return request;
         }
         // Required fields left unanswered: the owner looks when the agent could
         // not answer them; without the agent, the planner's questions as before.
         if (unclearQuestions.length && agent?.status !== 'done') {
           if (!agent || agent.status === 'unavailable') {
-            const request = await askCandidate(unclearQuestions);
+            const request = await askCandidate(unclearQuestions, after);
             if (request) return request;
           } else return await handoff('portal_needs_candidate');
         }
@@ -6600,7 +6999,7 @@ export async function submitViaPortal(ctx) {
         if (stuckOnPage >= 2) {
           const agent = await runAgent(snapshot, 'refused');
           if (agent?.status === 'needs_candidate') {
-            const request = await askCandidate(agent.questions);
+            const request = await askCandidate(agent.questions, snapshot);
             if (request) return request;
           }
           if (agent?.status === 'done') snapshot = await extractFields(page);
@@ -6652,7 +7051,7 @@ export async function submitViaPortal(ctx) {
         const repairUrl = page.url();
         const repair = await runAgent(after, 'required_fields_unfilled');
         if (repair?.status === 'needs_candidate') {
-          const request = await askCandidate(repair.questions);
+          const request = await askCandidate(repair.questions, after);
           if (request) return request;
         }
         if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
@@ -6804,6 +7203,16 @@ export async function submitViaPortal(ctx) {
   } finally {
     await clearActiveFinalFormGuard();
     await diagnostics?.finish();
+    // Keep the route/API protocol next to the encrypted submit evidence. This
+    // is metadata only: diagnostics has already removed queries and never
+    // exports request bodies or response bodies.
+    evidence.portalContract = applicationContractFromSubmission({
+      channelType,
+      applyUrl: ctx.applyUrl,
+      currentUrl: evidence.finalUrl || page?.url?.() || ctx.applyUrl,
+      diagnostics: diagnostics?.data || null,
+      outcome: evidence.finalOutcomes?.at(-1) || null,
+    });
     await context?.close().catch(() => {});
     await browser?.close().catch(() => {});
   }

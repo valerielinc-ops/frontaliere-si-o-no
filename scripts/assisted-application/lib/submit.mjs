@@ -26,7 +26,7 @@ import {
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from '../../../functions/src/assistedApplicationCandidateEdits.js';
-import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
+import { classifyApplicationChannel, isPlausibleEmail, refreshApplicationChannel, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
@@ -35,12 +35,13 @@ import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, postingAddressForPortal, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { portalPassFrom } from './portal/stop-report.mjs';
+import { compactApplicationContract } from './portal/application-contract.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
 
 const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
@@ -226,7 +227,10 @@ export function portalUploads(evidence) {
 }
 
 export async function submitApplication(ctx) {
-  const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
+  const { order, orderId, flow, bucket, runKey, sendCascade } = ctx;
+  let { draft } = ctx;
+  const fetchImpl = ctx.fetchImpl || fetch;
+  draft = await refreshApplicationChannel(draft, order, { fetchImpl, resolve: ctx.resolve });
   const { cvBuffer, cvType, cvSent, cvKey } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType, cvKey: order?.cvStorageKey || null });
   const nowMs = ctx.nowMs || Date.now();
   // Resolve facts that the CV already states before the generic required-question gate.
@@ -276,7 +280,6 @@ export async function submitApplication(ctx) {
     }
   };
 
-  const fetchImpl = ctx.fetchImpl || fetch;
   const publishedPostingUrl = await resolvePublishedPostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve });
   const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve, publishedPostingUrl });
   const liveness = await checkPostingLiveness({
@@ -506,6 +509,14 @@ export async function submitApplication(ctx) {
       }
     }
   }
+  // Liveness can resolve a legacy Umantis address to the site's published
+  // canonical URL. Portal matching still needs the same-origin ATS vacancy
+  // route, otherwise a generic EOC form cannot be bound to this posting.
+  const portalPostingUrl = postingAddressForPortal({
+    applyUrl,
+    postingUrls: [draft.job?.postingUrl, channel.postingUrl, draft.job?.applyUrl, channel.applyUrl, order.jobUrl],
+    fallback: postingUrl,
+  });
   if (WAVE1_CHANNELS.has(channelType) && applyUrl && ctx.codex) {
     // The same durable guard as the e-mail: a re-dispatched run never submits
     // twice. A run may restart only after a confirmed pre-click failure
@@ -581,7 +592,7 @@ export async function submitApplication(ctx) {
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
-        postingUrl,
+        postingUrl: portalPostingUrl,
         postingRouteProof,
         channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
@@ -683,9 +694,10 @@ export async function submitApplication(ctx) {
       // Where the runner stopped, for the fix issue (agent.mjs strikes the candidate's values out first).
       const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channelType } } : {};
       const pass = portalPass ? { portalPass } : {};
+      const applicationContract = compactApplicationContract(evidence.portalContract);
       return succeeded
-        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...(receiptId ? { receiptId } : {}), ...pass }
-        : { ...event, portalAnswers, ...stopReport, ...pass };
+        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...(receiptId ? { receiptId } : {}), ...(applicationContract ? { applicationContract } : {}), ...pass }
+        : { ...event, portalAnswers, ...(applicationContract ? { applicationContract } : {}), ...stopReport, ...pass };
     } catch (error) {
       if (receiptPersisted) {
         return {

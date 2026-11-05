@@ -1,18 +1,18 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-11-05T09:17:13.697Z",
+  "generatedAt": "2026-11-05T21:35:03.872Z",
   "total": 19,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 16,
-  "durationMs": 7367,
-  "avgDurationMs": 7367,
+  "durationMs": 6806,
+  "avgDurationMs": 6806,
   "durationHistory": [
-    7367
+    6806
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -149,50 +149,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Mansioni principali:",
-      "slug": "mansioni-principali-lwp-ledermann-wieting-partners-manno-7488d65d47",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_shift_leader.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "it",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2027-01-17T21:15:35.245Z",
-      "id": "lwphr-1e0e2eaa71b7",
-      "firstSeenAt": "2026-10-19T21:15:35.245Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Ticino",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "canton": "TI",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Im Auftrag eines strukturierten Industrieunternehmens im Bereich",
@@ -805,5 +762,5 @@
       }
     }
   ],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }

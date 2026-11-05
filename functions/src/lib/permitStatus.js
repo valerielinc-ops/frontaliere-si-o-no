@@ -488,7 +488,7 @@ export function citizenshipMentions(text) {
 
 // ── Form-field wordings (one source: the portal guard, the agent and the question backstop) ──
 
-export const WORK_AUTHORISATION_RE = new RegExp(String.raw`arbeitserlaubnis|aufenthaltserlaubnis|aufenthaltsstatus|aufenthaltstitel|ausl(?:ä|ae)nderausweis|ausweis(?:typ|art|kategorie)|\bausweis\b(?!\s*-?\s*(?:nr|nummer|no)\b)|grenzg(?:ä|ae)nger|frontali(?:e|è)r|autorizzazione (?:al|di|per il) lavoro|autorizzat[oa] a lavorare|diritto (?:al|di) lavor|titolo di soggiorno|stato di soggiorno|statuto di soggiorno|permis de (?:travail|s(?:é|e)jour)|autorisation (?:de travail|de s(?:é|e)jour|frontali(?:è|e)re|d['’](?:é|e)tablissement|de courte dur(?:é|e)e)|titre de s(?:é|e)jour|statut de s(?:é|e)jour|autoris(?:é|e)e? (?:à|a) travailler|droit de travailler|work authori[sz]ation|authori[sz]ed to work|right to work|eligib(?:le|ility) to work|legally (?:able|allowed|entitled|permitted) to work|sponsorship|residence status|immigration status`, 'i');
+export const WORK_AUTHORISATION_RE = new RegExp(String.raw`arbeitserlaubnis|aufenthaltserlaubnis|aufenthaltsstatus|aufenthaltstitel|ausl(?:ä|ae)nderausweis|ausweis(?:typ|art|kategorie)|\bausweis\b(?!\s*-?\s*(?:nr|nummer|no)\b)|grenzg(?:ä|ae)nger|frontali(?:e|è)r|autorizzazione (?:al|di|per il) lavoro|autorizzat[oa] a lavorare|diritto (?:al|di) lavor|titolo di soggiorno|stato di soggiorno|statuto di soggiorno|\bpermis suisse\b|permis de (?:travail|s(?:é|e)jour)|autorisation (?:de travail|de s(?:é|e)jour|frontali(?:è|e)re|d['’](?:é|e)tablissement|de courte dur(?:é|e)e)|titre de s(?:é|e)jour|statut de s(?:é|e)jour|autoris(?:é|e)e? (?:à|a) travailler|droit de travailler|\bpermiso\b(?!\s+(?:(?:de|para)\s+conducir|de\s+(?:la\s+)?conducci[oó]n|para\s+(?:la\s+)?conducci[oó]n))|permiso de trabajo|autorizaci(?:ó|o)n (?:de trabajo|para trabajar)|autorizad[oa] (?:a|para) trabajar|derecho (?:a|de) trabajar|elegible para trabajar|entitled to (?:work|be employed)|work authori[sz]ation|authori[sz]ed to work|right to work|eligib(?:le|ility) to work|legally (?:able|allowed|entitled|permitted) to work|sponsorship|residence status|immigration status`, 'i');
 export const PERMIT_FIELD_RE = new RegExp(String.raw`permit|bewilligung|permesso|\bvisa\b|\bvisum|${WORK_AUTHORISATION_RE.source}`, 'i');
 export const NATIONALITY_FIELD_RE = /nationalit|nazionalit|cittadinanz|citizen|staatsangeh|staatsb(?:ü|ue)rger|citoyennet/i;
 // The date of birth (JOIN: «Quando sei nato?»).
@@ -496,7 +496,7 @@ export const BIRTH_FIELD_RE = /birth|geburt|nascita|\bnat[oa]\b|naissance/i;
 // A licence to practise or to drive is no residence permit.
 const NOT_RESIDENCE = /berufsaus(?:ü|ue)bung|practi[cs]e permit|permis de conduire|f[üu]hrerausweis|fahrausweis|driving|patente|permesso di guida/i;
 // A field that asks what the candidate needs or applies for, not what they hold.
-const NEEDS = /ben(?:ö|oe)tig|brauch|beantrag|sponsor|\bneed|requir|richied|serve un|bisogno|besoin|demander/i;
+const NEEDS = /ben(?:ö|oe)tig|brauch|beantrag|\bantrag\b|sponsor|\bneed|requir|richied|serve un|bisogno|besoin|demand|necesit|solicit|aplic(?:ar|a|an)|\b(?:apply|applying|applied|application|request|requesting|requested)\b/i;
 
 /** A field that asks the Swiss permit, the work authorisation or the residence status. */
 export function isPermitField(label) {

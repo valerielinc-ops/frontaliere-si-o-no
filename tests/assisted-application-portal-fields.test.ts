@@ -298,9 +298,9 @@ describe('portal field extraction', () => {
         };
     const frame = {
       url: () => url,
-      evaluate: vi.fn(async () => currentSnapshot()),
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? true : currentSnapshot()),
       locator: vi.fn((selector: string) => ({
-        innerText: vi.fn(async () => stage < 2 ? 'Cookie preferences' : ''),
+        innerText: vi.fn(async () => stage < 2 ? 'Cookie preferences and cookies' : ''),
         first: () => ({
           click: vi.fn(async () => {
             expect(selector).toBe(stage === 0 ? '[data-aa-id="manage-consent"]' : '[data-aa-id="reject"]');
@@ -319,9 +319,9 @@ describe('portal field extraction', () => {
 
   it('does not open an application privacy action labelled Manage consent', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
-    const privacy = extract('<form id="application-form" class="consent"><button type="button">Manage consent</button></form>', url);
+    const privacy = extract('<section class="cookie-consent"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
     const manageConsent = privacy.buttons.find((button: any) => button.text === 'Manage consent');
-    expect(manageConsent).toMatchObject({ formId: expect.any(String) });
+    expect(manageConsent).toMatchObject({ formId: '' });
     expect(manageConsent).not.toHaveProperty('cookieSurface');
     const frame = { url: () => url, evaluate: vi.fn(async () => privacy) };
     const page = { url: () => url, frames: () => [frame] };
@@ -338,9 +338,104 @@ describe('portal field extraction', () => {
     expect(manageConsent).toMatchObject({ roleFormId: expect.any(String) });
     expect(manageConsent).not.toHaveProperty('cookieSurface');
     const frame = { url: () => url, evaluate: vi.fn(async () => privacy) };
+
     const page = { url: () => url, frames: () => [frame] };
 
     const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('recognizes Manage consent when the cookie-manager marker is on body', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const { window } = new JSDOM('<!doctype html><html><body><form id="application"><input name="first-name"><input name="last-name"><input name="email" type="email"></form><button data-aa-id="f1">Manage consent</button><p>Manage your cookies</p></body></html>', { url });
+    vi.stubGlobal('document', window.document);
+    const snapshot = {
+      url,
+      fields: [
+        { id: 'first-name', kind: 'text', label: 'First name', formId: 'application', frame: 0 },
+        { id: 'last-name', kind: 'text', label: 'Last name', formId: 'application', frame: 0 },
+        { id: 'email', kind: 'text', inputType: 'email', label: 'Email', formId: 'application', frame: 0 },
+      ],
+      buttons: [{ id: 'f1', text: 'Manage consent', context: 'Manage your cookies', formId: '', disabled: false, frame: 0 }],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Manage your cookies',
+    };
+    // The manager marker can appear after the extraction; the live check must
+    // use it even though this snapshot has no cookieSurface annotation.
+    window.document.body.id = 'cookie-manager';
+    const preferenceSnapshot = {
+      ...snapshot,
+      buttons: [{ id: 'reject', text: 'Reject all cookies', context: 'Manage your cookies', cookieSurface: 'banner', disabled: false, frame: 0 }],
+      text: 'Cookie preferences',
+    };
+    const afterClick = { ...preferenceSnapshot, buttons: [], text: 'Job posting' };
+    let stage = 0;
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function, args: any) => {
+        if (args?.surfacePattern) return evaluateInPage(args);
+        return stage === 0 ? snapshot : stage === 1 ? preferenceSnapshot : afterClick;
+      }),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => {
+          expect(selector).toBe(stage === 0 ? '[data-aa-id="f1"]' : '[data-aa-id="reject"]');
+          stage += 1;
+        }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
+    window.close();
+  });
+
+  it('does not trust a stale banner marker for Manage consent without a live active surface', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const extracted = extract('<section class="cookie-consent"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
+    const privacy = { ...extracted, buttons: extracted.buttons.map((button: any) => ({ ...button, cookieSurface: 'banner' })) };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function) => evaluateInPage === extractFieldsInPage ? privacy : false),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not open Manage consent from a generic live banner marker', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const extracted = extract('<section class="banner"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
+    expect(extracted.buttons.find((button: any) => button.text === 'Manage consent')).not.toHaveProperty('cookieSurface');
+    const privacy = { ...extracted, buttons: extracted.buttons.map((button: any) => ({ ...button, cookieSurface: 'banner' })) };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function, args: any) => args?.surfacePattern ? false : privacy),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not trust a generic shadow surface for Manage consent', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const { window } = new JSDOM('<!doctype html><html><body><div id="application-surface" class="modal"></div></body></html>', { url });
+    const host = window.document.getElementById('application-surface')!;
+    const shadow = host.attachShadow({ mode: 'open' });
+    shadow.innerHTML = '<span>This website uses cookies.</span><button type="button">Manage consent</button>';
+    const manageConsent = shadow.querySelector('button')!;
+    manageConsent.getBoundingClientRect = () => ({ width: 20, height: 20 } as DOMRect);
+    vi.stubGlobal('document', window.document);
+    const snapshot = { url, fields: [], buttons: [], dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '' };
+    const page = { evaluate: vi.fn(async (evaluateInPage: Function, args: unknown) => evaluateInPage(args)) };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
 
     expect(result.status).toBe('none');
   });
@@ -593,9 +688,9 @@ describe('portal field extraction', () => {
     expect(clicks).toEqual(['[data-aa-id="customize"]']);
   });
 
-  it('dismisses Manage consent from a consent-marked shadow host', async () => {
+  it('dismisses Manage consent from a shadow host beneath a cookie-manager-marked body', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
-    const { window } = new JSDOM('<!doctype html><html><body><div id="cookie" class="consent"></div></body></html>', { url });
+    const { window } = new JSDOM('<!doctype html><html><body><form id="application"><input name="first-name"></form><p>This website uses cookies.</p><cmp-controls></cmp-controls></body></html>', { url });
     Object.defineProperty(window.HTMLElement.prototype, 'innerText', {
       configurable: true,
       get() { return this.textContent || ''; },
@@ -603,7 +698,8 @@ describe('portal field extraction', () => {
     window.Element.prototype.getBoundingClientRect = function rect() {
       return { width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON: () => ({}) } as DOMRect;
     };
-    const host = window.document.getElementById('cookie')!;
+    window.document.body.id = 'cookie-manager';
+    const host = window.document.querySelector('cmp-controls')!;
     const shadow = host.attachShadow({ mode: 'open' });
     const show = (label: string) => {
       shadow.innerHTML = label ? `<p>This website uses cookies.</p><button>${label}</button>` : '<p>Cookies handled.</p>';

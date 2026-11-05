@@ -1,7 +1,7 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-11-05T09:23:18.931Z",
-  "runId": "42000387234",
+  "assembledAt": "2026-11-05T21:26:46.420Z",
+  "runId": "42110416358",
   "jobs": [
     {
       "id": "company-w76zez",
@@ -1899,8 +1899,7 @@
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-11-30T13:58:03.674Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-e3juej",
@@ -2708,8 +2707,7 @@
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-16T10:00:52.301Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-rnfd68",

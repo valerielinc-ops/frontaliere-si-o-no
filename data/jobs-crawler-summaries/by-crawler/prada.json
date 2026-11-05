@@ -1,17 +1,17 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-11-05T09:21:48.996Z",
+  "generatedAt": "2026-11-05T21:35:13.553Z",
   "total": 1,
   "parsed": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5263,
-  "avgDurationMs": 5263,
+  "durationMs": 4806,
+  "avgDurationMs": 4806,
   "durationHistory": [
-    5263
+    4806
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -42,14 +42,14 @@
       "url": "https://jobs.pradagroup.com/job/Geneve-PRADA-Client-Advisor-Geneva/1452264133/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:21:29.718Z",
+      "crawledAt": "2026-11-05T21:34:59.149Z",
       "firstSeenAt": "2026-10-28T20:17:18.740Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "applyUrl": "https://jobs.pradagroup.com/job/Geneve-PRADA-Client-Advisor-Geneva/1452264133/",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:21:29.718Z",
+      "validThrough": "2027-01-26T21:34:59.149Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -60,5 +60,5 @@
       }
     }
   ],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }
