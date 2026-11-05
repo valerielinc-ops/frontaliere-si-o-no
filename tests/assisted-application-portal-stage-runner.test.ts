@@ -44,7 +44,10 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
       return source.includes('document.body') ? state.snapshot.text : false;
     },
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
-    getByRole: () => ({ filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not visible'); } }) }) }),
+    getByRole: () => ({
+      count: async () => 0,
+      filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not visible'); } }) }),
+    }),
     locator: () => ({
       count: async () => 0,
       first: () => ({
