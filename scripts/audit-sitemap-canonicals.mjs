@@ -48,6 +48,7 @@ import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { classifyCanonicalMismatch } from './lib/canonicalExemptions.mjs';
+import { getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
 import { flatString } from './lib/flat-string.mjs';
 import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 
@@ -168,6 +169,18 @@ function locToHtmlPath(loc) {
     }
   }
   return null;
+}
+
+function readSameOriginCanonicalHtml(url, canonical) {
+  try {
+    const source = new URL(url);
+    const target = new URL(canonical, source);
+    if (target.origin !== source.origin) return '';
+    const targetHtmlPath = locToHtmlPath(target.href);
+    return targetHtmlPath ? readFileSync(targetHtmlPath, 'utf8') : '';
+  } catch {
+    return '';
+  }
 }
 
 /**
@@ -304,7 +317,25 @@ async function main() {
         // every such rename produced a hard red here while the sibling gate
         // reported the same page as correct in the same log. Shared ruleset,
         // one definition: scripts/lib/canonicalExemptions.mjs.
-        const exemption = classifyCanonicalMismatch({ url: loc, canonical, html });
+        const sourcePath = new URL(loc).pathname;
+        const targetPath = new URL(canonical, loc).pathname;
+        const sourceSection = getJobBoardSectionPrefix(sourcePath);
+        const isJobConsolidationCandidate = Boolean(sourceSection)
+          && sourceSection === getJobBoardSectionPrefix(targetPath);
+        let classificationHtml = html;
+        let canonicalHtml = '';
+        if (isJobConsolidationCandidate) {
+          // JobPosting identity can live after </head>. Pay for full reads only
+          // on same-section job canonical mismatches, not across the sitemap.
+          classificationHtml = readFileSync(htmlPath, 'utf8');
+          canonicalHtml = readSameOriginCanonicalHtml(loc, canonical);
+        }
+        const exemption = classifyCanonicalMismatch({
+          url: loc,
+          canonical,
+          html: classificationHtml,
+          canonicalHtml,
+        });
         if (exemption) {
           exempt[exemption] = (exempt[exemption] ?? 0) + 1;
           okCount++;

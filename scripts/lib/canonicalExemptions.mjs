@@ -119,9 +119,32 @@ const JOB_BOARD_SECTOR_SLUGS = new Set(
     .map((slug) => slug.toLowerCase()),
 );
 
-function isAllowedJobBoardLeaf(path, section) {
+function containsJobPostingType(value) {
+  if (Array.isArray(value)) return value.some(containsJobPostingType);
+  if (!value || typeof value !== 'object') return false;
+
+  const types = Array.isArray(value['@type']) ? value['@type'] : [value['@type']];
+  if (types.some((type) => /(?:^|[\/#])JobPosting$/i.test(String(type || '').trim()))) return true;
+  return Object.entries(value)
+    .some(([key, nested]) => key !== '@context' && containsJobPostingType(nested));
+}
+
+function hasJobPostingIdentity(html) {
+  if (typeof html !== 'string' || !html) return false;
+  const scripts = html.matchAll(
+    /<script\b[^>]*\btype\s*=\s*(["'])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script\s*>/gi,
+  );
+  for (const match of scripts) {
+    try {
+      if (containsJobPostingType(JSON.parse(match[2]))) return true;
+    } catch { /* malformed JSON-LD is not positive job-detail evidence */ }
+  }
+  return false;
+}
+
+function isAllowedJobBoardLeaf(path, section, html) {
   const normalizedPath = path.endsWith('/') ? path : `${path}/`;
-  if (!JOB_BOARD_DETAIL_PATH_RE.test(normalizedPath)) return false;
+  if (!JOB_BOARD_DETAIL_PATH_RE.test(normalizedPath) || !hasJobPostingIdentity(html)) return false;
 
   const suffix = normalizedPath.slice(section.length).replace(/\/$/, '');
   return suffix.length > 0
@@ -185,10 +208,11 @@ export function isLegitLegacyAliasCanonicalization(url, canonical) {
 }
 
 /**
- * Job-board consolidation: a job page canonicalizing onto ANOTHER job page in
- * the SAME canton section — previousSlug bridges, locale-variant legacy
- * redirects, dedup suffix changes. Two BAD shapes are excluded, both real
- * defects rather than consolidation:
+ * Job-board consolidation: a page with JobPosting JSON-LD canonicalizing onto
+ * ANOTHER page with JobPosting JSON-LD in the SAME canton section —
+ * previousSlug bridges, locale-variant legacy redirects, dedup suffix changes.
+ * Positive schema identity excludes flat city hubs and editorial routes before
+ * the shared one-segment shape is considered. Two BAD shapes are excluded:
  *
  *  - canonical → the section listing root (no sub-path);
  *  - canonical → a known search/category/company/pagination leaf, or anything
@@ -201,9 +225,11 @@ export function isLegitLegacyAliasCanonicalization(url, canonical) {
  *
  * @param {string} url
  * @param {string} canonical
+ * @param {string} html
+ * @param {string} canonicalHtml
  * @returns {boolean}
  */
-export function isLegitJobCanonicalConsolidation(url, canonical) {
+export function isLegitJobCanonicalConsolidation(url, canonical, html = '', canonicalHtml = '') {
   if (!isSameCanonicalSite(url, canonical)) return false;
   const urlPath = toPath(url);
   const canonPath = toPath(canonical);
@@ -214,7 +240,10 @@ export function isLegitJobCanonicalConsolidation(url, canonical) {
 
   // Canonical → listing root is a BUG, not consolidation.
   const canonSubPath = canonPath.slice(canonSection.length).replace(/\/$/, '');
-  if (!isAllowedJobBoardLeaf(urlPath, urlSection) || !isAllowedJobBoardLeaf(canonPath, canonSection)) {
+  if (
+    !isAllowedJobBoardLeaf(urlPath, urlSection, html)
+    || !isAllowedJobBoardLeaf(canonPath, canonSection, canonicalHtml)
+  ) {
     return false;
   }
   if (canonSubPath.length === 0) return false;
@@ -242,17 +271,17 @@ export function isTrailingSlashOnlyDifference(url, canonical) {
  * The single question every caller actually asks: this page's canonical does
  * not equal its sitemap <loc> — is that legitimate?
  *
- * @param {{url: string, canonical: string, html?: string}} input
+ * @param {{url: string, canonical: string, html?: string, canonicalHtml?: string}} input
  * @returns {null | 'trailing-slash' | 'previous-slug-bridge' | 'legacy-alias' | 'job-consolidation'}
  *   The exemption that applies, or null when the mismatch is a real offender.
  */
-export function classifyCanonicalMismatch({ url, canonical, html }) {
+export function classifyCanonicalMismatch({ url, canonical, html, canonicalHtml }) {
   if (isTrailingSlashOnlyDifference(url, canonical)) return 'trailing-slash';
   if (html !== undefined && isPreviousSlugBridgePage(html) && isSameCanonicalSite(url, canonical)) {
     return 'previous-slug-bridge';
   }
   if (isLegitLegacyAliasCanonicalization(url, canonical)) return 'legacy-alias';
-  if (isLegitJobCanonicalConsolidation(url, canonical)) return 'job-consolidation';
+  if (isLegitJobCanonicalConsolidation(url, canonical, html, canonicalHtml)) return 'job-consolidation';
   return null;
 }
 

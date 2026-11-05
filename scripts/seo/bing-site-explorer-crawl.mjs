@@ -1080,6 +1080,7 @@ export function classifyDocument({
   headers = {},
   contentType = '',
   html = '',
+  canonicalHtml = '',
   scope = SITEMAP_SCOPE,
 }) {
   const documentScope = scope === FRONTIER_SCOPE ? FRONTIER_SCOPE : SITEMAP_SCOPE;
@@ -1137,7 +1138,7 @@ export function classifyDocument({
   }
   const canonicalMismatch = canonical && normalizeUrl(canonical) !== normalizeUrl(finalUrl || url);
   const exemption = canonicalMismatch
-    ? classifyCanonicalMismatch({ url: finalUrl || url, canonical, html })
+    ? classifyCanonicalMismatch({ url: finalUrl || url, canonical, html, canonicalHtml })
     : null;
   const searchBridgeExemption = isFrontier
     && noindex
@@ -1262,6 +1263,8 @@ async function probeOnce(url, {
   fetchImpl = globalThis.fetch,
   timeoutMs = DEFAULT_TIMEOUT_MS,
   maxBodyBytes = DEFAULT_MAX_BODY_BYTES,
+  canonicalHtmlCache = new Map(),
+  deadlineAt = Number.POSITIVE_INFINITY,
   scope = SITEMAP_SCOPE,
 } = {}) {
   let response;
@@ -1290,7 +1293,7 @@ async function probeOnce(url, {
       return { url, status: 0, finalUrl: url, findings: [finding('fetch-error', url, error?.message || String(error))], links: [] };
     }
   }
-  const classified = classifyDocument({
+  let classified = classifyDocument({
     url,
     status: response.status,
     finalUrl,
@@ -1299,6 +1302,28 @@ async function probeOnce(url, {
     html: body.text,
     scope,
   });
+  if (classified.canonical && normalizeUrl(classified.canonical) !== normalizeUrl(finalUrl || url)) {
+    const canonicalHtml = await fetchJobCanonicalHtml({
+      url: finalUrl || url,
+      canonical: classified.canonical,
+      fetchImpl,
+      timeoutMs: Math.max(1, Math.min(timeoutMs, deadlineAt - Date.now())),
+      maxBodyBytes,
+      cache: canonicalHtmlCache,
+    });
+    if (canonicalHtml) {
+      classified = classifyDocument({
+        url,
+        status: response.status,
+        finalUrl,
+        headers: response.headers,
+        contentType,
+        html: body.text,
+        canonicalHtml,
+        scope,
+      });
+    }
+  }
   return {
     url,
     status: response.status,
@@ -1314,6 +1339,49 @@ async function probeOnce(url, {
   };
 }
 
+async function fetchJobCanonicalHtml({ url, canonical, fetchImpl, timeoutMs, maxBodyBytes, cache }) {
+  let sourceUrl;
+  let targetUrl;
+  try {
+    sourceUrl = new URL(url);
+    targetUrl = new URL(canonical, sourceUrl);
+  } catch {
+    return '';
+  }
+  const sourceSection = getJobBoardSectionPrefix(sourceUrl.pathname);
+  if (
+    sourceUrl.origin !== targetUrl.origin
+    || targetUrl.search
+    || targetUrl.hash
+    || !sourceSection
+    || sourceSection !== getJobBoardSectionPrefix(targetUrl.pathname)
+  ) return '';
+
+  const cacheKey = normalizeUrl(targetUrl.href) || targetUrl.href;
+  if (!cache.has(cacheKey)) {
+    cache.set(cacheKey, (async () => {
+      try {
+        const response = await fetchWithTimeout(targetUrl.href, {
+          method: 'GET',
+          redirect: 'manual',
+          headers: { 'user-agent': CRAWLER_USER_AGENT, accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.1' },
+          timeoutMs,
+        }, fetchImpl);
+        const contentType = header(response, 'content-type').toLowerCase();
+        if (
+          response.status !== 200
+          || (contentType && !/(?:text\/html|application\/xhtml\+xml)\b/i.test(contentType))
+        ) return '';
+        const body = await readLimitedBody(response, maxBodyBytes);
+        return body.truncated ? '' : body.text;
+      } catch {
+        return '';
+      }
+    })());
+  }
+  return cache.get(cacheKey);
+}
+
 export async function probeWithRetries(url, options = {}) {
   const retries = Number(options.retries ?? DEFAULT_RETRIES);
   const configuredTimeoutMs = Number(options.timeoutMs ?? DEFAULT_TIMEOUT_MS);
@@ -1322,6 +1390,7 @@ export async function probeWithRetries(url, options = {}) {
     : DEFAULT_TIMEOUT_MS;
   const configuredDeadlineAt = Number(options.deadlineAt);
   const deadlineAt = Number.isFinite(configuredDeadlineAt) ? configuredDeadlineAt : Number.POSITIVE_INFINITY;
+  const canonicalHtmlCache = options.canonicalHtmlCache || new Map();
   let result;
   for (let attempt = 0; attempt <= retries; attempt += 1) {
     if (Date.now() >= deadlineAt) {
@@ -1334,7 +1403,11 @@ export async function probeWithRetries(url, options = {}) {
       };
     }
     const remainingBudgetMs = Math.max(1, deadlineAt - Date.now());
-    result = await probeOnce(url, { ...options, timeoutMs: Math.min(timeoutBudgetMs, remainingBudgetMs) });
+    result = await probeOnce(url, {
+      ...options,
+      canonicalHtmlCache,
+      timeoutMs: Math.min(timeoutBudgetMs, remainingBudgetMs),
+    });
     const retryable = result.status === 0 || result.status === 429 || result.status >= 500;
     if (!retryable || attempt === retries) return result;
     const backoffMs = Math.min(8_000, 500 * (2 ** attempt));
@@ -1377,6 +1450,7 @@ export async function crawlPartition({
   const sitemapUrls = Array.isArray(manifest.sitemapUrls) ? manifest.sitemapUrls : [];
   const entries = selected.map((url, index) => ({ url, index }));
   const results = new Array(selected.length);
+  const canonicalHtmlCache = new Map();
 
   const probeEntries = async (items, poolConcurrency, attemptRetries) => {
     let cursor = 0;
@@ -1390,6 +1464,7 @@ export async function crawlPartition({
           timeoutMs,
           retries: attemptRetries,
           maxBodyBytes,
+          canonicalHtmlCache,
           scope,
         });
       }

@@ -26,6 +26,8 @@ import {
 } from '../../scripts/lib/canonicalExemptions.mjs';
 
 const H = 'https://frontaliereticino.ch';
+const JOB_POSTING_HTML = '<script type="application/ld+json">{"@type":"JobPosting"}</script>';
+const CITY_HUB_HTML = '<script type="application/ld+json">{"@type":"CollectionPage"}</script>';
 
 describe('canonical exemptions — legitimate non-self canonicals', () => {
   it('exempts the run 32261742920 offender (same-section job slug rename)', () => {
@@ -33,7 +35,8 @@ describe('canonical exemptions — legitimate non-self canonicals', () => {
       classifyCanonicalMismatch({
         url: `${H}/fr/trouver-emploi-zurich/chef-sushi-zenbu-two-spice-ag-dietlikon/`,
         canonical: `${H}/fr/trouver-emploi-zurich/chef-de-sushi-zenbu-two-spice-ag-dietlikon/`,
-        html: '',
+        html: JOB_POSTING_HTML,
+        canonicalHtml: JOB_POSTING_HTML,
       }),
     ).toBe('job-consolidation');
   });
@@ -72,8 +75,22 @@ describe('canonical exemptions — legitimate non-self canonicals', () => {
       [`${H}/de/jobs-im-tessin/a/`, `${H}/de/jobs-im-tessin/b/`],
     ];
     for (const [url, canonical] of pairs) {
-      expect(isLegitJobCanonicalConsolidation(url, canonical), `${url} → ${canonical}`).toBe(true);
+      expect(
+        isLegitJobCanonicalConsolidation(url, canonical, JOB_POSTING_HTML, JOB_POSTING_HTML),
+        `${url} → ${canonical}`,
+      ).toBe(true);
     }
+  });
+
+  it('does not treat flat city-hub routes as job details', () => {
+    expect(
+      isLegitJobCanonicalConsolidation(
+        `${H}/cerca-lavoro-ticino/lugano/`,
+        `${H}/cerca-lavoro-ticino/locarno/`,
+        CITY_HUB_HTML,
+        CITY_HUB_HTML,
+      ),
+    ).toBe(false);
   });
 
   it('requires the canonical pair to stay on the canonical site', () => {
