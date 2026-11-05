@@ -6023,7 +6023,10 @@ export async function submitViaPortal(ctx) {
     const finalClickInCurrentAttempt = Number.isSafeInteger(finalClickAttempt)
       && Number.isSafeInteger(currentAttempt)
       && finalClickAttempt === currentAttempt;
-    if (error?.code === 'portal_control_click_unresolved' && !finalClickInCurrentAttempt) {
+    const message = String(error?.message || error);
+    const exhaustedPreDispatchLocatorClick = /\blocator\.click\b/i.test(message)
+      && isPreDispatchLocatorClickFailure(error);
+    if ((error?.code === 'portal_control_click_unresolved' || exhaustedPreDispatchLocatorClick) && !finalClickInCurrentAttempt) {
       evidence.controlClickFailure = { stage: 'intermediate', outcome: 'pre_dispatch' };
       return await handoff('portal_control_click_unresolved');
     }

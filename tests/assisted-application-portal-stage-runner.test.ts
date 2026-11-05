@@ -131,6 +131,51 @@ describe('runner final guard across three application stages', () => {
     expect(result.evidence.finalOutcomes).toBeUndefined();
   });
 
+  it('hands off a proven pre-dispatch timeout from the agent-named advance locator', async () => {
+    state.snapshot = snapshot(applyUrl, 'Application step. Continue to the next part of the form.', []);
+    state.snapshot.fields = [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: false, formId: 'application', frame: 0 }];
+    const clickTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator');
+    const advanceClick = vi.fn().mockRejectedValue(clickTimeout);
+    const advanceLocator = {
+      evaluate: async () => ({ button: true, leaves: false, name: 'Continue' }),
+      isEnabled: async () => true,
+      click: advanceClick,
+    };
+    const emptyLocator = { count: async () => 0, nth: () => ({}), first: () => ({}) };
+    const page: any = {
+      url: () => state.snapshot.url,
+      title: async () => title,
+      frames: () => [page],
+      mainFrame: () => page,
+      ariaSnapshot: async () => '- button "Continue" [ref=e0]',
+      goto: vi.fn(async () => ({ status: () => 200 })),
+      evaluate: async (fn: Function) => {
+        const source = String(fn);
+        if (source.includes('navigator.userAgent')) return 'Chrome';
+        if (source.includes('document.body')) return state.snapshot.text;
+        return false;
+      },
+      waitForLoadState: async () => {},
+      waitForTimeout: async () => {},
+      screenshot: async () => Buffer.from('fixture'),
+      locator: vi.fn((selector: string) => selector === 'aria-ref=e0' ? advanceLocator : emptyLocator),
+    };
+    const context: any = { route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} };
+    const browser = { newContext: async () => context, close: async () => {}, version: () => '151' };
+    const codex = vi.fn(async () => ({ status: 'done', reason: 'test', actions: [], advanceRef: 'e0', submitRef: '', questions: [] }));
+
+    const result = await submitViaPortal({
+      applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
+      skipPostingCheck: true, maxSteps: 2, codex, launch: async () => browser,
+    });
+
+    expect(advanceClick).toHaveBeenCalledOnce();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_control_click_unresolved' });
+    expect(result.evidence.controlClickFailure).toEqual({ stage: 'intermediate', outcome: 'pre_dispatch' });
+    expect(result.evidence.stopReport.reason).toBe('portal_control_click_unresolved');
+    expect(result.evidence.finalOutcomes).toBeUndefined();
+  });
+
   it('does not reclassify an exhausted final submit click as an intermediate handoff', async () => {
     const clickTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator');
     const finalReview = {
