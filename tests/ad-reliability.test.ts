@@ -240,16 +240,61 @@ describe('IAB detection and independent recovery surface', () => {
     const unknown = local(probeIabAdBlock)(); await vi.advanceTimersByTimeAsync(200);
     await expect(unknown).resolves.toBe('unknown');
   });
-  function recovery(result = 'blocked', state = 'failed') {
-    return local(installAdRecovery)(() => Promise.resolve(result), () => ({ load() {}, state: () => state, subscribe() { return () => {}; } }), emit, () => true, { consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', publisherId: 'pub-example' });
+  function recovery(result = 'blocked', state = 'failed', inlineHouseAds = false) {
+    return local(installAdRecovery)(() => Promise.resolve(result), () => ({ load() {}, state: () => state, subscribe() { return () => {}; } }), emit, () => true, { consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', publisherId: 'pub-example', inlineHouseAds });
   }
   it('refreshes inline creatives when the local blocker probe resolves', async () => {
     const houseRefresh = vi.fn();
     w.__ftHouseAds = { refresh: houseRefresh };
-    recovery('blocked', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
-    await vi.advanceTimersByTimeAsync(6000);
+    recovery('blocked', 'loaded');
+    await vi.advanceTimersByTimeAsync(0);
     expect(w.__ftAdBlockProbe).toBe('blocked');
     expect(houseRefresh).toHaveBeenCalled();
+  });
+  it('probes for a blocker even when another placement already filled', async () => {
+    const houseRefresh = vi.fn();
+    w.__ftHouseAds = { refresh: houseRefresh };
+    const filledSlot = w.document.createElement('ins');
+    filledSlot.setAttribute('data-ad-status', 'filled');
+    w.document.body.append(filledSlot);
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    const pendingGoogleSlot = w.document.createElement('div');
+    pendingGoogleSlot.setAttribute('data-ft-house-google', '');
+    pendingGoogleSlot.setAttribute('data-ft-ad-state', 'waiting_response');
+    houseSlot.append(pendingGoogleSlot);
+    w.document.body.append(houseSlot);
+    recovery('blocked', 'loaded', true);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(w.__ftAdBlockProbe).toBe('blocked');
+    expect(houseRefresh).toHaveBeenCalled();
+  });
+  it('does not run or report a blocker probe when every inline house slot is filled', async () => {
+    const houseRefresh = vi.fn();
+    w.__ftHouseAds = { refresh: houseRefresh };
+    const filledSlot = w.document.createElement('div');
+    filledSlot.setAttribute('data-house', 'article-inline');
+    filledSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="filled"></div>';
+    w.document.body.append(filledSlot);
+    recovery('blocked', 'loaded', true);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(w.__ftAdBlockProbe).toBeUndefined();
+    expect(houseRefresh).not.toHaveBeenCalled();
+    expect(emit).not.toHaveBeenCalledWith('ad_block_probe', expect.anything());
+  });
+  it('reports a clear inline probe only after the slot remains unfilled for six seconds', async () => {
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    const pendingGoogleSlot = w.document.createElement('div');
+    pendingGoogleSlot.setAttribute('data-ft-house-google', '');
+    pendingGoogleSlot.setAttribute('data-ft-ad-state', 'waiting_response');
+    houseSlot.append(pendingGoogleSlot);
+    w.document.body.append(houseSlot);
+    recovery('clear', 'loaded', true);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(emit).not.toHaveBeenCalledWith('ad_block_probe', expect.anything());
+    await vi.advanceTimersByTimeAsync(6000);
+    expect(emit).toHaveBeenCalledWith('ad_block_probe', expect.objectContaining({ result: 'clear' }));
   });
   it('does not hide a real script failure behind an unarmed GPT loading placeholder', async () => {
     w.localStorage.setItem('frontaliere_ads_consent', 'granted');

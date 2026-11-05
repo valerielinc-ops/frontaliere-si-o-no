@@ -49,6 +49,12 @@ export function installAdRecovery(
   const googleMessage = () => Array.from(document.querySelectorAll('.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container')).some(onScreen);
   const visibleDialog = () => Array.from(document.querySelectorAll('dialog[open],[role="dialog"][aria-modal="true"]')).some(onScreen);
   const filled = () => !!document.querySelector('ins[data-ad-status="filled"],ins[data-anchor-status="displayed"],[data-ad-state="filled"]');
+  const hasUnfilledHouseSlot = () => Array.from(document.querySelectorAll<HTMLElement>('[data-house]')).some((frame) => {
+    const google = frame.querySelector<HTMLElement>('[data-ft-house-google],ins[data-ad-slot]');
+    if (!google) return false;
+    const state = google.getAttribute('data-ft-ad-state') || google.getAttribute('data-ad-state') || google.getAttribute('data-ft-static-ad-state') || '';
+    return state !== 'filled' && !google.matches('ins[data-ad-status="filled"]') && !google.querySelector('ins[data-ad-status="filled"],[data-ad-state="filled"]');
+  });
   const permitted = () => {
     try { return allowed() && navigator.onLine !== false && document.visibilityState !== 'hidden' && !location.pathname.startsWith(jobPath); }
     catch { return false; }
@@ -158,6 +164,26 @@ export function installAdRecovery(
     const ready = typeof w.googlefc?.showRevocationMessage === 'function';
     const state = ready ? 'ready' : cmp.state() === 'failed' ? 'unavailable' : hasDecision() ? 'stored_decision' : 'waiting';
     if (state !== lastCmp) { lastCmp = state; emit('ad_cmp_state', { state, decision: hasDecision() ? 'present' : 'none' }); }
+    // Probe once an inline slot can still need replacement. Waiting six
+    // seconds left blocked slots blank, while the filled() shortcut below
+    // skipped detection when a different placement had filled.
+    if (!probed && (config.inlineHouseAds ? hasUnfilledHouseSlot() : !filled())) {
+      probed = true;
+      const probeStartedAt = Date.now();
+      const probePath = location.pathname;
+      void probe().then((result) => {
+        probeResult = result;
+        w.__ftAdBlockProbe = result;
+        const reportProbe = () => {
+          const stillRelevant = config.inlineHouseAds ? hasUnfilledHouseSlot() : !filled();
+          if (location.pathname === probePath && stillRelevant) emit('ad_block_probe', { source: 'iab_quick_bait', result });
+        };
+        const reportDelay = result === 'blocked' ? 0 : Math.max(0, 6000 - (Date.now() - probeStartedAt));
+        if (reportDelay === 0) reportProbe(); else setTimeout(reportProbe, reportDelay);
+        try { w.__ftHouseAds?.refresh(); } catch { /* Keep recovery independent of the creative renderer. */ }
+        refresh();
+      }).catch(() => {});
+    }
     if (filled()) {
       removePromo(); closePopup();
       const pending = Number(storageRead('ft_ad_recovery_reload'));
@@ -169,17 +195,7 @@ export function installAdRecovery(
     }
     if (googleMessage()) { removePromo(); closePopup(); return; }
     const age = Date.now() - started;
-    if (!probed && age >= 6000) {
-      probed = true;
-      void probe().then((result) => {
-        probeResult = result;
-        w.__ftAdBlockProbe = result;
-        emit('ad_block_probe', { source: 'iab_quick_bait', result });
-        try { w.__ftHouseAds?.refresh(); } catch { /* Keep recovery independent of the creative renderer. */ }
-        refresh();
-      }).catch(() => {});
-    }
-    if (age < 12000) { timer = setTimeout(refresh, age < 6000 ? 6000 - age : 12000 - age); return; }
+    if (age < 12000) { timer = setTimeout(refresh, 12000 - age); return; }
     // Merely waiting for a response is not failure: do not cover late Auto Ads
     // or show our promotion while a valid ad request can still fill.
     if (!hasDecision() && ready && !cmpReopenAt) {

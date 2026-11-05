@@ -188,6 +188,9 @@ export function installHouseAds(
       const decision = w.__ftAdsConsentDecision || read(config.consentKey, true);
       const eligible = blocked || stalled || (!pending && (terminal || failed || (cmpFailed && !decision)));
       if (!eligible) { eligibleSince.delete(frame); remove(frame); continue; }
+      // Resolve the experiment arm while the no-fill grace is running so a
+      // slow assignment request does not add its full latency afterwards.
+      if (!ready && frame.getBoundingClientRect().width >= 160 && visible(frame)) requestAssignment();
       // A blocker or a confirmed 45s request stall should reach the inline
       // creative immediately. Definitive no-fill/failure gets only a short
       // grace for a fill event already queued by Google.
