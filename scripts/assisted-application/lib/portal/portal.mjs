@@ -29,7 +29,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -2085,6 +2085,29 @@ function isUmantisApplicationRoute(url) {
     return false;
   }
 }
+
+function isObservedUmantisApplicationStep(snapshot, channelType) {
+  if (channelType !== 'umantis' || !isUmantisApplicationRoute(snapshot.url)) return false;
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const { email, password } = loginFields(snapshot);
+  if (!email || !password || asksExistingPassword(password)) return false;
+
+  const identity = fields.map(umantisIdentityCaption);
+  const hasIdentity = identity.some(label => UMANTIS_APPLICANT_IDENTITY_RE.givenName.test(label))
+    && identity.some(label => UMANTIS_APPLICANT_IDENTITY_RE.familyName.test(label));
+  const residenceRoles = new Set(fields.map(field => residenceFieldRole(field.label)).filter(Boolean));
+  const hasResidence = ['street', 'postalCode', 'city', 'country'].every(role => residenceRoles.has(role));
+  const hasCoverLetter = fields.some(field => isFileField(field)
+    && COVER_LETTER_DOCUMENT_CONTEXT_RE.test(`${field.label || ''} ${field.name || ''} ${field.id || ''}`));
+  const hasCv = fields.some(isCvFileField);
+
+  // #17174: the live Application/New step exposes the account password next
+  // to the candidate's identity/address and required CV + cover letter, but
+  // its only action is «Avanti». This exact surface is an application form,
+  // not a sign-in page; keep the proof bounded to the verified Umantis route.
+  return Boolean(findButton(snapshot.buttons || [], NEXT_RE, { includeDisabled: true })
+    && hasIdentity && hasResidence && hasCv && hasCoverLetter);
+}
 const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
 const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
@@ -2121,8 +2144,11 @@ export function ownAccountForm(snapshot, channelType = '') {
     && isUmantisApplicationRoute(snapshot.url)
     && hasCvFileField
     && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || '').replace(/\s+/g, ' '));
-  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot)
-    && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit);
+  const umantisApplicationStep = isObservedUmantisApplicationStep(snapshot, channelType);
+  return Boolean(snapshot.passwordVisible) && (
+    (sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit))
+    || umantisApplicationStep
+  );
 }
 
 /** The page's button sends an application («Submit final application»), whatever else the page asks. */

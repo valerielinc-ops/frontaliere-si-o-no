@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
-import { CREATE_ACCOUNT_RE, isExplicitSignInNavigationLabel } from '../scripts/assisted-application/lib/portal/account.mjs';
+import { CREATE_ACCOUNT_RE, authPageKind, isExplicitSignInNavigationLabel } from '../scripts/assisted-application/lib/portal/account.mjs';
 import {
   candidateForForm,
   COOKIE_ACCEPT_RE,
@@ -36,6 +36,7 @@ import { portalAnswerForApplication, portalOptionMap } from '../scripts/assisted
 import { mergeRequiredDocuments } from '../functions/src/assistedApplicationExtraDocuments.js';
 import { interviewPrepUserText } from '../functions/src/assistedApplicationInterviewPrep.js';
 import { parseAltenDetailHtml } from '../scripts/lib/alten-job-parser.mjs';
+import umantisAccountStepFixture from './fixtures/umantis-recruitingapp-2761-application-new-account.json';
 
 // career-ops comparison of 2026-10-01: what the portal runner still lacked.
 describe('portal runner hardening (career-ops apply.md)', () => {
@@ -522,6 +523,24 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('recruitingapp-2761.umantis.com', 'careers.example.org') }, 'umantis')).toBe(false);
     expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('https:', 'http:') }, 'umantis')).toBe(false);
     expect(ownAccountForm({ ...snapshot, text: '' }, 'umantis')).toBe(false);
+  });
+
+  it('recognizes the observed Umantis account/application first step without treating it as login', () => {
+    const snapshot = umantisAccountStepFixture;
+
+    expect(authPageKind(snapshot)).toBe('sign_in');
+    expect(sendsApplication(snapshot)).toBe(false);
+    expect(ownAccountForm(snapshot, 'umantis')).toBe(true);
+    expect(ownAccountForm(snapshot)).toBe(false);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('/Application/New/4', '/Login') }, 'umantis')).toBe(false);
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.map(field => field.id === 'password' ? { ...field, label: 'Login password' } : field),
+    }, 'umantis')).toBe(false);
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.filter(field => field.id !== 'cover-letter'),
+    }, 'umantis')).toBe(false);
   });
 
   it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
