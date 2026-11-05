@@ -102,6 +102,10 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       pageUrl: 'https://jobs.stadt-zuerich.ch/job/Other-Role/999999999/',
       postingUrl,
     })).toBe(false);
+    expect(isPostingRouteBound({
+      pageUrl: 'https://jobs.example/vacancy?req=1',
+      postingUrl: 'https://jobs.example/vacancy?req=2',
+    })).toBe(false);
     expect(formPostingMatch(shellText, job, { pageUrl: postingUrl, postingUrl })).toBe('match');
     expect(hasApplicationSurface(snapshot, {
       pageUrl: postingUrl,

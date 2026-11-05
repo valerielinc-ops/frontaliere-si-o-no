@@ -328,7 +328,8 @@ function samePostingAddress(firstUrl, secondUrl) {
     const second = new URL(String(secondUrl || ''));
     return first.origin === second.origin
       && !first.username && !first.password && !second.username && !second.password
-      && first.pathname.replace(/\/+$/, '') === second.pathname.replace(/\/+$/, '');
+      && first.pathname.replace(/\/+$/, '') === second.pathname.replace(/\/+$/, '')
+      && first.search === second.search;
   } catch {
     return false;
   }
