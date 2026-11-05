@@ -1496,7 +1496,7 @@ function phoneCountryOption(candidate, field) {
   return selected || (!options.length ? phoneCountryLabel(phone) : '');
 }
 
-/** A safe answer already stated by the candidate, or the current institution from the CV. */
+/** A safe answer from the candidate or their profile; CV-only permit evidence is opt-in. */
 export function candidateAnswerForField(candidate, field, { includeProfileWorkPermit = false } = {}) {
   const topic = questionTopic(field?.label, field?.context, field);
   const fieldKind = String(field?.kind || '').trim().toLowerCase();
