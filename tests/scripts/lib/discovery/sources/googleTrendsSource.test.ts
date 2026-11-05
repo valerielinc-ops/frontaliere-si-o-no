@@ -1,10 +1,26 @@
 // tests/scripts/lib/discovery/sources/googleTrendsSource.test.ts
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { fetchTrendsDiscoveryCandidates } from '../../../../../scripts/lib/discovery/sources/googleTrendsSource.mjs';
 
 describe('fetchTrendsDiscoveryCandidates', () => {
+  it('does not log private query or fetcher error details', async () => {
+    const privateTopic = 'private-trends-topic-sentinel';
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      await fetchTrendsDiscoveryCandidates({}, {
+        trendsFn: async () => { throw new Error(`fetcher echoed ${privateTopic}`); },
+      });
+      const output = warning.mock.calls.flat().join(' ');
+      expect(output).toContain('error_type=Error');
+      expect(output).not.toContain(privateTopic);
+      expect(output).not.toContain('fetcher echoed');
+    } finally {
+      warning.mockRestore();
+    }
+  });
+
   const stubTrendsFn = (candidates: any[]) => async () => ({
     ok: candidates.length > 0,
     candidates,
