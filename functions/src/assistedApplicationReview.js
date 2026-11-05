@@ -256,7 +256,7 @@ function postalPacketChecklist({ draft, flow, orderId, locale }) {
     const exemption = (document.exemptions || []).includes(given.exemption) ? given.exemption : '';
     const files = documentFilesOf(flow, orderId, document.id);
     const status = exemption ? 'exempt'
-      : document.delivery === 'offline' ? (Number(given.preparedAt) ? 'prepared' : 'manual')
+      : document.localOnly ? 'local'
         : document.delivery === 'service' || files.length ? 'included' : 'missing';
     const reason = exemption ? ` (${postalPacketExemptionLabel(locale, exemption)})` : '';
     return {
@@ -793,8 +793,10 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
 async function saveDocumentChange({ db, bucket, orderId, flow, requested, action, body, nowMs }) {
   const flowRef = flowRefFor(db, orderId);
   const filesOf = (current) => documentFilesOf(current, orderId, requested.id);
+  const canStoreFile = !requested.localOnly
+    && (requested.delivery === 'upload' || (flow?.postalSubmission?.enabled === true && requested.delivery === 'offline'));
   if (action === 'document_upload') {
-    if ((requested.delivery || 'upload') !== 'upload') throw new ReviewError('not_allowed', 409);
+    if (!canStoreFile) throw new ReviewError('not_allowed', 409);
     const base64 = String(body.contentBase64 || '');
     if (base64.length > Math.ceil(MAX_DOCUMENT_BYTES / 3) * 4 + 4) throw new ReviewError('file_too_large', 413);
     const buffer = Buffer.from(base64, 'base64');
@@ -802,6 +804,9 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     if (buffer.length > MAX_DOCUMENT_BYTES) throw new ReviewError('file_too_large', 413);
     const type = detectDocumentType(buffer.subarray(0, 16));
     if (!type) throw new ReviewError('file_type_not_allowed');
+    if (flow?.postalSubmission?.enabled === true && !['pdf', 'jpg', 'png'].includes(type)) {
+      throw new ReviewError('postal_packet_unsupported_file', 422);
+    }
     // A JPG cut on the way passes the first-bytes check and would print half grey inside the grouped
     // PDF of the documents (scripts/assisted-application/lib/dossier.mjs): refused here, as the photo is.
     if (type === 'jpg' && !jpegIsWhole(buffer)) throw new ReviewError('file_unreadable');
@@ -809,7 +814,10 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     const key = `assisted-application-uploads/${orderId}/doc-${requested.id.slice(0, 30)}-${nowMs}-${randomUUID().slice(0, 8)}.${type}`;
     if (!bucket) throw new ReviewError('storage_unavailable', 503);
     await bucket.file(key).save(buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false });
-    const file = { key, name: clean(body.fileName, 120) || `${requested.id}.${type}`, size: buffer.length, detectedType: type, uploadedAt: nowMs, clientCheck: sanitizeClientCheck(body.clientCheck) };
+    const clientCheck = flow?.postalSubmission?.enabled === true
+      ? sanitizeClientCheck({ verdict: 'unreadable' })
+      : sanitizeClientCheck(body.clientCheck);
+    const file = { key, name: clean(body.fileName, 120) || `${requested.id}.${type}`, size: buffer.length, detectedType: type, uploadedAt: nowMs, clientCheck };
     const added = await db.runTransaction(async (transaction) => {
       const current = (await transaction.get(flowRef)).data() || {};
       const files = filesOf(current);
@@ -824,7 +832,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     return;
   }
   if (action === 'document_remove') {
-    if ((requested.delivery || 'upload') !== 'upload') throw new ReviewError('not_allowed', 409);
+    if (!canStoreFile) throw new ReviewError('not_allowed', 409);
     const fileId = String(body.fileId || '');
     let removed = null;
     await db.runTransaction(async (transaction) => {
@@ -839,7 +847,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     return;
   }
   if (action === 'document_set_prepared') {
-    if (requested.delivery !== 'offline') throw new ReviewError('not_allowed', 409);
+    if (requested.delivery !== 'offline' || flow?.postalSubmission?.enabled === true) throw new ReviewError('not_allowed', 409);
     const prepared = body.prepared === true;
     await db.runTransaction(async (transaction) => {
       await transaction.get(flowRef);
@@ -930,7 +938,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       };
       const kept = keptDocumentsOf({ order, orderId, flow, draft });
       const documentFiles = flow?.postalSubmission?.enabled === true
-        ? requiredDocumentsFor(draft, reviewFlow).flatMap((document) => documentFilesOf(flow, orderId, document.id))
+        ? requiredDocumentsFor(draft, reviewFlow).filter((document) => !document.localOnly)
+          .flatMap((document) => documentFilesOf(flow, orderId, document.id))
         : [];
       const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, originalCvUrl, ...documentAndKeptUrls] = await Promise.all([
         sign(draft?.coverLetterPdfKey),
@@ -982,6 +991,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       return { status: 200, body: { ok: true, sent: Boolean(result.sent), stopped: Boolean(result.stopped) } };
     }
     if (action === 'document_recheck') {
+      const currentFlow = (await flowRefFor(deps.db, orderId).get()).data() || {};
+      if (currentFlow.postalSubmission?.enabled === true) throw new ReviewError('not_allowed', 409);
       const check = await recheckStoredDocument({ db: deps.db, bucket: deps.bucket, claims,
         documentId: String(body.documentId || ''), fileId: String(body.fileId || ''),
         now: () => deps.nowMs ?? Date.now(), secret: await (deps.getSecret || getReviewTokenSecret)(), body,

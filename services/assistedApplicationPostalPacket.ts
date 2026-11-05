@@ -1,0 +1,168 @@
+import { PDFDocument, PageSizes, StandardFonts, rgb } from 'pdf-lib';
+
+export interface LocalPostalDocument {
+  id: string;
+  label: string;
+  files: File[];
+}
+
+export class LocalPostalPacketError extends Error {
+  code: string;
+
+  constructor(code: string) {
+    super(code);
+    this.name = 'LocalPostalPacketError';
+    this.code = code;
+  }
+}
+
+const A4 = PageSizes.A4;
+const MAX_PACKET_PAGES = 240;
+const PAGE_MARGIN = 46;
+const PASSPORT_WIDTH = (35 * 72) / 25.4;
+const PASSPORT_HEIGHT = (45 * 72) / 25.4;
+const LOCAL_INDEX_COPY = {
+  it: {
+    title: 'Indice dei file aggiunti su questo dispositivo - NON SPEDIRE QUESTA PAGINA',
+    merged: 'I file elencati qui sotto sono stati uniti a questo PDF direttamente nel browser.',
+    signature: 'La fusione non mantiene verificabile la firma digitale crittografica dei file originali.',
+  },
+  en: {
+    title: 'Index of files added on this device - DO NOT MAIL THIS PAGE',
+    merged: 'The files listed below were merged into this PDF locally in your browser.',
+    signature: 'Merging does not preserve cryptographic verification of the original files’ digital signatures.',
+  },
+  de: {
+    title: 'Verzeichnis der Dateien auf diesem Geraet - DIESE SEITE NICHT VERSENDEN',
+    merged: 'Die unten aufgefuehrten Dateien wurden lokal im Browser in dieses PDF eingefuegt.',
+    signature: 'Beim Zusammenfuehren bleibt die kryptografische Pruefung der digitalen Signaturen der Originaldateien nicht erhalten.',
+  },
+  fr: {
+    title: 'Index des fichiers ajoutes sur cet appareil - NE PAS ENVOYER CETTE PAGE',
+    merged: 'Les fichiers listes ci-dessous ont ete fusionnes dans ce PDF localement dans votre navigateur.',
+    signature: 'La fusion ne preserve pas la verification cryptographique des signatures numeriques des fichiers originaux.',
+  },
+} as const;
+
+function typeFromBytes(bytes: Uint8Array): 'pdf' | 'jpg' | 'png' | null {
+  if (bytes[0] === 0x25 && bytes[1] === 0x50 && bytes[2] === 0x44 && bytes[3] === 0x46 && bytes[4] === 0x2d) return 'pdf';
+  if (bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) return 'jpg';
+  if ([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a].every((byte, index) => bytes[index] === byte)) return 'png';
+  return null;
+}
+
+function pdfSafeText(value: string): string {
+  return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\x20-\x7e]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function addImagePage(pdf: PDFDocument, image: Awaited<ReturnType<PDFDocument['embedJpg']>>, passportPhoto: boolean) {
+  if (pdf.getPageCount() >= MAX_PACKET_PAGES) throw new LocalPostalPacketError('postal_packet_too_many_pages');
+  const page = pdf.addPage(A4);
+  if (passportPhoto) {
+    const x = (A4[0] - PASSPORT_WIDTH) / 2;
+    const y = (A4[1] - PASSPORT_HEIGHT) / 2;
+    page.drawRectangle({ x: x - 2, y: y - 2, width: PASSPORT_WIDTH + 4, height: PASSPORT_HEIGHT + 4, borderColor: rgb(0.55, 0.58, 0.62), borderWidth: 0.8 });
+    const scale = Math.min(PASSPORT_WIDTH / image.width, PASSPORT_HEIGHT / image.height);
+    const width = image.width * scale;
+    const height = image.height * scale;
+    page.drawImage(image, { x: x + (PASSPORT_WIDTH - width) / 2, y: y + (PASSPORT_HEIGHT - height) / 2, width, height });
+    return;
+  }
+  const scale = Math.min((A4[0] - PAGE_MARGIN * 2) / image.width, (A4[1] - PAGE_MARGIN * 2) / image.height);
+  const width = image.width * scale;
+  const height = image.height * scale;
+  page.drawImage(image, { x: (A4[0] - width) / 2, y: (A4[1] - height) / 2, width, height });
+}
+
+async function appendLocalFile(pdf: PDFDocument, document: LocalPostalDocument, file: File) {
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  const type = typeFromBytes(bytes);
+  if (!type) throw new LocalPostalPacketError('postal_packet_unsupported_file');
+
+  if (type === 'pdf') {
+    let source: PDFDocument;
+    try {
+      source = await PDFDocument.load(bytes, { updateMetadata: false });
+      const form = source.getForm();
+      if (form.hasXFA()) throw new Error('xfa');
+      if (form.getFields().length) {
+        form.updateFieldAppearances();
+        form.flatten();
+      }
+    } catch {
+      throw new LocalPostalPacketError('postal_packet_local_pdf_unreadable');
+    }
+    if (!source.getPageCount() || pdf.getPageCount() + source.getPageCount() > MAX_PACKET_PAGES) {
+      throw new LocalPostalPacketError('postal_packet_too_many_pages');
+    }
+    const pages = await pdf.copyPages(source, source.getPageIndices());
+    pages.forEach((page) => pdf.addPage(page));
+    return;
+  }
+
+  let image;
+  try {
+    image = type === 'jpg' ? await pdf.embedJpg(bytes) : await pdf.embedPng(bytes);
+  } catch {
+    throw new LocalPostalPacketError('postal_packet_local_image_unreadable');
+  }
+  addImagePage(pdf, image, document.id === 'passport_photo');
+}
+
+/** Append locally selected documents without transmitting their bytes to the service. */
+export async function mergeLocalPostalDocuments({
+  basePdf,
+  documents,
+  sourceBytes,
+  maxBytes,
+  locale = 'it',
+}: {
+  basePdf: ArrayBuffer | Uint8Array;
+  documents: LocalPostalDocument[];
+  sourceBytes: number;
+  maxBytes: number;
+  locale?: string;
+}): Promise<Uint8Array> {
+  const attachments = documents.flatMap((document) => document.files.map((file) => ({ document, file })));
+  if (!attachments.length) return basePdf instanceof Uint8Array ? basePdf : new Uint8Array(basePdf);
+  if (!Number.isFinite(sourceBytes) || !Number.isFinite(maxBytes) || sourceBytes + attachments.reduce((sum, { file }) => sum + file.size, 0) > maxBytes) {
+    throw new LocalPostalPacketError('postal_packet_too_large');
+  }
+
+  let pdf: PDFDocument;
+  try {
+    pdf = await PDFDocument.load(basePdf, { updateMetadata: false });
+  } catch {
+    throw new LocalPostalPacketError('postal_packet_download_failed');
+  }
+
+  if (pdf.getPageCount() >= MAX_PACKET_PAGES) throw new LocalPostalPacketError('postal_packet_too_many_pages');
+  const copy = LOCAL_INDEX_COPY[String(locale || '').slice(0, 2).toLowerCase() as keyof typeof LOCAL_INDEX_COPY] || LOCAL_INDEX_COPY.it;
+  const regular = await pdf.embedFont(StandardFonts.Helvetica);
+  const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+  const addIndexPage = (title: string) => {
+    if (pdf.getPageCount() >= MAX_PACKET_PAGES) throw new LocalPostalPacketError('postal_packet_too_many_pages');
+    const page = pdf.addPage(A4);
+    page.drawText(pdfSafeText(title), { x: PAGE_MARGIN, y: A4[1] - PAGE_MARGIN - 18, size: 15, font: bold, color: rgb(0.12, 0.16, 0.22) });
+    return { page, y: A4[1] - PAGE_MARGIN - 48 };
+  };
+  let { page, y } = addIndexPage(copy.title);
+  page.drawText(pdfSafeText(copy.merged), { x: PAGE_MARGIN, y, size: 9.5, font: regular, color: rgb(0.16, 0.19, 0.25), maxWidth: A4[0] - PAGE_MARGIN * 2 });
+  y -= 28;
+  for (const document of documents.filter((item) => item.files.length > 0)) {
+    const label = pdfSafeText(document.label).slice(0, 100);
+    if (y < PAGE_MARGIN + 34) ({ page, y } = addIndexPage(copy.title));
+    page.drawText(label, { x: PAGE_MARGIN, y, size: 10.5, font: bold, color: rgb(0.16, 0.19, 0.25), maxWidth: A4[0] - PAGE_MARGIN * 2 });
+    y -= 20;
+    for (const file of document.files) {
+      if (y < PAGE_MARGIN + 24) ({ page, y } = addIndexPage(copy.title));
+      page.drawText(`- ${pdfSafeText(file.name).slice(0, 120)}`, { x: PAGE_MARGIN + 10, y, size: 9.5, font: regular, color: rgb(0.16, 0.19, 0.25), maxWidth: A4[0] - PAGE_MARGIN * 2 - 10 });
+      y -= 16;
+    }
+  }
+  if (y < PAGE_MARGIN + 30) ({ page, y } = addIndexPage(copy.title));
+  page.drawText(pdfSafeText(copy.signature), { x: PAGE_MARGIN, y: Math.max(PAGE_MARGIN, y), size: 8.5, font: regular, color: rgb(0.35, 0.38, 0.42), maxWidth: A4[0] - PAGE_MARGIN * 2 });
+
+  for (const { document, file } of attachments) await appendLocalFile(pdf, document, file);
+  return pdf.save({ useObjectStreams: true });
+}
