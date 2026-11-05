@@ -37,6 +37,7 @@ import { readFileSync, existsSync, renameSync, rmSync, writeFileSync } from 'nod
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
+import { SOCIAL_REDIRECT_ORIGIN, socialRedirectKey } from './lib/social-redirect-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { JOB_OG_IMAGE_VERSION } from '../build-plugins/shared/jobOgImageVersion.mjs';
 import {
@@ -481,31 +482,141 @@ function savePosted(repoRoot, posted) {
 
 // ── Pre-flight: occupied scheduled-posts ────────────────────
 
-async function fetchScheduledPostMinutes({ pageId, token, fetchImpl, log }) {
-  // FB rejects limit > 100 with error #100. Even at volume=144 we only
-  // need to read the queue to detect minute-collisions, not exhaustively
-  // page through it — the next free :05/:15/… slot ≥ now+10min is what
-  // pickNextSlots picks anyway.
-  const url = `${GRAPH_BASE}/${pageId}/scheduled_posts?fields=scheduled_publish_time&limit=100&access_token=${encodeURIComponent(token)}`;
+async function fetchScheduledPosts({ pageId, token, fetchImpl, log }) {
+  // Meta limits each page to 100 rows. Recovery needs every accepted post,
+  // including entries past the first page when a 144-post batch was queued.
+  // Attachments retain the tracked link needed to rebuild those ledger rows.
+  const endpoint = new URL(`${GRAPH_BASE}/${pageId}/scheduled_posts`);
+  endpoint.searchParams.set('fields', 'id,scheduled_publish_time,attachments');
+  endpoint.searchParams.set('limit', '100');
+  endpoint.searchParams.set('access_token', token);
+  const expectedPath = endpoint.pathname;
+  const seenPages = new Set();
+  const posts = [];
+  const occupied = new Set();
+  let nextUrl = endpoint;
+  let pageCount = 0;
   try {
-    const res = await fetchImpl(url);
-    const data = await res.json();
-    if (!res.ok) {
-      log('⚠️', `pre-flight scheduled_posts → HTTP ${res.status}: ${JSON.stringify(data).slice(0, 200)}`);
-      return new Set();
+    while (nextUrl) {
+      if (pageCount >= 100) throw new Error('scheduled_posts pagination exceeded 100 pages');
+      if (nextUrl.protocol !== 'https:' || nextUrl.hostname !== 'graph.facebook.com'
+        || nextUrl.pathname !== expectedPath || nextUrl.username || nextUrl.password) {
+        throw new Error('scheduled_posts pagination returned an unexpected URL');
+      }
+      nextUrl.searchParams.set('access_token', token);
+      const requestUrl = nextUrl.toString();
+      if (seenPages.has(requestUrl)) throw new Error('scheduled_posts pagination repeated a page');
+      seenPages.add(requestUrl);
+
+      const res = await fetchImpl(requestUrl);
+      const data = await res.json();
+      if (!res.ok) {
+        log('⚠️', `pre-flight scheduled_posts page ${pageCount + 1} → HTTP ${res.status}: ${JSON.stringify(data).slice(0, 200)}`);
+        return { ok: false, posts, occupied };
+      }
+      const list = Array.isArray(data?.data) ? data.data : [];
+      posts.push(...list);
+      for (const item of list) {
+        const ts = Number(item?.scheduled_publish_time);
+        if (Number.isFinite(ts) && ts > 0) occupied.add(ts);
+      }
+      pageCount += 1;
+      const next = data?.paging?.next;
+      if (!next) {
+        nextUrl = null;
+      } else {
+        nextUrl = new URL(next);
+      }
     }
-    const list = Array.isArray(data?.data) ? data.data : [];
-    const occupied = new Set();
-    for (const item of list) {
-      const ts = Number(item?.scheduled_publish_time);
-      if (Number.isFinite(ts) && ts > 0) occupied.add(ts);
-    }
-    log('ℹ️', `pre-flight: ${occupied.size} scheduled_publish_time slots already occupied`);
-    return occupied;
+    log('ℹ️', `pre-flight: ${posts.length} scheduled post(s) across ${pageCount} page(s); ${occupied.size} scheduled_publish_time slots occupied`);
+    return { ok: true, posts, occupied };
   } catch (err) {
-    log('⚠️', `pre-flight scheduled_posts failed: ${err.message}`);
-    return new Set();
+    log('⚠️', `pre-flight scheduled_posts failed on page ${pageCount + 1}: ${err.message}`);
+    return { ok: false, posts, occupied };
   }
+}
+
+function unwrapFacebookLink(value) {
+  let candidate = String(value || '');
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    let url;
+    try {
+      url = new URL(candidate);
+    } catch {
+      return null;
+    }
+    if (url.hostname === 'l.facebook.com' && url.pathname === '/l.php') {
+      candidate = url.searchParams.get('u') || '';
+      continue;
+    }
+    return url;
+  }
+  return null;
+}
+
+function scheduledFacebookJobLink(post) {
+  const attachments = Array.isArray(post?.attachments?.data) ? post.attachments.data : [];
+  for (const attachment of attachments) {
+    const link = unwrapFacebookLink(attachment?.target?.url || attachment?.url);
+    if (!link || link.origin !== SOCIAL_REDIRECT_ORIGIN) continue;
+    const routeMatch = /^\/social\/r\/([a-f0-9]{20})\/$/u.exec(link.pathname);
+    if (!routeMatch || link.searchParams.size !== 5) continue;
+    const target = link.searchParams.get('to') || '';
+    const source = link.searchParams.get('utm_source') || '';
+    const medium = link.searchParams.get('utm_medium') || '';
+    const campaign = link.searchParams.get('utm_campaign') || '';
+    const content = link.searchParams.get('utm_content') || '';
+    if (link.searchParams.getAll('to').length !== 1
+      || link.searchParams.getAll('utm_source').length !== 1
+      || link.searchParams.getAll('utm_medium').length !== 1
+      || link.searchParams.getAll('utm_campaign').length !== 1
+      || link.searchParams.getAll('utm_content').length !== 1
+      || source !== 'facebook' || medium !== 'social' || campaign !== FACEBOOK_CAMPAIGN_JOB
+      || socialRedirectKey({ target, source, medium, campaign, content }) !== routeMatch[1]) continue;
+
+    const marker = content.indexOf('--cp');
+    const jobId = marker >= 0 ? content.slice(0, marker) : content;
+    if (!target || target.length > 3072 || !target.startsWith('/') || target.startsWith('//')
+      || /[\\\u0000-\u001f\u007f]/u.test(target)) continue;
+    if (!jobId || jobId.length > 256 || /[\u0000-\u001f\u007f]/u.test(jobId)
+      || (marker >= 0 && !/^--cp[a-f0-9]{16}-/u.test(content.slice(marker)))
+      || !target.startsWith('/cerca-lavoro-') || !target.endsWith('/')) continue;
+    let destination;
+    try {
+      destination = new URL(target, SOCIAL_REDIRECT_ORIGIN);
+    } catch {
+      continue;
+    }
+    if (destination.origin !== SOCIAL_REDIRECT_ORIGIN || destination.username || destination.password
+      || [...destination.searchParams.keys()].some((key) => key.toLowerCase().startsWith('utm_'))) continue;
+    return { jobId, url: destination.toString() };
+  }
+  return null;
+}
+
+function recoverScheduledJobLedgerRows(posts, existingRows, now) {
+  const knownPostIds = new Set(existingRows.map((row) => String(row?.fbPostId || '')).filter(Boolean));
+  const knownJobIds = new Set(existingRows.map((row) => String(row?.id || '')).filter(Boolean));
+  const nowIso = new Date(now).toISOString();
+  const recovered = [];
+  for (const post of posts) {
+    const postId = String(post?.id || '').trim();
+    const scheduledAt = Number(post?.scheduled_publish_time);
+    const scheduledAtMs = scheduledAt < 10_000_000_000 ? scheduledAt * 1000 : scheduledAt;
+    if (!postId || knownPostIds.has(postId) || !Number.isFinite(scheduledAtMs) || scheduledAtMs <= 0) continue;
+    const tracked = scheduledFacebookJobLink(post);
+    if (!tracked || knownJobIds.has(tracked.jobId)) continue;
+    recovered.push({
+      id: tracked.jobId,
+      url: tracked.url,
+      ts: nowIso,
+      fbPostId: postId,
+      scheduledFor: new Date(scheduledAtMs).toISOString(),
+    });
+    knownPostIds.add(postId);
+    knownJobIds.add(tracked.jobId);
+  }
+  return recovered;
 }
 
 // ── jobs.json loader ────────────────────────────────────────
@@ -623,13 +734,24 @@ export async function run(opts = {}) {
   const volume = VOLUME_MINUTES[volumeRaw] ? volumeRaw : 24;
   const pageId = env.FB_PAGE_ID;
   const token = env.FB_PAGE_ACCESS_TOKEN;
+  const reconcileOnly = env.FB_JOB_RECONCILE_ONLY === '1' || env.FB_JOB_RECONCILE_ONLY === 'true';
 
   log('🗓️', `FB jobs daily scheduler — volume=${volume}, dry=${dryRun}`);
 
   // 1. Load jobs + ledger
-  const jobs = loadJobs(repoRoot, log);
+  const jobs = reconcileOnly ? [] : loadJobs(repoRoot, log);
   const ledger = loadPosted(repoRoot);
-  const reconciliation = dryRun
+  const scheduledQueue = !dryRun && pageId && token && typeof fetchImpl === 'function'
+    && (reconcileOnly || jobs.length > 0)
+    ? await fetchScheduledPosts({ pageId, token, fetchImpl, log })
+    : { ok: false, posts: [], occupied: new Set() };
+  const recoveredRows = recoverScheduledJobLedgerRows(scheduledQueue.posts, ledger.posted, now);
+  if (recoveredRows.length > 0) {
+    appendPosted(repoRoot, recoveredRows);
+    ledger.posted = loadPosted(repoRoot).posted;
+    log('ℹ️', `recovered ${recoveredRows.length} accepted Facebook job post(s) into the ledger`);
+  }
+  const reconciliation = dryRun || reconcileOnly
     ? { checked: 0, reconciled: 0, pending: 0, uncertain: 0 }
     : await reconcileFacebookScheduledPosts({
       rows: ledger.posted,
@@ -643,6 +765,13 @@ export async function run(opts = {}) {
       log,
       warn,
     });
+  if (reconcileOnly) {
+    const queueUncertain = scheduledQueue.ok ? 0 : 1;
+    const uncertain = reconciliation.uncertain + queueUncertain;
+    if (queueUncertain) warn('⚠️ Facebook scheduled-post recovery could not read the current Meta queue');
+    log('ℹ️', `Facebook job ledger recovery finished; recovered ${recoveredRows.length} scheduled post(s)`);
+    return { ok: uncertain === 0, scheduled: 0, recovered: recoveredRows.length, uncertain, dryRun, payloads: [] };
+  }
   if (jobs.length === 0) {
     log('ℹ️', 'no jobs available, exiting');
     return { ok: reconciliation.uncertain === 0, scheduled: 0, uncertain: reconciliation.uncertain, dryRun, payloads: [] };
@@ -658,10 +787,7 @@ export async function run(opts = {}) {
   log('ℹ️', `selected ${candidates.length}/${volume} candidate jobs`);
 
   // 3. Pre-flight: figure out which slots are occupied
-  let occupied = new Set();
-  if (!dryRun && pageId && token && typeof fetchImpl === 'function') {
-    occupied = await fetchScheduledPostMinutes({ pageId, token, fetchImpl, log });
-  }
+  const occupied = scheduledQueue.occupied;
 
   // 4. Pick slots
   const slots = pickNextSlots(volume, occupied, now);
