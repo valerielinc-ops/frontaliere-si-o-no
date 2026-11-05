@@ -5008,6 +5008,10 @@ export function portalRequiredDocumentFromField(field) {
   };
 }
 
+const fieldHasNativeOptions = (field) => ['select', 'radio', 'listbox'].includes(String(field?.kind || '').toLowerCase())
+  || field?.selectLike === true
+  || Boolean(field?.nativeSelectId);
+
 /**
  * Split the required fields found on a live form into candidate questions and
  * upload requirements. A required file is an upload request, not a text
@@ -5069,7 +5073,10 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
           type: 'choice',
           forceType: 'choice',
           options: permitOptions(candidateLocale),
-          requiresNativeOptions: true,
+          // Free-text ATS controls can accept the candidate's selected
+          // canonical status. Native controls need their own option catalogue
+          // so that the answer can be mapped back safely.
+          requiresNativeOptions: fieldHasNativeOptions(field),
           candidatePrompt: question,
         });
       continue;
@@ -5260,7 +5267,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
         }
         // A native choice with no usable catalogue needs another portal read,
         // never a text question whose arbitrary answer the ATS cannot accept.
-        if (field && type === 'choice' && !applicationOptions.length) {
+        if (field && type === 'choice' && !applicationOptions.length
+          && (fieldHasNativeOptions(field) || item.requiresNativeOptions === true)) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
@@ -5277,7 +5285,9 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           required: true,
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
-          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,
+          options: field
+            ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions.length ? applicationOptions : item.options || []
+            : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),

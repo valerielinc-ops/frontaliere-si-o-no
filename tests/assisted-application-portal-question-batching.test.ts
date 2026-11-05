@@ -335,6 +335,30 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 }
 
 describe('assisted portal question batching', () => {
+  it('asks for a current permit in a text field while keeping native picklists fail-closed', () => {
+    const candidate = { identity: {}, profile: {}, answers: {} };
+    const textField = {
+      id: 'permit-text', kind: 'text', inputType: 'text',
+      label: 'Which work authorization do you hold? *', required: true, value: '',
+    };
+    const textRequirement = portalRequirementsFromMissingRequired([textField], [], {
+      candidate, candidateLocale: 'en',
+    });
+
+    expect(textRequirement.unreadableFields).toBeUndefined();
+    expect(textRequirement.questions).toHaveLength(1);
+    expect(textRequirement.questions[0]).toMatchObject({
+      applicationQuestion: textField.label,
+      type: 'choice',
+      options: expect.arrayContaining([expect.any(String)]),
+    });
+
+    const nativeRequirement = portalRequirementsFromMissingRequired([{
+      ...textField, id: 'permit-select', kind: 'select', inputType: 'select',
+    }], [], { candidate, candidateLocale: 'en' });
+    expect(nativeRequirement.unreadableFields).toEqual(['permit-select']);
+  });
+
   it('replans after privacy acceptance and does not create an account when it reveals an unknown required answer', async () => {
     const fixture = fakePage({ registration: true, privacyRevealsUnknown: true });
     const { page, window, ctaClicks } = fixture;
