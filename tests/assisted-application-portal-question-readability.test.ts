@@ -52,17 +52,13 @@ function allQuestionReaders(html: string) {
   const F = (dom.window as any).CompilaCandidatura;
   return { dom, F, source: snapshot.fields, bundle: (dom.window as any).CompilaRunnerFields().fields, filler: F.collect(dom.window.document) };
 }
-it('associates JazzHR hidden questionnaire metadata without treating it as candidate acceptance', () => {
+it('associates JazzHR hidden questionnaire metadata only with its unique keyed checkbox, never marketing', () => {
   const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${mirrorQuestion}${mirrorChoice}${mirrorMarketing}</div></form>`);
   for (const fields of [source, bundle, filler]) {
     expect(fields[0]).toMatchObject({ label: mirrorPrompt, required: true });
     expect(fields[1]).toMatchObject({ label: 'Send me the newsletter', required: false });
   }
-  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toBeNull();
-  expect(F.answerFor(filler[0], {
-    identity: {}, documents: {},
-    answers: [{ question: mirrorPrompt, answer: 'I agree', source: 'answers' }],
-  })).toEqual({ check: true });
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toEqual({ check: true });
   expect(F.answerFor(filler[1], { identity: {}, documents: {} })).toBeNull();
   expect(filler[0].element.checked).toBe(false); // A hidden value never proves a recorded check.
   dom.window.close();
@@ -70,7 +66,7 @@ it('associates JazzHR hidden questionnaire metadata without treating it as candi
 it('does not invent a hidden owner from an empty for and empty tracking ID', () => {
   const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><fieldset><legend>${mirrorPrompt}</legend><label for="">Tracking metadata</label><input type="hidden" id=""><input id="consent" type="checkbox" required></fieldset></form>`);
   for (const fields of [source, bundle, filler]) expect(fields[0]).toMatchObject({ label: mirrorPrompt, required: true });
-  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toBeNull();
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toEqual({ check: true });
   dom.window.close();
 });
 it.each([
@@ -90,15 +86,11 @@ it.each([
   expect(plan.actions).not.toContainEqual(expect.objectContaining({ fieldId: source[0].id, action: 'check' }));
   dom.window.close();
 });
-it('preserves a verified mirror but still requires the candidate to answer its acceptance', () => {
+it('preserves a verified mirror when the own ARIA description is also an affirmative acceptance', () => {
   const choice = mirrorChoice.replace('type="checkbox"', 'type="checkbox" aria-describedby="description"');
   const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${mirrorQuestion}<span id="description">I agree</span>${choice}</div></form>`);
   for (const fields of [source, bundle, filler]) expect(fields[0]).toMatchObject({ label: mirrorPrompt, required: true });
-  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toBeNull();
-  expect(F.answerFor(filler[0], {
-    identity: {}, documents: {},
-    answers: [{ question: mirrorPrompt, answer: 'I agree', source: 'answers' }],
-  })).toEqual({ check: true });
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toEqual({ check: true });
   dom.window.close();
 });
 it.each([
@@ -201,20 +193,16 @@ it.each(['form', 'div role="form"'])('never groups unnamed radio options across 
   dom.window.close();
 });
 
-it('keeps acceptance of the privacy policy with the candidate, including in the extension', () => {
+it('reads the owned consent legend past an empty label and resolves it without a candidate question', () => {
   const { dom, snapshot } = extract(form);
   const field = snapshot.fields.find((item: any) => item.kind === 'checkbox');
   expect(field.label).toBe('I have read and accept the Privacy Policy. *');
   const plan = guardPlan({ actions: [{ fieldId: field.id, action: 'check', source: 'consent' }], missingRequired: [] }, [field], { identity: {}, profile: {}, answers: {} });
-  expect(plan.actions).toEqual([]);
-  expect(plan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  expect(plan.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'check', source: 'consent' }));
+  expect(plan.missingRequired).toEqual([]);
   for (const file of ['apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
   const extension = (dom.window as any).CompilaCandidatura;
-  const entry = extension.collect(dom.window.document)[0];
-  expect(extension.answerFor(entry, { identity: {}, documents: {} })).toBeNull();
-  expect(extension.answerFor(entry, {
-    identity: {}, documents: {}, answers: [{ question: field.label, answer: 'I agree', source: 'answers' }],
-  })).toEqual({ check: true });
+  expect(extension.answerFor(extension.collect(dom.window.document)[0], { identity: {}, documents: {} })).toEqual({ check: true });
   dom.window.close();
 });
 

@@ -10,6 +10,7 @@ import {
   isSalutation,
   personalFieldLabel,
   salutationFor,
+  salutationGenderFromName,
   salutationOptions,
 } from '../functions/src/lib/personalFacts.js';
 import { buildFormAnswers, candidateIdentity, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
@@ -99,6 +100,13 @@ describe('what a CV says of the person in its own words', () => {
     for (const text of ['', 'Dr', 'monsieur le directeur']) expect(isSalutation(text)).toBe(false);
   });
 
+  it('infers only a form of address from an unambiguous first name in the candidate’s locale', () => {
+    expect(salutationGenderFromName('Luca Example', 'it')).toBe('m');
+    expect(salutationGenderFromName('Maria Luisa', 'it')).toBe('f');
+    expect(salutationGenderFromName('Andrea', 'it')).toBe('m');
+    expect(salutationGenderFromName('Andrea', 'fr')).toBe('');
+    expect(salutationGenderFromName('Alex', 'en')).toBe('');
+  });
 });
 
 describe('what the CV says is not asked again', () => {
@@ -122,20 +130,19 @@ describe('what the CV says is not asked again', () => {
     expect(candidateWithEdits({ order: { ...order, locale: 'it' }, draft: draftOf(CV_FR), flow: {} }).personal.salutation).toBe('Signor');
   });
 
-  it('never infers a form of address from a first name', () => {
+  it('uses an unambiguous first name for the form of address and leaves an ambiguous one unknown', () => {
     const luca = { locale: 'it', fullName: 'Luca Example', email: 'test@example.com' };
     const supported = candidateWithEdits({ order: luca, draft: draftOf('Luca Example'), flow: {} });
-    expect(supported.personal.salutation).toBe('');
-    expect(supported.answers).toEqual({});
-    expect(salutationQuestion({ channel, questions: [], answers: supported.answers, locale: 'it' })).toMatchObject({ id: 'salutation' });
+    expect(supported.personal.salutation).toBe('Signor');
+    expect(salutationQuestion({ channel, questions: [], answers: supported.answers, locale: 'it' })).toBeNull();
 
     const ambiguous = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
     expect(ambiguous.personal.salutation).toBe('');
     expect(salutationQuestion({ channel, questions: [], answers: ambiguous.answers, locale: 'en' })).toMatchObject({ id: 'salutation' });
 
     const applicantNamedLuca = candidateWithEdits({ order: { ...luca, applicantName: luca.fullName }, draft: draftOf('Luca Example'), flow: {} });
-    expect(applicantNamedLuca.personal.salutation).toBe('');
-    expect(salutationQuestion({ channel, questions: [], answers: applicantNamedLuca.answers, locale: 'it' })).toMatchObject({ id: 'salutation' });
+    expect(applicantNamedLuca.personal.salutation).toBe('Signor');
+    expect(salutationQuestion({ channel, questions: [], answers: applicantNamedLuca.answers, locale: 'it' })).toBeNull();
 
     const applicantNamedAlex = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan', applicantName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
     expect(applicantNamedAlex.personal.salutation).toBe('');
@@ -144,7 +151,7 @@ describe('what the CV says is not asked again', () => {
     const normalizedOrder = { locale: 'it', fullName: 'Luca Example' };
     const normalizedDraft = { profile: { fullName: '' }, factSources: { text: '' }, questions: [], formAnswers: [] };
     expect(candidateIdentity(normalizedOrder, normalizedDraft.profile).name).toBe('Luca Example');
-    expect(candidateWithEdits({ order: normalizedOrder, draft: normalizedDraft, flow: {} }).personal.salutation).toBe('');
+    expect(candidateWithEdits({ order: normalizedOrder, draft: normalizedDraft, flow: {} }).personal.salutation).toBe('Signor');
   });
 
   it('lets the candidate’s own word win over the CV, and an emptied field stay empty', () => {

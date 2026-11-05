@@ -582,7 +582,7 @@ describe('fill extension: JOIN steps', () => {
     expect(form.F.textOf(state.final)).toBe('Bewerben');
   });
 
-  it('leaves Fincons’ data-processing checkbox for the candidate and recognizes the final link', async () => {
+  it('recognizes Fincons’ plain final link and its separate required privacy checkbox', async () => {
     const { F, document } = page(`<form>
       <div class="form-group">
         <label id="privacy-label" for="resumator-questionnaire-q722664">I have read the <a href="/privacy">Candidates Privacy Notice</a> and I agree to the processing of my personal data as part of the recruitment process.<i class="asterisk">*</i></label>
@@ -595,17 +595,12 @@ describe('fill extension: JOIN steps', () => {
     const consent = F.collect(document).find((entry: any) => entry.element.id === 'resumator-checkbox-722664-1');
     const marketing = F.collect(document).find((entry: any) => entry.element.id === 'marketing');
     expect(consent.required).toBe(true);
-    expect(F.answerFor(consent, kit)).toBeNull();
-    expect(F.answerFor(consent, {
-      ...kit,
-      answers: [{ question: consent.label, answer: 'I agree', source: 'answers' }],
-    })).toEqual({ check: true });
+    expect(F.answerFor(consent, kit)).toEqual({ check: true });
     expect(F.answerFor(marketing, kit)).toBeNull();
     let pressed = 0;
     document.getElementById('submit-application')!.addEventListener('click', () => { pressed += 1; });
     await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
-    expect((document.getElementById('resumator-checkbox-722664-1') as HTMLInputElement).checked).toBe(false);
-    expect(result.missing.map((item: any) => item.label)).toContain(consent.label);
+    expect((document.getElementById('resumator-checkbox-722664-1') as HTMLInputElement).checked).toBe(true);
     const state = F.pageState(document, { sawForm: true });
     expect(state.kind).toBe('final');
     expect(F.textOf(state.final)).toBe('SUBMIT APPLICATION');
@@ -1285,7 +1280,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
 describe('fill extension: other portals', () => {
   // TSMG on Lever (ordine reale 2026-10-01): custom questions carry Lever's own names
   // («[Default] Comment»), the runner records the question the candidate reads.
-  it('keeps Lever’s data-processing consent for the candidate and answers by visible question', async () => {
+  it('answers Lever’s custom questions by the visible question, not Lever’s internal names', async () => {
     const { F, document } = page(`<form><ul>
       <li class="application-question"><label><div class="application-label">Full name<span class="required">✱</span></div>
         <div class="application-field"><input type="text" name="name" id="name" required></div></label></li>
@@ -1306,25 +1301,15 @@ describe('fill extension: other portals', () => {
     expect(comment.label).toMatch(/^Please, add a brief comment on your experience and qualifications/);
     // A label wrapped around a select is its question, never its options.
     expect(F.collect(document).find((entry: any) => entry.element.id === 'academy').label).toMatch(/^I would like to receive information about TSMG Academy ?✱?$/);
-    const consentEntry = F.collect(document).find((entry: any) => entry.element.id === 'consent');
-    expect(F.answerFor(consentEntry, leverKit)).toBeNull();
-    expect(F.answerFor(consentEntry, {
-      ...leverKit,
-      answers: [{ question: consentEntry.label, answer: 'I agree', source: 'policy_default' }],
-    })).toBeNull();
-    expect(F.answerFor(consentEntry, {
-      ...leverKit,
-      answers: [{ question: consentEntry.label, answer: 'I agree', source: 'answers' }],
-    })).toEqual({ value: 'I agree' });
     const result = await F.fillPage(document, leverKit, { getFile: async () => null, attempts: new WeakMap() });
     const value = (id: string) => (document.getElementById(id) as HTMLInputElement).value;
-    expect(['name', 'comment', 'consent', 'academy'].map(value)).toEqual(['Luigi Prova', 'Madrelingua italiana, disponibile per la sessione.', '', 'No']);
-    expect(result.missing.map((item: any) => item.label)).toContain(consentEntry.label);
+    expect(['name', 'comment', 'consent', 'academy'].map(value)).toEqual(['Luigi Prova', 'Madrelingua italiana, disponibile per la sessione.', 'I agree', 'No']);
+    expect(result.missing).toEqual([]);
     expect(F.textOf(F.pageState(document, { sawForm: true }).final)).toBe('Submit application');
   });
 
 
-  it('leaves privacy acceptance to the candidate, never a newsletter, and attaches the CV, never to an avatar', async () => {
+  it('accepts the required terms, never a newsletter, and attaches the CV, never to an avatar', async () => {
     const { F, document } = page(`<form>
       <label><input type="checkbox" id="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label>
       <label><input type="checkbox" id="news"> Newsletter abonnieren</label>
@@ -1332,11 +1317,7 @@ describe('fill extension: other portals', () => {
       <label for="avatar">Foto</label><input type="file" id="avatar" accept="image/png,.png,image/jpeg">
       <button type="button">Weiter</button></form>`, 'https://jobs.example.ch/apply');
     const [privacy, news, cv, avatar] = ['privacy', 'news', 'cv', 'avatar'].map((id) => F.collect(document).find((entry: any) => entry.element.id === id));
-    expect(F.answerFor(privacy, kit)).toBeNull();
-    expect(F.answerFor(privacy, {
-      ...kit,
-      answers: [{ question: privacy.label, answer: 'Ja', source: 'answers' }],
-    })).toEqual({ check: true });
+    expect(F.answerFor(privacy, kit)).toEqual({ check: true });
     expect(F.answerFor(news, kit)).toBeNull();
     expect(F.answerFor(cv, kit)).toEqual({ document: 'cv' });
     expect(F.answerFor(avatar, kit)).toBeNull();
@@ -1715,13 +1696,13 @@ describe('fill extension: shared privacy-reading acknowledgement', () => {
   });
 });
 
-describe('fill extension: candidate-confirmed application fields', () => {
+describe('fill extension: owner-approved application defaults', () => {
   const consent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell’ente. Acconsento che i miei dati personali vengano trattati in conformità con tale Dichiarazione.';
   const retentionQuestion = 'Per quanto tempo autorizzi l’ente a conservare i tuoi dati personali?';
   const future = 'Conservazione per future offerte di lavoro';
   const current = 'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.';
 
-  it('leaves consent and retention unanswered without candidate input, while using the explicit form of address in the kit', async () => {
+  it('checks application consent, chooses the shortest retention option and infers an unambiguous title', async () => {
     const { document, F } = page(`<form>
       <label><input id="consent" type="checkbox"> ${consent}</label>
       <label for="retention">${retentionQuestion}</label><select id="retention"><option value="">Seleziona</option><option>${future}</option><option>${current}</option></select>
@@ -1740,41 +1721,26 @@ describe('fill extension: candidate-confirmed application fields', () => {
       .map(id => F.collect(document).find((entry: any) => entry.element.id === id));
     const radioEntry = F.collect(document).find((entry: any) => entry.kind === 'radio');
 
-    expect(F.answerFor(consentEntry, eocKit)).toBeNull();
-    expect(F.answerFor(retentionEntry, eocKit)).toBeNull();
+    expect(F.answerFor(consentEntry, eocKit)).toEqual({ check: true });
+    expect(F.answerFor(retentionEntry, eocKit)).toEqual({ value: current });
     expect(F.answerFor(radioEntry, eocKit)).toMatchObject({ value: 'Signora', family: 'formOfAddress' });
-
-    const confirmedKit = {
-      ...eocKit,
-      answers: [
-        { question: consent, answer: 'Yes', source: 'answers' },
-        { question: retentionQuestion, answer: current, source: 'answers' },
-      ],
-    };
-    expect(F.answerFor(consentEntry, confirmedKit)).toEqual({ check: true });
-    expect(F.answerFor(retentionEntry, confirmedKit)).toEqual({ value: current });
-    const refusedKit = { ...eocKit, answers: [{ question: consent, answer: 'No', source: 'answers' }] };
-    expect(F.answerFor(consentEntry, refusedKit)).toEqual({ check: false });
-
+    await F.fillEntry(consentEntry, { check: true }, { getFile: async () => null });
+    await F.fillEntry(retentionEntry, { value: current }, { getFile: async () => null });
     await F.fillEntry(radioEntry, { value: 'Signora', family: 'formOfAddress' }, { getFile: async () => null });
 
-    expect((document.getElementById('consent') as HTMLInputElement).checked).toBe(false);
-    expect((document.getElementById('retention') as HTMLSelectElement).selectedOptions[0].text).toBe('Seleziona');
+    expect((document.getElementById('consent') as HTMLInputElement).checked).toBe(true);
+    expect((document.getElementById('retention') as HTMLSelectElement).selectedOptions[0].text).toBe(current);
     expect((document.querySelector('input[name="title"]:checked') as HTMLInputElement).value).toBe('Signora');
   });
 
-  it('uses French data-processing authorization only after an explicit candidate answer', () => {
+  it('recognizes French authorization to process personal data', () => {
     const authorization = "J'autorise le traitement de mes données personnelles";
     const { document, F } = page(`<form><label for="privacy-fr">${authorization}</label><input id="privacy-fr" type="checkbox" required></form>`);
     const entry = F.collect(document).find((item: any) => item.element.id === 'privacy-fr');
-    expect(F.answerFor(entry, { ...kit, answers: [] })).toBeNull();
-    expect(F.answerFor(entry, {
-      ...kit,
-      answers: [{ question: authorization, answer: 'Oui', source: 'answers' }],
-    })).toEqual({ check: true });
+    expect(F.answerFor(entry, { ...kit, answers: [] })).toEqual({ check: true });
   });
 
-  it('does not select a retention duration without a candidate answer', () => {
+  it('chooses the shortest finite term over future storage and a later deletion', () => {
     const { document, F } = page(`<form>
       <label for="retention">How long may we retain your personal data?</label>
       <select id="retention">
@@ -1785,7 +1751,9 @@ describe('fill extension: candidate-confirmed application fields', () => {
       </select>
     </form>`);
     const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
-    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBeNull();
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toEqual({
+      value: 'Keep my data for 6 months', family: 'minimumDataRetention',
+    });
   });
 });
 

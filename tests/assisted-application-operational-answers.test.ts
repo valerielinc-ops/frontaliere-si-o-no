@@ -5,7 +5,7 @@ import { evaluateRedFlags, transition } from '../functions/src/assistedApplicati
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { candidateAnswerForField, guardPlan, addressQuestionTopic, isAddressLikeQuestion, ownConsent } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { applyActions } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { runAutomationSweep } from '../functions/src/assistedApplicationAutomation.js';
 import { reconcileOperationalAnswers } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
@@ -503,7 +503,7 @@ describe('scope, languages and actual field options', () => {
   });
 });
 
-describe('application consent and data-retention questions', () => {
+describe('application consent and minimum retention defaults', () => {
   const processingConsent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell’EOC. Acconsento che i miei dati personali vengano trattati e conservati in conformità con tale Dichiarazione e con le normative vigenti in materia di protezione dei dati in Svizzera.';
   const retentionQuestion = 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?';
   const retentionOptions = [
@@ -511,23 +511,18 @@ describe('application consent and data-retention questions', () => {
     'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.',
   ];
 
-  it('does not assume data-processing consent, even when the portal requires it', () => {
-    const question = { id: 'privacy', question: processingConsent, applicationQuestion: processingConsent, type: 'checkbox', required: true };
-    const native = { id: 'privacy', kind: 'checkbox', type: 'checkbox', label: processingConsent, required: true, checked: false };
+  it('defaults to the application data-processing consent without opting into other purposes', () => {
+    const question = { id: 'privacy', question: processingConsent, applicationQuestion: processingConsent, type: 'checkbox', required: false };
     expect(operationalQuestionTopic(question)).toBe('application_data_processing_consent');
-    expect(operationalDefaultAnswer(question)).toBeNull();
-    expect(withOperationalQuestionAnswers([question], {})).toEqual({ answers: {}, defaults: {} });
+    expect(operationalDefaultAnswer(question)).toMatchObject({ value: 'true', topic: 'application_data_processing_consent', source: 'policy_default' });
     const frenchAuthorization = "J'autorise le traitement de mes données personnelles";
     const frenchQuestion = { id: 'privacy_fr', question: frenchAuthorization, applicationQuestion: frenchAuthorization, type: 'checkbox', required: true };
     expect(operationalQuestionTopic(frenchQuestion)).toBe('application_data_processing_consent');
-    expect(operationalDefaultAnswer(frenchQuestion)).toBeNull();
-    expect(ownConsent(native)).toBe(false);
-    const required = guardPlan({ actions: [], missingRequired: [] }, [native], { identity: {}, profile: {}, answers: {} });
-    expect(required.actions).toEqual([]);
-    expect(required.missingRequired).toContainEqual(expect.objectContaining({ fieldId: 'privacy' }));
-    const optional = guardPlan({ actions: [], missingRequired: [] }, [{ ...native, required: false }], { identity: {}, profile: {}, answers: {} });
-    expect(optional.actions).toEqual([]);
-    expect(optional.missingRequired).toEqual([]);
+    expect(operationalDefaultAnswer(frenchQuestion)).toMatchObject({ value: 'true', topic: 'application_data_processing_consent', source: 'policy_default' });
+    const native = { id: 'privacy', kind: 'checkbox', type: 'checkbox', label: processingConsent, required: false };
+    expect(ownConsent(native)).toBe(true);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [native], { identity: {}, profile: {}, answers: {} }).actions)
+      .toContainEqual(expect.objectContaining({ fieldId: 'privacy', action: 'check', source: 'policy_default' }));
     expect(operationalDefaultAnswer({
       ...question,
       applicationQuestion: `${processingConsent} Accetto inoltre di ricevere offerte e comunicazioni promozionali.`,
@@ -538,49 +533,120 @@ describe('application consent and data-retention questions', () => {
     expect(operationalDefaultAnswer({ ...question, question: `${processingConsent} Do you confirm your date of birth?` })).toBeNull();
     expect(operationalDefaultAnswer({
       ...question, type: 'choice', options: ['I agree to the processing of my personal data', 'No'],
-    })).toBeNull();
+    })?.value).toBe('I agree to the processing of my personal data');
     expect(operationalDefaultAnswer({
       ...question, type: 'choice', options: ['I agree to share my personal data with marketing partners', 'No'],
     })).toBeNull();
   });
 
-  it('keeps the retention period unknown until the candidate answers', () => {
+  it('selects the shortest native retention option and leaves an ambiguous catalogue open', () => {
     const question = {
       id: 'retention', question: retentionQuestion, applicationQuestion: retentionQuestion,
       type: 'choice', required: true, options: retentionOptions,
     };
     expect(operationalQuestionTopic(question)).toBe('application_data_retention');
-    expect(operationalDefaultAnswer(question)).toBeNull();
-    expect(withOperationalQuestionAnswers([question], {})).toEqual({ answers: {}, defaults: {} });
+    expect(operationalDefaultAnswer(question)).toMatchObject({
+      value: retentionOptions[1], topic: 'application_data_retention', source: 'policy_default',
+    });
+    expect(withOperationalQuestionAnswers([question], {}).answers.retention).toBe(retentionOptions[1]);
+    expect(operationalDefaultAnswer({
+      question: 'How long should we retain your personal data?', type: 'choice',
+      options: ['Keep the data in the future talent pool', 'Retain it as required by law'],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'How long should we retain your personal data?', type: 'choice',
+      options: ['Retain the data for 2 years', 'Retain the data for 6 months'],
+    })?.value).toBe('Retain the data for 6 months');
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain my personal data?', type: 'choice',
+      options: [
+        { label: 'Keep my data for 6 months', value: '6_months' },
+        { label: 'Keep my data for future opportunities', value: 'future' },
+      ],
+    })?.value).toBe('Keep my data for 6 months');
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain my personal data?', type: 'choice',
+      options: [
+        { label: 'Available for future opportunities for 2 years', value: 'future_2_years' },
+        { label: 'Keep my data for 6 months', value: '6_months' },
+      ],
+    })?.value).toBe('Keep my data for 6 months');
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain my personal data?', type: 'choice',
+      options: [{ label: 'Available for future opportunities for 2 years', value: 'future_2_years' }],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Per quanto tempo conservare i dati personali?', type: 'choice',
+      options: ['Conserva i dati per 1 anno', 'Conserva i dati per 1 mese'],
+    })?.value).toBe('Conserva i dati per 1 mese');
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain my personal data?', type: 'choice',
+      options: [
+        { label: 'Keep my data for six months', value: '6_months' },
+        { label: 'Keep my data for one year', value: '1_year' },
+      ],
+    })?.value).toBe('Keep my data for six months');
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain my personal data?', type: 'choice',
+      options: [
+        { label: 'Choose', value: '' },
+        { label: 'Retain the data for 2 years', value: 'retention_2_years' },
+        { label: 'Retain the data for 6 months', value: 'retention_6_months' },
+      ],
+    })?.value).toBe('Retain the data for 6 months');
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain my personal data?', type: 'choice',
+      options: ['Delete my data after 2 years', 'Keep my data for 6 months'],
+    })?.value).toBe('Keep my data for 6 months');
     expect(operationalDefaultAnswer({ question: retentionQuestion, type: 'choice', options: [] })).toBeNull();
-    const required = guardPlan({ actions: [], missingRequired: [] }, [
-      { id: 'retention', kind: 'radio', label: retentionQuestion, required: true, options: retentionOptions.map(label => ({ label })) },
-    ], { identity: {}, profile: {}, answers: {} });
-    expect(required.actions).toEqual([]);
-    expect(required.missingRequired).toContainEqual(expect.objectContaining({ fieldId: 'retention' }));
   });
 
-  it('reuses only the candidate answer for consent and retention, preserving refusal as a hold', () => {
-    const consentField = { id: 'privacy', kind: 'checkbox', type: 'checkbox', label: processingConsent, required: true, checked: false };
-    const consentCandidate = (answer: string) => ({
-      identity: {}, profile: {}, answers: {},
-      portalQuestionsAnswered: [{ question: processingConsent, applicationQuestion: processingConsent, answer, source: 'answers' }],
+  it.each([
+    'Choose', 'Please choose one', 'Choose an answer', 'Select a retention period',
+    'Scegli una risposta', 'Scegliere un valore', 'Selezionare una durata', 'Seleziona una voce',
+    'Bitte wählen Sie', 'Bitte wählen Sie aus', 'Bitte wählen Sie aus der Liste', 'Veuillez sélectionner', 'Veuillez choisir',
+  ])(
+    'ignores the localized empty-choice prompt %s when ranking retention options', prompt => {
+      expect(operationalDefaultAnswer({
+        question: retentionQuestion, type: 'choice',
+        options: [
+          { label: prompt, value: '' },
+          { label: 'Retain the data for 2 years', value: 'retention_2_years' },
+          { label: 'Retain the data for 6 months', value: 'retention_6_months' },
+        ],
+      })?.value).toBe('Retain the data for 6 months');
     });
-    const agreed = guardPlan({ actions: [], missingRequired: [] }, [consentField], consentCandidate('Sì'));
-    expect(agreed.actions).toContainEqual(expect.objectContaining({ fieldId: 'privacy', action: 'check', source: 'answers' }));
-    expect(agreed.missingRequired).toEqual([]);
-    const refused = guardPlan({ actions: [], missingRequired: [] }, [{ ...consentField, checked: true }], consentCandidate('No'));
-    expect(refused.actions).toContainEqual(expect.objectContaining({ fieldId: 'privacy', action: 'uncheck', source: 'answers' }));
-    expect(refused.missingRequired).toContainEqual(expect.objectContaining({ fieldId: 'privacy' }));
 
-    const retentionField = { id: 'retention', kind: 'radio', label: retentionQuestion, required: true, options: retentionOptions.map(label => ({ label })) };
-    const retentionCandidate = {
-      identity: {}, profile: {}, answers: {},
-      portalQuestionsAnswered: [{ question: retentionQuestion, applicationQuestion: retentionQuestion, answer: retentionOptions[1], source: 'answers' }],
+  it('fills optional native consent and retention controls from policy defaults', () => {
+    const consent = { id: 'consent', kind: 'checkbox', type: 'checkbox', label: processingConsent, required: false, checked: false };
+    const retention = {
+      id: 'retention', kind: 'radio', label: retentionQuestion, required: false,
+      options: retentionOptions.map(label => ({ label })),
     };
-    const retained = guardPlan({ actions: [], missingRequired: [] }, [retentionField], retentionCandidate);
-    expect(retained.actions).toContainEqual(expect.objectContaining({ fieldId: 'retention', action: 'select', value: retentionOptions[1], source: 'answers' }));
-    expect(retained.missingRequired).toEqual([]);
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [consent, retention], { identity: {}, profile: {}, answers: {} });
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: 'consent', action: 'check', source: 'policy_default' }));
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: 'retention', action: 'select', value: retentionOptions[1], source: 'policy_default' }));
+    expect(guarded.missingRequired).toEqual([]);
+
+    const alreadyShortest = guardPlan({ actions: [], missingRequired: [] }, [{
+      ...retention,
+      value: retentionOptions[1],
+      options: retentionOptions.map((label, index) => ({ label, value: label, selected: index === 1 })),
+    }], { identity: {}, profile: {}, answers: {} });
+    expect(alreadyShortest.actions).toEqual([]);
+  });
+
+  it('does not turn safely auto-answered application defaults back into candidate questions', () => {
+    const fields = [
+      { id: 'consent', kind: 'checkbox', label: processingConsent, required: true, options: [] },
+      { id: 'retention', kind: 'radio', label: retentionQuestion, required: true,
+        options: retentionOptions.map(label => ({ label, value: label })) },
+    ];
+    const requirements = portalRequirementsFromMissingRequired(fields, [], {
+      candidate: { identity: { address: {} }, profile: {}, answers: {} },
+    });
+    expect(requirements.questions).toEqual([]);
+    expect(requirements.documents).toEqual([]);
   });
 });
 

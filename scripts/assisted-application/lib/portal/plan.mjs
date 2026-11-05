@@ -4,8 +4,8 @@
  * a deterministic filler acts). career-ops' apply rules are in the prompt and
  * re-checked in code: legal, work-authorisation, salary, availability and
  * demographic answers only from the candidate's own data; a required field
- * the data cannot answer becomes a question for the candidate; only an exact
- * privacy-reading acknowledgment may be ticked without a candidate answer.
+ * the data cannot answer becomes a question for the candidate; only the
+ * consents the application itself needs are ticked.
  */
 
 import '../../extension/apply-control.js';
@@ -16,7 +16,7 @@ import { addressContextContract, hasAddressContextOwnership } from '../../../../
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { hasConsentContradiction, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } from '../../../../functions/src/lib/applicationConsent.js';
+import { hasConsentContradiction, isApplicationDataProcessingConsent, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
@@ -32,6 +32,7 @@ import {
   BIRTH_FIELD_RE,
   NATIONALITY_FIELD_RE,
   PERMIT_FIELD_RE,
+  WORK_AUTHORISATION_RE,
   asksHeldStatus,
   isNationalityField,
   isPermitField,
@@ -90,10 +91,10 @@ export function candidateRules(candidateLocale) {
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given. For a date field, use a full calendar date only. Never type an ongoing or partial-period marker such as "ad oggi", "2015", "present" or "current" into a date field; leave the end blank. Do not invent an end date for an ongoing or overlapping CV entry; if the portal requires a full end date and the candidate did not state one, put it in missingRequired.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
 - Operational preferences, only when no candidate answer exists: 3 months for an unconditional notice-period question, 100% preferred workload, and Yes to contact about this application via WhatsApp. Use policy_default as source. Never infer a start date, qualification, marketing, talent-pool, third-party, subscription or broad data-processing consent from these preferences. A sole imperative checkbox acknowledgement that the candidate read this application's privacy notice may use policy_default under the deterministic privacy-review grammar; it is not a broader consent. The deterministic field guard verifies the exact question and available options.
-- Checkboxes: a sole acknowledgement that the candidate read this application's privacy notice may use policy_default under the deterministic privacy-review grammar. A data-processing consent or legal agreement needs the candidate's explicit answer; required status alone is not consent. Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
-- Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): use answers.salutation from an explicit personal statement in the CV or an answer/correction. Never infer it from a first name. Leave it unknown otherwise; a required field stays missing. Choose the equivalent option in the form's language. This rule applies only to the form of address, never to gender identity questions.
+- Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
+- Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): use answers.salutation, filled from an explicit personal statement in the CV, an answer/correction, or a clearly gendered first name in the candidate's locale. Leave it unknown for ambiguous or unfamiliar names. This rule applies only to the form of address, never to gender identity questions. Choose the equivalent option in the form's language. If no value is available, a required one is missing.
 - Marital or civil status (Marital status, Zivilstand, Stato civile, État civil): only from profile.civilStatus (the candidate's CV, in its own words) or an answer in portalQuestionsAnswered, choosing the option that means the same in the form's language. Never guess it: when the candidate data does not say, a required one is missing and an optional one is skipped.
-- Data retention period or future-use choice: reuse an answer the candidate already confirmed for that question. Never choose a duration on the candidate's behalf; if required and unanswered, put it in missingRequired, and skip it when optional.
+- A required choice (radio or select) on what happens to the data afterwards — kept for future openings or a talent pool, or deleted once this application is over: select the option that deletes it / does not keep it. It is the same rule as an unticked talent-pool box, not a question for the candidate.
 - Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
 - A yes/no question that only asks whether the candidate holds a document listed in documents.extra (they attach it to this application): its "yes", source "documents". When it asks more about the document (a category, a grade, a date), it is an eligibility question as any other.
 - select and radio: value must be exactly one of the field's option labels.
@@ -185,8 +186,28 @@ export function isAddressLikeQuestion(question) {
 // answered only with a quote of the candidate's data that supports the answer.
 export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
 
-/** The only application checkbox that can be acknowledged without candidate input. */
+// The consents an application itself needs (the prompt's rule, re-checked in code): the privacy
+// notice, the processing of the data, the terms. Never what the candidate may refuse and still
+// apply, nor a box that also declares a fact (a permit, a licence, a level).
+const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
+// Some classic portals enforce their application privacy agreement without
+// adding `required` to the checkbox (Ticino Rexx: `agbs_check`). An explicit
+// acceptance sentence is still the application's own consent, not a fact the
+// candidate must supply. Optional marketing/talent-pool wording is excluded
+// below by isOptionalPurpose.
+const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
+const APPLICATION_CONSENT_NAME_RE = /^(?:agbs?|privacy(?:[_:-]?(?:policy|statement|notice))?|consent(?:[_:-]?(?:privacy|data))?|terms?)(?:[_:-]|$)/i;
+const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to|will\s+not|won['’]?t|shall\s+not|shan['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
+// «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state. So is a work
+// authorisation or a citizenship («Ich habe eine gültige Arbeitserlaubnis und akzeptiere…», «Ho la cittadinanza
+// svizzera e accetto…»); not the bare «permesso»: «Do il permesso al trattamento dei dati» is the consent.
+const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lavoro|soggiorno|domicilio)|\bvisa\b|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de (conduire|travail|séjour)|\b[abc][12]\b|years? of|berufserfahrung|anni di esperienza|ann[ée]es d.exp[ée]rience|strafregister|casellario|criminal|\bdiplom|\bdegree\b|abschluss|\blaurea\b|${WORK_AUTHORISATION_RE.source}|${NATIONALITY_FIELD_RE.source})`, 'i');
+
+/** A required checkbox that is the application's own consent, and nothing else. */
 export function ownConsent(field) {
+  // A soft hyphen or a decomposed accent must not hide a refusal or a declared fact from the checks below.
+  const label = String(field?.label || '').replace(/\p{Cf}/gu, '').normalize('NFC');
+  const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
   const fieldId = String(field?.id || '').trim();
   // A privacy-looking checkbox can still carry a language-level control id
   // when the portal reuses its native metadata. Treat that as a candidate
@@ -196,6 +217,7 @@ export function ownConsent(field) {
     .filter(value => typeof value === 'string' && value.trim())
     .join(' ').replace(/[_:.-]+/g, ' ');
   const languageFactMetadata = /\b(?:language|lingua|sprache|langue|german|deutsch|tedesco|allemand)\b.{0,80}\b[abc][12]\b/i.test(semanticMetadata);
+  const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
   const privacyIdentifiers = privacySemanticIdentifiers(field);
   const privacyRepresentations = [field?.question, field?.label, field?.applicationQuestion]
     .filter(value => typeof value === 'string' && value.trim());
@@ -206,7 +228,10 @@ export function ownConsent(field) {
     && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
     && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, field, ...privacyRepresentations, ...supplementalPrivacyLabels));
   const privacyReviewShape = privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
-  return field?.kind === 'checkbox' && privacyReviewAck
+  const applicationDataProcessingConsent = isApplicationDataProcessingConsent(consentText, field, ...privacyRepresentations, ...supplementalPrivacyLabels);
+  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || applicationDataProcessingConsent || isConsentPurpose(label);
+  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck || applicationDataProcessingConsent) && ownText
+    && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(consentText)
     && !languageFactMetadata
     && !(privacyReviewShape && !privacyReviewAck)
     && !hasConsentContradiction(consentText, field);
@@ -1161,7 +1186,7 @@ function isCheckboxField(field) {
   return field?.kind === 'checkbox' || field?.inputType === 'checkbox' || field?.type === 'checkbox';
 }
 
-function candidateCheckboxAction(field, value) {
+function privacyCheckboxAction(field, value) {
   if (!['privacy_review_ack', 'application_data_processing_consent'].includes(operationalQuestionTopic(field))
     || !isCheckboxField(field)) return null;
   const checked = booleanAnswer(value);
@@ -1811,8 +1836,11 @@ export function guardPlan(plan, fields, candidate = null) {
     const policyDefaultPrivacyAcknowledgment = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
+    const policyDefaultApplicationDataProcessingConsent = action.action === 'check'
+      && action.source === 'policy_default'
+      && privacyRepresentations.some(value => isApplicationDataProcessingConsent(value, field, ...privacyRepresentations));
     if (action.action === 'check'
-      && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment)
+      && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment || policyDefaultApplicationDataProcessingConsent)
       && !ownConsent(field)) {
       rejectedActionFields.add(field.id);
       ask(field);
@@ -1826,7 +1854,7 @@ export function guardPlan(plan, fields, candidate = null) {
       continue;
     }
     const plannedPrivacyCheckboxAction = ['fill', 'select'].includes(action.action)
-      ? candidateCheckboxAction(field, action.value) : null;
+      ? privacyCheckboxAction(field, action.value) : null;
     if (plannedPrivacyCheckboxAction) action = { ...action, action: plannedPrivacyCheckboxAction };
     if (['check', 'uncheck'].includes(action.action) && operationalQuestionTopic(field)) {
       const known = candidateAnswerForField(candidate, field);
@@ -1846,7 +1874,7 @@ export function guardPlan(plan, fields, candidate = null) {
         continue;
       }
       const knownHasValue = known && known.value !== undefined && known.value !== null && String(known.value).trim();
-      if (knownHasValue) action = { ...action, action: candidateCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: known.value, source: known.source, evidence: '' };
+      if (knownHasValue) action = { ...action, action: privacyCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: known.value, source: known.source, evidence: '' };
     }
     if (action.action === 'fill' && isDateField(field)) {
       const normalized = normalizeDateAnswer(field, action.value);
@@ -1961,7 +1989,7 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     const recoveryAction = {
       fieldId: field.id,
-      action: candidateCheckboxAction(field, value) || (isChoiceField(field) ? 'select' : 'fill'),
+      action: privacyCheckboxAction(field, value) || (isChoiceField(field) ? 'select' : 'fill'),
       value,
       document: 'none',
       source: answer.source,
@@ -1975,20 +2003,19 @@ export function guardPlan(plan, fields, candidate = null) {
   const pendingUnchecks = new Set(actions.filter((action) => action.action === 'uncheck').map((action) => action.fieldId));
   for (const field of fields) {
     const answer = candidateAnswerForField(candidate, field);
-    const stated = isCheckboxField(field)
-      && ['privacy_review_ack', 'application_data_processing_consent'].includes(operationalQuestionTopic(field))
-      && answer
+    const stated = isCheckboxField(field) && operationalQuestionTopic(field) === 'privacy_review_ack' && answer
       ? booleanAnswer(answer.value) : null;
     // A candidate's explicit refusal remains authoritative even if the native
-    // page arrived with a privacy box already ticked from an earlier round.
+    // page arrived with the box already ticked from an earlier round.
     if (stated === false && holdsValue(field) && !pendingUnchecks.has(field.id)) {
       actions.push({ fieldId: field.id, action: 'uncheck', value: answer.value, document: 'none', source: answer.source, evidence: '' });
       pendingUnchecks.add(field.id);
     }
     const holdsAfterActions = holdsValue(field) && !pendingUnchecks.has(field.id);
-    // Only the exact privacy-reading acknowledgment is covered by the
-    // existing policy. Data-processing consent and legal agreements stay
-    // with the candidate, even when required.
+    // The application's own consent is no question for the candidate: the
+    // mandate covers it, so the box the plan left alone is ticked here (umantis,
+    // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,
+    // and went to the candidate as a text question).
     if (!answered.has(field.id) && !holdsAfterActions && ownConsent(field)
       && !hasExplicitOperationalAnswer(candidate, field)) {
       actions.push({ fieldId: field.id, action: 'check', value: '', document: 'none', source: 'consent', evidence: '' });

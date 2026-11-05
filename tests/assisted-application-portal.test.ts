@@ -1989,7 +1989,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
-  it('keeps privacy and data-processing consent with the candidate', () => {
+  it('ticks the application’s own required consent in code when the plan leaves it, and nothing else', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const fields = [
       { id: 'c1', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false },
@@ -2001,30 +2001,29 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       // server rejects the application until this agreement is checked.
       { id: 'c6', kind: 'checkbox', label: 'Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di protezione dei dati.', required: false, checked: false },
     ];
-    // Required status alone does not establish that the candidate accepts a privacy or processing agreement.
+    // umantis, 2026-10-03: the planner skipped the required privacy box, and the candidate was asked it as a text question.
     const guarded = guardPlan({
       actions: [{ fieldId: 'c1', action: 'skip', source: 'rule', value: '' }, { fieldId: 'c5', action: 'uncheck', source: 'rule', value: '' }],
       missingRequired: [{ fieldId: 'c1', question: 'Accetti l’informativa?', why: '', type: 'yes_no', options: [] }],
     }, fields, candidate);
-    expect(guarded.actions).toEqual([]);
-    expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c1', 'c2', 'c3', 'c5']);
+    expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([['c1', 'consent'], ['c5', 'consent'], ['c6', 'consent']]);
+    // A required marketing box and one that also declares a fact stay questions; an optional box is left alone.
+    expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c2', 'c3']);
     expect(ownConsent(fields[3])).toBe(false);
-    expect(ownConsent(fields[0])).toBe(false);
-    expect(ownConsent(fields[4])).toBe(false);
-    expect(ownConsent(fields[5])).toBe(false);
     expect(ownConsent({ kind: 'text', label: 'Privacy', required: true })).toBe(false);
     expect(ownConsent({ kind: 'checkbox', label: 'I do not accept the privacy policy', required: false, checked: false })).toBe(false);
     expect(ownConsent({ kind: 'checkbox', label: 'I cannot accept the privacy policy', required: false, checked: false })).toBe(false);
     expect(ownConsent({ kind: 'checkbox', label: 'I will not accept the privacy policy', required: false, checked: false })).toBe(false);
-    expect(planSystemPrompt('it')).toContain('Never choose a duration on the candidate\'s behalf');
-    expect(ownConsent({ kind: 'checkbox', name: 'agbs_check', label: '', required: false })).toBe(false);
+    // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
+    expect(planSystemPrompt('it')).toContain('select the option that deletes it');
+    expect(ownConsent({ kind: 'checkbox', name: 'agbs_check', label: '', required: false })).toBe(true);
     expect(ownConsent({ kind: 'checkbox', name: 'privacy_marketing', label: '', required: false })).toBe(false);
   });
 
-  it('does not treat agreement to a privacy policy as a privacy-reading acknowledgment', () => {
+  it('requires explicit language context before treating a CEFR token in consent metadata as a fact', () => {
     const privacyConsent = { kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true };
-    expect(ownConsent({ ...privacyConsent, id: 'c1' })).toBe(false);
-    expect(ownConsent({ ...privacyConsent, id: 'c1', label: 'I agree to the English language Privacy Policy Statement' })).toBe(false);
+    expect(ownConsent({ ...privacyConsent, id: 'c1' })).toBe(true);
+    expect(ownConsent({ ...privacyConsent, id: 'c1', label: 'I agree to the English language Privacy Policy Statement' })).toBe(true);
     expect(ownConsent({ ...privacyConsent, id: 'language_level_c1' })).toBe(false);
     expect(ownConsent({ ...privacyConsent, id: 'german-c1' })).toBe(false);
     expect(ownConsent({ ...privacyConsent, label: 'I agree to the Privacy Policy Statement and Arabic C1' })).toBe(false);
