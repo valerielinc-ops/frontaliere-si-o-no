@@ -4,7 +4,7 @@ import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
+import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
 
@@ -2645,6 +2645,114 @@ describe('portal runner helpers', () => {
     const unresolvedCap = { id: 'unresolved-cap', kind: 'text', label: 'CAP', context: 'Dati anagrafici · Data di nascita · Indirizzo · CAP · Nazione (di residenza)', required: true, options: [] };
     expect(guardPlan({ actions: [], missingRequired: [] }, [unresolvedCap], { answers: {}, profile: {}, portalQuestionsAnswered: [] }).missingRequired)
       .toEqual([expect.objectContaining({ fieldId: 'unresolved-cap', context: unresolvedCap.context })]);
+  });
+
+  it('keeps a locality out of street and house-number answers', () => {
+    const addressContext = 'Dati anagrafici · Indirizzo di residenza · Località · CAP';
+    const candidate = candidateForForm({
+      identity: {
+        name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '',
+        location: 'Luino (VA), Italia',
+        address: { street: 'Luino (VA), Italia', postalCode: '', city: 'Luino (VA), Italia', country: 'Italia' },
+      },
+      profile: {
+        location: 'Luino (VA), Italia',
+        address: { street: 'Luino (VA), Italia', postalCode: '', city: 'Luino (VA), Italia', country: 'Italia' },
+      },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    const street = { id: 'residence-street', kind: 'text', label: 'Indirizzo', context: addressContext, required: true, options: [] };
+    const combined = { id: 'combined-address', kind: 'text', label: 'Via e numero civico', context: addressContext, required: true, options: [] };
+    const city = { id: 'residence-city', kind: 'text', label: 'Località', context: addressContext, required: true, options: [] };
+    const houseNumber = { id: 'house-number', kind: 'text', label: 'Numero civico', context: addressContext, required: true, options: [] };
+
+    expect(candidate.identity.address.street).toBe('');
+    expect(candidateAnswerForField(candidate, street)).toBeNull();
+    expect(candidateAnswerForField(candidate, combined)).toBeNull();
+    expect(candidateAnswerForField(candidate, city)).toEqual({ value: 'Luino (VA), Italia', source: 'identity' });
+    expect(candidateAnswerForField(candidate, houseNumber)).toBeNull();
+    for (const locality of ['Località Luino', 'Localité Luino', 'Ville de Luino', 'Wohnort in Luino']) {
+      const labelledLocality = {
+        ...candidate,
+        identity: { ...candidate.identity, address: { ...candidate.identity.address, street: locality } },
+      };
+      expect(candidateAnswerForField(labelledLocality, street)).toBeNull();
+    }
+    for (const postalCode of ['CAP 21016', 'Code postal 21016', 'PLZ 21016', 'NPA 21016']) {
+      const labelledPostalCode = {
+        ...candidate,
+        identity: { ...candidate.identity, address: { ...candidate.identity.address, street: postalCode } },
+      };
+      expect(candidateAnswerForField(labelledPostalCode, street)).toBeNull();
+      expect(candidateAnswerForField(labelledPostalCode, houseNumber)).toBeNull();
+    }
+    const bareSwissPostalCode = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Lugano, Svizzera' },
+      profile: { location: 'Lugano, Svizzera', address: { street: '6900', postalCode: '', city: 'Lugano', country: 'Svizzera' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(candidateAnswerForField(bareSwissPostalCode, street)).toBeNull();
+    expect(candidateAnswerForField(bareSwissPostalCode, houseNumber)).toBeNull();
+    const streetNameContainingNumber = {
+      ...candidate,
+      identity: { ...candidate.identity, address: { ...candidate.identity.address, street: 'Piazza 4 Novembre' } },
+    };
+    expect(candidateAnswerForField(streetNameContainingNumber, houseNumber)).toBeNull();
+    const numberedStreetName = {
+      ...candidate,
+      identity: { ...candidate.identity, address: { ...candidate.identity.address, street: '4 Novembre' } },
+    };
+    expect(candidateAnswerForField(numberedStreetName, houseNumber)).toBeNull();
+    const numberedRoadName = {
+      ...candidate,
+      identity: { ...candidate.identity, address: { ...candidate.identity.address, street: 'Route 66' } },
+    };
+    expect(candidateAnswerForField(numberedRoadName, houseNumber)).toBeNull();
+    const explicitLongHouseNumber = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Roma, Italia' },
+      profile: { location: 'Roma, Italia', address: { street: 'Via Roma 1234', postalCode: '20100', city: 'Roma', country: 'Italia' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(candidateAnswerForField(explicitLongHouseNumber, houseNumber)).toEqual({ value: '1234', source: 'identity' });
+    expect(candidateAnswerForField(explicitLongHouseNumber, combined)).toEqual({ value: 'Via Roma 1234', source: 'identity' });
+    const bareHouseNumber = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Roma, Italia' },
+      profile: { location: 'Roma, Italia', address: { street: '1234', postalCode: '20100', city: 'Roma', country: 'Italia' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(candidateAnswerForField(bareHouseNumber, houseNumber)).toEqual({ value: '1234', source: 'identity' });
+    expect(candidateAnswerForField(bareHouseNumber, combined)).toBeNull();
+    expect(addressQuestionAnswer(bareHouseNumber, 'address_street')).toBe('');
+    expect(addressQuestionAnswer(bareHouseNumber, 'address_house_number')).toBe('1234');
+    expect(candidateAnswerForField(bareHouseNumber, { ...street, label: 'Street Name' })).toBeNull();
+    expect(candidateAnswerForField({
+      ...candidate,
+      identity: { ...candidate.identity, address: { ...candidate.identity.address, street: 'Via Roma' } },
+    }, combined)).toBeNull();
+    const savedLocality = {
+      ...candidate,
+      answers: { [street.id]: 'Luino (VA), Italia', [houseNumber.id]: '21016' },
+      portalQuestions: [street, houseNumber],
+      portalQuestionsAnswered: [
+        { id: street.id, question: street.label, context: addressContext, answer: 'Luino (VA), Italia', source: 'answers' },
+        { id: houseNumber.id, question: houseNumber.label, context: addressContext, answer: '21016', source: 'answers' },
+      ],
+    };
+    expect(candidateAnswerForQuestion(savedLocality, street.label, addressContext, street)).toBe('');
+    expect(candidateAnswerForField(savedLocality, street)).toBeNull();
+    expect(candidateAnswerForQuestion(savedLocality, houseNumber.label, addressContext, houseNumber)).toBe('');
+    expect(candidateAnswerForField(savedLocality, houseNumber)).toBeNull();
+
+    const guarded = guardPlan({
+      actions: [{ fieldId: street.id, action: 'fill', value: 'Via Roma 1', document: 'none', source: 'rule', evidence: '' }],
+      missingRequired: [],
+    }, [street], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: street.id })]);
   });
 
   it('keeps legacy profile address data and repeated e-mail fields answerable', () => {

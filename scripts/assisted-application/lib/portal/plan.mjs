@@ -1136,6 +1136,15 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   return matches.every((item) => equivalentAnswer(question, answer, item.answer, context, metadata)) ? answer : '';
 }
 
+function validatedAddressAnswer(candidate, topic, value) {
+  if (!value || !['address', 'address_street', 'address_house_number'].includes(topic)) return value;
+  const answer = addressQuestionAnswer(candidate, topic, value);
+  if (topic === 'address_street' && answer && !/\p{L}/u.test(answer)) return '';
+  if (topic === 'address' && answer
+    && (!/\p{L}/u.test(answer) || !addressQuestionAnswer(candidate, 'address_house_number', answer))) return '';
+  return answer;
+}
+
 export function candidateAnswerForQuestion(candidate, question, context = '', metadata = {}) {
   const topic = questionTopic(question, context, metadata);
   if (topic === 'phone') return formatInternationalPhone(candidate?.identity?.phone);
@@ -1143,9 +1152,10 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
   // Contact/address facts are canonical identity data. A prior portal answer
   // is only a compatibility fallback when the current candidate record has no
   // value; it must not overwrite a corrected country from the CV/profile.
-  return (addressQuestionAnswer(candidate, topic) && recordedAnswerForQuestion(candidate, question, context, metadata, true))
+  const answer = (addressQuestionAnswer(candidate, topic) && recordedAnswerForQuestion(candidate, question, context, metadata, true))
     || addressQuestionAnswer(candidate, topic)
     || recordedAnswerForQuestion(candidate, question, context, metadata);
+  return validatedAddressAnswer(candidate, topic, answer);
 }
 
 /**
@@ -1523,7 +1533,7 @@ export function candidateAnswerForField(candidate, field, { includeProfileWorkPe
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const canonical = addressQuestionAnswer(candidate, topic);
     const current = recordedAnswerForQuestion(candidate, field?.label, field?.context, field, true);
-    const stated = current || canonical || previous;
+    const stated = validatedAddressAnswer(candidate, topic, current || canonical || previous);
     if (!stated) return null;
     let value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     // Workday and similar ATSs split «Street Name» from the house number.
