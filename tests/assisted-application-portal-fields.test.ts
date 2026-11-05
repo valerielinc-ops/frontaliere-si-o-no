@@ -377,6 +377,23 @@ describe('portal field extraction', () => {
     expect(result.status).toBe('none');
   });
 
+  it('does not trust a generic shadow surface for Manage consent', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const { window } = new JSDOM('<!doctype html><html><body><div id="application-surface" class="modal"></div></body></html>', { url });
+    const host = window.document.getElementById('application-surface')!;
+    const shadow = host.attachShadow({ mode: 'open' });
+    shadow.innerHTML = '<span>This website uses cookies.</span><button type="button">Manage consent</button>';
+    const manageConsent = shadow.querySelector('button')!;
+    manageConsent.getBoundingClientRect = () => ({ width: 20, height: 20 } as DOMRect);
+    vi.stubGlobal('document', window.document);
+    const snapshot = { url, fields: [], buttons: [], dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '' };
+    const page = { evaluate: vi.fn(async (evaluateInPage: Function, args: unknown) => evaluateInPage(args)) };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+  });
+
   it('marks only an active cookie surface, not a persistent preferences section', () => {
     const active = extract('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
     expect(active.buttons.find((button: any) => button.text === 'Customise Cookies')).toMatchObject({ cookieSurface: 'banner' });

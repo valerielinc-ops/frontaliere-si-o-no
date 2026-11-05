@@ -1638,6 +1638,7 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
     if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: manageConsent }, { kind: 'preferences', source: genericPreferences });
     for (const action of actions) {
       const pattern = new RegExp(action.source, 'i');
+      const isManageConsent = action.source === manageConsent;
       for (const shadow of shadows) {
         const manageConsentAction = action.kind === 'preferences' && action.source === manageConsent;
         if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
@@ -1649,7 +1650,7 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
             const label = String(element.innerText || element.textContent || '').trim();
             return element.getBoundingClientRect().width > 0
               && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
-              && !(action.kind === 'preferences' && new RegExp(manageConsent, 'i').test(label)
+              && !(action.kind === 'preferences' && isManageConsent
                 && (element.closest('form, [role="form"]')
                   || shadow.host.closest('form, [role="form"]')))
               && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
