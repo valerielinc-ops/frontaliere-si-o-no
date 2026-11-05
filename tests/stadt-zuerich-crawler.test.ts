@@ -360,6 +360,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     mockPortal({ indexOk: false, currentOfficialHtml: CURRENT_OFFICIAL_FIXTURE });
     const jobs = await fetchAllStadtZuerichJobs({
       fetchCurrentOfficialIndexPage: async () => '<a href="/jobs/de/gsz-51726.html">Gärtner*in</a>',
+      fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
     });
 
     expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
