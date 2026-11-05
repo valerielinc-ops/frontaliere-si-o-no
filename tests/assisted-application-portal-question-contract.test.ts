@@ -104,6 +104,45 @@ describe('portal candidate question contract', () => {
     });
   });
 
+  it('localizes canonical country codes and rejects a retired alias', async () => {
+    const [canonical] = await localizePortalQuestions([{
+      id: 'country-code',
+      question: 'Land',
+      applicationQuestion: 'Land',
+      options: ['DE'],
+      applicationOptions: ['DE'],
+      why: '',
+    }], {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    });
+    expect(canonical).toMatchObject({
+      options: ['Germania'],
+      applicationOptions: ['DE'],
+      optionMap: [{ candidate: 'Germania', application: 'DE' }],
+      localizationStatus: 'translated',
+    });
+
+    await expect(portalRequirementsForCandidate({
+      questions: [{
+        id: 'retired-country-code',
+        type: 'choice',
+        required: true,
+        question: 'Land',
+        applicationQuestion: 'Land',
+        options: ['DD'],
+        applicationOptions: ['DD'],
+        why: '',
+      }],
+      documents: [],
+    }, {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
+  });
+
   it('fails closed on an unrecognized German country option during a localization outage', async () => {
     await expect(portalRequirementsForCandidate({
       questions: [{

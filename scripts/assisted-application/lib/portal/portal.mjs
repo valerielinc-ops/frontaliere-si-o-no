@@ -2747,8 +2747,17 @@ function regionNameCatalogue(language) {
         byCode.set(code, label);
         if (ambiguousNames.has(key)) continue;
         if (byName.has(key) && byName.get(key) !== code) {
-          byName.delete(key);
-          ambiguousNames.add(key);
+          // ICU also exposes retired region aliases (for example DD for the
+          // former East Germany) with the current country's display name. Let
+          // the exact nationality catalogue choose the canonical country code
+          // when it recognizes that localized name; otherwise fail closed.
+          const currentCode = byName.get(key);
+          const canonicalCode = nationalityOf(label)?.code;
+          if (canonicalCode === code) byName.set(key, code);
+          else if (canonicalCode !== currentCode) {
+            byName.delete(key);
+            ambiguousNames.add(key);
+          }
         } else {
           byName.set(key, code);
         }
@@ -2770,7 +2779,12 @@ function localizedGermanRegionOption(option, language) {
   const target = regionNameCatalogue(language);
   if (!source || !target) return '';
   const code = text.toUpperCase();
-  if (/^[A-Z]{2}$/.test(code) && source.byCode.has(code)) return target.byCode.get(code) || '';
+  if (/^[A-Z]{2}$/.test(code) && source.byCode.has(code)) {
+    const sourceName = source.byCode.get(code) || '';
+    const canonicalCode = nationalityOf(sourceName)?.code;
+    if (canonicalCode && canonicalCode !== code) return '';
+    return target.byCode.get(code) || '';
+  }
   const regionCode = source.byName.get(normalizedQuestionText(text));
   return regionCode ? target.byCode.get(regionCode) || '' : '';
 }
