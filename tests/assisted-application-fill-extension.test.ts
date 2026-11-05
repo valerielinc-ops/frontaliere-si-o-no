@@ -1733,12 +1733,13 @@ describe('fill extension: owner-approved application defaults', () => {
     expect((document.querySelector('input[name="title"]:checked') as HTMLInputElement).value).toBe('Signora');
   });
 
-  it('chooses the finite retention term over a future-opportunities option', () => {
+  it('chooses the shortest finite term over future storage and a later deletion', () => {
     const { document, F } = page(`<form>
       <label for="retention">How long may we retain your personal data?</label>
       <select id="retention">
         <option value="">Choose</option>
         <option value="future">Keep my data for future opportunities</option>
+        <option value="delete_2_years">Delete my data after 2 years</option>
         <option value="6_months">Keep my data for 6 months</option>
       </select>
     </form>`);

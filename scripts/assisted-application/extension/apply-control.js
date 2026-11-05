@@ -233,14 +233,9 @@ function minimumDataRetentionOption(options, question = '') {
   const yearUnit = /\b(years?|anni?|jahre?n?|ans?)\b/;
   const rank = option => {
     const value = option.value;
-    const deleteAfterCurrent = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/.test(value)
-      && /\b(?:after|dopo|nach|apres|current application|questa candidatura|procedura di candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
-    const currentOnly = /\b(?:only|solo|uniquement|nur)\b/.test(value)
-      && /\b(?:this application|current application|questa candidatura|candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
-    if (deleteAfterCurrent || currentOnly) return 0;
-
     const durationMatches = [...new Map([...value.matchAll(/\b(\d{1,3}(?:[.,]\d{1,2})?|one|uno|un|une|ein|eins|eine|two|due|zwei|deux|three|tre|drei|trois|four|quattro|vier|quatre|five|cinque|funf|fuenf|cinq|six|sei|sechs)\s*(days?|giorn[io]|tage?n?|jours?|weeks?|settimane?|wochen|semaines?|months?|mesi?|monate?n?|mois|years?|anni?|jahre?n?|ans?)\b/g)]
       .map(match => [`${match[1]} ${match[2]}`, match])).values()];
+    if (durationMatches.length > 1) return null;
     if (durationMatches.length === 1) {
       const [, amountText, unit] = durationMatches[0];
       const numbers = { one: 1, uno: 1, un: 1, une: 1, ein: 1, eins: 1, eine: 1, two: 2, due: 2, zwei: 2, deux: 2,
@@ -249,8 +244,14 @@ function minimumDataRetentionOption(options, question = '') {
       const amount = /^\d/.test(amountText) ? Number(amountText.replace(',', '.')) : numbers[amountText];
       const factor = durationUnit.test(unit) ? durationFactor.day : weekUnit.test(unit) ? durationFactor.week
         : monthUnit.test(unit) ? durationFactor.month : yearUnit.test(unit) ? durationFactor.year : 0;
-      if (Number.isFinite(amount) && amount >= 0 && factor) return amount * factor;
+      return Number.isFinite(amount) && amount >= 0 && factor ? amount * factor : null;
     }
+
+    const deletes = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/.test(value);
+    const followsCurrentApplication = /\b(?:after|dopo|nach|apres)\b.{0,80}\b(?:current application|this application|application process|questa candidatura|candidatura corrente|procedura di candidatura corrente|candidature en cours|bewerbung(?:sverfahren)?)\b/.test(value);
+    const currentOnly = /\b(?:only|solo|uniquement|nur)\b/.test(value)
+      && /\b(?:this application|current application|questa candidatura|candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
+    if ((deletes && followsCurrentApplication) || currentOnly) return 0;
 
     const futureStorage = isOptionalPurpose(option.purpose)
       && /\b(?:retain\w*|keep\w*|store\w*|memoriz\w*|conserv\w*|speicher\w*|aufbewahr\w*)\b/.test(value);

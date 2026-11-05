@@ -560,6 +560,10 @@ describe('application consent and minimum retention defaults', () => {
         { label: 'Keep my data for future opportunities', value: 'future' },
       ],
     })?.value).toBe('Keep my data for 6 months');
+    expect(operationalDefaultAnswer({
+      question: 'How long may we retain my personal data?', type: 'choice',
+      options: ['Delete my data after 2 years', 'Keep my data for 6 months'],
+    })?.value).toBe('Keep my data for 6 months');
     expect(operationalDefaultAnswer({ question: retentionQuestion, type: 'choice', options: [] })).toBeNull();
   });
 
