@@ -389,6 +389,35 @@ describe('portal runner self-correction', () => {
     expect(hasApplicationSurface(snapshot)).toBe(false);
   });
 
+  it('does not send a public Stadt Zürich job search to the agent as an application page', () => {
+    const snapshot = {
+      url: 'https://www.stadt-zuerich.ch/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs.html',
+      fields: [
+        { id: 'keywords', kind: 'text', inputType: 'text', label: 'Suche nach Stichwörtern', required: false },
+        { id: 'category-native', kind: 'select', label: 'Tätigkeitsbereich Keine Resultate gefunden für "100%"', required: false },
+        { id: 'category-widget', kind: 'combobox', label: 'Tätigkeitsbereich', required: false },
+        { id: 'management', kind: 'checkbox', label: 'nur Kaderstellen', required: false },
+        { id: 'employment-native', kind: 'select', label: 'Anstellung Keine Resultate gefunden für "100%"', required: false },
+        { id: 'employment-widget', kind: 'combobox', label: 'Anstellung', required: false },
+        { id: 'department-native', kind: 'select', label: 'Dienstabteilung Keine Resultate gefunden für "100%"', required: false },
+        { id: 'department-widget', kind: 'combobox', label: 'Dienstabteilung', required: false },
+        { id: 'workload', kind: 'select', label: 'Pensum', required: false },
+      ],
+      buttons: [
+        { text: 'Menü', chrome: true, disabled: false },
+        { text: 'Mein Konto', chrome: true, disabled: false },
+        { text: 'Zurücksetzen', disabled: false },
+        { text: 'Suche', disabled: false },
+        { text: 'Mehr anzeigen', disabled: false },
+        { text: 'Seite drucken', disabled: false },
+      ],
+    };
+
+    expect(hasApplicationSurface(snapshot)).toBe(false);
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, snapshot.url, { snapshot }))
+      .toMatchObject({ submit: null, next: null });
+  });
+
   it('does not treat a public page heading as ownership of its gallery pager', () => {
     const buttons = ['Vorheriges', 'Nächstes', 'Öffne Bild in Grossansicht', 'Seite drucken']
       .map(text => ({

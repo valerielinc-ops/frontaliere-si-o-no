@@ -652,6 +652,15 @@ const GALLERY_VIEW_RE = /(?:grossansicht|full[-\s]?size|large view|schermo inter
 const GALLERY_PRINT_RE = /(?:seite drucken|print page|stampa pagina|imprimer la page)/i;
 const GENERIC_ATTACHMENT_RE = /(?:eine oder mehrere dateien auswählen|select (?:one or more )?files?|choose (?:one or more )?files?|file upload|attachment|anhang|allegato|pi[èe]ce jointe)/iu;
 const APPLICATION_CONTROL_RE = /(?:application|bewerb(?:ung)?|candidat(?:ure|ura)?|postul|resume|r[ée]sum[ée]|lebenslauf|\bcv\b|curriculum(?:\s+vitae)?|anschreiben|cover\s+letter|work\s+permit|salary|starting\s+date|notice\s+period|workload|motivation)/iu;
+const PUBLIC_JOB_KEYWORD_RE = /(?:keyword|suchbegriff|stichw[öo]rter|search\s+(?:for\s+)?jobs?|suche\s+nach)/iu;
+const PUBLIC_JOB_FILTER_PATTERNS = [
+  ['category', /(?:tätigkeitsbereich|job\s+categor(?:y|ies)|job\s+type|category|bereich)/iu],
+  ['employment', /(?:anstellung|employment(?:\s+type)?|contract\s+type|beschäftigungsart)/iu],
+  ['department', /(?:dienstabteilung|department|organizational\s+unit|organisationseinheit)/iu],
+  ['workload', /(?:pensum|workload|beschäftigungsumfang|arbeitspensum)/iu],
+];
+const PUBLIC_JOB_ACTION_RE = /^(?:search|suche|reset|zurücksetzen|mehr\s+anzeigen|show\s+more|load\s+more|seite\s+drucken|print\s+page)\b/iu;
+const APPLICATION_IDENTITY_FIELD_RE = /(?:e-?mail|vorname|nachname|first\s+name|last\s+name|telefon|phone|adresse|address|geburts|birth|nationality|staatsangehörigkeit|bewilligung|permit|lebenslauf|resume|\bcv\b|anschreiben|cover\s+letter|motivation)/iu;
 
 const isGalleryPagingButton = (button, pattern) => !button?.chrome && pattern.test(String(button.text || ''));
 const isGalleryNavigationButton = (button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE)
@@ -733,8 +742,49 @@ function isNonApplicationGallerySurface(snapshot = {}) {
   return fields.length === 0 || fields.every(isGenericOptionalAttachment);
 }
 
+/**
+ * Public job indexes are forms too, but their controls search and filter
+ * vacancies rather than answer an application. Stadt Zürich's branded
+ * SuccessFactors page exposes both a native select and a combobox for each
+ * filter, plus «Suche», «Zurücksetzen», «Mehr anzeigen» and «Seite drucken».
+ * Require the whole search-shaped fingerprint and no candidate/application
+ * evidence so a real application question about a department or workload is
+ * never discarded on a single label.
+ */
+function isNonApplicationJobSearchSurface(snapshot = {}) {
+  const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const fieldText = field => [field?.label, field?.name, field?.id, field?.context, field?.section]
+    .filter(Boolean).join(' ');
+  const keywordField = fields.some(field => PUBLIC_JOB_KEYWORD_RE.test(fieldText(field)));
+  const filterKinds = new Set();
+  for (const field of fields) {
+    const text = fieldText(field);
+    for (const [kind, pattern] of PUBLIC_JOB_FILTER_PATTERNS) {
+      if (pattern.test(text)) filterKinds.add(kind);
+    }
+  }
+  const publicActions = buttons
+    .filter(button => !button?.chrome && !button?.disabled)
+    .map(button => String(button.text || '').replace(/\s+/g, ' ').trim())
+    .filter(text => PUBLIC_JOB_ACTION_RE.test(text));
+  const hasSearchControls = publicActions.some(text => /^(?:search|suche|reset|zurücksetzen)\b/iu.test(text));
+  const hasResultsControls = publicActions.some(text => /^(?:mehr\s+anzeigen|show\s+more|load\s+more|seite\s+drucken|print\s+page)\b/iu.test(text));
+  const hasCandidateField = fields.some(field => field.kind === 'file'
+    || ['email', 'password'].includes(String(field.inputType || '').toLowerCase())
+    || APPLICATION_IDENTITY_FIELD_RE.test(fieldText(field)));
+  const hasApplicationButton = buttons.some(button => !button?.chrome && !button?.disabled
+    && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || ''))));
+  return keywordField && filterKinds.size >= 2 && hasSearchControls && hasResultsControls
+    && !hasCandidateField && !hasApplicationButton;
+}
+
+function isNonApplicationSurface(snapshot = {}) {
+  return isNonApplicationGallerySurface(snapshot) || isNonApplicationJobSearchSurface(snapshot);
+}
+
 function hasApplicationForm(snapshot) {
-  if (isNonApplicationGallerySurface(snapshot)) return false;
+  if (isNonApplicationSurface(snapshot)) return false;
   const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
   const kinds = fields.map((field) => field.kind);
   const textish = fields.filter((field) => field.kind === 'text' || field.kind === 'textarea').length;
@@ -749,7 +799,7 @@ function hasApplicationForm(snapshot) {
  * buttons are still actionable and must reach the agentic fallback.
  */
 export function hasApplicationSurface(snapshot) {
-  if (isNonApplicationGallerySurface(snapshot)) return false;
+  if (isNonApplicationSurface(snapshot)) return false;
   return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
 }
 
@@ -4435,15 +4485,15 @@ export function pageControls(buttons, known, url, context = null) {
   }
   const here = anonymizePath(url);
   const gallerySnapshot = { buttons, fields: context?.snapshot?.fields };
-  const gallerySurface = isNonApplicationGallerySurface(gallerySnapshot);
+  const nonApplicationSurface = isNonApplicationSurface(gallerySnapshot);
   const galleryButtons = galleryNavigationButtons(buttons);
-  const applicationButtons = galleryButtons.size
+  const applicationButtons = nonApplicationSurface ? [] : galleryButtons.size
     ? buttons.filter((button) => !galleryButtons.has(portalControlIdentity(button)))
     : buttons;
-  const submit = gallerySurface ? null : findButton(applicationButtons, SUBMIT_RE);
-  const usualNext = gallerySurface ? null : findButton(applicationButtons, NEXT_RE);
-  const taughtNext = gallerySurface || submit || usualNext ? null : learnedButton(applicationButtons, labelsAt(known.nextButtons, here));
-  const learnedSubmit = gallerySurface ? null : learnedButton(applicationButtons, labelsAt(known.finalButtons, here));
+  const submit = nonApplicationSurface ? null : findButton(applicationButtons, SUBMIT_RE);
+  const usualNext = nonApplicationSurface ? null : findButton(applicationButtons, NEXT_RE);
+  const taughtNext = nonApplicationSurface || submit || usualNext ? null : learnedButton(applicationButtons, labelsAt(known.nextButtons, here));
+  const learnedSubmit = nonApplicationSurface ? null : learnedButton(applicationButtons, labelsAt(known.finalButtons, here));
   return {
     submit: submit || (usualNext || taughtNext ? null : learnedSubmit),
     next: usualNext || taughtNext,
