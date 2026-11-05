@@ -6612,8 +6612,9 @@ export async function submitViaPortal(ctx) {
           for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {
             await page.waitForTimeout(500);
             const now = await extractFields(page, NAVIGATION).catch(() => null);
-            redrawn = Boolean(now) && now.fields.length > 0
-              && questionSurfaceSignature(now) !== questionSurfaceSignature(snapshot);
+            const comparableNow = now ? await snapshotWithPortalOptions(now) : null;
+            redrawn = Boolean(comparableNow) && comparableNow.fields.length > 0
+              && questionSurfaceSignature(comparableNow) !== questionSurfaceSignature(snapshot);
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
