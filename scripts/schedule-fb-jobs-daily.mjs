@@ -713,7 +713,7 @@ export async function run(opts = {}) {
   log('🗓️', `FB jobs daily scheduler — volume=${volume}, dry=${dryRun}`);
 
   // 1. Load jobs + ledger
-  const jobs = loadJobs(repoRoot, log);
+  const jobs = reconcileOnly ? [] : loadJobs(repoRoot, log);
   const ledger = loadPosted(repoRoot);
   const scheduledQueue = !dryRun && pageId && token && typeof fetchImpl === 'function'
     ? await fetchScheduledPosts({ pageId, token, fetchImpl, log })

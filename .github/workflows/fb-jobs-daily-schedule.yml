@@ -79,13 +79,14 @@ jobs:
       # restore the exact jobs.json produced from the current slice bytes.
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
+        if: github.event.inputs.reconcile_only != 'true'
         uses: ./.github/actions/assemble-jobs-cache-key
         with:
           args: --no-summaries
 
       - name: Restore assemble-jobs cache
         id: assemble_cache
-        if: steps.assemble_cache_key.outputs.key != ''
+        if: github.event.inputs.reconcile_only != 'true' && steps.assemble_cache_key.outputs.key != ''
         uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs
@@ -93,10 +94,11 @@ jobs:
 
       - name: Assemble jobs dataset
         id: assemble
+        if: github.event.inputs.reconcile_only != 'true'
         run: node scripts/assemble-jobs-dataset.mjs --no-summaries
 
       - name: Save assemble-jobs cache
-        if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        if: github.event.inputs.reconcile_only != 'true' && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
