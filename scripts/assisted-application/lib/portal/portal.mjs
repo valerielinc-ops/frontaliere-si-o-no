@@ -5419,7 +5419,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
         }
-        const applicationOptions = (field ? editableCombobox ? [] : field.options || [] : item.applicationOptions || item.options || [])
+        const applicationOptions = (field ? editableCombobox(field) ? [] : field.options || [] : item.applicationOptions || item.options || [])
           .filter(usableChoiceOption)
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
@@ -5429,7 +5429,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
         if (field) {
           if (item.forceType) type = item.forceType;
           else if (['select', 'radio', 'listbox'].includes(field.kind) || field.selectLike || field.nativeSelectId || applicationOptions.length) type = 'choice';
-          else if (editableCombobox) type = 'text';
+          else if (editableCombobox(field)) type = 'text';
           else if (field.kind === 'checkbox') type = 'yes_no';
           else if (field.kind === 'date' || field.inputType === 'date' || field.autocomplete === 'bday') type = 'date';
           else if (field.inputType === 'number') type = 'number';
