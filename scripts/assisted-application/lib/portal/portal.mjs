@@ -27,7 +27,7 @@ import '../../extension/apply-control.js';
  */
 
 import path from 'node:path';
-import { applicationReceipt, applicationStage, isApplicationRegionUnsupported } from './stages.mjs';
+import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
@@ -906,6 +906,103 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+function comparablePortalRoute(value, base = '') {
+  try {
+    const url = new URL(String(value || ''), base || undefined);
+    return {
+      origin: url.origin,
+      pathname: url.pathname.replace(/\/+$/, '') || '/',
+      search: url.search,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function samePortalRoute(one, other, base = '') {
+  const left = comparablePortalRoute(one, base);
+  const right = comparablePortalRoute(other, base);
+  return Boolean(left && right && left.origin === right.origin
+    && left.pathname === right.pathname && left.search === right.search);
+}
+
+const POSTING_ID_FIELDS = [
+  'postingId', 'postingKey', 'jobId', 'jobKey', 'requisitionId', 'requisitionKey', 'careerJobReqId',
+  'dataPostingId', 'dataJobId', 'dataRequisitionId', 'dataCareerJobReqId',
+];
+const POSTING_ID_MARKER_RE = /(?:^|[\s([{"'·|,;:/?&#])(?:career[_ -]?job[_ -]?req(?:uisition)?|job|posting|requisition|req)[\s_-]*(?:id|key)\s*(?:[:=#]|is)?\s*([a-z0-9][a-z0-9_-]{0,99})(?=$|[\s)\]}"'·|,;/?&#])/giu;
+
+function normalizedPostingIdentity(value) {
+  const marker = String(value ?? '').normalize('NFKC').trim();
+  return /^[a-z0-9_-]{1,100}$/i.test(marker) ? marker.toLowerCase() : '';
+}
+
+function uniquePostingIdentity(values) {
+  const markers = [...new Set(values.map(normalizedPostingIdentity).filter(Boolean))];
+  return markers.length === 1 ? markers[0] : '';
+}
+
+function postingIdentityMarkers(value) {
+  const text = String(value || '');
+  const markers = [];
+  for (const url of text.match(/https?:\/\/[^\s<>"')]+/giu) || []) {
+    const key = portalJobKey(url);
+    if (key) markers.push(key);
+  }
+  for (const match of text.matchAll(POSTING_ID_MARKER_RE)) markers.push(match[1]);
+  return markers;
+}
+
+function expectedPostingIdentity({ applyUrl = '', postingUrl = '', sourceProtocol = null, job = {} } = {}) {
+  return uniquePostingIdentity([
+    portalJobKey(postingUrl, sourceProtocol),
+    portalJobKey(applyUrl, sourceProtocol),
+    ...POSTING_ID_FIELDS.map((field) => job?.[field]),
+  ]);
+}
+
+function controlPostingIdentity(control) {
+  const direct = POSTING_ID_FIELDS.flatMap((field) => {
+    const value = control?.[field];
+    const explicit = normalizedPostingIdentity(value);
+    return explicit ? [explicit] : postingIdentityMarkers(value);
+  });
+  const context = [control?.section, control?.context].flatMap(postingIdentityMarkers);
+  return uniquePostingIdentity([...direct, ...context]);
+}
+
+function applicationEntryBelongsToPosting(control, { applyUrl = '', postingUrl = '', sourceProtocol = null, job = {} } = {}) {
+  const href = String(control?.href || '').trim();
+  if (href && [applyUrl, postingUrl].some((route) => samePortalRoute(href, route, postingUrl))) return true;
+  if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl })) return true;
+
+  // A posting can use a button with no URL (Yellowshark). Its nearest heading
+  // or explicit section must contain the selected role and a unique posting
+  // identity; a title alone can be shared by distinct neighbouring cards.
+  const localContext = [control?.section, control?.context].filter(Boolean).join(' ');
+  const expectedIdentity = expectedPostingIdentity({ applyUrl, postingUrl, sourceProtocol, job });
+  return Boolean(expectedIdentity && controlPostingIdentity(control) === expectedIdentity
+    && localContext && job?.title
+    && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
+}
+
+function applicationEntryControls(snapshot = {}, context = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ];
+  return controls.filter((control) => !control?.disabled && !control?.chrome
+    && startsApplication(control?.text || control?.label)
+    && applicationEntryBelongsToPosting(control, context));
+}
+
+// A posting may show an informational region notice and still expose its own
+// application entry. Keep the notice terminal only when no proved entry
+// control remains; an unrelated job button must not count as an escape hatch.
+function hasApplicationEntryControl(snapshot = {}, context = {}) {
+  return applicationEntryControls(snapshot, context).length > 0;
+}
+
 /**
  * A page with only the employer site's header/footer controls is not an
  * application form. Keeping this separate from hasApplicationForm matters:
@@ -1538,9 +1635,14 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return { page, snapshot };
     }
-    const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
-    const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
-    const link = manual || apply ? null : page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first();
+    const ownedEntries = applicationEntryControls(snapshot, stageContext);
+    const buttonEntries = ownedEntries.filter((control) => (snapshot.buttons || []).includes(control));
+    const manual = buttonEntries.find((button) => MANUAL_APPLY_RE.test(button.text || button.label || '')) || null;
+    const apply = manual ? null : buttonEntries[0] || null;
+    const linkEntry = manual || apply
+      ? null
+      : ownedEntries.find((control) => (snapshot.links || []).includes(control)) || null;
+    const link = linkEntry ? locatorFor(page, linkEntry) : null;
     const linkVisible = link
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
       : false;
@@ -5079,9 +5181,13 @@ export async function readPortalRequirements(ctx) {
     let page = await context.newPage();
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
-    let snapshot;
-    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
-      applyUrl: stageApplyUrl, postingUrl: ctx.postingUrl, job: ctx.job, postingEntry: verifiedPostingEntry,
+    let snapshot = await extractFields(page, NAVIGATION);
+    const opened = await openApplicationForm(context, page, snapshot, {
+      applyUrl: stageApplyUrl,
+      postingUrl: ctx.postingUrl,
+      sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
+      job: ctx.job,
+      postingEntry: verifiedPostingEntry,
     });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
@@ -5314,7 +5420,8 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    if (postingNamed && isApplicationRegionUnsupported(initialPageText)) {
+    if (postingNamed && isApplicationRegionUnsupported(initialPageText)
+      && !hasApplicationEntryControl(snapshot, { applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job })) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, {

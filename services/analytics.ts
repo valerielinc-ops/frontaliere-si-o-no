@@ -20,6 +20,7 @@
  * │ share │ Social share (WhatsApp, copy, etc.) │
  * │ search │ Site search query │
  * │ generate_lead │ Simulation completed (core KPI) │
+ * │ login │ Successful job-gate login │
  * │ exception │ Error/exception (fatal or non-fatal) │
  * │ file_download │ PDF/report download │
  * ├──────────────────────┼──────────────────────────────────────┤
@@ -42,6 +43,7 @@
  * │ decision_moment_next_action │ Explicit next useful action after completion │
  * │ job_qualified_session │ One qualified job-detail session │
  * │ job_apply_handoff │ External application destination hand-off │
+ * │ newsletter_subscribe │ Newsletter subscription action │
  * │ l2_useful_action │ One measurable main-conversion action per session │
  * ├──────────────────────┼──────────────────────────────────────┤
  * │ APP-SPECIFIC — Feature usage │
@@ -2575,6 +2577,15 @@ export const Analytics = {
    funnel: 'job_auth',
    ...safeDetails,
   });
+  // The historical funnel event is intentionally kept for existing reports,
+  // but the GA4 key-event contract needs the recommended `login` name. Keep
+  // its payload categorical: the event name is the conversion signal and the
+  // provider is the only useful parameter here.
+  if (action === 'auth_success') {
+   logFirebaseOnly('login', {
+    method: truncate(details?.method || 'unknown', 40),
+   });
+  }
   logFirebaseOnly('funnel_step', {
    step: action,
    funnel: 'job_auth',
@@ -2632,6 +2643,13 @@ export const Analytics = {
    // (empty object for every other CTA or when the experiment is off).
    ...jobGateNewsletterTags(context.sourceCta),
   });
+
+  // Preserve the historical multi-action `newsletter` event while emitting
+  // the dedicated GA4 key-event name for the actual subscribe action. The
+  // alias deliberately carries no email or free-form source fields: those
+  // already live on the historical event and are not needed by GA4's key
+  // event contract.
+  if (action === 'subscribe') logFirebaseOnly('newsletter_subscribe');
 
   // `source_channel`/`source_cta` were historically emitted as free-form
   // params, but they are not registered GA4 dimensions. Mirror the source
