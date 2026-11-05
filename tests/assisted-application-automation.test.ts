@@ -23,7 +23,7 @@ const {
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
 const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationFlow.js');
-const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
+const { autoRetryDelaysForFlow, portalAutoRetryAttemptsRemaining, portalRetryDueAt } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
@@ -1008,6 +1008,20 @@ describe('sweep', () => {
     });
     expect(store.read(ORDER_PATH)).toMatchObject({ automationState: 'submitting', automationDueAt: retryAt + RUN_WATCHDOG_MS });
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+  });
+
+  it('does not expose a scheduler due time after the portal retry budget is exhausted', () => {
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'],
+      portalAutoRetryAt: T0, portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length })).toBeNull();
+  });
+
+  it('fails closed for malformed persisted portal retry counts', () => {
+    for (const portalAutoRetryCount of ['   ', true, [], ['1']]) {
+      const flow = { state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: T0, portalAutoRetryCount };
+      expect(portalAutoRetryAttemptsRemaining(flow)).toBe(false);
+      expect(portalRetryDueAt(flow)).toBeNull();
+      expect(computeDueAt(flow)).toBeNull();
+    }
   });
 
   it('does not schedule legacy CAPTCHA provider failures for another automatic submit', async () => {
