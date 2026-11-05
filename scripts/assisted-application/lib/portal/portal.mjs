@@ -4587,6 +4587,10 @@ function missingCandidatePortalRequirements(fields, candidate) {
     ...(Array.isArray(field?.labels) ? field.labels : []),
     ...(Array.isArray(field?.options) ? field.options.map(option => typeof option === 'string' ? option : option?.label) : []),
   ].filter(Boolean).join(' ');
+  const fieldHasResidenceContext = (field) => explicitResidence([
+    field?.label, field?.ariaLabel, field?.description, field?.ariaDescription, field?.context, field?.section,
+    ...(Array.isArray(field?.labels) ? field.labels : []),
+  ].filter(Boolean).join(' '));
   const optionLabels = field => (Array.isArray(field?.options) ? field.options : [])
     .filter(option => option?.placeholder !== true)
     .map(option => String(typeof option === 'string' ? option : option?.label || '').trim())
@@ -4634,7 +4638,7 @@ function missingCandidatePortalRequirements(fields, candidate) {
       continue;
     }
 
-    if (role === 'country' && explicitResidence(field.label)
+    if (role === 'country' && fieldHasResidenceContext(field)
       && !residenceCountryPresent && !hasAnswer('portal_residence_country')) {
       add(field, 'portal_residence_country', 'In quale Paese risiedi?',
         'Il portale richiede il Paese di residenza per creare il profilo candidato.',

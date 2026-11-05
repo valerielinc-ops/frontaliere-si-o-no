@@ -446,6 +446,16 @@ it('asks for a missing residence country and reads it from a partial profile add
     applicationOptions: ['Schweiz', 'Italien'],
   })]);
 
+  const contextualCountry = { ...country, label: 'Country', context: 'Residence address' };
+  const contextual = portalRequirementsFromMissingRequired([contextualCountry], [], {
+    candidate: { identity: { address: {} }, profile: { address: {} }, answers: {} },
+  });
+  expect(contextual.questions).toEqual([expect.objectContaining({
+    id: 'portal_residence_country',
+    applicationQuestion: 'Country',
+    question: 'In quale Paese risiedi?',
+  })]);
+
   const genericCountry = { ...country, id: 'generic-country', label: 'Country' };
   expect(portalRequirementsFromMissingRequired([genericCountry], [], {
     candidate: { identity: { address: {} }, profile: { address: {} }, answers: {} },
