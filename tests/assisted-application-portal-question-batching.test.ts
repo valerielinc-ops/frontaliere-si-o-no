@@ -325,7 +325,7 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 }
 
 describe('assisted portal question batching', () => {
-  it('does not promote a prefilled current permit from the CV into agent answers', async () => {
+  it('does not promote a prefilled current permit into agent portal answers', async () => {
     const fixture = fakePage({ conditional: false });
     const { page, window } = fixture;
     window.document.querySelector('form')?.insertAdjacentHTML('beforeend', '<label for="permit">Which work authorization do you hold?</label><input id="permit" value="Permesso G">');
@@ -333,7 +333,7 @@ describe('assisted portal question batching', () => {
     const candidate = {
       identity: { email: 'candidate@example.test', address: { country: 'Italia' } },
       profile: { workPermit: 'Permesso G' },
-      answers: {},
+      answers: { work_permit: 'Permesso G' },
       portalQuestionsAnswered: [],
     };
     let agentCandidate: any = null;
@@ -362,6 +362,7 @@ describe('assisted portal question batching', () => {
     });
 
     expect(agentCandidate).not.toBeNull();
+    expect(agentCandidate.answers.work_permit).toBe('Permesso G');
     expect(agentCandidate.portalQuestionsAnswered).toEqual([]);
   });
 
