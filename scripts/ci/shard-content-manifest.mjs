@@ -18,9 +18,20 @@ const SECTION_BATCHES = Object.freeze({
 
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const SHA_RE = /^[0-9a-f]{40}$/u;
+const FILE_HASH_BUFFER = Buffer.allocUnsafe(1024 * 1024);
 
 function digestFile(file) {
-  return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+  const hash = crypto.createHash('sha256');
+  const fd = fs.openSync(file, 'r');
+  try {
+    let bytesRead;
+    while ((bytesRead = fs.readSync(fd, FILE_HASH_BUFFER, 0, FILE_HASH_BUFFER.length, null)) > 0) {
+      hash.update(FILE_HASH_BUFFER.subarray(0, bytesRead));
+    }
+    return hash.digest('hex');
+  } finally {
+    fs.closeSync(fd);
+  }
 }
 
 function walkHtml(root, prefix = '', rows = []) {
