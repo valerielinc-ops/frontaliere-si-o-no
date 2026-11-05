@@ -1177,7 +1177,10 @@ export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}
 }
 
 export function needsPortalOptionRead(snapshot = {}) {
-  return snapshot.fields?.some((field) => field.kind === 'listbox' || field.selectLike) || false;
+  return snapshot.fields?.some((field) => {
+    if (field.kind !== 'listbox' && !field.selectLike) return false;
+    return !Array.isArray(field.options) || field.options.length === 0;
+  }) || false;
 }
 
 /** A SuccessFactors page resumed between account creation and OTP submission. */
@@ -5962,8 +5965,20 @@ export async function submitViaPortal(ctx) {
       }
       return agent;
     };
-    const askCandidate = async (questions) => {
-      const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions, { candidate: ctx.candidate, candidateLocale: ctx.candidateLocale });
+    // Polling and control discovery deliberately use NAVIGATION, which does
+    // not open lazy listboxes. Restore that catalogue at the planning boundary
+    // so a readable SuccessFactors picklist is not downgraded to an unreadable
+    // question merely because the stable-surface poll omitted its options.
+    const snapshotWithPortalOptions = async (current) => {
+      if (!needsPortalOptionRead(current)) return current;
+      return await extractFields(page).catch(() => current);
+    };
+    const askCandidate = async (questions, current = snapshot) => {
+      const questionSnapshot = await snapshotWithPortalOptions(current);
+      const requirements = portalRequirementsFromMissingRequired(questionSnapshot.fields, questions, {
+        candidate: ctx.candidate,
+        candidateLocale: ctx.candidateLocale,
+      });
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
       let request;
       try {
@@ -6398,6 +6413,7 @@ export async function submitViaPortal(ctx) {
             continue;
           }
           if (stable.status !== 'stable') return await handoff('portal_needs_candidate');
+          after = await snapshotWithPortalOptions(after);
           if (questionSurfaceSignature(after) !== questionSurfaceSignature(snapshot)) {
             const redrawCount = redraws.get(redrawKey) || 0;
             if (redrawCount >= MAX_REDRAWS_PER_PAGE) return await handoff('portal_needs_candidate');
@@ -6416,7 +6432,7 @@ export async function submitViaPortal(ctx) {
               unclearQuestions = candidateQuestions;
               agentHint = 'unclear_fields';
             } else {
-              const request = await askCandidate(candidateQuestions);
+              const request = await askCandidate(candidateQuestions, snapshot);
               if (request) return request;
             }
           }
@@ -6448,14 +6464,14 @@ export async function submitViaPortal(ctx) {
         const agentUrl = page.url();
         const agent = await runAgent(after, agentHint);
         if (agent?.status === 'needs_candidate') {
-          const request = await askCandidate(agent.questions);
+          const request = await askCandidate(agent.questions, after);
           if (request) return request;
         }
         // Required fields left unanswered: the owner looks when the agent could
         // not answer them; without the agent, the planner's questions as before.
         if (unclearQuestions.length && agent?.status !== 'done') {
           if (!agent || agent.status === 'unavailable') {
-            const request = await askCandidate(unclearQuestions);
+            const request = await askCandidate(unclearQuestions, after);
             if (request) return request;
           } else return await handoff('portal_needs_candidate');
         }
@@ -6550,7 +6566,7 @@ export async function submitViaPortal(ctx) {
         if (stuckOnPage >= 2) {
           const agent = await runAgent(snapshot, 'refused');
           if (agent?.status === 'needs_candidate') {
-            const request = await askCandidate(agent.questions);
+            const request = await askCandidate(agent.questions, snapshot);
             if (request) return request;
           }
           if (agent?.status === 'done') snapshot = await extractFields(page);
@@ -6602,7 +6618,7 @@ export async function submitViaPortal(ctx) {
         const repairUrl = page.url();
         const repair = await runAgent(after, 'required_fields_unfilled');
         if (repair?.status === 'needs_candidate') {
-          const request = await askCandidate(repair.questions);
+          const request = await askCandidate(repair.questions, after);
           if (request) return request;
         }
         if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
