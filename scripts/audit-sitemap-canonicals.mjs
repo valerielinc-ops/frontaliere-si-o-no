@@ -317,17 +317,21 @@ async function main() {
         // every such rename produced a hard red here while the sibling gate
         // reported the same page as correct in the same log. Shared ruleset,
         // one definition: scripts/lib/canonicalExemptions.mjs.
-        const sourcePath = new URL(loc).pathname;
-        const targetPath = new URL(canonical, loc).pathname;
-        const sourceSection = getJobBoardSectionPrefix(sourcePath);
-        const isJobConsolidationCandidate = Boolean(sourceSection)
-          && sourceSection === getJobBoardSectionPrefix(targetPath);
+        let isJobConsolidationCandidate = false;
+        try {
+          const sourcePath = new URL(loc).pathname;
+          const targetPath = new URL(canonical, loc).pathname;
+          const sourceSection = getJobBoardSectionPrefix(sourcePath);
+          isJobConsolidationCandidate = Boolean(sourceSection)
+            && sourceSection === getJobBoardSectionPrefix(targetPath);
+        } catch { /* invalid sitemap/canonical URLs remain ordinary mismatches */ }
         let classificationHtml = html;
         let canonicalHtml = '';
         if (isJobConsolidationCandidate) {
           // JobPosting identity can live after </head>. Pay for full reads only
           // on same-section job canonical mismatches, not across the sitemap.
-          classificationHtml = readFileSync(htmlPath, 'utf8');
+          try { classificationHtml = readFileSync(htmlPath, 'utf8'); }
+          catch { /* fail closed with the head slice already read */ }
           canonicalHtml = readSameOriginCanonicalHtml(loc, canonical);
         }
         const exemption = classifyCanonicalMismatch({
