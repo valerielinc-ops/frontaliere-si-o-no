@@ -552,6 +552,7 @@ describe('assisted portal question batching', () => {
       'Which work authorization do you hold? *',
       'When could you start? *',
     ]);
+    expect(result.questions[1].question).toBe('Are you a Swiss citizen, or do you hold a Swiss permit valid today?');
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
     expect(accountEvents).toEqual([]);
   });
@@ -704,7 +705,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, swissStatus: { code: 'permit_g' }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -746,7 +747,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, swissStatus: { code: 'permit_g' }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -791,7 +792,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, swissStatus: { code: 'permit_g' }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -837,7 +838,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, swissStatus: { code: 'permit_g' }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: {},
@@ -925,7 +926,7 @@ describe('assisted portal question batching', () => {
     expect(elementValue(window, '#country')).toBe('IT');
     expect(result.event.questions.map((question: any) => question.question)).toEqual([
       'Why are you interested in this role? *',
-      'Which work authorization do you hold? *',
+      'Are you a Swiss citizen, or do you hold a Swiss permit valid today?',
       'When could you start? *',
     ]);
     expect(plannerCalls.some((fields) => fields.includes('availability'))).toBe(true);
