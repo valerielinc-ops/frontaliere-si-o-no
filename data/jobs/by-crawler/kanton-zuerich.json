@@ -3010,12 +3010,12 @@
     },
     {
       "id": "kanton-zuerich-8b3575044b5a",
-      "slug": "sozialarbeiter-in-kanton-zuerich-winterthur",
+      "slug": "assistente-sociale-kantonale-verwaltung-zurich-winterthur",
       "slugByLocale": {
         "de": "sozialarbeiter-in-kanton-zuerich-winterthur",
-        "it": "sozialarbeiter-in-kanton-zuerich-winterthur",
-        "en": "sozialarbeiter-in-kanton-zuerich-winterthur",
-        "fr": "sozialarbeiter-in-kanton-zuerich-winterthur"
+        "it": "assistente-sociale-kantonale-verwaltung-zurich-winterthur",
+        "en": "social-worker-kantonale-verwaltung-zurich-winterthur",
+        "fr": "assistant-e-social-e-kantonale-verwaltung-zurich-winterthur"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3082,7 +3082,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:42:37.101Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:42:37.101Z"
+      "firstSeenAt": "2026-11-05T09:42:37.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-kanton-zuerich-winterthur"
+        ],
+        "en": [
+          "sozialarbeiter-in-kanton-zuerich-winterthur"
+        ],
+        "fr": [
+          "sozialarbeiter-in-kanton-zuerich-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-kanton-zuerich-winterthur"
+      ]
     },
     {
       "id": "kanton-zuerich-dca8929dc472",
@@ -3357,12 +3371,12 @@
     },
     {
       "id": "kanton-zuerich-88ee7f2d52d7",
-      "slug": "steuerrevisor-in-kanton-zuerich-zurich",
+      "slug": "revisore-trice-fiscale-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "steuerrevisor-in-kanton-zuerich-zurich",
-        "it": "steuerrevisor-in-kanton-zuerich-zurich",
-        "en": "steuerrevisor-in-kanton-zuerich-zurich",
-        "fr": "steuerrevisor-in-kanton-zuerich-zurich"
+        "it": "revisore-trice-fiscale-kantonale-verwaltung-zurich-zurich",
+        "en": "tax-auditor-kantonale-verwaltung-zurich-zurich",
+        "fr": "reviseur-euse-fiscal-e-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3429,7 +3443,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:42:31.805Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:42:31.805Z"
+      "firstSeenAt": "2026-11-05T09:42:31.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerrevisor-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "steuerrevisor-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "steuerrevisor-in-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "steuerrevisor-in-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-2c496622d692",

@@ -592,12 +592,12 @@
     },
     {
       "id": "schulthess-klinik-2dd110175bd1",
-      "slug": "koordinatorin-koordinator-tagdienste-reinigung-schulthess-klinik-zurich",
+      "slug": "coordinatore-coordinatore-servizi-di-pulizia-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "koordinatorin-koordinator-tagdienste-reinigung-schulthess-klinik-zurich",
-        "it": "koordinatorin-koordinator-tagdienste-reinigung-schulthess-klinik-zurich",
-        "en": "koordinatorin-koordinator-tagdienste-reinigung-schulthess-klinik-zurich",
-        "fr": "koordinatorin-koordinator-tagdienste-reinigung-schulthess-klinik-zurich"
+        "it": "coordinatore-coordinatore-servizi-di-pulizia-schulthess-klinik-zurich",
+        "en": "coordinator-coordinator-day-services-cleaning-schulthess-klinik-zurich",
+        "fr": "coordonnateur-coordonnateur-services-de-jour-nettoyage-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -659,7 +659,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:16:35.266Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:16:35.266Z"
+      "firstSeenAt": "2026-11-05T09:16:35.266Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinatorin-koordinator-tagdienste-reinigung-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "koordinatorin-koordinator-tagdienste-reinigung-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "koordinatorin-koordinator-tagdienste-reinigung-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "koordinatorin-koordinator-tagdienste-reinigung-schulthess-klinik-zurich"
+      ]
     },
     {
       "id": "schulthess-klinik-eeade1126952",

@@ -4779,12 +4779,12 @@
     },
     {
       "id": "unibe-49835e9e9983",
-      "slug": "research-assistant-extended-reality-for-space-emergency-medicine-unibe-bern",
+      "slug": "assistente-di-ricerca-per-la-realta-estesa-nella-medicina-d-emergenza-spaziale-universitat-bern-bern",
       "slugByLocale": {
         "en": "research-assistant-extended-reality-for-space-emergency-medicine-unibe-bern",
-        "it": "research-assistant-extended-reality-for-space-emergency-medicine-unibe-bern",
+        "it": "assistente-di-ricerca-per-la-realta-estesa-nella-medicina-d-emergenza-spaziale-universitat-bern-bern",
         "de": "research-assistant-extended-reality-for-space-emergency-medicine-unibe-bern",
-        "fr": "research-assistant-extended-reality-for-space-emergency-medicine-unibe-bern"
+        "fr": "assistant-de-recherche-en-realite-etendue-pour-la-medecine-d-urgence-spatiale-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4847,7 +4847,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:35:45.660Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:35:45.660Z"
+      "firstSeenAt": "2026-11-05T09:35:45.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-assistant-extended-reality-for-space-emergency-medicine-unibe-bern"
+        ],
+        "fr": [
+          "research-assistant-extended-reality-for-space-emergency-medicine-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "research-assistant-extended-reality-for-space-emergency-medicine-unibe-bern"
+      ]
     },
     {
       "id": "unibe-89f8c4305206",

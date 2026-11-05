@@ -4163,12 +4163,12 @@
     },
     {
       "id": "spital-emmental-67702e869fa4",
-      "slug": "pflegeassistent-in-a-spital-emmental-burgdorf",
+      "slug": "assistente-di-cura-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "pflegeassistent-in-a-spital-emmental-burgdorf",
-        "it": "pflegeassistent-in-a-spital-emmental-burgdorf",
-        "en": "pflegeassistent-in-a-spital-emmental-burgdorf",
-        "fr": "pflegeassistent-in-a-spital-emmental-burgdorf"
+        "it": "assistente-di-cura-a-spital-emmental-burgdorf",
+        "en": "nursing-assistant-a-spital-emmental-burgdorf",
+        "fr": "assistant-e-en-soins-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4237,16 +4237,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:15:44.240Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:15:44.240Z"
+      "firstSeenAt": "2026-11-05T09:15:44.240Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeassistent-in-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "pflegeassistent-in-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "pflegeassistent-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeassistent-in-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-98c9c269078d",
-      "slug": "medizinische-n-praxisassistentin-praxisassistenten-a-mit-entwicklungsmoglichkeit-zur",
+      "slug": "assistente-di-studio-medico-a-con-possibilita-di-sviluppo-professionale-come-mpa-responsabile-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistentin-praxisassistenten-a-mit-entwicklungsmoglichkeit-zur",
-        "it": "medizinische-n-praxisassistentin-praxisassistenten-a-mit-entwicklungsmoglichkeit-zur",
-        "en": "medizinische-n-praxisassistentin-praxisassistenten-a-mit-entwicklungsmoglichkeit-zur",
-        "fr": "medizinische-n-praxisassistentin-praxisassistenten-a-mit-entwicklungsmoglichkeit-zur"
+        "it": "assistente-di-studio-medico-a-con-possibilita-di-sviluppo-professionale-come-mpa-responsabile-spital-emmental-burgdorf",
+        "en": "medical-n-practice-assistant-practice-assistant-a-with-development-opportunity-to-lead-mpa-spital-emmental-burgdorf",
+        "fr": "medecin-n-assistant-de-pratique-assistant-de-pratique-a-avec-possibilite-de-developpement-pour-diriger-mpa-spital"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4315,16 +4329,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:15:43.221Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:15:43.221Z"
+      "firstSeenAt": "2026-11-05T09:15:43.221Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-n-praxisassistentin-praxisassistenten-a-mit-entwicklungsmoglichkeit-zur"
+        ],
+        "en": [
+          "medizinische-n-praxisassistentin-praxisassistenten-a-mit-entwicklungsmoglichkeit-zur"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistentin-praxisassistenten-a-mit-entwicklungsmoglichkeit-zur"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-n-praxisassistentin-praxisassistenten-a-mit-entwicklungsmoglichkeit-zur"
+      ]
     },
     {
       "id": "spital-emmental-867f0e395670",
-      "slug": "medizinische-n-praxisassistent-in-o-fachperson-gesundheit-a-spital-emmental-burgdorf",
+      "slug": "assistente-di-studio-medico-o-operatore-trice-sociosanitario-a-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "it": "medizinische-n-praxisassistent-in-o-fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "en": "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "fr": "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf"
+        "it": "assistente-di-studio-medico-o-operatore-trice-sociosanitario-a-a-spital-emmental-burgdorf",
+        "en": "medical-practice-assistant-or-healthcare-professional-a-spital-emmental-burgdorf",
+        "fr": "assistant-e-medical-e-ou-professionnel-le-de-sante-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4378,11 +4406,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf",
+          "medizinische-n-praxisassistent-in-o-fachperson-gesundheit-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
           "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf"
+        "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf",
+        "medizinische-n-praxisassistent-in-o-fachperson-gesundheit-a-spital-emmental-burgdorf"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4405,12 +4441,12 @@
     },
     {
       "id": "spital-emmental-69e8321fa93c",
-      "slug": "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
+      "slug": "professionista-della-salute-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "it": "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
-        "en": "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
-        "fr": "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
+        "it": "professionista-della-salute-a-spital-emmental-burgdorf",
+        "en": "health-professional-a-spital-emmental-burgdorf-1fb737",
+        "fr": "professionnels-de-la-sante-a-spital-emmental-burgdorf-1fb737"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4481,11 +4517,19 @@
       "firstSeenAt": "2026-09-07T15:03:11.251Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-a-spital-emmental-burgdorf"
+          "fachperson-gesundheit-a-spital-emmental-burgdorf",
+          "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
+        ],
+        "en": [
+          "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
+        ],
+        "fr": [
+          "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-a-spital-emmental-burgdorf"
+        "fachperson-gesundheit-a-spital-emmental-burgdorf",
+        "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
       ]
     },
     {

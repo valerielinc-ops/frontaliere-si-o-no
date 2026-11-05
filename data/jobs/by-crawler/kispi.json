@@ -5043,12 +5043,12 @@
     },
     {
       "id": "kispi-326b19cf0200",
-      "slug": "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-per-mind-12-monate-universitats-kinderspital-zurich",
+      "slug": "responsabile-della-gestione-delle-prestazioni-e-delle-tariffe-90-100-m-f-d-impiego-a-tempo-determinato-per-almeno-12",
       "slugByLocale": {
         "de": "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-fur-mind-12-monate",
-        "it": "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-per-mind-12-monate-universitats-kinderspital-zurich",
-        "en": "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-fur-mind-12-monate",
-        "fr": "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-fur-mind-12-monate"
+        "it": "responsabile-della-gestione-delle-prestazioni-e-delle-tariffe-90-100-m-f-d-impiego-a-tempo-determinato-per-almeno-12",
+        "en": "head-of-service-management-tariffs-90-100-m-f-d-temporary-employment-for-at-least-12-months-universitats-kinderspital",
+        "fr": "chef-de-la-gestion-des-services-et-des-tarifs-90-100-h-f-d-emploi-temporaire-pour-au-moins-12-mois-universitats"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5097,11 +5097,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-fur-mind-12-monate",
+          "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-per-mind-12-monate-universitats-kinderspital-zurich"
+        ],
+        "en": [
+          "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-fur-mind-12-monate"
+        ],
+        "fr": [
           "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-fur-mind-12-monate"
         ]
       },
       "previousSlugs": [
-        "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-fur-mind-12-monate"
+        "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-fur-mind-12-monate",
+        "leiter-leistungsmanagement-tarife-90-100-m-w-d-befristete-anstellung-per-mind-12-monate-universitats-kinderspital-zurich"
       ],
       "salaryMin": 124000,
       "salaryMax": 173000,

@@ -3751,12 +3751,12 @@
     },
     {
       "id": "concara-f246d3d7297a",
-      "slug": "dauernachtwache-collaboratore-trice-betreuung-e-pflege-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee",
+      "slug": "addetto-a-all-assistenza-e-alle-cure-per-turno-notturno-permanente-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee",
       "slugByLocale": {
         "de": "dauernachtwache-mitarbeiter-in-betreuung-und-pflege-srk-60-80-concara-munchenbuchsee",
-        "it": "dauernachtwache-collaboratore-trice-betreuung-e-pflege-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee",
-        "en": "dauernachtwache-mitarbeiter-in-betreuung-und-pflege-srk-60-80-concara-munchenbuchsee",
-        "fr": "dauernachtwache-mitarbeiter-in-betreuung-und-pflege-srk-60-80-concara-munchenbuchsee"
+        "it": "addetto-a-all-assistenza-e-alle-cure-per-turno-notturno-permanente-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee",
+        "en": "permanent-night-shift-employee-in-care-and-support-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee",
+        "fr": "veilleur-euse-de-nuit-permanent-e-collaborateur-rice-en-accompagnement-et-soins-srk-60-80-concara-domicil-spitex-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3805,11 +3805,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dauernachtwache-mitarbeiter-in-betreuung-und-pflege-srk-60-80-concara-munchenbuchsee",
+          "dauernachtwache-collaboratore-trice-betreuung-e-pflege-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee"
+        ],
+        "en": [
+          "dauernachtwache-mitarbeiter-in-betreuung-und-pflege-srk-60-80-concara-munchenbuchsee"
+        ],
+        "fr": [
           "dauernachtwache-mitarbeiter-in-betreuung-und-pflege-srk-60-80-concara-munchenbuchsee"
         ]
       },
       "previousSlugs": [
-        "dauernachtwache-mitarbeiter-in-betreuung-und-pflege-srk-60-80-concara-munchenbuchsee"
+        "dauernachtwache-mitarbeiter-in-betreuung-und-pflege-srk-60-80-concara-munchenbuchsee",
+        "dauernachtwache-collaboratore-trice-betreuung-e-pflege-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee"
       ],
       "salaryMin": 68000,
       "salaryMax": 95200,

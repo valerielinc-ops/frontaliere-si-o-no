@@ -340,12 +340,12 @@
     },
     {
       "id": "hermes-63e88d3db80f",
-      "slug": "stagiaire-hospitalite-animations-retail-h-f-hermes-ch",
+      "slug": "intern-hospitality-animations-retail-m-f-hermes-brugg-be-bern-switzerland",
       "slugByLocale": {
         "fr": "stagiaire-hospitalite-animations-retail-h-f-hermes-ch",
-        "it": "stagiaire-hospitalite-animations-retail-h-f-hermes-ch",
+        "it": "intern-hospitality-animations-retail-m-f-hermes-brugg-be-bern-switzerland",
         "en": "stagiaire-hospitalite-animations-retail-h-f-hermes-ch",
-        "de": "stagiaire-hospitalite-animations-retail-h-f-hermes-ch"
+        "de": "intern-hospitality-animations-retail-m-w-hermes-brugg-be-bern-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -407,7 +407,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:15:16.480Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:15:16.480Z"
+      "firstSeenAt": "2026-11-05T09:15:16.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-hospitalite-animations-retail-h-f-hermes-ch"
+        ],
+        "de": [
+          "stagiaire-hospitalite-animations-retail-h-f-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-hospitalite-animations-retail-h-f-hermes-ch"
+      ]
     }
   ]
 }

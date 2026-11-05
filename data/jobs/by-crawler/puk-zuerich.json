@@ -3425,12 +3425,12 @@
     },
     {
       "id": "puk-zuerich-294e90e14168",
-      "slug": "fahrerin-fahrer-per-den-kliententransport-psychiatrische-universitatsklinik-zurich-mannedorf",
+      "slug": "autista-autista-per-il-trasporto-dei-clienti-psychiatrische-universitatsklinik-zurich-mannedorf",
       "slugByLocale": {
         "de": "fahrerin-fahrer-fur-den-kliententransport-puk-zuerich-mannedorf",
-        "it": "fahrerin-fahrer-per-den-kliententransport-psychiatrische-universitatsklinik-zurich-mannedorf",
-        "en": "fahrerin-fahrer-fur-den-kliententransport-psychiatrische-universitatsklinik-zurich-mannedorf",
-        "fr": "fahrerin-fahrer-fur-den-kliententransport-psychiatrische-universitatsklinik-zurich-mannedorf"
+        "it": "autista-autista-per-il-trasporto-dei-clienti-psychiatrische-universitatsklinik-zurich-mannedorf",
+        "en": "driver-driver-for-client-transport-psychiatrische-universitatsklinik-zurich-mannedorf",
+        "fr": "conducteur-conducteur-pour-le-transport-client-psychiatrische-universitatsklinik-zurich-mannedorf"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -3482,11 +3482,20 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
-          "fahrerin-fahrer-fur-den-kliententransport-puk-zuerich-mannedorf"
+          "fahrerin-fahrer-fur-den-kliententransport-puk-zuerich-mannedorf",
+          "fahrerin-fahrer-per-den-kliententransport-psychiatrische-universitatsklinik-zurich-mannedorf"
+        ],
+        "en": [
+          "fahrerin-fahrer-fur-den-kliententransport-psychiatrische-universitatsklinik-zurich-mannedorf"
+        ],
+        "fr": [
+          "fahrerin-fahrer-fur-den-kliententransport-psychiatrische-universitatsklinik-zurich-mannedorf"
         ]
       },
       "previousSlugs": [
-        "fahrerin-fahrer-fur-den-kliententransport-puk-zuerich-mannedorf"
+        "fahrerin-fahrer-fur-den-kliententransport-puk-zuerich-mannedorf",
+        "fahrerin-fahrer-per-den-kliententransport-psychiatrische-universitatsklinik-zurich-mannedorf",
+        "fahrerin-fahrer-fur-den-kliententransport-psychiatrische-universitatsklinik-zurich-mannedorf"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3681,12 +3690,12 @@
     },
     {
       "id": "puk-zuerich-a3e1f82efb90",
-      "slug": "fachperson-pflege-sozialpadagogik-psychiatrische-universitatsklinik-zurich-mannedorf",
+      "slug": "assistenza-specialistica-educazione-sociale-psychiatrische-universitatsklinik-zurich-mannedorf",
       "slugByLocale": {
         "de": "fachperson-pflege-sozialpadagogik-puk-zuerich-mannedorf",
-        "it": "fachperson-pflege-sozialpadagogik-psychiatrische-universitatsklinik-zurich-mannedorf",
-        "en": "fachperson-pflege-sozialpadagogik-psychiatrische-universitatsklinik-zurich-mannedorf",
-        "fr": "fachperson-pflege-sozialpadagogik-psychiatrische-universitatsklinik-zurich-mannedorf"
+        "it": "assistenza-specialistica-educazione-sociale-psychiatrische-universitatsklinik-zurich-mannedorf",
+        "en": "specialist-care-social-education-psychiatrische-universitatsklinik-zurich-mannedorf",
+        "fr": "soins-specialises-education-sociale-psychiatrische-universitatsklinik-zurich-mannedorf"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -3737,11 +3746,19 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-pflege-sozialpadagogik-puk-zuerich-mannedorf"
+          "fachperson-pflege-sozialpadagogik-puk-zuerich-mannedorf",
+          "fachperson-pflege-sozialpadagogik-psychiatrische-universitatsklinik-zurich-mannedorf"
+        ],
+        "en": [
+          "fachperson-pflege-sozialpadagogik-psychiatrische-universitatsklinik-zurich-mannedorf"
+        ],
+        "fr": [
+          "fachperson-pflege-sozialpadagogik-psychiatrische-universitatsklinik-zurich-mannedorf"
         ]
       },
       "previousSlugs": [
-        "fachperson-pflege-sozialpadagogik-puk-zuerich-mannedorf"
+        "fachperson-pflege-sozialpadagogik-puk-zuerich-mannedorf",
+        "fachperson-pflege-sozialpadagogik-psychiatrische-universitatsklinik-zurich-mannedorf"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3764,12 +3781,12 @@
     },
     {
       "id": "puk-zuerich-c819869f95d1",
-      "slug": "fachperson-pferdegestutzte-therapie-psychiatrische-universitatsklinik-zurich-mannedorf",
+      "slug": "terapia-professionale-assistita-da-cavalli-psychiatrische-universitatsklinik-zurich-mannedorf",
       "slugByLocale": {
         "de": "fachperson-pferdegestutzte-therapie-puk-zuerich-mannedorf",
-        "it": "fachperson-pferdegestutzte-therapie-psychiatrische-universitatsklinik-zurich-mannedorf",
-        "en": "fachperson-pferdegestutzte-therapie-psychiatrische-universitatsklinik-zurich-mannedorf",
-        "fr": "fachperson-pferdegestutzte-therapie-psychiatrische-universitatsklinik-zurich-mannedorf"
+        "it": "terapia-professionale-assistita-da-cavalli-psychiatrische-universitatsklinik-zurich-mannedorf",
+        "en": "professional-horse-assisted-therapy-psychiatrische-universitatsklinik-zurich-mannedorf",
+        "fr": "therapie-professionnelle-assistee-par-cheval-psychiatrische-universitatsklinik-zurich-mannedorf"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -3820,11 +3837,19 @@
       "pensum": "40%",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-pferdegestutzte-therapie-puk-zuerich-mannedorf"
+          "fachperson-pferdegestutzte-therapie-puk-zuerich-mannedorf",
+          "fachperson-pferdegestutzte-therapie-psychiatrische-universitatsklinik-zurich-mannedorf"
+        ],
+        "en": [
+          "fachperson-pferdegestutzte-therapie-psychiatrische-universitatsklinik-zurich-mannedorf"
+        ],
+        "fr": [
+          "fachperson-pferdegestutzte-therapie-psychiatrische-universitatsklinik-zurich-mannedorf"
         ]
       },
       "previousSlugs": [
-        "fachperson-pferdegestutzte-therapie-puk-zuerich-mannedorf"
+        "fachperson-pferdegestutzte-therapie-puk-zuerich-mannedorf",
+        "fachperson-pferdegestutzte-therapie-psychiatrische-universitatsklinik-zurich-mannedorf"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

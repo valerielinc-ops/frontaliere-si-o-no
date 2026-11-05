@@ -6401,12 +6401,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-4bbdf009ee50",
-      "slug": "collaboratore-trice-in-kundenempfang-vz-vermogenszentrum-st-gallen",
+      "slug": "addetto-a-all-accoglienza-clienti-vz-vermogenszentrum-st-gallen-sankt-gallen",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenempfang-vz-vermoegenszentrum-ch",
-        "it": "collaboratore-trice-in-kundenempfang-vz-vermogenszentrum-st-gallen",
-        "en": "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-st-gallen",
-        "fr": "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-st-gallen"
+        "it": "addetto-a-all-accoglienza-clienti-vz-vermogenszentrum-st-gallen-sankt-gallen",
+        "en": "customer-reception-employee-vz-vermogenszentrum-st-gallen-sankt-gallen",
+        "fr": "collaborateur-trice-a-l-accueil-des-clients-vz-vermogenszentrum-st-gallen-sankt-gallen"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6466,11 +6466,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kundenempfang-vz-vermoegenszentrum-ch"
+          "mitarbeiter-in-kundenempfang-vz-vermoegenszentrum-ch",
+          "collaboratore-trice-in-kundenempfang-vz-vermogenszentrum-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-st-gallen"
+        ],
+        "fr": [
+          "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-st-gallen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenempfang-vz-vermoegenszentrum-ch"
+        "mitarbeiter-in-kundenempfang-vz-vermoegenszentrum-ch",
+        "collaboratore-trice-in-kundenempfang-vz-vermogenszentrum-st-gallen",
+        "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

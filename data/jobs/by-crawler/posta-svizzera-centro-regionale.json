@@ -3131,14 +3131,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
-          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-a5246be1c1",
-          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
+          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-a5246be1c1"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
-        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-a5246be1c1",
-        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
+        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-a5246be1c1"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-4eed4f5e5528",
@@ -14665,12 +14663,12 @@
         "en": "Letter carrier",
         "fr": "Distributeur·trice de lettres"
       },
-      "slug": "zusteller-in-briefe-post",
+      "slug": "addetto-a-al-recapito-di-lettere-die-schweizerische-post-zurich-neumunster-zurich-oerlikon",
       "slugByLocale": {
         "de": "zusteller-in-briefe-post",
-        "it": "zusteller-in-briefe-post",
-        "en": "zusteller-in-briefe-post",
-        "fr": "zusteller-in-briefe-post"
+        "it": "addetto-a-al-recapito-di-lettere-die-schweizerische-post-zurich-neumunster-zurich-oerlikon",
+        "en": "letter-carrier-die-schweizerische-post-zurich-neumunster-zurich-oerlikon",
+        "fr": "distributeur-trice-de-lettres-die-schweizerische-post-zurich-neumunster-zurich-oerlikon"
       },
       "sourceLang": "de",
       "department": "",
@@ -14709,7 +14707,21 @@
       "streetAddress": "Zürich Neumünster",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-05T09:37:26.834Z"
+      "firstSeenAt": "2026-11-05T09:37:26.834Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Kundendialog-EFZ-Kriens/73872-de_DE",
@@ -14813,12 +14825,12 @@
         "en": "Letter and parcel delivery worker",
         "fr": "Distributeur·rice de lettres et de colis"
       },
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gunten",
+      "slug": "addetto-a-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-gunten-wattenwil",
       "slugByLocale": {
         "de": "zusteller-in-briefe-und-pakete-post",
-        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gunten",
-        "en": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "it": "addetto-a-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-gunten-wattenwil",
+        "en": "letter-and-parcel-delivery-worker-die-schweizerische-post-gunten-wattenwil",
+        "fr": "distributeur-rice-de-lettres-et-de-colis-die-schweizerische-post-gunten-wattenwil"
       },
       "sourceLang": "de",
       "department": "",
@@ -14841,11 +14853,19 @@
       "id": "posta-svizzera-centro-regionale-c95e07bccdef",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gunten"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gunten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

@@ -1599,8 +1599,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-fage-oder-hf-fur-den-abenddienst-mit-einem-arbeitspensum-von-ca-20-40",
         "it": "pflegefachperson-fage-o-hf-per-den-abenddienst-con-einem-arbeitspensum-von-ca-20-40-spitex-mittleres-tosstal-turbenthal",
-        "en": "pflegefachperson-fage-o-hf-per-den-abenddienst-con-einem-arbeitspensum-von-ca-20-40-spitex-mittleres-tosstal-turbenthal",
-        "fr": "pflegefachperson-fage-o-hf-per-den-abenddienst-con-einem-arbeitspensum-von-ca-20-40-spitex-mittleres-tosstal-turbenthal"
+        "en": "nurse-fage-or-hf-for-evening-work-with-a-workload-of-approximately-30-50-spitex-mittleres-tosstal-turbenthal",
+        "fr": "infirmiere-fage-ou-hf-pour-le-travail-du-soir-avec-une-charge-de-travail-d-environ-30-50-spitex-mittleres-tosstal"
       },
       "company": "Spitex Mittleres Tösstal",
       "companyKey": "spitex-ch",
@@ -1753,9 +1753,9 @@
       "slug": "stv-teamleitung-pflegewohnung-dipl-pflegefachfrau-pflegefachmann-spitex-baretswil",
       "slugByLocale": {
         "de": "stv-teamleitung-pflegewohnung-spitex-ch-baretswil",
-        "it": "stv-teamleitung-pflegewohnung-dipl-pflegefachfrau-pflegefachmann-spitex-baretswil",
-        "en": "stv-teamleitung-pflegewohnung-dipl-pflegefachfrau-pflegefachmann-spitex-baretswil",
-        "fr": "stv-teamleitung-pflegewohnung-dipl-pflegefachfrau-pflegefachmann-spitex-baretswil"
+        "it": "vice-responsabile-del-team-dell-appartamento-di-cura-spitex-baretswil-baretswil",
+        "en": "deputy-team-leader-care-apartment-spitex-baretswil-baretswil",
+        "fr": "adjoint-e-a-la-direction-de-l-equipe-appartement-de-soins-spitex-baretswil-baretswil"
       },
       "company": "Spitex Bäretswil",
       "companyKey": "spitex-ch",
@@ -1804,24 +1804,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "stv-teamleitung-pflegewohnung-dipl-pflegefachfrau-pflegefachmann-spitex-ch-baretswil",
-          "vice-responsabile-del-team-dell-appartamento-di-cura-spitex-baretswil-baretswil"
+          "stv-teamleitung-pflegewohnung-dipl-pflegefachfrau-pflegefachmann-spitex-ch-baretswil"
         ],
         "de": [
           "stv-teamleitung-pflegewohnung-dipl-pflegefachfrau-pflegefachmann-spitex-ch-baretswil"
-        ],
-        "en": [
-          "deputy-team-leader-care-apartment-spitex-baretswil-baretswil"
-        ],
-        "fr": [
-          "adjoint-e-a-la-direction-de-l-equipe-appartement-de-soins-spitex-baretswil-baretswil"
         ]
       },
       "previousSlugs": [
-        "stv-teamleitung-pflegewohnung-dipl-pflegefachfrau-pflegefachmann-spitex-ch-baretswil",
-        "vice-responsabile-del-team-dell-appartamento-di-cura-spitex-baretswil-baretswil",
-        "deputy-team-leader-care-apartment-spitex-baretswil-baretswil",
-        "adjoint-e-a-la-direction-de-l-equipe-appartement-de-soins-spitex-baretswil-baretswil"
+        "stv-teamleitung-pflegewohnung-dipl-pflegefachfrau-pflegefachmann-spitex-ch-baretswil"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1927,12 +1917,12 @@
     },
     {
       "id": "spitex-ch-4fab8b474e4c",
-      "slug": "teamleitung-spitex-80-100-spitex-ch-mullheim",
+      "slug": "team-leader-spitex-80-100-spitex-region-mullheim-mullheim",
       "slugByLocale": {
         "de": "teamleitung-spitex-80-100-spitex-ch-mullheim",
-        "it": "teamleitung-spitex-80-100-spitex-ch-mullheim",
+        "it": "team-leader-spitex-80-100-spitex-region-mullheim-mullheim",
         "en": "teamleitung-spitex-80-100-spitex-ch-mullheim",
-        "fr": "teamleitung-spitex-80-100-spitex-ch-mullheim"
+        "fr": "chef-d-equipe-spitex-80-100-spitex-region-mullheim-mullheim"
       },
       "company": "Spitex Region Müllheim",
       "companyKey": "spitex-ch",
@@ -1995,7 +1985,18 @@
       "streetAddress": "Müllheim",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-05T09:16:15.675Z"
+      "firstSeenAt": "2026-11-05T09:16:15.675Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-spitex-80-100-spitex-ch-mullheim"
+        ],
+        "fr": [
+          "teamleitung-spitex-80-100-spitex-ch-mullheim"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-spitex-80-100-spitex-ch-mullheim"
+      ]
     },
     {
       "id": "spitex-ch-51956068f8fa",

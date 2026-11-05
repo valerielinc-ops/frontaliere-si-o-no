@@ -3278,12 +3278,12 @@
     },
     {
       "id": "spital-lachen-59108691a65b",
-      "slug": "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen",
+      "slug": "operatore-trice-sociosanitario-a-80-100-reparto-3-chirurgia-spital-lachen-lachen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen-lachen",
-        "it": "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen",
-        "en": "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen-lachen",
-        "fr": "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen-lachen"
+        "it": "operatore-trice-sociosanitario-a-80-100-reparto-3-chirurgia-spital-lachen-lachen",
+        "en": "healthcare-assistant-80-100-ward-3-surgery-spital-lachen-lachen",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-80-100-service-3-chirurgie-spital-lachen-lachen"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -3331,11 +3331,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen-lachen",
+          "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen-lachen"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen-lachen"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen-lachen"
+        "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen-lachen",
+        "fachfrau-mann-gesundheit-80-100-station-3-chirurgie-spital-lachen"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

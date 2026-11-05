@@ -1422,12 +1422,12 @@
     },
     {
       "id": "buehler-54fcdae4af26",
-      "slug": "complaint-officer-spezialist-in-beschwerdemanagement-buhler-group-uzwil",
+      "slug": "responsabile-reclami-specialista-nella-gestione-dei-reclami-buhler-group-uzwil",
       "slugByLocale": {
         "de": "complaint-officer-spezialist-in-beschwerdemanagement-buehler-uzwil",
-        "it": "complaint-officer-spezialist-in-beschwerdemanagement-buhler-group-uzwil",
-        "en": "complaint-officer-spezialist-in-beschwerdemanagement-buhler-group-uzwil",
-        "fr": "complaint-officer-spezialist-in-beschwerdemanagement-buhler-group-uzwil"
+        "it": "responsabile-reclami-specialista-nella-gestione-dei-reclami-buhler-group-uzwil",
+        "en": "complaint-officer-complaints-management-specialist-buhler-group-uzwil",
+        "fr": "responsable-des-reclamations-specialiste-de-la-gestion-des-reclamations-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1476,11 +1476,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "complaint-officer-spezialist-in-beschwerdemanagement-buehler-uzwil"
+          "complaint-officer-spezialist-in-beschwerdemanagement-buehler-uzwil",
+          "complaint-officer-spezialist-in-beschwerdemanagement-buhler-group-uzwil"
+        ],
+        "en": [
+          "complaint-officer-spezialist-in-beschwerdemanagement-buhler-group-uzwil"
+        ],
+        "fr": [
+          "complaint-officer-spezialist-in-beschwerdemanagement-buhler-group-uzwil"
         ]
       },
       "previousSlugs": [
-        "complaint-officer-spezialist-in-beschwerdemanagement-buehler-uzwil"
+        "complaint-officer-spezialist-in-beschwerdemanagement-buehler-uzwil",
+        "complaint-officer-spezialist-in-beschwerdemanagement-buhler-group-uzwil"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

@@ -28,9 +28,10 @@
  *     absent from the server HTML. The vacancy text normally comes from the
  *     city's official ad page with the same Referenz-Nr. (see
  *     OFFICIAL_HOST below). If that legacy index is unavailable, the parser
- *     opens the current detail pages with the shared Playwright runtime and
- *     parses the hydrated SuccessFactors body instead. A tile without a
- *     source-backed body is still not published (issue 5253).
+ *     first reads the server-rendered SuccessFactors detail for the same
+ *     Referenz-Nr., then falls back to the current branded detail pages with
+ *     the shared Playwright runtime. A tile without a source-backed body is
+ *     still not published (issue 5253).
  *
  * Structured-data safe defaults (Non-Negotiable #3 — source has none of
  * these per-job): every job gets the Stadthaus Zürich civic address
@@ -61,6 +62,7 @@ import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-gua
 import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
 import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
+import { fetchSuccessFactorsJobs } from './ats-clients/successfactors-client.mjs';
 import {
   closeAll,
   createBrowser,
@@ -132,6 +134,9 @@ const CURRENT_DETAIL_SELECTORS = [
 ].join(', ');
 const CURRENT_DETAIL_WAIT_MS = 10_000;
 const CURRENT_DETAIL_MIN_DELAY_MS = 500;
+const SUCCESSFACTORS_CAREER_ORIGIN = 'https://career2.successfactors.eu';
+const SUCCESSFACTORS_COMPANY = 'STZH';
+const SUCCESSFACTORS_JOB_PIPELINE = 'eGovSTZH/de/stzh/jobs';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -585,13 +590,74 @@ async function fetchCurrentPortalAdTexts(wantedRefs, delayMs, detailRows, {
   return byRef;
 }
 
+function successFactorsDetailUrl(ref) {
+  const url = new URL('/career', SUCCESSFACTORS_CAREER_ORIGIN);
+  url.searchParams.set('company', SUCCESSFACTORS_COMPANY);
+  url.searchParams.set('career_ns', 'job_application');
+  url.searchParams.set('career_job_req_id', String(ref));
+  url.searchParams.set('jobPipeline', SUCCESSFACTORS_JOB_PIPELINE);
+  return url.href;
+}
+
+/**
+ * Read the current source of truth behind the branded jobs2web detail page.
+ * The vanity `/job/{slug}/{id}/` route exposes the title and application
+ * chrome but no vacancy body; its CTA carries the same Referenz-Nr. into the
+ * server-rendered SuccessFactors career page. Keep the reference check here
+ * so a redirect or stale requisition cannot attribute a neighbouring body's
+ * text to the listing row.
+ */
+async function fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef) {
+  const byRef = new Map();
+  const refs = [...wantedRefs].filter((ref) => /^\d+$/.test(String(ref)));
+
+  for (const ref of refs) {
+    const pageUrl = successFactorsDetailUrl(ref);
+    try {
+      let yielded = false;
+      for await (const posting of fetchSuccessFactorsJobs(pageUrl, {
+        company: STADT_ZUERICH_COMPANY_NAME,
+        tenant: SUCCESSFACTORS_COMPANY,
+        userAgent: USER_AGENT,
+        minDelayMs: 0,
+        lang: 'de_DE',
+      })) {
+        yielded = true;
+        const actualRef = String(posting?.jobReqId || '');
+        if (actualRef !== String(ref)) {
+          console.warn(`  ⚠️ SuccessFactors reference mismatch: expected ${ref}, got ${actualRef || 'none'} — ${pageUrl}`);
+          break;
+        }
+        const description = normalizeDescriptionBullets(stripHtml(posting?.descriptionHtml || ''));
+        if (meetsSourceBodyFloor(description)) {
+          byRef.set(String(ref), description);
+          const publication = sourcePostingDateFields(posting?.datePosted || posting?.postedDate || '');
+          if (publication.postedDate) publicationByRef?.set(String(ref), publication);
+        } else {
+          console.warn(`  ⚠️ SuccessFactors detail below source floor: ${pageUrl}`);
+        }
+        break;
+      }
+      if (!yielded) {
+        console.warn(`  ⚠️ SuccessFactors detail yielded no posting: ${pageUrl}`);
+      }
+    } catch (err) {
+      console.warn(`  ⚠️ SuccessFactors detail failed: ${pageUrl} — ${err?.message || err}`);
+    }
+    await new Promise((resolve) => setTimeout(resolve, delayMs));
+  }
+
+  return byRef;
+}
+
 /**
  * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
  * Prefer the portal index, then fetch each listed page politely. If the index
- * route is unavailable, probe the deterministic official detail URL first and
- * then the current hydrated portal detail page. Each fallback is tied to the
- * tile's exact reference or validated detail URL, so a portal migration cannot
- * empty the board or attribute a neighbouring page to a tile.
+ * route is unavailable, read the server-rendered SuccessFactors detail by the
+ * tile's exact reference, then probe the deterministic official detail URL and
+ * finally the current hydrated portal detail page. Each fallback is tied to
+ * the tile's exact reference or validated detail URL, so a portal migration
+ * cannot empty the board or attribute a neighbouring page to a tile.
  *
  * Exported for `stadtspital-zuerich-job-parser.mjs`, whose tiles live on the
  * same portal: `unit` keeps only the ad pages whose Dienstabteilung (the
@@ -610,6 +676,47 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
   fetchCurrentDetailPage,
 } = {}) {
   const byRef = new Map();
+  const mergeByRef = (source) => {
+    for (const [ref, description] of source) {
+      const key = String(ref);
+      if (!byRef.has(key)) byRef.set(key, description);
+    }
+  };
+  const missingRefs = () => new Set(
+    [...wantedRefs]
+      .map((ref) => String(ref))
+      .filter((ref) => !byRef.has(ref)),
+  );
+  const recoverReferenceBoundFallbacks = async () => {
+    const successFactors = await fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef);
+    mergeByRef(successFactors);
+    let refsToFill = missingRefs();
+    if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
+
+    const direct = await fetchOfficialAdTextsByReference(refsToFill, delayMs, publicationByRef);
+    mergeByRef(direct);
+    refsToFill = missingRefs();
+    if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
+
+    if (Array.isArray(detailRows) && detailRows.length > 0) {
+      console.warn('  ⚠️ Official reference pages unavailable; using current portal detail pages.');
+      try {
+        const current = await fetchCurrentPortalAdTexts(
+          wantedRefs.size > 0 ? refsToFill : wantedRefs,
+          delayMs,
+          detailRows,
+          { publicationByRef, fetchCurrentDetailPage },
+        );
+        mergeByRef(current);
+      } catch (err) {
+        if (byRef.size === 0) throw err;
+        console.warn(`  ⚠️ Current portal detail fallback yielded no additional vacancy text — ${err?.message || err}`);
+      }
+      return byRef;
+    }
+
+    return byRef.size > 0 ? byRef : null;
+  };
   let index;
   try {
     const params = new URLSearchParams({
@@ -623,15 +730,8 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
     index = JSON.parse(await fetchPage(`${OFFICIAL_JOBSEARCH_URL}?${params}`));
   } catch (err) {
     console.warn(`  ⚠️ Official ad index unavailable; probing current detail URLs by reference — ${err?.message || err}`);
-    const direct = await fetchOfficialAdTextsByReference(wantedRefs, delayMs, publicationByRef);
-    if (direct.size > 0) return direct;
-    if (Array.isArray(detailRows) && detailRows.length > 0) {
-      console.warn('  ⚠️ Official reference pages unavailable; using current portal detail pages.');
-      return fetchCurrentPortalAdTexts(wantedRefs, delayMs, detailRows, {
-        publicationByRef,
-        fetchCurrentDetailPage,
-      });
-    }
+    const recovered = await recoverReferenceBoundFallbacks();
+    if (recovered) return recovered;
     throw new Error(`Stadt Zürich official ad index unavailable (${err?.message || err}): no posting has its vacancy text`);
   }
   const hrefs = [...new Set((Array.isArray(index?.results) ? index.results : [])
@@ -639,13 +739,10 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
     .map((r) => String(r?.href || ''))
     .filter((href) => /\/job-detailseite\.\d+\.html$/.test(href)))];
   if (hrefs.length === 0 && Array.isArray(detailRows) && detailRows.length > 0) {
-    const direct = await fetchOfficialAdTextsByReference(wantedRefs, delayMs, publicationByRef);
-    if (direct.size > 0) return direct;
-    console.warn('  ⚠️ Official ad index returned no usable pages; using current portal detail pages.');
-    return fetchCurrentPortalAdTexts(wantedRefs, delayMs, detailRows, {
-      publicationByRef,
-      fetchCurrentDetailPage,
-    });
+    console.warn('  ⚠️ Official ad index returned no usable pages; probing current detail URLs by reference.');
+    const recovered = await recoverReferenceBoundFallbacks();
+    if (recovered) return recovered;
+    throw new Error('Stadt Zürich official ad index returned no usable pages: no posting has its vacancy text');
   }
   console.log(`  📰 Official ad pages listed: ${hrefs.length}`);
   for (const href of hrefs) {

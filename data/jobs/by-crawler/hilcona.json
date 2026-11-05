@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hilcona-3f05dcfdb106",
-      "slug": "instandhaltungsplaner-instandhaltungsplanerin-bell-schweiz-ag-oensingen",
+      "slug": "pianificatore-di-manutenzione-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "instandhaltungsplaner-instandhaltungsplanerin-hilcona-oensingen",
-        "it": "instandhaltungsplaner-instandhaltungsplanerin-bell-schweiz-ag-oensingen",
-        "en": "instandhaltungsplaner-instandhaltungsplanerin-bell-schweiz-ag-oensingen",
-        "fr": "instandhaltungsplaner-instandhaltungsplanerin-bell-schweiz-ag-oensingen"
+        "it": "pianificatore-di-manutenzione-bell-schweiz-ag-oensingen",
+        "en": "maintenance-planner-bell-schweiz-ag-oensingen",
+        "fr": "planificateur-d-entretien-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -52,11 +52,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltungsplaner-instandhaltungsplanerin-hilcona-oensingen"
+          "instandhaltungsplaner-instandhaltungsplanerin-hilcona-oensingen",
+          "instandhaltungsplaner-instandhaltungsplanerin-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "instandhaltungsplaner-instandhaltungsplanerin-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "instandhaltungsplaner-instandhaltungsplanerin-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "instandhaltungsplaner-instandhaltungsplanerin-hilcona-oensingen"
+        "instandhaltungsplaner-instandhaltungsplanerin-hilcona-oensingen",
+        "instandhaltungsplaner-instandhaltungsplanerin-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,

@@ -699,12 +699,12 @@
     },
     {
       "id": "spital-oberengadin-f4d47414a8f2",
-      "slug": "logistiker-in-cfc-im-ops-spital-oberengadin-samedan",
+      "slug": "logista-efz-nell-ops-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "logistiker-in-efz-im-ops-spital-oberengadin-samedan",
-        "it": "logistiker-in-cfc-im-ops-spital-oberengadin-samedan",
-        "en": "logistiker-in-efz-im-ops-spital-oberengadin-samedan",
-        "fr": "logistiker-in-efz-im-ops-spital-oberengadin-samedan"
+        "it": "logista-efz-nell-ops-spital-oberengadin-samedan",
+        "en": "logistics-specialist-efz-in-ops-spital-oberengadin-samedan",
+        "fr": "logisticien-ne-cfc-aux-ops-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -756,11 +756,19 @@
       "pensum": "40 - 60%",
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-efz-im-ops-spital-oberengadin-samedan",
+          "logistiker-in-cfc-im-ops-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "logistiker-in-efz-im-ops-spital-oberengadin-samedan"
+        ],
+        "fr": [
           "logistiker-in-efz-im-ops-spital-oberengadin-samedan"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-efz-im-ops-spital-oberengadin-samedan"
+        "logistiker-in-efz-im-ops-spital-oberengadin-samedan",
+        "logistiker-in-cfc-im-ops-spital-oberengadin-samedan"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

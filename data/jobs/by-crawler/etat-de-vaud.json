@@ -3098,12 +3098,12 @@
     },
     {
       "id": "etat-de-vaud-6119",
-      "slug": "agent-e-d-accueil-et-de-surveillance-etat-de-vaud-lausanne",
+      "slug": "reception-e-supervisory-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "agent-e-d-accueil-et-de-surveillance-etat-de-vaud-lausanne",
-        "it": "agent-e-d-accueil-et-de-surveillance-etat-de-vaud-lausanne",
-        "en": "agent-e-d-accueil-et-de-surveillance-etat-de-vaud-lausanne",
-        "de": "agent-e-d-accueil-et-de-surveillance-etat-de-vaud-lausanne"
+        "it": "reception-e-supervisory-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "reception-and-supervisory-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "empfang-und-aufsichtsbeauftragter-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3165,16 +3165,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:36:40.589Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:36:40.589Z"
+      "firstSeenAt": "2026-11-05T09:36:40.589Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-d-accueil-et-de-surveillance-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "agent-e-d-accueil-et-de-surveillance-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "agent-e-d-accueil-et-de-surveillance-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-d-accueil-et-de-surveillance-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6114",
-      "slug": "chef-fe-de-projet-representant-e-des-utilisateurs-projet-agripoles-etat-de-vaud-morges",
+      "slug": "leader-del-progetto-che-rappresenta-gli-utenti-progetto-agripoles-etat-de-vaud-administration-cantonale-vaudoise-morges",
       "slugByLocale": {
         "fr": "chef-fe-de-projet-representant-e-des-utilisateurs-projet-agripoles-etat-de-vaud-morges",
-        "it": "chef-fe-de-projet-representant-e-des-utilisateurs-projet-agripoles-etat-de-vaud-morges",
-        "en": "chef-fe-de-projet-representant-e-des-utilisateurs-projet-agripoles-etat-de-vaud-morges",
-        "de": "chef-fe-de-projet-representant-e-des-utilisateurs-projet-agripoles-etat-de-vaud-morges"
+        "it": "leader-del-progetto-che-rappresenta-gli-utenti-progetto-agripoles-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "en": "project-leader-representing-users-agripoles-project-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "de": "projektleiter-fur-nutzer-projekt-agripoles-etat-de-vaud-administration-cantonale-vaudoise-morges"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3236,16 +3250,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:36:40.089Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:36:40.089Z"
+      "firstSeenAt": "2026-11-05T09:36:40.089Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-representant-e-des-utilisateurs-projet-agripoles-etat-de-vaud-morges"
+        ],
+        "en": [
+          "chef-fe-de-projet-representant-e-des-utilisateurs-projet-agripoles-etat-de-vaud-morges"
+        ],
+        "de": [
+          "chef-fe-de-projet-representant-e-des-utilisateurs-projet-agripoles-etat-de-vaud-morges"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-representant-e-des-utilisateurs-projet-agripoles-etat-de-vaud-morges"
+      ]
     },
     {
       "id": "etat-de-vaud-6110",
-      "slug": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+      "slug": "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-vevey",
       "slugByLocale": {
         "fr": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-vevey",
-        "it": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-vevey",
-        "en": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-vevey",
-        "de": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-vevey"
+        "it": "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+        "en": "specialist-file-manager-judicial-field-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+        "de": "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-vevey"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3293,11 +3321,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-vevey",
+          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-vevey"
+        ],
+        "en": [
+          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-vevey"
+        ],
+        "de": [
           "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-vevey"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-vevey"
+        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-vevey",
+        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-vevey"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

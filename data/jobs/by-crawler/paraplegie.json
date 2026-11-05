@@ -1974,10 +1974,10 @@
     },
     {
       "id": "paraplegie-cb6d14bacc11",
-      "slug": "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil",
+      "slug": "esperto-a-in-cure-infermieristiche-apn-specialista-clinico-a-in-cure-infermieristiche-schweizer-paraplegiker-gruppe",
       "slugByLocale": {
         "de": "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil",
-        "it": "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil",
+        "it": "esperto-a-in-cure-infermieristiche-apn-specialista-clinico-a-in-cure-infermieristiche-schweizer-paraplegiker-gruppe",
         "en": "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil",
         "fr": "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil"
       },
@@ -2042,16 +2042,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:19:28.379Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:19:28.379Z"
+      "firstSeenAt": "2026-11-05T09:19:28.379Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil"
+      ]
     },
     {
       "id": "paraplegie-9b5be667e73e",
-      "slug": "sachbearbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "addetto-a-alla-gestione-degli-ordini-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "sachbearbeiter-in-auftragsbearbeitung-paraplegie-nottwil",
-        "it": "sachbearbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "sachbearbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "sachbearbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "addetto-a-alla-gestione-degli-ordini-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "order-processing-specialist-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "employe-e-administratif-ve-en-traitement-des-commandes-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2100,11 +2108,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-auftragsbearbeitung-paraplegie-nottwil"
+          "sachbearbeiter-in-auftragsbearbeitung-paraplegie-nottwil",
+          "sachbearbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "sachbearbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "sachbearbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-auftragsbearbeitung-paraplegie-nottwil"
+        "sachbearbeiter-in-auftragsbearbeitung-paraplegie-nottwil",
+        "sachbearbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

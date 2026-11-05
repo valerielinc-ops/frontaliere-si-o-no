@@ -4514,7 +4514,11 @@ const App: React.FC = () => {
  <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  <SafeLazy boundary="company-follow-mount"><CompanyFollowMount /></SafeLazy>
- <SafeLazy boundary="job-save-mount"><JobSaveMount /></SafeLazy>
+ {/* The bare job-board snapshot is the temporary mobile LCP surface. Its
+     cards are replaced by JobBoard's authoritative cards, which already own
+     their save buttons; loading the static-card island here would scan and
+     portal every snapshot card before that handoff and compete with LCP. */}
+ {!jobBoardStaticFallback && <SafeLazy boundary="job-save-mount"><JobSaveMount /></SafeLazy>}
  {showWhatsNew && (
  <SafeLazy boundary="whats-new-modal">
  <WhatsNewModal

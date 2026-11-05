@@ -183,6 +183,82 @@ describe('portal field extraction', () => {
     expect(findButton(snapshot.buttons, COOKIE_ACCEPT_RE)?.text).toBe('Accept optional cookies');
   });
 
+  it('keeps Umantis EOC technical attachment slots out of candidate questions', () => {
+    const fields = [
+      ['Foto', 'file', 'photo', false],
+      ['Titolo accademico', 'text', 'academic-title', false],
+      ['Nome', 'text', 'first-name', true],
+      ['Cognome', 'text', 'last-name', true],
+      ['Data di nascita', 'text', 'birth-date', false],
+      ['Indirizzo e-mail/login', 'email', 'email', true],
+      ['Password', 'password', 'password', true],
+      ['Via', 'textarea', 'street', true],
+      ['NAP', 'text', 'postal-code', true],
+      ['Località', 'text', 'city', true],
+      ['Paese', 'select', 'country', true],
+      ['Telefono', 'text', 'phone', false],
+      ['Cellulare', 'text', 'mobile', false],
+      ['Profilo LinkedIn', 'text', 'linkedin', false],
+      ['Profilo XING', 'text', 'xing', false],
+      ['Nazionalità', 'select', 'nationality', true],
+      ['Diploma', 'text', 'degree', false],
+      ['Annotazioni sulla formazione', 'textarea', 'education-notes', false],
+      ['Il suo diploma di riferimento è stato ottenuto', 'text', 'degree-location', false],
+      ['Lettera di presentazione', 'file', 'cover-letter', true],
+      ['Curriculum', 'file', 'curriculum', true],
+      ['Altri documenti', 'file', 'other-documents', false],
+      ['form_data41', 'file', 'form_data41', false],
+      ['form_data42', 'file', 'form_data42', false],
+      ['form_data43', 'file', 'form_data43', false],
+      ['form_data44', 'file', 'form_data44', false],
+      ['form_data45', 'file', 'form_data45', false],
+      ['Come è venuto a conoscenza della nostra organizzazione?', 'select', 'referral', false],
+      ["Attualmente ho un contratto con l'EOC", 'checkbox', 'current-eoc', false],
+      ["In passato ho già lavorato per l'EOC", 'checkbox', 'former-eoc', false],
+    ].map(([label, type, name, required]) => {
+      const requiredAttribute = required ? ' required' : '';
+      const labelMarkup = label.startsWith('form_data') ? '' : `<label for="${name}">${label}</label>`;
+      if (type === 'select') {
+        return `${labelMarkup}<select id="${name}" name="${name}"${requiredAttribute}><option value="">Seleziona</option><option value="one">Opzione</option></select>`;
+      }
+      if (type === 'textarea') return `${labelMarkup}<textarea id="${name}" name="${name}"${requiredAttribute}></textarea>`;
+      return `${labelMarkup}<input id="${name}" name="${name}" type="${type}"${requiredAttribute}>`;
+    }).join('');
+    const snapshot = extract(`<form>${fields}<button type="submit">Invia candidatura definitiva</button></form>`);
+
+    expect(snapshot.buttons.map((button: any) => button.text)).toContain('Invia candidatura definitiva');
+    expect(snapshot.fields.map((field: any) => field.label)).toEqual([
+      'Foto', 'Titolo accademico', 'Nome', 'Cognome', 'Data di nascita', 'Indirizzo e-mail/login', 'Password',
+      'Via', 'NAP', 'Località', 'Paese', 'Telefono', 'Cellulare', 'Profilo LinkedIn', 'Profilo XING',
+      'Nazionalità', 'Diploma', 'Annotazioni sulla formazione', 'Il suo diploma di riferimento è stato ottenuto',
+      'Lettera di presentazione', 'Curriculum', 'Altri documenti', 'form_data41', 'form_data42', 'form_data43',
+      'form_data44', 'form_data45', 'Come è venuto a conoscenza della nostra organizzazione?',
+      "Attualmente ho un contratto con l'EOC", "In passato ho già lavorato per l'EOC",
+    ]);
+    const technicalSlots = snapshot.fields.filter((field: any) => /^form_data4[1-5]$/.test(field.label));
+    expect(technicalSlots).toHaveLength(5);
+    expect(technicalSlots.every((field: any) => field.kind === 'file' && field.required === false)).toBe(true);
+
+    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, technicalSlots.map((field: any) => ({
+      fieldId: field.name,
+      question: '',
+      type: 'text',
+      options: [],
+    })));
+    expect(requirements).toEqual({ questions: [], documents: [] });
+  });
+
+  it('keeps an ambiguous planner alias unresolved even when one live label matches', () => {
+    const requirements = portalRequirementsFromMissingRequired([
+      { id: 'first-field', domId: 'shared-control', label: 'Other question', kind: 'text', required: true },
+      { id: 'second-field', name: 'shared-control', label: 'Requested question', kind: 'text', required: true },
+    ], [{
+      fieldId: 'shared-control', applicationQuestion: 'Requested question', question: 'Candidate copy', type: 'text', options: [],
+    }]);
+
+    expect(requirements).toEqual({ questions: [], documents: [], unreadableFields: ['shared-control'] });
+  });
+
   it('recognizes cookie preference entry points used across portal locales', () => {
     for (const label of [
       'Customise Cookies',
