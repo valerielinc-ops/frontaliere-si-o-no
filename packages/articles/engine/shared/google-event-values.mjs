@@ -11,8 +11,9 @@ const EVENT_ATTENDANCE_MODES = new Set([
   'MixedEventAttendanceMode',
 ]);
 
-export function isSupportedGoogleEventStatus(value) {
-  return EVENT_STATUSES.has(value);
+export function areSupportedGoogleEventStatuses(value) {
+  const statuses = Array.isArray(value) ? value : [value];
+  return statuses.length > 0 && statuses.every((status) => EVENT_STATUSES.has(status));
 }
 
 export function isSupportedGoogleEventAttendanceMode(value) {
