@@ -828,12 +828,12 @@ async function fetchCurrentOfficialAdTexts(wantedRefs, delayMs, publicationByRef
 
 /**
  * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
- * Prefer the portal index, then fetch each listed page politely. If the index
- * route is unavailable, read the server-rendered SuccessFactors detail by the
- * tile's exact reference, then probe the deterministic official detail URL and
- * finally the current hydrated portal detail page. Each fallback is tied to
- * the tile's exact reference or validated detail URL, so a portal migration
- * cannot empty the board or attribute a neighbouring page to a tile.
+ * Prefer the legacy portal index, then use reference-bound current sources
+ * (the migrated official jobportal and SuccessFactors), the retired
+ * deterministic official detail URL, and finally the hydrated jobs2web detail
+ * page. Each fallback is tied to the tile's exact reference or validated
+ * detail URL, so a portal migration cannot empty the board or attribute a
+ * neighbouring page to a tile.
  *
  * Exported for `stadtspital-zuerich-job-parser.mjs`, whose tiles live on the
  * same portal: `unit` keeps only the ad pages whose Dienstabteilung (the
@@ -870,11 +870,6 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
     let refsToFill = missingRefs();
     if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
 
-    const direct = await fetchOfficialAdTextsByReference(refsToFill, delayMs, publicationByRef);
-    mergeByRef(direct);
-    refsToFill = missingRefs();
-    if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
-
     const currentOfficial = await fetchCurrentOfficialAdTexts(
       refsToFill,
       delayMs,
@@ -882,6 +877,11 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
       { fetchCurrentOfficialIndexPage },
     );
     mergeByRef(currentOfficial);
+    refsToFill = missingRefs();
+    if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
+
+    const direct = await fetchOfficialAdTextsByReference(refsToFill, delayMs, publicationByRef);
+    mergeByRef(direct);
     refsToFill = missingRefs();
     if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
 

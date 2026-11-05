@@ -306,6 +306,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     // isolated from the real browser-backed detail fallback.
     const jobs = await fetchAllStadtZuerichJobs({
       fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
+      fetchCurrentOfficialIndexPage: async () => '',
     });
     expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
     expect(jobs[0].description).toContain('Aufgaben');
@@ -317,6 +318,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     // this focused test must not launch a real Playwright browser for it.
     const jobs = await fetchAllStadtZuerichJobs({
       fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
+      fetchCurrentOfficialIndexPage: async () => '',
     });
 
     expect(jobs.map((job) => job.referenceNumber)).toEqual(['51726']);
@@ -338,7 +340,9 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
       successFactorsRefs: ['51726'],
       directAdRefs: ['51727'],
     });
-    const jobs = await fetchAllStadtZuerichJobs();
+    const jobs = await fetchAllStadtZuerichJobs({
+      fetchCurrentOfficialIndexPage: async () => '',
+    });
 
     expect(jobs.map((job) => job.referenceNumber)).toEqual(['51726', '51727']);
     expect(jobs).toHaveLength(2);
