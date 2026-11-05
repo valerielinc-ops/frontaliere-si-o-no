@@ -1,7 +1,7 @@
 {
   "key": "spitex-basel",
   "label": "SPITEX BASEL",
-  "generatedAt": "2026-11-04T21:26:54.408Z",
+  "generatedAt": "2026-11-05T09:19:38.734Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 7037,
-  "avgDurationMs": 7037,
+  "durationMs": 5464,
+  "avgDurationMs": 5464,
   "durationHistory": [
-    7037
+    5464
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spitex-basel-293e86030de0",
-      "slug": "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex",
+      "slug": "caso-responsabile-caso-psichiatria-responsabile-dipl-infermiera-hf-fh-a-spitex-basel-basel",
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
       "companyDomain": "spitexbasel.ch",
       "title": "Fallverantwortliche/Fallverantwortlicher Psychiatrie, Dipl. Pflegefachperson HF/FH (a)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a/199f2daa-21aa-4050-b134-e1b129830c58",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:34.502Z",
+      "crawledAt": "2026-11-05T09:19:16.534Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -53,23 +54,22 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a/199f2daa-21aa-4050-b134-e1b129830c58",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
+      "firstSeenAt": "2026-11-04T21:26:34.502Z",
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:26:34.502Z",
+      "validThrough": "2027-02-03T09:19:16.534Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:26:34.502Z",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -84,7 +84,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-a/9c0c409e-fda2-4501-8d36-c09fadaa296b",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:34.533Z",
+      "crawledAt": "2026-11-05T09:19:16.560Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:26:34.533Z",
+      "validThrough": "2026-12-23T09:19:16.560Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-r-psychiatrie-kinder-spitex-dipl-pflegefachperson-hf-fh-a/d82d9d47-26a9-49cd-bb39-a612e635015b",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:34.528Z",
+      "crawledAt": "2026-11-05T09:19:16.557Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salaryMax": 166000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:26:34.528Z",
+      "validThrough": "2027-01-05T09:19:16.557Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-kinder-spitex-fuer-nachtwachen-a/b58cfd11-968c-487a-a843-a67fad8e11c7",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:34.524Z",
+      "crawledAt": "2026-11-05T09:19:16.553Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:26:34.524Z",
+      "validThrough": "2027-01-07T09:19:16.553Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -222,7 +222,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-a/110ddcd1-32c2-4102-a2e2-0caf2e01a645",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:34.521Z",
+      "crawledAt": "2026-11-05T09:19:16.549Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:26:34.521Z",
+      "validThrough": "2026-12-11T09:19:16.549Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -268,7 +268,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/pflegeprofi-fuer-flexible-einsaetze-a/2c330f46-a587-40d7-a8d5-885dd75b950d",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:34.519Z",
+      "crawledAt": "2026-11-05T09:19:16.548Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:26:34.519Z",
+      "validThrough": "2027-01-17T09:19:16.548Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -314,7 +314,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a/957adacf-734f-403e-a119-e1b6c49784ac",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:34.512Z",
+      "crawledAt": "2026-11-05T09:19:16.544Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:26:34.512Z",
+      "validThrough": "2026-12-23T09:19:16.544Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -360,7 +360,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/73c1203b-eb17-4545-9338-d67ebbd4f6db",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T21:26:34.504Z",
+      "crawledAt": "2026-11-05T09:19:16.535Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -383,7 +383,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T21:26:34.504Z",
+      "validThrough": "2026-12-05T09:19:16.535Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -394,5 +394,5 @@
       }
     }
   ],
-  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
+  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
 }
