@@ -64,9 +64,15 @@ function cityWithoutProvince(value) {
     .replace(/(?:,|[-–—])\s*[A-Za-z]{2}\s*$/, ''));
 }
 
+const LOCALITY_LABEL_RE = /^\s*(?:localit(?:à|a|é|e|y)?\w*|locality|citt[aà]|city|town|ville|lieu|commune|wohn(?:ort|sitz|adresse)\w*|ort)(?=\s|:|-|$)(?:\s+(?:(?:de|of)\s+(?:(?:la|le|les|l[’'])\s+)?|(?:du|des|la|le|in|im|am|von|zu)\s+))?\s*(?::|-)?\s*/i;
+const POSTAL_LABEL_RE = /^\s*(?:postcode|post\s*code|postal\s+code|code\s+postal|zip(?:\s+code)?|plz|npa|cap|codice\s+postale)(?=\s|:|-|$)\s*(?::|-)?\s*/i;
+const GENERAL_ADDRESS_LABEL_RE = /^\s*(?:domicilio|residen\w*|indirizzo(?:\s+di\s+residen\w*)?|address|residence)(?=\s|:|-|$)\s*(?::|-)?\s*/i;
+const STREET_TYPE_RE = /\b(?:via|viale|piazza|piazzale|corso|strada|largo|vicolo|contrada|avenue|rue|chemin|route|place|boulevard|quai|gasse|strasse|straße|weg|platz|allee|street|st\.?|road|rd\.?|lane|ln\.?|drive|dr\.?)\b/i;
+
 function addressTextVariants(value) {
   const raw = compact(value);
-  const labelled = raw.replace(/^\s*(?:domicilio|residen\w*|indirizzo(?:\s+di\s+residen\w*)?|address|residence|localit(?:à|a|é|e|y)?\w*|locality|citt[aà]|city|town|ville|lieu|commune|wohn(?:ort|sitz|adresse)\w*|ort|postcode|post\s*code|postal\s+code|code\s+postal|zip(?:\s+code)?|plz|npa|cap|codice\s+postale)(?:\s+(?:(?:de|of)\s+(?:(?:la|le|les|l[’'])\s+)?|(?:du|des|la|le|in|im|am|von|zu)\s+))?\s*(?::|-)?\s*/i, '');
+  const labelled = raw.replace(GENERAL_ADDRESS_LABEL_RE, '').replace(LOCALITY_LABEL_RE, '').replace(POSTAL_LABEL_RE, '');
+  if (!labelled) return [];
   const countryless = removeKnownCountry(labelled)
     .replace(/\s+(?:italia|italy|italie|italien|svizzera|switzerland|suisse|schweiz)\s*$/i, '')
     .trim();
@@ -77,6 +83,12 @@ function addressTextVariants(value) {
 }
 
 function localityOnlyStreet(street, { city, location, postalCode, country, province } = {}) {
+  const streetText = compact(street);
+  if (POSTAL_LABEL_RE.test(streetText)) return true;
+  if (LOCALITY_LABEL_RE.test(streetText)) {
+    const localityValue = streetText.replace(LOCALITY_LABEL_RE, '').trim();
+    if (!STREET_TYPE_RE.test(localityValue)) return true;
+  }
   const numericOnly = compact(street);
   if (/^\d{4,5}$/.test(numericOnly)) {
     const knownPostalCode = compact(postalCode);
@@ -91,7 +103,8 @@ function localityOnlyStreet(street, { city, location, postalCode, country, provi
     ...addressTextVariants(postalCode),
   ]);
   if (!knownLocalities.size) return false;
-  return addressTextVariants(street).some((variant) => knownLocalities.has(variant));
+  const streetVariants = addressTextVariants(street);
+  return !streetVariants.length || streetVariants.some((variant) => knownLocalities.has(variant));
 }
 
 const entries = (Array.isArray(ITALY_POSTAL_DIRECTORY.entries) ? ITALY_POSTAL_DIRECTORY.entries : [])

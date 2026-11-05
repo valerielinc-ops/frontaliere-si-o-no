@@ -2687,6 +2687,14 @@ describe('portal runner helpers', () => {
       expect(candidateAnswerForField(labelledPostalCode, street)).toBeNull();
       expect(candidateAnswerForField(labelledPostalCode, houseNumber)).toBeNull();
     }
+    const postalLabelWithoutOtherLocation = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: '' },
+      profile: { location: '', address: { street: 'CAP 21016', postalCode: '', city: '', country: '' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(candidateAnswerForField(postalLabelWithoutOtherLocation, street)).toBeNull();
+    expect(candidateAnswerForField(postalLabelWithoutOtherLocation, houseNumber)).toBeNull();
     const bareSwissPostalCode = candidateForForm({
       identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Lugano, Svizzera' },
       profile: { location: 'Lugano, Svizzera', address: { street: '6900', postalCode: '', city: 'Lugano', country: 'Svizzera' } },
@@ -2710,6 +2718,13 @@ describe('portal runner helpers', () => {
       identity: { ...candidate.identity, address: { ...candidate.identity.address, street: 'Route 66' } },
     };
     expect(candidateAnswerForField(numberedRoadName, houseNumber)).toBeNull();
+    for (const streetName of ['City Road 12', 'Town Street 12']) {
+      const plausibleRoad = {
+        ...candidate,
+        identity: { ...candidate.identity, address: { ...candidate.identity.address, street: streetName } },
+      };
+      expect(candidateAnswerForField(plausibleRoad, houseNumber)).toEqual({ value: '12', source: 'identity' });
+    }
     const explicitLongHouseNumber = candidateForForm({
       identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Roma, Italia' },
       profile: { location: 'Roma, Italia', address: { street: 'Via Roma 1234', postalCode: '20100', city: 'Roma', country: 'Italia' } },
