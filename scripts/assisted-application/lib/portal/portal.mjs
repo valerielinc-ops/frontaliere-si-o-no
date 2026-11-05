@@ -2667,19 +2667,19 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
 
 /**
  * A readable batch already written in the candidate's language needs no model
- * call. Keep the check conservative: the application locale must agree, the
- * complete batch must have a high-confidence result, and no individual
+ * call. Keep the check conservative: the complete batch must have a
+ * high-confidence result in the candidate's language, and no individual
  * question may have a meaningful high-confidence result in another language.
  * A mixed or ambiguous batch still goes through the source-language detector
  * prompt below, because a posting-language hint is not proof of the ATS copy.
  */
-function sameLanguagePortalLocalization(items, candidateLanguage, applicationLanguageHint) {
-  if (!candidateLanguage || applicationLanguageHint !== candidateLanguage) return null;
+function sameLanguagePortalLocalization(items, candidateLanguage) {
+  if (!candidateLanguage) return null;
   const sourceText = items.flatMap((item) => [
     item.applicationQuestion,
     ...(Array.isArray(item.applicationOptions) ? item.applicationOptions : []),
   ]).filter(Boolean).join(' ');
-  const batch = detectLanguageWithConfidence(sourceText, applicationLanguageHint);
+  const batch = detectLanguageWithConfidence(sourceText, candidateLanguage);
   if (batch.lang !== candidateLanguage || batch.confidence < SAME_LANGUAGE_BATCH_MIN_CONFIDENCE) return null;
   const hasOtherLanguageQuestion = items.some((item) => {
     const questionText = [
@@ -2740,7 +2740,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const deterministic = items.map((item) => deterministicGermanLocalization(item, candidateLanguage));
   const unresolved = items.filter((_item, index) => !deterministic[index]);
   if (!unresolved.length) return deterministic;
-  const sameLanguage = sameLanguagePortalLocalization(items, candidateLanguage, applicationLanguageHint);
+  const sameLanguage = sameLanguagePortalLocalization(items, candidateLanguage);
   if (sameLanguage) return sameLanguage;
   // Posting/letter language is only a hint. An ATS may render a German form
   // for an Italian-language job, so compare against the native question text.

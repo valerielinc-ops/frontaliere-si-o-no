@@ -920,7 +920,7 @@ it('keeps a readable same-language Umantis batch usable when localization is una
       applicationQuestion: 'Come è venuto a conoscenza della nostra organizzazione?',
       type: 'choice', options: ['Sito aziendale', 'Altro'], applicationOptions: ['Sito aziendale', 'Altro'],
     },
-  ], { candidateLocale: 'it', applicationLocale: 'it', codex });
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
 
   expect(codex).not.toHaveBeenCalled();
   expect(result).toEqual(expect.arrayContaining([
