@@ -1915,13 +1915,14 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     // complete population: it is exactly the shape that can shrink a healthy
     // slice without triggering the zero-result rescue. Treat equality as
     // partial too: a page-sized response can stop at the learned sample
-    // boundary while the source still has more vacancies. This is opt-in per
-    // source because the browser fetch is bounded but materially more
-    // expensive than the ordinary transport, and the learned sample count is
-    // source evidence rather than a generic population threshold.
+    // boundary while the source still has more vacancies. The source-specific
+    // browser rescue is the evidence boundary here: a learned sample count is
+    // historical source evidence, not an upper bound on today's population.
+    // A growing board must still get the rescue, and the candidate-count
+    // comparison below keeps the browser response from replacing a complete
+    // direct response unless it proves that it contains more vacancies.
     if (spec.rescueOnPartialListing === true
       && candidates.length > 0
-      && Number(spec.sampleVacancyCount) >= candidates.length
       && runtime.disableWafProxy !== true
       && typeof runtime.browserFetchImpl === 'function') {
       const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);
@@ -1941,7 +1942,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         if (rescued.candidates.length > candidates.length) {
           console.warn(
             `[prospector:${spec.companyKey}] direct seed yielded a partial listing `
-              + `(${candidates.length}/${spec.sampleVacancyCount}); using browser rescue `
+              + `(${candidates.length} candidates; learned sample ${spec.sampleVacancyCount}); using browser rescue `
               + `(${rescued.candidates.length} candidates)`,
           );
           html = browserBody;
