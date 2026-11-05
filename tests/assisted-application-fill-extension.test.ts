@@ -353,6 +353,11 @@ describe('fill extension: patterns', () => {
     }
   });
 
+  it('recognizes a plain Bewerbung einreichen final link', () => {
+    const { F, document } = page('<a href="/apply">Bewerbung einreichen</a>');
+    expect(F.finalButton(document)?.element.textContent?.trim()).toBe('Bewerbung einreichen');
+  });
+
   it('opens a Deloitte cookie preference center before refusing optional cookies', () => {
     const { F, document } = page('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
     expect(F.cookieRefusal(document)?.textContent).toBe('Customise Cookies');
@@ -377,6 +382,12 @@ describe('fill extension: patterns', () => {
     document.body.innerHTML = '<div id="cookie-manager" role="dialog" aria-label="Cookie preferences"><p>This website uses cookies.</p><button type="button">Manage consent</button></div>';
     expect(F.cookieRefusal(document)?.textContent).toBe('Manage consent');
     document.body.innerHTML = '<div id="cookie-banner"><p>This website uses cookies.</p><button type="button">Manage consent</button></div>';
+    expect(F.cookieRefusal(document)?.textContent).toBe('Manage consent');
+  });
+
+  it('recognizes a cookie manager marked on the document body', () => {
+    const { F, document } = page('<form><input name="application-email"></form><p>Manage your cookies.</p><button type="button">Manage consent</button>');
+    document.body.id = 'cookie-manager';
     expect(F.cookieRefusal(document)?.textContent).toBe('Manage consent');
   });
 

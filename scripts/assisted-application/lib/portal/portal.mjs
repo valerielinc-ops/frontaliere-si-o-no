@@ -1584,13 +1584,14 @@ async function hasLiveCookieManagerSurface(page, button) {
     const control = [...document.querySelectorAll('[data-aa-id]')]
       .find(element => element.getAttribute('data-aa-id') === controlId);
     if (!control) return false;
+    if (control.closest('form, [role="form"]')) return false;
     const managerSurface = new RegExp(surfacePattern, 'i');
     const cookieCopy = /\bcookies?\b/i;
-    for (let node = control.parentElement; node && node !== document.body; node = node.parentElement) {
+    for (let node = control.parentElement; node; node = node.parentElement) {
       const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('role'), node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
       if (!managerSurface.test(marker)) continue;
-      if (node.matches('form, [role="form"]') || node.querySelector('form, [role="form"]')) continue;
+      if (node.matches('form, [role="form"]')) continue;
       if (!cookieCopy.test(node.innerText || node.textContent || '')) continue;
       return true;
     }

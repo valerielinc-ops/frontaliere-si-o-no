@@ -23,7 +23,7 @@
 
   const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächst(?:e(?:r|s|n)?(?:\s+schritt)?)|save and continue|speichern und weiter|proceed)\b/i;
   const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|^senden$|bewerbung (absenden|senden|abschicken|einreichen)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia(?:re)?$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
-  const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken)|invia( la)? candidatura|^inviare$|envoyer( ma)? candidature)/i;
+  const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken|einreichen)|invia( la)? candidatura|^inviare$|envoyer( ma)? candidature)/i;
   // Cippà labels the human's final action «Invia CV». Keep this recognition in
   // the owner extension: the shared runner regex also authorizes its click.
   const OWNER_EXTENSION_FINAL_RE = /^invia (?:il )?cv$/i;
@@ -1900,7 +1900,7 @@
       .filter((button) => button.text);
   }
   function cookieManagerSurfaceIsLive(element) {
-    for (let node = element.parentElement; node && node !== element.ownerDocument.body; node = node.parentElement) {
+    for (let node = element.parentElement; node; node = node.parentElement) {
       const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
       if (!COOKIE_MANAGER_SURFACE_RE.test(marker)) continue;

@@ -346,6 +346,26 @@ describe('portal field extraction', () => {
     expect(result.status).toBe('none');
   });
 
+  it('recognizes Manage consent when the cookie-manager marker is on body', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const snapshot = extract('<form id="application"><input name="email"></form><p>Manage your cookies.</p><button type="button">Manage consent</button>', url);
+    const manageConsent = snapshot.buttons.find((button: any) => button.text === 'Manage consent');
+    expect(manageConsent).toMatchObject({ id: expect.any(String), formId: '' });
+    (globalThis as any).document.body.id = 'cookie-manager';
+    let clicks = 0;
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function, args: any) => args?.surfacePattern ? evaluateInPage(args) : snapshot),
+      locator: vi.fn(() => ({ first: () => ({ click: vi.fn(async () => { clicks += 1; }) }) })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(clicks).toBe(1);
+    expect(result.status).toBe('unresolved');
+  });
+
   it('does not trust a stale banner marker for Manage consent without a live active surface', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
     const extracted = extract('<section class="cookie-consent"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
