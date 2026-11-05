@@ -236,6 +236,7 @@ function minimumDataRetentionOption(options, question = '') {
   const numberWords = { one: 1, uno: 1, un: 1, une: 1, ein: 1, eins: 1, eine: 1, two: 2, due: 2, zwei: 2, deux: 2,
     three: 3, tre: 3, drei: 3, trois: 3, four: 4, quattro: 4, vier: 4, quatre: 4, five: 5, cinque: 5, funf: 5,
     fuenf: 5, cinq: 5, six: 6, sei: 6, sechs: 6 };
+  const retentionQuestionContext = /\b(?:retain\w*|retention\w*|stor(?:e|es|ed|ing|age)|keep\w*|kept|hold\w*|held|preserv\w*|conserv\w*|memorizz\w*|behalten\w*|aufbewahr\w*)\b/.test(normalize(question));
   const deletionWords = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/;
   const rejectedApplicationProcess = /\b(?:application|candidacy|candidature|bewerbung)\b(?: [a-z0-9]+){0,4} (?:is|was|were|has|have|had|gets?|got|a|est|sont|ete|werden|wurde)(?: [a-z0-9]+){0,2} (?:reject\w*|declin\w*|refus\w*|rejet\w*|abgelehnt|verworfen)\b/;
   // Rejection of the application itself leaves the deletion timing ambiguous.
@@ -315,7 +316,7 @@ function minimumDataRetentionOption(options, question = '') {
     const negatesPersonalRetention = clauseTexts.some((clauseText, index) => scopedClauseTexts[index] === clauseText
       && firstPersonDataChoice.test(clauseText) && negationBefore(storageActionWords)(clauseText));
     const retentionSubjectContext = /\b(?:data|daten|donnee\w*|dati|personal|candidate|applicant|my|your|our|their|mio|mia|mein\w*|mon|ma|mes|notre)\b/;
-    const negatesRetentionAction = scopedClauseTexts.some(clauseText => retentionSubjectContext.test(clauseText)
+    const negatesRetentionAction = scopedClauseTexts.some(clauseText => (retentionSubjectContext.test(clauseText) || retentionQuestionContext)
       && negationBefore(storageActionWords)(clauseText));
     const refusalWords = /\b(?:refus\w*|declin\w*|reject\w*|disagree\w*|unwilling\w*|unwillig\w*|reluctant\w*|rifiut\w*|verweiger\w*)\b/;
     const candidateInitiatedRejection = /\b(?:i|you)\b(?: (?:have|has|had))? (?:reject\w*|refus\w*|declin\w*)\b/;
