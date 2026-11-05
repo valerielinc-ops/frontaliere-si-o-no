@@ -1381,7 +1381,7 @@ async function isPageCookieConsentControl(page, snapshot, button) {
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   // A privacy/consent action can use the same bare label inside the
   // application form. It is never a cookie-manager entry point there.
-  if (COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button)) && button.formId) return false;
+  if (COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button)) && (button.formId || button.roleFormId)) return false;
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -1469,12 +1469,13 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
         shadows.push(element.shadowRoot);
       }
     }
-    const cookieShadowSurfaceIsActive = (host) => {
+    const cookieShadowSurfaceIsActive = (host, manageConsentAction = false) => {
       for (let node = host; node && node !== document.body; node = node.parentElement) {
         const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
           .filter(Boolean).join(' ');
         if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
-          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)) return true;
+          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)
+          || (manageConsentAction && /\bconsent\b/i.test(marker))) return true;
       }
       return false;
     };
@@ -1483,8 +1484,9 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
     for (const action of actions) {
       const pattern = new RegExp(action.source, 'i');
       for (const shadow of shadows) {
+        const manageConsentAction = action.kind === 'preferences' && action.source === manageConsent;
         if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
-          || !cookieShadowSurfaceIsActive(shadow.host))) continue;
+          || !cookieShadowSurfaceIsActive(shadow.host, manageConsentAction))) continue;
         const button = [...shadow.querySelectorAll('button, [role="button"]')]
           .find((element) => {
             const label = String(element.innerText || element.textContent || '').trim();

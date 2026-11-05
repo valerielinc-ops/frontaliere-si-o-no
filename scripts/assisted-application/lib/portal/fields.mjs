@@ -889,10 +889,14 @@ function nativeQuestionText(value, counter = null) {
     const scope = element.closest('main, [role="main"], [role="application"]');
     return scope ? { applicationScopeId: idFor(scope) } : {};
   };
-  const applicationOwnershipFor = (element) => ({
-    ...applicationScopeFor(element),
-    ...sectionGroupFor(element),
-  });
+  const applicationOwnershipFor = (element) => {
+    const roleForm = element.closest('[role="form"]');
+    return {
+      ...applicationScopeFor(element),
+      ...sectionGroupFor(element),
+      ...(roleForm ? { roleFormId: idFor(roleForm) } : {}),
+    };
+  };
   // A portal may replace a file input while copying its data-aa-id. Keep a
   // page-local identity for the actual DOM node so a later snapshot cannot
   // mistake that fresh empty control for the one that received the file.
