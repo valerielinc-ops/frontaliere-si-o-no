@@ -9,15 +9,15 @@
  */
 
 import { sumUpCheckoutReference } from './sumupCheckoutReference.js';
-import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { getRemoteConfigValue, getServerRemoteConfigValue } from './remoteConfigSecrets.js';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS } from './assistedApplicationConstants.js';
 import { APPLICATION_CONCIERGE_PRICE_EUR_CENTS } from './applicationConciergeConstants.js';
 
 export const ASSISTED_APPLICATION_PAYMENT_PROVIDER_RC_KEY = 'ASSISTED_APPLICATION_PAYMENT_PROVIDER';
-export const SUMUP_API_KEY_RC_KEY = 'SUMUP_API_KEY';
+export const SUMUP_API_KEY_RC_KEY = 'SERVER_SUMUP_API_KEY';
 export const SUMUP_MERCHANT_CODE_RC_KEY = 'SUMUP_MERCHANT_CODE';
 export const SUMUP_WEBHOOK_URL_RC_KEY = 'SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL';
-export const SUMUP_SANDBOX_API_KEY_RC_KEY = 'SUMUP_SANDBOX_API_KEY';
+export const SUMUP_SANDBOX_API_KEY_RC_KEY = 'SERVER_SUMUP_SANDBOX_API_KEY';
 export const SUMUP_SANDBOX_MERCHANT_CODE_RC_KEY = 'SUMUP_SANDBOX_MERCHANT_CODE';
 export const SUMUP_SANDBOX_WEBHOOK_URL_RC_KEY = 'SUMUP_SANDBOX_PAYMENT_TEST_WEBHOOK_URL';
 export const SUMUP_PAYMENT_PROVIDER = 'sumup';
@@ -42,6 +42,12 @@ export const SUMUP_CONFIG_LIMITS = Object.freeze({
 
 const SUMUP_API_BASE_URL = 'https://api.sumup.com';
 export const SUMUP_API_REQUEST_TIMEOUT_MS = 30_000;
+
+async function readSumUpRemoteConfigValue(key) {
+  return key.startsWith('SERVER_')
+    ? getServerRemoteConfigValue(key)
+    : getRemoteConfigValue(key);
+}
 
 function boundedString(value, max) {
   const result = String(value ?? '').trim();
@@ -99,7 +105,7 @@ export class SumUpApiError extends Error {
 }
 
 async function sumUpCredentials(
-  read = getRemoteConfigValue,
+  read = readSumUpRemoteConfigValue,
   environment = SUMUP_ENVIRONMENTS.PRODUCTION,
 ) {
   const sandbox = environment === SUMUP_ENVIRONMENTS.SANDBOX;
@@ -113,7 +119,7 @@ async function sumUpCredentials(
   return { apiKey, merchantCode };
 }
 
-async function sumUpConfig(read = getRemoteConfigValue, environment = SUMUP_ENVIRONMENTS.PRODUCTION) {
+async function sumUpConfig(read = readSumUpRemoteConfigValue, environment = SUMUP_ENVIRONMENTS.PRODUCTION) {
   const [{ apiKey, merchantCode }, webhookUrl] = await Promise.all([
     sumUpCredentials(read, environment),
     read(environment === SUMUP_ENVIRONMENTS.SANDBOX
@@ -201,7 +207,7 @@ async function createSumUpCheckout(
     validUntil = null,
     environment = SUMUP_ENVIRONMENTS.PRODUCTION,
   },
-  read = getRemoteConfigValue,
+  read = readSumUpRemoteConfigValue,
 ) {
   const { apiKey, merchantCode, webhookUrl } = await sumUpConfig(read, environment);
   const reference = boundedString(checkoutReference, 64);
@@ -242,14 +248,14 @@ async function createSumUpCheckout(
 
 export async function createSumUpHostedCheckout(
   options,
-  read = getRemoteConfigValue,
+  read = readSumUpRemoteConfigValue,
 ) {
   return createSumUpCheckout({ ...options, hostedCheckout: true }, read);
 }
 
 export async function createSumUpApplicationConciergeCheckout(
   { serviceId, redirectUrl, checkoutAttempt = 1, amountCents = APPLICATION_CONCIERGE_PRICE_EUR_CENTS, validUntil = null },
-  read = getRemoteConfigValue,
+  read = readSumUpRemoteConfigValue,
 ) {
   return createSumUpCheckout({
     checkoutReference: sumUpCheckoutReference(serviceId, checkoutAttempt),
@@ -263,7 +269,7 @@ export async function createSumUpApplicationConciergeCheckout(
 
 export async function createSumUpAssistedApplicationCheckout(
   { orderId, redirectUrl, checkoutAttempt = 1, environment = SUMUP_ENVIRONMENTS.PRODUCTION },
-  read = getRemoteConfigValue,
+  read = readSumUpRemoteConfigValue,
 ) {
   return createSumUpCheckout({
     checkoutReference: sumUpCheckoutReference(orderId, checkoutAttempt),
@@ -280,7 +286,7 @@ export async function createSumUpAssistedApplicationCheckout(
 
 export async function createSumUpPaymentTestCheckout(
   { testId, redirectUrl },
-  read = getRemoteConfigValue,
+  read = readSumUpRemoteConfigValue,
 ) {
   const id = boundedString(testId, 80);
   if (!id) throw new Error('sumup_payment_test_id_missing');
@@ -296,7 +302,7 @@ export async function createSumUpPaymentTestCheckout(
 
 export async function retrieveSumUpCheckout(
   checkoutId,
-  read = getRemoteConfigValue,
+  read = readSumUpRemoteConfigValue,
   { environment = SUMUP_ENVIRONMENTS.PRODUCTION } = {},
 ) {
   const { apiKey } = await sumUpCredentials(read, environment);
@@ -307,7 +313,7 @@ export async function retrieveSumUpCheckout(
 
 export async function refundSumUpTransaction(
   transactionId,
-  read = getRemoteConfigValue,
+  read = readSumUpRemoteConfigValue,
   { environment = SUMUP_ENVIRONMENTS.PRODUCTION } = {},
 ) {
   const { apiKey } = await sumUpCredentials(read, environment);

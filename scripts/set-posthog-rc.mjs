@@ -21,7 +21,12 @@
  * the project gets re-keyed.
  */
 
-import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+import { readFirebaseServiceAccountCredentials } from './lib/firebase-service-account-credentials.mjs';
+import {
+  RC_SERVER_NAMESPACE,
+  stageRcParamValue,
+  updateRcTemplateWithEtag,
+} from './lib/remote-config-admin.mjs';
 
 // value + description per param. None are secrets: project ids and the EU host
 // are discoverable from the dashboard URL.
@@ -36,26 +41,34 @@ function bail(msg) {
 }
 
 async function main() {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-    bail('GOOGLE_APPLICATION_CREDENTIALS not set.');
+  const credentials = readFirebaseServiceAccountCredentials(process.env, {
+    purpose: 'write PostHog query metadata to server-only Remote Config',
+  });
+  if (!credentials?.project_id) {
+    bail('Firebase service-account credentials not set.');
   }
 
-  const rc = await getRemoteConfig();
-  const template = await fetchRcTemplate(rc);
-
-  let changed = 0;
-  for (const [key, { value, description }] of Object.entries(RC_PARAMS)) {
-    if (stageRcParam(template, key, value, description)) changed++;
+  const today = new Date().toISOString().slice(0, 10);
+  const result = await updateRcTemplateWithEtag({
+    credentials,
+    namespace: RC_SERVER_NAMESPACE,
+    versionDescription: `Set PostHog query metadata (${today})`,
+    stage: (template) => {
+      let next = template;
+      let changed = false;
+      for (const [name, { value, description }] of Object.entries(RC_PARAMS)) {
+        const staged = stageRcParamValue(next, name, value, description);
+        if (staged.error) return staged;
+        changed ||= staged.changed;
+        if (staged.changed) next = staged.template;
+      }
+      return { changed, template: next };
+    },
+  });
+  if (!result?.ok) {
+    bail(`server Remote Config update failed: ${result?.detail || 'unknown error'}`);
   }
-
-  if (changed === 0) {
-    console.log('ℹ️  All SERVER_POSTHOG_* params already up-to-date. Nothing to publish.');
-    return;
-  }
-
-  await publishRcTemplate(rc, template, changed);
-  console.log(`✅ Published ${changed} SERVER_POSTHOG_* param(s) to Remote Config.`);
-  console.log('   Next CI run of articles-performance-snapshot.yml will pick them up via load-rc-env.mjs.');
+  console.log(`✅ SERVER_POSTHOG_* params ${result.changed ? 'updated' : 'already current'} in firebase-server.`);
 }
 
 main().catch((err) => {

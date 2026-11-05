@@ -3,11 +3,10 @@
  * Verify the top-level Remote Config contract consumed by the SumUp assisted
  * application checkout.
  *
- * Cloud Functions read `template.parameters` and its default values directly;
- * a parameter placed only in a parameter group is invisible to them. This
- * verifier therefore checks the exact shape the runtime reads and reports only
- * parameter names and validation states. It never prints a Remote Config
- * value, including the SumUp API key or merchant code.
+ * Cloud Functions read public payment metadata from the client template and
+ * API keys from the separate server template. This verifier checks the exact
+ * top-level shape the runtime reads and reports only parameter names and
+ * validation states. It never prints a Remote Config value.
  *
  * Usage:
  *   GOOGLE_APPLICATION_CREDENTIALS=/path/to/firebase-sa.json \
@@ -16,7 +15,7 @@
 
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { fetchRcTemplate, getRemoteConfig } from '../lib/remote-config-admin.mjs';
+import { fetchRcTemplate, fetchServerRcTemplate, getRemoteConfig } from '../lib/remote-config-admin.mjs';
 import {
   isValidSumUpWebhookUrl,
   SUMUP_PAYMENT_PROVIDER,
@@ -89,8 +88,8 @@ function checkValue(template, { name, key }) {
  * Validate a fetched Firebase Remote Config template without returning any
  * secret value to callers or logs.
  */
-export function verifySumUpRemoteConfigTemplate(template) {
-  const checks = CHECKS.map((check) => checkValue(template, check));
+export function verifySumUpRemoteConfigTemplate(template, serverTemplate = template) {
+  const checks = CHECKS.map((check) => checkValue(check.name === 'apiKey' ? serverTemplate : template, check));
 
   return {
     ok: checks.every((check) => check.ok),
@@ -100,10 +99,11 @@ export function verifySumUpRemoteConfigTemplate(template) {
 
 export async function verifySumUpRemoteConfig({
   readTemplate = async () => fetchRcTemplate(await getRemoteConfig()),
+  readServerTemplate = async () => fetchServerRcTemplate(await getRemoteConfig()),
   log = console.log,
 } = {}) {
-  const template = await readTemplate();
-  const result = verifySumUpRemoteConfigTemplate(template);
+  const [template, serverTemplate] = await Promise.all([readTemplate(), readServerTemplate()]);
+  const result = verifySumUpRemoteConfigTemplate(template, serverTemplate);
   for (const check of result.checks) {
     log(`${check.ok ? 'OK' : 'FAIL'} ${check.key}: ${check.reason}`);
   }

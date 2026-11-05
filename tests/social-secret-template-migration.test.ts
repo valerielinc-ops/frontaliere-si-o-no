@@ -105,6 +105,23 @@ describe('social credential Remote Config migration', () => {
     ]);
   });
 
+  it('moves production and sandbox SumUp API keys while preserving non-secret payment metadata', () => {
+    const plan = planSocialSecretMigration({
+      parameters: {
+        SUMUP_API_KEY: { defaultValue: { value: 'fixture-sumup-production-key' } },
+        SUMUP_SANDBOX_API_KEY: { defaultValue: { value: 'fixture-sumup-sandbox-key' } },
+        SUMUP_MERCHANT_CODE: { defaultValue: { value: 'fixture-merchant-code' } },
+      },
+    });
+
+    expect(plan.targetValues).toEqual({
+      SERVER_SUMUP_API_KEY: 'fixture-sumup-production-key',
+      SERVER_SUMUP_SANDBOX_API_KEY: 'fixture-sumup-sandbox-key',
+    });
+    expect(plan.removeClientKeys).toEqual(['SUMUP_API_KEY', 'SUMUP_SANDBOX_API_KEY']);
+    expect(plan.removeClientKeys).not.toContain('SUMUP_MERCHANT_CODE');
+  });
+
   it('never copies the single-use Codex refresh token into server Remote Config', () => {
     const plan = planSocialSecretMigration({
       parameters: {

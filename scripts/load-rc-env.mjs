@@ -105,6 +105,8 @@ export const SOCIAL_SERVER_SECRET_RC_KEYS = new Set([
 export const PRIVATE_SERVER_SECRET_RC_KEYS = new Set([
   ...SOCIAL_SERVER_SECRET_RC_KEYS,
   'SERVER_ASSISTED_APPLICATION_RUN_KEY',
+  'SERVER_SUMUP_API_KEY',
+  'SERVER_SUMUP_SANDBOX_API_KEY',
   'SERVER_EVENT_DESCRIPTION_ARTIFACT_KEY',
   'SERVER_PAGESPEED_API_KEY',
   'SERVER_ADSENSE_CLIENT_ID',
@@ -232,6 +234,8 @@ export const RC_TO_ENV = {
   // AES-256-GCM key (base64, 32 bytes) of the assisted-application agent's
   // encrypted evidence (scripts/assisted-application/lib/secure-run.mjs).
   SERVER_ASSISTED_APPLICATION_RUN_KEY: ['ASSISTED_APPLICATION_RUN_KEY'],
+  SERVER_SUMUP_API_KEY: ['SUMUP_API_KEY'],
+  SERVER_SUMUP_SANDBOX_API_KEY: ['SUMUP_SANDBOX_API_KEY'],
   // Stable key for the short-lived encrypted event-description artifact. It
   // must not be CODEX_AUTH_JSON: that login is rotated independently of the
   // crawl/rewrite hand-off.

@@ -16,9 +16,18 @@ function template(overrides: Record<string, unknown> = {}): Template {
     version: { versionNumber: '42' },
     parameters: {
       ASSISTED_APPLICATION_PAYMENT_PROVIDER: { defaultValue: { value: 'sumup' } },
-      SUMUP_API_KEY: { defaultValue: { value: API_KEY } },
       SUMUP_MERCHANT_CODE: { defaultValue: { value: MERCHANT_CODE } },
       SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL: { defaultValue: { value: WEBHOOK_URL } },
+      ...overrides,
+    },
+  };
+}
+
+function serverTemplate(overrides: Record<string, unknown> = {}): Template {
+  return {
+    version: { versionNumber: '7' },
+    parameters: {
+      SERVER_SUMUP_API_KEY: { defaultValue: { value: API_KEY } },
       ...overrides,
     },
   };
@@ -29,6 +38,7 @@ describe('verify-sumup-remote-config', () => {
     const logs: string[] = [];
     const result = await verifySumUpRemoteConfig({
       readTemplate: async () => template(),
+      readServerTemplate: async () => serverTemplate(),
       log: (line: string) => logs.push(line),
     });
 
@@ -38,7 +48,7 @@ describe('verify-sumup-remote-config', () => {
     expect(logs.join('\n')).not.toContain(MERCHANT_CODE);
   });
 
-  it('rejects a parameter hidden in a group without printing its value', () => {
+  it('rejects public metadata hidden in a group without printing its value', () => {
     const grouped = template();
     delete grouped.parameters.SUMUP_MERCHANT_CODE;
     grouped.parameterGroups = {
@@ -49,7 +59,7 @@ describe('verify-sumup-remote-config', () => {
       },
     };
 
-    const result = verifySumUpRemoteConfigTemplate(grouped);
+    const result = verifySumUpRemoteConfigTemplate(grouped, serverTemplate());
     const merchantCheck = result.checks.find((check) => check.name === 'merchantCode');
     expect(result.ok).toBe(false);
     expect(merchantCheck).toMatchObject({
@@ -64,7 +74,16 @@ describe('verify-sumup-remote-config', () => {
     ['provider', { ASSISTED_APPLICATION_PAYMENT_PROVIDER: { defaultValue: { value: 'stripe' } } }],
     ['webhook', { SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL: { defaultValue: { value: 'http://example.test/callback' } } }],
   ])('rejects an invalid %s value', (_label, overrides) => {
-    const result = verifySumUpRemoteConfigTemplate(template(overrides));
+    const result = verifySumUpRemoteConfigTemplate(template(overrides), serverTemplate());
     expect(result.ok).toBe(false);
+  });
+
+  it('requires the SumUp API key in the server template', () => {
+    const result = verifySumUpRemoteConfigTemplate(template(), { parameters: {} });
+    expect(result.ok).toBe(false);
+    expect(result.checks.find((check) => check.name === 'apiKey')).toMatchObject({
+      key: 'SERVER_SUMUP_API_KEY',
+      ok: false,
+    });
   });
 });

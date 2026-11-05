@@ -3,18 +3,21 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const remoteConfig = vi.hoisted(() => vi.fn(async (key: string) => {
   const values: Record<string, string> = {
     ASSISTED_APPLICATION_PAYMENT_PROVIDER: 'sumup',
-    SUMUP_API_KEY: 'sup_sk_test',
     SUMUP_MERCHANT_CODE: 'MC_TEST',
     SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL: 'https://europe-west6.example.test/sumupAssistedApplicationWebhook',
-    SUMUP_SANDBOX_API_KEY: 'sup_sk_sandbox_test',
     SUMUP_SANDBOX_MERCHANT_CODE: 'MC_SANDBOX_TEST',
     SUMUP_SANDBOX_PAYMENT_TEST_WEBHOOK_URL: 'https://europe-west6.example.test/sumupPaymentTestWebhook',
   };
   return values[key] || '';
 }));
+const serverRemoteConfig = vi.hoisted(() => vi.fn(async (key: string) => ({
+  SERVER_SUMUP_API_KEY: 'sup_sk_test',
+  SERVER_SUMUP_SANDBOX_API_KEY: 'sup_sk_sandbox_test',
+}[key] || '')));
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: (key: string) => remoteConfig(key),
+  getServerRemoteConfigValue: (key: string) => serverRemoteConfig(key),
 }));
 
 const fetchMock = vi.fn();
@@ -36,15 +39,17 @@ beforeEach(() => {
   remoteConfig.mockImplementation(async (key: string) => {
     const values: Record<string, string> = {
       ASSISTED_APPLICATION_PAYMENT_PROVIDER: 'sumup',
-      SUMUP_API_KEY: 'sup_sk_test',
       SUMUP_MERCHANT_CODE: 'MC_TEST',
       SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL: 'https://europe-west6.example.test/sumupAssistedApplicationWebhook',
-      SUMUP_SANDBOX_API_KEY: 'sup_sk_sandbox_test',
       SUMUP_SANDBOX_MERCHANT_CODE: 'MC_SANDBOX_TEST',
       SUMUP_SANDBOX_PAYMENT_TEST_WEBHOOK_URL: 'https://europe-west6.example.test/sumupPaymentTestWebhook',
     };
     return values[key] || '';
   });
+  serverRemoteConfig.mockImplementation(async (key: string) => ({
+    SERVER_SUMUP_API_KEY: 'sup_sk_test',
+    SERVER_SUMUP_SANDBOX_API_KEY: 'sup_sk_sandbox_test',
+  }[key] || ''));
   fetchMock.mockReset();
 });
 describe('SumUp assisted-application payment client', () => {
@@ -115,6 +120,7 @@ describe('SumUp assisted-application payment client', () => {
       redirect_url: 'https://frontaliereticino.ch/lavoro/job-42?assisted_application_order_id=order-1',
       return_url: 'https://europe-west6.example.test/sumupAssistedApplicationWebhook',
     });
+    expect(serverRemoteConfig).toHaveBeenCalledWith('SERVER_SUMUP_API_KEY');
   });
 
   it('creates a 39.99 EUR embedded concierge checkout without a hosted page', async () => {
@@ -245,7 +251,8 @@ describe('SumUp assisted-application payment client', () => {
   });
 
   it('fails closed when SumUp credentials are incomplete', async () => {
-    remoteConfig.mockImplementation(async (key: string) => (key === 'SUMUP_API_KEY' ? 'sup_sk_test' : ''));
+    remoteConfig.mockImplementation(async (key: string) => (key === 'SUMUP_MERCHANT_CODE' ? 'MC_TEST' : ''));
+    serverRemoteConfig.mockResolvedValue('');
     await expect(createSumUpAssistedApplicationCheckout({
       orderId: 'order-1',
       redirectUrl: 'https://frontaliereticino.ch/lavoro/job-42',
