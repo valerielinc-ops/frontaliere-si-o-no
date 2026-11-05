@@ -31,6 +31,49 @@ describe('validateEventStructuredData', () => {
     expect(errors.map(({ field }) => field)).toContain('location.address');
   });
 
+  it('validates physical and virtual locations against the attendance mode', () => {
+    const virtualLocation = {
+      '@type': ['Thing', 'VirtualLocation'],
+      url: 'https://example.test/events/concerto/stream/',
+    };
+    const physicalLocation = {
+      ...EVENT.location,
+      '@type': ['Thing', 'Place'],
+      address: { ...EVENT.location.address, '@type': ['Thing', 'PostalAddress'] },
+    };
+
+    expect(validateEventStructuredData({
+      ...EVENT,
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: virtualLocation,
+    }, '/dist/event/index.html')).toEqual([]);
+
+    expect(validateEventStructuredData({
+      ...EVENT,
+      eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
+      location: [physicalLocation, virtualLocation],
+    }, '/dist/event/index.html')).toEqual([]);
+
+    const onlineWithPhysical = validateEventStructuredData({
+      ...EVENT,
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+    }, '/dist/event/index.html');
+    expect(onlineWithPhysical.map(({ field }) => field)).toContain('location.@type');
+    expect(onlineWithPhysical.map(({ field }) => field)).toContain('location');
+
+    const offlineWithVirtual = validateEventStructuredData({
+      ...EVENT,
+      location: virtualLocation,
+    }, '/dist/event/index.html');
+    expect(offlineWithVirtual.map(({ field }) => field)).toContain('location.@type');
+
+    const mixedWithoutVirtual = validateEventStructuredData({
+      ...EVENT,
+      eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
+    }, '/dist/event/index.html');
+    expect(mixedWithoutVirtual.map(({ field }) => field)).toContain('location');
+  });
+
   it('does not treat a venue name copied into PostalAddress.name as an address', () => {
     const errors = validateEventStructuredData({
       ...EVENT,

@@ -3,6 +3,8 @@ import { describe, expect, it } from 'vitest';
 import {
   hasInterpolatedStaticProperty,
   lastStaticPropertyValue,
+  readStaticBooleanProperty,
+  readStaticCompositeProperty,
   readStaticObjectProperty,
   readStructuredSeoObjectProperty,
   readStructuredSeoBlock,
@@ -115,6 +117,20 @@ describe('articles engine SEO-entry compatibility contract', () => {
     }`;
 
     expect(readStaticObjectProperty(block, 'location')).toBeUndefined();
+  });
+
+  it('reads object and array JSON-LD fields through one last-write-wins reader', () => {
+    const block = String.raw`{
+      offers: { "@type": "Offer", price: 20 },
+      offers: [{ "@type": "Offer", price: 20 }, { "@type": "Offer", price: 30 }],
+      isAccessibleForFree: true,
+      isAccessibleForFree: false,
+    }`;
+
+    expect(readStaticCompositeProperty(block, 'offers')).toMatch(/^\[/u);
+    expect(readStaticObjectProperty(block, 'offers')).toBeUndefined();
+    expect(readStaticBooleanProperty(block, 'isAccessibleForFree')).toBe(false);
+    expect(readStaticBooleanProperty(block, 'missing')).toBeUndefined();
   });
 
   it('reads a structured author with balanced braces and decoded fields', () => {

@@ -731,22 +731,45 @@ export function readStructuredSeoBlock(block) {
 }
 
 /**
- * Return the final static object assigned to a structuredData field.
+ * Return the final static object or array assigned to a property.
  * @returns {string | undefined}
  */
-export function readStaticObjectProperty(block, field) {
+export function readStaticCompositeProperty(block, field) {
   /** @type {string | undefined} */
-  let objectBlock;
+  let composite;
   forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
     if (key !== field) return;
-    // JavaScript object literals are last-write-wins. A later null, dynamic
-    // expression, or primitive must therefore clear an earlier object rather
-    // than leaking stale nested JSON-LD into the emitted page/feed.
-    objectBlock = block[valueStart] === '{'
+    // JavaScript properties are last-write-wins. A later null, dynamic
+    // expression, or primitive must clear an earlier nested JSON-LD value.
+    composite = block[valueStart] === '{' || block[valueStart] === '['
       ? block.slice(valueStart, valueEnd)
       : undefined;
   });
-  return objectBlock;
+  return composite;
+}
+
+/**
+ * Return the final static object assigned to a property.
+ * @returns {string | undefined}
+ */
+export function readStaticObjectProperty(block, field) {
+  const composite = readStaticCompositeProperty(block, field);
+  return composite?.startsWith('{') ? composite : undefined;
+}
+
+/**
+ * Return the final literal boolean assigned to a property.
+ * @returns {boolean | undefined}
+ */
+export function readStaticBooleanProperty(block, field) {
+  /** @type {boolean | undefined} */
+  let booleanValue;
+  forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
+    if (key !== field) return;
+    const literal = block.slice(valueStart, valueEnd).trim();
+    booleanValue = literal === 'true' ? true : literal === 'false' ? false : undefined;
+  });
+  return booleanValue;
 }
 
 /**

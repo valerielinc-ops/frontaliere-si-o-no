@@ -20,6 +20,11 @@ function schemaTypeName(value) {
   return value.trim().split(/[\/#]/u).pop() || '';
 }
 
+function schemaTypeMatches(value, expected) {
+  const types = Array.isArray(value) ? value : [value];
+  return types.some((type) => schemaTypeName(type) === expected);
+}
+
 function isValidCurrency(value) {
   if (typeof value !== 'string' || !/^[A-Z]{3}$/u.test(value)) return false;
   try {
@@ -41,6 +46,70 @@ function isHttpUrl(value) {
     return url.protocol === 'http:' || url.protocol === 'https:';
   } catch {
     return false;
+  }
+}
+
+function validateEventLocation(schema, filePath, errors) {
+  const requestedMode = schema.eventAttendanceMode === undefined
+    ? 'OfflineEventAttendanceMode'
+    : schemaTypeName(schema.eventAttendanceMode);
+  const attendanceMode = ATTENDANCE_MODES.has(requestedMode)
+    ? requestedMode
+    : 'OfflineEventAttendanceMode';
+  const locations = Array.isArray(schema.location) ? schema.location : [schema.location];
+  if (!schema.location || locations.length === 0) {
+    errors.push({ file: filePath, type: 'Event', field: 'location', message: 'Event missing "location"' });
+    return;
+  }
+
+  let physicalCount = 0;
+  let virtualCount = 0;
+  locations.forEach((location, index) => {
+    const field = Array.isArray(schema.location) ? `location[${index}]` : 'location';
+    if (!location || typeof location !== 'object' || Array.isArray(location)) {
+      errors.push({ file: filePath, type: 'Event', field, message: `Event "${field}" must be a Place or VirtualLocation` });
+      return;
+    }
+
+    const isPhysicalLocation = schemaTypeMatches(location['@type'], 'Place');
+    const isVirtualLocation = schemaTypeMatches(location['@type'], 'VirtualLocation');
+    if (isPhysicalLocation && !isVirtualLocation) {
+      physicalCount += 1;
+      if (attendanceMode === 'OnlineEventAttendanceMode') {
+        errors.push({ file: filePath, type: 'Event', field: `${field}.@type`, message: 'Online Event location must use VirtualLocation' });
+      }
+      if (!isNonEmpty(location.name)) {
+        errors.push({ file: filePath, type: 'Event', field: `${field}.name`, message: `Event missing "${field}.name"` });
+      }
+      const address = location.address;
+      if (!address || typeof address !== 'object' || Array.isArray(address)) {
+        errors.push({ file: filePath, type: 'Event', field: `${field}.address`, message: `Event missing "${field}.address"` });
+      } else {
+        if (!schemaTypeMatches(address['@type'], 'PostalAddress')) {
+          errors.push({ file: filePath, type: 'Event', field: `${field}.address.@type`, message: `Event "${field}.address" must use PostalAddress` });
+        }
+        if (![address.streetAddress, address.addressLocality, address.postalCode].some(isNonEmpty)) {
+          errors.push({ file: filePath, type: 'Event', field: `${field}.address`, message: `Event "${field}.address" needs a street, locality, or postal code` });
+        }
+      }
+    } else if (isVirtualLocation && !isPhysicalLocation) {
+      virtualCount += 1;
+      if (attendanceMode === 'OfflineEventAttendanceMode') {
+        errors.push({ file: filePath, type: 'Event', field: `${field}.@type`, message: 'Offline Event location must use Place' });
+      }
+      if (!isHttpUrl(location.url)) {
+        errors.push({ file: filePath, type: 'Event', field: `${field}.url`, message: `Event "${field}.url" must be an absolute HTTP(S) URL` });
+      }
+    } else {
+      errors.push({ file: filePath, type: 'Event', field: `${field}.@type`, message: `Event "${field}" must use Place or VirtualLocation` });
+    }
+  });
+
+  if (attendanceMode !== 'OnlineEventAttendanceMode' && physicalCount === 0) {
+    errors.push({ file: filePath, type: 'Event', field: 'location', message: 'Event attendance mode requires a physical Place' });
+  }
+  if (attendanceMode !== 'OfflineEventAttendanceMode' && virtualCount === 0) {
+    errors.push({ file: filePath, type: 'Event', field: 'location', message: 'Event attendance mode requires a VirtualLocation' });
   }
 }
 
@@ -114,28 +183,7 @@ export function validateEventStructuredData(schema, filePath) {
     errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${length} chars, need >= 30)` });
   }
 
-  const location = schema.location;
-  if (!location || typeof location !== 'object' || Array.isArray(location)) {
-    errors.push({ file: filePath, type: 'Event', field: 'location', message: 'Event missing "location"' });
-  } else {
-    if (schemaTypeName(location['@type']) !== 'Place') {
-      errors.push({ file: filePath, type: 'Event', field: 'location.@type', message: 'Event location must use Place' });
-    }
-    if (!isNonEmpty(location.name)) {
-      errors.push({ file: filePath, type: 'Event', field: 'location.name', message: 'Event missing "location.name"' });
-    }
-    const address = location.address;
-    if (!address || typeof address !== 'object' || Array.isArray(address)) {
-      errors.push({ file: filePath, type: 'Event', field: 'location.address', message: 'Event missing "location.address"' });
-    } else {
-      if (schemaTypeName(address['@type']) !== 'PostalAddress') {
-        errors.push({ file: filePath, type: 'Event', field: 'location.address.@type', message: 'Event location.address must use PostalAddress' });
-      }
-      if (![address.streetAddress, address.addressLocality, address.postalCode].some(isNonEmpty)) {
-        errors.push({ file: filePath, type: 'Event', field: 'location.address', message: 'Event location.address needs a street, locality, or postal code' });
-      }
-    }
-  }
+  validateEventLocation(schema, filePath, errors);
 
   if (schema.eventStatus !== undefined && !EVENT_STATUSES.has(schemaTypeName(schema.eventStatus))) {
     errors.push({ file: filePath, type: 'Event', field: 'eventStatus', message: 'Event "eventStatus" is not a supported status' });
