@@ -13,6 +13,7 @@ import {
   parseOfficialAdPage,
   parseCurrentOfficialAdPage,
   parseCurrentOfficialJobLinks,
+  fetchOfficialAdTexts,
   fetchAllStadtZuerichJobs,
 } from '../scripts/lib/stadt-zuerich-job-parser.mjs';
 
@@ -383,6 +384,19 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     expect(parsed?.description).not.toContain('Kontaktperson');
   });
 
+  it('extracts the current reference from rendered text across inline markup', () => {
+    const parsed = parseCurrentOfficialAdPage(`
+      <main>
+        <div><span>Referenz-Nr.</span><span>123456</span></div>
+        <h2>Aufgaben</h2>
+        <p>Teamarbeit</p>
+      </main>
+    `);
+
+    expect(parsed?.ref).toBe('123456');
+    expect(parsed?.description).toBeTruthy();
+  });
+
   it('uses hydrated current detail pages when the official index cannot be read', async () => {
     mockPortal({ indexOk: false });
     const detailCalls: string[] = [];
@@ -464,5 +478,54 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     const jobs = await fetchAllStadtZuerichJobs();
     expect(jobs).toHaveLength(1);
     expect(jobs[0].referenceNumber).toBe('51367');
+  }, 20_000);
+});
+
+describe('fetchOfficialAdTexts — partial legacy recovery', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('merges current official results for references absent from legacy results', async () => {
+    const legacyAd = `
+      <stzh-pagecontent>
+        <stzh-richtext><p>Referenz-Nr.: 123</p><p>Legacy vacancy text</p></stzh-richtext>
+      </stzh-pagecontent>
+    `;
+    const currentAd = `
+      <main>
+        <p>Referenz-Nr.: 456</p>
+        <h2>Aufgaben</h2>
+        <p>Current vacancy text</p>
+      </main>
+    `;
+    const currentIndexRefs: string[][] = [];
+
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const value = String(url);
+      if (value.includes('/stzh/jobsearch')) {
+        return new Response(JSON.stringify({
+          results: [{ href: '/content/web/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/job-detailseite.123.html' }],
+        }), { status: 200 });
+      }
+      if (value.includes('job-detailseite.123.html')) return new Response(legacyAd, { status: 200 });
+      if (value.includes('/jobs/de/unit-456.html')) return new Response(currentAd, { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+
+    const texts = await fetchOfficialAdTexts(
+      new Set(['123', '456']),
+      0,
+      {
+        fetchCurrentOfficialIndexPage: async (wantedRefs: string[]) => {
+          currentIndexRefs.push(wantedRefs);
+          return '<a href="/jobs/de/unit-456.html">Current vacancy</a>';
+        },
+      },
+    );
+
+    expect(texts.get('123')).toContain('Legacy vacancy text');
+    expect(texts.get('456')).toContain('Current vacancy text');
+    expect(currentIndexRefs).toEqual([['456']]);
   }, 20_000);
 });

@@ -323,6 +323,11 @@ function officialBlockText(blockHtml = '') {
     .replace(/<a\b[^>]*href="tel:[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '')));
 }
 
+function extractReferenceNumber(html = '') {
+  const renderedText = normalizeSpace(stripHtml(html));
+  return (renderedText.match(/Referenz-Nr\.?\s*:?\s*(\d{3,})/i) || [])[1] || '';
+}
+
 /**
  * Parse one official ad page (`/…/jobs/job-detailseite.{id}.html`): the
  * Referenz-Nr. and the vacancy body — every `<stzh-richtext>` section of the
@@ -336,8 +341,8 @@ function officialBlockText(blockHtml = '') {
  */
 export function parseOfficialAdPage(html = '') {
   if (!html || typeof html !== 'string') return null;
-  const ref = (html.match(/Referenz-Nr\.?:?\s*(\d{3,})/i) || [])[1] || '';
   const content = (html.match(/<stzh-pagecontent\b[\s\S]*?<\/stzh-pagecontent>/i) || [html])[0];
+  const ref = extractReferenceNumber(content);
   const sections = [];
   const re = /<stzh-richtext\b[^>]*>([\s\S]*?)<\/stzh-richtext>/gi;
   let m;
@@ -363,10 +368,10 @@ export function parseOfficialAdPage(html = '') {
  */
 export function parseCurrentOfficialAdPage(html = '') {
   if (!html || typeof html !== 'string') return null;
-  const ref = (html.match(/Referenz-Nr\.?:?\s*(\d{3,})/i) || [])[1] || '';
   const content = (html.match(/<main\b[\s\S]*?<\/main>/i)
     || html.match(/<article\b[\s\S]*?<\/article>/i)
     || [html])[0];
+  const ref = extractReferenceNumber(content);
   const headings = [];
   const headingRe = /<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi;
   let match;
