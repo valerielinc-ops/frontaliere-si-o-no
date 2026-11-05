@@ -349,6 +349,7 @@ export async function sendReviewAction(
   action: ReviewAction,
   extra: {
     feedback?: string;
+    withdrawalReason?: string;
     answers?: Record<string, string>;
     cvChoice?: string;
     documentId?: string;

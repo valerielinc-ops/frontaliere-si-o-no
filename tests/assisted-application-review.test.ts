@@ -96,6 +96,29 @@ describe('candidate review API', () => {
     }
   });
 
+  it('requires a withdrawal reason and cancels a one-off application transactionally', async () => {
+    const missingReason = await handleAssistedApplicationReview({
+      method: 'POST', body: { t: token(), action: 'withdraw' },
+    }, deps());
+    expect(missingReason).toMatchObject({ status: 400, body: { ok: false, error: 'withdrawal_reason_required' } });
+    expect(store.read(BASE)).not.toHaveProperty('withdrawnAt');
+
+    const cancelled = await handleAssistedApplicationReview({
+      method: 'POST',
+      body: { t: token(), action: 'withdraw', withdrawalReason: 'La posizione non mi interessa più' },
+    }, deps());
+    expect(cancelled).toMatchObject({ status: 200, body: { ok: true, state: 'withdrawn', slotReleased: false } });
+    expect(store.read(BASE)).toMatchObject({
+      submissionStatus: 'withdrawn', automationState: 'withdrawn', withdrawalReason: 'La posizione non mi interessa più',
+    });
+    expect(store.read(`${BASE}/automation/flow`).state).toBe('withdrawn');
+
+    // A retried browser request is idempotent and does not need to resend the reason.
+    await expect(handleAssistedApplicationReview({
+      method: 'POST', body: { t: token(), action: 'withdraw' },
+    }, deps())).resolves.toMatchObject({ status: 200, body: { state: 'withdrawn', slotReleased: false } });
+  });
+
   it('preserves the native ATS question and marks failed translation for the candidate page', async () => {
     const applicationQuestion = 'Welche Region ist dein Herkunftskanton?';
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
