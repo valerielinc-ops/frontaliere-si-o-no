@@ -17,7 +17,7 @@ export const DISCOVERY_ARTICLES_MAX_AGE_MS = 14 * 24 * 60 * 60 * 1000;
 export const DISCOVERY_ARTICLES_FUTURE_SKEW_MS = 5 * 60 * 1000;
 
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
-const PROVIDERS = new Set(['google_trends', 'reddit', 'other']);
+const PROVIDERS = new Set(['google_trends', 'other']);
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const MAX_RECENT_ARTICLE_AGE_MS = 60 * 24 * 60 * 60 * 1000;
 const MAX_ROTATION_POOL = 12;
@@ -249,6 +249,9 @@ export function chooseDiscoveryArticle(index, campaignId, locale, { now = Date.n
 
 function validateStoredSelection(value, locale) {
   if (value === null) return null;
+  if (isRecord(value) && typeof value.provider === 'string' && !PROVIDERS.has(value.provider)) {
+    return null;
+  }
   if (!isRecord(value)
     || typeof value.articleId !== 'string'
     || !PROVIDERS.has(value.provider)
@@ -287,7 +290,20 @@ export async function freezeCampaignDiscoverySelection(db, campaignId, locale, i
     const snapshot = await transaction.get(reference);
     const existing = snapshot.exists ? snapshot.data() : {};
     const selections = isRecord(existing?.selections) ? existing.selections : {};
-    if (Object.hasOwn(selections, locale)) return validateStoredSelection(selections[locale], locale);
+    if (Object.hasOwn(selections, locale)) {
+      const stored = validateStoredSelection(selections[locale], locale);
+      if (stored !== null || selections[locale] === null) return stored;
+
+      // A provider removed from the public allowlist must not break an older
+      // campaign resume. Freeze the disallowed slot as null instead of choosing
+      // a different article halfway through that campaign.
+      const timestamp = now instanceof Date ? now : new Date(now);
+      transaction.set(reference, {
+        updated_at: timestamp,
+        selections: { [locale]: null },
+      }, { merge: true });
+      return null;
+    }
 
     const selection = allowNewSelection
       ? chooseDiscoveryArticle(index, campaignId, locale, { now })
