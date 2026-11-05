@@ -3119,6 +3119,16 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const frenchEstCe = permitField('Est-ce que vous détenez un permis suisse ?', ['Oui', 'Non']);
     expect(guardPlan({ actions: [], missingRequired: [] }, [frenchEstCe], held).actions).toEqual([select('p1', 'Oui')]);
 
+    for (const label of ['Est-ce que tu as un permis suisse ?', 'Est-ce que tu es autorisé à travailler en Suisse ?']) {
+      const informalFrench = permitField(label, ['Oui', 'Non']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [informalFrench], held).actions).toEqual([select('p1', 'Oui')]);
+    }
+
+    for (const label of ['Avez-vous obtenu une autorisation de travail ?', 'Est-ce que tu as reçu un permis suisse ?']) {
+      const obtainedFrench = permitField(label, ['Oui', 'Non']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [obtainedFrench], held).actions).toEqual([select('p1', 'Oui')]);
+    }
+
     const italianDeclarative = permitField('Sei autorizzato a lavorare in Svizzera?', ['Sì', 'No']);
     expect(guardPlan({ actions: [], missingRequired: [] }, [italianDeclarative], held).actions).toEqual([select('p1', 'Sì')]);
 
@@ -3132,6 +3142,9 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
 
     const spanishNeed = permitField('¿Necesitas un permiso de trabajo en Suiza?', ['Sí', 'No']);
     expect(guardPlan({ actions: [], missingRequired: [] }, [spanishNeed], held).actions).toEqual([]);
+
+    const frenchProof = permitField('Est-ce que tu es capable de fournir une preuve de ton autorisation de travail ?', ['Oui', 'Non']);
+    expect(guardPlan({ actions: [select('p1', 'Oui', 'answers')], missingRequired: [] }, [frenchProof], held).actions).toEqual([]);
   });
 
   it('does not preserve a boolean prefill as the answer to which permit the candidate holds', () => {
