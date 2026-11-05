@@ -2559,6 +2559,20 @@ const OPTION_FALLBACK_MARKERS = Object.freeze({
   ]),
 });
 
+// Exact Italian captions from Umantis forms are already candidate-readable.
+// Several are too short or contain shared technical words for the language
+// detector to classify (for example "Via", "Diploma" and "Indirizzo e-mail/login").
+const DETERMINISTIC_ITALIAN_PORTAL_LABELS = new Set([
+  'foto', 'titolo accademico', 'nome', 'cognome', 'data di nascita',
+  'indirizzo e mail login', 'password', 'via', 'nap', 'localita', 'paese',
+  'telefono', 'cellulare', 'profilo linkedin', 'profilo xing', 'nazionalita',
+  'diploma', 'annotazioni sulla formazione',
+  'il suo diploma di riferimento e stato ottenuto',
+  'come e venuto a conoscenza della nostra organizzazione',
+  'attualmente ho un contratto con l eoc',
+  'in passato ho gia lavorato per l eoc',
+]);
+
 function fallbackOption(option, language) {
   const text = String(option || '').trim();
   const normalized = normalizedQuestionText(text);
@@ -2747,17 +2761,29 @@ function sameLanguagePortalLocalization(items, candidateLanguage) {
     return !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage);
   });
   if (hasUnconfidentItem) return null;
-  return items.map((item) => {
-    const applicationOptions = Array.isArray(item.applicationOptions) ? item.applicationOptions : [];
-    const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
-    return {
-      ...item,
-      question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
-      ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
-      applicationQuestionLocale: candidateLanguage,
-      localizationStatus: 'same_language',
-    };
-  });
+  return items.map((item) => sameLanguagePortalQuestion(item, candidateLanguage));
+}
+
+function sameLanguagePortalQuestion(item, candidateLanguage) {
+  const applicationOptions = Array.isArray(item.applicationOptions) ? item.applicationOptions : [];
+  const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+  return {
+    ...item,
+    question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+    ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
+    applicationQuestionLocale: candidateLanguage,
+    localizationStatus: 'same_language',
+  };
+}
+
+function deterministicItalianSameLanguage(item, candidateLanguage) {
+  if (candidateLanguage !== 'it'
+    || !DETERMINISTIC_ITALIAN_PORTAL_LABELS.has(normalizedQuestionText(nativePortalQuestion(item)))) return null;
+  const applicationOptions = Array.isArray(item.applicationOptions)
+    ? item.applicationOptions.map((option) => String(option || '').trim()).filter(Boolean)
+    : [];
+  if (applicationOptions.length && !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
+  return sameLanguagePortalQuestion(item, candidateLanguage);
 }
 
 export class PortalQuestionLocalizationError extends Error {
@@ -2793,7 +2819,8 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const candidateLanguage = localeCode(candidateLocale);
   const applicationLanguageHint = localeCode(applicationLocale);
   if (!items.length || !candidateLanguage) return items;
-  const deterministic = items.map((item) => deterministicGermanLocalization(item, candidateLanguage));
+  const deterministic = items.map((item) => deterministicGermanLocalization(item, candidateLanguage)
+    || deterministicItalianSameLanguage(item, candidateLanguage));
   const unresolved = items.filter((_item, index) => !deterministic[index]);
   if (!unresolved.length) return deterministic;
   const sameLanguage = sameLanguagePortalLocalization(unresolved, candidateLanguage);
