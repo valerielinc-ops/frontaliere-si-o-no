@@ -4703,11 +4703,11 @@
     },
     {
       "id": "balgrist-fac3d3de0dc9",
-      "slug": "mitarbeiterin-collaboratore-trice-patientenservice-m-w-d-60-80-universitatsklinik-balgrist-zurich",
+      "slug": "addetta-addetto-al-servizio-pazienti-m-f-d-60-80-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-patientenservice-m-w-d-60-80-universitatsklinik-balgrist-zurich",
-        "en": "employee-patient-service-m-f-d-60-80-universitatsklinik-balgrist-zurich",
         "de": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich",
+        "it": "addetta-addetto-al-servizio-pazienti-m-f-d-60-80-universitatsklinik-balgrist-zurich",
+        "en": "employee-patient-service-m-f-d-60-80-universitatsklinik-balgrist-zurich",
         "fr": "service-patient-salarie-h-f-d-60-80-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
@@ -4715,9 +4715,9 @@
       "companyDomain": "balgrist.ch",
       "title": "Mitarbeiterin/Mitarbeiter Patientenservice (m/w/d) 60–80%",
       "titleByLocale": {
+        "de": "Mitarbeiterin/Mitarbeiter Patientenservice (m/w/d) 60–80%",
         "it": "Addetta/Addetto al servizio pazienti (m/f/d) 60–80%",
         "en": "Employee patient service (m/f/d) 60–80 %",
-        "de": "Mitarbeiterin/Mitarbeiter Patientenservice (m/w/d) 60–80%",
         "fr": "Service patient salarié (h/f/d) 60–80 %"
       },
       "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie sowie internationaler Anerkennung.<br/><br/>Der Patientenservice betreut unsere Patientinnen und Patienten sicher und professionell.<br/>Für unser motiviertes Team suchen per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Erfassung der Menüwünsche von Patienten und Gästen mittels elektronischem Menüwahlsystem\n\n• Alle anfallenden Aufgaben rund um Vor- und Nachbereitung für den Service\n\n• Erledigung von kundenorientiertem Getränke- und Mahlzeitenservice sowie die Wäschelogistik auf den Patientenzimmern\n\n• Wöchentliche Bestellung von Food und Nonfood für die Stationen\n\n• Organisation des Rooming-ins von Gästen sowie Blumenpflege\n\n• Täglicher Beitrag zum Wohlbefinden unserer Patienten\n\nAnforderungen:\n• Einige Jahre Erfahrung im Servicebereich, idealerweise in der Hotellerie oder in einem Klinikumfeld\n\n• Gute PC-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Verstehen von Schweizer Mundart), Fremdsprachenkenntnisse sind wünschenswert\n\n• Gepflegtes Auftreten sowie ein zuvorkommender und respektvoller Umgang mit Patientinnen und Patienten\n\n• Teamfähigkeit, professionelle Gesprächskompetenz\n\nWir bieten:\n• Möglichkeit, in einer orthopädischen Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• 4-Tage Woche (bei 100 %)\n\n• Arbeitseinsätze ohne Zimmerstunde\n\n• Zusammenarbeit mit motivierten und sehr engagierten Mitarbeitenden\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder einen jährlichen Beitrag an ein Generalabonnement\n\n• Geniessen Sie ein gesundes und ausgewogenes Mittagessen zu vergünstigten Preisen in unserem firmeneigenen Mitarbeiterrestaurant\n\n• Geschenkter freier Tag zum Geburtstag\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitenden",
@@ -4753,12 +4753,10 @@
       "applyUrl": "https://apply.refline.ch/245893/1221/index.html?cid=101&lang=de",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich"
+          "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich",
+          "mitarbeiterin-collaboratore-trice-patientenservice-m-w-d-60-80-universitatsklinik-balgrist-zurich"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich"
@@ -4767,7 +4765,10 @@
           "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich"
         ]
       },
-      "firstSeenAt": "2026-11-04T21:32:36.748Z",
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-60-80-balgrist-zurich",
+        "mitarbeiterin-collaboratore-trice-patientenservice-m-w-d-60-80-universitatsklinik-balgrist-zurich"
+      ],
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
@@ -4783,7 +4784,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:25:33.453Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T21:32:36.748Z"
     }
   ]
 }
