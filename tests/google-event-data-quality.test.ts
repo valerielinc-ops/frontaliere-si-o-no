@@ -178,6 +178,12 @@ describe('Google Event data quality publication gate', () => {
     expect(hasCompleteGoogleEventData(event)).toBe(false);
   });
 
+  it('rejects an empty previousStartDate on a non-rescheduled event', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    event.previousStartDate = '';
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
+  });
+
   it('accepts valid ISO local datetimes without a timezone offset', () => {
     const event = structuredClone(COMPLETE_EVENT);
     event.startDate = '2025-07-21T19:00';

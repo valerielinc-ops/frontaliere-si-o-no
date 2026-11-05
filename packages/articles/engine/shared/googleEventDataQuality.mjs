@@ -198,5 +198,5 @@ export function hasCompleteGoogleEventData(event) {
     && offers.every((offer) => hasCompleteOffer(offer, event))
     && (status.includes('EventRescheduled')
       ? isValidPreviousStartDate(event.previousStartDate)
-      : !event.previousStartDate);
+      : event.previousStartDate === undefined);
 }
