@@ -1,6 +1,8 @@
 import { GRAPH_API } from './instagram-graph-constants.mjs';
 import {
-  isMissingSocialPublishReservationError,
+  isMissingSocialPublishReservationDocumentError,
+  isMissingSocialPublishReservationEntryError,
+  isSocialPublishReservationOutsideRetention,
   socialPublishReservationKey,
 } from './social-publish-reservations.mjs';
 
@@ -142,11 +144,16 @@ export async function reconcileFacebookScheduledPosts({
           now: nowDate,
         });
       } catch (error) {
-        if (isMissingSocialPublishReservationError(error)) {
-          // A native Facebook post confirmed as published is authoritative.
-          // Older ledger rows may have no matching reservation entry even
-          // when the shared Firestore document now exists; the next batch
-          // seeds its state from this reconciled ledger.
+        const historicalReservation = isMissingSocialPublishReservationDocumentError(error)
+          || (isMissingSocialPublishReservationEntryError(error)
+            && isSocialPublishReservationOutsideRetention(row.scheduledFor, nowDate));
+        if (historicalReservation) {
+          // Rows written before the shared reservation gate, or rows whose
+          // planned day has already left the retention window, have native
+          // publication evidence but no active reservation to settle. The
+          // next reservation batch seeds its retained state from this
+          // reconciled ledger. A missing entry inside retention remains
+          // uncertain and stays fail-closed.
           legacyReservationMissing += 1;
           continue;
         }
@@ -176,7 +183,7 @@ export async function reconcileFacebookScheduledPosts({
 
   if (reconciled > 0) log(`✅ reconciled ${reconciled} Facebook scheduled post(s) to actual publish time`);
   if (legacyReservationMissing > 0) {
-    log('ℹ️', `${legacyReservationMissing} confirmed Facebook scheduled post(s) predate the shared reservation ledger`);
+    log('ℹ️', `${legacyReservationMissing} confirmed Facebook scheduled post(s) predate or fall outside shared reservation retention`);
   }
   return { checked: due.length, reconciled, pending, uncertain };
 }

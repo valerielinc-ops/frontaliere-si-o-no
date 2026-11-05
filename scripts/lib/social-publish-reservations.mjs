@@ -45,6 +45,10 @@ export function isMissingSocialPublishReservationDocumentError(error) {
   return error?.code === SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING;
 }
 
+export function isMissingSocialPublishReservationEntryError(error) {
+  return error?.code === SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING;
+}
+
 export function isMissingSocialPublishReservationError(error) {
   return isMissingSocialPublishReservationDocumentError(error)
     || error?.code === SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING;
@@ -80,6 +84,14 @@ function dayKey(value, timeZone = SOCIAL_PUBLISH_TIME_ZONE) {
 
 export function socialPublishLocalDay(value) {
   return dayKey(value);
+}
+
+export function isSocialPublishReservationOutsideRetention(value, now = new Date()) {
+  const firstRetainedDay = dayOffset(
+    dayKey(now),
+    -SOCIAL_PUBLISH_RESERVATION_RETENTION_DAYS,
+  );
+  return dayKey(value) < firstRetainedDay;
 }
 
 function dayOffset(key, offset) {
