@@ -126,7 +126,8 @@ describe('portal runner self-correction', () => {
     };
     const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame, goto };
 
-    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 })).rejects.toBe(locatorTimeout);
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 }))
+      .rejects.toMatchObject({ code: 'portal_control_click_unresolved' });
     expect(frame.getByRole).not.toHaveBeenCalled();
     expect(staleClick).toHaveBeenCalledTimes(2);
     expect(goto).not.toHaveBeenCalled();
@@ -148,7 +149,8 @@ describe('portal runner self-correction', () => {
     };
     const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame, goto };
 
-    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 })).rejects.toBe(locatorTimeout);
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 }))
+      .rejects.toMatchObject({ code: 'portal_control_click_unresolved' });
     expect(staleClick).toHaveBeenCalledOnce();
     expect(frame.getByRole).not.toHaveBeenCalled();
     expect(goto).not.toHaveBeenCalled();
@@ -176,7 +178,8 @@ describe('portal runner self-correction', () => {
       getByRole: vi.fn((role: string) => role === 'button' ? candidates : noLinks),
     };
     const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame };
-    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', formId: 'f2', frame: 0 })).rejects.toBe(locatorTimeout);
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', formId: 'f2', frame: 0 }))
+      .rejects.toMatchObject({ code: 'portal_control_click_unresolved' });
     expect(first.click).not.toHaveBeenCalled();
     expect(second.click).not.toHaveBeenCalled();
 
@@ -234,7 +237,7 @@ describe('portal runner self-correction', () => {
 
     await expect(clickButton(page as any, {
       id: 'f5', text: 'Weiter', href: 'https://portal.example/next', formId: 'f2', dialog: true, dialogId: 'd1', frame: 0,
-    })).rejects.toBe(locatorTimeout);
+    })).rejects.toMatchObject({ code: 'portal_control_click_unresolved' });
     expect(staleClick).toHaveBeenCalledTimes(2);
     expect(candidate.evaluate).toHaveBeenCalledOnce();
     expect(exactClick).not.toHaveBeenCalled();
