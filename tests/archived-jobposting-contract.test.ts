@@ -36,6 +36,14 @@ describe('complete archived SEO without an active offer', () => {
   it('does not invent a historical deadline when every supplied deadline is in the future', () => {
     expect(buildArchivedJobPosting({ ...record, expiredAt: ago(-3), datePosted: ago(-20) }, 'Archived', options)).toBeNull();
   });
+  it('rejects future archive evidence even when an earlier cutoff exists', () => {
+    const now = new Date('2026-11-05T00:00:00Z');
+    expect(buildArchivedJobPosting(
+      { expiredAt: '2026-11-01T00:00:00Z', crawledAt: '2026-11-06T00:00:00Z' },
+      'Archived',
+      { ...options, now },
+    )).toBeNull();
+  });
   it('uses archive facts rather than an invitation to apply when the original text is short', () => {
     const schema = buildArchivedJobPosting({ ...record, description: 'Reparto dati.' }, 'Offerta archiviata e non più disponibile.', options)!;
     expect(schema.description).toContain('Offerta archiviata');

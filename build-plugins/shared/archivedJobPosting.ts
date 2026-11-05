@@ -10,8 +10,8 @@ export function buildArchivedJobPosting(job: JobInput, notice: string, options: 
   const now = clock.getTime();
   const archiveDates = [job.expiredAt, job.crawledAt, job.datePosted, job.postedDate]
     .map((value) => value ? Date.parse(value) : NaN);
+  if (archiveDates.some((date) => Number.isFinite(date) && date >= now)) return null;
   const validThrough = archiveDates.find((date) => Number.isFinite(date) && date < now);
-  if (validThrough === undefined && archiveDates.some((date) => Number.isFinite(date) && date >= now)) return null;
   const archiveValidThrough = validThrough ?? now - ARCHIVE_FALLBACK_DAYS * 24 * 60 * 60 * 1000;
   const datePosted = resolveReportedPostingDate(job, clock);
   if (datePosted && Date.parse(datePosted) >= archiveValidThrough) return null;
