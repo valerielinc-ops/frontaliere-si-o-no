@@ -1493,7 +1493,12 @@ async function isPageCookieConsentControl(page, snapshot, button) {
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   // A privacy/consent action can use the same bare label inside the
   // application form. It is never a cookie-manager entry point there.
-  if (COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button)) && (button.formId || button.roleFormId)) return false;
+  const manageConsent = COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button));
+  if (manageConsent && (button.formId || button.roleFormId)) return false;
+  // The bare Yellowshark label needs an independently identified live
+  // surface. A section merely named "consent" is application copy, not
+  // evidence that the control opens a cookie manager.
+  if (manageConsent && !button.dialog && button.cookieSurface !== 'banner') return false;
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
