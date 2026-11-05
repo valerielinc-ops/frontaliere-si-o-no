@@ -83,7 +83,7 @@ describe('paper application packet readiness', () => {
     expect(result.getPageCount()).toBe(5); // base + local index + two-page scan + photo frame
   });
 
-  it('keeps a digitally signed local PDF separate from the pages merged for printing', async () => {
+  it('includes printable pages from a digitally signed local PDF', async () => {
     const signed = new File([await signedPdfWithPages(2)], 'signed-certificate.pdf', { type: 'application/pdf' });
     const regular = new File([await pdfWithPages(1)], 'health-scan.pdf', { type: 'application/pdf' });
     const merged = await mergeLocalPostalDocuments({
@@ -96,10 +96,10 @@ describe('paper application packet readiness', () => {
       maxBytes: 1024 * 1024,
     });
     const result = await PDFDocument.load(merged);
-    expect(result.getPageCount()).toBe(3); // base + local index + unsigned scan
+    expect(result.getPageCount()).toBe(5); // base + local index + signed two-page copy + unsigned scan
   });
 
-  it('does not merge digitally signed server PDFs into the printable packet', async () => {
+  it('includes printable pages from digitally signed server PDFs', async () => {
     const signed = Buffer.from(await signedPdfWithPages(2));
     const postalSubmission = {
       recipient: 'Ufficio candidature', address: 'Via Esempio 1\n6900 Lugano', deadline: '30 giugno 2026',
@@ -112,7 +112,7 @@ describe('paper application packet readiness', () => {
       checklist: [{ documentId: 'civil_status', label: 'Certificato di stato civile', status: 'incluso' }],
       files: [{ type: 'pdf', buffer: signed, name: 'certificato-firmato.pdf', label: 'Certificato di stato civile', documentId: 'civil_status' }],
     });
-    expect((await PDFDocument.load(withSignedAttachment)).getPageCount()).toBe((await PDFDocument.load(withoutAttachment)).getPageCount());
+    expect((await PDFDocument.load(withSignedAttachment)).getPageCount()).toBe((await PDFDocument.load(withoutAttachment)).getPageCount() + 2);
   });
 
   it('rejects local files when the combined source size exceeds the packet limit', async () => {
