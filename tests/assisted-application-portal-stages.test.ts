@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applicationReceipt, applicationStage, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
+import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { isVerifiedPostingEntry, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
@@ -19,6 +19,23 @@ const receipt = { url: receiptUrl, fields: [], text: `Thank you for your applica
 const controls = (snapshot: any) => pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl, job });
 
 describe('application stage ownership', () => {
+  it.each([
+    'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+    'Applications from your region are not currently supported.',
+    'We cannot accept applications from your region.',
+    'Non possiamo supportare candidature dalla tua regione.',
+  ])('recognizes an explicit application-region restriction: %s', (text) => {
+    expect(isApplicationRegionUnsupported(text)).toBe(true);
+  });
+
+  it.each([
+    'We welcome applications from every region.',
+    'The role is based in the Zürich region.',
+    'Bewerbungen sind willkommen.',
+  ])('does not mistake ordinary regional or application copy for a restriction: %s', (text) => {
+    expect(isApplicationRegionUnsupported(text)).toBe(false);
+  });
+
   it('separates Avature-style profile confirmation, review and posting receipt', async () => {
     const first = controls(profile);
     expect(first.submit).toBeNull();
@@ -133,6 +150,26 @@ describe('application stage ownership', () => {
     };
     expect(applicationStage(form, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=103967', job }).kind).toBe('form');
     expect(controls(form).submit).toBe(submit);
+  });
+
+  it('recognizes a title-bound SuccessFactors application split across profile and question forms', () => {
+    const submit = { text: 'Bewerben', formId: 'apply-actions', frame: 0 };
+    const form = {
+      url: 'https://career5.successfactors.eu/portalcareer',
+      text: [job.title, 'Profilinformationen', 'Stellenspezifische Informationen', 'Wie hat dich diese Stelle motiviert?', submit.text].join('\n'),
+      fields: [
+        { label: '* Vorname', kind: 'text', inputType: 'text', required: true, formId: 'profile', frame: 0 },
+        { label: '* E-Mail', kind: 'text', inputType: 'email', required: true, formId: 'profile', frame: 0 },
+        { label: '* Was hat dich motiviert, dich auf diese Stelle zu bewerben?', kind: 'textarea', inputType: 'textarea', required: true, formId: 'questions', frame: 0 },
+      ],
+      buttons: [submit],
+    };
+
+    expect(applicationStage(form, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('form');
+    expect(controls(form).submit).toBe(submit);
+    expect(applicationStage({ ...form, buttons: [{ text: submit.text, frame: 0 }] }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
+    expect(applicationStage({ ...form, text: 'Profilinformationen Stellenspezifische Informationen' }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
+    expect(applicationStage({ ...form, fields: form.fields.map(field => ({ ...field, frame: 1 })) }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
   });
 
   it('treats Resume / CV as a document label beside an application submit button', () => {

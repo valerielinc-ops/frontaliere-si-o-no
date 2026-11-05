@@ -47,6 +47,19 @@ const APPLICATION_QUESTION_RE = /(?:work\s+permit|permit\s+for|salary\s+expectat
 // receipt proof, even when the preceding review route was observed.
 const RECEIPT_PATH_RE = /(?:^|\/)(?:thank[-_ ]?you|receipt|complete(?:d)?|confirmation|success|submitted)\/?$/i;
 
+const APPLICATION_REGION_UNSUPPORTED_PATTERNS = [
+  /\bbewerbung\w*\b.{0,120}\b(?:region|gebiet)\b.{0,120}\bnicht\s+(?:unterstütz|möglich|annehm|zulass)/iu,
+  /\bapplication\w*\b.{0,120}\bregion\b.{0,120}\bnot\s+(?:currently\s+)?(?:support|accept)|\b(?:cannot|can't|unable\s+to)\b.{0,120}\bapplication\w*\b.{0,120}\bregion\b/iu,
+  /\bcandidature\w*\b.{0,120}\brégion\b.{0,120}\b(?:ne\s+)?(?:pouvons\s+pas|accept|support)|\b(?:ne\s+)?(?:pouvons\s+pas|accept|support)\b.{0,120}\bcandidature\w*\b.{0,120}\brégion\b/iu,
+  /\bcandidatur\w*\b.{0,120}\bregion(?:e)?\b.{0,120}\bnon\s+(?:support|accett|ammett)|\bnon\s+(?:possiamo|è\s+possibile|accettiamo)\b.{0,120}\bcandidatur\w*\b.{0,120}\bregion(?:e)?\b/iu,
+];
+
+/** The employer page explicitly blocks applications from the candidate's region. */
+export function isApplicationRegionUnsupported(text = '') {
+  const normalized = String(text || '').replace(/\s+/g, ' ');
+  return APPLICATION_REGION_UNSUPPORTED_PATTERNS.some(pattern => pattern.test(normalized));
+}
+
 /** The directory containing a route, treating a canonical trailing slash as decoration. */
 export function routeDirectory(pathname) {
   const path = String(pathname || '').replace(/\/+$/, '') || '/';
@@ -239,9 +252,25 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
     || applicationFields.some(field => field.kind === 'file' || field.inputType === 'file');
   const hasApplicationQuestion = applicationFields.some(field =>
     APPLICATION_QUESTION_RE.test([field.label, field.name].filter(Boolean).join(' ')));
-  const applicationForm = apply.length === 1 && !apply[0].href && apply[0].formId
-    && hasApplicationIdentity
-    && (hasCv || hasApplicationQuestion);
+  // SuccessFactors can render the candidate profile, job questions and final
+  // Apply action in separate form groups. Accept that layout only when the
+  // same frame names this exact posting and exposes both applicant identity
+  // and a recognized application question.
+  const sameFrameFields = apply.length === 1
+    ? (snapshot?.fields || []).filter(field => (field.frame || 0) === (apply[0].frame || 0))
+    : [];
+  const sameFrameHasIdentity = sameFrameFields.some(field => field.inputType === 'email'
+    || /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i.test(field.label || ''));
+  const sameFrameHasApplicationQuestion = sameFrameFields.some(field =>
+    APPLICATION_QUESTION_RE.test([field.label, field.name].filter(Boolean).join(' ')));
+  const splitFormApplication = apply.length === 1 && !apply[0].href
+    && Boolean(apply[0].formId)
+    && titleBound(text, job.title)
+    && sameFrameHasIdentity
+    && sameFrameHasApplicationQuestion;
+  const applicationForm = (apply.length === 1 && !apply[0].href && Boolean(apply[0].formId)
+    && hasApplicationIdentity && (hasCv || hasApplicationQuestion))
+    || splitFormApplication;
   if (apply.length && (!applicationForm || pending)) return { kind: 'unknown_apply', prefinal: pending };
   return { kind: 'form' };
 }

@@ -63,6 +63,13 @@ export function accountResponseText(snapshot = {}) {
     .join('. ');
 }
 
+const EXISTING_ACCOUNT_RE = /(?:\b(?:already have an? (?:application )?account|an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:sie haben bereits ein(?:en)? (?:bewerbungs?)?konto|es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:vous avez déjà un compte|un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:hai già un account|esiste già un account|sei già registrato)\b)/iu;
+
+/** The portal says this candidate already has an account; registration must stop. */
+export function hasExistingAccountPrompt(snapshot = {}) {
+  return EXISTING_ACCOUNT_RE.test(accountResponseText(snapshot));
+}
+
 const ACCOUNT_VERIFICATION_RE = /(?:\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b[^.\n]{0,80}\b(?:account|konto|compte)\b|\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b\s+(?:(?:your|the|ihr(?:e|en)?|dein(?:e|en)?|die|votre|ton|ta|son|sa|il|la|l['’])\s+){0,2}(?:e-?mail(?:[-\s]?(?:address|adresse))?|(?:address|adresse|indirizzo)\s+e-?mail))/iu;
 const GENERIC_OTP_RESPONSE_RE = /one[- ]time (?:password|passcode)|\b(?:otp|passcode)\b|mot de passe [àa] usage unique|code confidentiel|einmal(?:passwort|code)|\b(?:verification|confirmation) code\b/i;
 
