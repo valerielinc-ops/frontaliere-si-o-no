@@ -23,6 +23,9 @@ const FETCH_TIMEOUT_MS = 12_000;
 const MAX_POSTING_CHARS = 14_000;
 const MAX_PAGE_BYTES = 1_500_000;
 const MAX_REDIRECTS = 3;
+const JOB_ROOM_API_BASE = 'https://www.job-room.ch/jobadservice/api/jobAdvertisements';
+const JOB_ROOM_UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const JOB_ROOM_JOB_ID_RE = /^seco-jobroom-([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i;
 
 function clean(value, max = 500) {
   return String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
@@ -390,6 +393,62 @@ function salaryText(baseSalary) {
   return '';
 }
 
+function jobRoomAdvertisementId(order = {}) {
+  const fromJobId = JOB_ROOM_JOB_ID_RE.exec(String(order?.jobId || '').trim())?.[1];
+  if (fromJobId) return fromJobId.toLowerCase();
+
+  try {
+    const url = new URL(String(order?.jobUrl || ''));
+    if (url.protocol !== 'https:' || url.username || url.password) return '';
+    if (!['www.job-room.ch', 'job-room.ch'].includes(url.hostname.toLowerCase())) return '';
+    const pathId = url.pathname.match(/^\/job-search\/([^/]+)\/?$/i)?.[1] || '';
+    return JOB_ROOM_UUID_RE.test(pathId) ? pathId.toLowerCase() : '';
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Job-Room keeps the application channel in its public advertisement API,
+ * while the published corpus deliberately strips contact data. Read only the
+ * channel here, at application time, and never fall back to publicContact.
+ */
+async function fetchJobRoomApplyUrl(order, { fetchImpl = fetch, resolve = lookup } = {}) {
+  const advertisementId = jobRoomAdvertisementId(order);
+  if (!advertisementId) return '';
+
+  try {
+    const response = await fetchPublicPage(
+      fetchImpl,
+      `${JOB_ROOM_API_BASE}/${advertisementId}`,
+      resolve,
+      { accept: 'application/json' },
+    );
+    const contentType = String(response?.headers?.get?.('content-type') || '').toLowerCase();
+    if (!response?.ok || !contentType.includes('json')) return '';
+
+    const applyChannel = (await response.json())?.jobContent?.applyChannel;
+    if (!applyChannel || typeof applyChannel !== 'object') return '';
+
+    const formUrl = String(applyChannel.formUrl || '').trim();
+    if (/^mailto:/i.test(formUrl)) {
+      const email = decodeURIComponent(formUrl.replace(/^mailto:/i, '').split('?')[0]).trim().toLowerCase();
+      if (isPlausibleEmail(email)) return `mailto:${email}`;
+    }
+    if (formUrl && await resolvesToPublicHost(formUrl, resolve)) return formUrl;
+
+    const email = String(applyChannel.emailAddress || '').replace(/\s+/g, '').trim().toLowerCase();
+    return isPlausibleEmail(email) ? `mailto:${email}` : '';
+  } catch (error) {
+    console.warn(
+      '[assistedApplicationAi] Job-Room application channel lookup failed',
+      advertisementId,
+      error instanceof Error ? error.message : String(error),
+    );
+    return '';
+  }
+}
+
 function postingUrlFromDetail(detail) {
   const explicit = clean(detail?.url, 1000);
   if (explicit) return explicit;
@@ -473,6 +532,11 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
     streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', datePosted: '', postedDate: '', postingDateSource: 'unknown', firstSeenAt: '', validThrough: '',
   };
   const jobId = String(order?.jobId || '');
+  let jobRoomApplyUrlPromise;
+  const jobRoomApplyUrl = () => {
+    jobRoomApplyUrlPromise ??= fetchJobRoomApplyUrl(order, { fetchImpl, resolve });
+    return jobRoomApplyUrlPromise;
+  };
   if (JOB_ID_RE.test(jobId)) {
     try {
       const response = await fetchWithTimeout(fetchImpl, `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`);
@@ -484,7 +548,7 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
             ...posting,
             publishedPostingUrl: posting.postingUrl,
             postingUrl: posting.postingUrl || empty.postingUrl,
-            applyUrl: posting.applyUrl || empty.applyUrl,
+            applyUrl: await jobRoomApplyUrl() || posting.applyUrl || empty.applyUrl,
             source: 'job_detail',
           };
         }
@@ -514,7 +578,15 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
         const html = pageHtml.slice(0, MAX_PAGE_BYTES);
         const fullText = htmlToText(html);
         const text = fullText.slice(0, maxPostingChars);
-        if (text.length > 200) return { ...empty, text, textTruncated: pageTruncated || fullText.length > maxPostingChars, source: 'job_page' };
+        if (text.length > 200) {
+          return {
+            ...empty,
+            text,
+            textTruncated: pageTruncated || fullText.length > maxPostingChars,
+            applyUrl: await jobRoomApplyUrl() || empty.applyUrl,
+            source: 'job_page',
+          };
+        }
       }
     } catch (error) {
       console.warn('[assistedApplicationAi] job page fetch failed', error instanceof Error ? error.message : String(error));
