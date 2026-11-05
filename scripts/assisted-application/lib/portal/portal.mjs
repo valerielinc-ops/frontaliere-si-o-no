@@ -751,7 +751,7 @@ function isNonApplicationGallerySurface(snapshot = {}) {
  * evidence so a real application question about a department or workload is
  * never discarded on a single label.
  */
-function isNonApplicationJobSearchSurface(snapshot = {}) {
+function isNonApplicationJobSearchSurface(snapshot = {}, { applicationEvidence = false } = {}) {
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const fieldText = field => [field?.label, field?.name, field?.id, field?.context, field?.section]
@@ -776,11 +776,18 @@ function isNonApplicationJobSearchSurface(snapshot = {}) {
   const hasApplicationButton = buttons.some(button => !button?.chrome && !button?.disabled
     && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || ''))));
   return keywordField && filterKinds.size >= 2 && hasSearchControls && hasResultsControls
-    && !hasCandidateField && !hasApplicationButton;
+    && !hasCandidateField && !hasApplicationButton && !applicationEvidence;
 }
 
-function isNonApplicationSurface(snapshot = {}) {
-  return isNonApplicationGallerySurface(snapshot) || isNonApplicationJobSearchSurface(snapshot);
+function isNonApplicationSurface(snapshot = {}, options = {}) {
+  return isNonApplicationGallerySurface(snapshot) || isNonApplicationJobSearchSurface(snapshot, options);
+}
+
+function learnedApplicationControls(buttons, known, path) {
+  return {
+    next: learnedButton(buttons, labelsAt(known?.nextButtons || [], path)),
+    submit: learnedButton(buttons, labelsAt(known?.finalButtons || [], path)),
+  };
 }
 
 function hasApplicationForm(snapshot) {
@@ -4484,18 +4491,21 @@ export function pageControls(buttons, known, url, context = null) {
     if (['receipt', 'unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
   }
   const here = anonymizePath(url);
+  const learned = learnedApplicationControls(buttons, known, here);
   const gallerySnapshot = { buttons, fields: context?.snapshot?.fields };
-  const nonApplicationSurface = isNonApplicationSurface(gallerySnapshot);
+  const nonApplicationSurface = isNonApplicationSurface(gallerySnapshot, {
+    applicationEvidence: learned.next || learned.submit,
+  });
   const galleryButtons = galleryNavigationButtons(buttons);
   const applicationButtons = nonApplicationSurface ? [] : galleryButtons.size
     ? buttons.filter((button) => !galleryButtons.has(portalControlIdentity(button)))
     : buttons;
   const submit = nonApplicationSurface ? null : findButton(applicationButtons, SUBMIT_RE);
   const usualNext = nonApplicationSurface ? null : findButton(applicationButtons, NEXT_RE);
-  const taughtNext = nonApplicationSurface || submit || usualNext ? null : learnedButton(applicationButtons, labelsAt(known.nextButtons, here));
-  const learnedSubmit = nonApplicationSurface ? null : learnedButton(applicationButtons, labelsAt(known.finalButtons, here));
+  const taughtNext = nonApplicationSurface || submit || usualNext ? null : learned.next;
+  const taughtSubmit = nonApplicationSurface ? null : learned.submit;
   return {
-    submit: submit || (usualNext || taughtNext ? null : learnedSubmit),
+    submit: submit || (usualNext || taughtNext ? null : taughtSubmit),
     next: usualNext || taughtNext,
     ...(stage ? { stage } : {}),
   };

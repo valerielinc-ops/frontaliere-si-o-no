@@ -418,6 +418,31 @@ describe('portal runner self-correction', () => {
       .toMatchObject({ submit: null, next: null });
   });
 
+  it('keeps a learned application control on a public search-shaped step', () => {
+    const snapshot = {
+      url: 'https://www.stadt-zuerich.ch/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs.html',
+      fields: [
+        { id: 'keywords', kind: 'text', inputType: 'text', label: 'Search for jobs', required: false },
+        { id: 'category', kind: 'select', label: 'Job category', required: false },
+        { id: 'employment', kind: 'combobox', label: 'Employment type', required: false },
+      ],
+      buttons: [
+        { text: 'Search', disabled: false },
+        { text: 'Load more', disabled: false },
+        { id: 'application-next', text: 'Fertigstellen', disabled: false },
+      ],
+    };
+    const known = {
+      nextButtons: [],
+      finalButtons: [{ path: anonymizePath(snapshot.url), label: 'Fertigstellen' }],
+    };
+
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, snapshot.url, { snapshot }))
+      .toMatchObject({ submit: null, next: null });
+    expect(pageControls(snapshot.buttons, known, snapshot.url, { snapshot }))
+      .toMatchObject({ submit: snapshot.buttons[2], next: null });
+  });
+
   it('does not treat a public page heading as ownership of its gallery pager', () => {
     const buttons = ['Vorheriges', 'Nächstes', 'Öffne Bild in Grossansicht', 'Seite drucken']
       .map(text => ({
