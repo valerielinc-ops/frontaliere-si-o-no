@@ -3132,7 +3132,8 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const known = knownValuesOf(form);
     expect(known).not.toContain('aufenthaltsbewilligung');
     expect(known).not.toContain('permesso g');
-    expect(planSystemPrompt('it')).toContain('swissStatus.statement is the candidate\'s own statement of their Swiss status today');
+    expect(planSystemPrompt('it')).toContain('use only a candidate-confirmed current status in swissStatus.statement, answers.work_permit or profile.permitStatus');
+    expect(planSystemPrompt('it')).toContain('profile.workPermit is CV wording, not confirmation of what the candidate holds today');
   });
 
   it('does not promote an unrecognized profile status into a candidate permit', () => {
