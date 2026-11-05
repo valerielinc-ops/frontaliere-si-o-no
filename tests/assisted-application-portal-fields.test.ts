@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { operationalDefaultAnswer, operationalQuestionTopic } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { mergeLivePortalQuestions } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
 
@@ -191,8 +191,9 @@ describe('portal field extraction', () => {
       'Impostazioni cookie',
       'Paramètres des cookies',
       'Cookie-instellingen',
-      'Manage consent',
     ]) expect(COOKIE_CUSTOMIZE_RE.test(label)).toBe(true);
+    expect(COOKIE_CUSTOMIZE_RE.test('Manage consent')).toBe(false);
+    expect(COOKIE_MANAGE_CONSENT_RE.test('Manage consent')).toBe(true);
   });
 
   it('opens Yellowshark’s Manage consent surface before its apply control', async () => {
@@ -238,6 +239,20 @@ describe('portal field extraction', () => {
 
     expect(result.status).toBe('dismissed');
     expect(stage).toBe(2);
+  });
+
+  it('does not open an application privacy action labelled Manage consent', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const privacy = extract('<form id="application-form" class="consent"><button type="button">Manage consent</button></form>', url);
+    const manageConsent = privacy.buttons.find((button: any) => button.text === 'Manage consent');
+    expect(manageConsent).toMatchObject({ formId: expect.any(String) });
+    expect(manageConsent).not.toHaveProperty('cookieSurface');
+    const frame = { url: () => url, evaluate: vi.fn(async () => privacy) };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
   });
 
   it('marks only an active cookie surface, not a persistent preferences section', () => {

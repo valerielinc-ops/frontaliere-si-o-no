@@ -36,10 +36,12 @@
   const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isApplicationDataProcessingConsent, minimumDataRetentionOption, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
-  const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|manage consent|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
+  const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
+  const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
   const COOKIE_WORD_RE = /\bcookies?\b/i;
   const COOKIE_MARKER_RE = /cookies?|consent|onetrust|usercentrics|didomi|trustarc/i;
-  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
+  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_]?(?:policy|manager)\b/i;
+  const COOKIE_MANAGE_CONSENT_SURFACE_RE = /\bconsent\b/i;
   // The portal waits for the address to be verified (JOIN after the send
   // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
   const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
@@ -1894,12 +1896,15 @@
   }
   function cookieControlIsActive(button) {
     const element = button.element;
+    const manageConsent = COOKIE_MANAGE_CONSENT_RE.test(button.text);
+    if (manageConsent && element.closest('form, [role="form"]')) return false;
     if (element.closest('header, nav, footer, [role="navigation"], [role="contentinfo"]')) return false;
     for (let node = element; node && node !== element.ownerDocument.body; node = node.parentElement) {
       const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
       if (COOKIE_MARKER_RE.test(marker)) {
-        if (!COOKIE_ACTIVE_SURFACE_RE.test(marker)) continue;
+        if (!COOKIE_ACTIVE_SURFACE_RE.test(marker)
+          && !(manageConsent && COOKIE_MANAGE_CONSENT_SURFACE_RE.test(marker))) continue;
         return COOKIE_WORD_RE.test(`${marker} ${textOf(node)}`);
       }
       if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')) return COOKIE_WORD_RE.test(textOf(node));
@@ -2016,7 +2021,7 @@
   function cookieRefusal(doc) {
     const available = buttons(doc).filter(cookieControlIsActive);
     return available.find((button) => COOKIE_REJECT_RE.test(button.text))?.element
-      || available.find((button) => COOKIE_CUSTOMIZE_RE.test(button.text))?.element
+      || available.find((button) => COOKIE_CUSTOMIZE_RE.test(button.text) || COOKIE_MANAGE_CONSENT_RE.test(button.text))?.element
       || null;
   }
 
@@ -2026,7 +2031,7 @@
   }
 
   root.CompilaCandidatura = {
-    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, COOKIE_CUSTOMIZE_RE, VERIFY_RE,
+    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, VERIFY_RE,
     config, normalize, textOf, labelOf, questionOf, collect, isEmpty, answerFor, bestOption,
     parseDate, formatForInput, phoneFor, fillEntry, fillPage, pageState, cookieRefusal,
     pageSignature, nextButton, finalButton, press, setValue, sleep,
