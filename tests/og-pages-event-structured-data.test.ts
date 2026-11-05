@@ -35,7 +35,7 @@ it('resolves BASE_URL templates in nested Event URLs before completeness validat
       "name": "Evento di prova",
       "startDate": "2026-12-01T19:00:00+01:00",
       "endDate": "2026-12-01T21:00:00+01:00",
-      "eventStatus": "https://schema.org/EventScheduled",
+      "eventStatus": ["https://schema.org/EventScheduled", "https://schema.org/EventPostponed"],
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "description": "${excerpt}",
       "location": {
@@ -75,6 +75,10 @@ it('resolves BASE_URL templates in nested Event URLs before completeness validat
     .find((record) => record['@type'] === 'Event');
 
   expect(schema).toBeDefined();
+  expect(schema?.eventStatus).toEqual([
+    'https://schema.org/EventScheduled',
+    'https://schema.org/EventPostponed',
+  ]);
   expect((schema?.organizer as Record<string, unknown>)?.url).toBe(`${BASE_URL}/organizers/event-test/`);
   expect((schema?.offers as Record<string, unknown>)?.url).toBe(`${BASE_URL}/tickets/event-test/`);
 });

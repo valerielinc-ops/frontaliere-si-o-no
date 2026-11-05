@@ -1715,15 +1715,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Add Event-specific fields from source
  const startDate = sdStr('startDate');
  const endDate = sdStr('endDate');
- const eventStatus = sdStr('eventStatus');
- const eventAttendanceMode = sdStr('eventAttendanceMode');
+ const eventStatus = readStaticStringOrStringArrayProperty(sd, 'eventStatus');
+ const eventAttendanceMode = readStaticStringOrStringArrayProperty(sd, 'eventAttendanceMode');
  const previousStartDate = readStaticStringOrStringArrayProperty(sd, 'previousStartDate');
  const isAccessibleForFree = readStaticBooleanProperty(sd, 'isAccessibleForFree');
  if (startDate) ldObj.startDate = startDate;
  if (endDate) ldObj.endDate = endDate;
  if (previousStartDate !== undefined) ldObj.previousStartDate = previousStartDate;
- if (eventStatus) ldObj.eventStatus = eventStatus;
- if (eventAttendanceMode) ldObj.eventAttendanceMode = eventAttendanceMode;
+ if (eventStatus !== undefined) ldObj.eventStatus = eventStatus;
+ if (eventAttendanceMode !== undefined) ldObj.eventAttendanceMode = eventAttendanceMode;
  if (isAccessibleForFree !== undefined) ldObj.isAccessibleForFree = isAccessibleForFree;
 
  const location = parseNestedValue('location');

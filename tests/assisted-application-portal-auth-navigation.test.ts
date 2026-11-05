@@ -27,6 +27,33 @@ describe('assisted portal account navigation', () => {
     expect(save).not.toHaveBeenCalled();
   });
 
+  it('keeps a complete SuccessFactors registration form out of the existing-account handoff', async () => {
+    const result = await handleAuth({
+      page: { url: () => URL } as any,
+      snapshot: {
+        url: URL,
+        text: 'Sie haben bereits ein Bewerbungskonto bei der Bundesverwaltung. Dann loggen Sie sich hier ein.',
+        fields: [
+          { id: 'email', kind: 'text', inputType: 'text', label: 'E-Mail-Adresse: *', required: true },
+          { id: 'email-repeat', kind: 'text', inputType: 'text', label: 'E-Mail-Adresse wiederholen: *', required: true },
+          { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort *', required: true },
+          { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Passwort wiederholen: *', required: true },
+          { id: 'first-name', kind: 'text', inputType: 'text', label: 'Vorname: *', required: true },
+          { id: 'last-name', kind: 'text', inputType: 'text', label: 'Nachname: *', required: true },
+          { id: 'country', kind: 'select', label: 'Land des Wohnorts:*', required: true, options: [{ value: 'CH', label: 'Schweiz' }] },
+        ],
+        buttons: [
+          { id: 'privacy', text: 'Lesen und akzeptieren Sie die Datenschutzerklärung', disabled: false },
+          { id: 'create', text: 'Bewerbungskonto erstellen', disabled: true },
+        ],
+        links: [], dialogs: [], errors: [], passwordVisible: true,
+      } as any,
+      ctx: { dryRun: true, accounts: { load: vi.fn(async () => null) } } as any,
+    });
+
+    expect(result).toEqual({ dryRun: true });
+  });
+
   it('opens a SuccessFactors create-account link in the form frame when the page exposes only Login as a button', async () => {
     let pageKind: 'sign_in' | 'create' = 'sign_in';
     const click = vi.fn(async () => { pageKind = 'create'; });

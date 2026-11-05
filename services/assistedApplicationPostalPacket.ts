@@ -25,26 +25,26 @@ const LOCAL_INDEX_COPY = {
   it: {
     title: 'Indice dei file aggiunti su questo dispositivo - NON SPEDIRE QUESTA PAGINA',
     merged: 'I file elencati qui sotto sono stati uniti a questo PDF direttamente nel browser.',
-    signature: 'I PDF firmati digitalmente restano file separati. Conserva l’originale e verifica nel bando come presentarlo.',
-    signedSeparate: 'PDF firmato digitalmente: file originale separato; verifica come presentarlo nel bando',
+    signature: 'Le copie stampabili dei PDF firmati sono incluse, ma la firma digitale non viene mantenuta. Conserva l’originale e segui le istruzioni del bando se serve la verifica digitale.',
+    signedOriginalNote: 'copia stampabile inclusa; conserva e allega separatamente l’originale se il bando richiede la verifica della firma digitale',
   },
   en: {
     title: 'Index of files added on this device - DO NOT MAIL THIS PAGE',
     merged: 'The files listed below were merged into this PDF locally in your browser.',
-    signature: 'Digitally signed PDFs stay separate. Keep the original and check the posting for how to submit it.',
-    signedSeparate: 'digitally signed PDF: original file stays separate; check how the posting asks you to submit it',
+    signature: 'Printable copies of digitally signed PDFs are included, but the digital signatures are not preserved. Keep the original and follow the posting if digital verification is required.',
+    signedOriginalNote: 'printable copy included; keep and attach the original separately if the posting requires digital signature verification',
   },
   de: {
     title: 'Verzeichnis der Dateien auf diesem Geraet - DIESE SEITE NICHT VERSENDEN',
     merged: 'Die unten aufgefuehrten Dateien wurden lokal im Browser in dieses PDF eingefuegt.',
-    signature: 'Digital signierte PDFs bleiben separat. Bewahre die Originaldatei auf und beachte die Hinweise der Ausschreibung.',
-    signedSeparate: 'digital signiertes PDF: Originaldatei bleibt separat; beachte die Hinweise der Ausschreibung',
+    signature: 'Druckbare Kopien digital signierter PDFs sind enthalten, die digitale Signatur bleibt jedoch nicht erhalten. Bewahre das Original auf und beachte die Ausschreibung, falls eine digitale Pruefung erforderlich ist.',
+    signedOriginalNote: 'druckbare Kopie enthalten; Original separat aufbewahren und beilegen, falls die Ausschreibung eine digitale Signaturpruefung verlangt',
   },
   fr: {
     title: 'Index des fichiers ajoutes sur cet appareil - NE PAS ENVOYER CETTE PAGE',
     merged: 'Les fichiers listes ci-dessous ont ete fusionnes dans ce PDF localement dans votre navigateur.',
-    signature: 'Les PDF signes numeriquement restent separes. Conservez le fichier original et suivez les instructions de l’annonce.',
-    signedSeparate: 'PDF signe numeriquement : fichier original separe ; suivez les instructions de l’annonce',
+    signature: 'Les copies imprimables des PDF signes numeriquement sont incluses, mais la signature numerique n’est pas conservee. Gardez l’original et suivez l’annonce si une verification numerique est requise.',
+    signedOriginalNote: 'copie imprimable incluse ; conservez et joignez separement l’original si l’annonce exige la verification de la signature numerique',
   },
 } as const;
 
@@ -83,7 +83,7 @@ function addImagePage(pdf: PDFDocument, image: Awaited<ReturnType<PDFDocument['e
   page.drawImage(image, { x: (A4[0] - width) / 2, y: (A4[1] - height) / 2, width, height });
 }
 
-async function appendLocalFile(pdf: PDFDocument, document: LocalPostalDocument, bytes: Uint8Array, type: 'pdf' | 'jpg' | 'png') {
+async function appendLocalFile(pdf: PDFDocument, document: LocalPostalDocument, bytes: Uint8Array, type: 'pdf' | 'jpg' | 'png', signed = false) {
   if (type === 'pdf') {
     let source: PDFDocument;
     try {
@@ -92,7 +92,9 @@ async function appendLocalFile(pdf: PDFDocument, document: LocalPostalDocument, 
       if (form.hasXFA()) throw new Error('xfa');
       if (form.getFields().length) {
         form.updateFieldAppearances();
-        form.flatten();
+        if (!signed) {
+          form.flatten();
+        }
       }
     } catch {
       throw new LocalPostalPacketError('postal_packet_local_pdf_unreadable');
@@ -167,26 +169,52 @@ export async function mergeLocalPostalDocuments({
     page.drawText(pdfSafeText(title), { x: PAGE_MARGIN, y: A4[1] - PAGE_MARGIN - 18, size: 15, font: bold, color: rgb(0.12, 0.16, 0.22) });
     return { page, y: A4[1] - PAGE_MARGIN - 48 };
   };
+  const drawWrapped = (value: string, options: { x: number; size: number; maxWidth: number; font: typeof regular }) => {
+    const { x, size, maxWidth, font } = options;
+    let line = '';
+    const drawLine = (text: string) => {
+      if (y < PAGE_MARGIN + size + 4) ({ page, y } = addIndexPage(copy.title));
+      page.drawText(text, { x, y, size, font, color: rgb(0.16, 0.19, 0.25) });
+      y -= size + 4;
+    };
+    for (const word of pdfSafeText(value).split(/\s+/).filter(Boolean)) {
+      let remaining = word;
+      while (font.widthOfTextAtSize(remaining, size) > maxWidth) {
+        let splitAt = 1;
+        while (splitAt < remaining.length && font.widthOfTextAtSize(remaining.slice(0, splitAt + 1), size) <= maxWidth) splitAt += 1;
+        const piece = remaining.slice(0, splitAt);
+        if (line) {
+          drawLine(line);
+          line = '';
+        }
+        drawLine(piece);
+        remaining = remaining.slice(splitAt);
+      }
+      const next = line ? `${line} ${remaining}` : remaining;
+      if (line && font.widthOfTextAtSize(next, size) > maxWidth) {
+        drawLine(line);
+        line = remaining;
+      } else {
+        line = next;
+      }
+    }
+    if (line) drawLine(line);
+  };
   let { page, y } = addIndexPage(copy.title);
-  page.drawText(pdfSafeText(copy.merged), { x: PAGE_MARGIN, y, size: 9.5, font: regular, color: rgb(0.16, 0.19, 0.25), maxWidth: A4[0] - PAGE_MARGIN * 2 });
-  y -= 28;
+  drawWrapped(copy.merged, { x: PAGE_MARGIN, size: 9.5, maxWidth: A4[0] - PAGE_MARGIN * 2, font: regular });
+  y -= 8;
   for (const document of documents.filter((item) => item.files.length > 0)) {
     const label = pdfSafeText(document.label).slice(0, 100);
-    if (y < PAGE_MARGIN + 34) ({ page, y } = addIndexPage(copy.title));
-    page.drawText(label, { x: PAGE_MARGIN, y, size: 10.5, font: bold, color: rgb(0.16, 0.19, 0.25), maxWidth: A4[0] - PAGE_MARGIN * 2 });
-    y -= 20;
+    drawWrapped(label, { x: PAGE_MARGIN, size: 10.5, maxWidth: A4[0] - PAGE_MARGIN * 2, font: bold });
+    y -= 4;
     for (const attachment of attachments.filter((item) => item.document.id === document.id)) {
-      if (y < PAGE_MARGIN + 24) ({ page, y } = addIndexPage(copy.title));
-      const status = attachment.signed ? ` - ${copy.signedSeparate}` : '';
-      page.drawText(`- ${pdfSafeText(attachment.file.name).slice(0, 120)}${pdfSafeText(status)}`, { x: PAGE_MARGIN + 10, y, size: 9.5, font: regular, color: rgb(0.16, 0.19, 0.25), maxWidth: A4[0] - PAGE_MARGIN * 2 - 10 });
-      y -= 16;
+      const status = attachment.signed ? ` - ${copy.signedOriginalNote}` : '';
+      drawWrapped(`- ${pdfSafeText(attachment.file.name).slice(0, 120)}${pdfSafeText(status)}`, { x: PAGE_MARGIN + 10, size: 9.5, maxWidth: A4[0] - PAGE_MARGIN * 2 - 10, font: regular });
     }
   }
   if (y < PAGE_MARGIN + 30) ({ page, y } = addIndexPage(copy.title));
-  page.drawText(pdfSafeText(copy.signature), { x: PAGE_MARGIN, y: Math.max(PAGE_MARGIN, y), size: 8.5, font: regular, color: rgb(0.35, 0.38, 0.42), maxWidth: A4[0] - PAGE_MARGIN * 2 });
+  drawWrapped(copy.signature, { x: PAGE_MARGIN, size: 8.5, maxWidth: A4[0] - PAGE_MARGIN * 2, font: regular });
 
-  for (const attachment of attachments) {
-    if (!attachment.signed) await appendLocalFile(pdf, attachment.document, attachment.bytes, attachment.type);
-  }
+  for (const attachment of attachments) await appendLocalFile(pdf, attachment.document, attachment.bytes, attachment.type, attachment.signed);
   return pdf.save({ useObjectStreams: true });
 }

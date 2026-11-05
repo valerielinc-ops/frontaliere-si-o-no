@@ -852,6 +852,37 @@ function nativeQuestionText(value, counter = null) {
     }
     return element.getAttribute('data-aa-id');
   };
+  // A field and an action in separate forms can still belong to one explicit
+  // application section. Keep the DOM owner identity as well as its caption;
+  // identical page headings alone do not prove that relationship.
+  const SECTION_GROUP_SELECTOR = 'fieldset, section, article, [role="group"], [role="region"], [role="tabpanel"], [role="form"]';
+  const sectionGroupFor = (element) => {
+    for (let group = element.parentElement; group; group = group.parentElement) {
+      if (!group.matches(SECTION_GROUP_SELECTOR)) continue;
+      const ariaLabel = clean(group.getAttribute('aria-label') || '');
+      const labelledBy = (group.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean);
+      const labelledByIsUnique = labelledBy.every(id => [...document.querySelectorAll('[id]')].filter(node => node.id === id).length === 1);
+      const accessibleLabel = labelledBy.length && labelledByIsUnique
+        ? clean(labelledBy.map(textOf).filter(Boolean).join(' · ')) : '';
+      const heading = [...group.querySelectorAll('h1, h2, h3, h4, legend')]
+        .filter(candidate => candidate.closest(SECTION_GROUP_SELECTOR) === group
+          && shown(candidate)
+          // eslint-disable-next-line no-bitwise
+          && (candidate.compareDocumentPosition(element) & FOLLOWING))
+        .at(-1);
+      const label = ariaLabel || accessibleLabel || (heading ? clean(captionText(heading, element)) : '');
+      if (label) return { sectionGroupId: idFor(group), sectionGroup: label.slice(0, 240) };
+    }
+    return {};
+  };
+  const applicationScopeFor = (element) => {
+    const scope = element.closest('main, [role="main"], [role="application"]');
+    return scope ? { applicationScopeId: idFor(scope) } : {};
+  };
+  const applicationOwnershipFor = (element) => ({
+    ...applicationScopeFor(element),
+    ...sectionGroupFor(element),
+  });
   // A portal may replace a file input while copying its data-aa-id. Keep a
   // page-local identity for the actual DOM node so a later snapshot cannot
   // mistake that fresh empty control for the one that received the file.
@@ -1114,6 +1145,12 @@ function nativeQuestionText(value, counter = null) {
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
   }
+  const identifiedElements = new Map([...document.querySelectorAll('[data-aa-id]')]
+    .map(node => [node.getAttribute('data-aa-id'), node]));
+  for (const field of fields) {
+    const node = identifiedElements.get(field.id);
+    if (node) Object.assign(field, applicationOwnershipFor(node));
+  }
   // aria-hidden is about the accessibility tree, not about what is drawn: a button with it is still one to
   // press, but for two cases. Workday keeps its real submit, out of the tab order, next to a «click_filter»
   // overlay with the same name, and reads a click on the hidden one as a robot's. And what a page hides
@@ -1200,6 +1237,7 @@ function nativeQuestionText(value, counter = null) {
       ...dialogMeta(element),
       text: buttonName(element),
       section: headingBefore(element),
+      ...applicationOwnershipFor(element),
       // SuccessFactors can render the CV trigger as an icon-only button. Keep
       // the nearby label/section text so the runner can select it only when
       // the document context is explicit.
