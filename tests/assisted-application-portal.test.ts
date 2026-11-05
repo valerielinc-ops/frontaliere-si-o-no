@@ -1399,6 +1399,10 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     };
 
     expect(needsPortalOptionRead(snapshot)).toBe(true);
+    expect(needsPortalOptionRead({
+      ...snapshot,
+      fields: snapshot.fields.map((field) => field.selectLike ? { ...field, options: [{ label: 'Website' }] } : field),
+    })).toBe(false);
     expect(needsPortalOptionRead({ ...snapshot, fields: snapshot.fields.filter((field) => !field.selectLike) })).toBe(false);
   });
 
