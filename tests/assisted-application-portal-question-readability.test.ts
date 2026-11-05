@@ -734,6 +734,60 @@ it('asks only for the missing EOC residence street and permit after resolving kn
   expect(browser.close).toHaveBeenCalledOnce();
 });
 
+it('pre-reads a unique external Apply link for an allowlisted ATS form', async () => {
+  const postingUrl = 'https://careers.example.test/jobs/42';
+  const applicationUrl = 'https://ats.example.test/apply/42';
+  const formSnapshot = {
+    url: applicationUrl, buttons: [], links: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Social worker application Acme AG',
+    fields: [
+      { id: 'question', kind: 'text', inputType: 'text', label: 'Do you have a license?', form: 0, required: true },
+      { id: 'cv', kind: 'file', inputType: 'file', label: 'CV', form: 0, required: false },
+    ],
+  };
+  const postingSnapshot = {
+    url: postingUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Social worker at Acme AG',
+    fields: [],
+    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, frame: 0, chrome: false }],
+  };
+  const state = { url: postingUrl, snapshot: postingSnapshot };
+  const applyLink = {
+    first: () => applyLink,
+    waitFor: vi.fn(async () => {}),
+    getAttribute: vi.fn(async (name: string) => name === 'href' ? applicationUrl : null),
+    click: vi.fn(async () => { state.url = applicationUrl; state.snapshot = formSnapshot; }),
+  };
+  const frame = {
+    evaluate: vi.fn(async () => state.snapshot),
+    locator: vi.fn(() => applyLink),
+  };
+  const page = {
+    frames: () => [frame], url: () => state.url,
+    title: vi.fn(async () => state.url === postingUrl ? 'Acme Careers' : 'Social worker application | Acme AG'),
+    goto: vi.fn(async (url: string) => {
+      state.url = url;
+      state.snapshot = url === postingUrl ? postingSnapshot : formSnapshot;
+    }),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const context = { newPage: async () => page, waitForEvent: () => Promise.resolve(null) };
+  const browser = { newContext: vi.fn(async () => context), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [{ fieldId: 'question', question: 'Do you have a license?' }] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'en', candidateLocale: 'en',
+    job: { title: 'Social worker', company: 'Acme AG' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(applyLink.click).toHaveBeenCalledOnce();
+  expect(result.handoff).toBeUndefined();
+  expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Do you have a license?']);
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('batches mounted later-step ATS questions in one read-only pre-read', async () => {
   const url = 'https://jobs.lever.co/example/1/apply';
   const visible = {

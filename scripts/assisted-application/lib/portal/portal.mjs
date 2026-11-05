@@ -5312,6 +5312,7 @@ export async function readPortalRequirements(ctx) {
       sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
       job: ctx.job,
       postingEntry: verifiedPostingEntry,
+      allowSingleExternalApplicationEntry: true,
     });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
