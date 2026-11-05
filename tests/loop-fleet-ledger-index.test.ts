@@ -60,6 +60,30 @@ describe('loop-fleet durable ledger index', () => {
     expect(ledgerIndexEntry(reloaded, 'observation', 'record-1')?.digest).toMatch(/^sha256:[0-9a-f]{64}$/u);
   });
 
+  it('appends index deltas and manifest updates without rewriting historical entries', () => {
+    const ledgerDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-index-append-'));
+    const state = createLedgerIndexState();
+    const firstFile = path.join(ledgerDir, 'loop-observations-run-1.jsonl');
+    setLedgerIndexFile(state, path.basename(firstFile));
+    addLedgerRecordToIndex(state, { type: 'observation', file: firstFile, record: observation('record-1') });
+    writeLedgerIndex(ledgerDir, state);
+    const historicalIndex = fs.readFileSync(path.join(ledgerDir, 'ledger-record-index.jsonl'), 'utf8');
+
+    const reloaded = readLedgerIndex(ledgerDir);
+    const secondFile = path.join(ledgerDir, 'loop-observations-run-2.jsonl');
+    setLedgerIndexFile(reloaded, path.basename(secondFile));
+    addLedgerRecordToIndex(reloaded, { type: 'observation', file: secondFile, record: observation('record-2') });
+    setLedgerIndexFile(reloaded, path.basename(secondFile), 'b'.repeat(40));
+    writeLedgerIndex(ledgerDir, reloaded);
+
+    const nextIndex = fs.readFileSync(path.join(ledgerDir, 'ledger-record-index.jsonl'), 'utf8');
+    expect(nextIndex.startsWith(historicalIndex)).toBe(true);
+    const manifest = fs.readFileSync(path.join(ledgerDir, 'ledger-record-index-manifest.jsonl'), 'utf8');
+    expect(manifest).toContain('"file":"loop-observations-run-2.jsonl"');
+    expect(readLedgerIndex(ledgerDir).manifest.get('loop-observations-run-2.jsonl')).toBe('b'.repeat(40));
+    expect(ledgerIndexEntry(readLedgerIndex(ledgerDir), 'observation', 'record-2')).not.toBeNull();
+  });
+
   it('fails closed when the same record id has different content', () => {
     const state = createLedgerIndexState();
     addLedgerRecordToIndex(state, {
@@ -112,10 +136,15 @@ describe('loop-fleet durable ledger index', () => {
       fs.mkdirSync(ledgerDir, { recursive: true });
       const shard = path.join(ledgerDir, 'loop-observations-run-1.jsonl');
       fs.writeFileSync(shard, '{"recordId":"one"}\n');
-      gitMock.mockImplementation((_command: string, args: string[]) => {
+      let batchedHashCalls = 0;
+      gitMock.mockImplementation((_command: string, args: string[], options?: { input?: string }) => {
         if (args.includes('rev-parse')) return `${repo}\n`;
         if (args.includes('ls-files')) return 'data/loop-fleet/ledger/loop-observations-run-1.jsonl\0';
         if (args.includes('hash-object')) {
+          if (args.includes('--stdin-paths')) {
+            batchedHashCalls += 1;
+            return `${gitBlobOid(path.join(repo, String(options?.input).trim()))}\n`;
+          }
           return `${gitBlobOid(path.join(repo, args[args.length - 1]))}\n`;
         }
         throw new Error(`unexpected git command: ${args.join(' ')}`);
@@ -132,6 +161,7 @@ describe('loop-fleet durable ledger index', () => {
       expect(() => loadLedgerIndexForWriter(ledgerDir)).toThrow(
         'ledger file loop-observations-run-1.jsonl changed after it was indexed',
       );
+      expect(batchedHashCalls).toBe(1);
     } finally {
       fs.rmSync(repo, { recursive: true, force: true });
     }

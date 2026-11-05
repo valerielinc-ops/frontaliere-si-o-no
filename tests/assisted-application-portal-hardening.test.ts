@@ -807,7 +807,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
   });
 
   it('reads ahead accessible ATS forms, and never fails the draft', async () => {
-    expect([...PREREAD_CHANNELS].sort()).toEqual(['greenhouse', 'jobs_ch', 'lever', 'personio', 'refline', 'smartrecruiters', 'softgarden', 'successfactors', 'umantis', 'workday']);
+    expect([...PREREAD_CHANNELS].sort()).toEqual(['greenhouse', 'jobs_ch', 'lever', 'manatal', 'personio', 'refline', 'smartrecruiters', 'softgarden', 'successfactors', 'umantis', 'workday']);
     expect(isSafeEmployerSitePreread('https://live.solique.ch/planzer/apply/id/1915412/')).toBe(true);
     expect(isSafeEmployerSitePreread('http://live.solique.ch/planzer/apply/id/1915412/')).toBe(false);
     expect(isSafeEmployerSitePreread('https://www.solique.ch/planzer/apply/id/1915412/')).toBe(false);

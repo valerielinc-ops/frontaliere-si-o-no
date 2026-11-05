@@ -535,6 +535,9 @@ const PORTALS = [
   { id: 'greenhouse', label: 'Greenhouse', re: /(^|\.)greenhouse\.io$/, account: false },
   { id: 'personio', label: 'Personio', re: /(^|\.)personio\.(de|com)$/, account: false },
   { id: 'softgarden', label: 'softgarden', re: /(^|\.)softgarden\.(io|de)$/, account: false },
+  // Career Page is the public Manatal application surface. It is a real
+  // employer form even when the posting also publishes a recruiting address.
+  { id: 'manatal', label: 'Career Page (Manatal)', re: /(^|\.)careers-page\.com$/, account: false },
   { id: 'jobs_ch', label: 'jobs.ch / jobup.ch', re: /(^|\.)(jobs\.ch|jobup\.ch)$/, account: false },
   { id: 'linkedin', label: 'LinkedIn', re: /(^|\.)linkedin\.com$/, account: true },
   // Coop's apprenticeships (2026-10-02): «Jetzt bewerben» opens a WhatsApp
@@ -545,7 +548,7 @@ const PORTALS = [
 // The employers' own application portals (not job boards): used even when the
 // posting also names an e-mail address. PastaHR is not among them: a WhatsApp
 // chat cannot be sent for the candidate, an address the posting gives can.
-const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden']);
+const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden', 'manatal']);
 
 /** The known portal an address is on, or null. */
 function portalOf(url) {
