@@ -3114,6 +3114,19 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(guardPlan({ actions: [], missingRequired: [] }, [italian], held).actions).toEqual([select('p1', 'Sì')]);
   });
 
+  it('does not preserve a boolean prefill as the answer to which permit the candidate holds', () => {
+    const candidateWithPermit = { identity, profile: {}, answers: { work_permit: 'Permesso G' } };
+    const field = {
+      id: 'p1', kind: 'text', label: 'Which work authorization do you hold?', required: true, value: 'Yes',
+      options: [{ label: 'Permesso G' }, { label: 'Permesso B' }],
+    };
+    expect(guardPlan({ actions: [], missingRequired: [] }, [field], candidateWithPermit).actions)
+      .toEqual([{ fieldId: 'p1', action: 'select', value: 'Permesso G', document: 'none', source: 'answers', evidence: '' }]);
+
+    const yesNo = { ...field, label: 'Do you hold a valid work permit for Switzerland?', options: [{ label: 'Yes' }, { label: 'No' }] };
+    expect(guardPlan({ actions: [], missingRequired: [] }, [yesNo], candidateWithPermit).actions).toEqual([]);
+  });
+
   it('keeps a specific work-authorisation question as a permit status, not a yes/no answer', () => {
     const candidateWithPermit = { identity, profile: {}, answers: { work_permit: 'Permesso G' } };
     expect(candidateAnswerForField(candidateWithPermit, {

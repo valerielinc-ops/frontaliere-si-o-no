@@ -1772,8 +1772,11 @@ export function guardPlan(plan, fields, candidate = null) {
         ? field.options.find((option) => typeof option === 'object'
           && String(option?.value ?? '') === String(field.value ?? '')) : null;
       const currentValue = selectedOption?.label ?? field.value;
-      if (holdsValue(field)
-        && ownStatusAnswer(candidate, field.label, currentValue, { option: isChoiceField(field) }) === true) return false;
+      const currentStatus = permitStatusOf(currentValue) || permitOptionCode(currentValue);
+      const matchesConfirmedStatus = currentStatus === status
+        || (isYesNoPermitQuestion(field.label)
+          && ownStatusAnswer(candidate, field.label, currentValue, { option: isChoiceField(field) }) === true);
+      if (holdsValue(field) && matchesConfirmedStatus) return false;
       const recorded = recordedAnswerForQuestion(candidate, field.label, field.context, field);
       // A saved portal answer such as «G Permit» is the candidate's own
       // status in free text, not a competing yes/no correction. Normalize it
