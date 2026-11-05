@@ -248,6 +248,17 @@ describe('portal field extraction', () => {
     expect(requirements).toEqual({ questions: [], documents: [] });
   });
 
+  it('keeps an ambiguous planner alias unresolved even when one live label matches', () => {
+    const requirements = portalRequirementsFromMissingRequired([
+      { id: 'first-field', domId: 'shared-control', label: 'Other question', kind: 'text', required: true },
+      { id: 'second-field', name: 'shared-control', label: 'Requested question', kind: 'text', required: true },
+    ], [{
+      fieldId: 'shared-control', applicationQuestion: 'Requested question', question: 'Candidate copy', type: 'text', options: [],
+    }]);
+
+    expect(requirements).toEqual({ questions: [], documents: [], unreadableFields: ['shared-control'] });
+  });
+
   it('recognizes cookie preference entry points used across portal locales', () => {
     for (const label of [
       'Customise Cookies',
