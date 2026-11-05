@@ -36,8 +36,8 @@ import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 // Synthetic candidate facts keep the fake planner's identity and permit
-// answers grounded. Passing null deliberately removes only the birth date.
-const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = '' } = {}) => ({
+// answers grounded. Pass null to omit the birth date or permit confirmation.
+const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' } = {}) => ({
   identity: { email: ALIAS, firstName: 'Luca', lastName: 'Bianchi' },
   profile: {
     location: 'Lugano',
@@ -1046,7 +1046,7 @@ async function fakeCodex({ prompt }) {
     if (/website/i.test(field.label)) return act('fill', 'https://example.com');
     if (/how did you hear/i.test(field.label)) return act('select', 'Online job board', { source: 'rule' });
     if (/valid work permit/i.test(field.label)) {
-      const answer = candidate?.portalQuestionsAnswered?.find((item) => /valid work permit/i.test(item.question || ''))?.answer || 'Yes';
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /valid work permit/i.test(item.question || ''))?.answer || '';
       return act('select', answer, { source: 'answers' });
     }
     if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
@@ -1921,7 +1921,7 @@ async function main() {
       const applicationsBeforeQuestion = state.applications.length;
       state.registrationValidationOnce = true;
       state.registrationNeedsAnswerAfterValidation = true;
-      const registrationQuestion = await run({ candidate: portalTestCandidate() });
+      const registrationQuestion = await run({ candidate: portalTestCandidate({ permitAnswer: null }) });
       const permitQuestion = registrationQuestion.event.questions?.find((question) => /valid work permit/i.test(question.applicationQuestion || question.question || ''));
       check('a newly exposed registration fact becomes a candidate question and keeps the credential for resume',
         registrationQuestion.event.type === 'submit_needs_candidate' && Boolean(permitQuestion)
