@@ -1,0 +1,24 @@
+{
+  "companyKey": "cityofwindsor",
+  "companyName": "City of Windsor",
+  "companyHost": "cityofwindsor.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://cityofwindsor.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Adult Crossing Guard",
+    "EarlyON Child & Family Centres – Early Childhood Educator",
+    "Emergency Communications Operator",
+    "Environmental Compliance Coordinator"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-05T13:42:19.609Z",
+  "candidateKey": "cityofwindsor@applytojob.com"
+}
