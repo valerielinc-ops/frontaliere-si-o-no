@@ -159,7 +159,7 @@ function verifiedUmantisApplicantAddressSnapshot(snapshot, pageUrl, context) {
   const nextFields = fields.map(field => {
     if (!applicantFields.has(field)) return field;
     const owner = addressContextContract(field);
-    if ((owner && (owner.unknown || owner.section.trim() || owner.owners.length))
+    if (!owner || owner.unknown || owner.section.trim() || owner.owners.length
       || !residenceFieldRole(field?.label)
       || /tel-country-code/i.test(String(field?.autocomplete || ''))
       || UMANTIS_PHONE_CONTEXT_RE.test(`${field?.label || ''} ${field?.context || ''}`)

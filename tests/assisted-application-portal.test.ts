@@ -3065,8 +3065,12 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({})).missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
     // A text field filled with the candidate's own statement.
     const text = { id: 't1', kind: 'text', label: 'Aufenthaltsstatus', required: true };
-    const fill = { fieldId: 't1', action: 'fill', value: permitStatement('permit_b', 'de'), document: 'none', source: 'profile', evidence: '' };
+    const fill = { fieldId: 't1', action: 'fill', value: permitStatement('permit_b', 'de'), document: 'none', source: 'rule', evidence: '' };
     expect(guardPlan({ actions: [fill], missingRequired: [] }, [text], candidate({ permitStatus: 'permit_b' })).actions).toEqual([fill]);
+    expect(candidateAnswerForField({ profile: { permitStatus: 'permit_b' }, answers: {} }, { kind: 'text', label: 'Work permit', options: [] }))
+      .toEqual({ value: 'permit_b', source: 'profile' });
+    expect(candidateAnswerForField({ profile: {}, answers: { work_permit: 'permit_g' } }, { kind: 'text', label: 'Work permit', options: [] }))
+      .toEqual({ value: 'permit_g', source: 'answers' });
   });
 
   it('maps a held permit to the positive answer when an ATS qualifies its negative choices', () => {

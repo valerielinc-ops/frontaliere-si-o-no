@@ -1626,8 +1626,11 @@ export function candidateAnswerForField(candidate, field) {
     const selected = permitAnswerForStatus(field, status);
     if (selected) return { value: selected, source: statusSource };
     if (!options.length) {
-      const statement = swissStatus === status ? candidate?.swissStatus?.statement : '';
-      return { value: statement || candidate?.profile?.workPermit || '', source: 'profile' };
+      const rawStatus = swissStatus === status ? candidate?.swissStatus?.statement
+        : permitStatusOf(candidate?.profile?.permitStatus) ? candidate?.profile?.permitStatus
+          : permitStatusOf(candidate?.answers?.work_permit) ? candidate?.answers?.work_permit
+            : candidate?.profile?.workPermit;
+      return { value: String(rawStatus || status).trim(), source: statusSource };
     }
     return null;
   }
