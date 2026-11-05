@@ -256,6 +256,8 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  * @param {(ctx:object)=>Promise<object>} args.runEffect executes one side effect
  * @param {number} [args.nowMs]
  * @param {number} [args.expectedRound] rejects a request whose round changed after its precheck
+ * @param {(context:{order:object,flow:object,draft:object|null,orderId:string})=>object} [args.transitionFlowPatch]
+ *   projects owner-controlled configuration into the same transaction before evaluating its transition
  * @param {(flow:object)=>object} [args.patchFlow] extra fields merged into the next flow
  * @param {(ctx:object)=>Promise<object>} [args.writeSubmissionReceipt] writes a validated submission
  *   receipt only after the live transition succeeds, in the same Firestore transaction
@@ -263,7 +265,7 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  *   `appliedAt` in the SAME transaction as the transition, so an error in between can never leave
  *   an event marked applied with the flow unchanged (a redelivery then applies it)
  */
-export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), expectedRound = null, patchFlow = null, writeSubmissionReceipt = null, claimRef = null }) {
+export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), expectedRound = null, transitionFlowPatch = null, patchFlow = null, writeSubmissionReceipt = null, claimRef = null }) {
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
@@ -292,8 +294,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       return;
     }
     const order = orderSnapshot.data() || {};
-    const flow = flowSnapshot.data() || {};
+    const storedFlow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const flow = transitionFlowPatch
+      ? { ...storedFlow, ...(transitionFlowPatch({ order, flow: storedFlow, draft, orderId }) || {}) }
+      : storedFlow;
     const postalPacketReady = flow.postalSubmission?.enabled === true
       ? postalPacketReadiness({ order, orderId, flow, draft }).ready
       : true;

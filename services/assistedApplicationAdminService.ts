@@ -491,6 +491,7 @@ export type AutomationAdminAction =
   | 'automationSetAnswers'
   | 'automationSetRequiredDocuments'
   | 'automationSetPostalSubmission'
+  | 'automationConfigurePostalPackage'
   | 'automationRevealAccount'
   | 'automationFillKit'
   | 'automationMarkClicked'
