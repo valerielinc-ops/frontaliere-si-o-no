@@ -735,6 +735,19 @@ async function readCurrentOfficialIndexHtml(wantedRefs, delayMs, fetchCurrentOff
     page = await fetchWithRateLimit(context, CURRENT_OFFICIAL_JOBPORTAL_URL, {
       minDelayMs: Math.max(delayMs, CURRENT_DETAIL_MIN_DELAY_MS),
     });
+    // `/jobportal` is a search form, not a static listing. Submit its empty
+    // search once so the current result cards (and their opaque unit slugs)
+    // are rendered before we inspect the links.
+    const searchControls = page.locator('button, input[type="submit"], a');
+    for (let index = 0; index < await searchControls.count(); index += 1) {
+      const control = searchControls.nth(index);
+      const label = await control.evaluate((node) => (
+        node.textContent || node.getAttribute('value') || ''
+      ).trim()).catch(() => '');
+      if (!/^suche$/i.test(label) || !(await control.isVisible().catch(() => false))) continue;
+      await control.click().catch(() => null);
+      break;
+    }
     await page.waitForFunction(() => [...document.querySelectorAll('a[href]')].some((anchor) => {
       try {
         return /^\/jobs\/de\/[^/]+-\d+\.html$/i.test(new URL(anchor.href, window.location.href).pathname);
