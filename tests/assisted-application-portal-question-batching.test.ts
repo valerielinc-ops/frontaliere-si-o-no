@@ -947,6 +947,9 @@ describe('assisted portal question batching', () => {
     expect(result.event.questions).toEqual(expect.arrayContaining([
       expect.objectContaining({ applicationQuestion: 'How did you hear about this position? *', applicationOptions: ['Company website', 'Recruiter'] }),
     ]));
+    expect(result.event.questions).not.toEqual(expect.arrayContaining([
+      expect.objectContaining({ applicationQuestion: 'Country of residence *' }),
+    ]));
     expect(result.event.reason).not.toBe('question_label_unreadable');
   });
 

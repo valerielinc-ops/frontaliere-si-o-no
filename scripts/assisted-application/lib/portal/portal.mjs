@@ -5971,7 +5971,23 @@ export async function submitViaPortal(ctx) {
     // question merely because the stable-surface poll omitted its options.
     const snapshotWithPortalOptions = async (current) => {
       if (!needsPortalOptionRead(current)) return current;
-      return await extractFields(page).catch(() => current);
+      const refreshed = await extractFields(page).catch(() => null);
+      if (!refreshed) return current;
+      const refreshedFields = Array.isArray(refreshed.fields) ? refreshed.fields : [];
+      const refreshedById = new Map(refreshedFields
+        .filter((field) => field.id)
+        .map((field) => [field.id, field]));
+      const currentFields = Array.isArray(current.fields) ? current.fields : [];
+      const fields = currentFields.map((field) => {
+        const live = field.id ? refreshedById.get(field.id) : null;
+        if (!live || !Array.isArray(live.options) || !live.options.length) return field;
+        return { ...field, options: live.options };
+      });
+      // Keep the navigation snapshot's field set. A full extraction can reveal
+      // unrelated required controls and must not add them to this candidate
+      // request; it only supplies the lazy catalogue for controls already in
+      // the current planning surface.
+      return { ...current, fields };
     };
     const askCandidate = async (questions, current = snapshot) => {
       const questionSnapshot = await snapshotWithPortalOptions(current);
