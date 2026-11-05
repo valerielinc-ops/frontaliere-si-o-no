@@ -25,6 +25,7 @@ const receipt = snapshot(receiptUrl, 'Thank you for your application.', [{ text:
 
 function fixture(initial = profile, source: any = null, finalReview = review, finalClickError: Error | null = null, options: any = {}) {
   state.snapshot = source || initial;
+  const buttonTransitions = options.buttonTransitions || {};
   const guard = vi.fn(async () => {
     expect(state.snapshot.url).toBe(reviewUrl);
     expect(click).not.toHaveBeenCalled();
@@ -48,12 +49,16 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
       count: async () => 0,
       filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not visible'); } }) }),
     }),
-    locator: () => ({
+    locator: (selector: string) => ({
       count: async () => 0,
       first: () => ({
-        click: () => finalClickError && state.snapshot.url === reviewUrl
-          ? Promise.reject(finalClickError)
-          : state.snapshot === source ? openClick() : click(),
+        click: (_options?: unknown) => {
+          const transition = buttonTransitions[selector];
+          if (transition) return transition();
+          return finalClickError && state.snapshot.url === reviewUrl
+            ? Promise.reject(finalClickError)
+            : state.snapshot === source ? openClick() : click();
+        },
         evaluate: async (_fn: Function, argument: any) => ({ ok: true, contractJson: JSON.stringify(argument) }),
       }),
     }),
@@ -190,8 +195,70 @@ describe('runner final guard across three application stages', () => {
   it('stops on an explicit posting region restriction before clicking its Apply control', async () => {
     const blockedPosting = snapshot(applyUrl,
       'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
-      [{ id: 'apply', text: 'Jetzt bewerben', href: '', disabled: false }]);
+      [{ id: 'details', text: 'Mehr erfahren', href: '', disabled: false }]);
     const f = fixture(blockedPosting);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('passes Yellowshark regional copy when its cookie dialog leaves an application entry', async () => {
+    const yellowsharkPosting = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen. Einreichen deiner Bewerbung in 10 Minuten.',
+      [
+        { id: 'close', text: 'Close dialog', chrome: true, cookieSurface: 'banner', cookieContextId: 'yellowshark', disabled: false },
+        { id: 'accept', text: 'Alle akzeptieren', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'reject', text: 'Ablehnen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'settings', text: 'Einstellungen anzeigen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'apply', text: 'JETZT BEWERBEN', section: title, disabled: false },
+      ]);
+    yellowsharkPosting.dialogs = [{ dialogId: 'd1' }];
+    yellowsharkPosting.buttons.slice(0, 4).forEach((button: any) => { button.dialog = true; button.dialogId = 'd1'; });
+    const afterCookie = {
+      ...yellowsharkPosting,
+      dialogs: [],
+      buttons: [yellowsharkPosting.buttons.at(-1)],
+    };
+    const f = fixture(yellowsharkPosting, null, review, null, {
+      buttonTransitions: {
+        '[data-aa-id="reject"]': async () => { state.snapshot = afterCookie; },
+        '[data-aa-id="apply"]': async () => { state.snapshot = profile; },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+  });
+
+  it('keeps a regional notice terminal for an unrelated job-card application CTA', async () => {
+    const unrelatedCta = snapshot(applyUrl,
+      'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+      [{ id: 'other-apply', text: 'JETZT BEWERBEN', section: 'Senior Data Analyst', disabled: false }]);
+    const f = fixture(unrelatedCta);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('keeps a regional notice terminal for a same-employer CTA on another role', async () => {
+    const unrelatedCta = {
+      ...snapshot(applyUrl,
+        'Acme AG. Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+        [{ id: 'other-apply', text: 'JETZT BEWERBEN', section: 'Acme AG — Junior Accountant', disabled: false }]),
+      text: 'Senior Engineer. Acme AG. Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+    };
+    const f = fixture(unrelatedCta, null, review, null, { job: { company: 'Acme AG', title: 'Senior Engineer' } });
 
     const result = await f.run();
 
