@@ -319,7 +319,7 @@ describe('portal field extraction', () => {
 
   it('does not open an application privacy action labelled Manage consent', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
-    const privacy = extract('<section class="consent"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
+    const privacy = extract('<section class="cookie-consent"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
     const manageConsent = privacy.buttons.find((button: any) => button.text === 'Manage consent');
     expect(manageConsent).toMatchObject({ formId: '' });
     expect(manageConsent).not.toHaveProperty('cookieSurface');

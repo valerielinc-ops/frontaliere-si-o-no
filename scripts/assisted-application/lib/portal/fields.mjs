@@ -154,7 +154,9 @@ function nativeQuestionText(value, counter = null) {
   };
   const readable = (element) => includeHidden ? mountedForReadAhead(element) : visible(element);
   const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
-  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager|consent)\b/i;
+  // `cookie-consent` is also used for application privacy copy; the marker
+  // alone is not evidence that a live cookie manager is covering the page.
+  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager)\b/i;
   const dialogIdFor = (element) => {
     const dialog = element.closest(DIALOG_SELECTOR);
     if (!dialog) return '';
