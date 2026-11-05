@@ -269,14 +269,22 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
 
   it('recovers through the current reference URL when the legacy official index is unavailable', async () => {
     mockPortal({ indexOk: false, directAdOk: true });
-    const jobs = await fetchAllStadtZuerichJobs();
+    // The second tile remains unresolved; keep this direct-reference test
+    // isolated from the real browser-backed detail fallback.
+    const jobs = await fetchAllStadtZuerichJobs({
+      fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
+    });
     expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
     expect(jobs[0].description).toContain('Aufgaben');
   }, 20_000);
 
   it('recovers through the current SuccessFactors career detail when both legacy city sources are unavailable', async () => {
     const fetchMock = mockPortal({ indexOk: false, successFactorsRefs: ['51726'] });
-    const jobs = await fetchAllStadtZuerichJobs();
+    // Keep the unresolved second tile on the existing injected fallback path;
+    // this focused test must not launch a real Playwright browser for it.
+    const jobs = await fetchAllStadtZuerichJobs({
+      fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
+    });
 
     expect(jobs.map((job) => job.referenceNumber)).toEqual(['51726']);
     expect(jobs[0].description).toContain('Aufgaben');
