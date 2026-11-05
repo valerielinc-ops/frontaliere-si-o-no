@@ -603,6 +603,30 @@ describe('candidate review API', () => {
       expect(await upload('reports', PDF)).toMatchObject({ status: 409, body: { error: 'not_allowed' } });
       expect(saved.size).toBe(0);
     });
+
+    it('keeps local-only postal scans off Storage and skips content checks for uploaded postal scans', async () => {
+      const requestedDocuments = [
+        { id: 'health', label: 'Health questionnaire', required: true, delivery: 'offline', localOnly: true },
+        { id: 'study', label: 'Study certificates', required: true, delivery: 'offline' },
+      ];
+      await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [] }));
+      await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
+        requestedDocumentsOverride: true, requestedDocuments, postalSubmission: { enabled: true },
+      }, { merge: true });
+
+      const page = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+      expect(page.body.documents).toMatchObject([
+        { id: 'health', localOnly: true, files: [] },
+        { id: 'study', delivery: 'offline', files: [] },
+      ]);
+      expect(await upload('health', PDF)).toMatchObject({ status: 409, body: { error: 'not_allowed' } });
+      expect(saved.size).toBe(0);
+      expect(await post({ action: 'document_recheck', documentId: 'health', fileId: 'private.pdf' })).toMatchObject({ status: 409, body: { error: 'not_allowed' } });
+
+      expect(await upload('study', PDF)).toMatchObject({ status: 200 });
+      expect(store.read(`${BASE}/automation/flow`).documents.study.files[0].clientCheck).toEqual({ verdict: 'unreadable', matched: '' });
+      expect(await post({ action: 'document_set_prepared', documentId: 'study', prepared: true })).toMatchObject({ status: 409, body: { error: 'not_allowed' } });
+    });
   });
 
   it('refuses a start date in the past or an impossible date, and tells the page the earliest one', async () => {

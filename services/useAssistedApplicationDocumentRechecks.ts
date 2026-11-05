@@ -20,7 +20,8 @@ export function useAssistedApplicationDocumentRechecks(token: string, data: Revi
   const round = data?.round;
   const stale = data?.stale;
   useEffect(() => {
-    if (!data || stale) return undefined;
+    // Postal application documents are assembled for printing without content analysis.
+    if (!data || stale || data.postalSubmission) return undefined;
     let cancelled = false;
     const active = new Set<string>();
     const controller = new AbortController();
