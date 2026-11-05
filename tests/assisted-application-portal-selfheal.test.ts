@@ -418,6 +418,28 @@ describe('portal runner self-correction', () => {
       .toMatchObject({ submit: null, next: null });
   });
 
+  it('does not treat a public Job-Room posting shell as an application surface', () => {
+    const snapshot = {
+      url: 'https://www.job-room.ch/job-search/example/',
+      fields: [],
+      buttons: [
+        { text: 'Pagina principale', chrome: true, disabled: false },
+        { text: 'Tornare ai risultati della ricerca', disabled: false },
+        { text: 'Informazioni sul posto', disabled: false },
+        { text: 'Forme possibili di candidatura', disabled: false },
+        { text: 'Precedente', disabled: false },
+        { text: 'Prossimo', disabled: false },
+        { text: 'Copiare il link', disabled: false },
+        { text: 'Invia link', disabled: false },
+        { text: 'Stampare', disabled: false },
+      ],
+    };
+
+    expect(hasApplicationSurface(snapshot)).toBe(false);
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, snapshot.url, { snapshot }))
+      .toMatchObject({ submit: null, next: null });
+  });
+
   it('keeps a learned application control on a public search-shaped step', () => {
     const snapshot = {
       url: 'https://www.stadt-zuerich.ch/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs.html',
