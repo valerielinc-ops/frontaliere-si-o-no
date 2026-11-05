@@ -1,8 +1,8 @@
 import { File } from 'node:buffer';
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument, PDFHexString, PDFName, PDFString } from 'pdf-lib';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JPEG_2X2 } from './helpers/pdfImages';
-import { postalPacketReadiness, postalPacketSources } from '../functions/src/assistedApplicationPostalPacket.js';
+import { buildPostalApplicationPacket, postalPacketReadiness, postalPacketSources } from '../functions/src/assistedApplicationPostalPacket.js';
 import { mergeLocalPostalDocuments } from '../services/assistedApplicationPostalPacket';
 import { downloadPostalPacket } from '../services/assistedApplicationReviewService';
 
@@ -15,6 +15,23 @@ async function pdfWithPages(count: number): Promise<Uint8Array> {
   const pdf = await PDFDocument.create();
   for (let index = 0; index < count; index += 1) pdf.addPage();
   return pdf.save();
+}
+
+async function signedPdfWithPages(count: number): Promise<Uint8Array> {
+  const pdf = await PDFDocument.create({ updateMetadata: false });
+  for (let index = 0; index < count; index += 1) pdf.addPage();
+  const page = pdf.getPage(0);
+  const signature = pdf.context.obj({
+    Type: 'Sig', Filter: 'Adobe.PPKLite', SubFilter: 'adbe.pkcs7.detached',
+    ByteRange: [0, 0, 0, 0], Contents: PDFHexString.of('00'.repeat(64)),
+  });
+  const field = pdf.context.register(pdf.context.obj({
+    FT: 'Sig', T: PDFString.of('Signature1'), V: pdf.context.register(signature),
+    Type: 'Annot', Subtype: 'Widget', Rect: [0, 0, 0, 0], F: 132, P: page.ref,
+  }));
+  page.node.set(PDFName.of('Annots'), pdf.context.obj([field]));
+  pdf.catalog.set(PDFName.of('AcroForm'), pdf.context.obj({ Fields: [field], SigFlags: 3 }));
+  return pdf.save({ useObjectStreams: false });
 }
 
 function postalSources(studyFiles: unknown[] = []) {
@@ -64,6 +81,38 @@ describe('paper application packet readiness', () => {
     });
     const result = await PDFDocument.load(merged);
     expect(result.getPageCount()).toBe(5); // base + local index + two-page scan + photo frame
+  });
+
+  it('keeps a digitally signed local PDF separate from the pages merged for printing', async () => {
+    const signed = new File([await signedPdfWithPages(2)], 'signed-certificate.pdf', { type: 'application/pdf' });
+    const regular = new File([await pdfWithPages(1)], 'health-scan.pdf', { type: 'application/pdf' });
+    const merged = await mergeLocalPostalDocuments({
+      basePdf: await pdfWithPages(1),
+      documents: [
+        { id: 'signed_record', label: 'Certificato firmato', files: [signed] },
+        { id: 'health_questionnaire', label: 'Questionario salute', files: [regular] },
+      ],
+      sourceBytes: 0,
+      maxBytes: 1024 * 1024,
+    });
+    const result = await PDFDocument.load(merged);
+    expect(result.getPageCount()).toBe(3); // base + local index + unsigned scan
+  });
+
+  it('does not merge digitally signed server PDFs into the printable packet', async () => {
+    const signed = Buffer.from(await signedPdfWithPages(2));
+    const postalSubmission = {
+      recipient: 'Ufficio candidature', address: 'Via Esempio 1\n6900 Lugano', deadline: '30 giugno 2026',
+      envelopeMarking: 'Candidatura', instructions: 'Spedisci entro la scadenza.',
+    };
+    const common = { locale: 'it', jobTitle: 'Assistente', companyName: 'Comune', postalSubmission, includeHandwrittenLetter: false };
+    const withoutAttachment = await buildPostalApplicationPacket({ ...common, checklist: [], files: [] });
+    const withSignedAttachment = await buildPostalApplicationPacket({
+      ...common,
+      checklist: [{ documentId: 'civil_status', label: 'Certificato di stato civile', status: 'incluso' }],
+      files: [{ type: 'pdf', buffer: signed, name: 'certificato-firmato.pdf', label: 'Certificato di stato civile', documentId: 'civil_status' }],
+    });
+    expect((await PDFDocument.load(withSignedAttachment)).getPageCount()).toBe((await PDFDocument.load(withoutAttachment)).getPageCount());
   });
 
   it('rejects local files when the combined source size exceeds the packet limit', async () => {
