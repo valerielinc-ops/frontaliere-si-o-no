@@ -104,26 +104,29 @@ export const DESCRIPTION_POPULATION = {
  * the assembled artefact — 68,587 / 68,306 / 67,987 / 67,844 — a 1.1% spread
  * across the day.
  *
- * RE-DERIVED 2026-09-30 (issue #9102): organic corpus growth (more jobs
+ * RE-DERIVED 2026-11-05 (issue #16755): organic corpus growth (more jobs
  * crawled, not a regression) moved the population past the ±15% band again.
- * The assembled artefact measured 90,712 slots, so `expectedSlots` is
- * re-pinned to that measured denominator; `tolerance` is UNCHANGED at 0.15 —
- * this re-bases a measured denominator, it does not loosen the gate.
+ * The live assembled artefact measured 105,132 published slots plus 978 slots
+ * held for translation, for 106,110 population slots. The wrong-locale rate
+ * was 979 / 105,132 = 0.93%; the 33.00% quality cap remains unchanged, so
+ * this is a denominator re-baseline and not a loosened gate.
  *
- * TOLERANCE 15%, same construction: the same population read from the SLICES
- * is 80,978 slots (+18.7%), and the docstring's own historical slice figure was
- * 79,796 (+17.0%) — both now caught. This ratchet has never gone red for a
- * population change, which is precisely why it needed the guard: its sibling's
- * failure was the same defect with the same shape, one dataset refresh later.
+ * TOLERANCE 15%, same construction: the historical 80,978 and 79,796 slice
+ * figures belonged to earlier baselines and are below this re-derived band.
+ * The population guard therefore keeps a synthetic +18.6% slice/assembled
+ * swap as an explicit out-of-band fixture. This ratchet has never gone red for
+ * a population change, which is precisely why it needed the guard: its
+ * sibling's failure was the same defect with the same shape, one dataset
+ * refresh later.
  * @type {PopulationSpec}
  */
 export const TITLE_POPULATION = {
   id: 'titles-wrong-locale',
   source: POPULATION_SOURCE,
   filter: 'non-empty titleByLocale[locale] for every locale !== effective title source language, for every job, independent of needsRetranslation',
-  expectedSlots: 90712,
+  expectedSlots: 106110,
   tolerance: 0.15,
-  measuredOn: '2026-09-30',
+  measuredOn: '2026-11-05',
 };
 
 /**
