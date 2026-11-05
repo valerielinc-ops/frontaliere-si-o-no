@@ -356,7 +356,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     answerSnapshotGuard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
       answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs, communicationLocale },
     candidateAnswerLedger,
-    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
+    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo, size: rebuilt.size } },
   });
   if (rebuildCommitted === false) {
     await deleteStored(bucket, orderId, [rebuilt.pdfKey]);

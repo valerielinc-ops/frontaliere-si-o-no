@@ -29,6 +29,7 @@ import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
+import { postalPacketReadiness } from './assistedApplicationPostalPacket.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, resolvePostingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
@@ -292,6 +293,9 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const order = orderSnapshot.data() || {};
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const postalPacketReady = flow.postalSubmission?.enabled === true
+      ? postalPacketReadiness({ order, orderId, flow, draft }).ready
+      : true;
     if (Number(expectedRound) && Number(expectedRound) !== Number(flow.round || 1)) {
       claim('ignored:stale_round');
       outcome = { ok: false, ignored: 'stale_round', state: flow.state };
@@ -322,7 +326,9 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flowForTransition, event, { draft, answers: transitionAnswers, documents: flow.documents || {}, nowMs });
+    const result = transition(flowForTransition, event, {
+      draft, answers: transitionAnswers, documents: flow.documents || {}, postalPacketReady, nowMs,
+    });
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
     // continuing a fact-repair chain, including its candidate-review emails.

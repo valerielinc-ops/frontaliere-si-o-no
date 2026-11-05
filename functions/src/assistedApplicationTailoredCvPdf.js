@@ -139,7 +139,7 @@ export function tailoredCvChanges({ order, draft, flow, nextDraft = draft, nextF
 /**
  * @param {{bucket:object, order:object, orderId:string, draft:object, flow?:object, cv?:object, nowMs:number, mode?:string, log?:Function}} input
  *   cv: the tailored CV to print (default: the draft's)
- * @returns {Promise<{pdfKey:string, renderer:string, photo:boolean}|null>} photo: the PDF carries the candidate's photo;
+ * @returns {Promise<{pdfKey:string, renderer:string, photo:boolean, size:number}|null>} photo: the PDF carries the candidate's photo;
  *   null when the draft has no tailored CV to rebuild
  */
 export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow = {}, cv, nowMs, mode, log }) {
@@ -149,7 +149,7 @@ export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow
   // A key of its own per rebuild: a request refused at its commit deletes its PDF, never the one another request published.
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
-  return { pdfKey, renderer, photo };
+  return { pdfKey, renderer, photo, size: pdf.byteLength ?? pdf.length };
 }
 
 /**

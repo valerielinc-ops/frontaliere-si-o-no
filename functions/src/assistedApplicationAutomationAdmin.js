@@ -39,7 +39,7 @@ import {
 import { ensureOrderAlias } from './assistedApplicationAlias.js';
 import { factCheckTokens, roundWasSent, transition } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
-import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
+import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, documentFilesOf, extraDocumentsToSend, requiredDocumentsFor, requiredDocumentsOf } from './assistedApplicationExtraDocuments.js';
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
@@ -54,6 +54,8 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationHandoff',
   'automationEditDraft',
   'automationSetAnswers',
+  'automationSetRequiredDocuments',
+  'automationSetPostalSubmission',
   'automationRevealAccount',
   'automationFillKit',
   'automationMarkClicked',
@@ -180,11 +182,13 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       heldBy: flow.heldBy || [],
       feedback: flow.feedback || [],
       answers: candidateState.answers,
+      postalSubmission: flow.postalSubmission || null,
       // The fields the candidate corrected on the review page.
       formOverrides: flow.formOverrides || {},
       dispatch: flow.dispatch || null,
-      // The round reached its sending (the candidate approved it): only then may the robot be asked to send it again.
-      roundSent: roundWasSent(flow),
+      // For electronic routes, a submit dispatch means the candidate approved the round. A paper handoff records
+      // that approval as `submittedVia: postal` because it never dispatches the electronic submit runner.
+      roundSent: roundWasSent(flow) || flow.submittedVia === 'postal',
       history: (flow.history || []).slice(-12),
     } : null,
     draft: draft ? {
@@ -200,6 +204,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       requirements: draft.requirements || [],
       matches: draft.matches || [],
       questions: visibleQuestions,
+      requiredDocuments: requiredDocumentsFor(draft, flow),
       questionSnapshots: answerConfirmationSnapshotsFor({ userId: order.userId, orderId, order, flow,
         questions: visibleQuestions, draft, sourceKind: 'owner_attested', communicationLocale, nowMs }),
       coverLetter: draft.coverLetter || null,
@@ -239,6 +244,143 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       sent,
     } : null,
   };
+}
+
+function normalizedRequestedDocuments(raw) {
+  if (!Array.isArray(raw) || raw.length > MAX_REQUIRED_DOCUMENTS) throw new AutomationAdminError('invalid_documents', 400);
+  const used = new Set();
+  const usedLabels = new Set();
+  const documents = [];
+  for (const [index, item] of raw.entries()) {
+    const label = clean(item?.label, 160);
+    if (!label) throw new AutomationAdminError('invalid_documents', 400);
+    const labelKey = label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+    if (!labelKey || usedLabels.has(labelKey)) throw new AutomationAdminError('invalid_documents', 400);
+    usedLabels.add(labelKey);
+    const proposed = String(item?.id || label).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      .replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 32) || `requested_${index + 1}`;
+    let id = proposed;
+    let suffix = 2;
+    while (used.has(id)) {
+      const tail = `_${suffix++}`;
+      id = `${proposed.slice(0, 40 - tail.length)}${tail}`;
+    }
+    used.add(id);
+    documents.push({
+      id,
+      label,
+      kind: 'other',
+      keywords: [],
+      required: item?.required !== false,
+      quote: clean(item?.quote, 300),
+      instructions: clean(item?.instructions, 500),
+      delivery: item?.delivery === 'offline' ? 'offline'
+        : item?.delivery === 'service' && proposed === 'curriculum_vitae' ? 'service' : 'upload',
+      exemptions: [...new Set((Array.isArray(item?.exemptions) ? item.exemptions : [])
+        .filter((reason) => ['municipal_resident', 'municipal_employee'].includes(reason)))].slice(0, 2),
+    });
+  }
+  return requiredDocumentsOf({ requiredDocuments: documents });
+}
+
+function normalizedPostalSubmission(raw) {
+  const recipient = clean(raw?.recipient, 200);
+  const address = cleanBlock(raw?.address, 1000);
+  const deadline = clean(raw?.deadline, 160);
+  const envelopeMarking = clean(raw?.envelopeMarking, 200);
+  const instructions = cleanBlock(raw?.instructions, 2000);
+  let officialFormUrl = '';
+  const candidateUrl = clean(raw?.officialFormUrl, 2048);
+  if (candidateUrl) {
+    try {
+      const url = new URL(candidateUrl);
+      if (url.protocol !== 'https:' || url.username || url.password) throw new Error('invalid');
+      officialFormUrl = url.toString();
+    } catch {
+      if (raw?.enabled === true) throw new AutomationAdminError('invalid_postal_form_url', 400);
+    }
+  }
+  if (raw?.enabled !== true) return { enabled: false, recipient, address, deadline, envelopeMarking, instructions, officialFormUrl };
+  if (!recipient || !address || !deadline || !envelopeMarking || !instructions) {
+    throw new AutomationAdminError('postal_submission_incomplete', 400);
+  }
+  return { enabled: true, recipient, address, deadline, envelopeMarking, instructions, officialFormUrl };
+}
+
+async function saveCandidateRequests(db, orderId, raw, { nowMs }) {
+  const [draftSnapshot, flowSnapshot] = await Promise.all([
+    draftRefFor(db, orderId).get(),
+    flowRefFor(db, orderId).get(),
+  ]);
+  const draft = draftSnapshot.data() || {};
+  const flow = flowSnapshot.data() || {};
+  if (!draftSnapshot.exists || draft.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
+  // Requests are configured before the candidate review email is released.
+  if (flow.state !== 'owner_review') throw new AutomationAdminError('document_requests_closed', 409);
+  const requestedDocuments = normalizedRequestedDocuments(raw.documents);
+  const previous = requiredDocumentsFor(draft, flow);
+  const nextById = new Map(requestedDocuments.map((item) => [item.id, item]));
+  const removedKeys = previous
+    .filter((item) => !nextById.has(item.id) || nextById.get(item.id)?.delivery !== item.delivery)
+    .flatMap((item) => documentFilesOf(flow, orderId, item.id).map((file) => file.key));
+  const removedIds = previous
+    .filter((item) => !nextById.has(item.id) || nextById.get(item.id)?.delivery !== item.delivery)
+    .map((item) => item.id);
+  const removedDocumentState = Object.fromEntries(removedIds.map((id) => [id, null]));
+  await flowRefFor(db, orderId).set({
+    requestedDocumentsOverride: true,
+    requestedDocuments,
+    ...(removedIds.length ? { documents: removedDocumentState } : {}),
+    updatedAt: nowMs,
+  }, { merge: true });
+  return { ok: true, state: flow.state, count: requestedDocuments.length, removedKeys };
+}
+
+async function savePostalSubmission(db, orderId, raw, { bucket, nowMs }) {
+  const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
+    orderRefFor(db, orderId).get(),
+    draftRefFor(db, orderId).get(),
+    flowRefFor(db, orderId).get(),
+  ]);
+  if (!draftSnapshot.exists || draftSnapshot.data()?.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
+  const order = orderSnapshot.data() || {};
+  const draft = draftSnapshot.data() || {};
+  const flow = flowSnapshot.data() || {};
+  if (flow.state !== 'owner_review') throw new AutomationAdminError('postal_submission_closed', 409);
+  const postalSubmission = normalizedPostalSubmission(raw);
+  if (postalSubmission.enabled && (!flow.requestedDocumentsOverride || !requiredDocumentsFor(draft, flow).length)) {
+    throw new AutomationAdminError('postal_submission_documents_missing', 409);
+  }
+  if (postalSubmission.enabled) {
+    if (!bucket) throw new AutomationAdminError('storage_unavailable', 503);
+    const sourceSizes = [];
+    if (isAssistedApplicationCvKey(orderId, order.cvStorageKey) && order.cvFileCheck?.key === order.cvStorageKey
+      && (!Number.isSafeInteger(Number(order.cvFileCheck.size)) || Number(order.cvFileCheck.size) <= 0)) {
+      sourceSizes.push({ key: order.cvStorageKey, target: 'order', data: order });
+    }
+    if (isAssistedApplicationCvKey(orderId, draft.tailoredCv?.pdfKey)
+      && (!Number.isSafeInteger(Number(draft.tailoredCv.size)) || Number(draft.tailoredCv.size) <= 0)) {
+      sourceSizes.push({ key: draft.tailoredCv.pdfKey, target: 'draft', data: draft });
+    }
+    for (const source of sourceSizes) {
+      let metadata;
+      try {
+        [metadata] = await bucket.file(source.key).getMetadata();
+      } catch {
+        throw new AutomationAdminError('postal_packet_file_unavailable', 409);
+      }
+      const size = Number(metadata?.size);
+      if (!Number.isSafeInteger(size) || size <= 0) throw new AutomationAdminError('postal_packet_file_unavailable', 409);
+      if (source.target === 'order') {
+        await orderRefFor(db, orderId).set({ cvFileCheck: { ...source.data.cvFileCheck, size } }, { merge: true });
+      } else {
+        await draftRefFor(db, orderId).set({ tailoredCv: { ...source.data.tailoredCv, size } }, { merge: true });
+      }
+    }
+  }
+  await flowRefFor(db, orderId).set({ postalSubmission, updatedAt: nowMs }, { merge: true });
+  return { ok: true, state: flow.state, enabled: postalSubmission.enabled };
 }
 
 async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
@@ -361,6 +503,13 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       return { ok: true, state: 'drafting' };
     }
     case 'automationApprove': {
+      const [approvalFlowSnapshot, approvalDraftSnapshot] = await Promise.all([
+        flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(),
+      ]);
+      if (requiredDocumentsFor(approvalDraftSnapshot.data() || {}, approvalFlowSnapshot.data() || {}).some((document) => document.delivery === 'offline')
+        && approvalFlowSnapshot.data()?.postalSubmission?.enabled !== true) {
+        throw new AutomationAdminError('postal_submission_incomplete', 409);
+      }
       const acknowledgements = {};
       if (raw.acknowledgeFactWarnings === true) acknowledgements.factCheckAcknowledgedAt = nowMs;
       // Any other owner flag (no posting text, unknown channel, a suspicious posting) is acknowledged by name.
@@ -436,6 +585,15 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       const result = await applyAutomationEvent({ db, orderId, event: { type: 'candidate_answers' }, actor, runEffect: deps.runEffect, nowMs });
       return { ok: true, state: result.flow?.state || flowSnapshot.data()?.state };
     }
+    case 'automationSetRequiredDocuments': {
+      const result = await saveCandidateRequests(db, orderId, raw, { nowMs });
+      for (const key of result.removedKeys) {
+        if (deps.bucket && isAssistedApplicationCvKey(orderId, key)) await deps.bucket.file(key).delete().catch(() => {});
+      }
+      return { ok: true, state: result.state, count: result.count };
+    }
+    case 'automationSetPostalSubmission':
+      return savePostalSubmission(db, orderId, raw, { bucket: deps.bucket, nowMs });
     case 'automationRevealAccount': {
       // Owner takeover of a portal application: the account the runner
       // created on the alias. Who looked and when is recorded; the password
