@@ -96,6 +96,7 @@ describe('Bing-compatible full-tree crawler', () => {
   });
 
   it('classifies noindex, canonical drift, soft 404 and HTTP errors', () => {
+    const jobPostingJsonLd = '<script type="application/ld+json">{"@type":"JobPosting"}</script>';
     const noindex = classifyDocument({ url: `${BASE}/partner/`, status: 200, headers: new Headers({ 'x-robots-tag': 'noindex' }), html: '<title>Partner</title><link rel="canonical" href="https://frontaliereticino.ch/partner/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina partner nel controllo SEO completo del sito e mantenere il contratto di crawling."/><meta name="robots" content="noindex">' });
     expect(noindex.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
     const drift = classifyDocument({ url: `${BASE}/a/`, status: 200, html: '<title>A</title><link rel="canonical" href="https://frontaliereticino.ch/b/">' });
@@ -104,7 +105,8 @@ describe('Bing-compatible full-tree crawler', () => {
     const expectedJobConsolidation = classifyDocument({
       url: `${BASE}/en/find-jobs-geneva/a/`,
       status: 200,
-      html: '<title>A</title><link rel="canonical" href="https://frontaliereticino.ch/en/find-jobs-geneva/b/">',
+      html: `<title>A</title><link rel="canonical" href="https://frontaliereticino.ch/en/find-jobs-geneva/b/">${jobPostingJsonLd}`,
+      canonicalHtml: jobPostingJsonLd,
     });
     expect(expectedJobConsolidation.findings.map((item) => item.code)).toContain('canonical-expected');
     expect(expectedJobConsolidation.findings.map((item) => item.code)).not.toContain('canonical-drift');
@@ -174,9 +176,9 @@ describe('Bing-compatible full-tree crawler', () => {
 
   it('classifies the same document according to sitemap or internal-frontier scope', () => {
     const bridgeUrl = `${BASE}/en/find-jobs-geneva/old-slug/`;
-    const bridgeHtml = `<title>Bridge</title><link rel="canonical" href="${BASE}/en/find-jobs-geneva/new-slug/"><meta name="robots" content="noindex,follow"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il bridge dichiarato nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
-    const sitemapBridge = classifyDocument({ url: bridgeUrl, status: 200, scope: 'sitemap', html: bridgeHtml });
-    const frontierBridge = classifyDocument({ url: bridgeUrl, status: 200, scope: 'discovered-frontier', html: bridgeHtml });
+    const bridgeHtml = `<title>Bridge</title><link rel="canonical" href="${BASE}/en/find-jobs-geneva/new-slug/"><meta name="robots" content="noindex,follow"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il bridge dichiarato nel controllo SEO completo del sito e mantenere il contratto di crawling."><script type="application/ld+json">{"@type":"JobPosting"}</script>`;
+    const sitemapBridge = classifyDocument({ url: bridgeUrl, status: 200, scope: 'sitemap', html: bridgeHtml, canonicalHtml: bridgeHtml });
+    const frontierBridge = classifyDocument({ url: bridgeUrl, status: 200, scope: 'discovered-frontier', html: bridgeHtml, canonicalHtml: bridgeHtml });
 
     expect(sitemapBridge.findings.map((item) => item.code)).toEqual(expect.arrayContaining(['noindex-in-sitemap', 'canonical-expected']));
     expect(frontierBridge.findings.map((item) => item.code)).toEqual(expect.arrayContaining([

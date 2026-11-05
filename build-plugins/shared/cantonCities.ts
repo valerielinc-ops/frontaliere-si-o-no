@@ -1,5 +1,6 @@
 import municipalitiesFile from '../../data/canton-municipalities.json';
 import cantonSlugFile from '../../data/canton-url-slugs.json';
+import { normalizeCitySlug as normalizeCitySlugCore } from './cantonResolvers.mjs';
 
 type CityFile = { cantons: Record<string, { municipalities: string[] }> };
 const data = municipalitiesFile as CityFile;
@@ -102,11 +103,5 @@ export function getCityCanton(city: string): string | null {
 }
 
 export function normalizeCitySlug(city: string): string {
-  return String(city)
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .toLowerCase()
-    .replace(/\./g, '')
-    .replace(/\([a-z]+\)/g, '')             // strip (zh), (bl), etc. from slug
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+  return normalizeCitySlugCore(city);
 }

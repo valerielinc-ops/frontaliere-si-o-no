@@ -4,6 +4,7 @@ import {
   createCantonResolvers,
   AGGREGATE_KEY as CORE_AGGREGATE_KEY,
   SECTION_LEGACY_TI as CORE_SECTION_LEGACY_TI,
+  TI_LEGACY_CITY_HUB_SLUGS as CORE_TI_LEGACY_CITY_HUB_SLUGS,
 } from './cantonResolvers.mjs';
 
 export type CantonLocale = 'it' | 'en' | 'de' | 'fr';
@@ -17,6 +18,7 @@ export const AGGREGATE_KEY = CORE_AGGREGATE_KEY;
  * `cantonResolvers.mjs`; raw-`node` scripts import them straight from there.
  */
 export const SECTION_LEGACY_TI: Record<CantonLocale, string> = CORE_SECTION_LEGACY_TI;
+export const TI_LEGACY_CITY_HUB_SLUGS: readonly string[] = CORE_TI_LEGACY_CITY_HUB_SLUGS;
 
 /** `/cerca-lavoro-ticino`, `/en/find-jobs-ticino`, … — the same table with the SPA locale prefix, no trailing slash. */
 export const SECTION_LEGACY_TI_ROOT: Record<CantonLocale, string> = Object.fromEntries(
@@ -54,6 +56,14 @@ export function resolveCantonGroup(cantonCode: string): string {
 
 export function resolveCantonSection(locale: CantonLocale, cantonCode: string): string {
   return resolvers.resolveCantonSection(locale, cantonCode);
+}
+
+export function resolveCantonFromSection(locale: CantonLocale, section: string): string | null {
+  return resolvers.resolveCantonFromSection(locale, section);
+}
+
+export function isKnownCityHubSlug(citySlug: string, cantonCode?: string): boolean {
+  return resolvers.isKnownCityHubSlug(citySlug, cantonCode);
 }
 
 /**

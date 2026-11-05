@@ -458,6 +458,18 @@ function readHtml(filePath) {
   return null;
 }
 
+function readSameOriginCanonicalHtml(url, canonical) {
+  try {
+    const source = new URL(url);
+    const target = new URL(canonical, source);
+    if (target.origin !== source.origin) return '';
+    const targetHtmlPath = locToHtmlPath_audit(target.href);
+    return targetHtmlPath ? readHtml(targetHtmlPath) || '' : '';
+  } catch {
+    return '';
+  }
+}
+
 // ── Check runners ──────────────────────────────────────────────────────────
 
 const checks = {
@@ -563,7 +575,12 @@ function runAuditSitemapCanonicals() {
       // absence of bridge logic (documented in this file's own "Differences
       // PRESERVED" table, point 5), so one legitimate slug rename made check 1
       // FAIL and check 2 PASS on the very same page in the very same run.
-      const exemption = classifyCanonicalMismatch({ url: loc, canonical, html });
+      const exemption = classifyCanonicalMismatch({
+        url: loc,
+        canonical,
+        html,
+        canonicalHtml: readSameOriginCanonicalHtml(loc, canonical),
+      });
       if (exemption) {
         exempt[exemption] = (exempt[exemption] ?? 0) + 1;
         okCount++;
@@ -715,7 +732,12 @@ function runValidateCanonical() {
       const isSlashDiff = norm(canonPath) === norm(urlPath);
       if (!isSlashDiff) {
         if (isLegitLegacyAlias(url, canonical)) { bridgeSkipped++; continue; }
-        if (isLegitJobConsolidation(url, canonical)) {
+        if (isLegitJobConsolidation(
+          url,
+          canonical,
+          fullContent,
+          readSameOriginCanonicalHtml(url, canonical),
+        )) {
           bridgeSkipped++;
         } else {
           // flatString: a multi-substitution template literal is a ConsString

@@ -5335,6 +5335,10 @@ export async function reconcileSitemapSearchClustersWithDist(
   if (advertised.length === 0) return 0;
   const kept = new Set(
     (await dropOverwrittenLocs(distDir, advertised, {
+      // A direct caller has no assembled locale index, but a page that is
+      // already present in dist is still authoritative evidence. Keep the
+      // explicit option for callers that need to opt out, while preserving
+      // the final-pass default that checks present foreign-shard pages.
       inspectForeignPresent: options.inspectForeignPresent ?? true,
       keepMissing: options.keepMissing,
       ignoreShardOwnership: options.ignoreShardOwnership,

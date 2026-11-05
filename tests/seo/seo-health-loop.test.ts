@@ -61,6 +61,8 @@ describe('SEO health contract', () => {
     expect(isJobDetailPath('/cerca-lavoro-ticino/software-engineer-acme/')).toBe(true);
     expect(isJobDetailPath('/en/find-jobs-zurich/software-engineer-acme/')).toBe(true);
     expect(isJobDetailPath('/de/jobs-im-tessin/software-engineer-acme/')).toBe(true);
+    expect(isJobDetailPath('/cerca-lavoro-ticino/lugano/')).toBe(false);
+    expect(isJobDetailPath('/cerca-lavoro-zurigo/zurich/')).toBe(false);
     expect(isJobDetailPath('/cerca-lavoro-ticino/')).toBe(false);
     expect(isJobDetailPath('/de/jobs-im-tessin/alle/')).toBe(false);
     expect(isJobDetailPath('/de/jobs-im-tessin/alle/page-1022/')).toBe(false);
