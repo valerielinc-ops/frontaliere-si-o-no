@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-11-05T09:18:47.859Z",
-  "runId": "42000387234",
+  "assembledAt": "2026-11-05T21:28:28.677Z",
+  "runId": "42110416358",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
+        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:39.486Z",
+      "crawledAt": "2026-11-05T21:28:20.824Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -57,11 +57,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -87,7 +89,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:39.486Z",
+      "validThrough": "2026-12-05T21:28:20.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +124,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:38.396Z",
+      "crawledAt": "2026-11-05T21:28:19.796Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -179,7 +181,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:38.396Z",
+      "validThrough": "2026-12-05T21:28:19.796Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -214,7 +216,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:37.267Z",
+      "crawledAt": "2026-11-05T21:28:18.864Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -262,7 +264,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:37.267Z",
+      "validThrough": "2026-12-05T21:28:18.864Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -296,7 +298,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:36.125Z",
+      "crawledAt": "2026-11-05T21:28:17.873Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -407,7 +409,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:36.125Z",
+      "validThrough": "2026-12-05T21:28:17.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -441,7 +443,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:35.055Z",
+      "crawledAt": "2026-11-05T21:28:16.915Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -545,7 +547,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:35.055Z",
+      "validThrough": "2026-12-05T21:28:16.915Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -580,7 +582,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:33.954Z",
+      "crawledAt": "2026-11-05T21:28:15.877Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -647,7 +649,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:33.954Z",
+      "validThrough": "2026-12-05T21:28:15.877Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -682,7 +684,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:32.892Z",
+      "crawledAt": "2026-11-05T21:28:14.873Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -762,7 +764,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:32.892Z",
+      "validThrough": "2026-12-05T21:28:14.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -770,9 +772,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -797,7 +799,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:31.810Z",
+      "crawledAt": "2026-11-05T21:28:13.892Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -850,18 +852,18 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
-        "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
+          "emergency-medical-technician-in-training-see-spital-horgen"
         ],
         "fr": [
-          "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -881,7 +883,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:31.810Z",
+      "validThrough": "2026-12-05T21:28:13.892Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -916,7 +918,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:30.692Z",
+      "crawledAt": "2026-11-05T21:28:12.977Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -989,7 +991,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:30.692Z",
+      "validThrough": "2026-12-05T21:28:12.977Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1024,7 +1026,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:29.595Z",
+      "crawledAt": "2026-11-05T21:28:12.006Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1093,7 +1095,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:29.595Z",
+      "validThrough": "2026-12-05T21:28:12.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1128,7 +1130,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:28.519Z",
+      "crawledAt": "2026-11-05T21:28:10.971Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1204,7 +1206,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:28.519Z",
+      "validThrough": "2026-12-05T21:28:10.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1239,7 +1241,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:27.417Z",
+      "crawledAt": "2026-11-05T21:28:09.937Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1318,7 +1320,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:27.417Z",
+      "validThrough": "2026-12-05T21:28:09.937Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1353,7 +1355,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:26.274Z",
+      "crawledAt": "2026-11-05T21:28:08.928Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1430,7 +1432,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:26.274Z",
+      "validThrough": "2026-12-05T21:28:08.928Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1464,7 +1466,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:25.166Z",
+      "crawledAt": "2026-11-05T21:28:07.951Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1543,7 +1545,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:25.166Z",
+      "validThrough": "2026-12-05T21:28:07.951Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1577,7 +1579,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:24.076Z",
+      "crawledAt": "2026-11-05T21:28:06.960Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1644,7 +1646,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:24.076Z",
+      "validThrough": "2026-12-05T21:28:06.960Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1678,7 +1680,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:22.946Z",
+      "crawledAt": "2026-11-05T21:28:05.977Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1758,7 +1760,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:22.946Z",
+      "validThrough": "2026-12-05T21:28:05.977Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1793,7 +1795,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:21.832Z",
+      "crawledAt": "2026-11-05T21:28:04.981Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1868,7 +1870,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:21.832Z",
+      "validThrough": "2026-12-05T21:28:04.981Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1902,7 +1904,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:20.732Z",
+      "crawledAt": "2026-11-05T21:28:03.999Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1978,7 +1980,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:20.732Z",
+      "validThrough": "2026-12-05T21:28:03.999Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2013,7 +2015,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:19.610Z",
+      "crawledAt": "2026-11-05T21:28:03.004Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2087,7 +2089,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:19.610Z",
+      "validThrough": "2026-12-05T21:28:03.004Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2122,7 +2124,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:18.518Z",
+      "crawledAt": "2026-11-05T21:28:02.004Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2212,7 +2214,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:18.518Z",
+      "validThrough": "2026-12-05T21:28:02.004Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2246,7 +2248,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:17.421Z",
+      "crawledAt": "2026-11-05T21:28:00.984Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2324,7 +2326,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:17.421Z",
+      "validThrough": "2026-12-05T21:28:00.984Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2358,7 +2360,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:16.310Z",
+      "crawledAt": "2026-11-05T21:27:59.964Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2409,7 +2411,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:16.310Z",
+      "validThrough": "2026-12-05T21:27:59.964Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2444,7 +2446,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:15.133Z",
+      "crawledAt": "2026-11-05T21:27:58.933Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2495,7 +2497,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:15.133Z",
+      "validThrough": "2026-12-05T21:27:58.933Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2530,7 +2532,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:14.025Z",
+      "crawledAt": "2026-11-05T21:27:57.953Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2581,7 +2583,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:14.025Z",
+      "validThrough": "2026-12-05T21:27:57.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2615,7 +2617,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:12.919Z",
+      "crawledAt": "2026-11-05T21:27:56.990Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2666,7 +2668,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:12.919Z",
+      "validThrough": "2026-12-05T21:27:56.990Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2674,7 +2676,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "nursing-expert-see-spital-horgen",
+        "en": "nursingexpert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2701,7 +2703,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:11.831Z",
+      "crawledAt": "2026-11-05T21:27:55.967Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2725,7 +2727,7 @@
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
         "pflegeexpert-in-see-spital-horgen",
-        "nursingexpert-see-spital-horgen"
+        "nursing-expert-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2734,7 +2736,7 @@
         "en": [
           "care-expert-see-spital-horgen",
           "pflegeexpert-in-see-spital-horgen",
-          "nursingexpert-see-spital-horgen"
+          "nursing-expert-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"
@@ -2757,7 +2759,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:11.831Z",
+      "validThrough": "2026-12-05T21:27:55.967Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2792,7 +2794,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:10.724Z",
+      "crawledAt": "2026-11-05T21:27:54.941Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2845,7 +2847,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:10.724Z",
+      "validThrough": "2026-12-05T21:27:54.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2879,7 +2881,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:09.646Z",
+      "crawledAt": "2026-11-05T21:27:53.916Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2945,7 +2947,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:09.646Z",
+      "validThrough": "2026-12-05T21:27:53.916Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2980,7 +2982,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:08.600Z",
+      "crawledAt": "2026-11-05T21:27:52.936Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3031,7 +3033,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:08.600Z",
+      "validThrough": "2026-12-05T21:27:52.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3066,7 +3068,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:07.511Z",
+      "crawledAt": "2026-11-05T21:27:51.910Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3117,7 +3119,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:18:07.511Z",
+      "validThrough": "2026-12-10T21:27:51.910Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3152,7 +3154,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:06.400Z",
+      "crawledAt": "2026-11-05T21:27:50.883Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3203,7 +3205,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:18:06.400Z",
+      "validThrough": "2026-12-19T21:27:50.883Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3238,7 +3240,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:05.294Z",
+      "crawledAt": "2026-11-05T21:27:49.840Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3296,7 +3298,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:18:05.294Z",
+      "validThrough": "2027-01-06T21:27:49.840Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3330,7 +3332,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:04.181Z",
+      "crawledAt": "2026-11-05T21:27:48.890Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3383,7 +3385,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:18:04.181Z",
+      "validThrough": "2027-01-07T21:27:48.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3418,7 +3420,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:18:03.078Z",
+      "crawledAt": "2026-11-05T21:27:47.847Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3474,7 +3476,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:18:03.078Z",
+      "validThrough": "2027-01-11T21:27:47.847Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3508,7 +3510,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1312/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:01.978Z",
+      "crawledAt": "2026-11-05T21:27:46.855Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3561,7 +3563,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:18:01.978Z",
+      "validThrough": "2027-01-11T21:27:46.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3595,7 +3597,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1284/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:00.872Z",
+      "crawledAt": "2026-11-05T21:27:45.834Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3646,7 +3648,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:18:00.872Z",
+      "validThrough": "2027-01-21T21:27:45.834Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3681,7 +3683,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:17:59.784Z",
+      "crawledAt": "2026-11-05T21:27:44.845Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3731,7 +3733,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:17:59.784Z",
+      "validThrough": "2027-02-03T21:27:44.845Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3766,7 +3768,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:17:58.708Z",
+      "crawledAt": "2026-11-05T21:27:43.848Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3817,7 +3819,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:17:58.708Z",
+      "validThrough": "2027-01-25T21:27:43.848Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3852,7 +3854,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:17:57.591Z",
+      "crawledAt": "2026-11-05T21:27:42.862Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3903,7 +3905,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:17:57.591Z",
+      "validThrough": "2027-01-25T21:27:42.862Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3937,7 +3939,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1310/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:17:56.490Z",
+      "crawledAt": "2026-11-05T21:27:41.839Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3988,7 +3990,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:17:56.490Z",
+      "validThrough": "2027-01-27T21:27:41.839Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4023,7 +4025,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T09:17:55.361Z",
+      "crawledAt": "2026-11-05T21:27:40.846Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4078,7 +4080,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:17:55.361Z",
+      "validThrough": "2027-01-28T21:27:40.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4113,7 +4115,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-11-05T09:17:54.301Z",
+      "crawledAt": "2026-11-05T21:27:39.815Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4166,95 +4168,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:17:54.301Z",
+      "validThrough": "2027-02-02T21:27:39.815Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "see-spital-aabb90cb3137",
-      "slug": "dipl-fisioterapista-sportiva-policlinic-see-spital-horgen",
-      "slugByLocale": {
-        "it": "dipl-fisioterapista-sportiva-policlinic-see-spital-horgen",
-        "en": "dipl-sports-physiotherapist-policlinic-see-spital-horgen",
-        "de": "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch",
-        "fr": "dipl-physiotherapeute-du-sport-policlinique-see-spital-horgen"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Dipl. Sportphysiotherapeut*in - POLICLINIC",
-      "titleByLocale": {
-        "it": "Dipl. Fisioterapista sportiva - POLICLINIC",
-        "en": "Dipl. Sports Physiotherapist - POLICLINIC",
-        "de": "Dipl. Sportphysiotherapeut*in - POLICLINIC",
-        "fr": "Dipl. Physiothérapeute du sport - POLICLINIQUE"
-      },
-      "description": "reCOVER Swiss Olympic Approved Sportklinik besteht aus einem dynamischen und interdisziplinären Team von Sportärzt*innen, Unfallchirurg*innen, Sportphysiotherapeut*innen und Sportakupunkteur*innen/Manualtherapeut*innen . Wir sind spezialisiert in der Behandlung von Sportverletzungen und betreuen viele regionale Sportvereine bis hin zu Nationalliga-A Mannschaften. Unsere Sportklinik mit modernen Behandlungsräumen ist integriert im Holmes Place Premium Fitness Club im Seepark Oberrieden, wo wir die gesamte Anlage direkt am See nutzen. Zur Erweiterung unseres Teams suchen wir ab 1. November 2026 oder nach Vereinbarung eine*n Dipl. Sportphysiotherapeut*in - POLICLINIC\n80-100%\n\nAnforderungsprofil\n\n• Dipl. Physiotherapeut*in FH oder mit SRK Anerkennung\n• Von Vorteil, Ausbildung in Sportphysiotherapie\n• Hohe intrinsische Motivation, schnelles Auffassungsvermögen und Lernbereitschaft\n• Teamfähigkeit und Begeisterung an interdisziplinärer Zusammenarbeit\n• Gute Kenntnisse in Deutsch (mündlich & schriftlich) und Englisch (mündlich)\n\nDeine Aufgaben umfassen\n\n• Selbständiges Arbeiten als Sport-/Physiotherapeut*in im ambulanten Bereich\n• Engagement bei der Weiterentwicklung der Qualitätsstandards\n• Einsätze bei regionalen Sportvereinen\n\nWas bieten wir Dir?\n\n• Attraktiver Arbeitsort im Holmes Place Premium Fitness Club direkt am See\n• Eigene Therapieräume und Nutzung der gesamten Fitnessanlage\n• Moderne Arbeitsbedingungen und Weiterbildungsmöglichkeiten\n• Wöchentliche interdisziplinäre Weiterbildung und Fallbesprechung mit erfahrenen Sportphysiotherapeut*innen, Sportärzt*innen, Unfallchirurg*innen und Sportakupunkteur*innen\n• Motivierte Patient*innen mit hohen Zielen\n• Zusammenarbeit mit regionalen Sportvereinen\n\nHaben wir Dein Interesse geweckt? Matthaeus Sliwa, Bereichsleiter Sportphysiotherapie, freut sich auf deine Bewerbung. matthaeus.sliwa@policlinic.ch www.recover.ch\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
-      "descriptionByLocale": {
-        "it": "riCOVER Swiss Olympic Approved Sports Clinic è costituito da un team dinamico e interdisciplinare di medici sportivi, chirurghi infortuni, fisioterapista sportivo e agopunturisti sportivi/terapisti manuali. Siamo specializzati nel trattamento delle lesioni sportive e servire molti club sportivi regionali fino a squadre nazionaliliga-A. La nostra clinica sportiva con moderne sale di trattamento è integrata nel Holmes Place Premium Fitness Club di Seepark Oberrieden, dove utilizziamo l'intera struttura direttamente sul lago. Per espandere il nostro team, saremo alla ricerca di un *n Dipl dal 1 novembre 2026 o su appuntamento. Fisioterapista sportiva - POLICLINIC\n80-100%\n\nProfilo di richiesta\n\n• Dipl. terapeuta fisica FH o con riconoscimento SRK\n• Formazione vantaggiosa nella fisioterapia sportiva\n• Alta motivazione intrinseca, comprensione e disponibilità ad imparare\n• Lavoro di squadra e entusiasmo per la collaborazione interdisciplinare\n• Buona conoscenza del tedesco (verbale & scritto) e inglese (verbale)\n\nI vostri compiti includono:\n\n• Lavorare indipendentemente come sportivo/fisioterapista nel settore ambulatorio\n• Impegno all'ulteriore sviluppo delle norme di qualità\n• Assegnazioni ai club sportivi regionali\n\nCosa ti offriamo?\n\n• Posto attraente per lavorare al Holmes Place Premium Fitness Club proprio sul lago\n• Camere terapeutiche proprie e uso dell'intera struttura fitness\n• Condizioni di lavoro moderne e opportunità di formazione\n• Allenamento interdisciplinare settimanale e discussione di casi con fisioterapisti sportivi esperti, medici sportivi, chirurghi infortuni e agopunturisti sportivi\n• pazienti motivati con obiettivi elevati\n• Cooperazione con i club sportivi regionali\n\nAbbiamo avuto il tuo interesse? Matthaeus Sliwa, responsabile della fisioterapia sportiva, è impaziente di ricevere la vostra applicazione. Matthaeus.sliwa@policlinic.ch www.recover.ch\n\nVantaggi\nOltre ai numerosi vantaggi di Fringe (servizi aggiuntivi), si beneficiano di promozioni mirate e ulteriori offerte di istruzione a tutti i livelli. Condizioni di lavoro moderne\n• 42 ore settimanali (docenti 50)\n• Gli straordinari sono solitamente compensati dal tempo libero della stessa durata\n• 5 settimane di vacanza, a partire da 50 anni 6 settimane\n• Quotidiano 20 min\n• Il tempo di cambio è considerato come orario di lavoro\n• Possibilità di Home Office\n\nFormazione continua\n• Formazione interna per i dipendenti\n• Partecipazione ai costi e all'orario di lavoro per un'ulteriore formazione e formazione da parte del datore di lavoro\n• Come ospedale per l'istruzione e la formazione, offriamo vari stage e apprendisti\n• Seminari di sviluppo della leadership\n\nRiduzioni e condizioni\n• Consigli nutrizionali ridotti e massaggio\n• Vaccinazione annuale di libero scambio\n• Barca Ospedale in affitto\n• Pasti gratuiti per i lavoratori notturni\n• In Horgen e nella zona circostante, diverse aziende selezionate concedono almeno il 10% di sconto per presentare la carta d'identità (ad esempio i biglietti annuali Free Zoo Zurich, 15% di sconto in Alpamare, Brack.ch fino al 25% e più).\n• Sconti delle pulci presso i partner di amag (Audi, VW, Seat, Skoda), BWM e Mini e Mercedes e Smart\n\nAssicurazione estesa\n• See-Spital offre 16 settimane di congedo di maternità al 100% di prosecuzione salariale invece della legalmente richiesto 14 settimane all'80%\n• Premio per l'assicurazione complementare contro gli infortuni (privato) a spese del datore di lavoro\n\nBilancia della vita lavorativa\n• Possibilità di impiego parziale e oraria (su richiesta)\n• Ore lavorative flessibili (ore lavorative annuali)\n• Opportunità per congedo non pagato\n\nGestione della salute sul lavoro\n• Salute e sicurezza sul lavoro\n• Team e attività ospedaliere (Summer Festival, Christmas Apéro)\n• Gestione della presenza\n• Gestione dei casi esterni\n• Gestione generazionale\n\nAltri vantaggi\n• Bonus fedeltà da 10 anni di servizio ogni 5 anni (vacanze o salari)\n• 13. Salari mensili (pagamento giugno e dicembre)\n• Camere e appartamenti del personale a Horgen e Kilchberg\n• Comitato del personale\n• Opzioni di cibo economiche nel ristorante del personale",
-        "en": "reCOVER Swiss Olympic Approved Sports Clinic consists of a dynamic and interdisciplinary team of sports doctors, accident surgeons, sports physiotherapists and sports acupuncturists/manual therapists. We are specialized in the treatment of sports injuries and serve many regional sports clubs up to Nationalliga-A teams. Our sports clinic with modern treatment rooms is integrated in the Holmes Place Premium Fitness Club in Seepark Oberrieden, where we use the entire facility directly on the lake. To expand our team, we will be looking for a *n Dipl from 1 November 2026 or by appointment. Sports Physiotherapist - POLICLINIC\n80-100%\n\nRequirement profile\n\n• Dipl. Physical therapist FH or with SRK recognition\n• Advantageous training in sports physiotherapy\n• High intrinsic motivation, fast comprehension and willingness to learn\n• Teamwork and enthusiasm for interdisciplinary collaboration\n• Good knowledge of German (verbal & written) and English (verbal)\n\nYour tasks include:\n\n• Working independently as a sports/physiotherapist in the ambulatory sector\n• Commitment to the further development of quality standards\n• Assignments at regional sports clubs\n\nWhat do we offer you?\n\n• Attractive place to work at Holmes Place Premium Fitness Club right on the lake\n• Own therapy rooms and use of the entire fitness facility\n• Modern working conditions and training opportunities\n• Weekly interdisciplinary training and case discussion with experienced sports physiotherapists, sports doctors, accident surgeons and sports acupuncturists\n• Motivated patients with high goals\n• Cooperation with regional sports clubs\n\nDid we get your interest? Matthaeus Sliwa, Head of Sports Physiotherapy, is looking forward to receiving your application. matthaeus.sliwa@policlinic.ch www.recover.ch\n\nBenefits\nIn addition to numerous Fringe Benefits (additional services), you benefit from targeted promotion and further education offers at all levels. Modern employment conditions\n• 42 hour week (Doctors 50)\n• Overtime is usually compensated by free time of the same duration\n• 5 weeks holiday, from 50 years of age 6 week\n• Daily 20 min paid break\n• Changing time is considered as working time\n• Possibility for Home Office\n\nOngoing training\n• Internal training for employees\n• Participation in costs and working time for further education and training by employer\n• As an education and training hospital, we offer various internships and apprenticeships\n• Leadership Development Seminars\n\nRebates and conditions\n• Reduced nutrition advice and massage\n• Annual free flu vaccination\n• Hospital boat for rent\n• Free meals for night workers\n• In Horgen and the surrounding area, various selected companies grant at least 10% discount when presenting the identity card (e.g. Free Zoo Zurich annual tickets, 15% discount in the Alpamare, Brack.ch up to 25% and more).\n• Fleet discounts at amag partners (Audi, VW, Seat, Skoda), BWM and Mini as well as Mercedes and Smart\n\nExtensive insurance\n• See-Spital offers 16 weeks of maternity leave at 100% wage continuation instead of the legally required 14 weeks at 80%\n• Premium for accident supplementary insurance (private) at the expense of the employer\n\nWork-life balance\n• Possibility of part-time and hourly employment (on demand)\n• Flexible working hours (annual working hours)\n• Opportunity for unpaid leave\n\nOccupational health management\n• Occupational health and safety\n• Team and hospital-wide activities (Summer Festival, Christmas Apéro)\n• Presence management\n• External case management\n• Generational management\n\nOther benefits\n• Loyalty bonus from 10 years of service every 5 years (vacations or wages)\n• 13. Monthly wage (disbursement June and December)\n• Staff rooms and apartments in Horgen and Kilchberg\n• Staff Committee\n• Cheap food options in the staff restaurant",
-        "de": "reCOVER Swiss Olympic Approved Sportklinik besteht aus einem dynamischen und interdisziplinären Team von Sportärzt*innen, Unfallchirurg*innen, Sportphysiotherapeut*innen und Sportakupunkteur*innen/Manualtherapeut*innen . Wir sind spezialisiert in der Behandlung von Sportverletzungen und betreuen viele regionale Sportvereine bis hin zu Nationalliga-A Mannschaften. Unsere Sportklinik mit modernen Behandlungsräumen ist integriert im Holmes Place Premium Fitness Club im Seepark Oberrieden, wo wir die gesamte Anlage direkt am See nutzen. Zur Erweiterung unseres Teams suchen wir ab 1. November 2026 oder nach Vereinbarung eine*n Dipl. Sportphysiotherapeut*in - POLICLINIC\n80-100%\n\nAnforderungsprofil\n\n• Dipl. Physiotherapeut*in FH oder mit SRK Anerkennung\n• Von Vorteil, Ausbildung in Sportphysiotherapie\n• Hohe intrinsische Motivation, schnelles Auffassungsvermögen und Lernbereitschaft\n• Teamfähigkeit und Begeisterung an interdisziplinärer Zusammenarbeit\n• Gute Kenntnisse in Deutsch (mündlich & schriftlich) und Englisch (mündlich)\n\nDeine Aufgaben umfassen\n\n• Selbständiges Arbeiten als Sport-/Physiotherapeut*in im ambulanten Bereich\n• Engagement bei der Weiterentwicklung der Qualitätsstandards\n• Einsätze bei regionalen Sportvereinen\n\nWas bieten wir Dir?\n\n• Attraktiver Arbeitsort im Holmes Place Premium Fitness Club direkt am See\n• Eigene Therapieräume und Nutzung der gesamten Fitnessanlage\n• Moderne Arbeitsbedingungen und Weiterbildungsmöglichkeiten\n• Wöchentliche interdisziplinäre Weiterbildung und Fallbesprechung mit erfahrenen Sportphysiotherapeut*innen, Sportärzt*innen, Unfallchirurg*innen und Sportakupunkteur*innen\n• Motivierte Patient*innen mit hohen Zielen\n• Zusammenarbeit mit regionalen Sportvereinen\n\nHaben wir Dein Interesse geweckt? Matthaeus Sliwa, Bereichsleiter Sportphysiotherapie, freut sich auf deine Bewerbung. matthaeus.sliwa@policlinic.ch www.recover.ch\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
-        "fr": "reCOVER Swiss Olympic Sports Clinic se compose d'une équipe dynamique et interdisciplinaire de médecins du sport, chirurgiens-accidents, physiothérapeutes du sport et acupuncteurs/thérapeutes du sport. Nous sommes spécialisés dans le traitement des blessures sportives et servons de nombreux clubs sportifs régionaux jusqu'aux équipes de Nationalliga-A. Notre clinique sportive avec salles de traitement modernes est intégrée au Holmes Place Premium Fitness Club à Seepark Oberrieden, où nous utilisons l'ensemble de l'établissement directement sur le lac. Pour développer notre équipe, nous chercherons un *n Dipl à partir du 1er novembre 2026 ou sur rendez-vous. Physiothérapeute du sport - POLICLINIQUE\n80-100%\n\nProfil des besoins\n\n• Dipl. Physiothérapeute FH ou avec reconnaissance SRK\n• Formation avantageuse en physiothérapie sportive\n• Haute motivation intrinsèque, compréhension rapide et volonté d'apprendre\n• Travail d'équipe et enthousiasme pour la collaboration interdisciplinaire\n• Bonne connaissance de l'allemand (verbal et écrit) et de l'anglais (verbal)\n\nVos tâches comprennent:\n\n• Travailler indépendamment en tant que sportif/physiothérapeute dans le secteur ambulatoire\n• Engagement en faveur du développement des normes de qualité\n• Affectations dans les clubs sportifs régionaux\n\nQu'est-ce qu'on vous offre ?\n\n• Lieu de travail attrayant au Holmes Place Premium Fitness Club sur le lac\n• Salles de thérapie et utilisation de l'ensemble de la salle de fitness\n• Conditions de travail et possibilités de formation modernes\n• Formation interdisciplinaire hebdomadaire et discussion de cas avec des physiothérapeutes sportifs expérimentés, des médecins sportifs, des chirurgiens-accidents et des acupuncteurs sportifs\n• Patients motivés ayant des objectifs élevés\n• Coopération avec les clubs sportifs régionaux\n\nOn a eu votre intérêt ? Matthaeus Sliwa, responsable de la physiothérapie sportive, est impatient de recevoir votre candidature. Matthaeus.sliwa@policlinic.ch www.recover.ch\n\nAvantages\nEn plus de nombreux Fringe Benefits (services supplémentaires), vous bénéficiez d'offres ciblées de promotion et de formation continue à tous les niveaux. Conditions d'emploi modernes\n• Semaine de 42 heures (Doctors 50)\n• Les heures supplémentaires sont généralement compensées par un temps libre de même durée\n• 5 semaines de vacances, à partir de 50 ans 6 semaines\n• Pause quotidienne payée de 20 min\n• Le changement de temps est considéré comme du temps de travail\n• Possibilité pour le Home Office\n\nFormation continue\n• Formation interne des salariés\n• Participation des employeurs aux coûts et au temps de travail pour la formation continue\n• En tant qu'hôpital d'éducation et de formation, nous proposons divers stages et apprentissages\n• Séminaires de perfectionnement en leadership\n\nRemboursements et conditions\n• Conseils nutritionnels et massages réduits\n• Vaccination annuelle gratuite contre la grippe\n• Bateau hospitalier à louer\n• Repas gratuits pour les travailleurs de nuit\n• À Horgen et dans les environs, diverses entreprises sélectionnées accordent au moins 10% de réduction lors de la présentation de la carte d'identité (par exemple, les billets annuels du Zoo gratuit de Zurich, 15% de réduction dans l'Alpamare, Brack.ch jusqu'à 25% et plus).\n• Réductions de flotte chez les partenaires amag (Audi, VW, Seat, Skoda), BWM et Mini ainsi que Mercedes et Smart\n\nAssurance étendue\n• See-Spital offre 16 semaines de congé de maternité à 100% de maintien du salaire au lieu des 14 semaines légalement requises à 80%\n• Prime pour assurance complémentaire accident (privée) aux frais de l'employeur\n\nÉquilibre travail-vie privée\n• Possibilité d'emploi à temps partiel et horaire (sur demande)\n• Temps de travail flexible (heures de travail annuelles)\n• Possibilité de congé non rémunéré\n\nGestion de la santé au travail\n• Santé et sécurité au travail\n• Activités en équipe et à l'échelle de l'hôpital (Festival d'été, Apéro de Noël)\n• Gestion de la présence\n• Gestion externe des dossiers\n• Gestion des générations\n\nAutres prestations\n• Prime de fidélité à partir de 10 ans de service tous les 5 ans (vacances ou salaires)\n• 13. Salaire mensuel (dépenses de juin et décembre)\n• Chambres du personnel et appartements à Horgen et Kilchberg\n• Comité du personnel\n• Options de restauration pas cher dans le restaurant du personnel"
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1298/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "needsRetranslation": false,
-      "crawledAt": "2026-11-04T09:28:55.243Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1298/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
-        ],
-        "en": [
-          "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
-        ],
-        "fr": [
-          "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:24:34.320Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "streetAddress": "Horgen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:28:55.243Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }
