@@ -1150,7 +1150,7 @@ function applicationEntryBelongsToPosting(control, { applyUrl = '', postingUrl =
     && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
 }
 
-function applicationEntryControls(snapshot = {}, context = {}) {
+export function applicationEntryControls(snapshot = {}, context = {}) {
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
@@ -1165,6 +1165,20 @@ function applicationEntryControls(snapshot = {}, context = {}) {
   // pages). A single explicit Apply link is enough provenance; a listing with
   // several such links remains unresolved rather than choosing one by position.
   const posting = comparablePortalRoute(context.postingUrl);
+  // A verified single-job detail may expose Apply as a script button, with
+  // neither href nor local posting markers. Never borrow this provenance on
+  // forms, listings, redirected pages, or ambiguous multiple-entry surfaces.
+  const current = comparablePortalRoute(snapshot.url);
+  const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
+    && !control?.href && !control?.formId && (control.frame || 0) === 0
+    && startsApplication(control?.text || control?.label));
+  const allEntries = controls.filter(control => !control?.disabled && !control?.chrome
+    && startsApplication(control?.text || control?.label));
+  if (posting && current && current.origin === posting.origin
+    && current.pathname === posting.pathname && current.search === posting.search
+    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting.pathname)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
   const unbound = controls.filter((control) => {
     if (control?.disabled || control?.chrome || !startsApplication(control?.text || control?.label)) return false;
     const target = comparablePortalRoute(control?.href);
