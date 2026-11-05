@@ -11203,6 +11203,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {renderApplicationIntentDisclosure()}
  </article>
  {detailAlertCtaJsx}
+ {detailAlertButtonJsx}
  {jobDetailPromptJsx}
  {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
