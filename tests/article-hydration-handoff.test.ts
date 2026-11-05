@@ -139,6 +139,7 @@ describe('frontaliere article first-render work', () => {
     expect(appSource).toContain('onInitialContentReady={markJobBoardSnapshotReady}');
     expect(appSource).toContain('staticSnapshotOwnsBody = articleStaticFallback || cantonTopicStaticFallback || jobBoardStaticFallback');
     expect(appSource).toContain('fallback={staticSnapshotOwnsBody ? null : <LazyFallback />}');
+    expect(appSource).toContain('{!jobBoardStaticFallback && <SafeLazy boundary="job-save-mount"><JobSaveMount /></SafeLazy>}');
     expect(jobBoardSource).toContain('onInitialContentReady?.()');
   });
 
