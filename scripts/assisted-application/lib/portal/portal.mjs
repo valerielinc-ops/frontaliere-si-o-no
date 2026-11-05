@@ -30,7 +30,7 @@ import path from 'node:path';
 import { applicationReceipt, applicationStage, isApplicationRegionUnsupported } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
-import { extractFields, registerPortalChannelType } from './fields.mjs';
+import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
@@ -61,7 +61,114 @@ const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
-export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence } = globalThis.AssistedApplyControls;
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence, isIdentityEmailCaption } = globalThis.AssistedApplyControls;
+const verifiedUmantisApplicantPages = new WeakMap();
+// Umantis' verified Application/New surface can omit a semantic section around
+// its base applicant fields. Bind only an otherwise ownerless address cluster
+// when the same native form also exposes the applicant's name and email. A
+// named native owner always wins and remains subject to the usual provenance
+// checks.
+const UMANTIS_APPLICANT_IDENTITY_RE = {
+  givenName: /^(?:first name|given name|firstname|forename|vorname|prénom|prename|nome)$/i,
+  familyName: /^(?:last name|family name|surname|lastname|nachname|nom de famille|nom|cognome|name)$/i,
+};
+const UMANTIS_PHONE_CONTEXT_RE = /\b(?:phone|telephone|mobile|tel(?:ephone)?|telefon|telefono|natel|country code|dialling code|dialing code|indicativo|prefisso|vorwahl)\b/i;
+const umantisIdentityCaption = field => String(field?.label || '').normalize('NFKC').replace(/\s+/g, ' ')
+  .replace(/\s*\((?:required|mandatory|obbligatorio|erforderlich|pflichtfeld|obligatoire)\)\s*$/i, '')
+  .replace(/[＊*]/g, '').replace(/[:?]\s*$/, '').trim();
+
+function verifiedUmantisApplicantContext(stageContext, currentUrl) {
+  if (stageContext?.postingEntry !== true || !stageContext.applyUrl || !stageContext.postingUrl) return null;
+  try {
+    const application = new URL(String(stageContext.applyUrl));
+    const posting = new URL(String(stageContext.postingUrl));
+    const current = new URL(String(currentUrl || ''));
+    if (application.protocol !== 'https:' || posting.protocol !== 'https:' || current.protocol !== 'https:'
+      || application.username || application.password || posting.username || posting.password || current.username || current.password
+      || !/(?:^|\.)umantis\.com$/i.test(application.hostname)
+      || !isUmantisPostingEntry({ applyUrl: application.href, postingUrl: posting.href })
+      || current.origin !== application.origin
+      || current.pathname.replace(/\/+$/, '').toLowerCase() !== application.pathname.replace(/\/+$/, '').toLowerCase()
+      || !/^\/vacancies\/\d+\/application\/new\/\d+\/?$/i.test(application.pathname)) return null;
+    return { applyUrl: application.href, postingUrl: posting.href };
+  } catch {
+    return null;
+  }
+}
+
+function verifiedUmantisApplicantAddressSnapshot(snapshot, pageUrl, context) {
+  if (!context || !Array.isArray(snapshot?.fields)) return snapshot;
+  const fields = snapshot.fields;
+  let current;
+  try { current = new URL(String(pageUrl || '')); } catch { return snapshot; }
+  if (current.origin !== new URL(context.applyUrl).origin
+    || current.pathname.replace(/\/+$/, '').toLowerCase() !== new URL(context.applyUrl).pathname.replace(/\/+$/, '').toLowerCase()) return snapshot;
+
+  const fieldsByForm = new Map();
+  for (const field of fields) {
+    if (!Number.isSafeInteger(field?.form) || field.form < 0) continue;
+    const group = fieldsByForm.get(field.form) || [];
+    group.push(field);
+    fieldsByForm.set(field.form, group);
+  }
+  const applicantForms = [...fieldsByForm.values()].map(group => {
+    const hasEmail = group.some(field => field?.inputType === 'email' || field?.autocomplete === 'email'
+      || isIdentityEmailCaption(umantisIdentityCaption(field)));
+    const hasGivenName = group.some(field => field?.autocomplete === 'given-name'
+      || UMANTIS_APPLICANT_IDENTITY_RE.givenName.test(umantisIdentityCaption(field)));
+    const hasFamilyName = group.some(field => field?.autocomplete === 'family-name'
+      || UMANTIS_APPLICANT_IDENTITY_RE.familyName.test(umantisIdentityCaption(field)));
+    if (!hasEmail || !hasGivenName || !hasFamilyName) return null;
+    let bestCluster = null;
+    let ambiguousCluster = false;
+    for (let street = 0; street < group.length; street += 1) {
+      if (residenceFieldRole(group[street]?.label) !== 'street') continue;
+      for (let city = 0; city < group.length; city += 1) {
+        if (residenceFieldRole(group[city]?.label) !== 'city') continue;
+        for (let country = 0; country < group.length; country += 1) {
+          if (residenceFieldRole(group[country]?.label) !== 'country') continue;
+          const start = Math.min(street, city, country);
+          const end = Math.max(street, city, country);
+          const span = end - start;
+          if (span > 5) continue;
+          if (!bestCluster || span < bestCluster.span) {
+            bestCluster = { start, end, span, tuple: `${street}:${city}:${country}` };
+            ambiguousCluster = false;
+          } else if (span === bestCluster.span && bestCluster.tuple !== `${street}:${city}:${country}`) {
+            ambiguousCluster = true;
+          }
+        }
+      }
+    }
+    return bestCluster && !ambiguousCluster
+      ? { fields: group.slice(bestCluster.start, bestCluster.end + 1) } : null;
+  }).filter(Boolean);
+  if (applicantForms.length !== 1) return snapshot;
+
+  const applicantFields = new Set(applicantForms[0].fields);
+  let changed = false;
+  const applicantOwner = { section: 'Personal information', owners: ['Personal information'], unknown: false };
+  const nextFields = fields.map(field => {
+    if (!applicantFields.has(field)) return field;
+    const owner = addressContextContract(field);
+    if (!owner || owner.unknown || owner.section.trim() || owner.owners.length
+      || !residenceFieldRole(field?.label)
+      || /tel-country-code/i.test(String(field?.autocomplete || ''))
+      || UMANTIS_PHONE_CONTEXT_RE.test(`${field?.label || ''} ${field?.context || ''}`)
+      || /(?:employer|company|work history|work experience|employment|emergency|reference|contact person|birthplace|place of birth)/i
+        .test(`${field?.label || ''} ${field?.section || ''} ${field?.context || ''}`)) return field;
+    changed = true;
+    return { ...field, addressContext: applicantOwner };
+  });
+  return changed ? { ...snapshot, fields: nextFields } : snapshot;
+}
+
+async function extractFields(page, options) {
+  const snapshot = await extractFieldsRaw(page, options);
+  const context = verifiedUmantisApplicantPages.get(page);
+  return context ? verifiedUmantisApplicantAddressSnapshot(snapshot, page.url(), context) : snapshot;
+}
+
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
@@ -1359,7 +1466,14 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     const cookies = await dismissCookieBanner(page, snapshot);
     snapshot = cookies.snapshot || snapshot;
     if (cookies.status === 'unresolved') return { page, snapshot, handoff: 'cookie_preferences_unresolved' };
-    if (hasApplicationForm(snapshot)) return { page, snapshot };
+    if (hasApplicationForm(snapshot)) {
+      const applicantContext = verifiedUmantisApplicantContext(stageContext, page.url());
+      if (applicantContext) {
+        verifiedUmantisApplicantPages.set(page, applicantContext);
+        snapshot = verifiedUmantisApplicantAddressSnapshot(snapshot, page.url(), applicantContext);
+      }
+      return { page, snapshot };
+    }
     if (stageContext) {
       const stage = applicationStage({ ...snapshot, text: await pageText(page) }, { ...stageContext, url: page.url() });
       // A resumed account/review page is already inside the application.
@@ -1373,7 +1487,15 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     const linkVisible = link
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
       : false;
-    if (!manual && !apply && !linkVisible) return { page, snapshot };
+    if (!manual && !apply && !linkVisible) {
+      const directApplicationUrl = verifiedDirectApplicationUrl(stageContext, page.url());
+      if (!directApplicationUrl) return { page, snapshot };
+      await page.goto(directApplicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      await page.waitForTimeout(1200);
+      snapshot = await extractFields(page, NAVIGATION);
+      continue;
+    }
     if (manual || apply) {
       const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
       await clickButton(page, manual || apply);
@@ -1386,6 +1508,21 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     snapshot = await extractFields(page, NAVIGATION);
   }
   return { page, snapshot };
+}
+
+function verifiedDirectApplicationUrl(stageContext, currentUrl) {
+  if (stageContext?.postingEntry !== true || !stageContext.applyUrl) return '';
+  try {
+    const current = new URL(String(currentUrl || ''));
+    const application = new URL(String(stageContext.applyUrl));
+    if (current.protocol !== 'https:' || application.protocol !== 'https:'
+      || current.username || current.password || application.username || application.password
+      || current.href === application.href
+      || !isVerifiedPostingEntry({ applyUrl: application.href, postingUrl: current.href })) return '';
+    return application.href;
+  } catch {
+    return '';
+  }
 }
 
 const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
@@ -4857,7 +4994,7 @@ export async function readPortalRequirements(ctx) {
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot;
-    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job, postingEntry: verifiedPostingEntry });
+    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, postingUrl: entryUrl, job: ctx.job, postingEntry: verifiedPostingEntry });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
     // An allowlisted ATS may keep later, unconditional steps mounted with
@@ -5092,7 +5229,7 @@ export async function submitViaPortal(ctx) {
     if (postingNamed && isApplicationRegionUnsupported(initialPageText)) {
       return await handoff('application_region_unsupported');
     }
-    const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
+    const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, postingUrl: entryUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
     ({ page, snapshot } = opened);
     if (opened.handoff) return await handoff(opened.handoff);
     const initialReceipt = await confirmedReceipt(snapshot);
@@ -5357,7 +5494,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, postingUrl: entryUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
@@ -5460,7 +5597,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, postingUrl: entryUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
