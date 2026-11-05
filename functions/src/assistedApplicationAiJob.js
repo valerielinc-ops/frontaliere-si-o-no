@@ -532,19 +532,23 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
     streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', datePosted: '', postedDate: '', postingDateSource: 'unknown', firstSeenAt: '', validThrough: '',
   };
   const jobId = String(order?.jobId || '');
+  let jobRoomApplyUrlPromise;
+  const jobRoomApplyUrl = () => {
+    jobRoomApplyUrlPromise ??= fetchJobRoomApplyUrl(order, { fetchImpl, resolve });
+    return jobRoomApplyUrlPromise;
+  };
   if (JOB_ID_RE.test(jobId)) {
     try {
       const response = await fetchWithTimeout(fetchImpl, `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`);
       if (response.ok) {
         const posting = postingFromDetail(await response.json(), maxPostingChars);
         if (posting.text) {
-          const jobRoomApplyUrl = await fetchJobRoomApplyUrl(order, { fetchImpl, resolve });
           return {
             ...empty,
             ...posting,
             publishedPostingUrl: posting.postingUrl,
             postingUrl: posting.postingUrl || empty.postingUrl,
-            applyUrl: jobRoomApplyUrl || posting.applyUrl || empty.applyUrl,
+            applyUrl: await jobRoomApplyUrl() || posting.applyUrl || empty.applyUrl,
             source: 'job_detail',
           };
         }
@@ -574,7 +578,15 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
         const html = pageHtml.slice(0, MAX_PAGE_BYTES);
         const fullText = htmlToText(html);
         const text = fullText.slice(0, maxPostingChars);
-        if (text.length > 200) return { ...empty, text, textTruncated: pageTruncated || fullText.length > maxPostingChars, source: 'job_page' };
+        if (text.length > 200) {
+          return {
+            ...empty,
+            text,
+            textTruncated: pageTruncated || fullText.length > maxPostingChars,
+            applyUrl: await jobRoomApplyUrl() || empty.applyUrl,
+            source: 'job_page',
+          };
+        }
       }
     } catch (error) {
       console.warn('[assistedApplicationAi] job page fetch failed', error instanceof Error ? error.message : String(error));

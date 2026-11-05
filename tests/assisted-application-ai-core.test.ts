@@ -554,6 +554,34 @@ describe('job posting fetch', () => {
     });
   });
 
+  it('resolves the Job-Room channel when the published detail falls back to the job page', async () => {
+    const id = '66666666-7777-8888-9999-000000000000';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const apiUrl = `https://www.job-room.ch/jobadservice/api/jobAdvertisements/${id}`;
+    const detailUrl = `https://cdn.frontaliereticino.ch/data/job-detail/${jobId}.json`;
+    const calls: string[] = [];
+    const resolve = async () => [{ address: '93.184.216.34', family: 4 }];
+    const page = `<html><body><h1>Job</h1><p>${'Descrizione del ruolo. '.repeat(20)}</p></body></html>`;
+    const posting = await fetchJobPosting({ jobId, jobUrl }, {
+      resolve,
+      fetchImpl: async (url: string, init: any = {}) => {
+        calls.push(`${init.method || 'GET'} ${url}`);
+        if (url === detailUrl) return new Response('', { status: 503 });
+        if (url === jobUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+        if (url === apiUrl) {
+          return new Response(JSON.stringify({
+            jobContent: { applyChannel: { formUrl: 'https://apply.acme.example/form', emailAddress: null } },
+          }), { status: 200, headers: { 'content-type': 'application/json' } });
+        }
+        return new Response('', { status: 404 });
+      },
+    });
+
+    expect(calls).toEqual([`GET ${detailUrl}`, `GET ${jobUrl}`, `GET ${apiUrl}`]);
+    expect(posting).toMatchObject({ source: 'job_page', postingUrl: jobUrl, applyUrl: 'https://apply.acme.example/form' });
+  });
+
   it('falls back to the order URL when a retained legacy detail has no posting URL', async () => {
     const posting = await fetchJobPosting({ jobId: 'acme-123', jobUrl: 'https://acme.ch/jobs/1' }, {
       fetchImpl: async () => new Response(JSON.stringify({ description: 'Descrizione del lavoro.' }), { status: 200 }),
