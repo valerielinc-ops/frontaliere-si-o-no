@@ -1755,6 +1755,24 @@ describe('fill extension: owner-approved application defaults', () => {
       value: 'Keep my data for 6 months', family: 'minimumDataRetention',
     });
   });
+
+  it.each([
+    'I would like my data to be deleted once the present application process is complete.',
+    'I would like my data to be deleted once this application process is complete.',
+  ])('recognizes current application process deletion in the extension bundle: %s', deletion => {
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data?</label>
+      <select id="retention">
+        <option value="future">Store my data for future job offers</option>
+        <option value="current">${deletion}</option>
+      </select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toEqual({
+      value: deletion, family: 'minimumDataRetention',
+    });
+  });
 });
 
 

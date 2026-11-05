@@ -558,6 +558,27 @@ describe('application consent and minimum retention defaults', () => {
       options: ['Retain the data for 2 years', 'Retain the data for 6 months'],
     })?.value).toBe('Retain the data for 6 months');
     expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.',
+        'I would like my data to be deleted once the present application process is complete.',
+      ],
+    })?.value).toBe('I would like my data to be deleted once the present application process is complete.');
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.',
+        'I would like my data to be deleted once this application process is complete.',
+      ],
+    })?.value).toBe('I would like my data to be deleted once this application process is complete.');
+    expect(operationalDefaultAnswer({
+      question: 'Data release *', type: 'choice',
+      options: [
+        'I would like my data deleted once an application process has ended.',
+        'Retain the data for 6 months',
+      ],
+    })).toBeNull();
+    expect(operationalDefaultAnswer({
       question: 'How long may we retain my personal data?', type: 'choice',
       options: [
         { label: 'Keep my data for 6 months', value: '6_months' },

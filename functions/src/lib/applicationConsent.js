@@ -125,7 +125,7 @@ export function minimumDataRetentionOption(options, question = '') {
     }
 
     const deletes = /\b(?:delet\w*|elimin\w*|cancell\w*|delete|supprim\w*|losch\w*|loesch\w*)\b/.test(value);
-    const followsCurrentApplication = /\b(?:after|dopo|nach|apres)\b.{0,80}\b(?:current application|this application|application process|questa candidatura|candidatura corrente|procedura di candidatura corrente|candidature en cours|bewerbung(?:sverfahren)?)\b/.test(value);
+    const followsCurrentApplication = /(?:\b(?:after|dopo|nach|apres)\b.{0,80}\b(?:current application|this application|application process|questa candidatura|candidatura corrente|procedura di candidatura corrente|candidature en cours|bewerbung(?:sverfahren)?)\b|\bonce\b.{0,80}\b(?:the )?(?:current|present|this) application process\b)/.test(value);
     const currentOnly = /\b(?:only|solo|uniquement|nur)\b/.test(value)
       && /\b(?:this application|current application|questa candidatura|candidatura corrente|candidature en cours|bewerbung)\b/.test(value);
     if ((deletes && followsCurrentApplication) || currentOnly) return 0;

@@ -6,7 +6,7 @@ import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits
 import { validateAnswer } from './lib/answerRules.js';
 import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v3';
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v4';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
