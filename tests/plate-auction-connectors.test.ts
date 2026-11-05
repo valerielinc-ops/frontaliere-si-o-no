@@ -692,12 +692,12 @@ describe('fixed-price PDF url resolution', () => {
     }
   });
 
-  it('canonicalizes AI catalogue and PDF links after the upstream redirect', () => {
+  it('follows AI catalogue download endpoints after the upstream redirect', () => {
     const ai = FIXED_PRICE_SOURCE_CONFIGS.ai as Record<string, unknown> & {
       pdfVariants: Record<string, unknown>[];
     };
-    const autoPdf = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file/Freie%20Auto-Kontrollschilder.pdf';
-    const motorcyclePdf = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/@@download/file/Freie%20Motorrad-Kontrollschilder.pdf';
+    const autoPdf = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download';
+    const motorcyclePdf = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download';
     expect(ai.pageUrl).toBe('https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder');
     expect(ai.pdfVariants[0].fallbackPdfUrl).toBe(autoPdf);
     expect(ai.pdfVariants[1].fallbackPdfUrl).toBe(motorcyclePdf);
@@ -708,6 +708,12 @@ describe('fixed-price PDF url resolution', () => {
     expect(resolveVariantPdfUrl(ai.pdfVariants[1], {
       sourceKey: 'ai', pageUrl: String(ai.pageUrl),
       indexHtml: '<a href="https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download">PDF</a>',
+    })).toBe(motorcyclePdf);
+    expect(resolveVariantPdfUrl(ai.pdfVariants[0], {
+      sourceKey: 'ai', pageUrl: String(ai.pageUrl), indexHtml: '<a href="/unrelated.pdf">PDF</a>',
+    })).toBe(autoPdf);
+    expect(resolveVariantPdfUrl(ai.pdfVariants[1], {
+      sourceKey: 'ai', pageUrl: String(ai.pageUrl), indexHtml: '<a href="/unrelated.pdf">PDF</a>',
     })).toBe(motorcyclePdf);
   });
 });

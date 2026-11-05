@@ -519,17 +519,17 @@ export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
     plateCode: 'AI',
     officialUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder#liste-freie-kontrollschilder',
     pageUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder',
-    fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file/Freie%20Auto-Kontrollschilder.pdf',
+    fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download',
     pdfUrlPattern: /liste-freie-auto-kontrollschilder\/(?:download|@@download\/file\/)/i,
     pdfVariants: [
       {
         vehicleType: 'car',
-        fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file/Freie%20Auto-Kontrollschilder.pdf',
+        fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download',
         pdfUrlPattern: /liste-freie-auto-kontrollschilder\/(?:download|@@download\/file\/)/i,
       },
       {
         vehicleType: 'motorcycle',
-        fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/@@download/file/Freie%20Motorrad-Kontrollschilder.pdf',
+        fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download',
         pdfUrlPattern: /liste-freier-motorrad-kontrollschilder\.pdf\/(?:download|@@download\/file\/)/i,
       },
     ],
