@@ -10237,9 +10237,9 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Lehrperson für Informatik (40% - 50%), kombinierbar mit Mitarbeiter:in Informatikdienste (40% - 50%)",
       "titleByLocale": {
+        "de": "Lehrperson für Informatik (40% - 50%), kombinierbar mit Mitarbeiter:in Informatikdienste (40% - 50%)",
         "it": "Docente di informatica (40% - 50%), combinabile con collaboratore/trice dei servizi informatici (40% - 50%)",
         "en": "Teacher of computer science (40% - 50%), combinable with IT services employee (40% - 50%)",
-        "de": "Lehrperson für Informatik (40% - 50%), kombinierbar mit Mitarbeiter:in Informatikdienste (40% - 50%)",
         "fr": "Enseignant/e en informatique (40% - 50%), combinable avec collaborateur/trice des services informatiques (40% - 50%)"
       },
       "description": "Porträt\nDas Gymnasium Neufeld ist eine staatliche Schule des Kantons Bern mit rund 1‘850 Studierenden, Schüler:innen, 220 Lehrpersonen und 50 Angestellten. Die Schule stellt klare und hohe\n• Anforderungen an die Lehrenden und Lernenden und legt Wert auf eine umfassende Beratung und Betreuung. Die drei gymnasialen Abteilungen (Abteilung Geistes- und Humanwissenschaften, Abteilung Mathematik und Naturwissenschaften, Abteilung Wirtschafts- und Rechtswissenschaften) sind entlang der Schwerpunktfächer organisiert und führen zu einer gymnasialen Matura. Die Ausbildung in der vierten Abteilung, der Berner Maturitätsschule für Erwachsene, führt zu einem gymnasialen Maturitätsabschluss oder zur Passerellen-Prüfung. Die fünfte Abteilung, die kantonale Fachmittelschule, bietet eine dreijährige Ausbildung mit kantonalem Fachmittelschul- bzw. Fachmaturitätsabschluss an.\n\nAufgaben\nUnterstützen Sie das Gymnasium Neufeld in der Informatik! Wir besetzen eine Stelle für den Unterricht am Gymnasium und der FMS, die kombinierbar ist mit der Mitarbeit in unseren Informatikdiensten (ID). Während der Unterricht per 1. Februar 2027 beginnt, ist die ID-Stelle offiziell ab dem 1. August 2027 zu besetzen. Ein stufenweiser Start in den Informatikdiensten ist jedoch bereits ab Februar möglich und erwünscht.\n\nAnforderungen\nFür diese Aufgabe suchen wir eine engagierte Lehrperson mit abgeschlossener Fachausbildung und dem Lehrdiplom Sek II (oder kurz vor dem Abschluss) und idealerweise Unterrichtserfahrung am Gymnasium oder an der FMS.\nFür die Mitarbeit in den Informatikdiensten sollten Sie gerne konzeptionell denken und zusätzlich über fundierte Kenntnisse in Systemadministration und Netzwerktechnik verfügen bzw. interessiert sein, sich in diese Bereiche einzuarbeiten.\n\nWir bieten\nFreuen Sie sich auf eine Aufgabe, die fordert und begeistert: Bei uns erwartet Sie viel Raum für eigene Ideen und eine abwechslungsreiche Tätigkeit in einer gut organisierten Schule. Neben modernen Anstellungsbedingungen und gezielten Weiterbildungsmöglichkeiten bieten wir Ihnen ein Umfeld, das durch ein motiviertes Führungsteam und engagierte Kolleg:innen geprägt ist. Gemeinsam pflegen wir eine lebendige, lehr- und lernförderliche Kultur. Damit Sie gut starten können, begleiten wir Sie mit einem Mentorat.",
@@ -10274,9 +10274,7 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40660",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrperson-fur-informatik-40-50-kombinierbar-mit-mitarbeiter-in-informatikdienste-40-50-40660"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-informatik-40-50-kombinierbar-mit-mitarbeiter-in-informatikdienste-40-50-40660"
@@ -10288,8 +10286,9 @@
           "lehrperson-fur-informatik-40-50-kombinierbar-mit-mitarbeiter-in-informatikdienste-40-50-40660"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-04T21:54:05.878Z",
+      "previousSlugs": [
+        "lehrperson-fur-informatik-40-50-kombinierbar-mit-mitarbeiter-in-informatikdienste-40-50-40660"
+      ],
       "salaryMin": 29500,
       "salaryMax": 54300,
       "salarySource": "estimated",
@@ -10305,7 +10304,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:39:13.500Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T21:54:05.878Z"
     },
     {
       "id": "ksml-08ae2a3d8dcf",
