@@ -2585,6 +2585,7 @@ describe('portal runner helpers', () => {
     expect(questionTopic('Hausnummer')).toBe('address_house_number');
     expect(candidateAnswerForQuestion({ portalQuestionsAnswered: [{ question: 'Street address', answer: 'Via Roma' }] }, 'Hausnummer')).toBe('');
     expect(questionTopic('Which Swiss work permit do you hold?')).toBe('permit');
+    expect(questionTopic('Statuto di soggiorno')).toBe('permit');
     expect(questionTopic('Will you need a work permit?')).toBe('');
     expect(questionTopic('In quale scuola sei attualmente?')).toBe('current_school');
     expect(questionTopic('What did you study?')).toBe('');

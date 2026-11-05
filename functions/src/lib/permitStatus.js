@@ -76,6 +76,18 @@ const languageOf = (locale) => {
   return LABELS[code] ? code : 'it';
 };
 
+const STATUS_QUESTIONS = {
+  it: 'Hai la cittadinanza svizzera o un permesso svizzero valido oggi?',
+  de: 'Hast du das Schweizer Bürgerrecht oder eine heute gültige Schweizer Bewilligung?',
+  fr: 'Avez-vous la nationalité suisse ou un permis suisse valable aujourd’hui ?',
+  en: 'Are you a Swiss citizen, or do you hold a Swiss permit valid today?',
+};
+
+/** The candidate-facing question used when an application requires current Swiss status. */
+export function permitStatusQuestion(locale) {
+  return STATUS_QUESTIONS[languageOf(locale)];
+}
+
 /** Lowercase, no accents, Swiss «ss», every other sign a single space. */
 const fold = (text) => String(text ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
   .replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, ' ').trim();
@@ -453,7 +465,7 @@ export function citizenshipMentions(text) {
 
 // ── Form-field wordings (one source: the portal guard, the agent and the question backstop) ──
 
-export const WORK_AUTHORISATION_RE = new RegExp(String.raw`arbeitserlaubnis|aufenthaltserlaubnis|aufenthaltsstatus|aufenthaltstitel|ausl(?:ä|ae)nderausweis|ausweis(?:typ|art|kategorie)|\bausweis\b(?!\s*-?\s*(?:nr|nummer|no)\b)|grenzg(?:ä|ae)nger|frontali(?:e|è)r|autorizzazione (?:al|di|per il) lavoro|autorizzat[oa] a lavorare|diritto (?:al|di) lavor|titolo di soggiorno|stato di soggiorno|permis de (?:travail|s(?:é|e)jour)|autorisation (?:de travail|de s(?:é|e)jour|frontali(?:è|e)re|d['’](?:é|e)tablissement|de courte dur(?:é|e)e)|titre de s(?:é|e)jour|statut de s(?:é|e)jour|autoris(?:é|e)e? (?:à|a) travailler|droit de travailler|work authori[sz]ation|authori[sz]ed to work|right to work|eligib(?:le|ility) to work|legally (?:able|allowed|entitled|permitted) to work|sponsorship|residence status|immigration status`, 'i');
+export const WORK_AUTHORISATION_RE = new RegExp(String.raw`arbeitserlaubnis|aufenthaltserlaubnis|aufenthaltsstatus|aufenthaltstitel|ausl(?:ä|ae)nderausweis|ausweis(?:typ|art|kategorie)|\bausweis\b(?!\s*-?\s*(?:nr|nummer|no)\b)|grenzg(?:ä|ae)nger|frontali(?:e|è)r|autorizzazione (?:al|di|per il) lavoro|autorizzat[oa] a lavorare|diritto (?:al|di) lavor|titolo di soggiorno|stato di soggiorno|statuto di soggiorno|permis de (?:travail|s(?:é|e)jour)|autorisation (?:de travail|de s(?:é|e)jour|frontali(?:è|e)re|d['’](?:é|e)tablissement|de courte dur(?:é|e)e)|titre de s(?:é|e)jour|statut de s(?:é|e)jour|autoris(?:é|e)e? (?:à|a) travailler|droit de travailler|work authori[sz]ation|authori[sz]ed to work|right to work|eligib(?:le|ility) to work|legally (?:able|allowed|entitled|permitted) to work|sponsorship|residence status|immigration status`, 'i');
 export const PERMIT_FIELD_RE = new RegExp(String.raw`permit|bewilligung|permesso|\bvisa\b|\bvisum|${WORK_AUTHORISATION_RE.source}`, 'i');
 export const NATIONALITY_FIELD_RE = /nationalit|nazionalit|cittadinanz|citizen|staatsangeh|staatsb(?:ü|ue)rger|citoyennet/i;
 // The date of birth (JOIN: «Quando sei nato?»).

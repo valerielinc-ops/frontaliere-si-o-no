@@ -9,6 +9,7 @@ import { questionsForCandidate } from '../functions/src/assistedApplicationCandi
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcileOperationalAnswers } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
+import { permitOptions, permitStatusQuestion } from '../functions/src/lib/permitStatus.js';
 
 // Anonymous registration markup: an intentionally empty styled label and the
 // actual consent in the owned fieldset legend, as on the public Avature form.
@@ -424,6 +425,40 @@ it('asks for a separately required house number when the residence street has no
   ], [], { candidate: { identity: { address: { street: 'Via Roma' } }, profile: { address: { street: 'Via Roma' } }, answers: {} } });
 
   expect(result.questions.map((question: any) => question.id)).toContain('portal_residence_house_number');
+});
+
+it('turns a required Umantis residence-status choice into the candidate permit question', async () => {
+  const applicationOptions = permitOptions('it');
+  const result = portalRequirementsFromMissingRequired([
+    { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: applicationOptions },
+  ], [], { candidate: { identity: {}, profile: {}, answers: {} }, candidateLocale: 'it' });
+
+  expect(result.unreadableFields).toBeUndefined();
+  expect(result.questions).toEqual([expect.objectContaining({
+    id: 'work_permit',
+    question: permitStatusQuestion('it'),
+    candidatePrompt: permitStatusQuestion('it'),
+    applicationQuestion: 'Statuto di soggiorno',
+    type: 'choice',
+    options: applicationOptions,
+    required: true,
+  })]);
+
+  const [localized] = await localizePortalQuestions(result.questions, { candidateLocale: 'it', applicationLocale: 'it' });
+  expect(localized).toMatchObject({
+    id: 'work_permit',
+    question: permitStatusQuestion('it'),
+    applicationQuestion: 'Statuto di soggiorno',
+  });
+});
+
+it('does not ask for a Swiss status the candidate has already stated', () => {
+  const field = { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: permitOptions('it') };
+  const result = portalRequirementsFromMissingRequired([field], [], {
+    candidate: { identity: {}, profile: { workPermit: 'Permesso G' }, answers: {} },
+    candidateLocale: 'it',
+  });
+  expect(result.questions).toEqual([]);
 });
 
 it('asks for a missing residence country and reads it from a partial profile address', () => {

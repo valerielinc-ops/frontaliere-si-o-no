@@ -323,7 +323,7 @@ describe('runner final guard across three application stages', () => {
     const otherRole = { ...snapshot(applyUrl, 'Application for a different role.', []),
       title: 'Different role', text: 'Application for a different role.',
       fields: [{ id: 'note', kind: 'text', inputType: 'text', label: 'Application note', formId: 'application', frame: 0 }] };
-    const f = fixture(otherRole);
+    const f = fixture(profile, otherRole);
 
     const result = await f.run();
 
@@ -422,7 +422,7 @@ describe('runner final guard across three application stages', () => {
   it('hands off a public gallery reached after an application step before agent fallback', async () => {
     const initial = snapshot(applyUrl, 'Application step.', [{ id: 'step-next', text: 'Next' }]);
     initial.fields = [{ id: 'application-note', kind: 'text', inputType: 'text', label: 'Application note', required: false, formId: 'application', frame: 0 }];
-    const gallery = snapshot(`${applyUrl}/bewerbungstipps/`, 'Public content.', [
+    const gallery = snapshot('https://careers.example/Careers/ApplicationMethods/bewerbungstipps/?jobId=42', 'Public content.', [
       { text: 'Menü', chrome: true },
       { text: 'Mein Konto', chrome: true },
       { text: 'Vorheriges', formId: 'public-gallery', frame: 0, disabled: false },

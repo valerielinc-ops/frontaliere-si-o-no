@@ -41,7 +41,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { asksHeldStatus, isPermitField, nationalityOf, permitOptions, permitStatusOf, permitStatement, permitStatusQuestion, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
@@ -2072,6 +2072,7 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       id,
       question: readableQuestionCandidate(item.question) || applicationQuestion,
       applicationQuestion,
+      ...(readableQuestionCandidate(item.candidatePrompt) ? { candidatePrompt: readableQuestionCandidate(item.candidatePrompt) } : {}),
       ...(applicationOptions.length ? { applicationOptions } : {}),
       ...(optionMap.length ? { optionMap } : {}),
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
@@ -2255,6 +2256,7 @@ function deterministicGermanLocalization(item, language) {
   const entry = deterministicGermanQuestionEntry(item);
   if (!entry || !language) return null;
   const sourceQuestion = nativePortalQuestion(item);
+  const candidatePrompt = readablePortalQuestionText(item?.candidatePrompt);
   const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
     ? item.applicationOptions
     : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
@@ -2274,7 +2276,7 @@ function deterministicGermanLocalization(item, language) {
   const sameLanguage = language === 'de';
   return {
     ...item,
-    question: entry[language] || entry.en,
+    question: candidatePrompt || entry[language] || entry.en,
     applicationQuestion: sourceQuestion,
     applicationQuestionLocale: 'de',
     why: String(item.why || '').trim() || fallback.why,
@@ -2292,7 +2294,7 @@ function nativePortalQuestion(item) {
 
 function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  const rawQuestion = nativePortalQuestion(item);
+  const rawQuestion = readablePortalQuestionText(item?.candidatePrompt) || nativePortalQuestion(item);
   const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length ? item.applicationOptions : item.options || [])
     .map((option) => String(option || '').trim()).filter(Boolean);
   const candidateOptions = applicationOptions
@@ -2307,7 +2309,7 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   return {
     ...item,
     question: rawQuestion,
-    applicationQuestion: rawQuestion,
+    applicationQuestion: nativePortalQuestion(item),
     applicationQuestionLocale: localeCode(sourceLocale) || null,
     why: fallback.why,
     ...(applicationOptions.length ? { applicationOptions } : {}),
@@ -2336,12 +2338,13 @@ export class PortalQuestionLocalizationError extends Error {
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
   const items = (Array.isArray(questions) ? questions : []).map((item) => {
     const sourceQuestion = nativePortalQuestion(item);
+    const candidatePrompt = readablePortalQuestionText(item?.candidatePrompt);
     const applicationOptions = (Array.isArray(item?.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item?.options || []).map((option) => String(option || '').trim()).filter(Boolean);
     return {
       ...item,
-      question: sourceQuestion,
+      question: candidatePrompt || sourceQuestion,
       applicationQuestion: sourceQuestion,
       ...(applicationOptions.length ? { applicationOptions, options: applicationOptions } : {}),
     };
@@ -2393,7 +2396,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
       return {
         ...item,
-        question: nativePortalQuestion(item),
+        question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
         ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
         applicationQuestionLocale: sourceLocale,
         localizationStatus: 'same_language',
@@ -2409,10 +2412,11 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       && copy.options.length === applicationOptions.length
       && translatedMap.length === applicationOptions.length
       && candidateOptions.length === applicationOptions.length);
-    const translatedQuestion = String(copy?.question || '').trim();
+    const translatedQuestion = readablePortalQuestionText(item.candidatePrompt) || String(copy?.question || '').trim();
     const sourceQuestion = nativePortalQuestion(item);
-    const question = readablePortalQuestionText(translatedQuestion);
-    const translationIsValid = question && normalizedQuestionText(question) !== normalizedQuestionText(sourceQuestion) && optionsComplete;
+    const question = readablePortalQuestionText(item.candidatePrompt) || readablePortalQuestionText(translatedQuestion);
+    const translationIsValid = item.candidatePrompt ? Boolean(question && optionsComplete)
+      : Boolean(question && normalizedQuestionText(question) !== normalizedQuestionText(sourceQuestion) && optionsComplete);
     if (!translationIsValid) return fallbackLocalizedQuestion(item, candidateLanguage, sourceLocale);
     const fallback = LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it;
     const translatedWhy = String(copy?.why || '').trim();
@@ -4513,7 +4517,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate });
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, { candidate, candidateLocale: ctx.candidateLocale });
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
@@ -4623,7 +4627,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const repairSnapshot = accountRegistrationSnapshot({ ...after, fields: after.fields.filter((field) => field.inputType !== 'password') });
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
-      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired, { candidate });
+      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired, { candidate, candidateLocale: ctx.candidateLocale });
       if (repairedRequirements.unreadableFields?.length) {
         await ctx.accounts.mark(host, { status: 'unanswered' });
         return noted({ handoff: 'question_label_unreadable' });
@@ -4901,7 +4905,7 @@ export function portalRequiredDocumentFromField(field) {
  * question: the review page must show it in the same document picker as the
  * posting's requested documents.
  */
-function missingCandidatePortalRequirements(fields, candidate) {
+function missingCandidatePortalRequirements(fields, candidate, candidateLocale = 'it') {
   if (!candidate || typeof candidate !== 'object') return { questions: [], stableQuestionIds: new Map() };
   const requiredFields = (Array.isArray(fields) ? fields : []).filter(field => field?.required === true);
   const profile = candidate.profile || {};
@@ -4937,6 +4941,8 @@ function missingCandidatePortalRequirements(fields, candidate) {
   const houseNumberPresent = Boolean(String(addressQuestionAnswer(candidate, 'address_house_number') || '').trim());
   const residenceCountryPresent = Boolean(String(addressQuestionAnswer(candidate, 'residence_country') || '').trim());
   const explicitSalutationPresent = String(candidate.confirmedAnswers?.salutation || answers.salutation || '').trim().length > 0;
+  const permitStatusPresent = Boolean(candidate.swissStatus?.code || profile.permitStatus
+    || permitStatusOf(profile.workPermit) || permitStatusOf(answers.work_permit));
   const separateHouseNumber = requiredFields.some(field => residenceFieldRole(field?.label) === 'houseNumber');
 
   for (const field of requiredFields) {
@@ -4945,6 +4951,19 @@ function missingCandidatePortalRequirements(fields, candidate) {
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
     const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
     const role = residenceFieldRole(field.label);
+    if (isPermitField(field.label) && asksHeldStatus(field.label) && !permitStatusPresent) {
+      const question = permitStatusQuestion(candidateLocale);
+      add(field, 'work_permit', question,
+        'Il portale richiede di indicare la cittadinanza svizzera o il permesso svizzero valido che possiedi oggi.',
+        {
+          type: 'choice',
+          forceType: 'choice',
+          options: permitOptions(candidateLocale),
+          requiresNativeOptions: true,
+          candidatePrompt: question,
+        });
+      continue;
+    }
     const isBirthDate = String(field.autocomplete || '').toLowerCase() === 'bday'
       || /\b(?:date of birth|birth date|geburtsdatum|date de naissance|data di nascita)\b/.test(allText);
     if (isBirthDate && !datePresent && !hasAnswer('portal_date_of_birth')) {
@@ -5014,11 +5033,11 @@ function missingCandidatePortalRequirements(fields, candidate) {
   return { questions: missing, stableQuestionIds };
 }
 
-export function portalRequirementsFromMissingRequired(fields, missingRequired, { candidate = null } = {}) {
+export function portalRequirementsFromMissingRequired(fields, missingRequired, { candidate = null, candidateLocale = 'it' } = {}) {
   const availableFields = Array.isArray(fields) ? fields : [];
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
-  const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate);
+  const candidateRequirements = missingCandidatePortalRequirements(availableFields, candidate, candidateLocale);
   const mergedRequired = new Map();
   for (const item of candidateRequirements.questions) {
     const key = String(item.fieldId || folded(item.applicationQuestion || item.question));
@@ -5221,7 +5240,7 @@ export async function readPortalRequirements(ctx) {
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
     }
     const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
-    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, { candidate: ctx.candidate });
+    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired, { candidate: ctx.candidate, candidateLocale: ctx.candidateLocale });
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
       return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
@@ -5629,7 +5648,7 @@ export async function submitViaPortal(ctx) {
       return agent;
     };
     const askCandidate = async (questions) => {
-      const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions);
+      const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions, { candidate: ctx.candidate, candidateLocale: ctx.candidateLocale });
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
       let request;
       try {
@@ -6073,7 +6092,7 @@ export async function submitViaPortal(ctx) {
           if (candidateQuestions.length) {
             // Ask only after known answers have settled and any fields they
             // reveal have been re-read and planned on the next pass.
-            const requirements = portalRequirementsFromMissingRequired(snapshot.fields, candidateQuestions);
+            const requirements = portalRequirementsFromMissingRequired(snapshot.fields, candidateQuestions, { candidate: ctx.candidate, candidateLocale: ctx.candidateLocale });
             if (requirements.unreadableFields?.length) {
               unclearQuestions = candidateQuestions;
               agentHint = 'unclear_fields';
