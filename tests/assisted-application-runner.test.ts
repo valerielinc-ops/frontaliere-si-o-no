@@ -280,6 +280,40 @@ describe('draft mode', () => {
     expect(draft.channel).toMatchObject({ type: 'successfactors', applyUrl: postingUrl, postingUrl });
   });
 
+  it('rechecks the native posting when a saved ATS bookmark points to the wrong channel', async () => {
+    const postingUrl = 'https://jobs.coopjobs.ch/posti-vacanti/impiegato-a/3a7435bb-c1f2-48ae-90ca-29e689e04a80';
+    const savedApplyUrl = 'https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168494';
+    const redirect = 'https://ohws.prospective.ch/public/v1/redirect/3a7435bb-c1f2-48ae-90ca-29e689e04a80/ats/';
+    const pastaHrUrl = 'https://prod.pastahr.com/application/1eb40055-3f6a-4429-a92c-9ebbedc3c4aa';
+    const page = `<main><h1>Impiegato / a – Interdiscount</h1><a title="Candidatura online" href="${redirect}">Candidatura online</a></main>`;
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) {
+        return new Response(JSON.stringify({
+          description: POSTING,
+          url: postingUrl,
+          applyUrl: savedApplyUrl,
+          titleByLocale: { it: 'Impiegato / a' },
+          addressLocality: 'Canobbio',
+        }), { status: 200 });
+      }
+      if (url === postingUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+      if (url === redirect) return new Response(null, { status: 303, headers: { location: pastaHrUrl } });
+      return new Response('', { status: 404 });
+    });
+
+    const draft = await buildDraft({
+      order: { ...order, jobId: 'interdiscount-3a7435bb-c1f', jobUrl: savedApplyUrl, jobTitle: 'Impiegato / a', companyName: 'Interdiscount' },
+      orderId: ORDER_ID,
+      flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl, nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+
+    expect(draft.job).toMatchObject({ postingUrl, applyUrl: pastaHrUrl });
+    expect(draft.channel).toMatchObject({ type: 'pastahr', applyUrl: pastaHrUrl, postingUrl, via: 'prospective' });
+    expect(fetchImpl).not.toHaveBeenCalledWith(savedApplyUrl, expect.anything());
+  });
+
   it('writes an apprenticeship’s subject from the trade, and the fact gate reads that subject as a name', async () => {
     const draft = await buildDraft({
       order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
