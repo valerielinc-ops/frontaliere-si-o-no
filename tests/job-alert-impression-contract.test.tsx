@@ -317,14 +317,14 @@ describe('#13201 — direct one-tap acceptance precedes the create request', () 
     expect(handler.match(/onAccepted\?\.\(\)/g) ?? []).toHaveLength(1);
     expect(accept).toBeGreaterThanOrEqual(0);
     expect(create).toBeGreaterThan(accept);
-    expect(handler).toContain('if (onSubscribed) onSubscribed()');
+    expect(handler).toMatch(/if \(onSubscribed\) onSubscribed\((?:created)?\)/);
     expect(handler).toContain('if (onErrored) onErrored(error)');
   });
 
   it('wires the accept event to each existing GA4 surface', () => {
     const board = source('components/community/JobBoard.tsx');
     for (const [surface, keyword] of [
-      ['job_detail_button', 'selectedJob.title'],
+      ['job_detail_button', 'detailAlertKeyword || selectedJob.title'],
       ['job_board_filters', 'boardFilterAlertKeywordLabel'],
       ['job_match_pill', 'jobMatchAlertCategoryLabel'],
     ]) {
