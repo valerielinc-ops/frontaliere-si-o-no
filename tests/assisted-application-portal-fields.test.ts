@@ -348,22 +348,41 @@ describe('portal field extraction', () => {
 
   it('recognizes Manage consent when the cookie-manager marker is on body', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
-    const snapshot = extract('<form id="application"><input name="email"></form><p>Manage your cookies.</p><button type="button">Manage consent</button>', url);
-    const manageConsent = snapshot.buttons.find((button: any) => button.text === 'Manage consent');
-    expect(manageConsent).toMatchObject({ id: expect.any(String), formId: '' });
-    (globalThis as any).document.body.id = 'cookie-manager';
-    let clicks = 0;
+    const { window } = new JSDOM('<!doctype html><html><body id="cookie-manager"><button data-aa-id="f1">Manage consent</button><p>Manage your cookies</p></body></html>', { url });
+    vi.stubGlobal('document', window.document);
+    const snapshot = {
+      url,
+      fields: [],
+      buttons: [{ id: 'f1', text: 'Manage consent', context: 'Manage your cookies', cookieSurface: 'banner', disabled: false, frame: 0 }],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Manage your cookies',
+    };
+    const preferenceSnapshot = {
+      ...snapshot,
+      buttons: [{ id: 'reject', text: 'Reject all cookies', context: 'Manage your cookies', cookieSurface: 'banner', disabled: false, frame: 0 }],
+      text: 'Cookie preferences',
+    };
+    const afterClick = { ...preferenceSnapshot, buttons: [], text: 'Job posting' };
+    let stage = 0;
     const frame = {
       url: () => url,
-      evaluate: vi.fn(async (evaluateInPage: Function, args: any) => args?.surfacePattern ? evaluateInPage(args) : snapshot),
-      locator: vi.fn(() => ({ first: () => ({ click: vi.fn(async () => { clicks += 1; }) }) })),
+      evaluate: vi.fn(async (evaluateInPage: Function, args: any) => {
+        if (args?.surfacePattern) return evaluateInPage(args);
+        return stage === 0 ? snapshot : stage === 1 ? preferenceSnapshot : afterClick;
+      }),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => {
+          expect(selector).toBe(stage === 0 ? '[data-aa-id="f1"]' : '[data-aa-id="reject"]');
+          stage += 1;
+        }) }),
+      })),
     };
     const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
 
     const result = await dismissCookieBanner(page as any, snapshot as any);
 
-    expect(clicks).toBe(1);
-    expect(result.status).toBe('unresolved');
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
+    window.close();
   });
 
   it('does not trust a stale banner marker for Manage consent without a live active surface', async () => {
