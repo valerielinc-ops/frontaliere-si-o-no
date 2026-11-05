@@ -255,6 +255,21 @@ describe('portal field extraction', () => {
     expect(result.status).toBe('none');
   });
 
+  it('does not trust a stale banner marker for Manage consent without a live active surface', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const extracted = extract('<section class="cookie-consent"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
+    const privacy = { ...extracted, buttons: extracted.buttons.map((button: any) => ({ ...button, cookieSurface: 'banner' })) };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function) => evaluateInPage === extractFieldsInPage ? privacy : false),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
+  });
+
   it('marks only an active cookie surface, not a persistent preferences section', () => {
     const active = extract('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
     expect(active.buttons.find((button: any) => button.text === 'Customise Cookies')).toMatchObject({ cookieSurface: 'banner' });

@@ -1212,6 +1212,7 @@ export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settin
 export const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
+const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager)\b/i;
 const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
 const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accepter)$/i;
 // Some employer-hosted SuccessFactors pages expose the cookie statement and
@@ -1340,7 +1341,26 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   // The bare Yellowshark label needs an independently identified live
   // surface. A section merely named "consent" is application copy, not
   // evidence that the control opens a cookie manager.
-  if (manageConsent && !button.dialog && button.cookieSurface !== 'banner') return false;
+  if (manageConsent && !button.dialog) {
+    if (button.cookieSurface !== 'banner' || !button.id) return false;
+    const frames = typeof page?.frames === 'function' ? page.frames() : [];
+    const frameNumber = Number(button.frame) || 0;
+    const frame = frames[frameNumber]
+      || (frameNumber === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
+    const liveSurface = await frame?.evaluate?.(({ controlId, surfacePattern }) => {
+      const control = [...document.querySelectorAll('[data-aa-id]')]
+        .find(element => element.getAttribute('data-aa-id') === controlId);
+      if (!control) return false;
+      const activeSurface = new RegExp(surfacePattern, 'i');
+      for (let node = control; node && node !== document.body; node = node.parentElement) {
+        const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('role'), node.getAttribute('aria-label')]
+          .filter(Boolean).join(' ');
+        if (node.matches('dialog, [role="dialog"], [aria-modal="true"]') || activeSurface.test(marker)) return true;
+      }
+      return false;
+    }, { controlId: String(button.id), surfacePattern: COOKIE_ACTIVE_SURFACE_RE.source }).catch(() => false);
+    if (liveSurface !== true) return false;
+  }
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
