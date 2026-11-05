@@ -6676,6 +6676,14 @@ export async function submitViaPortal(ctx) {
       const workable = (current) => current.fields.length > 0 || hasApplicationForm(current)
         || findButton(current.buttons, SUBMIT_RE) || findButton(current.buttons, NEXT_RE);
       if (!workable(snapshot)) snapshot = await awaitFields(page, snapshot);
+      // Site navigation alone is not an unreadable candidate question. Keep
+      // custom application widgets eligible for recovery, but do not ask the
+      // agent to fill a shell after its bounded field wait has expired.
+      if (!snapshot.fields.length && snapshot.buttons.length > 0
+        && snapshot.buttons.every((button) => button.chrome === true)
+        && !(snapshot.links || []).some((link) => !link.chrome)) {
+        return await handoff('application_stage_unknown');
+      }
       // Nothing the filler can read (a page of custom widgets): straight to the agent.
       let agentHint = workable(snapshot) ? 'next_disabled' : 'no_form_controls';
 
