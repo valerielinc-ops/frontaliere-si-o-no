@@ -5851,9 +5851,9 @@ export async function submitViaPortal(ctx) {
     const candidateWithRecordedAnswers = (candidate, current) => {
       const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
       const isHeldPermitQuestion = (question) => isPermitField(question) && asksHeldStatus(question);
-      // A planner action can record an ATS-prefilled permit value before the
-      // agent fallback runs. Keep it in run evidence, but do not relabel it as
-      // a candidate-confirmed portal answer for the agent.
+      // A held-permit value recorded during this run describes a runner form
+      // action, not a separate candidate portal response. Keep it in run
+      // evidence, but do not present it as an answered portal question.
       const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question));
       const recordedKeys = new Set(recorded.map(answerKey));
       const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
