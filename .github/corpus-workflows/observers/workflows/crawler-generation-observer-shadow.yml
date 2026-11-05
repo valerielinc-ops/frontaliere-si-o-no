@@ -240,6 +240,15 @@ jobs:
             return 1
           }
 
+          validateObserverResponse() {
+            local response_file="$1"
+            jq -e '
+              type == "object"
+              and .encoding == "base64"
+              and (.content | (type == "string" and length > 0))
+            ' "$response_file" >/dev/null
+          }
+
           trigger_run="$PROBE_ROOT/trigger-run-$TRIGGER_RUN_ID.json"
           if ! github_get_with_retry "$trigger_run" \
               "/repos/$REPOSITORY/actions/runs/$TRIGGER_RUN_ID"; then
@@ -274,17 +283,16 @@ jobs:
           contract_file="$PROBE_ROOT/crawler-cross-repo-contract.json"
           if ! github_get_with_retry "$contract_response" \
               "/repos/$REPOSITORY/contents/generator/data/crawler-cross-repo-contract.json?ref=$TRIGGER_HEAD_SHA"; then
-            echo "::notice::Generation contract is unavailable; observer stays dormant."
-            exit 0
+            echo "::error::Generation contract is unavailable; observer probe failed closed."
+            exit 1
           fi
-          if ! jq -e '.encoding == "base64" and (.content | type == "string")' \
-              "$contract_response" >/dev/null; then
-            echo "::notice::Generation contract response is invalid; observer stays dormant."
-            exit 0
+          if ! validateObserverResponse "$contract_response"; then
+            echo "::error::Generation contract response is invalid; observer probe failed closed."
+            exit 1
           fi
           if ! jq -r '.content' "$contract_response" | tr -d '\n' | base64 --decode > "$contract_file"; then
-            echo "::notice::Generation contract cannot be decoded; observer stays dormant."
-            exit 0
+            echo "::error::Generation contract cannot be decoded; observer probe failed closed."
+            exit 1
           fi
           if ! expected_group_keys=$(jq -c '
             .groupCount as $groupCount

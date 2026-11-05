@@ -135,4 +135,28 @@ describe('portable crawler generation observer workflow', () => {
       });
     }
   });
+
+  it('fails closed when the GitHub contract response is unavailable or malformed', () => {
+    const text = fs.readFileSync(WORKFLOW_PATH, 'utf8');
+    const validatorStart = text.indexOf('validateObserverResponse()');
+    const contractStart = text.indexOf('contract_response=');
+    const artifactStart = text.indexOf('artifact_json=', contractStart);
+    expect(validatorStart).toBeGreaterThanOrEqual(0);
+    expect(contractStart).toBeGreaterThan(validatorStart);
+    expect(artifactStart).toBeGreaterThan(contractStart);
+
+    const validator = text.slice(validatorStart, contractStart);
+    const contractProbe = text.slice(contractStart, artifactStart);
+    expect(validator).toContain('type == "object"');
+    expect(validator).toContain('.encoding == "base64"');
+    expect(validator).toContain('type == "string" and length > 0');
+    expect(contractProbe).toContain('validateObserverResponse "$contract_response"');
+    expect(contractProbe).toContain('::error::Generation contract is unavailable; observer probe failed closed.');
+    expect(contractProbe).toContain('::error::Generation contract response is invalid; observer probe failed closed.');
+    expect(contractProbe).toContain('::error::Generation contract cannot be decoded; observer probe failed closed.');
+    expect(contractProbe).not.toContain('observer stays dormant');
+    expect(contractProbe).toMatch(/Generation contract is unavailable[\s\S]*?exit 1/);
+    expect(contractProbe).toMatch(/Generation contract response is invalid[\s\S]*?exit 1/);
+    expect(contractProbe).toMatch(/Generation contract cannot be decoded[\s\S]*?exit 1/);
+  });
 });
