@@ -303,7 +303,61 @@ function hasResendVerificationControl(snapshot = {}) {
       .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
 }
 
-function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
+function successFactorsModuleIdentity(url) {
+  if (!url || url.protocol !== 'https:' || url.username || url.password || url.hash
+    || !SUCCESS_FACTORS_HOST_RE.test(url.hostname)
+    || url.pathname.replace(/\/+$/, '') !== '/career') return null;
+  const valuesFor = (key) => [...url.searchParams.entries()]
+    .filter(([name]) => name.toLowerCase() === key)
+    .map(([, value]) => value);
+  const company = valuesFor('company');
+  const requisition = valuesFor('career_job_req_id');
+  const namespace = valuesFor('career_ns');
+  if (!(company.length === 1 && /^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company[0])
+    && requisition.length === 1 && /^[0-9]{1,20}$/.test(requisition[0])
+    && namespace.length === 1 && namespace[0].toLowerCase() === 'job_application')) return null;
+  return {
+    origin: url.origin,
+    path: url.pathname.replace(/\/+$/, ''),
+    company: company[0].toLowerCase(),
+    requisition: requisition[0],
+    namespace: namespace[0].toLowerCase(),
+  };
+}
+
+function isSuccessFactorsModuleRoute(url) {
+  return Boolean(successFactorsModuleIdentity(url));
+}
+
+function isSuccessFactorsCareerPath(value) {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' && !url.username && !url.password && !url.hash
+      && SUCCESS_FACTORS_HOST_RE.test(url.hostname)
+      && url.pathname.replace(/\/+$/, '') === '/career';
+  } catch {
+    return false;
+  }
+}
+
+function sameSuccessFactorsModuleAddress(firstUrl, secondUrl) {
+  try {
+    const first = new URL(String(firstUrl || ''));
+    const second = new URL(String(secondUrl || ''));
+    const expected = successFactorsModuleIdentity(first);
+    const actual = successFactorsModuleIdentity(second);
+    if (!expected || !actual) return false;
+    return expected.origin === actual.origin
+      && expected.path === actual.path
+      && expected.company === actual.company
+      && expected.requisition === actual.requisition
+      && expected.namespace === actual.namespace;
+  } catch {
+    return false;
+  }
+}
+
+function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof } = {}) {
   try {
     const apply = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
@@ -313,7 +367,15 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
     // `/<tenant>/job/...`). Keep the same single-segment boundary here so the
     // verified posting provenance survives on those tenants too.
     const postingId = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
-    return apply.origin === posting.origin && Boolean(applyId) && postingId === applyId;
+    if (apply.origin === posting.origin && Boolean(applyId) && postingId === applyId) return true;
+    // Career Site Builder may expose the actual SuccessFactors module on a
+    // different origin. Its requisition id is not the public job id, so the
+    // URL alone cannot bind it to this posting. Trust it only when the
+    // resolver recorded that exact posting as the source of the module URL.
+    return isSuccessFactorsModuleRoute(apply)
+      && postingRouteProof?.via === 'successfactors'
+      && sameSuccessFactorsModuleAddress(postingRouteProof.applyUrl, apply.href)
+      && samePostingAddress(postingRouteProof.postingUrl, posting.href);
   } catch {
     return false;
   }
@@ -430,8 +492,8 @@ function verifiedPostingEntryFor(ctx = {}) {
  * This is stronger than the rendered posting text: Umantis can show a generic
  * application form without repeating the employer or vacancy title.
  */
-export function isVerifiedPostingEntry({ applyUrl, postingUrl } = {}) {
-  return isSuccessFactorsPostingEntry({ applyUrl, postingUrl })
+export function isVerifiedPostingEntry({ applyUrl, postingUrl, postingRouteProof } = {}) {
+  return isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof })
     || isDirectJobApplyEntry({ applyUrl, postingUrl })
     || isUmantisPostingEntry({ applyUrl, postingUrl });
 }
@@ -468,17 +530,17 @@ function isStadtZurichPostingRoute({ pageUrl, postingUrl } = {}) {
   }
 }
 
-export function isPostingRouteBound({ pageUrl, postingUrl } = {}) {
+export function isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof } = {}) {
   return isStadtZurichPostingRoute({ pageUrl, postingUrl })
-    || isVerifiedPostingEntry({ applyUrl: pageUrl, postingUrl });
+    || isVerifiedPostingEntry({ applyUrl: pageUrl, postingUrl, postingRouteProof });
 }
 
-export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
+export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof } = {}) {
   const directUrl = String(applyUrl || '');
   try {
     const apply = new URL(directUrl);
     const posting = new URL(String(postingUrl || ''));
-    if (isVerifiedPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
+    if (isVerifiedPostingEntry({ applyUrl: apply.href, postingUrl: posting.href, postingRouteProof })) return posting.href;
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
@@ -1984,9 +2046,14 @@ export function formPostingMatch(formText, job = {}, {
   postingEntry = false,
   pageUrl = '',
   postingUrl = '',
+  postingRouteProof = null,
 } = {}) {
   const direct = postingMatch(formText, job, pageUrl);
-  const bound = isPostingRouteBound({ pageUrl, postingUrl });
+  const bound = isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
+  // A source-backed SuccessFactors module must still carry the requisition
+  // captured from that posting. Do not let its employer query alone turn a
+  // different or incomplete `/career` route into a generic form match.
+  if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
   // The selected detail route is authoritative even when its dynamic shell
   // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
   // Do not apply this to another page on the same host: route identity must be
@@ -1998,7 +2065,7 @@ export function formPostingMatch(formText, job = {}, {
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
-  if (postingEntry) return 'match';
+  if (postingEntry && (postingRouteProof?.via !== 'successfactors' || bound)) return 'match';
   return postingMatch(formText, { title: job.title }, pageUrl) === 'match' ? 'match' : 'mismatch';
 }
 
@@ -5383,6 +5450,7 @@ export async function readPortalRequirements(ctx) {
         postingEntry: verifiedPostingEntry,
         pageUrl: page.url(),
         postingUrl: ctx.postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
       });
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
     }
@@ -5642,6 +5710,7 @@ export async function submitViaPortal(ctx) {
         postingEntry: enteredFromMatchingPosting,
         pageUrl,
         postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
       if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';

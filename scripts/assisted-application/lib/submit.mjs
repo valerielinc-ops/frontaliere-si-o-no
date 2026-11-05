@@ -477,6 +477,9 @@ export async function submitApplication(ctx) {
   // or anything it must not bypass ends in the career-ops handoff below.
   let applyUrl = channel.applyUrl || draft.job?.applyUrl || postingUrl || '';
   let channelType = channel.type;
+  let postingRouteProof = channel.via === 'successfactors'
+    ? { via: 'successfactors', applyUrl: channel.applyUrl, postingUrl: channel.postingUrl || draft.job?.postingUrl || '' }
+    : null;
   const currentPostingRoute = publishedPostingUrl || channel.postingUrl || '';
   // Older employer-site drafts, and SuccessFactors routes synthesized from
   // page configuration, can keep an ATS URL that no longer opens this job.
@@ -491,9 +494,13 @@ export async function submitApplication(ctx) {
     if (directChannel !== 'employer_site' && WAVE1_CHANNELS.has(directChannel)) {
       applyUrl = routeUrl;
       channelType = directChannel;
+      postingRouteProof = null;
     } else {
       const target = await resolveApplyUrl(routeUrl, { fetchImpl, resolve: ctx.resolve });
       applyUrl = target.applyUrl || routeUrl;
+      postingRouteProof = target.via === 'successfactors'
+        ? { via: 'successfactors', applyUrl, postingUrl: routeUrl }
+        : null;
       if (target.via || channel.type !== 'employer_site') {
         channelType = classifyApplicationChannel({ applyUrl }).type;
       }
@@ -575,6 +582,7 @@ export async function submitApplication(ctx) {
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
         postingUrl,
+        postingRouteProof,
         channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
         // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.
