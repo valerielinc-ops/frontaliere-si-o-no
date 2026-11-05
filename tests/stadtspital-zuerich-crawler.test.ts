@@ -278,6 +278,7 @@ describe('Stadtspital Zürich crawler parser', () => {
           detailCalls.push(url);
           return currentPortalAdFor(String(row.ref || ''), url);
         },
+        fetchCurrentOfficialIndexPage: async () => '',
       });
 
       expect(jobs).toHaveLength(2);
