@@ -33,6 +33,14 @@ describe('crawler/published location equivalence', () => {
       sourceLocation: 'Milan, Italy',
       publishedLocation: 'Remote',
     })).toBe('unknown');
+    expect(compareCrawlerPublishedLocation({
+      sourceLocation: 'Milan, Italy',
+      publishedLocation: 'Zurich Airport',
+    })).toBe('unknown');
+    expect(compareCrawlerPublishedLocation({
+      sourceLocation: 'Milan, Italy',
+      publishedLocation: 'Zurich, Switzerland',
+    })).toBe('different');
   });
 
   it('uses a source postal locality for facility and sub-locality labels', () => {

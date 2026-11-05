@@ -1,6 +1,7 @@
 import { resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { findSwissCityInText, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 
 /**
  * Location values are not all municipality names. Dedicated crawlers also
@@ -27,6 +28,17 @@ const LOCATION_TOKEN_ALIASES = new Map([
   ['lucerne', 'luzern'],
   ['lucerna', 'luzern'],
   ['zurigo', 'zurich'],
+]);
+
+const SWISS_LOCATION_CONTEXT_TOKENS = new Set([
+  'ch',
+  'che',
+  'swiss',
+  'switzerland',
+  'schweiz',
+  'suisse',
+  'svizzera',
+  ...ALL_CANTON_CODES.map((code) => code.toLowerCase()),
 ]);
 
 function fold(value = '') {
@@ -90,6 +102,25 @@ export function canonicalCrawlerLocationKey(value = '', cantonHint = '') {
   return municipalityKey(text, cantonHint);
 }
 
+/**
+ * Return a locality key only when the value is itself an explicit locality
+ * field, optionally qualified by Swiss address context. The ordinary crawler
+ * key intentionally scans free text for source equivalence, but that evidence
+ * is too weak for the foreign-vs-Swiss hard-fail branches: `Zurich Airport`
+ * names a facility, not necessarily the published municipality Zurich.
+ */
+function explicitSwissLocationKey(value = '', cantonHint = '') {
+  const key = canonicalCrawlerLocationKey(value, cantonHint);
+  if (!key) return '';
+
+  const cantonHintTokens = new Set(canonicalTokens(cantonHint));
+  const localityTokens = canonicalTokens(value).filter((token) =>
+    !SWISS_LOCATION_CONTEXT_TOKENS.has(token)
+    && !cantonHintTokens.has(token)
+    && !/^\d{4}$/u.test(token));
+  return localityTokens.join(' ') === key ? key : '';
+}
+
 function normalizedRaw(value = '') {
   return fold(value)
     .replace(/\b(?:ch|che|switzerland|schweiz|suisse|svizzera)\b/g, ' ')
@@ -138,6 +169,8 @@ export function compareCrawlerPublishedLocation({
   const publishedPostal = postalPlace(publishedPostalCode);
   const sourceKey = canonicalCrawlerLocationKey(source, sourceCanton);
   const publishedKey = canonicalCrawlerLocationKey(published, publishedCanton);
+  const sourceExplicitKey = explicitSwissLocationKey(source, sourceCanton);
+  const publishedExplicitKey = explicitSwissLocationKey(published, publishedCanton);
 
   // Do not let a Swiss homonym inside a foreign compound (for example
   // `Baden-Württemberg`) certify the published locality. A foreign source can
@@ -146,12 +179,12 @@ export function compareCrawlerPublishedLocation({
   // not prove a rewritten municipality.
   const sourceForeign = isLocationExplicitlyForeign(source);
   const publishedForeign = isLocationExplicitlyForeign(published);
-  if (sourceForeign && !publishedForeign && (publishedKey || publishedPostal)) return 'different';
+  if (sourceForeign && !publishedForeign && (publishedExplicitKey || publishedPostal)) return 'different';
   // Keep the foreign guard symmetric when the source has concrete Swiss
   // evidence. An explicitly foreign published city is a rewrite, while a
   // regional/facility label without a municipality or postal place remains
   // unknown rather than becoming a hard-fail by association.
-  if (publishedForeign && !sourceForeign && (sourceKey || sourcePostal)) return 'different';
+  if (publishedForeign && !sourceForeign && (sourceExplicitKey || sourcePostal)) return 'different';
 
   if (normalizedRaw(source) === normalizedRaw(published)) return 'same';
 
