@@ -1065,6 +1065,7 @@ function maskCommentsAndLiterals(source) {
       setToken('literal', false);
       continue;
     }
+    if (/\s/u.test(char)) continue;
     if (char === '/' && canStartRegex) {
       const end = regexLiteralEnd(index);
       if (end >= 0) {
