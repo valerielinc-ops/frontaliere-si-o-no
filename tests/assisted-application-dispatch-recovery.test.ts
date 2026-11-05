@@ -14,7 +14,10 @@ const orderPath = `assisted_applications/${orderId}`;
 
 function storeFor(flow: Record<string, unknown>) {
   return createMemoryFirestore({
-    [orderPath]: { paymentStatus: 'paid', submissionStatus: 'awaiting_upload', automationState: flow.state },
+    [orderPath]: {
+      paymentStatus: 'paid', submissionStatus: 'awaiting_upload', automationState: flow.state,
+      ...(flow.dispatchRecoveryAt ? { automationDueAt: flow.dispatchRecoveryAt } : {}),
+    },
     [`${orderPath}/automation/flow`]: flow,
     [`${orderPath}/ai_drafts/current`]: { status: 'ready', round: 1 },
   });

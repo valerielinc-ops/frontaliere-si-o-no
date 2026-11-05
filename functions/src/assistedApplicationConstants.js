@@ -50,6 +50,7 @@ export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
   // Automated flow (assistedApplicationAutomation.js): one entry per transition,
   // plus the owner's edits of the AI draft and a CV she uploads for the customer.
   'automation_transition',
+  'automation_dispatch_recovery_scheduled',
   'automation_draft_edited',
   'automation_candidate_edited',
   'automation_reopened_after_withdrawal',
