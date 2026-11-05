@@ -5376,7 +5376,12 @@ export async function readPortalRequirements(ctx) {
       log: ctx.log,
     });
     if (questions.some((question) => question.localizationStatus === 'fallback')) {
-      return { questions: [], documents: [], handoff: 'question_localization_unavailable' };
+      // Preserve the native question and its fallback marker. The candidate
+      // review page shows the original portal wording with a localization
+      // warning, while this editable draft lets the owner record answers the
+      // candidate already supplied. Submission still passes through the
+      // candidate's normal review and approval gate.
+      (ctx.log || (() => {}))('portal pre-read retained native questions for candidate review');
     }
     return { ...requirements, questions };
   } catch (error) {

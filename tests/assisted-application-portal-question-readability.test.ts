@@ -862,7 +862,7 @@ it('batches mounted later-step ATS questions in one read-only pre-read', async (
   expect(browser.close).toHaveBeenCalledOnce();
 });
 
-it('does not expose fallback-language questions from a pre-read when localization is unavailable', async () => {
+it('retains native fallback-language questions for review when localization is unavailable', async () => {
   const url = 'https://jobs.lever.co/example/1/apply';
   const snapshot = {
     url, buttons: [], captcha: false, passwordVisible: false, errors: [], text: '',
@@ -882,7 +882,15 @@ it('does not expose fallback-language questions from a pre-read when localizatio
     candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser };
 
   const result = await readPortalRequirements(ctx);
-  expect(result).toEqual({ questions: [], documents: [], handoff: 'question_localization_unavailable' });
+  expect(result).toMatchObject({
+    documents: [],
+    questions: [expect.objectContaining({
+      question: 'Warum interessiert dich diese Stelle?',
+      applicationQuestion: 'Warum interessiert dich diese Stelle?',
+      localizationStatus: 'fallback',
+    })],
+  });
+  expect(result.handoff).toBeUndefined();
   expect(codex).toHaveBeenCalledTimes(2);
   expect(browser.close).toHaveBeenCalledOnce();
 });
