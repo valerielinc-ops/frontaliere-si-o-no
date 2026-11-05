@@ -248,6 +248,7 @@ describe('Stadtspital Zürich crawler parser', () => {
       stubFetchWith(FIXTURE, { ads: { '70001': '49951' } });
       const jobs = await fetchAllStadtspitalZuerichJobs({
         fetchCurrentOfficialIndexPage: async () => '',
+        fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
       });
       expect(jobs.map((j: any) => j.referenceNumber)).toEqual(['49951']);
     });
@@ -267,6 +268,7 @@ describe('Stadtspital Zürich crawler parser', () => {
       });
       const jobs = await fetchAllStadtspitalZuerichJobs({
         fetchCurrentOfficialIndexPage: async () => '',
+        fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
       });
 
       expect(jobs.map((j: any) => j.referenceNumber)).toEqual(['49951']);

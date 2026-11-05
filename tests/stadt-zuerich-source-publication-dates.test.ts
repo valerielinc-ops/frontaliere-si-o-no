@@ -33,6 +33,7 @@ describe('Stadt Zürich consumer publicationByRef opt-in', () => {
     setup(date,{otherRef:true});
     expect(await fetchAllStadtZuerichJobs({
       fetchCurrentOfficialIndexPage: async () => '',
+      fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
     })).toEqual([]);
   });
   it('keeps the dedicated Stadtspital exclusion',async () => {
