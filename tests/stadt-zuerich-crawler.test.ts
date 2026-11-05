@@ -218,7 +218,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
   const successFactorsDetail = (ref: string) => `<html lang="de"><head><title>Career Opportunities: Gärtner*in (${ref})</title></head><body><div class="joqReqDescription">${fixture}</div></body></html>`;
 
   function mockPortal({ indexOk, directAdOk = false, successFactorsRefs = [] }: { indexOk: boolean; directAdOk?: boolean; successFactorsRefs?: string[] }) {
-    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+    const fetchMock = vi.fn(async (url: string) => {
       const u = String(url);
       if (u.startsWith('https://jobs.stadt-zuerich.ch/search/')) return new Response(listing, { status: 200 });
       if (u.includes('/stzh/jobsearch')) {
@@ -235,7 +235,9 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
       if (u.includes('job-detailseite.61759.html')) return new Response(fixture, { status: 200 });
       if (directAdOk && u.includes('job-detailseite.51726.html')) return new Response(fixture, { status: 200 });
       return new Response('', { status: 404 });
-    }));
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    return fetchMock;
   }
 
   afterEach(() => {
