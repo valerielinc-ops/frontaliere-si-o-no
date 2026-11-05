@@ -35,6 +35,23 @@ import { registerCookieSessionRecovery } from './lib/portal/cookie-session.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
+// Synthetic candidate facts keep the fake planner's identity and permit
+// answers grounded. Pass null to omit the birth date or permit confirmation.
+const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' } = {}) => ({
+  identity: { email: ALIAS, firstName: 'Luca', lastName: 'Bianchi' },
+  profile: {
+    location: 'Lugano',
+    address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' },
+    ...(dateOfBirth ? { dateOfBirth } : {}),
+  },
+  answers: {
+    salutation: 'Mr',
+    ...(permitAnswer ? { work_permit: permitAnswer, valid_work_permit: permitAnswer } : {}),
+  },
+  portalQuestionsAnswered: permitAnswer
+    ? [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: permitAnswer }]
+    : [],
+});
 // Synthetic-portal diagnostics only: never serialize values, credentials or
 // arbitrary evidence when a checked lifecycle stops before its expected phase.
 const stopContext = ({ event = {}, evidence = {} }) => ({
@@ -1029,7 +1046,7 @@ async function fakeCodex({ prompt }) {
     if (/website/i.test(field.label)) return act('fill', 'https://example.com');
     if (/how did you hear/i.test(field.label)) return act('select', 'Online job board', { source: 'rule' });
     if (/valid work permit/i.test(field.label)) {
-      const answer = candidate?.portalQuestionsAnswered?.find((item) => /valid work permit/i.test(item.question || ''))?.answer || 'Yes';
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /valid work permit/i.test(item.question || ''))?.answer || '';
       return act('select', answer, { source: 'answers' });
     }
     if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
@@ -1057,7 +1074,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   };
   // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
   const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
-  const run = (order = job, candidate = { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }) => {
+  const run = (order = job, candidate = portalTestCandidate({ permitAnswer: 'Yes' })) => {
     const applyUrl = bindReceiptJobId(`${base}/wd/job`);
     return submitViaPortal({
       applyUrl, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
@@ -1171,21 +1188,16 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
     failedUpload.event.type === 'submit_handoff' && failedUpload.event.reason === 'upload_failed'
     && state.applications.length === beforeFailedUpload && workday.deletedFiles === 2);
 
-  const profileCandidate = {
-    identity: { email: ALIAS },
-    profile: {
-      location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' },
-      experience: [
+  const profileCandidate = portalTestCandidate({ permitAnswer: 'Yes' });
+  profileCandidate.profile.experience = [
         { role: 'Retail Assistant', employer: 'Mendrisio Market', start: '2020-03', end: '2022-04' },
         { role: 'Cashier', employer: 'Lugano Foods', start: '2022-05', end: '2024-10' },
         { role: 'Temporary Helper', employer: 'Seasonal Shop', start: '2021', end: '' },
-      ],
-      education: [
+      ];
+  profileCandidate.profile.education = [
         { degree: 'Vocational Diploma', institution: 'Scuola Cantonale', start: '2015-09', end: '2018-06' },
         { degree: 'Secondary School', institution: 'Liceo Lugano', start: '2012-09', end: '2015-06' },
-      ],
-    },
-  };
+      ];
   state.sessions.clear();
   const profileResult = await run(job, profileCandidate);
   const profileForm = workday.forms.at(-1) || {};
@@ -1465,7 +1477,7 @@ async function main() {
     } else if (focusCoop) {
       await runCoopChecks();
     } else if (focusAgentBirthDate) {
-      const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
+      const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: portalTestCandidate({ dateOfBirth: null }) });
       const asked = unknown.event.questions || [];
       check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
         && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum *' && asked[0].question === 'Qual è la tua data di nascita?'
@@ -1612,7 +1624,7 @@ async function main() {
       stopReport: six.evidence.stopReport,
     });
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
-    const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
+    const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: portalTestCandidate({ dateOfBirth: null }) });
     const asked = unknown.event.questions || [];
     check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
       && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum *' && Boolean(asked[0].question) && asked[0].type === 'date' && state.widgetApplications.length === 0);
@@ -1621,10 +1633,10 @@ async function main() {
       if (request.prompt.includes('{"agentPage"')) throw new Error('timeout');
       return fakeCodex(request);
     };
-    const broken = await run({ applyUrl: `${base}/widget`, codex: failing, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    const broken = await run({ applyUrl: `${base}/widget`, codex: failing, candidate: portalTestCandidate() });
     check('a Codex failure in the fallback hands the order to the owner', broken.event.type === 'submit_handoff'
       && broken.event.reason === 'portal_needs_candidate' && state.widgetApplications.length === 0);
-    const widget = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    const widget = await run({ applyUrl: `${base}/widget-job`, candidate: portalTestCandidate() });
     const agentSteps = widget.evidence.steps.filter((step) => step.agent);
     // Second review of #10707: a select picks only the exact option ("1990" is not "1990s").
     const listPage = await (await launchChromium({ headless: true, executablePath })).newPage();
@@ -1772,7 +1784,7 @@ async function main() {
     check('an unowned JOIN popup fails closed without clicking an unrelated list', unownedResult[0]?.ok === false && unrelatedClicks === 0);
     await unownedBrowser.close();
     // career-ops apply.md: company and role on the form match the posting, or stop.
-    const elsewhere = await run({ applyUrl: `${base}/widget-job`, job: { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' }, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    const elsewhere = await run({ applyUrl: `${base}/widget-job`, job: { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' }, candidate: portalTestCandidate() });
     check('a form for another job is never filled', elsewhere.event.type === 'submit_handoff' && elsewhere.event.reason === 'posting_mismatch' && state.widgetApplications.length === 1);
     // career-ops "verify each selection": a click that does not take is a failure, not an answer.
     const comboPage = await (await launchChromium({ headless: true, executablePath })).newPage();
@@ -1886,12 +1898,7 @@ async function main() {
       const applicationsBeforeRepair = state.applications.length;
       state.registrationValidationOnce = true;
       state.registrationNeedsAnswerAfterValidation = true;
-      const candidateWithPermit = {
-        identity: { email: ALIAS },
-        profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
-        answers: { valid_work_permit: 'Yes' },
-        portalQuestionsAnswered: [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: 'Yes' }],
-      };
+      const candidateWithPermit = portalTestCandidate({ permitAnswer: 'Yes' });
       const repairedRegistration = await run({ candidate: candidateWithPermit });
       check('a registration validation response replans a newly required known answer and retries automatically',
         repairedRegistration.event.type === 'submit_succeeded' && state.registrationRequests === registrationsBeforeRepair + 2
@@ -1914,7 +1921,7 @@ async function main() {
       const applicationsBeforeQuestion = state.applications.length;
       state.registrationValidationOnce = true;
       state.registrationNeedsAnswerAfterValidation = true;
-      const registrationQuestion = await run();
+      const registrationQuestion = await run({ candidate: portalTestCandidate({ permitAnswer: null }) });
       const permitQuestion = registrationQuestion.event.questions?.find((question) => /valid work permit/i.test(question.applicationQuestion || question.question || ''));
       check('a newly exposed registration fact becomes a candidate question and keeps the credential for resume',
         registrationQuestion.event.type === 'submit_needs_candidate' && Boolean(permitQuestion)
@@ -1922,12 +1929,10 @@ async function main() {
         && state.registrationRequests === registrationsBeforeQuestion + 1 && state.accounts.size === 0
         && state.applications.length === applicationsBeforeQuestion);
       if (permitQuestion) {
-        const candidate = {
-          identity: { email: ALIAS },
-          profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
-          answers: { [permitQuestion.id]: 'Yes' },
-          portalQuestionsAnswered: [{ id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes' }],
-        };
+        const candidate = portalTestCandidate();
+        candidate.answers.work_permit = 'Yes';
+        candidate.answers[permitQuestion.id] = 'Yes';
+        candidate.portalQuestionsAnswered = [{ id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes' }];
         const resumedApplication = await run({ candidate });
         check('an answered registration question resumes account creation and submits the application',
           resumedApplication.event.type === 'submit_succeeded' && state.registeredPermit === 'Yes'
