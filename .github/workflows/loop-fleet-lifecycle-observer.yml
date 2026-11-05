@@ -34,6 +34,7 @@ jobs:
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
             /data/loop-fleet/ledger/lifecycle-events*.jsonl
+            /data/loop-fleet/ledger/ledger-record-index*.jsonl
             /scripts/ci/overlay-durable-loop-fleet-ledger.sh
             /scripts/ci/observe-loop-fleet-lifecycle.mjs
             /scripts/ci/append-loop-fleet-lifecycle.mjs
