@@ -62,12 +62,21 @@ function fakePage(markups: string[], { boxRegisters = true, url = undefined as s
       },
       fill: async (value: string) => { element().value = value; },
       inputValue: async () => element().value,
+      selectOption: async ({ label, value }: { label?: string; value?: string }) => {
+        const select = element();
+        const option = [...select.options].find((item: any) => (label && item.label === label) || (value && item.value === value));
+        if (!option) throw new Error('option not found');
+        select.value = option.value;
+        select.dispatchEvent(new window.Event('change', { bubbles: true }));
+        return [option.value];
+      },
       setChecked: async (wanted: boolean) => {
         const box = element();
         if (boxRegisters && box.checked !== wanted) box.click();
       },
       isChecked: async () => element().checked,
       evaluate: async (run: any, argument: any) => inWindow(window, () => run(element(), argument)),
+      allInnerTexts: async () => [...window.document.querySelectorAll(selector)].map((item: any) => item.textContent || ''),
     };
     return handle;
   };
@@ -626,6 +635,38 @@ describe('the same grammar on the canonical consent path', () => {
 });
 
 describe('the registration, through the real handleAuth', () => {
+  it('refreshes a native choice catalogue before applying a known registration answer', async () => {
+    const markup = `<form id="registration" action="/career">
+      <label for="email">E-Mail-Adresse: *</label><input id="email" name="email" type="email" required>
+      <label for="email-repeat">E-Mail-Adresse wiederholen: *</label><input id="email-repeat" name="email-repeat" type="email" required>
+      <label for="p1">Passwort: *</label><input id="p1" name="p1" type="password" required>
+      <label for="p2">Passwort wiederholen: *</label><input id="p2" name="p2" type="password" required>
+      <label for="first">Vorname: *</label><input id="first" name="first" required>
+      <label for="last">Nachname: *</label><input id="last" name="last" required>
+      <label for="country">Land des Wohnorts:*</label><select id="country" name="country" required><option value="">Bitte wählen</option><option value="CH">Schweiz</option><option value="IT">Italien</option></select>
+    </form>`;
+    const fixture = fakePage([markup], { url: 'https://career74.sapsf.eu/career' });
+    const initialSnapshot = await extractFields(fixture.page, { listboxOptions: false });
+    const sparseSnapshot = {
+      ...initialSnapshot,
+      fields: initialSnapshot.fields.map((field: any) => field.domId === 'country' ? { ...field, options: [] } : field),
+    };
+    const context: any = { on: () => {}, off: () => {}, pages: () => [fixture.page], newPage: async () => fixture.page, close: async () => {}, waitForEvent: async () => null, addInitScript: async () => {} };
+    fixture.page.context = () => context;
+    const result = await (portal as any).handleAuth({
+      page: fixture.page,
+      snapshot: sparseSnapshot,
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test', firstName: 'Test', lastName: 'Candidate', address: { country: 'CH' } }, profile: {} },
+        candidateLocale: 'de', language: 'de', files: {}, codex: async () => ({ actions: [], missingRequired: [] }),
+        accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
+      },
+    });
+
+    expect(result).toMatchObject({ handoff: 'account', accountFailure: { code: 'no_create_button' } });
+    expect(fixture.element('country').value).toBe('CH');
+  });
+
   it.each([['a native disabled', NATIVE_CTA], ['a CSS-disabled', STYLED_CTA]])('accepts the notice before %s CTA and registers once', async (_name, cta) => {
     const fixture = fakePage([ACCOUNT_FORM(NOTICE_LINK, cta)]);
     const seen = wireAccount(fixture);
