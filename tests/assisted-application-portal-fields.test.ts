@@ -348,14 +348,17 @@ describe('portal field extraction', () => {
 
   it('recognizes Manage consent when the cookie-manager marker is on body', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
-    const { window } = new JSDOM('<!doctype html><html><body id="cookie-manager"><button data-aa-id="f1">Manage consent</button><p>Manage your cookies</p></body></html>', { url });
+    const { window } = new JSDOM('<!doctype html><html><body><form id="application"><input name="email"></form><button data-aa-id="f1">Manage consent</button><p>Manage your cookies</p></body></html>', { url });
     vi.stubGlobal('document', window.document);
     const snapshot = {
       url,
-      fields: [],
-      buttons: [{ id: 'f1', text: 'Manage consent', context: 'Manage your cookies', cookieSurface: 'banner', disabled: false, frame: 0 }],
+      fields: [{ id: 'email', kind: 'text', label: 'Email', formId: 'application', frame: 0 }],
+      buttons: [{ id: 'f1', text: 'Manage consent', context: 'Manage your cookies', formId: '', disabled: false, frame: 0 }],
       dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Manage your cookies',
     };
+    // The manager marker can appear after the extraction; the live check must
+    // use it even though this snapshot has no cookieSurface annotation.
+    window.document.body.id = 'cookie-manager';
     const preferenceSnapshot = {
       ...snapshot,
       buttons: [{ id: 'reject', text: 'Reject all cookies', context: 'Manage your cookies', cookieSurface: 'banner', disabled: false, frame: 0 }],

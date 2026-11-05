@@ -1625,7 +1625,9 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   // application form. It is never a cookie-manager entry point there.
   const manageConsent = COOKIE_MANAGE_CONSENT_RE.test(label);
   if (manageConsent && (button.formId || button.roleFormId)) return false;
-  if (manageConsent && !await hasLiveCookieManagerSurface(page, button)) return false;
+  // The live manager check is affirmative proof for this label. Do not fall
+  // through to the generic Accept control check, which rejects "Manage consent".
+  if (manageConsent) return await hasLiveCookieManagerSurface(page, button);
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
