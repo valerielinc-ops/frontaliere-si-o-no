@@ -42,9 +42,11 @@ function sameLanguageLocalization(prompt: unknown) {
   }) };
 }
 
-function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, privacyRevealsKnownAnswer = false, uploadRevealsUnknown = false, workdayUploadUnconfirmed = false, passwordRevealsUnknown = false, asyncRevealsUnknown = false, asyncDescriptionChanges = false, asyncValueChanges = false } = {}) {
+function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, privacyRevealsKnownAnswer = false, uploadRevealsUnknown = false, workdayUploadUnconfirmed = false, passwordRevealsUnknown = false, asyncRevealsUnknown = false, asyncDescriptionChanges = false, asyncValueChanges = false, successFactorsPicklist = false } = {}) {
   const privacyReveals = privacyRevealsUnknown || privacyRevealsRequiredFile || privacyRevealsKnownAnswer;
-  const url = workdayUploadUnconfirmed ? 'https://acme.wd1.myworkdayjobs.com/apply' : 'https://careers.example.test/apply';
+  const url = workdayUploadUnconfirmed
+    ? 'https://acme.wd1.myworkdayjobs.com/apply'
+    : successFactorsPicklist ? 'https://career5.successfactors.eu/portalcareer' : 'https://careers.example.test/apply';
   const uploadedReceipts = new Set<string>();
   let uploadQuestionRevealed = false;
   const credentials = registration
@@ -60,6 +62,9 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
         ${uploadRevealsUnknown ? '<label for="resume">Upload your CV *</label><input id="resume" type="file" name="resume" required>' : ''}
         <label for="country">Country of residence *</label>
         <select id="country" name="country" required><option value="">Choose one</option><option value="IT">Italy</option><option value="CH">Switzerland</option></select>
+        ${successFactorsPicklist ? `<label for="referral">How did you hear about this position? *</label>
+        <input id="referral" name="referral" type="text" role="combobox" aria-owns="referral-list" aria-required="true" placeholder="Please select">
+        <div id="referral-list" role="listbox"><div role="option">Company website</div><div role="option">Recruiter</div></div>` : ''}
         <label for="motivation">Why are you interested in this role? *</label><textarea id="motivation" name="motivation" required></textarea>
         ${privacyReveals ? '<a id="privacy" href="#">Read and accept the privacy policy</a>' : ''}
         ${registration ? `<button id="create" type="button">Create account</button>${privacyReveals ? '<button id="submit" type="button">Submit application</button>' : ''}` : '<button id="next" type="button">Next</button>'}
@@ -121,6 +126,11 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
         }
       },
       evaluate: async (run: any, argument: any) => inWindow(window, () => run(target(), argument)),
+      ...(successFactorsPicklist ? {
+        locator: (nested: string) => locator(`${selector} ${nested}`),
+        press: async () => {},
+        waitFor: async () => {},
+      } : {}),
       allInnerTexts: async () => [...window.document.querySelectorAll(selector)].map((item: any) => item.textContent || ''),
     };
     return handle;
@@ -325,6 +335,30 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 }
 
 describe('assisted portal question batching', () => {
+  it('asks for a current permit in a text field while keeping native picklists fail-closed', () => {
+    const candidate = { identity: {}, profile: {}, answers: {} };
+    const textField = {
+      id: 'permit-text', kind: 'text', inputType: 'text',
+      label: 'Which work authorization do you hold? *', required: true, value: '',
+    };
+    const textRequirement = portalRequirementsFromMissingRequired([textField], [], {
+      candidate, candidateLocale: 'en',
+    });
+
+    expect(textRequirement.unreadableFields).toBeUndefined();
+    expect(textRequirement.questions).toHaveLength(1);
+    expect(textRequirement.questions[0]).toMatchObject({
+      applicationQuestion: textField.label,
+      type: 'choice',
+      options: expect.arrayContaining([expect.any(String)]),
+    });
+
+    const nativeRequirement = portalRequirementsFromMissingRequired([{
+      ...textField, id: 'permit-select', kind: 'select', inputType: 'select',
+    }], [], { candidate, candidateLocale: 'en' });
+    expect(nativeRequirement.unreadableFields).toEqual(['permit-select']);
+  });
+
   it('does not promote a prefilled current permit into agent portal answers', async () => {
     const fixture = fakePage({ conditional: false });
     const { page, window } = fixture;
@@ -375,7 +409,7 @@ describe('assisted portal question batching', () => {
   it('replans after privacy acceptance and does not create an account when it reveals an unknown required answer', async () => {
     const fixture = fakePage({ registration: true, privacyRevealsUnknown: true });
     const { page, window, ctaClicks } = fixture;
-    const candidate = { identity: { email: 'candidate@example.test' }, profile: {} };
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
@@ -424,7 +458,7 @@ describe('assisted portal question batching', () => {
   it('batches already visible hard questions with hard questions revealed by privacy acceptance', async () => {
     const fixture = fakePage({ registration: true, privacyRevealsUnknown: true });
     const { page, window } = fixture;
-    const candidate = { identity: { email: 'candidate@example.test' }, profile: {} };
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
     const form = window.document.querySelector('form')!;
     form.insertAdjacentHTML('beforeend', '<label for="initial-requirement">When could you start?</label><input id="initial-requirement" name="initial-requirement" required>');
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
@@ -567,6 +601,7 @@ describe('assisted portal question batching', () => {
       'Which work authorization do you hold? *',
       'When could you start? *',
     ]);
+    expect(result.questions[1].question).toBe('Are you a Swiss citizen, or do you hold a Swiss permit valid today?');
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
     expect(accountEvents).toEqual([]);
   });
@@ -594,7 +629,7 @@ describe('assisted portal question batching', () => {
       page,
       snapshot: await extractFields(page, { listboxOptions: false }),
       ctx: {
-        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
         candidateLocale: 'en',
         language: 'en',
         files: { cv: '/tmp/cv.pdf' },
@@ -946,6 +981,51 @@ describe('assisted portal question batching', () => {
     ]);
     expect(plannerCalls.some((fields) => fields.includes('availability'))).toBe(true);
     expect(window.document.getElementById('next')?.getAttribute('data-clicked')).not.toBe('true');
+  });
+
+  it('keeps lazy SuccessFactors picklist options readable after navigation-only polling', async () => {
+    const fixture = fakePage({ conditional: false, successFactorsPicklist: true });
+    const { page, window, extractionTrace } = fixture;
+    const context: any = {
+      on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
+      close: async () => {}, waitForEvent: async () => null,
+    };
+    page.context = () => context;
+    const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
+    const codex = async ({ prompt }: any) => {
+      const text = String(prompt);
+      if (text.includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
+      if (text.includes('Some required fields have no readable label')) {
+        return {
+          status: 'needs_candidate', actions: [], questions: [{
+            question: 'How did you hear about this position?', applicationQuestion: 'How did you hear about this position? *',
+            why: '', type: 'choice', options: [], applicationOptions: [], optionMap: [], validation: {},
+          }],
+        };
+      }
+      return {
+        actions: [],
+        missingRequired: [{ fieldId: fieldId('referral'), question: 'How did you hear about this position?', why: '', type: 'choice', options: [] }],
+      };
+    };
+
+    const result = await submitViaPortal({
+      applyUrl: page.url(), job: { title: 'Synthetic role', company: 'Example AG' },
+      channelType: 'successfactors', language: 'en', candidateLocale: 'en', candidate,
+      files: {}, skipPostingCheck: true, maxSteps: 3, codex, launch: async () => browser,
+      accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
+    });
+
+    expect(result.event.type, portalRunSummary(result, [], extractionTrace)).toBe('submit_needs_candidate');
+    expect(result.event.questions).toEqual(expect.arrayContaining([
+      expect.objectContaining({ applicationQuestion: 'How did you hear about this position? *', applicationOptions: ['Company website', 'Recruiter'] }),
+    ]));
+    expect(result.event.questions).not.toEqual(expect.arrayContaining([
+      expect.objectContaining({ applicationQuestion: 'Country of residence *' }),
+    ]));
+    expect(result.event.reason).not.toBe('question_label_unreadable');
   });
 
   it('resets the bounded redraw budget after a new SPA step that reuses the same URL', async () => {
