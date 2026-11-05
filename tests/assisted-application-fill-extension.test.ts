@@ -1793,6 +1793,20 @@ describe('fill extension: owner-approved application defaults', () => {
 
     expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe(null);
   });
+
+  it('does not treat a refusal to delete as the minimum when the question names the current application', () => {
+    const deletion = 'I do not consent to my data being deleted once this application process is complete.';
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data for this application?</label>
+      <select id="retention">
+        <option value="refuse-delete">${deletion}</option>
+        <option value="6_months">Retain my data for 6 months</option>
+      </select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toBe(null);
+  });
 });
 
 

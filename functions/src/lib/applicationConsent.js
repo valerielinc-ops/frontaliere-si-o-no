@@ -140,7 +140,7 @@ export function minimumDataRetentionOption(options, question = '') {
 
     const answerIsNo = /^(?:no|non|nein|nein danke|non desidero|non acconsento|non consento)$/.test(value)
       || /\b(?:do not consent|non acconsento|non consento|nicht einverstanden|ne suis pas d accord)\b/.test(value);
-    if (answerIsNo && (currentApplication || isOptionalPurpose(question))) return 0;
+    if (answerIsNo && !negatesDeletion && (currentApplication || isOptionalPurpose(question))) return 0;
     return null;
   };
 
