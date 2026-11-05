@@ -1462,7 +1462,7 @@ function permitQuestionText(label) {
 
 const PERMIT_HISTORICAL_MARKER_BEFORE_ACTION_RE = /\b(?:ever|previously|formerly|in the past|used to)\b[^?]{0,90}\b(?:hold|held|have|had|possess(?:ed)?|own(?:ed)?|receive(?:d)?|obtain(?:ed)?|acquir(?:e|ed)|grant(?:ed)?|issu(?:e|ed))\b/i;
 const PERMIT_ACTION_BEFORE_HISTORICAL_MARKER_RE = /\b(?:hold|held|have|had|possess(?:ed)?|own(?:ed)?|receive(?:d)?|obtain(?:ed)?|acquir(?:e|ed)|grant(?:ed)?|issu(?:e|ed))\b[^?]{0,90}\b(?:ever|previously|formerly|in the past|before)\b/i;
-const PERMIT_PROSPECTIVE_START_RE = /\bbefore\s+(?:starting|beginning|commencing)\s+(?:work|employment)\b/gi;
+const PERMIT_PROSPECTIVE_START_RE = /\bbefore\s+(?:(?:(?:you|the candidate)\s+)?(?:start(?:ing)?|begin(?:ning)?|commenc(?:e|ing))\b)/gi;
 
 export function isPermitHistoricalQuestion(label) {
   const text = permitQuestionText(label);

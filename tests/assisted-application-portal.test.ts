@@ -3166,6 +3166,7 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
       'Do you have a work permit before starting work?',
       'Work authorization — Do you currently have a permit?',
       'Work authorization — Currently, do you hold a valid work permit?',
+      'Do you have a work permit before you start work?',
       'Are you legally allowed to work in Switzerland?',
       'Are you legally able to work in Switzerland?',
       'Are you legally authorized to work in Switzerland?',
