@@ -1,13 +1,245 @@
-import { describe, expect, it } from 'vitest';
-import { clickSubmitButton, guardAgentStep, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
+import { describe, expect, it, vi } from 'vitest';
+import { clickSubmitButton, guardAgentStep, isPreDispatchLocatorClickFailure, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
-import { anonymizePath, hasApplicationSurface, pageControls, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { anonymizePath, clickButton, hasApplicationSurface, pageControls, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateValues, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
 // Owner decision 2026-10-01: the runner corrects itself the way JOIN's «Conferma e applica» was fixed (#10725).
 describe('portal runner self-correction', () => {
+  it('recovers an external form-associated control through its unique exact role and owner', async () => {
+    const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const staleClick = vi.fn().mockRejectedValue(locatorTimeout);
+    const exactClick = vi.fn().mockResolvedValue(undefined);
+    const externalForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
+    const ownerDialog = { getAttribute: (name: string) => name === 'data-aa-dialog-id' ? 'd1' : '' };
+    const externalButton = {
+      form: externalForm,
+      closest: (selector: string) => selector.includes('[aria-modal') ? ownerDialog : null,
+    };
+    const exactButton = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: exactClick,
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read(externalButton)),
+    };
+    const candidates = { count: vi.fn().mockResolvedValue(1), nth: vi.fn().mockReturnValue(exactButton) };
+    const noLinks = { count: vi.fn().mockResolvedValue(0), nth: vi.fn() };
+    const frame = {
+      url: () => 'https://portal.example/apply',
+      evaluate: vi.fn(async (read: unknown) => read === extractFieldsInPage ? ({
+        url: 'https://portal.example/apply',
+        fields: [],
+        buttons: [{ id: 'f5', text: 'Weiter', formId: 'f2', dialog: true, dialogId: 'd1', disabled: false }],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: false,
+        errors: [],
+        text: '',
+      }) : null),
+      locator: vi.fn(() => ({ first: () => ({ click: staleClick }) })),
+      getByRole: vi.fn((role: string) => role === 'button' ? candidates : noLinks),
+    };
+    const page = {
+      url: () => 'https://portal.example/apply',
+      frames: () => [frame],
+      mainFrame: () => frame,
+    };
+
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', formId: 'f2', dialog: true, dialogId: 'd1', frame: 0 }))
+      .resolves.toBe('role');
+    expect(staleClick).toHaveBeenCalledTimes(2);
+    expect(frame.getByRole).toHaveBeenCalledWith('button', { name: 'Weiter', exact: true });
+    expect(exactButton.evaluate).toHaveBeenCalledOnce();
+    expect(exactClick).toHaveBeenCalledWith({ timeout: 6000 });
+  });
+
+  it('recovers a scoped JavaScript action link when its snapshot omits the non-navigation href', async () => {
+    const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const staleClick = vi.fn().mockRejectedValue(locatorTimeout);
+    const exactClick = vi.fn().mockResolvedValue(undefined);
+    const form = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
+    const dialog = { getAttribute: (name: string) => name === 'data-aa-dialog-id' ? 'd1' : '' };
+    const liveLink = {
+      tagName: 'A',
+      href: 'javascript:void(0)',
+      form: null,
+      closest: (selector: string) => selector === 'form' ? form : dialog,
+    };
+    const candidate = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read(liveLink)),
+      click: exactClick,
+    };
+    const candidates = { count: vi.fn().mockResolvedValue(1), nth: vi.fn().mockReturnValue(candidate) };
+    const noButtons = { count: vi.fn().mockResolvedValue(0), nth: vi.fn() };
+    const frame = {
+      url: () => 'https://portal.example/apply',
+      evaluate: vi.fn(async (read: unknown) => read === extractFieldsInPage ? ({
+        url: 'https://portal.example/apply', fields: [],
+        buttons: [{ id: 'f5', text: 'Weiter', href: '', formId: 'f2', dialog: true, dialogId: 'd1', disabled: false }],
+        links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '',
+      }) : null),
+      locator: vi.fn(() => ({ first: () => ({ click: staleClick }) })),
+      getByRole: vi.fn((role: string) => role === 'link' ? candidates : noButtons),
+    };
+    const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame };
+
+    await expect(clickButton(page as any, {
+      id: 'f5', text: 'Weiter', href: '', formId: 'f2', dialog: true, dialogId: 'd1', frame: 0,
+    })).resolves.toBe('role');
+    expect(staleClick).toHaveBeenCalledTimes(2);
+    expect(candidate.evaluate).toHaveBeenCalledOnce();
+    expect(exactClick).toHaveBeenCalledWith({ timeout: 6000 });
+  });
+
+  it('retries only locator timeouts without evidence that a click action started', () => {
+    expect(isPreDispatchLocatorClickFailure(new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]'))).toBe(true);
+    expect(isPreDispatchLocatorClickFailure(new Error('locator.click: locator resolved to 0 elements'))).toBe(true);
+    expect(isPreDispatchLocatorClickFailure(new Error([
+      'locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]',
+      'Call log:',
+      '- locator resolved to <button>',
+      '- performing click action',
+      '- click action done',
+      '- waiting for scheduled navigations to finish',
+    ].join('\n')))).toBe(false);
+  });
+
+  it('does not search the whole frame when a refreshed control has no form or dialog scope', async () => {
+    const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const staleClick = vi.fn().mockRejectedValue(locatorTimeout);
+    const goto = vi.fn();
+    const frame = {
+      url: () => 'https://portal.example/apply',
+      evaluate: vi.fn(async (read: unknown) => read === extractFieldsInPage ? ({
+        url: 'https://portal.example/apply', fields: [],
+        buttons: [{ id: 'f5', text: 'Weiter', href: '/next', disabled: false }],
+        links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '',
+      }) : null),
+      locator: vi.fn(() => ({ first: () => ({ click: staleClick }) })),
+      getByRole: vi.fn(),
+    };
+    const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame, goto };
+
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 })).rejects.toBe(locatorTimeout);
+    expect(frame.getByRole).not.toHaveBeenCalled();
+    expect(staleClick).toHaveBeenCalledTimes(2);
+    expect(goto).not.toHaveBeenCalled();
+  });
+
+  it('does not navigate to an href when the refreshed control no longer matches', async () => {
+    const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const staleClick = vi.fn().mockRejectedValue(locatorTimeout);
+    const goto = vi.fn();
+    const frame = {
+      url: () => 'https://portal.example/apply',
+      evaluate: vi.fn(async (read: unknown) => read === extractFieldsInPage ? ({
+        url: 'https://portal.example/apply', fields: [],
+        buttons: [{ id: 'f6', text: 'Fortfahren', href: '/next', disabled: false }],
+        links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '',
+      }) : null),
+      locator: vi.fn(() => ({ first: () => ({ click: staleClick }) })),
+      getByRole: vi.fn(),
+    };
+    const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame, goto };
+
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', href: '/next', frame: 0 })).rejects.toBe(locatorTimeout);
+    expect(staleClick).toHaveBeenCalledOnce();
+    expect(frame.getByRole).not.toHaveBeenCalled();
+    expect(goto).not.toHaveBeenCalled();
+  });
+
+  it('does not role-retry a duplicate portal control or a click with an ambiguous dispatch outcome', async () => {
+    const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const staleClick = vi.fn().mockRejectedValue(locatorTimeout);
+    const ownerElement = {
+      form: { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' },
+      closest: () => null,
+    };
+    const first = { isVisible: vi.fn().mockResolvedValue(true), isEnabled: vi.fn().mockResolvedValue(true), click: vi.fn(), evaluate: vi.fn(async (read: (element: unknown) => unknown) => read(ownerElement)) };
+    const second = { isVisible: vi.fn().mockResolvedValue(true), isEnabled: vi.fn().mockResolvedValue(true), click: vi.fn(), evaluate: vi.fn(async (read: (element: unknown) => unknown) => read(ownerElement)) };
+    const candidates = { count: vi.fn().mockResolvedValue(2), nth: vi.fn((index: number) => index === 0 ? first : second) };
+    const noLinks = { count: vi.fn().mockResolvedValue(0), nth: vi.fn() };
+    const frame = {
+      url: () => 'https://portal.example/apply',
+      evaluate: vi.fn(async (read: unknown) => read === extractFieldsInPage ? ({
+        url: 'https://portal.example/apply', fields: [],
+        buttons: [{ id: 'f5', text: 'Weiter', formId: 'f2', disabled: false }],
+        links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '',
+      }) : null),
+      locator: vi.fn(() => ({ first: () => ({ click: staleClick }) })),
+      getByRole: vi.fn((role: string) => role === 'button' ? candidates : noLinks),
+    };
+    const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame };
+    await expect(clickButton(page as any, { id: 'f5', text: 'Weiter', formId: 'f2', frame: 0 })).rejects.toBe(locatorTimeout);
+    expect(first.click).not.toHaveBeenCalled();
+    expect(second.click).not.toHaveBeenCalled();
+
+    const ambiguousClick = vi.fn().mockRejectedValue(new Error([
+      'locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]',
+      'Call log:',
+      '- locator resolved to <button>',
+      '- performing click action',
+      '- click action done',
+      '- waiting for scheduled navigations to finish',
+    ].join('\n')));
+    const ambiguousFrame = {
+      ...frame,
+      evaluate: vi.fn(),
+      locator: vi.fn(() => ({ first: () => ({ click: ambiguousClick }) })),
+      getByRole: vi.fn(),
+    };
+    const ambiguousPage = { ...page, frames: () => [ambiguousFrame], mainFrame: () => ambiguousFrame };
+    await expect(clickButton(ambiguousPage as any, { id: 'f5', text: 'Weiter', frame: 0 }))
+      .rejects.toThrow('waiting for scheduled navigations');
+    expect(ambiguousFrame.evaluate).not.toHaveBeenCalled();
+  });
+
+  it('does not click a scoped link if its live href changed after the fresh snapshot', async () => {
+    const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const staleClick = vi.fn().mockRejectedValue(locatorTimeout);
+    const exactClick = vi.fn().mockResolvedValue(undefined);
+    const form = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
+    const dialog = { getAttribute: (name: string) => name === 'data-aa-dialog-id' ? 'd1' : '' };
+    const liveLink = {
+      tagName: 'A',
+      href: 'https://portal.example/other',
+      form: null,
+      closest: (selector: string) => selector === 'form' ? form : dialog,
+    };
+    const candidate = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read(liveLink)),
+      click: exactClick,
+    };
+    const candidates = { count: vi.fn().mockResolvedValue(1), nth: vi.fn().mockReturnValue(candidate) };
+    const noLinks = { count: vi.fn().mockResolvedValue(0), nth: vi.fn() };
+    const frame = {
+      url: () => 'https://portal.example/apply',
+      evaluate: vi.fn(async (read: unknown) => read === extractFieldsInPage ? ({
+        url: 'https://portal.example/apply', fields: [],
+        buttons: [{ id: 'f5', text: 'Weiter', href: 'https://portal.example/next', formId: 'f2', dialog: true, dialogId: 'd1', disabled: false }],
+        links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '',
+      }) : null),
+      locator: vi.fn(() => ({ first: () => ({ click: staleClick }) })),
+      getByRole: vi.fn((role: string) => role === 'button' ? candidates : noLinks),
+    };
+    const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame };
+
+    await expect(clickButton(page as any, {
+      id: 'f5', text: 'Weiter', href: 'https://portal.example/next', formId: 'f2', dialog: true, dialogId: 'd1', frame: 0,
+    })).rejects.toBe(locatorTimeout);
+    expect(staleClick).toHaveBeenCalledTimes(2);
+    expect(candidate.evaluate).toHaveBeenCalledOnce();
+    expect(exactClick).not.toHaveBeenCalled();
+  });
+
   it('level 1: the agent may name the last page’s send button; the guard keeps only a real ref', () => {
     expect(Object.keys(AGENT_SCHEMA.properties)).toContain('submitRef');
     const turn = (submitRef: string) => ({ status: 'done', reason: '', advanceRef: '', submitRef, actions: [], questions: [] });
@@ -17,16 +249,21 @@ describe('portal runner self-correction', () => {
 
   it('level 1: re-resolves an agent-named send button after SuccessFactors replaces its ref', async () => {
     const stale = { click: vi.fn().mockRejectedValue(new Error('locator.click: Timeout while waiting for locator')) };
+    const form = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
+    const dialog = { getAttribute: () => '' };
+    const liveButton = { form, closest: () => dialog };
     const fresh = {
       isVisible: vi.fn().mockResolvedValue(true),
       isEnabled: vi.fn().mockResolvedValue(true),
       click: vi.fn().mockResolvedValue(undefined),
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read(liveButton)),
     };
     const candidates = { count: vi.fn().mockResolvedValue(1), nth: vi.fn().mockReturnValue(fresh) };
-    const page = { getByRole: vi.fn().mockReturnValue(candidates) };
+    const frame = { getByRole: vi.fn().mockReturnValue(candidates) };
+    const page = { mainFrame: () => frame };
 
-    await expect(clickSubmitButton(page as any, { locator: stale, name: 'Postuler' })).resolves.toBe('role');
-    expect(page.getByRole).toHaveBeenCalledWith('button', { name: 'Postuler', exact: true });
+    await expect(clickSubmitButton(page as any, { locator: stale, name: 'Postuler', frame, formId: 'f2' })).resolves.toBe('role');
+    expect(frame.getByRole).toHaveBeenCalledWith('button', { name: 'Postuler', exact: true });
     expect(fresh.click).toHaveBeenCalledWith({ timeout: 6000 });
   });
 
@@ -35,7 +272,14 @@ describe('portal runner self-correction', () => {
     const dispatchedThenRejected = {
       click: vi.fn(async () => {
         dispatches += 1;
-        throw new Error('locator.click: Timeout while waiting for navigation');
+        throw new Error([
+          'locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]',
+          'Call log:',
+          '- locator resolved to <button>',
+          '- performing click action',
+          '- click action done',
+          '- waiting for scheduled navigations to finish',
+        ].join('\n'));
       }),
     };
     const page = { getByRole: vi.fn() };
@@ -45,27 +289,33 @@ describe('portal runner self-correction', () => {
     expect(page.getByRole).not.toHaveBeenCalled();
   });
 
-  it('level 1: stops after the first ambiguous fallback click', async () => {
-    let dispatches = 0;
-    const first = {
+  it('level 1: leaves a same-name control in another form untouched and returns the original miss', async () => {
+    const originalMiss = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const ownerMiss = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f8"]');
+    const nonOwnerForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f1' : '' };
+    const ownerForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
+    const noDialog = { getAttribute: () => '' };
+    const nonOwner = {
       isVisible: vi.fn().mockResolvedValue(true),
       isEnabled: vi.fn().mockResolvedValue(true),
-      click: vi.fn(async () => {
-        dispatches += 1;
-        throw new Error('locator.click: Timeout while waiting for navigation');
-      }),
+      click: vi.fn(),
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read({ form: nonOwnerForm, closest: () => noDialog })),
     };
-    const second = {
+    const owner = {
       isVisible: vi.fn().mockResolvedValue(true),
       isEnabled: vi.fn().mockResolvedValue(true),
-      click: vi.fn().mockResolvedValue(undefined),
+      click: vi.fn().mockRejectedValue(ownerMiss),
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read({ form: ownerForm, closest: () => noDialog })),
     };
-    const candidates = { count: vi.fn().mockResolvedValue(2), nth: vi.fn((index: number) => index === 0 ? first : second) };
-    const page = { getByRole: vi.fn().mockReturnValue(candidates) };
+    const candidates = { count: vi.fn().mockResolvedValue(2), nth: vi.fn((index: number) => index === 0 ? nonOwner : owner) };
+    const frame = { getByRole: vi.fn().mockReturnValue(candidates) };
+    const page = { mainFrame: () => frame };
 
-    await expect(clickSubmitButton(page as any, { locator: { click: vi.fn().mockRejectedValue(new Error('waiting for locator')) }, name: 'Postuler' })).resolves.toBe('outcome');
-    expect(dispatches).toBe(1);
-    expect(second.click).not.toHaveBeenCalled();
+    await expect(clickSubmitButton(page as any, {
+      locator: { click: vi.fn().mockRejectedValue(originalMiss) }, name: 'Postuler', frame, formId: 'f2',
+    })).rejects.toBe(originalMiss);
+    expect(nonOwner.click).not.toHaveBeenCalled();
+    expect(owner.click).toHaveBeenCalledOnce();
   });
 
   it('level 2: remembers a portal’s buttons with their page after a confirmed submission and recognises them next time', async () => {

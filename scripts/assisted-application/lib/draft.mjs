@@ -642,7 +642,7 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log });
     // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
     // `photo`: this PDF carries it (not what was given: the standard-font writer prints none).
-    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}), ...(repaired ? { repaired: true } : {}) }, text };
+    return { record: { status: 'ready', pdfKey, size: pdf.byteLength ?? pdf.length, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}), ...(repaired ? { repaired: true } : {}) }, text };
   } catch (error) {
     log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
     return { record: { status: 'failed', language }, text: '' };

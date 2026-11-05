@@ -55,6 +55,7 @@ export async function checkAssistedApplicationCv({ orderId, key, db = getFiresto
   const checkedAt = new Date();
   let verdict;
   let detectedType = null;
+  let size = 0;
   if (!isAssistedApplicationCvKey(orderId, key)) {
     verdict = 'invalid_key';
   } else {
@@ -63,12 +64,17 @@ export async function checkAssistedApplicationCv({ orderId, key, db = getFiresto
       const [head] = await file.download({ start: 0, end: 7 });
       detectedType = detectCvFileType(head);
       verdict = detectedType ? 'ok' : 'type_mismatch';
+      if (detectedType && typeof file.getMetadata === 'function') {
+        const [metadata] = await file.getMetadata();
+        const actualSize = Number(metadata?.size);
+        size = Number.isSafeInteger(actualSize) && actualSize > 0 ? actualSize : 0;
+      }
     } catch (error) {
       if (Number(error?.code) !== 404) throw error;
       verdict = 'missing';
     }
   }
-  const cvFileCheck = { key: String(key || ''), verdict, detectedType, checkedAt };
+  const cvFileCheck = { key: String(key || ''), verdict, detectedType, size, checkedAt };
   await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId))
     .set({ cvFileCheck }, { merge: true });
   return cvFileCheck;

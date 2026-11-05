@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109728",
+      "sourceKey": "TG",
+      "sourceRecordId": "109728",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "21075",
+      "normalizedPlate": "TG21075",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 630,
+      "bidCount": 4,
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-11-04T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109728",
+      "sourceFetchedAt": "2026-11-04T14:33:42.278Z",
+      "lastVerifiedAt": "2026-11-04T14:33:42.278Z",
+      "firstSeenAt": "2026-10-21T11:49:02.461Z",
+      "lastSeenAt": "2026-11-04T14:33:42.278Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "2a24c4956072"
+    }
+  ]
+}

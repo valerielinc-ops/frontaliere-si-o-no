@@ -9,6 +9,8 @@ const frWhatsnew: Record<string, string> = {
   'whatsNew.v31002.title': 'Votre prochaine étape est plus facile à repérer',
   'whatsNew.v31002.concierge.title': 'Demandes et candidatures bien organisées',
   'whatsNew.v31002.concierge.desc': 'Les demandes d’information apparaissent en premier et les statuts des candidatures sont regroupés dans des sections dépliables.',
+  'whatsNew.v31002.postal.title': 'Documents et candidatures papier sur votre page',
+  'whatsNew.v31002.postal.desc': 'Répondez aux demandes de documents sur la page sécurisée. Pour les offres papier, les documents, le destinataire et les instructions d’envoi s’y trouvent.',
   "whatsNew.v39917.title": "Un point de départ depuis les réseaux sociaux",
   "whatsNew.v39917.socialHub.title": "Les ressources essentielles sur une page",
   "whatsNew.v39917.socialHub.desc": "La page réunit les offres, les outils de salaire, les informations sur le trafic, les guides et le récapitulatif hebdomadaire.",

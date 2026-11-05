@@ -2,8 +2,7 @@
 import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import { DOCUMENT_CHECK_VERSION } from './lib/assistedApplicationDocumentCheckVersion.js';
 import { hasAssistedApplicationConsent } from './assistedApplicationConstants.js';
-import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
-import { CLIENT_CHECK_VERDICTS, MAX_DOCUMENT_BYTES, documentFileId, requiredDocumentsOf, sanitizeClientCheck } from './assistedApplicationExtraDocuments.js';
+import { CLIENT_CHECK_VERDICTS, MAX_DOCUMENT_BYTES, documentFileId, documentFilesOf, requiredDocumentsFor, sanitizeClientCheck } from './assistedApplicationExtraDocuments.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 
 export class DocumentRecheckError extends Error {
@@ -27,10 +26,10 @@ function sourceOf({ order, flow, draft }, claims, documentId, fileId, nowMs) {
   retained(order, claims, nowMs);
   if (!flow || Number(flow.round || 1) !== claims.round || Number(draft?.round) !== claims.round) fail('stale_link');
   if ((claims.consentBound && flow.state !== 'submitted') || ['withdrawn', 'refunded', 'cancelled'].includes(flow.state)) fail('not_allowed', 403);
-  const document = requiredDocumentsOf(draft).find(item => item.id === documentId);
-  const files = flow.documents?.[documentId]?.files;
-  const file = document && Array.isArray(files) && files.find(item => documentFileId(item.key) === fileId);
-  if (!file || !isAssistedApplicationCvKey(claims.orderId, file.key)) fail('invalid_file', 404);
+  const document = requiredDocumentsFor(draft, flow).find(item => item.id === documentId);
+  const files = document ? documentFilesOf(flow, claims.orderId, documentId) : [];
+  const file = files.find(item => documentFileId(item.key) === fileId);
+  if (!file) fail('invalid_file', 404);
   const contextSha256 = digest(JSON.stringify({ document, key: file.key, size: file.size, uploadedAt: file.uploadedAt, detectedType: file.detectedType }));
   return { document, file, files, contextSha256 };
 }

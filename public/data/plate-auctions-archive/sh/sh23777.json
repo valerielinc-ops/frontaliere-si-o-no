@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sh-69738",
+      "sourceKey": "SH",
+      "sourceRecordId": "69738",
+      "canton": "Sciaffusa",
+      "platePrefix": "SH",
+      "plateNumber": "23777",
+      "normalizedPlate": "SH23777",
+      "listingType": "auction",
+      "vehicleType": "trailer",
+      "auctionStatus": "closed",
+      "currentBidChf": 100,
+      "bidCount": 0,
+      "endsAt": "2026-11-04T21:00:00.000Z",
+      "closedAt": "2026-11-04T21:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/de/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69738",
+      "sourceFetchedAt": "2026-11-04T14:33:11.884Z",
+      "lastVerifiedAt": "2026-11-04T14:33:11.884Z",
+      "firstSeenAt": "2026-10-29T05:47:27.965Z",
+      "lastSeenAt": "2026-11-04T14:33:11.884Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "0fe737a85724"
+    }
+  ]
+}

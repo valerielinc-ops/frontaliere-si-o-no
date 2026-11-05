@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "tg-109814",
+      "id": "tg-109884",
       "sourceKey": "TG",
-      "sourceRecordId": "109814",
+      "sourceRecordId": "109884",
       "canton": "Turgovia",
       "platePrefix": "TG",
       "plateNumber": "21972",
@@ -14,16 +14,16 @@
       "auctionStatus": "closed",
       "currentBidChf": 600,
       "bidCount": 1,
-      "endsAt": "2026-10-21T17:00:00.000Z",
-      "closedAt": "2026-10-21T17:00:00.000Z",
-      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
-      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109814",
-      "sourceFetchedAt": "2026-10-21T11:49:02.461Z",
-      "lastVerifiedAt": "2026-10-21T11:49:02.461Z",
-      "firstSeenAt": "2026-10-11T22:02:27.312Z",
-      "lastSeenAt": "2026-10-21T11:49:02.461Z",
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-11-04T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109884",
+      "sourceFetchedAt": "2026-11-04T06:17:18.136Z",
+      "lastVerifiedAt": "2026-11-04T06:17:18.136Z",
+      "firstSeenAt": "2026-10-22T17:12:02.218Z",
+      "lastSeenAt": "2026-11-04T06:17:18.136Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "064773dc03b6"
+      "rawSnapshotHash": "fdd8193e9eae"
     }
   ]
 }

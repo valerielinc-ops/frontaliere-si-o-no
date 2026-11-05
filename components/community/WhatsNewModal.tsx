@@ -41,6 +41,12 @@ export const RELEASES: Release[] = [
     titleKey: 'whatsNew.v31002.title',
     items: [
       {
+        type: 'feature',
+        titleKey: 'whatsNew.v31002.postal.title',
+        descKey: 'whatsNew.v31002.postal.desc',
+        link: { tab: 'job-board' },
+      },
+      {
         type: 'fix',
         titleKey: 'whatsNew.v31002.concierge.title',
         descKey: 'whatsNew.v31002.concierge.desc',

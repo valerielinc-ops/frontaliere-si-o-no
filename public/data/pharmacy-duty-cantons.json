@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T17:39:42.750Z",
+  "generatedAt": "2026-11-04T22:59:16.792Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,7 +9,7 @@
         "TI"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-04T17:38:53.298Z",
+      "fetchedAt": "2026-11-04T22:58:26.257Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [
@@ -102,7 +102,7 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-04T17:39:41.434Z",
+      "fetchedAt": "2026-11-04T22:59:15.688Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -113,15 +113,6 @@
           "dutyType": "24h",
           "startsAt": "2026-11-03T23:00:00.000Z",
           "endsAt": "2026-11-04T23:00:00.000Z",
-          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
-        },
-        {
-          "pharmacy": "Pharmacie du Museum",
-          "city": "Genève",
-          "coverageName": "Genève",
-          "dutyType": "day",
-          "startsAt": "2026-11-04T07:00:00.000Z",
-          "endsAt": "2026-11-04T22:00:00.000Z",
           "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
         },
         {
@@ -213,7 +204,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-04T17:39:42.750Z",
+      "fetchedAt": "2026-11-04T22:59:16.792Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -351,7 +342,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-04T17:39:42.750Z",
+      "fetchedAt": "2026-11-04T22:59:16.792Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -435,7 +426,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-04T17:39:42.750Z",
+      "fetchedAt": "2026-11-04T22:59:16.792Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -519,7 +510,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-04T17:39:42.750Z",
+      "fetchedAt": "2026-11-04T22:59:16.792Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [

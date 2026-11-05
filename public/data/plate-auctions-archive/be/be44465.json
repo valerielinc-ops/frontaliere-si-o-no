@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-231386",
+      "sourceKey": "BE",
+      "sourceRecordId": "231386",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "44465",
+      "normalizedPlate": "BE44465",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 690,
+      "bidCount": 0,
+      "endsAt": "2026-11-04T20:00:00.000Z",
+      "closedAt": "2026-11-04T20:00:00.000Z",
+      "officialAuctionUrl": "https://auktion-be.ch/de/",
+      "officialDetailUrl": "https://auktion-be.ch/de/auction/231386",
+      "sourceFetchedAt": "2026-11-04T14:32:36.558Z",
+      "lastVerifiedAt": "2026-11-04T14:32:36.558Z",
+      "firstSeenAt": "2026-10-29T12:59:36.269Z",
+      "lastSeenAt": "2026-11-04T14:32:36.558Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "033a985341ef"
+    }
+  ]
+}

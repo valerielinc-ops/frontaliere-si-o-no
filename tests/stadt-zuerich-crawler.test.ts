@@ -200,8 +200,9 @@ describe('parseOfficialAdPage', () => {
 // Referenz-Nr. has no official ad page used to go out as a synthetic tile
 // summary ("{title} bei der Stadtverwaltung Zürich … Weitere Details … finden
 // Sie auf der offiziellen Stellenplattform"); it is not published any more.
-// Without either the portal index or a matching current detail page no tile
-// has its text, so the run fails instead of emptying the board.
+// If the legacy portal index is unavailable, the parser falls back to the
+// hydrated current detail pages without inventing text for a tile whose body
+// is still absent.
 describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
   const fixture = fs.readFileSync(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'stadt-zuerich-official-ad-gaertner.html'),
@@ -213,6 +214,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     + `<div id="job-${id}-desktop-section-customfield2-value">Grün Stadt Zürich</div>`
     + `<div id="job-${id}-desktop-section-adcode-value">${ref}</div></li>`;
   const listing = `<ul>${tile('1101', 'Gärtner*in', '51726')}${tile('1102', 'Werkstattleiter*in', '99999')}</ul>`;
+  const detailIdentity = (url: string, ref: string) => `<link rel="canonical" href="${url}"><div>Referenz-Nr.: ${ref}</div>`;
 
   function mockPortal({ indexOk, directAdOk = false }: { indexOk: boolean; directAdOk?: boolean }) {
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
@@ -248,9 +250,61 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     expect(jobs[0].description).toContain('Aufgaben');
   }, 20_000);
 
+  it('uses hydrated current detail pages when the official index cannot be read', async () => {
+    mockPortal({ indexOk: false });
+    const detailCalls: string[] = [];
+    const jobs = await fetchAllStadtZuerichJobs({
+      fetchCurrentDetailPage: async (url: string, row: { ref?: string }) => {
+        detailCalls.push(url);
+        return row.ref === '51726'
+          ? { html: detailIdentity(url, String(row.ref)), descriptionHtml: fixture }
+          : { html: '', descriptionHtml: '<p>Nur ein kurzer Eintrag.</p>' };
+      },
+    });
+
+    expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
+    expect(jobs[0].description).toContain('Aufgaben');
+    expect(detailCalls).toEqual([
+      'https://jobs.stadt-zuerich.ch/job/1101/1101/',
+      'https://jobs.stadt-zuerich.ch/job/1102/1102/',
+    ]);
+  }, 20_000);
+
+  it('does not attribute a hydrated body when the fetched detail identity is another posting', async () => {
+    mockPortal({ indexOk: false });
+    const jobs = await fetchAllStadtZuerichJobs({
+      fetchCurrentDetailPage: async (url: string, row: { ref?: string }) => {
+        if (row.ref === '51726') {
+          return {
+            html: detailIdentity('https://jobs.stadt-zuerich.ch/job/other/2202/', '99999'),
+            descriptionHtml: fixture,
+          };
+        }
+        return {
+          html: detailIdentity(url, '99999'),
+          descriptionHtml: fixture.replace(/51726/g, '99999'),
+        };
+      },
+    });
+
+    expect(jobs.map((job) => job.referenceNumber)).toEqual(['99999']);
+  }, 20_000);
+
   it('fails the run when neither official source can be read', async () => {
     mockPortal({ indexOk: false });
-    await expect(fetchAllStadtZuerichJobs()).rejects.toThrow(/official ad index unavailable/);
+    let caught: unknown;
+    try {
+      await fetchAllStadtZuerichJobs({
+        fetchCurrentDetailPage: async () => ({
+          html: '',
+          descriptionHtml: '<p>Nur ein kurzer Eintrag.</p>',
+        }),
+      });
+    } catch (error) {
+      caught = error;
+    }
+    expect(caught).toBeInstanceOf(Error);
+    expect((caught as Error).message).toContain('current job portal detail fallback yielded no vacancy text');
   }, 20_000);
 
   // 2026-09-29: the same ad re-posted under a second Referenz-Nr. (e.g.

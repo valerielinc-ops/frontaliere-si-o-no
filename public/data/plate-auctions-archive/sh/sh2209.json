@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "sh-69659",
+      "id": "sh-69735",
       "sourceKey": "SH",
-      "sourceRecordId": "69659",
+      "sourceRecordId": "69735",
       "canton": "Sciaffusa",
       "platePrefix": "SH",
       "plateNumber": "2209",
@@ -13,17 +13,17 @@
       "vehicleType": "trailer",
       "auctionStatus": "closed",
       "currentBidChf": 100,
-      "bidCount": 0,
-      "endsAt": "2026-10-21T20:00:00.000Z",
-      "closedAt": "2026-10-21T20:00:00.000Z",
-      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/",
-      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69659",
-      "sourceFetchedAt": "2026-10-21T11:48:27.823Z",
-      "lastVerifiedAt": "2026-10-21T11:48:27.823Z",
-      "firstSeenAt": "2026-10-15T04:44:13.382Z",
-      "lastSeenAt": "2026-10-21T11:48:27.823Z",
+      "bidCount": 1,
+      "endsAt": "2026-11-04T21:00:00.000Z",
+      "closedAt": "2026-11-04T21:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/de/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69735",
+      "sourceFetchedAt": "2026-11-04T14:33:11.884Z",
+      "lastVerifiedAt": "2026-11-04T14:33:11.884Z",
+      "firstSeenAt": "2026-10-29T05:47:27.965Z",
+      "lastSeenAt": "2026-11-04T14:33:11.884Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "be9329d39c77"
+      "rawSnapshotHash": "74ba3e68a554"
     }
   ]
 }
