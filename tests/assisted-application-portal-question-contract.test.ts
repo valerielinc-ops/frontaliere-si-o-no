@@ -107,9 +107,8 @@ describe('portal candidate question contract', () => {
       id: 'work_permit',
       type: 'choice',
       options: permitOptions('en'),
-      applicationOptions: [],
-      applicationOptionsKnown: true,
     });
+    expect(result.questions[0].applicationOptions).toBeUndefined();
     expect(portalAnswerForApplication(result.questions[0], permitOptions('en')[2])).toBe(permitOptions('en')[2]);
   });
 

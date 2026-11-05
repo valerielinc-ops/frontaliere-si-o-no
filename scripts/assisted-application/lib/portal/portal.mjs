@@ -5343,6 +5343,9 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }
+        const safeTextChoiceOptions = field && !nativeChoiceField && type === 'choice'
+          && isPermitField(field.label) && asksHeldStatus(field.label)
+          ? item.options || [] : [];
         readable.push({
           ...item,
           applicationQuestion,
@@ -5353,7 +5356,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
           options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate)
-            : applicationOptions.length ? applicationOptions : item.options || [] : item.options,
+            : applicationOptions.length ? applicationOptions : safeTextChoiceOptions : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),

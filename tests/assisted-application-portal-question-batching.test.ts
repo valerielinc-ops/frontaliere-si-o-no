@@ -330,6 +330,7 @@ describe('assisted portal question batching', () => {
     const { page, window } = fixture;
     window.document.querySelector('form')?.insertAdjacentHTML('beforeend', '<label for="permit">Which work authorization do you hold?</label><input id="permit" value="Permesso G">');
     window.document.getElementById('next')?.remove();
+    window.document.getElementById('submit')?.remove();
     const candidate = {
       identity: { email: 'candidate@example.test', address: { country: 'Italia' } },
       profile: { workPermit: 'Permesso G' },
@@ -731,8 +732,8 @@ describe('assisted portal question batching', () => {
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
       'Country of residence *',
-      'Which security clearance do you hold? *',
       'Why are you interested in this role? *',
+      'Which security clearance do you hold? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
@@ -773,8 +774,8 @@ describe('assisted portal question batching', () => {
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
       'Country of residence *',
-      'Which professional certification do you hold? *',
       'Why are you interested in this role? *',
+      'Which professional certification do you hold? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
@@ -935,7 +936,7 @@ describe('assisted portal question batching', () => {
     expect(elementValue(window, '#country')).toBe('IT');
     expect(result.event.questions.map((question: any) => question.question)).toEqual([
       'Why are you interested in this role? *',
-      'Which work authorization do you hold? *',
+      'Are you a Swiss citizen, or do you hold a Swiss permit valid today?',
       'When could you start? *',
     ]);
     expect(plannerCalls.some((fields) => fields.includes('availability'))).toBe(true);
