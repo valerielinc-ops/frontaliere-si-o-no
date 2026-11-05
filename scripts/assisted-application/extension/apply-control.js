@@ -262,7 +262,7 @@ function minimumDataRetentionOption(options, question = '') {
         || (/(?:accepted|approved)$/.test(match)
           && /^ (?:[a-z0-9]+ ){0,3}(?:data|daten|donnee\w*|personal|retention\w*|stor\w*|privacy|protection|processing|traitement|permission|option)\b/.test(conditionTail));
       const applicantContext = /\b(?:application\w*|candidac\w*|candidatur\w*|bewerbung\w*|candidate\w*|applicant\w*|you|your|they|their|he|she|i|me|my|we|our|person|candidat\w*|bewerber\w*|jobseeker\w*)\b/.test(match);
-      const activeCandidateRejection = /\b(?:i|me|my|we|you|candidate\w*|applicant\w*)\b(?: (?:have|has|had))? rejected\b/.test(match);
+      const activeCandidateRejection = /\b(?:i|you)\b(?: (?:have|has|had))? (?:rejected|refused|declined)\b/.test(match);
       const bareRejection = /^\b(?:if|unless|when|whenever|provided that|se|qualora|wenn|falls|si)\b rejected$/.test(match);
       const bareNonSelection = /^\b(?:if|unless|when|whenever|provided that|se|qualora|wenn|falls|si)\b (?:not|never|no|non|nicht|nie) (?:selected|chosen|hired|eligible|successful|selezionat\w*|assunt\w*|selectionne\w*|retenu\w*|choisi\w*|embauch\w*|ausgewahlt|ausgewaehlt|eingestellt)$/.test(match);
       return !consentOrDataContext && !activeCandidateRejection && (applicantContext || bareRejection || bareNonSelection) ? ' ' : match;
