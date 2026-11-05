@@ -34,6 +34,30 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it('exposes the DOM group shared by split SuccessFactors job questions and their Apply action', () => {
+    const snapshot = extract(`<main>
+      <section><h2>Profilinformationen</h2><form>
+        <label for="email">E-Mail</label><input id="email" type="email">
+      </form></section>
+      <section><h2>Stellenspezifische Informationen</h2>
+        <form><label for="motivation">Was hat dich motiviert, dich auf diese Stelle zu bewerben?</label><textarea id="motivation"></textarea></form>
+        <form id="apply"><button type="button">Bewerben</button></form>
+      </section>
+    </main>`);
+    const profile = snapshot.fields.find((field: any) => field.domId === 'email');
+    const question = snapshot.fields.find((field: any) => field.domId === 'motivation');
+    const apply = snapshot.buttons.find((button: any) => button.text === 'Bewerben');
+
+    expect(profile).toMatchObject({ sectionGroup: 'Profilinformationen', applicationScopeId: expect.any(String) });
+    expect(question).toMatchObject({ sectionGroup: 'Stellenspezifische Informationen' });
+    expect(apply).toMatchObject({ sectionGroup: 'Stellenspezifische Informationen' });
+    expect(question.sectionGroupId).toBe(apply.sectionGroupId);
+    expect(question.applicationScopeId).toBe(apply.applicationScopeId);
+    expect(profile.applicationScopeId).toBe(question.applicationScopeId);
+    expect(question.formId).not.toBe(apply.formId);
+    expect(profile.sectionGroupId).not.toBe(question.sectionGroupId);
+  });
+
   it('preserves accessible field metadata through question reduction and live refresh', () => {
     const prompt = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
     const snapshot = extract(`<form>

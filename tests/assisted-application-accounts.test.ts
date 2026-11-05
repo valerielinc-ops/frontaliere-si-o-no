@@ -7,6 +7,7 @@ import {
   asksExistingPassword,
   codeField,
   hostKey,
+  hasExistingAccountPrompt,
   isAccountVerificationResponse,
   isExplicitSignInNavigationLabel,
   inlineAccountForm,
@@ -35,6 +36,29 @@ const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 const field = (id: string, inputType: string, label: string, extra: Record<string, unknown> = {}) => ({ id, kind: 'text', inputType, label, name: '', autocomplete: '', ...extra });
 
 describe('portal account pages', () => {
+  it.each([
+    'Sie haben bereits ein Bewerbungskonto bei der Bundesverwaltung.',
+    'An account already exists for this email address.',
+    'Vous avez déjà un compte.',
+    'Hai già un account.',
+  ])('recognizes an existing account prompt: %s', (text) => {
+    expect(hasExistingAccountPrompt({ text })).toBe(true);
+  });
+
+  it.each([
+    'Create a new account to continue.',
+    'Sie haben noch kein Bewerbungskonto.',
+    'Sign in to continue.',
+    'Already have an account? Sign in to continue.',
+    'Vous avez déjà un compte ? Se connecter pour continuer.',
+  ])('does not mistake a registration or sign-in prompt for an existing account: %s', (text) => {
+    expect(hasExistingAccountPrompt({ text })).toBe(false);
+  });
+
+  it('still recognizes a specific email-in-use error beside a sign-in navigation prompt', () => {
+    expect(hasExistingAccountPrompt({ text: 'Already have an account? Sign in to continue. This email is already in use.' })).toBe(true);
+  });
+
   it.each([
     'Already have an account? Sign in to continue',
     'Jetzt anmelden',

@@ -42,10 +42,25 @@ const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?
 // question-specific label/name may prove the same form; section headings,
 // context inherited from an ancestor, and arbitrary profile text do not.
 const APPLICATION_QUESTION_RE = /(?:work\s+permit|permit\s+for|salary\s+expectations?|expected\s+salary|workload(?=[^?？]{0,100}[?？])|starting\s+date|earliest\s+start|notice\s+period|how\s+did\s+you\s+hear|motivat(?:ion|ed).{0,80}(?:apply|position|role|stelle|poste|posto|candidatur)|experience.{0,80}(?:position|role|stelle|job|poste|posto|emploi)|nebenbeschäftigung|brutto[-\s]jahreslohn(?:vorstellung)?|wie\s+haben\s+sie\s+von\s+dieser\s+stelle\s+erfahren|was\s+hat\s+dich\s+motiviert|welche\s+erfahrungen|salaire.{0,80}(?:attendu|souhait)|rémunération.{0,80}(?:attendue|souhait)|expérience.{0,80}(?:poste|emploi|fonction)|pourquoi.{0,80}(?:poste|emploi|candidature)|esperienza.{0,80}(?:ruolo|posizione|lavoro)|retribuzione(?:\s+attesa)?)/iu;
+const APPLICANT_PROFILE_SECTION_RE = /\b(?:profile information|personal information|personal details|candidate information|contact information|profilinformationen|persönliche (?:daten|angaben|informationen)|données personnelles|informazioni personali|dati personali)\b/iu;
+const JOB_QUESTIONS_SECTION_RE = /\b(?:job[-\s]specific (?:information|questions)|position[-\s]specific (?:information|questions)|application questions|stellenspezifische informationen|stellenbezogene fragen|questions (?:sur|liées à) (?:le poste|la candidature)|domande (?:specifiche|relative) (?:alla posizione|alla candidatura))\b/iu;
 // With no posting key, a submission handoff can bind only a recognized receipt
 // endpoint. A same-origin `/other/` page repeating the role title is not a
 // receipt proof, even when the preceding review route was observed.
 const RECEIPT_PATH_RE = /(?:^|\/)(?:thank[-_ ]?you|receipt|complete(?:d)?|confirmation|success|submitted)\/?$/i;
+
+const APPLICATION_REGION_UNSUPPORTED_PATTERNS = [
+  /\bbewerbung\w*\b.{0,120}\b(?:region|gebiet)\b.{0,120}\bnicht\s+(?:unterstütz|möglich|annehm|zulass)/iu,
+  /\bapplication\w*\b.{0,120}\bregion\b.{0,120}\bnot\s+(?:currently\s+)?(?:support|accept)|\b(?:cannot|can't|unable\s+to)\b.{0,120}\bapplication\w*\b.{0,120}\bregion\b/iu,
+  /\bcandidature\w*\b.{0,120}\brégion\b.{0,120}\b(?:ne\s+)?(?:pouvons\s+pas|accept|support)|\b(?:ne\s+)?(?:pouvons\s+pas|accept|support)\b.{0,120}\bcandidature\w*\b.{0,120}\brégion\b/iu,
+  /\bcandidatur\w*\b.{0,120}\bregion(?:e)?\b.{0,120}\bnon\s+(?:support|accett|ammett)|\bnon\s+(?:possiamo|è\s+possibile|accettiamo)\b.{0,120}\bcandidatur\w*\b.{0,120}\bregion(?:e)?\b/iu,
+];
+
+/** The employer page explicitly blocks applications from the candidate's region. */
+export function isApplicationRegionUnsupported(text = '') {
+  const normalized = String(text || '').replace(/\s+/g, ' ');
+  return APPLICATION_REGION_UNSUPPORTED_PATTERNS.some(pattern => pattern.test(normalized));
+}
 
 /** The directory containing a route, treating a canonical trailing slash as decoration. */
 export function routeDirectory(pathname) {
@@ -239,9 +254,41 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
     || applicationFields.some(field => field.kind === 'file' || field.inputType === 'file');
   const hasApplicationQuestion = applicationFields.some(field =>
     APPLICATION_QUESTION_RE.test([field.label, field.name].filter(Boolean).join(' ')));
-  const applicationForm = apply.length === 1 && !apply[0].href && apply[0].formId
-    && hasApplicationIdentity
-    && (hasCv || hasApplicationQuestion);
+  // SuccessFactors can render the candidate profile, job questions and final
+  // Apply action in separate forms. Accept that layout only when the profile
+  // field is in an explicit applicant section, and both the application
+  // question and Apply control share the same explicit job-question section.
+  // A title plus unrelated same-frame forms (for example sign-in and
+  // newsletter forms) is not an application group.
+  const sameFrameFields = apply.length === 1
+    ? (snapshot?.fields || []).filter(field => (field.frame || 0) === (apply[0].frame || 0))
+    : [];
+  const isApplicantIdentity = field => field.inputType === 'email'
+    || /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i.test(field.label || '');
+  const profileIdentity = sameFrameFields.some(field => isApplicantIdentity(field)
+    && Boolean(apply[0]?.applicationScopeId)
+    && field.applicationScopeId === apply[0].applicationScopeId
+    && Boolean(field.sectionGroupId)
+    && APPLICANT_PROFILE_SECTION_RE.test(field.sectionGroup || ''));
+  const applySection = String(apply[0]?.sectionGroup || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const associatedJobQuestion = sameFrameFields.some(field => {
+    const section = String(field.sectionGroup || '').replace(/\s+/g, ' ').trim().toLowerCase();
+    return Boolean(apply[0]?.sectionGroupId)
+      && Boolean(apply[0]?.applicationScopeId)
+      && field.applicationScopeId === apply[0].applicationScopeId
+      && field.sectionGroupId === apply[0].sectionGroupId
+      && section && section === applySection
+      && JOB_QUESTIONS_SECTION_RE.test(field.sectionGroup || '')
+      && APPLICATION_QUESTION_RE.test([field.label, field.name].filter(Boolean).join(' '));
+  });
+  const splitFormApplication = apply.length === 1 && !apply[0].href
+    && Boolean(apply[0].formId)
+    && titleBound(text, job.title)
+    && profileIdentity
+    && associatedJobQuestion;
+  const applicationForm = (apply.length === 1 && !apply[0].href && Boolean(apply[0].formId)
+    && hasApplicationIdentity && (hasCv || hasApplicationQuestion))
+    || splitFormApplication;
   if (apply.length && (!applicationForm || pending)) return { kind: 'unknown_apply', prefinal: pending };
   return { kind: 'form' };
 }
