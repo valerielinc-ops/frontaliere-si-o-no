@@ -328,6 +328,7 @@ describe('assisted portal question batching', () => {
   it('does not promote a prefilled current permit into agent portal answers', async () => {
     const fixture = fakePage({ conditional: false });
     const { page, window } = fixture;
+    (page as any).ariaSnapshot = async () => '- textbox "Which work authorization do you hold?" [ref=e1]';
     window.document.querySelector('form')?.insertAdjacentHTML('beforeend', '<label for="permit">Which work authorization do you hold?</label><input id="permit" value="Permesso G">');
     window.document.getElementById('next')?.remove();
     window.document.getElementById('submit')?.remove();
