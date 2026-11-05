@@ -4327,17 +4327,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const appliedAlertSurfaceVisible = Boolean(
   appliedJobId && selectedJob && appliedJobId === selectedJob.id,
  );
- const appliedAlertKeyword = appliedAlertSurfaceVisible && selectedJob
+ // Publisher ads expose a stable job id for the hard `specificJobId` matcher
+ // pin. The same detail CTA is reused after apply; ordinary listings fall back
+ // to keyword+canton criteria.
+ const isPublisherAd = Boolean((selectedJob as { publisherJobId?: string | null } | null)?.publisherJobId);
+ const detailAlertKeyword = selectedJob
   ? (t(categoryTranslationKey(selectedJob)) || '').trim()
   : '';
- const appliedAlertEligible = useJobAlertEligibility({
-  enabled: enableJobAlerts && appliedAlertSurfaceVisible,
+ const detailAlertEligible = useJobAlertEligibility({
+  enabled: enableJobAlerts && Boolean(
+   selectedJob && (isPublisherAd || (appliedAlertSurfaceVisible && detailAlertKeyword)),
+  ),
   authResolved,
   userId,
-  keyword: appliedAlertKeyword,
+  keyword: detailAlertKeyword,
   surface: 'job_detail_button',
  });
- const appliedAlertCtaVisible = appliedAlertSurfaceVisible && appliedAlertEligible === true;
+ const detailAlertButtonVisible = Boolean(
+  enableJobAlerts
+  && isJobDetailView
+  && selectedJob
+  && (isPublisherAd || (appliedAlertSurfaceVisible && detailAlertKeyword))
+  && userId
+  && userEmail
+  && detailAlertEligible === true,
+ );
 
  // Job-match profile, part 2: merge in the newsletter_subscribers doc's
  // sector_interest/location_interest for logged-in subscribers (issue #3648
@@ -4719,15 +4733,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // re-runs / re-arms.
  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [isJobDetailView, selectedJob?.id, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t, jobReadingIntent]);
-
- // Impression for the peak-intent alert offer inside the applied receipt. Fired
- // on appearance rather than via IntersectionObserver because the receipt is
- // rendered directly under the button the user just pressed — it is on screen by
- // construction, so an in-view check would add machinery without adding truth.
- useEffect(() => {
- if (!appliedAlertCtaVisible) return;
- Analytics.trackJobAlertCtaShown('job_detail_button', appliedAlertKeyword);
- }, [appliedAlertCtaVisible, appliedAlertKeyword]);
 
  // Drop the applied receipt when the user moves to a different job / leaves the
  // detail view, so it never leaks onto an unrelated listing.
@@ -8594,17 +8599,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  ) : null;
 
- // Post-apply receipt + peak-intent alert offer (issues #5040, #5039).
- //
- // The alert CTA here deliberately does NOT require an authenticated session.
- // The only surface that converts today (`job_detail_prompt`, 5 creations on
- // 410 impressions over 14d) is hard-gated on userId+email and logs a `no_auth`
- // skip for everyone else, so anonymous visitors — the bulk of organic search
- // traffic — are never offered an alert at the one moment their intent is
- // provably highest: they just applied. This routes them through the always-
- // mounted JobAlertForm, which owns auth + email capture, using the same
- // queued-request + backToList hand-off SavedJobsAlertNudge already uses from
- // the detail view.
+ // Post-apply receipt (issue #5040). The authenticated detail CTA is rendered
+ // once below this receipt, through the same component and writer as the
+ // pre-apply publisher path. Anonymous visitors keep the dedicated
+ // `job_detail_anonymous` CTA, whose form/auth handoff remains diagnostically
+ // separate from the measured `job_detail_button` surface.
  const appliedNoticeJsx = appliedAlertSurfaceVisible ? (
  <div
  role="status"
@@ -8620,21 +8619,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  <div className="flex flex-wrap gap-2">
- {appliedAlertCtaVisible && (
- <button
- type="button"
- onClick={() => {
- const category = (t(categoryTranslationKey(selectedJob)) || '').trim();
- Analytics.trackJobAlertCtaClick('job_detail_button', 'open', category);
- requestJobAlertOpen(category || undefined, 'job_detail_button');
- backToList();
- }}
- className="inline-flex items-center gap-2 px-3 py-2 min-h-[44px] text-xs font-semibold font-display rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover transition-colors"
- >
- <BellRing className="w-3.5 h-3.5" aria-hidden="true" />
- {t('jobBoard.applied.alertCta')}
- </button>
- )}
  <button
  type="button"
  onClick={() => handleApply(selectedJob)}
@@ -8751,6 +8735,46 @@ const JobBoard: React.FC<JobBoardProps> = ({
     onAnonymousOpen={() => {
      Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open', detailAlertCategoryLabel);
      backToList();
+    }}
+   />
+ </Suspense>
+ ) : null;
+
+ // One authenticated detail CTA owns both placements: before apply for a
+ // publisher ad, and after apply for an ordinary listing (or the same pinned
+ // publisher ad). Keeping one component mounted avoids a second impression
+ // when the receipt appears, while its service branch preserves the job pin,
+ // keyword, canton and source provenance at write time.
+ const detailAlertJobId = isPublisherAd && selectedJob
+  ? String(selectedJob.id || (selectedJob as { publisherJobId?: string | null }).publisherJobId || '')
+  : null;
+ const detailAlertButtonJsx = detailAlertButtonVisible && selectedJob ? (
+  <Suspense key="job-detail-alert-button" fallback={null}>
+   <JobDetailJobAlertButton
+    jobId={detailAlertJobId}
+    keyword={detailAlertKeyword}
+    cantonCode={selectedJob.canton ?? null}
+    userId={userId}
+    email={userEmail}
+    locale={locale}
+    sourceJobSlug={selectedJob.slug ?? null}
+    sourceJobUrl={selectedJob.url ?? null}
+    sourceJobTitle={selectedJob.title ?? null}
+    label={appliedAlertSurfaceVisible ? t('jobBoard.applied.alertCta') : undefined}
+    onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button', detailAlertKeyword || selectedJob.title)}
+    onAccepted={() => Analytics.trackJobAlertCtaClick('job_detail_button', 'accept', detailAlertKeyword || selectedJob.title)}
+    onSubscribed={() => {
+     Analytics.trackJobAlertCtaClick('job_detail_button', 'success', detailAlertKeyword || selectedJob.title);
+     Analytics.trackJobAlertCreated({
+      keywords: detailAlertJobId ? selectedJob.title || '' : detailAlertKeyword,
+      location: selectedJob.canton || '',
+      frequency: detailAlertJobId ? 'daily' : 'weekly',
+      surface: 'job_detail_button',
+     });
+     invalidateUserAlertsCache();
+    }}
+    onErrored={() => {
+     Analytics.trackJobAlertCtaClick('job_detail_button', 'error', detailAlertKeyword || selectedJob.title);
     }}
    />
   </Suspense>
@@ -10876,9 +10900,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
    </section>
   ) : null
  );
- // Publisher / sponsored ad: a paid submission carries a `publisherJobId`. Used
- // to gate the per-job "Avvisami per questo annuncio" CTA (specificJobId alert).
- const isPublisherAd = Boolean((selectedJob as { publisherJobId?: string | null }).publisherJobId);
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const detailJobCanton = resolveJobCanton(selectedJob);
@@ -11182,6 +11203,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {renderApplicationIntentDisclosure()}
  </article>
  {detailAlertCtaJsx}
+ {detailAlertButtonJsx}
  {jobDetailPromptJsx}
  {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
@@ -11571,32 +11593,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
  {renderApplicationIntentConsent()}
- {isPublisherAd && userId && userEmail && (
- <Suspense fallback={null}>
- <JobDetailJobAlertButton
- jobId={String(selectedJob.id || (selectedJob as { publisherJobId?: string }).publisherJobId || '')}
- userId={userId}
- email={userEmail}
- locale={locale}
- sourceJobSlug={selectedJob.slug ?? null}
- sourceJobUrl={selectedJob.url ?? null}
- sourceJobTitle={selectedJob.title ?? null}
- onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button', selectedJob.title)}
- onAccepted={() => Analytics.trackJobAlertCtaClick('job_detail_button', 'accept', selectedJob.title)}
- onSubscribed={() => {
- Analytics.trackJobAlertCtaClick('job_detail_button', 'success', selectedJob.title);
- Analytics.trackJobAlertCreated({ keywords: selectedJob.title || '', frequency: 'daily', surface: 'job_detail_button' });
- // Review PR #4338, bug G: keep the shared getUserAlerts cache correct —
- // this surface just created a new alert every other surface's cached
- // eligibility read needs to see.
- invalidateUserAlertsCache();
- }}
- onErrored={() => {
- Analytics.trackJobAlertCtaClick('job_detail_button', 'error', selectedJob.title);
- }}
- />
- </Suspense>
- )}
+ {detailAlertButtonJsx}
 
  {/* Job-specific FAQ accordion — visible counterpart of the FAQPage JSON-LD
  injected by services/seoService.ts (content-parity rule, CLAUDE.md §
