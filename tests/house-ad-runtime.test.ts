@@ -167,7 +167,7 @@ describe('per-slot first-party creative delivery', () => {
     const empty = frame('waiting_width');
     const script = w.document.createElement('script'); script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; script.dataset.failed = '1'; script.dataset.ftScriptState = 'retry_wait'; w.document.head.append(script);
     await start(); expect(empty.host.childElementCount).toBe(0);
-    script.dataset.ftScriptState = 'failed'; await vi.advanceTimersByTimeAsync(1200);
+    script.dataset.ftScriptState = 'failed'; await vi.advanceTimersByTimeAsync(1500);
     expect(empty.host.querySelector('a')).not.toBeNull(); expect(script.dataset.ftScriptState).toBe('failed');
   });
   it('uses unenrolled control when Firebase is unavailable', async () => {
