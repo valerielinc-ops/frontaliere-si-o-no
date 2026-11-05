@@ -82,6 +82,14 @@ export function socialPublishLocalDay(value) {
   return dayKey(value);
 }
 
+export function isSocialPublishReservationOutsideRetention(value, now = new Date()) {
+  const firstRetainedDay = dayOffset(
+    dayKey(now),
+    -SOCIAL_PUBLISH_RESERVATION_RETENTION_DAYS,
+  );
+  return dayKey(value) < firstRetainedDay;
+}
+
 function dayOffset(key, offset) {
   const noonUtc = new Date(`${key}T12:00:00.000Z`);
   noonUtc.setUTCDate(noonUtc.getUTCDate() + offset);
