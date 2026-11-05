@@ -1234,6 +1234,23 @@ const fieldsByIdentity = (snapshot) => {
   return byIdentity;
 };
 
+/** Merge a lazy catalogue only when both snapshots identify the same page and exact control. */
+export function mergePortalChoiceOptions(current, refreshed) {
+  const currentUrl = String(current?.url || '').trim();
+  if (!currentUrl || String(refreshed?.url || '').trim() !== currentUrl) return current;
+  const refreshedByIdentity = fieldsByIdentity(refreshed);
+  const currentFields = Array.isArray(current?.fields) ? current.fields : [];
+  let changed = false;
+  const fields = currentFields.map((field) => {
+    if (portalHasChoiceCatalogue(field)) return field;
+    const live = refreshedByIdentity.get(fieldKey(current, field));
+    if (!portalHasChoiceCatalogue(live)) return field;
+    changed = true;
+    return { ...field, options: live.options };
+  });
+  return changed ? { ...current, fields } : current;
+}
+
 /**
  * A portal can expose a choice control before its native options have been
  * attached to the first snapshot. Re-read the live page only for that exact
@@ -6268,18 +6285,11 @@ export async function submitViaPortal(ctx) {
       if (!needsPortalOptionRead(current)) return current;
       const refreshed = await extractFields(page).catch(() => null);
       if (!refreshed) return current;
-      const refreshedByIdentity = fieldsByIdentity(refreshed);
-      const currentFields = Array.isArray(current.fields) ? current.fields : [];
-      const fields = currentFields.map((field) => {
-        const live = refreshedByIdentity.get(fieldKey(current, field));
-        if (!live || !Array.isArray(live.options) || !live.options.length) return field;
-        return { ...field, options: live.options };
-      });
       // Keep the navigation snapshot's field set. A full extraction can reveal
       // unrelated required controls and must not add them to this candidate
       // request; it only supplies the lazy catalogue for controls already in
       // the current planning surface.
-      return { ...current, fields };
+      return mergePortalChoiceOptions(current, refreshed);
     };
     const askCandidate = async (questions, current = snapshot) => {
       const questionSnapshot = await snapshotWithPortalOptions(current);

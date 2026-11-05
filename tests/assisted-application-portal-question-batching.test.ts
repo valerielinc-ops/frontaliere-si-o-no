@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { handleAuth, portalRequirementsFromMissingRequired, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { handleAuth, mergePortalChoiceOptions, portalRequirementsFromMissingRequired, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFields } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
@@ -335,6 +335,46 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 }
 
 describe('assisted portal question batching', () => {
+  it('copies lazy options only when the page, frame URL, frame index, and field id match', () => {
+    const current: any = {
+      url: 'https://careers.example.test/apply',
+      frames: [{ index: 0, url: 'https://careers.example.test/apply' }],
+      fields: [{ id: 'country', frame: 0, kind: 'select', options: [] }],
+    };
+    const options = [{ label: 'Switzerland', value: 'CH' }];
+
+    expect(mergePortalChoiceOptions(current, {
+      ...current,
+      frames: [...current.frames, { index: 1, url: 'https://careers.example.test/apply' }],
+      fields: [{ id: 'country', frame: 1, kind: 'select', options }],
+    })).toBe(current);
+    expect(mergePortalChoiceOptions(current, {
+      ...current,
+      url: 'https://careers.example.test/another-page',
+      fields: [{ id: 'country', frame: 0, kind: 'select', options }],
+    })).toBe(current);
+    expect(mergePortalChoiceOptions(current, {
+      ...current,
+      frames: [{ index: 0, url: 'https://careers.example.test/apply/embedded' }],
+      fields: [{ id: 'country', frame: 0, kind: 'select', options }],
+    })).toBe(current);
+    expect(mergePortalChoiceOptions(current, {
+      ...current,
+      fields: [{ id: 'residence-country', frame: 0, kind: 'select', options }],
+    })).toBe(current);
+    expect(mergePortalChoiceOptions(current, {
+      ...current,
+      fields: [
+        { id: 'country', frame: 0, kind: 'select', options },
+        { id: 'country', frame: 0, kind: 'select', options: [{ label: 'Italy', value: 'IT' }] },
+      ],
+    })).toBe(current);
+    expect(mergePortalChoiceOptions(current, {
+      ...current,
+      fields: [{ id: 'country', frame: 0, kind: 'select', options }],
+    }).fields[0].options).toEqual(options);
+  });
+
   it('asks for a current permit in a text field while keeping native picklists fail-closed', () => {
     const candidate = { identity: {}, profile: {}, answers: {} };
     const textField = {
@@ -983,33 +1023,11 @@ describe('assisted portal question batching', () => {
   it('matches lazy options to the same field and frame after navigation-only polling', async () => {
     const fixture = fakePage({ conditional: false, successFactorsPicklist: true });
     const { page, window, extractionTrace } = fixture;
-    const primaryFrame = page.frames()[0];
-    const secondaryFrameUrl = `${page.url()}/embedded-form`;
     const context: any = {
       on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
       close: async () => {}, waitForEvent: async () => null,
     };
     page.context = () => context;
-    page.frames = () => [primaryFrame, {
-      url: () => secondaryFrameUrl,
-      evaluate: async () => ({
-        url: secondaryFrameUrl,
-        pageMarker: '',
-        title: 'Embedded form',
-        fields: [{
-          id: window.document.getElementById('referral')?.getAttribute('data-aa-id') || 'referral',
-          kind: 'text',
-          inputType: 'text',
-          label: 'Different field with a reused id',
-          required: false,
-          value: '',
-          options: [{ label: 'Wrong frame option' }],
-          selectLike: false,
-        }],
-        buttons: [], links: [], dialogs: [], captcha: false,
-        passwordVisible: false, errors: [], text: '',
-      }),
-    }];
     const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
