@@ -249,6 +249,12 @@ describe('job-locale-consistency', () => {
    * "Gestalten von Einkaufserlebnissen" inside an otherwise-Italian title).
    * The lexicon needed no further cleanup this round; only the cap moves.
    *
+   * RE-DERIVED 2026-11-05 (issue #16755): the live assembled artefact measured
+   * 979 / 105,132 = 0.93% on published title slots, with 978 title slots held
+   * for translation bringing the population guard to 106,110. The 33.00%
+   * quality cap is unchanged: this commit re-pins the denominator and its
+   * measured rate, without loosening the quality gate.
+   *
    * POPULATION — this ratchet was ALREADY queue-free, deliberately: it does not
    * exclude `needsRetranslation` from either side of the ratio, because the site
    * serves those titles regardless, so merge order cannot move the number on its
@@ -308,10 +314,11 @@ describe('job-locale-consistency', () => {
     'non-source job titles are not left in the source language',
     { timeout: 180000 },
     () => {
-      // 33.00% — the population re-baseline on 2026-09-30 measured
-      // 29,643/90,712 = 32.68% on the assembled artefact. The cap remains
-      // unchanged and the measured rate is still below it; this is a
-      // denominator re-baseline, not permission to loosen the quality gate.
+      // 33.00% — the population re-baseline on 2026-11-05 measured
+      // 979/105,132 = 0.93% on published title slots, with 978 held slots
+      // bringing the guarded population to 106,110. The cap remains unchanged
+      // and the measured rate is still below it; this is a denominator
+      // re-baseline, not permission to loosen the quality gate.
       const MAX_RATE = 0.33;
 
       const { slots, flagged, offenders } = measureTitleLocales(
