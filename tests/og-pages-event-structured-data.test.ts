@@ -9,7 +9,7 @@ afterEach(() => temporaryRoots.splice(0).forEach((root) => fs.rmSync(root, { rec
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
-it('resolves BASE_URL templates in nested Event URLs before completeness validation', async () => {
+it('normalizes Event price text and resolves BASE_URL templates before completeness validation', async () => {
   const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'og-pages-event-jsonld-'));
   temporaryRoots.push(rootDir);
   const write = (relativePath: string, value: string) => {
@@ -22,6 +22,7 @@ it('resolves BASE_URL templates in nested Event URLs before completeness validat
   const excerpt = 'Un evento di prova con una descrizione completa e verificabile per i dati strutturati.';
   const organizerUrl = '\u0060${BASE_URL}/organizers/event-test/\u0060';
   const offerUrl = '\u0060${BASE_URL}/tickets/event-test/\u0060';
+  const secondOfferUrl = '\u0060${BASE_URL}/tickets/event-test/second/\u0060';
 
   write('data/blog-articles-data.ts', `const RAW_ARTICLES = [{ id: '${id}', category: 'pratico', date: '2026-12-01' }];`);
   write('services/seo/seo-blog.ts', `export const entries = {
@@ -37,6 +38,7 @@ it('resolves BASE_URL templates in nested Event URLs before completeness validat
       "endDate": "2026-12-01T21:00:00+01:00",
       "eventStatus": ["https://schema.org/EventScheduled", "https://schema.org/EventPostponed"],
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "isAccessibleForFree": true,
       "description": "${excerpt}",
       "location": {
         "@type": "Place", "name": "Teatro di prova",
@@ -48,10 +50,16 @@ it('resolves BASE_URL templates in nested Event URLs before completeness validat
       },
       "performer": { "@type": "Person", "name": "Artista di prova" },
       "organizer": { "@type": "Organization", "name": "Organizzatore di prova", "url": ${organizerUrl} },
-      "offers": {
-        "@type": "Offer", "price": 25, "priceCurrency": "CHF",
-        "availability": "https://schema.org/InStock", "url": ${offerUrl}
-      }
+      "offers": [
+        {
+          "@type": "Offer", "price": "0", "priceCurrency": "CHF",
+          "availability": "https://schema.org/InStock", "url": ${offerUrl}
+        },
+        {
+          "@type": "Offer", "price": "25", "priceCurrency": "CHF",
+          "availability": "https://schema.org/InStock", "url": ${secondOfferUrl}
+        }
+      ]
     }
   }
 };`);
@@ -80,5 +88,11 @@ it('resolves BASE_URL templates in nested Event URLs before completeness validat
     'https://schema.org/EventPostponed',
   ]);
   expect((schema?.organizer as Record<string, unknown>)?.url).toBe(`${BASE_URL}/organizers/event-test/`);
-  expect((schema?.offers as Record<string, unknown>)?.url).toBe(`${BASE_URL}/tickets/event-test/`);
+  const offers = schema?.offers as Record<string, unknown>[];
+  expect(offers).toHaveLength(2);
+  expect(offers.map((offer) => offer.price)).toEqual([0, 25]);
+  expect(offers.map((offer) => offer.url)).toEqual([
+    `${BASE_URL}/tickets/event-test/`,
+    `${BASE_URL}/tickets/event-test/second/`,
+  ]);
 });

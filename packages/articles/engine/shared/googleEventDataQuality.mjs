@@ -94,10 +94,7 @@ function isCompletePhysicalLocation(location) {
     && typeNames(location['@type']).includes('Place')
     && isNonEmpty(location.name)
     && typeNames(address?.['@type']).includes('PostalAddress')
-    && isNonEmpty(address.streetAddress)
     && isNonEmpty(address.addressLocality)
-    && isNonEmpty(address.addressRegion)
-    && isNonEmpty(address.postalCode)
     && isNonEmpty(address.addressCountry);
 }
 

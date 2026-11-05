@@ -44,8 +44,14 @@ type EventFixture = {
   location: EventLocationFixture | EventLocationFixture[];
   performer?: EntityFixture;
   organizer?: EntityFixture | EntityFixture[];
-  offers: OfferFixture;
+  offers: OfferFixture | OfferFixture[];
 };
+
+function singleOffer(event: EventFixture): OfferFixture {
+  const offer = Array.isArray(event.offers) ? event.offers[0] : event.offers;
+  if (!offer) throw new Error('Expected an event fixture with one offer');
+  return offer;
+}
 
 const COMPLETE_EVENT: EventFixture = {
   '@context': 'https://schema.org',
@@ -87,6 +93,26 @@ describe('Google Event data quality publication gate', () => {
     expect(hasCompleteGoogleEventData(COMPLETE_EVENT)).toBe(true);
   });
 
+  it('validates every offer in an offers array', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    const offer = singleOffer(event);
+    event.offers = [offer, { ...offer, price: 35, url: 'https://tickets.example.test/concerto-vip/' }];
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+
+    const offers = event.offers;
+    if (!Array.isArray(offers)) throw new Error('Expected an offers array');
+    delete offers[1].url;
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
+  });
+
+  it('accepts physical locations with locality and country when street and postal code are unavailable', () => {
+    const event = structuredClone(COMPLETE_EVENT);
+    const address = (event.location as EventLocationFixture).address as AddressFixture;
+    delete address.streetAddress;
+    delete address.postalCode;
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
+  });
+
   it('compares event dates as instants after normalizing timezone offsets', () => {
     const event = structuredClone(COMPLETE_EVENT);
     event.startDate = '2026-12-01T19:00:00+01:00';
@@ -110,10 +136,10 @@ describe('Google Event data quality publication gate', () => {
     ['organizer', (event) => { delete event.organizer; }],
     ['organizer URL', (event) => { delete (event.organizer as EntityFixture).url; }],
     ['location.name', (event) => { delete (event.location as EventLocationFixture).name; }],
-    ['offer price', (event) => { delete event.offers.price; }],
-    ['offer currency', (event) => { delete event.offers.priceCurrency; }],
-    ['offer availability', (event) => { delete event.offers.availability; }],
-    ['ticket URL', (event) => { delete event.offers.url; }],
+    ['offer price', (event) => { delete singleOffer(event).price; }],
+    ['offer currency', (event) => { delete singleOffer(event).priceCurrency; }],
+    ['offer availability', (event) => { delete singleOffer(event).availability; }],
+    ['ticket URL', (event) => { delete singleOffer(event).url; }],
   ])('rejects missing %s', (_field, removeField) => {
     const event = structuredClone(COMPLETE_EVENT);
     removeField(event);
@@ -122,15 +148,15 @@ describe('Google Event data quality publication gate', () => {
 
   it('does not infer a validFrom date or free admission', () => {
     const event = structuredClone(COMPLETE_EVENT);
-    delete event.offers.validFrom;
+    delete singleOffer(event).validFrom;
     expect(hasCompleteGoogleEventData(event)).toBe(true);
 
     const invalidValidFrom = structuredClone(COMPLETE_EVENT);
-    invalidValidFrom.offers.validFrom = '2026-02-31';
+    singleOffer(invalidValidFrom).validFrom = '2026-02-31';
     expect(hasCompleteGoogleEventData(invalidValidFrom)).toBe(false);
 
     const freeEvent = structuredClone(COMPLETE_EVENT);
-    freeEvent.offers.price = 0;
+    singleOffer(freeEvent).price = 0;
     expect(hasCompleteGoogleEventData(freeEvent)).toBe(false);
 
     freeEvent.isAccessibleForFree = true;
@@ -224,14 +250,14 @@ describe('Google Event data quality publication gate', () => {
     expect(hasCompleteGoogleEventData(mixedStatuses)).toBe(false);
 
     const mixedAvailability = structuredClone(COMPLETE_EVENT);
-    mixedAvailability.offers.availability = [
+    singleOffer(mixedAvailability).availability = [
       'https://schema.org/InStock',
       'https://example.test/Unknown',
     ];
     expect(hasCompleteGoogleEventData(mixedAvailability)).toBe(false);
 
     const foreignAvailability = structuredClone(COMPLETE_EVENT);
-    foreignAvailability.offers.availability = 'https://example.test/InStock';
+    singleOffer(foreignAvailability).availability = 'https://example.test/InStock';
     expect(hasCompleteGoogleEventData(foreignAvailability)).toBe(false);
   });
 
@@ -268,12 +294,12 @@ describe('Google Event data quality publication gate', () => {
 
   it('accepts only currencies in the canonical ISO-4217 set', () => {
     const valid = structuredClone(COMPLETE_EVENT);
-    valid.offers.priceCurrency = 'CHF';
+    singleOffer(valid).priceCurrency = 'CHF';
     expect(hasCompleteGoogleEventData(valid)).toBe(true);
 
     for (const priceCurrency of ['XXX', 'ZZZ']) {
       const invalid = structuredClone(COMPLETE_EVENT);
-      invalid.offers.priceCurrency = priceCurrency;
+      singleOffer(invalid).priceCurrency = priceCurrency;
       expect(hasCompleteGoogleEventData(invalid)).toBe(false);
     }
   });
