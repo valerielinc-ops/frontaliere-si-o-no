@@ -28,9 +28,10 @@
  *     absent from the server HTML. The vacancy text normally comes from the
  *     city's official ad page with the same Referenz-Nr. (see
  *     OFFICIAL_HOST below). If that legacy index is unavailable, the parser
- *     opens the current detail pages with the shared Playwright runtime and
- *     parses the hydrated SuccessFactors body instead. A tile without a
- *     source-backed body is still not published (issue 5253).
+ *     first reads the server-rendered SuccessFactors detail for the same
+ *     Referenz-Nr., then falls back to the current branded detail pages with
+ *     the shared Playwright runtime. A tile without a source-backed body is
+ *     still not published (issue 5253).
  *
  * Structured-data safe defaults (Non-Negotiable #3 — source has none of
  * these per-job): every job gets the Stadthaus Zürich civic address
@@ -652,10 +653,11 @@ async function fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, public
 /**
  * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
  * Prefer the portal index, then fetch each listed page politely. If the index
- * route is unavailable, probe the deterministic official detail URL first and
- * then the current hydrated portal detail page. Each fallback is tied to the
- * tile's exact reference or validated detail URL, so a portal migration cannot
- * empty the board or attribute a neighbouring page to a tile.
+ * route is unavailable, read the server-rendered SuccessFactors detail by the
+ * tile's exact reference, then probe the deterministic official detail URL and
+ * finally the current hydrated portal detail page. Each fallback is tied to
+ * the tile's exact reference or validated detail URL, so a portal migration
+ * cannot empty the board or attribute a neighbouring page to a tile.
  *
  * Exported for `stadtspital-zuerich-job-parser.mjs`, whose tiles live on the
  * same portal: `unit` keeps only the ad pages whose Dienstabteilung (the
