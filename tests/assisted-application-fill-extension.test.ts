@@ -1760,6 +1760,7 @@ describe('fill extension: owner-approved application defaults', () => {
     'I would like my data to be deleted once the present application process is complete.',
     'I would like my data to be deleted once this application process is complete.',
     'I would like my data to be deleted once the\u200B “present” application process is complete — thank you.',
+    'I would like my data to be deleted once this application process is complete. This answer is not conditional.',
   ])('recognizes current application process deletion in the extension bundle: %s', deletion => {
     const { document, F } = page(`<form>
       <label for="retention">How long may we retain your personal data?</label>
@@ -1781,6 +1782,8 @@ describe('fill extension: owner-approved application defaults', () => {
     "I needn't delete my data once this application process is complete.",
     'I do not want my data deleted; keep it only for this application.',
     'I would like my data to be deleted once the present application process is rejected.',
+    'without deleting data after this application',
+    'do not under any circumstances for any reason whatsoever delete after this application',
   ])('leaves negated or non-completion deletion wording unresolved in the extension bundle: %s', deletion => {
     const { document, F } = page(`<form>
       <label for="retention">How long may we retain your personal data?</label>
