@@ -191,7 +191,53 @@ describe('portal field extraction', () => {
       'Impostazioni cookie',
       'Paramètres des cookies',
       'Cookie-instellingen',
+      'Manage consent',
     ]) expect(COOKIE_CUSTOMIZE_RE.test(label)).toBe(true);
+  });
+
+  it('opens Yellowshark’s Manage consent surface before its apply control', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    let stage = 0;
+    const currentSnapshot = () => stage === 0
+      ? {
+        url, fields: [],
+        buttons: [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false },
+          { id: 'manage-consent', text: 'Manage consent', dialog: true, dialogId: 'd1', disabled: false },
+        ],
+        dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false,
+        text: 'This website uses cookies. Manage consent',
+      }
+      : stage === 1
+        ? {
+          url, fields: [],
+          buttons: [{ id: 'reject', text: 'Reject all cookies', dialog: true, dialogId: 'd1', disabled: false }],
+          dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false,
+          text: 'Cookie preferences',
+        }
+        : {
+          url, fields: [], buttons: [{ id: 'apply', text: 'JETZT BEWERBEN', disabled: false }],
+          dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Job posting',
+        };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        innerText: vi.fn(async () => stage < 2 ? 'Cookie preferences' : ''),
+        first: () => ({
+          click: vi.fn(async () => {
+            expect(selector).toBe(stage === 0 ? '[data-aa-id="manage-consent"]' : '[data-aa-id="reject"]');
+            stage += 1;
+          }),
+        }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
   });
 
   it('marks only an active cookie surface, not a persistent preferences section', () => {
