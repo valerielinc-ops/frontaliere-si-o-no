@@ -26,7 +26,7 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
-import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { postalPacketReadiness } from './assistedApplicationPostalPacket.js';
@@ -225,7 +225,7 @@ export async function scheduleDispatchRecovery({ db, orderId, nowMs = Date.now()
       updatedAt: nowMs,
     }, { merge: true });
     transaction.set(orderRef, { automationDueAt: dueAt }, { merge: true });
-    transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_dispatch_recovery_scheduled', {
+    transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_dispatch_recovery_scheduled', {
       actor: 'dispatch-recovery',
       round: Number(flow.round) || 1,
       mode: dispatch.mode,
@@ -440,7 +440,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     claim('applied');
     transaction.set(flowRef, persistedFlow);
     transaction.set(orderRef, { ...mirrorFields(persistedFlow), ...(receiptResult?.orderPatch || {}) }, { merge: true });
-    transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
+    transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: String(actor).slice(0, 120),
       eventType: event.type,
       fromState: flow.state || null,
@@ -612,7 +612,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
         },
       } : {}),
     }, { merge: true });
-    transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
+    transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: 'system',
       eventType: `start:${reason}`,
       fromState: existing?.state || null,

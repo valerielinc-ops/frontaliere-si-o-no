@@ -12,6 +12,8 @@ export const ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT = 20;
 export const ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION = 'assisted_application_payment_recovery';
 /** Portal accounts the runner creates on an order's alias: `{order}/automation/accounts` (scripts/assisted-application/lib/portal/account.mjs). */
 export const PORTAL_ACCOUNTS_DOC_ID = 'accounts';
+/** Admin-only lifecycle audit: `{order}/events/{eventId}`. */
+export const ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION = 'events';
 
 // The kinds of documents a posting may require besides the CV and the cover
 // letter (assistedApplicationExtraDocuments.js, the requirements schema).

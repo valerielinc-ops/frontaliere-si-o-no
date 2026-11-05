@@ -6,7 +6,7 @@ import {
   runAutomationSweep,
   scheduleDispatchRecovery,
 } from '../functions/src/assistedApplicationAutomation.js';
-import { DISPATCH_RECOVERY_DELAY_MS, dispatchRecoveryDueAt } from '../functions/src/assistedApplicationDispatchRetryPolicy.js';
+import { DISPATCH_RECOVERY_DELAY_MS, dispatchRecoveryDueAt, preDispatchFailureCode } from '../functions/src/assistedApplicationDispatchRetryPolicy.js';
 
 const now = Date.UTC(2026, 10, 5, 21, 0, 0);
 const orderId = 'dispatch_recovery_test';
@@ -24,6 +24,13 @@ function storeFor(flow: Record<string, unknown>) {
 }
 
 describe('safe recovery after a pre-dispatch failure', () => {
+  it('normalizes a transport code when the timeout message proves pre-dispatch failure', () => {
+    expect(preDispatchFailureCode({
+      code: 'ERR_NETWORK',
+      message: 'Remote Config template fetch timed out after 8000ms and no cached template is available',
+    })).toBe('REMOTE_CONFIG_FETCH_TIMEOUT');
+  });
+
   it('schedules exactly one delayed retry for a Remote Config timeout', async () => {
     const store = storeFor({
       state: 'regenerating', round: 2,

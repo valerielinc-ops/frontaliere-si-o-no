@@ -39,6 +39,8 @@ export function isPreDispatchFailure(error) {
 }
 
 export function preDispatchFailureCode(error) {
-  if (!isPreDispatchFailure(error)) return null;
-  return String(error?.code || error?.errorCode || '').trim() || REMOTE_CONFIG_FETCH_TIMEOUT_CODE;
+  // A matching timeout message is authoritative even when a lower layer
+  // attaches a transport-specific code. Always return the canonical code so
+  // the transaction guard in scheduleDispatchRecovery accepts the recovery.
+  return isPreDispatchFailure(error) ? REMOTE_CONFIG_FETCH_TIMEOUT_CODE : null;
 }
