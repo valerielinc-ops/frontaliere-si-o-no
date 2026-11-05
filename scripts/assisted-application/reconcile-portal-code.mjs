@@ -66,6 +66,15 @@ function hasUntrustedProfileOperationalAnswers({ profile, draft }) {
   });
 }
 
+function canRediscoverUnreadablePortalQuestions(flow, draft, flags) {
+  if (flow?.heldBy?.length !== 1 || flow.heldBy[0] !== 'portal:question_label_unreadable'
+    || !flags.candidate.length) return false;
+  const portalQuestionIds = new Set((Array.isArray(draft?.questions) ? draft.questions : [])
+    .filter(question => question?.source === 'portal' && question.required === true)
+    .map(question => String(question.id || '').trim()).filter(Boolean));
+  return flags.candidate.every(id => portalQuestionIds.has(String(id)));
+}
+
 export async function reconcilePortalCode({ db, version, apply = false, nowMs = Date.now(), isEnabled = null }) {
   if (!portalCodeVersion(version)) throw new Error('invalid_portal_code_version');
   if (!isEnabled) {
@@ -132,7 +141,8 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           ? { ...(recoveryFlow.answers || {}), [identityAnswer.questionId]: identityAnswer.email }
           : recoveryFlow.answers || {};
         const flags = evaluateRedFlags(draft, eligibilityAnswers, flow.documents || {}, recoveryFlow.questionAnswers, recoveryFlow, order);
-        if (flags.owner.length || flags.candidate.length || flags.documents.length) return false;
+        const candidatePortalRediscovery = ownerRecoveryReady && canRediscoverUnreadablePortalQuestions(flow, draft, flags);
+        if (flags.owner.length || flags.documents.length || (flags.candidate.length && !candidatePortalRediscovery)) return false;
         if (receipt?.version === version && Number(receipt.round) === Number(flow.round || 1)) return false;
         if (apply) {
           if (identityQuestionReady) {
