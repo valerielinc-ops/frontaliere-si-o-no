@@ -1579,7 +1579,7 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   if (isPreferenceControl && hasApplicationFormInCookieScope(snapshot, button)) return false;
   // A privacy/consent action can use the same bare label inside the
   // application form. It is never a cookie-manager entry point there.
-  if (COOKIE_MANAGE_CONSENT_RE.test(label) && (button.formId || button.roleFormId)) return false;
+  if (isPreferenceControl && (button.formId || button.roleFormId)) return false;
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {

@@ -1896,8 +1896,9 @@
   }
   function cookieControlIsActive(button) {
     const element = button.element;
+    const preferenceControl = COOKIE_CUSTOMIZE_RE.test(button.text) || COOKIE_MANAGE_CONSENT_RE.test(button.text);
     const manageConsent = COOKIE_MANAGE_CONSENT_RE.test(button.text);
-    if (manageConsent && element.closest('form, [role="form"]')) return false;
+    if (preferenceControl && element.closest('form, [role="form"]')) return false;
     if (element.closest('header, nav, footer, [role="navigation"], [role="contentinfo"]')) return false;
     for (let node = element; node && node !== element.ownerDocument.body; node = node.parentElement) {
       const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
