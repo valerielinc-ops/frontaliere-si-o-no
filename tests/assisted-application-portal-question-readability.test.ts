@@ -930,6 +930,40 @@ it('keeps a readable same-language Umantis batch usable when localization is una
   expect(result.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
 });
 
+it('keeps deterministic German field copies when an unresolved same-language question shares the batch', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([
+    { id: 'salutation', question: 'Anrede', applicationQuestion: 'Anrede', options: [] },
+    {
+      id: 'skills',
+      question: 'Quali requisiti e competenze hai per questa candidatura?',
+      applicationQuestion: 'Quali requisiti e competenze hai per questa candidatura?',
+      options: [],
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject([
+    { id: 'salutation', question: 'Come preferisci essere indicato/a?', applicationQuestionLocale: 'de', localizationStatus: 'translated' },
+    { id: 'skills', question: 'Quali requisiti e competenze hai per questa candidatura?', applicationQuestionLocale: 'it', localizationStatus: 'same_language' },
+  ]);
+});
+
+it('does not use the same-language fast path when options are in another language', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([{
+    id: 'skills',
+    question: 'Quali requisiti e competenze hai per questa candidatura?',
+    applicationQuestion: 'Quali requisiti e competenze hai per questa candidatura?',
+    options: ['Ja', 'Nein'],
+    applicationOptions: ['Ja', 'Nein'],
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).toHaveBeenCalledOnce();
+  expect(result[0]).toMatchObject({ localizationStatus: 'fallback', options: ['Sì', 'No'] });
+  expect(result[0].localizationStatus).not.toBe('same_language');
+});
+
 it('detects the ATS question language even when the posting language matches the candidate locale', async () => {
   const question = 'Aus welcher Region stammt dein letzter Wohnort?';
   let prompt = '';
