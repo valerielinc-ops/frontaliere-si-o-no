@@ -713,7 +713,23 @@ it('asks only for the missing EOC residence street and permit after resolving kn
     waitForTimeout: vi.fn(async () => {}),
   };
   const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
-  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+  const codex = vi.fn(async ({ prompt }: { prompt: string }) => {
+    if (prompt.includes('You localize questions from an online job application')) {
+      const start = prompt.lastIndexOf('\n\n{');
+      const end = prompt.indexOf('\n\nReturn exactly one JSON object', start);
+      const input = JSON.parse(prompt.slice(start + 2, end));
+      return { questions: (input.questions || []).map((question: any) => ({
+        id: question.id,
+        sourceLocale: 'it',
+        question: question.applicationQuestion,
+        why: '',
+        options: question.options || [],
+        optionMap: question.optionMap || [],
+        validationMessage: '',
+      })) };
+    }
+    return { actions: [], missingRequired: [] };
+  });
   const address = { street: '', postalCode: '6830', city: 'Lugano', country: 'Svizzera' };
 
   const result = await readPortalRequirements({
