@@ -69,10 +69,12 @@ function rewriteKnownPlateAuctionUrl(url) {
 }
 
 function isAiDocumentDownloadPath(path, documentPath) {
+  // The bare Plone route is a redirect endpoint. A named
+  // `@@download/file/<name>.pdf` is already the direct audited document URL;
+  // rewriting it would mutate historical rows that intentionally preserve it.
   return path === documentPath
     || path === `${documentPath}/download`
-    || path === `${documentPath}/@@download/file`
-    || path.startsWith(`${documentPath}/@@download/file/`);
+    || path === `${documentPath}/@@download/file`;
 }
 
 /**
