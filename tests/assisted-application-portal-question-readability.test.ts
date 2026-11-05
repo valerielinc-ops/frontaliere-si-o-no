@@ -9,6 +9,7 @@ import { questionsForCandidate } from '../functions/src/assistedApplicationCandi
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcileOperationalAnswers } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
+import { permitOptions, permitStatusQuestion, permitStatusQuestionWhy } from '../functions/src/lib/permitStatus.js';
 
 // Anonymous registration markup: an intentionally empty styled label and the
 // actual consent in the owned fieldset legend, as on the public Avature form.
@@ -426,6 +427,72 @@ it('asks for a separately required house number when the residence street has no
   expect(result.questions.map((question: any) => question.id)).toContain('portal_residence_house_number');
 });
 
+it('turns a required Umantis residence-status choice into the candidate permit question', async () => {
+  const applicationOptions = permitOptions('it');
+  const result = portalRequirementsFromMissingRequired([
+    { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: applicationOptions },
+  ], [], { candidate: { identity: {}, profile: {}, answers: {} }, candidateLocale: 'it' });
+
+  expect(result.unreadableFields).toBeUndefined();
+  expect(result.questions).toEqual([expect.objectContaining({
+    id: 'work_permit',
+    question: permitStatusQuestion('it'),
+    candidatePrompt: permitStatusQuestion('it'),
+    applicationQuestion: 'Statuto di soggiorno',
+    type: 'choice',
+    options: applicationOptions,
+    required: true,
+  })]);
+
+  const [localized] = await localizePortalQuestions(result.questions, { candidateLocale: 'it', applicationLocale: 'it' });
+  expect(localized).toMatchObject({
+    id: 'work_permit',
+    question: permitStatusQuestion('it'),
+    applicationQuestion: 'Statuto di soggiorno',
+  });
+});
+
+it('asks for current Swiss status when the CV alone names a permit', () => {
+  const field = { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: permitOptions('it') };
+  const fromCv = portalRequirementsFromMissingRequired([field], [], {
+    candidate: { identity: {}, profile: { workPermit: 'Permesso G' }, answers: {} }, candidateLocale: 'it',
+  });
+  expect(fromCv.questions).toMatchObject([{
+    id: 'work_permit', question: permitStatusQuestion('it'), applicationQuestion: 'Statuto di soggiorno', required: true,
+  }]);
+
+  for (const candidate of [
+    { identity: {}, profile: { permitStatus: 'permit_b' }, answers: {} },
+    { identity: {}, profile: {}, answers: {}, swissStatus: { code: 'permit_c' } },
+  ]) {
+    const result = portalRequirementsFromMissingRequired([field], [], { candidate, candidateLocale: 'it' });
+    expect(result.questions).toEqual([]);
+  }
+});
+
+it('asks for a missing Swiss status when stored status strings are not recognized and localizes the explanation', async () => {
+  const field = { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: permitOptions('it') };
+  for (const candidate of [
+    { identity: {}, profile: { permitStatus: 'pending' }, answers: {} },
+    { identity: {}, profile: {}, answers: {}, swissStatus: { code: 'pending' } },
+  ]) {
+    const result = portalRequirementsFromMissingRequired([field], [], { candidate, candidateLocale: 'de' });
+    expect(result.questions).toEqual([expect.objectContaining({
+      id: 'work_permit',
+      question: permitStatusQuestion('de'),
+      candidatePrompt: permitStatusQuestion('de'),
+      why: permitStatusQuestionWhy('de'),
+      applicationQuestion: 'Statuto di soggiorno',
+      applicationOptions: field.options,
+      required: true,
+    })]);
+    const [localized] = await localizePortalQuestions(result.questions, {
+      candidateLocale: 'de', applicationLocale: 'it', codex: vi.fn().mockRejectedValue(new Error('translation unavailable')),
+    });
+    expect(localized).toMatchObject({ question: permitStatusQuestion('de'), why: permitStatusQuestionWhy('de') });
+  }
+});
+
 it('asks for a missing residence country and reads it from a partial profile address', () => {
   const country = {
     id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true,
@@ -580,11 +647,14 @@ it('binds the native Umantis applicant address when applyUrl is the direct posti
       { id: 'f5', kind: 'text', inputType: 'text', label: 'Nome', form: 0, required: false },
       { id: 'f6', kind: 'text', inputType: 'text', label: 'Cognome', form: 0, required: false },
       { id: 'f8', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', form: 0, required: false },
-      { id: 'f10', kind: 'textarea', inputType: 'textarea', label: 'Via', form: 0, required: true },
-      { id: 'f11', kind: 'text', inputType: 'text', label: 'NAP', form: 0, required: false },
-      { id: 'f12', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true },
+      { id: 'f10', kind: 'textarea', inputType: 'textarea', label: 'Via', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'f11', kind: 'text', inputType: 'text', label: 'NAP', form: 0, required: false,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'f12', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
       { id: 'f13', kind: 'select', inputType: 'select', label: 'Paese', form: 0, required: true,
-        options: ['Selezionare', 'Svizzera', 'Italia'] },
+        options: ['Selezionare', 'Svizzera', 'Italia'], addressContext: { section: '', owners: [], unknown: false } },
       { id: 'cv', kind: 'file', inputType: 'file', label: 'Curriculum', form: 0, required: false },
     ],
   };
@@ -607,6 +677,142 @@ it('binds the native Umantis applicant address when applyUrl is the direct posti
   expect(result.handoff).toBeUndefined();
   expect(result.unreadableFields).toBeUndefined();
   expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Via', 'Località', 'Paese']);
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('asks only for the missing EOC residence street and permit after resolving known profile facts', async () => {
+  const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4';
+  const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Application/New/4';
+  const processingConsent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell’EOC. Acconsento che i miei dati personali vengano trattati e conservati in conformità con tale Dichiarazione e con le normative vigenti in materia di protezione dei dati in Svizzera.';
+  const retentionQuestion = 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?';
+  const retentionOptions = [
+    'Do il mio consenso affinché i miei dati vengano memorizzati anche successivamente a una concreta richiesta di occupazione e dopo essere stato informato di offerte di lavoro interessanti.',
+    'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.',
+  ];
+  const snapshot = {
+    url: applicationUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Assistente sociale (80–100%) - Candidatura EOC',
+    fields: [
+      { id: 'first-name', kind: 'text', inputType: 'text', label: 'Nome', form: 0, required: true },
+      { id: 'last-name', kind: 'text', inputType: 'text', label: 'Cognome', form: 0, required: true },
+      { id: 'email', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', form: 0, required: true },
+      { id: 'phone', kind: 'text', inputType: 'tel', label: 'Telefono', form: 0, required: true },
+      { id: 'street', kind: 'textarea', inputType: 'textarea', label: 'Via', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'postal', kind: 'text', inputType: 'text', label: 'NAP', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'city', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'country', kind: 'select', inputType: 'select', label: 'Paese', form: 0, required: true,
+        options: ['Selezionare', 'Svizzera', 'Italia'], addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'nationality', kind: 'select', inputType: 'select', label: 'Nazionalità', form: 0, required: true,
+        options: ['Selezionare', 'Italia', 'Svizzera'] },
+      { id: 'salutation', kind: 'select', inputType: 'select', label: 'Appellativo', form: 0, required: true,
+        options: ['Signora', 'Signor'] },
+      { id: 'birth-date', kind: 'text', inputType: 'text', autocomplete: 'bday', label: 'Data di nascita', form: 0, required: true },
+      { id: 'residence-status', kind: 'radio', inputType: 'radio', label: 'Statuto di soggiorno', form: 0, required: true,
+        options: permitOptions('it') },
+      { id: 'privacy', kind: 'checkbox', inputType: 'checkbox', label: processingConsent, form: 0, required: true },
+      { id: 'retention', kind: 'select', inputType: 'select', label: retentionQuestion, form: 0, required: true,
+        options: retentionOptions },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => applicationUrl,
+    title: vi.fn(async () => 'Assistente sociale (80–100%) - Candidatura | EOC candiDati'),
+    goto: vi.fn(async () => {}), evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async ({ prompt }: { prompt: string }) => {
+    if (prompt.includes('You localize questions from an online job application')) {
+      const start = prompt.lastIndexOf('\n\n{');
+      const end = prompt.indexOf('\n\nReturn exactly one JSON object', start);
+      const input = JSON.parse(prompt.slice(start + 2, end));
+      return { questions: (input.questions || []).map((question: any) => ({
+        id: question.id,
+        sourceLocale: 'it',
+        question: question.applicationQuestion,
+        why: '',
+        options: question.options || [],
+        optionMap: question.optionMap || [],
+        validationMessage: '',
+      })) };
+    }
+    return { actions: [], missingRequired: [] };
+  });
+  const address = { street: '', postalCode: '6830', city: 'Lugano', country: 'Svizzera' };
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'it', candidateLocale: 'it',
+    job: { title: 'Assistente sociale (80-100%)', company: 'EOC – Ente Ospedaliero Cantonale' },
+    candidate: {
+      identity: { name: 'Mario Rossi', firstName: 'Mario', lastName: 'Rossi', email: 'candidate@example.invalid', phone: '+41791234567', address },
+      profile: { dateOfBirth: '1990-05-12', nationality: 'Italia', location: 'Lugano', address, workPermit: 'Permesso B' },
+      answers: { salutation: 'Signor' },
+    },
+    codex, launch: async () => browser,
+  });
+
+  expect(result.handoff).toBeUndefined();
+  expect(result.unreadableFields).toBeUndefined();
+  expect(result.questions.map((question) => question.id)).toEqual(['portal_residence_address', 'work_permit']);
+  expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Via', 'Statuto di soggiorno']);
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('pre-reads a unique external Apply link for an allowlisted ATS form', async () => {
+  const postingUrl = 'https://careers.example.test/jobs/42';
+  const applicationUrl = 'https://ats.example.test/apply/42';
+  const formSnapshot = {
+    url: applicationUrl, buttons: [], links: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Social worker application Acme AG',
+    fields: [
+      { id: 'question', kind: 'text', inputType: 'text', label: 'Do you have a license?', form: 0, required: true },
+      { id: 'cv', kind: 'file', inputType: 'file', label: 'CV', form: 0, required: false },
+    ],
+  };
+  const postingSnapshot = {
+    url: postingUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Social worker at Acme AG',
+    fields: [],
+    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, frame: 0, chrome: false }],
+  };
+  const state = { url: postingUrl, snapshot: postingSnapshot };
+  const applyLink = {
+    first: () => applyLink,
+    waitFor: vi.fn(async () => {}),
+    getAttribute: vi.fn(async (name: string) => name === 'href' ? applicationUrl : null),
+    click: vi.fn(async () => { state.url = applicationUrl; state.snapshot = formSnapshot; }),
+  };
+  const frame = {
+    evaluate: vi.fn(async () => state.snapshot),
+    locator: vi.fn(() => applyLink),
+  };
+  const page = {
+    frames: () => [frame], url: () => state.url,
+    title: vi.fn(async () => state.url === postingUrl ? 'Acme Careers' : 'Social worker application | Acme AG'),
+    goto: vi.fn(async (url: string) => {
+      state.url = url;
+      state.snapshot = url === postingUrl ? postingSnapshot : formSnapshot;
+    }),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const context = { newPage: async () => page, waitForEvent: () => Promise.resolve(null) };
+  const browser = { newContext: vi.fn(async () => context), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [{ fieldId: 'question', question: 'Do you have a license?' }] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'en', candidateLocale: 'en',
+    job: { title: 'Social worker', company: 'Acme AG' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(applyLink.click).toHaveBeenCalledOnce();
+  expect(result.handoff).toBeUndefined();
+  expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Do you have a license?']);
   expect(browser.close).toHaveBeenCalledOnce();
 });
 

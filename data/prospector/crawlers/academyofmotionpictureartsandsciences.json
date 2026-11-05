@@ -1,0 +1,25 @@
+{
+  "companyKey": "academyofmotionpictureartsandsciences",
+  "companyName": "Academy Of Motion Picture Arts and Sciences",
+  "companyHost": "academyofmotionpictureartsandsciences.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://academyofmotionpictureartsandsciences.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 18,
+  "sampleTitles": [
+    "Associate Buyer",
+    "Associate Director, Corporate Partnerships",
+    "Associate Director, Exhibitions Fabrication",
+    "Buying Assistant",
+    "Curatorial Assistant"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-05T13:42:07.126Z",
+  "candidateKey": "academyofmotionpictureartsandsciences@applytojob.com"
+}

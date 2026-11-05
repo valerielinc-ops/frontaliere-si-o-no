@@ -1,0 +1,23 @@
+{
+  "companyKey": "a2nails-ch",
+  "companyName": "a2 nails",
+  "companyHost": "a2nails.ch",
+  "verifiedEmployerDomain": "a2nails.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://a2nails.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spécialiste en manucure et pédicure"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-05T13:49:56.807Z",
+  "candidateKey": "a2nails.ch"
+}

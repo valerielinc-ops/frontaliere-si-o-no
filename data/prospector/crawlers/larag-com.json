@@ -1,0 +1,27 @@
+{
+  "companyKey": "larag-com",
+  "companyName": "LARAG",
+  "companyHost": "recruitingapp-3017.umantis.com",
+  "verifiedEmployerDomain": "larag.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-3017.umantis.com/Jobs/All"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 25,
+  "sampleTitles": [
+    "Allrounder:in Werkstatt",
+    "Automobil-Mechatroniker:in / Diagnostiker:in",
+    "Automobil-Mechatroniker:in / Diagnostiker:in",
+    "Serviceleiter:in VW",
+    "Kundendienstberater:in VW und VW Nutzfahrzeuge"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-05T13:53:32.445Z",
+  "candidateKey": "larag@rumlang"
+}

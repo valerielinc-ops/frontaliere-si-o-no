@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -2585,6 +2585,7 @@ describe('portal runner helpers', () => {
     expect(questionTopic('Hausnummer')).toBe('address_house_number');
     expect(candidateAnswerForQuestion({ portalQuestionsAnswered: [{ question: 'Street address', answer: 'Via Roma' }] }, 'Hausnummer')).toBe('');
     expect(questionTopic('Which Swiss work permit do you hold?')).toBe('permit');
+    expect(questionTopic('Statuto di soggiorno')).toBe('permit');
     expect(questionTopic('Will you need a work permit?')).toBe('');
     expect(questionTopic('In quale scuola sei attualmente?')).toBe('current_school');
     expect(questionTopic('What did you study?')).toBe('');
@@ -2903,7 +2904,7 @@ describe('portal runner helpers', () => {
 
   it('recognises next, submit, confirmation and validation in four languages', () => {
     for (const text of ['Next', 'Weiter', 'Avanti', 'Suivant', 'Save and continue']) expect(NEXT_RE.test(text)).toBe(true);
-    for (const text of ['Submit application', 'Bewerbung absenden', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Submit application', 'Bewerbung absenden', 'Ihre Bewerbung einreichen', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler']) expect(SUBMIT_RE.test(text)).toBe(true);
     // Giro di prova 2026-10-01: JOIN's review page ends with «Conferma e applica».
     for (const text of ['Conferma e applica', 'Confirm and apply', 'Bestätigen und bewerben', 'Confirmer et postuler', 'Candidati', 'Inviare']) expect(SUBMIT_RE.test(text)).toBe(true);
     for (const text of ['Continua', 'Indietro', 'Modifica', 'Applica filtro', 'Inviare i documenti']) expect(SUBMIT_RE.test(text)).toBe(false);
@@ -2958,6 +2959,8 @@ describe('portal runner helpers', () => {
     expect(searchHolds('Switzerland (+41)', '')).toBe(false);
     expect(slugId('Wann können Sie beginnen?')).toBe('wann_konnen_sie_beginnen');
     expect(WAVE1_CHANNELS.has('workday')).toBe(true);
+    expect(WAVE1_CHANNELS.has('manatal')).toBe(true);
+    expect(PREREAD_CHANNELS.has('manatal')).toBe(true);
     expect(WAVE1_CHANNELS.has('linkedin')).toBe(false);
   });
 
@@ -3064,8 +3067,17 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({})).missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
     // A text field filled with the candidate's own statement.
     const text = { id: 't1', kind: 'text', label: 'Aufenthaltsstatus', required: true };
-    const fill = { fieldId: 't1', action: 'fill', value: permitStatement('permit_b', 'de'), document: 'none', source: 'profile', evidence: '' };
+    const fill = { fieldId: 't1', action: 'fill', value: permitStatement('permit_b', 'de'), document: 'none', source: 'rule', evidence: '' };
     expect(guardPlan({ actions: [fill], missingRequired: [] }, [text], candidate({ permitStatus: 'permit_b' })).actions).toEqual([fill]);
+    expect(candidateAnswerForField({ profile: { permitStatus: 'permit_b' }, answers: {} }, { kind: 'text', label: 'Work permit', options: [] }))
+      .toEqual({ value: 'permit_b', source: 'profile' });
+    expect(candidateAnswerForField({ profile: {}, answers: { work_permit: 'permit_g' } }, { kind: 'text', label: 'Work permit', options: [] }))
+      .toEqual({ value: 'permit_g', source: 'answers' });
+    expect(candidateAnswerForField(
+      { profile: { workPermit: 'Permesso B' }, answers: {} },
+      { kind: 'text', label: 'Work permit', options: [] },
+      { includeProfileWorkPermit: false },
+    )).toBeNull();
   });
 
   it('maps a held permit to the positive answer when an ATS qualifies its negative choices', () => {
@@ -3078,6 +3090,10 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const fromPlan = guardPlan({ actions: [select('p1', 'G Permit', 'profile')], missingRequired: [] }, [field], held);
     expect(fromPlan.actions).toEqual([select('p1', 'Yes')]);
     expect(fromPlan.missingRequired).toEqual([]);
+
+    const unrecognized = { identity, profile: {}, answers: {}, swissStatus: { code: 'pending', statement: 'Yes' } };
+    expect(candidateAnswerForField(unrecognized, field)).toBeNull();
+    expect(guardPlan({ actions: [select('p1', 'Yes')], missingRequired: [] }, [field], unrecognized).actions).toEqual([]);
 
     // SuccessFactors can expose the same combobox before its lazy list has
     // been read.  The status still maps to the localized boolean answer, so
@@ -3116,5 +3132,16 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(known).not.toContain('aufenthaltsbewilligung');
     expect(known).not.toContain('permesso g');
     expect(planSystemPrompt('it')).toContain('swissStatus.statement is the candidate\'s own statement of their Swiss status today');
+  });
+
+  it('does not promote an unrecognized profile status into a candidate permit', () => {
+    const form = candidateForForm({ identity, profile: { permitStatus: 'pending' }, answers: {}, language: 'it' });
+    expect(form.swissStatus).toBeNull();
+    const field = permitField('Statuto di soggiorno', ['B', 'G']);
+    expect(candidateAnswerForField(form, field)).toBeNull();
+
+    const answered = candidateForForm({ identity, profile: { permitStatus: 'pending' }, answers: { work_permit: 'permit_b' }, language: 'it' });
+    expect(answered.swissStatus?.code).toBe('permit_b');
+    expect(answered.answers).not.toHaveProperty('work_permit');
   });
 });

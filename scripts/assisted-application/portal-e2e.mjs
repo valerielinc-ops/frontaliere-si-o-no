@@ -1300,9 +1300,16 @@ async function main() {
   const executablePath = process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined;
   const run = (extra = {}) => {
     const applyUrl = bindReceiptJobId(extra.applyUrl || `${base}/job`);
+    const fixturePath = new URL(applyUrl).pathname;
+    // These posting pages are verified only when the test supplies the selected
+    // role, just as the production runner receives it from the application order.
+    const fixtureJob = fixturePath === '/job' ? { title: 'Pflegefachperson 80%' }
+      : fixturePath === '/widget-job' ? { title: 'Pflegefachperson 60%' }
+        : undefined;
     return submitViaPortal({
       language: 'de',
       candidateLocale: 'it',
+      ...(fixtureJob ? { job: fixtureJob } : {}),
       candidate: { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } },
       files,
       codex: fakeCodex,
@@ -1614,7 +1621,7 @@ async function main() {
       if (request.prompt.includes('{"agentPage"')) throw new Error('timeout');
       return fakeCodex(request);
     };
-    const broken = await run({ applyUrl: `${base}/widget-job`, codex: failing, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    const broken = await run({ applyUrl: `${base}/widget`, codex: failing, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
     check('a Codex failure in the fallback hands the order to the owner', broken.event.type === 'submit_handoff'
       && broken.event.reason === 'portal_needs_candidate' && state.widgetApplications.length === 0);
     const widget = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
