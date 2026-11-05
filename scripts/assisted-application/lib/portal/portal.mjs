@@ -768,12 +768,11 @@ function applicationEntryBelongsToPosting(control, { applyUrl = '', postingUrl =
   if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl })) return true;
 
   // A posting can use a button with no URL (Yellowshark). Its nearest heading
-  // or explicit section is still a posting association; a neighbouring job
-  // card has a different title and must stay terminal under the notice.
+  // or explicit section must contain the selected role; an employer-only
+  // match could otherwise claim a neighbouring job card for the same company.
   const localContext = [control?.section, control?.context].filter(Boolean).join(' ');
-  if (!localContext) return false;
-  return postingMatch(localContext, job, postingUrl) === 'match'
-    || (job?.title && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
+  return Boolean(localContext && job?.title
+    && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
 }
 
 // A posting may show an informational region notice and still expose its own

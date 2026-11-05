@@ -23,7 +23,7 @@ const profile = snapshot(profileUrl, 'Since you have already submitted your pers
 const review = snapshot(reviewUrl, 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [{ id: 'commit', text: 'Apply' }]);
 const receipt = snapshot(receiptUrl, 'Thank you for your application.', [{ text: 'My profile' }]);
 
-function fixture(initial = profile, source: any = null, finalReview = review, finalClickError: Error | null = null, buttonTransitions: Record<string, () => Promise<void>> = {}) {
+function fixture(initial = profile, source: any = null, finalReview = review, finalClickError: Error | null = null, buttonTransitions: Record<string, () => Promise<void>> = {}, job: Record<string, string> = { title }) {
   state.snapshot = source || initial;
   const guard = vi.fn(async () => {
     expect(state.snapshot.url).toBe(reviewUrl);
@@ -58,7 +58,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     }),
   };
   const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
-  const run = () => submitViaPortal({ applyUrl: source?.url || applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
+  const run = () => submitViaPortal({ applyUrl: source?.url || applyUrl, job, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
     codex: vi.fn(), launch: async () => browser, onBeforeSubmit: guard });
   return { run, guard, click, openClick, page };
 }
@@ -185,6 +185,23 @@ describe('runner final guard across three application stages', () => {
       'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
       [{ id: 'other-apply', text: 'JETZT BEWERBEN', section: 'Senior Data Analyst', disabled: false }]);
     const f = fixture(unrelatedCta);
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    expect(f.openClick).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('keeps a regional notice terminal for a same-employer CTA on another role', async () => {
+    const unrelatedCta = {
+      ...snapshot(applyUrl,
+        'Acme AG. Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+        [{ id: 'other-apply', text: 'JETZT BEWERBEN', section: 'Acme AG — Junior Accountant', disabled: false }]),
+      text: 'Senior Engineer. Acme AG. Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
+    };
+    const f = fixture(unrelatedCta, null, review, null, {}, { company: 'Acme AG', title: 'Senior Engineer' });
 
     const result = await f.run();
 
