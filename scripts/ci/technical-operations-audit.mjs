@@ -1151,7 +1151,7 @@ function shellOutputRedirectRanges(source, bindings) {
           while (commandStart > 0) {
             const previousEnd = commandStart - 1;
             const previousStart = raw.lastIndexOf('\n', previousEnd - 1) + 1;
-            if (! /\\\s*$/u.test(raw.slice(previousStart, previousEnd))) break;
+            if (!/\\\s*$/u.test(raw.slice(previousStart, previousEnd))) break;
             commandStart = previousStart;
           }
           ranges.push({ start: commandStart, end: lineEnd });
@@ -1795,7 +1795,7 @@ function outputKeysFromSource(source, { outputFlags = null, stdoutToGithubOutput
     for (const key of literalOutputKeys(raw, flagRanges)) keys.add(key);
     for (const key of objectEntryOutputKeys(raw, flagRanges)) keys.add(key);
   }
-  if (outputFlags && outputFlags.size > 0) return keys;
+  if (outputFlags && outputFlags.size > 0 && !stdoutToGithubOutput) return keys;
   const sinkRanges = outputSinkRanges(raw);
   const stdoutRanges = stdoutToGithubOutput ? stdoutOutputRanges(raw) : [];
   if (!sinkRanges.length && !stdoutRanges.length && !/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|append(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return keys;
