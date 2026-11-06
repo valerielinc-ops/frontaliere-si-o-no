@@ -478,7 +478,7 @@ function fakePortal() {
         <div id="usercentrics-root"></div><script>
           const host = document.getElementById('usercentrics-root');
           const root = host.attachShadow({ mode: 'open' });
-          root.innerHTML = '<div style="position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.3)"><div role="dialog" aria-label="Privatsphäre"><button type="button">Einstellungen verwalten</button><button type="button" id="all">Alle akzeptieren</button></div></div>';
+          root.innerHTML = '<div style="position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.3)"><div role="dialog" aria-label="Privatsphäre"><p>Diese Website verwendet Cookies.</p><button type="button">Einstellungen verwalten</button><button type="button" id="all">Alle akzeptieren</button></div></div>';
           root.getElementById('all').addEventListener('click', () => host.remove());
         </script>`));
     }
