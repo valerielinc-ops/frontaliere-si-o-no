@@ -257,8 +257,8 @@ const bootstrapApp = async () => {
  // jumping the footer (live desktop CLS ~0.2 job detail, up to ~0.9 thin
  // search). MOVE that fallback into #root so React+s createRoot().render()
  // replaces it IN-PLACE (reusing the reserve+crossfade below) instead of an
- // external collapse. The bare Ticino listing keeps its external snapshot
- // outside until its first result set.
+ // external collapse. Bare canton/aggregate job-board roots keep their
+ // external snapshot outside until the first result set.
  // parsePath is dynamic-imported (NOT a static entry import) so router+s heavy
  // route registries stay out of the entry chunk — it is already loaded with App
  // above, so this resolves from cache.
