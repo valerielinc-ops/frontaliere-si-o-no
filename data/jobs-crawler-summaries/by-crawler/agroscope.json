@@ -1,18 +1,62 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-11-06T09:18:18.026Z",
-  "total": 14,
-  "newCount": 0,
+  "generatedAt": "2026-11-06T21:24:08.099Z",
+  "total": 15,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 10483,
-  "avgDurationMs": 10483,
+  "durationMs": 7191,
+  "avgDurationMs": 7191,
   "durationHistory": [
-    10483
+    7191
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "HR-Leiter·in",
+      "slug": "risorse-umane-leiter-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/hr-leiterin/d42d5e7c-58c3-4efc-bfde-24a459595db6",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20943",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "1725",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "management",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-11-05T10:32:54Z",
+      "postedDate": "2026-11-05T10:32:54Z",
+      "postingDateSource": "reported",
+      "validThrough": "2027-02-03T21:23:53.113Z",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-9d9432e7be92",
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Posieux",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T21:23:53.113Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -605,5 +649,5 @@
       }
     }
   ],
-  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
+  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
 }
