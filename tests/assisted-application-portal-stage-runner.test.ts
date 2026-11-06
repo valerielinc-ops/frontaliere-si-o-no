@@ -340,21 +340,26 @@ describe('runner final guard across three application stages', () => {
       { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Yellowshark AG — Infrastructure Strategy Manager', disabled: false },
     ]);
     visiblePosting.title = 'Yellowshark AG — Infrastructure Strategy Manager';
+    // The fixture halts at a CAPTCHA after the owned Apply control; it must
+    // never arm the final submit guard or click the final button.
+    const captchaPage = { ...snapshot('https://jobs.yellowshark.com/application/', 'Verification required', []), captcha: true };
+    const applyClicked = vi.fn(async () => { state.snapshot = captchaPage; });
     const f = fixture(cookieDialog, null, review, null, {
       applyUrl: postingUrl,
       postingUrl,
       job: { company: 'Yellowshark AG', title },
       buttonTransitions: {
         '[data-aa-id="reject"]': async () => { state.snapshot = visiblePosting; },
-        '[data-aa-id="apply"]': async () => { state.snapshot = profile; },
+        '[data-aa-id="apply"]': applyClicked,
       },
     });
 
     const result = await f.run();
 
-    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
-    expect(f.guard).toHaveBeenCalledOnce();
-    expect(f.click).toHaveBeenCalledOnce();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
+    expect(applyClicked).toHaveBeenCalledOnce();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
   });
 
   it('keeps a regional notice terminal for an unrelated job-card application CTA', async () => {
