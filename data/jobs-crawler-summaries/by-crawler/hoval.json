@@ -1,63 +1,20 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-11-06T09:22:28.700Z",
+  "generatedAt": "2026-11-06T21:34:07.399Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 18412,
-  "avgDurationMs": 18412,
+  "durationMs": 19567,
+  "avgDurationMs": 19567,
   "durationHistory": [
-    18412
+    19567
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Servicetechniker/in Gas & Fernwärmesysteme - Zürcher Oberland (m/w/d)",
-      "slug": "tecnico-a-di-assistenza-per-sistemi-a-gas-e-di-teleriscaldamento-zurcher-oberland-m-f-d-hoval-feldmeilen",
-      "url": "https://www.hoval.it/it_IT/job/4083",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/4083/Application/New/1?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Feldmeilen",
-      "addressLocality": "Feldmeilen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "it",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2027-01-19T09:18:14.869Z",
-      "id": "hoval-d78ae99c948e",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-10-21T09:18:14.869Z",
-      "streetAddress": "Feldmeilen",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Business Application Spezialist/in (m/w/d)",
@@ -648,5 +605,5 @@
       }
     }
   ],
-  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
+  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
 }

@@ -1,16 +1,16 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-11-06T09:15:04.587Z",
+  "generatedAt": "2026-11-06T21:31:16.557Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 2547,
-  "avgDurationMs": 2547,
+  "durationMs": 2761,
+  "avgDurationMs": 2761,
   "durationHistory": [
-    2547
+    2761
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -142,6 +142,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -151,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
+  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
 }

@@ -2,6 +2,8 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { decode as decodeHtmlEntities } from 'html-entities';
+import { parse as parseHtml } from 'parse5';
 
 export const EXPIRED_ARCHIVE_EVIDENCE_VERSION = 1;
 export const EXPIRED_ARCHIVE_EVIDENCE_VALIDATOR = 'expired-archive-publication-v1';
@@ -9,7 +11,6 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const DEFAULT_CANARIES_PER_LOCALE = 4;
 const NOINDEX_ROBOTS_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots(?![a-z0-9_-])["']?)(?=[^>]*\bcontent\s*=\s*["']?[^"'>]*\bnoindex\b)[^>]*>/iu;
 const TITLE_RE = /<title(?:\s[^>]*)?>([\s\S]*?)<\/title\s*>/iu;
-const ATTRIBUTE_RE = /\s+([^\s"'<>/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?/gu;
 const SECTION_SLUGS = JSON.parse(fs.readFileSync(
   path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../scripts/lib/section-shard-slugs.json'),
   'utf8',
@@ -42,44 +43,17 @@ function payloadDescription(payload, locale) {
   return String(payload?.descriptionByLocale?.[locale] ?? payload?.description ?? '').trim();
 }
 
-function startTagAttributes(tag) {
-  const attributes = new Map();
-  for (const match of tag.matchAll(ATTRIBUTE_RE)) {
-    const name = String(match[1] || '').toLowerCase();
-    if (!name || attributes.has(name)) continue;
-    attributes.set(name, match[2] ?? match[3] ?? match[4] ?? '');
-  }
-  return attributes;
-}
-
-function* startTagsNamed(html, tagName) {
-  const openingTagPattern = new RegExp(`<${tagName}\\b`, 'giu');
-  let match;
-  while ((match = openingTagPattern.exec(html)) !== null) {
-    let quote = '';
-    let end = openingTagPattern.lastIndex;
-    for (; end < html.length; end += 1) {
-      const character = html[end];
-      if (quote) {
-        if (character === quote) quote = '';
-        continue;
-      }
-      if (character === '"' || character === "'") {
-        quote = character;
-        continue;
-      }
-      if (character === '>') break;
+function hasHtmlTagWithAttributes(html, tagName, expectedAttributes) {
+  const pending = [parseHtml(html)];
+  while (pending.length > 0) {
+    const node = pending.pop();
+    if (node.tagName === tagName
+      && expectedAttributes.every(([name, value]) => node.attrs?.some((attribute) => (
+        attribute.name === name && attribute.value === value
+      )))) {
+      return true;
     }
-    if (end >= html.length) return;
-    yield html.slice(match.index, end + 1);
-    openingTagPattern.lastIndex = end + 1;
-  }
-}
-
-function hasTagWithAttributes(html, tagName, expected) {
-  for (const tag of startTagsNamed(html, tagName)) {
-    const attributes = startTagAttributes(tag);
-    if (Object.entries(expected).every(([name, value]) => attributes.get(name) === value)) return true;
+    if (Array.isArray(node.childNodes)) pending.push(...node.childNodes);
   }
   return false;
 }
@@ -88,14 +62,24 @@ export function createExpiredArchivePublicationEvidence({
   canariesPerLocale = DEFAULT_CANARIES_PER_LOCALE,
 } = {}) {
   const candidates = new Map(LOCALES.map((locale) => [locale, []]));
+  const indexableCandidates = new Map(LOCALES.map((locale) => [locale, []]));
   const renderedByLocale = new Map(LOCALES.map((locale) => [locale, 0]));
+  const expectedNoindexByLocale = new Map(LOCALES.map((locale) => [locale, 0]));
 
   return {
     record(candidate) {
       const locale = String(candidate?.locale ?? '');
       if (!candidates.has(locale)) throw new Error(`unsupported expired archive evidence locale ${JSON.stringify(locale)}`);
       renderedByLocale.set(locale, renderedByLocale.get(locale) + 1);
-      const bucket = candidates.get(locale);
+      const expectedNoindex = candidate.expectedNoindex === true;
+      if (expectedNoindex) {
+        expectedNoindexByLocale.set(locale, expectedNoindexByLocale.get(locale) + 1);
+      }
+      // Keep policy-indexable archives in a fallback sample. When a locale has
+      // no expected-noindex archives, the publisher still requires a canary.
+      // When it does, prioritize a noindex candidate so this check continues
+      // to attest the noindex path instead of sampling an unrelated page first.
+      const bucket = (expectedNoindex ? candidates : indexableCandidates).get(locale);
       if (bucket.length >= canariesPerLocale) return;
 
       const payloadJson = String(candidate.payloadJson ?? '');
@@ -110,6 +94,7 @@ export function createExpiredArchivePublicationEvidence({
 
       bucket.push({
         locale,
+        expectedNoindex,
         path: String(candidate.path ?? '').replace(/^\/+/, ''),
         url: String(candidate.url ?? ''),
         payloadJson,
@@ -125,9 +110,14 @@ export function createExpiredArchivePublicationEvidence({
       const manifests = [];
       for (const locale of LOCALES) {
         const renderedOverflowPages = renderedByLocale.get(locale);
-        const localeCandidates = candidates.get(locale);
+        const expectedNoindexPages = expectedNoindexByLocale.get(locale);
+        const localeCandidates = expectedNoindexPages > 0
+          ? candidates.get(locale)
+          : indexableCandidates.get(locale);
         if (indexedOverflowAliases > 0 && renderedOverflowPages > 0 && localeCandidates.length === 0) {
-          throw new Error(`expired archive overflow rendered ${renderedOverflowPages} ${locale} page(s) but no complete canary`);
+          const expected = expectedNoindexPages > 0 ? `, including ${expectedNoindexPages} noindex page(s),` : '';
+          const canaryKind = expectedNoindexPages > 0 ? 'noindex canary' : 'canary';
+          throw new Error(`expired archive overflow rendered ${renderedOverflowPages} ${locale} page(s)${expected} but no complete ${canaryKind}`);
         }
 
         const entries = localeCandidates.map((candidate) => {
@@ -137,23 +127,30 @@ export function createExpiredArchivePublicationEvidence({
             throw new Error(`expired archive canary path escapes dist: ${candidate.path}`);
           }
           const html = fs.readFileSync(file, 'utf8');
-          if (!hasTagWithAttributes(html, 'main', { 'data-expired-static-body': 'true' })) {
+          if (!hasHtmlTagWithAttributes(html, 'main', [['data-expired-static-body', 'true']])) {
             throw new Error(`expired archive canary lost its static body marker: ${candidate.path}`);
           }
-          if (!hasTagWithAttributes(html, 'link', { rel: 'canonical', href: candidate.url })) {
+          if (!hasHtmlTagWithAttributes(html, 'link', [
+            ['rel', 'canonical'],
+            ['href', candidate.url],
+          ])) {
             throw new Error(`expired archive canary canonical differs from ${candidate.url}`);
           }
-          if (!NOINDEX_ROBOTS_RE.test(html)) {
+          const isNoindex = NOINDEX_ROBOTS_RE.test(html);
+          if (candidate.expectedNoindex && !isNoindex) {
             throw new Error(`expired archive canary must be noindex: ${candidate.path}`);
+          }
+          if (!candidate.expectedNoindex && isNoindex) {
+            throw new Error(`policy-indexable expired archive canary unexpectedly has noindex: ${candidate.path}`);
           }
           const publishedTitleHtml = TITLE_RE.exec(html)?.[1]?.trim() ?? '';
           if (publishedTitleHtml !== candidate.titleHtml) {
             throw new Error(`expired archive canary title differs from its rendered source: ${candidate.path}`);
           }
-          if (!hasTagWithAttributes(html, 'meta', {
-            name: 'description',
-            content: candidate.metaDescriptionHtml,
-          })) {
+          if (!hasHtmlTagWithAttributes(html, 'meta', [
+            ['name', 'description'],
+            ['content', decodeHtmlEntities(candidate.metaDescriptionHtml)],
+          ])) {
             throw new Error(`expired archive canary meta description differs from its rendered source: ${candidate.path}`);
           }
           const publishedPayloadJson = payloadFromHtml(html);

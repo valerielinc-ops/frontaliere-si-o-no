@@ -1,7 +1,7 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-11-06T09:22:12.854Z",
+  "generatedAt": "2026-11-06T21:31:34.682Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 6714,
-  "avgDurationMs": 6714,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 2,
+  "durationMs": 6992,
+  "avgDurationMs": 6992,
   "durationHistory": [
-    6714
+    6992
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "arosa-lenzerheide-726881d50d40",
       "slug": "addetto-a-al-parcheggio-arosa-lenzerheide-lenzerheide",
@@ -36,7 +38,7 @@
       "url": "https://app.reflinejobs.io/3316/0051/pub/36/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:21:56.087Z",
+      "crawledAt": "2026-11-06T21:31:23.408Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -60,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:21:56.087Z",
+      "validThrough": "2027-02-03T21:31:23.408Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -69,59 +71,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "arosa-lenzerheide-011d6c33fa9a",
-      "slug": "collaboratore-trice-seilbahnen-e-liftanlagen-arosa-lenzerheide",
-      "company": "Arosa Lenzerheide",
-      "companyKey": "arosa-lenzerheide",
-      "companyDomain": "arosalenzerheide.swiss",
-      "title": "Mitarbeiter:in Seilbahnen und Liftanlagen",
-      "needsRetranslation": false,
-      "location": "Lenzerheide",
-      "canton": "GR",
-      "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
-      "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:37:50.288Z",
-      "addressLocality": "Lenzerheide",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7078",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Turismo / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-12T06:21:00+00:00",
-      "postedDate": "2026-08-12T06:21:00+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
-      "externalId": "0045",
-      "firstSeenAt": "2026-08-12T10:20:12.754Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "streetAddress": "Lenzerheide",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:37:50.288Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "arosa-lenzerheide-b6b2549aa142",
       "slug": "pattugliatore-trice-arosa-lenzerheide-lenzerheide",
@@ -135,7 +85,7 @@
       "url": "https://app.reflinejobs.io/3316/0048/pub/33/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:21:54.959Z",
+      "crawledAt": "2026-11-06T21:31:21.989Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -159,7 +109,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:21:54.959Z",
+      "validThrough": "2027-02-03T21:31:21.989Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -170,5 +120,5 @@
       }
     }
   ],
-  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
+  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
 }

@@ -1,7 +1,7 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-11-06T09:26:04.021Z",
+  "generatedAt": "2026-11-06T21:51:07.765Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,64 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2939,
-  "avgDurationMs": 2939,
+  "durationMs": 3897,
+  "avgDurationMs": 3897,
   "durationHistory": [
-    2939
+    3897
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "crr-suva-sion-a1375f10b321",
-      "slug": "socioprofessional-master-the-clinique-romande-de-readaptation-crr-suva-sion",
-      "company": "Clinique romande de réadaptation (CRR Suva)",
-      "companyKey": "crr-suva-sion",
-      "companyDomain": "crr-suva.ch",
-      "title": "Maître socioprofessionnel/le",
-      "needsRetranslation": false,
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
-      "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-04T21:25:30.686Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
-      "firstSeenAt": "2026-09-17T03:47:43.613Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "streetAddress": "Sion",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T21:25:30.686Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "crr-suva-sion-1ef627a9dcec",
@@ -86,7 +38,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T09:25:50.791Z",
+      "crawledAt": "2026-11-06T21:50:50.710Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -109,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:25:50.791Z",
+      "validThrough": "2027-01-14T21:50:50.710Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -120,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
+  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
 }

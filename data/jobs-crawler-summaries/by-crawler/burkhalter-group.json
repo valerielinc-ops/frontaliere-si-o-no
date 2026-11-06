@@ -1,16 +1,16 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-11-06T09:43:41.646Z",
+  "generatedAt": "2026-11-06T21:38:27.592Z",
   "total": 247,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 243,
-  "durationMs": 498446,
-  "avgDurationMs": 498446,
+  "unchangedCount": 244,
+  "durationMs": 495552,
+  "avgDurationMs": 495552,
   "durationHistory": [
-    498446
+    495552
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.952Z",
+      "crawledAt": "2026-11-06T21:38:13.297Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -51,7 +51,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-09-28T03:38:03.399Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.952Z",
+      "validThrough": "2026-12-06T21:38:13.297Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.958Z",
+      "crawledAt": "2026-11-06T21:38:13.305Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -99,61 +99,13 @@
       "datePosted": "2026-06-05",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.958Z",
+      "validThrough": "2026-12-06T21:38:13.305Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateur Electricien CFC / polyvalent (100%)",
-      "slug": "installateur-electricien-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-le-sentier",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-642",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-642",
-      "company": "Sedelec La Vallée, succursale de Sedelec SA Lausanne",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Le Sentier",
-      "addressLocality": "Le Sentier",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2022-11-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:29.030Z",
-      "coordinates": [
-        46.6052123,
-        6.233473
-      ],
-      "id": "burkhalter-group-563e058ee298",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Route Neuve 15",
-      "postalCode": "1347",
-      "firstSeenAt": "2026-05-17T09:50:14.969Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-642",
-      "datePosted": "2022-11-09",
-      "postingDateSource": "reported",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:29.030Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
         "completeness": 25
       }
     },
@@ -178,7 +130,7 @@
       "postedDate": "2019-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:29.069Z",
+      "crawledAt": "2026-11-06T21:38:13.420Z",
       "coordinates": [
         47.4800309,
         8.9938264
@@ -195,7 +147,7 @@
       "datePosted": "2019-04-02",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:29.069Z",
+      "validThrough": "2026-12-06T21:38:13.420Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -233,7 +185,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.938Z",
+      "crawledAt": "2026-11-06T21:38:13.283Z",
       "coordinates": [
         46.3939445,
         6.2296183
@@ -245,7 +197,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-30T21:29:05.984Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:43:28.938Z",
+      "validThrough": "2027-01-28T21:38:13.283Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -280,7 +232,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.939Z",
+      "crawledAt": "2026-11-06T21:38:13.284Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -292,7 +244,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-30T09:24:34.482Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:43:28.939Z",
+      "validThrough": "2027-01-28T21:38:13.284Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -327,7 +279,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.940Z",
+      "crawledAt": "2026-11-06T21:38:13.285Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -339,7 +291,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-30T09:24:34.482Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:43:28.940Z",
+      "validThrough": "2027-01-28T21:38:13.285Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -374,7 +326,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.941Z",
+      "crawledAt": "2026-11-06T21:38:13.286Z",
       "coordinates": [
         47.3182296,
         8.5215463
@@ -386,7 +338,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-29T21:50:46.437Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:43:28.941Z",
+      "validThrough": "2027-01-27T21:38:13.286Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -421,7 +373,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.942Z",
+      "crawledAt": "2026-11-06T21:38:13.287Z",
       "coordinates": [
         47.3182296,
         8.5215463
@@ -433,7 +385,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-29T21:50:46.438Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:43:28.942Z",
+      "validThrough": "2027-01-27T21:38:13.287Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -468,7 +420,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.943Z",
+      "crawledAt": "2026-11-06T21:38:13.288Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -480,7 +432,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-28T20:21:43.442Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:43:28.943Z",
+      "validThrough": "2027-01-26T21:38:13.288Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -515,7 +467,7 @@
       "postingDateSource": "reported",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "crawledAt": "2026-11-06T09:43:28.944Z",
+      "crawledAt": "2026-11-06T21:38:13.289Z",
       "coordinates": [
         47.5208062,
         7.6743755
@@ -526,7 +478,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:43:28.944Z",
+      "validThrough": "2027-01-25T21:38:13.289Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T09:34:45.359Z",
       "_qualityScore": 97,
@@ -562,7 +514,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.944Z",
+      "crawledAt": "2026-11-06T21:38:13.289Z",
       "coordinates": [
         46.815006,
         7.1356868
@@ -574,7 +526,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-26T21:50:07.464Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:43:28.944Z",
+      "validThrough": "2027-01-24T21:38:13.289Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -609,7 +561,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.945Z",
+      "crawledAt": "2026-11-06T21:38:13.290Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -621,7 +573,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-05-13T21:47:32.310Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:43:28.945Z",
+      "validThrough": "2027-01-21T21:38:13.290Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -656,7 +608,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.945Z",
+      "crawledAt": "2026-11-06T21:38:13.291Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -668,7 +620,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-19T09:24:25.606Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:43:28.945Z",
+      "validThrough": "2027-01-17T21:38:13.291Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -703,7 +655,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.946Z",
+      "crawledAt": "2026-11-06T21:38:13.291Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -715,7 +667,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T21:26:55.297Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:43:28.946Z",
+      "validThrough": "2027-01-06T21:38:13.291Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -750,7 +702,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.946Z",
+      "crawledAt": "2026-11-06T21:38:13.292Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -762,7 +714,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T21:26:55.298Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:43:28.946Z",
+      "validThrough": "2027-01-05T21:38:13.292Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -793,7 +745,7 @@
       "postedDate": "2026-09-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.946Z",
+      "crawledAt": "2026-11-06T21:38:13.292Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -810,7 +762,7 @@
       "datePosted": "2026-09-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:43:28.946Z",
+      "validThrough": "2026-12-20T21:38:13.292Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -841,7 +793,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.947Z",
+      "crawledAt": "2026-11-06T21:38:13.292Z",
       "coordinates": [
         46.1080222,
         7.9256477
@@ -858,7 +810,7 @@
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:43:28.947Z",
+      "validThrough": "2026-12-14T21:38:13.292Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -889,7 +841,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.947Z",
+      "crawledAt": "2026-11-06T21:38:13.293Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -906,7 +858,7 @@
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:43:28.947Z",
+      "validThrough": "2026-12-14T21:38:13.293Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -937,7 +889,7 @@
       "postedDate": "2026-08-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.948Z",
+      "crawledAt": "2026-11-06T21:38:13.293Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -954,7 +906,7 @@
       "datePosted": "2026-08-24",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.948Z",
+      "validThrough": "2026-12-06T21:38:13.293Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -985,7 +937,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.948Z",
+      "crawledAt": "2026-11-06T21:38:13.294Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1002,7 +954,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.948Z",
+      "validThrough": "2026-12-06T21:38:13.294Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1033,7 +985,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.949Z",
+      "crawledAt": "2026-11-06T21:38:13.295Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1050,7 +1002,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.949Z",
+      "validThrough": "2026-12-06T21:38:13.295Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1081,7 +1033,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.950Z",
+      "crawledAt": "2026-11-06T21:38:13.296Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1098,7 +1050,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.950Z",
+      "validThrough": "2026-12-06T21:38:13.296Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1129,7 +1081,7 @@
       "postedDate": "2026-08-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.951Z",
+      "crawledAt": "2026-11-06T21:38:13.296Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -1146,7 +1098,7 @@
       "datePosted": "2026-08-05",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.951Z",
+      "validThrough": "2026-12-06T21:38:13.296Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1177,7 +1129,7 @@
       "postedDate": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.951Z",
+      "crawledAt": "2026-11-06T21:38:13.297Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1194,7 +1146,7 @@
       "datePosted": "2026-07-31",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.951Z",
+      "validThrough": "2026-12-06T21:38:13.297Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1225,7 +1177,7 @@
       "postedDate": "2026-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.952Z",
+      "crawledAt": "2026-11-06T21:38:13.298Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -1242,7 +1194,7 @@
       "datePosted": "2026-07-16",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.952Z",
+      "validThrough": "2026-12-06T21:38:13.298Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1273,7 +1225,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.952Z",
+      "crawledAt": "2026-11-06T21:38:13.298Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1290,7 +1242,7 @@
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.952Z",
+      "validThrough": "2026-12-06T21:38:13.298Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1321,7 +1273,7 @@
       "postedDate": "2026-07-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.953Z",
+      "crawledAt": "2026-11-06T21:38:13.299Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -1338,7 +1290,7 @@
       "datePosted": "2026-07-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.953Z",
+      "validThrough": "2026-12-06T21:38:13.299Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1369,7 +1321,7 @@
       "postedDate": "2026-06-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.955Z",
+      "crawledAt": "2026-11-06T21:38:13.302Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -1386,7 +1338,7 @@
       "datePosted": "2026-06-24",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.955Z",
+      "validThrough": "2026-12-06T21:38:13.302Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1417,7 +1369,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.957Z",
+      "crawledAt": "2026-11-06T21:38:13.304Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -1434,7 +1386,7 @@
       "datePosted": "2026-06-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.957Z",
+      "validThrough": "2026-12-06T21:38:13.304Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1465,7 +1417,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.958Z",
+      "crawledAt": "2026-11-06T21:38:13.305Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1482,7 +1434,7 @@
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.958Z",
+      "validThrough": "2026-12-06T21:38:13.305Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1513,7 +1465,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.959Z",
+      "crawledAt": "2026-11-06T21:38:13.306Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1530,7 +1482,7 @@
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.959Z",
+      "validThrough": "2026-12-06T21:38:13.306Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1561,7 +1513,7 @@
       "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.959Z",
+      "crawledAt": "2026-11-06T21:38:13.306Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1578,7 +1530,7 @@
       "datePosted": "2026-05-28",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.959Z",
+      "validThrough": "2026-12-06T21:38:13.306Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1609,7 +1561,7 @@
       "postedDate": "2026-05-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-06T09:43:28.961Z",
+      "crawledAt": "2026-11-06T21:38:13.308Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -1626,7 +1578,7 @@
       "datePosted": "2026-05-19",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:43:28.961Z",
+      "validThrough": "2026-12-06T21:38:13.308Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1637,5 +1589,5 @@
       }
     }
   ],
-  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
+  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
 }

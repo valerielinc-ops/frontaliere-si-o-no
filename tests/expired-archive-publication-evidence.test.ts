@@ -9,29 +9,50 @@ import { minifyHtml } from '../build-plugins/shared/htmlMinify';
 const roots: string[] = [];
 const SOURCE_SHA = 'a'.repeat(40);
 
-function fixture({ metaDescriptionHtml = 'Descrizione SEO dell’offerta archiviata' }: {
+function fixture({
+  metaDescriptionHtml = 'Descrizione SEO dell’offerta archiviata',
+  slug = 'late-alias',
+  robots = 'noindex,follow',
+}: {
   metaDescriptionHtml?: string;
+  slug?: string;
+  robots?: string;
 } = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'expired-archive-publication-'));
   roots.push(root);
-  const route = 'cerca-lavoro-ticino/late-alias/index.html';
+  const route = `cerca-lavoro-ticino/${slug}/index.html`;
   const file = path.join(root, route);
-  const url = 'https://frontaliereticino.ch/cerca-lavoro-ticino/late-alias/';
+  const url = `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/`;
   const titleHtml = 'Leitende Ärztin — Onkologie | Frontaliere Ticino';
   const payload = JSON.stringify({
-    slug: 'late-alias',
+    slug,
     title: 'Leitende Ärztin — Onkologie',
     descriptionByLocale: { it: 'Descrizione originale archiviata' },
     expiredAt: '2026-10-01T00:00:00.000Z',
   });
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, `<title>${titleHtml}</title><meta name="description" content="${metaDescriptionHtml}"><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}"><script>window.__EXPIRED_JOB_DATA__=${payload};</script><main data-expired-static-body="true"></main>`);
+  const html = [
+    '<meta charset="utf-8">',
+    '<link rel="stylesheet" href="/assets/site.css">',
+    '<meta name="viewport" content="width=device-width">',
+    `<title>${titleHtml}</title>`,
+    `<meta name="description" content="${metaDescriptionHtml}">`,
+    `<meta name="robots" content="${robots}">`,
+    `<link rel="canonical" href="${url}">`,
+    `<script>window.__EXPIRED_JOB_DATA__=${payload};</script>`,
+    '<main data-expired-static-body="true"></main>',
+  ].join('');
+  fs.writeFileSync(file, minifyHtml(html));
   return { root, route, file, url, payload, titleHtml, metaDescriptionHtml };
 }
 
-function recordFixture(evidence: ReturnType<typeof createExpiredArchivePublicationEvidence>, values: ReturnType<typeof fixture>) {
+function recordFixture(
+  evidence: ReturnType<typeof createExpiredArchivePublicationEvidence>,
+  values: ReturnType<typeof fixture>,
+  { expectedNoindex = true }: { expectedNoindex?: boolean } = {},
+) {
   evidence.record({
-    locale: 'it', path: values.route, url: values.url, payloadJson: values.payload,
+    locale: 'it', expectedNoindex, path: values.route, url: values.url, payloadJson: values.payload,
     titleHtml: values.titleHtml, metaDescriptionHtml: values.metaDescriptionHtml,
     owner: { slug: 'canonical-owner', sourceIdentity: 'source:42' },
   });
@@ -45,6 +66,7 @@ describe('expired archive publication evidence', () => {
   it('attests a disk-backed alias from source owner through the emitted HTML', () => {
     const values = fixture();
     const { root, route, url } = values;
+    expect(fs.readFileSync(values.file, 'utf8')).toContain('data-expired-static-body=true');
     const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
     recordFixture(evidence, values);
 
@@ -94,6 +116,24 @@ describe('expired archive publication evidence', () => {
     })).toThrow('payload differs from its source owner');
   });
 
+  it.each([
+    ['prefixed element', '<main-custom data-expired-static-body=true></main-custom>'],
+    ['comment text', '<!-- <main data-expired-static-body=true> -->'],
+    ['script text', '<script>const html = "<main data-expired-static-body=true>";</script>'],
+  ])('rejects marker-like markup in %s', (_case, replacement) => {
+    const values = fixture();
+    const html = fs.readFileSync(values.file, 'utf8');
+    const markerElement = '<main data-expired-static-body=true></main>';
+    expect(html).toContain(markerElement);
+    fs.writeFileSync(values.file, html.replace(markerElement, replacement));
+    const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
+    recordFixture(evidence, values);
+
+    expect(() => evidence.write({
+      distDir: values.root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
+    })).toThrow('lost its static body marker');
+  });
+
   it('fails closed when the sampled archive page is indexable', () => {
     const values = fixture();
     const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
@@ -103,6 +143,44 @@ describe('expired archive publication evidence', () => {
     expect(() => evidence.write({
       distDir: values.root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
     })).toThrow('must be noindex');
+  });
+
+  it('skips policy-indexable archives when selecting noindex publication canaries', () => {
+    const indexable = fixture({ slug: 'recent-alias', robots: 'index,follow' });
+    const noindex = fixture({ slug: 'old-alias' });
+    const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
+    recordFixture(evidence, indexable, { expectedNoindex: false });
+    recordFixture(evidence, noindex);
+
+    const manifests = evidence.write({
+      distDir: noindex.root, indexedOverflowAliases: 2, sourceRunId: '101', sourceSha: SOURCE_SHA,
+    });
+
+    expect(manifests[0]).toMatchObject({ renderedOverflowPages: 2, sampleSize: 1 });
+    expect(manifests[0].entries[0].path).toBe(noindex.route);
+  });
+
+  it('retains an indexable canary when no noindex archive is expected', () => {
+    const values = fixture({ slug: 'recent-alias', robots: 'index,follow' });
+    const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
+    recordFixture(evidence, values, { expectedNoindex: false });
+
+    const manifests = evidence.write({
+      distDir: values.root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
+    });
+
+    expect(manifests[0]).toMatchObject({ renderedOverflowPages: 1, sampleSize: 1 });
+    expect(manifests[0].entries[0].path).toBe(values.route);
+  });
+
+  it('fails closed when a policy-indexable archive is emitted with noindex', () => {
+    const values = fixture();
+    const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
+    recordFixture(evidence, values, { expectedNoindex: false });
+
+    expect(() => evidence.write({
+      distDir: values.root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
+    })).toThrow('unexpectedly has noindex');
   });
 
   it.each([
@@ -122,10 +200,10 @@ describe('expired archive publication evidence', () => {
   it('requires a complete canary when overflow-backed pages were rendered', () => {
     const { root, route, url } = fixture();
     const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
-    evidence.record({ locale: 'it', path: route, url, payloadJson: '{"slug":"missing-fields"}', owner: {} });
+    evidence.record({ locale: 'it', expectedNoindex: true, path: route, url, payloadJson: '{"slug":"missing-fields"}', owner: {} });
     expect(() => evidence.write({
       distDir: root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
-    })).toThrow('no complete canary');
+    })).toThrow('no complete noindex canary');
   });
 
   it('keeps build, shard publisher, and post-deploy validation on one evidence contract', () => {

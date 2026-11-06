@@ -1,7 +1,7 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-11-06T09:23:12.833Z",
-  "runId": "42192671219",
+  "assembledAt": "2026-11-06T21:34:33.762Z",
+  "runId": "42294073694",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4471?c=groupemutuel&lang=fr-FR",
@@ -14,26 +14,26 @@
       "country": "CH",
       "description": "Tu gères les dossiers d’indemnités journalières avec rigueur et proactivité, en t’appuyant sur les outils de la Gestion de la Santé en Entreprise Interlocuteur/trice privilégié/e d’un portefeuille de clients Entreprise, tu mets la relation au cœur de chaque échange Créer des liens solides et de confiance, aussi bien avec les clients qu’avec les assurés, fait naturellement partie de ta manière de travailler",
       "descriptionByLocale": {
-        "fr": "Tu gères les dossiers d’indemnités journalières avec rigueur et proactivité, en t’appuyant sur les outils de la Gestion de la Santé en Entreprise Interlocuteur/trice privilégié/e d’un portefeuille de clients Entreprise, tu mets la relation au cœur de chaque échange Créer des liens solides et de confiance, aussi bien avec les clients qu’avec les assurés, fait naturellement partie de ta manière de travailler",
         "it": "Gestisci i file di indennità giornaliera in modo rigoroso e proattivo, basandoti sugli strumenti del Health Management in Enterprise Preferred Interlocutor in un portafoglio di clienti Enterprise, metti il rapporto al centro di ogni scambio Creando legami forti e affidabili, sia con i clienti che con gli assicurati, è naturalmente parte del tuo modo di lavorare",
         "en": "You manage the daily allowance files rigorously and proactively, relying on the tools of the Health Management in Enterprise Preferred Interlocutor in a portfolio of clients Enterprise, you put the relationship at the heart of each exchange Creating strong and trustworthy links, both with clients and with the insured, is naturally part of your way of working",
-        "de": "Sie verwalten die täglichen Zulagendateien streng und proaktiv, wobei Sie sich auf die Werkzeuge des Health Management in Enterprise Preferred Interlocutor in einem Portfolio von Kunden verlassen Unternehmen, Sie stellen die Beziehung in den Mittelpunkt jedes Austauschs Die Schaffung starker und vertrauenswürdiger Verbindungen sowohl mit Kunden als auch mit den Versicherten ist natürlich Teil Ihrer Arbeitsweise"
+        "de": "Sie verwalten die täglichen Zulagendateien streng und proaktiv, wobei Sie sich auf die Werkzeuge des Health Management in Enterprise Preferred Interlocutor in einem Portfolio von Kunden verlassen Unternehmen, Sie stellen die Beziehung in den Mittelpunkt jedes Austauschs Die Schaffung starker und vertrauenswürdiger Verbindungen sowohl mit Kunden als auch mit den Versicherten ist natürlich Teil Ihrer Arbeitsweise",
+        "fr": "Tu gères les dossiers d’indemnités journalières avec rigueur et proactivité, en t’appuyant sur les outils de la Gestion de la Santé en Entreprise Interlocuteur/trice privilégié/e d’un portefeuille de clients Entreprise, tu mets la relation au cœur de chaque échange Créer des liens solides et de confiance, aussi bien avec les clients qu’avec les assurés, fait naturellement partie de ta manière de travailler"
       },
       "titleByLocale": {
-        "fr": "Young Insurance Professional AFA (h/f) 100%",
         "it": "giovane assicurazione professionale AFA (m/f) 100%",
         "en": "Young Insurance Professional AFA (m/f) 100%",
-        "de": "Young Insurance Professional AFA (m/w) 100%"
+        "de": "Young Insurance Professional AFA (m/w) 100%",
+        "fr": "Young Insurance Professional AFA (h/f) 100%"
       },
       "slug": "giovane-assicurazione-professionale-afa-m-f-100-groupe-mutuel-sion",
       "slugByLocale": {
-        "fr": "young-insurance-professional-afa-h-f-100-groupe-mutuel",
-        "en": "young-insurance-professional-afa-h-f-100-groupe-mutuel",
         "it": "giovane-assicurazione-professionale-afa-m-f-100-groupe-mutuel-sion",
-        "de": "young-insurance-professional-afa-h-f-100-groupe-mutuel"
+        "en": "young-insurance-professional-afa-h-f-100-groupe-mutuel",
+        "de": "young-insurance-professional-afa-h-f-100-groupe-mutuel",
+        "fr": "young-insurance-professional-afa-h-f-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-11-06",
       "postedDate": "2026-11-06",
       "postingDateSource": "reported",
@@ -48,6 +48,15 @@
       },
       "jobReqId": "4471",
       "id": "groupe-mutuel-a95ca637fcca",
+      "previousSlugs": [
+        "young-insurance-professional-afa-h-f-100-groupe-mutuel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-afa-h-f-100-groupe-mutuel"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T09:23:08.772Z",
       "salaryMin": 65500,
       "salaryMax": 109000,
       "currency": "CHF",
@@ -67,17 +76,223 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:23:08.772Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:23:08.772Z",
+      "validThrough": "2027-02-04T21:34:27.542Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4467?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4467?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs- und Vorsorgeberater Quereinsteiger (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "country": "CH",
+      "description": "Du berätst Kundinnen und Kunden kompetent in den Bereichen Krankenversicherung, Vorsorge, Vermögensschutz und finanzielle Absicherung Dabei erkennst du individuelle Bedürfnisse und entwickelst passgenaue Lösungen Durch Empfehlungen, Networking und Eigeninitiative gewinnst du neue Kundinnen und Kunden Langfristige und vertrauensvolle Kundenbeziehungen baust du gezielt auf und pflegst diese nachhaltig Du organisierst und führst Beratungsgespräche persönlich, telefonisch oder digital durch Schritt für Schritt entwickelst du dich zur kompetenten Ansprechperson für deine Kundschaft",
+      "descriptionByLocale": {
+        "de": "Du berätst Kundinnen und Kunden kompetent in den Bereichen Krankenversicherung, Vorsorge, Vermögensschutz und finanzielle Absicherung Dabei erkennst du individuelle Bedürfnisse und entwickelst passgenaue Lösungen Durch Empfehlungen, Networking und Eigeninitiative gewinnst du neue Kundinnen und Kunden Langfristige und vertrauensvolle Kundenbeziehungen baust du gezielt auf und pflegst diese nachhaltig Du organisierst und führst Beratungsgespräche persönlich, telefonisch oder digital durch Schritt für Schritt entwickelst du dich zur kompetenten Ansprechperson für deine Kundschaft",
+        "it": "Du berätst Kundinnen und Kunden kompetent in den Bereichen Krankenversicherung, Vorsorge, Vermögensschutz und finanzielle Absicherung Dabei erkennst du individuelle Bedürfnisse und entwickelst passgenaue Lösungen Durch Empfehlungen, Networking und Eigeninitiative gewinnst du neue Kundinnen und Kunden Langfristige und vertrauensvolle Kundenbeziehungen baust du gezielt auf und pflegst diese nachhaltig Du organisierst und führst Beratungsgespräche persönlich, telefonisch oder digital durch Schritt für Schritt entwickelst du dich zur kompetenten Ansprechperson für deine Kundschaft",
+        "en": "Du berätst Kundinnen und Kunden kompetent in den Bereichen Krankenversicherung, Vorsorge, Vermögensschutz und finanzielle Absicherung Dabei erkennst du individuelle Bedürfnisse und entwickelst passgenaue Lösungen Durch Empfehlungen, Networking und Eigeninitiative gewinnst du neue Kundinnen und Kunden Langfristige und vertrauensvolle Kundenbeziehungen baust du gezielt auf und pflegst diese nachhaltig Du organisierst und führst Beratungsgespräche persönlich, telefonisch oder digital durch Schritt für Schritt entwickelst du dich zur kompetenten Ansprechperson für deine Kundschaft",
+        "fr": "Du berätst Kundinnen und Kunden kompetent in den Bereichen Krankenversicherung, Vorsorge, Vermögensschutz und finanzielle Absicherung Dabei erkennst du individuelle Bedürfnisse und entwickelst passgenaue Lösungen Durch Empfehlungen, Networking und Eigeninitiative gewinnst du neue Kundinnen und Kunden Langfristige und vertrauensvolle Kundenbeziehungen baust du gezielt auf und pflegst diese nachhaltig Du organisierst und führst Beratungsgespräche persönlich, telefonisch oder digital durch Schritt für Schritt entwickelst du dich zur kompetenten Ansprechperson für deine Kundschaft"
+      },
+      "titleByLocale": {
+        "de": "Versicherungs- und Vorsorgeberater Quereinsteiger (m/w) 80-100%",
+        "it": "Versicherungs- e Vorsorgeberater Candidato/a in riqualificazione (m/w) 80-100%",
+        "en": "Versicherungs- und Vorsorgeberater Quereinsteiger (m/w) 80-100%",
+        "fr": "Versicherungs- und Vorsorgeberater Quereinsteiger (m/w) 80-100%"
+      },
+      "slug": "versicherungs-e-vorsorgeberater-candidato-a-in-riqualificazione-m-w-d-80-100-groupe-mutuel-st-gallen",
+      "slugByLocale": {
+        "fr": "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel",
+        "en": "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel",
+        "it": "versicherungs-e-vorsorgeberater-candidato-a-in-riqualificazione-m-w-d-80-100-groupe-mutuel-st-gallen",
+        "de": "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel"
+      },
+      "category": "insurance",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "St. Gallen"
+      },
+      "jobReqId": "4467",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-3c87763f0e48",
       "previousSlugsByLocale": {
         "it": [
-          "young-insurance-professional-afa-h-f-100-groupe-mutuel"
+          "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel"
         ]
       },
       "previousSlugs": [
-        "young-insurance-professional-afa-h-f-100-groupe-mutuel"
-      ]
+        "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T21:34:27.542Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-15T21:14:35.363Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4456?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4456?c=groupemutuel&lang=fr-FR",
+      "title": "Chef de projet senior - solutions distribution prévoyance (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "description": "Pour le processus, le fil rouge et l’outil de conseil prévoyance, tu garantis leur évolution, leur cohérence et leur adoption dans les réseaux Tu portes les besoins métier de la Distribution relatifs au processus, au fil rouge et à l’outil de conseil Tu centralises, structures et priorises les besoins remontés par les Chargés de développement, les spécialistes prévoyance et le Centre d’Excellence Prévoyance Avec les fonctions propriétaires, le Product Management, les équipes technologiques et les autres contributeurs, tu coordonnes les évolutions et les mises à jour des solutions Tu conduis et coordonnes des projets métier transverses à l’intersection entre Prévoyance individuelle, Distribution et les autres fonctions concernées, en assurant le suivi des livrables, risques, dépendances et décisions Lors des analyses, tests et validations, tu organises la participation des utilisateurs et prépares les conditions de déploiement et d’adoption",
+      "descriptionByLocale": {
+        "fr": "Pour le processus, le fil rouge et l’outil de conseil prévoyance, tu garantis leur évolution, leur cohérence et leur adoption dans les réseaux Tu portes les besoins métier de la Distribution relatifs au processus, au fil rouge et à l’outil de conseil Tu centralises, structures et priorises les besoins remontés par les Chargés de développement, les spécialistes prévoyance et le Centre d’Excellence Prévoyance Avec les fonctions propriétaires, le Product Management, les équipes technologiques et les autres contributeurs, tu coordonnes les évolutions et les mises à jour des solutions Tu conduis et coordonnes des projets métier transverses à l’intersection entre Prévoyance individuelle, Distribution et les autres fonctions concernées, en assurant le suivi des livrables, risques, dépendances et décisions Lors des analyses, tests et validations, tu organises la participation des utilisateurs et prépares les conditions de déploiement et d’adoption",
+        "it": "Pour le processus, le fil rouge et l’outil de conseil prévoyance, tu garantis leur évolution, leur cohérence et leur adoption dans les réseaux Tu portes les besoins métier de la Distribution relatifs au processus, au fil rouge et à l’outil de conseil Tu centralises, structures et priorises les besoins remontés par les Chargés de développement, les spécialistes prévoyance et le Centre d’Excellence Prévoyance Avec les fonctions propriétaires, le Product Management, les équipes technologiques et les autres contributeurs, tu coordonnes les évolutions et les mises à jour des solutions Tu conduis et coordonnes des projets métier transverses à l’intersection entre Prévoyance individuelle, Distribution et les autres fonctions concernées, en assurant le suivi des livrables, risques, dépendances et décisions Lors des analyses, tests et validations, tu organises la participation des utilisateurs et prépares les conditions de déploiement et d’adoption",
+        "en": "Pour le processus, le fil rouge et l’outil de conseil prévoyance, tu garantis leur évolution, leur cohérence et leur adoption dans les réseaux Tu portes les besoins métier de la Distribution relatifs au processus, au fil rouge et à l’outil de conseil Tu centralises, structures et priorises les besoins remontés par les Chargés de développement, les spécialistes prévoyance et le Centre d’Excellence Prévoyance Avec les fonctions propriétaires, le Product Management, les équipes technologiques et les autres contributeurs, tu coordonnes les évolutions et les mises à jour des solutions Tu conduis et coordonnes des projets métier transverses à l’intersection entre Prévoyance individuelle, Distribution et les autres fonctions concernées, en assurant le suivi des livrables, risques, dépendances et décisions Lors des analyses, tests et validations, tu organises la participation des utilisateurs et prépares les conditions de déploiement et d’adoption",
+        "de": "Pour le processus, le fil rouge et l’outil de conseil prévoyance, tu garantis leur évolution, leur cohérence et leur adoption dans les réseaux Tu portes les besoins métier de la Distribution relatifs au processus, au fil rouge et à l’outil de conseil Tu centralises, structures et priorises les besoins remontés par les Chargés de développement, les spécialistes prévoyance et le Centre d’Excellence Prévoyance Avec les fonctions propriétaires, le Product Management, les équipes technologiques et les autres contributeurs, tu coordonnes les évolutions et les mises à jour des solutions Tu conduis et coordonnes des projets métier transverses à l’intersection entre Prévoyance individuelle, Distribution et les autres fonctions concernées, en assurant le suivi des livrables, risques, dépendances et décisions Lors des analyses, tests et validations, tu organises la participation des utilisateurs et prépares les conditions de déploiement et d’adoption"
+      },
+      "titleByLocale": {
+        "fr": "Chef de projet senior - solutions distribution prévoyance (h/f) 80-100%",
+        "it": "Chef de projet senior - solutions distribution prévoyance (h/f) 80-100%",
+        "en": "Chef de projet senior - solutions distribution prévoyance (h/f) 80-100%",
+        "de": "Chef de projet senior - solutions distribution prévoyance (h/f) 80-100%"
+      },
+      "slug": "chef-de-projet-senior-solutions-distribution-prevoyance-h-f-80-100-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "chef-de-projet-senior-solutions-distribution-prevoyance-h-f-80-100-groupe-mutuel",
+        "en": "chef-de-projet-senior-solutions-distribution-prevoyance-h-f-80-100-groupe-mutuel",
+        "it": "chef-de-projet-senior-solutions-distribution-prevoyance-h-f-80-100-groupe-mutuel",
+        "de": "chef-de-projet-senior-solutions-distribution-prevoyance-h-f-80-100-groupe-mutuel"
+      },
+      "category": "insurance",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "jobReqId": "4456",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-0b7110f57ef6",
+      "salaryMin": 90000,
+      "salaryMax": 149500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 90000,
+          "maxValue": 149500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T21:34:27.542Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T21:34:27.542Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4455?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4455?c=groupemutuel&lang=fr-FR",
+      "title": "Beauftragter Netzwerkentwicklung, Partnerschaften & Vorsorgeexpertise (m/w) 80–100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Du entwickelst das Vorsorgegeschäft in den dir zugeteilten Agenturen, Netzwerken und Strukturen weiter In Zusammenarbeit mit den Generalagentinnen und Generalagenten sowie den Verkaufsverantwortlichen unterstützt du die Umsetzung ihrer Prioritäten im Bereich Vorsorge Du begleitest die Vorsorgespezialistinnen und -spezialisten und stärkst ihre Rolle als fachliche Ansprechpersonen für Qualität und die Weiterentwicklung ihrer Agentur Mit den Vorsorgespezialistinnen und -spezialisten pflegst du einen regelmässigen Austausch und nimmst an Verkaufssitzungen, Veranstaltungen und Vorsorgeaktivitäten teil In diesem Rahmen setzt du die von der individuellen Vorsorge definierten Ausrichtungen, Instrumente, Prozesse, Produkte und Best Practices um und trägst zur Qualität des Geschäfts sowie zur kontinuierlichen Verbesserung bei Du entwickelst die dir zugeteilten Partnerschaften weiter, setzt sie operativ um und förderst die Koordination zwischen den Netzwerken, dem Kompetenzzentrum Vorsorge und den betreffenden Fachbereichen",
+      "descriptionByLocale": {
+        "de": "Du entwickelst das Vorsorgegeschäft in den dir zugeteilten Agenturen, Netzwerken und Strukturen weiter In Zusammenarbeit mit den Generalagentinnen und Generalagenten sowie den Verkaufsverantwortlichen unterstützt du die Umsetzung ihrer Prioritäten im Bereich Vorsorge Du begleitest die Vorsorgespezialistinnen und -spezialisten und stärkst ihre Rolle als fachliche Ansprechpersonen für Qualität und die Weiterentwicklung ihrer Agentur Mit den Vorsorgespezialistinnen und -spezialisten pflegst du einen regelmässigen Austausch und nimmst an Verkaufssitzungen, Veranstaltungen und Vorsorgeaktivitäten teil In diesem Rahmen setzt du die von der individuellen Vorsorge definierten Ausrichtungen, Instrumente, Prozesse, Produkte und Best Practices um und trägst zur Qualität des Geschäfts sowie zur kontinuierlichen Verbesserung bei Du entwickelst die dir zugeteilten Partnerschaften weiter, setzt sie operativ um und förderst die Koordination zwischen den Netzwerken, dem Kompetenzzentrum Vorsorge und den betreffenden Fachbereichen",
+        "it": "Du entwickelst das Vorsorgegeschäft in den dir zugeteilten Agenturen, Netzwerken und Strukturen weiter In Zusammenarbeit mit den Generalagentinnen und Generalagenten sowie den Verkaufsverantwortlichen unterstützt du die Umsetzung ihrer Prioritäten im Bereich Vorsorge Du begleitest die Vorsorgespezialistinnen und -spezialisten und stärkst ihre Rolle als fachliche Ansprechpersonen für Qualität und die Weiterentwicklung ihrer Agentur Mit den Vorsorgespezialistinnen und -spezialisten pflegst du einen regelmässigen Austausch und nimmst an Verkaufssitzungen, Veranstaltungen und Vorsorgeaktivitäten teil In diesem Rahmen setzt du die von der individuellen Vorsorge definierten Ausrichtungen, Instrumente, Prozesse, Produkte und Best Practices um und trägst zur Qualität des Geschäfts sowie zur kontinuierlichen Verbesserung bei Du entwickelst die dir zugeteilten Partnerschaften weiter, setzt sie operativ um und förderst die Koordination zwischen den Netzwerken, dem Kompetenzzentrum Vorsorge und den betreffenden Fachbereichen",
+        "en": "Du entwickelst das Vorsorgegeschäft in den dir zugeteilten Agenturen, Netzwerken und Strukturen weiter In Zusammenarbeit mit den Generalagentinnen und Generalagenten sowie den Verkaufsverantwortlichen unterstützt du die Umsetzung ihrer Prioritäten im Bereich Vorsorge Du begleitest die Vorsorgespezialistinnen und -spezialisten und stärkst ihre Rolle als fachliche Ansprechpersonen für Qualität und die Weiterentwicklung ihrer Agentur Mit den Vorsorgespezialistinnen und -spezialisten pflegst du einen regelmässigen Austausch und nimmst an Verkaufssitzungen, Veranstaltungen und Vorsorgeaktivitäten teil In diesem Rahmen setzt du die von der individuellen Vorsorge definierten Ausrichtungen, Instrumente, Prozesse, Produkte und Best Practices um und trägst zur Qualität des Geschäfts sowie zur kontinuierlichen Verbesserung bei Du entwickelst die dir zugeteilten Partnerschaften weiter, setzt sie operativ um und förderst die Koordination zwischen den Netzwerken, dem Kompetenzzentrum Vorsorge und den betreffenden Fachbereichen",
+        "fr": "Du entwickelst das Vorsorgegeschäft in den dir zugeteilten Agenturen, Netzwerken und Strukturen weiter In Zusammenarbeit mit den Generalagentinnen und Generalagenten sowie den Verkaufsverantwortlichen unterstützt du die Umsetzung ihrer Prioritäten im Bereich Vorsorge Du begleitest die Vorsorgespezialistinnen und -spezialisten und stärkst ihre Rolle als fachliche Ansprechpersonen für Qualität und die Weiterentwicklung ihrer Agentur Mit den Vorsorgespezialistinnen und -spezialisten pflegst du einen regelmässigen Austausch und nimmst an Verkaufssitzungen, Veranstaltungen und Vorsorgeaktivitäten teil In diesem Rahmen setzt du die von der individuellen Vorsorge definierten Ausrichtungen, Instrumente, Prozesse, Produkte und Best Practices um und trägst zur Qualität des Geschäfts sowie zur kontinuierlichen Verbesserung bei Du entwickelst die dir zugeteilten Partnerschaften weiter, setzt sie operativ um und förderst die Koordination zwischen den Netzwerken, dem Kompetenzzentrum Vorsorge und den betreffenden Fachbereichen"
+      },
+      "titleByLocale": {
+        "de": "Beauftragter Netzwerkentwicklung, Partnerschaften & Vorsorgeexpertise (m/w) 80–100%",
+        "it": "Beauftragter Netzwerkentwicklung, Partnerschaften & Vorsorgeexpertise (m/w) 80–100%",
+        "en": "Beauftragter Netzwerkentwicklung, Partnerschaften & Vorsorgeexpertise (m/w) 80–100%",
+        "fr": "Beauftragter Netzwerkentwicklung, Partnerschaften & Vorsorgeexpertise (m/w) 80–100%"
+      },
+      "slug": "beauftragter-netzwerkentwicklung-partnerschaften-vorsorgeexpertise-m-w-80-100-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "beauftragter-netzwerkentwicklung-partnerschaften-vorsorgeexpertise-m-w-80-100-groupe-mutuel",
+        "en": "beauftragter-netzwerkentwicklung-partnerschaften-vorsorgeexpertise-m-w-80-100-groupe-mutuel",
+        "it": "beauftragter-netzwerkentwicklung-partnerschaften-vorsorgeexpertise-m-w-80-100-groupe-mutuel",
+        "de": "beauftragter-netzwerkentwicklung-partnerschaften-vorsorgeexpertise-m-w-80-100-groupe-mutuel"
+      },
+      "category": "general",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "jobReqId": "4455",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-b235f443b34e",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T21:34:27.542Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T21:34:27.542Z"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4457?c=groupemutuel&lang=fr-FR",
@@ -109,7 +324,7 @@
         "fr": "content-creation-chef-de-projet-h-f-80-100-groupe-mutuel"
       },
       "category": "project-management",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-11-04",
       "postedDate": "2026-11-04",
       "postingDateSource": "reported",
@@ -158,7 +373,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:23:08.772Z",
+      "validThrough": "2027-02-02T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -191,7 +406,7 @@
         "fr": "relationship-manager-h-f-80-100-groupe-mutuel"
       },
       "category": "management",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-11-04",
       "postedDate": "2026-11-04",
       "postingDateSource": "reported",
@@ -234,7 +449,7 @@
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:23:08.772Z",
+      "validThrough": "2027-02-02T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -267,7 +482,7 @@
         "fr": "conseiller-soutien-aux-ventes-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "sales",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-11-04",
       "postedDate": "2026-11-04",
       "postingDateSource": "reported",
@@ -316,7 +531,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:23:08.772Z",
+      "validThrough": "2027-02-02T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -349,7 +564,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-aarau"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-11-03",
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
@@ -401,7 +616,7 @@
       "addressRegion": "AG",
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:23:08.772Z",
+      "validThrough": "2027-02-01T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -434,7 +649,7 @@
         "fr": "charge-de-developpement-reseaux-partenariats-expertise-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
@@ -483,7 +698,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:23:08.772Z",
+      "validThrough": "2027-01-27T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -516,7 +731,7 @@
         "fr": "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
       },
       "category": "administration",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
@@ -565,7 +780,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:23:08.772Z",
+      "validThrough": "2027-01-26T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -598,7 +813,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
@@ -647,7 +862,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:23:08.772Z",
+      "validThrough": "2027-01-19T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -680,7 +895,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
@@ -731,7 +946,7 @@
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:23:08.772Z",
+      "validThrough": "2027-01-18T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -764,7 +979,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-chur"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
@@ -817,7 +1032,7 @@
       "addressRegion": "GR",
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:23:08.772Z",
+      "validThrough": "2027-01-17T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -850,7 +1065,7 @@
         "fr": "h-f-50-consultant-en-securite-sociale-groupe-mutuel-paradiso"
       },
       "category": "general",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
       "postingDateSource": "reported",
@@ -885,7 +1100,7 @@
       "addressRegion": "TI",
       "streetAddress": "Paradiso",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:23:08.772Z",
+      "validThrough": "2027-01-14T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -918,7 +1133,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-thun"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -973,7 +1188,7 @@
       "addressRegion": "BE",
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:23:08.772Z",
+      "validThrough": "2027-01-13T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1006,7 +1221,7 @@
         "fr": "conseillers-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-bern"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -1023,12 +1238,14 @@
       "id": "groupe-mutuel-78a679c8ef25",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel",
-        "versicherungs-e-vorsorgeberater-candidato-a-in-riqualificazione-m-w-d-80-100-groupe-mutuel-bern"
+        "versicherungs-e-vorsorgeberater-candidato-a-in-riqualificazione-m-w-d-80-100-groupe-mutuel-bern",
+        "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel",
-          "versicherungs-e-vorsorgeberater-candidato-a-in-riqualificazione-m-w-d-80-100-groupe-mutuel-bern"
+          "versicherungs-e-vorsorgeberater-candidato-a-in-riqualificazione-m-w-d-80-100-groupe-mutuel-bern",
+          "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel-2"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel"
@@ -1057,7 +1274,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:23:08.772Z",
+      "validThrough": "2027-01-13T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1090,7 +1307,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-100-groupe-mutuel-luzern"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -1141,7 +1358,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:23:08.772Z",
+      "validThrough": "2027-01-13T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1174,7 +1391,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
@@ -1223,7 +1440,7 @@
       "addressRegion": "NE",
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:23:08.772Z",
+      "validThrough": "2027-01-05T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1256,7 +1473,7 @@
         "fr": "assistant-medical-temporaire-12-mois-h-f-100-groupe-mutuel-sion"
       },
       "category": "general",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
@@ -1299,7 +1516,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:23:08.772Z",
+      "validThrough": "2027-01-04T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1332,7 +1549,7 @@
         "fr": "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
       "postingDateSource": "reported",
@@ -1375,7 +1592,7 @@
       "addressRegion": "VD",
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:23:08.772Z",
+      "validThrough": "2026-12-29T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1408,7 +1625,7 @@
         "fr": "apprentissage-employee-de-commerce-cfc-services-et-administration-100-groupe-mutuel-sion"
       },
       "category": "claims",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -1461,7 +1678,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:23:08.772Z",
+      "validThrough": "2026-12-28T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1494,7 +1711,7 @@
         "fr": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -1537,7 +1754,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:23:08.772Z",
+      "validThrough": "2026-12-28T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1570,7 +1787,7 @@
         "fr": "conseiller-de-precaution-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "general",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -1613,7 +1830,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:23:08.772Z",
+      "validThrough": "2026-12-23T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1646,7 +1863,7 @@
         "fr": "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
       },
       "category": "customer-service",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -1697,7 +1914,7 @@
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:23:08.772Z",
+      "validThrough": "2026-12-23T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1730,7 +1947,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-biel-bienne"
       },
       "category": "customer-service",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
       "postingDateSource": "reported",
@@ -1773,7 +1990,7 @@
       "addressRegion": "BE",
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:23:08.772Z",
+      "validThrough": "2026-12-21T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1806,7 +2023,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -1854,7 +2071,7 @@
       "addressRegion": "FR",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:23:08.772Z",
+      "validThrough": "2026-12-16T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1887,7 +2104,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-16",
       "postedDate": "2026-09-16",
       "postingDateSource": "reported",
@@ -1935,7 +2152,7 @@
       "addressRegion": "JU",
       "streetAddress": "Delémont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:23:08.772Z",
+      "validThrough": "2026-12-15T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1968,7 +2185,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-olten"
       },
       "category": "customer-service",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
       "postingDateSource": "reported",
@@ -2022,7 +2239,7 @@
       "addressRegion": "AG",
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:23:08.772Z",
+      "validThrough": "2026-12-06T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2055,7 +2272,7 @@
         "fr": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
       },
       "category": "it",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
@@ -2098,7 +2315,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:23:08.772Z",
+      "validThrough": "2026-12-06T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2131,7 +2348,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-08-27",
       "postedDate": "2026-08-27",
       "postingDateSource": "reported",
@@ -2174,7 +2391,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:23:08.772Z",
+      "validThrough": "2026-12-06T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2207,7 +2424,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-08-06",
       "postedDate": "2026-08-06",
       "postingDateSource": "reported",
@@ -2284,7 +2501,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:23:08.772Z",
+      "validThrough": "2026-12-06T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2317,7 +2534,7 @@
         "fr": "conseiller-en-soins-m-f-60-100-groupe-mutuel-sargans"
       },
       "category": "general",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-07-10",
       "postedDate": "2026-07-10",
       "postingDateSource": "reported",
@@ -2360,7 +2577,7 @@
       "addressRegion": "SG",
       "streetAddress": "Sargans",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:23:08.772Z",
+      "validThrough": "2026-12-06T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2393,7 +2610,7 @@
         "fr": "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-05-22",
       "postedDate": "2026-05-22",
       "postingDateSource": "reported",
@@ -2436,7 +2653,7 @@
       "addressRegion": "GE",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:23:08.772Z",
+      "validThrough": "2026-12-06T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2469,7 +2686,7 @@
         "fr": "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-06T09:23:08.772Z",
+      "crawledAt": "2026-11-06T21:34:27.542Z",
       "datePosted": "2026-04-16",
       "postedDate": "2026-04-16",
       "postingDateSource": "reported",
@@ -2520,99 +2737,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:23:08.772Z",
+      "validThrough": "2026-12-06T21:34:27.542Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4373?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4373?c=groupemutuel&lang=fr-FR",
-      "title": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "St. Gallen",
-      "canton": "SG",
-      "country": "CH",
-      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere\n• Aufgaben erledigst du präzise und effizient",
-      "descriptionByLocale": {
-        "it": "Fornisce consulenza in materia di assicurazioni sanitarie, sulla vita, di proprietà e aziendali e offre soluzioni su misura per le esigenze dei clienti. Attraverso cross-selling e upselling mirati, costruisci rapporti di fiducia e rafforzi la fedeltà dei clienti. Acquisire nuovi clienti, sia attraverso la tua iniziativa che tramite raccomandazioni, fa parte della tua vita quotidiana. Organizzate e conducete consultazioni, telefoniche o di persona, con impegno e tatto. Anche il seguito amministrativo è nelle tue mani: creazione di offerte, gestione degli appuntamenti e altro ancora\n• Completa le attività in modo preciso ed efficiente",
-        "en": "You advise on health, life, property and business insurance and offer tailor-made solutions for customer needs. Through targeted cross-selling and upselling, you build trusting relationships and strengthen customer loyalty. Acquiring new customers - be it through your own initiative or recommendations - is part of your everyday life. You organize and conduct consultations, by telephone or in person, with commitment and tact. The administrative follow-up is also in your hands: creating offers, managing appointments and more\n• You complete tasks precisely and efficiently",
-        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere\n• Aufgaben erledigst du präzise und effizient",
-        "fr": "Vous conseillez en matière d’assurance santé, vie, biens et entreprises et proposez des solutions sur mesure aux besoins des clients. Grâce à des ventes croisées et incitatives ciblées, vous établissez des relations de confiance et renforcez la fidélité des clients. Acquérir de nouveaux clients - que ce soit par votre propre initiative ou par vos recommandations - fait partie de votre quotidien. Vous organisez et conduisez des consultations, par téléphone ou en personne, avec engagement et tact. Le suivi administratif est également entre vos mains : création d'offres, gestion des rendez-vous, etc.\n• Vous effectuez des tâches avec précision et efficacité"
-      },
-      "titleByLocale": {
-        "it": "Consulente assicurativo (m/f) 80-100 %",
-        "en": "Insurance and pension advisor (m/f) 80-100 %",
-        "de": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
-        "fr": "Conseiller en assurance et retraite (h/f) 80-100 %"
-      },
-      "slug": "consulente-assicurativo-m-f-80-100-groupe-mutuel-st-gallen",
-      "slugByLocale": {
-        "it": "consulente-assicurativo-m-f-80-100-groupe-mutuel-st-gallen",
-        "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-st-gallen",
-        "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-st-gallen"
-      },
-      "category": "insurance",
-      "crawledAt": "2026-11-05T09:17:55.209Z",
-      "datePosted": "2026-09-17",
-      "postedDate": "2026-09-17",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "St. Gallen"
-      },
-      "jobReqId": "4373",
-      "id": "groupe-mutuel-1af35fc9058a",
-      "previousSlugs": [
-        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen-pdliyb",
-        "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-st-gallen",
-        "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-st-gallen",
-        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen",
-        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen-pdliyb",
-          "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-st-gallen",
-          "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-st-gallen",
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen",
-          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
-        ],
-        "en": [
-          "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-st-gallen"
-        ],
-        "fr": [
-          "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:52:47.178Z",
-      "salaryMin": 62000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "9000",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "streetAddress": "St. Gallen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:17:55.209Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

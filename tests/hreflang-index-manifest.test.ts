@@ -10,7 +10,11 @@ import {
   parseHreflangManifest,
   serializeHreflangManifest,
 } from '../scripts/lib/hreflang-index-manifest.mjs';
-import { runHreflangIndexManifest, ownedLocalesFromEnv } from '../scripts/ci/hreflang-index-manifest.mjs';
+import {
+  benchmarkHreflangStaging,
+  runHreflangIndexManifest,
+  ownedLocalesFromEnv,
+} from '../scripts/ci/hreflang-index-manifest.mjs';
 import { extractHreflangAlternates } from '../scripts/lib/hreflang-alternates.mjs';
 import { findHreflangReciprocityFailures } from '../scripts/lib/hreflang-reciprocity.mjs';
 import { buildCanonicalBridgePage } from '../build-plugins/constants';
@@ -383,6 +387,80 @@ describe('runHreflangIndexManifest on a dist', () => {
     expect(read(dist, '/en/rollback-en/')).toBe(before.get('/en/rollback-en/'));
     expect(fs.readdirSync(path.join(dist, 'rollback')).some((name) => name.endsWith('.bak'))).toBe(false);
     expect(fs.readdirSync(path.join(dist, 'en', 'rollback-en')).some((name) => name.endsWith('.bak'))).toBe(false);
+  });
+
+  it('bounds staged HTML and fails before writing the manifest when a later batch fails', async () => {
+    const dist = path.join(tmp, 'dist');
+    const manifestDir = path.join(tmp, 'm');
+    const paths = Array.from({ length: 65 }, (_, index) => `/batch-${String(index).padStart(3, '0')}/`);
+    for (const [index, urlPath] of paths.entries()) {
+      const slug = `batch-${String(index).padStart(3, '0')}`;
+      const cluster = clusterFor({ it: slug, en: `${slug}-en` });
+      write(dist, urlPath, page(urlPath, cluster, { robots: 'noindex,follow' }));
+    }
+
+    const originalWriteFile = fs.promises.writeFile.bind(fs.promises);
+    let stagedWrites = 0;
+    const writeFile = vi.spyOn(fs.promises, 'writeFile').mockImplementation(async (...args) => {
+      if (String(args[0]).includes('.hreflang-index-')) {
+        stagedWrites += 1;
+        if (stagedWrites === 65) throw new Error('forced hreflang staging failure');
+      }
+      return originalWriteFile(...args);
+    });
+    try {
+      await expect(runHreflangIndexManifest({ distDir: dist, manifestDir, log: quiet }))
+        .rejects.toThrow('forced hreflang staging failure');
+    } finally {
+      writeFile.mockRestore();
+    }
+
+    const rewritten = paths.filter((urlPath) => extractHreflangAlternates(read(dist, urlPath)).size === 0);
+    expect(rewritten).toHaveLength(64);
+    expect(fs.existsSync(path.join(manifestDir, 'it.json'))).toBe(false);
+    expect(fs.readdirSync(dist).some((name) => name.startsWith('.hreflang-index-'))).toBe(false);
+
+    const retry = await runHreflangIndexManifest({ distDir: dist, manifestDir, log: quiet });
+    expect(retry.filesRewritten).toBe(1);
+    expect(fs.existsSync(path.join(manifestDir, 'it.json'))).toBe(true);
+    expect(fs.readdirSync(dist).some((name) => name.startsWith('.hreflang-index-'))).toBe(false);
+    assertHreflangGraphIsClean(dist);
+  });
+
+  it('reports a lower bounded staging-byte peak than the same input staged all at once', async () => {
+    const dist = path.join(tmp, 'dist');
+    const paths = Array.from({ length: 65 }, (_, index) => `/measure-${String(index).padStart(3, '0')}/`);
+    for (const [index, urlPath] of paths.entries()) {
+      const slug = `measure-${String(index).padStart(3, '0')}`;
+      const cluster = clusterFor({ it: slug, en: `${slug}-en` });
+      write(dist, urlPath, page(urlPath, cluster, { robots: 'noindex,follow' }));
+    }
+
+    const summary = await runHreflangIndexManifest({ distDir: dist, manifestDir: path.join(tmp, 'm'), log: quiet });
+
+    expect(summary.filesRewritten).toBe(65);
+    expect(summary.stagingBytes.allAtOnceEquivalent).toBeGreaterThan(summary.stagingBytes.boundedBatchPeak);
+    expect(summary.stagingBytes.boundedBatchPeak).toBeGreaterThan(0);
+    expect(summary.stagingBenchmark).toMatchObject({
+      phase: 'build-locale:hreflang-index-manifest',
+      inputFiles: 65,
+      batchSize: 64,
+    });
+    expect(summary.stagingBenchmark.peakStagingBytes).toBeLessThan(summary.stagingBenchmark.preBatchPeakBytes);
+  });
+
+  it('keeps fractional positive batch sizes from rounding down to a zero-sized batch', () => {
+    const summary = benchmarkHreflangStaging([
+      { originalBytes: 10, stagedBytes: 2 },
+      { originalBytes: 20, stagedBytes: 3 },
+    ], 0.5);
+
+    expect(summary).toMatchObject({
+      batchSize: 1,
+      preBatchPeakBytes: 35,
+      peakStagingBytes: 23,
+      reductionBytes: 12,
+    });
   });
 
   it('fails before writing a complete manifest when a dist directory cannot be read', async () => {

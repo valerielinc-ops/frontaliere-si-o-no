@@ -1,7 +1,7 @@
 {
   "crawlerKey": "citta-di-locarno",
-  "assembledAt": "2026-11-06T09:22:16.674Z",
-  "runId": "42192671219",
+  "assembledAt": "2026-11-06T21:35:59.785Z",
+  "runId": "42294073694",
   "jobs": [
     {
       "id": "citta-di-locarno-assistente-di-sicurezza-pubblica-della-polizia-citta-di-locarno-100-locarno",
@@ -30,9 +30,7 @@
         "fr": "Bastian Lerch BL/st 6 novembre 2026 ADVISO DI CONCORSO Le MUNICIPIO DI LOCARNO fait savoir que le concours pour le recrutement d'un assistant de la sécurité publique de la ville de police de Locarno (100%) La ville de police de Locarno agit comme Polo de police pour la région 6 et garantit un service opérationnel 24 heures sur le territoire de compétence, qui comprend 14 municipalités convenues. La section territoriale traite, entre autres, de la gestion des procédures administratives dans le domaine de l'autorisation, du respect des règlements relatifs aux exercices publics, au commerce et au service de taxi, de la préparation et de la mise en oeuvre des dispositifs de gestion de la circulation, ainsi que des contrôles opérationnels sur les assujettissements fiscaux et les résidences secondaires. Tâche\n\n• exécuter des tâches déléguées à la circulation routière conformément à la loi et\n\nles ordres relatifs;\n\n• appliquer les règlements en vigueur dans les domaines de compétence de la police municipale, en vertu des délégués\n\nou des tâches spécifiques;\n\n• respecter et faire respecter les règlements et ordonnances municipaux;\n\n• s'acquitter de tâches particulières déléguées par des supérieurs ou établies par des autorités internes, municipales ou\n\ncantonal;\n\n• collaborer avec les patrouilles de police dans la gestion du viary en cas d'événements;\n\n• de notifier les actes et préceptes du pouvoir exécutif;\n\n• prendre soin du quartier assigné et maintenir des contacts réguliers avec ses associations;\n\n• assurer, en cas de besoin, la couverture de la centrale opérationnelle sur 24 heures.\n\nExigences\n\n• certificat d'adjoint à la sécurité publique ISP ou disponibilité pour assister à l'École pour\n\nles assistants de sécurité publique;\n\n• excellente connaissance de la langue italienne, parlée et écrite; connaissance d'autres langues nationales\n\nest un titre préférentiel;\n\n• une forte capacité de persuasion et de coopération et de bonnes compétences dans la gestion\n\nles conflits et la recherche du consentement;\n\n• forte capacité de communiquer clairement, efficacement et avec autorité en plus d'un bon\n\nl'écoute;\n\n• la personne doit avoir la nationalité suisse;\n\n2\n\n• permis de conduire les catégories A et B; en l'absence de la catégorie A, disponibilité pour l'atteindre\n\nà la fin de l'année d'essai. Exigences physiques et psychologiques\n\n• bon état de santé général, en particulier l'absence de pathologies pouvant compromettre\n\nla conduite régulière du travail de police et l'exécution du travail posté, même sur 24 heures;\n\n• bonne résistance psychophysique au stress;\n\n• absence de dépendances incompatibles avec la fonction d'assistant à la sécurité publique (avec\n\npossibilité d'être soumis à des examens médicaux);\n\n• les compétences et l'attitude à l'égard du travail de groupe.\n\nLe salaire prévu, versé en 13 mois, est établi par le règlement organique des collaborateurs et collaborateurs de la municipalité de Locarno (ROC-LO) et le règlement relatif à l'unification des grades et des conditions salariales des corps de police cantonaux et municipaux (RUGraS), Assistant II classe 3 (minimum CHF 52. Le service est programmé dès que possible. Cet avis de concours est publié sur le site de la Ville à l'adresse Les demandes doivent être soumises exclusivement par l'intermédiaire du portail en ligne d'ici le vendredi 4 décembre 2026 à 23 h 59. L'hôtel de ville ne peut en aucun cas examiner les demandes et pièces jointes transmises par d'autres voies (papier, courriel, télécopieur, etc.) ou des demandes incomplètes.\n\nLa demande doit comprendre les documents suivants:\n\n• curriculum vitae et lettre de motivation;\n\n• certificat médical ou autocertification téléchargeable sur www.locarno.ch - section bureau\n\nvirtuel - différentes formes;\n\n• diplômes ou certificats d'études et de travail;\n\n• certificat de FSI adjoint à la sécurité publique, s'il est déjà obtenu;\n\n• extrait de la boîte judiciaire;\n\n• une copie du document d'identité;\n\n• Excédent d ' exécution et d ' échec des bureaux;\n\n• photo au format passeport.\n\nToute information peut être demandée directement au commandement de la police de la ville de Locarno (tél. 091 756 33 29). LE MUNICIPLE"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Locarno",
       "canton": "TI",
       "addressLocality": "Locarno",
@@ -53,9 +51,10 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=ab51cfb8-b7ee-4213-9907-7006885ec07c,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-06T09:22:11.397Z",
+      "crawledAt": "2026-11-06T21:35:53.638Z",
+      "firstSeenAt": "2026-11-06T09:22:11.397Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:22:11.397Z",
+      "validThrough": "2027-02-04T21:35:53.638Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -69,8 +68,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-11-06T09:22:11.397Z"
+      }
     },
     {
       "id": "citta-di-locarno-impiegata-ii-50-70-presso-la-cancelleria-comunale-locarno",
@@ -135,7 +133,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-31T21:18:19.581Z",
       "validThroughSource": "last-observed-window"

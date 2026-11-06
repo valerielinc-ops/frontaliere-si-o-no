@@ -1,7 +1,7 @@
 {
   "crawlerKey": "strabag",
-  "assembledAt": "2026-11-06T09:59:06.296Z",
-  "runId": "42194460129",
+  "assembledAt": "2026-11-06T21:51:52.897Z",
+  "runId": "42296001429",
   "jobs": [
     {
       "id": "strabag-b88c3df8994a",
@@ -35,7 +35,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/c7ff8b44-602d-494f-b080-2beb441f5b5b/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:56.331Z",
+      "crawledAt": "2026-11-06T21:51:43.027Z",
       "addressLocality": "Lindau bei Effretikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:58:56.331Z",
+      "validThrough": "2027-01-27T21:51:43.027Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/0bf7c7ec-4ecd-4b6f-81a4-c482cab68ad2/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:55.418Z",
+      "crawledAt": "2026-11-06T21:51:42.266Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:58:55.418Z",
+      "validThrough": "2027-01-27T21:51:42.266Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/3d279a8f-0444-402e-b8d9-48026fd1312f/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:54.304Z",
+      "crawledAt": "2026-11-06T21:51:41.406Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:58:54.304Z",
+      "validThrough": "2027-01-31T21:51:41.406Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/ca27813c-fdfc-45d2-a036-6283252f1d16/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:53.234Z",
+      "crawledAt": "2026-11-06T21:51:40.592Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:58:53.234Z",
+      "validThrough": "2027-02-01T21:51:40.592Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -373,7 +373,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/80dedf97-9c08-42bf-b322-4d56330ecb9e/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:51.835Z",
+      "crawledAt": "2026-11-06T21:51:39.880Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -424,7 +424,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:51.835Z",
+      "validThrough": "2027-02-02T21:51:39.880Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -459,7 +459,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/111b2616-4939-416f-b6b7-ccc8313859cf/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:50.630Z",
+      "crawledAt": "2026-11-06T21:51:39.133Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -510,7 +510,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:50.630Z",
+      "validThrough": "2027-02-02T21:51:39.133Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -545,7 +545,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/c772714d-5a2e-4790-929d-7e97f71822ef/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:49.479Z",
+      "crawledAt": "2026-11-06T21:51:38.358Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -596,7 +596,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:49.479Z",
+      "validThrough": "2027-02-03T21:51:38.358Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -631,7 +631,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/87755852-2265-44c2-b940-a8529bf2b8b4/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:48.655Z",
+      "crawledAt": "2026-11-06T21:51:37.361Z",
       "addressLocality": "Disentis und Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -682,7 +682,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:48.655Z",
+      "validThrough": "2027-02-03T21:51:37.361Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -717,7 +717,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/9294703d-0e8e-446c-a4f3-599c847be9cc/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:47.500Z",
+      "crawledAt": "2026-11-06T21:51:36.276Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -768,7 +768,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:47.500Z",
+      "validThrough": "2027-02-03T21:51:36.276Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -803,7 +803,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/221cf7e6-dd11-4f45-8f2c-17c8a2394925/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:46.463Z",
+      "crawledAt": "2026-11-06T21:51:35.361Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -854,7 +854,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:46.463Z",
+      "validThrough": "2027-02-03T21:51:35.361Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -889,7 +889,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8d070c96-5cc4-4fbb-8a72-55857355859a/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:45.531Z",
+      "crawledAt": "2026-11-06T21:51:34.071Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -932,7 +932,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:58:45.531Z",
+      "validThrough": "2027-02-03T21:51:34.071Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -967,7 +967,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/19809f6c-74b3-429f-b152-712f5c67bdf1/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:58:44.668Z",
+      "crawledAt": "2026-11-06T21:51:33.192Z",
       "addressLocality": "Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1016,180 +1016,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:58:44.668Z",
+      "validThrough": "2027-02-03T21:51:33.192Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "strabag-088bae0b704a",
-      "slug": "caposquadra-capocantiere-nel-settore-delle-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
-      "slugByLocale": {
-        "it": "caposquadra-capocantiere-nel-settore-delle-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
-        "en": "foreperson-site-supervisor-in-timber-construction-strabag-ag-lindau-bei-effretikon",
-        "de": "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon",
-        "fr": "contremaitre-contremaitresse-chef-cheffe-de-chantier-en-construction-bois-strabag-ag-lindau-bei-effretikon"
-      },
-      "company": "STRABAG AG",
-      "companyKey": "strabag",
-      "companyDomain": "strabag.ch",
-      "title": "Vorarbeiter:in/Polier:in Holzbau",
-      "titleByLocale": {
-        "it": "Caposquadra/capocantiere nel settore delle costruzioni in legno",
-        "en": "Foreperson/Site supervisor in timber construction",
-        "de": "Vorarbeiter:in/Polier:in Holzbau",
-        "fr": "Contremaître/contremaîtresse / chef/cheffe de chantier en construction bois"
-      },
-      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter: Innovation, Digitalisierung und Nachhaltigkeit sind zentrale Punkte auf unserem Weg zum Bauen von Morgen. STRABAG verfolgt dabei eine klare Nachhaltigkeitsstrategie . Dabei sind Chancengleichheit, Vielfalt und Inklusion genauso integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nVorarbeiter:in/Polier:in Holzbau\n Dein Beitrag bei uns\n\n• Zielorientierte und projektgerechte Vorbereitung\n\n• Wirtschaftliche Einsatzplanung von Personal, Geräten und Material\n\n• Umsetzung von Massnahmen zur Arbeitssicherheit und des Gesundheitsschutzes\n\n• Führen eines eigenen Teams\n Was für uns zählt\n\n• Abgeschlossene Lehre als Zimmermann:Zimmerin oder Vorarbeiter:in/Polier:in mit Fachrichtung Holzbau\n\n• Mehrjährige Berufserfahrung im Holzbau wünschenswert\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Staplerprüfung und Autoprüfung von Vorteil\n\n• Flexibilität für Einsatz auf Baustelle\n\n• Hands-on-Mentalität und Macher-Qualitäten runden Ihr Profil ab\n\nUnser Mehrwert für dich\n Bei uns erwartet dich ein junges, dynamisches Team mit echtem Zusammenhalt, gemeinsamen Grillabenden und entspanntem Feierabendplausch. Wir investieren aktiv in die Zukunft: Aktuell entsteht unsere neue, grosse Holzbauhalle in Lindau, in der du als Vorarbeiter:in / Polier:in mit topmoderner Ausstattung arbeitest. Dich erwarten spannende, anspruchsvolle Holzbauprojekte auf der Baustelle und in der Halle. Wir setzen auf faire Anstellungsbedingungen sowie Weiterbildungen, die dich in deinem Handwerk weiterbringen. Werde Teil eines Betriebs, der das Zimmermannshandwerk lebt und Zukunft baut.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Rexhep Elmazi\n\n+41 52 355 05 55\n Jetzt bewerben",
-      "descriptionByLocale": {
-        "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, continuiamo a pensare alla costruzione: innovazione, digitalizzazione e sostenibilità sono punti centrali per la costruzione di domani. STRABAG sta perseguendo una chiara strategia di sostenibilità. Le pari opportunità, la diversità e l'inclusione sono parte integrante di ciò che ci rende un'azienda e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nForeman:in/Polier:in Holzbau\nIl tuo contributo con noi\n\n• Preparazione mirata e orientata al progetto\n\n• Pianificazione operativa economica del personale, delle attrezzature e dei materiali\n\n• Attuazione delle misure di sicurezza e di protezione della salute sul lavoro\n\n• Guidare il proprio team\nCosa ci importa\n\n• Apprendistato completo come carpentiere: stanza o avanzi:in/polvere:in con specializzazione nella costruzione di legname\n\n• Diversi anni di esperienza professionale nella costruzione del legno desiderabile\n\n• Metodo di lavoro indipendente, impegnato e affidabile\n\n• Approccio cooperativo e godimento del lavoro di squadra\n\n• Carrelli elevatori e test automobilistici sono vantaggiosi\n\n• Flessibilità per l'utilizzo in loco\n\n• Mano sulla mentalità e qualità del creatore completano il vostro profilo\n\nIl nostro valore aggiunto per te\nCon noi, un team giovane e dinamico vi aspetta con vera coesione, grigliate congiunte e chiacchierata serale rilassata. Investiamo attivamente nel futuro: Il nostro nuovo grande edificio in legno è attualmente in costruzione a Lindau, dove si lavora come capogruppo: in / polisher:in con attrezzature all'avanguardia. Ci si può aspettare interessanti, impegnativi progetti di costruzione in legno sul cantiere e nella hall. Ci affidiamo a condizioni di lavoro eque e formazione ulteriore che vi aiuterà a progredire nel vostro mestiere. Diventa parte di una società che vive il commercio di carpenteria e costruisce il futuro.\n:::\n\n• Diverse opportunità di formazione\n\n• Parcheggio\n\n• bevande gratuite\n\n• Attività sportive\n\n• Retribuzione competitiva\n\n• Sconti dei dipendenti\n\n• Riconciliazione della vita familiare e professionale\n\n• Promozione della salute\n\n• Eventi del personale\n\n• Buone connessioni di trasporto\n\nInformazioni di contatto\nRexhep Elmazi\n\n+41 52 355 05 55\nApplicare ora",
-        "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in construction and engineering, road and civil engineering, bridge and tunnel construction, in building materials production, project development or building management - we continue to think about construction: innovation, digitalization and sustainability are central points on our way to building tomorrow. STRABAG is pursuing a clear sustainability strategy. Equal opportunities, diversity and inclusion are just as integral parts of what makes us a company and how we work.\nTogether we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nForeman:in/Polier:in Holzbau\nYour contribution with us\n\n• Target-oriented and project-oriented preparation\n\n• Economic operational planning of personnel, equipment and materials\n\n• Implementation of occupational safety and health protection measures\n\n• Leading your own team\nWhat matters to us\n\n• Completed apprenticeship as carpenter:room or foremen:in/polisher:in with specialisation in timber construction\n\n• Several years of professional experience in timber construction desirable\n\n• Independent, committed and reliable working method\n\n• Cooperative approach and enjoyment of teamwork\n\n• Forklift and car testing are advantageous\n\n• Flexibility for use on site\n\n• Hands-on mentality and maker qualities round off your profile\n\nOur added value for you\nWith us, a young, dynamic team awaits you with real cohesion, joint barbecues and relaxed evening chat. We are actively investing in the future: Our new, large wooden construction hall is currently being built in Lindau, where you work as foreman:in / polisher:in with state-of-the-art equipment. You can expect exciting, challenging timber construction projects on the construction site and in the hall. We rely on fair employment conditions as well as further training that will help you advance in your craft. Become part of a company that lives the carpentry trade and builds the future.\n:::\n\n• Diverse training opportunities\n\n• Parking\n\n• Free drinks\n\n• Sports activities\n\n• Competitive remuneration\n\n• Employee discounts\n\n• Reconciliation of family and professional life\n\n• Health promotion\n\n• Staff events\n\n• Good transport connections\n\nContact details\nRexhep Elmazi\n\n+41 52 355 05 55\nApply now",
-        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter: Innovation, Digitalisierung und Nachhaltigkeit sind zentrale Punkte auf unserem Weg zum Bauen von Morgen. STRABAG verfolgt dabei eine klare Nachhaltigkeitsstrategie . Dabei sind Chancengleichheit, Vielfalt und Inklusion genauso integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nVorarbeiter:in/Polier:in Holzbau\nDein Beitrag bei uns\n\n• Zielorientierte und projektgerechte Vorbereitung\n\n• Wirtschaftliche Einsatzplanung von Personal, Geräten und Material\n\n• Umsetzung von Massnahmen zur Arbeitssicherheit und des Gesundheitsschutzes\n\n• Führen eines eigenen Teams\nWas für uns zählt\n\n• Abgeschlossene Lehre als Zimmermann:Zimmerin oder Vorarbeiter:in/Polier:in mit Fachrichtung Holzbau\n\n• Mehrjährige Berufserfahrung im Holzbau wünschenswert\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Staplerprüfung und Autoprüfung von Vorteil\n\n• Flexibilität für Einsatz auf Baustelle\n\n• Hands-on-Mentalität und Macher-Qualitäten runden Ihr Profil ab\n\nUnser Mehrwert für dich\nBei uns erwartet dich ein junges, dynamisches Team mit echtem Zusammenhalt, gemeinsamen Grillabenden und entspanntem Feierabendplausch. Wir investieren aktiv in die Zukunft: Aktuell entsteht unsere neue, grosse Holzbauhalle in Lindau, in der du als Vorarbeiter:in / Polier:in mit topmoderner Ausstattung arbeitest. Dich erwarten spannende, anspruchsvolle Holzbauprojekte auf der Baustelle und in der Halle. Wir setzen auf faire Anstellungsbedingungen sowie Weiterbildungen, die dich in deinem Handwerk weiterbringen. Werde Teil eines Betriebs, der das Zimmermannshandwerk lebt und Zukunft baut.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\nRexhep Elmazi\n\n+41 52 355 05 55\nJetzt bewerben",
-        "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Qu'il s'agisse de la construction et de l'ingénierie, de l'ingénierie routière et civile, de la construction de ponts et de tunnels, de la production de matériaux de construction, du développement de projets ou de la gestion de bâtiments, nous continuons de penser à la construction : l'innovation, la numérisation et la durabilité sont des points centraux de notre construction de demain. STRABAG poursuit une stratégie de durabilité claire. L'égalité des chances, la diversité et l'inclusion font également partie intégrante de ce qui fait de nous une entreprise et de notre façon de travailler.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nContremaître:in/Polier:in Holzbau\nVotre contribution avec nous\n\n• Préparation ciblée et axée sur les projets\n\n• Planification économique opérationnelle du personnel, du matériel et des matériaux\n\n• Mise en œuvre des mesures de protection de la sécurité et de la santé au travail\n\n• Diriger votre propre équipe\nCe qui nous importe\n\n• Apprentissage complété comme menuisier: chambre ou contremaître:in/policher:in avec spécialisation dans la construction de bois\n\n• Plusieurs années d'expérience professionnelle dans la construction de bois souhaitable\n\n• Méthode de travail indépendante, engagée et fiable\n\n• Approche coopérative et travail d ' équipe\n\n• Le chariot élévateur et les essais de voiture sont avantageux\n\n• Flexibilité d'utilisation sur site\n\n• La mentalité pratique et les qualités du fabricant complètent votre profil\n\nNotre valeur ajoutée pour vous\nAvec nous, une équipe jeune et dynamique vous attend avec une réelle cohésion, des barbecues communs et un chat de soirée détendu. Nous investissons activement dans l'avenir : Notre nouveau grand hall de construction en bois est en cours de construction à Lindau, où vous travaillez comme contremaître:in / polisseur:in avec des équipements de pointe. Vous pouvez vous attendre à des projets de construction en bois passionnants et difficiles sur le chantier et dans le hall. Nous comptons sur des conditions d'emploi équitables ainsi que sur une formation continue qui vous aidera à progresser dans votre métier. Devenez membre d'une entreprise qui vit le commerce de la menuiserie et construit l'avenir.\n:::\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Boissons gratuites\n\n• Activités sportives\n\n• Rémunération concurrentielle\n\n• Remises aux employés\n\n• Rapprochement de la vie familiale et professionnelle\n\n• Promotion de la santé\n\n• Manifestations du personnel\n\n• Bonnes liaisons de transport\n\nCoordonnées\nRexhep Elmazi\n\n+41 52 355 05 55\nAppliquer maintenant"
-      },
-      "needsRetranslation": false,
-      "location": "Lindau (bei Effretikon)",
-      "canton": "ZH",
-      "url": "https://www.jobs.ch/de/stellenangebote/detail/1528f387-7dbb-42a3-8d40-020aa75ac05e/",
-      "source": "STRABAG AG Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:40:27.243Z",
-      "addressLocality": "Lindau (bei Effretikon)",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8315",
-      "streetAddress": "Lindau (bei Effretikon)",
-      "category": "Costruzioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Costruzioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-26T05:02:51+01:00",
-      "postedDate": "2026-10-26T05:02:51+01:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/1528f387-7dbb-42a3-8d40-020aa75ac05e/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon"
-        ],
-        "en": [
-          "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon"
-        ],
-        "fr": [
-          "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon"
-        ]
-      },
-      "firstSeenAt": "2026-10-26T21:36:29.141Z",
-      "salaryMin": 82500,
-      "salaryMax": 104500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 104500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:40:27.243Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "strabag-1740cd91b3c8",
-      "slug": "zimmermann-camera-in-legno-strabag-ag-lindau-bei-effretikon",
-      "slugByLocale": {
-        "it": "zimmermann-camera-in-legno-strabag-ag-lindau-bei-effretikon",
-        "en": "carpenter-m-f-timber-construction-strabag-ag-lindau-bei-effretikon",
-        "de": "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon",
-        "fr": "charpentier-charpentiere-en-construction-bois-strabag-ag-lindau-bei-effretikon"
-      },
-      "company": "STRABAG AG",
-      "companyKey": "strabag",
-      "companyDomain": "strabag.ch",
-      "title": "Zimmermann:Zimmerin Holzbau",
-      "titleByLocale": {
-        "it": "Zimmermann:Camera in legno",
-        "en": "Carpenter (m/f), Timber Construction",
-        "de": "Zimmermann:Zimmerin Holzbau",
-        "fr": "Charpentier/Charpentière en construction bois"
-      },
-      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter: Innovation, Digitalisierung und Nachhaltigkeit sind zentrale Punkte auf unserem Weg zum Bauen von Morgen. STRABAG verfolgt dabei eine klare Nachhaltigkeitsstrategie . Dabei sind Chancengleichheit, Vielfalt und Inklusion genauso integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nZimmermann:Zimmerin Holzbau\n Dein Beitrag bei uns\n\n• Selbständiges Arbeiten auf Baustellen im Neu- oder Umbau\n\n• Aufstellen der Elemente\n\n• Allgemeine Holzarbeiten\n\n• Alle anfallenden Zimmermanns Arbeiten\n Was für uns zählt\n\n• Erfolgreich abgeschlossene Berufslehre als Zimmermann:Zimmerin mit guten Fachkenntnissen\n\n• Zuverlässig, flexibel, qualitätsbewusst\n\n• Exaktes und sauberes Arbeiten\n\n• Pünktlich sowie gute Umgangsformen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kat. B von Vorteil\n\nUnser Mehrwert für dich\n Bei uns erwartet dich ein junges, dynamisches Team mit echtem Zusammenhalt, gemeinsamen Grillabenden und entspanntem Feierabendplausch. Wir investieren aktiv in die Zukunft: Aktuell entsteht unsere neue, grosse Holzbauhalle in Lindau, in der du als Zimmermann mit topmoderner Ausstattung arbeitest. Dich erwarten spannende, anspruchsvolle Holzbauprojekte vom Aufrichten bis zum fertigen Bauwerk sowie abwechslungsreiche Einsätze auf der Baustelle und in der Halle. Wir setzen auf faire Anstellungsbedingungen sowie Weiterbildungen, die dich in deinem Handwerk weiterbringen. Werde Teil eines Betriebs, der das Zimmermannshandwerk lebt und Zukunft baut.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Rexhep Elmazi\n\n+41 52 355 05 55\n Jetzt bewerben",
-      "descriptionByLocale": {
-        "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, continuiamo a pensare alla costruzione: innovazione, digitalizzazione e sostenibilità sono punti centrali per la costruzione di domani. STRABAG sta perseguendo una chiara strategia di sostenibilità. Le pari opportunità, la diversità e l'inclusione sono parte integrante di ciò che ci rende un'azienda e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nZimmermann: Zimmerin Holzbau\nIl tuo contributo con noi\n\n• Lavoro autonomo su cantiere in nuova costruzione o conversione\n\n• Istituzione di elementi\n\n• Lavori di legno\n\n• Tutto il lavoro di Zimmermann\nCosa ci importa\n\n• Apprendistato professionale completato con successo come falegname: stanza con una buona conoscenza specialistica\n\n• Affidabile, flessibile, di qualità\n\n• Lavoro preciso e pulito\n\n• In tempo e buone maniere\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\n• Patente di guida vantaggiosa Cat B\n\nIl nostro valore aggiunto per te\nCon noi, un team giovane e dinamico vi aspetta con vera coesione, grigliate congiunte e chiacchierata serale rilassata. Investiamo attivamente nel futuro: Il nostro nuovo grande edificio in legno è attualmente in costruzione a Lindau, dove si lavora come carpentiere con attrezzature all'avanguardia. Puoi aspettarti interessanti, impegnativi progetti di costruzione in legno dall'erezione all'edificio finito e varie missioni sul cantiere e nella sala. Ci affidiamo a condizioni di lavoro eque e formazione ulteriore che vi aiuterà a progredire nel vostro mestiere. Diventa parte di una società che vive il commercio di carpenteria e costruisce il futuro.\n:::\n\n• Diverse opportunità di formazione\n\n• Parcheggio\n\n• bevande gratuite\n\n• Attività sportive\n\n• Retribuzione competitiva\n\n• Sconti dei dipendenti\n\n• Riconciliazione della vita familiare e professionale\n\n• Promozione della salute\n\n• Eventi del personale\n\n• Buone connessioni di trasporto\n\nInformazioni di contatto\nRexhep Elmazi\n\n+41 52 355 05 55\nApplicare ora",
-        "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in construction and engineering, road and civil engineering, bridge and tunnel construction, in building materials production, project development or building management - we continue to think about construction: innovation, digitalization and sustainability are central points on our way to building tomorrow. STRABAG is pursuing a clear sustainability strategy. Equal opportunities, diversity and inclusion are just as integral parts of what makes us a company and how we work.\nTogether we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nZimmermann: Zimmerin Holzbau\nYour contribution with us\n\n• Self-employed work on construction sites in new construction or conversion\n\n• Establishment of elements\n\n• General woodwork\n\n• All incurred Zimmermann's work\nWhat matters to us\n\n• Successfully completed vocational apprenticeship as a carpenter:room with good specialist knowledge\n\n• Reliable, flexible, quality-conscious\n\n• Precise and clean work\n\n• On time and good manners\n\n• Good knowledge of German in words and writing\n\n• Advantageous driving licence Cat B\n\nOur added value for you\nWith us, a young, dynamic team awaits you with real cohesion, joint barbecues and relaxed evening chat. We are actively investing in the future: Our new, large wooden construction hall is currently being built in Lindau, where you work as a carpenter with state-of-the-art equipment. You can expect exciting, challenging timber construction projects from erection to the finished building as well as varied missions on the construction site and in the hall. We rely on fair employment conditions as well as further training that will help you advance in your craft. Become part of a company that lives the carpentry trade and builds the future.\n:::\n\n• Diverse training opportunities\n\n• Parking\n\n• Free drinks\n\n• Sports activities\n\n• Competitive remuneration\n\n• Employee discounts\n\n• Reconciliation of family and professional life\n\n• Health promotion\n\n• Staff events\n\n• Good transport connections\n\nContact details\nRexhep Elmazi\n\n+41 52 355 05 55\nApply now",
-        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter: Innovation, Digitalisierung und Nachhaltigkeit sind zentrale Punkte auf unserem Weg zum Bauen von Morgen. STRABAG verfolgt dabei eine klare Nachhaltigkeitsstrategie . Dabei sind Chancengleichheit, Vielfalt und Inklusion genauso integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nZimmermann:Zimmerin Holzbau\nDein Beitrag bei uns\n\n• Selbständiges Arbeiten auf Baustellen im Neu- oder Umbau\n\n• Aufstellen der Elemente\n\n• Allgemeine Holzarbeiten\n\n• Alle anfallenden Zimmermanns Arbeiten\nWas für uns zählt\n\n• Erfolgreich abgeschlossene Berufslehre als Zimmermann:Zimmerin mit guten Fachkenntnissen\n\n• Zuverlässig, flexibel, qualitätsbewusst\n\n• Exaktes und sauberes Arbeiten\n\n• Pünktlich sowie gute Umgangsformen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kat. B von Vorteil\n\nUnser Mehrwert für dich\nBei uns erwartet dich ein junges, dynamisches Team mit echtem Zusammenhalt, gemeinsamen Grillabenden und entspanntem Feierabendplausch. Wir investieren aktiv in die Zukunft: Aktuell entsteht unsere neue, grosse Holzbauhalle in Lindau, in der du als Zimmermann mit topmoderner Ausstattung arbeitest. Dich erwarten spannende, anspruchsvolle Holzbauprojekte vom Aufrichten bis zum fertigen Bauwerk sowie abwechslungsreiche Einsätze auf der Baustelle und in der Halle. Wir setzen auf faire Anstellungsbedingungen sowie Weiterbildungen, die dich in deinem Handwerk weiterbringen. Werde Teil eines Betriebs, der das Zimmermannshandwerk lebt und Zukunft baut.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\nRexhep Elmazi\n\n+41 52 355 05 55\nJetzt bewerben",
-        "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Qu'il s'agisse de la construction et de l'ingénierie, de l'ingénierie routière et civile, de la construction de ponts et de tunnels, de la production de matériaux de construction, du développement de projets ou de la gestion de bâtiments, nous continuons de penser à la construction : l'innovation, la numérisation et la durabilité sont des points centraux de notre construction de demain. STRABAG poursuit une stratégie de durabilité claire. L'égalité des chances, la diversité et l'inclusion font également partie intégrante de ce qui fait de nous une entreprise et de notre façon de travailler.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nZimmermann: Zimmerin Holzbau\nVotre contribution avec nous\n\n• Travail indépendant sur les chantiers de construction en construction ou en reconversion\n\n• Établissement des éléments\n\n• Ouvrages en bois\n\n• Tous les travaux de Zimmermann engagés\nCe qui nous importe\n\n• L'apprentissage professionnel réussi comme menuisier: salle avec de bonnes connaissances spécialisées\n\n• Fiable, flexible, soucieuse de la qualité\n\n• Travaux précis et propres\n\n• A temps et bonnes manières\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\n• Permis de conduire avantageux Cat B\n\nNotre valeur ajoutée pour vous\nAvec nous, une équipe jeune et dynamique vous attend avec une réelle cohésion, des barbecues communs et un chat de soirée détendu. Nous investissons activement dans l'avenir : Notre nouvelle salle de construction en bois est en cours de construction à Lindau, où vous travaillez comme charpentier avec des équipements de pointe. Vous pouvez vous attendre à des projets de construction en bois passionnants et difficiles de l'érection au bâtiment fini ainsi que des missions variées sur le chantier et dans le hall. Nous comptons sur des conditions d'emploi équitables ainsi que sur une formation continue qui vous aidera à progresser dans votre métier. Devenez membre d'une entreprise qui vit le commerce de la menuiserie et construit l'avenir.\n:::\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Boissons gratuites\n\n• Activités sportives\n\n• Rémunération concurrentielle\n\n• Remises aux employés\n\n• Rapprochement de la vie familiale et professionnelle\n\n• Promotion de la santé\n\n• Manifestations du personnel\n\n• Bonnes liaisons de transport\n\nCoordonnées\nRexhep Elmazi\n\n+41 52 355 05 55\nAppliquer maintenant"
-      },
-      "needsRetranslation": true,
-      "location": "Lindau (bei Effretikon)",
-      "canton": "ZH",
-      "url": "https://www.jobs.ch/de/stellenangebote/detail/4b2ec747-11db-4279-aa95-261bc28e2ffc/",
-      "source": "STRABAG AG Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:40:25.947Z",
-      "addressLocality": "Lindau (bei Effretikon)",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8315",
-      "streetAddress": "Lindau (bei Effretikon)",
-      "category": "Costruzioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Costruzioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-26T05:02:51+01:00",
-      "postedDate": "2026-10-26T05:02:51+01:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/4b2ec747-11db-4279-aa95-261bc28e2ffc/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon",
-        "zimmermann-chambre-en-bois-strabag-ag-lindau-bei-effretikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon"
-        ],
-        "en": [
-          "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon"
-        ],
-        "fr": [
-          "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon",
-          "zimmermann-chambre-en-bois-strabag-ag-lindau-bei-effretikon"
-        ]
-      },
-      "firstSeenAt": "2026-10-26T21:36:28.274Z",
-      "salaryMin": 82500,
-      "salaryMax": 104500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 104500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:40:25.947Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

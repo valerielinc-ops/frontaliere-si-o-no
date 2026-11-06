@@ -45,7 +45,7 @@ export function partitionDiscoveryOutcomes(result) {
   const confirmed = result.sent.filter((item) => !unidentified.includes(item));
   const failedItems = result.failed.concat(unidentified.map((item) => ({ ...item, ambiguousDelivery: true, error: 'discovery acknowledgement missing' })));
   return {
-    confirmed, failedItems,
+    confirmed, failedItems, unidentified,
     discoveryUnknown: failedItems.filter((item) => item.meta?.discoveryClaim && item.ambiguousDelivery === true).length,
     // Legacy ambiguous is a subset of provider-accepted targeted sends.
     // Discovery unknown is a separate, unconfirmed category, counted once.
