@@ -212,6 +212,38 @@ describe('Bucket follow-up illeggibili: maybe-resolved residuo con item open e b
       expect(bucketStructuralVeto({ title: issue.title, body: mismatchedBody })).toBe('mismatched-target-repository');
     });
 
+    it('ripara uno shorthand di repository invalido solo quando la testa identifica il target', () => {
+      const issue = dailyIssue(6, [], ['open']);
+      const itemStart = issue.body.indexOf('### FU-');
+      const malformedBody = `${issue.body.slice(0, itemStart)}${issue.body.slice(itemStart).replace(
+        `- Target repository: ${REPO}`,
+        '- Target repository: `valerielinc-si-o-no`',
+      )}`;
+
+      expect(bucketStructuralVeto({ title: issue.title, body: malformedBody })).toBe('mismatched-target-repository');
+      const result = canonicalDailyBucket({ title: issue.title, body: malformedBody });
+
+      expect(result.ok).toBe(true);
+      expect(result.body).toContain(`- Target repository: ${REPO}`);
+      expect(result.body).not.toContain('valerielinc-si-o-no');
+      expect(result.changes).toContain(`FU-${DAY}-001: Target repository «valerielinc-si-o-no» → «${REPO}»`);
+      expect(bucketStructuralVeto({ title: result.title, body: result.body })).toBeNull();
+    });
+
+    it('non riscrive un repository valido diverso, che resta un errore di routing', () => {
+      const issue = dailyIssue(6, [], ['open']);
+      const itemStart = issue.body.indexOf('### FU-');
+      const mismatchedBody = `${issue.body.slice(0, itemStart)}${issue.body.slice(itemStart).replace(
+        `- Target repository: ${REPO}`,
+        '- Target repository: `another/repo`',
+      )}`;
+
+      expect(canonicalDailyBucket({ title: issue.title, body: mismatchedBody })).toEqual({
+        ok: false,
+        reason: 'item-target-repository-mismatch',
+      });
+    });
+
     it('il corpo reale di 8705 diventa canonico: titolo, testa e stati, senza perdere item né stati', () => {
       expect(bucketStructuralVeto(bucket8705)).toBe('mismatched-target-repository');
       const result = canonicalDailyBucket({ title: bucket8705.title, body: bucket8705.body });

@@ -45,16 +45,18 @@ import {
   dailyKeyFromBucketBody,
   followupItemDailyKey,
   hasUnterminatedMarkdownFence,
+  normalizeRepositoryFieldValue,
   parseFollowupItems,
 } from './followup-resolution-match.mjs';
 import { rebuildDailyBody } from './gate-minted-followups.mjs';
 import { bucketStructuralVeto } from './reconcile-followups.mjs';
 
 const REPOSITORY_SLUG_RE = /^[\w.-]+\/[\w.-]+$/u;
+const REPAIRABLE_REPOSITORY_SHORTHAND_RE = /^[\w.-]+$/u;
 const ITEM_STATE_RE = /^(open|in-progress|done|blocked)(?![\w-])\s*[.:;,—–-]?\s*(.*)$/iu;
 const HEAD_STATE_RE = /^(\s*(?:-\s+)?)State\s*:\s*(.*?)\s*$/iu;
 const ITEM_STATE_LINE_RE = /^(\s*-\s+)State\s*:\s*(.*?)\s*$/iu;
-const REPO_LINE_RE = /^(\s*(?:-\s+)?Target repository\s*:\s*)`([^`]*)`\s*$/iu;
+const TARGET_REPOSITORY_LINE_RE = /^(\s*(?:-\s+)?Target repository\s*:\s*)(.*?)\s*$/iu;
 const STATE_NOTE = 'Nota sullo stato';
 
 /** Righe di Markdown con il flag «protetta» (recinto ``` / ~~~ o citazione). */
@@ -72,8 +74,8 @@ function markdownLines(text) {
 }
 
 function stripRepositoryBackticks(line) {
-  const match = REPO_LINE_RE.exec(line);
-  return match ? `${match[1]}${match[2].trim()}` : line;
+  const match = TARGET_REPOSITORY_LINE_RE.exec(line);
+  return match ? `${match[1]}${normalizeRepositoryFieldValue(match[2])}` : line;
 }
 
 function liveFieldValues(text, re) {
@@ -82,9 +84,9 @@ function liveFieldValues(text, re) {
 
 function repositoryValues(text, { dash }) {
   const re = dash
-    ? /^\s*-\s+Target repository\s*:\s*`?([^`]*?)`?\s*$/iu
-    : /^\s*(?:-\s+)?Target repository\s*:\s*`?([^`]*?)`?\s*$/iu;
-  return liveFieldValues(text, re).map((match) => match[1].trim());
+    ? /^\s*-\s+Target repository\s*:\s*(.*?)\s*$/iu
+    : /^\s*(?:-\s+)?Target repository\s*:\s*(.*?)\s*$/iu;
+  return liveFieldValues(text, re).map((match) => normalizeRepositoryFieldValue(match[1]));
 }
 
 /**
@@ -116,10 +118,18 @@ export function canonicalDailyBucket({ title, body }) {
   if (headRepos.length > 1) return fail('head-target-repository-ambiguous');
   const itemRepos = items.flatMap((item) => repositoryValues(item.text, { dash: true }));
   const titleRepo = titleInfo && REPOSITORY_SLUG_RE.test(titleInfo.targetRepository) ? titleInfo.targetRepository : null;
-  const uniqueItemRepos = [...new Set(itemRepos.map((repo) => repo.toLowerCase()))];
+  const normalizedItemRepos = itemRepos.map((value) => value.toLowerCase());
+  const uniqueItemRepos = [...new Set(normalizedItemRepos)];
   const repo = headRepos[0] || titleRepo || (uniqueItemRepos.length === 1 ? itemRepos[0] : null);
   if (!repo || !REPOSITORY_SLUG_RE.test(repo)) return fail('target-repository-missing');
-  if (itemRepos.some((value) => value.toLowerCase() !== repo.toLowerCase())) return fail('item-target-repository-mismatch');
+  const invalidItemRepos = itemRepos.filter((value) => !REPOSITORY_SLUG_RE.test(value));
+  const validMismatchedItemRepo = itemRepos.some((value) =>
+    REPOSITORY_SLUG_RE.test(value) && value.toLowerCase() !== repo.toLowerCase());
+  if (validMismatchedItemRepo) return fail('item-target-repository-mismatch');
+  const repairableItemRepos = invalidItemRepos.length > 0
+    && new Set(invalidItemRepos.map((value) => value.toLowerCase())).size === 1
+    && invalidItemRepos.every((value) => REPAIRABLE_REPOSITORY_SHORTHAND_RE.test(value));
+  if (invalidItemRepos.length > 0 && !repairableItemRepos) return fail('item-target-repository-unreadable');
 
   const changes = [];
   // Testa: State, Daily key, Target repository.
@@ -179,6 +189,15 @@ export function canonicalDailyBucket({ title, body }) {
         if (parsed[2].trim()) out.push(`- ${STATE_NOTE}: ${parsed[2].trim()}`);
         if (field[2] !== state) changes.push(`${id}: State «${field[2]}» → ${state}`);
         continue;
+      }
+      const repositoryField = TARGET_REPOSITORY_LINE_RE.exec(record.line);
+      if (repositoryField && repairableItemRepos) {
+        const value = normalizeRepositoryFieldValue(repositoryField[2]);
+        if (!REPOSITORY_SLUG_RE.test(value)) {
+          out.push(`${repositoryField[1]}${repo}`);
+          changes.push(`${id}: Target repository «${value}» → «${repo}»`);
+          continue;
+        }
       }
       const unquoted = stripRepositoryBackticks(record.line);
       if (unquoted !== record.line) changes.push(`${id}: Target repository senza backtick`);
