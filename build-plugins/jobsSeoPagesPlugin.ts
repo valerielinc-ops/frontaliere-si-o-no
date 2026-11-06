@@ -14703,6 +14703,7 @@ ${staticAnalyticsHtml}
   },
  );
  let softLandingHtml: string;
+ let expiredRobotsTag: string;
  if (!softLandingReuse?.hit || jobsSeoReuse?.shouldRender(softLandingReuse)) {
  const __tEjpBody = phaseTimer();
  // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
@@ -14888,7 +14889,6 @@ ${staticAnalyticsHtml}
  // unmutated staticBody a second time. Run 31065272867 (issue #5252) measured
  // this phase at 57.9s across 183,445 soft-landings with every 'it' page
  // paying for the scan twice.
- let expiredRobotsTag: string;
  if (!hasRealTitle) {
  expiredRobotsTag = ROBOTS_NOINDEX_FOLLOW;
  } else if (!expiredDemandIndexable) {
@@ -14988,6 +14988,8 @@ ${staticAnalyticsHtml}
  }
  } else {
   softLandingHtml = jobsSeoReuse.reusedHtml(softLandingReuse, STATIC_PAGE_BUILD_ID) || softLandingReuse.html;
+  // A cache hit already carries the robots directive computed for identical manifest inputs.
+  expiredRobotsTag = htmlHasIndexableRobots(softLandingHtml) ? ROBOTS_INDEX_ENHANCED : ROBOTS_NOINDEX_FOLLOW;
   if (locale === 'it') {
    itBodyWordCount = htmlHasIndexableRobots(softLandingHtml) ? MIN_INDEXABLE_WORDS : 0;
   }
@@ -15002,6 +15004,7 @@ ${staticAnalyticsHtml}
   if (expiredArchiveOverflowOwned) {
    expiredArchivePublicationEvidence.record({
     locale,
+    expectedNoindex: expiredRobotsTag.includes('noindex'),
     path: `${relPath.replace(/^\/+|\/+$/g, '')}/index.html`,
     url: selfUrl,
     payloadJson: expiredWindowData,
