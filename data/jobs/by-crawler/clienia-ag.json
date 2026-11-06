@@ -186,7 +186,7 @@
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -267,7 +267,8 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+        "qualified-nurse-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -277,7 +278,7 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
+          "qualified-nurse-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -7421,12 +7422,12 @@
     },
     {
       "id": "clienia-ag-820940595a39",
-      "slug": "fachspezialist-in-digitale-transformation-m-w-d-80-100-clienia-ag-zurich",
+      "slug": "specialista-della-trasformazione-digitale-m-f-d-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "fachspezialist-in-digitale-transformation-m-w-d-80-100-clienia-ag-zurich",
-        "it": "fachspezialist-in-digitale-transformation-m-w-d-80-100-clienia-ag-zurich",
-        "en": "fachspezialist-in-digitale-transformation-m-w-d-80-100-clienia-ag-zurich",
-        "fr": "fachspezialist-in-digitale-transformation-m-w-d-80-100-clienia-ag-zurich"
+        "it": "specialista-della-trasformazione-digitale-m-f-d-80-100-clienia-ag-pfaffikon-zh",
+        "en": "digital-transformation-specialist-m-f-d-80-100-clienia-ag-pfaffikon-zh",
+        "fr": "specialiste-de-la-transformation-numerique-h-f-d-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7489,7 +7490,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:25:41.196Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:25:41.196Z"
+      "firstSeenAt": "2026-11-06T09:25:41.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-digitale-transformation-m-w-d-80-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "fachspezialist-in-digitale-transformation-m-w-d-80-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "fachspezialist-in-digitale-transformation-m-w-d-80-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-digitale-transformation-m-w-d-80-100-clienia-ag-zurich"
+      ]
     }
   ]
 }

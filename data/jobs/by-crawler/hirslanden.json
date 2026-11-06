@@ -27591,12 +27591,12 @@
     {
       "id": "hirslanden-7f4eb005f156",
       "externalId": "1455024533",
-      "slug": "sachbearbeiterin-sachbearbeiter-kreditoren-a-80-hirslanden-hirslanden-corporate-office",
+      "slug": "creditori-del-personale-a-80-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-kreditoren-a-80-hirslanden-hirslanden-corporate-office",
-        "it": "sachbearbeiterin-sachbearbeiter-kreditoren-a-80-hirslanden-hirslanden-corporate-office",
-        "en": "sachbearbeiterin-sachbearbeiter-kreditoren-a-80-hirslanden-hirslanden-corporate-office",
-        "fr": "sachbearbeiterin-sachbearbeiter-kreditoren-a-80-hirslanden-hirslanden-corporate-office"
+        "it": "creditori-del-personale-a-80-hirslanden-klinik-hirslanden-corporate-office",
+        "en": "personnel-personnel-creditors-a-80-hirslanden-klinik-hirslanden-corporate-office",
+        "fr": "personnel-crediteurs-du-personnel-a-80-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27658,7 +27658,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:25:28.782Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:25:28.782Z"
+      "firstSeenAt": "2026-11-06T09:25:28.782Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-kreditoren-a-80-hirslanden-hirslanden-corporate-office"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-kreditoren-a-80-hirslanden-hirslanden-corporate-office"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-kreditoren-a-80-hirslanden-hirslanden-corporate-office"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-kreditoren-a-80-hirslanden-hirslanden-corporate-office"
+      ]
     },
     {
       "id": "hirslanden-038ef94a4d31",
@@ -27667,8 +27681,8 @@
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-fur-die-radiologie-a-80-100-hirslanden-hirslanden",
         "it": "med-praxisassistentin-praxisassistent-per-la-radiologie-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham",
-        "en": "med-praxisassistentin-praxisassistent-fur-die-radiologie-a-80-100-hirslanden-hirslanden",
-        "fr": "med-praxisassistentin-praxisassistent-fur-die-radiologie-a-80-100-hirslanden-hirslanden"
+        "en": "med-practical-assistant-for-radiology-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham",
+        "fr": "med-assistant-pratique-en-radiologie-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27715,6 +27729,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "med-praxisassistentin-praxisassistent-fur-die-radiologie-a-80-100-hirslanden-hirslanden"
+        ],
+        "en": [
+          "med-praxisassistentin-praxisassistent-fur-die-radiologie-a-80-100-hirslanden-hirslanden"
+        ],
+        "fr": [
           "med-praxisassistentin-praxisassistent-fur-die-radiologie-a-80-100-hirslanden-hirslanden"
         ]
       },

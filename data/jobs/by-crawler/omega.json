@@ -481,12 +481,12 @@
     },
     {
       "id": "omega-33698",
-      "slug": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
+      "slug": "attenzione-operazione-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "it": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "en": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "de": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        "it": "attenzione-operazione-omega-sa-biel-bienne",
+        "en": "operational-learning-omega-sa-biel-bienne",
+        "de": "betriebliches-lernen-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -552,11 +552,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        ],
+        "de": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -578,12 +586,12 @@
     },
     {
       "id": "omega-33705",
-      "slug": "sustainibility-manager-omega-biel-bienne",
+      "slug": "manager-sustanibilita-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "sustainibility-manager-omega-biel-bienne",
-        "it": "sustainibility-manager-omega-biel-bienne",
-        "en": "sustainibility-manager-omega-biel-bienne",
-        "de": "sustainibility-manager-omega-biel-bienne"
+        "it": "manager-sustanibilita-omega-sa-biel-bienne",
+        "en": "sustanibility-manager-omega-sa-biel-bienne",
+        "de": "sustanibilitatsmanager-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -661,16 +669,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:47:32.060Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:47:32.060Z"
+      "firstSeenAt": "2026-11-06T09:47:32.060Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sustainibility-manager-omega-biel-bienne"
+        ],
+        "en": [
+          "sustainibility-manager-omega-biel-bienne"
+        ],
+        "de": [
+          "sustainibility-manager-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "sustainibility-manager-omega-biel-bienne"
+      ]
     },
     {
       "id": "omega-33741",
-      "slug": "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
+      "slug": "avviso-occupato-del-trade-swc-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-        "it": "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
-        "en": "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-        "de": "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
+        "it": "avviso-occupato-del-trade-swc-omega-sa-biel-bienne",
+        "en": "employed-learning-of-swc-trade-omega-sa-biel-bienne",
+        "de": "beschaftigtes-lernen-des-swc-handels-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -730,11 +752,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
+          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
+        ],
+        "de": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
+        "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
+        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

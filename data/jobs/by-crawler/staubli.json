@@ -1083,12 +1083,12 @@
     },
     {
       "id": "staubli-c972b4605c05",
-      "slug": "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil",
+      "slug": "sviluppo-del-processo-di-assistente-studente-10-20-ore-w-temporaneo-staubli-allschwil-bl-switzerland",
       "slugByLocale": {
         "de": "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil-bl",
-        "it": "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil",
-        "en": "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil-bl",
-        "fr": "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil-bl"
+        "it": "sviluppo-del-processo-di-assistente-studente-10-20-ore-w-temporaneo-staubli-allschwil-bl-switzerland",
+        "en": "student-assistant-process-development-10-20-hours-w-temporary-staubli-allschwil-bl-switzerland",
+        "fr": "developpement-du-processus-d-assistant-etudiant-10-a-20-heures-w-temporaire-staubli-allschwil-bl-switzerland"
       },
       "company": "Stäubli",
       "companyKey": "staubli",
@@ -1137,11 +1137,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil-bl",
+          "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil"
+        ],
+        "en": [
+          "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil-bl"
+        ],
+        "fr": [
           "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil-bl"
         ]
       },
       "previousSlugs": [
-        "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil-bl"
+        "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil-bl",
+        "studentische-aushilfe-prozessentwicklung-10-20-std-w-befristet-staubli-allschwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

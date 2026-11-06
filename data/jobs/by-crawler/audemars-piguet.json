@@ -2261,7 +2261,7 @@
       "slugByLocale": {
         "fr": "brand-lead-coordinator-marche-suisse-cdd-7-8-mois-audemars-piguet-tolochenaz-vd",
         "it": "brand-lead-coordinator-marche-suisse-cdd-7-8-mois-audemars-piguet-tolochenaz-vd",
-        "en": "brand-lead-coordinator-marche-suisse-cdd-7-8-mois-audemars-piguet-tolochenaz-vd",
+        "en": "brand-lead-coordinator-market-switzerland-csd-7-8-months-audemars-piguet-tolochenaz-vd-switzerland",
         "de": "brand-lead-coordinator-marche-suisse-cdd-7-8-mois-audemars-piguet-tolochenaz-vd"
       },
       "company": "Audemars Piguet",
@@ -2411,11 +2411,11 @@
     },
     {
       "id": "audemars-piguet-7755b17a6e3d",
-      "slug": "senior-sales-associate-audemars-piguet-geneva-ge-switzerland",
+      "slug": "vendite-senior-audemars-piguet-geneva-ge-switzerland",
       "slugByLocale": {
         "fr": "senior-sales-associate-audemars-piguet-geneva-ge-switzerland",
-        "it": "senior-sales-associate-audemars-piguet-geneva-ge-switzerland",
-        "en": "senior-sales-associate-audemars-piguet-geneva-ge-switzerland",
+        "it": "vendite-senior-audemars-piguet-geneva-ge-switzerland",
+        "en": "senior-salesble-audemars-piguet-geneva-ge-switzerland",
         "de": "senior-sales-associate-audemars-piguet-geneva-ge-switzerland"
       },
       "company": "Audemars Piguet",
@@ -2479,7 +2479,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:22:03.512Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:22:03.512Z"
+      "firstSeenAt": "2026-11-06T09:22:03.512Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-sales-associate-audemars-piguet-geneva-ge-switzerland"
+        ],
+        "en": [
+          "senior-sales-associate-audemars-piguet-geneva-ge-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "senior-sales-associate-audemars-piguet-geneva-ge-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-15280158a509",

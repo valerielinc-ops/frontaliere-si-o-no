@@ -6178,12 +6178,12 @@
     },
     {
       "id": "etat-de-fribourg-ff372e60fc25",
-      "slug": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
+      "slug": "collaboratore-scientifico-etat-de-fribourg-fribourg-bf392d",
       "slugByLocale": {
         "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
-        "en": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
-        "de": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+        "it": "collaboratore-scientifico-etat-de-fribourg-fribourg-bf392d",
+        "en": "scientific-collaborator-etat-de-fribourg-fribourg-bf392d",
+        "de": "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg-bf392d"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6252,21 +6252,29 @@
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+        ],
+        "en": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+        ],
+        "de": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
       ]
     },
     {
       "id": "etat-de-fribourg-8cab249f5820",
-      "slug": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch",
+      "slug": "collaboratore-nella-gestione-contabile-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch",
-        "en": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch",
-        "de": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch"
+        "it": "collaboratore-nella-gestione-contabile-etat-de-fribourg-fribourg",
+        "en": "collaborator-in-accounting-management-etat-de-fribourg-fribourg",
+        "de": "mitarbeiter-im-accounting-management-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6332,16 +6340,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:45:53.203Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:45:53.203Z"
+      "firstSeenAt": "2026-11-06T09:45:53.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-c7371e2a6396",
-      "slug": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch",
+      "slug": "addetto-a-alla-contabilita-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch",
-        "it": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch",
-        "en": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch",
-        "fr": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch"
+        "it": "addetto-a-alla-contabilita-etat-de-fribourg-fribourg",
+        "en": "accounting-clerk-etat-de-fribourg-fribourg",
+        "fr": "collaborateur-trice-en-comptabilite-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6408,16 +6430,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:45:52.562Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:45:52.562Z"
+      "firstSeenAt": "2026-11-06T09:45:52.562Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-14269a05dbe8",
-      "slug": "directeur-trice-de-l-ecole-du-co-de-bulle-etat-de-fribourg-ch",
+      "slug": "direttore-della-co-school-di-bulle-etat-de-fribourg-bulle",
       "slugByLocale": {
         "fr": "directeur-trice-de-l-ecole-du-co-de-bulle-etat-de-fribourg-ch",
-        "it": "directeur-trice-de-l-ecole-du-co-de-bulle-etat-de-fribourg-ch",
-        "en": "directeur-trice-de-l-ecole-du-co-de-bulle-etat-de-fribourg-ch",
-        "de": "directeur-trice-de-l-ecole-du-co-de-bulle-etat-de-fribourg-ch"
+        "it": "direttore-della-co-school-di-bulle-etat-de-fribourg-bulle",
+        "en": "director-of-the-co-school-in-bulle-etat-de-fribourg-bulle",
+        "de": "direktor-der-co-school-in-bulle-etat-de-fribourg-bulle"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6483,7 +6519,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:45:51.844Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:45:51.844Z"
+      "firstSeenAt": "2026-11-06T09:45:51.844Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-trice-de-l-ecole-du-co-de-bulle-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "directeur-trice-de-l-ecole-du-co-de-bulle-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "directeur-trice-de-l-ecole-du-co-de-bulle-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-trice-de-l-ecole-du-co-de-bulle-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-fbcae77a74da",
@@ -6574,12 +6624,12 @@
     },
     {
       "id": "etat-de-fribourg-2402f90cb500",
-      "slug": "employe-e-d-administration-aupres-du-secteur-relations-contribuables-etat-de-fribourg-ch",
+      "slug": "dipendente-amministrativo-con-il-settore-delle-relazioni-fiscali-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "employe-e-d-administration-aupres-du-secteur-relations-contribuables-etat-de-fribourg-ch",
-        "it": "employe-e-d-administration-aupres-du-secteur-relations-contribuables-etat-de-fribourg-ch",
-        "en": "employe-e-d-administration-aupres-du-secteur-relations-contribuables-etat-de-fribourg-ch",
-        "de": "employe-e-d-administration-aupres-du-secteur-relations-contribuables-etat-de-fribourg-ch"
+        "it": "dipendente-amministrativo-con-il-settore-delle-relazioni-fiscali-etat-de-fribourg-fribourg",
+        "en": "administrative-employee-with-the-taxpaying-relations-sector-etat-de-fribourg-fribourg",
+        "de": "verwaltungsangestellter-mit-dem-sektor-taxpaying-relations-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6645,16 +6695,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:45:50.546Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:45:50.546Z"
+      "firstSeenAt": "2026-11-06T09:45:50.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-administration-aupres-du-secteur-relations-contribuables-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "employe-e-d-administration-aupres-du-secteur-relations-contribuables-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "employe-e-d-administration-aupres-du-secteur-relations-contribuables-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-administration-aupres-du-secteur-relations-contribuables-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-aa82d635634a",
-      "slug": "collaborateur-trice-scientifique-etat-de-fribourg-ch-4",
+      "slug": "collaboratore-scientifico-etat-de-fribourg-fribourg-dacd5d",
       "slugByLocale": {
         "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-scientifique-etat-de-fribourg-ch-4",
-        "en": "collaborateur-trice-scientifique-etat-de-fribourg-ch-4",
-        "de": "collaborateur-trice-scientifique-etat-de-fribourg-ch-4"
+        "it": "collaboratore-scientifico-etat-de-fribourg-fribourg-dacd5d",
+        "en": "scientific-collaborator-etat-de-fribourg-fribourg-dacd5d",
+        "de": "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg-dacd5d"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6723,11 +6787,19 @@
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-4"
+        ],
+        "en": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-4"
+        ],
+        "de": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-4"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch-4"
       ]
     },
     {
@@ -6736,8 +6808,8 @@
       "slugByLocale": {
         "de": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
         "it": "wissenschaftl-collaboratore-trice-etat-de-fribourg",
-        "en": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3",
-        "fr": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3"
+        "en": "research-associate-etat-de-fribourg-fribourg",
+        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-fribourg-6cec2e"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6790,6 +6862,12 @@
         "it": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3"
+        ],
+        "en": [
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3"
+        ],
+        "fr": [
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3"
         ]
       },
       "previousSlugs": [
@@ -6818,12 +6896,12 @@
     },
     {
       "id": "etat-de-fribourg-3acc75352cef",
-      "slug": "verwaltungsangestellte-r-sektor-beziehungen-zu-den-steuerpflichtigen-etat-de-fribourg-ch",
+      "slug": "personale-amministrativo-settore-relazioni-con-i-soggetti-passivi-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "verwaltungsangestellte-r-sektor-beziehungen-zu-den-steuerpflichtigen-etat-de-fribourg-ch",
-        "it": "verwaltungsangestellte-r-sektor-beziehungen-zu-den-steuerpflichtigen-etat-de-fribourg-ch",
-        "en": "verwaltungsangestellte-r-sektor-beziehungen-zu-den-steuerpflichtigen-etat-de-fribourg-ch",
-        "fr": "verwaltungsangestellte-r-sektor-beziehungen-zu-den-steuerpflichtigen-etat-de-fribourg-ch"
+        "it": "personale-amministrativo-settore-relazioni-con-i-soggetti-passivi-etat-de-fribourg-fribourg",
+        "en": "administrative-staff-sector-relations-with-taxable-persons-etat-de-fribourg-fribourg",
+        "fr": "personnel-administratif-secteur-relations-avec-les-assujettis-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6889,7 +6967,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:45:48.582Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:45:48.582Z"
+      "firstSeenAt": "2026-11-06T09:45:48.582Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungsangestellte-r-sektor-beziehungen-zu-den-steuerpflichtigen-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verwaltungsangestellte-r-sektor-beziehungen-zu-den-steuerpflichtigen-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verwaltungsangestellte-r-sektor-beziehungen-zu-den-steuerpflichtigen-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungsangestellte-r-sektor-beziehungen-zu-den-steuerpflichtigen-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-06bfd4767d60",
@@ -7072,12 +7164,12 @@
     },
     {
       "id": "etat-de-fribourg-8c57d417ce6c",
-      "slug": "traducteur-trice-aupres-de-la-chancellerie-d-etat-etat-de-fribourg-ch",
+      "slug": "traduttore-alla-cancelleria-di-stato-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "traducteur-trice-aupres-de-la-chancellerie-d-etat-etat-de-fribourg-ch",
-        "it": "traducteur-trice-aupres-de-la-chancellerie-d-etat-etat-de-fribourg-ch",
-        "en": "traducteur-trice-aupres-de-la-chancellerie-d-etat-etat-de-fribourg-ch",
-        "de": "traducteur-trice-aupres-de-la-chancellerie-d-etat-etat-de-fribourg-ch"
+        "it": "traduttore-alla-cancelleria-di-stato-etat-de-fribourg-fribourg",
+        "en": "translator-at-the-state-chancellery-etat-de-fribourg-fribourg",
+        "de": "ubersetzerin-im-kanzleramt-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7143,16 +7235,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:45:46.540Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:45:46.540Z"
+      "firstSeenAt": "2026-11-06T09:45:46.540Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "traducteur-trice-aupres-de-la-chancellerie-d-etat-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "traducteur-trice-aupres-de-la-chancellerie-d-etat-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "traducteur-trice-aupres-de-la-chancellerie-d-etat-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "traducteur-trice-aupres-de-la-chancellerie-d-etat-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-4414947ab4f4",
-      "slug": "ubersetzer-in-bei-der-staatskanzlei-etat-de-fribourg-ch",
+      "slug": "traduttore-traduttrice-presso-la-cancelleria-di-stato-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "ubersetzer-in-bei-der-staatskanzlei-etat-de-fribourg-ch",
-        "it": "ubersetzer-in-bei-der-staatskanzlei-etat-de-fribourg-ch",
-        "en": "ubersetzer-in-bei-der-staatskanzlei-etat-de-fribourg-ch",
-        "fr": "ubersetzer-in-bei-der-staatskanzlei-etat-de-fribourg-ch"
+        "it": "traduttore-traduttrice-presso-la-cancelleria-di-stato-etat-de-fribourg-fribourg",
+        "en": "translator-at-the-state-chancellery-etat-de-fribourg-fribourg-de9b2a",
+        "fr": "traducteur-trice-a-la-chancellerie-d-etat-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7219,7 +7325,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:45:45.888Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:45:45.888Z"
+      "firstSeenAt": "2026-11-06T09:45:45.888Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ubersetzer-in-bei-der-staatskanzlei-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "ubersetzer-in-bei-der-staatskanzlei-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "ubersetzer-in-bei-der-staatskanzlei-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ubersetzer-in-bei-der-staatskanzlei-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-0eacadce4a1d",

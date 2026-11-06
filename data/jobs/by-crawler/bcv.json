@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bcv-aa39eef178bd",
-      "slug": "gestionnaire-en-prevoyance-professionnelle-50-banque-cantonale-vaudoise-lausanne",
+      "slug": "professional-provident-manager-50-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-en-prevoyance-professionnelle-50-bcv-lausanne",
-        "it": "gestionnaire-en-prevoyance-professionnelle-50-banque-cantonale-vaudoise-lausanne",
+        "it": "professional-provident-manager-50-banque-cantonale-vaudoise-lausanne",
         "en": "gestionnaire-en-prevoyance-professionnelle-50-banque-cantonale-vaudoise-lausanne",
-        "de": "gestionnaire-en-prevoyance-professionnelle-50-bcv-lausanne"
+        "de": "professioneller-provident-manager-50-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -59,11 +59,16 @@
       "sfJobId": "1455013333",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-en-prevoyance-professionnelle-50-bcv-lausanne",
+          "gestionnaire-en-prevoyance-professionnelle-50-banque-cantonale-vaudoise-lausanne"
+        ],
+        "de": [
           "gestionnaire-en-prevoyance-professionnelle-50-bcv-lausanne"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-en-prevoyance-professionnelle-50-bcv-lausanne"
+        "gestionnaire-en-prevoyance-professionnelle-50-bcv-lausanne",
+        "gestionnaire-en-prevoyance-professionnelle-50-banque-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -1996,7 +2001,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -2057,7 +2062,7 @@
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -2066,7 +2071,7 @@
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,

@@ -3512,12 +3512,12 @@
     },
     {
       "id": "vontobel-e978e22f1be8",
-      "slug": "support-training-private-clients-werkstudent-in-40-60-temporar-24-monate-vontobel-ch",
+      "slug": "supporto-alla-formazione-di-clienti-privati-studente-lavoratore-studentessa-lavoratrice-40-60-temporaneo-24-mesi",
       "slugByLocale": {
         "de": "support-training-private-clients-werkstudent-in-40-60-temporar-24-monate-vontobel-ch",
-        "it": "support-training-private-clients-werkstudent-in-40-60-temporar-24-monate-vontobel-ch",
-        "en": "support-training-private-clients-werkstudent-in-40-60-temporar-24-monate-vontobel-ch",
-        "fr": "support-training-private-clients-werkstudent-in-40-60-temporar-24-monate-vontobel-ch"
+        "it": "supporto-alla-formazione-di-clienti-privati-studente-lavoratore-studentessa-lavoratrice-40-60-temporaneo-24-mesi",
+        "en": "support-training-private-clients-working-student-40-60-temporary-24-months-vontobel-zurich-gotthardstrasse-43",
+        "fr": "support-formation-clients-prives-etudiant-e-salarie-e-40-60-temporaire-24-mois-vontobel-zurich-gotthardstrasse-43"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -3581,7 +3581,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:59:57.974Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:59:57.974Z"
+      "firstSeenAt": "2026-11-06T09:59:57.974Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "support-training-private-clients-werkstudent-in-40-60-temporar-24-monate-vontobel-ch"
+        ],
+        "en": [
+          "support-training-private-clients-werkstudent-in-40-60-temporar-24-monate-vontobel-ch"
+        ],
+        "fr": [
+          "support-training-private-clients-werkstudent-in-40-60-temporar-24-monate-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "support-training-private-clients-werkstudent-in-40-60-temporar-24-monate-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-14da6615afd4",

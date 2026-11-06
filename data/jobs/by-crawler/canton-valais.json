@@ -2520,12 +2520,12 @@
     },
     {
       "id": "canton-valais-84b1dc9cf925",
-      "slug": "un-secretaire-assistant-ou-une-secretaire-assistante-80-engagement-de-duree-determinee-d",
+      "slug": "assistente-segretario-o-assistente-segretario-80-appuntamento-fisso-di-un-anno-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-secretaire-assistant-ou-une-secretaire-assistante-80-engagement-de-duree-determinee-d",
-        "it": "un-secretaire-assistant-ou-une-secretaire-assistante-80-engagement-de-duree-determinee-d",
-        "en": "un-secretaire-assistant-ou-une-secretaire-assistante-80-engagement-de-duree-determinee-d",
-        "de": "un-secretaire-assistant-ou-une-secretaire-assistante-80-engagement-de-duree-determinee-d"
+        "it": "assistente-segretario-o-assistente-segretario-80-appuntamento-fisso-di-un-anno-canton-du-valais-sion",
+        "en": "assistant-secretary-or-assistant-secretary-80-one-year-fixed-term-appointment-canton-du-valais-sion",
+        "de": "ein-sekretariatsassistent-oder-eine-sekretariatsassistentin-80-auf-ein-jahr-befristet-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2588,16 +2588,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:43:41.347Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:43:41.347Z"
+      "firstSeenAt": "2026-11-06T09:43:41.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-secretaire-assistant-ou-une-secretaire-assistante-80-engagement-de-duree-determinee-d"
+        ],
+        "en": [
+          "un-secretaire-assistant-ou-une-secretaire-assistante-80-engagement-de-duree-determinee-d"
+        ],
+        "de": [
+          "un-secretaire-assistant-ou-une-secretaire-assistante-80-engagement-de-duree-determinee-d"
+        ]
+      },
+      "previousSlugs": [
+        "un-secretaire-assistant-ou-une-secretaire-assistante-80-engagement-de-duree-determinee-d"
+      ]
     },
     {
       "id": "canton-valais-93bddb3c1b1e",
-      "slug": "landwirtschaftliche-r-collaboratore-trice-70-e-responsabile-des-landwirtschaftlichen-gutsbetriebs-30-im-jobsharing-canton-du-valais-visp",
+      "slug": "collaboratore-trice-agricolo-a-70-e-responsabile-dell-azienda-agricola-30-in-job-sharing-canton-du-valais-visp",
       "slugByLocale": {
         "de": "landwirtschaftliche-r-mitarbeiter-in-70-und-leiter-in-des-landwirtschaftlichen",
-        "it": "landwirtschaftliche-r-collaboratore-trice-70-e-responsabile-des-landwirtschaftlichen-gutsbetriebs-30-im-jobsharing-canton-du-valais-visp",
-        "en": "landwirtschaftliche-r-mitarbeiter-in-70-und-leiter-in-des-landwirtschaftlichen",
-        "fr": "landwirtschaftliche-r-mitarbeiter-in-70-und-leiter-in-des-landwirtschaftlichen"
+        "it": "collaboratore-trice-agricolo-a-70-e-responsabile-dell-azienda-agricola-30-in-job-sharing-canton-du-valais-visp",
+        "en": "agricultural-employee-70-and-manager-of-the-agricultural-estate-30-in-job-sharing-canton-du-valais-visp",
+        "fr": "collaborateur-trice-agricole-70-et-responsable-de-l-exploitation-agricole-30-en-job-sharing-canton-du-valais-visp"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2645,11 +2659,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "landwirtschaftliche-r-mitarbeiter-in-70-und-leiter-in-des-landwirtschaftlichen",
+          "landwirtschaftliche-r-collaboratore-trice-70-e-responsabile-des-landwirtschaftlichen-gutsbetriebs-30-im-jobsharing-canton-du-valais-visp"
+        ],
+        "en": [
+          "landwirtschaftliche-r-mitarbeiter-in-70-und-leiter-in-des-landwirtschaftlichen"
+        ],
+        "fr": [
           "landwirtschaftliche-r-mitarbeiter-in-70-und-leiter-in-des-landwirtschaftlichen"
         ]
       },
       "previousSlugs": [
-        "landwirtschaftliche-r-mitarbeiter-in-70-und-leiter-in-des-landwirtschaftlichen"
+        "landwirtschaftliche-r-mitarbeiter-in-70-und-leiter-in-des-landwirtschaftlichen",
+        "landwirtschaftliche-r-collaboratore-trice-70-e-responsabile-des-landwirtschaftlichen-gutsbetriebs-30-im-jobsharing-canton-du-valais-visp"
       ],
       "salaryMin": 58400,
       "salaryMax": 88600,
@@ -2672,12 +2694,12 @@
     },
     {
       "id": "canton-valais-efa9bf613e05",
-      "slug": "strassenwarter-in-ii-100-canton-valais-ch",
+      "slug": "addetto-a-alla-manutenzione-stradale-ii-100-canton-du-valais-sion",
       "slugByLocale": {
         "de": "strassenwarter-in-ii-100-canton-valais-ch",
-        "it": "strassenwarter-in-ii-100-canton-valais-ch",
-        "en": "strassenwarter-in-ii-100-canton-valais-ch",
-        "fr": "strassenwarter-in-ii-100-canton-valais-ch"
+        "it": "addetto-a-alla-manutenzione-stradale-ii-100-canton-du-valais-sion",
+        "en": "road-maintenance-worker-ii-100-canton-du-valais-sion",
+        "fr": "cantonnier-iere-ii-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2740,16 +2762,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:43:39.982Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:43:39.982Z"
+      "firstSeenAt": "2026-11-06T09:43:39.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strassenwarter-in-ii-100-canton-valais-ch"
+        ],
+        "en": [
+          "strassenwarter-in-ii-100-canton-valais-ch"
+        ],
+        "fr": [
+          "strassenwarter-in-ii-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strassenwarter-in-ii-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-242ae9372a16",
-      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-acquisition-de-terrains",
+      "slug": "un-collaboratore-specializzato-o-un-imprenditore-specializzato-nell-acquisizione-di-terreni-70-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-acquisition-de-terrains",
-        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-acquisition-de-terrains",
-        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-acquisition-de-terrains",
-        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-acquisition-de-terrains"
+        "it": "un-collaboratore-specializzato-o-un-imprenditore-specializzato-nell-acquisizione-di-terreni-70-100-canton-du-valais-sion",
+        "en": "a-specialist-collaborator-or-a-specialist-contractor-in-land-acquisition-70-100-canton-du-valais-sion",
+        "de": "ein-spezialisierter-mitarbeiter-oder-ein-spezialisierter-auftragnehmer-im-landerwerb-70-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2811,16 +2847,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:43:38.608Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:43:38.608Z"
+      "firstSeenAt": "2026-11-06T09:43:38.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-acquisition-de-terrains"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-acquisition-de-terrains"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-acquisition-de-terrains"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-en-acquisition-de-terrains"
+      ]
     },
     {
       "id": "canton-valais-a62169f026d0",
-      "slug": "un-juge-assesseur-ou-une-juge-assesseure-canton-valais-ch",
+      "slug": "un-giudice-del-valutatore-o-un-giudice-del-valutatore-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-juge-assesseur-ou-une-juge-assesseure-canton-valais-ch",
-        "it": "un-juge-assesseur-ou-une-juge-assesseure-canton-valais-ch",
-        "en": "un-juge-assesseur-ou-une-juge-assesseure-canton-valais-ch",
-        "de": "un-juge-assesseur-ou-une-juge-assesseure-canton-valais-ch"
+        "it": "un-giudice-del-valutatore-o-un-giudice-del-valutatore-canton-du-valais-sion",
+        "en": "an-assessor-judge-or-an-assessor-judge-canton-du-valais-sion",
+        "de": "beurteilungsrichter-oder-beurteilungsrichter-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2883,7 +2933,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:43:37.855Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:43:37.855Z"
+      "firstSeenAt": "2026-11-06T09:43:37.855Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-juge-assesseur-ou-une-juge-assesseure-canton-valais-ch"
+        ],
+        "en": [
+          "un-juge-assesseur-ou-une-juge-assesseure-canton-valais-ch"
+        ],
+        "de": [
+          "un-juge-assesseur-ou-une-juge-assesseure-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-juge-assesseur-ou-une-juge-assesseure-canton-valais-ch"
+      ]
     }
   ]
 }

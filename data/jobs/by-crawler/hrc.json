@@ -342,10 +342,10 @@
     },
     {
       "id": "hrc-1cb01ec457be",
-      "slug": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz",
+      "slug": "phel-assistente-di-farmacia-m-f-al-60-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "fr": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz",
-        "it": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz",
+        "it": "phel-assistente-di-farmacia-m-f-al-60-100-hopital-riviera-chablais-hrc-rennaz",
         "en": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz",
         "de": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz"
       },
@@ -409,7 +409,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T10:02:12.222Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T10:02:12.222Z"
+      "firstSeenAt": "2026-11-06T10:02:12.222Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-25df93342ef8",

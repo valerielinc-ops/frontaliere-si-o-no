@@ -256,7 +256,7 @@
         "it": "ufficio-consulente-clienti-circa-87-in-grosswangen-concordia-grosswangen",
         "en": "customer-consultant-office-about-87-in-grosswangen-concordia-grosswangen",
         "de": "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
-        "fr": "conseiller-ere-a-la-clientele-en-agence-env-87-a-grosswangen-concordia-grosswangen"
+        "fr": "bureau-de-consultants-clients-environ-87-a-grosswangen-concordia-grosswangen"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -303,14 +303,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
-        "bureau-de-consultants-clients-environ-87-a-grosswangen-concordia-grosswangen"
+        "conseiller-ere-a-la-clientele-en-agence-env-87-a-grosswangen-concordia-grosswangen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen"
         ],
         "fr": [
-          "bureau-de-consultants-clients-environ-87-a-grosswangen-concordia-grosswangen"
+          "conseiller-ere-a-la-clientele-en-agence-env-87-a-grosswangen-concordia-grosswangen"
         ]
       },
       "firstSeenAt": "2026-09-11T13:39:25.610Z",
@@ -3531,12 +3531,12 @@
     },
     {
       "id": "concordia-f64023bb0129",
-      "slug": "versicherungsberater-in-100-in-rapperswil-concordia-rapperswil-jona",
+      "slug": "consulente-assicurativo-a-100-a-rapperswil-concordia-rapperswil-jona",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-rapperswil-concordia-rapperswil-jona",
-        "it": "versicherungsberater-in-100-in-rapperswil-concordia-rapperswil-jona",
-        "en": "versicherungsberater-in-100-in-rapperswil-concordia-rapperswil-jona",
-        "fr": "versicherungsberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+        "it": "consulente-assicurativo-a-100-a-rapperswil-concordia-rapperswil-jona",
+        "en": "insurance-advisor-100-in-rapperswil-concordia-rapperswil-jona",
+        "fr": "conseiller-ere-en-assurances-100-a-rapperswil-concordia-rapperswil-jona"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3599,7 +3599,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:22:41.078Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:22:41.078Z"
+      "firstSeenAt": "2026-11-06T09:22:41.078Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+        ],
+        "en": [
+          "versicherungsberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+        ],
+        "fr": [
+          "versicherungsberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+      ]
     },
     {
       "id": "concordia-a23e133e6deb",

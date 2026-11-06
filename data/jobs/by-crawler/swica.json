@@ -2805,12 +2805,12 @@
     },
     {
       "id": "swica-2f6d30a7b5a1",
-      "slug": "hochschulpraktikum-im-bereich-legal-e-compliance-privacy-swica-gesundheitsorganisation-winterthur",
+      "slug": "tirocinio-universitario-nell-ambito-legal-e-compliance-privacy-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
         "de": "hochschulpraktikum-im-bereich-legal-und-compliance-amp-privacy-swica-winterthur",
-        "it": "hochschulpraktikum-im-bereich-legal-e-compliance-privacy-swica-gesundheitsorganisation-winterthur",
-        "en": "hochschulpraktikum-im-bereich-legal-und-compliance-amp-privacy-swica-winterthur",
-        "fr": "hochschulpraktikum-im-bereich-legal-und-compliance-amp-privacy-swica-winterthur"
+        "it": "tirocinio-universitario-nell-ambito-legal-e-compliance-privacy-swica-gesundheitsorganisation-winterthur",
+        "en": "internship-in-legal-and-compliance-privacy-swica-gesundheitsorganisation-winterthur",
+        "fr": "stage-en-droit-et-conformite-et-protection-des-renseignements-personnels-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2859,11 +2859,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hochschulpraktikum-im-bereich-legal-und-compliance-amp-privacy-swica-winterthur",
+          "hochschulpraktikum-im-bereich-legal-e-compliance-privacy-swica-gesundheitsorganisation-winterthur"
+        ],
+        "en": [
+          "hochschulpraktikum-im-bereich-legal-und-compliance-amp-privacy-swica-winterthur"
+        ],
+        "fr": [
           "hochschulpraktikum-im-bereich-legal-und-compliance-amp-privacy-swica-winterthur"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikum-im-bereich-legal-und-compliance-amp-privacy-swica-winterthur"
+        "hochschulpraktikum-im-bereich-legal-und-compliance-amp-privacy-swica-winterthur",
+        "hochschulpraktikum-im-bereich-legal-e-compliance-privacy-swica-gesundheitsorganisation-winterthur"
       ],
       "salaryMin": 85000,
       "salaryMax": 145000,

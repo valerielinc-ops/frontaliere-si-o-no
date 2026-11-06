@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "kellerhals-carrard-736dafdf0879",
-      "slug": "compliance-officer-kellerhals-carrard-geneve",
+      "slug": "ufficiale-di-conformita-kellerhals-carrard-geneve",
       "slugByLocale": {
         "fr": "compliance-officer-kellerhals-carrard-geneve",
-        "it": "compliance-officer-kellerhals-carrard-geneve",
+        "it": "ufficiale-di-conformita-kellerhals-carrard-geneve",
         "en": "compliance-officer-kellerhals-carrard-geneve",
-        "de": "compliance-officer-kellerhals-carrard-geneve"
+        "de": "compliance-beauftragter-kellerhals-carrard-geneve"
       },
       "company": "Kellerhals Carrard",
       "companyKey": "kellerhals-carrard",
@@ -73,7 +73,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:41:20.595Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:41:20.595Z"
+      "firstSeenAt": "2026-11-06T09:41:20.595Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-kellerhals-carrard-geneve"
+        ],
+        "de": [
+          "compliance-officer-kellerhals-carrard-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-kellerhals-carrard-geneve"
+      ]
     },
     {
       "id": "kellerhals-carrard-888f2661dce3",
