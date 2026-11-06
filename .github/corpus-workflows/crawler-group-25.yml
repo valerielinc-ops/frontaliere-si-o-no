@@ -546,7 +546,6 @@ jobs:
           missing_count=0
           systemic_count=0
           tolerated_count=0
-          quarantine_today="${CRAWLER_QUARANTINE_TODAY:-$(date -u +%F)}"
           outcomes_json=''
           printf '%s\n' '### Crawler group 25 outcome (quarantine group)' >> "$summary_file"
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
