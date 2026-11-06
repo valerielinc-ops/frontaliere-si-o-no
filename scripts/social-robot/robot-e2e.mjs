@@ -93,7 +93,7 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
     ? '<div id="instagram-unsaved-post" data-action="none" hidden style="position:fixed;inset:0;z-index:30;background:#fff;padding:25% 20%"><div>Vuoi eliminare il post?</div><div>Se abbandoni, le tue modifiche non verranno salvate.</div><button id="instagram-delete-post" type="button">Elimina</button><button id="instagram-cancel-post" type="button">Annulla</button></div>'
     : '';
   const metaAccountReadyMarkup = metaAccountReady
-    ? '<div id="meta-account-ready" style="position:fixed;inset:0;z-index:40;background:#fff;padding:25% 20%"><h2>Il tuo account Meta è pronto</h2><p>Il tuo account aggiornato funziona nelle app e sui dispositivi Meta, rendendo più semplice a te usare i servizi.</p><button id="meta-account-ready-continue" type="button">Continua</button></div>'
+    ? '<div id="meta-account-ready" style="position:fixed;inset:0;z-index:40;background:#fff;padding:25% 20%"><h2>Il tuo account Meta è pronto</h2><p>Il tuo account aggiornato funziona nelle app e sui dispositivi Meta, rendendo più semplice accedere, controllare le impostazioni e proteggere le tue informazioni.</p><button id="meta-account-ready-continue" type="button">Continua</button></div>'
     : '';
   const openDialog = (entry) => {
     const entryCode = JSON.stringify(entry);

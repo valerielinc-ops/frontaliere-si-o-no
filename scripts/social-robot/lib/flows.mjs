@@ -86,7 +86,7 @@ export const RX = Object.freeze({
   // control. Require both the heading and the account-update copy before the
   // robot acknowledges it; matching only "Continua" could press an unrelated
   // action on the publishing surface.
-  igMetaAccountReadyTitle: /il tuo account meta è pronto\s*il tuo account aggiornato funziona nelle app e sui dispositivi meta,\s*rendendo più semplice a\b/i,
+  igMetaAccountReadyTitle: /il tuo account meta è pronto\s*il tuo account aggiornato funziona nelle app e sui dispositivi meta,\s*rendendo più semplice a/i,
   igMetaAccountReadyContinue: EXACT_TEXT_ONE_OF('Continua', 'Continue', 'Weiter', 'Continuer'),
   igConfirm: /your (?:post|reel) has been shared|(?:post|reel) shared|il tuo (?:post|reel) è stato condiviso|(?:post|reel) condiviso|dein (?:beitrag|reel) wurde geteilt|(?:beitrag|reel) geteilt|votre (?:publication|reel) a été partag(?:ée|é)|(?:publication|reel) partag(?:ée|é)/i,
   notNow: ANY_OF('Not now', 'Not Now', 'Non ora', 'Jetzt nicht', 'Plus tard'),
