@@ -465,7 +465,7 @@ function extractGuidleTextDateRange(value) {
 function extractGuidleDomEventOccurrence(doc) {
   const root = guidleDomDetailRoot(doc);
   if (!root) return null;
-  const date = root.querySelector('time.bigdate[datetime]')?.getAttribute('datetime')?.trim();
+  const date = root.querySelector('time[datetime]')?.getAttribute('datetime')?.trim();
   const semanticDate = GUIDLE_DOM_DATE_RE.test(date || '')
     ? guidleIsoDate(...date.split('-').map(Number))
     : null;

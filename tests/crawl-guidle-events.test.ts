@@ -237,6 +237,14 @@ describe('Guidle server-rendered detail fallback', () => {
       category: 'Festival',
     });
 
+    const semanticDateWithoutPresentationClass = DOM_ONLY_DETAIL_HTML.replace(
+      'class="bigdate" datetime="2027-04-03"',
+      'datetime="2026-11-06"',
+    );
+    expect(mapDetailPageToLocaleData(semanticDateWithoutPresentationClass, 'de')).toMatchObject({
+      startDate: '2026-11-06',
+    });
+
     const invalidDate = DOM_ONLY_DETAIL_HTML.replace('datetime="2027-04-03"', 'datetime="2026-02-30"');
     expect(mapDetailPageToLocaleData(invalidDate, 'de')).toBeNull();
   });
