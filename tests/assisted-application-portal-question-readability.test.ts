@@ -1207,13 +1207,35 @@ it('keeps Italian EOC country and nationality catalogues without the localizatio
   })));
 
   const foreignCodex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const foreignOptions = ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'];
+  const translated = await portalRequirementsForCandidate({ documents: [], questions: [{
+    ...questions[1],
+    options: foreignOptions,
+    applicationOptions: foreignOptions,
+  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: foreignCodex });
+  expect(foreignCodex).not.toHaveBeenCalled();
+  expect(translated.questions).toEqual([expect.objectContaining({
+    id: 'nationality',
+    applicationQuestionLocale: null,
+    localizationStatus: 'translated',
+    options: ['Seleziona', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+    optionMap: [
+      { candidate: 'Seleziona', application: 'Bitte wählen' },
+      { candidate: 'Svizzera', application: 'Schweiz' },
+      { candidate: 'Italia', application: 'Italien' },
+      { candidate: 'Germania', application: 'Deutschland' },
+      { candidate: 'Francia', application: 'Frankreich' },
+    ],
+  })]);
+
+  const unknownCodex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
   await expect(portalRequirementsForCandidate({ documents: [], questions: [{
     ...questions[1],
-    options: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'],
-    applicationOptions: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'],
-  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: foreignCodex }))
+    options: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Atlantide'],
+    applicationOptions: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Atlantide'],
+  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: unknownCodex }))
     .rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
-  expect(foreignCodex).toHaveBeenCalledOnce();
+  expect(unknownCodex).toHaveBeenCalledOnce();
 });
 
 it('keeps deterministic German field copies when an unresolved same-language question shares the batch', async () => {
