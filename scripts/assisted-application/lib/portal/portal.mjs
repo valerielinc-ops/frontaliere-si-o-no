@@ -3031,13 +3031,18 @@ function verifiedItalianNationalityOptions(options) {
   const normalizedOptions = options.map(normalizedQuestionText);
   const hasItalianSelectLabel = normalizedOptions.some((option) => ['seleziona', 'selezionare'].includes(option));
   if (!hasItalianSelectLabel) return false;
-  const hasCanonicalItalianNationality = options.some((option) => {
+  const canonicalItalianNationalities = new Set(options.flatMap((option) => {
     const normalized = normalizedQuestionText(option);
     const nationality = nationalityOf(option);
-    return Boolean(nationality
-      && normalizedQuestionText(nationalityLabelOf(nationality.code, 'it')) === normalized);
-  });
-  if (!hasCanonicalItalianNationality) return false;
+    return nationality && normalizedQuestionText(nationalityLabelOf(nationality.code, 'it')) === normalized
+      ? [nationality.code]
+      : [];
+  }));
+  // Nationality catalogues are mostly proper demonyms, which carry little
+  // language signal even when the list is Italian (the EOC list scores 0.068).
+  // Require at least three distinct canonical Italian labels plus the Italian
+  // placeholder instead of applying a generic language-confidence threshold.
+  if (canonicalItalianNationalities.size < 3) return false;
   const foreignNationalityLabels = new Set([
     'citizenship', 'nationality', 'nationalite', 'nationalitat', 'staatsangehorigkeit', 'staatsburgerschaft',
   ]);
@@ -3048,8 +3053,7 @@ function verifiedItalianNationalityOptions(options) {
         .some(([language, markers]) => language !== 'it' && markers.includes(normalized));
   });
   if (hasKnownForeignMarker) return false;
-  const detected = detectLanguageWithConfidence(options.join(' '), 'it');
-  return detected.lang === 'it' && detected.confidence >= SAME_LANGUAGE_ITEM_MIN_CONFIDENCE;
+  return true;
 }
 
 // A provider outage must not strand a standard ATS form whose labels are
