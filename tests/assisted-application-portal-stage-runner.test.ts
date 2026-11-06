@@ -10,7 +10,7 @@ vi.mock('../scripts/assisted-application/lib/portal/diagnostics.mjs', async impo
   ...await importOriginal<any>(), startPortalDiagnostics: () => ({ data: {}, currentAttempt: () => 1, installFetchObserver: async () => {},
     beginAttempt: async () => {}, beforeSubmit: async () => {}, finalClick: () => {}, afterSubmit: async () => {}, finish: async () => {} }),
 }));
-import { submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { formPostingMatch, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalProtocolFromHtml } from '../scripts/assisted-application/lib/portal/protocol.mjs';
 
 const title = 'Infrastructure Strategy Manager';
@@ -35,7 +35,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   const page: any = {
     url: () => state.snapshot.url, title: async () => state.snapshot.title || title, frames: () => [page], mainFrame: () => page,
     goto: vi.fn(async (url: string) => {
-      if (url === options.applyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
+      if ([options.applyUrl, options.applicationUrl].includes(url) && options.applySnapshot) state.snapshot = options.applySnapshot;
       if (url === reviewUrl) { expect(guard).not.toHaveBeenCalled(); state.snapshot = finalReview; }
       return { status: () => 200 };
     }),
@@ -73,6 +73,45 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
 
 beforeEach(() => vi.clearAllMocks());
 describe('runner final guard across three application stages', () => {
+  it('binds a direct Umantis Application/New form to its stored vacancy route', async () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+    const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+    const job = { company: 'EOC – Ente Ospedaliero Cantonale', title: 'Impiegato/a amministrativo' };
+    const form = {
+      ...snapshot(applicationUrl, "Attualmente ho un contratto con l'EOC. In passato ho già lavorato per l'EOC.", []),
+      title: 'Application Tracking System',
+      text: "Attualmente ho un contratto con l'EOC. In passato ho già lavorato per l'EOC.",
+      fields: [
+        { id: 'name', kind: 'text', inputType: 'text', label: 'Nome', required: true, formId: 'application', frame: 0 },
+        { id: 'email', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', required: true, formId: 'application', frame: 0 },
+        { id: 'cv', kind: 'file', inputType: 'file', label: 'Curriculum', required: true, formId: 'application', frame: 0 },
+      ],
+    };
+    expect(formPostingMatch(`${form.title}\n${form.text}`, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: applicationUrl,
+      postingUrl: applicationUrl,
+    })).toBe('mismatch');
+    const source = { ...snapshot(postingUrl, 'EOC Impiegato/a amministrativo', []), title: 'EOC' };
+    const f = fixture(source, null, review, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      applicationUrl,
+      channelType: 'umantis',
+      job,
+      applySnapshot: form,
+    });
+
+    const result = await f.run();
+
+    expect(f.page.goto).toHaveBeenCalledWith(applicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    expect(result.evidence.postingMatch).toBe('match');
+    expect(result.event).not.toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('navigates profile → review without a click claim, guards the final Apply once, then confirms this job receipt', async () => {
     const f = fixture();
     const result = await f.run();

@@ -6310,13 +6310,18 @@ export async function submitViaPortal(ctx) {
     if (initialHandoff) return await handoff(initialHandoff);
     // The posting itself, before its apply button: where the company is read
     // when the form behind the button names only the role (formPostingMatch).
-    const postingUrl = page.url();
-    const postingSeen = `${await page.title().catch(() => '')} ${initialPageText} ${postingUrl}`;
+    const entryPageUrl = page.url();
+    // A direct Umantis application entry is derived from the stored vacancy
+    // URL. Keep that source address for form binding; the current page is
+    // already /Application/New and cannot prove which vacancy it belongs to
+    // when paired with itself.
+    const postingUrl = ctx.postingUrl || entryPageUrl;
+    const postingSeen = `${await page.title().catch(() => '')} ${initialPageText} ${entryPageUrl}`;
     // The posting's own data (its ATS's answer for this very address, posting-liveness.mjs) may name the
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
     // the page: the posting is the order's.
-    const companyNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match';
+    const companyNamed = postingMatch(postingSeen, ctx.job, entryPageUrl) === 'match';
     const organizationCompatible = !ctx.job?.company || !ctx.job?.organization
       || sameEmployerFamily(ctx.job.organization, ctx.job.company);
     // The posting may use a brand while the order carries a legal entity, but
@@ -6325,7 +6330,7 @@ export async function submitViaPortal(ctx) {
     if (companyNamed && !organizationCompatible) return await handoff('posting_mismatch');
     const namedByItsData = organizationCompatible
       && sameEmployerFamily(ctx.job?.organization, ctx.job?.company)
-      && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
+      && postingMatch(postingSeen, { title: ctx.job.title }, entryPageUrl) === 'match';
     const postingNamed = organizationCompatible && (companyNamed || namedByItsData);
     if (postingNamed && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {
@@ -6335,7 +6340,7 @@ export async function submitViaPortal(ctx) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, {
-      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
+      applyUrl: ctx.applyUrl, postingUrl, sourceProtocol,
       postingEntry: enteredFromMatchingPosting, job: ctx.job,
       allowSingleExternalApplicationEntry: postingNamed,
     });
@@ -6353,7 +6358,7 @@ export async function submitViaPortal(ctx) {
       const pageUrl = page.url();
       const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${pageUrl}`;
       const result = formPostingMatch(seen, ctx.job, {
-        postingMatched: enteredFromMatchingPosting || (postingNamed && page.url() !== postingUrl),
+        postingMatched: enteredFromMatchingPosting || (postingNamed && page.url() !== entryPageUrl),
         postingEntry: enteredFromMatchingPosting,
         pageUrl,
         postingUrl,
