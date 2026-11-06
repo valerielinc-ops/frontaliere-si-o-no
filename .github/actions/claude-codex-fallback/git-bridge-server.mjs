@@ -24,7 +24,10 @@ export const SHUTDOWN_TIMEOUT_MS = FORCE_KILL_GRACE_MS + 500;
 
 const allowedCommands = new Set(['push', 'fetch', 'pull', 'ls-remote']);
 const blockedGlobalOptions = new Set(['-C', '-c', '--git-dir', '--work-tree', '--namespace', '--exec-path', '--config-env', '--config', '--global', '--system', '--local', '--worktree', '--upload-pack', '--receive-pack']);
-const safeOptions = new Set(['--all', '--prune', '--tags', '--set-upstream', '-u', '--rebase', '--no-rebase', '--ff-only', '--no-edit', '--dry-run', '--heads', '--refs', '--verbose', '-v', '--quiet', '-q', '--no-tags']);
+// Blobless/shallow checkouts can spend the whole bridge deadline searching for
+// thin-pack delta bases. `--no-thin` changes only pack construction; remote and
+// ref scope remain restricted by the validation below.
+const safeOptions = new Set(['--all', '--prune', '--tags', '--set-upstream', '-u', '--rebase', '--no-rebase', '--ff-only', '--no-edit', '--dry-run', '--heads', '--refs', '--verbose', '-v', '--quiet', '-q', '--no-tags', '--no-thin']);
 const blockedPushOptions = new Set(['--all', '--delete', '--follow-tags', '--force', '--force-if-includes', '--force-with-lease', '--mirror', '--prune', '--tags', '-d', '-f']);
 const WORK_BRANCH_REF_PREFIX = 'refs/heads/';
 const WORK_BRANCH_NAME_RE = /^[A-Za-z0-9][A-Za-z0-9._/-]*$/;
