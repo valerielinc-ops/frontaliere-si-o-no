@@ -175,6 +175,16 @@ describe('Opacc Software AG crawler parser', () => {
       expect(detail.description).toContain('Dein Alltag');
       expect(detail.location).toBe('Rothenburg');
     });
+
+    it('falls back instead of trusting step1 when the listing title is missing', () => {
+      const url = 'https://jobs.opacc.ch/fundament-ausbauen/unrelated-vacancy.html';
+      const detail = extractOpaccSoftwareAgDetailFields(
+        detailPage(url, 'Unrelated vacancy', 'Rothenburg', '6023'),
+        url,
+      );
+
+      expect(detail.description).toBe('');
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

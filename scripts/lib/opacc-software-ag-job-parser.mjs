@@ -56,8 +56,8 @@ function normalizeSpace(s = '') {
 export function titleMatchesListing(detailTitle = '', recordTitle = '') {
   const titleIdentity = vacancyTitleIdentity(detailTitle);
   const recordTitleIdentity = vacancyTitleIdentity(recordTitle);
-  return !recordTitleIdentity
-    || recordTitleIdentity === titleIdentity
+  if (!titleIdentity || !recordTitleIdentity) return false;
+  return recordTitleIdentity === titleIdentity
     || recordTitleIdentity.startsWith(`${titleIdentity} `);
 }
 
