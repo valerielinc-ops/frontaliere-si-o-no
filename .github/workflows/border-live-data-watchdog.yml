@@ -35,6 +35,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          # The repository's blob history is much larger than this monitor's
+          # sparse tree. Without a partial clone, checkout has repeatedly used
+          # the whole 10-minute job budget before the health check could start.
+          filter: blob:none
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -54,6 +58,9 @@ jobs:
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
+        # Keep a provider-side checkout stall observable as a failed step
+        # instead of letting the global cap cancel the entire watchdog job.
+        timeout-minutes: 7
 
       - name: Setup Node.js
         uses: actions/setup-node@v7

@@ -619,4 +619,13 @@ describe('border-live-data-watchdog.yml — state carry outside git (issue #7376
   it('still guards the commit on a real diff (issue #7376 must not undo #7602)', () => {
     expect(YML).toMatch(/git diff --cached --quiet/);
   });
+
+  it('keeps checkout below the watchdog job cap (#13622)', () => {
+    const checkout = YML.slice(
+      YML.indexOf('- name: Checkout'),
+      YML.indexOf('- name: Setup Node.js'),
+    );
+    expect(checkout).toMatch(/filter: blob:none/);
+    expect(checkout).toMatch(/timeout-minutes: 7/);
+  });
 });
