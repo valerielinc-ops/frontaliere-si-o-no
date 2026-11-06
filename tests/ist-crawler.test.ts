@@ -386,6 +386,48 @@ describe('IST detail response classification', () => {
     });
   });
 
+  it('classifies a Swiss role whose role summary explicitly names another Inspired school', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Montreux-Specialist-Teacher-Humanities/1375742257/',
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Specialist Teacher - Humanities</h1>
+          <div data-job-field="location">Montreux, CH</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-careersite-propertyid="description">
+            ROLE SUMMARY: St. George's International School in Clarens, Switzerland, seeks a Humanities Teacher.
+          </div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({
+      outcome: 'classified',
+      evidence: 'native-detail-fields',
+      isIst: false,
+    });
+  });
+
+  it('keeps generic group prose without a named role-summary school fail-closed', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Montreux-Teacher/1375742258/',
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Teacher</h1>
+          <div data-job-field="location">Montreux, CH</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-careersite-propertyid="description">
+            Inspired schools form an international family of schools across the globe.
+          </div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({ outcome: 'incomplete', evidence: 'unknown-template' });
+  });
+
   it('treats HTTP 410 as proof that the sitemap entry is no longer active', () => {
     expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 410 }))
       .toMatchObject({ outcome: 'removed', evidence: 'http-410' });
