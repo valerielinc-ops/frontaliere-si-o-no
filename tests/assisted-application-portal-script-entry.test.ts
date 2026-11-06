@@ -45,4 +45,17 @@ describe('verified posting script entry (#17253)', () => {
       allowSingleExternalApplicationEntry: true,
     })).toEqual([]);
   });
+
+  it('rejects a title-matching fieldless CTA with a conflicting vacancy identity', () => {
+    const postingUrl = 'https://portal.test/job/current/role/';
+    expect(applicationEntryControls({
+      url: postingUrl,
+      fields: [],
+      buttons: [{ text: 'Apply', frame: 0, vacancyContext: 'Current Role postingId other' }],
+    }, {
+      postingUrl,
+      allowSingleExternalApplicationEntry: true,
+      job: { title: 'Current Role' },
+    })).toEqual([]);
+  });
 });

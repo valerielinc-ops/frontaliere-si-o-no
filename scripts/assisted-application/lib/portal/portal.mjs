@@ -1160,7 +1160,7 @@ function controlPostingIdentity(control) {
     const explicit = normalizedPostingIdentity(value);
     return explicit ? [explicit] : postingIdentityMarkers(value);
   });
-  const context = [control?.section, control?.context].flatMap(postingIdentityMarkers);
+  const context = [control?.vacancyContext, control?.section, control?.context].flatMap(postingIdentityMarkers);
   const markers = [...new Set([...direct, ...context].map(normalizedPostingIdentity).filter(Boolean))];
   return markers.length > 1 ? null : markers[0] || '';
 }
@@ -1201,10 +1201,11 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
     .join(' ')
     .trim();
   const job = context.job || {};
+  if (controlPostingIdentity(control) !== '') return false;
   if (!localContext || !job.title) return true;
-  if (titleMatches(localContext, job.title)) return true;
   if (postingMatch(localContext, job, context.postingUrl) !== 'match') return false;
-  return !namesAnotherEmployer(localContext, job);
+  if (namesAnotherEmployer(localContext, job)) return false;
+  return titleMatches(localContext, job.title);
 }
 
 export function applicationEntryControls(snapshot = {}, context = {}) {
