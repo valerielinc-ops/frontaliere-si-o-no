@@ -1064,7 +1064,12 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
 
 /** Address-like controls require a statement bound to this native owner, even after semantic fallback. */
 export function addressAnswerNeedsOwnership(question, metadata = {}) {
-  if (isIdentityEmailCaption(question)) return false;
+  // A registration form may call the applicant's second e-mail control
+  // «E-Mail-Adresse wiederholen».  It contains the German word for repeat,
+  // but still must not be treated as a physical address merely because the
+  // caption also contains «Adresse».
+  if (isIdentityEmailCaption(question)
+    || isIdentityEmailConfirmation({ label: question, context: metadata?.context || '' })) return false;
   if (isPhoneCountryQuestion(question, metadata?.context || '', metadata)) return false;
   return mentionsResidenceFieldRole(question) || isAddressLikeQuestion(question) || CITY_RE.test(String(question || '')) || COUNTRY_RE.test(String(question || '')) || BIRTH_LOCATION_RE.test(String(question || ''))
     || (BIRTH_FIELD_RE.test(String(question || '')) && questionTopic(question, metadata?.context || '', metadata) !== 'birth_date')
