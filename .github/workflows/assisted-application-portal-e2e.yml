@@ -9,6 +9,19 @@ name: Assisted application portal e2e
 on:
   workflow_dispatch:
     inputs:
+      portal_focus:
+        description: 'Run the full portal suite or one focused fake-portal group'
+        type: choice
+        options:
+          - all
+          - umantis
+          - coop
+          - workday-assisted
+          - workday-auth
+          - agent-birth-date
+          - diagnostics
+          - registration-retry
+        default: all
       probe_nopecha_free:
         description: 'Diagnose anonymous Token API availability (key normally required; public demo only)'
         type: boolean
@@ -27,7 +40,9 @@ on:
       - '.github/workflows/assisted-application-portal-e2e.yml'
 
 concurrency:
-  group: assisted-application-portal-e2e-${{ github.event.pull_request.number }}
+  # PR runs supersede older runs for the same PR. workflow_dispatch runs each
+  # get their own group so one manual diagnostic cannot cancel another.
+  group: assisted-application-portal-e2e-${{ github.event.pull_request.number || github.run_id }}
   cancel-in-progress: true
 
 permissions:
@@ -54,7 +69,19 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Portal runner on the fake portal
+        env:
+          AA_PORTAL_E2E_FOCUS: ${{ github.event_name == 'workflow_dispatch' && inputs.portal_focus != 'all' && inputs.portal_focus || '' }}
+          AA_PORTAL_E2E_REPORT: ${{ runner.temp }}/assisted-application-portal-e2e-report.json
         run: node scripts/assisted-application/portal-e2e.mjs
+
+      - name: Upload sanitized portal report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: assisted-application-portal-e2e-report-${{ github.run_id }}
+          path: ${{ runner.temp }}/assisted-application-portal-e2e-report.json
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Install official NopeCHA extension
         env:
@@ -75,6 +102,7 @@ jobs:
   # Its own job (run 36888505712: in the 15-minute portal job the extension step
   # started after 15 min and was cut after 18 s).
   extension:
+    if: github.event_name != 'workflow_dispatch' || inputs.portal_focus == 'all'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

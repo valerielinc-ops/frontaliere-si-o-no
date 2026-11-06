@@ -4,20 +4,20 @@
   "generatorSha256": "03de6975aac839c8e38a32b5bc76b9db9c7ed480b814bb91e65077c2230668a2",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "10ed747f9e280c77f818de5b0c7e8c2e7897113f",
+  "sourceCommit": "61b62b9ebef530a2996528fd7a97130f22ace232",
   "artifactObservation": {
     "generatorSha256": "03de6975aac839c8e38a32b5bc76b9db9c7ed480b814bb91e65077c2230668a2",
     "sourceRef": "main",
-    "sourceCommit": "10ed747f9e280c77f818de5b0c7e8c2e7897113f"
+    "sourceCommit": "61b62b9ebef530a2996528fd7a97130f22ace232"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 687,
+  "crawlerCount": 689,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:83486ef3743b2e626b75586a2d9c3b445439e1d2a207bdafcd14eac2ac47be2d",
+    "rosterDigest": "sha256:22c14c760432dedc43ab99fef0183c5a9e01546e8493fac5ffcb8adac2edce37",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -522,6 +522,7 @@
     "scripts/update-sintio-ch-jobs.mjs",
     "scripts/update-six-group-jobs.mjs",
     "scripts/update-skan-com-jobs.mjs",
+    "scripts/update-skan-jobs.mjs",
     "scripts/update-smg-swiss-marketplace-group-jobs.mjs",
     "scripts/update-sobi-jobs.mjs",
     "scripts/update-sodexo-jobs.mjs",
@@ -608,6 +609,7 @@
     "scripts/update-ubs-jobs.mjs",
     "scripts/update-ukbb-jobs.mjs",
     "scripts/update-unibe-jobs.mjs",
+    "scripts/update-unidistance-ch-jobs.mjs",
     "scripts/update-unispital-basel-jobs.mjs",
     "scripts/update-upd-jobs.mjs",
     "scripts/update-uroviva-jobs.mjs",
@@ -1582,8 +1584,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "7f5f4e7d9f347200eba69f2ff7ebf6db9e24ecef1cf1f0a08e5803bcfa182d63",
-      "artifactSha256": "40329785b9c2ecbf94dfcf6f2fcfcf8ac8ff900f707df18a47eab2d3f151bd15",
+      "sourceSha256": "edb94c7b3bc32fb3e5ced6e4b246a2495410b12cefc824d6b4fde318954f2ce1",
+      "artifactSha256": "eb000d8489073b6de411176e40591e29257fb851e382086432297c9be09277d9",
       "generatorSha256": "03de6975aac839c8e38a32b5bc76b9db9c7ed480b814bb91e65077c2230668a2",
       "members": [
         "seco-jobroom",
@@ -1607,7 +1609,9 @@
         "caisse-des-medecins-ch",
         "cdg-beratungen",
         "creditx-ch",
-        "favresa-ch"
+        "favresa-ch",
+        "skan",
+        "unidistance-ch"
       ]
     },
     {
