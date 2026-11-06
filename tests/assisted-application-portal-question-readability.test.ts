@@ -727,6 +727,15 @@ it('requires vacancy evidence beyond a company match before trusting one externa
   expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
     pageUrl: listingUrl, pageTitle: 'Muster AG — Application Manager', postingUrl,
   })).toBe(true);
+  // A generic document title must not hide a different role rendered in the
+  // exact selected-posting route.
+  expect(hasVacancySpecificPostingEvidence('Unrelated Role', {
+    company: 'Coop Genossenschaft', title: 'Bäckerin',
+  }, {
+    pageUrl: 'https://ats.example/job/1',
+    postingUrl: 'https://ats.example/job/1',
+    pageTitle: 'Career Opportunities | Coop Genossenschaft',
+  })).toBe(false);
   expect(hasVacancySpecificPostingEvidence('Muster AG Karriere — Apply', job, {
     pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
     vacancyIdentityContexts: ['Application Manager — Muster AG'],
