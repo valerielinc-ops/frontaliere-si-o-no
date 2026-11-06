@@ -1236,7 +1236,7 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && startsApplication(control?.text || control?.label));
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
-    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting.pathname)
+    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
   const unbound = controls.filter((control) => {
@@ -6833,7 +6833,16 @@ export async function submitViaPortal(ctx) {
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
     sourceProtocol = snapshot.protocol || null;
+    // Consent dialogs can put their own heading before a vacancy in the
+    // rendered text. Resolve the explicit cookie choice before checking that
+    // the selected posting is the page the browser actually opened; the
+    // vacancy and employer checks below remain unchanged after the overlay is
+    // gone.
+    const initialCookieState = await dismissCookieBanner(page, snapshot);
+    snapshot = initialCookieState.snapshot || snapshot;
+    sourceProtocol = snapshot.protocol || sourceProtocol;
     if (sourceProtocol) evidence.sourceProtocol = sourceProtocol;
+    if (initialCookieState.status === 'unresolved') return await handoff('cookie_preferences_unresolved');
     const initialPageText = await pageText(page);
     // The posting as a browser renders it (career-ops liveness-browser): the
     // fetch before the run sees only the empty shell of a JavaScript portal.
@@ -6870,7 +6879,7 @@ export async function submitViaPortal(ctx) {
     // A verified apply/posting URL pair is stronger than the title of a thin
     // shell, which may still show a stale or generic role while it mounts.
     const postingVacancyMatched = enteredFromMatchingPosting
-      || hasVacancySpecificPostingEvidence(postingSeen, ctx.job, {
+      || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
         postingUrl: ctx.postingUrl,
