@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 689,
+  "crawlerCount": 690,
   "groups": {
     "10": [
       "atec-personal",
@@ -454,6 +454,7 @@
       "zaugg"
     ],
     "24": [
+      "a2nails-ch",
       "asanti-ch",
       "avantgarten-ch",
       "az-systems-ch",
@@ -746,6 +747,7 @@
   "primarySlices": {
     "1a-hunkeler": "data/jobs/by-crawler/1a-hunkeler.json",
     "a-group": "data/jobs/by-crawler/a-group.json",
+    "a2nails-ch": "data/jobs/by-crawler/a2nails-ch.json",
     "aarreha-schinznach": "data/jobs/by-crawler/aarreha-schinznach.json",
     "abb-svizzera-sede-ticino": "data/jobs/by-crawler/abb-svizzera-sede-ticino.json",
     "abbott": "data/jobs/by-crawler/abbott.json",
@@ -1434,5 +1436,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:22c14c760432dedc43ab99fef0183c5a9e01546e8493fac5ffcb8adac2edce37"
+  "digest": "sha256:52a1f368a3e60768dcc0aa98792fd0a8ca73b37dd5b7334226769f59be11f1f5"
 }

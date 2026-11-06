@@ -87,6 +87,7 @@ const cLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
  */
 export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'a-group': '/images/brands/a-group.png',
+ 'a2nails-ch': 'https://a2nails.ch/favicon.ico',
  'aarreha-schinznach': cLogo('aarreha.ch'),
  'abb-svizzera-sede-ticino': gFavicon('abb.ch'),
  'abbott': cLogo('abbott.com'),

@@ -13,11 +13,11 @@
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 689,
+  "crawlerCount": 690,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:22c14c760432dedc43ab99fef0183c5a9e01546e8493fac5ffcb8adac2edce37",
+    "rosterDigest": "sha256:52a1f368a3e60768dcc0aa98792fd0a8ca73b37dd5b7334226769f59be11f1f5",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -76,6 +76,7 @@
     "scripts/translation-provider-readiness.mjs",
     "scripts/translation-shadow-preflight-v2.mjs",
     "scripts/update-1a-hunkeler-jobs.mjs",
+    "scripts/update-a2nails-ch-jobs.mjs",
     "scripts/update-aarreha-schinznach-jobs.mjs",
     "scripts/update-abbott-jobs.mjs",
     "scripts/update-abraxas-jobs.mjs",
@@ -1584,8 +1585,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "edb94c7b3bc32fb3e5ced6e4b246a2495410b12cefc824d6b4fde318954f2ce1",
-      "artifactSha256": "eb000d8489073b6de411176e40591e29257fb851e382086432297c9be09277d9",
+      "sourceSha256": "79961a89dfdae00d8490d8935a29f51a51a63d9e5c73812bdb729b929ab7f76e",
+      "artifactSha256": "d3f06ff3906b756c78af070fb43f56a17682abb3ee63d6aa5a1353977d9fa3e5",
       "generatorSha256": "43a378558873b69ce10a77f2b7be22d4ac61c43252c8b3561edd8091a4dd33c9",
       "members": [
         "seco-jobroom",
@@ -1611,7 +1612,8 @@
         "creditx-ch",
         "favresa-ch",
         "skan",
-        "unidistance-ch"
+        "unidistance-ch",
+        "a2nails-ch"
       ]
     },
     {
