@@ -538,7 +538,7 @@ describe('sendEmailCascade — ambiguous delivery does not double-send', () => {
   it('still cascades to the next provider on an explicit HTTP rejection (not ambiguous, no regression)', async () => {
     globalThis.fetch = (async (url: string) => {
       if (String(url).includes('api.eu.mailgun.net') && String(url).includes('/messages')) {
-        return { ok: false, status: 400, text: async () => 'bad request', json: async () => ({}) } as any;
+        return { ok: false, status: 500, text: async () => 'internal error', json: async () => ({}) } as any;
       }
       if (String(url).includes('api.mailjet.com')) {
         return {

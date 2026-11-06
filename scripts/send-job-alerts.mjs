@@ -1705,7 +1705,9 @@ function jobAlertDeliveryKey(item) {
     ? item.meta.rankingJobs
     : (Array.isArray(item?.sentJobs) ? item.sentJobs : []);
   const jobIds = jobs.map(jobDedupKey).filter(Boolean).sort();
-  return `${email}\u0000${alertId}\u0000${jobIds.join('\u0001')}`;
+  return jobIds.length > 0
+    ? `${email}\u0000${alertId}\u0000${jobIds.join('\u0001')}`
+    : `${email}\u0000${alertId}`;
 }
 
 function hasLiveProviderAttemptIntent(ledger, jobs, now = Date.now()) {
@@ -2003,15 +2005,18 @@ async function sendBatch(emails) {
       console.warn('⚠️ Discovery failure persistence failed; pending claim retained:', redactEmailAddresses(error?.message));
     }
   }
-  const failedItems = result.failed.filter((item) => item.ambiguousDelivery !== true);
-  for (const item of failedItems) {
+  const failedItems = discoveryOutcomes.failedItems;
+  const definiteFailedItems = result.failed.filter((item) => item.ambiguousDelivery !== true);
+  for (const item of definiteFailedItems) {
     if (item.meta?.discoveryClaim || item.meta?.isOperatorVerification) continue;
     await finalizeJobAlertDeliveryAttempt(item, 'failed', item);
   }
-  const confirmed = result.accepted || [];
+  const providerAccepted = discoveryOutcomes.confirmed;
+  // sendEmailCascade always supplies `accepted`; the fallback keeps this
+  // boundary compatible with older callers and deterministic test doubles that
+  // expose only `sent`/`failed`/`ambiguous`.
+  const confirmed = Array.isArray(result.accepted) ? result.accepted : providerAccepted;
   const skippedCount = Math.max(0, cascadeEmails.length - result.sent.length - result.failed.length);
-  const unidentifiedDiscoveryCount = discoveryOutcomes.unidentified.length;
-
   // Per-user send-time observability (#3798 follow-up): the cascade returns
   // the authoritative scheduledFor per item (sent[i] === { ...cascadeEmail,
   // ...result }, see sendEmailCascade in email-cascade.mjs) — a provider may
@@ -2037,17 +2042,15 @@ async function sendBatch(emails) {
   }
 
   return {
-    // Count discovery only when the provider returned a durable message ID.
-    // Its accepted-but-unidentifiable 2xx remains quarantined in `failed` and
-    // `discoveryUnknown`, while its delivery key still prevents a duplicate.
-    // Targeted sends keep the legacy accepted/ambiguous accounting.
-    sent: result.sent.length - unidentifiedDiscoveryCount,
-    sentDeliveryKeys: new Set(result.sent.map(jobAlertDeliveryKey)),
+    // `sent` is provider-accepted, including a 2xx response whose message ID
+    // was unusable. Only confirmed IDs authorize sentJobIds/cadence writeback.
+    sent: providerAccepted.length,
+    sentDeliveryKeys: new Set(providerAccepted.map(jobAlertDeliveryKey)),
     confirmedDeliveryKeys: new Set(confirmed.map(jobAlertDeliveryKey)),
     persistFailedItems: confirmed.filter((item) => item.persistFailed),
     // The funnel's failure row includes transport-ambiguous and ledger-blocked
-    // items too; `failedItems` remains the stricter, retryable subset.
-    failed: result.failed.length + skippedCount + unidentifiedDiscoveryCount,
+    // items too; enqueueFailedEmails applies the stricter retryable filter.
+    failed: failedItems.length + skippedCount,
     failedItems,
     scheduleOutcomes,
     ambiguous: discoveryOutcomes.ambiguous,

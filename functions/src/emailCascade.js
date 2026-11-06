@@ -977,15 +977,13 @@ async function fetchOrTagAmbiguous(url, opts) {
 }
 
 /**
- * Build an HTTP rejection for a provider response. A 408 or 5xx can happen
- * after the provider accepted the request, so those outcomes must be
- * quarantined instead of retried or cascaded. Other explicit status responses
- * are provider rejections and remain eligible for the existing fallback path.
+ * Build an HTTP rejection for a provider response. An HTTP response is a
+ * definite provider outcome for this transport contract, so it remains
+ * eligible for the existing fallback path; transport failures are the cases
+ * that must be quarantined as ambiguous.
  */
 function providerResponseError(provider, status, detail) {
-  const error = new Error(`${provider} ${status}: ${detail}`);
-  if (status === 408 || status >= 500) error.ambiguousDelivery = true;
-  return error;
+  return new Error(`${provider} ${status}: ${detail}`);
 }
 
 /** Extract a durable string identifier from the provider response shape. */
@@ -1495,10 +1493,10 @@ function isSoftThrottleError(msg) {
 
 /**
  * Explicit HTTP rejections that are safe to retry more slowly. Transport-level
- * failures plus HTTP 408/5xx are deliberately excluded: they are marked
- * ambiguousDelivery because the provider may already have accepted the email.
- * Cloudflare code=10004 keeps its established 30s cooldown instead of being
- * retried inside the same run.
+ * failures are deliberately excluded: fetchOrTagAmbiguous marks those as
+ * ambiguousDelivery because no response was received. Cloudflare code=10004
+ * keeps its established 30s cooldown instead of being retried inside the same
+ * run.
  */
 /**
  * A 429/403 whose body says a DAILY/MONTHLY quota is used up — e.g. Mailgun's
@@ -1525,9 +1523,8 @@ function isAdaptiveThrottleRetry(error) {
   if (isQuotaExhaustedError(error.message)) return false;
   // Provider errors have the stable "Provider STATUS: body" shape. Anchor the
   // status there so a number in the response body (for example a 500-message
-  // quota described by an HTTP 403) cannot accidentally look retryable. Only
-  // 425/429 are retryable here; 408 and 5xx may follow provider acceptance.
-  return /^[A-Za-z][A-Za-z0-9_-]* (?:425|429)\b/.test(String(error.message || ''));
+  // quota described by an HTTP 403) cannot accidentally look retryable.
+  return /^[A-Za-z][A-Za-z0-9_-]* (?:408|425|429|5\d\d)\b/.test(String(error.message || ''));
 }
 
 function createAdaptiveThrottleController(config, initialDelayMs, lastSendMap) {

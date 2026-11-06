@@ -22,11 +22,8 @@ describe('discovery provider outcomes', () => {
     const set = vi.fn(async () => {});
     const ref = { set, collection: () => ({ doc: () => ({ set }) }) };
     __setFirestoreAdminForTest({ collection: () => ({ doc: () => ref }), runTransaction: async () => { throw new Error('unavailable'); } });
-    send.mockImplementation(async (items) => {
-      const accepted = { ...items[0], provider: 'resend', messageId: 'accepted' };
-      return { sent: [accepted], accepted: [accepted],
-        failed: [{ ...items[1], ambiguousDelivery: false, error: 'explicit rejection' }], ambiguous: [] };
-    });
+    send.mockImplementation(async (items) => ({ sent: [{ ...items[0], provider: 'resend', messageId: 'accepted' }],
+      failed: [{ ...items[1], ambiguousDelivery: false, error: 'explicit rejection' }], ambiguous: [] }));
     const result = await sendBatch([
       { to: 'targeted@example.test', alertId: 'targeted', subject: 'Jobs', html: '<p>Jobs</p>' },
       { to: 'discovery@example.test', alertId: 'empty', subject: 'Popular', html: '<p>Popular</p>', discoveryMode: true,
