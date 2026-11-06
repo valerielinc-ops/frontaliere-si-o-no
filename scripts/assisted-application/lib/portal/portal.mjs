@@ -2895,15 +2895,80 @@ function localizedGermanRegionOption(option, language) {
   const source = regionNameCatalogue('de');
   const target = regionNameCatalogue(language);
   if (!source || !target) return '';
-  const code = text.toUpperCase();
-  if (/^[A-Z]{2}$/.test(code) && source.byCode.has(code)) {
-    const sourceName = source.byCode.get(code) || '';
-    const canonicalCode = nationalityOf(sourceName)?.code;
-    if (canonicalCode && canonicalCode !== code) return '';
-    return target.byCode.get(code) || '';
-  }
-  const regionCode = source.byName.get(normalizedQuestionText(text));
+  const regionCode = regionCodeForOption(text, ['de']);
   return regionCode ? target.byCode.get(regionCode) || '' : '';
+}
+
+const REGION_OPTION_LANGUAGES = Object.freeze(['it', 'de', 'fr', 'en']);
+
+function regionCodeForOption(option, sourceLanguages = REGION_OPTION_LANGUAGES) {
+  const text = String(option || '').trim();
+  if (!text) return '';
+  const code = text.toUpperCase();
+  for (const language of sourceLanguages) {
+    const source = regionNameCatalogue(language);
+    if (!source) continue;
+    if (/^[A-Z]{2}$/.test(code) && source.byCode.has(code)) {
+      const sourceName = source.byCode.get(code) || '';
+      const canonicalCode = nationalityOf(sourceName)?.code;
+      if (canonicalCode && canonicalCode !== code) continue;
+      return code;
+    }
+    const regionCode = source.byName.get(normalizedQuestionText(text));
+    if (regionCode) return regionCode;
+  }
+  return '';
+}
+
+function localizedRegionOption(option, language, sourceLanguages = REGION_OPTION_LANGUAGES) {
+  const text = String(option || '').trim();
+  if (!text) return '';
+  const target = regionNameCatalogue(language);
+  if (!target) return '';
+  const code = regionCodeForOption(text, sourceLanguages);
+  if (code) return target.byCode.get(code) || '';
+
+  // Some ICU aliases have the same source label (for example UK and GB both
+  // display as «Regno Unito»). They are safe only when every matching source
+  // code has the same localized target label; otherwise leave them unknown.
+  const key = normalizedQuestionText(text);
+  for (const sourceLanguage of sourceLanguages) {
+    const source = regionNameCatalogue(sourceLanguage);
+    if (!source) continue;
+    const matchingCodes = [...source.byCode]
+      .filter(([, label]) => normalizedQuestionText(label) === key)
+      .map(([regionCode]) => regionCode);
+    if (!matchingCodes.length) continue;
+    const localized = matchingCodes.map((regionCode) => target.byCode.get(regionCode)).filter(Boolean);
+    const unique = new Map(localized.map((label) => [normalizedQuestionText(label), label]));
+    return unique.size === 1 ? unique.values().next().value : '';
+  }
+  return '';
+}
+
+function deterministicItalianCountryOption(option, key) {
+  const text = String(option || '').trim();
+  if (!text) return null;
+  const normalized = normalizedQuestionText(text);
+  if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)
+    && OPTION_LANGUAGE_MARKERS.it.includes(normalized)) return text;
+  const italianRegion = localizedRegionOption(text, 'it');
+  if (italianRegion) {
+    return normalizedQuestionText(italianRegion) === normalized ? text : italianRegion;
+  }
+  if (key === 'nationality') {
+    const nationality = nationalityOf(text);
+    if (nationality) {
+      const italianNationality = nationalityLabelOf(nationality.code, 'it');
+      const withoutGroup = text.replace(/\s*\(\s*(?:eu|ue|efta|aele|aels)\s*\)\s*$/i, '');
+      if (!italianNationality) return null;
+      return normalizedQuestionText(withoutGroup) === normalizedQuestionText(italianNationality) ? text : italianNationality;
+    }
+  }
+  if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalizedQuestionText(text))) {
+    return fallbackOption(text, 'it');
+  }
+  return null;
 }
 
 function deterministicGermanOption(option, entry, language) {
@@ -3040,6 +3105,30 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
   const applicationOptions = Array.isArray(item.applicationOptions)
     ? item.applicationOptions.map((option) => String(option || '').trim()).filter(Boolean)
     : [];
+  const label = normalizedQuestionText(nativePortalQuestion(item));
+  const countryKey = label === 'paese' ? 'country' : label === 'nazionalita' ? 'nationality' : '';
+  if (countryKey && applicationOptions.length) {
+    const candidateOptions = applicationOptions.map((option) => deterministicItalianCountryOption(option, countryKey));
+    if (candidateOptions.every(Boolean)) {
+      const optionMap = portalOptionMap({
+        options: candidateOptions,
+        applicationOptions,
+        optionMap: applicationOptions.map((application, index) => ({ candidate: candidateOptions[index], application })),
+      });
+      if (optionMap.length === applicationOptions.length) {
+        const sameLanguage = candidateOptions.every((option, index) => option === applicationOptions[index]);
+        return {
+          ...item,
+          question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+          applicationQuestion: nativePortalQuestion(item),
+          ...(applicationOptions.length ? { applicationOptions, options: optionMap.map((pair) => pair.candidate), optionMap } : {}),
+          ...(sameLanguage ? { applicationQuestionLocale: candidateLanguage } : { applicationQuestionLocale: null }),
+          localizationStatus: sameLanguage ? 'same_language' : 'translated',
+        };
+      }
+    }
+    return null;
+  }
   if (applicationOptions.length && !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
   return sameLanguagePortalQuestion(item, candidateLanguage);
 }

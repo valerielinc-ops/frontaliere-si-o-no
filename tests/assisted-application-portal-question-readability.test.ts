@@ -1076,6 +1076,73 @@ it('keeps a readable same-language Umantis batch usable when localization is una
   expect(result.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
 });
 
+it('keeps long Italian country catalogues readable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const countries = [
+    'Italia', 'Svizzera', 'Francia', 'Germania', 'Austria', 'Spagna', 'Portogallo',
+    'Belgio', 'Paesi Bassi', 'Regno Unito', 'Stati Uniti', 'Canada', 'Australia',
+    'Giappone', 'Brasile', 'Argentina',
+  ];
+  const result = await localizePortalQuestions([
+    {
+      id: 'country', question: 'Paese', applicationQuestion: 'Paese',
+      type: 'choice', options: countries, applicationOptions: countries,
+    },
+    {
+      id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità',
+      type: 'choice', options: countries, applicationOptions: countries,
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject([
+    {
+      id: 'country', applicationQuestionLocale: 'it', localizationStatus: 'same_language',
+      options: countries, optionMap: countries.map((country) => ({ candidate: country, application: country })),
+    },
+    {
+      id: 'nationality', applicationQuestionLocale: 'it', localizationStatus: 'same_language',
+      options: countries, optionMap: countries.map((country) => ({ candidate: country, application: country })),
+    },
+  ]);
+});
+
+it('translates recognized foreign country catalogues while preserving their exact application values', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const applicationOptions = ['Deutschland', 'Frankreich', 'Italien', 'Österreich', 'Schweiz', 'Vereinigte Staaten'];
+  const [result] = await localizePortalQuestions([{
+    id: 'country', question: 'Paese', applicationQuestion: 'Paese',
+    type: 'choice', options: applicationOptions, applicationOptions,
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject({
+    question: 'Paese', localizationStatus: 'translated', applicationQuestionLocale: null,
+    options: ['Germania', 'Francia', 'Italia', 'Austria', 'Svizzera', 'Stati Uniti'],
+    optionMap: applicationOptions.map((application, index) => ({
+      candidate: ['Germania', 'Francia', 'Italia', 'Austria', 'Svizzera', 'Stati Uniti'][index],
+      application,
+    })),
+  });
+});
+
+it('translates known foreign nationality labels without changing the application values', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const applicationOptions = ['deutsch', 'französisch', 'italienisch', 'österreichisch', 'schweizerisch', 'spanisch'];
+  const candidateOptions = ['tedesca', 'francese', 'italiana', 'austriaca', 'svizzera', 'spagnola'];
+  const [result] = await localizePortalQuestions([{
+    id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità',
+    type: 'choice', options: applicationOptions, applicationOptions,
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject({
+    localizationStatus: 'translated',
+    options: candidateOptions,
+    optionMap: candidateOptions.map((candidate, index) => ({ candidate, application: applicationOptions[index] })),
+  });
+});
+
 it('keeps known Italian EOC Umantis fields candidate-readable when localization is unavailable', async () => {
   const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
   const labels = [
@@ -1140,13 +1207,35 @@ it('keeps Italian EOC country and nationality catalogues without the localizatio
   })));
 
   const foreignCodex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const foreignOptions = ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'];
+  const translated = await portalRequirementsForCandidate({ documents: [], questions: [{
+    ...questions[1],
+    options: foreignOptions,
+    applicationOptions: foreignOptions,
+  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: foreignCodex });
+  expect(foreignCodex).not.toHaveBeenCalled();
+  expect(translated.questions).toEqual([expect.objectContaining({
+    id: 'nationality',
+    applicationQuestionLocale: null,
+    localizationStatus: 'translated',
+    options: ['Seleziona', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+    optionMap: [
+      { candidate: 'Seleziona', application: 'Bitte wählen' },
+      { candidate: 'Svizzera', application: 'Schweiz' },
+      { candidate: 'Italia', application: 'Italien' },
+      { candidate: 'Germania', application: 'Deutschland' },
+      { candidate: 'Francia', application: 'Frankreich' },
+    ],
+  })]);
+
+  const unknownCodex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
   await expect(portalRequirementsForCandidate({ documents: [], questions: [{
     ...questions[1],
-    options: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'],
-    applicationOptions: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'],
-  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: foreignCodex }))
+    options: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Atlantide'],
+    applicationOptions: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Atlantide'],
+  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: unknownCodex }))
     .rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
-  expect(foreignCodex).toHaveBeenCalledOnce();
+  expect(unknownCodex).toHaveBeenCalledOnce();
 });
 
 it('keeps deterministic German field copies when an unresolved same-language question shares the batch', async () => {
