@@ -858,6 +858,12 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
       const hasSpaBundle = spaBundle.hasSpaBundle;
 
       const sitemapEntries: string[] = [];
+      // Root-level sitemap files belong to the IT leg. Its sitemap must name
+      // sibling-locale pages emitted by the EN/DE/FR legs, while a non-IT leg
+      // keeps a locale-only sitemap long enough for its page-manifest pass.
+      const sitemapLocales = shouldEmitLocale('it')
+        ? LOCALES
+        : LOCALES.filter(shouldEmitLocale);
 
       const ensuredDirs = new Set<string>();
       const ensureDir = (dir: string): void => {
@@ -874,10 +880,8 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           // shard build 3 of every 4 locales it produces are deleted afterwards
           // by scripts/ci/prune-locale-shard.mjs. Skipping the non-owned locales
           // here removes that wasted render. SAFE for cross-locale SEO: the
-          // sitemap-sector.xml entry (with its 4-locale xhtml:link alternates) is
-          // built ONLY in the `locale === 'it'` branch below from buildSectorHubPath
-          // path-builders — independent of whether en/de/fr iterations ran — and
-          // the it/main shard never skips `it`, so its sitemap stays complete.
+          // sitemap-sector.xml entries are built after this render loop from
+          // buildSectorHubPath, independent of whether EN/DE/FR rendered here.
           // No-op (always true) on the default all-locale build.
           if (!shouldEmitLocale(locale)) continue;
           const count = counts[locale][sector];
@@ -950,10 +954,14 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
           ensureDir(np.dirname(safeTargets.flatPath));
           fs.writeFileSync(safeTargets.flatPath, html, 'utf-8');
+        }
 
+        for (const locale of sitemapLocales) {
+          const canonicalPath = buildSectorHubPath(locale, sector);
+          const canonicalUrl = `${BASE_URL}${canonicalPath}`;
           // Every locale gets its own reciprocal <loc> entry (all 4 carry the
-          // same alternate set) — an IT-only push here would leave en/de/fr
-          // as one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
+          // same alternate set) — an IT-only sitemap would leave en/de/fr
+          // as one-sided alternates and outside the publisher page contract.
           const altLinks = LOCALES.map((altLocale) => {
             const altPath = buildSectorHubPath(altLocale, sector);
             return `    <xhtml:link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}" />`;
