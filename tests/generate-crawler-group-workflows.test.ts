@@ -2736,7 +2736,10 @@ describe('cross-repo crawler execution artifacts', () => {
 
     const group02 = groupResults.find((group: any) => group.groupIndex === 2);
     const group02Content = fs.readFileSync(path.join(outDir, 'crawler-group-02.yml'), 'utf8');
-    expect(group02Content).toContain(`# ---- ${group02.memberSpecs[0].slug}: run crawler`);
+    // L'ultimo wrapper di checkout/retry fa superare il budget anche al gruppo
+    // 02: il generatore deve quindi togliere i commenti del guscio, lasciando
+    // invariati comandi, guardie ed esiti.
+    expect(group02Content).not.toContain(`# ---- ${group02.memberSpecs[0].slug}: run crawler`);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('rifiuta un ancoraggio commit non osservabile e conserva ref/sha espliciti', () => {
