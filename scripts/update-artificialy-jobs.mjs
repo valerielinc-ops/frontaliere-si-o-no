@@ -75,6 +75,7 @@ const COMPANY_NAME = 'Artificialy';
 const COMPANY_HOST = 'artificialy.com';
 const COMPANY_DOMAIN = 'artificialy.com';
 const CAREER_URLS = [
+  'https://www.artificialy.com/company',
   'https://www.artificialy.com/it/career',
   'https://www.artificialy.com/career',
 ];
@@ -219,7 +220,11 @@ async function enrichArtificialyListings(listings) {
       const detailHtml = await fetchArtificialyDetailHtml(listing.applyUrl);
       const detail = parseArtificialyLinkedInJobPage(detailHtml);
       if (detail.description) {
-        enriched.push({ ...listing, description: detail.description });
+        enriched.push({
+          ...listing,
+          description: detail.description,
+          location: detail.location || listing.location,
+        });
       } else {
         stats.selectorMisses += 1;
         enriched.push(listing);
@@ -237,7 +242,14 @@ async function enrichArtificialyListings(listings) {
   return { listings: enriched, stats };
 }
 
-async function fetchCareerPage() {
+export async function fetchArtificialyCareerPage({
+  urls = CAREER_URLS,
+  fetchImpl = fetchText,
+  enrichImpl = enrichArtificialyListings,
+  maxRetries = MAX_RETRIES,
+  retryDelayMs = RETRY_DELAY_MS,
+  sleepImpl = sleep,
+} = {}) {
   let fetchedPage = false;
   let blockedPage = false;
   let discoveredCount = 0;
@@ -245,27 +257,27 @@ async function fetchCareerPage() {
   let detailFetchFailures = 0;
   let detailSelectorMisses = 0;
 
-  for (const url of CAREER_URLS) {
-    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+  for (const url of urls) {
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
       try {
         console.log(`  Fetching ${url} (attempt ${attempt + 1})...`);
-        const html = await fetchText(url);
+        const html = await fetchImpl(url);
         fetchedPage = true;
         const { items: parsedItems, blocked } = parseArtificialyCareerPage(html);
 
         if (blocked) {
           blockedPage = true;
           console.log(`  Cloudflare challenge detected on ${url}`);
-          if (attempt < MAX_RETRIES) {
-            console.log(`  Retrying in ${RETRY_DELAY_MS / 1000}s...`);
-            await sleep(RETRY_DELAY_MS);
+          if (attempt < maxRetries) {
+            console.log(`  Retrying in ${retryDelayMs / 1000}s...`);
+            await sleepImpl(retryDelayMs);
             continue;
           }
           break;
         }
 
         discoveredCount = Math.max(discoveredCount, parsedItems.length);
-        const enriched = await enrichArtificialyListings(parsedItems);
+        const enriched = await enrichImpl(parsedItems);
         detailAttempts += enriched.stats.attempted;
         detailFetchFailures += enriched.stats.fetchFailures;
         detailSelectorMisses += enriched.stats.selectorMisses;
@@ -289,8 +301,8 @@ async function fetchCareerPage() {
         break;
       } catch (err) {
         console.log(`  Fetch failed for ${url}: ${err.message}`);
-        if (attempt < MAX_RETRIES) {
-          await sleep(RETRY_DELAY_MS);
+        if (attempt < maxRetries) {
+          await sleepImpl(retryDelayMs);
           continue;
         }
       }
@@ -322,7 +334,7 @@ async function fetchCareerPage() {
 async function fetchAllListings() {
   console.log('Fetching Artificialy career page...');
 
-  const result = await fetchCareerPage();
+  const result = await fetchArtificialyCareerPage();
   console.log(`Total jobs found: ${result.items.length}`);
 
   // Keep only jobs with a location in one of the 26 target cantons.
