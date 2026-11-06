@@ -25,7 +25,18 @@ function fixture({ metaDescriptionHtml = 'Descrizione SEO dell’offerta archivi
     expiredAt: '2026-10-01T00:00:00.000Z',
   });
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, minifyHtml(`<title>${titleHtml}</title><meta name="description" content="${metaDescriptionHtml}"><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}"><script>window.__EXPIRED_JOB_DATA__=${payload};</script><main data-expired-static-body="true"></main>`));
+  const html = [
+    '<meta charset="utf-8">',
+    '<link rel="stylesheet" href="/assets/site.css">',
+    '<meta name="viewport" content="width=device-width">',
+    `<title>${titleHtml}</title>`,
+    `<meta name="description" content="${metaDescriptionHtml}">`,
+    '<meta name="robots" content="noindex,follow">',
+    `<link rel="canonical" href="${url}">`,
+    `<script>window.__EXPIRED_JOB_DATA__=${payload};</script>`,
+    '<main data-expired-static-body="true"></main>',
+  ].join('');
+  fs.writeFileSync(file, minifyHtml(html));
   return { root, route, file, url, payload, titleHtml, metaDescriptionHtml };
 }
 
@@ -95,10 +106,16 @@ describe('expired archive publication evidence', () => {
     })).toThrow('payload differs from its source owner');
   });
 
-  it('rejects a prefixed attribute that only resembles the static body marker', () => {
+  it.each([
+    ['prefixed element', '<main-custom data-expired-static-body=true></main-custom>'],
+    ['comment text', '<!-- <main data-expired-static-body=true> -->'],
+    ['script text', '<script>const html = "<main data-expired-static-body=true>";</script>'],
+  ])('rejects marker-like markup in %s', (_case, replacement) => {
     const values = fixture();
     const html = fs.readFileSync(values.file, 'utf8');
-    fs.writeFileSync(values.file, html.replace('data-expired-static-body=true', 'x-data-expired-static-body=true'));
+    const markerElement = '<main data-expired-static-body=true></main>';
+    expect(html).toContain(markerElement);
+    fs.writeFileSync(values.file, html.replace(markerElement, replacement));
     const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
     recordFixture(evidence, values);
 
