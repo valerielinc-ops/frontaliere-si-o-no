@@ -48090,6 +48090,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'frontalieri-telelavoro-protocollo-2026',
+ category: 'pratico',
+ date: '2026-11-06T10:40:30.579Z',
+ image: '/images/blog/article-frontalieri-telelavoro-protocollo-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

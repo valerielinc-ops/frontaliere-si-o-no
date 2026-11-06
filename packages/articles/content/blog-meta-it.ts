@@ -13676,6 +13676,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.versamento-avs-dicembre-importi.title': 'Tredicesima AVS, per alcuni sarà inferiore',
     'blog.article.versamento-avs-dicembre-importi.excerpt': 'La 13esima AVS sarà versata per la prima volta a dicembre, ma non avrà lo stesso valore per tutti i beneficiari.',
     'blog.article.versamento-avs-dicembre-importi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.title': 'Frontalieri e telelavoro: organizzare la postazione a casa',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.excerpt': 'Il telelavoro arriva fino al 25% del tempo di lavoro. Il protocollo è entrato in vigore il 9 febbraio 2026.',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

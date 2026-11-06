@@ -13674,6 +13674,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.versamento-avs-dicembre-importi.title': 'Dreizehnter AHV, bei manchen wird es niedriger sein',
     'blog.article.versamento-avs-dicembre-importi.excerpt': 'Erste 13. AHV im Dezember Rente ab dem 1. Juli: halbe Rente Fast 2,7 Millionen Begünstigte Ende 2026 830.000 Begünstigte im Ausland.',
     'blog.article.versamento-avs-dicembre-importi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.title': 'Grenzgänger & Homeoffice: Arbeitsplatz zu Hause organisieren',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.excerpt': 'Telearbeit beträgt bis zu 25 % der Arbeitszeit. Das Protokoll trat am 9. Februar 2026 in Kraft.',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

@@ -13675,6 +13675,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.versamento-avs-dicembre-importi.title': 'Thirteenth AVS payment, for some it will be lower',
     'blog.article.versamento-avs-dicembre-importi.excerpt': 'The 13th AVS payment will be paid for the first time in December, but it will not have the same value for all beneficiaries.',
     'blog.article.versamento-avs-dicembre-importi.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.title': 'Cross-border workers and teleworking: setting up a home workstation',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.excerpt': 'Teleworking accounts for up to 25% of working time. The protocol entered into force on February 9, 2026.',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

@@ -13677,6 +13677,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.versamento-avs-dicembre-importi.title': 'Treizième rente AVS, elle sera inférieure pour certains',
     'blog.article.versamento-avs-dicembre-importi.excerpt': 'Pour le cadre officiel des pensions, voir tableau d’aperçu AHV 2026. Pour un calcul indicatif de la pension, veuillez consulter calculateur de rente AVS.',
     'blog.article.versamento-avs-dicembre-importi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.title': 'Frontaliers et télétravail : organiser son poste de travail à la maison',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.excerpt': 'Le télétravail représente jusqu’à 25 % du temps de travail. Le protocole est entré en vigueur le 9 février 2026.',
+    'blog.article.frontalieri-telelavoro-protocollo-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

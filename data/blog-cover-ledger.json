@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1063,
+      "5": 1069,
       "6": 5061
     },
-    "publishedCovers": 7806,
+    "publishedCovers": 7812,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213296,6 +213296,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-frontalieri-telelavoro-protocollo-2026": {
+      "cover": "/images/blog/article-frontalieri-telelavoro-protocollo-2026.webp",
+      "hash": "0dab1ec8f4b49fc00ec7545e4e6122f806db77c7879ecf34ca1f2d42cbad1a7a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frontalieri-telelavoro-protocollo-2026",
+          "category": "pratico",
+          "date": "2026-11-06T10:40:30.579Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frontalieri-telelavoro-protocollo-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-frontalieri-telelavoro-protocollo-2026",
+        "imageUrl": "/images/blog/article-frontalieri-telelavoro-protocollo-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-glarona-detrazioni-energia-2029": {
       "cover": "/images/blog/article-glarona-detrazioni-energia-2029.webp",
       "hash": "50125c9397aaa8b62dff48a809c076b6594c7a8ffe140b10c676c2a928d35d5e",
@@ -213857,6 +213890,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-niederwil-aumento-imposta-2027": {
+      "cover": "/images/blog/article-niederwil-aumento-imposta-2027.webp",
+      "hash": "c6597238f050e12737ad653e6aa7ecdb934998479a945b0f924ff51427408592",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "niederwil-aumento-imposta-2027",
+          "category": "fiscale",
+          "date": "2026-11-06T12:02:37.265Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-niederwil-aumento-imposta-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-niederwil-aumento-imposta-2027",
+        "imageUrl": "/images/blog/article-niederwil-aumento-imposta-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-ofenberg-chiusura-notte": {
       "cover": "/images/blog/article-ofenberg-chiusura-notte.webp",
       "hash": "a5b36dc4352e132d7abb63d6d0061aedbbab7a3d9c0fc34e17f93fee91159616",
@@ -214052,6 +214118,39 @@
         "provider": "openai-codex",
         "assetId": "article-ricerca-fisco-aziende-svitto",
         "imageUrl": "/images/blog/article-ricerca-fisco-aziende-svitto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-riconoscimento-familiari-assistenti-uri": {
+      "cover": "/images/blog/article-riconoscimento-familiari-assistenti-uri.webp",
+      "hash": "40fc525db4e1750d86cacacebd26c4f89a828b6272e69e6d4b3ead9457dc33ee",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "riconoscimento-familiari-assistenti-uri",
+          "category": "novita",
+          "date": "2026-11-06T11:28:43.895Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-riconoscimento-familiari-assistenti-uri.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-riconoscimento-familiari-assistenti-uri",
+        "imageUrl": "/images/blog/article-riconoscimento-familiari-assistenti-uri.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -214349,6 +214448,39 @@
         "provider": "openai-codex",
         "assetId": "article-startup-innovazione-sociale-open-call",
         "imageUrl": "/images/blog/article-startup-innovazione-sociale-open-call.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-stato-vallese-intelligenza-artificiale": {
+      "cover": "/images/blog/article-stato-vallese-intelligenza-artificiale.webp",
+      "hash": "9a61241a5cad3b663c5f9eed8ddfb9402beefdb93cae3d87d325686b5ba31963",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vs",
+          "id": "stato-vallese-intelligenza-artificiale",
+          "category": "novita",
+          "date": "2026-11-06T11:13:23.591Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-stato-vallese-intelligenza-artificiale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-stato-vallese-intelligenza-artificiale",
+        "imageUrl": "/images/blog/article-stato-vallese-intelligenza-artificiale.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -215045,6 +215177,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-wil-piano-finanziario-2027-2031": {
+      "cover": "/images/blog/article-wil-piano-finanziario-2027-2031.webp",
+      "hash": "21ce5320cd3bbcbeda61a24a7f20f61237d2c70943977fd60f0ca9e2d3e642f1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "wil-piano-finanziario-2027-2031",
+          "category": "fiscale",
+          "date": "2026-11-06T11:41:24.161Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-wil-piano-finanziario-2027-2031.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-wil-piano-finanziario-2027-2031",
+        "imageUrl": "/images/blog/article-wil-piano-finanziario-2027-2031.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-zurigo-strategia-energetica-2026": {
       "cover": "/images/blog/article-zurigo-strategia-energetica-2026.webp",
       "hash": "9e4ebb4789270733f5547cd62695170834476142de8b1bab736798a50409ee67",
@@ -215075,6 +215240,39 @@
         "provider": "openai-codex",
         "assetId": "article-zurigo-strategia-energetica-2026",
         "imageUrl": "/images/blog/article-zurigo-strategia-energetica-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zurigo-tasse-imprese-privati": {
+      "cover": "/images/blog/article-zurigo-tasse-imprese-privati.webp",
+      "hash": "73dbc3fff29a4a6c36c4cde2dcd2a45ebb3dbb9ef7720e29728a93c1fb2fb170",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "zurigo-tasse-imprese-privati",
+          "category": "fiscale",
+          "date": "2026-11-06T11:54:29.834Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zurigo-tasse-imprese-privati.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zurigo-tasse-imprese-privati",
+        "imageUrl": "/images/blog/article-zurigo-tasse-imprese-privati.webp",
         "evidence": "generated-engine-record"
       }
     }

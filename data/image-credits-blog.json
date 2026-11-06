@@ -84963,6 +84963,80 @@
         }
       }
     },
+    "generated:article-frontalieri-telelavoro-protocollo-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T10:40:19.063Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-frontalieri-telelavoro-protocollo-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "9fe58b5ce40b4d4cd24c48ca69d40565ed048e73c3b95415ad8774c8117ab6f0",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "0dab1ec8f4b49fc00ec7545e4e6122f806db77c7879ecf34ca1f2d42cbad1a7a",
+        "bytes": 104164,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T10:40:19.063Z",
+        "verifiedAt": "2026-11-06T10:40:29.478Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-frontalieri-telelavoro-protocollo-2026.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic home-office scene; no visible text, logos, people, or event-specific cues."
+        }
+      }
+    },
     "generated:article-glarona-detrazioni-energia-2029": {
       "source": "generated-provider",
       "commons": {
@@ -86221,6 +86295,80 @@
         }
       }
     },
+    "generated:article-niederwil-aumento-imposta-2027": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T12:02:22.477Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-niederwil-aumento-imposta-2027",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "f28d814b9f0aaa9e8d907ea85139eafc90fb82d72cadfb92a66f5e832119bb7f",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "c6597238f050e12737ad653e6aa7ecdb934998479a945b0f924ff51427408592",
+        "bytes": 188424,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T12:02:22.477Z",
+        "verifiedAt": "2026-11-06T12:02:37.185Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-niederwil-aumento-imposta-2027.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of a municipal building, with no text, logos, signage, or people."
+        }
+      }
+    },
     "generated:article-ofenberg-chiusura-notte": {
       "source": "generated-provider",
       "commons": {
@@ -86662,6 +86810,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic editorial scene of a modern research building in an Alpine setting; no readable text, logos, identifiable people, or specific event."
+        }
+      }
+    },
+    "generated:article-riconoscimento-familiari-assistenti-uri": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T11:28:28.705Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-riconoscimento-familiari-assistenti-uri",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "e1641508b029f7432697b6397420aa92c5ad80d87159da6aa24b2195919d444a",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "40fc525db4e1750d86cacacebd26c4f89a828b6272e69e6d4b3ead9457dc33ee",
+        "bytes": 96014,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T11:28:28.705Z",
+        "verifiedAt": "2026-11-06T11:28:43.798Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-riconoscimento-familiari-assistenti-uri.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic caregiving illustration with no text, logos, identifiable faces, or specific real-event cues."
         }
       }
     },
@@ -87328,6 +87550,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic synthetic editorial scene; no readable text, logos, identifiable faces, or specific real event."
+        }
+      }
+    },
+    "generated:article-stato-vallese-intelligenza-artificiale": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T11:13:14.750Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-stato-vallese-intelligenza-artificiale",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "7c3a688efe55006a8e2bfb424b4ad4a716961668c6a4426f404ca477a3866f39",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "9a61241a5cad3b663c5f9eed8ddfb9402beefdb93cae3d87d325686b5ba31963",
+        "bytes": 72684,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T11:13:14.750Z",
+        "verifiedAt": "2026-11-06T11:13:23.499Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-stato-vallese-intelligenza-artificiale.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic office illustration with a subtle AI/technology element; no people, text, logos, or specific event."
         }
       }
     },
@@ -88885,6 +89181,80 @@
         }
       }
     },
+    "generated:article-wil-piano-finanziario-2027-2031": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T11:41:12.028Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-wil-piano-finanziario-2027-2031",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "04f98c108d5bbf1851ed4d3317a6a53615135711cf25db972c1d7dc1965fc3d8",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "21ce5320cd3bbcbeda61a24a7f20f61237d2c70943977fd60f0ca9e2d3e642f1",
+        "bytes": 196076,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T11:41:12.028Z",
+        "verifiedAt": "2026-11-06T11:41:24.077Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-wil-piano-finanziario-2027-2031.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic architectural illustration with no people, text, logos, signage, or watermark; relevant to a fiscal/financial-plan editorial theme."
+        }
+      }
+    },
     "generated:article-zurigo-strategia-energetica-2026": {
       "source": "generated-provider",
       "commons": {
@@ -88956,6 +89326,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic synthetic editorial illustration of sustainable urban architecture with rooftop solar panels; no readable text, signage, logos, people, or specific real event."
+        }
+      }
+    },
+    "generated:article-zurigo-tasse-imprese-privati": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T11:54:14.743Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-zurigo-tasse-imprese-privati",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "9e470c62bf64f84d039876675b4456783f3ff078058427bdbdc3a6cb93e16fcd",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "73dbc3fff29a4a6c36c4cde2dcd2a45ebb3dbb9ef7720e29728a93c1fb2fb170",
+        "bytes": 164698,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T11:54:14.743Z",
+        "verifiedAt": "2026-11-06T11:54:29.750Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-zurigo-tasse-imprese-privati.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial illustration of a modern financial district with generic pedestrians; no readable text, logos, recognizable faces, or specific event."
         }
       }
     }
@@ -129895,6 +130339,10 @@
       "file": "generated:article-frick-volksmotion-kantonsrat",
       "modified": "resized"
     },
+    "article-frontalieri-telelavoro-protocollo-2026": {
+      "file": "generated:article-frontalieri-telelavoro-protocollo-2026",
+      "modified": "resized"
+    },
     "article-glarona-detrazioni-energia-2029": {
       "file": "generated:article-glarona-detrazioni-energia-2029",
       "modified": "resized"
@@ -129963,6 +130411,10 @@
       "file": "generated:article-neuchatel-dossier-consiglio-stato",
       "modified": "resized"
     },
+    "article-niederwil-aumento-imposta-2027": {
+      "file": "generated:article-niederwil-aumento-imposta-2027",
+      "modified": "resized"
+    },
     "article-ofenberg-chiusura-notte": {
       "file": "generated:article-ofenberg-chiusura-notte",
       "modified": "resized"
@@ -129985,6 +130437,10 @@
     },
     "article-ricerca-fisco-aziende-svitto": {
       "file": "generated:article-ricerca-fisco-aziende-svitto",
+      "modified": "resized"
+    },
+    "article-riconoscimento-familiari-assistenti-uri": {
+      "file": "generated:article-riconoscimento-familiari-assistenti-uri",
       "modified": "resized"
     },
     "article-riforma-assicurazione-invalidita-ai": {
@@ -130021,6 +130477,10 @@
     },
     "article-startup-innovazione-sociale-open-call": {
       "file": "generated:article-startup-innovazione-sociale-open-call",
+      "modified": "resized"
+    },
+    "article-stato-vallese-intelligenza-artificiale": {
+      "file": "generated:article-stato-vallese-intelligenza-artificiale",
       "modified": "resized"
     },
     "article-supporto-datori-lavoro-turgovia": {
@@ -130107,8 +130567,16 @@
       "file": "generated:article-voto-iva-13esima-avs-novembre",
       "modified": "resized"
     },
+    "article-wil-piano-finanziario-2027-2031": {
+      "file": "generated:article-wil-piano-finanziario-2027-2031",
+      "modified": "resized"
+    },
     "article-zurigo-strategia-energetica-2026": {
       "file": "generated:article-zurigo-strategia-energetica-2026",
+      "modified": "resized"
+    },
+    "article-zurigo-tasse-imprese-privati": {
+      "file": "generated:article-zurigo-tasse-imprese-privati",
       "modified": "resized"
     }
   }
