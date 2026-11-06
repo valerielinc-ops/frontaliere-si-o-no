@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1069,
+      "5": 1072,
       "6": 5061
     },
-    "publishedCovers": 7812,
+    "publishedCovers": 7815,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -212900,6 +212900,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-cassa-pensione-stop-sistema": {
+      "cover": "/images/blog/article-cassa-pensione-stop-sistema.webp",
+      "hash": "828cd8c3df10fd698d60f6f26c6c3d33cd6dc52f1227819d42beb0de22dd0894",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "cassa-pensione-stop-sistema",
+          "category": "pensione",
+          "date": "2026-11-06T12:32:40.387Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cassa-pensione-stop-sistema.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cassa-pensione-stop-sistema",
+        "imageUrl": "/images/blog/article-cassa-pensione-stop-sistema.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-castel-san-pietro-preventivo-2027": {
       "cover": "/images/blog/article-castel-san-pietro-preventivo-2027.webp",
       "hash": "f0fe956aeda7e1d04b35139ef2330fbea4685ac4ec1e5f91638ff14bc43c5c19",
@@ -213128,6 +213161,39 @@
         "provider": "openai-codex",
         "assetId": "article-decima-fiera-apprendistati-innerrhoden",
         "imageUrl": "/images/blog/article-decima-fiera-apprendistati-innerrhoden.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-domanda-edilizia-meisenweg": {
+      "cover": "/images/blog/article-domanda-edilizia-meisenweg.webp",
+      "hash": "378d7fe200ad6935ac41c058452bbc737e8fcde4edf1a57894d3470609dc28c2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "domanda-edilizia-meisenweg",
+          "category": "pratico",
+          "date": "2026-11-06T12:57:20.385Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-domanda-edilizia-meisenweg.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-domanda-edilizia-meisenweg",
+        "imageUrl": "/images/blog/article-domanda-edilizia-meisenweg.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -213623,6 +213689,39 @@
         "provider": "openai-codex",
         "assetId": "article-kantonsrat-proroga-gav-due-anni",
         "imageUrl": "/images/blog/article-kantonsrat-proroga-gav-due-anni.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lausanna-credito-colonnine-2031": {
+      "cover": "/images/blog/article-lausanna-credito-colonnine-2031.webp",
+      "hash": "f66ce4e47f8312c4e39a35a0a93c4ce6aeeb5d4a5a2dcb3ee512e702ca5d8d27",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "lausanna-credito-colonnine-2031",
+          "category": "pratico",
+          "date": "2026-11-06T13:19:17.107Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lausanna-credito-colonnine-2031.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lausanna-credito-colonnine-2031",
+        "imageUrl": "/images/blog/article-lausanna-credito-colonnine-2031.webp",
         "evidence": "generated-engine-record"
       }
     },

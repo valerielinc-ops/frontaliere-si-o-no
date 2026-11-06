@@ -84075,6 +84075,80 @@
         }
       }
     },
+    "generated:article-cassa-pensione-stop-sistema": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T12:32:22.331Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-cassa-pensione-stop-sistema",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "b203ce860c5bf1071e351c66a6de8b3095c2e0578e00bea109f982c99ebb6c4f",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "828cd8c3df10fd698d60f6f26c6c3d33cd6dc52f1227819d42beb0de22dd0894",
+        "bytes": 150546,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T12:32:22.331Z",
+        "verifiedAt": "2026-11-06T12:32:40.316Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-cassa-pensione-stop-sistema.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic Zurich office-district scene with no readable text, logos, people, or event-specific content."
+        }
+      }
+    },
     "generated:article-castel-san-pietro-preventivo-2027": {
       "source": "generated-provider",
       "commons": {
@@ -84590,6 +84664,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic synthetic editorial illustration of a career fair; no readable text, logos, identifiable faces, or specific real event."
+        }
+      }
+    },
+    "generated:article-domanda-edilizia-meisenweg": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T12:57:09.138Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-domanda-edilizia-meisenweg",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "e766c49a44e9092ed2e98bd29e72b3dc1a0a3beabc438a84cce6a18a4a08a711",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "378d7fe200ad6935ac41c058452bbc737e8fcde4edf1a57894d3470609dc28c2",
+        "bytes": 158716,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T12:57:09.138Z",
+        "verifiedAt": "2026-11-06T12:57:20.291Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-domanda-edilizia-meisenweg.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of a Swiss detached house with rooftop solar panels and landscaped grounds; no people, text, signage, logos, or event-specific cues."
         }
       }
     },
@@ -85700,6 +85848,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Photorealistic synthetic illustration of a generic Solothurn cantonal building; no people, text, signage, logos, or event documentation."
+        }
+      }
+    },
+    "generated:article-lausanna-credito-colonnine-2031": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T13:19:00.089Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-lausanna-credito-colonnine-2031",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "d25347a5ee6804995d78ced8058fe3b7fc92c4892d465491eceb89ea0812b145",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "f66ce4e47f8312c4e39a35a0a93c4ce6aeeb5d4a5a2dcb3ee512e702ca5d8d27",
+        "bytes": 201130,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T13:19:00.089Z",
+        "verifiedAt": "2026-11-06T13:19:17.009Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-lausanna-credito-colonnine-2031.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of an electric vehicle charging station."
         }
       }
     },
@@ -130291,6 +130513,10 @@
       "file": "generated:article-cascata-oro-comune-como",
       "modified": "resized"
     },
+    "article-cassa-pensione-stop-sistema": {
+      "file": "generated:article-cassa-pensione-stop-sistema",
+      "modified": "resized"
+    },
     "article-castel-san-pietro-preventivo-2027": {
       "file": "generated:article-castel-san-pietro-preventivo-2027",
       "modified": "resized"
@@ -130317,6 +130543,10 @@
     },
     "article-decima-fiera-apprendistati-innerrhoden": {
       "file": "generated:article-decima-fiera-apprendistati-innerrhoden",
+      "modified": "resized"
+    },
+    "article-domanda-edilizia-meisenweg": {
+      "file": "generated:article-domanda-edilizia-meisenweg",
       "modified": "resized"
     },
     "article-economia-imprese-cantone-turgovia": {
@@ -130377,6 +130607,10 @@
     },
     "article-kantonsrat-proroga-gav-due-anni": {
       "file": "generated:article-kantonsrat-proroga-gav-due-anni",
+      "modified": "resized"
+    },
+    "article-lausanna-credito-colonnine-2031": {
+      "file": "generated:article-lausanna-credito-colonnine-2031",
       "modified": "resized"
     },
     "article-lucerna-scuole-certificati-medici": {
