@@ -241,6 +241,9 @@ describe('article SEO fallback builder', () => {
     expect(html).toBe('redazione@example.test oppure help@example.test');
     expect(html).not.toContain('mailto:');
     expect(html).not.toContain('/cdn-cgi/l/email-protection');
+
+    expect(renderArticleInlineMarkup('[Contact &amp; support](mailto:help@example.test)'))
+      .toBe('Contact &amp; support');
   });
 
   it.each([

@@ -277,7 +277,7 @@ export const renderArticleInlineMarkup = (line: string, opts: ArticleBodyRenderO
   .replace(/(^|[\s([>{\"'“‘])(_{1,3})(?=\S)([^\n]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’<])/g, '$1<em>$3</em>');
  const stashLink = (label: string, href: string): string => {
  const safeHref = safeInlineHref(href);
- if (!safeHref) return label;
+ if (!safeHref) return decodeInlineHtmlEntities(label);
  const resolvedHref = safeInlineHref(resolveHref(safeHref)) ?? safeHref;
  const token = `\u0000inline-link-${links.length}\u0000`;
   // Markdown link labels can themselves contain emphasis, for example
