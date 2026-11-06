@@ -1434,13 +1434,35 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(frontier.templateTable).toEqual(BING_TEMPLATE_TABLE);
 
     const capped = collectDiscoveredInventory({
-      manifest: { baseUrl: BASE, urls: [source] },
+      manifest: {
+        baseUrl: BASE,
+        urls: [0, 1, 2, 3].map((index) => `${BASE}/en/find-jobs-geneva/source-${index}/`),
+      },
       reports: [{
         discoveredOutOfSitemap: [target, target, target, target],
         discoveredReferrers: [[[3, 0]], [[2, 0]], [[1, 0]], [[0, 0]]],
       }],
     });
     expect(capped.referrerRefs[0]).toHaveLength(3);
+  });
+
+  it('drops malformed or out-of-range frontier ownership references', () => {
+    const source = `${BASE}/en/find-jobs-geneva/source/`;
+    const target = `${BASE}/en/find-jobs-geneva/target/`;
+    const frontier = collectDiscoveredInventory({
+      manifest: { baseUrl: BASE, urls: [source] },
+      reports: [{
+        discoveredOutOfSitemap: [target],
+        discoveredReferrers: [[
+          [1, templateIndexFor(source)],
+          ['0', templateIndexFor(source)],
+          [0, BING_TEMPLATE_TABLE.length],
+        ]],
+      }],
+    });
+
+    expect(frontier.urls).toEqual([target]);
+    expect(frontier.referrerRefs).toEqual([[]]);
   });
 
   it('builds a bounded second frontier and keeps dynamic or malformed links as evidence', () => {
