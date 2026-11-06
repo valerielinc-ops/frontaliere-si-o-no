@@ -2887,15 +2887,47 @@ function localizedGermanRegionOption(option, language) {
   const source = regionNameCatalogue('de');
   const target = regionNameCatalogue(language);
   if (!source || !target) return '';
-  const code = text.toUpperCase();
-  if (/^[A-Z]{2}$/.test(code) && source.byCode.has(code)) {
-    const sourceName = source.byCode.get(code) || '';
-    const canonicalCode = nationalityOf(sourceName)?.code;
-    if (canonicalCode && canonicalCode !== code) return '';
-    return target.byCode.get(code) || '';
-  }
-  const regionCode = source.byName.get(normalizedQuestionText(text));
+  const regionCode = regionCodeForOption(text, ['de']);
   return regionCode ? target.byCode.get(regionCode) || '' : '';
+}
+
+const REGION_OPTION_LANGUAGES = Object.freeze(['it', 'de', 'fr', 'en']);
+
+function regionCodeForOption(option, sourceLanguages = REGION_OPTION_LANGUAGES) {
+  const text = String(option || '').trim();
+  if (!text) return '';
+  const code = text.toUpperCase();
+  for (const language of sourceLanguages) {
+    const source = regionNameCatalogue(language);
+    if (!source) continue;
+    if (/^[A-Z]{2}$/.test(code) && source.byCode.has(code)) {
+      const sourceName = source.byCode.get(code) || '';
+      const canonicalCode = nationalityOf(sourceName)?.code;
+      if (canonicalCode && canonicalCode !== code) continue;
+      return code;
+    }
+    const regionCode = source.byName.get(normalizedQuestionText(text));
+    if (regionCode) return regionCode;
+  }
+  return '';
+}
+
+function deterministicItalianCountryOption(option, key) {
+  const text = String(option || '').trim();
+  if (!text) return null;
+  const regionCode = regionCodeForOption(text);
+  if (regionCode) {
+    const italianRegion = regionNameCatalogue('it')?.byCode.get(regionCode);
+    if (italianRegion) return italianRegion;
+  }
+  if (key === 'nationality') {
+    const nationality = nationalityOf(text);
+    if (nationality) return nationalityLabelOf(nationality.code, 'it') || null;
+  }
+  if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalizedQuestionText(text))) {
+    return fallbackOption(text, 'it');
+  }
+  return null;
 }
 
 function deterministicGermanOption(option, entry, language) {
@@ -3032,6 +3064,30 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
   const applicationOptions = Array.isArray(item.applicationOptions)
     ? item.applicationOptions.map((option) => String(option || '').trim()).filter(Boolean)
     : [];
+  const label = normalizedQuestionText(nativePortalQuestion(item));
+  const countryKey = label === 'paese' ? 'country' : label === 'nazionalita' ? 'nationality' : '';
+  if (countryKey && applicationOptions.length) {
+    const candidateOptions = applicationOptions.map((option) => deterministicItalianCountryOption(option, countryKey));
+    if (candidateOptions.every(Boolean)) {
+      const optionMap = portalOptionMap({
+        options: candidateOptions,
+        applicationOptions,
+        optionMap: applicationOptions.map((application, index) => ({ candidate: candidateOptions[index], application })),
+      });
+      if (optionMap.length === applicationOptions.length) {
+        const sameLanguage = candidateOptions.every((option, index) => option === applicationOptions[index]);
+        return {
+          ...item,
+          question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+          applicationQuestion: nativePortalQuestion(item),
+          ...(applicationOptions.length ? { applicationOptions, options: optionMap.map((pair) => pair.candidate), optionMap } : {}),
+          ...(sameLanguage ? { applicationQuestionLocale: candidateLanguage } : { applicationQuestionLocale: null }),
+          localizationStatus: sameLanguage ? 'same_language' : 'translated',
+        };
+      }
+    }
+    return null;
+  }
   if (applicationOptions.length && !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
   return sameLanguagePortalQuestion(item, candidateLanguage);
 }
