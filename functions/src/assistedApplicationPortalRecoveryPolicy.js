@@ -107,7 +107,8 @@ export function operationalPortalRecoveryReady({ order, flow, draft }) {
     // portal controls. They may travel with a portal hold, but only an
     // explicit, validated candidate answer can clear them; never use an
     // operational default for this lane.
-    if (question?.source !== 'portal') return explicitCandidateAnswerReadyForDiscovery(question, projected[question.id]);
+    if (question?.source === 'match') return explicitCandidateAnswerReadyForDiscovery(question, projected[question.id]);
+    if (question?.source !== 'portal') return false;
     return operationalQuestionTopic(question)
       ? operationalAnswerReadyForDiscovery(question, projected[question.id])
       : explicitCandidateAnswerReadyForDiscovery(question, projected[question.id]);

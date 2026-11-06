@@ -37,7 +37,7 @@ describe('source-version recovery of positively identified operational portal qu
       question: 'Disponibilità', applicationQuestion: 'Disponibilità', type: 'date', options: [] };
     store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions: [availability] });
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), answers: { availability: '2026-11-20' } });
-    expect(await reconcilePortalCode(context(store))).toMatchObject({ eligible: 1, queued: 0 });
+    expect(await reconcilePortalCode({ ...context(store), apply: false })).toMatchObject({ eligible: 1, queued: 0 });
     expect(await reconcilePortalCode({ ...context(store), apply: true })).toMatchObject({ eligible: 1, queued: 1 });
     expect(store.read(base).automationDueAt).toBe(now);
   });
