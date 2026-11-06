@@ -443,7 +443,7 @@ function fakePortal() {
     if (route === 'GET /job/Zurich-Senior-IT-Manager/1448418433/') {
       state.sixPostingViews += 1;
       res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'set-cookie': 'sixPostingSeen=1; Path=/' });
-      return res.end(bindLocalReceiptTargets(page('Senior IT Manager - CIO Office | SIX', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>')));
+      return res.end(bindLocalReceiptTargets(page('Senior IT Manager - CIO Office | SIX Group', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>')));
     }
     if (route === 'GET /talentcommunity/apply/1448418433/') {
       if (!/sixPostingSeen=1/.test(req.headers.cookie || '')) return redirect('/careers.html');
@@ -471,8 +471,10 @@ function fakePortal() {
     // page, «Jetzt bewerben» opens the ATS redirect in a new tab.
     if (route === 'GET /coop-job') {
       return send(page('Coop: Bäcker:in - Konditor:in', `<header><a role="button" tabindex="0" href="/coop-later">Später bewerben</a></header>
+        <section class="job-detail">
         <h1>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h1><p>Coop Genossenschaft, Rickenbach</p>
         <a class="main-btn apply" target="_blank" href="/ohws/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/">Jetzt bewerben</a>
+        </section>
         <div id="usercentrics-root"></div><script>
           const host = document.getElementById('usercentrics-root');
           const root = host.attachShadow({ mode: 'open' });
