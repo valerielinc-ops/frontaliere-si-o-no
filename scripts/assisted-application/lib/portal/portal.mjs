@@ -917,6 +917,9 @@ const PUBLIC_JOB_FILTER_PATTERNS = [
 ];
 const PUBLIC_JOB_ACTION_RE = /^(?:search|suche|reset|zurücksetzen|mehr\s+anzeigen|show\s+more|load\s+more|seite\s+drucken|print\s+page)\b/iu;
 const APPLICATION_IDENTITY_FIELD_RE = /(?:e-?mail|vorname|nachname|first\s+name|last\s+name|telefon|phone|adresse|address|geburts|birth|nationality|staatsangehörigkeit|bewilligung|permit|lebenslauf|resume|\bcv\b|anschreiben|cover\s+letter|motivation)/iu;
+const PUBLIC_JOB_RESULTS_BACK_RE = /^(?:tornare ai risultati(?: della ricerca)?|back to search results|zurück zu den suchergebnissen|retour aux résultats de recherche)\b/iu;
+const PUBLIC_JOB_DETAIL_INFO_RE = /^(?:informazioni sul posto|job information|stelleninformationen|informations sur le poste)\b/iu;
+const PUBLIC_JOB_DETAIL_TOOL_RE = /^(?:copiare il link|copy link|link kopieren|copier le lien|invia link|send link|link senden|stampare(?: la pagina)?|print(?: page)?|drucken|imprimer(?: la page)?)\b/iu;
 
 const isGalleryPagingButton = (button, pattern) => !button?.chrome && pattern.test(String(button.text || ''));
 const isGalleryNavigationButton = (button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE)
@@ -1035,8 +1038,33 @@ function isNonApplicationJobSearchSurface(snapshot = {}, { applicationEvidence =
     && !hasCandidateField && !hasApplicationButton && !applicationEvidence;
 }
 
+/**
+ * Job-Room exposes a public posting shell with back-to-results, job-info,
+ * share and print controls but no fields. Those controls are navigation and
+ * sharing for the posting, not an application surface; keep the fingerprint
+ * narrow so a field-less application widget still reaches the agent.
+ */
+function isNonApplicationJobDetailSurface(snapshot = {}, { applicationEvidence = false } = {}) {
+  const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  if (fields.length || applicationEvidence) return false;
+
+  const publicButtons = buttons
+    .filter(button => !button?.chrome && !button?.disabled)
+    .map(button => String(button.text || '').replace(/\s+/g, ' ').trim());
+  const hasBackToResults = publicButtons.some(text => PUBLIC_JOB_RESULTS_BACK_RE.test(text));
+  const hasJobInfo = publicButtons.some(text => PUBLIC_JOB_DETAIL_INFO_RE.test(text));
+  const hasDetailTool = publicButtons.some(text => PUBLIC_JOB_DETAIL_TOOL_RE.test(text));
+  // Disabled application controls still identify an application surface.
+  const hasApplicationButton = buttons.some(button => !button?.chrome
+    && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || ''))));
+  return hasBackToResults && hasJobInfo && hasDetailTool && !hasApplicationButton;
+}
+
 function isNonApplicationSurface(snapshot = {}, options = {}) {
-  return isNonApplicationGallerySurface(snapshot) || isNonApplicationJobSearchSurface(snapshot, options);
+  return isNonApplicationGallerySurface(snapshot)
+    || isNonApplicationJobDetailSurface(snapshot, options)
+    || isNonApplicationJobSearchSurface(snapshot, options);
 }
 
 function learnedApplicationControls(buttons, known, path) {
