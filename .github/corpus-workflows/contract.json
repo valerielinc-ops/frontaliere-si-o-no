@@ -4,20 +4,20 @@
   "generatorSha256": "f303caae3783819218b8e6cff03337c49b96bff58a2eae7e93798a8c668df091",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "ce56a868b3bad6335e0f0f5e5ce26cb29c07cdd3",
+  "sourceCommit": "c8876a70433c51e8811596d199b2b6ff4c4fc775",
   "artifactObservation": {
     "generatorSha256": "f303caae3783819218b8e6cff03337c49b96bff58a2eae7e93798a8c668df091",
     "sourceRef": "main",
-    "sourceCommit": "ce56a868b3bad6335e0f0f5e5ce26cb29c07cdd3"
+    "sourceCommit": "c8876a70433c51e8811596d199b2b6ff4c4fc775"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 690,
+  "crawlerCount": 693,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:52a1f368a3e60768dcc0aa98792fd0a8ca73b37dd5b7334226769f59be11f1f5",
+    "rosterDigest": "sha256:b56b041f89dc18bb46e8ba5f6cd7475a902affbff34619a1d6dfca90ea8fa93e",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -119,6 +119,7 @@
     "scripts/update-bachtelen-jobs.mjs",
     "scripts/update-badrutts-palace-jobs.mjs",
     "scripts/update-balgrist-jobs.mjs",
+    "scripts/update-bally-jobs.mjs",
     "scripts/update-baloise-jobs.mjs",
     "scripts/update-baronie-jobs.mjs",
     "scripts/update-barry-callebaut-jobs.mjs",
@@ -357,6 +358,7 @@
     "scripts/update-klinik-susenberg-jobs.mjs",
     "scripts/update-klinik-wyssholzli-jobs.mjs",
     "scripts/update-kliniken-valens-jobs.mjs",
+    "scripts/update-knowledge-lab-jobs.mjs",
     "scripts/update-komax-group-jobs.mjs",
     "scripts/update-kone-jobs.mjs",
     "scripts/update-ksa-jobs.mjs",
@@ -472,6 +474,7 @@
     "scripts/update-psgn-jobs.mjs",
     "scripts/update-puk-zuerich-jobs.mjs",
     "scripts/update-pwc-jobs.mjs",
+    "scripts/update-pzm-muensingen-jobs.mjs",
     "scripts/update-raiffeisen-jobs.mjs",
     "scripts/update-reboot-monkey-jobs.mjs",
     "scripts/update-recruitingapp-1123-jobs.mjs",
@@ -1619,11 +1622,14 @@
     {
       "file": "crawler-group-25.yml",
       "sourceLogic": "crawler-group-25-logic.yml",
-      "sourceSha256": "b4cbfbbbf988b3fe10f96b8a40b9f1f91f929e9fc6c0c0f56efa06811bdc8af0",
-      "artifactSha256": "23208cabe2b0add186cfb9ba58075c5dde38db5a52bee414c174b49fe044ba21",
+      "sourceSha256": "192a0785952b78bb2e31aa63016e7da04908c2bf55b45665975c031d2de765f8",
+      "artifactSha256": "acb1afd60bdc14d0fb0ab6ea413275661f80379a7aa9c18ea5f83165e86b56bf",
       "generatorSha256": "f303caae3783819218b8e6cff03337c49b96bff58a2eae7e93798a8c668df091",
       "members": [
-        "protectas"
+        "protectas",
+        "bally",
+        "knowledge-lab",
+        "pzm-muensingen"
       ]
     },
     {
