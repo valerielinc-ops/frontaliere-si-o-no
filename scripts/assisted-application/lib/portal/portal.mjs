@@ -2767,7 +2767,15 @@ function optionsMatchCandidateLanguage(options, candidateLanguage) {
   if (hasKnownForeignMarker) return false;
   if (options.every((option) => candidateMarkers.includes(normalizedQuestionText(option)))) return true;
   const detected = detectLanguageWithConfidence(options.join(' '), candidateLanguage);
-  return detected.lang === candidateLanguage && detected.confidence >= SAME_LANGUAGE_BATCH_MIN_CONFIDENCE;
+  if (detected.lang === candidateLanguage && detected.confidence >= SAME_LANGUAGE_BATCH_MIN_CONFIDENCE) return true;
+  const candidateRegions = regionNameCatalogue(candidateLanguage);
+  return options.every((option) => {
+    const normalized = normalizedQuestionText(option);
+    if (candidateMarkers.includes(normalized) || candidateRegions?.byName.has(normalized)) return true;
+    const nationality = nationalityOf(option);
+    return Boolean(nationality
+      && normalizedQuestionText(nationalityLabelOf(nationality.code, candidateLanguage)) === normalized);
+  });
 }
 
 // A provider outage must not strand a standard ATS form whose labels are
