@@ -21,8 +21,8 @@ describe('cdn-assets-revalidate leaves immutable URLs alone', () => {
     expect(prefixes).toContain("'/assets/releases/'");
   });
 
-  it('keeps every stable alias under the rule: a hashed prefix ends in a dash', () => {
-    for (const name of ['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support']) {
+  it('keeps stable aliases under the rule and every hashed shell prefix out', () => {
+    for (const name of ['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support', 'meta-pixel-base-code']) {
       expect(prefixes).toContain(`'/assets/${name}-'`);
       expect(prefixes).not.toContain(`'/assets/${name}'`);
     }

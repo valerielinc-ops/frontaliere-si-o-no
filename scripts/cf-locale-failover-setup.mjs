@@ -705,6 +705,7 @@ const CDN_BROWSER_LONG_CACHE_PREFIXES = [
   '/assets/adsense-loader-',
   '/assets/partnerize-tag-',
   '/assets/site-support-',
+  '/assets/meta-pixel-base-code-',
 ];
 const LEGACY_CDN_ASSETS_REVALIDATE_DESCRIPTION =
   'cdn-assets-revalidate: override GitHub Pages immutable on stable-named SPA chunks (max-age=600 must-revalidate, matches public/_headers)';
