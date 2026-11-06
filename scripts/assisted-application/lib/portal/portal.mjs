@@ -1160,8 +1160,9 @@ function controlPostingIdentity(control) {
     const explicit = normalizedPostingIdentity(value);
     return explicit ? [explicit] : postingIdentityMarkers(value);
   });
-  const context = [control?.section, control?.context].flatMap(postingIdentityMarkers);
-  return uniquePostingIdentity([...direct, ...context]);
+  const context = [control?.vacancyContext, control?.section, control?.context].flatMap(postingIdentityMarkers);
+  const markers = [...new Set([...direct, ...context].map(normalizedPostingIdentity).filter(Boolean))];
+  return markers.length > 1 ? null : markers[0] || '';
 }
 
 function applicationEntryBelongsToPosting(control, {
@@ -1194,6 +1195,19 @@ function applicationEntryContextMatchesPosting(control, context = {}) {
     && !namesAnotherEmployer(localContext, job, { allowPostingLocation: true }));
 }
 
+function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
+  const localContext = [control?.vacancyContext, control?.section, control?.context]
+    .filter(Boolean)
+    .join(' ')
+    .trim();
+  const job = context.job || {};
+  if (controlPostingIdentity(control) !== '') return false;
+  if (!localContext || !job.title) return true;
+  if (postingMatch(localContext, job, context.postingUrl) !== 'match') return false;
+  if (namesAnotherEmployer(localContext, job)) return false;
+  return titleMatches(localContext, job.title);
+}
+
 export function applicationEntryControls(snapshot = {}, context = {}) {
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
@@ -1209,6 +1223,22 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   // pages). A single explicit Apply link is enough provenance; a listing with
   // several such links remains unresolved rather than choosing one by position.
   const posting = comparablePortalRoute(context.postingUrl);
+  // A verified single-job detail may expose Apply as a script button, with
+  // neither href nor local posting markers. Never borrow this provenance on
+  // forms, listings, redirected pages, or ambiguous multiple-entry surfaces.
+  const current = comparablePortalRoute(snapshot.url);
+  const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
+    && !control?.href && !control?.formId && (control.frame || 0) === 0
+    && startsApplication(control?.text || control?.label)
+    && controlPostingIdentity(control) === ''
+    && fieldlessApplicationEntryContextMatchesPosting(control, context));
+  const allEntries = controls.filter(control => !control?.disabled && !control?.chrome
+    && startsApplication(control?.text || control?.label));
+  if (posting && current && current.origin === posting.origin
+    && current.pathname === posting.pathname && current.search === posting.search
+    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting.pathname)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
   const unbound = controls.filter((control) => {
     if (control?.disabled || control?.chrome || !startsApplication(control?.text || control?.label)) return false;
     const target = comparablePortalRoute(control?.href);
@@ -6725,13 +6755,16 @@ export async function submitViaPortal(ctx) {
     const namedByItsData = organizationCompatible
       && sameEmployerFamily(ctx.job?.organization, ctx.job?.company)
       && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
-    const postingVacancyMatched = hasVacancySpecificPostingEvidence(postingSeen, ctx.job, {
-      pageUrl: postingUrl,
-      pageTitle: postingTitle,
-      postingUrl: ctx.postingUrl,
-      postingRouteProof: ctx.postingRouteProof,
-      vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
-    });
+    // A verified apply/posting URL pair is stronger than the title of a thin
+    // shell, which may still show a stale or generic role while it mounts.
+    const postingVacancyMatched = enteredFromMatchingPosting
+      || hasVacancySpecificPostingEvidence(postingSeen, ctx.job, {
+        pageUrl: postingUrl,
+        pageTitle: postingTitle,
+        postingUrl: ctx.postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
+        vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
+      });
     // When the selected posting URL is the page currently open, a failed
     // vacancy-identity check is terminal. Do not let a company-only match on
     // the same page turn a stale role into an application form.
