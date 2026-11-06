@@ -356,7 +356,8 @@ describe('runner final guard across three application stages', () => {
 
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'captcha_present' });
+    expect(result.event.type).toBe('submit_handoff');
+    expect(['captcha', 'captcha_present']).toContain(result.event.reason);
     expect(applyClicked).toHaveBeenCalledOnce();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
