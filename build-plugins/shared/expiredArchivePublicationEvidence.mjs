@@ -62,14 +62,24 @@ export function createExpiredArchivePublicationEvidence({
   canariesPerLocale = DEFAULT_CANARIES_PER_LOCALE,
 } = {}) {
   const candidates = new Map(LOCALES.map((locale) => [locale, []]));
+  const indexableCandidates = new Map(LOCALES.map((locale) => [locale, []]));
   const renderedByLocale = new Map(LOCALES.map((locale) => [locale, 0]));
+  const expectedNoindexByLocale = new Map(LOCALES.map((locale) => [locale, 0]));
 
   return {
     record(candidate) {
       const locale = String(candidate?.locale ?? '');
       if (!candidates.has(locale)) throw new Error(`unsupported expired archive evidence locale ${JSON.stringify(locale)}`);
       renderedByLocale.set(locale, renderedByLocale.get(locale) + 1);
-      const bucket = candidates.get(locale);
+      const expectedNoindex = candidate.expectedNoindex === true;
+      if (expectedNoindex) {
+        expectedNoindexByLocale.set(locale, expectedNoindexByLocale.get(locale) + 1);
+      }
+      // Keep policy-indexable archives in a fallback sample. When a locale has
+      // no expected-noindex archives, the publisher still requires a canary.
+      // When it does, prioritize a noindex candidate so this check continues
+      // to attest the noindex path instead of sampling an unrelated page first.
+      const bucket = (expectedNoindex ? candidates : indexableCandidates).get(locale);
       if (bucket.length >= canariesPerLocale) return;
 
       const payloadJson = String(candidate.payloadJson ?? '');
@@ -84,6 +94,7 @@ export function createExpiredArchivePublicationEvidence({
 
       bucket.push({
         locale,
+        expectedNoindex,
         path: String(candidate.path ?? '').replace(/^\/+/, ''),
         url: String(candidate.url ?? ''),
         payloadJson,
@@ -99,9 +110,14 @@ export function createExpiredArchivePublicationEvidence({
       const manifests = [];
       for (const locale of LOCALES) {
         const renderedOverflowPages = renderedByLocale.get(locale);
-        const localeCandidates = candidates.get(locale);
+        const expectedNoindexPages = expectedNoindexByLocale.get(locale);
+        const localeCandidates = expectedNoindexPages > 0
+          ? candidates.get(locale)
+          : indexableCandidates.get(locale);
         if (indexedOverflowAliases > 0 && renderedOverflowPages > 0 && localeCandidates.length === 0) {
-          throw new Error(`expired archive overflow rendered ${renderedOverflowPages} ${locale} page(s) but no complete canary`);
+          const expected = expectedNoindexPages > 0 ? `, including ${expectedNoindexPages} noindex page(s),` : '';
+          const canaryKind = expectedNoindexPages > 0 ? 'noindex canary' : 'canary';
+          throw new Error(`expired archive overflow rendered ${renderedOverflowPages} ${locale} page(s)${expected} but no complete ${canaryKind}`);
         }
 
         const entries = localeCandidates.map((candidate) => {
@@ -120,8 +136,12 @@ export function createExpiredArchivePublicationEvidence({
           ])) {
             throw new Error(`expired archive canary canonical differs from ${candidate.url}`);
           }
-          if (!NOINDEX_ROBOTS_RE.test(html)) {
+          const isNoindex = NOINDEX_ROBOTS_RE.test(html);
+          if (candidate.expectedNoindex && !isNoindex) {
             throw new Error(`expired archive canary must be noindex: ${candidate.path}`);
+          }
+          if (!candidate.expectedNoindex && isNoindex) {
+            throw new Error(`policy-indexable expired archive canary unexpectedly has noindex: ${candidate.path}`);
           }
           const publishedTitleHtml = TITLE_RE.exec(html)?.[1]?.trim() ?? '';
           if (publishedTitleHtml !== candidate.titleHtml) {

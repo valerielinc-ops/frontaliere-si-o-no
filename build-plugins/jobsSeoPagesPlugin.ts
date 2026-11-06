@@ -15002,6 +15002,7 @@ ${staticAnalyticsHtml}
   if (expiredArchiveOverflowOwned) {
    expiredArchivePublicationEvidence.record({
     locale,
+    expectedNoindex: expiredRobotsTag.includes('noindex'),
     path: `${relPath.replace(/^\/+|\/+$/g, '')}/index.html`,
     url: selfUrl,
     payloadJson: expiredWindowData,
