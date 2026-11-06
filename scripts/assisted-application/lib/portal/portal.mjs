@@ -627,7 +627,7 @@ export function postingAddressForPortal({ applyUrl, postingUrls = [], fallback =
     fallback,
   ].map((value) => String(value || '').trim()).filter(Boolean);
   const inferred = umantisPostingAddressFromApplication(applyUrl);
-  if (inferred && !hasConflictingUmantisVacancyRoute(applyUrl, candidates)) return inferred;
+  if (Array.isArray(postingUrls) && inferred && !hasConflictingUmantisVacancyRoute(applyUrl, candidates)) return inferred;
   return isUmantisUrl(applyUrl) ? '' : String(fallback || '');
 }
 
