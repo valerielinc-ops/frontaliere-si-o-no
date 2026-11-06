@@ -82,6 +82,12 @@ export const RX = Object.freeze({
   igUnsavedPostTitle: /vuoi eliminare il post\?\s*se abbandoni, le tue modifiche non verranno salvate\.?|do you want to discard (?:the )?post\?\s*if you leave, your changes won't be saved\.?|möchtest du den beitrag löschen\?\s*wenn du gehst, werden deine änderungen nicht gespeichert\.?|voulez-vous supprimer (?:la publication|le post)\s*\?\s*si vous quittez, vos modifications ne seront pas enregistrées\.?/i,
   igUnsavedPostCancel: EXACT_TEXT_ONE_OF('Annulla', 'Cancel', 'Abbrechen', 'Annuler'),
   igUnsavedPostDelete: EXACT_TEXT_ONE_OF('Elimina', 'Delete', 'Löschen', 'Supprimer'),
+  // Instagram can show a roleless account-readiness notice before the Create
+  // control. Require both the heading and the account-update copy before the
+  // robot acknowledges it; matching only "Continua" could press an unrelated
+  // action on the publishing surface.
+  igMetaAccountReadyTitle: /il tuo account meta è pronto\s*il tuo account aggiornato funziona nelle app e sui dispositivi meta,\s*rendendo più semplice a\b/i,
+  igMetaAccountReadyContinue: EXACT_TEXT_ONE_OF('Continua', 'Continue', 'Weiter', 'Continuer'),
   igConfirm: /your (?:post|reel) has been shared|(?:post|reel) shared|il tuo (?:post|reel) è stato condiviso|(?:post|reel) condiviso|dein (?:beitrag|reel) wurde geteilt|(?:beitrag|reel) geteilt|votre (?:publication|reel) a été partag(?:ée|é)|(?:publication|reel) partag(?:ée|é)/i,
   notNow: ANY_OF('Not now', 'Not Now', 'Non ora', 'Jetzt nicht', 'Plus tard'),
   ttPost: ANY_OF('Post', 'Pubblica', 'Posten', 'Veröffentlichen', 'Publier'),
@@ -900,6 +906,13 @@ export const INTERSTITIAL_REGISTRY = Object.freeze({
       secondaryName: RX.igUnsavedPostDelete,
       safeAction: 'cancel-unsaved-post',
     }),
+    Object.freeze({
+      id: 'instagram-meta-account-ready',
+      surface: 'text-container',
+      title: RX.igMetaAccountReadyTitle,
+      name: RX.igMetaAccountReadyContinue,
+      safeAction: 'continue-meta-account',
+    }),
   ]),
   tiktok: Object.freeze([
     // Cookie consent is always handled first: it can cover a tour action.
@@ -966,11 +979,13 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
           root.getByRole('button', { name: entry.name }),
           root.locator('button').filter({ hasText: entry.name }),
         ], { timeout: 0 });
-        const secondary = await findVisible([
-          root.getByRole('button', { name: entry.secondaryName }),
-          root.locator('button').filter({ hasText: entry.secondaryName }),
-        ], { timeout: 0 });
-        if (!action || !secondary) continue;
+        const secondary = entry.secondaryName
+          ? await findVisible([
+            root.getByRole('button', { name: entry.secondaryName }),
+            root.locator('button').filter({ hasText: entry.secondaryName }),
+          ], { timeout: 0 })
+          : null;
+        if (!action || (entry.secondaryName && !secondary)) continue;
         matches.push({ root, action, textLength: normalize(await root.innerText().catch(() => '')).length });
       }
       if (matches.length > 0) {
@@ -1079,6 +1094,14 @@ async function dismissKnownInterstitial({ page, platform, target, entry, step, s
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe cancel action`, { step: step.get() });
     }
     await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `safe cancel action for ${entry.id}` });
+    return;
+  }
+
+  if (entry.safeAction === 'continue-meta-account') {
+    if (!await visible(target.action)) {
+      throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe continue action`, { step: step.get() });
+    }
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `continue action for ${entry.id}` });
     return;
   }
 

@@ -21,6 +21,8 @@
  *   - a challenge (Instagram) or a captcha (TikTok) right after the press:
  *     keeps its class, pressed = true — the post may be online;
  *   - login wall, challenge, and a video-only upload field with processing;
+ *   - Instagram's roleless Meta account-readiness notice is acknowledged only
+ *     when its full context and Continue action are present;
  *   - Instagram Reel dry-run and publish confirmation with a single MP4;
  *   - an Instagram SVG-only create fallback whose hit target is its button;
  *     a non-actionable TikTok cookie config beside an unrelated banner; a
@@ -46,7 +48,7 @@ const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, bareUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0, discardPromptBeforeCaption = false, discardPromptOutsideDialog = false, discardPromptMissingSafeAction = false, uploadDialogDelayMs = 0, uploadDialogLoadingForever = false, unsavedPost = false } = {}) {
+function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, bareUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0, discardPromptBeforeCaption = false, discardPromptOutsideDialog = false, discardPromptMissingSafeAction = false, uploadDialogDelayMs = 0, uploadDialogLoadingForever = false, unsavedPost = false, metaAccountReady = false } = {}) {
   const menuItem = (id, label) => rolelessCreateMenu
     ? `<div id="${id}"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></div>`
     : `<a href="#" id="${id}" role="link"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></a>`;
@@ -90,6 +92,9 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
   const unsavedPostMarkup = unsavedPost
     ? '<div id="instagram-unsaved-post" data-action="none" hidden style="position:fixed;inset:0;z-index:30;background:#fff;padding:25% 20%"><div>Vuoi eliminare il post?</div><div>Se abbandoni, le tue modifiche non verranno salvate.</div><button id="instagram-delete-post" type="button">Elimina</button><button id="instagram-cancel-post" type="button">Annulla</button></div>'
     : '';
+  const metaAccountReadyMarkup = metaAccountReady
+    ? '<div id="meta-account-ready" style="position:fixed;inset:0;z-index:40;background:#fff;padding:25% 20%"><h2>Il tuo account Meta è pronto</h2><p>Il tuo account aggiornato funziona nelle app e sui dispositivi Meta, rendendo più semplice a te usare i servizi.</p><button id="meta-account-ready-continue" type="button">Continua</button></div>'
+    : '';
   const openDialog = (entry) => {
     const entryCode = JSON.stringify(entry);
     const mount = `$('dialog').innerHTML = ${JSON.stringify(dialogContent)}; $('dialog').dataset.entry = ${entryCode}; $('dialog').hidden = false; bindDialog();`;
@@ -103,13 +108,14 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
 <nav>${createMarkup}<a href="/">Home</a><a href="/reels/">Reels</a></nav>
 ${externalPostMarkup}
 ${createMenuMarkup}
-${dialogMarkup}${noticeMarkup}${discardPromptMarkup}${unsavedPostMarkup}`, `
+${dialogMarkup}${noticeMarkup}${discardPromptMarkup}${unsavedPostMarkup}${metaAccountReadyMarkup}`, `
 const $ = (id) => document.getElementById(id);
 let count = 0;
 $('create').onclick = (e) => { e.preventDefault(); ${createAction} };
 ${postAction}
 ${videoReelNotice ? "$('video-reel-notice-ok').onclick = () => { $('video-reel-notice').hidden = true; $('dialog').removeAttribute('aria-hidden'); };" : ''}
 ${discardPromptBeforeCaption || discardPromptOutsideDialog || discardPromptMissingSafeAction ? "$('keep-editing')?.addEventListener('click', async () => { await fetch('/api/ig/keep-editing', { method: 'POST', body: '{}' }); $('discard-post-confirmation').hidden = true; }); $('discard-post').onclick = async () => { await fetch('/api/ig/discard-post', { method: 'POST', body: '{}' }); $('discard-post-confirmation').hidden = true; };" : ''}
+${metaAccountReady ? "$('meta-account-ready-continue').onclick = () => { $('meta-account-ready').dataset.action = 'continue'; $('meta-account-ready').hidden = true; };" : ''}
 function bindDialog() {
   $('file').onchange = () => {
     count = $('file').files.length;
@@ -330,6 +336,7 @@ function fakePlatforms() {
     const url = new URL(req.url, 'http://x');
     switch (url.pathname) {
       case '/ig/': return send(200, instagramPage());
+      case '/ig-meta-account-ready/': return send(200, instagramPage({ metaAccountReady: true }));
       case '/ig-discard-confirmation/': return send(200, instagramPage({ discardPromptBeforeCaption: true }));
       case '/ig-discard-confirmation-unscoped/': return send(200, instagramPage({ discardPromptOutsideDialog: true }));
       case '/ig-discard-confirmation-no-safe-action/': return send(200, instagramPage({ discardPromptMissingSafeAction: true }));
@@ -456,6 +463,11 @@ async function main() {
     check(r.result?.status === 'dry-run', `a roleless unsaved-post confirmation is cancelled before caption entry (${r.error?.message || 'ok'})`);
     check(await tab.locator('#instagram-unsaved-post').getAttribute('data-action') === 'cancel', 'the unsaved-post interstitial uses only the safe cancel action');
     check(!(await tab.locator('#instagram-unsaved-post').isVisible()), 'the unsaved-post interstitial is gone before the dry-run publish checkpoint');
+
+    r = await run('instagram', `${base}/ig-meta-account-ready/`, { dryRun: true, label: 'ig-meta-account-ready' });
+    check(r.result?.status === 'dry-run', `the roleless Meta account notice is acknowledged before Create (${r.error?.message || 'ok'})`);
+    check(await tab.locator('#meta-account-ready').getAttribute('data-action') === 'continue', 'the Meta account notice uses only its explicit Continue action');
+    check(!(await tab.locator('#meta-account-ready').isVisible()), 'the Meta account notice is gone before the dry-run publish checkpoint');
 
     r = await run('instagram', `${base}/ig-reel-roleless-menu/`, { dryRun: true, label: 'ig-reel-roleless-menu', reel: true, flowTimeouts: { ...timeouts, optional: 100 } });
     check(r.result?.status === 'dry-run', `a roleless Reel menu opens the Reel composer (${r.error?.message || 'ok'})`);
