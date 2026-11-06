@@ -38,7 +38,8 @@ jobs:
           # This monitor needs a few runtime files, not the generated 858 MB
           # bucket profile. The broad `/*` profile repeatedly spent the whole
           # 10-minute job budget materializing blobs after the fetch completed.
-          filter: blob:none
+          # Do not add `filter:` here: actions/checkout derives blob:none from
+          # sparse-checkout, while an explicit filter overrides these patterns.
           # checkout profile: intentionally manual and minimal
           sparse-checkout: |
             /.npmrc

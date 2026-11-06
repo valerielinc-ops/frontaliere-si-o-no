@@ -625,7 +625,9 @@ describe('border-live-data-watchdog.yml — state carry outside git (issue #7376
       YML.indexOf('- name: Checkout'),
       YML.indexOf('- name: Setup Node.js'),
     );
-    expect(checkout).toMatch(/filter: blob:none/);
+    // actions/checkout derives blob:none from sparse-checkout. An explicit
+    // filter takes precedence and would silently disable this allowlist.
+    expect(checkout).not.toMatch(/^\s*filter:/m);
     expect(checkout).toMatch(/timeout-minutes: 7/);
     const sparseBlock = checkout.match(/sparse-checkout: \|\n([\s\S]*?)\n\s+sparse-checkout-cone-mode:/);
     expect(sparseBlock).not.toBeNull();
