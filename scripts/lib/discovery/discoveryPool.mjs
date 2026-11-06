@@ -296,7 +296,7 @@ export async function fetchAll(evidence, opts = {}) {
       const result = await newsFn(evidence, {
         fetchImpl: opts.fetchImpl,
         seeds,
-        nowMs: opts.nowMs,
+        nowMs,
         ...(sourceDeadlineMs !== null ? { deadlineMs: sourceDeadlineMs } : {}),
       });
       const newsEvidence = Array.isArray(result) ? result : [];
