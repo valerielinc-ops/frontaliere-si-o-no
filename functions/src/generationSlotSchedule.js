@@ -2,6 +2,8 @@ const SLOT_MINUTES = Object.freeze({ frontaliere: 7, svizzera: 37 });
 
 export const GENERATION_SLOT_MAX_LATE_MINUTES = 13;
 export const GENERATION_SLOT_SETTLE_MINUTES = 2;
+// These markers stay outside LOOP_CLOCK_ENTRIES: the observer owns ordinary
+// workflow cadences, while generation health has its own article-progress scan.
 export const GENERATION_SLOT_ENTRIES = Object.freeze([
   Object.freeze({
     id: 'corpus-generation-slot-frontaliere',

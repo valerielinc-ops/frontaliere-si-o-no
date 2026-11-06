@@ -92,3 +92,31 @@ test('candidate rows must match the bounded public schema', () => {
   assert.equal(result.publishedState, 'invalid');
   assert.equal(result.recoveryTarget, 'deploy');
 });
+
+test('Reddit links must match the normalized public post URL shape', () => {
+  const candidate = {
+    id: 'a1b2c3d4',
+    keyword: 'example',
+    angle: null,
+    locale: 'it',
+    sources: ['reddit'],
+    totalScore: 0.5,
+    redditPermalink: 'https://www.reddit.com/r/ticino/comments/abc123/',
+  };
+  const valid = assessCandidateFeedHealth({
+    publishedRaw: publicFeed({ candidates: [candidate] }),
+    sourceRaw: sourceFeed(),
+    now: NOW,
+  });
+  assert.equal(valid.publishedState, 'fresh');
+
+  const invalid = assessCandidateFeedHealth({
+    publishedRaw: publicFeed({ candidates: [{
+      ...candidate,
+      redditPermalink: 'https://www.reddit.com/r/ticino/redirect?target=https://example.test',
+    }] }),
+    sourceRaw: sourceFeed(),
+    now: NOW,
+  });
+  assert.equal(invalid.publishedState, 'invalid');
+});

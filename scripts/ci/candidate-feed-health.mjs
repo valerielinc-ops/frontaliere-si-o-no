@@ -44,13 +44,25 @@ function validPublicCandidate(candidate) {
     || candidate.sources.some((source) => !SOURCES.has(source))) return false;
   if (!Number.isFinite(candidate.totalScore) || candidate.totalScore < 0 || candidate.totalScore > 1) return false;
   if (candidate.redditPermalink != null) {
-    if (typeof candidate.redditPermalink !== 'string'
-      || candidate.redditPermalink.length > 2048
-      || !candidate.redditPermalink.startsWith('https://www.reddit.com/r/')
-      || /[?#]/u.test(candidate.redditPermalink)
-      || !candidate.sources.includes('reddit')) return false;
+    if (!validRedditPermalink(candidate.redditPermalink) || !candidate.sources.includes('reddit')) return false;
   }
   return true;
+}
+
+function validRedditPermalink(value) {
+  if (typeof value !== 'string' || value.length > 2048) return false;
+  try {
+    const rawAuthority = value.match(/^https:\/\/([^/?#]+)/iu)?.[1];
+    const url = new URL(value);
+    return url.protocol === 'https:'
+      && url.hostname === 'www.reddit.com'
+      && !url.username && !url.password && !url.port
+      && url.search === '' && url.hash === ''
+      && rawAuthority?.toLowerCase() === 'www.reddit.com'
+      && /^\/r\/[a-z0-9_]+\/comments\/[a-z0-9]+(?:\/[^/]*)?\/?$/iu.test(url.pathname);
+  } catch {
+    return false;
+  }
 }
 
 function classifySource(raw, nowMs) {
