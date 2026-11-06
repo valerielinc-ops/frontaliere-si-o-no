@@ -84,7 +84,8 @@ async function mapPool(items, concurrency, fn) {
   let failed = false;
   let firstError;
   const lanes = Array.from({ length: Math.max(1, Math.min(concurrency, items.length)) }, async () => {
-    while (!failed && cursor < items.length) {
+    while (cursor < items.length) {
+      if (failed) return;
       const index = cursor++;
       try {
         await fn(items[index], index);
