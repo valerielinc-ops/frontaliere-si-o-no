@@ -8678,6 +8678,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cdf-critica-armasuisse-immobili.title': 'SFAO kritisiert Armasuisse wegen Umstrukturierungsverzögerungen',
     'blog.article.cdf-critica-armasuisse-immobili.excerpt': 'SFAO kritisiert das Management von Armasuisse Immobilien.',
     'blog.article.cdf-critica-armasuisse-immobili.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.riforma-assicurazione-invalidita-ai.title': 'IV-Reform: Risiko einer Vermögenserschöpfung im Jahr 2031',
+    'blog.article.riforma-assicurazione-invalidita-ai.excerpt': 'Der Bundesrat hat am Mittwoch die nächste Reform der Invalidenversicherung (IV) in die Vernehmlassung geschickt.',
+    'blog.article.riforma-assicurazione-invalidita-ai.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

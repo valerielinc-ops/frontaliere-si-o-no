@@ -86591,6 +86591,80 @@
         }
       }
     },
+    "generated:article-riforma-assicurazione-invalidita-ai": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T05:14:56.718Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-riforma-assicurazione-invalidita-ai",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "81e669d7044131cd58aa8e7bcda99cc598aa27eb47bbaa0cbc3077aee8e334e8",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "3ce1a05eab52f46869af4216385aa45f172bde7c1b540c5644d05567d5ebdcf7",
+        "bytes": 203394,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T05:14:56.718Z",
+        "verifiedAt": "2026-11-06T05:15:08.914Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-riforma-assicurazione-invalidita-ai.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic architectural illustration of a Swiss administrative building; no readable text, logos, recognizable faces, or foreground people."
+        }
+      }
+    },
     "generated:article-salario-minimo-basilea-aumento": {
       "source": "generated-provider",
       "commons": {
@@ -129685,6 +129759,10 @@
     },
     "article-ricerca-fisco-aziende-svitto": {
       "file": "generated:article-ricerca-fisco-aziende-svitto",
+      "modified": "resized"
+    },
+    "article-riforma-assicurazione-invalidita-ai": {
+      "file": "generated:article-riforma-assicurazione-invalidita-ai",
       "modified": "resized"
     },
     "article-salario-minimo-basilea-aumento": {

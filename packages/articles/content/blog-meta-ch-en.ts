@@ -8678,6 +8678,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cdf-critica-armasuisse-immobili.title': 'CDF criticizes Armasuisse Immobili for delays in renovations',
     'blog.article.cdf-critica-armasuisse-immobili.excerpt': 'Armasuisse Immobili is in fact unable to determine either the troops’ actual needs or the necessary investment with sufficient precision.',
     'blog.article.cdf-critica-armasuisse-immobili.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.riforma-assicurazione-invalidita-ai.title': 'AI reform: risk of asset depletion in 2031',
+    'blog.article.riforma-assicurazione-invalidita-ai.excerpt': 'The Federal Council put the next reform of disability insurance (DI) out for consultation on Wednesday.',
+    'blog.article.riforma-assicurazione-invalidita-ai.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

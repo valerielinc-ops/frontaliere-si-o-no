@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1059,
+      "5": 1060,
       "6": 5061
     },
-    "publishedCovers": 7802,
+    "publishedCovers": 7803,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -214019,6 +214019,39 @@
         "provider": "openai-codex",
         "assetId": "article-ricerca-fisco-aziende-svitto",
         "imageUrl": "/images/blog/article-ricerca-fisco-aziende-svitto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-riforma-assicurazione-invalidita-ai": {
+      "cover": "/images/blog/article-riforma-assicurazione-invalidita-ai.webp",
+      "hash": "3ce1a05eab52f46869af4216385aa45f172bde7c1b540c5644d05567d5ebdcf7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "riforma-assicurazione-invalidita-ai",
+          "category": "pensione",
+          "date": "2026-11-06T05:15:09.700Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-riforma-assicurazione-invalidita-ai.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-riforma-assicurazione-invalidita-ai",
+        "imageUrl": "/images/blog/article-riforma-assicurazione-invalidita-ai.webp",
         "evidence": "generated-engine-record"
       }
     },

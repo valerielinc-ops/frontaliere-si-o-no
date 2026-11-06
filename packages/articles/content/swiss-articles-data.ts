@@ -30185,6 +30185,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'riforma-assicurazione-invalidita-ai',
+    category: 'pensione',
+    date: '2026-11-06T05:15:09.700Z',
+    image: '/images/blog/article-riforma-assicurazione-invalidita-ai.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

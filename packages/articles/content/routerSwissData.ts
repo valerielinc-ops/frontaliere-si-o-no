@@ -2915,6 +2915,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'swissport-zurigo-trattative-ccl': { it: 'swissport-zurigo-trattative-ccl', en: 'swissport-zurich-cba-negotiations', de: 'swissport-zuerich-gav-verhandlungen', fr: 'swissport-zurich-negociations-cct' },
  'voto-iva-13esima-avs-novembre': { it: 'voto-iva-13esima-avs-novembre', en: 'vote-vat-13th-avs-november', de: 'abstimmung-mwst-13-ahv-november', fr: 'vote-tva-13eme-avs-novembre' },
  'cdf-critica-armasuisse-immobili': { it: 'cdf-critica-armasuisse-immobili', en: 'cdf-criticizes-armasuisse-real-estate', de: 'cdf-kritisiert-armasuisse-immobilien', fr: 'cdf-critique-armasuisse-immobilier' },
+ 'riforma-assicurazione-invalidita-ai': { it: 'riforma-assicurazione-invalidita-ai', en: 'ai-insurance-reform', de: 'ai-versicherungsreform', fr: 'reforme-assurance-invalidite' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

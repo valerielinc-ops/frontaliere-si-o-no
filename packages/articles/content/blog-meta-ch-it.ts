@@ -8678,6 +8678,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cdf-critica-armasuisse-immobili.title': 'CDF critica Armasuisse Immobili per ritardi nei risanamenti',
     'blog.article.cdf-critica-armasuisse-immobili.excerpt': 'Il documento pubblicato lunedì dal Controllo federale delle finanze (CDF) rimprovera ad Armasuisse Immobili ritardi nel risanamento delle infrastrutture militari e lacune nella pianificazione strategica.',
     'blog.article.cdf-critica-armasuisse-immobili.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.riforma-assicurazione-invalidita-ai.title': 'Riforma AI: rischio esaurimento patrimonio nel 2031',
+    'blog.article.riforma-assicurazione-invalidita-ai.excerpt': 'Il Consiglio federale ha posto in consultazione mercoledì la prossima riforma dell\'assicurazione invalidità (AI).',
+    'blog.article.riforma-assicurazione-invalidita-ai.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

@@ -8678,6 +8678,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cdf-critica-armasuisse-immobili.title': 'Le CDF critique Armasuisse Immobili pour ses retards dans les assainissements',
     'blog.article.cdf-critica-armasuisse-immobili.excerpt': 'La critique intervient alors que de nouveaux besoins pour renforcer l’armée suisse exercent une pression sur la gestion des actifs immobiliers.',
     'blog.article.cdf-critica-armasuisse-immobili.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.riforma-assicurazione-invalidita-ai.title': 'Réforme de l\'AI : risque d\'épuisement du patrimoine en 2031',
+    'blog.article.riforma-assicurazione-invalidita-ai.excerpt': 'Le Conseil fédéral a mis en consultation mercredi la prochaine réforme de l\'assurance-invalidité (AI).',
+    'blog.article.riforma-assicurazione-invalidita-ai.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
