@@ -119,9 +119,26 @@ export function evaluateSitemapFamilyCoverage(previous, current, declarations) {
     allowedDecreases.push({ ...entry, reason: declaration.reason });
   }
 
+  // Once an exact declared decrease has been deployed, its resulting count
+  // becomes the previous snapshot. Retire that declaration automatically so
+  // the next deploy does not fail on an already-consumed exception. A later
+  // decrease still fails above because it cannot match the same exact pair.
+  const consumedDeclarations = [...byFamily.entries()]
+    .filter(([family, declaration]) =>
+      !usedDeclarations.has(family) && before[family] === declaration.currentCount,
+    )
+    .map(([family]) => ({ family, reason: 'declared decrease is now the previous deployment baseline' }));
+  const consumedFamilies = new Set(consumedDeclarations.map(({ family }) => family));
   const staleDeclarations = [...byFamily.keys()]
-    .filter((family) => !usedDeclarations.has(family))
-    .map((family) => ({ family, reason: 'declaration does not match a current decrease' }));
+    .filter((family) => !usedDeclarations.has(family) && !consumedFamilies.has(family))
+    .map((family) => ({ family, reason: 'declaration does not match a current decrease or deployed baseline' }));
 
-  return { families, regressions, allowedDecreases, invalidDeclarations: invalid, staleDeclarations };
+  return {
+    families,
+    regressions,
+    allowedDecreases,
+    consumedDeclarations,
+    invalidDeclarations: invalid,
+    staleDeclarations,
+  };
 }

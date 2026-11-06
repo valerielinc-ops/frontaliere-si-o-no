@@ -72,6 +72,9 @@ async function main() {
     for (const decrease of coverage.allowedDecreases) {
       console.log(`  declared decrease: ${decrease.family}: ${decrease.reason}`);
     }
+    for (const consumed of coverage.consumedDeclarations) {
+      console.log(`  consumed decrease declaration: ${consumed.family}: ${consumed.reason}`);
+    }
     if (coverage.invalidDeclarations.length || coverage.staleDeclarations.length || coverage.regressions.length) {
       for (const declaration of coverage.invalidDeclarations) {
         console.error(`  invalid declaration: ${declaration.family} (${declaration.reason})`);

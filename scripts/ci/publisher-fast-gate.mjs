@@ -10,7 +10,7 @@ import {
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
 
-export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v2';
+export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v3';
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SHA_RE = /^[0-9a-f]{64}$/u;

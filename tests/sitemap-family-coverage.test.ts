@@ -95,6 +95,35 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(declared.staleDeclarations).toEqual([]);
   });
 
+  it('consumes an exact decrease declaration after its count becomes the live baseline', () => {
+    const declaration = {
+      version: 1,
+      decreases: [{
+        family: 'fuel-italian-stations',
+        previousCount: 4,
+        currentCount: 3,
+        reason: 'Retired missing-price station URLs now resolve to noindex bridges.',
+      }],
+    };
+    const deployed = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-fuel-italian-stations.xml': ['a', 'b', 'c'] }),
+      snapshot({ 'sitemap-fuel-italian-stations.xml': ['a', 'b', 'c'] }),
+      declaration,
+    );
+    const laterDecrease = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-fuel-italian-stations.xml': ['a', 'b', 'c'] }),
+      snapshot({ 'sitemap-fuel-italian-stations.xml': ['a', 'b'] }),
+      declaration,
+    );
+
+    expect(deployed.regressions).toEqual([]);
+    expect(deployed.consumedDeclarations).toMatchObject([{ family: 'fuel-italian-stations' }]);
+    expect(deployed.staleDeclarations).toEqual([]);
+    expect(laterDecrease.regressions).toEqual([
+      { family: 'fuel-italian-stations', previousCount: 3, currentCount: 2, delta: -1 },
+    ]);
+  });
+
   it('rejects broad, stale, malformed, and legacy flat declarations/snapshots', () => {
     const previous = snapshot({ 'sitemap-job-market.xml': ['a', 'b'] });
     const current = snapshot({ 'sitemap-job-market.xml': ['a'] });
