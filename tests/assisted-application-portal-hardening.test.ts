@@ -1136,8 +1136,8 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       applicationQuestion: 'Nazionalità',
       options,
       applicationOptions: options,
-      applicationQuestionLocale: 'it',
-      localizationStatus: 'same_language',
+      applicationQuestionLocale: null,
+      localizationStatus: 'fallback',
     });
     expect(portalAnswerForApplication(localized[0], 'Italiana')).toBe('Italiana');
     expect(portalAnswerForApplication(localized[0], 'Dominicano')).toBe('');
