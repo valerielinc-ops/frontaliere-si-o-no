@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "58fcff76fde35ab9ffda8d0b670f49063cc09cb4",
+  "commit": "27afddb9191e22af41c1fedb7d3681de2557abc6",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -46972,6 +46972,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic architectural illustration of a Swiss administrative building; no readable text, logos, recognizable faces, or foreground people."
+      }
+    },
+    "/images/blog/article-volksschule-uri-iscrizioni-2025-2026.webp": {
+      "schema": 1,
+      "assetId": "article-volksschule-uri-iscrizioni-2025-2026",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "e1580ecc4fdf265047018b33fe0de82dec8e44f14170d07090b78b9a9ab74e92",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "fe4303f8a7a00af82761d13b6808b414ee3e23d68f4a6d50fa257bc21a95c31f",
+      "bytes": 163048,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-06T07:40:30.948Z",
+      "verifiedAt": "2026-11-06T07:40:44.910Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-volksschule-uri-iscrizioni-2025-2026.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic autumn school-building scene with no readable text, logos, or identifiable people."
       }
     },
     "/images/places/lugano-view.webp": {

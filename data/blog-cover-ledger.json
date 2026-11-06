@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1060,
+      "5": 1061,
       "6": 5061
     },
-    "publishedCovers": 7803,
+    "publishedCovers": 7804,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -214877,6 +214877,39 @@
         "provider": "openai-codex",
         "assetId": "article-vionnaz-revoca-divieti-acqua",
         "imageUrl": "/images/blog/article-vionnaz-revoca-divieti-acqua.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-volksschule-uri-iscrizioni-2025-2026": {
+      "cover": "/images/blog/article-volksschule-uri-iscrizioni-2025-2026.webp",
+      "hash": "fe4303f8a7a00af82761d13b6808b414ee3e23d68f4a6d50fa257bc21a95c31f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "volksschule-uri-iscrizioni-2025-2026",
+          "category": "pratico",
+          "date": "2026-11-06T07:40:45.014Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-volksschule-uri-iscrizioni-2025-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-volksschule-uri-iscrizioni-2025-2026",
+        "imageUrl": "/images/blog/article-volksschule-uri-iscrizioni-2025-2026.webp",
         "evidence": "generated-engine-record"
       }
     },
