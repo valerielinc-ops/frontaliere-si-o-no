@@ -191,6 +191,7 @@ const INSPIRED_GENERIC_SCHOOL_IDENTITIES = new Set([
 const IST_GENERIC_SWISS_LOCATION_RE = /^(?:lugano|cadempino),\s*ch$/i;
 const IST_GENERIC_GROUP_ROLE_RE = /\binspired\s+education\s+group\s+school\b/i;
 const IST_GENERIC_IB_SCHOOL_RE = /\bib\s+world\s+school\b/i;
+const IST_GENERIC_ROLE_SUMMARY_SCHOOL_RE = /\brole\s+summary\s*:\s*(?:(?:(?:this|that)\s+is|our)\s+)?(?:an?\s+)?inspired\s+education(?:\s+group)?\s+school\b/i;
 const IST_CAMPUS_IDENTITY_FIELDS = [
   'tenant',
   'tenantName',
@@ -264,15 +265,17 @@ function hasConflictingCampusIdentity(detail = {}) {
  * The current portal has one Swiss vacancy whose native detail omits both
  * `facility` and `tenant`: it exposes only the shared organization, the
  * native `Lugano, CH` location, and a role body explicitly scoped to an
- * Inspired IB World School. Keep this fallback narrower than a city allowlist
+ * Inspired school. Keep this fallback narrower than a city allowlist
  * so a generic Swiss row without the source's role-context proof remains
  * incomplete and cannot certify an empty IST source.
  */
 function hasVerifiedGenericSwissIstSignal(detail = {}, sourceUrl = detail.sourceUrl) {
   if (hasConflictingCampusIdentity(detail)) return false;
   if (!IST_GENERIC_SWISS_LOCATION_RE.test(normalizeSpace(detail.location))) return false;
-  if (!IST_GENERIC_GROUP_ROLE_RE.test(normalizeSpace(detail.description))) return false;
-  if (!IST_GENERIC_IB_SCHOOL_RE.test(normalizeSpace(detail.description))) return false;
+  const description = normalizeSpace(detail.description);
+  if (!IST_GENERIC_GROUP_ROLE_RE.test(description)) return false;
+  if (!IST_GENERIC_IB_SCHOOL_RE.test(description)
+    && !IST_GENERIC_ROLE_SUMMARY_SCHOOL_RE.test(description)) return false;
 
   try {
     const parsed = new URL(String(sourceUrl || ''));

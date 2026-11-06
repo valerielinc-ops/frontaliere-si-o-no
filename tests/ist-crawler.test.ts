@@ -419,7 +419,7 @@ describe('IST detail response classification', () => {
           <div data-job-field="location">Lugano, CH</div>
           <div data-job-field="hiringOrganization">Inspired Education</div>
           <div data-careersite-propertyid="description">
-            ROLE SUMMARY: Our Inspired Education Group school in Lugano.
+            ROLE SUMMARY: Our Inspired Education Group school in Lugano. This is an IB World School.
           </div>
         </article>
       `,
