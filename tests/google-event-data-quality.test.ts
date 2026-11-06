@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { hasCompleteGoogleEventData } from '../packages/articles/engine/shared/googleEventDataQuality.mjs';
+import { normalizeEventDateRange } from '../packages/articles/engine/shared/google-event-values.mjs';
 
 type AddressFixture = {
   '@type': string | string[];
@@ -127,6 +128,17 @@ describe('Google Event data quality publication gate', () => {
     const event = structuredClone(COMPLETE_EVENT);
     event.startDate = '2025-07-21T00:15';
     event.endDate = '2025-07-21';
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
+  });
+
+  it('fails closed when a timezone-free value is mixed with an explicit offset', () => {
+    const start = '2026-07-21T23:30';
+    const end = '2026-07-22T00:15+02:00';
+    expect(normalizeEventDateRange(start, end)).toBeUndefined();
+
+    const event = structuredClone(COMPLETE_EVENT);
+    event.startDate = start;
+    event.endDate = end;
     expect(hasCompleteGoogleEventData(event)).toBe(false);
   });
 
@@ -291,6 +303,25 @@ describe('Google Event data quality publication gate', () => {
     const foreignAvailability = structuredClone(COMPLETE_EVENT);
     singleOffer(foreignAvailability).availability = 'https://example.test/InStock';
     expect(hasCompleteGoogleEventData(foreignAvailability)).toBe(false);
+  });
+
+  it.each([
+    'BackOrder',
+    'Discontinued',
+    'InStock',
+    'InStoreOnly',
+    'LimitedAvailability',
+    'MadeToOrder',
+    'OnlineOnly',
+    'OutOfStock',
+    'PreOrder',
+    'PreSale',
+    'Reserved',
+    'SoldOut',
+  ])('accepts the Schema.org ItemAvailability code %s', (availability) => {
+    const event = structuredClone(COMPLETE_EVENT);
+    singleOffer(event).availability = `https://schema.org/${availability}`;
+    expect(hasCompleteGoogleEventData(event)).toBe(true);
   });
 
   it('rejects EventMovedOnline with an offline attendance mode', () => {

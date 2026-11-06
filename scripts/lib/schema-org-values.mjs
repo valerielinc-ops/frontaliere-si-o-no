@@ -1,17 +1,6 @@
-const ITEM_AVAILABILITIES = new Set([
-  'BackOrder',
-  'Discontinued',
-  'InStock',
-  'InStoreOnly',
-  'LimitedAvailability',
-  'MadeToOrder',
-  'OnlineOnly',
-  'OutOfStock',
-  'PreOrder',
-  'PreSale',
-  'Reserved',
-  'SoldOut',
-]);
+import { GOOGLE_EVENT_AVAILABILITY_CODES } from '../../packages/articles/engine/shared/google-event-values.mjs';
+
+const ITEM_AVAILABILITIES = GOOGLE_EVENT_AVAILABILITY_CODES;
 
 /** Normalize a Schema.org ItemAvailability value; reject unrelated URLs/names. */
 export function normalizeSchemaOrgItemAvailability(value) {

@@ -29,6 +29,7 @@ import { ARTICLE_NOINDEX_TARGET_MARKER } from './shared/articleNoindexTargetMark
 import { ARTICLE_INDEX_EXCLUSIONS_FILES, articleIndexExclusionKey, loadArticleIndexExclusions } from './shared/articleIndexExclusions.mjs';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
+import { decodeTsStringEscapeSequence } from './shared/tsStringEscapes';
 import {
   hasInterpolatedStaticProperty,
   lastStaticPropertyValue,
@@ -84,6 +85,22 @@ type ResolvedArticleAuthor = ArticleAuthorIdentity & {
 function isRealArticleAuthor(author: ArticleAuthorIdentity | undefined): boolean {
   return author?.kind === 'real-author'
     || (!author?.kind && Boolean(author?.uid || author?.cvPath || author?.social?.linkedin));
+}
+
+const STATIC_BASE_URL_TEMPLATE_RE = /^`\$\{BASE_URL\}((?:\\.|[^`])*)`$/u;
+const STATIC_BASE_URL_TEMPLATE_GLOBAL_RE = /`\$\{BASE_URL\}((?:\\.|[^`])*)`/gu;
+const STATIC_TEMPLATE_ESCAPE_RE = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|0[0-9]|`|[\s\S])/gu;
+
+function decodeStaticTemplateSuffix(value: string): string {
+  return value.replace(STATIC_TEMPLATE_ESCAPE_RE, (whole, escape: string) => (
+    escape === '`' ? '`' : escape === '/' ? '/' : decodeTsStringEscapeSequence(escape) ?? whole
+  ));
+}
+
+/** Resolve one static `${BASE_URL}` template with the same escape semantics as JS. */
+export function resolveStaticTemplateUrl(value: string, baseUrl: string): string {
+  const match = STATIC_BASE_URL_TEMPLATE_RE.exec(value);
+  return match ? `${baseUrl}${decodeStaticTemplateSuffix(match[1])}` : value;
 }
 
 /** Strip the publisher suffix before title equality/collision checks and HTML output. */
@@ -1681,7 +1698,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (!raw) return null;
  try {
  const jsonStr = raw
- .replace(/`\$\{BASE_URL\}([^`]*)`/g, (_match: string, suffix: string) => JSON.stringify(`${BASE_URL}${suffix}`))
+ .replace(STATIC_BASE_URL_TEMPLATE_GLOBAL_RE, (match: string) => JSON.stringify(resolveStaticTemplateUrl(match, BASE_URL)))
  .replace(/,\s*([\]}])/g, '$1'); // strip trailing commas
  return JSON.parse(jsonStr);
  } catch { return null; }

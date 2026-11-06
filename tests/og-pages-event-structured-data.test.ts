@@ -2,12 +2,17 @@ import { afterEach, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { renderArticlePages } from '../build-plugins/ogPagesPlugin';
+import { renderArticlePages, resolveStaticTemplateUrl } from '../build-plugins/ogPagesPlugin';
 
 const temporaryRoots: string[] = [];
 afterEach(() => temporaryRoots.splice(0).forEach((root) => fs.rmSync(root, { recursive: true, force: true })));
 
 const BASE_URL = 'https://frontaliereticino.ch';
+
+it('decodes escaped slashes in static BASE_URL templates', () => {
+  const value = ['`', '${BASE_URL}', '\\/event', '`'].join('');
+  expect(resolveStaticTemplateUrl(value, BASE_URL)).toBe(`${BASE_URL}/event`);
+});
 
 it('normalizes Event price text and resolves BASE_URL templates before completeness validation', async () => {
   const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'og-pages-event-jsonld-'));
@@ -20,9 +25,12 @@ it('normalizes Event price text and resolves BASE_URL templates before completen
 
   const id = 'event-base-url-template-contract';
   const excerpt = 'Un evento di prova con una descrizione completa e verificabile per i dati strutturati.';
-  const organizerUrl = '\u0060${BASE_URL}/organizers/event-test/\u0060';
-  const offerUrl = '\u0060${BASE_URL}/tickets/event-test/\u0060';
+  const organizerUrl = ['`', '${BASE_URL}/organizers/event-', '\\u0063', 'est/', '`'].join('');
+  const offerUrl = ['`', '${BASE_URL}/tickets/event-', '\\u0063', 'est/', '`'].join('');
   const secondOfferUrl = '\u0060${BASE_URL}/tickets/event-test/second/\u0060';
+
+  expect(resolveStaticTemplateUrl(organizerUrl, BASE_URL))
+    .toBe(`${BASE_URL}/organizers/event-cest/`);
 
   write('data/blog-articles-data.ts', `const RAW_ARTICLES = [{ id: '${id}', category: 'pratico', date: '2026-12-01' }];`);
   write('services/seo/seo-blog.ts', `export const entries = {
@@ -87,12 +95,12 @@ it('normalizes Event price text and resolves BASE_URL templates before completen
     'https://schema.org/EventScheduled',
     'https://schema.org/EventPostponed',
   ]);
-  expect((schema?.organizer as Record<string, unknown>)?.url).toBe(`${BASE_URL}/organizers/event-test/`);
+  expect((schema?.organizer as Record<string, unknown>)?.url).toBe(`${BASE_URL}/organizers/event-cest/`);
   const offers = schema?.offers as Record<string, unknown>[];
   expect(offers).toHaveLength(2);
   expect(offers.map((offer) => offer.price)).toEqual([0, 25]);
   expect(offers.map((offer) => offer.url)).toEqual([
-    `${BASE_URL}/tickets/event-test/`,
+    `${BASE_URL}/tickets/event-cest/`,
     `${BASE_URL}/tickets/event-test/second/`,
   ]);
 });

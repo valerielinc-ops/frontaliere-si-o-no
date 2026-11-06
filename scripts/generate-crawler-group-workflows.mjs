@@ -1419,6 +1419,22 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     'exit "$crawler_exit"',
   ].join('\n');
   const watchdogMinutes = crawlerWorkerWatchdogMinutes(crawler);
+  const timeoutRaceClassifier = [
+    'classifyCrawlerTimeoutRace() {',
+    `  if [ "$1" = ${TARGET_TIMEOUT_EXIT} ] || [ "$1" = ${WATCHDOG_KILL_EXIT} ]; then`,
+    '    printf \'%s\\n\' "$1"',
+    '  elif [ -s "$worker_status_file" ]; then',
+    '    worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"',
+    '    if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf \'%s\\n\' "$worker_status"; else printf \'%s\\n\' 1; fi',
+    '  elif [ -e "$started_file" ]; then',
+    `    printf '%s\\n' ${RUNNER_SHUTDOWN_EXIT}`,
+    '  elif [ "$1" = 0 ]; then',
+    '    printf \'%s\\n\' 1',
+    '  else',
+    `    if [[ "$1" =~ ^[0-9]+$ ]]; then printf '%s\\n' "$1"; else printf '%s\\n' ${RUNNER_SHUTDOWN_EXIT}; fi`,
+    '  fi',
+    '}',
+  ].join('\n');
   // The worker and its timeout wrapper can finish together. Keep their writes
   // separate, then publish one terminal status with timeout taking precedence
   // over a late worker success.
@@ -1426,21 +1442,11 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     'resolveCrawlerTerminalStatus() {',
     '  local wrapper_exit="$1"',
     '  local worker_status=""',
-    '  local terminal_exit="$wrapper_exit"',
+    '  local terminal_exit=""',
     '  local watchdog_marker=1',
-    `  if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq ${TARGET_TIMEOUT_EXIT} ] || [ "$wrapper_exit" -eq ${WATCHDOG_KILL_EXIT} ]; }; then`,
-    '    terminal_exit="$wrapper_exit"',
-    '    if [ -s "$worker_status_file" ]; then',
-    '      worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"',
-    `      if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq ${TARGET_TIMEOUT_EXIT} ] 2>/dev/null; then watchdog_marker=0; fi`,
-    '    fi',
-    '  elif [ -s "$worker_status_file" ]; then',
-    '    worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"',
-    '    if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi',
-    '  else',
-    `    if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=${RUNNER_SHUTDOWN_EXIT}; fi`,
-    `    if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=${RUNNER_SHUTDOWN_EXIT}; fi`,
-    '  fi',
+    '  [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"',
+    '  terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"',
+    `  if { [ "$wrapper_exit" = ${TARGET_TIMEOUT_EXIT} ] || [ "$wrapper_exit" = ${WATCHDOG_KILL_EXIT} ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = ${TARGET_TIMEOUT_EXIT} ]; }; then watchdog_marker=0; fi`,
     '  if [ "$watchdog_marker" -eq 1 ]; then',
     ...WATCHDOG_MARK_LINES.map((line) => `    ${line}`),
     '  fi',
@@ -1466,6 +1472,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default ${watchdogMinutes})"`,
     `  worker_watchdog_minutes=${watchdogMinutes}`,
     'fi',
+    timeoutRaceClassifier,
     terminalStatusResolver,
     ...(dedicatedSlot
       ? ['# Private relay slot for this member only; non-relay siblings use the group slot pool.']
@@ -1541,6 +1548,8 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     ...(crawlExitFileName === null ? [] : [`rm -f "$state_dir/${crawlExitFileName}"`]),
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
     `printf '%s\\n' ${shellQuote(worker)} > "$worker_path"`,
+    'validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }',
+    'validateGeneratedWorkerScript "$worker_path" || exit 1',
     `printf '%s\\n' ${shellQuote(launcher)} > "$launcher_path"`,
     'if command -v setsid >/dev/null 2>&1; then',
     '  env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',

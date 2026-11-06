@@ -1,11 +1,11 @@
 import {
   areSupportedGoogleEventStatuses,
+  GOOGLE_EVENT_AVAILABILITY_CODES,
   isGoogleEventStatusCompatible,
   isSupportedGoogleEventAttendanceMode,
   isValidEventDateRange,
 } from './google-event-values.mjs';
 
-const EVENT_AVAILABILITY = new Set(['InStock', 'SoldOut', 'PreOrder']);
 const ISO_4217_CURRENCIES = new Set(
   // ECMA-402 exposes the runtime's canonical, well-formed ISO 4217 currency set.
   typeof Intl.supportedValuesOf === 'function'
@@ -75,7 +75,7 @@ function isValidCurrency(value) {
 function isSupportedEventAvailability(value) {
   if (typeof value !== 'string') return false;
   const raw = value.trim();
-  if (EVENT_AVAILABILITY.has(raw)) return true;
+  if (GOOGLE_EVENT_AVAILABILITY_CODES.has(raw)) return true;
 
   let url;
   try {
@@ -85,7 +85,7 @@ function isSupportedEventAvailability(value) {
   }
   if (!['http:', 'https:'].includes(url.protocol) || url.hostname.toLowerCase() !== 'schema.org' || url.port) return false;
   const member = url.pathname.replace(/^\/+|\/+$/gu, '');
-  return EVENT_AVAILABILITY.has(member) && !url.search && !url.hash;
+  return GOOGLE_EVENT_AVAILABILITY_CODES.has(member) && !url.search && !url.hash;
 }
 
 function isCompletePhysicalLocation(location) {

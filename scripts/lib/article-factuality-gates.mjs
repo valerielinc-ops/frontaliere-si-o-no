@@ -3140,6 +3140,38 @@ function normalizeSourceQuoteForComparison(value) {
     .toLowerCase();
 }
 
+/** Return true only when a quote spans complete source-word boundaries. */
+export function sourceQuoteBoundarySafe(sourceQuote, sourceText) {
+  if (typeof sourceText !== 'string' || sourceText.length < 100) return false;
+  const quote = normalizeSourceQuoteForComparison(sourceQuote);
+  if (!quote) return false;
+  const source = normalizeSourceQuoteForComparison(sourceText);
+  const isWordChar = (value) => typeof value === 'string' && /[\p{L}\p{N}_]/u.test(value);
+  let offset = source.indexOf(quote);
+  while (offset !== -1) {
+    const before = source[offset - 1];
+    const after = source[offset + quote.length];
+    if (!isWordChar(before) && !isWordChar(after)) return true;
+    offset = source.indexOf(quote, offset + 1);
+  }
+  return false;
+}
+
+/** Escape a source quote before embedding it in the double-quoted prompt line. */
+export function escapeRemediationQuote(value, maxLength = 180) {
+  const limit = Number.isFinite(maxLength) ? Math.max(0, Math.trunc(maxLength)) : 180;
+  const limited = Array.from(String(value ?? '')).slice(0, limit).join('');
+  const escapes = {
+    '\\': '\\\\',
+    '"': '\\"',
+    '\r': '\\r',
+    '\n': '\\n',
+    '\u2028': '\\u2028',
+    '\u2029': '\\u2029',
+  };
+  return limited.replace(/[\\"\r\n\u2028\u2029]/gu, (character) => escapes[character]);
+}
+
 /**
  * A verifier's sourceQuote is evidence, not a free-text annotation. Keep it
  * only when the same source supplied to the verifier contains that passage;
@@ -3150,11 +3182,7 @@ function normalizeSourceQuoteForComparison(value) {
  * evergreen by llmFactCheck, so they cannot substantiate a quote either.
  */
 function sourceQuoteSupportedBySource(sourceQuote, sourceText) {
-  if (typeof sourceText !== 'string' || sourceText.length < 100) return '';
-  const quote = normalizeSourceQuoteForComparison(sourceQuote);
-  if (!quote) return '';
-  const source = normalizeSourceQuoteForComparison(sourceText);
-  return source.includes(quote) ? String(sourceQuote).trim() : '';
+  return sourceQuoteBoundarySafe(sourceQuote, sourceText) ? String(sourceQuote).trim() : '';
 }
 
 /**
@@ -3181,7 +3209,7 @@ export function formatRemediation(issues, opts = {}) {
     const where = i.claim;
     const supportedSourceQuote = sourceQuoteSupportedBySource(i.sourceQuote, opts.sourceText);
     const sourceQuote = supportedSourceQuote
-      ? `   ESTRATTO FONTE: "${supportedSourceQuote.slice(0, 180)}"`
+      ? `   ESTRATTO FONTE: "${escapeRemediationQuote(supportedSourceQuote)}"`
       : '';
     return [
       `${n + 1}. PROBLEMA: ${what}`,
