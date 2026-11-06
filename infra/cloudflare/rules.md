@@ -198,7 +198,8 @@ purpose/rollback. Rule 3 is the subject of this doc:
 - **Rule id:** `593219bc66044a4ca3e571a2e522703a`
 - **Expression:** `cdn.frontaliereticino.ch`, path under `/assets/`, excluding the
   prefixes in `CDN_BROWSER_LONG_CACHE_PREFIXES`: `/assets/releases/`,
-  `/assets/gtag-init-`, `/assets/adsense-loader-`, `/assets/partnerize-tag-`, `/assets/site-support-`.
+  `/assets/gtag-init-`, `/assets/adsense-loader-`, `/assets/partnerize-tag-`,
+  `/assets/site-support-`, `/assets/meta-pixel-base-code-`.
 - **Action:** rewrite response header `Cache-Control: public, max-age=600, must-revalidate`
 - **Applied:** 2026-06-25; exclusions added 2026-10-31.
 - **Purpose:** stable-named chunks change bytes under the same URL (see
@@ -211,8 +212,8 @@ purpose/rollback. Rule 3 is the subject of this doc:
   URL and a `<name>-<content-hash>.js` loader can never change bytes, so they keep
   the header R2 stored. The stable aliases (`gtag-init.js`, ...) stay under the
   rule: the prefixes end in `-`. A hashed key uploaded before this change keeps
-  its 600 s R2 header until its content changes, because rclone skips objects it
-  already holds.
+  its 600 s R2 header, the deploy now forces the small content-addressed batch
+  and fast emitters refresh an existing hash when the probe sees stale metadata.
 - **Live check:** `scripts/ci/assert-cdn-cache-policy.mjs` runs after the rule is
   applied in `deploy-worker.yml`. Measure with GET: HEAD always reports `DYNAMIC`.
 - **Rollback:** remove the prefixes from `CDN_BROWSER_LONG_CACHE_PREFIXES` and

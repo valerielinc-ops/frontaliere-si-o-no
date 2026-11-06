@@ -88,11 +88,14 @@ export function readPartitionReports(reportsDir, prefix = 'partition-') {
 
 function mergeDiscoveredReferrers(report, sourceUrl, links, manifest, manifestSet) {
   const known = new Map();
+  const referrerLimits = {
+    sourceCount: Array.isArray(manifest?.urls) ? manifest.urls.length : 0,
+  };
   const discoveredUrls = report.discoveredOutOfSitemap || [];
   const discoveredReferrers = report.discoveredReferrers || [];
   for (let index = 0; index < discoveredUrls.length; index += 1) {
     const refs = new Map();
-    for (const pair of discoveredReferrers[index] || []) rememberReferrerPair(refs, pair);
+    for (const pair of discoveredReferrers[index] || []) rememberReferrerPair(refs, pair, referrerLimits);
     known.set(discoveredUrls[index], refs);
   }
   const sourceIndex = (manifest?.urls || []).indexOf(sourceUrl);
@@ -100,7 +103,7 @@ function mergeDiscoveredReferrers(report, sourceUrl, links, manifest, manifestSe
   for (const link of links || []) {
     if (manifestSet.has(link)) continue;
     const refs = known.get(link) || new Map();
-    if (sourceIndex >= 0) rememberReferrerPair(refs, [sourceIndex, referrerTemplate]);
+    if (sourceIndex >= 0) rememberReferrerPair(refs, [sourceIndex, referrerTemplate], referrerLimits);
     known.set(link, refs);
   }
   const urls = [...known.keys()].sort();
@@ -229,16 +232,30 @@ function validateScope(name, reports, manifest, coverageErrors) {
   if (ordered.length === 0 && manifestCount > 0) {
     coverageErrors.push(`${name}: nessun report di partizione ricevuto`);
   }
+  const validPartitionCount = (typeof first.partitions === 'number' || typeof first.partitions === 'string')
+    && Number.isSafeInteger(expectedPartitions) && expectedPartitions > 0;
+  if (ordered.length > 0 && !validPartitionCount) {
+    coverageErrors.push(`${name}: numero di partizioni non valido: ${first.partitions}`);
+  }
   const seen = new Set();
   for (const report of ordered) {
     const id = Number(report.partition);
+    if ((typeof report.partition !== 'number' && typeof report.partition !== 'string')
+      || String(report.partition).trim() === ''
+      || !Number.isSafeInteger(id) || id < 0 || id >= expectedPartitions) {
+      coverageErrors.push(`${name}: indice partizione non valido: ${report.partition}`);
+    }
     if (seen.has(id)) coverageErrors.push(`${name}: partizione duplicata: ${id}`);
     seen.add(id);
   }
-  for (let id = 0; id < expectedPartitions; id += 1) {
+  // At most reports + 1 probes suffice to demonstrate a missing partition,
+  // even when a corrupt artifact declares an enormous partition count.
+  for (let id = 0; validPartitionCount && id < Math.min(expectedPartitions, ordered.length + 1); id += 1) {
     if (!seen.has(id)) coverageErrors.push(`${name}: partizione mancante: ${id}`);
   }
-  if (ordered.some((report) => Number(report.partitions) !== expectedPartitions)) {
+  if (ordered.some((report) =>
+    (typeof report.partitions !== 'number' && typeof report.partitions !== 'string')
+    || Number(report.partitions) !== expectedPartitions)) {
     coverageErrors.push(`${name}: i report usano numeri diversi di partizioni`);
   }
   const checkedCount = ordered.reduce((sum, report) => sum + Number(report.checkedCount || 0), 0);

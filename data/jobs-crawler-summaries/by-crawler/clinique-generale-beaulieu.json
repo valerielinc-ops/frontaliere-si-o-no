@@ -1,27 +1,73 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-11-05T09:43:15.466Z",
-  "total": 1,
+  "generatedAt": "2026-11-05T21:28:30.569Z",
+  "total": 2,
   "discovered": null,
-  "parsed": 1,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 2,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3316,
-  "avgDurationMs": 3316,
+  "durationMs": 4818,
+  "avgDurationMs": 4818,
   "durationHistory": [
-    3316
+    4818
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "clinique-generale-beaulieu-ea72f9d9e404",
+      "slug": "aide-soignant-e-chirurgie-clinique-generale-beaulieu",
+      "company": "Clinique Générale-Beaulieu",
+      "companyKey": "clinique-generale-beaulieu",
+      "companyDomain": "swissmedical.net",
+      "title": "Aide soignant(e) chirurgie",
+      "needsRetranslation": true,
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159865759-aide-soignant-e-chirurgie",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159865759-aide-soignant-e-chirurgie",
+      "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-05T21:28:11.800Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1201",
+      "streetAddress": "Chemin de Beau-Soleil 20, 1206 Genève",
+      "category": "Sanità / Ospedali",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-05T13:18:20.398Z",
+      "postedDate": "2026-11-05T13:18:20.398Z",
+      "postingDateSource": "reported",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-03T21:28:11.800Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:28:11.800Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -39,7 +85,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154961499-sage-femme",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:43:01.386Z",
+      "crawledAt": "2026-11-05T21:28:11.799Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -60,7 +106,7 @@
       "salaryMax": 120500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T09:43:01.386Z",
+      "validThrough": "2027-01-10T21:28:11.799Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -71,5 +117,5 @@
       }
     }
   ],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }

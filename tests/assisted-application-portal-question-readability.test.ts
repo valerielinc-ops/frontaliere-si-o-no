@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { localizePortalQuestions, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, formPostingMatch, hasVacancySpecificPostingEvidence, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -558,7 +558,7 @@ it.each([false, true])('preserves a real document request and hard question with
     question: 'Do you hold a Swiss work permit?', applicationQuestionLocale: 'en', localizationStatus: 'same_language',
   });
   expect(request).not.toHaveProperty('answers');
-  expect(codex).toHaveBeenCalledTimes(withQuestion ? 1 : 0);
+  expect(codex).not.toHaveBeenCalled();
 });
 
 it('never treats an unreadable required field as an empty resolved reduction', async () => {
@@ -607,6 +607,37 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
 });
 
+it('defers a SuccessFactors account gate to the automatic submit runner', async () => {
+  const url = 'https://career5.successfactors.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20604&lang=de_DE';
+  const snapshot = {
+    url, buttons: [], links: [], captcha: false, passwordVisible: true, errors: [],
+    text: 'Bewerbungskonto: Login',
+    fields: [
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse/login', required: true, formId: 'login-form' },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort', required: true, formId: 'login-form' },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}), waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'successfactors', applyUrl: url, postingUrl: url, language: 'de', candidateLocale: 'it',
+    job: { title: 'Application Manager/-in', company: 'Swiss Armed Forces (VTG)' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(result.questions).toEqual([]);
+  expect(result.documents).toEqual([]);
+  expect(result.handoff).toBeUndefined();
+  expect(codex).not.toHaveBeenCalled();
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('keeps a verified Umantis form when its accessibility text starts with skip-link chrome', async () => {
   const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
   const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
@@ -635,6 +666,121 @@ it('keeps a verified Umantis form when its accessibility text starts with skip-l
   expect(result.handoff).toBeUndefined();
   expect(codex).toHaveBeenCalledOnce();
   expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('pre-reads a public employer route without a planner and keeps unsafe channels out', async () => {
+  const url = 'https://apply.example.test/jobs/42';
+  expect(portalReadAheadCapability({ channelType: 'employer_site', entryUrl: url, applyUrl: url }))
+    .toEqual({ kind: 'mounted_read_only', source: 'public_application_route' });
+  expect(portalReadAheadCapability({ channelType: 'employer_site', entryUrl: 'http://apply.example.test/jobs/42', applyUrl: url }))
+    .toBeNull();
+  expect(portalReadAheadCapability({ channelType: 'pastahr', entryUrl: 'https://coop.pastahr.com/jobs/42', applyUrl: 'https://coop.pastahr.com/jobs/42' }))
+    .toBeNull();
+
+  const snapshot = {
+    url, buttons: [], links: [], captcha: false, passwordVisible: false, errors: [], text: 'Application form',
+    fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: true }],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = { frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}) };
+  const context = { newPage: async () => page };
+  const browser = { newContext: vi.fn(async () => context), close: vi.fn(async () => {}) };
+  const launch = vi.fn(async () => browser);
+  const result = await readPortalRequirements({
+    channelType: 'employer_site', applyUrl: url, language: 'en', candidateLocale: 'it',
+    candidate: { identity: {}, profile: {}, answers: {} },
+    resolvePublicHost: vi.fn(async () => true), launch,
+  });
+
+  expect(result.handoff).toBe('planner_unavailable');
+  expect(result.portalContract).toMatchObject({
+    status: 'unavailable',
+    form: { observed: true, requiredFieldCount: 1, requiredFileCount: 1 },
+    background: { readOnly: true },
+  });
+  expect(launch).toHaveBeenCalledOnce();
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('accepts a generic ATS form only after a matched posting Apply control was followed', () => {
+  const genericForm = 'Bewerbung\nVorname *\nE-Mail *\nhttps://ats.example/apply';
+  const job = { title: 'Pflegefachperson 80%' };
+  expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
+  expect(formPostingMatch(genericForm, job, { postingMatched: true, applicationEntry: true })).toBe('match');
+  expect(formPostingMatch('Other employer\nBewerbung', { ...job, company: 'Muster AG' }, {
+    postingMatched: true, applicationEntry: true,
+  })).toBe('mismatch');
+});
+
+it('requires vacancy evidence beyond a company match before trusting one external Apply control', () => {
+  const job = { company: 'Muster AG', title: 'Application Manager' };
+  const listingUrl = 'https://careers.example.ch/jobs';
+  const postingUrl = 'https://careers.example.ch/jobs/application-manager-42';
+
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
+    pageUrl: listingUrl, postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Muster AG — Application Manager', job, {
+    pageUrl: listingUrl, pageTitle: 'Muster AG Karriere', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
+    pageUrl: listingUrl, pageTitle: 'Muster AG — Application Manager', postingUrl,
+  })).toBe(true);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Apply · Footer Muster AG', job, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Application Manager', { ...job, organization: 'Muster AG' }, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Application Manager', { ...job, organization: 'Andere GmbH' }, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Application Manager', { ...job, organization: 'Muster AG' }, {
+    pageUrl: listingUrl, postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH', { ...job, organization: 'Muster AG' }, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
+    pageUrl: postingUrl, postingUrl,
+  })).toBe(true);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Bewerbung', job, {
+    pageUrl: postingUrl, pageTitle: 'Andere GmbH — Bewerbung', postingUrl,
+  })).toBe(false);
+});
+
+it('binds an unproved external Apply link to its own vacancy card', () => {
+  const postingUrl = 'https://careers.example.ch/jobs/application-manager-42';
+  const apply = { id: 'apply', text: 'Apply', href: 'https://ats.example.test/apply', vacancyContext: 'Application Manager — Muster AG' };
+  const context = {
+    postingUrl,
+    job: { title: 'Application Manager', company: 'Muster AG' },
+    allowSingleExternalApplicationEntry: true,
+  };
+
+  expect(applicationEntryControls({ links: [apply] }, context)).toEqual([apply]);
+  expect(applicationEntryControls({ links: [{ ...apply, vacancyContext: 'Application Manager — Andere GmbH' }] }, context)).toEqual([]);
+  expect(applicationEntryControls({ links: [{ ...apply, vacancyContext: '' }] }, context)).toEqual([]);
+  // A company match elsewhere in the page cannot lend its identity to this
+  // CTA; the control must carry the role and employer in its own card.
+  expect(applicationEntryControls({
+    text: 'Application Manager · Andere GmbH Apply · Footer Muster AG',
+    links: [{ ...apply, vacancyContext: 'Application Manager — Andere GmbH' }],
+  }, context)).toEqual([]);
+});
+
+it('does not launch a generic preflight when the public route cannot be resolved safely', async () => {
+  const launch = vi.fn();
+  const result = await readPortalRequirements({
+    channelType: 'employer_site', applyUrl: 'https://apply.example.test/jobs/42',
+    resolvePublicHost: vi.fn(async () => false), launch,
+  });
+  expect(result).toMatchObject({
+    handoff: 'public_route_unavailable',
+    portalContract: { status: 'unavailable', handoff: 'public_route_unavailable' },
+  });
+  expect(launch).not.toHaveBeenCalled();
 });
 
 it('binds the native Umantis applicant address when applyUrl is the direct posting URL', async () => {
@@ -777,7 +923,7 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
     url: postingUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
     text: 'Social worker at Acme AG',
     fields: [],
-    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, frame: 0, chrome: false }],
+    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, vacancyContext: 'Social worker — Acme AG', frame: 0, chrome: false }],
   };
   const state = { url: postingUrl, snapshot: postingSnapshot };
   const applyLink = {
@@ -792,7 +938,7 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
   };
   const page = {
     frames: () => [frame], url: () => state.url,
-    title: vi.fn(async () => state.url === postingUrl ? 'Acme Careers' : 'Social worker application | Acme AG'),
+    title: vi.fn(async () => state.url === postingUrl ? 'Social worker | Acme AG' : 'Social worker application | Acme AG'),
     goto: vi.fn(async (url: string) => {
       state.url = url;
       state.snapshot = url === postingUrl ? postingSnapshot : formSnapshot;
@@ -905,6 +1051,225 @@ it('retains native fallback-language questions for review when localization is u
   expect(result.handoff).toBeUndefined();
   expect(codex).toHaveBeenCalledTimes(2);
   expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('keeps a readable same-language Umantis batch usable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([
+    {
+      id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità',
+      type: 'choice', options: ['Italia', 'Svizzera'], applicationOptions: ['Italia', 'Svizzera'],
+    },
+    {
+      id: 'referral',
+      question: 'Come è venuto a conoscenza della nostra organizzazione?',
+      applicationQuestion: 'Come è venuto a conoscenza della nostra organizzazione?',
+      type: 'choice', options: ['Sito aziendale', 'Altro'], applicationOptions: ['Sito aziendale', 'Altro'],
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toEqual(expect.arrayContaining([
+    expect.objectContaining({ id: 'nationality', applicationQuestionLocale: 'it', localizationStatus: 'same_language' }),
+    expect.objectContaining({ id: 'referral', applicationQuestionLocale: 'it', localizationStatus: 'same_language' }),
+  ]));
+  expect(result.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
+});
+
+it('keeps long Italian country catalogues readable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const countries = [
+    'Italia', 'Svizzera', 'Francia', 'Germania', 'Austria', 'Spagna', 'Portogallo',
+    'Belgio', 'Paesi Bassi', 'Regno Unito', 'Stati Uniti', 'Canada', 'Australia',
+    'Giappone', 'Brasile', 'Argentina',
+  ];
+  const result = await localizePortalQuestions([
+    {
+      id: 'country', question: 'Paese', applicationQuestion: 'Paese',
+      type: 'choice', options: countries, applicationOptions: countries,
+    },
+    {
+      id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità',
+      type: 'choice', options: countries, applicationOptions: countries,
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject([
+    {
+      id: 'country', applicationQuestionLocale: 'it', localizationStatus: 'same_language',
+      options: countries, optionMap: countries.map((country) => ({ candidate: country, application: country })),
+    },
+    {
+      id: 'nationality', applicationQuestionLocale: 'it', localizationStatus: 'same_language',
+      options: countries, optionMap: countries.map((country) => ({ candidate: country, application: country })),
+    },
+  ]);
+});
+
+it('translates recognized foreign country catalogues while preserving their exact application values', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const applicationOptions = ['Deutschland', 'Frankreich', 'Italien', 'Österreich', 'Schweiz', 'Vereinigte Staaten'];
+  const [result] = await localizePortalQuestions([{
+    id: 'country', question: 'Paese', applicationQuestion: 'Paese',
+    type: 'choice', options: applicationOptions, applicationOptions,
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject({
+    question: 'Paese', localizationStatus: 'translated', applicationQuestionLocale: null,
+    options: ['Germania', 'Francia', 'Italia', 'Austria', 'Svizzera', 'Stati Uniti'],
+    optionMap: applicationOptions.map((application, index) => ({
+      candidate: ['Germania', 'Francia', 'Italia', 'Austria', 'Svizzera', 'Stati Uniti'][index],
+      application,
+    })),
+  });
+});
+
+it('translates known foreign nationality labels without changing the application values', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const applicationOptions = ['deutsch', 'französisch', 'italienisch', 'österreichisch', 'schweizerisch', 'spanisch'];
+  const candidateOptions = ['tedesca', 'francese', 'italiana', 'austriaca', 'svizzera', 'spagnola'];
+  const [result] = await localizePortalQuestions([{
+    id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità',
+    type: 'choice', options: applicationOptions, applicationOptions,
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject({
+    localizationStatus: 'translated',
+    options: candidateOptions,
+    optionMap: candidateOptions.map((candidate, index) => ({ candidate, application: applicationOptions[index] })),
+  });
+});
+
+it('keeps known Italian EOC Umantis fields candidate-readable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const labels = [
+    'Titolo accademico', 'Nome', 'Cognome', 'Data di nascita', 'Indirizzo e-mail/login',
+    'Via', 'NAP', 'Località', 'Paese', 'Telefono', 'Cellulare', 'Profilo LinkedIn',
+    'Profilo XING', 'Nazionalità', 'Diploma', 'Annotazioni sulla formazione',
+    'Il suo diploma di riferimento è stato ottenuto',
+    'Come è venuto a conoscenza della nostra organizzazione?',
+    "Attualmente ho un contratto con l'EOC",
+    "In passato ho già lavorato per l'EOC",
+  ];
+  const questions = labels.map((question, index) => ({
+    id: `eoc-${index}`,
+    question,
+    applicationQuestion: question,
+    type: question.startsWith('Come è venuto') ? 'choice' : 'text',
+    options: question.startsWith('Come è venuto') ? ['Sito aziendale', 'Altro'] : [],
+    applicationOptions: question.startsWith('Come è venuto') ? ['Sito aziendale', 'Altro'] : [],
+  }));
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'de', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toHaveLength(labels.length);
+  expect(request.questions.every((question: any) => question.localizationStatus === 'same_language')).toBe(true);
+  expect(request.questions.map((question: any) => question.applicationQuestion)).toEqual(labels);
+  expect(request.questions.find((question: any) => question.applicationQuestion.startsWith('Come è venuto'))).toMatchObject({
+    options: ['Sito aziendale', 'Altro'],
+    optionMap: [
+      { candidate: 'Sito aziendale', application: 'Sito aziendale' },
+      { candidate: 'Altro', application: 'Altro' },
+    ],
+  });
+});
+
+it('keeps Italian EOC country and nationality catalogues without the localization provider', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const questions = [
+    {
+      id: 'country', question: 'Paese', applicationQuestion: 'Paese', type: 'choice',
+      options: ['Selezionare', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+      applicationOptions: ['Selezionare', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+    },
+    {
+      id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità', type: 'choice',
+      options: ['Selezionare', 'Svizzera', 'Italiana', 'Tedesca', 'Francese'],
+      applicationOptions: ['Selezionare', 'Svizzera', 'Italiana', 'Tedesca', 'Francese'],
+    },
+  ];
+
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'it', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toEqual(questions.map((question) => expect.objectContaining({
+    id: question.id,
+    applicationQuestionLocale: 'it',
+    localizationStatus: 'same_language',
+    options: question.options,
+  })));
+
+  const foreignCodex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const foreignOptions = ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'];
+  const translated = await portalRequirementsForCandidate({ documents: [], questions: [{
+    ...questions[1],
+    options: foreignOptions,
+    applicationOptions: foreignOptions,
+  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: foreignCodex });
+  expect(foreignCodex).not.toHaveBeenCalled();
+  expect(translated.questions).toEqual([expect.objectContaining({
+    id: 'nationality',
+    applicationQuestionLocale: null,
+    localizationStatus: 'translated',
+    options: ['Seleziona', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+    optionMap: [
+      { candidate: 'Seleziona', application: 'Bitte wählen' },
+      { candidate: 'Svizzera', application: 'Schweiz' },
+      { candidate: 'Italia', application: 'Italien' },
+      { candidate: 'Germania', application: 'Deutschland' },
+      { candidate: 'Francia', application: 'Frankreich' },
+    ],
+  })]);
+
+  const unknownCodex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  await expect(portalRequirementsForCandidate({ documents: [], questions: [{
+    ...questions[1],
+    options: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Atlantide'],
+    applicationOptions: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Atlantide'],
+  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: unknownCodex }))
+    .rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
+  expect(unknownCodex).toHaveBeenCalledOnce();
+});
+
+it('keeps deterministic German field copies when an unresolved same-language question shares the batch', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([
+    { id: 'salutation', question: 'Anrede', applicationQuestion: 'Anrede', options: [] },
+    {
+      id: 'skills',
+      question: 'Quali requisiti e competenze hai per questa candidatura?',
+      applicationQuestion: 'Quali requisiti e competenze hai per questa candidatura?',
+      options: [],
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject([
+    { id: 'salutation', question: 'Come preferisci essere indicato/a?', applicationQuestionLocale: 'de', localizationStatus: 'translated' },
+    { id: 'skills', question: 'Quali requisiti e competenze hai per questa candidatura?', applicationQuestionLocale: 'it', localizationStatus: 'same_language' },
+  ]);
+});
+
+it('does not use the same-language fast path when options are in another language', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([{
+    id: 'skills',
+    question: 'Quali requisiti e competenze hai per questa candidatura?',
+    applicationQuestion: 'Quali requisiti e competenze hai per questa candidatura?',
+    options: ['Ja', 'Nein'],
+    applicationOptions: ['Ja', 'Nein'],
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).toHaveBeenCalledOnce();
+  expect(result[0]).toMatchObject({ localizationStatus: 'fallback', options: ['Sì', 'No'] });
+  expect(result[0].localizationStatus).not.toBe('same_language');
 });
 
 it('detects the ATS question language even when the posting language matches the candidate locale', async () => {

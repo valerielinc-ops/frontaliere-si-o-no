@@ -64,6 +64,48 @@ export interface PostalSubmissionView {
   officialFormUrl: string;
 }
 
+export interface AutomationPortalContractView {
+  version: number;
+  phase: string;
+  channel: string;
+  status: string;
+  postingMatch: string;
+  observedAt: number | null;
+  handoff?: string;
+  form?: {
+    observed: boolean;
+    stable: boolean;
+    fieldCount: number;
+    requiredFieldCount: number;
+    requiredFileCount: number;
+  };
+  missing?: {
+    questionCount: number;
+    documentCount: number;
+    requiredQuestionCount: number;
+    requiredDocumentCount: number;
+  };
+  background?: {
+    status: string;
+    readOnly: boolean;
+    requestCount: number;
+    mutatingRequestCount: number;
+    requests?: Array<{
+      method: string;
+      endpoint: { origin: string; path: string };
+      resourceType: string;
+      protocol?: string;
+      status?: number;
+      count?: number;
+    }>;
+  };
+  submit?: {
+    capability: 'native_form' | 'server_action' | 'xhr_fetch' | 'candidate_handoff' | 'unknown';
+    status: string;
+    outcome?: string;
+  };
+}
+
 /** Automated flow + AI draft, as functions/src/assistedApplicationAutomationAdmin.js returns them. */
 export interface AtsReportView {
   structural: { score: number; grade: string; pass: boolean; issues: Array<{ code: string; severity: 'critical' | 'warning' | 'info' }>; notChecked: string[] };
@@ -114,6 +156,8 @@ export interface AssistedApplicationAutomationView {
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
+    requestedDocumentsOverride?: boolean;
+    requestedDocuments?: AutomationRequestedDocumentView[];
     postalSubmission?: PostalSubmissionView | null;
     /** The fields the candidate corrected on the review page. */
     formOverrides?: Record<string, string>;
@@ -129,6 +173,7 @@ export interface AssistedApplicationAutomationView {
     job: { source: string; title: string; applyUrl: string } | null;
     liveness: { result: string | null; code: string | null; datasetGone: boolean } | null;
     channel: { type: string; label: string; email: string; applyUrl: string; requiresAccount: boolean } | null;
+    portalContract?: AutomationPortalContractView | null;
     verdict: 'strong' | 'good' | 'weak' | 'poor' | null;
     summaryIt: string;
     checksIt: string[];
@@ -448,6 +493,7 @@ export type AutomationAdminAction =
   | 'automationSetAnswers'
   | 'automationSetRequiredDocuments'
   | 'automationSetPostalSubmission'
+  | 'automationConfigurePostalPackage'
   | 'automationRevealAccount'
   | 'automationFillKit'
   | 'automationMarkClicked'

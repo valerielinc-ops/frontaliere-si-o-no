@@ -10,6 +10,7 @@ import {
   refreshSocialPublishReservation,
   releaseSocialPublishReservation,
   reserveSocialPublishBatch,
+  SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING,
   socialPublishContentFingerprint,
   socialPublishReservationKey,
 } from '../scripts/lib/social-publish-reservations.mjs';
@@ -106,6 +107,32 @@ describe('shared social publish reservations', () => {
 
     expect([jobs[0].allowed, articles[0].allowed].filter(Boolean)).toHaveLength(1);
     expect([jobs[0].reason, articles[0].reason]).toContain('daily-cap');
+  });
+
+  it('distinguishes a missing reservation entry from a missing reservation document', async () => {
+    const root = makeRepoRoot();
+    const { db } = memoryFirestore();
+    await reserveSocialPublishBatch({
+      db,
+      platform: 'facebook',
+      accountId: 'page-private-id',
+      repoRoot: root,
+      now: '2026-11-03T12:00:00.000Z',
+      reservations: [{
+        key: socialPublishReservationKey('facebook', 'job', 'existing-job'),
+        publishAt: '2026-11-03T13:00:00.000Z',
+      }],
+    });
+
+    await expect(markSocialPublishReservationPublished({
+      db,
+      platform: 'facebook',
+      accountId: 'page-private-id',
+      key: socialPublishReservationKey('facebook', 'job', 'missing-job'),
+      publishAt: '2026-11-03T13:00:00.000Z',
+      publishedAt: '2026-11-03T13:01:00.000Z',
+      now: '2026-11-03T13:01:00.000Z',
+    })).rejects.toMatchObject({ code: SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING });
   });
 
   it('seeds the shared cap from all existing Page ledgers and ignores digest-covered source rows', async () => {

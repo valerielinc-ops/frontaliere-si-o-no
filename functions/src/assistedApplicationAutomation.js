@@ -26,12 +26,14 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
-import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { postalPacketReadiness } from './assistedApplicationPostalPacket.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
+import { DISPATCH_RECOVERY_DELAY_MS, DISPATCH_RECOVERY_MAX_ATTEMPTS, dispatchRecoveryCountValue, dispatchRecoveryDueAt, preDispatchFailureCode } from './assistedApplicationDispatchRetryPolicy.js';
 import { checkPostingLiveness, resolvePostingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
@@ -162,15 +164,76 @@ export function computeDueAt(flow) {
   if (!flow) return null;
   if (needsFactRepair(flow)) return 1;
   if (flow.state === 'owner_takeover') {
-    return portalRetryDueAt(flow);
+    return draftRetryDueAt(flow) || portalRetryDueAt(flow);
   }
   if (TERMINAL_STATES.has(flow.state)) return null;
   if (['drafting', 'regenerating', 'submitting'].includes(flow.state)) {
+    const dispatchRecoveryAt = dispatchRecoveryDueAt(flow);
+    if (dispatchRecoveryAt) return dispatchRecoveryAt;
     const requestedAt = Number(flow.dispatch?.requestedAt) || 0;
     return requestedAt ? requestedAt + RUN_WATCHDOG_MS : null;
   }
   const candidates = [flow.deadlineAt, flow.reminderAt].map(Number).filter((value) => Number.isFinite(value) && value > 0);
   return candidates.length ? Math.min(...candidates) : null;
+}
+
+/**
+ * Queue one retry only when Remote Config failed before the GitHub POST. A
+ * network error after the POST is intentionally not accepted here: its
+ * outcome is ambiguous and the existing watchdog remains the safe authority.
+ */
+export async function scheduleDispatchRecovery({ db, orderId, nowMs = Date.now(), failureCode } = {}) {
+  if (!preDispatchFailureCode({ code: failureCode })) return { scheduled: false, ignored: 'failure_not_pre_dispatch' };
+  return db.runTransaction(async transaction => {
+    const orderRef = orderRefFor(db, orderId);
+    const flowRef = flowRefFor(db, orderId);
+    const [orderSnapshot, flowSnapshot] = await Promise.all([
+      transaction.get(orderRef), transaction.get(flowRef),
+    ]);
+    const order = orderSnapshot.data() || {};
+    const flow = flowSnapshot.data() || {};
+    if (order.paymentStatus !== 'paid' || !STARTABLE_STATUSES.has(order.submissionStatus)
+      || !['drafting', 'regenerating', 'submitting'].includes(flow.state)
+      || order.withdrawnAt || order.purgingAt || order.purgedAt
+      || order.submissionStatus === 'submitted' || order.submissionStatus === 'withdrawn'
+      || order.submissionStatus === 'refunded' || order.refundStatus === 'pending'
+      || order.refundStatus === 'succeeded' || order.refundStatus === 'refunded') {
+      return { scheduled: false, ignored: 'dispatch_not_active' };
+    }
+    const dispatch = flow.dispatch || {};
+    if (!['draft', 'submit'].includes(dispatch.mode)) return { scheduled: false, ignored: 'dispatch_mode_missing' };
+    if (dispatch.mode === 'submit') {
+      const submission = (await transaction.get(submissionRefFor(db, orderId))).data()?.[`r${Number(flow.round) || 1}`] || null;
+      if (submission?.state === 'sent' || isUnconfirmedSubmission(submission)) {
+        return { scheduled: false, ignored: 'submission_outcome_uncertain' };
+      }
+    }
+    const attempts = dispatchRecoveryCountValue(flow);
+    if (attempts === null || attempts >= DISPATCH_RECOVERY_MAX_ATTEMPTS) {
+      return { scheduled: false, ignored: 'dispatch_recovery_limit' };
+    }
+    if (dispatchRecoveryDueAt(flow)) return { scheduled: false, ignored: 'dispatch_recovery_already_scheduled' };
+    const dueAt = nowMs + DISPATCH_RECOVERY_DELAY_MS;
+    // claimWatchdogDispatch increments the watchdog attempt before it calls
+    // the effect. Since this failure happened before the POST, give that
+    // attempt back; the bounded recovery owns the next try.
+    const currentAttempts = Number(dispatch.attempts) || 1;
+    transaction.set(flowRef, {
+      dispatch: { ...dispatch, attempts: Math.max(1, currentAttempts - 1) },
+      dispatchRecoveryAt: dueAt,
+      dispatchRecoveryCount: attempts + 1,
+      updatedAt: nowMs,
+    }, { merge: true });
+    transaction.set(orderRef, { automationDueAt: dueAt }, { merge: true });
+    transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_dispatch_recovery_scheduled', {
+      actor: 'dispatch-recovery',
+      round: Number(flow.round) || 1,
+      mode: dispatch.mode,
+      reason: failureCode,
+      dueAt,
+    }));
+    return { scheduled: true, dueAt };
+  });
 }
 
 function mirrorFields(flow) {
@@ -195,8 +258,8 @@ export async function claimWatchdogDispatch({ db, orderId, nowMs }) {
     if (!dueAt || dueAt > nowMs || attempts >= MAX_DISPATCH_ATTEMPTS) return null;
     const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
     const dispatch = { ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 };
-    const nextFlow = { ...flow, dispatch, updatedAt: nowMs };
-    transaction.set(flowRef, { dispatch, updatedAt: nowMs }, { merge: true });
+    const nextFlow = { ...flow, dispatch, dispatchRecoveryAt: null, updatedAt: nowMs };
+    transaction.set(flowRef, { dispatch, dispatchRecoveryAt: null, updatedAt: nowMs }, { merge: true });
     transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
     return nextFlow;
   });
@@ -255,6 +318,8 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  * @param {(ctx:object)=>Promise<object>} args.runEffect executes one side effect
  * @param {number} [args.nowMs]
  * @param {number} [args.expectedRound] rejects a request whose round changed after its precheck
+ * @param {(context:{order:object,flow:object,draft:object|null,orderId:string})=>object} [args.transitionFlowPatch]
+ *   projects owner-controlled configuration into the same transaction before evaluating its transition
  * @param {(flow:object)=>object} [args.patchFlow] extra fields merged into the next flow
  * @param {(ctx:object)=>Promise<object>} [args.writeSubmissionReceipt] writes a validated submission
  *   receipt only after the live transition succeeds, in the same Firestore transaction
@@ -262,7 +327,7 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  *   `appliedAt` in the SAME transaction as the transition, so an error in between can never leave
  *   an event marked applied with the flow unchanged (a redelivery then applies it)
  */
-export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), expectedRound = null, patchFlow = null, writeSubmissionReceipt = null, claimRef = null }) {
+export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), expectedRound = null, transitionFlowPatch = null, patchFlow = null, writeSubmissionReceipt = null, claimRef = null }) {
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
@@ -291,8 +356,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       return;
     }
     const order = orderSnapshot.data() || {};
-    const flow = flowSnapshot.data() || {};
+    const storedFlow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const flow = transitionFlowPatch
+      ? { ...storedFlow, ...(transitionFlowPatch({ order, flow: storedFlow, draft, orderId }) || {}) }
+      : storedFlow;
     const postalPacketReady = flow.postalSubmission?.enabled === true
       ? postalPacketReadiness({ order, orderId, flow, draft }).ready
       : true;
@@ -377,7 +445,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     claim('applied');
     transaction.set(flowRef, persistedFlow);
     transaction.set(orderRef, { ...mirrorFields(persistedFlow), ...(receiptResult?.orderPatch || {}) }, { merge: true });
-    transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
+    transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: String(actor).slice(0, 120),
       eventType: event.type,
       fromState: flow.state || null,
@@ -398,7 +466,21 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         console.error('[assistedApplicationAutomation] effect failed', orderId, effect.type, effect.kind || effect.mode || '', message);
-        outcome.effectResults.push({ ok: false, effect: effect.type, error: message });
+        const errorCode = String(error?.code || '').trim() || null;
+        const effectResult = { ok: false, effect: effect.type, error: message, errorCode };
+        const preDispatchCode = preDispatchFailureCode({ code: errorCode, message });
+        if (effect.type === 'dispatch' && preDispatchCode) {
+          try {
+            effectResult.recovery = await scheduleDispatchRecovery({
+              db, orderId, nowMs, failureCode: preDispatchCode,
+            });
+          } catch (recoveryError) {
+            console.error('[assistedApplicationAutomation] dispatch recovery scheduling failed', orderId,
+              recoveryError instanceof Error ? recoveryError.message : String(recoveryError));
+            effectResult.recovery = { scheduled: false, error: recoveryError instanceof Error ? recoveryError.message : String(recoveryError) };
+          }
+        }
+        outcome.effectResults.push(effectResult);
       }
     }
   }
@@ -535,7 +617,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
         },
       } : {}),
     }, { merge: true });
-    transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
+    transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: 'system',
       eventType: `start:${reason}`,
       fromState: existing?.state || null,
@@ -560,6 +642,13 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       await runEffect({ db, orderId, effect: { type: 'dispatch', mode: 'draft', reason }, flow: created, nowMs });
     } catch (error) {
       console.error('[assistedApplicationAutomation] first dispatch failed', orderId, error instanceof Error ? error.message : String(error));
+      const preDispatchCode = preDispatchFailureCode(error);
+      if (preDispatchCode) {
+        await scheduleDispatchRecovery({
+          db, orderId, nowMs, failureCode: preDispatchCode,
+        }).catch(recoveryError => console.error('[assistedApplicationAutomation] first dispatch recovery scheduling failed', orderId,
+          recoveryError instanceof Error ? recoveryError.message : String(recoveryError)));
+      }
       // The watchdog re-dispatches within RUN_WATCHDOG_MS.
     }
   }
@@ -718,17 +807,29 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
       }
       if (receiptResult?.receiptVerified) continue;
       if (flow.state === 'owner_takeover') {
+        const draftRetry = draftRetryDueAt(flow);
+        const event = needsFactRepair(flow)
+          ? { type: 'repair_facts' }
+          : draftRetry && draftRetry <= nowMs
+            ? { type: 'draft_auto_retry' }
+            : { type: 'portal_auto_retry' };
         const result = await applyAutomationEvent({
           db,
           orderId: doc.id,
-          event: { type: needsFactRepair(flow) ? 'repair_facts' : 'portal_auto_retry' },
-          actor: needsFactRepair(flow) ? 'fact-recovery' : 'portal-recovery',
+          event,
+          actor: needsFactRepair(flow) ? 'fact-recovery' : event.type === 'draft_auto_retry' ? 'draft-recovery' : 'portal-recovery',
           runEffect,
           nowMs,
         });
-        if (result.ok) {
+        const failedDispatch = result.effectResults?.find(effectResult => effectResult?.effect === 'dispatch' && effectResult.ok === false);
+        if (result.ok && !failedDispatch) {
           if (needsFactRepair(flow)) summary.factRepairs += 1;
+          else if (event.type === 'draft_auto_retry') summary.redispatched += 1;
           else summary.portalRetries += 1;
+        } else if (failedDispatch?.recovery?.scheduled) {
+          summary.dispatchRecoveries = (summary.dispatchRecoveries || 0) + 1;
+        } else if (failedDispatch) {
+          summary.failed += 1;
         }
         else {
           summary.ignored += 1;
@@ -744,8 +845,17 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
         if (attempts < MAX_DISPATCH_ATTEMPTS) {
           const claimed = await claimWatchdogDispatch({ db, orderId: doc.id, nowMs });
           if (!claimed) { summary.ignored += 1; continue; }
-          await runEffect({ db, orderId: doc.id, effect: { type: 'dispatch', mode: claimed.dispatch.mode, reason: 'watchdog' }, flow: claimed, nowMs });
-          summary.redispatched += 1;
+          try {
+            await runEffect({ db, orderId: doc.id, effect: { type: 'dispatch', mode: claimed.dispatch.mode, reason: 'watchdog' }, flow: claimed, nowMs });
+            summary.redispatched += 1;
+          } catch (error) {
+            const preDispatchCode = preDispatchFailureCode(error);
+            if (preDispatchCode) {
+              const recovery = await scheduleDispatchRecovery({ db, orderId: doc.id, nowMs, failureCode: preDispatchCode });
+              if (recovery.scheduled) summary.dispatchRecoveries = (summary.dispatchRecoveries || 0) + 1;
+            }
+            throw error;
+          }
         } else {
           const failure = mode === 'submit' ? 'submit_failed' : 'draft_failed';
           await applyAutomationEvent({ db, orderId: doc.id, event: { type: failure, error: 'runner_timeout' }, actor: 'clock', runEffect, nowMs });

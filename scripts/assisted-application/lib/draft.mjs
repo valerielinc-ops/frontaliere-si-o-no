@@ -77,7 +77,8 @@ import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, mergeRequiredDocuments, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
-import { candidateForForm, portalQuestionKey } from './portal/portal.mjs';
+import { candidateForForm, portalQuestionKey, postingAddressForPortal } from './portal/portal.mjs';
+import { compactApplicationContract } from './portal/application-contract.mjs';
 import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
@@ -94,7 +95,7 @@ const MAX_REPAIR_FINDINGS = 12;
 const PORTAL_PRE_READ_HANDOFFS = new Set([
   'application_form_unreadable', 'captcha_present', 'cookie_preferences_unresolved', 'planner_unavailable',
   'portal_reader_failed', 'posting_mismatch', 'question_label_unreadable', 'question_localization_unavailable',
-  'question_planning_failed', 'requirements_unavailable',
+  'question_planning_failed', 'public_route_unavailable', 'requirements_unavailable',
 ]);
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 const PORTAL_ANSWER_PERSONAL_OR_OPERATIONAL_RE = /\b(?:e-?mail|courriel|t[eé]l[eé]phone\w*|telefon\w*|mobiltelefon\w*|telefono\w*|phone|mobile|cellulaire|num[eé]ro de t[eé]l[eé]phone|religion|religious|faith|pregnan\w*|sexual orientation|political affiliation|political views|race|ethnic\w*|disabil\w*|consent|privacy|terms and conditions|newsletter|marketing)\b/i;
@@ -109,10 +110,11 @@ function findingsOf(...results) {
 }
 
 export class DraftAbort extends Error {
-  constructor(eventType, code) {
+  constructor(eventType, code, { portalContract = null } = {}) {
     super(code);
     this.eventType = eventType;
     this.code = code;
+    this.portalContract = compactApplicationContract(portalContract);
   }
 }
 
@@ -414,11 +416,14 @@ export async function buildDraft(ctx) {
     postingText,
     applicationEmail: requirements.applicationEmail,
   });
-  // The employer's page may only pass «Apply» on to its ATS (Coop: Prospective.ch
-  // → SAP SuccessFactors), or expose that ATS in its Jobs2Web boot config
-  // (ORIOR): the channel is the ATS's, with its account.
-  if (channel.type === 'employer_site') {
-    const postingUrl = posting.postingUrl || channel.applyUrl;
+  const postingUrl = posting.postingUrl || order.jobUrl || (channel.type === 'employer_site' ? channel.applyUrl : '');
+  // The employer's page is the native source of truth for its «Apply» control.
+  // Re-read it when the published apply URL is a separate portal address too:
+  // Prospective listings can retain a SuccessFactors sign-in bookmark while
+  // the live posting's online application is a different channel (PastaHR).
+  // A failed/ambiguous lookup keeps the published address, so this remains a
+  // bounded, fail-open repair rather than a guessed URL rewrite.
+  if (postingUrl && (channel.type === 'employer_site' || postingUrl !== channel.applyUrl)) {
     const target = await resolveApplyUrl(postingUrl, { fetchImpl, resolve: ctx.resolve });
     const applyUrl = target.via ? target.applyUrl : postingUrl;
     const resolvedChannel = classifyApplicationChannel({ applyUrl, postingText, applicationEmail: requirements.applicationEmail });
@@ -439,6 +444,12 @@ export async function buildDraft(ctx) {
   // not in a second round at submit time. Questions already asked are kept.
   const formAnswers = buildFormAnswers({ identity, profile, documents, answers, locale, personal });
   const readPortal = ctx.readPortalRequirements || ctx.readPortalQuestions;
+  const portalPostingUrl = postingAddressForPortal({
+    applyUrl: channel.applyUrl,
+    postingUrls: [posting.postingUrl, channel.postingUrl, order.jobUrl, posting.applyUrl, channel.applyUrl],
+    fallback: posting.postingUrl || order.jobUrl || '',
+  });
+  let portalContract = null;
   if (readPortal && channel.applyUrl) {
     // `candidateWithEdits` may derive a salutation from CV wording or a name
     // for letter formatting. That inference is useful for the letter, but it
@@ -452,8 +463,15 @@ export async function buildDraft(ctx) {
     const portalResult = await readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
-      postingUrl: posting.postingUrl || order.jobUrl || '',
+      postingUrl: portalPostingUrl,
       job: { title, company: order.companyName || '' },
+      ...(channel.via === 'successfactors' ? {
+        postingRouteProof: {
+          via: 'successfactors',
+          applyUrl: channel.applyUrl,
+          postingUrl: posting.postingUrl || order.jobUrl || '',
+        },
+      } : {}),
       language,
       candidateLocale: locale,
       candidate: candidateForForm({ identity, profile, answers: portalAnswers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' } }),
@@ -464,11 +482,12 @@ export async function buildDraft(ctx) {
     // reader also returns required file fields so they reach the upload picker
     // before the first submission attempt.
     const portal = Array.isArray(portalResult) ? { questions: portalResult, documents: [] } : (portalResult || { questions: [], documents: [] });
+    portalContract = compactApplicationContract(portal.portalContract);
     if (portal.handoff) {
       // Keep the automation event useful after Actions logs are purged. Only
       // this fixed set of reader outcomes is copied into its error code.
       const reason = PORTAL_PRE_READ_HANDOFFS.has(portal.handoff) ? portal.handoff : 'unknown';
-      throw new DraftAbort('draft_failed', `portal_requirements_unavailable:${reason}`);
+      throw new DraftAbort('draft_failed', `portal_requirements_unavailable:${reason}`, { portalContract });
     }
     requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
     // The document requirement is the answer to a narrow "do you hold it?"
@@ -550,6 +569,7 @@ export async function buildDraft(ctx) {
     },
     liveness: { result: liveness.page?.result || null, code: liveness.page?.code || null, datasetGone: liveness.datasetGone },
     channel,
+    ...(portalContract ? { portalContract } : {}),
     requirementsRaw: requirements,
     requirements: requirements.requirements,
     languageRequirements: requirements.languageRequirements,

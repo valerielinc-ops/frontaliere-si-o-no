@@ -9,18 +9,61 @@
     "eta-sa-swatch-group",
     "swiss-timing-swatch-group"
   ],
-  "generatedAt": "2026-11-05T09:22:16.015Z",
-  "total": 21,
-  "newCount": 0,
-  "updatedCount": 2,
+  "generatedAt": "2026-11-05T21:28:25.216Z",
+  "total": 22,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 19,
-  "durationMs": 144729,
-  "avgDurationMs": 144729,
+  "unchangedCount": 20,
+  "durationMs": 432805,
+  "avgDurationMs": 432805,
   "durationHistory": [
-    144729
+    432805
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-esyu2",
+      "slug": "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu2",
+      "company": "ETA SA (Swatch Group)",
+      "title": "CHEF/FE DE PROJET INDUSTRIALISATION 100% on site | Manufacture Horlogère Suisse | ETA SA",
+      "location": "2540 Grenchen",
+      "canton": "SO",
+      "category": "finance",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3807",
+      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3807",
+      "source": "Company Careers Crawler",
+      "companyKey": "eta-sa-swatch-group",
+      "companyDomain": "eta.ch",
+      "crawledAt": "2026-11-05T21:27:14.119Z",
+      "firstSeenAt": "2026-11-05T21:27:14.119Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "2540",
+      "addressLocality": "2540 Grenchen",
+      "addressRegion": "SO",
+      "streetAddress": "2540 Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T21:27:14.119Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-esyu5",
@@ -56,53 +99,12 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "company-eszdv",
-      "slug": "polymechaniker-in-im-bereich-erosion-80-100-in-loco-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540",
-      "company": "ETA SA (Swatch Group)",
-      "title": "POLYMECHANIKER/IN IM BEREICH EROSION 80-100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
-      "location": "2540 Grenchen",
-      "canton": "SO",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3787",
-      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3787",
-      "source": "Company Careers Crawler",
-      "companyKey": "eta-sa-swatch-group",
-      "companyDomain": "eta.ch",
-      "crawledAt": "2026-11-05T09:20:45.585Z",
-      "firstSeenAt": "2026-09-28T21:22:42.869Z",
-      "needsRetranslation": true,
-      "sourceLang": "de",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "postalCode": "2540",
-      "addressLocality": "2540 Grenchen",
-      "addressRegion": "SO",
-      "streetAddress": "2540 Grenchen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:20:45.585Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
         "completeness": 23
       }
     }
@@ -128,7 +130,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-04T21:26:25.205Z",
+      "crawledAt": "2026-11-05T21:27:14.119Z",
       "firstSeenAt": "2026-11-04T21:26:25.205Z",
       "sourceLang": "en",
       "salaryMin": 85000,
@@ -140,13 +142,54 @@
       "addressRegion": "BE",
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:26:25.205Z",
+      "validThrough": "2027-02-02T21:27:14.119Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "company-esyu3",
+      "slug": "capo-squadra-attrezzista-nella-tecnologia-delle-materie-plastiche-in-sede-manufacture-horlogere-suisse-eta-sa-eta-sa",
+      "company": "ETA SA (Swatch Group)",
+      "title": "GRUPPENCHEF/IN & EINRICHTER/IN KUNSTSTOFFTECHNIK - vor Ort | Manufacture Horlogère Suisse | ETA SA",
+      "location": "2540 Grenchen",
+      "canton": "SO",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3806",
+      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3806",
+      "source": "Company Careers Crawler",
+      "companyKey": "eta-sa-swatch-group",
+      "companyDomain": "eta.ch",
+      "crawledAt": "2026-11-05T21:27:14.119Z",
+      "firstSeenAt": "2026-11-03T21:38:35.354Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "2540",
+      "addressLocality": "2540 Grenchen",
+      "addressRegion": "SO",
+      "streetAddress": "2540 Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-02T21:27:14.119Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 23
       }
@@ -184,6 +227,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -225,6 +269,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -266,6 +311,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -307,6 +353,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -348,6 +395,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -390,6 +438,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -431,6 +480,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -472,6 +522,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -513,6 +564,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -553,6 +605,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -594,6 +647,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -635,6 +689,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -676,6 +731,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -717,6 +773,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -726,10 +783,10 @@
       }
     },
     {
-      "id": "company-esyu3",
-      "slug": "capo-squadra-attrezzista-nella-tecnologia-delle-materie-plastiche-in-sede-manufacture-horlogere-suisse-eta-sa-eta-sa",
+      "id": "company-eszdv",
+      "slug": "polymechaniker-in-im-bereich-erosion-80-100-in-loco-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540",
       "company": "ETA SA (Swatch Group)",
-      "title": "GRUPPENCHEF/IN & EINRICHTER/IN KUNSTSTOFFTECHNIK - vor Ort | Manufacture Horlogère Suisse | ETA SA",
+      "title": "POLYMECHANIKER/IN IM BEREICH EROSION 80-100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "2540 Grenchen",
       "canton": "SO",
       "category": "admin",
@@ -739,13 +796,13 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3806",
-      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3806",
+      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3787",
+      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3787",
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-11-04T21:26:25.205Z",
-      "firstSeenAt": "2026-11-03T21:38:35.354Z",
+      "crawledAt": "2026-11-05T09:20:45.585Z",
+      "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 68500,
@@ -757,13 +814,13 @@
       "addressRegion": "SO",
       "streetAddress": "2540 Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:26:25.205Z",
+      "validThrough": "2026-12-28T09:20:45.585Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 1,
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 18,
         "translation": 25,
         "completeness": 23
       }
@@ -892,5 +949,5 @@
       }
     }
   ],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }

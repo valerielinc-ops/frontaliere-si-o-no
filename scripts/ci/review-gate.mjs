@@ -67,6 +67,16 @@ const MAX_FOLLOWUP_BODY_LEN = 60_000;
 // five-minute scope job open. The compare API remains the bounded fallback;
 // timing out the local probe keeps an unavailable delta fail-closed.
 export const REVIEW_SCOPE_GIT_DIFF_TIMEOUT_MS = 15_000;
+const REVIEW_GATE_DEFAULT_GH_TIMEOUT_MS = 60_000;
+// tests.yml exports the same deadline to every shell step. Keep the trusted
+// review-policy reader aligned with that value when it is present, while
+// retaining a bounded default for other callers of this module.
+export const REVIEW_GATE_GH_TIMEOUT_MS = (() => {
+  const configuredSeconds = Number(process.env.TRUSTED_GH_TIMEOUT_SECONDS);
+  return Number.isSafeInteger(configuredSeconds) && configuredSeconds > 0
+    ? configuredSeconds * 1_000
+    : REVIEW_GATE_DEFAULT_GH_TIMEOUT_MS;
+})();
 // A GitHub API rate-limit response is a transport condition, not evidence that
 // the PR has no review.  Wait only for a short, declared reset window and make
 // exactly one read retry; a core-limit reset can otherwise be an hour away and
@@ -873,6 +883,8 @@ function gh(args, { json = true, allowFail = false } = {}) {
     const output = execFileSync(trustedGhBin, args, {
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
+      timeout: REVIEW_GATE_GH_TIMEOUT_MS,
+      killSignal: 'SIGKILL',
     });
     return json ? JSON.parse(output) : output;
   } catch (error) {

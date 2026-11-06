@@ -2,10 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { localizePortalQuestions, portalRequirementsForCandidate, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalAnswerForApplication } from '../scripts/assisted-application/lib/portal/question-key.mjs';
 import { validateAnswer } from '../functions/src/lib/answerRules.js';
+import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 const planned = { fieldId: 'source', question: 'Come hai trovato questo lavoro?', type: 'text', options: [], why: '' };
 const field = { id: 'source', kind: 'select', label: 'Wie haben Sie uns gefunden?', required: true, options: [{ label: 'Homepage' }, { label: 'Empfehlung' }] };
 
+// The issue preserves field labels, not the live option values; these country labels are representative.
 const yellowsharkSurface = {
   buttons: ['JETZT BEWERBEN', 'Italien +39', 'WEITER', 'Manage consent'],
   fields: [
@@ -19,7 +21,11 @@ const yellowsharkSurface = {
     label,
     kind,
     required: true,
-    options: label === 'Anrede' ? [{ label: 'Frau' }, { label: 'Herr' }] : [],
+    options: label === 'Anrede'
+      ? [{ label: 'Frau' }, { label: 'Herr' }]
+      : ['Land', 'Nationalität'].includes(label)
+        ? ['Schweiz', 'Italien', 'Deutschland'].map((option) => ({ label: option }))
+        : [],
   })),
 };
 
@@ -60,7 +66,101 @@ describe('portal candidate question contract', () => {
       applicationQuestionLocale: 'de',
       localizationStatus: 'translated',
     });
+    for (const applicationQuestion of ['Land', 'Nationalität']) {
+      expect(request.questions.find((question) => question.applicationQuestion === applicationQuestion)).toMatchObject({
+        options: ['Svizzera', 'Italia', 'Germania'],
+        applicationOptions: ['Schweiz', 'Italien', 'Deutschland'],
+        optionMap: [
+          { candidate: 'Svizzera', application: 'Schweiz' },
+          { candidate: 'Italia', application: 'Italien' },
+          { candidate: 'Germania', application: 'Deutschland' },
+        ],
+        applicationQuestionLocale: 'de',
+        localizationStatus: 'translated',
+      });
+    }
     expect(request.questions.find((question) => question.applicationQuestion === 'Vorname')?.question).toBe('Nome');
+  });
+
+  it('localizes a verified German nationality adjective without a provider', async () => {
+    const [question] = await localizePortalQuestions([{
+      id: 'nationality',
+      question: 'Nationalität',
+      applicationQuestion: 'Nationalität',
+      options: ['Italienisch'],
+      applicationOptions: ['Italienisch'],
+      why: '',
+    }], {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    });
+
+    expect(question).toMatchObject({
+      options: ['italiana'],
+      applicationOptions: ['Italienisch'],
+      optionMap: [{ candidate: 'italiana', application: 'Italienisch' }],
+      localizationStatus: 'translated',
+    });
+  });
+
+  it('localizes canonical country codes and rejects a retired alias', async () => {
+    const [canonical] = await localizePortalQuestions([{
+      id: 'country-code',
+      question: 'Land',
+      applicationQuestion: 'Land',
+      options: ['DE'],
+      applicationOptions: ['DE'],
+      why: '',
+    }], {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    });
+    expect(canonical).toMatchObject({
+      options: ['Germania'],
+      applicationOptions: ['DE'],
+      optionMap: [{ candidate: 'Germania', application: 'DE' }],
+      localizationStatus: 'translated',
+    });
+
+    await expect(portalRequirementsForCandidate({
+      questions: [{
+        id: 'retired-country-code',
+        type: 'choice',
+        required: true,
+        question: 'Land',
+        applicationQuestion: 'Land',
+        options: ['DD'],
+        applicationOptions: ['DD'],
+        why: '',
+      }],
+      documents: [],
+    }, {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
+  });
+
+  it('fails closed on an unrecognized German country option during a localization outage', async () => {
+    await expect(portalRequirementsForCandidate({
+      questions: [{
+        id: 'country',
+        type: 'choice',
+        required: true,
+        question: 'Land',
+        applicationQuestion: 'Land',
+        options: ['Unbekanntes Gebiet'],
+        applicationOptions: ['Unbekanntes Gebiet'],
+        why: '',
+      }],
+      documents: [],
+    }, {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
   });
 
   it('uses a required live select and its full catalogue even when the planner describes text', () => {
@@ -91,6 +191,39 @@ describe('portal candidate question contract', () => {
       const result = portalRequirementsFromMissingRequired([{ ...field, options }], [planned]);
       expect(result).toEqual({ questions: [], documents: [], unreadableFields: [field.id] });
     }
+  });
+
+  it('asks for current permit status on a readable text field without native options', () => {
+    const field = { id: 'authorization', kind: 'text', label: 'Which work authorization do you hold?', required: true, value: 'No', options: [] };
+    const result = portalRequirementsFromMissingRequired([field], [], {
+      candidate: { profile: { workPermit: 'Permesso G' }, answers: {} },
+      candidateLocale: 'en',
+    });
+
+    expect(result.unreadableFields).toBeUndefined();
+    expect(result.questions).toHaveLength(1);
+    expect(result.questions[0]).toMatchObject({
+      id: 'work_permit',
+      type: 'choice',
+      options: permitOptions('en'),
+    });
+    expect(result.questions[0].applicationOptions).toBeUndefined();
+    expect(portalAnswerForApplication(result.questions[0], permitOptions('en')[2])).toBe(permitOptions('en')[2]);
+  });
+
+  it('does not treat an ATS-prefilled value as a candidate answer when the planner asks for it', () => {
+    const field = { id: 'certification', kind: 'text', label: 'Which professional certification do you hold?', required: true, value: 'Autofilled by the application' };
+    const result = portalRequirementsFromMissingRequired([field], [{
+      fieldId: field.id,
+      question: field.label,
+      type: 'text',
+      options: [],
+      why: '',
+    }], { candidate: { profile: {}, answers: {} }, candidateLocale: 'en' });
+
+    expect(result.unreadableFields).toBeUndefined();
+    expect(result.questions).toHaveLength(1);
+    expect(result.questions[0]).toMatchObject({ applicationQuestion: field.label, type: 'text' });
   });
 
   it('keeps an editable combobox as free text beside an unloaded select-like combobox', () => {
@@ -228,5 +361,52 @@ describe('portal candidate question contract', () => {
       candidateLocale: 'it', applicationLocale: 'de',
       codex: async () => { throw new Error('unavailable'); },
     })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
+  });
+
+  it('keeps an unconfirmed optional historical permit prefill in candidate review', () => {
+    const historical = {
+      id: 'permit-history',
+      kind: 'select',
+      label: 'Have you ever held a work permit?',
+      required: false,
+      value: 'no',
+      options: [{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }],
+    };
+    const result = portalRequirementsFromMissingRequired([historical], [{
+      fieldId: historical.id,
+      applicationQuestion: historical.label,
+      question: historical.label,
+      required: true,
+    }], { candidate: { profile: { permitStatus: 'none' }, answers: {} } });
+
+    expect(result.questions).toHaveLength(1);
+    expect(result.questions[0]).toMatchObject({
+      applicationQuestion: historical.label,
+      options: ['Yes', 'No'],
+      required: true,
+    });
+  });
+
+  it('does not replace a historical permit field with the current-status backstop', () => {
+    const historical = {
+      id: 'permit-history',
+      kind: 'select',
+      label: 'Have you ever held a work permit?',
+      required: true,
+      options: [{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }],
+    };
+    const result = portalRequirementsFromMissingRequired([historical], [{
+      fieldId: historical.id,
+      applicationQuestion: historical.label,
+      question: historical.label,
+      required: true,
+    }], { candidate: { profile: {}, answers: {} } });
+
+    expect(result.questions).toHaveLength(1);
+    expect(result.questions[0]).toMatchObject({
+      applicationQuestion: historical.label,
+      question: historical.label,
+      options: ['Yes', 'No'],
+    });
   });
 });

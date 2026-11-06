@@ -3,8 +3,8 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
 
@@ -361,6 +361,68 @@ describe('assisted application profile history and file replacement', () => {
     expect(await uploadReceipt(visibleWorkdayName as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(false);
     const visibleNonWorkdayReceipt = { ...visibleWorkdayName, url: () => 'https://jobs.example/apply' };
     expect(await uploadReceipt(visibleNonWorkdayReceipt as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(true);
+  });
+
+  it('accepts a confirmed generic upload after the portal replaces the file input', async () => {
+    const locator = { evaluate: vi.fn(async () => []) };
+    const page = {
+      url: () => 'https://jobs.example/apply',
+      locator: () => ({ allInnerTexts: async () => [] }),
+      getByText: () => ({ first: () => ({ isVisible: async () => false }) }),
+      waitForTimeout: async () => {},
+    };
+
+    expect(await uploadReceipt(page as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(true);
+
+    const partialLocator = { evaluate: vi.fn(async () => ['CV-a.pdf']) };
+    expect(await uploadReceipt(page as any, partialLocator as any, ['/tmp/CV-a.pdf', '/tmp/CV-b.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    const detachedLocator = { evaluate: vi.fn(async () => { throw new Error('detached'); }) };
+    expect(await uploadReceipt(page as any, detachedLocator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    const failedPage = {
+      ...page,
+      locator: () => ({ allInnerTexts: async () => ['Upload failed'] }),
+    };
+    expect(await uploadReceipt(failedPage as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    let alertReads = 0;
+    const lateFailedPage = {
+      ...page,
+      locator: () => ({ allInnerTexts: async () => alertReads++ === 0 ? [] : ['Upload failed'] }),
+    };
+    expect(await uploadReceipt(lateFailedPage as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    let unreadableAlertReads = 0;
+    const unreadableFinalAlertPage = {
+      ...page,
+      locator: () => ({
+        allInnerTexts: async () => {
+          unreadableAlertReads += 1;
+          if (unreadableAlertReads === 2) throw new Error('alert-detached');
+          return [];
+        },
+      }),
+    };
+    expect(await uploadReceipt(unreadableFinalAlertPage as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
   });
 });
 
@@ -1399,7 +1461,56 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     };
 
     expect(needsPortalOptionRead(snapshot)).toBe(true);
-    expect(needsPortalOptionRead({ ...snapshot, fields: snapshot.fields.filter((field) => !field.selectLike) })).toBe(false);
+    expect(needsPortalOptionRead({
+      ...snapshot,
+      fields: snapshot.fields.map((field) => field.selectLike ? { ...field, options: [{ label: 'Website' }] } : field),
+    })).toBe(true);
+    expect(needsPortalOptionRead({ ...snapshot, fields: snapshot.fields.filter((field) => !field.selectLike) })).toBe(true);
+
+    const nativeSelect = {
+      id: 'native-permit',
+      kind: 'select',
+      selectLike: false,
+      nativeSelectId: 's',
+      label: 'Do you hold a valid work permit for Switzerland?',
+      required: true,
+      options: [],
+    };
+    expect(needsPortalOptionRead({ fields: [nativeSelect] })).toBe(true);
+    expect(needsPortalOptionRead({ fields: [{ ...nativeSelect, options: ['yes'] }] })).toBe(false);
+    const restoredRequirements = portalRequirementsFromMissingRequired(
+      [{ ...nativeSelect, options: ['yes'] }],
+      [],
+      { candidate: { identity: {}, profile: {}, answers: {} }, candidateLocale: 'en' },
+    );
+    expect(restoredRequirements.unreadableFields || []).toEqual([]);
+
+    const lazyCombobox = {
+      id: 'lazy-combobox',
+      kind: 'combobox',
+      selectLike: false,
+      nativeSelectId: '',
+      label: 'Current permit status',
+      required: true,
+      options: [],
+    };
+    expect(needsPortalOptionRead({ fields: [lazyCombobox] })).toBe(true);
+    expect(needsPortalOptionRead({ fields: [{ ...lazyCombobox, options: ['yes'] }] })).toBe(false);
+    const restoredComboboxRequirements = portalRequirementsFromMissingRequired(
+      [{ ...lazyCombobox, options: ['yes'] }],
+      [{ fieldId: lazyCombobox.id, question: lazyCombobox.label, type: 'choice', options: [] }],
+    );
+    expect(restoredComboboxRequirements.unreadableFields || []).toEqual([]);
+
+    const placeholderOnly = { id: 'placeholder-only', kind: 'select', options: [{ label: 'Choose', placeholder: true }] };
+    const disabledOnly = { id: 'disabled-only', kind: 'listbox', options: [{ label: 'Unavailable', disabled: true }] };
+    expect(needsPortalOptionRead({ fields: [placeholderOnly] })).toBe(true);
+    expect(needsPortalOptionRead({ fields: [disabledOnly] })).toBe(true);
+    const restoredPlaceholderRequirements = portalRequirementsFromMissingRequired(
+      [{ ...placeholderOnly, label: 'Permit', options: [{ label: 'Yes', value: 'yes' }] }],
+      [{ fieldId: placeholderOnly.id, question: 'Permit', type: 'choice', options: [] }],
+    );
+    expect(restoredPlaceholderRequirements.unreadableFields || []).toEqual([]);
   });
 
   it('chooses the canonical French label when a native nationality select has equivalent options', async () => {
@@ -2647,6 +2758,150 @@ describe('portal runner helpers', () => {
       .toEqual([expect.objectContaining({ fieldId: 'unresolved-cap', context: unresolvedCap.context })]);
   });
 
+  it('keeps a locality out of street and house-number answers', () => {
+    const addressContext = 'Dati anagrafici · Indirizzo di residenza · Località · CAP';
+    const candidate = candidateForForm({
+      identity: {
+        name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '',
+        location: 'Luino (VA), Italia',
+        address: { street: 'Luino (VA), Italia', postalCode: '', city: 'Luino (VA), Italia', country: 'Italia' },
+      },
+      profile: {
+        location: 'Luino (VA), Italia',
+        address: { street: 'Luino (VA), Italia', postalCode: '', city: 'Luino (VA), Italia', country: 'Italia' },
+      },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    const street = { id: 'residence-street', kind: 'text', label: 'Indirizzo', context: addressContext, required: true, options: [] };
+    const combined = { id: 'combined-address', kind: 'text', label: 'Via e numero civico', context: addressContext, required: true, options: [] };
+    const city = { id: 'residence-city', kind: 'text', label: 'Località', context: addressContext, required: true, options: [] };
+    const houseNumber = { id: 'house-number', kind: 'text', label: 'Numero civico', context: addressContext, required: true, options: [] };
+
+    expect(candidate.identity.address.street).toBe('');
+    expect(candidateAnswerForField(candidate, street)).toBeNull();
+    expect(candidateAnswerForField(candidate, combined)).toBeNull();
+    expect(candidateAnswerForField(candidate, city)).toEqual({ value: 'Luino (VA), Italia', source: 'identity' });
+    expect(candidateAnswerForField(candidate, houseNumber)).toBeNull();
+    for (const locality of ['Località Luino', 'Localité Luino', 'Ville de Luino', 'Wohnort in Luino']) {
+      const labelledLocality = {
+        ...candidate,
+        identity: { ...candidate.identity, address: { ...candidate.identity.address, street: locality } },
+      };
+      expect(candidateAnswerForField(labelledLocality, street)).toBeNull();
+    }
+    for (const postalCode of ['CAP 21016', 'Code postal 21016', 'PLZ 21016', 'NPA 21016']) {
+      const labelledPostalCode = {
+        ...candidate,
+        identity: { ...candidate.identity, address: { ...candidate.identity.address, street: postalCode } },
+      };
+      expect(candidateAnswerForField(labelledPostalCode, street)).toBeNull();
+      expect(candidateAnswerForField(labelledPostalCode, houseNumber)).toBeNull();
+    }
+    const postalLabelWithoutOtherLocation = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: '' },
+      profile: { location: '', address: { street: 'CAP 21016', postalCode: '', city: '', country: '' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(candidateAnswerForField(postalLabelWithoutOtherLocation, street)).toBeNull();
+    expect(candidateAnswerForField(postalLabelWithoutOtherLocation, houseNumber)).toBeNull();
+    const bareSwissPostalCode = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Lugano, Svizzera' },
+      profile: { location: 'Lugano, Svizzera', address: { street: '6900', postalCode: '', city: 'Lugano', country: 'Svizzera' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(candidateAnswerForField(bareSwissPostalCode, street)).toBeNull();
+    expect(candidateAnswerForField(bareSwissPostalCode, houseNumber)).toBeNull();
+    const streetNameContainingNumber = {
+      ...candidate,
+      identity: { ...candidate.identity, address: { ...candidate.identity.address, street: 'Piazza 4 Novembre' } },
+    };
+    expect(candidateAnswerForField(streetNameContainingNumber, houseNumber)).toBeNull();
+    const numberedStreetName = {
+      ...candidate,
+      identity: { ...candidate.identity, address: { ...candidate.identity.address, street: '4 Novembre' } },
+    };
+    expect(candidateAnswerForField(numberedStreetName, houseNumber)).toBeNull();
+    const numberedRoadName = {
+      ...candidate,
+      identity: { ...candidate.identity, address: { ...candidate.identity.address, street: 'Route 66' } },
+    };
+    expect(candidateAnswerForField(numberedRoadName, houseNumber)).toBeNull();
+    for (const streetName of ['City Road 12', 'Town Street 12']) {
+      const plausibleRoad = {
+        ...candidate,
+        identity: { ...candidate.identity, address: { ...candidate.identity.address, street: streetName } },
+      };
+      expect(candidateAnswerForField(plausibleRoad, houseNumber)).toEqual({ value: '12', source: 'identity' });
+    }
+    const explicitLongHouseNumber = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Roma, Italia' },
+      profile: { location: 'Roma, Italia', address: { street: 'Via Roma 1234', postalCode: '20100', city: 'Roma', country: 'Italia' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(candidateAnswerForField(explicitLongHouseNumber, houseNumber)).toEqual({ value: '1234', source: 'identity' });
+    expect(candidateAnswerForField(explicitLongHouseNumber, combined)).toEqual({ value: 'Via Roma 1234', source: 'identity' });
+    const germanCompoundStreet = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Zürich, Schweiz' },
+      profile: { location: 'Zürich, Schweiz', address: { street: '12 Bahnhofstrasse', postalCode: '8001', city: 'Zürich', country: 'Schweiz' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(addressQuestionAnswer(germanCompoundStreet, 'address_house_number')).toBe('12');
+    const labelledSwissPostal = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Lugano, Svizzera' },
+      profile: { location: 'Lugano, Svizzera', address: { street: '6900 Via Roma', postalCode: 'CAP 6900', city: 'Lugano', country: 'Svizzera' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(addressQuestionAnswer(labelledSwissPostal, 'address')).toBe('');
+    const localityWithNumericSuffix = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Lugano, Svizzera' },
+      profile: { location: 'Lugano, Svizzera', address: { street: 'Lugano 12', postalCode: '6900', city: 'Lugano', country: 'Svizzera' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(addressQuestionAnswer(localityWithNumericSuffix, 'address')).toBe('');
+    const bareHouseNumber = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '', location: 'Roma, Italia' },
+      profile: { location: 'Roma, Italia', address: { street: '1234', postalCode: '20100', city: 'Roma', country: 'Italia' } },
+      answers: {},
+      portalQuestionsAnswered: [],
+    });
+    expect(candidateAnswerForField(bareHouseNumber, houseNumber)).toEqual({ value: '1234', source: 'identity' });
+    expect(candidateAnswerForField(bareHouseNumber, combined)).toBeNull();
+    expect(addressQuestionAnswer(bareHouseNumber, 'address_street')).toBe('');
+    expect(addressQuestionAnswer(bareHouseNumber, 'address_house_number')).toBe('1234');
+    expect(candidateAnswerForField(bareHouseNumber, { ...street, label: 'Street Name' })).toBeNull();
+    expect(candidateAnswerForField({
+      ...candidate,
+      identity: { ...candidate.identity, address: { ...candidate.identity.address, street: 'Via Roma' } },
+    }, combined)).toBeNull();
+    const savedLocality = {
+      ...candidate,
+      answers: { [street.id]: 'Luino (VA), Italia', [houseNumber.id]: '21016' },
+      portalQuestions: [street, houseNumber],
+      portalQuestionsAnswered: [
+        { id: street.id, question: street.label, context: addressContext, answer: 'Luino (VA), Italia', source: 'answers' },
+        { id: houseNumber.id, question: houseNumber.label, context: addressContext, answer: '21016', source: 'answers' },
+      ],
+    };
+    expect(candidateAnswerForQuestion(savedLocality, street.label, addressContext, street)).toBe('');
+    expect(candidateAnswerForField(savedLocality, street)).toBeNull();
+    expect(candidateAnswerForQuestion(savedLocality, houseNumber.label, addressContext, houseNumber)).toBe('');
+    expect(candidateAnswerForField(savedLocality, houseNumber)).toBeNull();
+
+    const guarded = guardPlan({
+      actions: [{ fieldId: street.id, action: 'fill', value: 'Via Roma 1', document: 'none', source: 'rule', evidence: '' }],
+      missingRequired: [],
+    }, [street], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: street.id })]);
+  });
+
   it('keeps legacy profile address data and repeated e-mail fields answerable', () => {
     const candidate = {
       identity: { email: 'c-abcdefghjk@candidature.frontaliereticino.ch' },
@@ -2904,7 +3159,7 @@ describe('portal runner helpers', () => {
 
   it('recognises next, submit, confirmation and validation in four languages', () => {
     for (const text of ['Next', 'Weiter', 'Avanti', 'Suivant', 'Save and continue']) expect(NEXT_RE.test(text)).toBe(true);
-    for (const text of ['Submit application', 'Bewerbung absenden', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Submit application', 'Bewerbung absenden', 'Ihre Bewerbung einreichen', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler']) expect(SUBMIT_RE.test(text)).toBe(true);
     // Giro di prova 2026-10-01: JOIN's review page ends with «Conferma e applica».
     for (const text of ['Conferma e applica', 'Confirm and apply', 'Bestätigen und bewerben', 'Confirmer et postuler', 'Candidati', 'Inviare']) expect(SUBMIT_RE.test(text)).toBe(true);
     for (const text of ['Continua', 'Indietro', 'Modifica', 'Applica filtro', 'Inviare i documenti']) expect(SUBMIT_RE.test(text)).toBe(false);
@@ -2959,6 +3214,8 @@ describe('portal runner helpers', () => {
     expect(searchHolds('Switzerland (+41)', '')).toBe(false);
     expect(slugId('Wann können Sie beginnen?')).toBe('wann_konnen_sie_beginnen');
     expect(WAVE1_CHANNELS.has('workday')).toBe(true);
+    expect(WAVE1_CHANNELS.has('manatal')).toBe(true);
+    expect(PREREAD_CHANNELS.has('manatal')).toBe(true);
     expect(WAVE1_CHANNELS.has('linkedin')).toBe(false);
   });
 
@@ -3059,9 +3316,11 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     // The candidate's own answer to this very question.
     const answered = candidate({ permitStatus: 'none' }, { portal_bewilligung: 'Ja' }, [{ id: 'portal_bewilligung', question }]);
     expect(guardPlan({ actions: [select('p1', 'Ja', 'answers')], missingRequired: [] }, [yesNo], answered).actions).toEqual([select('p1', 'Ja', 'answers')]);
-    // Nothing chosen: only the CV's own words.
+    // A CV-only permit is not confirmation of a permit held today.
     const gb = permitField('Work permit', ['G', 'B']);
-    expect(guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({ workPermit: 'Permesso G' })).actions).toEqual([select('p1', 'G', 'profile')]);
+    const cvOnly = guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({ workPermit: 'Permesso G' }));
+    expect(cvOnly.actions).toEqual([]);
+    expect(cvOnly.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
     expect(guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({})).missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
     // A text field filled with the candidate's own statement.
     const text = { id: 't1', kind: 'text', label: 'Aufenthaltsstatus', required: true };
@@ -3074,7 +3333,6 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(candidateAnswerForField(
       { profile: { workPermit: 'Permesso B' }, answers: {} },
       { kind: 'text', label: 'Work permit', options: [] },
-      { includeProfileWorkPermit: false },
     )).toBeNull();
   });
 
@@ -3109,6 +3367,217 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
       'No, dovrei fare domanda come cittadino UE/AELS',
     ]);
     expect(guardPlan({ actions: [], missingRequired: [] }, [italian], held).actions).toEqual([select('p1', 'Sì')]);
+
+    const french = permitField('Êtes-vous autorisé à travailler en Suisse ?', ['Oui', 'Non']);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [french], held).actions).toEqual([select('p1', 'Oui')]);
+
+    const frenchEstCe = permitField('Est-ce que vous détenez un permis suisse ?', ['Oui', 'Non']);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [frenchEstCe], held).actions).toEqual([select('p1', 'Oui')]);
+
+    const germanRelative = permitField('Haben Sie eine Arbeitserlaubnis, die vom Kanton erteilt wurde?', ['Ja', 'Nein']);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [germanRelative], held).actions).toEqual([select('p1', 'Ja')]);
+
+    for (const label of ['¿Tienes un permiso de conducir?', '¿Tienes un permiso de conducción?', '¿Tienes un permiso de conduccion?']) {
+      const drivingPermit = permitField(label, ['Sí', 'No']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [drivingPermit], held).actions).toEqual([]);
+    }
+
+    for (const label of ['Est-ce que tu as un permis suisse ?', 'Est-ce que tu es autorisé à travailler en Suisse ?']) {
+      const informalFrench = permitField(label, ['Oui', 'Non']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [informalFrench], held).actions).toEqual([select('p1', 'Oui')]);
+    }
+
+    for (const label of ['Avez-vous obtenu une autorisation de travail ?', 'Est-ce que tu as reçu un permis suisse ?']) {
+      const historyQuestion = permitField(label, ['Oui', 'Non']);
+      const result = guardPlan({ actions: [select('p1', 'Oui', 'profile')], missingRequired: [] }, [historyQuestion], held);
+      expect(result.actions).toEqual([]);
+      expect(result.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+    }
+
+    for (const label of ['Avez-vous le droit de travailler en Suisse ?', 'Est-ce que tu es en possession d’un permis suisse ?']) {
+      const rightToWorkFrench = permitField(label, ['Oui', 'Non']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [rightToWorkFrench], held).actions).toEqual([select('p1', 'Oui')]);
+    }
+
+    const italianDeclarative = permitField('Sei autorizzato a lavorare in Svizzera?', ['Sì', 'No']);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [italianDeclarative], held).actions).toEqual([select('p1', 'Sì')]);
+
+    for (const label of [
+      '¿Tienes permiso de trabajo en Suiza?',
+      '¿Tiene permiso de trabajo en Suiza?',
+      '¿Tiene usted permiso de trabajo en Suiza?',
+      '¿Está usted autorizado para trabajar?',
+      '¿Está autorizado para trabajar?',
+      'Permiso de trabajo: ¿Está usted autorizado para trabajar?',
+    ]) {
+      const spanish = permitField(label, ['Sí', 'No']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [spanish], held).actions).toEqual([select('p1', 'Sí')]);
+    }
+
+    for (const label of [
+      'Currently, do you hold a valid work permit for Switzerland?',
+      'Please confirm whether you currently hold a valid work permit for Switzerland.',
+      'Work permit: do you currently hold a valid permit?',
+      'Do you have a work permit before starting work?',
+      'Work authorization — Do you currently have a permit?',
+      'Work authorization — Currently, do you hold a valid work permit?',
+      'Do you have a work permit before you start work?',
+      'Are you legally allowed to work in Switzerland?',
+      'Are you legally able to work in Switzerland?',
+      'Are you legally authorized to work in Switzerland?',
+      'Are you currently permitted to work in Switzerland?',
+      'Are you entitled to be employed in Switzerland?',
+      'Before starting work, are you legally authorized to work in Switzerland?',
+      'Before starting work, do you currently hold a valid work permit?',
+      'Do you currently hold a work permit issued by the canton?',
+      'Are you eligible to work in Switzerland?',
+    ]) {
+      const english = permitField(label, ['Yes', 'No']);
+      expect(guardPlan({ actions: [], missingRequired: [] }, [english], held).actions).toEqual([select('p1', 'Yes')]);
+    }
+
+    const spanishNeed = permitField('¿Necesitas un permiso de trabajo en Suiza?', ['Sí', 'No']);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [spanishNeed], held).actions).toEqual([]);
+
+    for (const label of [
+      'Est-ce que tu es capable de fournir une preuve de ton autorisation de travail ?',
+      'Est-ce que tu es en possession d’une preuve de ton autorisation de travail ?',
+      'Have you received proof of your work authorization?',
+      'Are you authorized to provide proof of your work authorization?',
+      'Êtes-vous autorisé à fournir des documents pour prouver votre autorisation de travail ?',
+      'Est-ce que tu es en possession d’une pièce justificative de ton autorisation de travail ?',
+      'Sei autorizzato a fornire documentazione del tuo permesso?',
+      '¿Estás autorizado a proporcionar documentación sobre tu permiso?',
+      '¿Estás autorizado a entregar un justificante de tu permiso de trabajo?',
+      'Are you authorized to provide the paperwork for your work permit?',
+      'Haben Sie die Unterlagen für Ihre Arbeitserlaubnis?',
+      'Haben Sie einen Beleg für Ihre Arbeitserlaubnis?',
+      'Sei autorizzato a presentare l’attestato del tuo permesso?',
+      '¿Estás autorizado a presentar los papeles de tu permiso?',
+    ]) {
+      const evidenceQuestion = permitField(label, ['Oui', 'Non']);
+      expect(guardPlan({ actions: [select('p1', 'Oui', 'answers')], missingRequired: [] }, [evidenceQuestion], held).actions).toEqual([]);
+    }
+  });
+
+  it('does not preserve a boolean prefill as the answer to which permit the candidate holds', () => {
+    const candidateWithPermit = { identity, profile: {}, answers: { work_permit: 'Permesso G' } };
+    const field = {
+      id: 'p1', kind: 'text', label: 'Which work authorization do you hold?', required: true, value: 'Yes',
+      options: [{ label: 'Permesso G' }, { label: 'Permesso B' }],
+    };
+    expect(guardPlan({ actions: [], missingRequired: [] }, [field], candidateWithPermit).actions)
+      .toEqual([{ fieldId: 'p1', action: 'select', value: 'Permesso G', document: 'none', source: 'answers', evidence: '' }]);
+
+    const yesNo = { ...field, label: 'Do you hold a valid work permit for Switzerland?', options: [{ label: 'Yes' }, { label: 'No' }] };
+    expect(guardPlan({ actions: [], missingRequired: [] }, [yesNo], candidateWithPermit).actions).toEqual([]);
+  });
+
+  it('does not convert a confirmed permit to Yes/No for a question asking which permit', () => {
+    const candidateWithPermit = { identity, profile: {}, answers: { work_permit: 'Permesso G' } };
+    const category = permitField('Which work authorization do you hold?', ['Yes', 'No']);
+    const rejected = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [category], candidateWithPermit);
+    expect(rejected.actions).toEqual([]);
+    expect(rejected.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
+    const indirect = permitField('Do you know which work authorization you hold?', ['Yes', 'No']);
+    const indirectResult = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [indirect], candidateWithPermit);
+    expect(indirectResult.actions).toEqual([]);
+    expect(indirectResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
+    const application = permitField('Do you have to apply for a work permit?', ['Yes', 'No']);
+    const applicationResult = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [application], candidateWithPermit);
+    expect(applicationResult.actions).toEqual([]);
+    expect(applicationResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
+    for (const label of ['Do you have an application for a work permit?', 'Are you able to provide proof of your work authorization?']) {
+      const nonStatusQuestion = permitField(label, ['Yes', 'No']);
+      const result = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [nonStatusQuestion], candidateWithPermit);
+      expect(result.actions).toEqual([]);
+      expect(result.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+    }
+
+    const germanApplication = permitField('Haben Sie einen Antrag auf Arbeitserlaubnis?', ['Ja', 'Nein']);
+    const germanResult = guardPlan({ actions: [select('p1', 'Ja', 'answers')], missingRequired: [] }, [germanApplication], candidateWithPermit);
+    expect(germanResult.actions).toEqual([]);
+    expect(germanResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
+    const request = permitField('Are you authorized to request a work permit?', ['Yes', 'No']);
+    const requestResult = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [request], candidateWithPermit);
+    expect(requestResult.actions).toEqual([]);
+    expect(requestResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
+    for (const label of ['Are you eligible to request a work permit?', 'Are you eligible to apply for a work permit?']) {
+      const eligibleToRequest = permitField(label, ['Yes', 'No']);
+      const result = guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [eligibleToRequest], candidateWithPermit);
+      expect(result.actions).toEqual([]);
+      expect(result.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+    }
+
+    const noCurrentPermit = candidate({ permitStatus: 'none' });
+    for (const { label, options, negative } of [
+      { label: 'Have you ever received a work permit?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Have you ever possessed a work permit?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Avez-vous déjà détenu un permis de travail ?', options: ['Oui', 'Non'], negative: 'Non' },
+      { label: 'Hai mai avuto un permesso di lavoro?', options: ['Sì', 'No'], negative: 'No' },
+      { label: '¿Has tenido alguna vez un permiso de trabajo?', options: ['Sí', 'No'], negative: 'No' },
+      { label: 'Have you been issued a work permit?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Did you hold a work permit in the past?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Have you ever had a work permit?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Do you currently hold a work permit, or did you previously hold one?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Do you hold a work permit that you held before?', options: ['Yes', 'No'], negative: 'No' },
+      { label: 'Avez-vous obtenu une autorisation de travail ?', options: ['Oui', 'Non'], negative: 'Non' },
+      { label: 'Haben Sie eine Arbeitserlaubnis erhalten?', options: ['Ja', 'Nein'], negative: 'Nein' },
+    ]) {
+      const historyQuestion = permitField(label, options);
+      const result = guardPlan({ actions: [select('p1', negative, 'profile')], missingRequired: [] }, [historyQuestion], noCurrentPermit);
+      expect(result.actions).toEqual([]);
+      expect(result.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+    }
+
+    const unconfirmedPrefill = { ...permitField('Have you ever held a work permit?', ['Yes', 'No']), value: 'No' };
+    const prefilledHistoryResult = guardPlan({ actions: [], missingRequired: [] }, [unconfirmedPrefill], noCurrentPermit);
+    expect(prefilledHistoryResult.actions).toEqual([]);
+    expect(prefilledHistoryResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
+    const optionalPrefill = { ...unconfirmedPrefill, required: false };
+    const optionalHistoryResult = guardPlan({ actions: [], missingRequired: [] }, [optionalPrefill], noCurrentPermit);
+    expect(optionalHistoryResult.actions).toEqual([]);
+    expect(optionalHistoryResult.missingRequired.map((item: any) => item.fieldId)).toContain('p1');
+
+    const textHistory = { id: 'h1', kind: 'text', label: 'Have you ever held a work permit?', options: [] };
+    expect(candidateAnswerForField(noCurrentPermit, textHistory)).toBeNull();
+
+    const historyQuestion = 'Have you ever held a work permit?';
+    const candidateHistory = candidate({ permitStatus: 'none' }, { portal_history: 'Yes' }, [{ id: 'portal_history', question: historyQuestion }]);
+    expect(candidateAnswerForField(candidateHistory, { ...permitField(historyQuestion, ['Yes', 'No']), id: 'portal_history' }))
+      .toEqual({ value: 'Yes', source: 'answers' });
+    const explicitHistoryResult = guardPlan({ actions: [], missingRequired: [] }, [
+      { ...permitField(historyQuestion, ['Yes', 'No']), id: 'portal_history', value: 'No' },
+    ], candidateHistory);
+    expect(explicitHistoryResult.actions).toEqual([select('portal_history', 'Yes', 'answers')]);
+    expect(explicitHistoryResult.missingRequired).toEqual([]);
+    const staleHistoryPlan = guardPlan({
+      actions: [select('portal_history', 'No', 'profile')], missingRequired: [],
+    }, [{ ...permitField(historyQuestion, ['Yes', 'No']), id: 'portal_history', value: 'No' }], candidateHistory);
+    expect(staleHistoryPlan.actions).toEqual([select('portal_history', 'Yes', 'answers')]);
+    expect(staleHistoryPlan.missingRequired).toEqual([]);
+    const optionalStaleHistoryPlan = guardPlan({
+      actions: [select('portal_history', 'No', 'profile')], missingRequired: [],
+    }, [{ ...permitField(historyQuestion, ['Yes', 'No']), id: 'portal_history', required: false, value: 'No' }], candidateHistory);
+    expect(optionalStaleHistoryPlan.actions).toEqual([select('portal_history', 'Yes', 'answers')]);
+    expect(optionalStaleHistoryPlan.missingRequired).toEqual([]);
+
+    const yesNo = permitField('Do you hold a valid work permit for Switzerland?', ['Yes', 'No']);
+    expect(guardPlan({ actions: [select('p1', 'Yes', 'answers')], missingRequired: [] }, [yesNo], candidateWithPermit).actions)
+      .toEqual([select('p1', 'Yes', 'answers')]);
+  });
+
+  it('keeps a specific work-authorisation question as a permit status, not a yes/no answer', () => {
+    const candidateWithPermit = { identity, profile: {}, answers: { work_permit: 'Permesso G' } };
+    expect(candidateAnswerForField(candidateWithPermit, {
+      id: 't1', kind: 'text', label: 'Which work authorization do you hold?', options: [],
+    })).toEqual({ value: 'Permesso G', source: 'answers' });
   });
 
   it('keeps a nationality only when it names the one the candidate gave, Swiss for the status «swiss»', () => {
@@ -3129,7 +3598,8 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const known = knownValuesOf(form);
     expect(known).not.toContain('aufenthaltsbewilligung');
     expect(known).not.toContain('permesso g');
-    expect(planSystemPrompt('it')).toContain('swissStatus.statement is the candidate\'s own statement of their Swiss status today');
+    expect(planSystemPrompt('it')).toContain('use only a candidate-confirmed current status in swissStatus.statement, answers.work_permit or profile.permitStatus');
+    expect(planSystemPrompt('it')).toContain('profile.workPermit is CV wording, not confirmation of what the candidate holds today');
   });
 
   it('does not promote an unrecognized profile status into a candidate permit', () => {

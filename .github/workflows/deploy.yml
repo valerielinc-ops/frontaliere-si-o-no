@@ -2090,7 +2090,9 @@ jobs:
             ${{ runner.temp }}/articolisvizzera-dist-it.tar
             ${{ runner.temp }}/basilea-dist-it.tar
           compression-level: 1
-          retention-days: 1
+          # The weekly full audit replays all six IT batches up to eight days
+          # after the source run; keep the selected set on one retention window.
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 2 dist for post-deploy validation
         if: matrix.locale == 'it'
@@ -2106,7 +2108,7 @@ jobs:
             ${{ runner.temp }}/giura-dist-it.tar
             ${{ runner.temp }}/glarona-dist-it.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 3 dist for post-deploy validation
         if: matrix.locale == 'it'
@@ -2122,7 +2124,7 @@ jobs:
             ${{ runner.temp }}/nidvaldo-dist-it.tar
             ${{ runner.temp }}/obvaldo-dist-it.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 4 dist for post-deploy validation
         if: matrix.locale == 'it'
@@ -2138,7 +2140,7 @@ jobs:
             ${{ runner.temp }}/svitto-dist-it.tar
             ${{ runner.temp }}/svizzera-dist-it.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 5 dist for post-deploy validation
         if: matrix.locale == 'it'
@@ -2154,7 +2156,7 @@ jobs:
             ${{ runner.temp }}/vallese-dist-it.tar
             ${{ runner.temp }}/vaud-dist-it.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 6 dist for post-deploy validation
         if: matrix.locale == 'it'
@@ -2167,7 +2169,7 @@ jobs:
             ${{ runner.temp }}/zugo-dist-it.tar
             ${{ runner.temp }}/zurigo-dist-it.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
 
       - name: Finalize IT section content manifests
@@ -2428,9 +2430,9 @@ jobs:
           # su «No successful deploy.yml run on main still has a
           # 'github-pages' artifact» — motivo per cui e' rimasto rosso dal
           # 2026-08-31. La finestra deve coprire la cadenza del gate.
-          # Il costo e' trascurabile e non vale per gli altri: questo tar e' il
-          # TRONCO (49 MB), mentre gli shard-batch dello stesso run pesano fino
-          # a 1,5 GB l'uno e restano a 1 giorno.
+          # Il full audit richiede anche gli shard-batch dello stesso run, che
+          # pesano fino a 1,5 GB l'uno: la loro retention segue quindi questa
+          # stessa finestra, non il default breve del resto del workflow.
           retention-days: 8
           if-no-files-found: error
           # Level 9 = max deflate compression on the zip envelope. Pages
@@ -2478,7 +2480,8 @@ jobs:
         with:
           name: sitemaps-${{ github.run_id }}
           path: /tmp/sitemaps-bundle/
-          retention-days: 1
+          # The weekly full audit selects this source artifact by run id.
+          retention-days: 8
           if-no-files-found: ignore
 
       # Master source data for post-deploy validators (jobs.json +
@@ -2492,7 +2495,8 @@ jobs:
           path: |
             data/jobs.json
             data/jobs-crawler-summaries.json
-          retention-days: 1
+          # The weekly full audit selects this source artifact by run id.
+          retention-days: 8
           if-no-files-found: error
 
       - name: Upload pre-deploy snapshot for post-deploy validation

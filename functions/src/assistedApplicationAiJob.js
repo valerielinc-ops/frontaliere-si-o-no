@@ -23,6 +23,9 @@ const FETCH_TIMEOUT_MS = 12_000;
 const MAX_POSTING_CHARS = 14_000;
 const MAX_PAGE_BYTES = 1_500_000;
 const MAX_REDIRECTS = 3;
+const JOB_ROOM_API_BASE = 'https://www.job-room.ch/jobadservice/api/jobAdvertisements';
+const JOB_ROOM_UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const JOB_ROOM_JOB_ID_RE = /^seco-jobroom-([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i;
 
 function clean(value, max = 500) {
   return String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
@@ -390,6 +393,62 @@ function salaryText(baseSalary) {
   return '';
 }
 
+function jobRoomAdvertisementId(order = {}) {
+  const fromJobId = JOB_ROOM_JOB_ID_RE.exec(String(order?.jobId || '').trim())?.[1];
+  if (fromJobId) return fromJobId.toLowerCase();
+
+  try {
+    const url = new URL(String(order?.jobUrl || ''));
+    if (url.protocol !== 'https:' || url.username || url.password) return '';
+    if (!['www.job-room.ch', 'job-room.ch'].includes(url.hostname.toLowerCase())) return '';
+    const pathId = url.pathname.match(/^\/job-search\/([^/]+)\/?$/i)?.[1] || '';
+    return JOB_ROOM_UUID_RE.test(pathId) ? pathId.toLowerCase() : '';
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Job-Room keeps the application channel in its public advertisement API,
+ * while the published corpus deliberately strips contact data. Read only the
+ * channel here, at application time, and never fall back to publicContact.
+ */
+async function fetchJobRoomApplyUrl(order, { fetchImpl = fetch, resolve = lookup } = {}) {
+  const advertisementId = jobRoomAdvertisementId(order);
+  if (!advertisementId) return '';
+
+  try {
+    const response = await fetchPublicPage(
+      fetchImpl,
+      `${JOB_ROOM_API_BASE}/${advertisementId}`,
+      resolve,
+      { accept: 'application/json' },
+    );
+    const contentType = String(response?.headers?.get?.('content-type') || '').toLowerCase();
+    if (!response?.ok || !contentType.includes('json')) return '';
+
+    const applyChannel = (await response.json())?.jobContent?.applyChannel;
+    if (!applyChannel || typeof applyChannel !== 'object') return '';
+
+    const formUrl = String(applyChannel.formUrl || '').trim();
+    if (/^mailto:/i.test(formUrl)) {
+      const email = decodeURIComponent(formUrl.replace(/^mailto:/i, '').split('?')[0]).trim().toLowerCase();
+      if (isPlausibleEmail(email)) return `mailto:${email}`;
+    }
+    if (formUrl && await resolvesToPublicHost(formUrl, resolve)) return formUrl;
+
+    const email = String(applyChannel.emailAddress || '').replace(/\s+/g, '').trim().toLowerCase();
+    return isPlausibleEmail(email) ? `mailto:${email}` : '';
+  } catch (error) {
+    console.warn(
+      '[assistedApplicationAi] Job-Room application channel lookup failed',
+      advertisementId,
+      error instanceof Error ? error.message : String(error),
+    );
+    return '';
+  }
+}
+
 function postingUrlFromDetail(detail) {
   const explicit = clean(detail?.url, 1000);
   if (explicit) return explicit;
@@ -455,7 +514,7 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
 }
 
 /**
- * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, postingUrl:string, publishedPostingUrl:string, applyUrl:string, titles:object,
+ * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, postingUrl:string, publishedPostingUrl:string, applyUrl:string, jobRoomChannelResolved?:boolean, titles:object,
  *   location:string, postalCode:string, streetAddress:string, contactPerson:string, contactPhone:string,
  *   salary:string, employmentType:string, datePosted:string, postedDate:string, postingDateSource:string, firstSeenAt:string, validThrough:string}>}
  */
@@ -473,18 +532,30 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
     streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', datePosted: '', postedDate: '', postingDateSource: 'unknown', firstSeenAt: '', validThrough: '',
   };
   const jobId = String(order?.jobId || '');
+  const jobRoomOrder = Boolean(jobRoomAdvertisementId(order));
+  if (jobRoomOrder) empty.jobRoomChannelResolved = false;
+  let jobRoomApplyUrlPromise;
+  const jobRoomApplyUrl = () => {
+    jobRoomApplyUrlPromise ??= fetchJobRoomApplyUrl(order, { fetchImpl, resolve }).then((value) => {
+      if (jobRoomOrder) empty.jobRoomChannelResolved = Boolean(value);
+      return value;
+    });
+    return jobRoomApplyUrlPromise;
+  };
   if (JOB_ID_RE.test(jobId)) {
     try {
       const response = await fetchWithTimeout(fetchImpl, `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`);
       if (response.ok) {
         const posting = postingFromDetail(await response.json(), maxPostingChars);
         if (posting.text) {
+          const resolvedApplyUrl = await jobRoomApplyUrl();
           return {
             ...empty,
             ...posting,
             publishedPostingUrl: posting.postingUrl,
             postingUrl: posting.postingUrl || empty.postingUrl,
-            applyUrl: posting.applyUrl || empty.applyUrl,
+            applyUrl: resolvedApplyUrl || posting.applyUrl || empty.applyUrl,
+            ...(jobRoomOrder ? { jobRoomChannelResolved: Boolean(resolvedApplyUrl) } : {}),
             source: 'job_detail',
           };
         }
@@ -514,7 +585,17 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
         const html = pageHtml.slice(0, MAX_PAGE_BYTES);
         const fullText = htmlToText(html);
         const text = fullText.slice(0, maxPostingChars);
-        if (text.length > 200) return { ...empty, text, textTruncated: pageTruncated || fullText.length > maxPostingChars, source: 'job_page' };
+        if (text.length > 200) {
+          const resolvedApplyUrl = await jobRoomApplyUrl();
+          return {
+            ...empty,
+            text,
+            textTruncated: pageTruncated || fullText.length > maxPostingChars,
+            applyUrl: resolvedApplyUrl || empty.applyUrl,
+            ...(jobRoomOrder ? { jobRoomChannelResolved: Boolean(resolvedApplyUrl) } : {}),
+            source: 'job_page',
+          };
+        }
       }
     } catch (error) {
       console.warn('[assistedApplicationAi] job page fetch failed', error instanceof Error ? error.message : String(error));
@@ -535,6 +616,9 @@ const PORTALS = [
   { id: 'greenhouse', label: 'Greenhouse', re: /(^|\.)greenhouse\.io$/, account: false },
   { id: 'personio', label: 'Personio', re: /(^|\.)personio\.(de|com)$/, account: false },
   { id: 'softgarden', label: 'softgarden', re: /(^|\.)softgarden\.(io|de)$/, account: false },
+  // Career Page is the public Manatal application surface. It is a real
+  // employer form even when the posting also publishes a recruiting address.
+  { id: 'manatal', label: 'Career Page (Manatal)', re: /(^|\.)careers-page\.com$/, account: false },
   { id: 'jobs_ch', label: 'jobs.ch / jobup.ch', re: /(^|\.)(jobs\.ch|jobup\.ch)$/, account: false },
   { id: 'linkedin', label: 'LinkedIn', re: /(^|\.)linkedin\.com$/, account: true },
   // Coop's apprenticeships (2026-10-02): «Jetzt bewerben» opens a WhatsApp
@@ -545,7 +629,7 @@ const PORTALS = [
 // The employers' own application portals (not job boards): used even when the
 // posting also names an e-mail address. PastaHR is not among them: a WhatsApp
 // chat cannot be sent for the candidate, an address the posting gives can.
-const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden']);
+const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden', 'manatal']);
 
 /** The known portal an address is on, or null. */
 function portalOf(url) {
@@ -598,4 +682,61 @@ export function classifyApplicationChannel({ applyUrl = '', postingText = '', ap
   if (portal) return { type: portal.id, label: portal.label, email: '', applyUrl: url, host, requiresAccount: portal.account };
   if (host) return { type: 'employer_site', label: 'Sito del datore', email: '', applyUrl: url, host, requiresAccount: false };
   return { type: 'unknown', label: 'Sconosciuto', email: '', applyUrl: '', host: '', requiresAccount: false };
+}
+
+/**
+ * Refresh the Job-Room channel of a persisted draft immediately before
+ * submission. Drafts can outlive a posting's published channel, so this is
+ * deliberately fail-open and only trusts the same posting reader used during
+ * drafting.
+ */
+export async function refreshApplicationChannel(draft, order, {
+  fetchPosting = fetchJobPosting,
+  fetchImpl = fetch,
+  resolve = lookup,
+} = {}) {
+  const current = draft && typeof draft === 'object' ? draft : {};
+  if (!jobRoomAdvertisementId(order)) return current;
+  let posting;
+  try {
+    posting = await fetchPosting(order, { fetchImpl, resolve });
+  } catch {
+    return current;
+  }
+  if (!posting || posting.source === 'none') return current;
+  if (posting.jobRoomChannelResolved !== true) return current;
+
+  const currentJob = current.job && typeof current.job === 'object' ? current.job : {};
+  const liveApplyUrl = String(posting.applyUrl || '').trim();
+  if (!liveApplyUrl) return current;
+  // A failed Job-Room API lookup leaves fetchJobPosting's apply URL at the
+  // order's posting URL. That is not evidence of a changed channel.
+  if (liveApplyUrl === String(order?.jobUrl || '').trim()) return current;
+  // `fetchJobPosting` keeps the saved posting URL when a live channel lookup
+  // is unavailable. Do not erase a previously verified channel in that case.
+  if (liveApplyUrl === String(currentJob.applyUrl || '').trim() && current.channel?.type) return current;
+  let channel;
+  try {
+    channel = classifyApplicationChannel({ applyUrl: liveApplyUrl, postingText: posting.text });
+  } catch {
+    return current;
+  }
+  if (channel.type === 'unknown') return current;
+
+  const jobApplyUrl = channel.type === 'email'
+    ? posting.postingUrl || currentJob.applyUrl || order?.jobUrl || ''
+    : channel.applyUrl || posting.applyUrl || currentJob.applyUrl || order?.jobUrl || '';
+  return {
+    ...current,
+    job: {
+      ...currentJob,
+      ...(posting.postingUrl ? { postingUrl: posting.postingUrl } : {}),
+      applyUrl: jobApplyUrl,
+    },
+    channel: { ...(current.channel || {}), ...channel },
+    applicationEmail: {
+      ...(current.applicationEmail || {}),
+      to: channel.type === 'email' ? channel.email : '',
+    },
+  };
 }

@@ -269,6 +269,15 @@ jobs:
           REHYDRATE_PROVENANCE_FILE: ${{ runner.temp }}/replay-shard-provenance.tsv
         run: bash scripts/lib/rehydrate-provenance.sh verify dist
 
+      # The build-time sitemap hook runs before the logical dist is assembled.
+      # Rehydrated shard HTML is the final serving truth, so remove fuel locs
+      # whose final document is missing, noindex, or non-self-canonical before
+      # any completeness or SEO audit reads the sitemap graph. The HTML bridge
+      # remains on disk; only sitemap membership and the rebuilt index change.
+      - name: Reconcile rehydrated sitemaps against final dist
+        id: reconcile_rehydrated_sitemaps
+        run: npm run validate:rehydrated-sitemaps
+
       # Precondition, not a gate: abort BEFORE any audit runs (and before a
       # misleading report is uploaded) if dist/ is still missing whole subtrees.
       # Without this, a rehydrate that silently degrades turns straight back into

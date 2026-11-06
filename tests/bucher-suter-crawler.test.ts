@@ -10,6 +10,7 @@ import {
   detectCategory,
   detectEmploymentType,
   detectExperienceLevel,
+  fetchAllBucherSuterJobs,
   fetchJobListingsMeta,
 } from '../scripts/lib/bucher-suter-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -361,6 +362,44 @@ describe('Bucher + Suter AG crawler parser', () => {
       const listings = await fetchJobListingsMeta();
       expect(listings).toEqual(REAL_LISTING);
       expect(fetchViaJinaWithRetry).not.toHaveBeenCalled();
+    });
+
+    it('stamps an empty direct response only when WordPress declares both totals as zero', async () => {
+      global.fetch = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        headers: new Headers({ 'x-wp-total': '0', 'x-wp-totalpages': '0' }),
+        text: async () => '[]',
+      })) as any;
+      const listings = await fetchJobListingsMeta();
+      expect(listings).toEqual([]);
+      expect(Reflect.get(listings, 'authoritativeEmptyState')).toBe('authoritative-source-zero');
+      expect(Reflect.get(listings, 'authoritativeEmptyEvidence')).toContain('X-WP-Total=0');
+      expect(fetchViaJinaWithRetry).not.toHaveBeenCalled();
+    });
+
+    it('keeps an unannotated empty response fail-closed', async () => {
+      global.fetch = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        headers: new Headers(),
+        text: async () => '[]',
+      })) as any;
+      const listings = await fetchJobListingsMeta();
+      expect(listings).toEqual([]);
+      expect(Reflect.get(listings, 'authoritativeEmptyState')).toBeUndefined();
+    });
+
+    it('preserves the source-zero proof through fetchAllBucherSuterJobs', async () => {
+      global.fetch = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        headers: new Headers({ 'x-wp-total': '0', 'x-wp-totalpages': '0' }),
+        text: async () => '[]',
+      })) as any;
+      const jobs = await fetchAllBucherSuterJobs();
+      expect(jobs).toEqual([]);
+      expect(Reflect.get(jobs, 'authoritativeEmptyState')).toBe('authoritative-source-zero');
     });
 
     it('rescues a direct HTTP 403 (IP-reputation WAF) via the Jina clean-IP proxy', async () => {

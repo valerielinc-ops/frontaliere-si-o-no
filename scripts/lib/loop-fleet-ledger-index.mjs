@@ -12,11 +12,18 @@ import { digestDocument } from './canonical-json-digest.mjs';
  * rewrite of an already indexed shard and fail closed.
  */
 export const LOOP_FLEET_LEDGER_INDEX_FILE = 'ledger-record-index.jsonl';
+export const LOOP_FLEET_LEDGER_MANIFEST_FILE = 'ledger-record-index-manifest.jsonl';
 const INDEX_KIND = 'loop-fleet-ledger-record-index';
 const INDEX_SCHEMA_VERSION = 1;
+const MANIFEST_KIND = 'loop-fleet-ledger-record-manifest';
+const MANIFEST_SCHEMA_VERSION = 1;
 const DIGEST_RE = /^sha256:[0-9a-f]{64}$/u;
 const GIT_OID_RE = /^[0-9a-f]{40,64}$/iu;
 const RECORD_TYPES = new Set(['observation', 'decision', 'health', 'lifecycle']);
+// The durable branch has already crossed Node's 1 MiB child-process default
+// for the tracked-path listing. Keep both bulk Git reads bounded, but above
+// the current ledger size, so growth still fails closed instead of truncating.
+const GIT_LEDGER_MAX_BUFFER = 64 * 1024 * 1024;
 
 function text(value) {
   return typeof value === 'string' && value.trim() ? value.trim() : null;
@@ -50,7 +57,9 @@ function assertIndexEntry(entry, label) {
   const file = text(entry.file);
   if (!RECORD_TYPES.has(type)) throw new Error(`${label}.record_type is invalid`);
   if (!recordId) throw new Error(`${label}.record_id is missing`);
-  if (!file || path.basename(file) !== file || file === LOOP_FLEET_LEDGER_INDEX_FILE) {
+  if (!file || path.basename(file) !== file
+      || file === LOOP_FLEET_LEDGER_INDEX_FILE
+      || file === LOOP_FLEET_LEDGER_MANIFEST_FILE) {
     throw new Error(`${label}.file is invalid`);
   }
   if (!DIGEST_RE.test(String(entry.digest || ''))) throw new Error(`${label}.digest is invalid`);
@@ -85,7 +94,9 @@ function assertManifest(manifest) {
   if (!object(manifest)) throw new Error('ledger index manifest must be an object');
   const normalized = new Map();
   for (const [file, oid] of Object.entries(manifest)) {
-    if (!file || path.basename(file) !== file || file === LOOP_FLEET_LEDGER_INDEX_FILE) {
+    if (!file || path.basename(file) !== file
+        || file === LOOP_FLEET_LEDGER_INDEX_FILE
+        || file === LOOP_FLEET_LEDGER_MANIFEST_FILE) {
       throw new Error(`ledger index manifest file is invalid: ${file}`);
     }
     if (oid !== null && !GIT_OID_RE.test(String(oid || ''))) {
@@ -96,13 +107,62 @@ function assertManifest(manifest) {
   return normalized;
 }
 
-export function createLedgerIndexState({ exists = false, manifest = new Map(), entries = [] } = {}) {
+function assertManifestEntry(entry, label) {
+  if (!object(entry)
+      || entry.kind !== MANIFEST_KIND
+      || entry.schema_version !== MANIFEST_SCHEMA_VERSION) {
+    throw new Error(`${label} has unsupported manifest schema`);
+  }
+  const file = text(entry.file);
+  if (!file || path.basename(file) !== file
+      || file === LOOP_FLEET_LEDGER_INDEX_FILE
+      || file === LOOP_FLEET_LEDGER_MANIFEST_FILE) {
+    throw new Error(`${label}.file is invalid`);
+  }
+  const oid = entry.oid === null ? null : String(entry.oid || '').toLowerCase();
+  if (oid !== null && !GIT_OID_RE.test(oid)) throw new Error(`${label}.oid is invalid`);
+  return { file, oid };
+}
+
+function readLedgerManifest(ledgerDir) {
+  const file = path.join(path.resolve(ledgerDir), LOOP_FLEET_LEDGER_MANIFEST_FILE);
+  if (!fs.existsSync(file)) return new Map();
+  const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/u).filter((line) => line.trim());
+  if (!lines.length) throw new Error('ledger index manifest is empty');
+  const manifest = new Map();
+  lines.forEach((line, index) => {
+    let parsed;
+    try {
+      parsed = JSON.parse(line);
+    } catch (error) {
+      throw new Error(`ledger index manifest line ${index + 1} is invalid JSON: ${error.message}`);
+    }
+    const entry = assertManifestEntry(parsed, `ledger index manifest line ${index + 1}`);
+    const previous = manifest.get(entry.file);
+    if (previous !== undefined && previous !== null
+        && (entry.oid === null || previous !== entry.oid)) {
+      throw new Error(`ledger index manifest rewrites ${entry.file}`);
+    }
+    manifest.set(entry.file, entry.oid);
+  });
+  return manifest;
+}
+
+export function createLedgerIndexState({
+  exists = false,
+  manifest = new Map(),
+  entries = [],
+  persistedEntryCount = 0,
+  persistedManifest = manifest,
+} = {}) {
   const state = {
     exists,
     dirty: false,
     manifest: new Map(manifest),
     entries: [],
     byKey: new Map(),
+    persistedEntryCount,
+    persistedManifest: new Map(persistedManifest),
   };
   for (const entry of entries) addLedgerIndexEntry(state, entry);
   state.dirty = false;
@@ -111,7 +171,12 @@ export function createLedgerIndexState({ exists = false, manifest = new Map(), e
 
 export function readLedgerIndex(ledgerDir) {
   const file = path.join(path.resolve(ledgerDir), LOOP_FLEET_LEDGER_INDEX_FILE);
-  if (!fs.existsSync(file)) return createLedgerIndexState();
+  if (!fs.existsSync(file)) {
+    if (fs.existsSync(path.join(path.resolve(ledgerDir), LOOP_FLEET_LEDGER_MANIFEST_FILE))) {
+      throw new Error('ledger index manifest exists without ledger index');
+    }
+    return createLedgerIndexState();
+  }
   const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/u).filter((line) => line.trim());
   if (!lines.length) throw new Error('ledger index is empty');
   let header;
@@ -126,6 +191,14 @@ export function readLedgerIndex(ledgerDir) {
     throw new Error('ledger index header is unsupported');
   }
   const manifest = assertManifest(header.files);
+  for (const [manifestFile, oid] of readLedgerManifest(ledgerDir).entries()) {
+    const previous = manifest.get(manifestFile);
+    if (previous !== undefined && previous !== null
+        && (oid === null || previous !== oid)) {
+      throw new Error(`ledger index manifest conflicts with index header for ${manifestFile}`);
+    }
+    manifest.set(manifestFile, oid);
+  }
   const entries = lines.slice(1).map((line, index) => {
     let parsed;
     try {
@@ -135,7 +208,13 @@ export function readLedgerIndex(ledgerDir) {
     }
     return assertIndexEntry(parsed, `ledger index line ${index + 2}`);
   });
-  return createLedgerIndexState({ exists: true, manifest, entries });
+  return createLedgerIndexState({
+    exists: true,
+    manifest,
+    entries,
+    persistedEntryCount: entries.length,
+    persistedManifest: manifest,
+  });
 }
 
 export function addLedgerIndexEntry(state, entry) {
@@ -209,7 +288,9 @@ export function ledgerLifecycleConflictDigest(record) {
 
 export function setLedgerIndexFile(state, file, oid = null) {
   const name = path.basename(file);
-  if (!name || name === LOOP_FLEET_LEDGER_INDEX_FILE) throw new Error(`invalid ledger index file: ${file}`);
+  if (!name || name === LOOP_FLEET_LEDGER_INDEX_FILE || name === LOOP_FLEET_LEDGER_MANIFEST_FILE) {
+    throw new Error(`invalid ledger index file: ${file}`);
+  }
   if (oid !== null && !GIT_OID_RE.test(String(oid || ''))) {
     throw new Error(`invalid Git object id for ledger file ${name}`);
   }
@@ -242,15 +323,20 @@ function writeAtomic(file, content) {
   }
 }
 
-export function writeLedgerIndex(ledgerDir, state) {
-  if (!state.dirty) return false;
-  const file = path.join(path.resolve(ledgerDir), LOOP_FLEET_LEDGER_INDEX_FILE);
-  const header = {
-    kind: INDEX_KIND,
-    schema_version: INDEX_SCHEMA_VERSION,
-    files: Object.fromEntries([...state.manifest.entries()].sort(([left], [right]) => left.localeCompare(right))),
-  };
-  const content = [JSON.stringify(header), ...state.entries.map((entry) => JSON.stringify({
+function appendDurably(file, content) {
+  const target = path.resolve(file);
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  const fd = fs.openSync(target, 'a');
+  try {
+    fs.writeSync(fd, content, null, 'utf8');
+    fs.fsyncSync(fd);
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
+function serializeLedgerIndexEntry(entry) {
+  return JSON.stringify({
     record_type: entry.recordType,
     record_id: entry.recordId,
     file: entry.file,
@@ -259,11 +345,51 @@ export function writeLedgerIndex(ledgerDir, state) {
       projection: entry.projection,
       conflict_digest: entry.conflictDigest,
     } : {}),
-  }))].join('\n') + '\n';
-  writeAtomic(file, content);
+  });
+}
+
+function serializeManifestEntry(file, oid) {
+  return JSON.stringify({
+    kind: MANIFEST_KIND,
+    schema_version: MANIFEST_SCHEMA_VERSION,
+    file,
+    oid,
+  });
+}
+
+export function writeLedgerIndex(ledgerDir, state) {
+  if (!state.dirty) return false;
+  const file = path.join(path.resolve(ledgerDir), LOOP_FLEET_LEDGER_INDEX_FILE);
+  let wrote = false;
+  if (!fs.existsSync(file)) {
+    const header = {
+      kind: INDEX_KIND,
+      schema_version: INDEX_SCHEMA_VERSION,
+      files: Object.fromEntries([...state.manifest.entries()].sort(([left], [right]) => left.localeCompare(right))),
+    };
+    const content = [JSON.stringify(header), ...state.entries.map(serializeLedgerIndexEntry)].join('\n') + '\n';
+    writeAtomic(file, content);
+    wrote = true;
+  } else {
+    const newEntries = state.entries.slice(state.persistedEntryCount);
+    if (newEntries.length > 0) {
+      appendDurably(file, `${newEntries.map(serializeLedgerIndexEntry).join('\n')}\n`);
+      wrote = true;
+    }
+    const manifestUpdates = [...state.manifest.entries()]
+      .filter(([name, oid]) => !state.persistedManifest.has(name) || state.persistedManifest.get(name) !== oid)
+      .sort(([left], [right]) => left.localeCompare(right));
+    if (manifestUpdates.length > 0) {
+      const manifestFile = path.join(path.resolve(ledgerDir), LOOP_FLEET_LEDGER_MANIFEST_FILE);
+      appendDurably(manifestFile, `${manifestUpdates.map(([name, oid]) => serializeManifestEntry(name, oid)).join('\n')}\n`);
+      wrote = true;
+    }
+  }
   state.exists = true;
+  state.persistedEntryCount = state.entries.length;
+  state.persistedManifest = new Map(state.manifest);
   state.dirty = false;
-  return true;
+  return wrote;
 }
 
 /** Return current-worktree Git blob IDs for tracked ledger files. */
@@ -276,30 +402,44 @@ export function trackedLedgerFileOids(ledgerDir) {
     }).trim();
     const relativeLedgerDir = path.relative(root, targetDir).split(path.sep).join('/');
     const ledgerPrefix = relativeLedgerDir ? `${relativeLedgerDir}/` : '';
-    const output = execFileSync('git', [
+    const trackedOutput = execFileSync('git', [
       '-C', root, 'ls-files', '-z', '--full-name', '--', relativeLedgerDir || '.',
     ], {
       encoding: 'utf8',
+      maxBuffer: GIT_LEDGER_MAX_BUFFER,
       stdio: ['ignore', 'pipe', 'ignore'],
     });
     const result = new Map();
-    for (const relativeFile of output.split('\0')) {
+    const trackedPaths = [];
+    for (const relativeFile of trackedOutput.split('\0')) {
       if (!relativeFile || !relativeFile.startsWith(ledgerPrefix)) continue;
       const name = relativeFile.slice(ledgerPrefix.length);
-      if (!name || name === LOOP_FLEET_LEDGER_INDEX_FILE || name.includes('/')) continue;
-      let oid;
-      try {
-        oid = execFileSync('git', ['-C', root, 'hash-object', '--', relativeFile], {
-          encoding: 'utf8',
-          stdio: ['ignore', 'pipe', 'ignore'],
-        }).trim().toLowerCase();
-      } catch {
-        // A tracked file deleted from the worktree remains absent from the
-        // map, so the manifest check below reports the missing shard.
-        continue;
-      }
-      if (GIT_OID_RE.test(oid)) result.set(name, oid);
+      if (!name || name === LOOP_FLEET_LEDGER_INDEX_FILE
+          || name === LOOP_FLEET_LEDGER_MANIFEST_FILE || name.includes('/')) continue;
+      if (name.includes('\n') || name.includes('\r')) throw new Error(`ledger path contains a newline: ${name}`);
+      result.set(name, null);
+      trackedPaths.push(relativeFile);
     }
+    const names = [...result.keys()];
+    if (names.length === 0) return result;
+    let oidOutput;
+    try {
+      oidOutput = execFileSync('git', ['-C', root, 'hash-object', '--stdin-paths'], {
+        encoding: 'utf8',
+        input: `${trackedPaths.join('\n')}\n`,
+        maxBuffer: GIT_LEDGER_MAX_BUFFER,
+        stdio: ['pipe', 'pipe', 'ignore'],
+      });
+    } catch {
+      // A tracked file deleted from the worktree remains absent from the
+      // map, so the manifest check below reports the missing shard.
+      return new Map();
+    }
+    const oids = String(oidOutput).trim() ? String(oidOutput).trim().split(/\r?\n/u) : [];
+    if (oids.length !== names.length || oids.some((oid) => !GIT_OID_RE.test(oid))) {
+      throw new Error('git hash-object returned an incomplete ledger OID set');
+    }
+    names.forEach((name, index) => result.set(name, oids[index].toLowerCase()));
     return result;
   } catch {
     return null;

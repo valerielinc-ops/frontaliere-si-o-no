@@ -196,6 +196,29 @@ describe('classifyAdvertisement — what may be published', () => {
     expect(form.applyUrl).toBe('https://apply.acme.example/9');
   });
 
+  it('uses only a source-backed HTTPS channel for applyUrl and otherwise keeps the HTTPS job-room page', () => {
+    const httpOnly = classify(ad('u-http', {
+      jobContent: { externalUrl: 'http://careers.acme.example/jobs/u-http' },
+    })).candidate.job;
+    expect(httpOnly.applyUrl).toBe(httpOnly.url);
+
+    const mixed = classify(ad('u-mixed', {
+      jobContent: {
+        externalUrl: 'http://careers.acme.example/jobs/u-mixed',
+        applyChannel: { formUrl: 'https://apply.acme.example/u-mixed' },
+      },
+    })).candidate.job;
+    expect(mixed.applyUrl).toBe('https://apply.acme.example/u-mixed');
+
+    const httpFormOnly = classify(ad('u-http-form', {
+      jobContent: {
+        externalUrl: null,
+        applyChannel: { formUrl: 'http://apply.acme.example/u-http-form' },
+      },
+    })).candidate.job;
+    expect(httpFormOnly.applyUrl).toBe(httpFormOnly.url);
+  });
+
   it('reads the workload bound and a short engagement', () => {
     const partTime = classify(ad('w1', { jobContent: { employment: { workloadPercentageMin: '40', workloadPercentageMax: '60' } } })).candidate.job;
     expect(partTime).toMatchObject({ employmentType: 'PART_TIME', contract: 'part-time' });

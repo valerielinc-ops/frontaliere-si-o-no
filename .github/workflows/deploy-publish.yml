@@ -540,6 +540,10 @@ jobs:
           node scripts/validate-sitemap-links.mjs \
             --owned-locale="${BUILD_LOCALE}" \
             --verify-manifest=dist/locale-sitemap-manifest.json
+          # Keep the validated locale index outside dist while shard pushes,
+          # rewrites and pruning mutate that tree. Section-manifest packing
+          # runs later and must read this exact source-build index.
+          cp dist/locale-sitemap-manifest.json "$RUNNER_TEMP/locale-sitemap-manifest-${BUILD_LOCALE}.json"
           # Only what deploy.yml's «Pack non-IT locale shard source artifact»
           # ALWAYS packs may be required here: the locale subtree,
           # build-id.txt and the owned sitemap manifest. It adds the flat
@@ -1047,7 +1051,7 @@ jobs:
               --source-sha "$SOURCE_SHA" \
               --artifact-run-id "$GITHUB_RUN_ID" \
               --tar "$RUNNER_TEMP/$section-dist-$loc.tar" \
-              --page-manifest "dist/locale-sitemap-manifest.json" \
+              --page-manifest "$RUNNER_TEMP/locale-sitemap-manifest-$loc.json" \
               --out "$RUNNER_TEMP/shard-content-manifests/$loc/$section.json"
             rm -rf "$src"
           }
@@ -1073,7 +1077,9 @@ jobs:
             ${{ runner.temp }}/articolisvizzera-dist-${{ matrix.locale }}.tar
             ${{ runner.temp }}/basilea-dist-${{ matrix.locale }}.tar
           compression-level: 1
-          retention-days: 1
+          # The weekly full audit replays all six non-IT batches up to eight
+          # days after the publisher run; keep the selected set on one window.
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 2 dist for post-deploy validation
         if: matrix.locale != 'it'
@@ -1089,7 +1095,7 @@ jobs:
             ${{ runner.temp }}/giura-dist-${{ matrix.locale }}.tar
             ${{ runner.temp }}/glarona-dist-${{ matrix.locale }}.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 3 dist for post-deploy validation
         if: matrix.locale != 'it'
@@ -1105,7 +1111,7 @@ jobs:
             ${{ runner.temp }}/nidvaldo-dist-${{ matrix.locale }}.tar
             ${{ runner.temp }}/obvaldo-dist-${{ matrix.locale }}.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 4 dist for post-deploy validation
         if: matrix.locale != 'it'
@@ -1121,7 +1127,7 @@ jobs:
             ${{ runner.temp }}/svitto-dist-${{ matrix.locale }}.tar
             ${{ runner.temp }}/svizzera-dist-${{ matrix.locale }}.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 5 dist for post-deploy validation
         if: matrix.locale != 'it'
@@ -1137,7 +1143,7 @@ jobs:
             ${{ runner.temp }}/vallese-dist-${{ matrix.locale }}.tar
             ${{ runner.temp }}/vaud-dist-${{ matrix.locale }}.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload shard batch 6 dist for post-deploy validation
         if: matrix.locale != 'it'
@@ -1150,7 +1156,7 @@ jobs:
             ${{ runner.temp }}/zugo-dist-${{ matrix.locale }}.tar
             ${{ runner.temp }}/zurigo-dist-${{ matrix.locale }}.tar
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
 
       - name: Finalize non-IT section content manifests
@@ -1362,7 +1368,7 @@ jobs:
           # this step gates the Pages publish, so favour a fast upload over a few
           # extra MB. validate-dist downloads it over GitHub's internal network.
           compression-level: 1
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: error
 
       - name: Enforce non-IT tail budget before locale publish
@@ -2112,8 +2118,8 @@ jobs:
           path: pages-artifact/artifact.tar
           # cathedral-seo-gates-check may replay the exact deploy run for up
           # to the artifact retention window. Keep the Pages payload alive for
-          # the same eight days as the resolver contract; the other shard
-          # artifacts remain short-lived and are not selected by that gate.
+          # the same eight days as the resolver contract; the weekly full audit
+          # uses the locale/section shard artifacts below on that same window.
           retention-days: 8
           if-no-files-found: error
           # artifact.tar is an UNCOMPRESSED tar (deploy-it-pages-prep.sh packs it
