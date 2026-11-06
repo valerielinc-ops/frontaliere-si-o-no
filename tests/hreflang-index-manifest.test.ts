@@ -415,6 +415,28 @@ describe('runHreflangIndexManifest on a dist', () => {
     expect(rewritten).toHaveLength(64);
     expect(fs.existsSync(path.join(manifestDir, 'it.json'))).toBe(false);
     expect(fs.readdirSync(dist).some((name) => name.startsWith('.hreflang-index-'))).toBe(false);
+
+    const retry = await runHreflangIndexManifest({ distDir: dist, manifestDir, log: quiet });
+    expect(retry.filesRewritten).toBe(1);
+    expect(fs.existsSync(path.join(manifestDir, 'it.json'))).toBe(true);
+    expect(fs.readdirSync(dist).some((name) => name.startsWith('.hreflang-index-'))).toBe(false);
+    assertHreflangGraphIsClean(dist);
+  });
+
+  it('reports a lower bounded staging-byte peak than the same input staged all at once', async () => {
+    const dist = path.join(tmp, 'dist');
+    const paths = Array.from({ length: 65 }, (_, index) => `/measure-${String(index).padStart(3, '0')}/`);
+    for (const [index, urlPath] of paths.entries()) {
+      const slug = `measure-${String(index).padStart(3, '0')}`;
+      const cluster = clusterFor({ it: slug, en: `${slug}-en` });
+      write(dist, urlPath, page(urlPath, cluster, { robots: 'noindex,follow' }));
+    }
+
+    const summary = await runHreflangIndexManifest({ distDir: dist, manifestDir: path.join(tmp, 'm'), log: quiet });
+
+    expect(summary.filesRewritten).toBe(65);
+    expect(summary.stagingBytes.allAtOnceEquivalent).toBeGreaterThan(summary.stagingBytes.boundedBatchPeak);
+    expect(summary.stagingBytes.boundedBatchPeak).toBeGreaterThan(0);
   });
 
   it('fails before writing a complete manifest when a dist directory cannot be read', async () => {

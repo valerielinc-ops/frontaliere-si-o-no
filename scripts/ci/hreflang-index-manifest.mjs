@@ -222,6 +222,8 @@ export async function runHreflangIndexManifest({
 
   // ── Pass 3: write ──────────────────────────────────────────────────────
   let filesRewritten = 0;
+  let allAtOnceStagingBytes = 0;
+  let peakBatchStagingBytes = 0;
   if (!dryRun) {
     // Keep at most one bounded batch of duplicate HTML on disk. The temp dir
     // lives under `dist/` so staged files and page files share a filesystem;
@@ -232,6 +234,7 @@ export async function runHreflangIndexManifest({
       const batch = changes.slice(offset, offset + REWRITE_BATCH_SIZE);
       const transactionDir = await fs.promises.mkdtemp(path.join(distDir, '.hreflang-index-'));
       const staged = [];
+      let batchStagingBytes = 0;
       try {
         await mapPool(batch, concurrency, async ({ file, decision }, index) => {
           const html = await fs.promises.readFile(file, 'utf-8');
@@ -239,9 +242,12 @@ export async function runHreflangIndexManifest({
           if (next === null) return;
           const stagedFile = path.join(transactionDir, String(index));
           await fs.promises.writeFile(stagedFile, next, 'utf-8');
+          batchStagingBytes += Buffer.byteLength(next, 'utf-8');
           staged.push({ file, stagedFile });
         });
 
+        allAtOnceStagingBytes += batchStagingBytes;
+        peakBatchStagingBytes = Math.max(peakBatchStagingBytes, batchStagingBytes);
         const transactionId = path.basename(transactionDir);
         const moved = [];
         try {
@@ -295,6 +301,10 @@ export async function runHreflangIndexManifest({
     manifestCounts,
     filesToRewrite: changes.length,
     filesRewritten,
+    stagingBytes: dryRun ? null : {
+      allAtOnceEquivalent: allAtOnceStagingBytes,
+      boundedBatchPeak: peakBatchStagingBytes,
+    },
   };
   log(`[hreflang-index-manifest] ${JSON.stringify(summary)}`);
   for (const [locale, source] of Object.entries(manifestSources)) {
