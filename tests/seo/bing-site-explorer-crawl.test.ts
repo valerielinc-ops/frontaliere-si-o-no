@@ -55,8 +55,35 @@ import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/related
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
 import { renderArticleInlineMarkup } from '../../build-plugins/articleSeoFallback';
+import { buildBorderWaitTodayPath } from '../../scripts/lib/borderWaitSections.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
+const BORDER_WAIT_ARTICLES = [
+  {
+    locale: 'it',
+    source: `${BASE}/articoli-frontaliere/dosso-dogana-stabio-gaggiolo-traffico-frontalieri/`,
+    link: buildBorderWaitTodayPath('it', 'gaggiolo'),
+  },
+  {
+    locale: 'en',
+    source: `${BASE}/en/cross-border-articles/stabio-gaggiolo-customs-speed-bump-traffic-cross-border-workers/`,
+    link: buildBorderWaitTodayPath('en', 'gaggiolo'),
+  },
+  {
+    locale: 'de',
+    source: `${BASE}/de/grenzgaenger-artikel/verkehrsschwelle-stabio-gaggiolo-stau-grenzgaenger/`,
+    link: buildBorderWaitTodayPath('de', 'gaggiolo'),
+  },
+  {
+    locale: 'fr',
+    source: `${BASE}/fr/articles-frontalier/ralentisseur-stabio-gaggiolo-files-frontaliers/`,
+    link: buildBorderWaitTodayPath('fr', 'gaggiolo'),
+  },
+];
+
+function validHtml(url, extra = '') {
+  return `<title>Border wait test</title><link rel="canonical" href="${url}"><meta name="description" content="A sufficiently long description for the border-wait crawl regression and its full-tree contract, including canonical route coverage for localized article links.">${extra}`;
+}
 
 describe('Bing-compatible full-tree crawler', () => {
   it('publishes the versioned template table used by frontier referrer indexes', () => {
@@ -485,6 +512,50 @@ describe('Bing-compatible full-tree crawler', () => {
       url: `${BASE}/en/find-jobs-geneva/lugano/`,
       html: `${PHARMACY_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`,
     })).toBe(false);
+  });
+
+  it('keeps canonical Ticino pharmacy article links on the T0→T9 frontier', async () => {
+    const articleUrl = `${BASE}/articoli-frontaliere/farmacie-turno-ticino-guida/`;
+    const pharmacyUrl = `${BASE}/de/apotheken/ticino/`;
+    const articleTemplate = BING_TEMPLATE_TABLE.findIndex(({ id }) => id === 'article-pages');
+    const pharmacyTemplate = BING_TEMPLATE_TABLE.findIndex(({ id }) => id === 'pharmacy-pages');
+    const articleHtml = `<title>Farmacie del Ticino</title><link rel="canonical" href="${articleUrl}"><meta name="description" content="Una guida aggiornata alle farmacie del Ticino e ai percorsi ufficiali per consultare indirizzi e servizi."><a href="${pharmacyUrl}">Directory del Ticino</a>`;
+    const frontierHtml = `<title>Apotheken im Tessin</title><link rel="canonical" href="${pharmacyUrl}"><meta name="description" content="Das offizielle Verzeichnis der Apotheken im Tessin mit dem kanonischen Weg für die weitere Suche.">`;
+
+    const articleReport = await crawlPartition({
+      manifest: { kind: 'sitemap', baseUrl: BASE, urls: [articleUrl] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async (url) => new Response(
+        String(url) === articleUrl ? articleHtml : '',
+        { status: String(url) === articleUrl ? 200 : 404, headers: { 'content-type': 'text/html' } },
+      ),
+    });
+
+    expect(articleTemplate).toBeGreaterThanOrEqual(0);
+    expect(pharmacyTemplate).toBeGreaterThanOrEqual(0);
+    expect(templateIndexFor(articleUrl)).toBe(articleTemplate);
+    expect(templateIndexFor(pharmacyUrl)).toBe(pharmacyTemplate);
+    expect(articleReport.discoveredOutOfSitemap).toEqual([pharmacyUrl]);
+    expect(articleReport.discoveredReferrers).toEqual([[[0, articleTemplate]]]);
+
+    const frontierReport = await crawlPartition({
+      manifest: { kind: 'discovered-frontier', baseUrl: BASE, urls: [pharmacyUrl] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async (url) => new Response(
+        String(url) === pharmacyUrl ? frontierHtml : '',
+        { status: String(url) === pharmacyUrl ? 200 : 404, headers: { 'content-type': 'text/html' } },
+      ),
+    });
+
+    expect(frontierReport.codeCounts[BING_FRONTIER_HTTP_ERROR] ?? 0).toBe(0);
   });
 
   it('recognizes only marked event-detail noindex targets on strict event routes', () => {
@@ -1671,6 +1742,81 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(row.samples).toEqual([[source, redirect]]);
     expect(buildIssueBody(summary)).toContain('### Template referente della frontiera interna');
     expect(buildIssueBody(summary)).toContain(`\`${source}\` → \`${redirect}\``);
+  });
+
+  it('keeps localized Gaggiolo article links out of the T0/T12 frontier redirect corpus', async () => {
+    const cases = BORDER_WAIT_ARTICLES.map((article) => ({
+      ...article,
+      target: `${BASE}${buildBorderWaitTodayPath(article.locale, 'gaggiolo')}`,
+    }));
+    const sourceTemplates = [...new Set(cases.map(({ source }) => templateIndexFor(source)))];
+    const targetTemplates = [...new Set(cases.map(({ target }) => templateIndexFor(target)))];
+    expect(sourceTemplates).toEqual([0]);
+    expect(targetTemplates).toEqual([12]);
+    expect(cases.map(({ link, target }) => `${BASE}${link}`)).toEqual(cases.map(({ target }) => target));
+
+    const sitemapManifest = {
+      baseUrl: BASE,
+      kind: 'sitemap',
+      sitemapCount: 1,
+      sitemapUrls: [`${BASE}/sitemap.xml`],
+      manifestCount: cases.length,
+      urls: cases.map(({ source }) => source),
+    };
+    const sourceByUrl = new Map(cases.map((article) => [article.source, article]));
+    const sitemapReport = await crawlPartition({
+      manifest: sitemapManifest,
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async (url) => {
+        const article = sourceByUrl.get(url);
+        return new Response(validHtml(url, article ? `<a href="${article.link}">Gaggiolo</a>` : ''), {
+          status: 200,
+          headers: { 'content-type': 'text/html' },
+        });
+      },
+    });
+    expect(sitemapReport.findings).toEqual([]);
+
+    const frontier = collectDiscoveredInventory({ manifest: sitemapManifest, reports: [sitemapReport] });
+    expect(frontier.urls).toEqual(cases.map(({ target }) => target).sort());
+    const canonicalTargets = new Set(cases.map(({ target }) => target));
+    const legacyTargetByUrl = new Map(cases.map(({ link, target }) => [`${BASE}${link}`, target]));
+    const frontierManifest = {
+      baseUrl: BASE,
+      kind: 'discovered-frontier',
+      manifestCount: frontier.urls.length,
+      urls: frontier.urls,
+      referrerRefs: frontier.referrerRefs,
+      templateTable: frontier.templateTable,
+    };
+    const frontierReport = await crawlPartition({
+      manifest: frontierManifest,
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async (url) => {
+        if (canonicalTargets.has(url)) {
+          return new Response(validHtml(url), { status: 200, headers: { 'content-type': 'text/html' } });
+        }
+        return new Response('', {
+          status: 301,
+          headers: { location: legacyTargetByUrl.get(url) || `${BASE}/traffico-dogane/gaggiolo/oggi/` },
+        });
+      },
+    });
+    expect(frontierReport.findings).toEqual([]);
+
+    const summary = aggregateCrawlReports([sitemapReport], sitemapManifest, {
+      supplementalReports: [frontierReport],
+      supplementalManifest: frontierManifest,
+    });
+    expect(summary.frontierAttribution.rows.filter((row) => row.code === BING_FRONTIER_REDIRECT)).toEqual([]);
   });
 
   it('reads the frontier partition filename prefix used by the workflow artifacts', () => {

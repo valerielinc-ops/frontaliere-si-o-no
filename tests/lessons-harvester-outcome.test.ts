@@ -194,4 +194,8 @@ describe('lessons-harvester.yml — il gate dichiarato e\' quello reale', () => 
     expect(prompt).toContain('lessons-harvester-outcome.txt');
     expect(prompt).toMatch(/`pr:<N>`[\s\S]*`none:<motivo>`[\s\S]*`failed:<causa>`/u);
   });
+
+  it('usa no-thin per il push dal checkout blobless', () => {
+    expect(prompt).toContain('git push --no-thin -u origin HEAD');
+  });
 });

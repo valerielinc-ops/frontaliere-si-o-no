@@ -4185,24 +4185,47 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
  * applies the same pure repair to the in-memory aggregate for legacy entries
  * that exist only in the old aggregate file.
  */
-function repairExpiredArchiveSlicesAgainstActive(activeJobs) {
+export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir = EXPIRED_SLICES_DIR } = {}) {
   if (!Array.isArray(activeJobs) || activeJobs.length === 0) {
-    return { changed: 0, repairedRoutes: 0, details: [] };
+    return { changed: 0, repairedRoutes: 0, details: [], ghostCount: 0, mergedSlugs: 0 };
   }
   let changed = 0;
   let repairedRoutes = 0;
   const details = [];
-  for (const slicePath of listSliceFiles(EXPIRED_SLICES_DIR)) {
+  const allEntries = [];
+  let malformed = false;
+  for (const slicePath of listSliceFiles(sliceDir)) {
     const entries = readJson(slicePath, null);
-    if (!Array.isArray(entries)) continue;
+    if (!Array.isArray(entries)) {
+      malformed = true;
+      continue;
+    }
     const result = repairExpiredRoutesAgainstActive(entries, activeJobs);
-    if (result.changed === 0) continue;
-    writeJson(slicePath, entries);
-    changed += result.changed;
-    repairedRoutes += result.repairedRoutes;
-    if (details.length < 20) details.push(...result.details);
+    if (result.changed > 0) {
+      writeJson(slicePath, entries);
+      changed += result.changed;
+      repairedRoutes += result.repairedRoutes;
+      if (details.length < 20) details.push(...result.details);
+    }
+    allEntries.push(...entries);
   }
-  return { changed, repairedRoutes, details };
+
+  // Ghost reconciliation used to see only the capped aggregate assembled
+  // below. A same-posting expired entry beyond EXPIRED_JOBS_CAP therefore
+  // survived in its uncapped source slice and still owned the active route.
+  // Scan the complete slice corpus before aggregation so the cap remains a
+  // publication limit, never a correctness boundary.
+  const ghostRepair = malformed
+    ? { ghostCount: 0, mergedSlugs: 0 }
+    : reconcileGhostExpired(activeJobs, allEntries, { sliceDir });
+
+  return {
+    changed,
+    repairedRoutes,
+    details,
+    ghostCount: ghostRepair.ghostCount,
+    mergedSlugs: ghostRepair.mergedSlugs,
+  }
 }
 
 /**
@@ -4482,7 +4505,7 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
  *
  * Returns { cleanedExpired, ghostCount, mergedSlugs }.
  */
-export function reconcileGhostExpired(activeJobs, expiredJobs) {
+export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPIRED_SLICES_DIR } = {}) {
   if (!activeJobs?.length || !expiredJobs?.length) {
     return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0 };
   }
@@ -4665,7 +4688,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
   // by `ghostIds` removes the ghosts and nothing else, so cap-excluded
   // long-tail entries survive in the slices.
   if (ghostCount > 0) {
-    const sliceFiles = listSliceFiles(EXPIRED_SLICES_DIR);
+    const sliceFiles = listSliceFiles(sliceDir);
     for (const fp of sliceFiles) {
       const slice = readJson(fp, null);
       if (!Array.isArray(slice)) continue;
@@ -5084,6 +5107,14 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   if (withExpired) {
     let sliceRepair = { changed: 0, repairedRoutes: 0, details: [] };
     if (assembled) sliceRepair = repairExpiredArchiveSlicesAgainstActive(publishedJobs);
+    if (assembled && sliceRepair.ghostCount > 0) {
+      console.log(
+        `  👻 Expired slice ghost reconciliation: removed ${sliceRepair.ghostCount} ghost expired entries, `
+        + `merged ${sliceRepair.mergedSlugs} slugs into active previousSlugs`,
+      );
+      writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+      writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+    }
     const expiredJobs = assembleExpiredJobs();
     if (expiredJobs !== null) {
       let repairedExpiredJobs = expiredJobs;

@@ -5174,7 +5174,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:33:28.371Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1943c56d348c",
@@ -5476,7 +5477,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:48:43.650Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-48fdac3fd924",

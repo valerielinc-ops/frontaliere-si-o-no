@@ -671,6 +671,7 @@ describe('validator dei bridge host-side', () => {
       expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranchRef })).toBe('');
     }
     expect(validateGitArgs(['push', '--set-upstream', 'origin', workBranchRef], { allowedWorkBranch: workBranchRef })).toBe('');
+    expect(validateGitArgs(['push', '--no-thin', '-u', 'origin', workBranchRef], { allowedWorkBranch: workBranchRef })).toBe('');
     expect(validateGitArgs(['push', 'origin', `HEAD:${workBranchRef}`], { allowedWorkBranch: '' })).toMatch(/current work branch/);
     expect(validateGitArgs(['push', 'origin', `HEAD:${workBranchRef}`], { allowedWorkBranch: 'refs/heads/main' })).toMatch(/current work branch/);
     expect(validateGitArgs(['fetch', 'origin', 'main'])).toBe('');

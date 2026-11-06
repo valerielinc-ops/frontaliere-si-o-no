@@ -8,6 +8,28 @@ import { parseOnlyfyListing } from './onlyfy-listing-common.mjs';
 
 const RITTMEYER_ONLYFY_PORTAL_BASE = 'https://brugg.onlyfy.jobs';
 
+/**
+ * The Rittmeyer Onlyfy tenant exposes the printable job ad through its
+ * candidate endpoint. The public `/{lang}/job/{handle}` page is only a shell,
+ * and the shared `/job/show/{handle}/full` HTML endpoint is not the source
+ * document used by this tenant.
+ */
+export function buildRittmeyerOnlyfyPrintUrl(jobUrl = '') {
+  let url;
+  try {
+    url = new URL(jobUrl);
+  } catch {
+    return '';
+  }
+  if (url.hostname.toLowerCase() !== RITTMEYER_ONLYFY_PORTAL_BASE.replace(/^https?:\/\//, '')) {
+    return '';
+  }
+  const match = url.pathname.match(/^\/(?:([a-z]{2})\/)?job\/([a-z0-9-]+)\/?$/i);
+  if (!match) return '';
+  const language = (match[1] || 'en').toLowerCase();
+  return `${url.origin}/candidate/job/print/${match[2]}?lang=${language}&mode=print`;
+}
+
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
@@ -240,6 +262,47 @@ export function isRittmeyerTicinoListing(listing = {}) {
 
 export function parseRittmeyerJobDetail(html = '') {
   return parseRittmeyerJobDetailWithUrl(html, '');
+}
+
+const RITTMEYER_PRINT_CONTACT_HEADING_RE = /^(?:il tuo contatto|ihr kontakt|dein kontakt|votre contact|ton contact|your contact)\s*:?[\s\u00a0]*$/iu;
+
+/**
+ * Turn the official Rittmeyer Onlyfy print document into the detail fields
+ * needed by the crawler. The PDF is the source body; title and location stay
+ * bound to the listing row because the print text can contain translated or
+ * line-wrapped variants of both.
+ *
+ * @param {string} text normalized text extracted from the print PDF
+ * @param {{title?: string, location?: string, snippet?: string, employmentTypeStr?: string}} listing
+ */
+export function parseRittmeyerOnlyfyPrintAd(text = '', listing = {}) {
+  const paragraphs = String(text || '')
+    .replace(/\r/g, '\n')
+    .split(/\n{2,}/)
+    .map((paragraph) => normalizeSpace(paragraph))
+    .filter(Boolean);
+  const contactIndex = paragraphs.findIndex((paragraph) => RITTMEYER_PRINT_CONTACT_HEADING_RE.test(paragraph));
+  const summary = (contactIndex >= 0 ? paragraphs.slice(0, contactIndex) : paragraphs).join('\n\n').trim();
+  const workload = summary.match(/\b\d{2,3}\s*[-–]\s*\d{2,3}\s*%(?=\s|$)/)?.[0]
+    || String(listing.snippet || '').match(/\b\d{2,3}\s*[-–]\s*\d{2,3}\s*%(?=\s|$)/)?.[0]
+    || '';
+  return {
+    title: normalizeSpace(listing.title || ''),
+    summary,
+    applyUrl: '',
+    area: '',
+    location: normalizeSpace(listing.location || ''),
+    workload,
+    employmentType: normalizeSpace(listing.employmentTypeStr || ''),
+    datePosted: '',
+    company: '',
+    responsibilitiesHeading: '',
+    responsibilities: [],
+    requirementsHeading: '',
+    requirements: [],
+    benefitsHeading: '',
+    benefits: [],
+  };
 }
 
 export function parseRittmeyerJobDetailWithUrl(html = '', pageUrl = '') {

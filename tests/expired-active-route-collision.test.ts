@@ -3,7 +3,11 @@ import { describe, expect, it } from 'vitest';
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { assembleExpiredJobs, persistExpiredArchive } from '../scripts/assemble-jobs-dataset.mjs';
+import {
+  assembleExpiredJobs,
+  persistExpiredArchive,
+  repairExpiredArchiveSlicesAgainstActive,
+} from '../scripts/assemble-jobs-dataset.mjs';
 import {
   archiveRemovedJobsToSlice,
   repairExpiredRoutesAgainstActive,
@@ -131,6 +135,52 @@ describe('repairExpiredRoutesAgainstActive', () => {
       expect(persisted[0].slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
       expect(persisted[0].slug).not.toBe(COLLIDING_ROUTE);
       expect(active.slug).toBe(COLLIDING_ROUTE);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('reconciles same-posting ghosts from the uncapped slice corpus', () => {
+    const root = mkdtempSync(join(tmpdir(), 'expired-slice-ghost-cap-'));
+    try {
+      const active = {
+        ...activeJob(),
+        title: 'Same title',
+        company: 'Example Company',
+        location: 'Lugano',
+      };
+      const expired = {
+        ...expiredJob(`url:${ACTIVE_URL}`),
+        title: active.title,
+        company: active.company,
+        location: active.location,
+        expiredAt: '2026-01-01T00:00:00.000Z',
+      };
+      const sliceDir = join(root, 'expired-slices');
+      mkdirSync(sliceDir, { recursive: true });
+      const filler = Array.from({ length: 5000 }, (_, index) => ({
+        slug: `expired-filler-${index}`,
+        expiredAt: '2026-10-20T00:00:00.000Z',
+      }));
+      writeFileSync(join(sliceDir, 'ipersonal.json'), JSON.stringify([...filler, expired]));
+
+      const capped = assembleExpiredJobs({
+        sliceDir,
+        aggregatePath: join(root, 'expired-jobs.json'),
+      });
+      expect(capped).toHaveLength(5000);
+      expect(capped?.some((job: Job) => job.slug === COLLIDING_ROUTE)).toBe(false);
+
+      const result = repairExpiredArchiveSlicesAgainstActive([active], { sliceDir });
+      const persisted = JSON.parse(
+        readFileSync(join(sliceDir, 'ipersonal.json'), 'utf8'),
+      );
+
+      expect(result.ghostCount).toBe(1);
+      expect(result.mergedSlugs).toBeGreaterThan(0);
+      expect(persisted).toHaveLength(5000);
+      expect(persisted.some((job: Job) => job.slug === COLLIDING_ROUTE)).toBe(false);
+      expect(active.previousSlugs).toContain('expired-old');
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
