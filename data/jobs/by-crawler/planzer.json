@@ -595,12 +595,12 @@
     },
     {
       "id": "planzer-d5a11773b188",
-      "slug": "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen",
+      "slug": "sorter-del-pacchetto-nel-salario-orario-m-f-d-planzer-st-gallen",
       "slugByLocale": {
         "de": "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen",
-        "it": "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen",
-        "en": "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen",
-        "fr": "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen"
+        "it": "sorter-del-pacchetto-nel-salario-orario-m-f-d-planzer-st-gallen",
+        "en": "package-sorters-in-hourly-wage-m-f-d-planzer-st-gallen",
+        "fr": "trieurs-de-paquets-en-salaire-horaire-h-f-d-planzer-st-gallen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -663,7 +663,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:22:18.987Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:22:18.987Z"
+      "firstSeenAt": "2026-11-06T09:22:18.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen"
+        ],
+        "en": [
+          "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen"
+        ],
+        "fr": [
+          "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen"
+      ]
     },
     {
       "id": "planzer-7579b96aa5f5",

@@ -1123,12 +1123,12 @@
     },
     {
       "id": "ehnv-6c230a55580e",
-      "slug": "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains",
+      "slug": "una-segretaria-medica-del-30-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
       "slugByLocale": {
         "fr": "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains",
-        "it": "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains",
-        "en": "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains",
-        "de": "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+        "it": "una-segretaria-medica-del-30-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "en": "a-30-medical-secretary-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "de": "eine-30-medizinische-sekretarin-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -1191,16 +1191,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:21:12.073Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:21:12.073Z"
+      "firstSeenAt": "2026-11-06T09:21:12.073Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+        ],
+        "en": [
+          "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+        ],
+        "de": [
+          "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+      ]
     },
     {
       "id": "ehnv-9c5985452e40",
-      "slug": "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon",
+      "slug": "un-candidato-per-la-formazione-del-tecnico-nella-sala-operatoria-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
       "slugByLocale": {
         "fr": "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon",
-        "it": "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon",
-        "en": "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon",
-        "de": "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+        "it": "un-candidato-per-la-formazione-del-tecnico-nella-sala-operatoria-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
+        "en": "a-candidate-for-the-training-of-technician-in-the-operating-room-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
+        "de": "ein-kandidat-fur-die-ausbildung-des-technikers-im-operationssaal-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -1263,7 +1277,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:21:11.522Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:21:11.522Z"
+      "firstSeenAt": "2026-11-06T09:21:11.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+        ],
+        "en": [
+          "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+        ],
+        "de": [
+          "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+      ]
     },
     {
       "id": "ehnv-43bceb77ef4a",
@@ -1271,7 +1299,7 @@
       "slugByLocale": {
         "it": "70-80-infermiera-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
         "en": "70-80-nurse-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-        "de": "70-80-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
+        "de": "un-e-infirmier-ere-a-70-80-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
         "fr": "un-e-infirmier-ere-a-70-80-ehnv-pompaples"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -1318,7 +1346,7 @@
       "externalId": "4719",
       "previousSlugs": [
         "un-e-infirmier-ere-a-70-80-ehnv-pompaples",
-        "un-e-infirmier-ere-a-70-80-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
+        "70-80-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1329,7 +1357,7 @@
         ],
         "de": [
           "un-e-infirmier-ere-a-70-80-ehnv-pompaples",
-          "un-e-infirmier-ere-a-70-80-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
+          "70-80-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
         ]
       },
       "firstSeenAt": "2026-10-09T09:17:27.025Z",

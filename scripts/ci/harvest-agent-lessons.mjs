@@ -1298,11 +1298,20 @@ export function isAvoidableOverlapSkip(title, labels, hasDeliveredPr = false) {
 // vedi `scripts/lib/workflow-scope-detect.mjs`), ed è quello il difetto che questi marker
 // stavano davvero registrando. I due codici restano CONTATI come volume/context nel
 // summary, esattamente come `rate-limited`: smettono solo di poter aprire una PR di regole.
+// `no-pr-unspecified` (2026-11-06, #17383): è l'esito generico per una run con
+// delivery verificatamente assente, emesso dal backstop quando nessun esito
+// più specifico è disponibile. Non identifica una violazione di regola: una
+// riga di prompt non può trasformare l'assenza di una PR in un fix deterministico
+// e il backstop deve continuare a registrare il volume. Tenerlo driver farebbe
+// invece escalare proprio la telemetria di fallback che dovrebbe solo osservare
+// il percorso senza delivery. Il bucket resta quindi nel report, ma non può
+// aprire una proposta strutturale.
 export function isEscalationDriver(source, key) {
   if (source === 'issue-class') return false;
   const bareKey = key.startsWith(`${source}:`) ? key.slice(source.length + 1) : key;
   if (source === 'fix-outcome' && bareKey === 'no-root-cause') return false;
   if (source === 'fix-outcome' && bareKey === 'rate-limited') return false;
+  if (source === 'fix-outcome' && bareKey === 'no-pr-unspecified') return false;
   if (source === 'fix-outcome' && bareKey === 'blocked-secrets') return false;
   if (source === 'fix-outcome' && bareKey === 'skip-duplicate-diagnosis') return false;
   if (source === 'fix-outcome' && bareKey === 'overlap-skip') return false;

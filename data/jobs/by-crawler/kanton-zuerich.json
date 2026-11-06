@@ -3456,12 +3456,12 @@
     },
     {
       "id": "kanton-zuerich-d0f1fb278545",
-      "slug": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
+      "slug": "business-analyst-nel-settore-fiscale-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
-        "it": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
-        "en": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
-        "fr": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+        "it": "business-analyst-nel-settore-fiscale-kantonale-verwaltung-zurich-zurich",
+        "en": "business-analyst-taxation-kantonale-verwaltung-zurich-zurich",
+        "fr": "analyste-metier-dans-le-domaine-fiscal-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3528,7 +3528,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:43:27.212Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:43:27.212Z"
+      "firstSeenAt": "2026-11-06T09:43:27.212Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-b68556a0c8e0",
@@ -8099,12 +8113,12 @@
     },
     {
       "id": "kanton-zuerich-de803c2b9981",
-      "slug": "treffleiterin-o-treffleiter-kantonale-verwaltung-zurich-andelfingen",
+      "slug": "responsabile-del-centro-d-incontro-kantonale-verwaltung-zurich-andelfingen",
       "slugByLocale": {
         "de": "treffleiterin-oder-treffleiter-kanton-zuerich-andelfingen",
-        "it": "treffleiterin-o-treffleiter-kantonale-verwaltung-zurich-andelfingen",
-        "en": "treffleiterin-oder-treffleiter-kanton-zuerich-andelfingen",
-        "fr": "treffleiterin-oder-treffleiter-kanton-zuerich-andelfingen"
+        "it": "responsabile-del-centro-d-incontro-kantonale-verwaltung-zurich-andelfingen",
+        "en": "meet-up-or-meet-up-kantonale-verwaltung-zurich-andelfingen",
+        "fr": "rencontre-ou-rencontre-kantonale-verwaltung-zurich-andelfingen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8156,11 +8170,19 @@
       "pensum": "10%",
       "previousSlugsByLocale": {
         "it": [
+          "treffleiterin-oder-treffleiter-kanton-zuerich-andelfingen",
+          "treffleiterin-o-treffleiter-kantonale-verwaltung-zurich-andelfingen"
+        ],
+        "en": [
+          "treffleiterin-oder-treffleiter-kanton-zuerich-andelfingen"
+        ],
+        "fr": [
           "treffleiterin-oder-treffleiter-kanton-zuerich-andelfingen"
         ]
       },
       "previousSlugs": [
-        "treffleiterin-oder-treffleiter-kanton-zuerich-andelfingen"
+        "treffleiterin-oder-treffleiter-kanton-zuerich-andelfingen",
+        "treffleiterin-o-treffleiter-kantonale-verwaltung-zurich-andelfingen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -11083,12 +11105,12 @@
     },
     {
       "id": "kanton-zuerich-cb5a73b05637",
-      "slug": "business-analyst-in-kanton-zuerich-zurich",
+      "slug": "analista-aziendale-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "business-analyst-in-kanton-zuerich-zurich",
-        "it": "business-analyst-in-kanton-zuerich-zurich",
+        "it": "analista-aziendale-kantonale-verwaltung-zurich-zurich",
         "en": "business-analyst-in-kanton-zuerich-zurich",
-        "fr": "business-analyst-in-kanton-zuerich-zurich"
+        "fr": "analyste-metier-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11155,7 +11177,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:42:40.273Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:42:40.273Z"
+      "firstSeenAt": "2026-11-06T09:42:40.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "business-analyst-in-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-in-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-a1ac38502db4",
@@ -11247,12 +11280,12 @@
     },
     {
       "id": "kanton-zuerich-cdc08826b816",
-      "slug": "automobil-mechatroniker-in-automobilfachperson-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "meccatronico-a-d-automobili-specialista-del-settore-automobilistico-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
         "de": "automobil-mechatroniker-in-automobilfachperson-kanton-zuerich-regensdorf",
-        "it": "automobil-mechatroniker-in-automobilfachperson-kantonale-verwaltung-zurich-regensdorf",
-        "en": "automobil-mechatroniker-in-automobilfachperson-kantonale-verwaltung-zurich-regensdorf",
-        "fr": "automobil-mechatroniker-in-automobilfachperson-kantonale-verwaltung-zurich-regensdorf"
+        "it": "meccatronico-a-d-automobili-specialista-del-settore-automobilistico-kantonale-verwaltung-zurich-regensdorf",
+        "en": "automotive-mechatronics-technician-automotive-specialist-kantonale-verwaltung-zurich-regensdorf",
+        "fr": "mecatronicien-ne-d-automobiles-specialiste-automobile-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11304,11 +11337,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "automobil-mechatroniker-in-automobilfachperson-kanton-zuerich-regensdorf"
+          "automobil-mechatroniker-in-automobilfachperson-kanton-zuerich-regensdorf",
+          "automobil-mechatroniker-in-automobilfachperson-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "en": [
+          "automobil-mechatroniker-in-automobilfachperson-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "fr": [
+          "automobil-mechatroniker-in-automobilfachperson-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "previousSlugs": [
-        "automobil-mechatroniker-in-automobilfachperson-kanton-zuerich-regensdorf"
+        "automobil-mechatroniker-in-automobilfachperson-kanton-zuerich-regensdorf",
+        "automobil-mechatroniker-in-automobilfachperson-kantonale-verwaltung-zurich-regensdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14088,12 +14129,12 @@
     },
     {
       "id": "kanton-zuerich-4f5ac51c7954",
-      "slug": "wissenschaftliche-n-collaboratore-trice-beteiligungsmanagement-kantonale-verwaltung-zurich",
+      "slug": "collaboratore-trice-scientifico-a-nella-gestione-delle-partecipazioni-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kanton-zuerich-zurich",
-        "it": "wissenschaftliche-n-collaboratore-trice-beteiligungsmanagement-kantonale-verwaltung-zurich",
-        "en": "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kantonale-verwaltung-zurich-zurich",
-        "fr": "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kantonale-verwaltung-zurich-zurich"
+        "it": "collaboratore-trice-scientifico-a-nella-gestione-delle-partecipazioni-kantonale-verwaltung-zurich-zurich",
+        "en": "research-associate-investment-management-kantonale-verwaltung-zurich-zurich",
+        "fr": "collaborateur-trice-scientifique-en-gestion-des-participations-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14145,11 +14186,20 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kanton-zuerich-zurich"
+          "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kanton-zuerich-zurich",
+          "wissenschaftliche-n-collaboratore-trice-beteiligungsmanagement-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kanton-zuerich-zurich"
+        "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kanton-zuerich-zurich",
+        "wissenschaftliche-n-collaboratore-trice-beteiligungsmanagement-kantonale-verwaltung-zurich",
+        "wissenschaftliche-n-mitarbeiter-in-beteiligungsmanagement-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

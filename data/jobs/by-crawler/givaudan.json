@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "givaudan-8813c58cc0f2",
-      "slug": "digital-automation-data-science-manager-givaudan-ch",
+      "slug": "gestore-di-automazione-digitale-della-scienza-dei-dati-givaudan-kemptthal",
       "slugByLocale": {
         "en": "digital-automation-data-science-manager-givaudan-ch",
-        "it": "digital-automation-data-science-manager-givaudan-ch",
-        "de": "digital-automation-data-science-manager-givaudan-ch",
-        "fr": "digital-automation-data-science-manager-givaudan-ch"
+        "it": "gestore-di-automazione-digitale-della-scienza-dei-dati-givaudan-kemptthal",
+        "de": "manager-fur-digitale-automatisierung-und-datenwissenschaft-givaudan-kemptthal",
+        "fr": "gestionnaire-de-donnees-d-automatisation-numerique-givaudan-kemptthal"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -73,7 +73,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T10:01:42.959Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T10:01:42.959Z"
+      "firstSeenAt": "2026-11-06T10:01:42.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-automation-data-science-manager-givaudan-ch"
+        ],
+        "de": [
+          "digital-automation-data-science-manager-givaudan-ch"
+        ],
+        "fr": [
+          "digital-automation-data-science-manager-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-automation-data-science-manager-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-878f847674f8",

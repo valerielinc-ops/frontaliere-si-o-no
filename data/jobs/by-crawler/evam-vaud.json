@@ -1576,12 +1576,12 @@
     },
     {
       "id": "evam-vaud-8675994",
-      "slug": "assistant-e-social-e-80-cdi-evam-vaud-ch-2",
+      "slug": "assistente-sociale-80-cdi-evam-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-social-e-80-cdi-evam-vaud-ch",
-        "it": "assistant-e-social-e-80-cdi-evam-vaud-ch-2",
+        "it": "assistente-sociale-80-cdi-evam-lausanne",
         "en": "assistant-e-social-e-80-cdi-evam-vaud-ch-2",
-        "de": "assistant-e-social-e-80-cdi-evam-vaud-ch-2"
+        "de": "assistent-e-social-e-80-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1643,11 +1643,16 @@
       "firstSeenAt": "2026-09-09T13:57:01.183Z",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-social-e-80-cdi-evam-vaud-ch"
+          "assistant-e-social-e-80-cdi-evam-vaud-ch",
+          "assistant-e-social-e-80-cdi-evam-vaud-ch-2"
+        ],
+        "de": [
+          "assistant-e-social-e-80-cdi-evam-vaud-ch-2"
         ]
       },
       "previousSlugs": [
-        "assistant-e-social-e-80-cdi-evam-vaud-ch"
+        "assistant-e-social-e-80-cdi-evam-vaud-ch",
+        "assistant-e-social-e-80-cdi-evam-vaud-ch-2"
       ]
     }
   ]

@@ -1023,12 +1023,12 @@
     },
     {
       "id": "weisse-arena-8820684b980c",
-      "slug": "restaurant-service-team-weisse-arena-ch",
+      "slug": "servizio-ristorazione-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "restaurant-service-team-weisse-arena-ch",
-        "it": "restaurant-service-team-weisse-arena-ch",
+        "it": "servizio-ristorazione-weisse-arena-gruppe-laax",
         "en": "restaurant-service-team-weisse-arena-ch",
-        "fr": "restaurant-service-team-weisse-arena-ch"
+        "fr": "equipe-de-service-des-restaurants-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -1095,7 +1095,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:23:35.496Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:23:35.496Z"
+      "firstSeenAt": "2026-11-06T09:23:35.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "restaurant-service-team-weisse-arena-ch"
+        ],
+        "fr": [
+          "restaurant-service-team-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "restaurant-service-team-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-b8bbb52f42a2",

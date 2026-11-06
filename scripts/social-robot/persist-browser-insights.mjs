@@ -6,6 +6,7 @@ import path from 'node:path';
 
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
+import { configureSocialRobotRuntime } from './lib/runtime.mjs';
 import {
   loadPrivateSocialNativeInsights,
   mergePrivateSocialInsightPosts,
@@ -58,6 +59,7 @@ export async function persistBrowserInsights({
   db = null,
   now = new Date(),
 } = {}) {
+  if (!db) configureSocialRobotRuntime();
   const parsed = readSnapshot(snapshot);
   const additions = normalizeInstagramPrivateSnapshots(parsed);
   if (additions.length !== parsed.posts.length) {

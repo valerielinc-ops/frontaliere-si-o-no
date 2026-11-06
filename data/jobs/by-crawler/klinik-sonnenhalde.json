@@ -1117,12 +1117,12 @@
     },
     {
       "id": "klinik-sonnenhalde-b3fe494a5c4f",
-      "slug": "oberpsychologin-oberpsychologe-tagesklinik-hybrid-klinik-sonnenhalde-riehen",
+      "slug": "psicologa-psicologo-dirigente-clinica-diurna-ibrida-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "de": "oberpsychologin-oberpsychologe-tagesklinik-hybrid-klinik-sonnenhalde-riehen",
-        "it": "oberpsychologin-oberpsychologe-tagesklinik-hybrid-klinik-sonnenhalde-riehen",
-        "en": "oberpsychologin-oberpsychologe-tagesklinik-hybrid-klinik-sonnenhalde-riehen",
-        "fr": "oberpsychologin-oberpsychologe-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+        "it": "psicologa-psicologo-dirigente-clinica-diurna-ibrida-klinik-sonnenhalde-riehen",
+        "en": "senior-psychologist-hybrid-day-clinic-klinik-sonnenhalde-riehen",
+        "fr": "psychologue-chef-cheffe-hopital-de-jour-hybride-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -1186,16 +1186,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:45:51.447Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:45:51.447Z"
+      "firstSeenAt": "2026-11-06T09:45:51.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberpsychologin-oberpsychologe-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+        ],
+        "en": [
+          "oberpsychologin-oberpsychologe-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+        ],
+        "fr": [
+          "oberpsychologin-oberpsychologe-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "oberpsychologin-oberpsychologe-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+      ]
     },
     {
       "id": "klinik-sonnenhalde-dc3d9be4f5c1",
-      "slug": "oberarztin-oberarzt-tagesklinik-hybrid-klinik-sonnenhalde-riehen",
+      "slug": "medica-medico-dirigente-clinica-diurna-ibrida-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-tagesklinik-hybrid-klinik-sonnenhalde-riehen",
-        "it": "oberarztin-oberarzt-tagesklinik-hybrid-klinik-sonnenhalde-riehen",
-        "en": "oberarztin-oberarzt-tagesklinik-hybrid-klinik-sonnenhalde-riehen",
-        "fr": "oberarztin-oberarzt-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+        "it": "medica-medico-dirigente-clinica-diurna-ibrida-klinik-sonnenhalde-riehen",
+        "en": "senior-physician-hybrid-day-clinic-klinik-sonnenhalde-riehen",
+        "fr": "medecin-adjoint-e-en-clinique-de-jour-hybride-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -1259,7 +1273,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:45:50.985Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:45:50.985Z"
+      "firstSeenAt": "2026-11-06T09:45:50.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-tagesklinik-hybrid-klinik-sonnenhalde-riehen"
+      ]
     },
     {
       "id": "klinik-sonnenhalde-b816975895c8",

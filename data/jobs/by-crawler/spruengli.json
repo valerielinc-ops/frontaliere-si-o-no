@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spruengli-200c4e52bee9",
-      "slug": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
+      "slug": "responsabile-di-turno-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
         "de": "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich",
-        "it": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
-        "en": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
-        "fr": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        "it": "responsabile-di-turno-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich",
+        "en": "shift-supervisor-100-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
+        "fr": "responsable-de-shift-100-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -61,11 +61,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich"
+          "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich",
+          "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        ],
+        "en": [
+          "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        ],
+        "fr": [
+          "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
         ]
       },
       "previousSlugs": [
-        "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich"
+        "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich",
+        "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
       ],
       "salaryMin": 73000,
       "salaryMax": 91500,
@@ -248,12 +256,12 @@
     },
     {
       "id": "spruengli-1dfd41124137",
-      "slug": "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich",
+      "slug": "giornata-di-prova-nel-commercio-al-dettaglio-esplorazione-professionale-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
         "de": "schnuppertag-detailhandel-berufserkundung-spruengli-zurich",
-        "it": "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich",
-        "en": "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich",
-        "fr": "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich"
+        "it": "giornata-di-prova-nel-commercio-al-dettaglio-esplorazione-professionale-confiserie-sprungli-ag-zurich",
+        "en": "retail-taster-day-career-exploration-confiserie-sprungli-ag-zurich",
+        "fr": "journee-decouverte-du-commerce-de-detail-exploration-professionnelle-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -304,11 +312,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schnuppertag-detailhandel-berufserkundung-spruengli-zurich"
+          "schnuppertag-detailhandel-berufserkundung-spruengli-zurich",
+          "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich"
+        ],
+        "en": [
+          "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich"
+        ],
+        "fr": [
+          "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "schnuppertag-detailhandel-berufserkundung-spruengli-zurich"
+        "schnuppertag-detailhandel-berufserkundung-spruengli-zurich",
+        "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

@@ -204,7 +204,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -265,7 +265,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -273,7 +273,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "needsRetranslation": true,
@@ -8429,12 +8429,12 @@
     },
     {
       "id": "emmi-31a4c56f105d",
-      "slug": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch",
+      "slug": "collaboratore-trice-operativo-a-del-centro-di-controllo-logistico-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch",
-        "it": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch",
-        "en": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch",
-        "fr": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+        "it": "collaboratore-trice-operativo-a-del-centro-di-controllo-logistico-emmi-emmen-luzern",
+        "en": "operations-employee-logistics-control-center-emmi-emmen-luzern",
+        "fr": "employe-e-d-exploitation-en-poste-de-controle-logistique-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8510,7 +8510,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:19:53.553Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:19:53.553Z"
+      "firstSeenAt": "2026-11-06T09:19:53.553Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+        ],
+        "en": [
+          "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+        ],
+        "fr": [
+          "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+      ]
     },
     {
       "id": "emmi-849900ec6806",

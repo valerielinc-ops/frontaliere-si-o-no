@@ -427,12 +427,12 @@
     },
     {
       "id": "seiro-a131fc76f397",
-      "slug": "oberarztin-oberarzt-anasthesie-80-100-luzern-seiro-luzern-luzern-seiro-ch",
+      "slug": "medico-senior-anestesia-medico-senior-80-100-lucerne-seiro-seiro-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-anasthesie-80-100-luzern-seiro-luzern-luzern-seiro-ch",
-        "it": "oberarztin-oberarzt-anasthesie-80-100-luzern-seiro-luzern-luzern-seiro-ch",
-        "en": "oberarztin-oberarzt-anasthesie-80-100-luzern-seiro-luzern-luzern-seiro-ch",
-        "fr": "oberarztin-oberarzt-anasthesie-80-100-luzern-seiro-luzern-luzern-seiro-ch"
+        "it": "medico-senior-anestesia-medico-senior-80-100-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "en": "senior-physician-senior-physician-anesthesia-80-100-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "fr": "medecin-principal-anesthesie-medecin-senior-80-100-lucerne-seiro-gmbh-luzern-luzern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -494,16 +494,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:23:40.308Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:23:40.308Z"
+      "firstSeenAt": "2026-11-06T09:23:40.308Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-anasthesie-80-100-luzern-seiro-luzern-luzern-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-anasthesie-80-100-luzern-seiro-luzern-luzern-seiro-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-anasthesie-80-100-luzern-seiro-luzern-luzern-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-anasthesie-80-100-luzern-seiro-luzern-luzern-seiro-ch"
+      ]
     },
     {
       "id": "seiro-c2f48bab825b",
-      "slug": "facharztin-facharzt-hausarztpraxis-altdorf-seiro-altdorf-zurich-seiro-ch",
+      "slug": "specialista-medico-specialista-medicina-familiare-altdorf-seiro-seiro-gmbh-altdorf-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-hausarztpraxis-altdorf-seiro-altdorf-zurich-seiro-ch",
-        "it": "facharztin-facharzt-hausarztpraxis-altdorf-seiro-altdorf-zurich-seiro-ch",
-        "en": "facharztin-facharzt-hausarztpraxis-altdorf-seiro-altdorf-zurich-seiro-ch",
-        "fr": "facharztin-facharzt-hausarztpraxis-altdorf-seiro-altdorf-zurich-seiro-ch"
+        "it": "specialista-medico-specialista-medicina-familiare-altdorf-seiro-seiro-gmbh-altdorf-zurich",
+        "en": "specialist-doctor-specialist-family-doctor-practice-altdorf-seiro-seiro-gmbh-altdorf-zurich",
+        "fr": "medecin-specialiste-medecin-de-famille-specialiste-pratique-altdorf-seiro-gmbh-altdorf-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -565,16 +579,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:23:40.307Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:23:40.307Z"
+      "firstSeenAt": "2026-11-06T09:23:40.307Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-hausarztpraxis-altdorf-seiro-altdorf-zurich-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-hausarztpraxis-altdorf-seiro-altdorf-zurich-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-hausarztpraxis-altdorf-seiro-altdorf-zurich-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-hausarztpraxis-altdorf-seiro-altdorf-zurich-seiro-ch"
+      ]
     },
     {
       "id": "seiro-3263299f7bfe",
-      "slug": "facharztin-facharzt-ophthalmologie-chirurgie-seiro-zurich-zurich-seiro-ch",
+      "slug": "specialista-specialista-chirurgia-oftalmologica-seiro-seiro-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-ophthalmologie-chirurgie-seiro-zurich-zurich-seiro-ch",
-        "it": "facharztin-facharzt-ophthalmologie-chirurgie-seiro-zurich-zurich-seiro-ch",
-        "en": "facharztin-facharzt-ophthalmologie-chirurgie-seiro-zurich-zurich-seiro-ch",
-        "fr": "facharztin-facharzt-ophthalmologie-chirurgie-seiro-zurich-zurich-seiro-ch"
+        "it": "specialista-specialista-chirurgia-oftalmologica-seiro-seiro-gmbh-zurich-zurich",
+        "en": "specialist-specialist-ophthalmology-surgery-seiro-seiro-gmbh-zurich-zurich",
+        "fr": "specialiste-specialiste-chirurgie-ophtalmologique-seiro-gmbh-zurich-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -636,16 +664,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:23:40.302Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:23:40.302Z"
+      "firstSeenAt": "2026-11-06T09:23:40.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-ophthalmologie-chirurgie-seiro-zurich-zurich-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-ophthalmologie-chirurgie-seiro-zurich-zurich-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-ophthalmologie-chirurgie-seiro-zurich-zurich-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-ophthalmologie-chirurgie-seiro-zurich-zurich-seiro-ch"
+      ]
     },
     {
       "id": "seiro-31f382bc585d",
-      "slug": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch",
+      "slug": "medicina-interna-lucerne-seiro-seiro-gmbh-luzern-zurich",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch",
-        "it": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch",
-        "en": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch",
-        "fr": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+        "it": "medicina-interna-lucerne-seiro-seiro-gmbh-luzern-zurich",
+        "en": "family-doctor-family-doctor-internal-medicine-lucerne-seiro-seiro-gmbh-luzern-zurich",
+        "fr": "medecin-de-famille-medecin-de-famille-medecine-interne-lucerne-seiro-gmbh-luzern-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -707,16 +749,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:23:40.300Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-22T21:24:10.491Z"
+      "firstSeenAt": "2026-10-22T21:24:10.491Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+        ],
+        "en": [
+          "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+      ]
     },
     {
       "id": "seiro-3e7f801cc2ce",
-      "slug": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch",
+      "slug": "specialista-specialist-ophthalmology-zurich-seiro-seiro-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch",
-        "it": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch",
-        "en": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch",
-        "fr": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+        "it": "specialista-specialist-ophthalmology-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "en": "specialist-specialist-ophthalmology-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "fr": "specialiste-specialiste-en-ophtalmologie-zurich-seiro-gmbh-zurich-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -778,7 +834,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:23:40.295Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-23T09:46:36.120Z"
+      "firstSeenAt": "2026-10-23T09:46:36.120Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+      ]
     },
     {
       "id": "seiro-5fae1b63f22e",

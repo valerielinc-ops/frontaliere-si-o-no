@@ -769,12 +769,12 @@
     },
     {
       "id": "institution-lavigny-ce351983d251",
-      "slug": "educateur-trice-specialise-e-pour-le-centre-de-jour-specialise-cdi-entre-80-et-90",
+      "slug": "educatore-specializzato-per-il-centro-giorno-specializzato-cdi-tra-l-80-e-il-90-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "educateur-trice-specialise-e-pour-le-centre-de-jour-specialise-cdi-entre-80-et-90",
-        "it": "educateur-trice-specialise-e-pour-le-centre-de-jour-specialise-cdi-entre-80-et-90",
-        "en": "educateur-trice-specialise-e-pour-le-centre-de-jour-specialise-cdi-entre-80-et-90",
-        "de": "educateur-trice-specialise-e-pour-le-centre-de-jour-specialise-cdi-entre-80-et-90"
+        "it": "educatore-specializzato-per-il-centro-giorno-specializzato-cdi-tra-l-80-e-il-90-institution-de-lavigny-lavigny",
+        "en": "specialised-educator-for-the-specialised-day-centre-cdi-between-80-and-90-institution-de-lavigny-lavigny",
+        "de": "fachpadagoge-fur-das-specialized-day-centre-cdi-zwischen-80-und-90-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -837,7 +837,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T10:03:31.324Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T10:03:31.324Z"
+      "firstSeenAt": "2026-11-06T10:03:31.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "educateur-trice-specialise-e-pour-le-centre-de-jour-specialise-cdi-entre-80-et-90"
+        ],
+        "en": [
+          "educateur-trice-specialise-e-pour-le-centre-de-jour-specialise-cdi-entre-80-et-90"
+        ],
+        "de": [
+          "educateur-trice-specialise-e-pour-le-centre-de-jour-specialise-cdi-entre-80-et-90"
+        ]
+      },
+      "previousSlugs": [
+        "educateur-trice-specialise-e-pour-le-centre-de-jour-specialise-cdi-entre-80-et-90"
+      ]
     },
     {
       "id": "institution-lavigny-5abc686a8baa",

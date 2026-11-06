@@ -1419,12 +1419,12 @@
     },
     {
       "id": "epi-stiftung-9ac383086bb3",
-      "slug": "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich",
+      "slug": "capo-aggiunto-dell-allevamento-degli-animali-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich",
-        "it": "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich",
-        "en": "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich",
-        "fr": "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich"
+        "it": "capo-aggiunto-dell-allevamento-degli-animali-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "deputy-head-of-animal-farming-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "chef-adjoint-de-l-elevage-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1486,7 +1486,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:23:13.508Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:23:13.508Z"
+      "firstSeenAt": "2026-11-06T09:23:13.508Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich"
+        ],
+        "en": [
+          "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich"
+      ]
     }
   ]
 }

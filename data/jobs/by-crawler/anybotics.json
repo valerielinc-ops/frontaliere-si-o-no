@@ -872,7 +872,7 @@
         "en": "internship-3d-perception-computer-vision-ai-anybotics-ch",
         "it": "internship-3d-perception-computer-vision-ai-anybotics-ch",
         "de": "internship-3d-perception-computer-vision-ai-anybotics-ch",
-        "fr": "internship-3d-perception-computer-vision-ai-anybotics-ch"
+        "fr": "stage-perception-3d-vision-informatique-et-ai-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
@@ -938,12 +938,12 @@
     },
     {
       "id": "anybotics-9d7ea3991613",
-      "slug": "internship-reinforcement-learning-for-navigation-anybotics-ch",
+      "slug": "internship-apprendimento-di-rinforzo-per-la-navigazione-anybotics-zurich-switzerland",
       "slugByLocale": {
         "en": "internship-reinforcement-learning-for-navigation-anybotics-ch",
-        "it": "internship-reinforcement-learning-for-navigation-anybotics-ch",
+        "it": "internship-apprendimento-di-rinforzo-per-la-navigazione-anybotics-zurich-switzerland",
         "de": "internship-reinforcement-learning-for-navigation-anybotics-ch",
-        "fr": "internship-reinforcement-learning-for-navigation-anybotics-ch"
+        "fr": "stage-renforcement-de-l-apprentissage-pour-la-navigation-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
@@ -1005,7 +1005,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T09:17:31.083Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-10T22:32:11.075Z"
+      "firstSeenAt": "2026-07-10T22:32:11.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-reinforcement-learning-for-navigation-anybotics-ch"
+        ],
+        "fr": [
+          "internship-reinforcement-learning-for-navigation-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-reinforcement-learning-for-navigation-anybotics-ch"
+      ]
     },
     {
       "id": "anybotics-5839d064a74b",

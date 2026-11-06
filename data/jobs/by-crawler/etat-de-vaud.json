@@ -3181,12 +3181,12 @@
     },
     {
       "id": "etat-de-vaud-6147",
-      "slug": "secretaire-d-unite-etat-de-vaud-morges-2",
+      "slug": "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-morges-7ae813",
       "slugByLocale": {
         "fr": "secretaire-d-unite-etat-de-vaud-morges",
-        "it": "secretaire-d-unite-etat-de-vaud-morges-2",
-        "en": "secretaire-d-unite-etat-de-vaud-morges-2",
-        "de": "secretaire-d-unite-etat-de-vaud-morges-2"
+        "it": "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-morges-7ae813",
+        "en": "secretary-of-unit-etat-de-vaud-administration-cantonale-vaudoise-morges-7ae813",
+        "de": "referatssekretar-etat-de-vaud-administration-cantonale-vaudoise-morges-7ae813"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3251,21 +3251,29 @@
       "firstSeenAt": "2026-10-12T09:22:25.378Z",
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-d-unite-etat-de-vaud-morges"
+          "secretaire-d-unite-etat-de-vaud-morges",
+          "secretaire-d-unite-etat-de-vaud-morges-2"
+        ],
+        "en": [
+          "secretaire-d-unite-etat-de-vaud-morges-2"
+        ],
+        "de": [
+          "secretaire-d-unite-etat-de-vaud-morges-2"
         ]
       },
       "previousSlugs": [
-        "secretaire-d-unite-etat-de-vaud-morges"
+        "secretaire-d-unite-etat-de-vaud-morges",
+        "secretaire-d-unite-etat-de-vaud-morges-2"
       ]
     },
     {
       "id": "etat-de-vaud-6143",
-      "slug": "secretaire-de-direction-etat-de-vaud-morges",
+      "slug": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-morges",
       "slugByLocale": {
         "fr": "secretaire-de-direction-etat-de-vaud-morges",
-        "it": "secretaire-de-direction-etat-de-vaud-morges",
-        "en": "secretaire-de-direction-etat-de-vaud-morges",
-        "de": "secretaire-de-direction-etat-de-vaud-morges"
+        "it": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "en": "executive-secretary-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "de": "exekutivsekretar-etat-de-vaud-administration-cantonale-vaudoise-morges"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3327,16 +3335,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:41:23.505Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:41:23.505Z"
+      "firstSeenAt": "2026-11-06T09:41:23.505Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-direction-etat-de-vaud-morges"
+        ],
+        "en": [
+          "secretaire-de-direction-etat-de-vaud-morges"
+        ],
+        "de": [
+          "secretaire-de-direction-etat-de-vaud-morges"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-direction-etat-de-vaud-morges"
+      ]
     },
     {
       "id": "etat-de-vaud-6136",
-      "slug": "responsable-de-la-gestion-des-forets-protectrices-etat-de-vaud-lausanne",
+      "slug": "responsabile-per-la-gestione-delle-foreste-protettive-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "responsable-de-la-gestion-des-forets-protectrices-etat-de-vaud-lausanne",
-        "it": "responsable-de-la-gestion-des-forets-protectrices-etat-de-vaud-lausanne",
-        "en": "responsable-de-la-gestion-des-forets-protectrices-etat-de-vaud-lausanne",
-        "de": "responsable-de-la-gestion-des-forets-protectrices-etat-de-vaud-lausanne"
+        "it": "responsabile-per-la-gestione-delle-foreste-protettive-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "responsible-for-the-management-of-protective-forests-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "verantwortlich-fur-die-bewirtschaftung-der-schutzwalder-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3398,16 +3420,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:41:23.096Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:41:23.096Z"
+      "firstSeenAt": "2026-11-06T09:41:23.096Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-la-gestion-des-forets-protectrices-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "responsable-de-la-gestion-des-forets-protectrices-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "responsable-de-la-gestion-des-forets-protectrices-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-la-gestion-des-forets-protectrices-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6128",
-      "slug": "chef-fe-de-projet-dangers-naturels-et-forets-protectrices-etat-de-vaud-lausanne",
+      "slug": "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-projet-dangers-naturels-et-forets-protectrices-etat-de-vaud-lausanne",
-        "it": "chef-fe-de-projet-dangers-naturels-et-forets-protectrices-etat-de-vaud-lausanne",
-        "en": "chef-fe-de-projet-dangers-naturels-et-forets-protectrices-etat-de-vaud-lausanne",
-        "de": "chef-fe-de-projet-dangers-naturels-et-forets-protectrices-etat-de-vaud-lausanne"
+        "it": "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "project-leader-natural-hazards-and-protective-forests-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "projektleiter-naturgefahren-und-schutzwalder-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3469,16 +3505,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:41:22.687Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:41:22.687Z"
+      "firstSeenAt": "2026-11-06T09:41:22.687Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-dangers-naturels-et-forets-protectrices-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-projet-dangers-naturels-et-forets-protectrices-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-projet-dangers-naturels-et-forets-protectrices-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-dangers-naturels-et-forets-protectrices-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6118",
-      "slug": "charge-e-d-evaluation-des-milieux-d-accueil-etat-de-vaud-lausanne",
+      "slug": "responsabile-della-valutazione-delle-comunita-ospitanti-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "charge-e-d-evaluation-des-milieux-d-accueil-etat-de-vaud-lausanne",
-        "it": "charge-e-d-evaluation-des-milieux-d-accueil-etat-de-vaud-lausanne",
-        "en": "charge-e-d-evaluation-des-milieux-d-accueil-etat-de-vaud-lausanne",
-        "de": "charge-e-d-evaluation-des-milieux-d-accueil-etat-de-vaud-lausanne"
+        "it": "responsabile-della-valutazione-delle-comunita-ospitanti-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "responsible-for-assessing-host-communities-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "verantwortlich-fur-die-bewertung-der-aufnahmegemeinschaften-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3540,16 +3590,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:41:22.264Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:41:22.264Z"
+      "firstSeenAt": "2026-11-06T09:41:22.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-d-evaluation-des-milieux-d-accueil-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "charge-e-d-evaluation-des-milieux-d-accueil-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "charge-e-d-evaluation-des-milieux-d-accueil-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "charge-e-d-evaluation-des-milieux-d-accueil-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6117",
-      "slug": "responsable-de-mandats-d-evaluation-etat-de-vaud-renens-vd",
+      "slug": "responsabile-dei-mandati-di-valutazione-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
       "slugByLocale": {
         "fr": "responsable-de-mandats-d-evaluation-etat-de-vaud-renens-vd",
-        "it": "responsable-de-mandats-d-evaluation-etat-de-vaud-renens-vd",
-        "en": "responsable-de-mandats-d-evaluation-etat-de-vaud-renens-vd",
-        "de": "responsable-de-mandats-d-evaluation-etat-de-vaud-renens-vd"
+        "it": "responsabile-dei-mandati-di-valutazione-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "en": "responsible-for-evaluation-mandates-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "de": "verantwortlich-fur-evaluierungsmandate-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3611,7 +3675,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:41:21.803Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:41:21.803Z"
+      "firstSeenAt": "2026-11-06T09:41:21.803Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-mandats-d-evaluation-etat-de-vaud-renens-vd"
+        ],
+        "en": [
+          "responsable-de-mandats-d-evaluation-etat-de-vaud-renens-vd"
+        ],
+        "de": [
+          "responsable-de-mandats-d-evaluation-etat-de-vaud-renens-vd"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-mandats-d-evaluation-etat-de-vaud-renens-vd"
+      ]
     },
     {
       "id": "etat-de-vaud-6057",
