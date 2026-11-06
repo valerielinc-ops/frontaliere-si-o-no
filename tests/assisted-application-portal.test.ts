@@ -407,6 +407,22 @@ describe('assisted application profile history and file replacement', () => {
       acceptedResponse: true,
       timeoutMs: 0,
     })).toBe(false);
+
+    let unreadableAlertReads = 0;
+    const unreadableFinalAlertPage = {
+      ...page,
+      locator: () => ({
+        allInnerTexts: async () => {
+          unreadableAlertReads += 1;
+          if (unreadableAlertReads === 2) throw new Error('alert-detached');
+          return [];
+        },
+      }),
+    };
+    expect(await uploadReceipt(unreadableFinalAlertPage as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
   });
 });
 

@@ -838,8 +838,11 @@ export async function uploadReceipt(page, locator, paths, { acceptedResponse = f
     const visibleReceipt = !requiresPortalReceipt && names.every((name, index) => visibleNames[index]);
     const inputReceipt = inputHasFiles && (!requiresPortalReceipt || acceptedResponse);
     if (responseReceipt || visibleReceipt || inputReceipt) {
-      const latestAlerts = await page.locator('[role="alert"]:visible').allInnerTexts().catch(() => []);
-      if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(latestAlerts.join(' '))) return false;
+      const latestAlertRead = await page.locator('[role="alert"]:visible').allInnerTexts()
+        .then((alerts) => ({ ok: true, alerts }))
+        .catch(() => ({ ok: false, alerts: [] }));
+      if (!latestAlertRead.ok) return false;
+      if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(latestAlertRead.alerts.join(' '))) return false;
       return true;
     }
     if (Date.now() >= deadline) break;
