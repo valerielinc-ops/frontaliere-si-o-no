@@ -2427,7 +2427,9 @@ const FIELD_LABEL_WORDS = new Set([
   'nazionalita', 'cittadinanza', 'nationalite', 'citizenship', 'residence', 'wohnsitz', 'wohnort', 'residenza', 'domicile', 'domicilio',
   'region', 'regione', 'location', 'standort', 'sede', 'lieu', 'phone', 'telefon', 'telefono', 'telephone', 'mobile', 'code', 'vorwahl',
   'prefisso', 'address', 'adresse', 'indirizzo', 'city', 'ort', 'citta', 'ville', 'canton', 'kanton', 'cantone', 'province', 'provincia',
-  'select', 'selected', 'one',
+  // Keep `one` out: next to an employer token it can be a proper-name suffix
+  // (`Coop One`), while the adjacent `select` token still neutralizes «Select one».
+  'select', 'selected',
 ]);
 const POSTING_LOCATION_LABEL_WORDS = new Set([
   'region', 'regione', 'location', 'standort', 'sede', 'lieu',
@@ -6501,6 +6503,15 @@ export async function readPortalRequirements(ctx) {
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
   const verifiedPostingEntry = verifiedJobs2WebEntry || verifiedPostingEntryFor(ctx);
+  // A legacy Umantis Application/New URL can be the only durable vacancy
+  // identity after liveness discarded an ambiguous posting candidate. Keep
+  // the inferred Description route in the form matcher; otherwise the EOC
+  // form's own employer questions look like a conflicting employer before
+  // the already-verified route proof gets a chance to bind it.
+  const inferredUmantisPostingUrl = verifiedPostingEntry && !String(ctx.postingUrl || '').trim()
+    ? umantisPostingAddressFromApplication(stageApplyUrl)
+    : '';
+  const formPostingUrl = String(ctx.postingUrl || '').trim() || inferredUmantisPostingUrl;
   const readAhead = portalReadAheadCapability({
     channelType,
     entryUrl,
@@ -6682,7 +6693,7 @@ export async function readPortalRequirements(ctx) {
         postingEntry: verifiedPostingEntry,
         applicationEntry,
         pageUrl: page.url(),
-        postingUrl: ctx.postingUrl,
+        postingUrl: formPostingUrl,
         postingRouteProof: ctx.postingRouteProof,
       });
       contractPostingMatch = formMatch === 'mismatch' ? 'mismatch' : formMatch === 'match' ? 'match' : 'unknown';

@@ -999,6 +999,51 @@ it('asks only for the missing EOC residence street and permit after resolving kn
   expect(browser.close).toHaveBeenCalledOnce();
 });
 
+it('infers the Umantis posting route before matching a direct Application/New form', async () => {
+  const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+  const snapshot = {
+    url: applicationUrl, buttons: [{ text: 'Avanti' }], links: [], captcha: false, passwordVisible: true, errors: [],
+    text: [
+      'Application Tracking System',
+      "Attualmente ho un contratto con l'EOC",
+      "In passato ho già lavorato per l'EOC",
+    ].join('\n'),
+    fields: [
+      { id: 'first-name', kind: 'text', inputType: 'text', label: 'Nome', form: 0, required: true },
+      { id: 'last-name', kind: 'text', inputType: 'text', label: 'Cognome', form: 0, required: true },
+      { id: 'email', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', form: 0, required: true },
+      { id: 'street', kind: 'textarea', inputType: 'textarea', label: 'Via', form: 0, required: true },
+      { id: 'postal', kind: 'text', inputType: 'text', label: 'NAP', form: 0, required: true },
+      { id: 'city', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true },
+      { id: 'country', kind: 'select', inputType: 'select', label: 'Paese', form: 0, required: true, options: ['Selezionare', 'Svizzera'] },
+      { id: 'cover', kind: 'file', inputType: 'file', label: 'Lettera di presentazione', form: 0, required: true },
+      { id: 'cv', kind: 'file', inputType: 'file', label: 'Curriculum', form: 0, required: true },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => applicationUrl,
+    title: vi.fn(async () => 'Application Tracking System'),
+    goto: vi.fn(async () => {}), evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: applicationUrl, postingUrl: '', language: 'it', candidateLocale: 'it',
+    job: { title: 'Impiegato a amministrativo', company: 'EOC – Ente Ospedaliero Cantonale' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(result.handoff).toBeUndefined();
+  expect(result.questions.map((question) => question.applicationQuestion)).toEqual([
+    'Nome', 'Cognome', 'Indirizzo e-mail/login', 'Via', 'NAP', 'Località', 'Paese',
+  ]);
+  expect(codex).toHaveBeenCalledOnce();
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('pre-reads a unique external Apply link for an allowlisted ATS form', async () => {
   const postingUrl = 'https://careers.example.test/jobs/42';
   const applicationUrl = 'https://ats.example.test/apply/42';
