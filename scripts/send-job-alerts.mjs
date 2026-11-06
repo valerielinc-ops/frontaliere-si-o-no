@@ -1880,6 +1880,7 @@ async function finalizeUnattemptedDiscoveryClaims(items, result, reason) {
   const represented = new Set([
     ...(Array.isArray(result?.sent) ? result.sent : []),
     ...(Array.isArray(result?.failed) ? result.failed : []),
+    ...(Array.isArray(result?.ambiguous) ? result.ambiguous : []),
   ].map(jobAlertDeliveryKey));
   for (const item of items) {
     if (!item?.meta?.discoveryClaim || represented.has(jobAlertDeliveryKey(item))) continue;

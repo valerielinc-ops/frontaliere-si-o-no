@@ -68,4 +68,15 @@ describe('discovery provider outcomes', () => {
     expect(result.confirmedDeliveryKeys.has('discovery@example.test\0empty')).toBe(false);
     expect(result.confirmedDeliveryKeys.size).toBe(0);
   });
+
+  it('does not finalize a discovery claim already represented as ambiguous', async () => {
+    const runTransaction = vi.fn(async () => {});
+    const ref = { collection: () => ({ doc: () => ref }) };
+    __setFirestoreAdminForTest({ collection: () => ({ doc: () => ref }), runTransaction });
+    send.mockImplementation(async (items) => ({ sent: [], accepted: [], failed: [], ambiguous: [items[0]] }));
+    await sendBatch([{ to: 'discovery@example.test', alertId: 'empty', subject: 'Popular', html: '<p>Popular</p>',
+      discoveryMode: true, discoveryClaim: { attemptId: 'claim', deliveryId: 'stable' } }]);
+
+    expect(runTransaction).not.toHaveBeenCalled();
+  });
 });
