@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-06T13:37:05.860Z",
+  "updatedAt": "2026-11-06T13:39:11.698Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -444601,7 +444601,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:27:46.957Z",
-      "updatedAt": "2026-11-04T13:55:58.202Z",
+      "updatedAt": "2026-11-06T13:39:11.603Z",
       "name": "eqe AG",
       "city": "Olten",
       "zip": "4600",
@@ -445037,10 +445037,11 @@
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
       "firstCrawlerOutputStatus": "missing",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
       "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-06T13:39:11.572Z"
     },
     "eqipe.ch": {
       "key": "eqipe.ch",
@@ -717068,7 +717069,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-30T09:26:02.760Z",
-      "updatedAt": "2026-11-04T13:55:58.202Z",
+      "updatedAt": "2026-11-06T13:39:11.603Z",
       "name": "Internezzo AG",
       "city": "Rotkreuz",
       "zip": "6343",
@@ -717331,10 +717332,11 @@
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
       "firstCrawlerOutputStatus": "missing",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
       "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-06T13:39:11.572Z"
     },
     "internursing@paradiso": {
       "key": "internursing@paradiso",
@@ -1013806,12 +1013808,12 @@
     },
     "opacc.ch": {
       "key": "opacc.ch",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-23T04:13:00.273Z",
-      "updatedAt": "2026-11-01T13:57:59.623Z",
+      "updatedAt": "2026-11-06T13:39:11.604Z",
       "name": "Opacc Software AG",
       "domain": "opacc.ch",
       "city": "Rothenburg",
@@ -1014052,11 +1014054,11 @@
       "promotionPr": "15918",
       "promotionBranch": "prospector/promote-2026-10-29",
       "promotedAt": "2026-10-29T19:26:07Z",
-      "firstCrawlerOutputStatus": "missing",
-      "firstCrawlerOutputAttention": true,
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAt": "2026-11-06T09:18:54.981Z",
+      "firstCrawlerJobCount": 7,
       "firstCrawlerOutputAttentionAt": "2026-11-01T13:57:59.589Z"
     },
     "opal-associates@wetzikon-zh": {
@@ -1283919,7 +1283921,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-05T14:25:17.133Z",
+      "updatedAt": "2026-11-06T13:39:11.604Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1284140,7 +1284142,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-05T09:36:05.223Z",
+      "firstCrawlerOutputAt": "2026-11-05T21:51:27.698Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
@@ -1286321,12 +1286323,12 @@
     },
     "skan": {
       "key": "skan",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-05T14:25:53.197Z",
+      "updatedAt": "2026-11-06T13:39:11.604Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1286921,7 +1286923,13 @@
       "qualityContractVersion": 3,
       "validationAnomalyIds": [],
       "promotionPr": "17189",
-      "promotionBranch": "prospector/promote-2026-11-05"
+      "promotionBranch": "prospector/promote-2026-11-05",
+      "promotedAt": "2026-11-06T06:23:01Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "skan@allschwil": {
       "key": "skan@allschwil",
@@ -1286930,7 +1286938,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:06:01.343Z",
-      "updatedAt": "2026-11-04T13:55:58.203Z",
+      "updatedAt": "2026-11-06T13:39:11.604Z",
       "name": "SKAN AG",
       "city": "Allschwil",
       "zip": "4123",
@@ -1287430,10 +1287438,11 @@
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
       "firstCrawlerOutputStatus": "missing",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
       "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-06T13:39:11.572Z"
     },
     "skan@stein-ag": {
       "key": "skan@stein-ag",
@@ -1845495,12 +1845504,12 @@
     },
     "unidistance@brig": {
       "key": "unidistance@brig",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-28T09:54:20.180Z",
-      "updatedAt": "2026-11-05T14:25:53.197Z",
+      "updatedAt": "2026-11-06T13:39:11.604Z",
       "name": "UniDistance Suisse",
       "secoEmployerName": "UniDistance Suisse",
       "city": "Brig",
@@ -1845906,7 +1845915,13 @@
         }
       ],
       "promotionPr": "17189",
-      "promotionBranch": "prospector/promote-2026-11-05"
+      "promotionBranch": "prospector/promote-2026-11-05",
+      "promotedAt": "2026-11-06T06:23:01Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "we-make-it@reinach-bl": {
       "key": "we-make-it@reinach-bl",
@@ -1900299,7 +1900314,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-11-03T11:02:22.714Z",
-      "updatedAt": "2026-11-05T14:25:17.134Z",
+      "updatedAt": "2026-11-06T13:39:11.604Z",
       "name": "CreditX Sàrl",
       "secoEmployerName": "CreditX Sàrl",
       "secoEmployerClassification": "direct",
@@ -1900566,7 +1900581,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-05T09:37:09.659Z",
+      "firstCrawlerOutputAt": "2026-11-05T21:52:11.387Z",
       "firstCrawlerJobCount": 0
     },
     "garage-pro-service@ardon": {
