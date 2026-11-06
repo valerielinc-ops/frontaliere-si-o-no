@@ -25,15 +25,33 @@ for (const metadata of ['', '<meta name="dateModified" content="2020-06-15"><p>E
     expect(fetchMock.mock.calls.some(([input]) => String(input) === url)).toBe(true);
   });
   it(`STS emits unknown without source publication ${metadata}`, async () => {
-    const url = `https://jobs.spitalstsag.ch/offene-stellen/pflege/${UUID}`;
-    const listing = `<div class="job job-1"><a id="job-1" href="${url}" data-location="Thun"><h3 class="title">${TITLE}</h3></a></div>`;
-    const fetchMock = vi.fn(async (input: string | URL) => new Response(String(input) === url ? `<section id="introduction"><p>${BODY}</p></section>${metadata}` : listing));
+    const apiUrl = 'https://ohws.prospective.ch/public/v1/medium/1000717/jobs?lang=de&offset=0&limit=100';
+    const listing = {
+      total: 1,
+      jobs: [{
+        id: 'sts-test-1',
+        viewkey: UUID,
+        title: TITLE,
+        szas: {
+          sza_title: TITLE,
+          'sza_location.city': 'Thun',
+          sza_introduction: BODY,
+        },
+        links: {
+          directlink: `https://jobs.spitalstsag.ch/offene-stellen/pflege/${UUID}`,
+        },
+      }],
+    };
+    const fetchMock = vi.fn(async (input: string | URL) => new Response(
+      String(input) === apiUrl ? JSON.stringify(listing) : '{}',
+      { headers: { 'content-type': 'application/json' } },
+    ));
     vi.stubGlobal('fetch', fetchMock);
     const jobs = await fetchAllSpitalStsJobs();
     expect(jobs).toHaveLength(1);
     expect(jobs[0]).toMatchObject({ ...UNKNOWN, title: TITLE, location: 'Thun', canton: 'BE' });
     expect(jobs[0].description).toContain('stationären Behandlung');
-    expect(fetchMock.mock.calls.some(([input]) => String(input) === url)).toBe(true);
+    expect(fetchMock.mock.calls.some(([input]) => String(input) === apiUrl)).toBe(true);
   });
 }
 

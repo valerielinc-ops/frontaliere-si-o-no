@@ -2,10 +2,19 @@ import { describe, it, expect } from 'vitest';
 import {
   SPITAL_STS_KEY,
   SPITAL_STS_COMPANY_NAME,
+  fetchAllSpitalStsJobs,
   isSpitalStsJob,
   isTrustedDomain,
 } from '../scripts/lib/spital-sts-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const SOURCE_BODY = [
+  'Wir suchen eine engagierte Fachperson für unser interdisziplinäres Team.',
+  '<p>Sie übernehmen die sorgfältige Betreuung unserer Patientinnen und Patienten.</p>',
+  '<p>Zu Ihren Aufgaben gehören die Planung, Durchführung und Dokumentation der Behandlung.</p>',
+  '<ul><li>Sie arbeiten zuverlässig und verantwortungsbewusst.</li><li>Sie bringen Freude an der Zusammenarbeit mit.</li></ul>',
+  '<p>Wir bieten eine moderne Arbeitsumgebung, faire Bedingungen und gezielte Weiterbildung.</p>',
+].join(' ');
 
 describe('Spital STS crawler parser', () => {
   // ── Constants ──
@@ -49,6 +58,10 @@ describe('Spital STS crawler parser', () => {
       expect(isTrustedDomain('https://careers.spitalstsag.ch/job/456')).toBe(true);
     });
 
+    it('trusts the tenant redirect used by published job URLs', () => {
+      expect(isTrustedDomain('https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/')).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });
@@ -77,6 +90,48 @@ describe('Spital STS crawler parser', () => {
     it('respects max length', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  describe('Prospective listing feed', () => {
+    it('reads the tenant JSON feed instead of the JavaScript career shell', async () => {
+      const originalFetch = globalThis.fetch;
+      globalThis.fetch = async (input: RequestInfo | URL) => {
+        const url = String(input);
+        expect(url).toBe('https://ohws.prospective.ch/public/v1/medium/1000717/jobs?lang=de&offset=0&limit=100');
+        return new Response(JSON.stringify({
+          total: 1,
+          jobs: [{
+            id: 'sts-1',
+            viewkey: '7b4dc00f-29d4-4e26-baa0-4346080c57d2',
+            title: 'Dipl. Pflegefachperson',
+            szas: {
+              sza_title: 'Dipl. Pflegefachperson',
+              'sza_location.city': 'Thun',
+              sza_introduction: SOURCE_BODY,
+              sza_tasks: '<ul><li>Patienten betreuen</li></ul>',
+              sza_requirements: '<ul><li>Ausbildung im Gesundheitswesen</li></ul>',
+            },
+            links: {
+              directlink: 'https://jobs.spitalstsag.ch/offene-stellen/pflegefachperson/7b4dc00f-29d4-4e26-baa0-4346080c57d2',
+            },
+          }],
+        }), { headers: { 'content-type': 'application/json' } });
+      };
+
+      try {
+        const [job] = await fetchAllSpitalStsJobs();
+        expect(job).toMatchObject({
+          companyKey: SPITAL_STS_KEY,
+          title: 'Dipl. Pflegefachperson',
+          location: 'Thun',
+          canton: 'BE',
+          url: 'https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/',
+        });
+        expect(job.description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+      } finally {
+        globalThis.fetch = originalFetch;
+      }
     });
   });
 
