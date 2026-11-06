@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { formPostingMatch, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -701,6 +701,16 @@ it('pre-reads a public employer route without a planner and keeps unsafe channel
   });
   expect(launch).toHaveBeenCalledOnce();
   expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('accepts a generic ATS form only after a matched posting Apply control was followed', () => {
+  const genericForm = 'Bewerbung\nVorname *\nE-Mail *\nhttps://ats.example/apply';
+  const job = { title: 'Pflegefachperson 80%' };
+  expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
+  expect(formPostingMatch(genericForm, job, { postingMatched: true, applicationEntry: true })).toBe('match');
+  expect(formPostingMatch('Other employer\nBewerbung', { ...job, company: 'Muster AG' }, {
+    postingMatched: true, applicationEntry: true,
+  })).toBe('mismatch');
 });
 
 it('does not launch a generic preflight when the public route cannot be resolved safely', async () => {
