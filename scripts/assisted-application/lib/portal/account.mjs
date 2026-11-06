@@ -208,7 +208,12 @@ function singleQueryParam(params, name) {
   const values = [...params.entries()]
     .filter(([key]) => key.toLowerCase() === name)
     .map(([, value]) => value);
-  return values.length === 1 ? values[0] : '';
+  // Keep a missing parameter distinct from a present-but-empty one. The
+  // latter must not be accepted as an omitted selector or identifier.
+  return {
+    present: values.length > 0,
+    value: values.length === 1 ? values[0] : null,
+  };
 }
 
 function setSingleQueryParam(url, name, value) {
@@ -237,7 +242,9 @@ function setSingleQueryParam(url, name, value) {
  */
 export function successFactorsSignInTarget(currentUrl) {
   const current = successFactorsJobApplicationRoute(currentUrl);
-  if (!current || singleQueryParam(current.searchParams, 'login_ns') !== 'register') return '';
+  if (!current) return '';
+  const loginNamespace = singleQueryParam(current.searchParams, 'login_ns');
+  if (!loginNamespace.present || loginNamespace.value !== 'register') return '';
   setSingleQueryParam(current, 'login_ns', 'login');
   return current.href;
 }
@@ -249,8 +256,9 @@ export function successFactorsSignInTarget(currentUrl) {
  */
 export function successFactorsRegistrationTarget(currentUrl) {
   const current = successFactorsJobApplicationRoute(currentUrl);
-  const loginNamespace = current && singleQueryParam(current.searchParams, 'login_ns');
-  if (!current || (loginNamespace && loginNamespace !== 'login')) return '';
+  if (!current) return '';
+  const loginNamespace = singleQueryParam(current.searchParams, 'login_ns');
+  if (loginNamespace.present && loginNamespace.value !== 'login') return '';
   setSingleQueryParam(current, 'login_ns', 'register');
   return current.href;
 }
@@ -270,15 +278,19 @@ function successFactorsJobApplicationRoute(currentUrl) {
     const requisition = singleQueryParam(params, 'career_job_req_id');
     const legacyJob = singleQueryParam(params, 'job');
     const legacyJobId = singleQueryParam(params, 'jobid');
-    if (!company || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company)) return null;
-    if (namespace && namespace.toLowerCase() !== 'job_application') return null;
-    if (requisition && !/^\d{1,20}$/.test(requisition)) return null;
-    if (legacyJob && !/^\d{1,20}$/.test(legacyJob)) return null;
-    if (legacyJobId && !/^\d{1,20}$/.test(legacyJobId)) return null;
-    if ((legacyJob || legacyJobId) && !SUCCESSFACTORS_LEGACY_JOB_HOST_RE.test(current.hostname)) return null;
+    const loginNamespace = singleQueryParam(params, 'login_ns');
+    if (!company.present || company.value === null || !company.value
+      || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company.value)) return null;
+    if (namespace.present && (namespace.value === null || !namespace.value
+      || namespace.value.toLowerCase() !== 'job_application')) return null;
+    if (requisition.present && (requisition.value === null || !/^\d{1,20}$/.test(requisition.value))) return null;
+    if (legacyJob.present && (legacyJob.value === null || !/^\d{1,20}$/.test(legacyJob.value))) return null;
+    if (legacyJobId.present && (legacyJobId.value === null || !/^\d{1,20}$/.test(legacyJobId.value))) return null;
+    if (loginNamespace.present && (loginNamespace.value === null || !loginNamespace.value)) return null;
+    if ((legacyJob.value || legacyJobId.value) && !SUCCESSFACTORS_LEGACY_JOB_HOST_RE.test(current.hostname)) return null;
     // Two different vacancy identifiers are ambiguous: do not choose a first match.
-    if ((requisition && (legacyJob || legacyJobId)) || (legacyJob && legacyJobId)) return null;
-    if (!requisition && !legacyJob && !legacyJobId) return null;
+    if ((requisition.value && (legacyJob.value || legacyJobId.value)) || (legacyJob.value && legacyJobId.value)) return null;
+    if (!requisition.value && !legacyJob.value && !legacyJobId.value) return null;
     return current;
   } catch {
     return null;
