@@ -522,15 +522,17 @@ describe('every active ad links its employer hub (mossa 2)', () => {
   });
 });
 
-describe('employerProfilePagesLinksPlugin is not duplicated by any of this', () => {
-  it('still owns exactly one job: the sitemap-page block that closes the BFS tier', () => {
-    // Different problem, different mechanism: that plugin makes the hubs
-    // REACHABLE (depth ≤ 3 from `/`), this change makes them AUTHORITATIVE.
-    // If it ever grew a per-job injector too, 36k HTML files would be rewritten
-    // post-hoc for links jobsSeoPagesPlugin can emit for free at render time.
+describe('employerProfilePagesLinksPlugin keeps its boundaries', () => {
+  it('injects sitemap links and only filters the shared job-detail boundary', () => {
+    // Different problems, different mechanisms: this plugin makes the hubs
+    // REACHABLE (depth ≤ 3 from `/`) and applies the shared allowlist to the
+    // already-rendered profile files. The jobs producer remains the owner of
+    // job-detail rendering; this plugin only consumes its published boundary.
     const links = readRepoFile('build-plugins/employerProfilePagesLinksPlugin.ts');
     expect(links).toContain('data-employer-profiles-links');
     expect(links).toContain('SITEMAP_PAGE_DIR[locale]');
-    expect(links).not.toContain('jobsSeoPages');
+    expect(links).toContain('filterEmployerProfileJobLinks(html, jobSitemapAllowlist)');
+    expect(links).toContain('jobsSeoPagesFlushed');
+    expect(links).not.toContain("from './jobsSeoPagesPlugin'");
   });
 });
