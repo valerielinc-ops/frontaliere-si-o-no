@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bachem",
-  "assembledAt": "2026-11-06T09:37:28.773Z",
-  "runId": "42193772925",
+  "assembledAt": "2026-11-06T21:47:17.657Z",
+  "runId": "42295258095",
   "jobs": [
     {
       "id": "bachem-4b54f29a4e8d",
@@ -35,7 +35,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Expert-Process-Specialist-Manufacturing-&-Process-Technology-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1447527333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:37:02.804Z",
+      "crawledAt": "2026-11-06T21:47:10.347Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:37:02.804Z",
+      "validThrough": "2027-01-12T21:47:10.347Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-PI-Server-Data-Historian-Engineer-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1402184733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:37:02.220Z",
+      "crawledAt": "2026-11-06T21:47:09.782Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:37:02.220Z",
+      "validThrough": "2027-01-01T21:47:09.782Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -209,7 +209,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Senior-Process-Specialist-Manufacturing-&-Process-Technology-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1447517733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:37:01.665Z",
+      "crawledAt": "2026-11-06T21:47:09.201Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:37:01.665Z",
+      "validThrough": "2027-01-12T21:47:09.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -294,7 +294,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Downstream-Process-Expert-API-Production-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1441748133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:37:01.164Z",
+      "crawledAt": "2026-11-06T21:47:08.625Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:37:01.164Z",
+      "validThrough": "2026-12-27T21:47:08.625Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-System-Expert-Materials-Management-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1441729733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:37:00.644Z",
+      "crawledAt": "2026-11-06T21:47:08.064Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -419,7 +419,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:37:00.644Z",
+      "validThrough": "2026-12-27T21:47:08.064Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -454,7 +454,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-MES-Design-Engineer-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1401817133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:37:00.109Z",
+      "crawledAt": "2026-11-06T21:47:07.476Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -505,8 +505,255 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:37:00.109Z",
+      "validThrough": "2026-12-31T21:47:07.476Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "bachem-ad10c3bc0aa5",
+      "slug": "scienziato-qc-a-80-100-bachem-ag-bubendorf",
+      "slugByLocale": {
+        "it": "scienziato-qc-a-80-100-bachem-ag-bubendorf",
+        "en": "scientist-qc-a-80-100-bachem-bubendorf",
+        "de": "scientist-qc-a-80-100-bachem-bubendorf",
+        "fr": "scientifique-qc-a-80-100-bachem-ag-bubendorf"
+      },
+      "company": "Bachem AG",
+      "companyKey": "bachem",
+      "companyDomain": "bachem.com",
+      "title": "Scientist QC (a) (80 - 100%)",
+      "titleByLocale": {
+        "it": "Scienziato QC(a) (80 - 100%)",
+        "en": "QC Scientist (a) (80–100%)",
+        "de": "Scientist QC (a) (80 - 100%)",
+        "fr": "Scientifique QC(a) (80 - 100%)"
+      },
+      "description": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams suchen wir eine/n engagierte/n Scientist QC (a) (80 - 100%).\n\nIhre Aufgaben:\n\n• Selbstständige Analyse von Ausgangsmaterialien für GMP-Synthesen sowie peptid- und oligonukleotidbasierten Wirkstoffen\n\n• Auswertung, Interpretation und GMP-konforme Dokumentation von Analysedaten\n\n• Anwendung spektroskopischer Methoden zur Quantifizierung, Charakterisierung und Stabilitätsuntersuchung von Proben\n\n• Entwicklung, Optimierung und Implementierung von Analysemethoden\n\n• Kritische Bewertung und Plausibilisierung analytischer Ergebnisse\n\n• Durchführung von Routineanalysen unter Einhaltung der GMP-Richtlinien\n\n• Eigenverantwortliche Bearbeitung von Projektaufgaben sowie Betreuung analytischer Geräte\n\n• Sicherstellung eines reibungslosen Messservices und Koordination von Analyseaufträgen\n\n• Erstellung von Entwicklungsberichten, SOPs und Analysenanleitungen\n\n• Aktive Unterstützung bei Analyse- und Entwicklungsprojekten sowie kontinuierliche Weiterentwicklung des Arbeitsumfelds und der Prozesse\n\nIhr Profil:\n\n• Abgeschlossenes Studium oder Promotion in Chemie, Biochemie, analytischer Chemie oder einer vergleichbaren Fachrichtung\n\n• Erfahrung in der analytischen Untersuchung von Peptiden, Proteinen, Oligonukleotiden oder verwandten Biomolekülen\n\n• Fundierte Kenntnisse in der NMR-Spektroskopie zur Analyse und Charakterisierung von Biomolekülen\n\n• Idealerweise zusätzliche Expertise in weiteren spektroskopischen, biophysikalischen oder analytischen Methoden\n\n• Erste Berufs- oder Projekterfahrung in der pharmazeutischen Analytik, biophysikalischen Charakterisierung oder Methodenentwicklung von Vorteil\n\n• Erfahrung im GMP-regulierten Umfeld sowie im Umgang mit qualitätsrelevanten Prozessen wünschenswert\n\n• Praktische Kenntnisse in Techniken wie SEC-MALS, DLS, ThT-Assay, CD, SEM oder Rheometrie von Vorteil\n\n• Erfahrung in der Auswertung analytischer Daten sowie im Umgang mit entsprechender Fachsoftware\n\n• Strukturierte, qualitätsbewusste und selbstständige Arbeitsweise kombiniert mit analytischem Denkvermögen und Freude an komplexen Fragestellungen\n\n• Offene, kommunikationsstarke und teamorientierte Persönlichkeit mit Interesse an interdisziplinärer Zusammenarbeit und der aktiven Mitgestaltung eines wachsenden Fachgebiets\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+      "descriptionByLocale": {
+        "it": "Al fine di guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il nostro team, stiamo cercando uno scienziato dedicato QC(a) (80 - 100%).\n\nI loro compiti:\n\n• Analisi indipendente dei materiali di partenza per la sintesi GMP e i principi attivi basati su peptide e oligonucleotide\n\n• Valutazione, interpretazione e documentazione conforme a GMP dei dati di analisi\n\n• Utilizzo di metodi spettroscopici per la quantificazione, la caratterizzazione e il test di stabilità dei campioni\n\n• Sviluppo, ottimizzazione e implementazione dei metodi di analisi\n\n• Valutazione critica e verifica della plausibilità dei risultati analitici\n\n• Eseguire analisi di routine nel rispetto delle linee guida GMP\n\n• Trattamento auto-responsabile delle attività di progetto e supporto dei dispositivi analitici\n\n• Garantire un servizio di misurazione e un coordinamento regolare degli ordini di analisi\n\n• Preparazione dei rapporti di sviluppo, delle SOP e delle istruzioni di analisi\n\n• Supporto attivo per progetti di analisi e sviluppo e sviluppo continuo dell'ambiente di lavoro e dei processi\n\nIl tuo profilo:\n\n• Studi o dottorati completi in chimica, biochimica, chimica analitica o disciplina comparabile\n\n• Esperienza nell'indagine analitica di peptidi, proteine, oligonucleotidi o biomolecole correlate\n\n• Conoscenza approfondita della spettroscopia NMR per l'analisi e la caratterizzazione delle biomolecole\n\n• Idealmente, ulteriori competenze in altri metodi spettroscopici, biofisici o analitici\n\n• Prima esperienza professionale o di progetto in analisi farmaceutiche, caratterizzazione biofisica o sviluppo di metodi di vantaggio\n\n• L'esperienza nell'ambiente regolamentato GMP e nel trattare con processi di qualità-rilevante è auspicabile\n\n• Conoscenza pratica in tecniche come SEC-MALS, DLS, ThT assay, CD, SEM o reometria è vantaggiosa\n\n• Esperienza nella valutazione dei dati analitici e nel trattare con il software specializzato corrispondente\n\n• Metodo di lavoro strutturato, di qualità consapevole e indipendente combinato con capacità di pensiero analitico e piacere in domande complesse\n\n• Personalità aperta, comunicativa e orientata al team con interesse alla cooperazione interdisciplinare e alla partecipazione attiva di un settore in crescita\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con lo sviluppo interno e ulteriori opportunità di istruzione\n\n• Opzione per ricevere vacanze aggiuntive con carico di lavoro ridotto\n\n• Azienda-internal KITA sul Bachem Campus Bubendorf\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso a piattaforme vantaggiose con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul Campus Bachem\n\nVuoi guidare l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i tuoi documenti applicativi siano completi tramite il nostro portale.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!",
+        "en": "In order to drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team, we are looking for a dedicated scientist QC(a) (80 - 100%).\n\nTheir tasks:\n\n• Independent analysis of starting materials for GMP synthesis and peptide- and oligonucleotide-based active ingredients\n\n• Evaluation, interpretation and GMP-compliant documentation of analysis data\n\n• Use of spectroscopic methods for quantification, characterisation and stability testing of samples\n\n• Development, optimization and implementation of analysis methods\n\n• Critical evaluation and plausibility checking of analytical results\n\n• Perform routine analyses in compliance with GMP guidelines\n\n• Self-responsible processing of project tasks and support of analytical devices\n\n• Ensuring a smooth measurement service and coordination of analysis orders\n\n• Preparation of development reports, SOPs and analysis instructions\n\n• Active support for analysis and development projects as well as continuous development of the working environment and processes\n\nYour profile:\n\n• Completed studies or doctorates in chemistry, biochemistry, analytical chemistry or a comparable discipline\n\n• Experience in the analytical investigation of peptides, proteins, oligonucleotides or related biomolecules\n\n• In-depth knowledge in NMR spectroscopy for the analysis and characterization of biomolecules\n\n• Ideally, additional expertise in further spectroscopic, biophysical or analytical methods\n\n• First professional or project experience in pharmaceutical analytics, biophysical characterization or method development of advantage\n\n• Experience in the GMP-regulated environment as well as in dealing with quality-relevant processes is desirable\n\n• Practical knowledge in techniques such as SEC-MALS, DLS, ThT assay, CD, SEM or rheometry is advantageous\n\n• Experience in the evaluation of analytical data as well as in dealing with corresponding specialist software\n\n• Structured, quality-conscious and independent working method combined with analytical thinking skills and pleasure in complex questions\n\n• Open, communication-strong and team-oriented personality with an interest in interdisciplinary cooperation and the active participation of a growing field\n\nOur offer:\n\n• A dynamic and rapidly growing working environment with internal development and further education opportunities\n\n• Option to receive additional holidays with reduced workload\n\n• Company-internal KITA on the Bachem Campus Bubendorf\n\n• 60% takeover of pension fund contributions by Bachem AG as well as possibility for over-compulsory provision with our elective savings plan\n\n• Access to advantage platforms with discounts from external partners\n\n• Fresh, healthy and diverse food in our staff restaurant\n\n• Various free sports activities on the Bachem Campus\n\nDo you want to drive innovation together with us?\n\nHave we aroused your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and be inspired by our inspiring working environment at our location in Bubendorf!",
+        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams suchen wir eine/n engagierte/n Scientist QC (a) (80 - 100%).\n\nIhre Aufgaben:\n\n• Selbstständige Analyse von Ausgangsmaterialien für GMP-Synthesen sowie peptid- und oligonukleotidbasierten Wirkstoffen\n\n• Auswertung, Interpretation und GMP-konforme Dokumentation von Analysedaten\n\n• Anwendung spektroskopischer Methoden zur Quantifizierung, Charakterisierung und Stabilitätsuntersuchung von Proben\n\n• Entwicklung, Optimierung und Implementierung von Analysemethoden\n\n• Kritische Bewertung und Plausibilisierung analytischer Ergebnisse\n\n• Durchführung von Routineanalysen unter Einhaltung der GMP-Richtlinien\n\n• Eigenverantwortliche Bearbeitung von Projektaufgaben sowie Betreuung analytischer Geräte\n\n• Sicherstellung eines reibungslosen Messservices und Koordination von Analyseaufträgen\n\n• Erstellung von Entwicklungsberichten, SOPs und Analysenanleitungen\n\n• Aktive Unterstützung bei Analyse- und Entwicklungsprojekten sowie kontinuierliche Weiterentwicklung des Arbeitsumfelds und der Prozesse\n\nIhr Profil:\n\n• Abgeschlossenes Studium oder Promotion in Chemie, Biochemie, analytischer Chemie oder einer vergleichbaren Fachrichtung\n\n• Erfahrung in der analytischen Untersuchung von Peptiden, Proteinen, Oligonukleotiden oder verwandten Biomolekülen\n\n• Fundierte Kenntnisse in der NMR-Spektroskopie zur Analyse und Charakterisierung von Biomolekülen\n\n• Idealerweise zusätzliche Expertise in weiteren spektroskopischen, biophysikalischen oder analytischen Methoden\n\n• Erste Berufs- oder Projekterfahrung in der pharmazeutischen Analytik, biophysikalischen Charakterisierung oder Methodenentwicklung von Vorteil\n\n• Erfahrung im GMP-regulierten Umfeld sowie im Umgang mit qualitätsrelevanten Prozessen wünschenswert\n\n• Praktische Kenntnisse in Techniken wie SEC-MALS, DLS, ThT-Assay, CD, SEM oder Rheometrie von Vorteil\n\n• Erfahrung in der Auswertung analytischer Daten sowie im Umgang mit entsprechender Fachsoftware\n\n• Strukturierte, qualitätsbewusste und selbstständige Arbeitsweise kombiniert mit analytischem Denkvermögen und Freude an komplexen Fragestellungen\n\n• Offene, kommunikationsstarke und teamorientierte Persönlichkeit mit Interesse an interdisziplinärer Zusammenarbeit und der aktiven Mitgestaltung eines wachsenden Fachgebiets\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+        "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer notre équipe, nous recherchons un scientifique dédié QC(a) (80 - 100%).\n\nLeurs tâches :\n\n• Analyse indépendante des matières premières pour la synthèse des BPF et des principes actifs à base de peptides et d'oligonucléotides\n\n• Évaluation, interprétation et documentation conforme aux BPF des données d'analyse\n\n• Utilisation de méthodes spectroscopiques pour la quantification, la caractérisation et les essais de stabilité des échantillons\n\n• Développement, optimisation et mise en œuvre des méthodes d'analyse\n\n• Évaluation critique et contrôle de plausibilité des résultats analytiques\n\n• Effectuer des analyses de routine conformément aux lignes directrices sur les BPF\n\n• Traitement auto-responsable des tâches du projet et soutien des appareils d'analyse\n\n• Assurer un service de mesure en douceur et la coordination des ordres d'analyse\n\n• Préparation des rapports de développement, des SOP et des instructions d'analyse\n\n• Soutien actif aux projets d'analyse et de développement ainsi qu'au développement continu du milieu de travail et des processus\n\nVotre profil:\n\n• Études ou doctorats en chimie, biochimie, chimie analytique ou discipline comparable\n\n• Expérience dans l'analyse des peptides, des protéines, des oligonucléotides ou des biomolécules associés\n\n• Connaissance approfondie de la spectroscopie RMN pour l'analyse et la caractérisation des biomolécules\n\n• Idéalement, une expertise supplémentaire dans d'autres méthodes spectroscopiques, biophysiques ou analytiques\n\n• Première expérience professionnelle ou de projet en analyse pharmaceutique, caractérisation biophysique ou développement de méthode d'avantage\n\n• Il est souhaitable de disposer d'une expérience dans l'environnement réglementé par les BPF ainsi que dans le traitement des processus pertinents pour la qualité.\n\n• Les connaissances pratiques en techniques telles que SEC-MALS, DLS, ThT, CD, SEM ou rhéométrie sont avantageuses\n\n• Expérience dans l'évaluation des données analytiques et dans le traitement des logiciels spécialisés correspondants\n\n• Méthode de travail structurée, soucieuse de la qualité et indépendante, combinée à des aptitudes à la réflexion analytique et au plaisir dans des questions complexes\n\n• Personnalité ouverte, forte de communication et axée sur l'équipe, avec un intérêt pour la coopération interdisciplinaire et la participation active d'un domaine en croissance\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec développement interne et possibilités de formation continue\n\n• Possibilité de recevoir des congés supplémentaires avec une charge de travail réduite\n\n• Société-interne KITA sur le campus Bachem Bubendorf\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision trop obligatoire avec notre régime d'épargne facultative\n\n• Accès à des plateformes avantageuses avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous stimuler l'innovation avec nous ?\n\nAvons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
+      },
+      "needsRetranslation": false,
+      "location": "Bubendorf",
+      "canton": "BL",
+      "url": "https://careers.bachem.com/job/Bubendorf-Scientist-QC-%28a%29-%2880-100%29-BL-4416/1452050933/",
+      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-06T21:47:06.892Z",
+      "addressLocality": "Bubendorf",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4416",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-28T00:00:00Z",
+      "postedDate": "2026-10-28T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1452050933/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "scientist-qc-a-80-100-bachem-bubendorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-qc-a-80-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "scientist-qc-a-80-100-bachem-bubendorf"
+        ]
+      },
+      "firstSeenAt": "2026-10-28T20:15:09.154Z",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 110500,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Bachem AG",
+        "streetAddress": "Hauptstrasse 144",
+        "postalCode": "4416",
+        "addressLocality": "Bubendorf",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:48:00.381Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Hauptstrasse 144",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-26T21:47:06.892Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "bachem-b3a1f1e6504e",
+      "slug": "senior-specialist-qa-bachem-vionnaz",
+      "slugByLocale": {
+        "fr": "senior-specialist-qa-bachem-vionnaz",
+        "it": "senior-specialist-qa-bachem-vionnaz",
+        "en": "senior-specialist-qa-bachem-vionnaz",
+        "de": "senior-specialist-qa-bachem-vionnaz"
+      },
+      "company": "Bachem AG",
+      "companyKey": "bachem",
+      "companyDomain": "bachem.com",
+      "title": "Senior Specialist QA",
+      "titleByLocale": {
+        "fr": "Senior Specialist QA",
+        "it": "Senior Specialista QA",
+        "en": "Senior Specialist QA",
+        "de": "Senior Spezialist QA"
+      },
+      "description": "To strengthen our Quality Assurance team at our Vionnaz production site, we are looking for a Senior Specialist QA – Operations (a) 100%. In this role, you will help ensure GMP compliance across manufacturing activities while acting as a key quality partner for operational teams and site projects.\n\nYour Responsibilities\n•    Coordinate and perform batch release activities for finished products and intermediates.\n•    Review and approve quality events, root cause analyses, CAPAs, and effectiveness checks.\n•    Support and approve laboratory investigations.\n•    Assess, coordinate, and approve change requests.\n•    Review and approve master manufacturing documentation.\n•    Approve qualification protocols and reports for facilities and equipment.\n•    Conduct internal and external audits and support customer and regulatory inspections.\n•    Represent Quality Assurance in site projects and contribute to SOP creation and revision.\n\nYour Profile\n•    Master’s degree in Engineering, Chemistry, Pharmacy, or a related field.\n•    Minimum 5 years of experience in the pharmaceutical or chemical industry; QA Operations experience is highly desirable.\n•    Strong knowledge of GMP requirements and their practical application in a manufacturing environment.\n•    Ability to independently assess issues, make sound decisions, and appropriately escalate risks.\n•    Solution-oriented mindset with a strong customer and service focus.\n•    Excellent organizational and communication skills.\n•    Fluent in French and English, both written and spoken.\n•    German language skills are considered an asset.\n\nOur offer\n•    A modern and dynamic working environment within a fast-growing international company.\n•    Challenging projects of high scientific and technical value.\n•    Opportunities for professional development and continuing professional development.\n•    A corporate culture based on collaboration, innovation and excellence.\n•    Attractive working conditions and competitive employee benefits.\n\nInterested\n•    Would you like to drive innovation together with us?\n•    We look forward to receiving your complete application documents via our application portal.\n•    Learn more about the Bachem Group and get inspired by our exciting work environment at our location in Vionnaz.",
+      "descriptionByLocale": {
+        "fr": "To strengthen our Quality Assurance team at our Vionnaz production site, we are looking for a Senior Specialist QA – Operations (a) 100%. In this role, you will help ensure GMP compliance across manufacturing activities while acting as a key quality partner for operational teams and site projects.\n\nYour Responsibilities\n•    Coordinate and perform batch release activities for finished products and intermediates.\n•    Review and approve quality events, root cause analyses, CAPAs, and effectiveness checks.\n•    Support and approve laboratory investigations.\n•    Assess, coordinate, and approve change requests.\n•    Review and approve master manufacturing documentation.\n•    Approve qualification protocols and reports for facilities and equipment.\n•    Conduct internal and external audits and support customer and regulatory inspections.\n•    Represent Quality Assurance in site projects and contribute to SOP creation and revision.\n\nYour Profile\n•    Master’s degree in Engineering, Chemistry, Pharmacy, or a related field.\n•    Minimum 5 years of experience in the pharmaceutical or chemical industry; QA Operations experience is highly desirable.\n•    Strong knowledge of GMP requirements and their practical application in a manufacturing environment.\n•    Ability to independently assess issues, make sound decisions, and appropriately escalate risks.\n•    Solution-oriented mindset with a strong customer and service focus.\n•    Excellent organizational and communication skills.\n•    Fluent in French and English, both written and spoken.\n•    German language skills are considered an asset.\n\nOur offer\n•    A modern and dynamic working environment within a fast-growing international company.\n•    Challenging projects of high scientific and technical value.\n•    Opportunities for professional development and continuing professional development.\n•    A corporate culture based on collaboration, innovation and excellence.\n•    Attractive working conditions and competitive employee benefits.\n\nInterested\n•    Would you like to drive innovation together with us?\n•    We look forward to receiving your complete application documents via our application portal.\n•    Learn more about the Bachem Group and get inspired by our exciting work environment at our location in Vionnaz.",
+        "it": "To strengthen our Quality Assurance team at our Vionnaz production site, we are looking for a Senior Specialist QA – Operations (a) 100%. In this role, you will help ensure GMP compliance across manufacturing activities while acting as a key quality partner for operational teams and site projects.\n\nYour Responsibilities\n•    Coordinate and perform batch release activities for finished products and intermediates.\n•    Review and approve quality events, root cause analyses, CAPAs, and effectiveness checks.\n•    Support and approve laboratory investigations.\n•    Assess, coordinate, and approve change requests.\n•    Review and approve master manufacturing documentation.\n•    Approve qualification protocols and reports for facilities and equipment.\n•    Conduct internal and external audits and support customer and regulatory inspections.\n•    Represent Quality Assurance in site projects and contribute to SOP creation and revision.\n\nYour Profile\n•    Master’s degree in Engineering, Chemistry, Pharmacy, or a related field.\n•    Minimum 5 years of experience in the pharmaceutical or chemical industry; QA Operations experience is highly desirable.\n•    Strong knowledge of GMP requirements and their practical application in a manufacturing environment.\n•    Ability to independently assess issues, make sound decisions, and appropriately escalate risks.\n•    Solution-oriented mindset with a strong customer and service focus.\n•    Excellent organizational and communication skills.\n•    Fluent in French and English, both written and spoken.\n•    German language skills are considered an asset.\n\nOur offer\n•    A modern and dynamic working environment within a fast-growing international company.\n•    Challenging projects of high scientific and technical value.\n•    Opportunities for professional development and continuing professional development.\n•    A corporate culture based on collaboration, innovation and excellence.\n•    Attractive working conditions and competitive employee benefits.\n\nInterested\n•    Would you like to drive innovation together with us?\n•    We look forward to receiving your complete application documents via our application portal.\n•    Learn more about the Bachem Group and get inspired by our exciting work environment at our location in Vionnaz.",
+        "en": "To strengthen our Quality Assurance team at our Vionnaz production site, we are looking for a Senior Specialist QA – Operations (a) 100%. In this role, you will help ensure GMP compliance across manufacturing activities while acting as a key quality partner for operational teams and site projects.\n\nYour Responsibilities\n•    Coordinate and perform batch release activities for finished products and intermediates.\n•    Review and approve quality events, root cause analyses, CAPAs, and effectiveness checks.\n•    Support and approve laboratory investigations.\n•    Assess, coordinate, and approve change requests.\n•    Review and approve master manufacturing documentation.\n•    Approve qualification protocols and reports for facilities and equipment.\n•    Conduct internal and external audits and support customer and regulatory inspections.\n•    Represent Quality Assurance in site projects and contribute to SOP creation and revision.\n\nYour Profile\n•    Master’s degree in Engineering, Chemistry, Pharmacy, or a related field.\n•    Minimum 5 years of experience in the pharmaceutical or chemical industry; QA Operations experience is highly desirable.\n•    Strong knowledge of GMP requirements and their practical application in a manufacturing environment.\n•    Ability to independently assess issues, make sound decisions, and appropriately escalate risks.\n•    Solution-oriented mindset with a strong customer and service focus.\n•    Excellent organizational and communication skills.\n•    Fluent in French and English, both written and spoken.\n•    German language skills are considered an asset.\n\nOur offer\n•    A modern and dynamic working environment within a fast-growing international company.\n•    Challenging projects of high scientific and technical value.\n•    Opportunities for professional development and continuing professional development.\n•    A corporate culture based on collaboration, innovation and excellence.\n•    Attractive working conditions and competitive employee benefits.\n\nInterested\n•    Would you like to drive innovation together with us?\n•    We look forward to receiving your complete application documents via our application portal.\n•    Learn more about the Bachem Group and get inspired by our exciting work environment at our location in Vionnaz.",
+        "de": "To strengthen our Quality Assurance team at our Vionnaz production site, we are looking for a Senior Specialist QA – Operations (a) 100%. In this role, you will help ensure GMP compliance across manufacturing activities while acting as a key quality partner for operational teams and site projects.\n\nYour Responsibilities\n•    Coordinate and perform batch release activities for finished products and intermediates.\n•    Review and approve quality events, root cause analyses, CAPAs, and effectiveness checks.\n•    Support and approve laboratory investigations.\n•    Assess, coordinate, and approve change requests.\n•    Review and approve master manufacturing documentation.\n•    Approve qualification protocols and reports for facilities and equipment.\n•    Conduct internal and external audits and support customer and regulatory inspections.\n•    Represent Quality Assurance in site projects and contribute to SOP creation and revision.\n\nYour Profile\n•    Master’s degree in Engineering, Chemistry, Pharmacy, or a related field.\n•    Minimum 5 years of experience in the pharmaceutical or chemical industry; QA Operations experience is highly desirable.\n•    Strong knowledge of GMP requirements and their practical application in a manufacturing environment.\n•    Ability to independently assess issues, make sound decisions, and appropriately escalate risks.\n•    Solution-oriented mindset with a strong customer and service focus.\n•    Excellent organizational and communication skills.\n•    Fluent in French and English, both written and spoken.\n•    German language skills are considered an asset.\n\nOur offer\n•    A modern and dynamic working environment within a fast-growing international company.\n•    Challenging projects of high scientific and technical value.\n•    Opportunities for professional development and continuing professional development.\n•    A corporate culture based on collaboration, innovation and excellence.\n•    Attractive working conditions and competitive employee benefits.\n\nInterested\n•    Would you like to drive innovation together with us?\n•    We look forward to receiving your complete application documents via our application portal.\n•    Learn more about the Bachem Group and get inspired by our exciting work environment at our location in Vionnaz."
+      },
+      "needsRetranslation": true,
+      "location": "Vionnaz",
+      "canton": "VS",
+      "url": "https://careers.bachem.com/job/Vionnaz-Senior-Specialist-QA-Vala-1895/1455079233/",
+      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-06T21:47:06.307Z",
+      "addressLocality": "Vionnaz",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1895",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06T00:00:00Z",
+      "postedDate": "2026-11-06T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1455079233/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 148000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Vionnaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T21:47:06.307Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T21:47:06.307Z"
+    },
+    {
+      "id": "bachem-9099ea966c3b",
+      "slug": "senior-project-manager-engineering-a-100-bachem-bubendorf",
+      "slugByLocale": {
+        "de": "senior-project-manager-engineering-a-100-bachem-bubendorf",
+        "it": "senior-project-manager-engineering-a-100-bachem-bubendorf",
+        "en": "senior-project-manager-engineering-a-100-bachem-bubendorf",
+        "fr": "senior-project-manager-engineering-a-100-bachem-bubendorf"
+      },
+      "company": "Bachem AG",
+      "companyKey": "bachem",
+      "companyDomain": "bachem.com",
+      "title": "(Senior) Project Manager Engineering (a), (100%)",
+      "titleByLocale": {
+        "de": "(Senior) Project Manager Engineering (a), (100%)",
+        "it": "(Senior) Project Manager Engineering (a), (100%)",
+        "en": "(Senior) Project Manager Engineering (a), (100%)",
+        "fr": "(Senior) Project Manager Engineering (a), (100%)"
+      },
+      "description": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Abteilung Engineering suchen wir eine/n engagierte/n (Senior) Project Manager Engineering\n\nIhre Aufgaben:\n\n• Sie leiten und überwachen Projekte und Teilprojekte (Neuinstallationen, Umbauten, Erweiterungen) von Produktions- oder Infrastrukturanlagen sowie zugehöriger Lüftungen, Laborinstallationen oder Reinräume.\n\n• Sie begleiten die Projekte von der Idee bis zur Inbetriebnahme unter Berücksichtigung relevanter und aktueller technischer Standards, GMP-Vorgaben sowie HSE-Richtlinien.\n\n• Verantwortung für die Einhaltung der Vorschriften, der budgetierten Kosten und der Termine.\n\n• Sicherstellung der GMP-Konformität der Anlagen, Bauten, Prozesse sowie der dazugehörigen technischen Dokumentation in digitaler- sowie auch in Papierform, in enger Zusammenarbeit mit der Abteilung Qualitätssicherung\n\nIhr Profil:\n\n• Bachelor- oder Masterabschluss als Ingenieur/in, Fachrichtung Verfahrenstechnik oder Pharmatechnik\n\n• Fundierte Fachkenntnisse in der Planung und in der Technik von Produktionsanlagen im Life Science- oder Biotechnologie Umfeld\n\n• Mehrere Jahre Erfahrung in der eigenverantwortlichen Projektleitung von interdisziplinären Teams\n\n• Sehr gute Fähigkeiten in Bezug auf das Schnittstellenmanagement zwischen den am Projekt beteiligten Abteilungen, Planern, Lieferanten und Gewerken\n\n• Eingehende Erfahrung mit dem Kosten-, Termin- und Change-Management in Investitionsprojekten mit einem Wert von mindestens 10 Mio. CHF\n\n• Kenntnisse der GMP-Vorgaben im Umfeld der chemisch-pharmazeutischen Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Hohe Belastbarkeit und Flexibilität\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Eine ausgewogene Work-Life-Balance. Daher bieten wir eine flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Zusätzliche freie Tage (Brückentage), welche jeweils im Herbst durch die Bachem festgelegt werden\n\n• Firmeninterne KITA und Personalrestaurant auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+      "descriptionByLocale": {
+        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Abteilung Engineering suchen wir eine/n engagierte/n (Senior) Project Manager Engineering\n\nIhre Aufgaben:\n\n• Sie leiten und überwachen Projekte und Teilprojekte (Neuinstallationen, Umbauten, Erweiterungen) von Produktions- oder Infrastrukturanlagen sowie zugehöriger Lüftungen, Laborinstallationen oder Reinräume.\n\n• Sie begleiten die Projekte von der Idee bis zur Inbetriebnahme unter Berücksichtigung relevanter und aktueller technischer Standards, GMP-Vorgaben sowie HSE-Richtlinien.\n\n• Verantwortung für die Einhaltung der Vorschriften, der budgetierten Kosten und der Termine.\n\n• Sicherstellung der GMP-Konformität der Anlagen, Bauten, Prozesse sowie der dazugehörigen technischen Dokumentation in digitaler- sowie auch in Papierform, in enger Zusammenarbeit mit der Abteilung Qualitätssicherung\n\nIhr Profil:\n\n• Bachelor- oder Masterabschluss als Ingenieur/in, Fachrichtung Verfahrenstechnik oder Pharmatechnik\n\n• Fundierte Fachkenntnisse in der Planung und in der Technik von Produktionsanlagen im Life Science- oder Biotechnologie Umfeld\n\n• Mehrere Jahre Erfahrung in der eigenverantwortlichen Projektleitung von interdisziplinären Teams\n\n• Sehr gute Fähigkeiten in Bezug auf das Schnittstellenmanagement zwischen den am Projekt beteiligten Abteilungen, Planern, Lieferanten und Gewerken\n\n• Eingehende Erfahrung mit dem Kosten-, Termin- und Change-Management in Investitionsprojekten mit einem Wert von mindestens 10 Mio. CHF\n\n• Kenntnisse der GMP-Vorgaben im Umfeld der chemisch-pharmazeutischen Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Hohe Belastbarkeit und Flexibilität\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Eine ausgewogene Work-Life-Balance. Daher bieten wir eine flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Zusätzliche freie Tage (Brückentage), welche jeweils im Herbst durch die Bachem festgelegt werden\n\n• Firmeninterne KITA und Personalrestaurant auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+        "it": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Abteilung Engineering suchen wir eine/n engagierte/n (Senior) Project Manager Engineering\n\nIhre Aufgaben:\n\n• Sie leiten und überwachen Projekte und Teilprojekte (Neuinstallationen, Umbauten, Erweiterungen) von Produktions- oder Infrastrukturanlagen sowie zugehöriger Lüftungen, Laborinstallationen oder Reinräume.\n\n• Sie begleiten die Projekte von der Idee bis zur Inbetriebnahme unter Berücksichtigung relevanter und aktueller technischer Standards, GMP-Vorgaben sowie HSE-Richtlinien.\n\n• Verantwortung für die Einhaltung der Vorschriften, der budgetierten Kosten und der Termine.\n\n• Sicherstellung der GMP-Konformität der Anlagen, Bauten, Prozesse sowie der dazugehörigen technischen Dokumentation in digitaler- sowie auch in Papierform, in enger Zusammenarbeit mit der Abteilung Qualitätssicherung\n\nIhr Profil:\n\n• Bachelor- oder Masterabschluss als Ingenieur/in, Fachrichtung Verfahrenstechnik oder Pharmatechnik\n\n• Fundierte Fachkenntnisse in der Planung und in der Technik von Produktionsanlagen im Life Science- oder Biotechnologie Umfeld\n\n• Mehrere Jahre Erfahrung in der eigenverantwortlichen Projektleitung von interdisziplinären Teams\n\n• Sehr gute Fähigkeiten in Bezug auf das Schnittstellenmanagement zwischen den am Projekt beteiligten Abteilungen, Planern, Lieferanten und Gewerken\n\n• Eingehende Erfahrung mit dem Kosten-, Termin- und Change-Management in Investitionsprojekten mit einem Wert von mindestens 10 Mio. CHF\n\n• Kenntnisse der GMP-Vorgaben im Umfeld der chemisch-pharmazeutischen Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Hohe Belastbarkeit und Flexibilität\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Eine ausgewogene Work-Life-Balance. Daher bieten wir eine flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Zusätzliche freie Tage (Brückentage), welche jeweils im Herbst durch die Bachem festgelegt werden\n\n• Firmeninterne KITA und Personalrestaurant auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+        "en": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Abteilung Engineering suchen wir eine/n engagierte/n (Senior) Project Manager Engineering\n\nIhre Aufgaben:\n\n• Sie leiten und überwachen Projekte und Teilprojekte (Neuinstallationen, Umbauten, Erweiterungen) von Produktions- oder Infrastrukturanlagen sowie zugehöriger Lüftungen, Laborinstallationen oder Reinräume.\n\n• Sie begleiten die Projekte von der Idee bis zur Inbetriebnahme unter Berücksichtigung relevanter und aktueller technischer Standards, GMP-Vorgaben sowie HSE-Richtlinien.\n\n• Verantwortung für die Einhaltung der Vorschriften, der budgetierten Kosten und der Termine.\n\n• Sicherstellung der GMP-Konformität der Anlagen, Bauten, Prozesse sowie der dazugehörigen technischen Dokumentation in digitaler- sowie auch in Papierform, in enger Zusammenarbeit mit der Abteilung Qualitätssicherung\n\nIhr Profil:\n\n• Bachelor- oder Masterabschluss als Ingenieur/in, Fachrichtung Verfahrenstechnik oder Pharmatechnik\n\n• Fundierte Fachkenntnisse in der Planung und in der Technik von Produktionsanlagen im Life Science- oder Biotechnologie Umfeld\n\n• Mehrere Jahre Erfahrung in der eigenverantwortlichen Projektleitung von interdisziplinären Teams\n\n• Sehr gute Fähigkeiten in Bezug auf das Schnittstellenmanagement zwischen den am Projekt beteiligten Abteilungen, Planern, Lieferanten und Gewerken\n\n• Eingehende Erfahrung mit dem Kosten-, Termin- und Change-Management in Investitionsprojekten mit einem Wert von mindestens 10 Mio. CHF\n\n• Kenntnisse der GMP-Vorgaben im Umfeld der chemisch-pharmazeutischen Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Hohe Belastbarkeit und Flexibilität\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Eine ausgewogene Work-Life-Balance. Daher bieten wir eine flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Zusätzliche freie Tage (Brückentage), welche jeweils im Herbst durch die Bachem festgelegt werden\n\n• Firmeninterne KITA und Personalrestaurant auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+        "fr": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Abteilung Engineering suchen wir eine/n engagierte/n (Senior) Project Manager Engineering\n\nIhre Aufgaben:\n\n• Sie leiten und überwachen Projekte und Teilprojekte (Neuinstallationen, Umbauten, Erweiterungen) von Produktions- oder Infrastrukturanlagen sowie zugehöriger Lüftungen, Laborinstallationen oder Reinräume.\n\n• Sie begleiten die Projekte von der Idee bis zur Inbetriebnahme unter Berücksichtigung relevanter und aktueller technischer Standards, GMP-Vorgaben sowie HSE-Richtlinien.\n\n• Verantwortung für die Einhaltung der Vorschriften, der budgetierten Kosten und der Termine.\n\n• Sicherstellung der GMP-Konformität der Anlagen, Bauten, Prozesse sowie der dazugehörigen technischen Dokumentation in digitaler- sowie auch in Papierform, in enger Zusammenarbeit mit der Abteilung Qualitätssicherung\n\nIhr Profil:\n\n• Bachelor- oder Masterabschluss als Ingenieur/in, Fachrichtung Verfahrenstechnik oder Pharmatechnik\n\n• Fundierte Fachkenntnisse in der Planung und in der Technik von Produktionsanlagen im Life Science- oder Biotechnologie Umfeld\n\n• Mehrere Jahre Erfahrung in der eigenverantwortlichen Projektleitung von interdisziplinären Teams\n\n• Sehr gute Fähigkeiten in Bezug auf das Schnittstellenmanagement zwischen den am Projekt beteiligten Abteilungen, Planern, Lieferanten und Gewerken\n\n• Eingehende Erfahrung mit dem Kosten-, Termin- und Change-Management in Investitionsprojekten mit einem Wert von mindestens 10 Mio. CHF\n\n• Kenntnisse der GMP-Vorgaben im Umfeld der chemisch-pharmazeutischen Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Hohe Belastbarkeit und Flexibilität\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Eine ausgewogene Work-Life-Balance. Daher bieten wir eine flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Zusätzliche freie Tage (Brückentage), welche jeweils im Herbst durch die Bachem festgelegt werden\n\n• Firmeninterne KITA und Personalrestaurant auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!"
+      },
+      "needsRetranslation": true,
+      "location": "Bubendorf",
+      "canton": "BL",
+      "url": "https://careers.bachem.com/job/Bubendorf-%28Senior%29-Project-Manager-Engineering-%28a%29%2C-%28100%29-BL-4416/1455094033/",
+      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-06T21:47:05.724Z",
+      "addressLocality": "Bubendorf",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4416",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06T00:00:00Z",
+      "postedDate": "2026-11-06T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1455094033/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 99500,
+      "salaryMax": 151000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 99500,
+          "maxValue": 151000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Bachem AG",
+        "streetAddress": "Hauptstrasse 144",
+        "postalCode": "4416",
+        "addressLocality": "Bubendorf",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:48:00.381Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Hauptstrasse 144",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-04T21:47:05.724Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T21:47:05.724Z"
     },
     {
       "id": "bachem-d557e3154b30",
@@ -540,7 +787,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Support-QC-Sampling-&-Environmental-Monitoring-%28GMP%29-%28a%29-100-BL-4416/1414785333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:59.601Z",
+      "crawledAt": "2026-11-06T21:47:05.120Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -594,7 +841,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T09:36:59.601Z",
+      "validThrough": "2026-12-06T21:47:05.120Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -629,7 +876,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Associate-Scientist-%28QC-Sample-Management%29-100-%28a%29-BL-4416/1411677133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:59.046Z",
+      "crawledAt": "2026-11-06T21:47:04.549Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -683,7 +930,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T09:36:59.046Z",
+      "validThrough": "2026-12-06T21:47:04.549Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -717,7 +964,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-QA-%28a%29-Engineering-100-BL-4416/1429691533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:58.541Z",
+      "crawledAt": "2026-11-06T21:47:03.964Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -771,7 +1018,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T09:36:58.541Z",
+      "validThrough": "2026-12-22T21:47:03.964Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -805,7 +1052,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Project-Director-Grossprojekte-%28a%29%2C-100-BL-4416/1388636633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:58.012Z",
+      "crawledAt": "2026-11-06T21:47:03.378Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -859,7 +1106,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:36:58.012Z",
+      "validThrough": "2026-12-30T21:47:03.378Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -894,7 +1141,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-Early-Phase-100-%28a%29-BL-4416/1434837833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:57.430Z",
+      "crawledAt": "2026-11-06T21:47:02.831Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -948,7 +1195,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-07T09:36:57.430Z",
+      "validThrough": "2026-12-07T21:47:02.831Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -983,7 +1230,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Mitarbeiterin-Dispensation-%28a%29-100-im-Schichtbetrieb-%28Fr%C3%BChSp%C3%A4tschicht%29-BL-4416/1412888433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:56.884Z",
+      "crawledAt": "2026-11-06T21:47:02.225Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1037,7 +1284,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-01T09:36:56.884Z",
+      "validThrough": "2027-01-01T21:47:02.225Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1072,7 +1319,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Schnuppertag-Laborantin-Fachrichtung-Chemie-%28a%29-BL-4416/1419532933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:56.350Z",
+      "crawledAt": "2026-11-06T21:47:01.627Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1126,7 +1373,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:36:56.350Z",
+      "validThrough": "2026-12-23T21:47:01.627Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1161,7 +1408,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-zur-Logistikerin-EFZ%2C-Fachrichtung-Lager-%28a%29-BL-4416/1419046233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:55.830Z",
+      "crawledAt": "2026-11-06T21:47:01.062Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1215,7 +1462,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T09:36:55.830Z",
+      "validThrough": "2026-12-22T21:47:01.062Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1249,7 +1496,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-Laborantin-Laborant-EFZ-Fachrichtung-Chemie-mit-Schwerpunkt-Synthese-oder-Analytik-BL-4416/1419038933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:55.301Z",
+      "crawledAt": "2026-11-06T21:47:00.481Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1303,7 +1550,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T09:36:55.301Z",
+      "validThrough": "2026-12-22T21:47:00.481Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1338,7 +1585,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-Chemie-und-Pharmatechnologe-in-mit-dem-Schwerpunkt-Chemietechnologie-%28a%29-BL-4416/1419045933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:54.760Z",
+      "crawledAt": "2026-11-06T21:46:59.904Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1392,7 +1639,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T09:36:54.760Z",
+      "validThrough": "2026-12-22T21:46:59.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1427,7 +1674,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Maintenance-Technician-Heizungs-%2C-Sanit%C3%A4r-und-Druckluftanlagen-%28wmd%29%2C-100-BL-4416/1289321401/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:54.210Z",
+      "crawledAt": "2026-11-06T21:46:59.360Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1487,7 +1734,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-02T09:36:54.210Z",
+      "validThrough": "2027-01-02T21:46:59.360Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1522,7 +1769,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Cluster-Specialist-%28a%29%2C-100-BL-4416/1440644233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:53.686Z",
+      "crawledAt": "2026-11-06T21:46:58.764Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1576,7 +1823,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T09:36:53.686Z",
+      "validThrough": "2026-12-22T21:46:58.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1611,7 +1858,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-QC-Late-Phase-%28a%29%2C-100-BL-4416/1447502433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:53.133Z",
+      "crawledAt": "2026-11-06T21:46:58.205Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1668,7 +1915,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:36:53.133Z",
+      "validThrough": "2027-01-12T21:46:58.205Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1703,7 +1950,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-MES-Specialist-100-%28a%29-BL-4416/1398047733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:52.595Z",
+      "crawledAt": "2026-11-06T21:46:57.619Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1769,7 +2016,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T09:36:52.595Z",
+      "validThrough": "2026-12-25T21:46:57.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1804,7 +2051,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-CAD-&-CAE-Engineer-%28a%29-%2880-100%29-f%C3%BCr-die-Abteilung-Engineering-Services-BL-4416/1396693433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:52.157Z",
+      "crawledAt": "2026-11-06T21:46:57.035Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1861,7 +2108,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:36:52.157Z",
+      "validThrough": "2026-12-18T21:46:57.035Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1896,7 +2143,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Project-Manager-Supply-Chain-Applications-Cold-Chain-Monitorning-&-Visibility-%28CCMV%29-%28a%29%2C-80-100-BL-4416/1440807633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:51.599Z",
+      "crawledAt": "2026-11-06T21:46:56.440Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1953,7 +2200,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:36:51.599Z",
+      "validThrough": "2026-12-23T21:46:56.440Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1988,7 +2235,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-KauffrauKaufmann-%28Branche-Dienstleistung-&-Administration%29%2C-%28a%29-BL-4416/1419046733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:51.079Z",
+      "crawledAt": "2026-11-06T21:46:55.868Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2042,7 +2289,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T09:36:51.079Z",
+      "validThrough": "2026-12-22T21:46:55.868Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2077,7 +2324,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-HSE-Specialist-80-100-%28a%29-BL-4416/1387986133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:50.623Z",
+      "crawledAt": "2026-11-06T21:46:55.254Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2175,7 +2422,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:36:50.623Z",
+      "validThrough": "2026-12-18T21:46:55.254Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2210,7 +2457,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Schnuppertag-Chemie-und-Pharmatechnologe-login-%28a%29-BL-4416/1419530733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:50.077Z",
+      "crawledAt": "2026-11-06T21:46:54.695Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2270,7 +2517,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:36:50.077Z",
+      "validThrough": "2026-12-23T21:46:54.695Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2304,7 +2551,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-QA-for-QC-%28a%29%2C-100-BL-4416/1448325133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:49.527Z",
+      "crawledAt": "2026-11-06T21:46:54.134Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2350,7 +2597,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-14T09:36:49.527Z",
+      "validThrough": "2027-01-14T21:46:54.134Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2385,7 +2632,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-QA-Engineering-Manager-%28a%29%2C-100-BL-4416/1261351201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:49.015Z",
+      "crawledAt": "2026-11-06T21:46:53.710Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2496,7 +2743,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T09:36:49.015Z",
+      "validThrough": "2026-12-06T21:46:53.710Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2531,7 +2778,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Production-Support-%28a%29-BL-4416/1447234533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:48.595Z",
+      "crawledAt": "2026-11-06T21:46:53.262Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2588,7 +2835,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T09:36:48.595Z",
+      "validThrough": "2027-01-11T21:46:53.262Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2623,7 +2870,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-%28a%29-HPLC-Late-Phase-100-BL-4416/1409920033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:48.070Z",
+      "crawledAt": "2026-11-06T21:46:52.661Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2677,7 +2924,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-24T09:36:48.070Z",
+      "validThrough": "2026-12-24T21:46:52.661Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2712,7 +2959,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Head-Manufacturing-Technical-Services-%28Oligonucleotides%29-%28a%29-80-100-BL-4416/1451786933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:47.548Z",
+      "crawledAt": "2026-11-06T21:46:52.102Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2769,7 +3016,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T09:36:47.548Z",
+      "validThrough": "2027-01-25T21:46:52.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2804,7 +3051,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-QC-Analytical-Development-%28a%29%2C-100-BL-4416/1449346333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:47.015Z",
+      "crawledAt": "2026-11-06T21:46:51.518Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2861,7 +3108,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:36:47.015Z",
+      "validThrough": "2027-01-18T21:46:51.518Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2896,7 +3143,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientific-Writer-QC-%28a%29-100-BL-4416/1449439533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:46.487Z",
+      "crawledAt": "2026-11-06T21:46:50.949Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2953,7 +3200,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:36:46.487Z",
+      "validThrough": "2027-01-18T21:46:50.949Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2988,7 +3235,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-QA-Associate-Batch-Compliance-%28a%29-100-BL-4416/1448961533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:46.076Z",
+      "crawledAt": "2026-11-06T21:46:50.362Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3045,7 +3292,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T09:36:46.076Z",
+      "validThrough": "2027-01-17T21:46:50.362Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3080,7 +3327,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Spezialist-Reinigungsvalidierung-%28a%29-100-BL-4416/1399924033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:45.514Z",
+      "crawledAt": "2026-11-06T21:46:49.774Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3134,7 +3381,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T09:36:45.514Z",
+      "validThrough": "2026-12-25T21:46:49.774Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3169,7 +3416,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Category-Manager-Capex-%28a%29-100%2C-f%C3%BCr-den-Bereich-Bauleistungen-BL-4416/1287275401/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:44.970Z",
+      "crawledAt": "2026-11-06T21:46:49.218Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3236,7 +3483,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-21T09:36:44.970Z",
+      "validThrough": "2026-12-21T21:46:49.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3271,7 +3518,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-Mass-Spectrometry-Quality-Control-%28QC%29-%28a%29%2C-100-BL-4416/1446690833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:44.362Z",
+      "crawledAt": "2026-11-06T21:46:48.645Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3325,7 +3572,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T09:36:44.362Z",
+      "validThrough": "2027-01-11T21:46:48.645Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3360,7 +3607,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-QA-Quality-Management-Systems-%28QMS%29-100-%28a%29-BL-4416/1452454533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:43.810Z",
+      "crawledAt": "2026-11-06T21:46:48.026Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3414,99 +3661,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T09:36:43.810Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "bachem-ad10c3bc0aa5",
-      "slug": "scienziato-qc-a-80-100-bachem-ag-bubendorf",
-      "slugByLocale": {
-        "it": "scienziato-qc-a-80-100-bachem-ag-bubendorf",
-        "en": "scientist-qc-a-80-100-bachem-bubendorf",
-        "de": "scientist-qc-a-80-100-bachem-bubendorf",
-        "fr": "scientifique-qc-a-80-100-bachem-ag-bubendorf"
-      },
-      "company": "Bachem AG",
-      "companyKey": "bachem",
-      "companyDomain": "bachem.com",
-      "title": "Scientist QC (a) (80 - 100%)",
-      "titleByLocale": {
-        "it": "Scienziato QC(a) (80 - 100%)",
-        "en": "QC Scientist (a) (80–100%)",
-        "de": "Scientist QC (a) (80 - 100%)",
-        "fr": "Scientifique QC(a) (80 - 100%)"
-      },
-      "description": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams suchen wir eine/n engagierte/n Scientist QC (a) (80 - 100%).\n\nIhre Aufgaben:\n\n• Selbstständige Analyse von Ausgangsmaterialien für GMP-Synthesen sowie peptid- und oligonukleotidbasierten Wirkstoffen\n\n• Auswertung, Interpretation und GMP-konforme Dokumentation von Analysedaten\n\n• Anwendung spektroskopischer Methoden zur Quantifizierung, Charakterisierung und Stabilitätsuntersuchung von Proben\n\n• Entwicklung, Optimierung und Implementierung von Analysemethoden\n\n• Kritische Bewertung und Plausibilisierung analytischer Ergebnisse\n\n• Durchführung von Routineanalysen unter Einhaltung der GMP-Richtlinien\n\n• Eigenverantwortliche Bearbeitung von Projektaufgaben sowie Betreuung analytischer Geräte\n\n• Sicherstellung eines reibungslosen Messservices und Koordination von Analyseaufträgen\n\n• Erstellung von Entwicklungsberichten, SOPs und Analysenanleitungen\n\n• Aktive Unterstützung bei Analyse- und Entwicklungsprojekten sowie kontinuierliche Weiterentwicklung des Arbeitsumfelds und der Prozesse\n\nIhr Profil:\n\n• Abgeschlossenes Studium oder Promotion in Chemie, Biochemie, analytischer Chemie oder einer vergleichbaren Fachrichtung\n\n• Erfahrung in der analytischen Untersuchung von Peptiden, Proteinen, Oligonukleotiden oder verwandten Biomolekülen\n\n• Fundierte Kenntnisse in der NMR-Spektroskopie zur Analyse und Charakterisierung von Biomolekülen\n\n• Idealerweise zusätzliche Expertise in weiteren spektroskopischen, biophysikalischen oder analytischen Methoden\n\n• Erste Berufs- oder Projekterfahrung in der pharmazeutischen Analytik, biophysikalischen Charakterisierung oder Methodenentwicklung von Vorteil\n\n• Erfahrung im GMP-regulierten Umfeld sowie im Umgang mit qualitätsrelevanten Prozessen wünschenswert\n\n• Praktische Kenntnisse in Techniken wie SEC-MALS, DLS, ThT-Assay, CD, SEM oder Rheometrie von Vorteil\n\n• Erfahrung in der Auswertung analytischer Daten sowie im Umgang mit entsprechender Fachsoftware\n\n• Strukturierte, qualitätsbewusste und selbstständige Arbeitsweise kombiniert mit analytischem Denkvermögen und Freude an komplexen Fragestellungen\n\n• Offene, kommunikationsstarke und teamorientierte Persönlichkeit mit Interesse an interdisziplinärer Zusammenarbeit und der aktiven Mitgestaltung eines wachsenden Fachgebiets\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
-      "descriptionByLocale": {
-        "it": "Al fine di guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il nostro team, stiamo cercando uno scienziato dedicato QC(a) (80 - 100%).\n\nI loro compiti:\n\n• Analisi indipendente dei materiali di partenza per la sintesi GMP e i principi attivi basati su peptide e oligonucleotide\n\n• Valutazione, interpretazione e documentazione conforme a GMP dei dati di analisi\n\n• Utilizzo di metodi spettroscopici per la quantificazione, la caratterizzazione e il test di stabilità dei campioni\n\n• Sviluppo, ottimizzazione e implementazione dei metodi di analisi\n\n• Valutazione critica e verifica della plausibilità dei risultati analitici\n\n• Eseguire analisi di routine nel rispetto delle linee guida GMP\n\n• Trattamento auto-responsabile delle attività di progetto e supporto dei dispositivi analitici\n\n• Garantire un servizio di misurazione e un coordinamento regolare degli ordini di analisi\n\n• Preparazione dei rapporti di sviluppo, delle SOP e delle istruzioni di analisi\n\n• Supporto attivo per progetti di analisi e sviluppo e sviluppo continuo dell'ambiente di lavoro e dei processi\n\nIl tuo profilo:\n\n• Studi o dottorati completi in chimica, biochimica, chimica analitica o disciplina comparabile\n\n• Esperienza nell'indagine analitica di peptidi, proteine, oligonucleotidi o biomolecole correlate\n\n• Conoscenza approfondita della spettroscopia NMR per l'analisi e la caratterizzazione delle biomolecole\n\n• Idealmente, ulteriori competenze in altri metodi spettroscopici, biofisici o analitici\n\n• Prima esperienza professionale o di progetto in analisi farmaceutiche, caratterizzazione biofisica o sviluppo di metodi di vantaggio\n\n• L'esperienza nell'ambiente regolamentato GMP e nel trattare con processi di qualità-rilevante è auspicabile\n\n• Conoscenza pratica in tecniche come SEC-MALS, DLS, ThT assay, CD, SEM o reometria è vantaggiosa\n\n• Esperienza nella valutazione dei dati analitici e nel trattare con il software specializzato corrispondente\n\n• Metodo di lavoro strutturato, di qualità consapevole e indipendente combinato con capacità di pensiero analitico e piacere in domande complesse\n\n• Personalità aperta, comunicativa e orientata al team con interesse alla cooperazione interdisciplinare e alla partecipazione attiva di un settore in crescita\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con lo sviluppo interno e ulteriori opportunità di istruzione\n\n• Opzione per ricevere vacanze aggiuntive con carico di lavoro ridotto\n\n• Azienda-internal KITA sul Bachem Campus Bubendorf\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso a piattaforme vantaggiose con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul Campus Bachem\n\nVuoi guidare l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i tuoi documenti applicativi siano completi tramite il nostro portale.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!",
-        "en": "In order to drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team, we are looking for a dedicated scientist QC(a) (80 - 100%).\n\nTheir tasks:\n\n• Independent analysis of starting materials for GMP synthesis and peptide- and oligonucleotide-based active ingredients\n\n• Evaluation, interpretation and GMP-compliant documentation of analysis data\n\n• Use of spectroscopic methods for quantification, characterisation and stability testing of samples\n\n• Development, optimization and implementation of analysis methods\n\n• Critical evaluation and plausibility checking of analytical results\n\n• Perform routine analyses in compliance with GMP guidelines\n\n• Self-responsible processing of project tasks and support of analytical devices\n\n• Ensuring a smooth measurement service and coordination of analysis orders\n\n• Preparation of development reports, SOPs and analysis instructions\n\n• Active support for analysis and development projects as well as continuous development of the working environment and processes\n\nYour profile:\n\n• Completed studies or doctorates in chemistry, biochemistry, analytical chemistry or a comparable discipline\n\n• Experience in the analytical investigation of peptides, proteins, oligonucleotides or related biomolecules\n\n• In-depth knowledge in NMR spectroscopy for the analysis and characterization of biomolecules\n\n• Ideally, additional expertise in further spectroscopic, biophysical or analytical methods\n\n• First professional or project experience in pharmaceutical analytics, biophysical characterization or method development of advantage\n\n• Experience in the GMP-regulated environment as well as in dealing with quality-relevant processes is desirable\n\n• Practical knowledge in techniques such as SEC-MALS, DLS, ThT assay, CD, SEM or rheometry is advantageous\n\n• Experience in the evaluation of analytical data as well as in dealing with corresponding specialist software\n\n• Structured, quality-conscious and independent working method combined with analytical thinking skills and pleasure in complex questions\n\n• Open, communication-strong and team-oriented personality with an interest in interdisciplinary cooperation and the active participation of a growing field\n\nOur offer:\n\n• A dynamic and rapidly growing working environment with internal development and further education opportunities\n\n• Option to receive additional holidays with reduced workload\n\n• Company-internal KITA on the Bachem Campus Bubendorf\n\n• 60% takeover of pension fund contributions by Bachem AG as well as possibility for over-compulsory provision with our elective savings plan\n\n• Access to advantage platforms with discounts from external partners\n\n• Fresh, healthy and diverse food in our staff restaurant\n\n• Various free sports activities on the Bachem Campus\n\nDo you want to drive innovation together with us?\n\nHave we aroused your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and be inspired by our inspiring working environment at our location in Bubendorf!",
-        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams suchen wir eine/n engagierte/n Scientist QC (a) (80 - 100%).\n\nIhre Aufgaben:\n\n• Selbstständige Analyse von Ausgangsmaterialien für GMP-Synthesen sowie peptid- und oligonukleotidbasierten Wirkstoffen\n\n• Auswertung, Interpretation und GMP-konforme Dokumentation von Analysedaten\n\n• Anwendung spektroskopischer Methoden zur Quantifizierung, Charakterisierung und Stabilitätsuntersuchung von Proben\n\n• Entwicklung, Optimierung und Implementierung von Analysemethoden\n\n• Kritische Bewertung und Plausibilisierung analytischer Ergebnisse\n\n• Durchführung von Routineanalysen unter Einhaltung der GMP-Richtlinien\n\n• Eigenverantwortliche Bearbeitung von Projektaufgaben sowie Betreuung analytischer Geräte\n\n• Sicherstellung eines reibungslosen Messservices und Koordination von Analyseaufträgen\n\n• Erstellung von Entwicklungsberichten, SOPs und Analysenanleitungen\n\n• Aktive Unterstützung bei Analyse- und Entwicklungsprojekten sowie kontinuierliche Weiterentwicklung des Arbeitsumfelds und der Prozesse\n\nIhr Profil:\n\n• Abgeschlossenes Studium oder Promotion in Chemie, Biochemie, analytischer Chemie oder einer vergleichbaren Fachrichtung\n\n• Erfahrung in der analytischen Untersuchung von Peptiden, Proteinen, Oligonukleotiden oder verwandten Biomolekülen\n\n• Fundierte Kenntnisse in der NMR-Spektroskopie zur Analyse und Charakterisierung von Biomolekülen\n\n• Idealerweise zusätzliche Expertise in weiteren spektroskopischen, biophysikalischen oder analytischen Methoden\n\n• Erste Berufs- oder Projekterfahrung in der pharmazeutischen Analytik, biophysikalischen Charakterisierung oder Methodenentwicklung von Vorteil\n\n• Erfahrung im GMP-regulierten Umfeld sowie im Umgang mit qualitätsrelevanten Prozessen wünschenswert\n\n• Praktische Kenntnisse in Techniken wie SEC-MALS, DLS, ThT-Assay, CD, SEM oder Rheometrie von Vorteil\n\n• Erfahrung in der Auswertung analytischer Daten sowie im Umgang mit entsprechender Fachsoftware\n\n• Strukturierte, qualitätsbewusste und selbstständige Arbeitsweise kombiniert mit analytischem Denkvermögen und Freude an komplexen Fragestellungen\n\n• Offene, kommunikationsstarke und teamorientierte Persönlichkeit mit Interesse an interdisziplinärer Zusammenarbeit und der aktiven Mitgestaltung eines wachsenden Fachgebiets\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
-        "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer notre équipe, nous recherchons un scientifique dédié QC(a) (80 - 100%).\n\nLeurs tâches :\n\n• Analyse indépendante des matières premières pour la synthèse des BPF et des principes actifs à base de peptides et d'oligonucléotides\n\n• Évaluation, interprétation et documentation conforme aux BPF des données d'analyse\n\n• Utilisation de méthodes spectroscopiques pour la quantification, la caractérisation et les essais de stabilité des échantillons\n\n• Développement, optimisation et mise en œuvre des méthodes d'analyse\n\n• Évaluation critique et contrôle de plausibilité des résultats analytiques\n\n• Effectuer des analyses de routine conformément aux lignes directrices sur les BPF\n\n• Traitement auto-responsable des tâches du projet et soutien des appareils d'analyse\n\n• Assurer un service de mesure en douceur et la coordination des ordres d'analyse\n\n• Préparation des rapports de développement, des SOP et des instructions d'analyse\n\n• Soutien actif aux projets d'analyse et de développement ainsi qu'au développement continu du milieu de travail et des processus\n\nVotre profil:\n\n• Études ou doctorats en chimie, biochimie, chimie analytique ou discipline comparable\n\n• Expérience dans l'analyse des peptides, des protéines, des oligonucléotides ou des biomolécules associés\n\n• Connaissance approfondie de la spectroscopie RMN pour l'analyse et la caractérisation des biomolécules\n\n• Idéalement, une expertise supplémentaire dans d'autres méthodes spectroscopiques, biophysiques ou analytiques\n\n• Première expérience professionnelle ou de projet en analyse pharmaceutique, caractérisation biophysique ou développement de méthode d'avantage\n\n• Il est souhaitable de disposer d'une expérience dans l'environnement réglementé par les BPF ainsi que dans le traitement des processus pertinents pour la qualité.\n\n• Les connaissances pratiques en techniques telles que SEC-MALS, DLS, ThT, CD, SEM ou rhéométrie sont avantageuses\n\n• Expérience dans l'évaluation des données analytiques et dans le traitement des logiciels spécialisés correspondants\n\n• Méthode de travail structurée, soucieuse de la qualité et indépendante, combinée à des aptitudes à la réflexion analytique et au plaisir dans des questions complexes\n\n• Personnalité ouverte, forte de communication et axée sur l'équipe, avec un intérêt pour la coopération interdisciplinaire et la participation active d'un domaine en croissance\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec développement interne et possibilités de formation continue\n\n• Possibilité de recevoir des congés supplémentaires avec une charge de travail réduite\n\n• Société-interne KITA sur le campus Bachem Bubendorf\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision trop obligatoire avec notre régime d'épargne facultative\n\n• Accès à des plateformes avantageuses avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous stimuler l'innovation avec nous ?\n\nAvons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
-      },
-      "needsRetranslation": false,
-      "location": "Bubendorf",
-      "canton": "BL",
-      "url": "https://careers.bachem.com/job/Bubendorf-Scientist-QC-%28a%29-%2880-100%29-BL-4416/1452050933/",
-      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:43.269Z",
-      "addressLocality": "Bubendorf",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4416",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-28T00:00:00Z",
-      "postedDate": "2026-10-28T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1452050933/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "scientist-qc-a-80-100-bachem-bubendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "scientist-qc-a-80-100-bachem-bubendorf"
-        ],
-        "fr": [
-          "scientist-qc-a-80-100-bachem-bubendorf"
-        ]
-      },
-      "firstSeenAt": "2026-10-28T20:15:09.154Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Bachem AG",
-        "streetAddress": "Hauptstrasse 144",
-        "postalCode": "4416",
-        "addressLocality": "Bubendorf",
-        "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:48:00.381Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Hauptstrasse 144",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:36:43.269Z",
+      "validThrough": "2027-01-27T21:46:48.026Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3541,7 +3696,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Production-Technician-Oligo-Prod_-I-%28a%29%2C-100-BL-4416/1189349201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:42.775Z",
+      "crawledAt": "2026-11-06T21:46:47.450Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3637,7 +3792,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T09:36:42.775Z",
+      "validThrough": "2026-12-06T21:46:47.450Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3671,7 +3826,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemikantin-als-Production-Technician-Oligonucleotide-Prod_-II-%28a%29%2C-100-BL-4416/1159225101/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:42.239Z",
+      "crawledAt": "2026-11-06T21:46:46.862Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3770,7 +3925,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T09:36:42.239Z",
+      "validThrough": "2026-12-17T21:46:46.862Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3805,7 +3960,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-ITOT-Network-&-Infrastructure-Engineer-%28a%29%2C-80-100-AG-4332/1404097333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:41.703Z",
+      "crawledAt": "2026-11-06T21:46:46.286Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3840,7 +3995,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:36:41.703Z",
+      "validThrough": "2026-12-07T21:46:46.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3874,7 +4029,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Quality-Engineering-%28QE%29-Manager-Downstream-Sisslerfeld-%28a%29-100-AG-4332/1446143833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:41.178Z",
+      "crawledAt": "2026-11-06T21:46:45.713Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3917,7 +4072,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:36:41.178Z",
+      "validThrough": "2027-01-07T21:46:45.713Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3952,7 +4107,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Quality-Engineering-%28QE%29-Manager-CSV-Sisslerfeld-%28a%29-100-AG-4332/1446145133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:40.672Z",
+      "crawledAt": "2026-11-06T21:46:45.062Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3995,7 +4150,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:36:40.672Z",
+      "validThrough": "2027-01-07T21:46:45.062Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4029,7 +4184,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Master-Data-Management-&-Governance-Specialist-%28a%29%2C-80-100-AG-4332/1443088533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:40.164Z",
+      "crawledAt": "2026-11-06T21:46:44.491Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4064,7 +4219,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:36:40.164Z",
+      "validThrough": "2026-12-30T21:46:44.491Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4099,7 +4254,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Lead-Quality-Control-%28QC%29-Sisslerfeld-Site-Develepoment-%28a%29-100-AG-4332/1446145633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:39.641Z",
+      "crawledAt": "2026-11-06T21:46:43.929Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4142,7 +4297,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:36:39.641Z",
+      "validThrough": "2027-01-07T21:46:43.929Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4177,7 +4332,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Quality-Engineering-%28QE%29-Manager-Facility-&-Utility-Systems-Sisslerfeld-%28a%29-100-AG-4332/1446144533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:39.111Z",
+      "crawledAt": "2026-11-06T21:46:43.362Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4226,7 +4381,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:36:39.111Z",
+      "validThrough": "2027-01-07T21:46:43.362Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4261,7 +4416,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Senior-Commissioning-&-Qualification-Engineer-Sisslerfeld-%28a%29%2C-100-AG-4332/1378356333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:38.592Z",
+      "crawledAt": "2026-11-06T21:46:42.752Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4304,7 +4459,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:36:38.592Z",
+      "validThrough": "2026-12-24T21:46:42.752Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4339,7 +4494,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-MES-System-Engineer-%28a%29%2C-80-100-AG-4332/1402497333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:38.047Z",
+      "crawledAt": "2026-11-06T21:46:42.189Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4374,7 +4529,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:36:38.047Z",
+      "validThrough": "2027-01-01T21:46:42.189Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4409,7 +4564,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-SAP-Solution-&-Implementation-Lead-%28a%29%2C-80-100-AG-4332/1404096933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:37.548Z",
+      "crawledAt": "2026-11-06T21:46:41.619Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4452,7 +4607,7 @@
       },
       "streetAddress": "Stein AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:36:37.548Z",
+      "validThrough": "2026-12-07T21:46:41.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4487,7 +4642,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Data-Scientist-Digital-Manufacturing-%28a%29-100-BL-4416/1452470833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:37.032Z",
+      "crawledAt": "2026-11-06T21:46:41.164Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4533,7 +4688,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T09:36:37.032Z",
+      "validThrough": "2027-01-27T21:46:41.164Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4567,7 +4722,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Group-Treasury-&-Corporate-Finance-Manager-%28a%29%2C-90-100-BL-4416/1429463433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:36.442Z",
+      "crawledAt": "2026-11-06T21:46:40.585Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4613,7 +4768,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T09:36:36.442Z",
+      "validThrough": "2026-12-06T21:46:40.585Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4648,7 +4803,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Data-Platform-Owner-Databricks-%28a%29%2C-80-100-BL-4416/1442345233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:35.906Z",
+      "crawledAt": "2026-11-06T21:46:40.025Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4702,7 +4857,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:36:35.906Z",
+      "validThrough": "2026-12-28T21:46:40.025Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4736,7 +4891,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-R&D-%28a%29%2C-80-100-BL-4416/1453055933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:35.331Z",
+      "crawledAt": "2026-11-06T21:46:39.425Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4790,7 +4945,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:36:35.331Z",
+      "validThrough": "2027-01-28T21:46:39.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4824,7 +4979,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Scientist-Research-&-Development-Oligonucleotides-%28a%29%2C-100-BL-4416/1449857033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:34.798Z",
+      "crawledAt": "2026-11-06T21:46:38.863Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4870,7 +5025,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-19T09:36:34.798Z",
+      "validThrough": "2027-01-19T21:46:38.863Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4905,7 +5060,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Project-Procurement-Lead-%28a%29-100-Sisslerfeld-BL-4416/1431440133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:34.264Z",
+      "crawledAt": "2026-11-06T21:46:38.273Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4959,7 +5114,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T09:36:34.264Z",
+      "validThrough": "2026-12-25T21:46:38.273Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4994,7 +5149,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Head-of-MES-&-PI-Competence-Center-%28a%29%2C-80-100-BL-4416/1441371333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:33.711Z",
+      "crawledAt": "2026-11-06T21:46:37.711Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5040,7 +5195,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-24T09:36:33.711Z",
+      "validThrough": "2026-12-24T21:46:37.711Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5075,7 +5230,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-CAPEX-Controller-%28a%29%2C-100-BL-4416/1441606833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:33.179Z",
+      "crawledAt": "2026-11-06T21:46:37.149Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5131,7 +5286,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T09:36:33.179Z",
+      "validThrough": "2026-12-25T21:46:37.149Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5165,7 +5320,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Supply-Chain-Manager-Tech-Transfers-%28a%29%2C-80-100-BL-4416/1452189733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:32.656Z",
+      "crawledAt": "2026-11-06T21:46:36.562Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5219,7 +5374,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:36:32.656Z",
+      "validThrough": "2027-01-26T21:46:36.562Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5254,7 +5409,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Communications%E2%80%AFBusiness-Partner%E2%80%AF%28a%29%2C-80-100-BL-4416/1453443033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:32.121Z",
+      "crawledAt": "2026-11-06T21:46:35.970Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5300,7 +5455,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T09:36:32.121Z",
+      "validThrough": "2027-01-31T21:46:35.970Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5335,7 +5490,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Head-of-Technical-Operations-Bubendorf-%28a%29-100-BL-4416/1445981433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:31.597Z",
+      "crawledAt": "2026-11-06T21:46:35.383Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5381,7 +5536,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-07T09:36:31.597Z",
+      "validThrough": "2027-01-07T21:46:35.383Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5415,7 +5570,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-Quality-Control-%28a%29%2C-100-BL-4416/1443154133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:36:31.083Z",
+      "crawledAt": "2026-11-06T21:46:34.814Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5469,7 +5624,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:36:31.083Z",
+      "validThrough": "2026-12-30T21:46:34.814Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5504,7 +5659,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Manager-Global-QMS-Transformation-%28a%29-100-BL-4416/1410380233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:30.563Z",
+      "crawledAt": "2026-11-06T21:46:34.234Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5558,7 +5713,7 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T09:36:30.563Z",
+      "validThrough": "2026-12-25T21:46:34.234Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5593,7 +5748,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Commissioning-&-Qualification-%28C&Q%29-Lead-%28a%29%2C-100-BL-4416/1398900433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:36:30.008Z",
+      "crawledAt": "2026-11-06T21:46:33.653Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5639,106 +5794,8 @@
       },
       "streetAddress": "Hauptstrasse 144",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-21T09:36:30.008Z",
+      "validThrough": "2026-12-21T21:46:33.653Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "bachem-4eb84e2f8fe9",
-      "slug": "chemical-pharmatechnologist-nel-funzionamento-a-turni-produzione-di-ingredienti-attivi-liofilizzazione-a-100-bachem-ag",
-      "slugByLocale": {
-        "it": "chemical-pharmatechnologist-nel-funzionamento-a-turni-produzione-di-ingredienti-attivi-liofilizzazione-a-100-bachem-ag",
-        "en": "chemical-pharmatechnologist-in-shift-operation-active-ingredient-production-lyophilisation-a-100-bachem-ag-bubendorf",
-        "de": "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem",
-        "fr": "chimique-pharmatechnologue-en-service-poste-production-d-ingredients-actifs-et-lyophilisation-a-100-bachem-ag-bubendorf"
-      },
-      "company": "Bachem AG",
-      "companyKey": "bachem",
-      "companyDomain": "bachem.com",
-      "title": "Chemie-& Pharmatechnologe im Schichtbetrieb - Wirkstoffherstellung & Lyophilisation (a) 100%",
-      "titleByLocale": {
-        "it": "Chemical & Pharmatechnologist nel funzionamento a turni - Produzione di ingredienti attivi & liofilizzazione (a) 100%",
-        "en": "Chemical & Pharmatechnologist in shift operation - Active ingredient production & lyophilisation (a) 100%",
-        "de": "Chemie-& Pharmatechnologe im Schichtbetrieb - Wirkstoffherstellung & Lyophilisation (a) 100%",
-        "fr": "Chimique & Pharmatechnologue en service posté - Production d'ingrédients actifs et lyophilisation (a) 100%"
-      },
-      "description": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Wirkstoffherstellung & Lyophilisation suchen wir eine/n engagierte/n Chemie-& Pharmatechnologe im Schichtbetrieb (a), in Vollzeit . Für eine strukturierte und umfassende Einarbeitung arbeiten Sie während der ersten drei Monate im Tagesdienst. Nach erfolgreichem Abschluss der Einarbeitungsphase wechseln Sie in den regulären 6-4 Schichtbetrieb (6 Tage Arbeit – 4 Tage frei).\n\nIhre Aufgaben:\n\n• Durchführung von Produktionsarbeiten im Reinraum inkl. Arbeiten im Isolator mit hochwirksamen Wirkstoffen\n\n• Bedienung, Überwachung, Rüstung und Reinigung von Produktionsanlagen (insbesondere Lyophilisatoren) unter GMP-Bedingungen\n\n• Vorbereitung des Reinraums und Bereitstellung von Materialien, Equipment und Arbeitsmitteln vor Produktionsbeginn\n\n• GMP-konforme Durchführung und lückenlose Dokumentation aller Arbeitsschritte (Herstellvorschriften, Batchdokumentation, Logbücher)\n\n• Sicherer und verantwortungsvoller Umgang mit Wirk- und Gefahrstoffen unter Einhaltung aller Sicherheits-, Gesundheits- und Umweltvorschriften (SGU)\n\n• Selbstständige Organisation des Arbeitsbereichs, proaktives Erkennen von Abweichungen sowie Einbringen von Verbesserungsvorschlägen\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Chemie- und Pharmatechnologe/-login EFZ (oder vergleichbar) oder mindestens 3 Jahre Berufserfahrung in einem chemischen oder pharmazeutischen Produktionsumfeld\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Idealerweise Erfahrung im GMP-regulierten Umfeld sowie ein ausgeprägtes Qualitäts- und Dokumentationsverständnis\n\n• Erfahrung in der Reinraumproduktion; Kenntnisse im Umgang mit Isolatoren sind von Vorteil\n\n• Strukturierte, verantwortungsbewusste Arbeitsweise sowie Teamfähigkeit\n\n• Bereitschaft zum 6-4 Schichtbetrieb (6 Tage Arbeit – 4 Tage frei)\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
-      "descriptionByLocale": {
-        "it": "Al fine di guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il nostro team nella produzione di principi attivi e nella liofilizzazione, stiamo cercando un farmacologo specializzato nel funzionamento a turni (a), a tempo pieno. Per una formazione strutturata e completa, si lavora durante i primi tre mesi nel servizio giornaliero. Dopo aver completato con successo la fase di allenamento, si passa al normale 6-4 operazione di turno (6 giorni di lavoro – 4 giorni di riposo).\n\nI loro compiti:\n\n• Attuazione dei lavori di produzione nella camera pulita incl. Lavorare in un isolante con principi attivi altamente efficaci\n\n• Operazione, monitoraggio, armamento e pulizia degli impianti di produzione (in particolare dei lyofili) in condizioni GMP\n\n• Preparazione della camera pulita e fornitura di materiali, attrezzature e attrezzature di lavoro prima dell'inizio della produzione\n\n• Esecuzione conforme a GMP e documentazione completa di tutte le fasi di lavoro (regolamentazione di produzione, documentazione batch, logbook)\n\n• Gestione sicura e responsabile di sostanze attive e sostanze pericolose in conformità a tutte le normative in materia di sicurezza, salute e ambiente (SGU)\n\n• Organizzazione indipendente dell'area di lavoro, riconoscimento proattivo delle deviazioni e presentazione dei suggerimenti per il miglioramento\n\nIl tuo profilo:\n\n• Formazione completa come chimico e farmaceutico/login EFZ (o equivalente) o almeno 3 anni di esperienza professionale in un ambiente chimico o farmaceutico\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\n• Idealmente, l'esperienza nell'ambiente GMP regolamentato e una forte comprensione della qualità e della documentazione\n\n• esperienza nella produzione di cleanroom; La conoscenza di come utilizzare gli isolatori è un vantaggio\n\n• Metodi di lavoro strutturati e responsabili e lavoro di squadra\n\n• Prontezza per 6-4 turni (6 giorni di lavoro – 4 giorni di riposo)\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con lo sviluppo interno e ulteriori opportunità di istruzione\n\n• Azienda-internal KITA sul Bachem Campus Bubendorf\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso a piattaforme vantaggiose con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul campus di Bachem\n\nVuoi guidare l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i tuoi documenti applicativi siano completi tramite il nostro portale.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!",
-        "en": "In order to drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in active ingredient production & lyophilisation, we are looking for a dedicated chemical & pharmatechnologist in shift operation (a), full-time. For a structured and comprehensive training, you work during the first three months in the day service. After successful completion of the training phase, you will switch to the regular 6-4 shift operation (6 days of work – 4 days off).\n\nTheir tasks:\n\n• Implementation of production work in the clean room incl. Working in an insulator with highly effective active ingredients\n\n• Operation, monitoring, armament and cleaning of production facilities (in particular lyophilisers) under GMP conditions\n\n• Preparation of the clean room and provision of materials, equipment and work equipment before production starts\n\n• GMP-compliant implementation and complete documentation of all work steps (manufacturing regulations, batch documentation, logbooks)\n\n• Safe and responsible handling of active substances and hazardous substances in compliance with all safety, health and environmental regulations (SGU)\n\n• Independent organization of the work area, proactive recognition of deviations and submission of suggestions for improvement\n\nYour profile:\n\n• Completed training as a chemical and pharmatechnologist/login EFZ (or equivalent) or at least 3 years of professional experience in a chemical or pharmaceutical production environment\n\n• Very good knowledge of German in word and writing\n\n• Ideally, experience in the GMP-regulated environment as well as a strong understanding of quality and documentation\n\n• experience in cleanroom production; Knowledge of how to use insulators is an advantage\n\n• Structured, responsible working methods and teamwork\n\n• Readiness for 6-4 shifts (6 days of work – 4 days off)\n\nOur offer:\n\n• A dynamic and rapidly growing working environment with internal development and further education opportunities\n\n• Company-internal KITA on the Bachem Campus Bubendorf\n\n• 60% takeover of pension fund contributions by Bachem AG as well as possibility for over-compulsory provision with our elective savings plan\n\n• Access to advantage platforms with discounts from external partners\n\n• Fresh, healthy and diverse food in our staff restaurant\n\n• Various free sports activities on the Bachem Campus\n\nDo you want to drive innovation together with us?\n\nHave we aroused your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and be inspired by our inspiring working environment at our location in Bubendorf!",
-        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Wirkstoffherstellung & Lyophilisation suchen wir eine/n engagierte/n Chemie-& Pharmatechnologe im Schichtbetrieb (a), in Vollzeit . Für eine strukturierte und umfassende Einarbeitung arbeiten Sie während der ersten drei Monate im Tagesdienst. Nach erfolgreichem Abschluss der Einarbeitungsphase wechseln Sie in den regulären 6-4 Schichtbetrieb (6 Tage Arbeit – 4 Tage frei).\n\nIhre Aufgaben:\n\n• Durchführung von Produktionsarbeiten im Reinraum inkl. Arbeiten im Isolator mit hochwirksamen Wirkstoffen\n\n• Bedienung, Überwachung, Rüstung und Reinigung von Produktionsanlagen (insbesondere Lyophilisatoren) unter GMP-Bedingungen\n\n• Vorbereitung des Reinraums und Bereitstellung von Materialien, Equipment und Arbeitsmitteln vor Produktionsbeginn\n\n• GMP-konforme Durchführung und lückenlose Dokumentation aller Arbeitsschritte (Herstellvorschriften, Batchdokumentation, Logbücher)\n\n• Sicherer und verantwortungsvoller Umgang mit Wirk- und Gefahrstoffen unter Einhaltung aller Sicherheits-, Gesundheits- und Umweltvorschriften (SGU)\n\n• Selbstständige Organisation des Arbeitsbereichs, proaktives Erkennen von Abweichungen sowie Einbringen von Verbesserungsvorschlägen\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Chemie- und Pharmatechnologe/-login EFZ (oder vergleichbar) oder mindestens 3 Jahre Berufserfahrung in einem chemischen oder pharmazeutischen Produktionsumfeld\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Idealerweise Erfahrung im GMP-regulierten Umfeld sowie ein ausgeprägtes Qualitäts- und Dokumentationsverständnis\n\n• Erfahrung in der Reinraumproduktion; Kenntnisse im Umgang mit Isolatoren sind von Vorteil\n\n• Strukturierte, verantwortungsbewusste Arbeitsweise sowie Teamfähigkeit\n\n• Bereitschaft zum 6-4 Schichtbetrieb (6 Tage Arbeit – 4 Tage frei)\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
-        "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer notre équipe dans la production active d'ingrédients et la lyophilisation, nous recherchons un spécialiste en chimie et pharmacotechnologue spécialisé dans le travail posté (a), à temps plein. Pour une formation structurée et complète, vous travaillez pendant les trois premiers mois du service de jour. Après avoir terminé avec succès la phase de formation, vous passerez à l'opération régulière de 6 à 4 heures (6 jours de travail – 4 jours de congé).\n\nLeurs tâches :\n\n• Mise en œuvre des travaux de production dans la salle blanche incl. Travailler dans un isolant avec des ingrédients actifs très efficaces\n\n• Exploitation, surveillance, armement et nettoyage des installations de production (en particulier des lyophiliseurs) dans des conditions de BPF\n\n• Préparation de la salle propre et fourniture de matériaux, équipements et équipements de travail avant le début de la production\n\n• Mise en oeuvre conforme aux BPF et documentation complète de toutes les étapes de travail (réglementations de fabrication, documentation par lots, journaux de bord)\n\n• Manipulation sûre et responsable des substances actives et des substances dangereuses conformément à toutes les réglementations en matière de sécurité, de santé et d'environnement (SGU)\n\n• Organisation indépendante du domaine d ' activité, reconnaissance proactive des écarts et présentation de propositions d ' amélioration\n\nVotre profil:\n\n• Achevé une formation en tant que chimique et pharmacotechnologue/login EFZ (ou équivalent) ou au moins 3 années d'expérience professionnelle dans un environnement de production chimique ou pharmaceutique\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Idéalement, l'expérience dans l'environnement réglementé par les BPF ainsi qu'une bonne compréhension de la qualité et de la documentation\n\n• l'expérience dans la production de salles propres; La connaissance de l'utilisation des isolateurs est un avantage\n\n• Méthodes de travail structurées et responsables et travail d'équipe\n\n• Préparation pour 6-4 postes (6 jours de travail – 4 jours de congé)\n\nNotre offre:\n\n• Un environnement de travail dynamique et en croissance rapide avec développement interne et possibilités de formation continue\n\n• Société-interne KITA sur le campus Bachem Bubendorf\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision trop obligatoire avec notre régime d'épargne facultative\n\n• Accès à des plateformes avantageuses avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous stimuler l'innovation avec nous ?\n\nAvons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
-      },
-      "needsRetranslation": false,
-      "location": "Bubendorf",
-      "canton": "BL",
-      "url": "https://careers.bachem.com/job/Bubendorf-Chemie-&-Pharmatechnologe-im-Schichtbetrieb-Wirkstoffherstellung-&-Lyophilisation-%28a%29-100-BL-4416/1436669133/",
-      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:23:13.078Z",
-      "addressLocality": "Bubendorf",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4416",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-14T00:00:00Z",
-      "postedDate": "2026-09-14T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1436669133/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem",
-        "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem-ag-bubendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem"
-        ],
-        "en": [
-          "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem",
-          "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem-ag-bubendorf"
-        ],
-        "fr": [
-          "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem"
-        ]
-      },
-      "firstSeenAt": "2026-09-17T06:56:19.946Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Bachem AG",
-        "streetAddress": "Hauptstrasse 144",
-        "postalCode": "4416",
-        "addressLocality": "Bubendorf",
-        "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:48:00.381Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Hauptstrasse 144",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T09:23:13.078Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }
