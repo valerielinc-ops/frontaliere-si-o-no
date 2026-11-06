@@ -13,6 +13,7 @@ import {
   detectBoilerplateDescriptions,
   isSystemicBoilerplateFailure,
   quarantineBoilerplateJobs,
+  resolveBoilerplateMinEligible,
 } from '@/scripts/assemble-jobs-dataset.mjs';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -336,6 +337,13 @@ describe('detectBoilerplateDescriptions — guard gate thresholds', () => {
 // top of the ratio so a tiny sample can no longer brick the run by itself.
 
 describe('isSystemicBoilerplateFailure — sample-size floor', () => {
+  it('never lets the environment override lower the eligible-sample floor below 8', () => {
+    expect(resolveBoilerplateMinEligible('4')).toBe(8);
+    expect(resolveBoilerplateMinEligible('8')).toBe(8);
+    expect(resolveBoilerplateMinEligible('10')).toBe(10);
+    expect(resolveBoilerplateMinEligible('invalid')).toBe(10);
+  });
+
   it('reproduces the #3254 Diakoniewerk incident: 1/2 (50%) is NOT systemic', () => {
     const report = { ratio: 0.5, boilerplateCount: 1, totalJobs: 2 };
     expect(isSystemicBoilerplateFailure(report)).toBe(false);
