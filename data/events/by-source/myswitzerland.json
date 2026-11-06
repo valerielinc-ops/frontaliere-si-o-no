@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-30T11:58:48.856Z",
+  "assembledAt": "2026-11-06T13:38:47.048Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -188360,7 +188360,6 @@
       },
       "startDate": "2026-10-24",
       "endDate": "2026-11-08",
-      "startTime": "02:00",
       "category": "Event",
       "venue": "Cavergno",
       "canton": "TI",
@@ -272953,6 +272952,543 @@
         "name": "St-Sulpice NE"
       },
       "sourceDescriptionHash": "c46aeb0af023ca89caec2f67b9965d04401dec0bd1673503d14ea915d12e7b90"
+    },
+    {
+      "id": "myswitzerland:3f609aadb9f14644bf8463a5133718af",
+      "title": "Workshop Freeride Technik Beginner Ski",
+      "titleByLocale": {
+        "it": "Workshop Freeride Technik Beginner Ski",
+        "en": "Workshop Freeride Technik Beginner Ski",
+        "de": "Workshop Freeride Technik Beginner Ski",
+        "fr": "Workshop Freeride Technik Beginner Ski"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "category": "Event",
+      "venue": "Flims",
+      "comune": "Flims",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/workshop-freeride-technik-beginner-ski-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8619116,
+        "lng": 9.2338039
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "84c74b1f91e78f7012c6b98bce0ae92cb310ab14f26750453187d50db547300e"
+    },
+    {
+      "id": "myswitzerland:3f4b351a4dcb4580828a9bdaa9182a7f",
+      "title": "Glaibasler Charivari 2027",
+      "titleByLocale": {
+        "it": "Glaibasler Charivari 2027",
+        "en": "Glaibasler Charivari 2027",
+        "de": "Glaibasler Charivari 2027",
+        "fr": "Glaibasler Charivari 2027"
+      },
+      "startDate": "2027-01-16",
+      "endDate": "2027-01-30",
+      "category": "Event",
+      "venue": "Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/glaibasler-charivari-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5610063,
+        "lng": 7.5935539
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Glaibasler Charivari"
+      },
+      "sourceDescriptionHash": "354025c08f5ef0ad8c062beec7fb7cc8e7848ce384ed930778d300a0b6ff330d"
+    },
+    {
+      "id": "myswitzerland:3db003cffed24885aeb7f9bd7dfb7c5b",
+      "title": "Trofea Péz Ault",
+      "titleByLocale": {
+        "it": "Trofea Péz Ault",
+        "en": "Trofea Péz Ault",
+        "de": "Trofea Péz Ault",
+        "fr": "Trofea Péz Ault"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-07",
+      "category": "Event",
+      "venue": "Disentis",
+      "comune": "Disentis/Mustér",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/trofea-pez-ault/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7009273,
+        "lng": 8.8412014
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Vertical"
+        },
+        {
+          "name": "Individual"
+        }
+      ],
+      "sourceDescriptionHash": "d732fc8fe22030984885795a946140f177cb1605c86aac4236fb85fd0502b333"
+    },
+    {
+      "id": "myswitzerland:3d581ea56de44b7bb215b914712db73c",
+      "title": "WINTER DAY RETREAT",
+      "titleByLocale": {
+        "it": "WINTER DAY RETREAT",
+        "en": "WINTER DAY RETREAT",
+        "de": "WINTER DAY RETREAT",
+        "fr": "WINTER DAY RETREAT"
+      },
+      "startDate": "2027-01-23",
+      "endDate": "2027-01-23",
+      "category": "Event",
+      "venue": "Engelberg",
+      "comune": "Engelberg",
+      "canton": "OW",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/winter-day-retreat/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8194726,
+        "lng": 8.4026177
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Natur"
+        },
+        {
+          "name": "Begegnung"
+        },
+        {
+          "name": "Ruhe"
+        }
+      ],
+      "sourceDescriptionHash": "615f860f6c4985c2dd5b5eae2d4da71e60ef65220964574e52120a9dfc27faef"
+    },
+    {
+      "id": "myswitzerland:3d49916566e74cddaa15115acee4ba5f",
+      "title": "Lodge carnevale",
+      "titleByLocale": {
+        "it": "Lodge carnevale",
+        "en": "Lodge carnival",
+        "de": "Lodge Fasnacht",
+        "fr": "Lodge Fasnacht"
+      },
+      "startDate": "2027-02-06",
+      "endDate": "2027-02-06",
+      "category": "Event",
+      "venue": "Disentis",
+      "comune": "Disentis/Mustér",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/lodge-carnevale/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6981408,
+        "lng": 8.8425586
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "2fc5ec93a8252702d9eef6f219e26f9ac1904138adf3d0a00815b9b0bf7920a2"
+    },
+    {
+      "id": "myswitzerland:3d061d637c7045d48cef63dc0165eb29",
+      "title": "George Michael by James Bermingham",
+      "titleByLocale": {
+        "it": "George Michael by James Bermingham",
+        "en": "George Michael by James Bermingham",
+        "de": "George Michael by James Bermingham",
+        "fr": "George Michael by James Bermingham"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "category": "Event",
+      "venue": "Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/george-michael-by-james-bermingham/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5680313,
+        "lng": 7.5979887
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "James Bermingham"
+        },
+        {
+          "name": "Sängern"
+        }
+      ],
+      "sourceDescriptionHash": "5de1568d098c91978e748f928c5908d8efd704aa67056b1369addd3fe2f6cfe5"
+    },
+    {
+      "id": "myswitzerland:3c93838caa834940b8a1fe09cb56ca1c",
+      "title": "Bazar - Weihnachtsmarkt der Liechtensteinischen Waldorfschule",
+      "titleByLocale": {
+        "it": "Bazar - Weihnachtsmarkt der Liechtensteinischen Waldorfschule",
+        "en": "Bazar - Weihnachtsmarkt der Liechtensteinischen Waldorfschule",
+        "de": "Bazar - Weihnachtsmarkt der Liechtensteinischen Waldorfschule",
+        "fr": "Bazar - Weihnachtsmarkt der Liechtensteinischen Waldorfschule"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-22",
+      "category": "Event",
+      "venue": "Schaan",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bazar-weihnachtsmarkt-der-liechtensteinischen-waldorfschule/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1434996,
+        "lng": 9.5174895
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "5049e833355b1d1504da015db876753e3ceec2927378713fb82337293ac63108"
+    },
+    {
+      "id": "myswitzerland:3b9420346619401889bbad820fdd5dae",
+      "title": "Theater | If I Lie to You, Will You Still Love Me?",
+      "titleByLocale": {
+        "it": "Theater | If I Lie to You, Will You Still Love Me?",
+        "en": "Theater | If I Lie to You, Will You Still Love Me?",
+        "de": "Theater | Wenn ich dich anlüge, liebst du mich dann noch?",
+        "fr": "Théâtre | Si je te mens, tu m'aimes ?"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-08",
+      "category": "Event",
+      "venue": "Vevey",
+      "comune": "Vevey",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/theater-if-i-lie-to-you-will-you-still-love-me/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4604994,
+        "lng": 6.8431131
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "c5188a68a9b17e84be5c1c766eafd65925107273bb8490e6bb9f4343bca5637d"
+    },
+    {
+      "id": "myswitzerland:3b258af1d3af42b7be902e6f72bf607d",
+      "title": "Soirée de stand up – Humour et durabilité",
+      "titleByLocale": {
+        "it": "Soirée de stand up – Humour et durabilité",
+        "en": "Soirée de stand up – Humour et durabilité",
+        "de": "Soirée de stand up – Humour et durabilité",
+        "fr": "Soirée de stand up – Humour et durabilité"
+      },
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-01",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/soiree-de-stand-up-humour-et-durabilite/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2105374,
+        "lng": 6.1412793
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "416475936631df92e4e7be7257b2dda1195f8d0a736ac6ea31a0be761bbe06fc"
+    },
+    {
+      "id": "myswitzerland:3a39d9a2af6a4641abd7638547092687",
+      "title": "Konzert Jake Manzi live & Pie Night",
+      "titleByLocale": {
+        "it": "Konzert Jake Manzi live & Pie Night",
+        "en": "Konzert Jake Manzi live & Pie Night",
+        "de": "Konzert Jake Manzi live & Pie Night",
+        "fr": "Konzert Jake Manzi live & Pie Night"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-11",
+      "category": "Event",
+      "venue": "Kandersteg",
+      "comune": "Kandersteg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/konzert-jake-manzi-live-pie-night/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4786659,
+        "lng": 7.6644832
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6eb3644fca00666f28f7fc3116da335df4b99d244f3584aad3d4ab7ee869b21c"
+    },
+    {
+      "id": "myswitzerland:39e4fc3139694008aa2b2a821951ff2c",
+      "title": "Apres-Ski & Snowli Night",
+      "titleByLocale": {
+        "it": "Apres-Ski & Snowli Night",
+        "en": "Apres-Ski & Snowli Night",
+        "de": "Apres-Ski & Snowli Night",
+        "fr": "Apres-Ski & Snowli Night"
+      },
+      "startDate": "2026-12-22",
+      "endDate": "2027-03-09",
+      "category": "Event",
+      "venue": "Bivio",
+      "comune": "Surses",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/apresski-snowli-night/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4699692,
+        "lng": 9.6491418
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Musik"
+        },
+        {
+          "name": "Bar"
+        }
+      ],
+      "sourceDescriptionHash": "bbe29d284e0944db94d79d58720b2c015bc27674d47465174b7746fd1dffb66a"
+    },
+    {
+      "id": "myswitzerland:397a402c8c4d41b587246ac1eda8005d",
+      "title": "Klausmarkt mit Kinderattraktion",
+      "titleByLocale": {
+        "it": "Klausmarkt mit Kinderattraktion",
+        "en": "Klausmarkt mit Kinderattraktion",
+        "de": "Klausmarkt mit Kinderattraktion",
+        "fr": "Klausmarkt mit Kinderattraktion"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/klausmarkt-mit-kinderattraktion/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.167692,
+        "lng": 8.514354
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f16c5f6dafe1a6e9b47320d853dc5c1452d39508696d2d7171cf469b4a48d589"
+    },
+    {
+      "id": "myswitzerland:380a46bc529a437883a9e1b17d90d6c0",
+      "title": "CONCERT ANNUEL DU CHOEUR MIXTE L’INTERNOTE",
+      "titleByLocale": {
+        "it": "CONCERT ANNUEL DU CHOEUR MIXTE L’INTERNOTE",
+        "en": "CONCERT ANNUEL DU CHOEUR MIXTE L’INTERNOTE",
+        "de": "CONCERT ANNUEL DU CHOEUR MIXTE L’INTERNOTE",
+        "fr": "CONCERT ANNUEL DU CHOEUR MIXTE L’INTERNOTE"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "category": "Event",
+      "venue": "Peseux",
+      "comune": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/concert-annuel-du-choeur-mixte-linternote/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9854013,
+        "lng": 6.8877483
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5058d46259ff483d0c7baaefd04c13cc48d6232b2c4dae803639b7827ee9ad6f"
+    },
+    {
+      "id": "myswitzerland:3759023028444375a469a3c785d544c1",
+      "title": "Zwischen Himmel und Erde - 2 Chöre 50 Stimmen",
+      "titleByLocale": {
+        "it": "Zwischen Himmel und Erde - 2 Chöre 50 Stimmen",
+        "en": "Zwischen Himmel und Erde - 2 Chöre 50 Stimmen",
+        "de": "Zwischen Himmel und Erde - 2 Chöre 50 Stimmen",
+        "fr": "Zwischen Himmel und Erde - 2 Chöre 50 Stimmen"
+      },
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "category": "Event",
+      "venue": "Zuzwil",
+      "comune": "Zuzwil (SG)",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/zwischen-himmel-und-erde-2-choere-50-stimmen-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.466074,
+        "lng": 9.0844894
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Terminen"
+        },
+        {
+          "name": "Themen"
+        },
+        {
+          "name": "Menschen"
+        }
+      ],
+      "sourceDescriptionHash": "446cbe4af9358fdbd73c389c2ba26f542abe431cfc47a40e8102bee296f56341"
+    },
+    {
+      "id": "myswitzerland:372ddf3be34547e59d16f58787b69707",
+      "title": "Lantern path - Path of the 1000 lights",
+      "titleByLocale": {
+        "it": "Lantern path - Path of the 1000 lights",
+        "en": "Lantern path - Path of the 1000 lights",
+        "de": "Laternenweg - Weg der 1000 Lichter",
+        "fr": "Chemin de lanternes - Chemin des 1000 lumières"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2027-01-10",
+      "category": "Event",
+      "venue": "Blausee",
+      "comune": "Kandergrund",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/lantern-path-path-of-the-1000-lights/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5324482,
+        "lng": 7.6647629
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e2a887c97e3c4dbd5692a8906a3ff7eeca3a10204f25e8baf63a3d7bbbf57675"
+    },
+    {
+      "id": "myswitzerland:36196c3809e341108ccef208ce876f17",
+      "title": "Résistance artistique",
+      "titleByLocale": {
+        "it": "Résistance artistique",
+        "en": "Résistance artistique",
+        "de": "Résistance artistique",
+        "fr": "Résistance artistique"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-11-21",
+      "category": "Event",
+      "venue": "Delémont",
+      "comune": "Delémont",
+      "canton": "JU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/resistance-artistique/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3664648,
+        "lng": 7.3419703
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "1a28270ebae7b807d19e9723f42f01c924cc69f6b1378ac6fc0bd072fa7b5f48"
+    },
+    {
+      "id": "myswitzerland:36032b3d157249b2874dac2a9cc59001",
+      "title": "Theateraufführung Jungmannschaft Bergün «Heute Gemeindeversammlung»",
+      "titleByLocale": {
+        "it": "Theateraufführung Jungmannschaft Bergün «Heute Gemeindeversammlung»",
+        "en": "Theateraufführung Jungmannschaft Bergün «Heute Gemeindeversammlung»",
+        "de": "Theateraufführung Jungmannschaft Bergün «Heute Gemeindeversammlung»",
+        "fr": "Theateraufführung Jungmannschaft Bergün «Heute Gemeindeversammlung»"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2027-11-13",
+      "category": "Event",
+      "venue": "Bergün / Bravuogn",
+      "comune": "Bergün Filisur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/theater-der-jungmannschaft-berguen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.619931,
+        "lng": 9.784457
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "944d942ab1d24b26c9e0b5beeab8f75736eec1dc5a8f8071ae9f514c1cb92067"
+    },
+    {
+      "id": "myswitzerland:35dddadad7ab49f59c3ed63edab7fdd4",
+      "title": "BelCanto-Chor Frauenfeld - Reprise",
+      "titleByLocale": {
+        "it": "BelCanto-Chor Frauenfeld - Reprise",
+        "en": "BelCanto-Chor Frauenfeld - Reprise",
+        "de": "BelCanto-Chor Frauenfeld - Reprise",
+        "fr": "BelCanto-Chor Frauenfeld - Reprise"
+      },
+      "startDate": "2026-11-08",
+      "endDate": "2026-11-08",
+      "category": "Event",
+      "venue": "Tägerwilen",
+      "comune": "Frauenfeld",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/belcanto-chor-frauenfeld-reprise-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6551378,
+        "lng": 9.1370387
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Sängern"
+        },
+        {
+          "name": "Terminen"
+        },
+        {
+          "name": "Themen"
+        },
+        {
+          "name": "Menschen"
+        }
+      ],
+      "sourceDescriptionHash": "8fc80771dc128ab55fec5e6d138a309d883b0761d2cffdc9a94f4bda951e0cd0"
+    },
+    {
+      "id": "myswitzerland:34112803f2d04d58a554f2dd1d20e036",
+      "title": "Swiss Cycling Alpenbrevet",
+      "titleByLocale": {
+        "it": "Swiss Cycling Alpenbrevet",
+        "en": "Swiss Cycling Alpenbrevet",
+        "de": "Swiss Cycling Alpenbrevet",
+        "fr": "Alpenbrevet de Swiss Cycling"
+      },
+      "startDate": "2027-09-04",
+      "endDate": "2027-09-04",
+      "category": "Event",
+      "venue": "Andermatt",
+      "comune": "Andermatt",
+      "canton": "UR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/swiss-cycling-alpenbrevet-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.636943,
+        "lng": 8.5946629
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "2c5cc8ee90de335102d6457b6be044cd5eae8b64cc98ec601abbb12ef63bc10d"
     }
   ]
 }
