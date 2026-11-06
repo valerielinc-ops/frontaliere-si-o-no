@@ -200,8 +200,38 @@ export function verifiedSignInTarget(href, currentUrl, portalHost) {
 }
 
 const SUCCESSFACTORS_AUTH_ROUTE_PARAMS = new Set([
-  'company', 'career_ns', 'career_job_req_id', 'login_ns', 'jobPipeline', 'lang', 'site',
+  'company', 'career_ns', 'career_job_req_id', 'job', 'jobid', 'login_ns', 'jobpipeline', 'lang', 'site',
 ]);
+const SUCCESSFACTORS_LEGACY_JOB_HOST_RE = /^career5\.successfactors\.eu$/i;
+
+function singleQueryParam(params, name) {
+  const values = [...params.entries()]
+    .filter(([key]) => key.toLowerCase() === name)
+    .map(([, value]) => value);
+  // Keep a missing parameter distinct from a present-but-empty one. The
+  // latter must not be accepted as an omitted selector or identifier.
+  return {
+    present: values.length > 0,
+    value: values.length === 1 ? values[0] : null,
+  };
+}
+
+function setSingleQueryParam(url, name, value) {
+  const entries = [...url.searchParams.entries()];
+  let replaced = false;
+  url.search = '';
+  for (const [key, currentValue] of entries) {
+    if (key.toLowerCase() === name) {
+      if (!replaced) {
+        url.searchParams.append(name, value);
+        replaced = true;
+      }
+      continue;
+    }
+    url.searchParams.append(key, currentValue);
+  }
+  if (!replaced) url.searchParams.append(name, value);
+}
 
 /**
  * SuccessFactors can send an existing account back to a job's registration
@@ -212,8 +242,10 @@ const SUCCESSFACTORS_AUTH_ROUTE_PARAMS = new Set([
  */
 export function successFactorsSignInTarget(currentUrl) {
   const current = successFactorsJobApplicationRoute(currentUrl);
-  if (!current || current.searchParams.get('login_ns') !== 'register') return '';
-  current.searchParams.set('login_ns', 'login');
+  if (!current) return '';
+  const loginNamespace = singleQueryParam(current.searchParams, 'login_ns');
+  if (!loginNamespace.present || loginNamespace.value !== 'register') return '';
+  setSingleQueryParam(current, 'login_ns', 'login');
   return current.href;
 }
 
@@ -224,8 +256,10 @@ export function successFactorsSignInTarget(currentUrl) {
  */
 export function successFactorsRegistrationTarget(currentUrl) {
   const current = successFactorsJobApplicationRoute(currentUrl);
-  if (!current || (current.searchParams.has('login_ns') && current.searchParams.get('login_ns') !== 'login')) return '';
-  current.searchParams.set('login_ns', 'register');
+  if (!current) return '';
+  const loginNamespace = singleQueryParam(current.searchParams, 'login_ns');
+  if (loginNamespace.present && loginNamespace.value !== 'login') return '';
+  setSingleQueryParam(current, 'login_ns', 'register');
   return current.href;
 }
 
@@ -235,11 +269,28 @@ function successFactorsJobApplicationRoute(currentUrl) {
     if (current.protocol !== 'https:' || current.username || current.password || current.hash
       || current.pathname !== '/career' || !usesOtpAccountCreation(current.hostname)) return null;
     const params = current.searchParams;
-    if ([...params.keys()].some(key => !SUCCESSFACTORS_AUTH_ROUTE_PARAMS.has(key))) return null;
-    for (const key of new Set(params.keys())) {
-      if (params.getAll(key).length !== 1) return null;
+    if ([...params.keys()].some(key => !SUCCESSFACTORS_AUTH_ROUTE_PARAMS.has(key.toLowerCase()))) return null;
+    for (const key of new Set([...params.keys()].map(key => key.toLowerCase()))) {
+      if ([...params.keys()].filter(candidate => candidate.toLowerCase() === key).length !== 1) return null;
     }
-    if (params.get('career_ns') !== 'job_application' || !params.get('career_job_req_id') || !params.get('company')) return null;
+    const company = singleQueryParam(params, 'company');
+    const namespace = singleQueryParam(params, 'career_ns');
+    const requisition = singleQueryParam(params, 'career_job_req_id');
+    const legacyJob = singleQueryParam(params, 'job');
+    const legacyJobId = singleQueryParam(params, 'jobid');
+    const loginNamespace = singleQueryParam(params, 'login_ns');
+    if (!company.present || company.value === null || !company.value
+      || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company.value)) return null;
+    if (namespace.present && (namespace.value === null || !namespace.value
+      || namespace.value.toLowerCase() !== 'job_application')) return null;
+    if (requisition.present && (requisition.value === null || !/^\d{1,20}$/.test(requisition.value))) return null;
+    if (legacyJob.present && (legacyJob.value === null || !/^\d{1,20}$/.test(legacyJob.value))) return null;
+    if (legacyJobId.present && (legacyJobId.value === null || !/^\d{1,20}$/.test(legacyJobId.value))) return null;
+    if (loginNamespace.present && (loginNamespace.value === null || !loginNamespace.value)) return null;
+    if ((legacyJob.value || legacyJobId.value) && !SUCCESSFACTORS_LEGACY_JOB_HOST_RE.test(current.hostname)) return null;
+    // Two different vacancy identifiers are ambiguous: do not choose a first match.
+    if ((requisition.value && (legacyJob.value || legacyJobId.value)) || (legacyJob.value && legacyJobId.value)) return null;
+    if (!requisition.value && !legacyJob.value && !legacyJobId.value) return null;
     return current;
   } catch {
     return null;
