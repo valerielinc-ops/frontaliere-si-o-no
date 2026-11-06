@@ -950,6 +950,14 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       effects = enterCandidateReview(next, flags, nowMs, { resend: false, keepDeadline: Number(flow?.deadlineAt) || null });
       break;
+    case 'owner_update_candidate_requests':
+      if (state !== 'candidate_review') return ignore('not_candidate_review');
+      // The owner has changed the protected page's document checklist or
+      // postal instructions while the candidate was already reviewing it.
+      // Recompute holds from the new configuration and send the same review
+      // link again; keep any live deadline instead of extending it.
+      effects = enterCandidateReview(next, flags, nowMs, { resend: true, keepDeadline: Number(flow?.deadlineAt) || null });
+      break;
     case 'candidate_reject': {
       if (state !== 'candidate_review') return ignore('not_candidate_review');
       const feedback = String(event.feedback || '').trim().slice(0, 2000);

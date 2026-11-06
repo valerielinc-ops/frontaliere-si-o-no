@@ -134,6 +134,7 @@ function guestBrowserFixture({ mismatch = false, privateField = false, encodedFi
     { id: 'email', form: 0, kind: 'text', inputType: 'email', label: 'Email', required: true },
   ], buttons: [], text: 'Example Motors', errors: [], captcha: false, passwordVisible: false }) };
   const page: any = { mainFrame: () => frame, frames: () => [frame], url: () => applyUrl,
+    title: async () => 'Application Engineer | Example Motors',
     evaluate: async () => [{ id: 'source', explicitlyOptional: true, nativeRequired: false }],
     locator: () => ({ innerText: async () => 'Example Motors' }), waitForTimeout: async () => {}, waitForLoadState: async () => {},
     goto: async () => {
@@ -149,7 +150,7 @@ function guestBrowserFixture({ mismatch = false, privateField = false, encodedFi
 describe('anonymous guest cookie proof privacy', () => {
   it('installs only the fresh guest cookie and exports enums/counts without any SID', async () => {
     const fixture = guestBrowserFixture();
-    const proof = await readOnlyPortalContracts({ applyUrl, job: { company: 'Example Motors' }, launch: async () => fixture.browser, get: fixture.get, guestProbe: fixture.guestProbe });
+    const proof = await readOnlyPortalContracts({ applyUrl, job: { company: 'Example Motors', title: 'Application Engineer' }, launch: async () => fixture.browser, get: fixture.get, guestProbe: fixture.guestProbe });
     expect(proof).toMatchObject({ complete: true, guestSessionProof: { protocol: 'rexx-guest-cookie-check-v1', requests: 2, cookieAllowed: true, canonicalFallbackUsed: true } });
     expect(fixture.context.addCookies).toHaveBeenCalledOnce();
     expect(fixture.context.addCookies.mock.calls[0][0]).toHaveLength(1);
@@ -158,7 +159,7 @@ describe('anonymous guest cookie proof privacy', () => {
 
   it.each(['mismatch', 'private_field', 'encoded_field', 'encoded_denied'])('keeps the proof unknown instead of exporting %s', async kind => {
     const fixture = guestBrowserFixture({ mismatch: kind === 'mismatch', privateField: kind === 'private_field', encodedField: kind === 'encoded_field', encodedDenied: kind === 'encoded_denied' });
-    const proof = await readOnlyPortalContracts({ applyUrl, job: { company: 'Example Motors' }, launch: async () => fixture.browser, get: fixture.get, guestProbe: fixture.guestProbe });
+    const proof = await readOnlyPortalContracts({ applyUrl, job: { company: 'Example Motors', title: 'Application Engineer' }, launch: async () => fixture.browser, get: fixture.get, guestProbe: fixture.guestProbe });
     expect(proof.complete).toBe(false);
     expect(JSON.stringify(proof)).not.toContain(sid);
     expect(JSON.stringify(proof)).not.toContain(sid.replaceAll('_', '%5F'));

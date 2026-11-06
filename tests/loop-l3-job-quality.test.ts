@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 // @ts-expect-error — the recorder is a dependency-free ESM CI script.
 import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
 import {
+  readScheduledSummaryKeys,
   runL3,
   validateJobSummaries,
 } from '../scripts/ci/loop-l3-job-quality.mjs';
@@ -219,6 +220,49 @@ describe('L3 Job Quality → Apply', () => {
       },
     });
     expect(verdict.issues).not.toContain(expect.stringContaining('company.json: summary is stale'));
+  });
+
+  it('uses declared primary slice names when a crawler id maps to a grouped summary file', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l3-roster-'));
+    const rosterPath = path.join(dir, 'crawler-generation-roster.json');
+    fs.writeFileSync(rosterPath, `${JSON.stringify({
+      primarySlices: {
+        burkhalter: 'data/jobs/by-crawler/burkhalter-group.json',
+        example: 'data/jobs/by-crawler/example.json',
+      },
+    })}\n`);
+
+    const scheduledSummaryKeys = readScheduledSummaryKeys(rosterPath);
+    expect(scheduledSummaryKeys).toEqual(['burkhalter-group', 'example']);
+
+    const verdict = validateJobSummaries([
+      summary(),
+      {
+        file: 'burkhalter-group.json',
+        data: {
+          ...summary().data,
+          key: 'burkhalter-group',
+          newJobs: [job({
+            id: 'burkhalter-job',
+            slug: 'burkhalter-job',
+            url: 'https://jobs.example.test/burkhalter-job',
+            applyUrl: undefined,
+          })],
+        },
+      },
+    ], { outcomes: outcomes(), now: NOW, scheduledSummaryKeys });
+
+    expect(verdict).toMatchObject({
+      ok: false,
+      quality: 'partial',
+      issues: [expect.stringContaining('applyUrl is missing or is not an HTTPS URL')],
+      snapshot: {
+        summaryCount: 2,
+        ignoredInactiveSummaries: 0,
+        jobsInspected: 2,
+        invalidJobs: 1,
+      },
+    });
   });
 
   it('requires the CH country field for the three quarantined Swiss-only producers', () => {

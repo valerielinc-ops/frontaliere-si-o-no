@@ -349,6 +349,27 @@ export const BING_TEMPLATE_TABLE = Object.freeze([
 const TEMPLATE_INDEX_BY_ID = new Map(BING_TEMPLATE_TABLE.map((family, index) => [family.id, index]));
 const UNKNOWN_TEMPLATE_INDEX = TEMPLATE_INDEX_BY_ID.get(UNKNOWN_FAMILY.id);
 
+/**
+ * Referrer records are compact artifact data, not trusted ownership proof.
+ * Keep malformed or out-of-range indexes unknown instead of attributing a
+ * frontier finding to a template or sitemap URL that does not exist.
+ */
+export function isValidReferrerPair(pair, {
+  sourceCount = 0,
+  templateCount = BING_TEMPLATE_TABLE.length,
+} = {}) {
+  if (!Array.isArray(pair) || pair.length < 2) return false;
+  const [sourceIndex, templateIndex] = pair;
+  return typeof sourceIndex === 'number'
+    && Number.isSafeInteger(sourceIndex)
+    && sourceIndex >= 0
+    && sourceIndex < sourceCount
+    && typeof templateIndex === 'number'
+    && Number.isSafeInteger(templateIndex)
+    && templateIndex >= 0
+    && templateIndex < templateCount;
+}
+
 function pathnameFor(value) {
   try {
     const parsed = new URL(String(value || ''), 'https://frontaliereticino.ch');
@@ -466,17 +487,26 @@ export function buildFrontierAttribution(findings, {
   const limit = Math.max(0, Math.floor(Number(sampleLimit) || 0));
   const frontierUrls = frontierManifest?.urls || [];
   const referrerRefs = frontierManifest?.referrerRefs || [];
-  const refsByTarget = new Map(frontierUrls.map((url, index) => [url, referrerRefs[index] || []]));
+  const templateTable = Array.isArray(frontierManifest?.templateTable)
+    ? frontierManifest.templateTable
+    : BING_TEMPLATE_TABLE;
+  const referrerLimits = {
+    sourceCount: Array.isArray(sitemapManifest?.urls) ? sitemapManifest.urls.length : 0,
+    templateCount: templateTable.length,
+  };
+  const refsByTarget = new Map(frontierUrls.map((url, index) => [
+    url,
+    (referrerRefs[index] || [])
+      .filter((pair) => isValidReferrerPair(pair, referrerLimits))
+      .map(([sourceIndex, referrerTemplate]) => [sourceIndex, referrerTemplate]),
+  ]));
   const rows = new Map();
   let findingsWithReferrer = 0;
 
   for (const item of findings || []) {
     if (item?.scope !== 'discovered-frontier') continue;
     const targetTemplate = templateIndexFor(item.url);
-    const refs = (refsByTarget.get(item.url) || [])
-      .filter((pair) => Array.isArray(pair) && pair.length >= 2)
-      .map(([sourceIndex, referrerTemplate]) => [Number(sourceIndex), Number(referrerTemplate)])
-      .filter(([sourceIndex, referrerTemplate]) => Number.isInteger(sourceIndex) && Number.isInteger(referrerTemplate));
+    const refs = refsByTarget.get(item.url) || [];
     const effectiveRefs = refs.length > 0 ? refs : [[-1, UNKNOWN_TEMPLATE_INDEX]];
     if (refs.length > 0) findingsWithReferrer += 1;
 
@@ -509,7 +539,7 @@ export function buildFrontierAttribution(findings, {
 
   return {
     version: 1,
-    templateTable: frontierManifest?.templateTable || BING_TEMPLATE_TABLE,
+    templateTable,
     findingCount: (findings || []).filter((item) => item?.scope === 'discovered-frontier').length,
     findingsWithReferrer,
     unreferencedFindings: (findings || []).filter((item) => item?.scope === 'discovered-frontier' && !(refsByTarget.get(item.url) || []).length).length,

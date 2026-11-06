@@ -633,7 +633,7 @@ const App: React.FC = () => {
        staticMain.style.removeProperty('display');
        continue;
      }
- // An article, canton topic hub, and bare Ticino job board have React
+ // An article, canton topic hub, and bare canton/aggregate job board have React
  // equivalents, but their first HTML is the useful snapshot. Do not take that
      // snapshot away until the SPA view has rendered (for the hub: the runtime
      // payload with the matching edge commit); on a soft navigation the old

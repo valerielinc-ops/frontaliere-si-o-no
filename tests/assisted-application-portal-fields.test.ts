@@ -317,6 +317,225 @@ describe('portal field extraction', () => {
     expect(stage).toBe(2);
   });
 
+  it('opens Yellowshark Manage consent on a job page without a cookie-manager landmark', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    let stage = 0;
+    const currentSnapshot = () => stage === 0
+      ? {
+        url, fields: [],
+        buttons: [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false },
+          { id: 'manage-consent', text: 'Manage consent', disabled: false },
+        ],
+        dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+      }
+      : stage === 1
+        ? {
+          url, fields: [],
+          buttons: [{ id: 'reject', text: 'Reject all cookies', context: 'Cookie preferences', cookieSurface: 'banner', disabled: false }],
+          dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Cookie preferences',
+        }
+        : {
+          url, fields: [], buttons: [{ id: 'apply', text: 'JETZT BEWERBEN', disabled: false }],
+          dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Job posting',
+        };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => {
+          expect(selector).toBe(stage === 0 ? '[data-aa-id="manage-consent"]' : '[data-aa-id="reject"]');
+          stage += 1;
+        }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
+  });
+
+  it('uses an explicit shadow-root cookie choice after Yellowshark Manage consent', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const { window } = new JSDOM('<!doctype html><html><body><cmp-controls></cmp-controls></body></html>', { url });
+    Object.defineProperty(window.HTMLElement.prototype, 'innerText', {
+      configurable: true,
+      get() { return this.textContent || ''; },
+    });
+    window.Element.prototype.getBoundingClientRect = function rect() {
+      return { width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON: () => ({}) } as DOMRect;
+    };
+    const shadow = window.document.querySelector('cmp-controls')!.attachShadow({ mode: 'open' });
+    const showShadow = (label: string) => {
+      shadow.innerHTML = label ? `<p>This website uses cookies.</p><button>${label}</button>` : '<p>Cookies handled.</p>';
+    };
+    showShadow('');
+    vi.stubGlobal('window', window);
+    vi.stubGlobal('document', window.document);
+    vi.stubGlobal('location', window.location);
+
+    let stage = 0;
+    const currentSnapshot = () => ({
+      url, fields: [],
+      buttons: stage < 2
+        ? [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+          { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+        ]
+        : [{ id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 }],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+    });
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            expect(selector).toBe('[data-aa-id="manage-consent"]');
+            stage = 1;
+            showShadow('Reject all cookies');
+          }),
+        }),
+      })),
+    };
+    const page = {
+      url: () => url,
+      frames: () => [frame],
+      evaluate: vi.fn(async (evaluateInPage: Function, args: unknown) => evaluateInPage(args)),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            expect(selector).toBe('[data-aa-cookie="1"]');
+            expect(shadow.querySelector('button')?.textContent).toBe('Reject all cookies');
+            stage = 2;
+            showShadow('');
+          }),
+          evaluate: vi.fn(async (clear: (element: Element) => void) => {
+            const button = shadow.querySelector('[data-aa-cookie="1"]');
+            if (button) clear(button);
+          }),
+        }),
+      })),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
+    window.close();
+  });
+
+  it('keeps Yellowshark consent unresolved if Manage consent remains after a cookie choice', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    let stage = 0;
+    const currentSnapshot = () => stage === 0
+      ? {
+        url, fields: [],
+        buttons: [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+          { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+          { id: 'reject', text: 'Reject all cookies', context: 'Cookie preferences', cookieSurface: 'banner', disabled: false, frame: 0 },
+        ],
+        dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+      }
+      : {
+        url, fields: [],
+        buttons: [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+          { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+        ],
+        dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+      };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => {
+          expect(selector).toBe('[data-aa-id="reject"]');
+          stage = 1;
+        }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('unresolved');
+    expect(stage).toBe(1);
+  });
+
+  it('does not borrow Yellowshark Apply evidence from another frame', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const snapshot = {
+      url, fields: [],
+      buttons: [
+        { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 1 },
+        { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+      ],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : snapshot),
+    };
+    const otherFrame = { url: () => 'https://ats.example.test/apply' };
+    const page = { url: () => url, frames: () => [frame, otherFrame] };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not apply the Yellowshark fallback inside an embedded frame', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const snapshot = {
+      url, fields: [],
+      buttons: [
+        { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 1 },
+        { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 1 },
+      ],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : snapshot),
+    };
+    const embeddedFrame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : snapshot),
+    };
+    const page = { url: () => url, frames: () => [frame, embeddedFrame] };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not use the Yellowshark fallback when the snapshot contains application fields', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const snapshot = {
+      url,
+      fields: [{ id: 'first-name', kind: 'text', label: 'First name', formId: 'application', frame: 0 }],
+      buttons: [
+        { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+        { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+      ],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : snapshot),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+  });
+
   it('does not open an application privacy action labelled Manage consent', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
     const privacy = extract('<section class="cookie-consent"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);
@@ -438,6 +657,51 @@ describe('portal field extraction', () => {
     const result = await dismissCookieBanner(page as any, snapshot as any);
 
     expect(result.status).toBe('none');
+  });
+
+  it('does not open SuccessFactors cookie settings from the registration dialog', async () => {
+    const url = 'https://career5.successfactors.eu/career';
+    const registration = extract(`<div role="dialog" aria-modal="true">
+      <form id="registration">
+        <label>E-Mail-Adresse: *<input type="text" required></label>
+        <label>E-Mail-Adresse erneut eingeben: *<input type="text" required></label>
+        <label>Wähle ein Kennwort: *<input type="password" required></label>
+        <label>Kennwort erneut eingeben: *<input type="password" required></label>
+        <label>Vorname: *<input type="text" required></label>
+        <label>Nachname: *<input type="text" required></label>
+        <label>Land/Region des Wohnorts:*<select required></select></label>
+        <label>Benachrichtigung: <input type="checkbox"></label>
+        <label>Mehr über Karrierechancen erfahren <input type="checkbox"></label>
+        <button type="button">Cookie-Einstellungen</button>
+        <button type="button">Lese und akzeptiere die Datenschutzerklärung.</button>
+        <button type="submit">Konto anlegen</button>
+      </form>
+    </div>`, url);
+    expect(registration.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining([
+      'Cookie-Einstellungen',
+      'Lese und akzeptiere die Datenschutzerklärung.',
+      'Konto anlegen',
+    ]));
+    expect(registration.fields.map((field: any) => field.label)).toEqual(expect.arrayContaining([
+      'E-Mail-Adresse: *',
+      'E-Mail-Adresse erneut eingeben: *',
+      'Wähle ein Kennwort: *',
+      'Kennwort erneut eingeben: *',
+      'Vorname: *',
+      'Nachname: *',
+      'Land/Region des Wohnorts:*',
+      'Benachrichtigung:',
+      'Mehr über Karrierechancen erfahren',
+    ]));
+    const preferences = registration.buttons.find((button: any) => button.text === 'Cookie-Einstellungen');
+    expect(preferences).toMatchObject({ dialog: true, formId: expect.any(String) });
+
+    const frame = { url: () => url, evaluate: vi.fn(async () => registration) };
+    const page = { url: () => url, frames: () => [frame] };
+    const result = await dismissCookieBanner(page as any, registration as any);
+
+    expect(result.status).toBe('none');
+    expect(frame.evaluate).not.toHaveBeenCalled();
   });
 
   it('marks only an active cookie surface, not a persistent preferences section', () => {
@@ -1407,12 +1671,25 @@ describe('portal field extraction', () => {
 
   it('keeps the target of a plain application link for posting ownership checks', () => {
     const page = extract(
-      '<main><h1>Acme Careers</h1><a href="https://apply.example.test/jobs/42">Apply</a></main>'
+      '<main><h1>Acme Careers</h1><article><h2>Application Manager</h2><p>Acme AG</p>'
+      + '<a href="https://apply.example.test/jobs/42">Apply</a></article></main>'
     );
     expect(page.links).toContainEqual(expect.objectContaining({
       text: 'Apply',
       href: 'https://apply.example.test/jobs/42',
+      vacancyContext: expect.stringMatching(/Application Manager.*Acme AG/),
     }));
+  });
+
+  it('does not collect card context from an ancestor that contains an application form', () => {
+    const page = extract(
+      '<article><h2>Application Manager</h2><p>Acme AG</p>'
+      + '<a href="https://apply.example.test/jobs/42">Apply</a>'
+      + '<form><label>Candidate email</label><input value="private@example.test"></form></article>'
+    );
+    const apply = page.links.find((link: any) => link.text === 'Apply');
+    expect(apply).toBeDefined();
+    expect(apply).not.toHaveProperty('vacancyContext');
   });
 
   it('does not let a same-label content link hide a real submit control', () => {

@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import {
   countSitemapFamilyUrls,
   evaluateSitemapFamilyCoverage,
+  filterExternallyServedUrlsFromSitemapCoverage,
 } from '../scripts/lib/sitemap-family-coverage.mjs';
 
 const NO_DECLARATIONS = { version: 1, decreases: [] };
@@ -43,6 +44,34 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(result.families.find(({ family }) => family === 'topics')?.delta).toBe(1);
   });
 
+  it('excludes corpus-owned article URLs from family coverage in both deploy gates', () => {
+    const previous = snapshot({
+      'sitemap-topics-frontaliere.xml': [
+        'https://frontaliereticino.ch/articoli-frontaliere/argomenti/assicurazioni/',
+        'https://frontaliereticino.ch/articoli-frontaliere/argomenti/lavoro/',
+        'https://frontaliereticino.ch/tema-editoriale/',
+      ],
+    });
+    const current = snapshot({
+      'sitemap-topics-frontaliere.xml': [
+        'https://frontaliereticino.ch/articoli-frontaliere/argomenti/lavoro/',
+        'https://frontaliereticino.ch/tema-editoriale/',
+      ],
+    });
+    const result = evaluateSitemapFamilyCoverage(
+      filterExternallyServedUrlsFromSitemapCoverage(previous),
+      filterExternallyServedUrlsFromSitemapCoverage(current),
+      NO_DECLARATIONS,
+    );
+
+    expect(result.families.find(({ family }) => family === 'topics')).toMatchObject({
+      previousCount: 1,
+      currentCount: 1,
+      delta: 0,
+    });
+    expect(result.regressions).toEqual([]);
+  });
+
   it('fails a family count decrease unless the declaration matches both exact counts', () => {
     const previous = snapshot({ 'sitemap-profession-cities.xml': ['a', 'b', 'c'] });
     const current = snapshot({ 'sitemap-profession-cities.xml': ['a', 'b'] });
@@ -64,6 +93,35 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(declared.regressions).toEqual([]);
     expect(declared.allowedDecreases).toHaveLength(1);
     expect(declared.staleDeclarations).toEqual([]);
+  });
+
+  it('consumes an exact decrease declaration after its count becomes the live baseline', () => {
+    const declaration = {
+      version: 1,
+      decreases: [{
+        family: 'fuel-italian-stations',
+        previousCount: 4,
+        currentCount: 3,
+        reason: 'Retired missing-price station URLs now resolve to noindex bridges.',
+      }],
+    };
+    const deployed = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-fuel-italian-stations.xml': ['a', 'b', 'c'] }),
+      snapshot({ 'sitemap-fuel-italian-stations.xml': ['a', 'b', 'c'] }),
+      declaration,
+    );
+    const laterDecrease = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-fuel-italian-stations.xml': ['a', 'b', 'c'] }),
+      snapshot({ 'sitemap-fuel-italian-stations.xml': ['a', 'b'] }),
+      declaration,
+    );
+
+    expect(deployed.regressions).toEqual([]);
+    expect(deployed.consumedDeclarations).toMatchObject([{ family: 'fuel-italian-stations' }]);
+    expect(deployed.staleDeclarations).toEqual([]);
+    expect(laterDecrease.regressions).toEqual([
+      { family: 'fuel-italian-stations', previousCount: 3, currentCount: 2, delta: -1 },
+    ]);
   });
 
   it('rejects broad, stale, malformed, and legacy flat declarations/snapshots', () => {
@@ -100,8 +158,10 @@ describe('sitemap family URL coverage ratchet', () => {
   it('runs as a blocking post-deploy validator', () => {
     const workflow = readFileSync(resolve(import.meta.dirname, '../.github/workflows/post-deploy-validate-dist.yml'), 'utf8');
     const fastGate = readFileSync(resolve(import.meta.dirname, '../scripts/ci/publisher-fast-gate.mjs'), 'utf8');
+    const sitemapDiff = readFileSync(resolve(import.meta.dirname, '../scripts/diff-sitemaps.mjs'), 'utf8');
     expect(workflow).toContain('node scripts/ci/publisher-fast-gate.mjs');
     expect(fastGate).toContain('evaluateSitemapFamilyCoverage');
+    expect(sitemapDiff).toContain('filterExternallyServedUrlsFromSitemapCoverage');
     expect(fastGate).toContain('pre-deploy-sitemap-urls.json');
     expect(fastGate).toContain('data/sitemap-family-coverage-declarations.json');
   });

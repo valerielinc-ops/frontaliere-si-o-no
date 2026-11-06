@@ -531,6 +531,13 @@ describe('originContentOnMain: applicazione hunk per hunk, non presenza di righe
     expect(originContentOnMain(file('@@ -1,1 +1,2 @@\n a\n+b\n?c'), main('a\nb\n')).proven).toBe(false);
   });
 
+  it('una riga backslash non canonica non può diventare metadato di patch', () => {
+    const malformed = '@@ -1,1 +1,2 @@\n a\n+b\n\\ forged metadata';
+    const verdict = originContentOnMain(file(malformed), main('a\nb\n'));
+    expect(verdict.proven).toBe(false);
+    expect((verdict as any).reason).toContain('riga oltre');
+  });
+
   it('una rimozione fra due righe di contesto e\' provata solo se su main non c\'e\' piu\'', () => {
     const swap = '@@ -1,3 +1,3 @@\n a\n-old\n+new\n b';
     expect(originContentOnMain(file(swap), main('a\nnew\nb\n')).proven).toBe(true);

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-04T02:22:15.160Z",
+  "generatedAt": "2026-11-06T01:22:05.792Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -40059,6 +40059,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T09:46:23.066Z"
+    },
+    "guidle:AN2GUSG::bbc07bd40b71071bbc0ef66a9ba75ffa350453d44ba204f6bbea5f36040f9776": {
+      "id": "guidle:AN2GUSG",
+      "sourceDescriptionHash": "bbc07bd40b71071bbc0ef66a9ba75ffa350453d44ba204f6bbea5f36040f9776",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Casino Bern; comune: Bern; cantone: BE; categoria: Barocco; data: 2027-01-03; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Casino Bern; comune: Bern; cantone: BE; categoria: Barocco; data: 2027-01-03; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Casino Bern; municipality: Bern; canton: BE; category: Barocco; date: 2027-01-03; time: 17:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Casino Bern; gemeinde: Bern; kanton: BE; kategorie: Barocco; datum: 2027-01-03; uhrzeit: 17:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Casino Bern; commune: Bern; canton: BE; catégorie: Barocco; date: 2027-01-03; heure: 17:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-06T00:04:51.259Z"
     },
     "guidle:An2ppPH::e23d78bbcdb8541a87ad1f2027ad9d53744d58357db6257bf1f94e5b4d6ae60e": {
       "id": "guidle:An2ppPH",
@@ -134336,6 +134350,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T06:15:14.739Z"
     },
+    "myswitzerland:b45c0991380e45839a3e8b72bf9631ed::301a1a66b4d790aee0ebcf9d1f5ce8a05e5d5bff40360fb2f56defbcf82504bf": {
+      "id": "myswitzerland:b45c0991380e45839a3e8b72bf9631ed",
+      "sourceDescriptionHash": "301a1a66b4d790aee0ebcf9d1f5ce8a05e5d5bff40360fb2f56defbcf82504bf",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Lugano Convention & Exhibition; comune: Lugano; cantone: TI; categoria: Music; organizzatore: Ticketcorner; partecipante: Jazz; data: 2027-01-04; ora: 20:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Lugano Convention & Exhibition; comune: Lugano; cantone: TI; categoria: Music; organizzatore: Ticketcorner; partecipante: Jazz; data: 2027-01-04; ora: 20:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Lugano Convention & Exhibition; municipality: Lugano; canton: TI; category: Music; organiser: Ticketcorner; participant: Jazz; date: 2027-01-04; time: 20:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Lugano Convention & Exhibition; gemeinde: Lugano; kanton: TI; kategorie: Music; veranstalter: Ticketcorner; mitwirkender: Jazz; datum: 2027-01-04; uhrzeit: 20:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Lugano Convention & Exhibition; commune: Lugano; canton: TI; catégorie: Music; organisateur: Ticketcorner; participant: Jazz; date: 2027-01-04; heure: 20:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-06T01:17:42.191Z"
+    },
     "myswitzerland:b45c9cc3221d4e40a89a68811c40feeb::2e4c1048007df16e23916b5cfa91e3c45dc9991eea8888abf3745d1ff6fefcc1": {
       "id": "myswitzerland:b45c9cc3221d4e40a89a68811c40feeb",
       "sourceDescriptionHash": "2e4c1048007df16e23916b5cfa91e3c45dc9991eea8888abf3745d1ff6fefcc1",
@@ -180072,15 +180100,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AN2GUSG::bbc07bd40b71071bbc0ef66a9ba75ffa350453d44ba204f6bbea5f36040f9776": {
-      "id": "guidle:AN2GUSG",
-      "sourceDescriptionHash": "bbc07bd40b71071bbc0ef66a9ba75ffa350453d44ba204f6bbea5f36040f9776",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T04:44:54.555Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:An354WS::7deb37a5a8238e0367fdfbd5052829d25a3c8cdab4a7d8577d00ad6da8d617f1": {
       "id": "guidle:An354WS",
       "sourceDescriptionHash": "7deb37a5a8238e0367fdfbd5052829d25a3c8cdab4a7d8577d00ad6da8d617f1",
@@ -184245,15 +184264,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T20:26:44.237Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:b45c0991380e45839a3e8b72bf9631ed::301a1a66b4d790aee0ebcf9d1f5ce8a05e5d5bff40360fb2f56defbcf82504bf": {
-      "id": "myswitzerland:b45c0991380e45839a3e8b72bf9631ed",
-      "sourceDescriptionHash": "301a1a66b4d790aee0ebcf9d1f5ce8a05e5d5bff40360fb2f56defbcf82504bf",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T06:20:45.621Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

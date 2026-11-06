@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AlertTriangle, CheckCircle2, FileText, Loader2, Pause, Play, Plus, RefreshCw, Save, Send, Trash2, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
 import {
   runAutomationAdminAction,
@@ -140,14 +140,15 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
 };
 
 const LOSONE_DOCUMENT_CHECKLIST: AutomationRequestedDocumentView[] = [
-  { id: 'handwritten_letter', label: 'Lettera manoscritta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Ricopia a mano la bozza mostrata nella pagina, indica il termine di disponibilità, poi aggiungi una scansione leggibile al dossier.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+  { id: 'handwritten_letter', label: 'Lettera manoscritta con termine di disponibilità', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Ricopia a mano la bozza mostrata nella pagina, completa il termine di disponibilità e aggiungi una scansione leggibile. La scansione resta su questo dispositivo e viene unita al PDF nel browser.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
   { id: 'curriculum_vitae', label: 'Curriculum vitae', kind: 'other', keywords: [], required: true, quote: '', instructions: '', delivery: 'service', exemptions: ['municipal_employee'] },
-  { id: 'study_work_certificates', label: 'Certificati di studio con note e certificati di lavoro', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica scansioni leggibili; stampa i documenti caricati per inserirli nella busta.', delivery: 'upload', exemptions: ['municipal_employee'] },
-  { id: 'civil_status', label: 'Certificato individuale di stato civile o atto di famiglia', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Il certificato deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione al dossier; controlla nel bando se serve anche l’originale cartaceo. Non è richiesto se sei domiciliato/a nel Comune.', delivery: 'offline', localOnly: true, exemptions: ['municipal_resident', 'municipal_employee'] },
-  { id: 'good_conduct', label: 'Certificato di buona condotta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Il certificato deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione al dossier; controlla nel bando se serve anche l’originale cartaceo. Non è richiesto se sei domiciliato/a nel Comune.', delivery: 'offline', localOnly: true, exemptions: ['municipal_resident', 'municipal_employee'] },
-  { id: 'criminal_record', label: 'Estratto del casellario giudiziale', kind: 'other', keywords: [], required: true, quote: '', instructions: 'L’estratto deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione al dossier; controlla nel bando se serve anche l’originale cartaceo.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
-  { id: 'health_questionnaire', label: 'Questionario sullo stato di salute', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Compila il questionario ufficiale, poi aggiungi la scansione al dossier. Il file resta su questo dispositivo e non viene caricato sui nostri server né analizzato automaticamente.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
-  { id: 'passport_photo', label: 'Fotografia formato passaporto', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Aggiungi una fotografia recente: sarà impaginata in formato passaporto nel PDF. Verifica che la foto sia quella richiesta dal bando.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+  { id: 'certificati_di_studio_con_note', label: 'Certificati di studio (con note)', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica scansioni leggibili; saranno incluse nel dossier PDF da stampare.', delivery: 'upload', exemptions: ['municipal_employee'] },
+  { id: 'certificati_di_lavoro', label: 'Certificati di lavoro', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica scansioni leggibili; saranno incluse nel dossier PDF da stampare.', delivery: 'upload', exemptions: ['municipal_employee'] },
+  { id: 'certificato_individuale_di_stato_civile', label: 'Certificato individuale di stato civile o atto di famiglia', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Il certificato deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione nella pagina protetta; i nuovi file selezionati come locali restano sul tuo dispositivo. Non è richiesto se sei domiciliato/a nel Comune di Losone.', delivery: 'offline', localOnly: true, exemptions: ['municipal_resident', 'municipal_employee'] },
+  { id: 'certificato_di_buona_condotta', label: 'Certificato di buona condotta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Richiedi al Comune di domicilio il certificato di buona condotta, distinto dall’estratto del casellario giudiziale. Deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione nella pagina protetta; i nuovi file selezionati come locali restano sul tuo dispositivo. Non è richiesto se sei domiciliato/a nel Comune di Losone.', delivery: 'offline', localOnly: true, exemptions: ['municipal_resident', 'municipal_employee'] },
+  { id: 'estratto_del_casellario_giudiziale', label: 'Estratto del casellario giudiziale', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Aggiungi l’estratto, rilasciato da meno di 6 mesi. I nuovi file selezionati come locali restano sul tuo dispositivo. È richiesto anche a chi è domiciliato/a a Losone.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+  { id: 'questionario_sullo_stato_di_salute', label: 'Questionario sullo stato di salute', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Compila il questionario ufficiale del Comune e aggiungi la scansione nella pagina protetta. I nuovi file selezionati come locali restano sul tuo dispositivo.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+  { id: 'passport_photo', label: 'Fotografia formato passaporto', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Aggiungi una fotografia recente in formato JPG o PNG. Sarà impaginata nel PDF localmente nel browser, senza caricarla sui nostri server.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
 ];
 
 const LOSONE_POSTAL_SUBMISSION: PostalSubmissionView = {
@@ -166,6 +167,7 @@ const EMPTY_POSTAL_SUBMISSION: PostalSubmissionView = {
 
 // Keep aligned with MAX_REQUIRED_DOCUMENTS in functions/src/assistedApplicationExtraDocuments.js.
 const MAX_REQUESTED_DOCUMENTS = 16;
+const EMPTY_REQUESTED_DOCUMENTS: AutomationRequestedDocumentView[] = [];
 
 export function heldLabel(reason: string): string {
   if (reason.startsWith('question:')) return `domanda aperta: ${reason.slice(9)}`;
@@ -188,6 +190,15 @@ export default function AssistedApplicationAutomationPanel({
   const automation = order.automation || null;
   const flow = automation?.flow || null;
   const draft = automation?.draft || null;
+  const requestedDocumentsSource = useMemo(() => {
+    const documents = flow?.requestedDocumentsOverride === true
+      ? flow.requestedDocuments || EMPTY_REQUESTED_DOCUMENTS
+      : draft?.requiredDocuments || EMPTY_REQUESTED_DOCUMENTS;
+    return documents.map((document) => ({
+      ...document,
+      exemptions: Array.isArray(document.exemptions) ? document.exemptions : [],
+    }));
+  }, [flow?.requestedDocumentsOverride, flow?.requestedDocuments, draft?.requiredDocuments]);
   const [busy, setBusy] = useState<string | null>(null);
   const [letter, setLetter] = useState(draft?.coverLetter?.text || '');
   const [emailTo, setEmailTo] = useState(draft?.applicationEmail?.to || '');
@@ -195,7 +206,7 @@ export default function AssistedApplicationAutomationPanel({
   const [emailBody, setEmailBody] = useState(draft?.applicationEmail?.body || '');
   const [answers, setAnswers] = useState<Record<string, string>>(flow?.answers || {});
   const [ackFlags, setAckFlags] = useState<Record<string, boolean>>({});
-  const [requestedDocuments, setRequestedDocuments] = useState<AutomationRequestedDocumentView[]>(draft?.requiredDocuments || []);
+  const [requestedDocuments, setRequestedDocuments] = useState<AutomationRequestedDocumentView[]>(requestedDocumentsSource);
   const [postalSubmission, setPostalSubmission] = useState<PostalSubmissionView>(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
   const [requestedDocumentsDirty, setRequestedDocumentsDirty] = useState(false);
   const [postalSubmissionDirty, setPostalSubmissionDirty] = useState(false);
@@ -209,8 +220,8 @@ export default function AssistedApplicationAutomationPanel({
   }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, draft?.questionSnapshots, flow?.answers]);
 
   useEffect(() => {
-    if (!requestedDocumentsDirty) setRequestedDocuments(draft?.requiredDocuments || []);
-  }, [draft?.requiredDocuments, requestedDocumentsDirty]);
+    if (!requestedDocumentsDirty) setRequestedDocuments(requestedDocumentsSource);
+  }, [requestedDocumentsSource, requestedDocumentsDirty]);
 
   useEffect(() => {
     if (!postalSubmissionDirty) setPostalSubmission(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
@@ -220,8 +231,12 @@ export default function AssistedApplicationAutomationPanel({
     if (busy) return false;
     setBusy(action);
     try {
-      await runAutomationAdminAction(user, order.orderId, action, extra);
-      try { await onChanged({ ok: true, text: success }); } catch { /* the admin action is already persisted */ }
+      const result = await runAutomationAdminAction(user, order.orderId, action, extra);
+      const notificationFailed = action === 'automationConfigurePostalPackage' && result.notificationSent === false;
+      const message = notificationFailed
+        ? 'Checklist e istruzioni salvate, ma l’invio della notifica con il collegamento non è confermato.'
+        : success;
+      try { await onChanged({ ok: true, text: message }); } catch { /* the admin action is already persisted */ }
       return true;
     } catch (error) {
       try { await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Operazione non riuscita.' }); } catch { /* keep the failed action retryable */ }
@@ -250,6 +265,27 @@ export default function AssistedApplicationAutomationPanel({
   const savePostalSubmission = async () => {
     const saved = await act('automationSetPostalSubmission', { postalSubmission }, 'Istruzioni per la candidatura cartacea salvate.');
     if (saved) setPostalSubmissionDirty(false);
+    return saved;
+  };
+  const configureCandidatePostalPackage = async () => {
+    const confirmed = await requestConfirmation({
+      title: 'Aggiorna il dossier cartaceo',
+      what: 'Stai per aggiornare insieme la checklist dei documenti e le istruzioni postali della candidatura.',
+      impact: 'La candidata riceverà un nuovo avviso con il collegamento alla pagina protetta. Non partirà alcuna spedizione.',
+      input: `ordine=${order.orderId}, destinatario=${postalSubmission.recipient}`,
+      expectedDuration: 'meno di 1 min',
+      confirmLabel: 'Aggiorna e avvisa la candidata',
+    });
+    if (!confirmed) return false;
+    const saved = await act(
+      'automationConfigurePostalPackage',
+      { documents: requestedDocumentsDirty ? requestedDocuments : requestedDocumentsSource, postalSubmission },
+      'Checklist e istruzioni postali aggiornate; email con il link accettata per l’invio.',
+    );
+    if (saved) {
+      setRequestedDocumentsDirty(false);
+      setPostalSubmissionDirty(false);
+    }
     return saved;
   };
   const setPostalField = (field: keyof PostalSubmissionView, value: string | boolean) => {
@@ -743,11 +779,13 @@ export default function AssistedApplicationAutomationPanel({
         </div>
       )}
 
-      {flow?.state === 'owner_review' && draft?.status === 'ready' && (
+      {['owner_review', 'candidate_review'].includes(flow?.state || '') && draft?.status === 'ready' && (
         <section className="space-y-4 rounded-stripe border border-edge bg-surface p-4" aria-labelledby="candidate-document-requests-title">
           <div>
             <h3 id="candidate-document-requests-title" className="text-sm font-semibold text-heading">Richiesta documenti e candidatura cartacea</h3>
-            <p className="mt-1 text-xs text-subtle">Configura tutto prima di approvare: le richieste e le risposte saranno gestite nella pagina protetta della candidata. Le email inviano soltanto il collegamento. Il CV già caricato sarà disponibile tra i materiali.</p>
+            <p className="mt-1 text-xs text-subtle">{flow.state === 'candidate_review'
+              ? 'La candidata sta già rivedendo la bozza. Configurando ora checklist e indirizzo, aggiorneremo la stessa pagina protetta e le invieremo il collegamento; i file già caricati saranno conservati.'
+              : 'Configura tutto prima di approvare: le richieste e le risposte saranno gestite nella pagina protetta della candidata. Le email inviano soltanto il collegamento. Il CV già caricato sarà disponibile tra i materiali.'}</p>
           </div>
           <div className="flex flex-wrap gap-2">
             <button type="button" className={secondary} disabled={Boolean(busy)} onClick={useLosoneChecklist}>
@@ -795,9 +833,11 @@ export default function AssistedApplicationAutomationPanel({
             ))}
             {requestedDocuments.length === 0 && <p className="rounded-stripe border border-edge p-3 text-xs text-subtle">Nessuna richiesta configurata. Inserisci la checklist o aggiungi i documenti dell’annuncio.</p>}
           </div>
-          <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void saveRequestedDocuments(); }}>
-            {spinner('automationSetRequiredDocuments') || <Save size={14} aria-hidden="true" />} Salva richieste nel portale
-          </button>
+          {flow.state === 'owner_review' && (
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void saveRequestedDocuments(); }}>
+              {spinner('automationSetRequiredDocuments') || <Save size={14} aria-hidden="true" />} Salva richieste nel portale
+            </button>
+          )}
 
           <div className="space-y-3 border-t border-edge pt-4">
             <label className="flex items-start gap-2 text-sm font-semibold text-body">
@@ -820,9 +860,21 @@ export default function AssistedApplicationAutomationPanel({
             {requestedDocuments.some((document) => document.delivery === 'offline' || document.localOnly) && !postalSubmission.enabled && (
               <p className="rounded-stripe border border-warning-border bg-warning-subtle/50 p-3 text-xs text-body" role="status">Hai richiesto documenti da preparare su carta: completa e salva le istruzioni postali prima di approvare. In questo modo la candidatura non potrà essere inviata per via elettronica.</p>
             )}
-            <button type="button" className={secondary} disabled={Boolean(busy) || requestedDocumentsDirty} onClick={() => { void savePostalSubmission(); }}>
-              {spinner('automationSetPostalSubmission') || <Save size={14} aria-hidden="true" />} Salva impostazioni cartacee
-            </button>
+            {flow.state === 'owner_review' && (
+              <button type="button" className={secondary} disabled={Boolean(busy) || requestedDocumentsDirty} onClick={() => { void savePostalSubmission(); }}>
+                {spinner('automationSetPostalSubmission') || <Save size={14} aria-hidden="true" />} Salva impostazioni cartacee
+              </button>
+            )}
+            {flow.state === 'candidate_review' && (
+              <button
+                type="button"
+                className={primary}
+                disabled={Boolean(busy) || !postalSubmission.enabled || (!requestedDocumentsDirty && !postalSubmissionDirty)}
+                onClick={() => { void configureCandidatePostalPackage(); }}
+              >
+                {spinner('automationConfigurePostalPackage') || <Send size={14} aria-hidden="true" />} Aggiorna la pagina protetta e avvisa la candidata
+              </button>
+            )}
           </div>
         </section>
       )}

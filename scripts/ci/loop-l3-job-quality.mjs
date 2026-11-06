@@ -490,7 +490,7 @@ function readRetiredSummaryKeys(filePath) {
   return Object.keys(registry.retired).sort();
 }
 
-function readScheduledSummaryKeys(filePath) {
+export function readScheduledSummaryKeys(filePath) {
   const absolute = path.resolve(filePath);
   if (!fs.existsSync(absolute)) throw new Error(`crawler generation roster is missing: ${filePath}`);
   const roster = JSON.parse(fs.readFileSync(absolute, 'utf8'));
@@ -502,7 +502,10 @@ function readScheduledSummaryKeys(filePath) {
     && entries.every(([crawlerId, primarySlice]) => CRAWLER_ID_RE.test(crawlerId) && CRAWLER_SLICE_RE.test(primarySlice))
     && new Set(entries.map(([, primarySlice]) => primarySlice)).size === entries.length;
   if (!valid) throw new Error(`crawler generation roster has invalid primary slice bindings: ${filePath}`);
-  return entries.map(([crawlerId]) => crawlerId).sort();
+  // The roster key is the crawler identity, while L3 filters the summary
+  // directory by the declared published slice filename. They can differ for
+  // grouped crawlers (for example burkhalter -> burkhalter-group.json).
+  return entries.map(([, primarySlice]) => path.posix.basename(primarySlice, '.json')).sort();
 }
 
 function reportMarkdown(verdict, observation, decision) {

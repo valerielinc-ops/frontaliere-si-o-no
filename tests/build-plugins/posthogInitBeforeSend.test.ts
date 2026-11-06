@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 // @vitest-environment-options { "url": "https://frontaliereticino.ch/" }
+import { createExceptionFilter } from '../../services/posthog-error-filter';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import {
   POSTHOG_INIT_CONTENT,
@@ -451,5 +452,20 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
   it('installs the raw-stack recorder before posthog.init in the snippet (#4173)', () => {
     expect(POSTHOG_INIT_CONTENT.indexOf('__frRawStacks'))
       .toBeLessThan(POSTHOG_INIT_CONTENT.indexOf('posthog.init('));
+  });
+});
+
+describe('Firebase Installations #16807: static and SPA filter parity', () => {
+  it.each([
+    ['Installations: Create Installation request failed with error "400 INVALID_ARGUMENT: invalid client configuration"', true],
+    ['[firebase.initRemoteConfig] Installations: Create Installation request failed with error "400 INVALI', true],
+    ['Installations: Create Installation request failed with error "403 PERMISSION_DENIED"', false],
+    ['Installations: Create Installation request failed with error "400 BAD_REQUEST"', false],
+    ['Installations: Delete Installation request failed with error "400 INVALID_ARGUMENT"', false],
+    ['API request failed with error "400 INVALID_ARGUMENT"', false],
+  ])('%s → dropped=%s', (message, dropped) => {
+    const event = { event: '$exception', properties: { $exception_values: [{ type: 'Error', value: message }] } };
+    expect(extractBeforeSend()(event) === null).toBe(dropped);
+    expect(createExceptionFilter()(event) === null).toBe(dropped);
   });
 });

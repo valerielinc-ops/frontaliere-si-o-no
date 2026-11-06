@@ -52,6 +52,7 @@ import {
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
   FUEL_DAILY_LOCALES,
   FUEL_SITEMAP_FILES,
@@ -3590,20 +3591,11 @@ function formatFuelObservationDate(value: string | null | undefined, locale: Fue
  * is performed downstream by station id. We accept the legacy
  * `nearbyStations` key as a fallback in case the dataset shape ever drifts
  * back, and `cheapestStation` as a last resort. */
-function collectItalianCityStations(
+function collectItalianCityStationRows(
   dataset: FuelPricesDataset,
   entry: ItalianCityEntry,
-  fuel: FuelType = 'benzina',
 ): ItalianCityStation[] {
   const out: ItalianCityStation[] = [];
-  // For diesel we project the entry's `dieselPriceEur` onto `priceEur` so the
-  // entire downstream (sort, min, station-context price, JSON-LD) stays
-  // fuel-agnostic — only stations that reported a diesel price survive.
-  const project = (s: ItalianCityStation): ItalianCityStation | null => {
-    const price = italianStationPriceForFuel(s, fuel);
-    if (price === null) return null;
-    return fuel === 'diesel' ? { ...s, priceEur: price } : s;
-  };
   for (const row of dataset.municipalities ?? []) {
     if (!row.municipality) continue;
     if (row.municipality.toLowerCase() !== entry.matchKey) continue;
@@ -3621,14 +3613,26 @@ function collectItalianCityStations(
         ? raw.nearbyStations
         : null;
     if (list) {
-      for (const s of list) {
-        const projected = s ? project(s) : null;
-        if (projected) out.push(projected);
-      }
+      for (const s of list) if (s) out.push(s);
     } else if (raw.cheapestStation) {
-      const projected = project(raw.cheapestStation);
-      if (projected) out.push(projected);
+      out.push(raw.cheapestStation);
     }
+  }
+  return out;
+}
+
+function collectItalianCityStations(
+  dataset: FuelPricesDataset,
+  entry: ItalianCityEntry,
+  fuel: FuelType = 'benzina',
+): ItalianCityStation[] {
+  const out: ItalianCityStation[] = [];
+  for (const station of collectItalianCityStationRows(dataset, entry)) {
+    const price = italianStationPriceForFuel(station, fuel);
+    if (price === null) continue;
+    // For diesel project `dieselPriceEur` onto `priceEur` so the downstream
+    // sort, minimum, station context and JSON-LD stay fuel-agnostic.
+    out.push(fuel === 'diesel' ? { ...station, priceEur: price } : station);
   }
   return out;
 }
@@ -4698,6 +4702,35 @@ interface ItalianStationContext {
   readonly priceEur: number;
 }
 
+function groupItalianCityStationRowsById(
+  rows: readonly ItalianCityStation[],
+): Map<string, ItalianCityStation[]> {
+  const byId = new Map<string, ItalianCityStation[]>();
+  for (const station of rows) {
+    if (!station.id) continue;
+    const group = byId.get(station.id) ?? [];
+    group.push(station);
+    byId.set(station.id, group);
+  }
+  return byId;
+}
+
+function cheapestItalianStationForFuel(
+  rows: readonly ItalianCityStation[],
+  fuel: FuelType,
+): { station: ItalianCityStation; priceEur: number } | null {
+  let cheapest: { station: ItalianCityStation; priceEur: number } | null = null;
+  for (const station of rows) {
+    const priceEur = italianStationPriceForFuel(station, fuel);
+    if (priceEur === null || (cheapest && cheapest.priceEur <= priceEur)) continue;
+    cheapest = {
+      station: fuel === 'diesel' ? { ...station, priceEur } : station,
+      priceEur,
+    };
+  }
+  return cheapest;
+}
+
 /**
  * Collect Italian per-station contexts grouped by curated city. Dedupes
  * by station id (each station appears twice in the dataset — once for
@@ -4711,24 +4744,18 @@ function collectItalianStationContexts(
   const slugSeen = new Set<string>();
 
   for (const entry of buildItalianCityEntries(dataset)) {
-    const rawStations = collectItalianCityStations(dataset, entry, fuel);
-    // Dedupe by id, prefer the cheapest variant (typically self-service).
-    const byId = new Map<string, ItalianCityStation>();
-    for (const s of rawStations) {
-      if (!s.id) continue;
-      if (typeof s.priceEur !== 'number' || !Number.isFinite(s.priceEur)) continue;
-      const existing = byId.get(s.id);
-      if (!existing || (existing.priceEur ?? Infinity) > s.priceEur) {
-        byId.set(s.id, s);
-      }
-    }
-
-    for (const s of byId.values()) {
-      if (!s.brand && !s.stationName) continue;
+    const byId = groupItalianCityStationRowsById(collectItalianCityStationRows(dataset, entry));
+    for (const rows of byId.values()) {
+      // Keep the route slot stable when this station has temporarily stopped
+      // reporting the selected fuel. Otherwise a later colliding station
+      // inherits its old URL as soon as the first station is filtered out.
+      const selected = cheapestItalianStationForFuel(rows, fuel);
+      const routeStation = selected?.station ?? rows[0];
+      if (!routeStation.brand && !routeStation.stationName) continue;
       const baseSlug = buildStationSlug({
-        brand: s.brand,
-        name: s.stationName,
-        address: s.address,
+        brand: routeStation.brand,
+        name: routeStation.stationName,
+        address: routeStation.address,
       });
       if (!baseSlug) continue;
 
@@ -4739,8 +4766,10 @@ function collectItalianStationContexts(
         slug = `${baseSlug}-${suffix++}`;
       }
       slugSeen.add(`${entry.slug}/${slug}`);
+      if (!selected) continue;
 
       // Strip postal-code suffix from address tail to get a clean street label
+      const s = selected.station;
       const rawAddr = (s.address ?? '').trim();
       const street = rawAddr.replace(/\s+\d{5}\s*$/, '').trim() || rawAddr;
       const baseBrandDisplay =
@@ -4765,7 +4794,7 @@ function collectItalianStationContexts(
         brandDisplay,
         brandName: baseBrandDisplay,
         streetDisplay: street,
-        priceEur: s.priceEur as number,
+        priceEur: selected.priceEur,
       });
     }
   }
@@ -5456,6 +5485,59 @@ export function generateFuelItalianStationPages(opts: {
   return pages;
 }
 
+/**
+ * Keep routes for known Italian stations when a fuel stops reporting a price.
+ * These pages are noindex bridges, not station listings: dropping an old
+ * diesel URL outright turns a temporary source gap into a permanent 404.
+ */
+export function generateFuelItalianStationAvailabilityBridges(opts: {
+  dataset: FuelPricesDataset;
+  locales?: readonly FuelDailyLocale[];
+}): Record<string, string> {
+  const pages: Record<string, string> = {};
+  const locales = opts.locales ?? FUEL_DAILY_LOCALES;
+  const entries = buildItalianCityEntries(opts.dataset);
+  const rowsByCity = new Map<string, ItalianCityStation[]>();
+  for (const entry of entries) {
+    rowsByCity.set(entry.slug, collectItalianCityStationRows(opts.dataset, entry));
+  }
+
+  for (const fuel of FUEL_TYPES) {
+    const slugSeen = new Set<string>();
+    for (const entry of entries) {
+      const rowsById = groupItalianCityStationRowsById(rowsByCity.get(entry.slug) ?? []);
+      for (const rows of rowsById.values()) {
+        const selected = cheapestItalianStationForFuel(rows, fuel);
+        const routeStation = selected?.station ?? rows[0];
+        if (!routeStation.brand && !routeStation.stationName) continue;
+        const baseSlug = buildStationSlug({
+          brand: routeStation.brand,
+          name: routeStation.stationName,
+          address: routeStation.address,
+        });
+        if (!baseSlug) continue;
+
+        let slug = baseSlug;
+        let suffix = 2;
+        while (slugSeen.has(`${entry.slug}/${slug}`)) {
+          slug = `${baseSlug}-${suffix++}`;
+        }
+        slugSeen.add(`${entry.slug}/${slug}`);
+        // Reserve a route slot for every physical station before deciding
+        // whether this fuel has a price. This mirrors collectItalianStationContexts.
+        if (selected) continue;
+
+        for (const locale of locales) {
+          const pagePath = buildFuelItalianStationPath(locale, fuel, entry.slug, slug);
+          pages[pagePath] = renderFuelBelowFloorBridge(pagePath, { selfCanonical: true });
+        }
+      }
+    }
+  }
+
+  return pages;
+}
+
 // ── Plugin ─────────────────────────────────────────────────────
 
 interface PluginResult {
@@ -5726,6 +5808,10 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         contextsByFuel: italianContextsByFuel,
         rootDir,
       });
+      const italianStationAvailabilityBridges = generateFuelItalianStationAvailabilityBridges({
+        dataset,
+        locales: FUEL_DAILY_LOCALES.filter(shouldEmitLocale),
+      });
 
       // ── F6.5: Browseable indexes (anti-orphan-page fix) ────────
       // Build leaf lists from the SAME contexts used for the per-station
@@ -5912,6 +5998,11 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         collector.add(np.join(outDir, 'index.html'), html);
         italianStationSitemapPaths.push(path);
         italianStationPagesWritten++;
+      }
+      for (const [path, html] of Object.entries(italianStationAvailabilityBridges)) {
+        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
+        bridgesWritten++;
       }
 
       // ── Manifest of ACTUALLY-emitted Italian station pages ─────

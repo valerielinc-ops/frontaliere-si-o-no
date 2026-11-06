@@ -1045,6 +1045,8 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
       expect(args).toContain('--no-traverse');
       expect(args).toContain(':s3:bkt/assets');
     }
+    for (const args of loaderCopies) expect(args).toContain('--ignore-times');
+    expect(bootstrapCopies[0]).not.toContain('--ignore-times');
     const rootCopy = copies.find((args) => args.some((arg) => arg.endsWith('/stage/assets')));
     expect(rootCopy).toBeDefined();
     expect(rootCopy).not.toContain('--no-traverse');

@@ -1057,6 +1057,48 @@ function issueViewIsClosed(number, options = {}) {
   return issueViewState(number, options) === 'CLOSED';
 }
 
+/**
+ * Check whether an exact comment body is already present on an issue.
+ * Unreadable comments are deliberately treated as absent: the bounded caller
+ * retry remains fail-closed, while a successful mutation whose response was
+ * lost can still be reused without posting a duplicate.
+ */
+function issueHasComment(number, body) {
+  const out = gh(
+    ['issue', 'view', String(number), '--json', 'comments', ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (typeof out !== 'string' || !out) return false;
+  try {
+    const comments = JSON.parse(out)?.comments;
+    return Array.isArray(comments) && comments.some((comment) => comment?.body === body);
+  } catch {
+    return false;
+  }
+}
+
+function postGithubIssueComment(issueNumber, body) {
+  let result;
+  try {
+    result = withTransientGithubMutationRetry(
+      () => ghMutation([
+        'issue', 'comment', String(issueNumber), '--body', body, ...repoFlag(),
+      ]),
+      {
+        findExisting: () => issueHasComment(issueNumber, body)
+          ? { number: issueNumber }
+          : null,
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::GitHub issue comment transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
+        },
+      },
+    );
+  } catch {
+    return false;
+  }
+  return Boolean(result);
+}
+
 /** Close reasons `resolveGithubIssue` and `resolveGithubIssueByNumber` accept (`--reason` on the CLI). */
 export const RESOLVE_REASONS = Object.freeze(['completed', 'not_planned']);
 
@@ -1305,11 +1347,7 @@ export function commentOnGithubIssue(issueNumber, body) {
     return false;
   }
   if (!issueNumber || !body) return false;
-  const out = gh(
-    ['issue', 'comment', String(issueNumber), '--body', body, ...repoFlag()],
-    { allowFailure: true },
-  );
-  if (out === null) {
+  if (!postGithubIssueComment(issueNumber, body)) {
     console.error(`[github-issue-creator] Failed to comment on #${issueNumber} (best-effort)`);
     return false;
   }
@@ -1592,15 +1630,14 @@ export async function createGithubIssue({
     // Post a comment instead of opening a duplicate.
     try {
       const twinNote = formatOpenTwinNote(existing, openCandidates);
-      gh([
-        'issue', 'comment', String(existing.number),
-        '--body', [
-          `${RECURRENCE_MARKER} Recurrence on workflow run.`,
-          body,
-          twinNote,
-        ].filter(Boolean).join('\n\n'),
-        ...repoFlag(),
-      ]);
+      const recurrenceBody = [
+        `${RECURRENCE_MARKER} Recurrence on workflow run.`,
+        body,
+        twinNote,
+      ].filter(Boolean).join('\n\n');
+      if (!postGithubIssueComment(existing.number, recurrenceBody)) {
+        return { ...existing, persisted: false };
+      }
       // Gate escalation: this failure reached/passed the threshold → promote the
       // canonical breadcrumb from priority:low/crawler-transient to the caller's
       // priority so the fixer pipeline picks it up. Idempotent if already there.
@@ -1734,11 +1771,26 @@ export async function createGithubIssue({
           };
         }
       }
-      const reopened = gh(
-        ['issue', 'reopen', String(recentlyClosed.number), ...repoFlag()],
-        { allowFailure: true },
-      );
-      if (reopened !== null) {
+      let reopened = null;
+      try {
+        reopened = withTransientGithubMutationRetry(
+          () => ghMutation([
+            'issue', 'reopen', String(recentlyClosed.number), ...repoFlag(),
+          ]),
+          {
+            findExisting: () => issueViewState(recentlyClosed.number, { retryTransient: true }) === 'OPEN'
+              ? recentlyClosed
+              : null,
+            onRetry: (nextAttempt, attempts, delayMs) => {
+              console.warn(`::warning::GitHub issue reopen transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
+            },
+          },
+        );
+      } catch {
+        // Reopen failure falls through to a fresh issue, preserving the existing
+        // fail-closed behaviour for permanent errors and exhausted retries.
+      }
+      if (reopened) {
         // The recurrence comment carries the DATE and the CURRENT measurement
         // (`body` is the caller's freshly-collected description). Without both,
         // a reopened issue reads as if nothing had changed since it was closed
@@ -1753,16 +1805,12 @@ export async function createGithubIssue({
           '— riaperta invece di aprire una issue nuova, così la storia della',
           'condizione resta in un solo thread.',
         ].filter(Boolean).join(' ');
-        const recurrenceComment = gh([
-          'issue', 'comment', String(recentlyClosed.number),
-          '--body', [
-            header,
-            `**Misura corrente:**\n\n${body}`,
-            formatOpenTwinNote(recentlyClosed, openCandidates),
-          ].filter(Boolean).join('\n\n'),
-          ...repoFlag(),
-        ], { allowFailure: true });
-        if (recurrenceComment === null) {
+        const recurrenceComment = [
+          header,
+          `**Misura corrente:**\n\n${body}`,
+          formatOpenTwinNote(recentlyClosed, openCandidates),
+        ].filter(Boolean).join('\n\n');
+        if (!postGithubIssueComment(recentlyClosed.number, recurrenceComment)) {
           console.error(
             `[github-issue-creator] Reopened #${recentlyClosed.number}, but failed to persist recurrence context.`,
           );
@@ -1805,7 +1853,36 @@ export async function createGithubIssue({
     ...repoFlag(),
   ];
   try {
-    const url = gh(args).split('\n').pop().trim();
+    const created = withTransientGithubMutationRetry(
+      () => ghMutation(args),
+      {
+        // A lost response must not cause a second issue. Reconcile the same
+        // title after a transient create failure before retrying the mutation.
+        findExisting: () => {
+          const candidates = findOpenIssueCandidatesByTitlePrefix(
+            matchExactTitle ? title : dedupTitle,
+            Boolean(normalizedDedupKey),
+            { exactTitle: matchExactTitle, dedupKey: normalizedDedupKey },
+          );
+          return candidates?.[0] || null;
+        },
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::GitHub issue create transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
+        },
+      },
+    );
+    if (created.reused) {
+      const reused = created.value;
+      console.log(`[github-issue-creator] Reused issue after create response loss: #${reused.number}`);
+      return {
+        number: reused.number,
+        title: reused.title || title,
+        url: reused.url,
+        state: reused.state || 'OPEN',
+        persisted: true,
+      };
+    }
+    const url = String(created.value).split('\n').pop().trim();
     console.log(`[github-issue-creator] Created: ${url}`);
     // Parse issue number from URL for return value
     const m = url.match(/\/issues\/(\d+)/);
