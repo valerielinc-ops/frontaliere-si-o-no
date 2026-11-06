@@ -5981,7 +5981,20 @@ export async function readPortalRequirements(ctx) {
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
     if (snapshot.captcha) return await finish({ questions: [], documents: [], handoff: 'captcha_present' });
-    if (!readableApplication) return await finish({ questions: [], documents: [], handoff: 'application_form_unreadable' });
+    if (!readableApplication) {
+      // An account portal is allowed to expose only its sign-in/create-account
+      // surface before the runner owns a portal account. That is not an
+      // unreadable application: submitViaPortal will create/sign in to the
+      // account and then reopen the job-bound form. Keep the pre-read
+      // read-only and defer the auth gate instead of burning a draft retry.
+      const authGate = ['workday', 'successfactors'].includes(channelType)
+        && (['sign_in', 'create'].includes(authPageKind(snapshot)) || snapshot.passwordVisible === true);
+      if (authGate) {
+        (ctx.log || (() => {}))('portal pre-read deferred: account gate');
+        return await finish({ questions: [], documents: [] });
+      }
+      return await finish({ questions: [], documents: [], handoff: 'application_form_unreadable' });
+    }
     // The live form is authoritative for the selected posting. A verified
     // route is sufficient provenance for a generic ATS form; otherwise a
     // mismatch must stop before any job-specific question reaches the draft.
