@@ -2427,7 +2427,9 @@ const FIELD_LABEL_WORDS = new Set([
   'nazionalita', 'cittadinanza', 'nationalite', 'citizenship', 'residence', 'wohnsitz', 'wohnort', 'residenza', 'domicile', 'domicilio',
   'region', 'regione', 'location', 'standort', 'sede', 'lieu', 'phone', 'telefon', 'telefono', 'telephone', 'mobile', 'code', 'vorwahl',
   'prefisso', 'address', 'adresse', 'indirizzo', 'city', 'ort', 'citta', 'ville', 'canton', 'kanton', 'cantone', 'province', 'provincia',
-  'select', 'selected', 'one',
+  // Keep `one` out: next to an employer token it can be a proper-name suffix
+  // (`Coop One`), while the adjacent `select` token still neutralizes «Select one».
+  'select', 'selected',
 ]);
 const POSTING_LOCATION_LABEL_WORDS = new Set([
   'region', 'regione', 'location', 'standort', 'sede', 'lieu',
@@ -2476,6 +2478,10 @@ const FILLER_WORDS = new Set([
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
 // What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
 const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
+// `one` is neutral only as the second token of the UI placeholder «Select one».
+// Keep it significant elsewhere because it can be part of an employer name («Coop One»).
+const isSelectOneLabelToken = (words, index) => (words[index] === 'select' && words[index + 1] === 'one')
+  || (words[index] === 'one' && words[index - 1] === 'select');
 
 /**
  * The form names an employer that is not the order's (reviews of #11033).
@@ -2548,7 +2554,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...FORM_VOCABULARY,
   ]);
   const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
-  if (title.some((word) => !filler(word) && !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word))) return true;
+  if (title.some((word, index) => !filler(word) && !neutral.has(word)
+    && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   for (const phrase of text.split(PHRASE_END_RE)) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     for (const [index, word] of words.entries()) {
@@ -2560,7 +2567,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         let at = index + step;
         // A legal form is skipped like filler: «Rituals Cosmetics Germany GmbH» ends in no one's name.
         while (words[at] !== undefined && (filler(words[at]) || NOT_A_NAME.has(words[at]))) at += step;
-        if (words[at] !== undefined && !neutral.has(words[at]) && !labels?.has(words[at])) return true;
+        if (words[at] !== undefined && !neutral.has(words[at]) && !labels?.has(words[at])
+          && !isSelectOneLabelToken(words, at)) return true;
       }
     }
   }
@@ -6501,6 +6509,15 @@ export async function readPortalRequirements(ctx) {
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
   const verifiedPostingEntry = verifiedJobs2WebEntry || verifiedPostingEntryFor(ctx);
+  // A legacy Umantis Application/New URL can be the only durable vacancy
+  // identity after liveness discarded an ambiguous posting candidate. Keep
+  // the inferred Description route in the form matcher; otherwise the EOC
+  // form's own employer questions look like a conflicting employer before
+  // the already-verified route proof gets a chance to bind it.
+  const inferredUmantisPostingUrl = verifiedPostingEntry && !String(ctx.postingUrl || '').trim()
+    ? umantisPostingAddressFromApplication(stageApplyUrl)
+    : '';
+  const formPostingUrl = String(ctx.postingUrl || '').trim() || inferredUmantisPostingUrl;
   const readAhead = portalReadAheadCapability({
     channelType,
     entryUrl,
@@ -6682,7 +6699,7 @@ export async function readPortalRequirements(ctx) {
         postingEntry: verifiedPostingEntry,
         applicationEntry,
         pageUrl: page.url(),
-        postingUrl: ctx.postingUrl,
+        postingUrl: formPostingUrl,
         postingRouteProof: ctx.postingRouteProof,
       });
       contractPostingMatch = formMatch === 'mismatch' ? 'mismatch' : formMatch === 'match' ? 'match' : 'unknown';

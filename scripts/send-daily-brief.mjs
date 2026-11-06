@@ -346,7 +346,7 @@ async function fetchRecipients(db) {
  * the newsletter's is `sentEmails`. Unifying the spelling would orphan whatever
  * campaign is in flight when this ships.
  */
-const RESUME_LOG = { campaignId: null, field: 'emails' };
+const RESUME_LOG = { campaignId: null, field: 'emails', ambiguousField: 'ambiguousEmails' };
 
 async function persistDelivery(db, { email, campaignId }, sendResult) {
   try {
@@ -362,6 +362,23 @@ async function persistDelivery(db, { email, campaignId }, sendResult) {
       }, { merge: true });
   } catch (e) {
     console.warn('⚠️ daily-brief delivery persist failed:', e?.message);
+  }
+}
+
+async function persistAmbiguousDelivery(db, { email, campaignId }, provider) {
+  try {
+    const deliveryDocId = buildDeliveryDocId(campaignId, email);
+    await db.collection('newsletter_subscribers').doc(email)
+      .collection('campaign_deliveries').doc(deliveryDocId).set({
+        email,
+        campaign_id: campaignId,
+        message_id: null,
+        provider: provider || null,
+        delivery_status: 'unknown',
+        attempted_at: new Date(),
+      }, { merge: true });
+  } catch (e) {
+    console.warn('⚠️ daily-brief ambiguous delivery persist failed:', e?.message);
   }
 }
 
@@ -569,7 +586,7 @@ export async function fetchBriefClicks(db, sinceMs) {
 }
 
 /** Persist the recipient's new cadence state next to their delivery record. */
-async function persistCadence(db, { email, state, engaged, opened, provider, sentAtIso, scheduledFor = null }) {
+async function persistCadence(db, { email, state, engaged, opened, provider, sentAtIso, scheduledFor = null }, { requireWrite = false } = {}) {
   try {
     await db.collection('newsletter_subscribers').doc(email).set(
       nextCadenceState({ sub: state, engaged, opened, sentAtIso, provider, scheduledFor }),
@@ -577,11 +594,14 @@ async function persistCadence(db, { email, state, engaged, opened, provider, sen
     );
   } catch (e) {
     console.warn('⚠️ daily-brief cadence persist failed:', e?.message);
+    if (requireWrite) throw e;
   }
 }
 
 export function sentCountFromResult(result) {
-  return Array.isArray(result?.sent) ? result.sent.length : 0;
+  return Array.isArray(result?.sent)
+    ? result.sent.filter((item) => item?.ack !== 'unidentifiable').length
+    : 0;
 }
 
 export function writeSentOutput(sent, outputPath = process.env.GITHUB_OUTPUT) {
@@ -669,10 +689,10 @@ async function runMain(runState) {
   pool = due;
 
   RESUME_LOG.campaignId = campaignId;
-  const { sent: alreadySent, chunkSizes } = await fetchAlreadySent(db, RESUME_LOG);
-  if (alreadySent.size > 0) {
-    pool = pool.filter((r) => !alreadySent.has(r.email));
-    console.log(`\u267B\uFE0F  resume: ${alreadySent.size} already sent today, ${pool.length} remaining`);
+  const { sent: alreadySent, ambiguous: alreadyAmbiguous, attempted, chunkSizes } = await fetchAlreadySent(db, RESUME_LOG);
+  if (attempted.size > 0) {
+    pool = pool.filter((r) => !attempted.has(r.email));
+    console.log(`\u267B\uFE0F  resume: ${alreadySent.size} confirmed, ${alreadyAmbiguous.size} quarantined as unknown, ${pool.length} unattempted`);
   }
 
   const { getAvailableCascadeQuota, sendEmailCascade } = await import('./lib/email-cascade.mjs');
@@ -747,19 +767,45 @@ async function runMain(runState) {
   const resume = createResumeWriter(db, RESUME_LOG, resumeChunkState(chunkSizes));
 
   const sentAtIso = new Date().toISOString();
-  const result = await sendEmailCascade(emails, {
-    concurrency: 3,
-    onSent: async (item, sendResult) => {
-      runState.sent += 1;
-      const { email, state: recipientState, engaged, opened, scheduledAt } = item.recipient;
-      await persistDelivery(db, { email, campaignId }, sendResult);
-      await persistCadence(db, { email, state: recipientState, engaged, opened, provider: sendResult?.provider || null, sentAtIso, scheduledFor: scheduledAt });
-      await resume.record(email);
-    },
-  });
+  let result;
+  try {
+    result = await sendEmailCascade(emails, {
+      concurrency: 3,
+      onSent: async (item, sendResult) => {
+        runState.sent += 1;
+        const { email, state: recipientState, engaged, opened, scheduledAt } = item.recipient;
+        await persistDelivery(db, { email, campaignId }, sendResult);
+        await persistCadence(db, { email, state: recipientState, engaged, opened, provider: sendResult?.provider || null, sentAtIso, scheduledFor: scheduledAt });
+        await resume.record(email);
+      },
+      onAmbiguous: async (item, error) => {
+        const email = item.recipient.email;
+        await resume.recordAmbiguous(email);
+        await persistAmbiguousDelivery(db, { email, campaignId }, error.provider);
+        // Conservatively apply the cadence hold for an unknown provider outcome:
+        // a later daily edition should not immediately duplicate a message that
+        // may already have reached this recipient.
+        await persistCadence(db, {
+          email,
+          state: item.recipient.state,
+          engaged: item.recipient.engaged,
+          opened: item.recipient.opened,
+          provider: error.provider || null,
+          sentAtIso: new Date().toISOString(),
+          scheduledFor: item.recipient.scheduledAt,
+        }, { requireWrite: true });
+      },
+    });
+  } finally {
+    // An ambiguous-quarantine persistence failure makes the cascade throw
+    // after in-flight sends settle; flush their confirmed resume marks first.
+    await resume.flush();
+  }
   runState.sent = sentCountFromResult(result);
-  await resume.flush();
-  console.log(`\n📊 Done — sent ${result.sent.length}, failed ${result.failed.length}, resume-marked ${resume.count()}.`);
+  const ambiguousFailed = result.failed.filter((item) => item.ambiguousDelivery).length;
+  const quarantinedUnknown = result.ambiguous.length + ambiguousFailed;
+  const confirmedSent = sentCountFromResult(result);
+  console.log(`\n📊 Done — confirmed sent ${confirmedSent}, quarantined unknown ${quarantinedUnknown}, other failed ${result.failed.length - ambiguousFailed}, resume-marked ${resume.count()}.`);
 }
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {

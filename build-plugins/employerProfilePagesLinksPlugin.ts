@@ -30,7 +30,11 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
-import { employerProfilesFlushed, staticPagesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
+import {
+  employerProfilesFlushed,
+  staticPagesFlushed,
+  type EmittedEmployerProfile,
+} from './shared/buildSignals';
 import { injectBlockAfterMain } from './shared/injectAfterMain';
 import { shouldEmitLocale, type EmitLocale } from './shared/localeEmitFilter';
 import { SITE_MAP_PAGE_DIR as SITEMAP_PAGE_DIR } from './shared/siteMapPageDir';
@@ -137,10 +141,6 @@ export function employerProfilePagesLinksPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      // Wait for the profile emitter (gives us the emitted profiles) AND
-      // staticPagesPlugin (writes the sitemap pages we patch) so both
-      // producers have flushed to disk before we read+patch — mirrors
-      // professionCantonLandingsLinksPlugin's race fix.
       const [profiles] = await Promise.all([
         employerProfilesFlushed,
         staticPagesFlushed,

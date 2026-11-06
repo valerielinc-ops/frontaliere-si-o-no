@@ -19,6 +19,11 @@ on:
         required: false
         type: boolean
         default: false
+      profile_job_phases:
+        description: 'Investigation-only: collect per-phase jobs SEO timings. Adds instrumentation to the per-page build path; off by default.'
+        required: false
+        type: boolean
+        default: false
       profile_related_compare:
         description: 'Investigation-only: compare legacy related-job filtering against the pre-indexed related-job pool and emit before/after profiler rows.'
         required: false
@@ -88,9 +93,11 @@ jobs:
           BUILD_PROFILE: '1'
           SEQUENTIAL_PROFILE: '1'
           JOBS_SEO_PROFILE: ${{ github.event.inputs.profile_jobs_seo == 'true' && '1' || '' }}
-          # Phase-level instrumentation inside the active-job per-page render —
-          # enabled by default to mirror the deploy workflow (see deploy.yml).
-          JOBS_SEO_PROFILE_PHASES: '1'
+          # Phase-level instrumentation inside the active-job per-page render
+          # is opt-in: hrtime/recordEmit runs in the hot path for every page.
+          # Keep the default build equivalent to production's default profile
+          # settings; enable it only for an explicit timing investigation.
+          JOBS_SEO_PROFILE_PHASES: ${{ inputs.profile_job_phases == true && '1' || '' }}
           JOBS_SEO_PROFILE_COMPARE_RELATED: ${{ github.event.inputs.profile_related_compare == 'true' && '1' || '' }}
         run: npm run build:ci
 

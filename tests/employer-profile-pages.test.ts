@@ -7,6 +7,7 @@ import {
   employerProfilePagesPlugin,
   type EmployerProfile,
 } from '../build-plugins/employerProfilePagesPlugin';
+import { filterEmployerProfileJobLinks } from '../build-plugins/shared/employerProfileJobLinks';
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
@@ -361,8 +362,70 @@ describe('employerProfilePagesPlugin', () => {
   it('keeps the repeated profile payload bounded while exposing the live total', () => {
     const source = fs.readFileSync(path.resolve(__dirname, '../build-plugins/employerProfilePagesPlugin.ts'), 'utf8');
     expect(source).toContain('const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;');
-    expect(source).toContain('const listed = group.slice(0, MAX_JOBS_LISTED);');
+    expect(source).toContain('const listed = filterJobsToActiveDetails(group, jobSitemapAllowlist).slice(0, MAX_JOBS_LISTED);');
     expect(source).toContain('${esc(JOBS_HEADING[locale](name, profile.activeJobs))}');
+  });
+
+  it('filters stale detail targets from cards and ItemList at the same boundary', () => {
+    const active = 'https://frontaliereticino.ch/cerca-lavoro-ticino/active-job/';
+    const stale = 'https://frontaliereticino.ch/cerca-lavoro-ticino/stale-job/';
+    const html = [
+      '<main><ul>',
+      `<li><article class="jc-card"><a href="${active}">Active</a></article></li>`,
+      `<li><article class="jc-card"><a href="${stale}">Stale</a></article></li>`,
+      '</ul></main>',
+      '<script type="application/ld+json">' + JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        numberOfItems: 2,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, item: { '@type': 'WebPage', url: active } },
+          { '@type': 'ListItem', position: 2, item: { '@type': 'WebPage', url: stale } },
+        ],
+      }) + '</script>',
+    ].join('');
+
+    const filtered = filterEmployerProfileJobLinks(html, new Set([active]));
+    expect(filtered).toContain(active);
+    expect(filtered).not.toContain(stale);
+    const itemList = JSON.parse(filtered.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? '{}');
+    expect(itemList.numberOfItems).toBe(1);
+    expect(itemList.itemListElement).toHaveLength(1);
+    expect(itemList.itemListElement[0].position).toBe(1);
+    expect(itemList.itemListElement[0].item.url).toBe(active);
+  });
+
+  it('reconciles the complete sequential fallback group before applying the cap', () => {
+    const stale = Array.from({ length: 12 }, (_, index) =>
+      `https://frontaliereticino.ch/cerca-lavoro-ticino/stale-${index}/`,
+    );
+    const active = Array.from({ length: 12 }, (_, index) =>
+      `https://frontaliereticino.ch/cerca-lavoro-ticino/active-${index}/`,
+    );
+    const all = [...stale, ...active];
+    const html = [
+      '<main><ul>',
+      ...all.map((href) => `<li><article class="jc-card"><a href="${href}">Job</a></article></li>`),
+      '</ul></main>',
+      '<script type="application/ld+json">' + JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        numberOfItems: all.length,
+        itemListElement: all.map((url, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: { '@type': 'WebPage', url },
+        })),
+      }) + '</script>',
+    ].join('');
+
+    const filtered = filterEmployerProfileJobLinks(html, new Set(active), 12);
+    expect((filtered.match(/class="jc-card"/g) ?? []).length).toBe(12);
+    expect(stale.every((href) => !filtered.includes(href))).toBe(true);
+    expect(active.every((href) => filtered.includes(href))).toBe(true);
+    const itemList = JSON.parse(filtered.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? '{}');
+    expect(itemList.numberOfItems).toBe(12);
+    expect(itemList.itemListElement.map((item: { item: { url: string } }) => item.item.url)).toEqual(active);
   });
 
   it('links each visible position without emitting JobPosting on an employer list', () => {

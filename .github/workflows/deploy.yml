@@ -40,6 +40,11 @@ on:
         required: false
         type: boolean
         default: false
+      profile_job_phases:
+        description: 'Investigation-only: collect per-phase jobs SEO timings. Adds instrumentation to the per-page build path; off by default.'
+        required: false
+        type: boolean
+        default: false
       write_collision_dump:
         description: 'Investigation-only: dump every unique-by-hash content claim() to dist/.write-collisions-data/ for triaging colliding paths. Off by default — adds ~200k synchronous writeFileSync calls during build (~100-200s overhead) that get pruned at end. The collisions JSON report is emitted regardless; only enable this when you need the actual HTML payload of a colliding path.'
         required: false
@@ -491,7 +496,7 @@ jobs:
       # ERR_MODULE_NOT_FOUND on siteShell.
       POST_WALK_WORKERS: '2'
       SEQUENTIAL_PROFILE: ${{ fromJSON('["1",""]')[github.event_name == 'workflow_dispatch' && github.event.inputs.parallel_plugins == 'true' && 1 || 0] }}
-      JOBS_SEO_PROFILE_PHASES: '1'
+      JOBS_SEO_PROFILE_PHASES: ${{ inputs.profile_job_phases == true && '1' || '' }}
       # The canonical-fallback pre-pass is the peak RSS hotspot on the 16 GiB
       # runner: run 36148322951 reached ~12.9 GiB with the detected 4-worker
       # pool and then stopped emitting logs while the host was swapping. The

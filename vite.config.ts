@@ -126,6 +126,7 @@ import { socialHubPlugin } from './build-plugins/socialHubPlugin';
 import { publisherAdPagesPlugin } from './build-plugins/publisherAdPagesPlugin';
 import { publisherAdLinksPlugin } from './build-plugins/publisherAdLinksPlugin';
 import { employerProfilePagesPlugin } from './build-plugins/employerProfilePagesPlugin';
+import { employerProfileJobLinksPlugin } from './build-plugins/employerProfileJobLinksPlugin';
 import { employerProfilePagesLinksPlugin } from './build-plugins/employerProfilePagesLinksPlugin';
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
@@ -228,6 +229,7 @@ export default defineConfig(({ mode }) => {
  // sources, so a new cross-plugin `await` is checked here automatically.
  employerProfilePagesPlugin(__dirname),
  jobsSeoPagesPlugin(__dirname),
+ employerProfileJobLinksPlugin(__dirname),
  // Per-job OG images (1080×1350 WebP) for FB/LinkedIn previews. Reads
  // data/jobs.json, writes dist/og/jobs/<slug>.webp, and includes a neutral
  // archived-listing card for historical URLs.

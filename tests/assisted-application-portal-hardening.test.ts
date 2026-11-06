@@ -387,6 +387,26 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe('mismatch');
   });
 
+  it('treats Select one as a field label without neutralizing One in an employer name', () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+    const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+    const verified = isVerifiedPostingEntry({ applyUrl, postingUrl });
+    const eocJob = { company: 'EOC', title: 'Impiegato/a amministrativo' };
+    const bound = {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applyUrl,
+      postingUrl,
+    };
+
+    expect(verified).toBe(true);
+    expect(namesAnotherEmployer('EOC Select one', eocJob)).toBe(false);
+    expect(formPostingMatch('EOC\nSelect one', eocJob, bound)).toBe('match');
+    expect(formPostingMatch('EOC Select one', eocJob, bound)).toBe('match');
+    expect(formPostingMatch('Coop One', { company: 'Coop One', title: 'Role' }, bound)).toBe('match');
+    expect(formPostingMatch('Coop One', { company: 'Coop', title: 'Role' }, bound)).toBe('mismatch');
+  });
+
   it('accepts a bound Umantis form with a generic heading and employer-owned fields', () => {
     const applicationUrl = umantisAccountStepFixture.url;
     const postingUrl = applicationUrl.replace('/Application/New/4', '/Description/4');

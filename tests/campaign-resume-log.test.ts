@@ -18,7 +18,10 @@ import {
 import { filterUnsentSubscribers } from '@/scripts/send-newsletter.mjs';
 
 /** Minimal Firestore double: document-id range reads and arrayUnion merges. */
-function fakeDb(seed: Record<string, Record<string, unknown>> = {}) {
+function fakeDb(
+  seed: Record<string, Record<string, unknown>> = {},
+  { beforeSet = async () => {} }: { beforeSet?: (id: string, payload: Record<string, any>) => void | Promise<void> } = {},
+) {
   const docs = new Map<string, Record<string, any>>(Object.entries(seed));
   const writes: string[] = [];
 
@@ -40,6 +43,7 @@ function fakeDb(seed: Record<string, Record<string, unknown>> = {}) {
       return {
         async set(payload: Record<string, any>, opts: { merge?: boolean }) {
           writes.push(id);
+          await beforeSet(id, payload);
           const existing = opts?.merge ? docs.get(id) ?? {} : {};
           const merged: Record<string, any> = { ...existing };
           for (const [key, value] of Object.entries(payload)) {
@@ -98,6 +102,44 @@ describe('reading the log back', () => {
     const { sent, chunkSizes } = await fetchAlreadySent(fakeDb(), OPTS);
     expect(sent.size).toBe(0);
     expect(chunkSizes).toEqual([]);
+  });
+
+  it('keeps provider-ambiguous recipients out of future resumes without counting them as confirmed sends', async () => {
+    const db = fakeDb({
+      'newsletter-2026-W32': {
+        sentEmails: ['sent@x.it', 'overlap@x.it'],
+        ambiguousEmails: ['unknown@x.it', 'overlap@x.it'],
+      },
+    });
+
+    const { sent, ambiguous, attempted, chunkSizes } = await fetchAlreadySent(db, {
+      campaignId: 'newsletter-2026-W32',
+      field: 'sentEmails',
+      ambiguousField: 'ambiguousEmails',
+    });
+
+    expect([...sent].sort()).toEqual(['overlap@x.it', 'sent@x.it']);
+    expect([...ambiguous].sort()).toEqual(['overlap@x.it', 'unknown@x.it']);
+    expect([...attempted].sort()).toEqual(['overlap@x.it', 'sent@x.it', 'unknown@x.it']);
+    expect(chunkSizes).toEqual([3]);
+  });
+
+  it('counts confirmed and ambiguous recipients together before opening the next chunk', async () => {
+    const db = fakeDb({
+      'newsletter-2026-W33': {
+        sentEmails: ['a@x.it'],
+        ambiguousEmails: ['b@x.it'],
+      },
+    });
+
+    const { chunkSizes } = await fetchAlreadySent(db, {
+      campaignId: 'newsletter-2026-W33',
+      field: 'sentEmails',
+      ambiguousField: 'ambiguousEmails',
+    });
+
+    expect(chunkSizes).toEqual([2]);
+    expect(resumeChunkState(chunkSizes, 2)).toEqual({ index: 2, count: 0 });
   });
 });
 
@@ -202,5 +244,60 @@ describe('the buffered writer', () => {
     await writer.flush();
     expect(db.__docs.get('daily-brief-2026-08-08').emails).toEqual(['a']);
     expect(db.__writes).toHaveLength(1);
+  });
+
+  it('flushes an ambiguous outcome immediately and tracks it separately', async () => {
+    const db = fakeDb();
+    const opts = { ...OPTS, ambiguousField: 'ambiguousEmails' };
+    const writer = createResumeWriter(db, opts, resumeChunkState([]));
+
+    await writer.record('sent@x.it');
+    await writer.recordAmbiguous('unknown@x.it');
+
+    const row = db.__docs.get(OPTS.campaignId);
+    expect(row.emails).toEqual(['sent@x.it']);
+    expect(row.ambiguousEmails).toEqual(['unknown@x.it']);
+    expect(writer.count()).toBe(1);
+    expect(writer.ambiguousCount()).toBe(1);
+    expect(db.__writes).toHaveLength(2);
+  });
+
+  it('serializes concurrent ambiguous flushes before advancing the chunk', async () => {
+    let activeWrites = 0;
+    let maxActiveWrites = 0;
+    const db = fakeDb({
+      [OPTS.campaignId]: { emails: ['seed@x.it'] },
+    }, {
+      beforeSet: async () => {
+        activeWrites += 1;
+        maxActiveWrites = Math.max(maxActiveWrites, activeWrites);
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        activeWrites -= 1;
+      },
+    });
+    const writer = createResumeWriter(
+      db,
+      { ...OPTS, chunkMax: 2, ambiguousField: 'ambiguousEmails' },
+      resumeChunkState([1], 2),
+      { flushEvery: 99 },
+    );
+
+    await Promise.all([
+      writer.recordAmbiguous('a@x.it'),
+      writer.recordAmbiguous('b@x.it'),
+    ]);
+
+    expect(maxActiveWrites).toBe(1);
+    expect(db.__docs.get(OPTS.campaignId)).toMatchObject({
+      emails: ['seed@x.it'],
+      ambiguousEmails: ['a@x.it'],
+    });
+    expect(db.__docs.get(`${OPTS.campaignId}--2`)).toMatchObject({
+      ambiguousEmails: ['b@x.it'],
+    });
+    expect((await fetchAlreadySent(db, {
+      ...OPTS,
+      ambiguousField: 'ambiguousEmails',
+    })).chunkSizes).toEqual([2, 1]);
   });
 });

@@ -18,7 +18,7 @@ export const DISCOVERY_ARTICLES_MAX_AGE_MS = 14 * 24 * 60 * 60 * 1000;
 export const DISCOVERY_ARTICLES_FUTURE_SKEW_MS = 5 * 60 * 1000;
 
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
-const NEWSLETTER_PROVIDERS = new Set(['google_trends', 'other']);
+const NEWSLETTER_PROVIDERS = new Set(['google_trends', 'google_news', 'other']);
 const KNOWN_INDEX_PROVIDERS = new Set([...NEWSLETTER_PROVIDERS, 'reddit']);
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const MAX_RECENT_ARTICLE_AGE_MS = 60 * 24 * 60 * 60 * 1000;
@@ -297,6 +297,19 @@ export async function loadDiscoveryArticleIndexFromHttp({
   const lastKnownGood = readLocalLastKnownGood({ manifestFilePath, indexFilePath, now });
   if (lastKnownGood) return lastKnownGood;
   throw new Error(`live discovery index unavailable or invalid after ${retries + 1} attempts`);
+}
+
+/**
+ * Discovery is an optional newsletter card. A failed live preflight must leave
+ * the regular digest sendable; callers freeze the returned null for the
+ * campaign so a later resume cannot add a card only to its unsent recipients.
+ */
+export async function loadOptionalDiscoveryArticleIndexFromHttp(options = {}) {
+  try {
+    return await loadDiscoveryArticleIndexFromHttp(options);
+  } catch {
+    return null;
+  }
 }
 
 /**

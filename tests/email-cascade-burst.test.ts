@@ -12,6 +12,9 @@ import {
   remainingQuota,
 } from '../scripts/lib/email-cascade.mjs';
 
+type EmailCascadeOptions = NonNullable<Parameters<typeof sendEmailCascade>[1]>;
+type EmailCascadeAmbiguousCallback = NonNullable<EmailCascadeOptions['onAmbiguous']>;
+
 /* ------------------------------------------------------------------ */
 /*  isRateLimitedError — burst/quota signal detection                 */
 /* ------------------------------------------------------------------ */
@@ -356,6 +359,7 @@ describe('sendEmailCascade — ambiguous delivery does not double-send', () => {
 
   it('does NOT fall back to the next provider when fetch() itself throws (transport-level, no HTTP response) — and flags the failure ambiguous', async () => {
     const calls: string[] = [];
+    const onAmbiguous = vi.fn();
     globalThis.fetch = (async (url: string) => {
       calls.push(String(url));
       if (String(url).includes('api.eu.mailgun.net') && String(url).includes('/messages')) {
@@ -368,16 +372,167 @@ describe('sendEmailCascade — ambiguous delivery does not double-send', () => {
 
     const { sent, failed } = await sendEmailCascade(
       [{ payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'x@y.com' }, meta: {} }],
-      { delayMs: 0 },
+      { delayMs: 0, onAmbiguous },
     );
 
     expect(sent.length).toBe(0);
     expect(failed.length).toBe(1);
     expect(failed[0].ambiguousDelivery).toBe(true);
+    expect(failed[0].provider).toBe('mailgun');
+    expect(onAmbiguous).toHaveBeenCalledWith(expect.objectContaining({ recipient: { email: 'x@y.com' } }), expect.objectContaining({ provider: 'mailgun', ambiguousDelivery: true }));
     // Mailjet (the next provider in cascade order) must never be tried —
     // falling back here risks a second delivery if Mailgun actually
     // accepted the message before the response was lost.
     expect(calls.some(u => u.includes('api.mailjet.com'))).toBe(false);
+  });
+
+  it('routes a provider-accepted 2xx without a message ID to the ambiguous quarantine callback', async () => {
+    globalThis.fetch = (async (url: string) => {
+      if (String(url).includes('api.eu.mailgun.net') && String(url).includes('/messages')) {
+        return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+    let quarantined: {
+      item: Parameters<EmailCascadeAmbiguousCallback>[0];
+      error: Parameters<EmailCascadeAmbiguousCallback>[1];
+    } | null = null;
+    let sentCallbackCalled = false;
+
+    const result = await sendEmailCascade([{
+      payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' },
+      recipient: { email: 'x@y.com' },
+      meta: {},
+    }], {
+      forceProvider: 'mailgun',
+      delayMs: 0,
+      onSent: () => { sentCallbackCalled = true; },
+      onAmbiguous: (item, error) => { quarantined = { item, error }; },
+    });
+
+    expect(result.ambiguous).toHaveLength(1);
+    expect(result.accepted).toHaveLength(0);
+    expect(sentCallbackCalled).toBe(false);
+    expect(quarantined?.item.recipient.email).toBe('x@y.com');
+    expect(quarantined?.error).toMatchObject({ provider: 'mailgun', ambiguousDelivery: true, ack: 'unidentifiable' });
+  });
+
+  it('stops claiming recipients when the ambiguous-delivery quarantine cannot be persisted', async () => {
+    const messageCalls: string[] = [];
+    globalThis.fetch = (async (url: string) => {
+      const target = String(url);
+      if (target.includes('/messages')) {
+        messageCalls.push(target);
+        throw new TypeError('fetch failed');
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    await expect(sendEmailCascade([
+      { payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'x@y.com' }, meta: {} },
+      { payload: { from: 'a@b.ch', to: ['z@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'z@y.com' }, meta: {} },
+    ], {
+      concurrency: 1,
+      delayMs: 0,
+      onAmbiguous: async () => { throw new Error('firestore unavailable'); },
+    })).rejects.toThrow('could not be durably quarantined');
+
+    expect(messageCalls).toHaveLength(1);
+  });
+
+  it('pauses new recipient claims while an ambiguous-delivery quarantine write is pending', async () => {
+    const messageCalls: string[] = [];
+    let releaseQuarantine!: () => void;
+    let markQuarantineStarted!: () => void;
+    let markSecondSendStarted!: () => void;
+    let markSecondSendSettled!: () => void;
+    const quarantineStarted = new Promise<void>((resolve) => { markQuarantineStarted = resolve; });
+    const secondSendStarted = new Promise<void>((resolve) => { markSecondSendStarted = resolve; });
+    const secondSendSettled = new Promise<void>((resolve) => { markSecondSendSettled = resolve; });
+    const quarantineWrite = new Promise<void>((resolve) => { releaseQuarantine = resolve; });
+
+    globalThis.fetch = (async (url: string) => {
+      const target = String(url);
+      if (target.includes('api.eu.mailgun.net') && target.includes('/messages')) {
+        messageCalls.push(target);
+        if (messageCalls.length === 1) throw new TypeError('fetch failed');
+        if (messageCalls.length === 2) markSecondSendStarted();
+        return { ok: true, status: 200, json: async () => ({ id: 'mailgun-second-id' }), text: async () => '{}' } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const sending = sendEmailCascade([
+      { payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'x@y.com' }, meta: {} },
+      { payload: { from: 'a@b.ch', to: ['z@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'z@y.com' }, meta: {} },
+      { payload: { from: 'a@b.ch', to: ['w@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'w@y.com' }, meta: {} },
+    ], {
+      concurrency: 2,
+      delayMs: 0,
+      onSent: async () => { markSecondSendSettled(); },
+      onAmbiguous: async () => {
+        markQuarantineStarted();
+        await quarantineWrite;
+        throw new Error('firestore unavailable');
+      },
+    });
+
+    const failedAsExpected = expect(sending).rejects.toThrow('could not be durably quarantined');
+    try {
+      await Promise.all([quarantineStarted, secondSendStarted, secondSendSettled]);
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      expect(messageCalls).toHaveLength(2);
+    } finally {
+      releaseQuarantine();
+    }
+    await failedAsExpected;
+    expect(messageCalls).toHaveLength(2);
+  });
+
+  it('resumes new recipient claims after an ambiguous outcome is durably quarantined', async () => {
+    const messageCalls: string[] = [];
+    let releaseQuarantine!: () => void;
+    let markQuarantineStarted!: () => void;
+    let markSecondSendSettled!: () => void;
+    const quarantineStarted = new Promise<void>((resolve) => { markQuarantineStarted = resolve; });
+    const secondSendSettled = new Promise<void>((resolve) => { markSecondSendSettled = resolve; });
+    const quarantineWrite = new Promise<void>((resolve) => { releaseQuarantine = resolve; });
+
+    globalThis.fetch = (async (url: string) => {
+      const target = String(url);
+      if (target.includes('api.eu.mailgun.net') && target.includes('/messages')) {
+        messageCalls.push(target);
+        if (messageCalls.length === 1) throw new TypeError('fetch failed');
+        return { ok: true, status: 200, json: async () => ({ id: `mailgun-${messageCalls.length}` }), text: async () => '{}' } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const sending = sendEmailCascade([
+      { payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'x@y.com' }, meta: {} },
+      { payload: { from: 'a@b.ch', to: ['z@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'z@y.com' }, meta: {} },
+      { payload: { from: 'a@b.ch', to: ['w@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'w@y.com' }, meta: {} },
+    ], {
+      concurrency: 2,
+      delayMs: 0,
+      onSent: async () => { markSecondSendSettled(); },
+      onAmbiguous: async () => {
+        markQuarantineStarted();
+        await quarantineWrite;
+      },
+    });
+
+    try {
+      await Promise.all([quarantineStarted, secondSendSettled]);
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      expect(messageCalls).toHaveLength(2);
+    } finally {
+      releaseQuarantine();
+    }
+    const result = await sending;
+    expect(result.failed).toHaveLength(1);
+    expect(result.sent).toHaveLength(2);
+    expect(messageCalls).toHaveLength(3);
   });
 
   it('still cascades to the next provider on an explicit HTTP rejection (not ambiguous, no regression)', async () => {

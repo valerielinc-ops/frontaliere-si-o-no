@@ -94,7 +94,7 @@ import { resolveNewsletterArticle } from './lib/newsletter-article-selection.mjs
 import {
   freezeCampaignDiscoverySelection,
   loadDiscoveryArticleIndex,
-  loadDiscoveryArticleIndexFromHttp,
+  loadOptionalDiscoveryArticleIndexFromHttp,
   nonPersistedDiscoverySelection,
   omitDuplicateDiscoveryArticle,
 } from './lib/newsletter-discovery-selection.mjs';
@@ -1774,6 +1774,7 @@ const RESUME_LOG_FIELD = 'sentEmails';
 const resumeLogOpts = (campaignId) => ({
   campaignId,
   field: RESUME_LOG_FIELD,
+  ambiguousField: 'ambiguousEmails',
   extraFields: { lastRunAt: new Date(), updatedAt: new Date() },
 });
 
@@ -1781,16 +1782,16 @@ let campaignResumeLookupKnown = true;
 async function fetchAlreadySent(campaignId) {
   if (!db) {
     campaignResumeLookupKnown = false;
-    return new Set();
+    return { sent: new Set(), ambiguous: new Set(), attempted: new Set() };
   }
   try {
-    const { sent } = await fetchCampaignAlreadySent(db, resumeLogOpts(campaignId));
+    const { sent, ambiguous, attempted } = await fetchCampaignAlreadySent(db, resumeLogOpts(campaignId));
     campaignResumeLookupKnown = true;
-    return sent;
+    return { sent, ambiguous, attempted };
   } catch (e) {
     campaignResumeLookupKnown = false;
     console.warn('\u26a0\ufe0f Campaign resume fetch failed:', e?.message);
-    return new Set();
+    return { sent: new Set(), ambiguous: new Set(), attempted: new Set() };
   }
 }
 
@@ -1969,6 +1970,29 @@ async function persistDelivery(recipient, messageId, meta) {
   }
 }
 
+async function persistAmbiguousDelivery(recipient, meta, provider) {
+  if (!db) return;
+  try {
+    const email = normalizeEmail(recipient.email);
+    const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
+    await db.collection('newsletter_subscribers').doc(email)
+      .collection('campaign_deliveries').doc(deliveryDocId).set({
+        email,
+        campaign_id: meta.campaignId,
+        message_id: null,
+        locale: nlNormLocale(recipient.locale),
+        source_channel: recipient.sourceChannel || null,
+        provider: provider || null,
+        discovery_article_id: meta.discoveryArticleId || null,
+        discovery_provider: meta.discoveryProvider || null,
+        delivery_status: 'unknown',
+        attempted_at: new Date(),
+      }, { merge: true });
+  } catch (e) {
+    console.warn('⚠️ Ambiguous newsletter delivery detail persist failed:', e?.message);
+  }
+}
+
 const NEWSLETTER_SEND_THROTTLE = Object.freeze({
   delayMs: 100,
   adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
@@ -1985,7 +2009,7 @@ const NEWSLETTER_SEND_THROTTLE = Object.freeze({
 // for cloudflare/resend, passed at the call sites below.
 const NEWSLETTER_SEND_CONCURRENCY = 4;
 
-async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
+async function sendEmailBatch(emails, finalizeForProvider, onDelivered, onQuarantined) {
   // After a per-provider subject swap, the final variant/subject live on the
   // payload (the source of truth for what was actually sent) — read them there
   // so the delivery record reflects the provider's variant.
@@ -2018,6 +2042,9 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
       forceProvider: EMAIL_PROVIDER,
       finalizeForProvider,
       onSent: persistSent,
+      onAmbiguous: onQuarantined
+        ? (item, error) => onQuarantined(normalizeEmail(item.recipient.email), item, error)
+        : undefined,
     });
     logProviderSummary();
     return result;
@@ -2032,6 +2059,9 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
       providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
       finalizeForProvider,
       onSent: persistSent,
+      onAmbiguous: onQuarantined
+        ? (item, error) => onQuarantined(normalizeEmail(item.recipient.email), item, error)
+        : undefined,
     });
     logProviderSummary();
     return result;
@@ -2330,18 +2360,26 @@ async function main() {
   // see weeklyCampaignId) so multi-day sends share the same ID and the resume
   // below finds what the previous run already delivered.
   const campaignId = weeklyCampaignId();
-  const alreadySentForCampaign = mode === 'send' ? await fetchAlreadySent(campaignId) : new Set();
-  const isResume = alreadySentForCampaign.size > 0;
+  const resumeState = mode === 'send'
+    ? await fetchAlreadySent(campaignId)
+    : { sent: new Set(), ambiguous: new Set(), attempted: new Set() };
+  const alreadySentForCampaign = resumeState.sent;
+  const ambiguousForCampaign = resumeState.ambiguous;
+  const attemptedForCampaign = resumeState.attempted;
+  const isResume = attemptedForCampaign.size > 0;
   const allowNewDiscoverySelection = mode !== 'send'
     || (campaignResumeLookupKnown && !isResume);
   // Fetch the manifest-pinned public index before freezing a brand-new
-  // campaign selection. A local pull can lag the corpus publication; a valid
-  // empty response may freeze null, while transport or snapshot errors must
-  // stop before any recipient is sent. Resumes keep their immutable Firestore
-  // selection and previews continue to use the committed local snapshot.
+  // campaign selection. A valid empty response or an unavailable/invalid
+  // optional index freezes a null slot so the regular digest remains sendable.
+  // Resumes keep their immutable Firestore selection and previews continue to
+  // use the committed local snapshot.
   const discoveryIndex = mode === 'send' && db && allowNewDiscoverySelection
-    ? await loadDiscoveryArticleIndexFromHttp()
+    ? await loadOptionalDiscoveryArticleIndexFromHttp()
     : loadDiscoveryArticleIndex();
+  if (mode === 'send' && db && allowNewDiscoverySelection && !discoveryIndex) {
+    console.warn('[newsletter] discovery index unavailable; freezing an empty optional slot for this campaign.');
+  }
   const discoveryByLocale = new Map();
   for (const locale of ['it', 'en', 'de', 'fr']) {
     if (mode === 'send') {
@@ -2375,7 +2413,9 @@ async function main() {
   const featuredArticle = await pickFeaturedArticle();
   const issueNumber = isResume ? null : await getNextIssueNumber({ persist: mode === 'send' });
   if (issueNumber) console.log(`📰 Issue #${issueNumber}`);
-  if (isResume) console.log(`🔄 Resuming campaign ${campaignId} (${alreadySentForCampaign.size} already sent)`);
+  if (isResume) {
+    console.log(`🔄 Resuming campaign ${campaignId} (${alreadySentForCampaign.size} confirmed, ${ambiguousForCampaign.size} quarantined as unknown)`);
+  }
 
   // ── Preview mode ──
   if (mode === 'preview') {
@@ -2565,10 +2605,10 @@ async function main() {
     // Resume as early as possible. This must happen after the cooldown and
     // digest filters (which define this run's eligible audience), but before
     // enrich/matching/cohort/AI work below.
-    if (alreadySentForCampaign.size > 0) {
+    if (attemptedForCampaign.size > 0) {
       const before = subscribers.length;
-      subscribers = filterUnsentSubscribers(subscribers, alreadySentForCampaign);
-      console.log(`📋 Campaign resume pre-filter: ${before} eligible → ${subscribers.length} unsent (skipped ${before - subscribers.length})`);
+      subscribers = filterUnsentSubscribers(subscribers, attemptedForCampaign);
+      console.log(`📋 Campaign resume pre-filter: ${before} eligible → ${subscribers.length} unattempted (skipped ${before - subscribers.length})`);
     }
 
     if (subscribers.length === 0) {
@@ -2960,9 +3000,9 @@ async function main() {
   // alreadySentForCampaign was fetched earlier (before issue number logic)
   const alreadySent = alreadySentForCampaign;
   let pendingEmails = emails;
-  if (alreadySent.size > 0) {
-    pendingEmails = emails.filter(e => !alreadySent.has(normalizeEmail(e.recipient.email)));
-    console.log(`📋 Resume: ${alreadySent.size} already sent, ${pendingEmails.length} remaining`);
+  if (attemptedForCampaign.size > 0) {
+    pendingEmails = emails.filter(e => !attemptedForCampaign.has(normalizeEmail(e.recipient.email)));
+    console.log(`📋 Resume: ${alreadySent.size} confirmed + ${ambiguousForCampaign.size} quarantined, ${pendingEmails.length} remaining`);
   }
 
   // ── Daily cap: limit to DAILY_SEND_LIMIT for production sends ──
@@ -3038,14 +3078,35 @@ async function main() {
   const resume = db
     ? createResumeWriter(db, resumeLogOpts(campaignId), resumeChunkState(await fetchResumeChunkSizes(campaignId)))
     : null;
-  const { sent, failed } = await sendEmailBatch(cappedEmails, finalizeForProvider, resume ? (email) => resume.record(email) : null);
-  if (resume) await resume.flush();
+  let sendResult;
+  try {
+    sendResult = await sendEmailBatch(
+      cappedEmails,
+      finalizeForProvider,
+      resume ? (email) => resume.record(email) : null,
+      resume ? async (email, item, error) => {
+        // Persist the resume quarantine first; if this write fails the cascade
+        // stops and fails the workflow instead of continuing with an incomplete
+        // campaign ledger.
+        await resume.recordAmbiguous(email);
+        await persistAmbiguousDelivery(item.recipient, item.meta, error.provider);
+      } : null,
+    );
+  } finally {
+    // Preserve checkpoints from confirmed in-flight sends even if a quarantine
+    // write causes the cascade to fail after it settles the active workers.
+    if (resume) await resume.flush();
+  }
+  const { sent, ambiguous, failed } = sendResult;
+  const confirmedSent = sent.filter((item) => item.ack !== 'unidentifiable');
+  const ambiguousFailed = failed.filter((item) => item.ambiguousDelivery).length;
+  const quarantinedThisRun = ambiguous.length + ambiguousFailed;
 
   // Record an impression only for accepted production sends. Test/QA sends
   // intentionally remain outside the CTR denominator, just like the subject
   // experiment's delivery records.
-  if (mode === 'send' && db && sent.length > 0) {
-    const rankingRecords = sent
+  if (mode === 'send' && db && confirmedSent.length > 0) {
+    const rankingRecords = confirmedSent
       .filter((item) => !item.meta?.isOperatorVerification)
       .filter((item) => item.meta?.rankingDeliveryId && item.meta?.rankingJobs?.length)
       .map((item) => ({
@@ -3068,50 +3129,56 @@ async function main() {
     }
   }
 
-  const totalForCampaign = alreadySent.size + sent.length;
+  const totalForCampaign = alreadySent.size + confirmedSent.length;
   // Emails are now built only for the capped prefix, so emails.length no longer
   // covers the recipients deferred to the next run: count them from the
   // pre-cap unsent audience instead, plus what earlier runs already sent.
   const totalSubscribers = unsentBeforeDailyCap === null
     ? emails.length
-    : alreadySent.size + unsentBeforeDailyCap;
-  console.log(`\u2705 Newsletter: ${sent.length} sent, ${failed.length} failed today | ${totalForCampaign}/${totalSubscribers} total for campaign`);
+    : alreadySent.size + ambiguousForCampaign.size + unsentBeforeDailyCap;
+  const totalQuarantined = ambiguousForCampaign.size + quarantinedThisRun;
+  console.log(`\u2705 Newsletter: ${confirmedSent.length} confirmed sent, ${quarantinedThisRun} delivery outcomes quarantined as unknown, ${failed.length - ambiguousFailed} failed today | ${totalForCampaign}/${totalSubscribers} confirmed for campaign (${totalQuarantined} unknown)`);
 
   // Per-user send-time (#3798): the cascade already logs scheduled vs
   // immediate (logProviderSummary/sendEmailCascade); add the by-source split
   // here, reading the authoritative res.scheduledFor the cascade returned
   // (sent[i] === { ...item, ...result }, so .scheduledFor and .meta are both
   // present directly on each entry).
-  if (sent.length > 0) {
+  if (confirmedSent.length > 0) {
     const bySource = { personal: 0, global: 0 };
     let scheduledSentCount = 0;
-    for (const item of sent) {
+    for (const item of confirmedSent) {
       if (!item.scheduledFor) continue;
       scheduledSentCount += 1;
       const source = item.meta?.sendTimeSource;
       if (source && bySource[source] !== undefined) bySource[source] += 1;
     }
-    console.log(`\ud83d\udcc5 Send-time breakdown: ${sent.length - scheduledSentCount} immediate, ${scheduledSentCount} scheduled (personal=${bySource.personal}, global=${bySource.global})`);
+    console.log(`\ud83d\udcc5 Send-time breakdown: ${confirmedSent.length - scheduledSentCount} immediate, ${scheduledSentCount} scheduled (personal=${bySource.personal}, global=${bySource.global})`);
   }
-  if (failed.length > 0) {
-    console.log(`\u26a0\ufe0f  ${failed.length} emails failed — they will be retried on the next run.`);
+  if (quarantinedThisRun > 0) {
+    console.warn(`\u26a0\ufe0f  ${quarantinedThisRun} delivery outcomes are quarantined as unknown and will not be retried automatically.`);
   }
-  if (totalForCampaign < totalSubscribers) {
-    console.log(`\u23f3 ${totalSubscribers - totalForCampaign} remaining — run again tomorrow to continue.`);
+  const retryableFailed = failed.length - ambiguousFailed;
+  if (retryableFailed > 0) {
+    console.log(`\u26a0\ufe0f  ${retryableFailed} definite failures will be retried on the next run.`);
+  }
+  const remaining = Math.max(0, totalSubscribers - totalForCampaign - totalQuarantined);
+  if (remaining > 0) {
+    console.log(`\u23f3 ${remaining} remaining — run again tomorrow to continue.`);
   }
 
   const sampleSubject = emails[0]?.payload?.subject || 'N/A';
-  await logSend(sent.length, sampleSubject, sent.length > 0 ? 'sent' : 'failed');
+  await logSend(confirmedSent.length, sampleSubject, confirmedSent.length > 0 ? 'sent' : quarantinedThisRun > 0 ? 'unknown' : 'failed');
 
   // Track featured article for rotation — only persist on real sends, not test/preview.
   // Pre-2026-05-19 every test send polluted the article history; today's test mode
   // could push 12 entries and overwrite the whole window before any real send.
-  if (mode === 'send' && sent.length > 0 && featuredArticle.persistRotation) {
+  if (mode === 'send' && confirmedSent.length > 0 && featuredArticle.persistRotation) {
     await featuredArticle.persistRotation();
   }
 
   // Track featured jobs for rotation — only persist on real sends, not test/preview
-  if (mode === 'send' && sent.length > 0) {
+  if (mode === 'send' && confirmedSent.length > 0) {
     const shownSlugs = [...new Set(
       subscriberData.flatMap((sd) => sd.matchedJobs.map((j) => j.slug).filter(Boolean))
     )];

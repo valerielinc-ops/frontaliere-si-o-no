@@ -246,6 +246,12 @@ describe('article SEO fallback builder', () => {
       .toBe('Contact &amp; support');
   });
 
+  it.each(['mailto&#58;help@example.test', 'mailto&#x3a;help@example.test'])
+    ('rejects numerically encoded mailto targets (%s)', (href) => {
+      expect(renderArticleInlineMarkup(`[Contact](${href})`)).toBe('Contact');
+      expect(renderArticleInlineMarkup(`<a href="${href}">Contact</a>`)).toBe('Contact');
+    });
+
   it.each([
     'alertswiss.ch', 'www.chiasso.ch/missione-emergenza-chiasso-2026', 'calculator',
     'https:example.test', 'https://', '//example.test/', '/\\example.test/',

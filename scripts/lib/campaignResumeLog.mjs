@@ -58,14 +58,17 @@ export function chunkDocId(campaignId, index) {
 }
 
 /**
- * Every address this campaign has already reached, across all its chunks.
+ * Every address this campaign has already reached or must quarantine, across
+ * all its chunks. `sent` and `ambiguous` stay separate for accurate reporting;
+ * `attempted` is their union for resume filtering.
  *
  * @param {object} db Firestore admin instance
- * @param {{ campaignId: string, field: string }} opts `field` is the array key
- *        this channel writes (`emails` / `sentEmails`) — see the header.
- * @returns {Promise<{ sent: Set<string>, chunkSizes: number[] }>}
+ * @param {{ campaignId: string, field: string, ambiguousField?: string }} opts
+ *        `field` is the confirmed-send array key; `ambiguousField`, when set,
+ *        is a second array for provider outcomes that must not be retried.
+ * @returns {Promise<{ sent: Set<string>, ambiguous: Set<string>, attempted: Set<string>, chunkSizes: number[] }>}
  */
-export async function fetchAlreadySent(db, { campaignId, field }) {
+export async function fetchAlreadySent(db, { campaignId, field, ambiguousField = null }) {
   const { FieldPath } = await import('firebase-admin/firestore');
   const snap = await metaCampaignSends(db)
     .where(FieldPath.documentId(), '>=', campaignId)
@@ -74,13 +77,19 @@ export async function fetchAlreadySent(db, { campaignId, field }) {
     .get();
 
   const sent = new Set();
+  const ambiguous = new Set();
   const chunkSizes = [];
   for (const doc of snap.docs) {
-    const emails = doc.data()?.[field] || [];
-    chunkSizes.push(emails.length);
+    const data = doc.data() || {};
+    const emails = Array.isArray(data[field]) ? data[field] : [];
+    const ambiguousEmails = ambiguousField && Array.isArray(data[ambiguousField])
+      ? data[ambiguousField]
+      : [];
+    chunkSizes.push(new Set([...emails, ...ambiguousEmails]).size);
     for (const email of emails) sent.add(email);
+    for (const email of ambiguousEmails) ambiguous.add(email);
   }
-  return { sent, chunkSizes };
+  return { sent, ambiguous, attempted: new Set([...sent, ...ambiguous]), chunkSizes };
 }
 
 /**
@@ -120,22 +129,66 @@ export async function markSent(db, { campaignId, field, chunkMax = DEFAULT_CHUNK
  */
 export function createResumeWriter(db, opts, chunkState, { flushEvery = 50 } = {}) {
   let pending = [];
+  let pendingAmbiguous = [];
   let written = 0;
+  let ambiguousWritten = 0;
 
-  const flush = async () => {
-    if (!pending.length) return;
+  const flushOnce = async (batch, ambiguousBatch) => {
+    if (batch.length) {
+      try {
+        await markSent(db, opts, batch, chunkState);
+        written += batch.length;
+      } catch (error) {
+        pending = [...batch, ...pending];
+        throw error;
+      }
+    }
+
+    if (ambiguousBatch.length) {
+      if (!opts.ambiguousField) throw new TypeError('ambiguousField is required to record an ambiguous send');
+      try {
+        await markSent(db, { ...opts, field: opts.ambiguousField }, ambiguousBatch, chunkState);
+        ambiguousWritten += ambiguousBatch.length;
+      } catch (error) {
+        pendingAmbiguous = [...ambiguousBatch, ...pendingAmbiguous];
+        throw error;
+      }
+    }
+  };
+
+  // `record` and `recordAmbiguous` are called by concurrent send workers. Keep
+  // every flush on one promise chain so no writer observes the mutable
+  // `chunkState` halfway through another writer's Firestore append.
+  let flushChain = Promise.resolve();
+  const flush = () => {
+    // Snapshot synchronously: an ambiguous callback must quarantine its own
+    // recipient immediately, even when another flush is still queued.
     const batch = pending;
     pending = [];
-    written += batch.length;
-    await markSent(db, opts, batch, chunkState);
+    const ambiguousBatch = pendingAmbiguous;
+    pendingAmbiguous = [];
+    if (!batch.length && !ambiguousBatch.length) return flushChain;
+    const next = flushChain.then(() => flushOnce(batch, ambiguousBatch));
+    // A failed flush must not poison later recovery attempts, but the promise
+    // returned to the caller must still reject with the original error.
+    flushChain = next.catch(() => {});
+    return next;
   };
 
   return {
     async record(email) {
       pending.push(email);
-      if (pending.length >= flushEvery) await flush();
+      if (pending.length + pendingAmbiguous.length >= flushEvery) await flush();
+    },
+    async recordAmbiguous(email) {
+      if (!opts.ambiguousField) throw new TypeError('ambiguousField is required to record an ambiguous send');
+      pendingAmbiguous.push(email);
+      // Unknown provider outcomes must be durable before the cascade moves on;
+      // buffering one could let tomorrow's resume send a possible duplicate.
+      await flush();
     },
     flush,
     count: () => written,
+    ambiguousCount: () => ambiguousWritten,
   };
 }

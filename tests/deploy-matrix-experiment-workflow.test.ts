@@ -65,6 +65,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(inputs.variants).toMatchObject({ type: 'string', default: 'base=' });
     expect(inputs.chain).toMatchObject({ type: 'string', default: '' });
     expect(inputs.stop_after_jobs_seo).toMatchObject({ type: 'boolean', default: false });
+    expect(inputs.profile_job_phases).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.fallback_workers).toMatchObject({
       type: 'choice',
       options: ['1', '2'],
@@ -77,6 +78,10 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(inputs.compare_variants).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.prep_compare).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.freeze_clock).toMatchObject({ type: 'boolean', default: false });
+    for (const jobName of ['build-locale', 'monolith']) {
+      expect(WORKFLOW.jobs[jobName].env.JOBS_SEO_PROFILE_PHASES)
+        .toBe("${{ inputs.profile_job_phases == true && '1' || '' }}");
+    }
   });
 
   it('pins one build id per run and compares variants against base only when asked', () => {

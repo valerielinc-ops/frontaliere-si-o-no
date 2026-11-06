@@ -22,6 +22,7 @@ import YAML from 'yaml';
 const ROOT = resolve(import.meta.dirname, '..');
 const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
+const POST_BUILD_MATRIX_YML = readFileSync(resolve(ROOT, '.github/workflows/post-build-matrix-test.yml'), 'utf-8');
 const DEPLOY_REQUEST_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-request.yml'), 'utf-8');
 const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
 const AUDIT_REPORT_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-dist-from-run.yml'), 'utf-8');
@@ -31,6 +32,7 @@ const CRAWLER_CONTENT_AUDIT_YML = readFileSync(resolve(ROOT, '.github/workflows/
 const EXPIRED_ROUTE_AUDIT_YML = readFileSync(resolve(ROOT, '.github/workflows/backfill-expired-from-history.yml'), 'utf-8');
 const AUDIT_SURFACE_YML = `${DEPLOY_YML}\n${VALIDATION_YML}\n${AUDIT_REPORT_YML}\n${AUDIT_PUBLISHED_YML}\n${AUDIT_FULL_YML}`;
 const DEPLOY_PUBLISH_WORKFLOW = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+const POST_BUILD_MATRIX_WORKFLOW = YAML.parse(POST_BUILD_MATRIX_YML) as any;
 const REPORT_AUDIT_NAMES = new Set<string>([
   ...String((YAML.parse(AUDIT_PUBLISHED_YML) as any).jobs?.report?.with?.audits ?? '')
     .split(/[\s,]+/).filter(Boolean),
@@ -118,6 +120,18 @@ function isInvokedDirectlyOrViaAuditAll(name: string): boolean {
 }
 
 describe('publisher integrity gate and asynchronous historical audits', () => {
+  it('keeps post-build per-page profiling opt-in', () => {
+    const inputs = POST_BUILD_MATRIX_WORKFLOW.on.workflow_dispatch.inputs;
+    expect(inputs.profile_job_phases).toMatchObject({
+      type: 'boolean',
+      default: false,
+    });
+
+    const buildStep = POST_BUILD_MATRIX_WORKFLOW.jobs.build.steps.find((step: any) => step.name === 'Build');
+    expect(String(buildStep.env.JOBS_SEO_PROFILE_PHASES)).toContain('profile_job_phases');
+    expect(buildStep.env.JOBS_SEO_PROFILE_PHASES).not.toBe('1');
+  });
+
   it('keeps the blocking publisher gate short and limited to provenance evidence', () => {
     const workflow = YAML.parse(VALIDATION_YML) as any;
     const job = workflow.jobs['fast-gate'];

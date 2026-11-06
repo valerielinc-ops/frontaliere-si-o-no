@@ -223,8 +223,22 @@ const normalizeLegacyAngleNavMarkers = (line: string): string => {
 
 /** Decode only the entities that can occur in legacy article HTML attributes/text. */
 const decodeInlineHtmlEntities = (value: string): string => value.replace(
- /&(amp|lt|gt|quot|#39|apos);/gi,
- (_, entity: string) => INLINE_HTML_ENTITY_MAP[entity.toLowerCase()] ?? _,
+ /&(?:(#(?:x[0-9a-f]+|\d+))|(amp|lt|gt|quot|apos));/gi,
+ (_, numeric: string | undefined, named: string | undefined) => {
+  if (numeric) {
+   const digits = numeric.slice(1);
+   const radix = /^x/i.test(digits) ? 16 : 10;
+   const codePoint = Number.parseInt(digits.replace(/^x/i, ''), radix);
+   if (
+    Number.isInteger(codePoint)
+    && codePoint > 0
+    && codePoint <= 0x10ffff
+    && !(codePoint >= 0xd800 && codePoint <= 0xdfff)
+   ) return String.fromCodePoint(codePoint);
+   return _;
+  }
+  return INLINE_HTML_ENTITY_MAP[named!.toLowerCase()] ?? _;
+ },
 );
 
 /**
