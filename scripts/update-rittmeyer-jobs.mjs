@@ -423,7 +423,7 @@ function inferCategory(detail = {}) {
   return 'other';
 }
 
-async function buildRittmeyerJob(listing) {
+export async function buildRittmeyerJob(listing) {
   const detailUrl = absoluteUrl(listing.href, listing.sourceBase || DETAIL_BASE);
   const shellHtml = await fetchText(detailUrl);
   const shellDetail = parseRittmeyerJobDetailWithUrl(shellHtml, detailUrl);
