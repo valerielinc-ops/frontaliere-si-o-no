@@ -32,6 +32,7 @@ import { parseFollowupItems, updateFollowupItemState } from '../scripts/ci/follo
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const DOC = readFileSync(new URL('../FOLLOWUP.md', import.meta.url), 'utf8');
+const FOLLOWUP_CEILING_BYTES = 19_000;
 
 const STATE_HEADING = "## Stati dell'item, scrittori e chiusura";
 const MINT_HEADING = '### Ammissione al conio: demozioni e osservazioni';
@@ -69,6 +70,10 @@ const BUCKET = [
 ].join('\n');
 
 describe('FOLLOWUP.md nomina ciò che il codice usa', () => {
+  it('resta entro il ceiling documentato di 19.000 byte', () => {
+    expect(Buffer.byteLength(DOC, 'utf8')).toBeLessThanOrEqual(FOLLOWUP_CEILING_BYTES);
+  });
+
   it('ogni codice di MINT_OBSERVATIONS ha una riga nella tabella di ammissione al conio', () => {
     const mint = section(MINT_HEADING);
     expect(mint, MINT_HEADING).not.toBe('');
