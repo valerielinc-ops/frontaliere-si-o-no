@@ -151,7 +151,7 @@ function preferredProfileValue(
   key: Exclude<keyof EnrichmentProfileFields, 'residenceLocation'>,
 ): string {
   const privateValue = privateProfile?.[key];
-  if (privateProfile && Object.hasOwn(privateProfile, key) && typeof privateValue === 'string') return privateValue;
+  if (privateProfile && Object.prototype.hasOwnProperty.call(privateProfile, key) && typeof privateValue === 'string') return privateValue;
   const legacyValue = legacyProfile?.[key];
   return typeof legacyValue === 'string' ? legacyValue : '';
 }
