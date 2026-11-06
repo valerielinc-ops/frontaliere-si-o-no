@@ -119,6 +119,24 @@ describe('reading the log back', () => {
     expect([...attempted].sort()).toEqual(['overlap@x.it', 'sent@x.it', 'unknown@x.it']);
     expect(chunkSizes).toEqual([3]);
   });
+
+  it('counts confirmed and ambiguous recipients together before opening the next chunk', async () => {
+    const db = fakeDb({
+      'newsletter-2026-W33': {
+        sentEmails: ['a@x.it'],
+        ambiguousEmails: ['b@x.it'],
+      },
+    });
+
+    const { chunkSizes } = await fetchAlreadySent(db, {
+      campaignId: 'newsletter-2026-W33',
+      field: 'sentEmails',
+      ambiguousField: 'ambiguousEmails',
+    });
+
+    expect(chunkSizes).toEqual([2]);
+    expect(resumeChunkState(chunkSizes, 2)).toEqual({ index: 2, count: 0 });
+  });
 });
 
 describe('newsletter pre-filter', () => {
