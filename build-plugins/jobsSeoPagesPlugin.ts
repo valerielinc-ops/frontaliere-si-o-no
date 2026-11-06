@@ -11689,12 +11689,14 @@ ${staticAnalyticsHtml}
  // top-level company hub renders real en/de/fr HTML (write loop above,
  // ~L3789) same as the IT page, so an IT-only push here left en/de/fr as
  // one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
- // Only push a non-IT locale whose HTML was actually written (dead-link
- // guard, same intent as pushEditorialSitemapEntry above).
+ // The IT leg owns this shared sitemap, but it cannot inspect sibling locale
+ // output: non-IT company hubs are written by their own matrix legs. Keep the
+ // on-disk dead-link guard only when this build owns the locale; the publisher
+ // gate then verifies every cross-locale entry against that locale's manifest.
  const entries: string[] = [];
  for (const l of localeList) {
  const p = localePaths.get(l)!;
- if (l !== 'it') {
+ if (l !== 'it' && shouldEmitLocale(l)) {
  const dirIndex = np.join(distDir, p.slice(1), 'index.html');
  if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }

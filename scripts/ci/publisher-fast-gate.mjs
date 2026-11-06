@@ -7,7 +7,7 @@ import { evaluateSitemapFamilyCoverage } from '../lib/sitemap-family-coverage.mj
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
 
-export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v1';
+export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v2';
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SHA_RE = /^[0-9a-f]{64}$/u;
@@ -93,6 +93,19 @@ function localeForUrl(url) {
   return 'it';
 }
 
+function sitemapCoverageInput(snapshot) {
+  // Article-section sitemaps are served and refreshed by the corpus repo.
+  // This build lists them for discovery but does not own their freshness, so
+  // local copies must not count as this deploy's family-coverage evidence.
+  return {
+    ...snapshot,
+    perSitemap: Object.fromEntries(Object.entries(snapshot.perSitemap).map(([name, urls]) => [
+      name,
+      Array.isArray(urls) ? urls.filter((url) => !isExternallyServedUrl(url)) : urls,
+    ])),
+  };
+}
+
 function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
   const urlSet = new Map();
   const snapshotPath = path.join(root, 'new-sitemap-urls.json');
@@ -134,7 +147,11 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
     || Array.isArray(previousSnapshot.perSitemap)) {
     errors.push('pre-deploy sitemap snapshot is missing or is not schema version 3');
   } else {
-    const coverage = evaluateSitemapFamilyCoverage(previousSnapshot, currentSnapshot, declarations);
+    const coverage = evaluateSitemapFamilyCoverage(
+      sitemapCoverageInput(previousSnapshot),
+      sitemapCoverageInput(currentSnapshot),
+      declarations,
+    );
     for (const invalid of coverage.invalidDeclarations) {
       errors.push(`sitemap coverage declaration ${invalid.index} is invalid: ${invalid.family}`);
     }
