@@ -168,7 +168,7 @@ function printResult(result, options) {
 
 export async function run(argv = process.argv.slice(2), {
   env = process.env,
-  fetchImpl = fetch,
+  fetchImpl,
   now = new Date(),
 } = {}) {
   const options = parseArgs(argv);
@@ -183,7 +183,7 @@ export async function run(argv = process.argv.slice(2), {
   const asOf = options.asOf || new Date(now).toISOString();
   let result;
   try {
-    result = await collectSnapshots({
+    const collectionOptions = {
       ledger,
       existing,
       accountId,
@@ -192,8 +192,9 @@ export async function run(argv = process.argv.slice(2), {
       windowHours: options.windowHours,
       toleranceHours: options.toleranceHours,
       maxDistanceMinutes: options.maxDistanceMinutes,
-      fetchImpl,
-    });
+    };
+    if (fetchImpl) collectionOptions.fetchImpl = fetchImpl;
+    result = await collectSnapshots(collectionOptions);
   } catch (error) {
     result = {
       status: 'api-error',
