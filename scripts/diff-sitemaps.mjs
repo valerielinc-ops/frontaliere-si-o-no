@@ -6,7 +6,10 @@
  */
 
 import { existsSync, readFileSync } from 'node:fs';
-import { evaluateSitemapFamilyCoverage } from './lib/sitemap-family-coverage.mjs';
+import {
+  evaluateSitemapFamilyCoverage,
+  filterExternallyServedUrlsFromSitemapCoverage,
+} from './lib/sitemap-family-coverage.mjs';
 import { changedUrls, crawlSitemaps, snapshotFromCrawl } from './lib/sitemap-crawl.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 
@@ -56,7 +59,11 @@ async function main() {
   const current = snapshotFromCrawl(crawl);
   if (GATE_FAMILY_COVERAGE) {
     const declarations = JSON.parse(readFileSync(COVERAGE_DECLARATIONS_FILE, 'utf8'));
-    const coverage = evaluateSitemapFamilyCoverage(previous, current, declarations);
+    const coverage = evaluateSitemapFamilyCoverage(
+      filterExternallyServedUrlsFromSitemapCoverage(previous),
+      filterExternallyServedUrlsFromSitemapCoverage(current),
+      declarations,
+    );
     console.log('\nRestored sitemap family URL-count ratchet:');
     for (const { family, previousCount, currentCount, delta } of coverage.families) {
       const sign = delta > 0 ? '+' : '';
@@ -64,6 +71,9 @@ async function main() {
     }
     for (const decrease of coverage.allowedDecreases) {
       console.log(`  declared decrease: ${decrease.family}: ${decrease.reason}`);
+    }
+    for (const consumed of coverage.consumedDeclarations) {
+      console.log(`  consumed decrease declaration: ${consumed.family}: ${consumed.reason}`);
     }
     if (coverage.invalidDeclarations.length || coverage.staleDeclarations.length || coverage.regressions.length) {
       for (const declaration of coverage.invalidDeclarations) {

@@ -1404,6 +1404,8 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => {
         return `  <url><loc>${BASE_URL}${url}</loc>${lastVerifiedByUrl.get(url) ?? ''}<changefreq>weekly</changefreq><priority>0.6</priority></url>\n`;
       }).join('')}</urlset>\n`;
+      const ownsSharedSitemap = shouldEmitLocale('it');
+      const localeManifestSitemap = path.join(distDir, 'sitemap-farmacie-locale-manifest.xml');
       const written = await collector.flush();
       // The main locale shard owns shared JSON; the exact same validated
       // observation is embedded in SSR for a network-independent SPA handoff.
@@ -1420,9 +1422,19 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         emitPharmacyAliasBridge(distDir, alias);
         aliasRedirects += 1;
       }
-      if (shouldEmitLocale('it')) fs.writeFileSync(path.join(distDir, 'sitemap-farmacie.xml'), sitemap, 'utf8');
+      if (ownsSharedSitemap) {
+        fs.rmSync(localeManifestSitemap, { force: true });
+        fs.writeFileSync(path.join(distDir, 'sitemap-farmacie.xml'), sitemap, 'utf8');
+      } else if (urls.length > 0) {
+        // The per-locale manifest is collected before shard pruning. Give it
+        // the indexable routes this leg actually rendered without replacing
+        // the root sitemap owned and published by the IT leg.
+        fs.writeFileSync(localeManifestSitemap, sitemap, 'utf8');
+      } else {
+        fs.rmSync(localeManifestSitemap, { force: true });
+      }
       const master = path.join(distDir, 'sitemap.xml');
-      if (fs.existsSync(master)) {
+      if (ownsSharedSitemap && fs.existsSync(master)) {
         let xml = fs.readFileSync(master, 'utf8');
         if (!xml.includes('sitemap-farmacie.xml')) xml = xml.replace('</sitemapindex>', `  <sitemap><loc>${BASE_URL}/sitemap-farmacie.xml</loc><lastmod>${dateStamp}</lastmod></sitemap>\n</sitemapindex>`);
         fs.writeFileSync(master, xml, 'utf8');
