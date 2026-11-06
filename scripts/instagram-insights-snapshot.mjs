@@ -136,9 +136,17 @@ function writeJsonAtomically(file, value) {
   renameSync(temporary, resolved);
 }
 
-function credential(name) {
-  const value = String(process.env[name] || '').trim();
+function credential(name, env = process.env) {
+  const value = String(env?.[name] || '').trim();
   return value || null;
+}
+
+/** Resolve only the account-level credentials accepted by the Graph collector. */
+export function resolveInstagramCredentials(env = process.env) {
+  return {
+    accountId: credential('INSTAGRAM_BUSINESS_ACCOUNT_ID', env),
+    accessToken: credential('INSTAGRAM_ACCESS_TOKEN', env),
+  };
 }
 
 function safeError(error) {
@@ -158,7 +166,11 @@ function printResult(result, options) {
   if (result.error) console.error(`warning=${result.error}`);
 }
 
-export async function run(argv = process.argv.slice(2)) {
+export async function run(argv = process.argv.slice(2), {
+  env = process.env,
+  fetchImpl = fetch,
+  now = new Date(),
+} = {}) {
   const options = parseArgs(argv);
   if (options.help) {
     console.log(usage());
@@ -167,9 +179,8 @@ export async function run(argv = process.argv.slice(2)) {
 
   const ledger = readJson(options.ledger, 'ledger', { optional: true, fallback: { posted: [] } });
   const existing = readJson(options.output, 'existing snapshot', { optional: true, fallback: null });
-  const accountId = credential('INSTAGRAM_BUSINESS_ACCOUNT_ID');
-  const accessToken = credential('INSTAGRAM_ACCESS_TOKEN');
-  const asOf = options.asOf || new Date().toISOString();
+  const { accountId, accessToken } = resolveInstagramCredentials(env);
+  const asOf = options.asOf || new Date(now).toISOString();
   let result;
   try {
     result = await collectSnapshots({
@@ -181,6 +192,7 @@ export async function run(argv = process.argv.slice(2)) {
       windowHours: options.windowHours,
       toleranceHours: options.toleranceHours,
       maxDistanceMinutes: options.maxDistanceMinutes,
+      fetchImpl,
     });
   } catch (error) {
     result = {

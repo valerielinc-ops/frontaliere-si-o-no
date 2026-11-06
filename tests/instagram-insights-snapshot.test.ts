@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 
 import {
   buildSnapshotDocument,
@@ -10,7 +12,7 @@ import {
   normalizeMediaInsights,
   selectSnapshotCandidates,
 } from '../scripts/lib/instagram-insights-snapshot.mjs';
-import { parseArgs } from '../scripts/instagram-insights-snapshot.mjs';
+import { parseArgs, resolveInstagramCredentials, run } from '../scripts/instagram-insights-snapshot.mjs';
 import { buildNativeSocialPerformanceBrief } from '../scripts/social-copy/native-performance-brief.mjs';
 
 const AS_OF = '2026-10-10T12:00:00.000Z';
@@ -334,6 +336,95 @@ describe('Instagram Insights snapshot collector', () => {
       fetchImpl: async () => { throw new Error('network must not be called'); },
     });
     expect(result).toMatchObject({ status: 'credentials-missing', candidates: 1, additions: [] });
+  });
+
+  it('persists authorized 24h and 72h observations in separate output documents', async () => {
+    const directory = mkdtempSync(path.join(tmpdir(), 'instagram-insights-snapshot-'));
+    try {
+      const ledgerPath = path.join(directory, 'posted.json');
+      const output24 = path.join(directory, 'insights-24.json');
+      const output72 = path.join(directory, 'insights-72.json');
+      writeFileSync(ledgerPath, JSON.stringify({
+        posted: [ledgerEntry({ instagramMediaId: 'm-1' })],
+      }));
+      const env = {
+        INSTAGRAM_BUSINESS_ACCOUNT_ID: 'account-1',
+        INSTAGRAM_ACCESS_TOKEN: 'account-token-for-test',
+      };
+      const fetchImpl = async (input: string) => {
+        const url = String(input);
+        if (url.includes('/account-1/media?')) {
+          return response({ data: [{
+            id: 'm-1',
+            timestamp: PUBLISHED,
+            media_type: 'CAROUSEL_ALBUM',
+            permalink: 'https://instagram.test/p/1',
+          }] });
+        }
+        if (url.includes('/m-1/insights?')) {
+          return response({ data: [
+            { name: 'reach', values: [{ value: 100 }] },
+            { name: 'saved', values: [{ value: 8 }] },
+            { name: 'shares', values: [{ value: 12 }] },
+            { name: 'comments', values: [{ value: 3 }] },
+          ] });
+        }
+        throw new Error(`unexpected URL: ${url}`);
+      };
+
+      expect(resolveInstagramCredentials(env)).toEqual({
+        accountId: 'account-1',
+        accessToken: 'account-token-for-test',
+      });
+      await run([
+        '--ledger', ledgerPath,
+        '--output', output24,
+        '--window-hours=24',
+        '--tolerance-hours=0',
+        '--as-of', '2026-10-08T12:00:00.000Z',
+        '--json',
+      ], { env, fetchImpl });
+      await run([
+        '--ledger', ledgerPath,
+        '--output', output72,
+        '--window-hours=72',
+        '--tolerance-hours=0',
+        '--as-of', AS_OF,
+        '--json',
+      ], { env, fetchImpl });
+
+      const snapshot24 = JSON.parse(readFileSync(output24, 'utf8'));
+      const snapshot72 = JSON.parse(readFileSync(output72, 'utf8'));
+      expect(snapshot24).toMatchObject({ windowHours: 24, posts: [{ windowHours: 24, postId: 'm-1' }] });
+      expect(snapshot72).toMatchObject({ windowHours: 72, posts: [{ windowHours: 72, postId: 'm-1' }] });
+      expect(JSON.stringify(snapshot24)).not.toContain('account-token-for-test');
+      expect(JSON.stringify(snapshot72)).not.toContain('account-token-for-test');
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps the CLI non-writing and fail-closed when account credentials are incomplete', async () => {
+    const directory = mkdtempSync(path.join(tmpdir(), 'instagram-insights-snapshot-'));
+    try {
+      const ledgerPath = path.join(directory, 'posted.json');
+      const outputPath = path.join(directory, 'insights.json');
+      writeFileSync(ledgerPath, JSON.stringify({ posted: [ledgerEntry({ instagramMediaId: 'm-1' })] }));
+      await run([
+        '--ledger', ledgerPath,
+        '--output', outputPath,
+        '--window-hours=24',
+        '--tolerance-hours=0',
+        '--as-of', '2026-10-08T12:00:00.000Z',
+        '--json',
+      ], {
+        env: { INSTAGRAM_BUSINESS_ACCOUNT_ID: 'account-1' },
+        fetchImpl: async () => { throw new Error('network must not be called'); },
+      });
+      expect(existsSync(outputPath)).toBe(false);
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
   });
 
   it('probes each optional Reel metric independently and retains unsupported metrics as unavailable', async () => {
