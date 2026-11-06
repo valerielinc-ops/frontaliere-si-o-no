@@ -824,16 +824,24 @@ export async function uploadReceipt(page, locator, paths, { acceptedResponse = f
   do {
     const alerts = await page.locator('[role="alert"]:visible').allInnerTexts().catch(() => []);
     if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(alerts.join(' '))) return false;
-    const inputNames = await locator.evaluate((element) => [...(element.files || [])].map((file) => file.name)).catch(() => []);
+    const inputRead = await locator.evaluate((element) => [...(element.files || [])].map((file) => file.name))
+      .then((names) => ({ ok: true, names }))
+      .catch(() => ({ ok: false, names: [] }));
+    const inputNames = inputRead.names;
     const visibleNames = await Promise.all(names.map((name) => page.getByText(name, { exact: false }).first().isVisible().catch(() => false)));
     const inputHasFiles = names.every((name) => inputNames.includes(name));
     // observeFileUpload sets acceptedResponse only after a recognized upload request
-    // receives a successful response; the alert check above still vetoes it. A
-    // portal may replace the input after that response, but a partially retained
-    // multi-file selection must still be checked against every requested name.
-    if ((acceptedResponse && inputNames.length === 0)
-      || (!requiresPortalReceipt && names.every((name, index) => visibleNames[index]))
-      || (inputHasFiles && (!requiresPortalReceipt || acceptedResponse))) return true;
+    // receives a successful response. A boolean response cannot account for
+    // every file in a multi-file selection, and a failed locator read is not
+    // proof that a portal replaced the input with a valid receipt.
+    const responseReceipt = acceptedResponse && names.length === 1 && inputRead.ok && inputNames.length === 0;
+    const visibleReceipt = !requiresPortalReceipt && names.every((name, index) => visibleNames[index]);
+    const inputReceipt = inputHasFiles && (!requiresPortalReceipt || acceptedResponse);
+    if (responseReceipt || visibleReceipt || inputReceipt) {
+      const latestAlerts = await page.locator('[role="alert"]:visible').allInnerTexts().catch(() => []);
+      if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(latestAlerts.join(' '))) return false;
+      return true;
+    }
     if (Date.now() >= deadline) break;
     await page.waitForTimeout(250);
   } while (true);

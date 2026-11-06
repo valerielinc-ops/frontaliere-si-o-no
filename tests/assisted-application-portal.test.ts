@@ -377,11 +377,33 @@ describe('assisted application profile history and file replacement', () => {
       timeoutMs: 0,
     })).toBe(true);
 
+    const partialLocator = { evaluate: vi.fn(async () => ['CV-a.pdf']) };
+    expect(await uploadReceipt(page as any, partialLocator as any, ['/tmp/CV-a.pdf', '/tmp/CV-b.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    const detachedLocator = { evaluate: vi.fn(async () => { throw new Error('detached'); }) };
+    expect(await uploadReceipt(page as any, detachedLocator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
     const failedPage = {
       ...page,
       locator: () => ({ allInnerTexts: async () => ['Upload failed'] }),
     };
     expect(await uploadReceipt(failedPage as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    let alertReads = 0;
+    const lateFailedPage = {
+      ...page,
+      locator: () => ({ allInnerTexts: async () => alertReads++ === 0 ? [] : ['Upload failed'] }),
+    };
+    expect(await uploadReceipt(lateFailedPage as any, locator as any, ['/tmp/CV.pdf'], {
       acceptedResponse: true,
       timeoutMs: 0,
     })).toBe(false);
