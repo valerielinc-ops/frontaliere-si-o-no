@@ -437,6 +437,12 @@ describe('runHreflangIndexManifest on a dist', () => {
     expect(summary.filesRewritten).toBe(65);
     expect(summary.stagingBytes.allAtOnceEquivalent).toBeGreaterThan(summary.stagingBytes.boundedBatchPeak);
     expect(summary.stagingBytes.boundedBatchPeak).toBeGreaterThan(0);
+    expect(summary.stagingBenchmark).toMatchObject({
+      phase: 'build-locale:hreflang-index-manifest',
+      inputFiles: 65,
+      batchSize: 64,
+    });
+    expect(summary.stagingBenchmark.peakStagingBytes).toBeLessThan(summary.stagingBenchmark.preBatchPeakBytes);
   });
 
   it('fails before writing a complete manifest when a dist directory cannot be read', async () => {
