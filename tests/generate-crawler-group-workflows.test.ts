@@ -58,6 +58,54 @@ function projectedLaneDurationMs(durations: number[], workerCount: number) {
   return Math.max(...slots);
 }
 
+/**
+ * Execute the same roster through a scaled semaphore run so the capacity
+ * claim is backed by a pre-merge measurement, not only arithmetic on the
+ * watchdog durations. One simulated minute is one millisecond here: the
+ * relative lane shape is preserved while the test remains bounded.
+ */
+async function runScaledCrawlerLane(durations: number[], workerCount: number) {
+  const exitCodes = Array<number>(durations.length);
+  let nextIndex = 0;
+
+  const runWorker = (durationMs: number) => new Promise<number>((resolve) => {
+    const scaledDurationMs = Math.max(1, Math.ceil(durationMs / 60_000));
+    const child = spawn(process.execPath, [
+      '-e',
+      `setTimeout(() => process.exit(0), ${scaledDurationMs})`,
+    ], { stdio: 'ignore' });
+    child.once('error', () => resolve(1));
+    child.once('exit', (code, signal) => {
+      if (code !== null) {
+        resolve(code);
+      } else if (signal === 'SIGTERM') {
+        resolve(143);
+      } else if (signal === 'SIGKILL') {
+        resolve(137);
+      } else {
+        resolve(1);
+      }
+    });
+  });
+
+  const startedAt = performance.now();
+  const worker = async () => {
+    while (nextIndex < durations.length) {
+      const index = nextIndex;
+      nextIndex += 1;
+      exitCodes[index] = await runWorker(durations[index]);
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(workerCount, durations.length) }, worker));
+
+  return {
+    projectedMinutes: Number((projectedLaneDurationMs(durations, workerCount) / 60_000).toFixed(2)),
+    observedScaledMs: Number((performance.now() - startedAt).toFixed(1)),
+    exitCodes,
+    timeoutExitCount: exitCodes.filter((code) => code === 143 || code === 124).length,
+  };
+}
+
 function decodeFixtureScript(script: string): string {
   // `String.raw` keeps escaped newlines as two bytes. Decode them before the
   // fixture is written as an executable script so its command boundaries are
@@ -1202,7 +1250,7 @@ describe('crawler generation state cleanup', () => {
     expect(group15Body).not.toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
   });
 
-  it('gives group 24 enough bounded slots for its worker-watchdog worst case', () => {
+  it('measures group 24 at caps 6 and 7 with the same 25-member roster', async () => {
     expect(crawlerGroupMaxParallel(24)).toBe(7);
     const group24Body = buildCrawlerLaunchShellBody({
       slug: 'group-24-member',
@@ -1217,9 +1265,24 @@ describe('crawler generation state cleanup', () => {
     )].map(([, minutes]) => Number(minutes) * 60 * 1000);
     const timeoutMs = 340 * 60 * 1000;
     expect(watchdogDurations).toHaveLength(25);
-    expect(projectedLaneDurationMs(watchdogDurations, CRAWLER_GROUP_MAX_PARALLEL)).toBeGreaterThan(timeoutMs);
-    expect(projectedLaneDurationMs(watchdogDurations, crawlerGroupMaxParallel(24))).toBeLessThanOrEqual(timeoutMs);
-  });
+    const cap6 = await runScaledCrawlerLane(watchdogDurations, 6);
+    const cap7 = await runScaledCrawlerLane(watchdogDurations, crawlerGroupMaxParallel(24));
+    const benchmark = {
+      runId: process.env.GITHUB_RUN_ID ?? 'local',
+      group: 24,
+      members: watchdogDurations.length,
+      cap6,
+      cap7,
+    };
+    console.info(`[crawler-capacity-benchmark] ${JSON.stringify(benchmark)}`);
+
+    expect(cap6.projectedMinutes * 60_000).toBeGreaterThan(timeoutMs);
+    expect(cap7.projectedMinutes * 60_000).toBeLessThanOrEqual(timeoutMs);
+    expect(cap6.timeoutExitCount).toBe(0);
+    expect(cap7.timeoutExitCount).toBe(0);
+    expect(cap6.exitCodes.every((code) => code === 0)).toBe(true);
+    expect(cap7.exitCodes.every((code) => code === 0)).toBe(true);
+  }, 15_000);
 
   it('benchmarks the committed group 15/16 rosters below the 340-minute job budget', () => {
     const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
