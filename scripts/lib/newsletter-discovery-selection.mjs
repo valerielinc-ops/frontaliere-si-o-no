@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { ARTICLES_API_BASE } from './articles-api-base.mjs';
 
 export const DISCOVERY_ARTICLES_ARTIFACT = 'data/discovery-articles.json';
 export const DISCOVERY_ARTICLES_DESTINATION = 'data/discovery-articles.json';
@@ -24,6 +25,22 @@ const MAX_RECENT_ARTICLE_AGE_MS = 60 * 24 * 60 * 60 * 1000;
 const MAX_ROTATION_POOL = 12;
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const DEFAULT_FEED_PATH = path.join(ROOT, 'public', DISCOVERY_ARTICLES_DESTINATION);
+// The pull workflow stores this compact manifest snapshot beside the optional
+// local index. Neither file is trusted alone when the live API is unavailable.
+const DEFAULT_LAST_KNOWN_GOOD_MANIFEST_PATH = path.join(
+  ROOT,
+  'public',
+  'data',
+  'discovery-articles-manifest.json',
+);
+const DEFAULT_HTTP_TIMEOUT_MS = 5_000;
+const DEFAULT_HTTP_RETRIES = 2;
+const MAX_HTTP_RETRIES = 5;
+
+/**
+ * @typedef {{ok:boolean,status:number,text:()=>Promise<string>}} DiscoveryFetchResponse
+ * @typedef {(input:string|URL,init?:{signal?:AbortSignal})=>Promise<DiscoveryFetchResponse>} DiscoveryFetch
+ */
 
 const isRecord = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 const hasExactKeys = (value, expected) => {
@@ -147,6 +164,139 @@ export function parseDiscoveryArticleIndex(raw, {
   });
 
   return payload;
+}
+
+function parseDiscoveryManifest(raw) {
+  if (typeof raw !== 'string') throw new Error('manifest.json is not text');
+  let manifest;
+  try {
+    manifest = JSON.parse(raw);
+  } catch {
+    throw new Error('manifest.json is not valid JSON');
+  }
+  if (!isRecord(manifest)
+    || manifest.schema !== 1
+    || typeof manifest.commit !== 'string'
+    || !manifest.commit
+    || !isRecord(manifest.files)
+    || !isRecord(manifest.counts)) {
+    throw new Error('manifest.json has an invalid API contract');
+  }
+
+  const expectedBytes = manifest.files[DISCOVERY_ARTICLES_ARTIFACT];
+  const expectedCount = manifest.counts.discoveryArticles;
+  if (!Number.isSafeInteger(expectedBytes) || expectedBytes <= 0
+    || !Number.isSafeInteger(expectedCount) || expectedCount < 0) {
+    throw new Error('manifest.json does not declare a valid discovery index');
+  }
+  return { manifest, expectedBytes, expectedCount, expectedCommit: manifest.commit };
+}
+
+function readLocalLastKnownGood({ manifestFilePath, indexFilePath, now }) {
+  let manifestRaw;
+  let indexRaw;
+  try {
+    manifestRaw = fs.readFileSync(manifestFilePath, 'utf8');
+    indexRaw = fs.readFileSync(indexFilePath, 'utf8');
+  } catch {
+    return null;
+  }
+
+  try {
+    const { expectedBytes, expectedCount, expectedCommit } = parseDiscoveryManifest(manifestRaw);
+    return parseDiscoveryArticleIndex(indexRaw, {
+      expectedBytes,
+      expectedCount,
+      expectedCommit,
+      now,
+    });
+  } catch {
+    return null;
+  }
+}
+
+/** @param {DiscoveryFetch} fetchImpl @param {URL} url @param {number} timeoutMs */
+function fetchText(fetchImpl, url, timeoutMs) {
+  const controller = new AbortController();
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      controller.abort();
+      reject(new Error('request timed out'));
+    }, timeoutMs);
+  });
+  const request = Promise.resolve().then(async () => {
+    const response = await fetchImpl(url, { signal: controller.signal });
+    if (!response?.ok) throw new Error(`HTTP ${Number(response?.status) || 0}`);
+    return response.text();
+  });
+  return Promise.race([
+    request,
+    timeout,
+  ]).finally(() => clearTimeout(timer));
+}
+
+/**
+ * Fetch the live discovery index against the manifest that announces it.
+ * A valid empty index is returned as an index with count zero. Transport,
+ * schema, freshness, byte-count, count, or commit failures throw after bounded
+ * retries and an optional manifest-pinned local last-known-good check.
+ *
+ * @param {{apiBase?:string,fetchImpl?:DiscoveryFetch,now?:Date|number,timeoutMs?:number,
+ *   retries?:number,retryDelayMs?:number,sleepImpl?:(ms:number)=>Promise<void>,
+ *   manifestFilePath?:string,indexFilePath?:string}} options
+ */
+export async function loadDiscoveryArticleIndexFromHttp({
+  apiBase = ARTICLES_API_BASE,
+  fetchImpl = globalThis.fetch,
+  now = Date.now(),
+  timeoutMs = DEFAULT_HTTP_TIMEOUT_MS,
+  retries = DEFAULT_HTTP_RETRIES,
+  retryDelayMs = 250,
+  sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+  manifestFilePath = DEFAULT_LAST_KNOWN_GOOD_MANIFEST_PATH,
+  indexFilePath = DEFAULT_FEED_PATH,
+} = {}) {
+  if (typeof apiBase !== 'string' || !apiBase.trim()) throw new TypeError('apiBase is required');
+  if (typeof fetchImpl !== 'function') throw new TypeError('fetchImpl is required');
+  if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 60_000) {
+    throw new RangeError('timeoutMs must be an integer between 1 and 60000');
+  }
+  if (!Number.isSafeInteger(retries) || retries < 0 || retries > MAX_HTTP_RETRIES) {
+    throw new RangeError(`retries must be an integer between 0 and ${MAX_HTTP_RETRIES}`);
+  }
+  if (!Number.isSafeInteger(retryDelayMs) || retryDelayMs < 0 || retryDelayMs > 10_000) {
+    throw new RangeError('retryDelayMs must be an integer between 0 and 10000');
+  }
+  if (typeof sleepImpl !== 'function') throw new TypeError('sleepImpl must be a function');
+
+  const base = apiBase.replace(/\/+$/u, '');
+  const manifestUrl = new URL(`${base}/manifest.json`);
+  const discoveryUrl = new URL(`${base}/${DISCOVERY_ARTICLES_ARTIFACT}`);
+  if (!['http:', 'https:'].includes(manifestUrl.protocol)
+    || !['http:', 'https:'].includes(discoveryUrl.protocol)) {
+    throw new TypeError('apiBase must use HTTP or HTTPS');
+  }
+
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      const manifestRaw = await fetchText(fetchImpl, manifestUrl, timeoutMs);
+      const { expectedBytes, expectedCount, expectedCommit } = parseDiscoveryManifest(manifestRaw);
+      const indexRaw = await fetchText(fetchImpl, discoveryUrl, timeoutMs);
+      return parseDiscoveryArticleIndex(indexRaw, {
+        expectedBytes,
+        expectedCount,
+        expectedCommit,
+        now,
+      });
+    } catch {
+      if (attempt < retries) await sleepImpl(retryDelayMs * (attempt + 1));
+    }
+  }
+
+  const lastKnownGood = readLocalLastKnownGood({ manifestFilePath, indexFilePath, now });
+  if (lastKnownGood) return lastKnownGood;
+  throw new Error(`live discovery index unavailable or invalid after ${retries + 1} attempts`);
 }
 
 /**

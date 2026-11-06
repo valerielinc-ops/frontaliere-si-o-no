@@ -84,6 +84,7 @@ const BLOG_CREDITS_ARTIFACT = 'data/image-credits-blog.json';
 const SLUGS_ARTIFACT = 'slugs.json';
 const BLOG_GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
 const DISCOVERY_ARTICLES_PATH = path.join(PUBLIC_DIR, DISCOVERY_ARTICLES_DESTINATION);
+const DISCOVERY_ARTICLES_MANIFEST_PATH = path.join(PUBLIC_DIR, 'data/discovery-articles-manifest.json');
 
 /**
  * Sitemaps this site serves verbatim from the articles repo.
@@ -990,6 +991,16 @@ if (discoveryArtifactAbsent) {
     fail(err.message);
   }
   staged.set(DISCOVERY_ARTICLES_PATH, discoveryRaw);
+  // Keep the exact API pin beside the pulled index. The newsletter can use
+  // this pair as a last-known-good snapshot if the live API is briefly down;
+  // the index alone cannot establish that its count/bytes came from a trusted
+  // manifest release.
+  staged.set(DISCOVERY_ARTICLES_MANIFEST_PATH, `${JSON.stringify({
+    schema: 1,
+    commit: manifest.commit,
+    files: { [DISCOVERY_ARTICLES_ARTIFACT]: discoveryBytes },
+    counts: { discoveryArticles: discoveryCount },
+  }, null, 2)}\n`);
   log(`${DISCOVERY_ARTICLES_ARTIFACT}: validated ${discoveryCount} published discovery articles`);
 }
 
@@ -1602,5 +1613,9 @@ for (const [dest, body] of staged) {
 if (discoveryArtifactAbsent && fs.existsSync(DISCOVERY_ARTICLES_PATH)) {
   fs.rmSync(DISCOVERY_ARTICLES_PATH);
   log(`removed stale ${path.relative(ROOT, DISCOVERY_ARTICLES_PATH)} because the manifest no longer declares it`);
+}
+if (discoveryArtifactAbsent && fs.existsSync(DISCOVERY_ARTICLES_MANIFEST_PATH)) {
+  fs.rmSync(DISCOVERY_ARTICLES_MANIFEST_PATH);
+  log(`removed stale ${path.relative(ROOT, DISCOVERY_ARTICLES_MANIFEST_PATH)} because the manifest no longer declares it`);
 }
 log(`done — ${staged.size} artifact(s) from ${API_BASE}`);
