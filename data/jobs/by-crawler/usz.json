@@ -17503,12 +17503,12 @@
     },
     {
       "id": "usz-fe465c9f495e",
-      "slug": "radiologiefachperson-nuklearmedizin-80-100-usz-ch",
+      "slug": "specialista-di-radiologia-medicina-nucleare-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "radiologiefachperson-nuklearmedizin-80-100-usz-ch",
-        "it": "radiologiefachperson-nuklearmedizin-80-100-usz-ch",
-        "en": "radiologiefachperson-nuklearmedizin-80-100-usz-ch",
-        "fr": "radiologiefachperson-nuklearmedizin-80-100-usz-ch"
+        "it": "specialista-di-radiologia-medicina-nucleare-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "radiology-specialist-nuclear-medicine-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "specialiste-en-radiologie-medecine-nucleaire-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17570,7 +17570,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:20:31.535Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:20:31.535Z"
+      "firstSeenAt": "2026-11-05T21:20:31.535Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachperson-nuklearmedizin-80-100-usz-ch"
+        ],
+        "en": [
+          "radiologiefachperson-nuklearmedizin-80-100-usz-ch"
+        ],
+        "fr": [
+          "radiologiefachperson-nuklearmedizin-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "radiologiefachperson-nuklearmedizin-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-d5d4bc935d23",
@@ -17660,12 +17674,12 @@
     },
     {
       "id": "usz-81e57cf4ea60",
-      "slug": "spezialpflege-pflegefachperson-aufwachraum-50-100-usz-ch",
+      "slug": "cura-speciale-sala-di-recupero-professionale-infermieristica-50-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "spezialpflege-pflegefachperson-aufwachraum-50-100-usz-ch",
-        "it": "spezialpflege-pflegefachperson-aufwachraum-50-100-usz-ch",
-        "en": "spezialpflege-pflegefachperson-aufwachraum-50-100-usz-ch",
-        "fr": "spezialpflege-pflegefachperson-aufwachraum-50-100-usz-ch"
+        "it": "cura-speciale-sala-di-recupero-professionale-infermieristica-50-100-universitatsspital-zurich-usz-zurich",
+        "en": "special-care-nursing-professional-recovery-room-50-100-universitatsspital-zurich-usz-zurich",
+        "fr": "soins-speciaux-salle-de-recuperation-professionnelle-pour-infirmieres-50-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17727,7 +17741,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:20:31.531Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:20:31.531Z"
+      "firstSeenAt": "2026-11-05T21:20:31.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-pflegefachperson-aufwachraum-50-100-usz-ch"
+        ],
+        "en": [
+          "spezialpflege-pflegefachperson-aufwachraum-50-100-usz-ch"
+        ],
+        "fr": [
+          "spezialpflege-pflegefachperson-aufwachraum-50-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-pflegefachperson-aufwachraum-50-100-usz-ch"
+      ]
     },
     {
       "id": "usz-c8ad7b074072",
@@ -17735,8 +17763,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-mit-besonderen-aufgaben-im-fach-und-oder-fachexpertin-fachexperte-pflege-60",
         "it": "collaboratore-trice-con-besonderen-aufgaben-im-fach-e-o-fachexpertin-fachexperte-pflege-60-100-universitatsspital-zurich-usz-zurich",
-        "en": "mitarbeiter-in-mit-besonderen-aufgaben-im-fach-und-oder-fachexpertin-fachexperte-pflege-60",
-        "fr": "mitarbeiter-in-mit-besonderen-aufgaben-im-fach-und-oder-fachexpertin-fachexperte-pflege-60"
+        "en": "employee-with-special-responsibilities-in-the-field-and-or-nursing-expert-60-100-universitatsspital-zurich-usz-zurich",
+        "fr": "collaboratrice-collaborateur-avec-des-taches-particulieres-dans-le-domaine-et-ou-experte-expert-en-soins-60-100"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17785,6 +17813,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-mit-besonderen-aufgaben-im-fach-und-oder-fachexpertin-fachexperte-pflege-60"
+        ],
+        "en": [
+          "mitarbeiter-in-mit-besonderen-aufgaben-im-fach-und-oder-fachexpertin-fachexperte-pflege-60"
+        ],
+        "fr": [
+          "mitarbeiter-in-mit-besonderen-aufgaben-im-fach-und-oder-fachexpertin-fachexperte-pflege-60"
         ]
       },
       "previousSlugs": [
@@ -17811,12 +17845,12 @@
     },
     {
       "id": "usz-5b479aba1ad8",
-      "slug": "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-gastroenterologie-e-hepatologie-80-universitatsspital-zurich-usz-zurich",
+      "slug": "medica-assistente-medico-assistente-m-f-d-per-la-clinica-di-gastroenterologia-ed-epatologia-80-universitatsspital-zurich",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gastroenterologie-und-hepatologie",
-        "it": "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-gastroenterologie-e-hepatologie-80-universitatsspital-zurich-usz-zurich",
-        "en": "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gastroenterologie-und-hepatologie",
-        "fr": "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gastroenterologie-und-hepatologie"
+        "it": "medica-assistente-medico-assistente-m-f-d-per-la-clinica-di-gastroenterologia-ed-epatologia-80-universitatsspital-zurich",
+        "en": "assistant-physician-m-f-d-for-the-clinic-of-gastroenterology-and-hepatology-80-universitatsspital-zurich-usz-zurich",
+        "fr": "medecin-adjoint-h-f-d-pour-la-clinique-de-gastroenterologie-et-d-hepatologie-80-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17864,11 +17898,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gastroenterologie-und-hepatologie",
+          "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-gastroenterologie-e-hepatologie-80-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gastroenterologie-und-hepatologie"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gastroenterologie-und-hepatologie"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gastroenterologie-und-hepatologie"
+        "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gastroenterologie-und-hepatologie",
+        "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-gastroenterologie-e-hepatologie-80-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -17891,12 +17933,12 @@
     },
     {
       "id": "usz-1989b4a0b4d8",
-      "slug": "verwaltungssekretar-in-per-la-klinik-per-thoraxchirurgie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "segretario-a-amministrativo-a-per-la-clinica-di-chirurgia-toracica-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "verwaltungssekretar-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch",
-        "it": "verwaltungssekretar-in-per-la-klinik-per-thoraxchirurgie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "verwaltungssekretar-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch",
-        "fr": "verwaltungssekretar-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch"
+        "it": "segretario-a-amministrativo-a-per-la-clinica-di-chirurgia-toracica-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "administrative-secretary-for-the-clinic-of-thoracic-surgery-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "secretaire-administratif-ve-pour-la-clinique-de-chirurgie-thoracique-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17944,11 +17986,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "verwaltungssekretar-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch",
+          "verwaltungssekretar-in-per-la-klinik-per-thoraxchirurgie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "verwaltungssekretar-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch"
+        ],
+        "fr": [
           "verwaltungssekretar-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "verwaltungssekretar-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch"
+        "verwaltungssekretar-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch",
+        "verwaltungssekretar-in-per-la-klinik-per-thoraxchirurgie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17971,12 +18021,12 @@
     },
     {
       "id": "usz-fea7d97bd19d",
-      "slug": "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich",
+      "slug": "ricercatore-ricercatrice-clinico-a-in-scienze-infermieristiche-60-80-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "klinische-r-pflegewissenschaftler-in-60-80-usz-ch",
-        "it": "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich",
-        "en": "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich",
-        "fr": "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich"
+        "it": "ricercatore-ricercatrice-clinico-a-in-scienze-infermieristiche-60-80-universitatsspital-zurich-usz-zurich",
+        "en": "clinical-nursing-scientist-60-80-universitatsspital-zurich-usz-zurich",
+        "fr": "scientifique-clinique-en-sciences-infirmieres-60-80-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18024,11 +18074,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "klinische-r-pflegewissenschaftler-in-60-80-usz-ch"
+          "klinische-r-pflegewissenschaftler-in-60-80-usz-ch",
+          "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich"
+        ],
+        "fr": [
+          "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich"
         ]
       },
       "previousSlugs": [
-        "klinische-r-pflegewissenschaftler-in-60-80-usz-ch"
+        "klinische-r-pflegewissenschaftler-in-60-80-usz-ch",
+        "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,

@@ -18796,12 +18796,12 @@
     },
     {
       "id": "jumbo-5dde1e2e-753",
-      "slug": "verkaufsberater-in-jumbo-jumbo-weinfelden",
+      "slug": "consulente-di-vendita-jumbo-jumbo-weinfelden",
       "slugByLocale": {
         "de": "verkaufsberater-in-jumbo-jumbo-weinfelden",
-        "it": "verkaufsberater-in-jumbo-jumbo-weinfelden",
-        "en": "verkaufsberater-in-jumbo-jumbo-weinfelden",
-        "fr": "verkaufsberater-in-jumbo-jumbo-weinfelden"
+        "it": "consulente-di-vendita-jumbo-jumbo-weinfelden",
+        "en": "jumbo-sales-advisor-jumbo-weinfelden",
+        "fr": "conseiller-ere-de-vente-jumbo-jumbo-weinfelden"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18878,16 +18878,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:18:36.066Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:18:36.066Z"
+      "firstSeenAt": "2026-11-05T21:18:36.066Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-jumbo-jumbo-weinfelden"
+        ],
+        "en": [
+          "verkaufsberater-in-jumbo-jumbo-weinfelden"
+        ],
+        "fr": [
+          "verkaufsberater-in-jumbo-jumbo-weinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-jumbo-jumbo-weinfelden"
+      ]
     },
     {
       "id": "jumbo-ec900799-c31",
-      "slug": "verkaufer-in-food-jumbo-lyssach",
+      "slug": "addetto-a-alle-vendite-nel-settore-alimentare-jumbo-lyssach",
       "slugByLocale": {
         "de": "verkaufer-in-food-jumbo-lyssach",
-        "it": "verkaufer-in-food-jumbo-lyssach",
-        "en": "verkaufer-in-food-jumbo-lyssach",
-        "fr": "verkaufer-in-food-jumbo-lyssach"
+        "it": "addetto-a-alle-vendite-nel-settore-alimentare-jumbo-lyssach",
+        "en": "food-sales-assistant-jumbo-lyssach",
+        "fr": "vendeur-euse-en-alimentation-jumbo-lyssach"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18964,7 +18978,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:18:36.063Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:18:36.063Z"
+      "firstSeenAt": "2026-11-05T21:18:36.063Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-jumbo-lyssach"
+        ],
+        "en": [
+          "verkaufer-in-food-jumbo-lyssach"
+        ],
+        "fr": [
+          "verkaufer-in-food-jumbo-lyssach"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-jumbo-lyssach"
+      ]
     },
     {
       "id": "jumbo-c945b24c-be0",

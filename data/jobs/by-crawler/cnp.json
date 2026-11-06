@@ -929,7 +929,7 @@
       "slugByLocale": {
         "it": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "assistant-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-assistant-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -980,7 +980,7 @@
         "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel",
         "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -993,7 +993,7 @@
           "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "de": [
-          "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+          "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "fr": [
           "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel"
@@ -2400,12 +2400,12 @@
     },
     {
       "id": "cnp-6610df286470",
-      "slug": "coordinateur-trice-de-l-offre-socioculturelle-aux-patient-e-s-cnp-marin-epagnier",
+      "slug": "coordinatore-dell-offerta-socioculturale-ai-pazienti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "coordinateur-trice-de-l-offre-socioculturelle-aux-patient-e-s-cnp-marin-epagnier",
-        "it": "coordinateur-trice-de-l-offre-socioculturelle-aux-patient-e-s-cnp-marin-epagnier",
-        "en": "coordinateur-trice-de-l-offre-socioculturelle-aux-patient-e-s-cnp-marin-epagnier",
-        "de": "coordinateur-trice-de-l-offre-socioculturelle-aux-patient-e-s-cnp-marin-epagnier"
+        "it": "coordinatore-dell-offerta-socioculturale-ai-pazienti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "coordinator-of-the-sociocultural-offer-to-patients-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "koordinator-des-soziokulturellen-angebots-fur-patienten-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
@@ -2467,7 +2467,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:28:20.684Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:28:20.684Z"
+      "firstSeenAt": "2026-11-05T21:28:20.684Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-de-l-offre-socioculturelle-aux-patient-e-s-cnp-marin-epagnier"
+        ],
+        "en": [
+          "coordinateur-trice-de-l-offre-socioculturelle-aux-patient-e-s-cnp-marin-epagnier"
+        ],
+        "de": [
+          "coordinateur-trice-de-l-offre-socioculturelle-aux-patient-e-s-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-trice-de-l-offre-socioculturelle-aux-patient-e-s-cnp-marin-epagnier"
+      ]
     }
   ]
 }

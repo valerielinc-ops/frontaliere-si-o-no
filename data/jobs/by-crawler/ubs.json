@@ -3674,12 +3674,12 @@
     },
     {
       "id": "ubs-4182c3f7ba8f",
-      "slug": "2027-graduate-talent-program-internal-audit-asset-management-zh-ubs-zurich",
+      "slug": "2027-programma-di-insediamento-di-laureati-gestione-interna-dei-beni-di-audit-zh-ubs-zurich",
       "slugByLocale": {
         "en": "2027-graduate-talent-program-internal-audit-asset-management-zh-ubs-zurich",
-        "it": "2027-graduate-talent-program-internal-audit-asset-management-zh-ubs-zurich",
-        "de": "2027-graduate-talent-program-internal-audit-asset-management-zh-ubs-zurich",
-        "fr": "2027-graduate-talent-program-internal-audit-asset-management-zh-ubs-zurich"
+        "it": "2027-programma-di-insediamento-di-laureati-gestione-interna-dei-beni-di-audit-zh-ubs-zurich",
+        "de": "2027-graduiertentalentprogramm-interne-revision-asset-management-zh-ubs-zurich",
+        "fr": "2027-programme-des-talents-diplomes-verification-interne-gestion-d-actifs-zh-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3750,7 +3750,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:16:39.210Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:16:39.210Z"
+      "firstSeenAt": "2026-11-05T21:16:39.210Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-internal-audit-asset-management-zh-ubs-zurich"
+        ],
+        "de": [
+          "2027-graduate-talent-program-internal-audit-asset-management-zh-ubs-zurich"
+        ],
+        "fr": [
+          "2027-graduate-talent-program-internal-audit-asset-management-zh-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-internal-audit-asset-management-zh-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-fe024364acad",
@@ -9677,7 +9691,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -9730,11 +9744,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",

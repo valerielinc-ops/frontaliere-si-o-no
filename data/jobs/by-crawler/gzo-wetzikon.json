@@ -2179,12 +2179,12 @@
     },
     {
       "id": "gzo-wetzikon-8982e2b56743",
-      "slug": "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-e-somnologie-100-gzo-spital-wetzikon",
+      "slug": "medico-a-assistente-in-formazione-in-pneumologia-e-somnologia-100-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-und-somnologie-100-gzo-wetzikon",
-        "it": "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-e-somnologie-100-gzo-spital-wetzikon",
-        "en": "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-und-somnologie-100-gzo-wetzikon",
-        "fr": "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-und-somnologie-100-gzo-wetzikon"
+        "it": "medico-a-assistente-in-formazione-in-pneumologia-e-somnologia-100-gzo-spital-wetzikon-wetzikon",
+        "en": "assistant-doctor-for-training-pneumology-and-somnology-100-gzo-spital-wetzikon-wetzikon",
+        "fr": "assistant-medecin-pour-la-formation-pneumologie-et-somnologie-100-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -2234,11 +2234,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-und-somnologie-100-gzo-wetzikon",
+          "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-e-somnologie-100-gzo-spital-wetzikon"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-und-somnologie-100-gzo-wetzikon"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-und-somnologie-100-gzo-wetzikon"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-und-somnologie-100-gzo-wetzikon"
+        "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-und-somnologie-100-gzo-wetzikon",
+        "assistenzarztin-assistenzarzt-zur-ausbildung-pneumologie-e-somnologie-100-gzo-spital-wetzikon"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

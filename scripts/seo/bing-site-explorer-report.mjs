@@ -88,11 +88,14 @@ export function readPartitionReports(reportsDir, prefix = 'partition-') {
 
 function mergeDiscoveredReferrers(report, sourceUrl, links, manifest, manifestSet) {
   const known = new Map();
+  const referrerLimits = {
+    sourceCount: Array.isArray(manifest?.urls) ? manifest.urls.length : 0,
+  };
   const discoveredUrls = report.discoveredOutOfSitemap || [];
   const discoveredReferrers = report.discoveredReferrers || [];
   for (let index = 0; index < discoveredUrls.length; index += 1) {
     const refs = new Map();
-    for (const pair of discoveredReferrers[index] || []) rememberReferrerPair(refs, pair);
+    for (const pair of discoveredReferrers[index] || []) rememberReferrerPair(refs, pair, referrerLimits);
     known.set(discoveredUrls[index], refs);
   }
   const sourceIndex = (manifest?.urls || []).indexOf(sourceUrl);
@@ -100,7 +103,7 @@ function mergeDiscoveredReferrers(report, sourceUrl, links, manifest, manifestSe
   for (const link of links || []) {
     if (manifestSet.has(link)) continue;
     const refs = known.get(link) || new Map();
-    if (sourceIndex >= 0) rememberReferrerPair(refs, [sourceIndex, referrerTemplate]);
+    if (sourceIndex >= 0) rememberReferrerPair(refs, [sourceIndex, referrerTemplate], referrerLimits);
     known.set(link, refs);
   }
   const urls = [...known.keys()].sort();

@@ -1282,12 +1282,12 @@
     },
     {
       "id": "klinik-sonnenhalde-7d8980fd024e",
-      "slug": "abteilungsleiter-in-tk-hybrid-dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
+      "slug": "responsabile-di-reparto-tk-hybrid-infermiere-a-diplomato-a-sss-sup-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "de": "abteilungsleiter-in-tk-hybrid-dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-        "it": "abteilungsleiter-in-tk-hybrid-dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-        "en": "abteilungsleiter-in-tk-hybrid-dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-        "fr": "abteilungsleiter-in-tk-hybrid-dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+        "it": "responsabile-di-reparto-tk-hybrid-infermiere-a-diplomato-a-sss-sup-klinik-sonnenhalde-riehen",
+        "en": "department-head-tk-hybrid-diploma-qualified-nurse-hf-fh-klinik-sonnenhalde-riehen",
+        "fr": "responsable-de-departement-tk-hybrid-infirmier-ere-diplome-e-es-hes-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -1351,13 +1351,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:45:12.642Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:45:12.642Z"
+      "firstSeenAt": "2026-11-05T21:45:12.642Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-tk-hybrid-dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+        ],
+        "en": [
+          "abteilungsleiter-in-tk-hybrid-dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+        ],
+        "fr": [
+          "abteilungsleiter-in-tk-hybrid-dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-tk-hybrid-dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+      ]
     },
     {
       "id": "klinik-sonnenhalde-8acaf4936ded",
       "slug": "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen-4e16f96a93",
       "slugByLocale": {
-        "it": "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen-4e16f96a93",
+        "it": "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen",
         "en": "dipl-care-professional-hf-fh-klinik-sonnenhalde-riehen",
         "de": "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
         "fr": "dipl-soins-professionnels-hf-fh-klinik-sonnenhalde-riehen"
@@ -1406,13 +1420,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-        "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen"
+        "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-          "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen"
+          "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"

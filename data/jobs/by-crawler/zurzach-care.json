@@ -177,7 +177,7 @@
         "it": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
         "en": "certified-nurse-nurse-specialist-60-80-department-of-cardiology-zurzach-care-bad-zurzach",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "fr": "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
+        "fr": "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -234,13 +234,13 @@
         ],
         "fr": [
           "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-          "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+          "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
         ]
       },
       "previousSlugs": [
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach",
-        "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+        "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
       ],
       "firstSeenAt": "2026-10-08T21:15:07.730Z",
       "salaryMin": 70400,
@@ -5916,12 +5916,12 @@
     },
     {
       "id": "zurzach-care-df03ec584d81",
-      "slug": "patientenassistentin-patientenassistent-100-zurzach-care-bad-zurzach",
+      "slug": "assistente-paziente-assistente-paziente-100-zurzach-care-bad-zurzach",
       "slugByLocale": {
         "de": "patientenassistentin-patientenassistent-100-zurzach-care-bad-zurzach",
-        "it": "patientenassistentin-patientenassistent-100-zurzach-care-bad-zurzach",
-        "en": "patientenassistentin-patientenassistent-100-zurzach-care-bad-zurzach",
-        "fr": "patientenassistentin-patientenassistent-100-zurzach-care-bad-zurzach"
+        "it": "assistente-paziente-assistente-paziente-100-zurzach-care-bad-zurzach",
+        "en": "patient-assistant-patient-assistant-100-zurzach-care-bad-zurzach",
+        "fr": "assistant-patient-assistant-patient-100-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5983,16 +5983,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:27:08.035Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:27:08.035Z"
+      "firstSeenAt": "2026-11-05T21:27:08.035Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patientenassistentin-patientenassistent-100-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "patientenassistentin-patientenassistent-100-zurzach-care-bad-zurzach"
+        ],
+        "fr": [
+          "patientenassistentin-patientenassistent-100-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "patientenassistentin-patientenassistent-100-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-1c6496734d8a",
-      "slug": "assistentin-assistent-gesundheit-e-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach",
+      "slug": "assistente-assistente-per-la-salute-e-il-sociale-nel-turno-di-notte-80-zurzach-care-bad-zurzach",
       "slugByLocale": {
         "de": "assistentin-assistent-gesundheit-und-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach",
-        "it": "assistentin-assistent-gesundheit-e-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach",
-        "en": "assistentin-assistent-gesundheit-und-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach",
-        "fr": "assistentin-assistent-gesundheit-und-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach"
+        "it": "assistente-assistente-per-la-salute-e-il-sociale-nel-turno-di-notte-80-zurzach-care-bad-zurzach",
+        "en": "assistant-assistant-health-and-social-welfare-at-night-80-zurzach-care-bad-zurzach",
+        "fr": "assistant-assistant-sante-et-protection-sociale-la-nuit-80-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -6040,11 +6054,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistentin-assistent-gesundheit-und-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach",
+          "assistentin-assistent-gesundheit-e-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "assistentin-assistent-gesundheit-und-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach"
+        ],
+        "fr": [
           "assistentin-assistent-gesundheit-und-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach"
         ]
       },
       "previousSlugs": [
-        "assistentin-assistent-gesundheit-und-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach"
+        "assistentin-assistent-gesundheit-und-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach",
+        "assistentin-assistent-gesundheit-e-soziales-im-nachtdienst-80-zurzach-care-bad-zurzach"
       ],
       "salaryMin": 51600,
       "salaryMax": 88000,
@@ -6067,12 +6089,12 @@
     },
     {
       "id": "zurzach-care-d6839e2c1358",
-      "slug": "fachfrau-fachmann-gesundheit-fage-100-fachbereich-neurologie-zurzach-care-bad-zurzach",
+      "slug": "salute-professionale-fage-100-dipartimento-di-neurologia-zurzach-care-bad-zurzach",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fage-100-fachbereich-neurologie-zurzach-care-bad-zurzach",
-        "it": "fachfrau-fachmann-gesundheit-fage-100-fachbereich-neurologie-zurzach-care-bad-zurzach",
-        "en": "fachfrau-fachmann-gesundheit-fage-100-fachbereich-neurologie-zurzach-care-bad-zurzach",
-        "fr": "fachfrau-fachmann-gesundheit-fage-100-fachbereich-neurologie-zurzach-care-bad-zurzach"
+        "it": "salute-professionale-fage-100-dipartimento-di-neurologia-zurzach-care-bad-zurzach",
+        "en": "professional-health-fage-100-department-of-neurology-zurzach-care-bad-zurzach",
+        "fr": "sante-professionnelle-fage-100-departement-de-neurologie-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -6134,16 +6156,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:27:06.747Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:27:06.747Z"
+      "firstSeenAt": "2026-11-05T21:27:06.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-fage-100-fachbereich-neurologie-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-fage-100-fachbereich-neurologie-zurzach-care-bad-zurzach"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-fage-100-fachbereich-neurologie-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-fage-100-fachbereich-neurologie-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-3f60d2efbe69",
-      "slug": "neuropsychologin-neuropsychologen-80-befristet-bis-30-juni-2027-zurzach-care-bad-zurzach",
+      "slug": "neuropsicologo-neuropsicologo-80-temporaneo-fino-a-30-giugno-2027-zurzach-care-bad-zurzach",
       "slugByLocale": {
         "de": "neuropsychologin-neuropsychologen-80-befristet-bis-30-juni-2027-zurzach-care-bad-zurzach",
-        "it": "neuropsychologin-neuropsychologen-80-befristet-bis-30-juni-2027-zurzach-care-bad-zurzach",
-        "en": "neuropsychologin-neuropsychologen-80-befristet-bis-30-juni-2027-zurzach-care-bad-zurzach",
-        "fr": "neuropsychologin-neuropsychologen-80-befristet-bis-30-juni-2027-zurzach-care-bad-zurzach"
+        "it": "neuropsicologo-neuropsicologo-80-temporaneo-fino-a-30-giugno-2027-zurzach-care-bad-zurzach",
+        "en": "neuropsychologist-neuropsychologist-80-temporary-until-30-june-2027-zurzach-care-bad-zurzach",
+        "fr": "neuropsychologue-neuropsychologue-80-temporaire-jusqu-a-30-juin-2027-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -6205,7 +6241,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:27:05.658Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:27:05.658Z"
+      "firstSeenAt": "2026-11-05T21:27:05.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "neuropsychologin-neuropsychologen-80-befristet-bis-30-juni-2027-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "neuropsychologin-neuropsychologen-80-befristet-bis-30-juni-2027-zurzach-care-bad-zurzach"
+        ],
+        "fr": [
+          "neuropsychologin-neuropsychologen-80-befristet-bis-30-juni-2027-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "neuropsychologin-neuropsychologen-80-befristet-bis-30-juni-2027-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-88b4c270a37f",

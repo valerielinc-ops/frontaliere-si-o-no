@@ -340,12 +340,12 @@
     },
     {
       "id": "marriott-85470671b3e2",
-      "slug": "technicien-de-maintenance-marriott-geneva",
+      "slug": "manutenzione-tecnica-marriott-international-geneva",
       "slugByLocale": {
         "fr": "technicien-de-maintenance-marriott-geneva",
-        "it": "technicien-de-maintenance-marriott-geneva",
-        "en": "technicien-de-maintenance-marriott-geneva",
-        "de": "technicien-de-maintenance-marriott-geneva"
+        "it": "manutenzione-tecnica-marriott-international-geneva",
+        "en": "maintenance-technician-marriott-international-geneva",
+        "de": "wartungstechniker-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -415,7 +415,21 @@
       "addressRegion": "GE",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:46:37.065Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-maintenance-marriott-geneva"
+        ],
+        "en": [
+          "technicien-de-maintenance-marriott-geneva"
+        ],
+        "de": [
+          "technicien-de-maintenance-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-maintenance-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-bcf14b1180b9",
@@ -694,7 +708,7 @@
       "slugByLocale": {
         "en": "steward-kitchen-helper-winter-26-27-w-verbier-marriott-verbier",
         "it": "steward-kitchen-helper-winter-26-27-w-verbier-marriott-verbier",
-        "de": "steward-kitchen-helper-winter-26-27-w-verbier-marriott-verbier",
+        "de": "steward-kuchenhelfer-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "steward-kitchen-helper-winter-26-27-w-verbier-marriott-verbier"
       },
       "company": "Marriott International",
@@ -1419,10 +1433,10 @@
     },
     {
       "id": "marriott-b94181bd60f8",
-      "slug": "learning-quality-manager-marriott-geneva",
+      "slug": "gestione-dell-apprendimento-e-della-qualita-marriott-international-geneva",
       "slugByLocale": {
         "en": "learning-quality-manager-marriott-geneva",
-        "it": "learning-quality-manager-marriott-geneva",
+        "it": "gestione-dell-apprendimento-e-della-qualita-marriott-international-geneva",
         "de": "learning-quality-manager-marriott-geneva",
         "fr": "learning-quality-manager-marriott-geneva"
       },
@@ -1495,7 +1509,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:46:37.042Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:46:37.042Z"
+      "firstSeenAt": "2026-11-05T21:46:37.042Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-quality-manager-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "learning-quality-manager-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-9799c9d49fd8",
@@ -1591,12 +1613,12 @@
     },
     {
       "id": "marriott-eb330eb5aff8",
-      "slug": "f-b-intern-marriott-geneva",
+      "slug": "f-b-tirocinante-marriott-international-geneva",
       "slugByLocale": {
         "en": "f-b-intern-marriott-geneva",
-        "it": "f-b-intern-marriott-geneva",
-        "de": "f-b-intern-marriott-geneva",
-        "fr": "f-b-intern-marriott-geneva"
+        "it": "f-b-tirocinante-marriott-international-geneva",
+        "de": "f-b-praktikant-marriott-international-geneva",
+        "fr": "f-b-stagiaire-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1668,7 +1690,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:46:37.035Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:46:37.035Z"
+      "firstSeenAt": "2026-11-05T21:46:37.035Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-intern-marriott-geneva"
+        ],
+        "de": [
+          "f-b-intern-marriott-geneva"
+        ],
+        "fr": [
+          "f-b-intern-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-intern-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-938d115338c0",

@@ -3181,12 +3181,12 @@
     },
     {
       "id": "coopers-53b632217fb1",
-      "slug": "business-analyst-in-m-w-d-coopers-bern",
+      "slug": "analista-aziendale-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "business-analyst-in-m-w-d-coopers-bern",
-        "it": "business-analyst-in-m-w-d-coopers-bern",
+        "it": "analista-aziendale-m-f-d-coopers-group-ag-bern",
         "en": "business-analyst-in-m-w-d-coopers-bern",
-        "fr": "business-analyst-in-m-w-d-coopers-bern"
+        "fr": "analyste-metier-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3263,16 +3263,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:24:51.624Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:24:51.624Z"
+      "firstSeenAt": "2026-11-05T21:24:51.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-in-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "business-analyst-in-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-in-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-faa7128c7648",
-      "slug": "test-manager-output-ccm-dokumenten-management-systemen-m-w-d-coopers-bern",
+      "slug": "test-manager-sistemi-di-gestione-di-output-ccm-document-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "test-manager-output-ccm-dokumenten-management-systemen-m-w-d-coopers-bern",
-        "it": "test-manager-output-ccm-dokumenten-management-systemen-m-w-d-coopers-bern",
+        "it": "test-manager-sistemi-di-gestione-di-output-ccm-document-m-f-d-coopers-group-ag-bern",
         "en": "test-manager-output-ccm-dokumenten-management-systemen-m-w-d-coopers-bern",
-        "fr": "test-manager-output-ccm-dokumenten-management-systemen-m-w-d-coopers-bern"
+        "fr": "gestionnaire-d-essais-systemes-de-sortie-ccm-gestion-des-documents-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3354,16 +3365,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:24:50.731Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:24:50.731Z"
+      "firstSeenAt": "2026-11-05T21:24:50.731Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "test-manager-output-ccm-dokumenten-management-systemen-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "test-manager-output-ccm-dokumenten-management-systemen-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "test-manager-output-ccm-dokumenten-management-systemen-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-379994d6c79b",
-      "slug": "requirements-engineer-m-w-d-coopers-bern",
+      "slug": "requirements-ingegnere-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "requirements-engineer-m-w-d-coopers-bern",
-        "it": "requirements-engineer-m-w-d-coopers-bern",
+        "it": "requirements-ingegnere-m-w-d-coopers-group-ag-bern",
         "en": "requirements-engineer-m-w-d-coopers-bern",
-        "fr": "requirements-engineer-m-w-d-coopers-bern"
+        "fr": "requirements-ingenieur-m-w-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3441,16 +3463,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:24:49.849Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:24:49.849Z"
+      "firstSeenAt": "2026-11-05T21:24:49.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "requirements-engineer-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "requirements-engineer-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "requirements-engineer-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-0c698b2e80f3",
-      "slug": "business-analyst-krankenversicherung-m-w-d-coopers-solothurn",
+      "slug": "analista-aziendale-assicurazione-malattia-m-f-d-coopers-group-ag-solothurn",
       "slugByLocale": {
         "de": "business-analyst-krankenversicherung-m-w-d-coopers-solothurn",
-        "it": "business-analyst-krankenversicherung-m-w-d-coopers-solothurn",
-        "en": "business-analyst-krankenversicherung-m-w-d-coopers-solothurn",
-        "fr": "business-analyst-krankenversicherung-m-w-d-coopers-solothurn"
+        "it": "analista-aziendale-assicurazione-malattia-m-f-d-coopers-group-ag-solothurn",
+        "en": "business-analyst-health-insurance-m-f-d-coopers-group-ag-solothurn",
+        "fr": "analyste-metier-assurance-maladie-h-f-d-coopers-group-ag-solothurn"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3527,7 +3560,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:24:48.967Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:24:48.967Z"
+      "firstSeenAt": "2026-11-05T21:24:48.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-krankenversicherung-m-w-d-coopers-solothurn"
+        ],
+        "en": [
+          "business-analyst-krankenversicherung-m-w-d-coopers-solothurn"
+        ],
+        "fr": [
+          "business-analyst-krankenversicherung-m-w-d-coopers-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-krankenversicherung-m-w-d-coopers-solothurn"
+      ]
     },
     {
       "id": "coopers-eb9f85acaaac",
@@ -3620,12 +3667,12 @@
     },
     {
       "id": "coopers-ec124335b019",
-      "slug": "senior-java-entwickler-in-m-w-d-coopers-bern",
+      "slug": "sviluppatore-sviluppatrice-java-senior-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "senior-java-entwickler-in-m-w-d-coopers-bern",
-        "it": "senior-java-entwickler-in-m-w-d-coopers-bern",
+        "it": "sviluppatore-sviluppatrice-java-senior-m-f-d-coopers-group-ag-bern",
         "en": "senior-java-entwickler-in-m-w-d-coopers-bern",
-        "fr": "senior-java-entwickler-in-m-w-d-coopers-bern"
+        "fr": "developpeur-euse-java-senior-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3702,16 +3749,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:24:47.164Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:24:47.164Z"
+      "firstSeenAt": "2026-11-05T21:24:47.164Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-java-entwickler-in-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "senior-java-entwickler-in-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-java-entwickler-in-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-687df6cf8b85",
-      "slug": "warehouse-operator-m-w-d-coopers-aargau",
+      "slug": "warehouse-operatore-m-w-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "de": "warehouse-operator-m-w-d-coopers-aargau",
-        "it": "warehouse-operator-m-w-d-coopers-aargau",
+        "it": "warehouse-operatore-m-w-d-coopers-group-ag-aargau",
         "en": "warehouse-operator-m-w-d-coopers-aargau",
-        "fr": "warehouse-operator-m-w-d-coopers-aargau"
+        "fr": "warehouse-operateur-m-w-d-coopers-group-ag-aargau"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3787,7 +3845,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:24:46.277Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:24:46.277Z"
+      "firstSeenAt": "2026-11-05T21:24:46.277Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "warehouse-operator-m-w-d-coopers-aargau"
+        ],
+        "fr": [
+          "warehouse-operator-m-w-d-coopers-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "warehouse-operator-m-w-d-coopers-aargau"
+      ]
     },
     {
       "id": "coopers-46c542c8390e",

@@ -2043,12 +2043,12 @@
     },
     {
       "id": "stadt-luzern-195683652523",
-      "slug": "berufsbeistandsperson-kinder-e-jugendschutz-60-80-stadt-luzern",
+      "slug": "curatore-trice-professionale-per-la-protezione-dell-infanzia-e-della-gioventu-60-80-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "berufsbeistandsperson-kinder-und-jugendschutz-60-80-stadt-luzern-luzern",
-        "it": "berufsbeistandsperson-kinder-e-jugendschutz-60-80-stadt-luzern",
-        "en": "berufsbeistandsperson-kinder-und-jugendschutz-60-80-stadt-luzern-luzern",
-        "fr": "berufsbeistandsperson-kinder-und-jugendschutz-60-80-stadt-luzern-luzern"
+        "it": "curatore-trice-professionale-per-la-protezione-dell-infanzia-e-della-gioventu-60-80-stadt-luzern-luzern",
+        "en": "professional-assistant-child-and-youth-protection-60-80-stadt-luzern-luzern",
+        "fr": "aide-professionnelle-a-la-protection-de-l-enfance-et-de-la-jeunesse-60-80-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2097,11 +2097,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "berufsbeistandsperson-kinder-und-jugendschutz-60-80-stadt-luzern-luzern",
+          "berufsbeistandsperson-kinder-e-jugendschutz-60-80-stadt-luzern"
+        ],
+        "en": [
+          "berufsbeistandsperson-kinder-und-jugendschutz-60-80-stadt-luzern-luzern"
+        ],
+        "fr": [
           "berufsbeistandsperson-kinder-und-jugendschutz-60-80-stadt-luzern-luzern"
         ]
       },
       "previousSlugs": [
-        "berufsbeistandsperson-kinder-und-jugendschutz-60-80-stadt-luzern-luzern"
+        "berufsbeistandsperson-kinder-und-jugendschutz-60-80-stadt-luzern-luzern",
+        "berufsbeistandsperson-kinder-e-jugendschutz-60-80-stadt-luzern"
       ],
       "salaryMin": 55600,
       "salaryMax": 84800,

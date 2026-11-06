@@ -4391,11 +4391,11 @@
     },
     {
       "id": "hib-broye-85db2c8a11aa",
-      "slug": "infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-hib-broye-payerne",
+      "slug": "50-70-paziente-gestore-del-flusso-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
         "fr": "infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-hib-broye-payerne",
-        "it": "infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-hib-broye-payerne",
-        "en": "infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-hib-broye-payerne",
+        "it": "50-70-paziente-gestore-del-flusso-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "50-70-patient-flow-manager-nurse-hopital-intercantonal-de-la-broye-hib-payerne",
         "de": "infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -4458,7 +4458,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:14:15.774Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:14:15.774Z"
+      "firstSeenAt": "2026-11-05T21:14:15.774Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-hib-broye-payerne"
+        ],
+        "en": [
+          "infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-hib-broye-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-hib-broye-payerne"
+      ]
     }
   ]
 }

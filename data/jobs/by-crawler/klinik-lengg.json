@@ -1469,12 +1469,12 @@
     },
     {
       "id": "klinik-lengg-b8c24694db7e",
-      "slug": "eeg-assistentin-eeg-assistent-a-klinik-lengg-zurich",
+      "slug": "assistente-eeg-assistente-eeg-a-klinik-lengg-zurich",
       "slugByLocale": {
         "de": "eeg-assistentin-eeg-assistent-a-klinik-lengg-zurich",
-        "it": "eeg-assistentin-eeg-assistent-a-klinik-lengg-zurich",
-        "en": "eeg-assistentin-eeg-assistent-a-klinik-lengg-zurich",
-        "fr": "eeg-assistentin-eeg-assistent-a-klinik-lengg-zurich"
+        "it": "assistente-eeg-assistente-eeg-a-klinik-lengg-zurich",
+        "en": "eeg-assistant-eeg-assistant-a-klinik-lengg-zurich",
+        "fr": "assistant-eeg-assistant-eeg-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1536,7 +1536,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:47:32.561Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:47:32.561Z"
+      "firstSeenAt": "2026-11-05T21:47:32.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "eeg-assistentin-eeg-assistent-a-klinik-lengg-zurich"
+        ],
+        "en": [
+          "eeg-assistentin-eeg-assistent-a-klinik-lengg-zurich"
+        ],
+        "fr": [
+          "eeg-assistentin-eeg-assistent-a-klinik-lengg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "eeg-assistentin-eeg-assistent-a-klinik-lengg-zurich"
+      ]
     },
     {
       "id": "klinik-lengg-b9264fadb588",
@@ -1618,12 +1632,12 @@
     },
     {
       "id": "klinik-lengg-ce94eb544e7e",
-      "slug": "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich",
+      "slug": "infermiere-a-diplomato-a-come-mattiniero-a-o-nottambulo-a-a-klinik-lengg-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
-        "it": "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich",
+        "it": "infermiere-a-diplomato-a-come-mattiniero-a-o-nottambulo-a-a-klinik-lengg-zurich",
         "en": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich-2",
-        "fr": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich-2"
+        "fr": "diplome-aidant-en-tant-qu-oiseau-precoce-ou-hiboux-de-nuit-a-klinik-lengg-zurich-700c0d"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1673,12 +1687,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
+          "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich-2",
+          "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich"
+        ],
+        "fr": [
           "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich-2"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
-        "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich-2"
+        "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich-2",
+        "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

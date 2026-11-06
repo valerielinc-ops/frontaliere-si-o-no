@@ -371,6 +371,8 @@ describe('fill extension: patterns', () => {
     expect(F.cookieRefusal(document)?.textContent).toBe('Decline optional cookies');
     document.body.innerHTML = '<form class="consent"><button type="button">Manage consent</button></form>';
     expect(F.cookieRefusal(document)).toBeNull();
+    document.body.innerHTML = '<form class="cookiePolicy cookiemanager"><button type="button">Cookie-Einstellungen</button></form>';
+    expect(F.cookieRefusal(document)).toBeNull();
     document.body.innerHTML = '<section class="consent"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>';
     expect(F.cookieRefusal(document)).toBeNull();
     document.body.innerHTML = '<section class="banner"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>';

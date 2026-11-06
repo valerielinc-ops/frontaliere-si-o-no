@@ -6253,12 +6253,12 @@
     },
     {
       "id": "kanton-aargau-0b55adfee023",
-      "slug": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch-2",
+      "slug": "personale-personale-compensazione-disoccupazione-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch",
-        "it": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch-2",
-        "en": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch-2",
-        "fr": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch-2"
+        "it": "personale-personale-compensazione-disoccupazione-100-kanton-aargau-aarau",
+        "en": "personnel-personnel-unemployment-compensation-100-kanton-aargau-aarau",
+        "fr": "personnel-personnel-indemnite-de-chomage-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6324,21 +6324,29 @@
       "firstSeenAt": "2026-11-04T09:27:00.276Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch"
+          "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch",
+          "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch-2"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch-2"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch-2"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch"
+        "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch",
+        "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch-2"
       ]
     },
     {
       "id": "kanton-aargau-c4ee67aa9227",
-      "slug": "vollzugsangestellte-vollzugsangestellter-fachablosung-druckerei-buchbinderei-100-kanton",
+      "slug": "attuazione-personale-attuazione-personale-di-distacco-specializzato-stampa-bookbinding-100-kanton-aargau-lenzburg",
       "slugByLocale": {
         "de": "vollzugsangestellte-vollzugsangestellter-fachablosung-druckerei-buchbinderei-100-kanton",
-        "it": "vollzugsangestellte-vollzugsangestellter-fachablosung-druckerei-buchbinderei-100-kanton",
-        "en": "vollzugsangestellte-vollzugsangestellter-fachablosung-druckerei-buchbinderei-100-kanton",
-        "fr": "vollzugsangestellte-vollzugsangestellter-fachablosung-druckerei-buchbinderei-100-kanton"
+        "it": "attuazione-personale-attuazione-personale-di-distacco-specializzato-stampa-bookbinding-100-kanton-aargau-lenzburg",
+        "en": "implementation-staff-implementation-staff-of-specialised-detachment-printing-bookbinding-100-kanton-aargau-lenzburg",
+        "fr": "personnel-de-mise-en-uvre-personnel-de-mise-en-uvre-du-detachement-specialise-impression-et-reliure-100-kanton-aargau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6401,7 +6409,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-05T21:49:07.748Z"
+      "firstSeenAt": "2026-11-05T21:49:07.748Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vollzugsangestellte-vollzugsangestellter-fachablosung-druckerei-buchbinderei-100-kanton"
+        ],
+        "en": [
+          "vollzugsangestellte-vollzugsangestellter-fachablosung-druckerei-buchbinderei-100-kanton"
+        ],
+        "fr": [
+          "vollzugsangestellte-vollzugsangestellter-fachablosung-druckerei-buchbinderei-100-kanton"
+        ]
+      },
+      "previousSlugs": [
+        "vollzugsangestellte-vollzugsangestellter-fachablosung-druckerei-buchbinderei-100-kanton"
+      ]
     },
     {
       "id": "kanton-aargau-e6bad268ebe8",

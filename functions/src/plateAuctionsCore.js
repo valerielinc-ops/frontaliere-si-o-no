@@ -895,23 +895,37 @@ export function extractPdfUrl(html, { baseUrl, pattern } = {}) {
       .replace(/\\u0026/g, '&'))
     .map((href) => {
       try {
-        return new URL(href, baseUrl).toString();
+        const resolved = new URL(href, baseUrl);
+        const candidates = [resolved];
+        const wrappedTarget = resolved.searchParams.get('url');
+        if (wrappedTarget) {
+          try {
+            const target = new URL(wrappedTarget, resolved);
+            if (/^https?:$/i.test(target.protocol)) candidates.push(target);
+          } catch {
+            // Keep the published wrapper as the only candidate when its target
+            // is malformed; the pattern must still match a real URL below.
+          }
+        }
+        return { href: resolved.toString(), candidates };
       } catch {
         return null;
       }
     })
-    .filter((value) => value && (/(?:\.pdf(?:$|[?#])|\/download(?:$|[?#])|\/@@download\/file(?:\/|$|[?#]))/i.test(value)));
+    .filter((value) => value && value.candidates.some((candidate) => (
+      /(?:\.pdf(?:$|[?#])|\/download(?:$|[?#])|\/@@download\/file(?:\/|$|[?#]))/i.test(candidate.toString())
+    )));
   const matching = typeof pattern?.test === 'function'
-    ? hrefs.find((href) => {
+    ? hrefs.find(({ candidates }) => candidates.some((candidate) => {
       pattern.lastIndex = 0;
-      return pattern.test(href);
-    })
+      return pattern.test(candidate.toString());
+    }))?.href
     : undefined;
   // A configured pattern is a contract, not a ranking hint. Falling back to
   // the first PDF can silently feed the car parser with the motorcycle list
   // (or vice versa) after an upstream markup change. Callers that have a
   // deliberately verified fallback URL choose it explicitly.
-  return typeof pattern?.test === 'function' ? matching : hrefs[0];
+  return typeof pattern?.test === 'function' ? matching : hrefs[0]?.href;
 }
 
 /**

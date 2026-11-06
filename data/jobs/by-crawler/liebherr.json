@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "liebherr-f325b026a67c",
-      "slug": "young-talent-optimisation-des-processus-d-usinage-h-f-x-liebherr-bulle",
+      "slug": "young-talent-ottimizzazione-dei-processi-di-lavorazione-m-f-x-liebherr-bulle",
       "slugByLocale": {
         "fr": "young-talent-optimisation-des-processus-d-usinage-h-f-x-liebherr-bulle",
-        "it": "young-talent-optimisation-des-processus-d-usinage-h-f-x-liebherr-bulle",
-        "en": "young-talent-optimisation-des-processus-d-usinage-h-f-x-liebherr-bulle",
-        "de": "young-talent-optimisation-des-processus-d-usinage-h-f-x-liebherr-bulle"
+        "it": "young-talent-ottimizzazione-dei-processi-di-lavorazione-m-f-x-liebherr-bulle",
+        "en": "young-talent-optimization-of-m-f-x-machining-processes-liebherr-bulle",
+        "de": "young-talent-optimierung-von-m-w-x-bearbeitungsprozessen-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -75,7 +75,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:44:23.044Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:23.044Z"
+      "firstSeenAt": "2026-11-05T21:44:23.044Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-talent-optimisation-des-processus-d-usinage-h-f-x-liebherr-bulle"
+        ],
+        "en": [
+          "young-talent-optimisation-des-processus-d-usinage-h-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "young-talent-optimisation-des-processus-d-usinage-h-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "young-talent-optimisation-des-processus-d-usinage-h-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-6fe27c3c767f",
@@ -83,7 +97,7 @@
       "slugByLocale": {
         "it": "attrezzature-di-consulenza-tecnica-earthmoving-m-f-liebherr-daillens",
         "en": "technical-advisor-equipment-earthmoving-m-f-liebherr-daillens",
-        "de": "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens",
+        "de": "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens",
         "fr": "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -132,7 +146,7 @@
       "previousSlugs": [
         "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
         "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-        "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
+        "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -144,7 +158,7 @@
         "de": [
           "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
           "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-          "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
+          "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-09-08T13:53:09.548Z",
@@ -1480,7 +1494,7 @@
       "slugByLocale": {
         "it": "giovani-talenti-sottosistemi-ingegneria-m-f-x-liebherr-bulle",
         "en": "young-talent-subsystems-engineering-m-f-x-liebherr-bulle",
-        "de": "nachwuchstalent-subsystemtechnik-m-w-d-liebherr-bulle",
+        "de": "junge-talente-subsystems-engineering-m-w-x-liebherr-bulle",
         "fr": "young-talent-subsystems-engineering-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -1529,7 +1543,7 @@
       "previousSlugs": [
         "young-talent-subsystems-engineering-m-f-x-liebherr-bulle",
         "young-talent-subsystemtechnik-m-w-d-liebherr-bulle",
-        "junge-talente-subsystems-engineering-m-w-x-liebherr-bulle"
+        "nachwuchstalent-subsystemtechnik-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1538,7 +1552,7 @@
         "de": [
           "young-talent-subsystems-engineering-m-f-x-liebherr-bulle",
           "young-talent-subsystemtechnik-m-w-d-liebherr-bulle",
-          "junge-talente-subsystems-engineering-m-w-x-liebherr-bulle"
+          "nachwuchstalent-subsystemtechnik-m-w-d-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -2420,12 +2434,12 @@
     },
     {
       "id": "liebherr-f7d1d0b1383d",
-      "slug": "technischer-sachbearbeiter-betontechnik-m-w-liebherr-reiden",
+      "slug": "responsabile-tecnico-concrete-engineering-m-f-liebherr-reiden",
       "slugByLocale": {
         "de": "technischer-sachbearbeiter-betontechnik-m-w-liebherr-reiden",
-        "it": "technischer-sachbearbeiter-betontechnik-m-w-liebherr-reiden",
-        "en": "technischer-sachbearbeiter-betontechnik-m-w-liebherr-reiden",
-        "fr": "technischer-sachbearbeiter-betontechnik-m-w-liebherr-reiden"
+        "it": "responsabile-tecnico-concrete-engineering-m-f-liebherr-reiden",
+        "en": "technical-officer-concrete-engineering-m-f-liebherr-reiden",
+        "fr": "agent-technique-genie-du-beton-h-f-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2490,16 +2504,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:44:10.330Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:10.330Z"
+      "firstSeenAt": "2026-11-05T21:44:10.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-sachbearbeiter-betontechnik-m-w-liebherr-reiden"
+        ],
+        "en": [
+          "technischer-sachbearbeiter-betontechnik-m-w-liebherr-reiden"
+        ],
+        "fr": [
+          "technischer-sachbearbeiter-betontechnik-m-w-liebherr-reiden"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-sachbearbeiter-betontechnik-m-w-liebherr-reiden"
+      ]
     },
     {
       "id": "liebherr-5a58be9995a1",
-      "slug": "hr-specialist-administration-development-m-w-liebherr-reiden",
+      "slug": "risorse-umane-specialista-administration-development-m-w-liebherr-reiden",
       "slugByLocale": {
         "de": "hr-specialist-administration-development-m-w-liebherr-reiden",
-        "it": "hr-specialist-administration-development-m-w-liebherr-reiden",
+        "it": "risorse-umane-specialista-administration-development-m-w-liebherr-reiden",
         "en": "hr-specialist-administration-development-m-w-liebherr-reiden",
-        "fr": "hr-specialist-administration-development-m-w-liebherr-reiden"
+        "fr": "ressources-humaines-specialiste-administration-development-m-w-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2564,7 +2592,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:44:09.261Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:09.261Z"
+      "firstSeenAt": "2026-11-05T21:44:09.261Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-administration-development-m-w-liebherr-reiden"
+        ],
+        "fr": [
+          "hr-specialist-administration-development-m-w-liebherr-reiden"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-administration-development-m-w-liebherr-reiden"
+      ]
     },
     {
       "id": "liebherr-c8a98e309f6e",
@@ -2660,7 +2699,7 @@
       "slugByLocale": {
         "it": "tecnico-di-gru-a-torre-h-f-liebherr-daillens",
         "en": "tower-crane-technician-h-f-liebherr-daillens",
-        "de": "turmkrantechniker-m-w-d-liebherr-daillens",
+        "de": "drehkrantechniker-h-f-liebherr-daillens",
         "fr": "technicien-grues-a-tour-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -2710,7 +2749,7 @@
         "turmkrantechniker-h-f-liebherr-daillens",
         "technicien-grues-a-tour-h-f-liebherr-daillens",
         "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-        "drehkrantechniker-h-f-liebherr-daillens"
+        "turmkrantechniker-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2723,7 +2762,7 @@
         "de": [
           "turmkrantechniker-h-f-liebherr-daillens",
           "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-          "drehkrantechniker-h-f-liebherr-daillens"
+          "turmkrantechniker-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.412Z",
@@ -2748,12 +2787,12 @@
     },
     {
       "id": "liebherr-b8d8e5badca8",
-      "slug": "service-techniker-betontechnik-m-w-liebherr-reiden",
+      "slug": "tecnico-del-servizio-ingegneria-del-calcestruzzo-m-f-liebherr-reiden",
       "slugByLocale": {
         "de": "service-techniker-betontechnik-m-w-liebherr-reiden",
-        "it": "service-techniker-betontechnik-m-w-liebherr-reiden",
-        "en": "service-techniker-betontechnik-m-w-liebherr-reiden",
-        "fr": "service-techniker-betontechnik-m-w-liebherr-reiden"
+        "it": "tecnico-del-servizio-ingegneria-del-calcestruzzo-m-f-liebherr-reiden",
+        "en": "service-technician-concrete-engineering-m-f-liebherr-reiden",
+        "fr": "technicien-de-service-genie-du-beton-h-f-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2818,7 +2857,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:44:07.849Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:07.849Z"
+      "firstSeenAt": "2026-11-05T21:44:07.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-techniker-betontechnik-m-w-liebherr-reiden"
+        ],
+        "en": [
+          "service-techniker-betontechnik-m-w-liebherr-reiden"
+        ],
+        "fr": [
+          "service-techniker-betontechnik-m-w-liebherr-reiden"
+        ]
+      },
+      "previousSlugs": [
+        "service-techniker-betontechnik-m-w-liebherr-reiden"
+      ]
     },
     {
       "id": "liebherr-2ed77532ee6e",
@@ -3206,12 +3259,12 @@
     },
     {
       "id": "liebherr-b3beea9ae45d",
-      "slug": "mechaniker-betontechnik-m-w-liebherr-reiden",
+      "slug": "meccanica-ingegneria-del-calcestruzzo-m-f-liebherr-reiden",
       "slugByLocale": {
         "de": "mechaniker-betontechnik-m-w-liebherr-reiden",
-        "it": "mechaniker-betontechnik-m-w-liebherr-reiden",
-        "en": "mechaniker-betontechnik-m-w-liebherr-reiden",
-        "fr": "mechaniker-betontechnik-m-w-liebherr-reiden"
+        "it": "meccanica-ingegneria-del-calcestruzzo-m-f-liebherr-reiden",
+        "en": "mechanics-concrete-engineering-m-f-liebherr-reiden",
+        "fr": "mecanique-genie-du-beton-h-f-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -3276,7 +3329,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:44:05.702Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:05.702Z"
+      "firstSeenAt": "2026-11-05T21:44:05.702Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechaniker-betontechnik-m-w-liebherr-reiden"
+        ],
+        "en": [
+          "mechaniker-betontechnik-m-w-liebherr-reiden"
+        ],
+        "fr": [
+          "mechaniker-betontechnik-m-w-liebherr-reiden"
+        ]
+      },
+      "previousSlugs": [
+        "mechaniker-betontechnik-m-w-liebherr-reiden"
+      ]
     },
     {
       "id": "liebherr-6427247a248e",
@@ -3649,7 +3716,7 @@
       "slugByLocale": {
         "it": "ingegnere-dei-sistemi-di-controllo-m-f-x-liebherr-bulle",
         "en": "control-systems-engineer-m-f-x-liebherr-bulle",
-        "de": "control-systems-ingenieur-m-w-d-liebherr-bulle",
+        "de": "regelungssystemingenieur-m-f-x-liebherr-bulle",
         "fr": "ingenieur-systemes-de-controle-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -3699,7 +3766,7 @@
         "control-systems-ingegnere-m-f-x-liebherr-bulle",
         "control-systems-ingenieur-m-f-x-liebherr-bulle",
         "control-systems-engineer-m-f-x-liebherr-bulle",
-        "regelungssystemingenieur-m-f-x-liebherr-bulle"
+        "control-systems-ingenieur-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3707,7 +3774,7 @@
           "control-systems-engineer-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "regelungssystemingenieur-m-f-x-liebherr-bulle"
+          "control-systems-ingenieur-m-w-d-liebherr-bulle"
         ],
         "fr": [
           "control-systems-ingenieur-m-f-x-liebherr-bulle"
@@ -3740,7 +3807,7 @@
         "it": "responsabile-della-sicurezza-del-prodotto-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-product-security-m-w-d-liebherr-bulle",
         "de": "leiter-produktsicherheit-m-w-d-liebherr-bulle",
-        "fr": "responsable-product-security-m-w-d-liebherr-bulle"
+        "fr": "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -3788,7 +3855,7 @@
       "previousSlugs": [
         "responsabile-product-security-m-w-d-liebherr-bulle",
         "head-of-product-security-m-w-d-liebherr-bulle",
-        "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
+        "responsable-product-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3796,7 +3863,7 @@
           "head-of-product-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
+          "responsable-product-security-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.378Z",
@@ -4273,7 +4340,7 @@
         "it": "responsabile-della-sicurezza-dei-dati-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-data-security-m-w-d-liebherr-bulle",
         "de": "leiter-der-datensicherheit-m-w-d-liebherr-bulle",
-        "fr": "responsable-data-security-m-w-d-liebherr-bulle"
+        "fr": "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4321,7 +4388,7 @@
       "previousSlugs": [
         "responsabile-data-security-m-w-d-liebherr-bulle",
         "head-of-data-security-m-w-d-liebherr-bulle",
-        "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
+        "responsable-data-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4329,7 +4396,7 @@
           "head-of-data-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
+          "responsable-data-security-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.373Z",
@@ -4462,9 +4529,9 @@
       "id": "liebherr-a2ee910fd683",
       "slug": "domanda-non-richiesta-liebherr-bulle",
       "slugByLocale": {
-        "it": "domanda-non-richiesta-liebherr-bulle",
+        "it": "applicazione-speculativa-liebherr-bulle",
         "en": "speculative-application-liebherr-bulle",
-        "de": "initativbewerbung-liebherr-bulle",
+        "de": "spekulative-anwendung-liebherr-bulle",
         "fr": "candidature-spontanee-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4525,7 +4592,7 @@
         "de": [
           "spontane-anwendung-liebherr-bulle",
           "unerbetene-anwendung-liebherr-bulle",
-          "spekulative-anwendung-liebherr-bulle"
+          "initativbewerbung-liebherr-bulle"
         ],
         "fr": [
           "applicazione-spontanea-liebherr-bulle",
@@ -4540,8 +4607,7 @@
           "applicazione-spontanea-liebherr-bulle",
           "applicazione-non-richiesta-liebherr-bulle",
           "candidature-spontanee-liebherr-bulle",
-          "speculative-application-liebherr-bulle",
-          "applicazione-speculativa-liebherr-bulle"
+          "speculative-application-liebherr-bulle"
         ],
         "en": [
           "initiativbewerbung-liebherr-bulle",
@@ -4564,8 +4630,7 @@
         "applicazione-speculativa-liebherr-bulle",
         "unsolicited-application-liebherr-bulle",
         "candidature-non-sollicitee-liebherr-bulle",
-        "speculative-application-liebherr-bulle",
-        "spekulative-anwendung-liebherr-bulle"
+        "speculative-application-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-10T09:03:08.375Z",
       "salaryMin": 68500,
@@ -5356,7 +5421,7 @@
       "slugByLocale": {
         "it": "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen",
         "en": "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
-        "de": "transferpreise-arbeitsstudent-60-80-liebherr-nussbaumen",
+        "de": "verrechnungspreis-werkstudent-60-80-liebherr-nussbaumen",
         "fr": "prix-de-transfert-etudiant-travailleur-60-80-liebherr-nussbaumen"
       },
       "company": "Liebherr",
@@ -5418,7 +5483,7 @@
         "prix-de-transfert-etudiant-travailleur-60-80-liebherr-nussbaumen-05e489",
         "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen-c2xu2w",
         "transfer-to-the-university-of-dublin-60-80-liebherr-nussbaumen",
-        "verrechnungspreis-werkstudent-60-80-liebherr-nussbaumen"
+        "transferpreise-arbeitsstudent-60-80-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5435,7 +5500,7 @@
         "de": [
           "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2",
           "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
-          "verrechnungspreis-werkstudent-60-80-liebherr-nussbaumen"
+          "transferpreise-arbeitsstudent-60-80-liebherr-nussbaumen"
         ],
         "fr": [
           "prix-de-transfert-etudiant-travailleur-60-80-liebherr-nussbaumen-05e489",
@@ -6944,7 +7009,7 @@
       "slugByLocale": {
         "it": "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens",
         "en": "earthmoving-construction-machinery-mechanic-liebherr-daillens",
-        "de": "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens",
+        "de": "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens",
         "fr": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -6994,7 +7059,7 @@
         "macchinari-meccanizzati-liebherr-daillens",
         "mechanic-earthworks-machinery-liebherr-daillens",
         "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-        "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
+        "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7007,7 +7072,7 @@
         ],
         "de": [
           "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-          "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
+          "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-16T15:09:06.399Z",

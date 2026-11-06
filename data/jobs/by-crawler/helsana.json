@@ -3068,12 +3068,12 @@
     },
     {
       "id": "helsana-6c3414235bed",
-      "slug": "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach",
+      "slug": "supporto-clienti-international-de-en-a-80-100-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "de": "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach",
-        "it": "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach",
-        "en": "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach",
-        "fr": "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach"
+        "it": "supporto-clienti-international-de-en-a-80-100-helsana-dubendorf-stettbach",
+        "en": "customer-support-international-de-en-a-80-100-helsana-dubendorf-stettbach",
+        "fr": "soutien-a-la-clientele-international-de-en-a-80-100-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3135,7 +3135,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:38:39.669Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:38:39.669Z"
+      "firstSeenAt": "2026-11-05T21:38:39.669Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-7731e31ec8af",

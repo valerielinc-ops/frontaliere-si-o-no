@@ -246,7 +246,7 @@ jobs:
               type == "object"
               and .encoding == "base64"
               and (.content | (type == "string" and length > 0))
-              and (.content | @base64d | fromjson
+              and (.content | gsub("\n"; "") | @base64d | fromjson
                 | type == "object"
                   and .schemaVersion == 1
                   and (.groupCount | type == "number" and floor == . and . >= 1 and . <= 99)
