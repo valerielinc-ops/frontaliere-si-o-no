@@ -1,10 +1,21 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+
+const { extractPdfJobContentFromUrl } = vi.hoisted(() => ({
+  extractPdfJobContentFromUrl: vi.fn(),
+}));
+
+vi.mock('../scripts/lib/pdf-job-content.mjs', async (importOriginal) => ({
+  ...await importOriginal<typeof import('../scripts/lib/pdf-job-content.mjs')>(),
+  extractPdfJobContentFromUrl,
+}));
 import {
   parseRittmeyerListingsPage,
   isRittmeyerTicinoListing,
   parseRittmeyerJobDetail,
   parseRittmeyerJobDetailWithUrl,
+  buildRittmeyerOnlyfyPrintUrl,
+  parseRittmeyerOnlyfyPrintAd,
   buildRittmeyerLocalizedContent,
 } from '../scripts/lib/rittmeyer-job-parser.mjs';
 import {
@@ -14,7 +25,13 @@ import {
   jobMatchKey,
   buildRittmeyerOnlyfyListingPageUrl,
   fetchRittmeyerOnlyfyListingSource,
+  buildRittmeyerJob,
 } from '../scripts/update-rittmeyer-jobs.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  extractPdfJobContentFromUrl.mockReset();
+});
 
 describe('rittmeyer-job-parser', () => {
   it('parses listing links and detects Ticino rows', () => {
@@ -111,6 +128,83 @@ describe('rittmeyer-job-parser', () => {
     expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
     expect(listings.rittmeyerListingMarkupSeen).toBe(true);
     expect(listings.rittmeyerListingSkippedMalformedRows).toBe(0);
+  });
+
+  it('uses the Rittmeyer candidate print endpoint for the official ad source', () => {
+    expect(buildRittmeyerOnlyfyPrintUrl(
+      'https://brugg.onlyfy.jobs/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn/',
+    )).toBe(
+      'https://brugg.onlyfy.jobs/candidate/job/print/4it6c5xx4ivuhudv7e6kk1oyh232efn?lang=en&mode=print',
+    );
+    expect(buildRittmeyerOnlyfyPrintUrl(
+      'https://other.onlyfy.jobs/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn/',
+    )).toBe('');
+  });
+
+  it('keeps the print source body and removes the contact footer', () => {
+    const detail = parseRittmeyerOnlyfyPrintAd(`
+      I sistemi di controllo e la tecnologia di misurazione di Rittmeyer costituiscono la base per soluzioni innovative nei settori dell'approvvigionamento idrico ed energetico.
+
+      Sales Project Engineer (a) Ticino
+
+      Camorino, Svizzera
+
+      80-100%
+
+      La tua area di competenza
+
+      Ricevi le richieste di offerta dal reparto vendite e prepari offerte commerciali per i clienti. Identifichi i rischi e garantisci un passaggio di consegne ordinato al team operativo.
+
+      Il tuo contatto
+
+      HR Team
+
+      contact details
+    `, {
+      title: 'Sales Project Engineer (a) Ticino',
+      location: 'Camorino',
+    });
+
+    expect(detail).toMatchObject({
+      title: 'Sales Project Engineer (a) Ticino',
+      location: 'Camorino',
+      workload: '80-100%',
+    });
+    expect(detail.summary).toContain('Identifichi i rischi');
+    expect(detail.summary).not.toContain('HR Team');
+    expect(detail.summary).not.toContain('contact details');
+  });
+
+  it('falls back to the official print PDF when the shared HTML ad is unavailable', async () => {
+    const printBody = [
+      'I sistemi di controllo e la tecnologia di misurazione di Rittmeyer costituiscono la base per soluzioni innovative nei settori dell\'approvvigionamento idrico ed energetico.',
+      'Sales Project Engineer (a) Ticino',
+      'Camorino, Svizzera',
+      '80-100%',
+      'La tua area di competenza',
+      'Ricevi le richieste di offerta dal reparto vendite e prepari offerte commerciali per i clienti. Identifichi i rischi e garantisci un passaggio di consegne ordinato al team operativo.',
+    ].join('\n\n');
+    extractPdfJobContentFromUrl.mockResolvedValue({ text: printBody });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('<html><body><main>Alle Jobs</main></body></html>')));
+
+    const job = await buildRittmeyerJob({
+      href: 'https://brugg.onlyfy.jobs/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn/',
+      title: 'Sales Project Engineer (a) Ticino',
+      location: 'Camorino',
+      snippet: 'Sales Project Engineer (a) Ticino | Camorino | Full-time employee',
+      sourceBase: 'https://brugg.onlyfy.jobs/',
+    });
+
+    expect(extractPdfJobContentFromUrl).toHaveBeenCalledWith(
+      'https://brugg.onlyfy.jobs/candidate/job/print/4it6c5xx4ivuhudv7e6kk1oyh232efn?lang=en&mode=print',
+    );
+    expect(job).toMatchObject({
+      title: 'Sales Project Engineer (a) Ticino',
+      location: 'Camorino',
+      sourceLang: 'it',
+      streetAddress: 'Via Sottomontagna 9',
+    });
+    expect(job.description).toContain('Identifichi i rischi');
   });
 
   it('follows Onlyfy listing pages when the board advertises more than one page', async () => {
