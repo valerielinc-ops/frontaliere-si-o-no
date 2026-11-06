@@ -1143,6 +1143,21 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalAnswerForApplication(localized[0], 'Dominicano')).toBe('');
   });
 
+  it('does not classify non-Italian nationality options as same-language', async () => {
+    const localized = await localizePortalQuestions([{
+      id: 'nationality-foreign',
+      question: 'Nazionalità',
+      applicationQuestion: 'Nazionalità',
+      options: ['Nationality', 'Nationalité'],
+      applicationOptions: ['Nationality', 'Nationalité'],
+    }], {
+      candidateLocale: 'it',
+      applicationLocale: 'it',
+    });
+
+    expect(localized[0]).not.toMatchObject({ localizationStatus: 'same_language' });
+  });
+
   it('recognizes Unicode CV labels and keeps same-prefix portal file fields distinct', () => {
     expect(portalRequiredDocumentFromField({ kind: 'file', required: true, label: 'Résumé' })).toBeNull();
     const first = portalRequiredDocumentFromField({ id: 'field_same_prefix_alpha', kind: 'file', required: true, label: 'Same label with a long normalized prefix 1234567890' });

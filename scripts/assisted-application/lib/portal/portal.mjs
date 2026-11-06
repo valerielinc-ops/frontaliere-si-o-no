@@ -3225,6 +3225,7 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
   const countryKey = label === 'paese' ? 'country' : label === 'nazionalita' ? 'nationality' : '';
   if (countryKey && applicationOptions.length) {
     if (countryKey === 'nationality') {
+      if (!optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
       // EOC's Italian nationality catalogue contains duplicate visible labels
       // (for example «Dominicano»). Keep the portal's Italian labels verbatim
       // so the candidate can answer; the downstream exact-match guard still
