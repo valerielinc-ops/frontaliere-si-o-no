@@ -59,10 +59,10 @@ function projectedLaneDurationMs(durations: number[], workerCount: number) {
 }
 
 /**
- * Execute the same roster through a scaled semaphore run so the capacity
- * claim is backed by a pre-merge measurement, not only arithmetic on the
- * watchdog durations. One simulated minute is one millisecond here: the
- * relative lane shape is preserved while the test remains bounded.
+ * Exercise the same roster through a scaled semaphore run. One simulated
+ * minute is one millisecond here: the relative lane shape is preserved while
+ * the deterministic budget regression stays bounded. This is not a hosted
+ * runner headroom measurement.
  */
 async function runScaledCrawlerLane(durations: number[], workerCount: number) {
   const exitCodes = Array<number>(durations.length);
