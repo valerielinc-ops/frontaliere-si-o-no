@@ -607,6 +607,37 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
 });
 
+it('defers a SuccessFactors account gate to the automatic submit runner', async () => {
+  const url = 'https://career5.successfactors.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20604&lang=de_DE';
+  const snapshot = {
+    url, buttons: [], links: [], captcha: false, passwordVisible: true, errors: [],
+    text: 'Bewerbungskonto: Login',
+    fields: [
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse/login', required: true, formId: 'login-form' },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort', required: true, formId: 'login-form' },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}), waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'successfactors', applyUrl: url, postingUrl: url, language: 'de', candidateLocale: 'it',
+    job: { title: 'Application Manager/-in', company: 'Swiss Armed Forces (VTG)' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(result.questions).toEqual([]);
+  expect(result.documents).toEqual([]);
+  expect(result.handoff).toBeUndefined();
+  expect(codex).not.toHaveBeenCalled();
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('keeps a verified Umantis form when its accessibility text starts with skip-link chrome', async () => {
   const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
   const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
