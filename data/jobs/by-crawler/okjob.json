@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "it-servicedesk-mitarbeiter-in-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-3011-berne-bcfb8acd",
         "it": "it-servicedesk-collaboratore-trice-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-berne",
-        "en": "it-servicedesk-mitarbeiter-in-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-3011-berne-bcfb8acd",
-        "fr": "it-servicedesk-mitarbeiter-in-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-3011-berne-bcfb8acd"
+        "en": "it-service-desk-employee-80-100-m-f-d-ok-job-sa-succursale-di-mendrisio-3011-berne-bcfb8acd",
+        "fr": "collaborateur-trice-du-service-desk-informatique-80-100-h-f-d-ok-job-sa-succursale-di-mendrisio-3011-berne-bcfb8acd"
       },
       "slugDisambiguator": "bcfb8acd",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -59,6 +59,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "it-servicedesk-mitarbeiter-in-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-3011-berne-bcfb8acd"
+        ],
+        "en": [
+          "it-servicedesk-mitarbeiter-in-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-3011-berne-bcfb8acd"
+        ],
+        "fr": [
           "it-servicedesk-mitarbeiter-in-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-3011-berne-bcfb8acd"
         ]
       },

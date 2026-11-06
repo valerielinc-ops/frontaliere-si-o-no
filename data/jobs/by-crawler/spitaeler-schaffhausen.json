@@ -4238,12 +4238,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-f66eb0d420c8",
-      "slug": "ernahrungstherapeut-in-bsc-in-ernahrung-e-diatetik-spitaler-schaffhausen",
+      "slug": "terapista-della-nutrizione-bsc-in-nutrizione-e-dietetica-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "ernahrungstherapeut-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen",
-        "it": "ernahrungstherapeut-in-bsc-in-ernahrung-e-diatetik-spitaler-schaffhausen",
-        "en": "ernahrungstherapeut-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen",
-        "fr": "ernahrungstherapeut-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen"
+        "it": "terapista-della-nutrizione-bsc-in-nutrizione-e-dietetica-spitaler-schaffhausen-schaffhausen",
+        "en": "nutrition-therapist-bsc-in-nutrition-and-dietetics-spitaler-schaffhausen-schaffhausen",
+        "fr": "therapeute-en-nutrition-bsc-en-nutrition-et-dietetique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4292,11 +4292,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ernahrungstherapeut-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen",
+          "ernahrungstherapeut-in-bsc-in-ernahrung-e-diatetik-spitaler-schaffhausen"
+        ],
+        "en": [
+          "ernahrungstherapeut-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "ernahrungstherapeut-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "ernahrungstherapeut-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen"
+        "ernahrungstherapeut-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen",
+        "ernahrungstherapeut-in-bsc-in-ernahrung-e-diatetik-spitaler-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4318,12 +4326,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-65169f1297ec",
-      "slug": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-schaffhausen-19c2ff4ffc",
+      "slug": "operatore-trice-sociosanitario-a-afc-spitaler-schaffhausen-schaffhausen-9cafcd",
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
-        "it": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-schaffhausen-19c2ff4ffc",
-        "en": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3",
-        "fr": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3"
+        "it": "operatore-trice-sociosanitario-a-afc-spitaler-schaffhausen-schaffhausen-9cafcd",
+        "en": "healthcare-professional-efz-spitaler-schaffhausen-schaffhausen-9cafcd",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-spitaler-schaffhausen-schaffhausen-9cafcd"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4374,13 +4382,21 @@
         "it": [
           "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
           "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3",
-          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen"
+          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-schaffhausen-19c2ff4ffc"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3"
+        ],
+        "fr": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3"
         ]
       },
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
         "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3",
-        "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen"
+        "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+        "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-schaffhausen-19c2ff4ffc"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4402,12 +4418,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-08c58d4785d9",
-      "slug": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-schaffhausen-da1ad6d4e7",
+      "slug": "operatore-trice-sociosanitario-a-afc-spitaler-schaffhausen-schaffhausen-6bccd3",
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
-        "it": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-schaffhausen-da1ad6d4e7",
-        "en": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-4",
-        "fr": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-4"
+        "it": "operatore-trice-sociosanitario-a-afc-spitaler-schaffhausen-schaffhausen-6bccd3",
+        "en": "healthcare-professional-efz-spitaler-schaffhausen-schaffhausen-6bccd3",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-spitaler-schaffhausen-schaffhausen-6bccd3"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4458,13 +4474,21 @@
         "it": [
           "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
           "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-4",
-          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen"
+          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-schaffhausen-da1ad6d4e7"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-4"
+        ],
+        "fr": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-4"
         ]
       },
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
         "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-4",
-        "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen"
+        "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+        "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-schaffhausen-da1ad6d4e7"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

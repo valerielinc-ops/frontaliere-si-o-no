@@ -19584,12 +19584,12 @@
     },
     {
       "id": "physioswiss-8cf92952a1a9",
-      "slug": "physiotherapeut-in-80-100-gesucht-physio-swiss-brunnen",
+      "slug": "cercasi-fisioterapista-80-100-physio-swiss-6440-brunnen",
       "slugByLocale": {
         "de": "physiotherapeut-in-80-100-gesucht-6440-brunnen-physioswiss-ch",
-        "it": "physiotherapeut-in-80-100-gesucht-physio-swiss-brunnen",
-        "en": "physiotherapeut-in-80-100-gesucht-physio-swiss-brunnen",
-        "fr": "physiotherapeut-in-80-100-gesucht-physio-swiss-brunnen"
+        "it": "cercasi-fisioterapista-80-100-physio-swiss-6440-brunnen",
+        "en": "physiotherapist-80-100-wanted-physio-swiss-6440-brunnen",
+        "fr": "physiotherapeute-recherche-e-a-80-100-physio-swiss-6440-brunnen"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19635,11 +19635,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-80-100-gesucht-6440-brunnen-physioswiss-ch"
+          "physiotherapeut-in-80-100-gesucht-6440-brunnen-physioswiss-ch",
+          "physiotherapeut-in-80-100-gesucht-physio-swiss-brunnen"
+        ],
+        "en": [
+          "physiotherapeut-in-80-100-gesucht-physio-swiss-brunnen"
+        ],
+        "fr": [
+          "physiotherapeut-in-80-100-gesucht-physio-swiss-brunnen"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-80-100-gesucht-6440-brunnen-physioswiss-ch"
+        "physiotherapeut-in-80-100-gesucht-6440-brunnen-physioswiss-ch",
+        "physiotherapeut-in-80-100-gesucht-physio-swiss-brunnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

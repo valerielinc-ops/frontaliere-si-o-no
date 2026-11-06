@@ -1568,12 +1568,12 @@
         "en": "Security Officer (m/f/d)",
         "fr": "Agent de sécurité (h/f/d)"
       },
-      "slug": "security-officer-w-m-d-postfinance",
+      "slug": "agente-di-sicurezza-m-f-d-postfinance-bern",
       "slugByLocale": {
         "de": "security-officer-w-m-d-postfinance",
-        "it": "security-officer-w-m-d-postfinance",
+        "it": "agente-di-sicurezza-m-f-d-postfinance-bern",
         "en": "security-officer-w-m-d-postfinance",
-        "fr": "security-officer-w-m-d-postfinance"
+        "fr": "agent-de-securite-h-f-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1617,7 +1617,18 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:49:43.982Z"
+      "firstSeenAt": "2026-11-05T21:49:43.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "security-officer-w-m-d-postfinance"
+        ],
+        "fr": [
+          "security-officer-w-m-d-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "security-officer-w-m-d-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkundinnen/75142-de_DE",
@@ -1641,12 +1652,12 @@
         "en": "Customer advisor private customers",
         "fr": "Conseiller·ère à la clientèle privée"
       },
-      "slug": "kundenberater-in-privatkund-innen-postfinance",
+      "slug": "consulente-alla-clientela-privata-postfinance-zug",
       "slugByLocale": {
         "de": "kundenberater-in-privatkund-innen-postfinance",
-        "it": "kundenberater-in-privatkund-innen-postfinance",
-        "en": "kundenberater-in-privatkund-innen-postfinance",
-        "fr": "kundenberater-in-privatkund-innen-postfinance"
+        "it": "consulente-alla-clientela-privata-postfinance-zug",
+        "en": "customer-advisor-private-customers-postfinance-zug",
+        "fr": "conseiller-ere-a-la-clientele-privee-postfinance-zug"
       },
       "sourceLang": "de",
       "department": [
@@ -1691,7 +1702,21 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:49:43.241Z"
+      "firstSeenAt": "2026-11-05T21:49:43.241Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-privatkund-innen-postfinance"
+        ],
+        "en": [
+          "kundenberater-in-privatkund-innen-postfinance"
+        ],
+        "fr": [
+          "kundenberater-in-privatkund-innen-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-privatkund-innen-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Learning-Specialist-%28wmd%29/75170-de_DE",
@@ -1717,9 +1742,9 @@
       },
       "slug": "learning-specialista-w-m-d-postfinance-bern",
       "slugByLocale": {
+        "de": "learning-specialist-w-m-d-postfinance",
         "it": "learning-specialista-w-m-d-postfinance-bern",
         "en": "learning-specialist-w-m-d-postfinance",
-        "de": "learning-specialist-w-m-d-postfinance",
         "fr": "learning-specialiste-w-m-d-postfinance-bern"
       },
       "sourceLang": "de",
@@ -1799,12 +1824,12 @@
         "en": "Customer advisor PostFinance Corner",
         "fr": "Conseiller·ère à la clientèle PostFinance Corner"
       },
-      "slug": "kundenberater-in-postfinance-corner-postfinance-chur",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-chur",
       "slugByLocale": {
         "de": "kundenberater-in-postfinance-corner-postfinance",
-        "it": "kundenberater-in-postfinance-corner-postfinance-chur",
-        "en": "kundenberater-in-postfinance-corner-postfinance-chur",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-chur"
+        "it": "consulente-alla-clientela-postfinance-corner-postfinance-chur",
+        "en": "customer-advisor-postfinance-corner-postfinance-chur",
+        "fr": "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-chur"
       },
       "sourceLang": "de",
       "department": [
@@ -1831,11 +1856,19 @@
       "id": "postfinance-1a2e44c7053a",
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-postfinance-corner-postfinance"
+          "kundenberater-in-postfinance-corner-postfinance",
+          "kundenberater-in-postfinance-corner-postfinance-chur"
+        ],
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-chur"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-chur"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-postfinance-corner-postfinance"
+        "kundenberater-in-postfinance-corner-postfinance",
+        "kundenberater-in-postfinance-corner-postfinance-chur"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1881,12 +1914,12 @@
         "en": "Customer advisor PostFinance Corner",
         "fr": "Conseiller·ère à la clientèle PostFinance Corner"
       },
-      "slug": "kundenberater-in-postfinance-corner-postfinance-wil-sg",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-wil-sg",
       "slugByLocale": {
         "de": "kundenberater-in-postfinance-corner-postfinance",
-        "it": "kundenberater-in-postfinance-corner-postfinance-wil-sg",
-        "en": "kundenberater-in-postfinance-corner-postfinance-wil-sg",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-wil-sg"
+        "it": "consulente-alla-clientela-postfinance-corner-postfinance-wil-sg",
+        "en": "customer-advisor-postfinance-corner-postfinance-wil-sg",
+        "fr": "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-wil-sg"
       },
       "sourceLang": "de",
       "department": [
@@ -1914,12 +1947,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-postfinance-corner-postfinance",
-          "kundenberater-in-postfinance-corner-postfinance-2"
+          "kundenberater-in-postfinance-corner-postfinance-2",
+          "kundenberater-in-postfinance-corner-postfinance-wil-sg"
+        ],
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-wil-sg"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-wil-sg"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-postfinance-corner-postfinance",
-        "kundenberater-in-postfinance-corner-postfinance-2"
+        "kundenberater-in-postfinance-corner-postfinance-2",
+        "kundenberater-in-postfinance-corner-postfinance-wil-sg"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1965,12 +2006,12 @@
         "en": "Customer advisor PostFinance Corner",
         "fr": "Conseiller·ère à la clientèle PostFinance Corner"
       },
-      "slug": "kundenberater-in-postfinance-corner-postfinance-frauenfeld",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-frauenfeld",
       "slugByLocale": {
         "de": "kundenberater-in-postfinance-corner-postfinance",
-        "it": "kundenberater-in-postfinance-corner-postfinance-frauenfeld",
-        "en": "kundenberater-in-postfinance-corner-postfinance-frauenfeld",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-frauenfeld"
+        "it": "consulente-alla-clientela-postfinance-corner-postfinance-frauenfeld",
+        "en": "customer-advisor-postfinance-corner-postfinance-frauenfeld",
+        "fr": "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-frauenfeld"
       },
       "sourceLang": "de",
       "department": [
@@ -1998,12 +2039,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-postfinance-corner-postfinance",
-          "kundenberater-in-postfinance-corner-postfinance-3"
+          "kundenberater-in-postfinance-corner-postfinance-3",
+          "kundenberater-in-postfinance-corner-postfinance-frauenfeld"
+        ],
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-frauenfeld"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-frauenfeld"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-postfinance-corner-postfinance",
-        "kundenberater-in-postfinance-corner-postfinance-3"
+        "kundenberater-in-postfinance-corner-postfinance-3",
+        "kundenberater-in-postfinance-corner-postfinance-frauenfeld"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2049,12 +2098,12 @@
         "en": "Customer advisor PostFinance Corner",
         "fr": "Conseiller·ère à la clientèle PostFinance Corner"
       },
-      "slug": "kundenberater-in-postfinance-corner-postfinance-schaffhausen",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-schaffhausen",
       "slugByLocale": {
         "de": "kundenberater-in-postfinance-corner-postfinance",
-        "it": "kundenberater-in-postfinance-corner-postfinance-schaffhausen",
-        "en": "kundenberater-in-postfinance-corner-postfinance-schaffhausen",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-schaffhausen"
+        "it": "consulente-alla-clientela-postfinance-corner-postfinance-schaffhausen",
+        "en": "customer-advisor-postfinance-corner-postfinance-schaffhausen",
+        "fr": "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-schaffhausen"
       },
       "sourceLang": "de",
       "department": [
@@ -2082,12 +2131,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-postfinance-corner-postfinance",
-          "kundenberater-in-postfinance-corner-postfinance-4"
+          "kundenberater-in-postfinance-corner-postfinance-4",
+          "kundenberater-in-postfinance-corner-postfinance-schaffhausen"
+        ],
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-schaffhausen"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-schaffhausen"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-postfinance-corner-postfinance",
-        "kundenberater-in-postfinance-corner-postfinance-4"
+        "kundenberater-in-postfinance-corner-postfinance-4",
+        "kundenberater-in-postfinance-corner-postfinance-schaffhausen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2133,12 +2190,12 @@
         "en": "Customer advisor PostFinance Corner",
         "fr": "Conseiller·ère à la clientèle PostFinance Corner"
       },
-      "slug": "kundenberater-in-postfinance-corner-postfinance-dubendorf",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-dubendorf",
       "slugByLocale": {
         "de": "kundenberater-in-postfinance-corner-postfinance",
-        "it": "kundenberater-in-postfinance-corner-postfinance-dubendorf",
-        "en": "kundenberater-in-postfinance-corner-postfinance-dubendorf",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-dubendorf"
+        "it": "consulente-alla-clientela-postfinance-corner-postfinance-dubendorf",
+        "en": "customer-advisor-postfinance-corner-postfinance-dubendorf",
+        "fr": "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-dubendorf"
       },
       "sourceLang": "de",
       "department": [
@@ -2166,12 +2223,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-postfinance-corner-postfinance",
-          "kundenberater-in-postfinance-corner-postfinance-5"
+          "kundenberater-in-postfinance-corner-postfinance-5",
+          "kundenberater-in-postfinance-corner-postfinance-dubendorf"
+        ],
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-dubendorf"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-dubendorf"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-postfinance-corner-postfinance",
-        "kundenberater-in-postfinance-corner-postfinance-5"
+        "kundenberater-in-postfinance-corner-postfinance-5",
+        "kundenberater-in-postfinance-corner-postfinance-dubendorf"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2217,12 +2282,12 @@
         "en": "Customer advisor PostFinance Corner",
         "fr": "Conseiller·ère à la clientèle PostFinance Corner"
       },
-      "slug": "kundenberater-in-postfinance-corner-postfinance-horgen",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-horgen",
       "slugByLocale": {
         "de": "kundenberater-in-postfinance-corner-postfinance",
-        "it": "kundenberater-in-postfinance-corner-postfinance-horgen",
-        "en": "kundenberater-in-postfinance-corner-postfinance-horgen",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-horgen"
+        "it": "consulente-alla-clientela-postfinance-corner-postfinance-horgen",
+        "en": "customer-advisor-postfinance-corner-postfinance-horgen",
+        "fr": "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-horgen"
       },
       "sourceLang": "de",
       "department": [
@@ -2250,12 +2315,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-postfinance-corner-postfinance",
-          "kundenberater-in-postfinance-corner-postfinance-6"
+          "kundenberater-in-postfinance-corner-postfinance-6",
+          "kundenberater-in-postfinance-corner-postfinance-horgen"
+        ],
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-horgen"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-horgen"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-postfinance-corner-postfinance",
-        "kundenberater-in-postfinance-corner-postfinance-6"
+        "kundenberater-in-postfinance-corner-postfinance-6",
+        "kundenberater-in-postfinance-corner-postfinance-horgen"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2301,12 +2374,12 @@
         "en": "Customer advisor PostFinance Corner",
         "fr": "Conseiller·ère à la clientèle PostFinance Corner"
       },
-      "slug": "kundenberater-in-postfinance-corner-postfinance-zurich",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-zurich",
       "slugByLocale": {
         "de": "kundenberater-in-postfinance-corner-postfinance",
-        "it": "kundenberater-in-postfinance-corner-postfinance-zurich",
-        "en": "kundenberater-in-postfinance-corner-postfinance-zurich",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-zurich"
+        "it": "consulente-alla-clientela-postfinance-corner-postfinance-zurich",
+        "en": "customer-advisor-postfinance-corner-postfinance-zurich",
+        "fr": "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-zurich"
       },
       "sourceLang": "de",
       "department": [
@@ -2334,12 +2407,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-postfinance-corner-postfinance",
-          "kundenberater-in-postfinance-corner-postfinance-7"
+          "kundenberater-in-postfinance-corner-postfinance-7",
+          "kundenberater-in-postfinance-corner-postfinance-zurich"
+        ],
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-zurich"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-zurich"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-postfinance-corner-postfinance",
-        "kundenberater-in-postfinance-corner-postfinance-7"
+        "kundenberater-in-postfinance-corner-postfinance-7",
+        "kundenberater-in-postfinance-corner-postfinance-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2385,12 +2466,12 @@
         "en": "Customer advisor PostFinance Corner",
         "fr": "Conseiller·ère à la clientèle PostFinance Corner"
       },
-      "slug": "kundenberater-in-postfinance-corner-postfinance-biel-bienne",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-biel-bienne",
       "slugByLocale": {
         "de": "kundenberater-in-postfinance-corner-postfinance",
-        "it": "kundenberater-in-postfinance-corner-postfinance-biel-bienne",
-        "en": "kundenberater-in-postfinance-corner-postfinance-biel-bienne",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-biel-bienne"
+        "it": "consulente-alla-clientela-postfinance-corner-postfinance-biel-bienne",
+        "en": "customer-advisor-postfinance-corner-postfinance-biel-bienne",
+        "fr": "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-biel-bienne"
       },
       "sourceLang": "de",
       "department": [
@@ -2418,12 +2499,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-postfinance-corner-postfinance",
-          "kundenberater-in-postfinance-corner-postfinance-8"
+          "kundenberater-in-postfinance-corner-postfinance-8",
+          "kundenberater-in-postfinance-corner-postfinance-biel-bienne"
+        ],
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-biel-bienne"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-biel-bienne"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-postfinance-corner-postfinance",
-        "kundenberater-in-postfinance-corner-postfinance-8"
+        "kundenberater-in-postfinance-corner-postfinance-8",
+        "kundenberater-in-postfinance-corner-postfinance-biel-bienne"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
