@@ -57,12 +57,20 @@ function isItemListType(value: unknown): boolean {
 export function filterEmployerProfileJobLinks(
   html: string,
   allowlist: ReadonlySet<string>,
+  maxJobsListed = Number.POSITIVE_INFINITY,
 ): string {
+  const cardLimit = Number.isFinite(maxJobsListed)
+    ? Math.max(0, Math.floor(maxJobsListed))
+    : Number.POSITIVE_INFINITY;
+  let keptCardCount = 0;
   let filtered = html.replace(EMPLOYER_CARD_ITEM_RE, (item) => {
     if (!EMPLOYER_CARD_CLASS_RE.test(item)) return item;
     const href = item.match(HREF_RE);
     const rawHref = href?.[1] ?? href?.[2] ?? href?.[3] ?? null;
-    return isAllowlistedJobHref(rawHref, allowlist) ? item : '';
+    if (!isAllowlistedJobHref(rawHref, allowlist)) return '';
+    if (keptCardCount >= cardLimit) return '';
+    keptCardCount++;
+    return item;
   });
 
   filtered = filtered.replace(
@@ -94,6 +102,7 @@ export function filterEmployerProfileJobLinks(
           const target = itemUrl ?? entry.url;
           return isAllowlistedJobHref(target, allowlist);
         })
+        .slice(0, cardLimit)
         .map((entry, index) => ({ ...entry, position: index + 1 }));
 
       if (kept.length === 0) return '';

@@ -395,6 +395,39 @@ describe('employerProfilePagesPlugin', () => {
     expect(itemList.itemListElement[0].item.url).toBe(active);
   });
 
+  it('reconciles the complete sequential fallback group before applying the cap', () => {
+    const stale = Array.from({ length: 12 }, (_, index) =>
+      `https://frontaliereticino.ch/cerca-lavoro-ticino/stale-${index}/`,
+    );
+    const active = Array.from({ length: 12 }, (_, index) =>
+      `https://frontaliereticino.ch/cerca-lavoro-ticino/active-${index}/`,
+    );
+    const all = [...stale, ...active];
+    const html = [
+      '<main><ul>',
+      ...all.map((href) => `<li><article class="jc-card"><a href="${href}">Job</a></article></li>`),
+      '</ul></main>',
+      '<script type="application/ld+json">' + JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        numberOfItems: all.length,
+        itemListElement: all.map((url, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: { '@type': 'WebPage', url },
+        })),
+      }) + '</script>',
+    ].join('');
+
+    const filtered = filterEmployerProfileJobLinks(html, new Set(active), 12);
+    expect((filtered.match(/class="jc-card"/g) ?? []).length).toBe(12);
+    expect(stale.every((href) => !filtered.includes(href))).toBe(true);
+    expect(active.every((href) => filtered.includes(href))).toBe(true);
+    const itemList = JSON.parse(filtered.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? '{}');
+    expect(itemList.numberOfItems).toBe(12);
+    expect(itemList.itemListElement.map((item: { item: { url: string } }) => item.item.url)).toEqual(active);
+  });
+
   it('links each visible position without emitting JobPosting on an employer list', () => {
     for (const locale of ['', 'en/', 'de/', 'fr/']) {
       expect(read(`${locale}aziende/acme-corp/index.html`)).not.toContain('"@type":"JobPosting"');

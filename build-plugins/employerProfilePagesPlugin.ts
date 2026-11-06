@@ -66,7 +66,7 @@ import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/
 import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
 import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { buildCompanyOrganization } from './shared/jobPostingSchema';
-import { isAllowlistedJobHref, filterEmployerProfileJobLinks } from './shared/employerProfileJobLinks';
+import { isAllowlistedJobHref } from './shared/employerProfileJobLinks';
 import {
   getJobSitemapAllowlist,
   resolveEmployerProfilesFlushed,
@@ -101,7 +101,7 @@ const profilePath = (locale: Locale, slug: string): string => buildEmployerProfi
  * page-level multiplex is the only manual unit, so every emitted static slot
  * remains covered by the shared content/slot-ratio gate.
  */
-const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
+export const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
 
 export interface EmployerProfile {
   slug: string;
@@ -906,9 +906,11 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // When the jobs producer has already published its registry (parallel
         // closeBundle and direct tests), apply it before both renderers. In
         // the production sequential profile the registry is published later;
-        // filterEmployerProfileJobLinks() applies the identical boundary after
-        // jobsSeoPagesPlugin has completed.
-        const listed = filterJobsToActiveDetails(group, jobSitemapAllowlist).slice(0, MAX_JOBS_LISTED);
+        // preserve the complete candidate group so the post-consumer can
+        // reconcile stale entries before applying the preview cap.
+        const listed = jobSitemapAllowlist === null
+          ? group
+          : filterJobsToActiveDetails(group, jobSitemapAllowlist).slice(0, MAX_JOBS_LISTED);
         // Display the LIVE active count (corpus at build time) rather than the
         // committed snapshot, and gate indexability on it — so a dataset that
         // has drifted below the floor since it was generated auto-downgrades to

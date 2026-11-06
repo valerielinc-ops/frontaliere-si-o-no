@@ -15,6 +15,7 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
+import { MAX_JOBS_LISTED } from './employerProfilePagesPlugin';
 import { filterEmployerProfileJobLinks } from './shared/employerProfileJobLinks';
 import {
   employerProfilesFlushed,
@@ -40,7 +41,7 @@ function filterProfileFiles(
     ]) {
       if (!fs.existsSync(filePath)) continue;
       const html = fs.readFileSync(filePath, 'utf-8');
-      const filtered = filterEmployerProfileJobLinks(html, allowlist);
+      const filtered = filterEmployerProfileJobLinks(html, allowlist, MAX_JOBS_LISTED);
       if (filtered === html) continue;
       fs.writeFileSync(filePath, filtered, 'utf-8');
       filteredFiles++;
