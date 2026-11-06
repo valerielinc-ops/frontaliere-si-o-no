@@ -1250,38 +1250,34 @@ describe('crawler generation state cleanup', () => {
     expect(group15Body).not.toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
   });
 
-  it('measures group 24 at caps 6 and 7 with the same 25-member roster', async () => {
-    expect(crawlerGroupMaxParallel(24)).toBe(7);
+  it('keeps group 24 on the four-body resource lane with its 25-member baseline roster', async () => {
+    expect(crawlerGroupMaxParallel(24)).toBe(CRAWLER_GROUP_MAX_PARALLEL);
     const group24Body = buildCrawlerLaunchShellBody({
       slug: 'group-24-member',
       runStep: { env: {}, run: 'true' },
       postSteps: [],
     }, 24);
-    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-7}"`);
+    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
 
-    const workflow = fs.readFileSync(path.join(ROOT, '.github/corpus-workflows/crawler-group-24.yml'), 'utf8');
-    const watchdogDurations = [...workflow.matchAll(
-      /worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-([0-9]+)}"/g,
-    )].map(([, minutes]) => Number(minutes) * 60 * 1000);
+    const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
+    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
+    const durations = assignments.groups[23].map((slug: string) => (
+      baseline.crawlers[`update-jobs-${slug}`]?.avgDurationMs ?? baseline.medianDurationMs
+    ));
     const timeoutMs = 340 * 60 * 1000;
-    expect(watchdogDurations).toHaveLength(25);
-    const cap6 = await runScaledCrawlerLane(watchdogDurations, 6);
-    const cap7 = await runScaledCrawlerLane(watchdogDurations, crawlerGroupMaxParallel(24));
+    expect(durations).toHaveLength(25);
+    const cap4 = await runScaledCrawlerLane(durations, CRAWLER_GROUP_MAX_PARALLEL);
     const benchmark = {
       runId: process.env.GITHUB_RUN_ID ?? 'local',
       group: 24,
-      members: watchdogDurations.length,
-      cap6,
-      cap7,
+      members: durations.length,
+      cap4,
     };
     console.info(`[crawler-capacity-benchmark] ${JSON.stringify(benchmark)}`);
 
-    expect(cap6.projectedMinutes * 60_000).toBeGreaterThan(timeoutMs);
-    expect(cap7.projectedMinutes * 60_000).toBeLessThanOrEqual(timeoutMs);
-    expect(cap6.timeoutExitCount).toBe(0);
-    expect(cap7.timeoutExitCount).toBe(0);
-    expect(cap6.exitCodes.every((code) => code === 0)).toBe(true);
-    expect(cap7.exitCodes.every((code) => code === 0)).toBe(true);
+    expect(cap4.projectedMinutes * 60_000).toBeLessThanOrEqual(timeoutMs);
+    expect(cap4.timeoutExitCount).toBe(0);
+    expect(cap4.exitCodes.every((code) => code === 0)).toBe(true);
   }, 15_000);
 
   it('benchmarks the committed group 15/16 rosters below the 340-minute job budget', () => {

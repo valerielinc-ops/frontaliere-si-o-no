@@ -434,11 +434,6 @@ export const CRAWLER_GROUP_MAX_PARALLEL = 4;
 export const CRAWLER_GROUP_PARALLEL_CAPS = Object.freeze({
   15: 3,
   16: 3,
-  // Group 24 has 25 median-duration crawlers. With the default 74-minute
-  // worker watchdog, six slots allow five worst-case waves (370 minutes),
-  // past the 340-minute job budget. A seventh bounded slot keeps the same
-  // watchdog headroom while reducing the worst case to four waves (296 min).
-  24: 7,
 });
 
 export function crawlerGroupMaxParallel(groupIndex) {
