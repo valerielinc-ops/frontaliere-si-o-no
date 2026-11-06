@@ -250,6 +250,18 @@ function locationKey(value = '') {
     .toLowerCase();
 }
 
+function canonicalKudelskiStructuredLocation(candidate = {}) {
+  const location = normalizeSpace(candidate?.location || '');
+  const addressCountry = normalizeSpace(candidate?.addressCountry || '').toUpperCase();
+  // careers.nagra.com currently emits this source-specific JSON-LD locality
+  // for its Cheseaux-sur-Lausanne campus. Bind the alias to explicit CH
+  // evidence so the same free text from another country stays fail-closed.
+  if (locationKey(location) === 'grand cheseaux' && addressCountry === 'CH') {
+    return 'Cheseaux-sur-Lausanne';
+  }
+  return location;
+}
+
 function isTrustedKudelskiDetailUrl(rawUrl = '') {
   if (!isLikelyJobDetailUrl(rawUrl)) return false;
   if (isTrustedDomain(rawUrl)) return true;
@@ -304,11 +316,14 @@ function structuredDetailLocation(html = '', pageUrl = '', title = '') {
     pageUrl,
     title,
   );
-  const locations = records.flatMap((record) => (
+  const candidates = records.flatMap((record) => (
     Array.isArray(record.locationCandidates)
-      ? record.locationCandidates.map((candidate) => candidate?.location)
-      : [record.location]
-  )).map((value) => normalizeSpace(value || '')).filter(Boolean);
+      ? record.locationCandidates
+      : [{ location: record.location, addressCountry: record.addressCountry }]
+  ));
+  const locations = candidates
+    .map((candidate) => canonicalKudelskiStructuredLocation(candidate))
+    .filter(Boolean);
   const unique = [...new Map(locations.map((value) => [locationKey(value), value])).values()];
   return unique.length === 1 ? unique[0] : '';
 }

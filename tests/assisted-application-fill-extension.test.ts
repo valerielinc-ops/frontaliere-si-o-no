@@ -1783,6 +1783,19 @@ describe('fill extension: owner-approved application defaults', () => {
     });
   });
 
+  it('does not treat a negated first-person refusal as an active refusal', () => {
+    const negatedRefusal = 'The candidate did not refuse the application; retain data for 12 months';
+    const { document, F } = page(`<form>
+      <label for="retention">How long may we retain your personal data?</label>
+      <select id="retention"><option value="negated">${negatedRefusal}</option><option value="24_months">Retain data for 24 months</option></select>
+    </form>`);
+    const retentionEntry = F.collect(document).find((entry: any) => entry.element.id === 'retention');
+
+    expect(F.answerFor(retentionEntry, { ...kit, answers: [] })).toMatchObject({
+      value: negatedRefusal, family: 'minimumDataRetention',
+    });
+  });
+
   it.each([
     'I would like my data to be deleted once the present application process is complete.',
     'I would like my data to be deleted once this application process is complete.',
