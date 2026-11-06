@@ -81,8 +81,7 @@ function htmlToTextBlock(element) {
 export function htmlFragmentToMarkdown(html = '') {
   const source = String(html || '').trim();
   if (!source) return '';
-  const dom = new JSDOM(`<body>${source}</body>`);
-  return htmlToTextBlock(dom.window.document.body);
+  return htmlToTextBlock(JSDOM.fragment(source));
 }
 
 function flattenJsonLd(value) {
@@ -102,8 +101,8 @@ function isJobPosting(value) {
 }
 
 function extractDirectApplyUrl(html) {
-  const document = new JSDOM(String(html || '')).window.document;
-  const scripts = [...document.querySelectorAll('script[type]')]
+  const fragment = JSDOM.fragment(String(html || ''));
+  const scripts = [...fragment.querySelectorAll('script[type]')]
     .filter((script) => normalizeSpace(script.getAttribute('type')).toLowerCase() === 'application/ld+json');
 
   for (const script of scripts) {
@@ -160,9 +159,7 @@ export function parseYoustyApprenticeshipHtml(html, profileUrl = '') {
     return { description: '', applyUrl };
   }
 
-  const noscriptDom = new JSDOM(`<body>${noscriptHtml}</body>`);
-  const noscriptDoc = noscriptDom.window.document;
-  const body = noscriptDoc.body;
+  const body = JSDOM.fragment(noscriptHtml);
 
   const descriptionHeading = Array.from(body.querySelectorAll('h2')).find((heading) =>
     /(lehrstellenbeschreibung|descrizione|description|description du poste)/i.test(

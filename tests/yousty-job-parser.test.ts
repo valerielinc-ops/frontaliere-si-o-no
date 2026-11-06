@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   extractYoustyWidgetApplicationUrl,
   htmlFragmentToMarkdown,
@@ -124,6 +124,18 @@ describe('parseYoustyApprenticeshipHtml', () => {
     })}</script>`;
 
     expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
+  });
+
+  it('does not activate stylesheet parsing while reading a Yousty profile', () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const html = `${SAMPLE_HTML}<style>this is not valid { css: !!!</style>`;
+
+    try {
+      expect(parseYoustyApprenticeshipHtml(html).description).toContain('Cosa ti aspetta da noi');
+      expect(consoleError).not.toHaveBeenCalled();
+    } finally {
+      consoleError.mockRestore();
+    }
   });
 });
 
