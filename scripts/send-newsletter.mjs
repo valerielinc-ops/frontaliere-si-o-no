@@ -1814,7 +1814,6 @@ async function fetchAlreadySent(campaignId) {
       const email = normalizeEmail(data.email || doc.ref.parent.parent?.id);
       if (!email) continue;
       let status = typeof data.delivery_status === 'string' ? data.delivery_status : '';
-      if (status === 'retryable_failed' && data.is_operator_verification !== true) continue;
       let attemptedAtMs = timestampMillis(data.attempted_at);
       const staleInFlight = status === 'in_flight'
         && attemptedAtMs !== null
@@ -1826,6 +1825,7 @@ async function fetchAlreadySent(campaignId) {
           const latest = latestSnapshot.data() || {};
           if (!latestSnapshot.exists
             || latest.delivery_status !== 'in_flight'
+            || latest.message_id || latest.sent_at || latest.delivered_at
             || (latest.delivery_attempt_id || null) !== attemptId
             || timestampMillis(latest.attempted_at) !== attemptedAtMs
             || nowMs - attemptedAtMs < STALE_DELIVERY_INTENT_MS) {
@@ -1872,12 +1872,16 @@ async function fetchAlreadySent(campaignId) {
         receiptAmbiguous.add(email);
         continue;
       }
-      if (status === 'retryable_failed') continue;
-      if (['pending', 'in_flight', 'unknown'].includes(status)) {
-        receiptAmbiguous.add(email);
-      } else if (status === 'accepted' || status === 'delivered'
+      // Provider evidence wins over a stale status. A webhook may add a
+      // message id or send/deliver timestamp after the process died, while
+      // leaving its original `in_flight`/`unknown` status untouched.
+      if (status === 'accepted' || status === 'delivered'
         || data.message_id || data.sent_at || data.delivered_at) {
         receiptSent.add(email);
+      } else if (status === 'retryable_failed') {
+        continue;
+      } else if (['pending', 'in_flight', 'unknown'].includes(status)) {
+        receiptAmbiguous.add(email);
       } else if (status) {
         // Legacy provider statuses such as bounce/failed are still evidence
         // that this campaign reached the provider; never blindly resend them.
@@ -1892,6 +1896,10 @@ async function fetchAlreadySent(campaignId) {
       ...[...resume.ambiguous].map(normalizeEmail).filter(Boolean),
       ...receiptAmbiguous,
     ]);
+    // A durable provider acknowledgement can coexist with an older campaign
+    // quarantine entry after a webhook arrives. Resolve that overlap here so
+    // resume counts and status reports reflect the strongest evidence.
+    for (const email of sent) ambiguous.delete(email);
     const attempted = new Set([...sent, ...ambiguous]);
     campaignResumeLookupKnown = true;
     return { sent, ambiguous, attempted, chunkSizes: resume.chunkSizes, staleIntentSummary };
