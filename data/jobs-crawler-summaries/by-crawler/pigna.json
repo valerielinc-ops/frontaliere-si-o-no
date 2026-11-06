@@ -1,7 +1,7 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-11-05T21:27:55.687Z",
+  "generatedAt": "2026-11-06T09:57:27.244Z",
   "total": 12,
   "discovered": null,
   "parsed": 12,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 11751,
-  "avgDurationMs": 11751,
+  "unchangedCount": 12,
+  "durationMs": 12494,
+  "avgDurationMs": 12494,
   "durationHistory": [
-    11751
+    12494
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "pigna-b69451455f9b",
       "slug": "tirocinante-centro-diurno-sud-80-100-stiftung-pigna-kloten",
@@ -36,7 +38,7 @@
       "url": "https://app.reflinejobs.io/1531/0318/pub/556/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:34.712Z",
+      "crawledAt": "2026-11-06T09:57:11.843Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -59,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:27:34.712Z",
+      "validThrough": "2027-02-03T09:57:11.843Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -68,10 +70,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "pigna-8cd608e912e3",
       "slug": "hr-business-partner-40-pigna-kloten",
@@ -85,7 +84,7 @@
       "url": "https://app.reflinejobs.io/1531/0315/pub/548/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:34.163Z",
+      "crawledAt": "2026-11-06T09:57:11.243Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,7 +107,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:27:34.163Z",
+      "validThrough": "2027-02-02T09:57:11.243Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +130,7 @@
       "url": "https://app.reflinejobs.io/1531/0312/pub/544/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:33.556Z",
+      "crawledAt": "2026-11-06T09:57:10.640Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -154,7 +153,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:27:33.556Z",
+      "validThrough": "2027-02-01T09:57:10.640Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -177,7 +176,7 @@
       "url": "https://app.reflinejobs.io/1531/0309/pub/540/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:32.975Z",
+      "crawledAt": "2026-11-06T09:57:10.017Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,7 +199,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T21:27:32.975Z",
+      "validThrough": "2027-01-30T09:57:10.017Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -223,7 +222,7 @@
       "url": "https://app.reflinejobs.io/1531/0306/pub/524/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:32.411Z",
+      "crawledAt": "2026-11-06T09:57:09.413Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -246,7 +245,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:27:32.411Z",
+      "validThrough": "2027-01-08T09:57:09.413Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -269,7 +268,7 @@
       "url": "https://app.reflinejobs.io/1531/0297/pub/488/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:31.853Z",
+      "crawledAt": "2026-11-06T09:57:08.753Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -292,7 +291,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:27:31.853Z",
+      "validThrough": "2026-12-06T09:57:08.753Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -315,7 +314,7 @@
       "url": "https://app.reflinejobs.io/1531/0294/pub/536/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:31.275Z",
+      "crawledAt": "2026-11-06T09:57:08.136Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,7 +337,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:27:31.275Z",
+      "validThrough": "2027-01-25T09:57:08.136Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -361,7 +360,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/504/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:30.708Z",
+      "crawledAt": "2026-11-06T09:57:07.514Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -384,7 +383,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:27:30.708Z",
+      "validThrough": "2026-12-15T09:57:07.514Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -407,7 +406,7 @@
       "url": "https://app.reflinejobs.io/1531/0216/pub/550/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:30.140Z",
+      "crawledAt": "2026-11-06T09:57:06.889Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -430,7 +429,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:27:30.140Z",
+      "validThrough": "2027-02-02T09:57:06.889Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -453,7 +452,7 @@
       "url": "https://app.reflinejobs.io/1531/0201/pub/553/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:29.549Z",
+      "crawledAt": "2026-11-06T09:57:06.238Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -476,7 +475,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:27:29.549Z",
+      "validThrough": "2027-02-03T09:57:06.238Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -499,7 +498,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/530/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:28.966Z",
+      "crawledAt": "2026-11-06T09:57:05.599Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -522,7 +521,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:27:28.966Z",
+      "validThrough": "2027-01-24T09:57:05.599Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -545,7 +544,7 @@
       "url": "https://app.reflinejobs.io/1531/0138/pub/533/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:28.268Z",
+      "crawledAt": "2026-11-06T09:57:04.841Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -568,7 +567,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:27:28.268Z",
+      "validThrough": "2027-01-24T09:57:04.841Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -579,5 +578,5 @@
       }
     }
   ],
-  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
+  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
 }
