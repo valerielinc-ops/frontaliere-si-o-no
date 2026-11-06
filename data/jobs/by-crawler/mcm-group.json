@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mcm-group",
-  "assembledAt": "2026-11-04T12:49:09.469Z",
-  "runId": "41524647630",
+  "assembledAt": "2026-11-06T21:21:41.210Z",
+  "runId": "42293312576",
   "jobs": [
     {
       "id": "mcm-group-50e682056cc5",
@@ -34,7 +34,7 @@
       "url": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:19:08.591Z",
+      "crawledAt": "2026-11-06T21:21:34.705Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:19:08.591Z",
+      "validThrough": "2026-12-06T21:21:34.705Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://mcm-group.ch/jobs/hausarzt-hausaerztin",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:19:08.588Z",
+      "crawledAt": "2026-11-06T21:21:34.703Z",
       "addressLocality": "Bonaduz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       "postalCode": "7402",
       "streetAddress": "Bonaduz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:19:08.588Z",
+      "validThrough": "2026-12-19T21:21:34.703Z",
       "validThroughSource": "last-observed-window"
     }
   ]
