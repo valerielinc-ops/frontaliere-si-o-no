@@ -27,6 +27,7 @@ import { companyLogoKeyForJob } from './lib/company-logo-key.mjs';
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
 import {
@@ -80,9 +81,16 @@ import { isAccountDeletedTombstone } from '../functions/src/authAccountCleanup.j
 import { evaluateJobAlertConsent } from './lib/jobalert-backfill-core.mjs';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 import {
+  CLAIM_TTL_MS,
+  DELIVERY_STATES,
+  deliveryEntryBlocksRetry,
+  jobDedupKey,
   normalizeSentMap,
+  normalizeDeliveryLedger,
   filterUnsentJobs,
+  mergeDeliveryLedger,
   mergeSentJobs,
+  removeDeliveryLedgerJobs,
   DEDUP_WINDOW_MS,
 } from './lib/alert-sent-jobs.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
@@ -273,7 +281,7 @@ async function printJobAlertFunnel({ funnelIn = {}, zeroMatch = {}, sends = {}, 
     sent: sends.sent ?? 0,
     failed: sends.failed ?? 0,
     discoveryUnknown: sends.discoveryUnknown ?? 0,
-    ambiguous: sends.ambiguous ?? 0,
+    ambiguous: (sends.ambiguous ?? 0) + (retryOutcome.ambiguous ?? 0),
     retrySent: retryOutcome.succeeded,
     uniqueRecipients: new Set([...(sends.recipients ?? []), ...retryOutcome.recipients]).size,
   }, { dryRun: DRY_RUN });
@@ -1672,6 +1680,7 @@ async function onSentComposed(item, sendResult) {
   }
   await mailerooMetaOnSent(item, sendResult);
   await persistJobAlertDelivery(item, sendResult);
+  await finalizeJobAlertDeliveryAttempt(item, 'accepted', sendResult);
 }
 
 // Throttle for both job-alert cascade calls (first send + retry queue). Run
@@ -1692,7 +1701,199 @@ const JOB_ALERT_SEND_THROTTLE = Object.freeze({
 function jobAlertDeliveryKey(item) {
   const email = String(item?.to || item?.recipient?.email || '').trim().toLowerCase();
   const alertId = String(item?.alertId || item?.meta?.alertId || '').trim();
-  return `${email}\u0000${alertId}`;
+  const jobs = Array.isArray(item?.meta?.rankingJobs)
+    ? item.meta.rankingJobs
+    : (Array.isArray(item?.sentJobs) ? item.sentJobs : []);
+  const jobIds = jobs.map(jobDedupKey).filter(Boolean).sort();
+  return `${email}\u0000${alertId}\u0000${jobIds.join('\u0001')}`;
+}
+
+function hasLiveProviderAttemptIntent(ledger, jobs, now = Date.now()) {
+  const normalized = normalizeDeliveryLedger(ledger);
+  return (Array.isArray(jobs) ? jobs : []).some((job) => {
+    const entry = normalized[jobDedupKey(job)];
+    return entry?.state === DELIVERY_STATES.AMBIGUOUS
+      && entry.reason === 'provider-attempt-intent'
+      && entry.at > 0
+      && now - entry.at < CLAIM_TTL_MS;
+  });
+}
+
+function createJobAlertDeliveryAttemptId(alertId, prefix = 'job-alert') {
+  return `${prefix}:${Date.now()}:${randomUUID()}:${String(alertId || '').slice(0, 48)}`;
+}
+
+function jobAlertDeliveryLedgerContext(item) {
+  const jobs = Array.isArray(item?.meta?.rankingJobs) ? item.meta.rankingJobs : [];
+  const keys = jobs.map(jobDedupKey);
+  const claimId = String(item?.meta?.deliveryAttemptId || '').trim();
+  const ref = item?.deliveryRef;
+  if (!ref || !claimId || jobs.length === 0 || keys.some((key) => !key)) {
+    throw new Error('Job-alert delivery is missing its alert reference, attempt id, or stable job identity.');
+  }
+  return { ref, jobs, keys, claimId };
+}
+
+/**
+ * Persist the retry-blocking intent before the first provider request. The
+ * marker is written as ambiguous up front because the process can die between
+ * this write and receiving a provider response; a fallback provider in the
+ * same cascade is allowed to reuse the same attempt id.
+ */
+async function persistJobAlertProviderAttempt(item, provider) {
+  if (item.meta?.isOperatorVerification) return true;
+  const { ref, jobs, keys, claimId } = jobAlertDeliveryLedgerContext(item);
+  const db = await getFirestoreAdmin();
+  const now = Date.now();
+  return db.runTransaction(async (tx) => {
+    const snapshot = await tx.get(ref);
+    if (!snapshot.exists) return false;
+    const current = snapshot.data() || {};
+    const ledger = normalizeDeliveryLedger(current.deliveryLedger);
+    const sentMap = normalizeSentMap(current.sentJobIds);
+    for (const key of keys) {
+      const previous = ledger[key];
+      if (previous?.state === DELIVERY_STATES.AMBIGUOUS && previous.claimId === claimId) continue;
+      if (deliveryEntryBlocksRetry(previous, now)) return false;
+      const sentAt = sentMap[key];
+      if (Number.isFinite(sentAt) && now - sentAt < DEDUP_WINDOW_MS) return false;
+    }
+    tx.update(ref, {
+      deliveryLedger: mergeDeliveryLedger(
+        ledger,
+        jobs,
+        now,
+        DELIVERY_STATES.AMBIGUOUS,
+        { claimId, provider, reason: 'provider-attempt-intent' },
+      ),
+      deliveryLastOutcome: DELIVERY_STATES.AMBIGUOUS,
+      deliveryLastOutcomeAt: now,
+      deliveryLastOutcomeReason: 'provider-attempt-intent',
+    });
+    return true;
+  });
+}
+
+/**
+ * Finalize only the attempt that owns every rendered job. An accepted outcome
+ * advances sentJobIds and clears the marker atomically; a definite rejection
+ * clears it for a safe retry; an unknown outcome stays retry-blocking.
+ */
+async function finalizeJobAlertDeliveryAttempt(item, outcome, provider = {}) {
+  if (item.meta?.isOperatorVerification) return false;
+  const { ref, jobs, keys, claimId } = jobAlertDeliveryLedgerContext(item);
+  const db = await getFirestoreAdmin();
+  const now = Date.now();
+  const state = String(outcome || '').trim().toLowerCase();
+  if (!['accepted', 'ambiguous', 'failed'].includes(state)) {
+    throw new Error(`Unsupported job-alert delivery outcome: ${outcome}`);
+  }
+  return db.runTransaction(async (tx) => {
+    const snapshot = await tx.get(ref);
+    if (!snapshot.exists) throw new Error('Job-alert document disappeared before delivery finalization.');
+    const current = snapshot.data() || {};
+    const ledger = normalizeDeliveryLedger(current.deliveryLedger);
+    const entries = keys.map((key) => ledger[key]);
+    const ownsAllEntries = entries.every((entry) => entry?.state === DELIVERY_STATES.AMBIGUOUS
+      && entry.claimId === claimId);
+    if (state === 'failed' && entries.every((entry) => !deliveryEntryBlocksRetry(entry, now))) {
+      const sentMap = normalizeSentMap(current.sentJobIds);
+      if (keys.some((key) => Number.isFinite(sentMap[key]) && now - sentMap[key] < DEDUP_WINDOW_MS)) {
+        throw new Error('A concurrent job-alert delivery already recorded one of these jobs as sent.');
+      }
+      // No provider had a configured quota slot, so no pre-provider marker was
+      // written (or only an expired/definite-failure marker remains). The
+      // cascade classifies this as a definite failure; queueing is safe after
+      // the transaction confirms there is no competing outcome.
+      tx.update(ref, {
+        deliveryLedger: removeDeliveryLedgerJobs(ledger, jobs),
+        deliveryLastOutcome: 'failed',
+        deliveryLastOutcomeAt: now,
+        deliveryLastOutcomeReason: 'provider-rejected',
+      });
+      return true;
+    }
+    if (!ownsAllEntries) {
+      throw new Error('Job-alert delivery attempt no longer owns every rendered job.');
+    }
+
+    if (state === 'ambiguous') {
+      tx.update(ref, {
+        deliveryLedger: mergeDeliveryLedger(ledger, jobs, now, DELIVERY_STATES.AMBIGUOUS, {
+          claimId,
+          provider: provider.provider,
+          messageId: provider.ack === 'identified' ? provider.messageId : null,
+          reason: 'provider-outcome-ambiguous',
+        }),
+        deliveryLastOutcome: DELIVERY_STATES.AMBIGUOUS,
+        deliveryLastOutcomeAt: now,
+        deliveryLastOutcomeReason: 'provider-outcome-ambiguous',
+      });
+      return true;
+    }
+
+    const update = {
+      deliveryLedger: removeDeliveryLedgerJobs(ledger, jobs),
+      deliveryLastOutcome: state,
+      deliveryLastOutcomeAt: now,
+      deliveryLastOutcomeReason: state === 'accepted' ? 'provider-acknowledged' : 'provider-rejected',
+    };
+    if (state === 'accepted') {
+      update.sentJobIds = mergeSentJobs(normalizeSentMap(current.sentJobIds), jobs, now, DEDUP_WINDOW_MS);
+    }
+    tx.update(ref, update);
+    return true;
+  });
+}
+
+async function onAmbiguousComposed(item, error) {
+  if (item.meta?.discoveryClaim) {
+    const db = await getFirestoreAdmin();
+    await finalizeDiscoveryDelivery(db, item.recipient.email, item.meta.discoveryClaim, error, true);
+  }
+  await finalizeJobAlertDeliveryAttempt(item, 'ambiguous', error);
+}
+
+async function finalizeDefiniteFailuresFromCascadeError(error) {
+  const partialFailures = Array.isArray(error?.partialResult?.failed)
+    ? error.partialResult.failed
+    : [];
+  for (const item of partialFailures) {
+    if (item?.ambiguousDelivery === true || item?.meta?.isOperatorVerification) continue;
+    try {
+      if (item?.meta?.discoveryClaim) {
+        const db = await getFirestoreAdmin();
+        await finalizeDiscoveryDelivery(db, item.recipient?.email, item.meta.discoveryClaim, item, true);
+      }
+      await finalizeJobAlertDeliveryAttempt(item, 'failed', item);
+    } catch (cleanupError) {
+      // Keep the durable attempt marker in place if cleanup itself cannot be
+      // proved. The original cascade error remains the run's failure reason.
+      console.warn('⚠️ Could not release a definite partial job-alert failure:', redactEmailAddresses(cleanupError?.message || cleanupError));
+    }
+  }
+}
+
+async function finalizeUnattemptedDiscoveryClaims(items, result, reason) {
+  const represented = new Set([
+    ...(Array.isArray(result?.sent) ? result.sent : []),
+    ...(Array.isArray(result?.failed) ? result.failed : []),
+  ].map(jobAlertDeliveryKey));
+  for (const item of items) {
+    if (!item?.meta?.discoveryClaim || represented.has(jobAlertDeliveryKey(item))) continue;
+    try {
+      const db = await getFirestoreAdmin();
+      await finalizeDiscoveryDelivery(
+        db,
+        item.recipient?.email,
+        item.meta.discoveryClaim,
+        { error: reason },
+        true,
+      );
+    } catch (error) {
+      console.warn('⚠️ Unattempted discovery claim could not be released:', redactEmailAddresses(error?.message || error));
+    }
+  }
 }
 
 async function sendBatch(emails) {
@@ -1700,6 +1901,7 @@ async function sendBatch(emails) {
   const { sendEmailCascade, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
 
   const cascadeEmails = emails.map(e => {
+    const deliveryAttemptId = e.deliveryAttemptId || createJobAlertDeliveryAttemptId(e.alertId);
     // Gmail FBL: Feedback-ID category:identifier:sender-name
     const feedbackHeader = { 'Feedback-ID': `job-alert:${e.alertId}:frontaliere-ticino` };
     // RFC 8058: List-Unsubscribe + List-Unsubscribe-Post for one-click unsubscribe
@@ -1730,11 +1932,13 @@ async function sendBatch(emails) {
         ...(e.scheduledAt ? { scheduledAt: e.scheduledAt } : {}),
       },
       recipient: { email: e.to },
+      deliveryRef: e.ref,
       meta: {
         type: 'job-alert',
         discoveryMode: e.discoveryMode === true,
         ...(e.discoveryClaim ? { discoveryClaim: e.discoveryClaim } : {}),
         alertId: e.alertId,
+        deliveryAttemptId,
         rankingDeliveryId: e.rankingDeliveryId || null,
         rankingVariant: e.rankingVariant || 'control',
         rankingAffinityProfile: e.rankingAffinityProfile === true,
@@ -1756,26 +1960,56 @@ async function sendBatch(emails) {
     };
   });
 
-  const result = await sendEmailCascade(cascadeEmails, {
-    ...JOB_ALERT_SEND_THROTTLE,
-    providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
-    onSent: onSentComposed,
-    quiet: true,
-  });
+  let result;
+  try {
+    result = await sendEmailCascade(cascadeEmails, {
+      ...JOB_ALERT_SEND_THROTTLE,
+      providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
+      onSent: onSentComposed,
+      onAmbiguous: onAmbiguousComposed,
+      beforeProviderAttempt: persistJobAlertProviderAttempt,
+      quiet: true,
+    });
+  } catch (error) {
+    await finalizeDefiniteFailuresFromCascadeError(error);
+    await finalizeUnattemptedDiscoveryClaims(cascadeEmails, error?.partialResult, 'cascade-aborted-before-provider');
+    const definitePartialFailures = Array.isArray(error?.partialResult?.failed)
+      ? error.partialResult.failed.filter((item) => item?.ambiguousDelivery !== true)
+      : [];
+    if (definitePartialFailures.length > 0) {
+      try {
+        await enqueueFailedEmails(await getFirestoreAdmin(), definitePartialFailures);
+      } catch (queueError) {
+        console.warn('⚠️ Could not queue definite failures from a partial cascade result:', redactEmailAddresses(queueError?.message || queueError));
+      }
+    }
+    throw error;
+  }
   noteCascadeResult(result);
+  await finalizeUnattemptedDiscoveryClaims(cascadeEmails, result, 'delivery-ledger-blocked-before-provider');
 
   // Discovery has a durable claim, not the historical queue's date-based retry.
   // A timeout/missing acknowledgement stays unknown and cannot send again.
-  const { confirmed, failedItems, ambiguous, discoveryUnknown } = partitionDiscoveryOutcomes(result);
-  for (const item of failedItems) {
+  const discoveryOutcomes = partitionDiscoveryOutcomes(result);
+  for (const item of discoveryOutcomes.failedItems) {
     if (!item.meta?.discoveryClaim) continue;
     try {
       const db = await getFirestoreAdmin();
       await finalizeDiscoveryDelivery(db, item.recipient.email, item.meta.discoveryClaim, item, true);
+      if (item.ambiguousDelivery !== true) {
+        await finalizeJobAlertDeliveryAttempt(item, 'failed', item);
+      }
     } catch (error) {
       console.warn('⚠️ Discovery failure persistence failed; pending claim retained:', redactEmailAddresses(error?.message));
     }
   }
+  const failedItems = result.failed.filter((item) => item.ambiguousDelivery !== true);
+  for (const item of failedItems) {
+    if (item.meta?.discoveryClaim || item.meta?.isOperatorVerification) continue;
+    await finalizeJobAlertDeliveryAttempt(item, 'failed', item);
+  }
+  const confirmed = result.accepted || [];
+  const skippedCount = Math.max(0, cascadeEmails.length - result.sent.length - result.failed.length);
 
   // Per-user send-time observability (#3798 follow-up): the cascade returns
   // the authoritative scheduledFor per item (sent[i] === { ...cascadeEmail,
@@ -1802,13 +2036,19 @@ async function sendBatch(emails) {
   }
 
   return {
-    sent: confirmed.length,
+    // `sent` is provider-accepted, including a 2xx response whose message ID
+    // was unusable. Only confirmed IDs authorize sentJobIds/cadence writeback.
+    sent: result.sent.length,
+    sentDeliveryKeys: new Set(result.sent.map(jobAlertDeliveryKey)),
     confirmedDeliveryKeys: new Set(confirmed.map(jobAlertDeliveryKey)),
-    failed: failedItems.length,
+    persistFailedItems: confirmed.filter((item) => item.persistFailed),
+    // The funnel's failure row includes transport-ambiguous and ledger-blocked
+    // items too; `failedItems` remains the stricter, retryable subset.
+    failed: result.failed.length + skippedCount,
     failedItems,
     scheduleOutcomes,
-    ambiguous,
-    discoveryUnknown,
+    ambiguous: (result.ambiguous || []).length,
+    discoveryUnknown: discoveryOutcomes.discoveryUnknown,
     providerBreakdown: result.providerBreakdown ?? {},
   };
 }
@@ -1822,7 +2062,15 @@ async function enqueueFailedEmails(db, failedItems) {
   // Pre-filter so the slice length is a safe upper bound on ops-per-batch, then
   // chunk the writes past the Firestore 500-op batch cap (a mass-failure run can
   // exceed it; a single commit() would throw and enqueue nothing for retry).
-  const toEnqueue = failedItems.filter((item) => item.recipient?.email && !item.meta?.discoveryMode && !item.meta?.discoveryClaim);
+  const toEnqueue = failedItems.filter((item) => item.recipient?.email
+    && item.ambiguousDelivery !== true
+    && !item.meta?.discoveryMode
+    && !item.meta?.discoveryClaim
+    && !item.meta?.isOperatorVerification
+    && item.meta?.deliveryAttemptId
+    && Array.isArray(item.meta?.rankingJobs)
+    && item.meta.rankingJobs.length > 0
+    && item.meta.rankingJobs.every((job) => Boolean(jobDedupKey(job))));
   const enqueued = toEnqueue.length;
 
   if (enqueued > 0) {
@@ -1831,6 +2079,8 @@ async function enqueueFailedEmails(db, failedItems) {
       batch.set(docRef, {
         alertId: item.meta?.alertId || '',
         email: item.recipient.email,
+        deliveryState: 'definite-failure',
+        sourceAttemptId: item.meta?.deliveryAttemptId || null,
         subject: item.payload?.subject || '',
         html: item.payload?.html || '',
         rankingDeliveryId: item.meta?.rankingDeliveryId || null,
@@ -1853,13 +2103,69 @@ async function enqueueFailedEmails(db, failedItems) {
   }
 }
 
+async function quarantineUnclassifiedRetryItem(db, doc, data, FieldValue) {
+  const email = String(data.email || '').trim().toLowerCase();
+  const alertId = String(data.alertId || '').trim();
+  const quarantineReason = String(data.quarantineReason || 'legacy-retry-outcome-not-proven-definite');
+  const jobs = Array.isArray(data.rankingJobs) ? data.rankingJobs : [];
+  const alertRef = email.includes('@') && alertId && !alertId.includes('/')
+    ? db.collection('job_alert_subscribers').doc(email).collection('alerts').doc(alertId)
+    : null;
+  await db.runTransaction(async (tx) => {
+    const [retrySnap, alertSnap] = await Promise.all([
+      tx.get(doc.ref),
+      alertRef ? tx.get(alertRef) : Promise.resolve(null),
+    ]);
+    if (!retrySnap.exists || retrySnap.data()?.deliveryState === 'definite-failure') return;
+    if (alertRef && alertSnap?.exists && jobs.length > 0) {
+      const current = alertSnap.data() || {};
+      const ledger = normalizeDeliveryLedger(current.deliveryLedger);
+      const sentMap = normalizeSentMap(current.sentJobIds);
+      const now = Date.now();
+      const jobsNeedingBlock = jobs.filter((job) => {
+        const key = jobDedupKey(job);
+        if (!key || deliveryEntryBlocksRetry(ledger[key], now)) return false;
+        const sentAt = sentMap[key];
+        return !(Number.isFinite(sentAt) && now - sentAt < DEDUP_WINDOW_MS);
+      });
+      if (jobsNeedingBlock.length > 0) {
+        tx.update(alertRef, {
+          deliveryLedger: mergeDeliveryLedger(
+            ledger,
+            jobsNeedingBlock,
+            now,
+            DELIVERY_STATES.AMBIGUOUS,
+            {
+              claimId: `legacy-retry:${doc.id}`,
+              provider: 'legacy-unknown',
+              reason: quarantineReason,
+            },
+          ),
+          deliveryLastOutcome: DELIVERY_STATES.AMBIGUOUS,
+          deliveryLastOutcomeAt: now,
+          deliveryLastOutcomeReason: quarantineReason,
+        });
+      }
+    }
+    tx.update(doc.ref, {
+      deliveryState: 'quarantined',
+      quarantineReason,
+      quarantinedAt: FieldValue.serverTimestamp(),
+    });
+  });
+}
+
 // ── Retry queue: process pending retries ────────────────────
 
 async function processRetryQueue(db) {
+  if (ALLOWED_EMAILS) {
+    console.log('   🔄 Retry queue: skipped in targeted operator verification; queue and production state are untouched');
+    return { succeeded: 0, sent: 0, ambiguous: 0, requeued: 0, recipients: new Set() };
+  }
   const snap = await db.collection(RETRY_COLLECTION).get();
   if (snap.empty) {
     console.log('   🔄 Retry queue: empty — nothing to retry');
-    return { succeeded: 0, requeued: 0, recipients: new Set() };
+    return { succeeded: 0, sent: 0, ambiguous: 0, requeued: 0, recipients: new Set() };
   }
 
   console.log(`   🔄 Retry queue: ${snap.size} pending email(s) to retry`);
@@ -1869,6 +2175,23 @@ async function processRetryQueue(db) {
   const retryEmails = [];
   const retryDocs = [];
   const retryCandidates = [];
+  const maxRetryCountByDeliveryKey = new Map();
+
+  for (const doc of snap.docs) {
+    const data = doc.data();
+    const email = String(data.email || '').trim().toLowerCase();
+    const alertId = String(data.alertId || '').trim();
+    const jobs = Array.isArray(data.rankingJobs) ? data.rankingJobs : [];
+    if (data.deliveryState !== 'definite-failure'
+      || !email.includes('@')
+      || !alertId
+      || alertId.includes('/')
+      || jobs.length === 0
+      || jobs.some((job) => !jobDedupKey(job))) continue;
+    const key = jobAlertDeliveryKey({ to: email, alertId, meta: { rankingJobs: jobs } });
+    const retryCount = Number.isFinite(Number(data.retryCount)) ? Math.max(0, Number(data.retryCount)) : 0;
+    maxRetryCountByDeliveryKey.set(key, Math.max(maxRetryCountByDeliveryKey.get(key) || 0, retryCount));
+  }
 
   for (const doc of snap.docs) {
     const data = doc.data();
@@ -1877,21 +2200,37 @@ async function processRetryQueue(db) {
     // recipient's retry item untouched — including malformed/maxed-out items —
     // so a QA send cannot delete, deliver, or advance another user's state.
     if (ALLOWED_EMAILS && !ALLOWED_EMAILS.has(email)) continue;
-    const retryCount = data.retryCount || 0;
-
-    if (retryCount >= MAX_RETRY_COUNT) {
-      // Max retries exhausted — give up
-      console.warn(`   ⚠️  Giving up on retry for alert ${data.alertId} after ${retryCount} retries`);
-      await doc.ref.delete();
+    if (data.deliveryState !== 'definite-failure') {
+      if (data.deliveryState !== 'quarantined') {
+        await quarantineUnclassifiedRetryItem(db, doc, data, FieldValue);
+        console.warn(`   ⚠️  Quarantined legacy job-alert retry item ${doc.id}; provider outcome is not proven definite`);
+      }
+      continue;
+    }
+    const alertId = String(data.alertId || '').trim();
+    if (!email.includes('@') || !alertId || alertId.includes('/')) {
+      // Preserve malformed rows for diagnosis; without a stable recipient and
+      // alert identity the retry worker cannot prove that sending is safe.
+      await doc.ref.set({
+        deliveryState: 'quarantined',
+        quarantineReason: 'malformed-retry-identity',
+        quarantinedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+      console.warn(`   ⚠️  Quarantined malformed job-alert retry item ${doc.id}`);
       continue;
     }
 
-    const alertId = String(data.alertId || '').trim();
-    if (!email.includes('@') || !alertId || alertId.includes('/')) {
-      // A malformed/stale queue item has no safe Firestore target to
-      // re-validate and no valid recipient to send to.
+    const retryCountKey = jobAlertDeliveryKey({
+      to: email,
+      alertId,
+      meta: { rankingJobs: data.rankingJobs },
+    });
+    const retryCount = maxRetryCountByDeliveryKey.get(retryCountKey)
+      ?? (Number.isFinite(Number(data.retryCount)) ? Math.max(0, Number(data.retryCount)) : 0);
+    if (retryCount >= MAX_RETRY_COUNT) {
+      // Only rows explicitly marked as a definite failure reach this limit.
+      console.warn(`   ⚠️  Giving up on retry for alert ${data.alertId} after ${retryCount} retries`);
       await doc.ref.delete();
-      console.warn(`   ⚠️  Dropping malformed job-alert retry item ${doc.id}`);
       continue;
     }
 
@@ -1952,6 +2291,33 @@ async function processRetryQueue(db) {
           continue;
         }
 
+        const rankingJobs = Array.isArray(item.data.rankingJobs) ? item.data.rankingJobs : [];
+        const stableJobKeys = rankingJobs.map(jobDedupKey);
+        const deliveryLedger = normalizeDeliveryLedger(alert.deliveryLedger);
+        if (hasLiveProviderAttemptIntent(deliveryLedger, rankingJobs)) {
+          console.log(`   ⏳ Retry left pending for alert ${item.alertId}; another run owns an active provider attempt`);
+          continue;
+        }
+        const stillUnsentJobs = filterUnsentJobs(
+          rankingJobs,
+          normalizeSentMap(alert.sentJobIds),
+          Date.now(),
+          DEDUP_WINDOW_MS,
+          deliveryLedger,
+          true,
+        );
+        if (rankingJobs.length === 0
+          || stableJobKeys.some((key) => !key)
+          || stillUnsentJobs.length !== rankingJobs.length) {
+          await item.doc.ref.set({
+            deliveryState: 'quarantined',
+            quarantineReason: 'retry-jobs-no-longer-proven-unsent',
+            quarantinedAt: FieldValue.serverTimestamp(),
+          }, { merge: true });
+          console.warn(`   ⚠️  Quarantined job-alert retry for alert ${item.alertId}; job delivery ledger blocks a safe resend`);
+          continue;
+        }
+
         // Per-user send-time (#3798): deliberately NO scheduledAt here. A retry
         // means the first attempt already missed today's daily quota window —
         // the recipient is already late, so send it the moment fresh quota is
@@ -1970,16 +2336,18 @@ async function processRetryQueue(db) {
             ],
           },
           recipient: { email: item.email },
+          deliveryRef: alertSnap.ref,
           meta: {
             type: 'job-alert-retry',
             alertId: item.alertId,
+            deliveryAttemptId: createJobAlertDeliveryAttemptId(item.alertId, 'job-alert-retry'),
             rankingDeliveryId: item.data.rankingDeliveryId || null,
             rankingVariant: item.data.rankingVariant || 'control',
             // null for a retry queued before the field existed.
             rankingAffinityProfile: typeof item.data.rankingAffinityProfile === 'boolean'
               ? item.data.rankingAffinityProfile
               : null,
-            rankingJobs: item.data.rankingJobs || [],
+            rankingJobs,
             subject: item.data.subject || null,
             subjectExperiment: item.data.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID,
             subjectExperimentActive: item.data.subjectExperimentActive === true,
@@ -1987,6 +2355,7 @@ async function processRetryQueue(db) {
             subjectVariant: item.data.subjectVariant || 'control',
             subjectFreshnessQualified: item.data.subjectFreshnessQualified ?? null,
             consentProof,
+            isOperatorVerification: !!ALLOWED_EMAILS,
           },
         });
         retryDocs.push({
@@ -2005,22 +2374,61 @@ async function processRetryQueue(db) {
 
   if (retryEmails.length === 0) {
     console.log(`   🔄 Retry queue: no sendable entries (stale ${retryStale}, suppressed ${retrySuppressed})`);
-    return { succeeded: 0, requeued: 0, recipients: new Set() };
+    return { succeeded: 0, sent: 0, ambiguous: 0, requeued: 0, recipients: new Set() };
   }
 
   console.log(`   🔄 Retrying ${retryEmails.length} email(s)...`);
   // Pass the same onSent so retried emails also write a maileroo_message_meta
   // record — otherwise their open/click webhooks fall back to `skipped` (the exact
   // attribution bug fixed for the first-send path in #1135).
-  const result = await sendEmailCascade(retryEmails, {
-    ...JOB_ALERT_SEND_THROTTLE,
-    providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
-    onSent: onSentComposed,
-    quiet: true,
-  });
+  let result;
+  const blockedBeforeProviderKeys = new Set();
+  try {
+    result = await sendEmailCascade(retryEmails, {
+      ...JOB_ALERT_SEND_THROTTLE,
+      providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
+      onSent: onSentComposed,
+      onAmbiguous: onAmbiguousComposed,
+      beforeProviderAttempt: async (item, provider) => {
+        const allowed = await persistJobAlertProviderAttempt(item, provider);
+        if (!allowed) blockedBeforeProviderKeys.add(jobAlertDeliveryKey(item));
+        return allowed;
+      },
+      quiet: true,
+    });
+  } catch (error) {
+    await finalizeDefiniteFailuresFromCascadeError(error);
+    throw error;
+  }
   noteCascadeResult(result);
 
-  const retryRankingRecords = result.sent
+  const retryAcceptedKeys = new Set((result.accepted || [])
+    .filter((item) => !item.persistFailed)
+    .map(jobAlertDeliveryKey));
+  const retryAmbiguousKeys = new Set([
+    ...(result.ambiguous || []),
+    ...(result.failed || []).filter((item) => item.ambiguousDelivery === true),
+  ].map(jobAlertDeliveryKey));
+  const retryDefiniteFailureItems = (result.failed || []).filter((item) => item.ambiguousDelivery !== true);
+  for (const item of retryDefiniteFailureItems) {
+    if (item.meta?.discoveryClaim || item.meta?.isOperatorVerification) continue;
+    await finalizeJobAlertDeliveryAttempt(item, 'failed', item);
+  }
+  for (const item of (result.accepted || []).filter((candidate) => candidate.persistFailed)) {
+    try {
+      await finalizeJobAlertDeliveryAttempt(item, 'accepted', item);
+      retryAcceptedKeys.add(jobAlertDeliveryKey(item));
+    } catch (error) {
+      retryAmbiguousKeys.add(jobAlertDeliveryKey(item));
+      console.warn('⚠️ Accepted retry remains quarantined after writeback retry:', redactEmailAddresses(error?.message || error));
+    }
+  }
+  const retryRepresentedKeys = new Set([
+    ...(result.sent || []),
+    ...(result.failed || []),
+  ].map(jobAlertDeliveryKey));
+
+  const retryRankingRecords = (result.accepted || [])
     .filter((item) => item.meta?.rankingDeliveryId && item.meta?.rankingJobs?.length)
     .map((item) => ({
       deliveryId: item.meta.rankingDeliveryId,
@@ -2059,26 +2467,42 @@ async function processRetryQueue(db) {
     }
   }
 
-  // Build a set of successfully sent recipient emails for lookup. A retry is a
-  // real delivery, not just a queue deletion: it must advance the same
-  // per-alert ledger and per-recipient cursor as the first-send path.
-  const sentEmails = new Set(
-    result.sent.map((s) => String(s.recipient?.email || '').toLowerCase()).filter(Boolean),
-  );
+  // Match each provider outcome to the exact alert/job set. A recipient can
+  // have several alerts, and the cascade can skip a queue row when another run
+  // already owns its delivery marker.
+  const retryDefiniteFailureKeys = new Set(retryDefiniteFailureItems.map(jobAlertDeliveryKey));
   const retrySentAt = Date.now();
+  const finalizedRetryDeliveryKeys = new Set();
+  const finalizedRetryFailureKeys = new Set();
 
   let successCount = 0;
   let reEnqueueCount = 0;
-  const retryRecipients = new Set();
+  const retryRecipients = new Set((result.sent || [])
+    .map((item) => String(item.recipient?.email || '').toLowerCase())
+    .filter(Boolean));
 
   for (const retryDoc of retryDocs) {
     const { ref, data } = retryDoc;
     const email = String(data.email || '').trim().toLowerCase();
+    const deliveryKey = jobAlertDeliveryKey({
+      to: email,
+      alertId: data.alertId,
+      meta: { rankingJobs: data.rankingJobs },
+    });
     // Defense in depth: retryDocs are filtered above, but the finalisation
     // guard keeps a targeted run from ever moving another recipient's cursor
     // or ledger if queue assembly changes later.
     if (ALLOWED_EMAILS && !ALLOWED_EMAILS.has(email)) continue;
-    if (sentEmails.has(email)) {
+    if (retryAcceptedKeys.has(deliveryKey)) {
+      if (finalizedRetryDeliveryKeys.has(deliveryKey)) {
+        try {
+          await ref.delete();
+          console.log(`   🧹 Removed duplicate retry row for alert ${data.alertId}`);
+        } catch (error) {
+          console.warn(`   ⚠️ Could not remove duplicate retry row ${ref.id}: ${redactEmailAddresses(error?.message || error)}`);
+        }
+        continue;
+      }
       // Successfully retried — finalise the durable sent view before removing
       // the queue item. If this write fails, leave the item in the queue so the
       // accepted-but-unrecorded outcome remains visible for reconciliation.
@@ -2101,36 +2525,102 @@ async function processRetryQueue(db) {
             });
           });
         }
+        finalizedRetryDeliveryKeys.add(deliveryKey);
+        successCount++;
+        retryRecipients.add(email);
         await db.collection('job_alert_subscribers').doc(String(data.email).toLowerCase()).set({
           last_sent_at: FieldValue.serverTimestamp(),
         }, { merge: true });
         await ref.delete();
-        successCount++;
-        retryRecipients.add(String(data.email).toLowerCase());
         console.log(`   ✅ Retry succeeded: alert ${data.alertId}`);
       } catch (error) {
         console.warn(`   ⚠️ Retry accepted but finalisation failed for alert ${data.alertId}; queue item retained: ${redactEmailAddresses(error?.message || error)}`);
       }
-    } else {
+    } else if (retryAmbiguousKeys.has(deliveryKey)) {
+      try {
+        await ref.update({
+          deliveryState: 'quarantined',
+          quarantineReason: 'provider-outcome-ambiguous',
+          quarantinedAt: FieldValue.serverTimestamp(),
+        });
+      } catch (error) {
+        // Another worker may have resolved and removed this exact queue row.
+        console.warn(`   ⚠️ Could not retain quarantined retry ${ref.id}: ${redactEmailAddresses(error?.message || error)}`);
+      }
+      console.warn(`   ⚠️ Retry quarantined for alert ${data.alertId} (provider-outcome-ambiguous); it will not be sent again automatically`);
+    } else if (retryDefiniteFailureKeys.has(deliveryKey)) {
+      if (finalizedRetryFailureKeys.has(deliveryKey)) {
+        try {
+          await ref.delete();
+          console.log(`   🧹 Removed duplicate failed retry row for alert ${data.alertId}`);
+        } catch (error) {
+          console.warn(`   ⚠️ Could not remove duplicate failed retry row ${ref.id}: ${redactEmailAddresses(error?.message || error)}`);
+        }
+        continue;
+      }
       // Still failed — increment retryCount
-      const newCount = (data.retryCount || 0) + 1;
+      const previousRetryCount = maxRetryCountByDeliveryKey.get(deliveryKey)
+        ?? (Number.isFinite(Number(data.retryCount)) ? Math.max(0, Number(data.retryCount)) : 0);
+      const newCount = previousRetryCount + 1;
       if (newCount >= MAX_RETRY_COUNT) {
         console.warn(`   ⚠️  Giving up on retry for alert ${data.alertId} after ${newCount} retries`);
         await ref.delete();
+        finalizedRetryFailureKeys.add(deliveryKey);
       } else {
         await ref.update({
           retryCount: newCount,
           lastRetryAt: FieldValue.serverTimestamp(),
-          lastError: result.failed.find(f => f.recipient?.email === data.email)?.error?.slice(0, 500) || 'unknown',
+          lastError: (result.failed.find((failure) => jobAlertDeliveryKey(failure) === deliveryKey)?.error || 'unknown').slice(0, 500),
+          deliveryState: 'definite-failure',
+          quarantineReason: FieldValue.delete(),
+          quarantinedAt: FieldValue.delete(),
         });
+        finalizedRetryFailureKeys.add(deliveryKey);
         reEnqueueCount++;
         console.log(`   🔄 Retry failed for alert ${data.alertId} — attempt ${newCount}/${MAX_RETRY_COUNT}, will retry tomorrow`);
       }
+    } else if (blockedBeforeProviderKeys.has(deliveryKey)) {
+      // Another live attempt owns the alert/job ledger. Leave this definite
+      // failure row untouched so that owner can either accept it or release it
+      // for a later retry.
+      console.log(`   ⏳ Retry left pending for alert ${data.alertId}; provider attempt is owned by another run`);
+    } else if (!retryRepresentedKeys.has(deliveryKey)) {
+      try {
+        await ref.update({
+          deliveryState: 'quarantined',
+          quarantineReason: 'delivery-ledger-blocked-before-provider',
+          quarantinedAt: FieldValue.serverTimestamp(),
+        });
+      } catch (error) {
+        // Another worker may have resolved and removed this exact queue row.
+        console.warn(`   ⚠️ Could not retain quarantined retry ${ref.id}: ${redactEmailAddresses(error?.message || error)}`);
+      }
+      console.warn(`   ⚠️ Retry quarantined for alert ${data.alertId} (delivery-ledger-blocked-before-provider); it will not be sent again automatically`);
+    } else {
+      try {
+        await ref.update({
+          deliveryState: 'quarantined',
+          quarantineReason: 'retry-outcome-not-classified',
+          quarantinedAt: FieldValue.serverTimestamp(),
+        });
+      } catch (error) {
+        console.warn(`   ⚠️ Could not retain unclassified retry ${ref.id}: ${redactEmailAddresses(error?.message || error)}`);
+      }
+      console.warn(`   ⚠️ Retry quarantined for alert ${data.alertId}; no safe terminal outcome was recorded`);
     }
   }
 
-  console.log(`   🔄 Retry summary: ${successCount} succeeded, ${reEnqueueCount} will retry tomorrow`);
-  return { succeeded: successCount, requeued: reEnqueueCount, recipients: retryRecipients };
+  const acceptedCount = (result.sent || []).length;
+  const ambiguousCount = (result.ambiguous || []).length;
+  console.log(`   🔄 Retry summary: ${acceptedCount} accepted (${successCount} confirmed), ${ambiguousCount} ambiguous, ${reEnqueueCount} will retry tomorrow`);
+  return {
+    succeeded: acceptedCount,
+    sent: acceptedCount,
+    confirmed: successCount,
+    ambiguous: ambiguousCount,
+    requeued: reEnqueueCount,
+    recipients: retryRecipients,
+  };
 }
 
 // ── Main ─────────────────────────────────────────────────────
@@ -2327,7 +2817,13 @@ function planAlertMatch(alert, {
   // same jobs" report (#2993). When nothing new remains we skip the send
   // entirely rather than re-mail stale offers.
   const sentMap = normalizeSentMap(alert.sentJobIds);
-  const matched = filterUnsentJobs(ranked, sentMap, now, DEDUP_WINDOW_MS);
+  const matched = filterUnsentJobs(
+    ranked,
+    sentMap,
+    now,
+    DEDUP_WINDOW_MS,
+    normalizeDeliveryLedger(alert.deliveryLedger),
+  );
   return { alert, candidateCount, rankedCount: ranked.length, zeroCause: null, sentMap, matched,
     ...(discoveryMode ? { discoveryMode: true } : {}) };
 }
@@ -3028,15 +3524,48 @@ async function main() {
     : await import('firebase-admin/firestore');
 
   const persistSentBatch = async (batchEmails, result) => {
-    const failedKeys = new Set(result.failedItems.map(jobAlertDeliveryKey));
-    const successfulEmails = batchEmails.filter((email) => email.discoveryClaim
-      ? result.confirmedDeliveryKeys?.has(jobAlertDeliveryKey(email))
-      : !failedKeys.has(jobAlertDeliveryKey(email)));
-    runStats.sent += successfulEmails.length;
-    runStats.failed += result.failedItems.length;
+    for (const item of result.persistFailedItems || []) {
+      try {
+        await finalizeJobAlertDeliveryAttempt(item, 'accepted', item);
+      } catch (error) {
+        console.warn('⚠️ Accepted job-alert delivery remains quarantined after writeback retry:', redactEmailAddresses(error?.message || error));
+      }
+    }
+    const confirmedKeys = result.confirmedDeliveryKeys || new Set();
+    const providerAcceptedKeys = result.sentDeliveryKeys || confirmedKeys;
+    const providerAcceptedEmails = batchEmails.filter((email) => providerAcceptedKeys.has(jobAlertDeliveryKey(email)));
+    const successfulEmails = batchEmails.filter((email) => confirmedKeys.has(jobAlertDeliveryKey(email)));
+    runStats.sent += providerAcceptedEmails.length;
+    runStats.failed += result.failed ?? result.failedItems.length;
     runStats.ambiguous += result.ambiguous ?? 0;
     runStats.discoveryUnknown += result.discoveryUnknown ?? 0;
-    for (const delivery of successfulEmails) runStats.recipients.add(delivery.to.toLowerCase());
+    for (const delivery of providerAcceptedEmails) runStats.recipients.add(delivery.to.toLowerCase());
+
+    // Discovery claims protect only the recommendation slot. Also advance the
+    // alert's per-job dedup map for every provider-accepted discovery delivery,
+    // including accepted responses without a usable message ID. The ordinary
+    // per-alert finalizer below owns this write for targeted sends.
+    if (!ALLOWED_EMAILS) {
+      const acceptedDiscoveryEmails = providerAcceptedEmails.filter((email) => email.discoveryClaim
+        && email.ref
+        && Array.isArray(email.sentJobs)
+        && email.sentJobs.length > 0);
+      for (const email of acceptedDiscoveryEmails) {
+        await db.runTransaction(async (tx) => {
+          const snapshot = await tx.get(email.ref);
+          if (!snapshot.exists) return;
+          const current = snapshot.data() || {};
+          tx.update(email.ref, {
+            sentJobIds: mergeSentJobs(
+              normalizeSentMap(current.sentJobIds),
+              email.sentJobs,
+              Date.now(),
+              DEDUP_WINDOW_MS,
+            ),
+          });
+        });
+      }
+    }
 
     for (const delivery of successfulEmails) {
       const email = delivery.to.toLowerCase();
@@ -3109,7 +3638,6 @@ async function main() {
         lastMatchedAt: FieldValue.serverTimestamp(),
         matchCount: FieldValue.increment(email.matchCount),
         cadence_scheduled_for: scheduleOutcomes.get(key)?.scheduledFor ?? null,
-        sentJobIds: mergeSentJobs(email.sentMap, email.sentJobs, now, DEDUP_WINDOW_MS),
         ...rankingUpdate,
         ...(decay || {}),
       });

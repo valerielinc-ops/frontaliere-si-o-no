@@ -56,6 +56,15 @@ const isSafeText = (value) => typeof value === 'string'
   && value.trim().length > 0
   && !/[\u0000-\u001f\u007f]/u.test(value);
 
+function sameLocaleMap(left, right) {
+  if (!isRecord(left) || !isRecord(right)) return false;
+  const leftLocales = Object.keys(left).sort();
+  const rightLocales = Object.keys(right).sort();
+  return leftLocales.length === rightLocales.length
+    && leftLocales.every((locale, index) => locale === rightLocales[index]
+      && left[locale] === right[locale]);
+}
+
 function isCanonicalArticleUrl(value) {
   if (typeof value !== 'string' || value.trim() !== value || !value) return false;
   let parsed;
@@ -316,6 +325,38 @@ export async function loadOptionalDiscoveryArticleIndexFromHttp(options = {}) {
 }
 
 /**
+ * Keep a new newsletter selection on the same corpus release the site pulled.
+ * The local discovery index is paired with its manifest snapshot by the pull
+ * workflow; matching only IDs would allow a newer HTTP release to introduce a
+ * link whose localized copy has not reached the site yet.
+ *
+ * @param {object|null} index Valid live or manifest-pinned HTTP index.
+ * @param {{manifestFilePath?:string,indexFilePath?:string,now?:Date|number}} options
+ * @returns {object|null} The localized intersection, or null when releases disagree.
+ */
+export function alignDiscoveryIndexWithSitePull(index, {
+  manifestFilePath = DEFAULT_LAST_KNOWN_GOOD_MANIFEST_PATH,
+  indexFilePath = DEFAULT_FEED_PATH,
+  now = Date.now(),
+} = {}) {
+  if (!isRecord(index) || typeof index.commit !== 'string' || !Array.isArray(index.articles)) return null;
+  const pulled = readLocalLastKnownGood({ manifestFilePath, indexFilePath, now });
+  if (!pulled || pulled.commit !== index.commit) return null;
+
+  const pulledById = new Map(pulled.articles.map((article) => [article.id, article]));
+  const articles = index.articles.filter((article) => {
+    const siteArticle = pulledById.get(article?.id);
+    return siteArticle
+      && article.provider === siteArticle.provider
+      && article.publishedAt === siteArticle.publishedAt
+      && sameLocaleMap(article.title, siteArticle.title)
+      && sameLocaleMap(article.excerpt, siteArticle.excerpt)
+      && sameLocaleMap(article.url, siteArticle.url);
+  });
+  return { ...index, count: articles.length, articles };
+}
+
+/**
  * Read the committed HTTP snapshot for newsletter use. Missing, malformed, or
  * stale data is optional content and therefore degrades to the existing email.
  */
@@ -420,6 +461,11 @@ export function chooseDiscoveryArticle(index, campaignId, locale, { now = Date.n
 
 function validateStoredSelection(value, locale) {
   if (value === null) return null;
+  if (isRecord(value)
+    && Object.hasOwn(value, 'sourceCommit')
+    && (typeof value.sourceCommit !== 'string' || !value.sourceCommit.trim())) {
+    throw new Error(`frozen newsletter discovery source commit is invalid for ${locale}`);
+  }
   if (isRecord(value) && typeof value.provider === 'string' && !NEWSLETTER_PROVIDERS.has(value.provider)) {
     return null;
   }
@@ -483,6 +529,7 @@ export async function freezeCampaignDiscoverySelection(db, campaignId, locale, i
       ? {
           articleId: selection.articleId,
           provider: selection.provider,
+          sourceCommit: index.commit,
           // Store the small public localized copy too. If the API index later
           // advances or is briefly absent, resumes still render the same item.
           article: selection.article,

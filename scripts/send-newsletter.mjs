@@ -92,6 +92,7 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle } from './lib/articleContent.mjs';
 import { resolveNewsletterArticle } from './lib/newsletter-article-selection.mjs';
 import {
+  alignDiscoveryIndexWithSitePull,
   freezeCampaignDiscoverySelection,
   loadDiscoveryArticleIndex,
   loadOptionalDiscoveryArticleIndexFromHttp,
@@ -2039,6 +2040,7 @@ async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
         delivery_attempt_id: attemptId,
         discovery_article_id: item.meta.discoveryArticleId || null,
         discovery_provider: item.meta.discoveryProvider || null,
+        discovery_commit: item.meta.discoveryCommit || null,
         is_operator_verification: item.meta.isOperatorVerification ?? false,
         attempted_at: new Date(),
         updated_at: new Date(),
@@ -2080,6 +2082,7 @@ async function persistDelivery(recipient, messageId, meta) {
       provider: meta.provider || previous.provider || null,
       discovery_article_id: meta.discoveryArticleId || previous.discovery_article_id || null,
       discovery_provider: meta.discoveryProvider || previous.discovery_provider || null,
+      discovery_commit: meta.discoveryCommit || previous.discovery_commit || null,
       variant: meta.variant || null,
       subject: meta.subject || null,
       // Content segment (#4299) — engagement level x inferred interest, e.g.
@@ -2167,6 +2170,7 @@ async function persistAmbiguousDelivery(recipient, meta, provider, attemptId) {
         provider: provider || previous.provider || null,
         discovery_article_id: previous.discovery_article_id || meta.discoveryArticleId || null,
         discovery_provider: previous.discovery_provider || meta.discoveryProvider || null,
+        discovery_commit: previous.discovery_commit || meta.discoveryCommit || null,
         delivery_status: deliveryStatus,
         delivery_attempt_id: previous.delivery_attempt_id || attemptId || null,
         attempted_at: previous.attempted_at || new Date(),
@@ -2612,11 +2616,17 @@ async function main() {
   // optional index freezes a null slot so the regular digest remains sendable.
   // Resumes keep their immutable Firestore selection and previews continue to
   // use the committed local snapshot.
-  const discoveryIndex = mode === 'send' && db && allowNewDiscoverySelection
+  const shouldAlignDiscoveryWithSitePull = mode === 'send' && Boolean(db) && allowNewDiscoverySelection;
+  const loadedDiscoveryIndex = shouldAlignDiscoveryWithSitePull
     ? await loadOptionalDiscoveryArticleIndexFromHttp()
     : loadDiscoveryArticleIndex();
-  if (mode === 'send' && db && allowNewDiscoverySelection && !discoveryIndex) {
-    console.warn('[newsletter] discovery index unavailable; freezing an empty optional slot for this campaign.');
+  const discoveryIndex = shouldAlignDiscoveryWithSitePull
+    ? alignDiscoveryIndexWithSitePull(loadedDiscoveryIndex)
+    : loadedDiscoveryIndex;
+  if (shouldAlignDiscoveryWithSitePull && !discoveryIndex) {
+    console.warn(loadedDiscoveryIndex
+      ? '[newsletter] discovery index does not match the localized site pull; freezing an empty optional slot for this campaign.'
+      : '[newsletter] discovery index unavailable; freezing an empty optional slot for this campaign.');
   }
   const discoveryByLocale = new Map();
   for (const locale of ['it', 'en', 'de', 'fr']) {
@@ -3191,6 +3201,7 @@ async function main() {
         segment: articleContent.segment,
         discoveryArticleId: discoverySelection?.articleId || null,
         discoveryProvider: discoverySelection?.provider || null,
+        discoveryCommit: discoverySelection?.sourceCommit || null,
         isOperatorVerification: mode === 'test',
         rankingDeliveryId,
         rankingVariant: rankingVariant || 'control',

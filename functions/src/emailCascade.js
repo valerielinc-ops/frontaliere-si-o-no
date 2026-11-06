@@ -2032,12 +2032,22 @@ export async function sendEmailCascade(emails, opts = {}) {
 
   if (ambiguousPersistenceFailure) {
     const error = new Error('Ambiguous email delivery could not be durably quarantined; campaign send stopped.');
-    error.partialResult = { failed: failed.slice() };
+    error.partialResult = {
+      sent: sent.slice(),
+      accepted: accepted.slice(),
+      ambiguous: ambiguous.slice(),
+      failed: failed.slice(),
+    };
     throw error;
   }
   if (beforeProviderPersistenceFailure) {
     const error = new Error('Newsletter delivery intent could not be persisted; campaign send stopped before unclaimed deliveries.');
-    error.partialResult = { failed: failed.slice() };
+    error.partialResult = {
+      sent: sent.slice(),
+      accepted: accepted.slice(),
+      ambiguous: ambiguous.slice(),
+      failed: failed.slice(),
+    };
     throw error;
   }
 
