@@ -300,30 +300,6 @@ jobs:
     permissions:
       contents: read
       actions: read
-    env:
-      BUILD_PROFILE: '1'
-      ASSET_CDN: 'https://cdn.frontaliereticino.ch'
-      POST_WALK_WORKERS: '2'
-      SEQUENTIAL_PROFILE: '1'
-      JOBS_SEO_PROFILE_PHASES: '1'
-      JOBS_SEO_FALLBACK_WORKERS: '1'
-      RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
-      RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
-      DEPLOY_CONTENT_MANIFEST: '1'
-      MALLOC_ARENA_MAX: '2'
-      BUILD_LOCALE: 'it'
-      ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
-      ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
-      JOBS_SEO_REUSE: ${{ vars.JOBS_SEO_REUSE == '1' && '1' || '' }}
-      JOBS_SEO_REUSE_VERIFY: ${{ vars.JOBS_SEO_REUSE_VERIFY == '1' && '1' || '' }}
-      JOBS_SEO_REUSE_VERIFY_SAMPLE: ${{ vars.JOBS_SEO_REUSE_VERIFY_SAMPLE || '' }}
-      JOBS_SEO_REUSE_PROBE: ${{ vars.JOBS_SEO_REUSE_PROBE == '1' && '1' || '' }}
-      JOBS_SEO_SECTOR_MEMO: ${{ vars.JOBS_SEO_SECTOR_MEMO == '0' && '' || '1' }}
-      JOBS_SEO_SLUG_INFO_FAST: ${{ vars.JOBS_SEO_SLUG_INFO_FAST == '0' && '' || '1' }}
-      RELATED_SEARCH_POSTINGS_SPARSE: ${{ vars.RELATED_SEARCH_POSTINGS_SPARSE == '1' && '1' || '' }}
-      POST_WALK_INCREMENTAL: ${{ vars.POST_WALK_INCREMENTAL == '1' && '1' || '' }}
-      POST_WALK_INCREMENTAL_VERIFY: ${{ vars.POST_WALK_INCREMENTAL_VERIFY == '1' && '1' || '' }}
-      STATIC_BUILD_ID_META: ${{ vars.STATIC_BUILD_ID_META == 'off' && 'off' || '' }}
     steps:
       - name: Restore runner CA trust before checkout
         shell: bash
@@ -413,7 +389,53 @@ jobs:
           path: .cache/hreflang-index-manifest
 
       - name: Set production-shaped build id
-        run: echo "DEPLOY_BUILD_ID=$(date +%s%3N)" >> "$GITHUB_ENV"
+        run: echo "BENCH_BUILD_ID=$(date +%s%3N)" >> "$GITHUB_ENV"
+
+      - name: Mirror build-locale environment from deploy workflow
+        env:
+          BENCH_REPOSITORY_VARS_JSON: ${{ toJSON(vars) }}
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync, readFileSync } from 'node:fs';
+          import { parse } from 'yaml';
+
+          const workflow = parse(readFileSync('.github/workflows/deploy.yml', 'utf8'));
+          const buildEnv = workflow.jobs['build-locale']?.env;
+          if (!buildEnv || typeof buildEnv !== 'object') {
+            throw new Error('deploy.yml is missing jobs.build-locale.env');
+          }
+          const repositoryVars = JSON.parse(process.env.BENCH_REPOSITORY_VARS_JSON || '{}');
+          const resolveValue = (raw, key) => {
+            if (typeof raw !== 'string') return String(raw ?? '');
+            const wrapped = /^\$\{\{\s*([\s\S]*?)\s*\}\}$/u.exec(raw);
+            if (!wrapped) return raw;
+            const expression = wrapped[1].trim();
+            const comparison = /^vars\.([A-Z0-9_]+)\s*==\s*'([^']*)'\s*&&\s*'([^']*)'\s*\|\|\s*'([^']*)'$/u.exec(expression);
+            if (comparison) {
+              return String(repositoryVars[comparison[1]] ?? '') === comparison[2]
+                ? comparison[3]
+                : comparison[4];
+            }
+            const fallback = /^vars\.([A-Z0-9_]+)\s*\|\|\s*'([^']*)'$/u.exec(expression);
+            if (fallback) return String(repositoryVars[fallback[1]] ?? fallback[2]);
+            if (expression === 'matrix.locale') return 'it';
+            if (expression === 'needs.matrix-setup.outputs.build_id') return process.env.BENCH_BUILD_ID;
+            if (expression.startsWith('fromJSON(')) return '1';
+            throw new Error(`unsupported deploy build environment expression for ${key}`);
+          };
+
+          const lines = [];
+          for (const [key, raw] of Object.entries(buildEnv)) {
+            const value = resolveValue(raw, key);
+            if (/[\r\n]/u.test(key) || /[\r\n]/u.test(value)) {
+              throw new Error(`multiline deploy build environment value is unsupported: ${key}`);
+            }
+            lines.push(`${key}=${value}`);
+          }
+          appendFileSync(process.env.GITHUB_ENV, `${lines.join('\n')}\n`);
+          console.log(`Loaded ${lines.length} production build environment values from deploy.yml.`);
+          NODE
 
       - name: Build IT locale shard from source snapshot
         env:
@@ -432,11 +454,11 @@ jobs:
       - name: Measure hreflang staging on the production-shaped shard
         shell: bash
         env:
-          SOURCE_RUN_ID: ${{ github.event.inputs.hreflang_source_run_id }}
-          SOURCE_RUN_ATTEMPT: ${{ github.event.inputs.hreflang_source_run_attempt }}
+          BENCH_SOURCE_RUN_ID: ${{ github.event.inputs.hreflang_source_run_id }}
+          BENCH_SOURCE_RUN_ATTEMPT: ${{ github.event.inputs.hreflang_source_run_attempt }}
         run: |
           set -euo pipefail
-          echo "Source deploy run: $SOURCE_RUN_ID attempt $SOURCE_RUN_ATTEMPT"
+          echo "Source deploy run: $BENCH_SOURCE_RUN_ID attempt $BENCH_SOURCE_RUN_ATTEMPT"
           echo "Benchmark code SHA: $(git rev-parse HEAD)"
           echo "IT shard bytes: $(du -sb dist | awk '{print $1}')"
           echo "IT shard files: $(find dist -type f | wc -l)"
@@ -447,7 +469,7 @@ jobs:
           {
             echo "## Hreflang staging benchmark"
             echo
-            echo "- Source deploy run: $SOURCE_RUN_ID, attempt $SOURCE_RUN_ATTEMPT"
+            echo "- Source deploy run: $BENCH_SOURCE_RUN_ID, attempt $BENCH_SOURCE_RUN_ATTEMPT"
             echo "- Benchmark code SHA: $(git rev-parse HEAD)"
             echo "- IT shard bytes: $(du -sb dist | awk '{print $1}')"
             echo "- IT shard files: $(find dist -type f | wc -l)"
