@@ -301,20 +301,8 @@ jobs:
       contents: read
       actions: read
     steps:
-      - name: Restore runner CA trust before checkout
-        shell: bash
-        run: |
-          set -euo pipefail
-          ca_file=/etc/ssl/certs/ca-certificates.crt
-          if [[ ! -s "$ca_file" ]]; then sudo update-ca-certificates --fresh; fi
-          test -s "$ca_file"
-          {
-            echo "GIT_SSL_CAINFO=$ca_file"
-            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
-          } >> "$GITHUB_ENV"
-
       - name: Checkout benchmark branch
-        uses: actions/checkout@v7
+        uses: actions/checkout@v5
 
       - name: Free unused toolchains
         shell: bash
@@ -421,7 +409,7 @@ jobs:
             if (fallback) return String(repositoryVars[fallback[1]] ?? fallback[2]);
             if (expression === 'matrix.locale') return 'it';
             if (expression === 'needs.matrix-setup.outputs.build_id') return process.env.BENCH_BUILD_ID;
-            if (expression.startsWith('fromJSON(')) return '1';
+            if (expression.includes('parallel_plugins')) return '1';
             throw new Error(`unsupported deploy build environment expression for ${key}`);
           };
 
