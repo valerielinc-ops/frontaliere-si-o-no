@@ -6081,8 +6081,9 @@ export async function readPortalRequirements(ctx) {
     let snapshot = await extractFields(page, NAVIGATION);
     contractSnapshot = snapshot;
     const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
+    const sourceTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
     const sourcePostingMatched = hasJobContract
-      && postingMatch(`${await page.title().catch(() => '')}\n${snapshot.text || ''}\n${page.url()}`, ctx.job, page.url()) === 'match';
+      && postingMatch(`${sourceTitle}\n${snapshot.text || ''}\n${page.url()}`, ctx.job, page.url()) === 'match';
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
       postingUrl: ctx.postingUrl || page.url(),
