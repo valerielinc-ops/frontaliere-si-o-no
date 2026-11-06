@@ -3,7 +3,7 @@ import { cookielessTelemetryProtocol, officialConsentGeoLoader, derivedConsentPu
 import { nativeControlEvidenceInPage, snapshotWithNativeControlEvidence, observeNativeControlContractInPage, installNativeGroupIdentityInPage } from './native-control-contract.mjs';
 import { getChromium } from '../../../lib/ensure-chromium.mjs';
 import { extractFields } from './fields.mjs';
-import { hasApplicationSurface, postingMatch } from './portal.mjs';
+import { hasApplicationSurface, hasVacancySpecificPostingEvidence } from './portal.mjs';
 import { publicAssetSources, literalScriptAssetUrls, matchesScriptAsset, isPublicJavaScriptResponse, hasSafePublicScriptQuery } from './read-only-asset-contracts.mjs';
 import { createHash } from 'node:crypto';
 import { rexxTimeZoneSources, rexxTimeZoneProtocol, runtimeTimeZone, validRexxTimeZoneHeaders, validRexxTimeZoneRequest, validRexxTimeZoneResponse } from './rexx-timezone-contract.mjs';
@@ -443,7 +443,8 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
     else if (JSON.stringify(finalMarkers) !== JSON.stringify(quietMarkers)) nativeContractFailure = 'snapshot_marker_drift';
     if (nativeContractFailure) return unknown('native_contract_unstable');
     if (blocked || resourceFailed || signal.aborted || page.url() !== applyUrl) return incomplete();
-    if (postingMatch(pageText, job, applyUrl) !== 'match') return unknown('posting_mismatch');
+    const pageTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
+    if (!hasVacancySpecificPostingEvidence(pageText, job, { pageUrl: applyUrl, pageTitle })) return unknown('posting_mismatch');
     if (contractKey(ownedFields(first.fields)) !== contractKey(ownedFields(snapshot.fields))) nativeContractFailure = 'snapshot_fingerprint_drift';
     else if (JSON.stringify(firstMarkers) !== JSON.stringify(finalMarkers)) nativeContractFailure = 'snapshot_marker_drift';
     if (nativeContractFailure) return unknown('native_contract_unstable');

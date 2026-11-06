@@ -727,6 +727,9 @@ it('requires vacancy evidence beyond a company match before trusting one externa
   expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
     pageUrl: listingUrl, pageTitle: 'Muster AG — Application Manager', postingUrl,
   })).toBe(true);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Apply · Footer Muster AG', job, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
   expect(hasVacancySpecificPostingEvidence('Application Manager', { ...job, organization: 'Muster AG' }, {
     pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
   })).toBe(false);
