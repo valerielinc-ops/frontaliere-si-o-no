@@ -30,7 +30,7 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
-import { filterEmployerProfileJobLinks } from './employerProfilePagesPlugin';
+import { filterEmployerProfileJobLinks } from './shared/employerProfileJobLinks';
 import {
   employerProfilesFlushed,
   getJobSitemapAllowlist,

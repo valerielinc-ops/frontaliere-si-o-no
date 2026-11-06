@@ -3,11 +3,11 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
-  filterEmployerProfileJobLinks,
   employerProfileLogoSrc,
   employerProfilePagesPlugin,
   type EmployerProfile,
 } from '../build-plugins/employerProfilePagesPlugin';
+import { filterEmployerProfileJobLinks } from '../build-plugins/shared/employerProfileJobLinks';
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';

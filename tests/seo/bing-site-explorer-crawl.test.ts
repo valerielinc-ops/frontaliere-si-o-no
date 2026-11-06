@@ -56,7 +56,7 @@ import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/sha
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
 import { renderArticleInlineMarkup } from '../../build-plugins/articleSeoFallback';
 import { buildBorderWaitTodayPath } from '../../scripts/lib/borderWaitSections.mjs';
-import { filterEmployerProfileJobLinks } from '../../build-plugins/employerProfilePagesPlugin';
+import { filterEmployerProfileJobLinks } from '../../build-plugins/shared/employerProfileJobLinks';
 
 const BASE = 'https://frontaliereticino.ch';
 const BORDER_WAIT_ARTICLES = [
