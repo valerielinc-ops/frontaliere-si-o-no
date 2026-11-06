@@ -1,0 +1,27 @@
+{
+  "companyKey": "heitzmann-ch",
+  "companyName": "Heitzmann AG",
+  "companyHost": "heitzmann.ch",
+  "verifiedEmployerDomain": "heitzmann.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.heitzmann.ch/offene-stellen/"
+  ],
+  "detailTemplate": "/offene-stellen/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Technischer Innendienst Industrieanlagen Entwickeln Sie Anlagenkonzepte, erstellen Sie 3D-Layouts und unterstützen Sie unseren Verkauf bei anspruchsvollen Indus",
+    "Leiter:in Ersatzteilmanagement Leiten Sie unser Ersatzteilwesen und optimieren Sie Prozesse, ERP-System und Materialfluss. Spannende Führungsaufgabe in einem fa",
+    "Technischer Support Kundendienst Second Level Spannende Stelle im Technischen Support Kundendienst Second Level. Diagnose, Lösungsfindung und Betreuung von Holz",
+    "Servicetechniker:in für Holzheizungen Sie sind gerne in Kontakt mit Kunden und sind gerne unterwegs? Dann sind Sie vielleicht unsere neue Servicetechnikerin ode",
+    "Lehrstelle Logistiker:in EFZ Gerne bilden wir dich zur Logistikerin oder zum Logistiker EFZ aus! Melde dich für einen Schnuppertag."
+  ],
+  "canton": "VD",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-06T13:09:42.381Z",
+  "candidateKey": "heitzmann@roche-vd"
+}

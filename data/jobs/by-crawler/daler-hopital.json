@@ -247,11 +247,11 @@
     },
     {
       "id": "daler-hopital-fbda5667e1b2",
-      "slug": "gestionnaire-en-intendance-hopital-daler-fribourg",
+      "slug": "responsabile-della-gestione-hopital-daler-fribourg",
       "slugByLocale": {
         "fr": "gestionnaire-en-intendance-daler-hopital-fribourg",
-        "it": "gestionnaire-en-intendance-hopital-daler-fribourg",
-        "en": "gestionnaire-en-intendance-daler-hopital-fribourg",
+        "it": "responsabile-della-gestione-hopital-daler-fribourg",
+        "en": "stewardship-manager-hopital-daler-fribourg",
         "de": "gestionnaire-en-intendance-daler-hopital-fribourg"
       },
       "company": "Hôpital Daler",
@@ -300,11 +300,16 @@
       "externalId": "4231",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-en-intendance-daler-hopital-fribourg",
+          "gestionnaire-en-intendance-hopital-daler-fribourg"
+        ],
+        "en": [
           "gestionnaire-en-intendance-daler-hopital-fribourg"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-en-intendance-daler-hopital-fribourg"
+        "gestionnaire-en-intendance-daler-hopital-fribourg",
+        "gestionnaire-en-intendance-hopital-daler-fribourg"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

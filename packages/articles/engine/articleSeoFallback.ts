@@ -227,14 +227,22 @@ const decodeInlineHtmlEntities = (value: string): string => value.replace(
  (_, entity: string) => INLINE_HTML_ENTITY_MAP[entity.toLowerCase()] ?? _,
 );
 
-/** Keep article links useful without allowing a source URL to become script. */
+/**
+ * Keep article links useful without allowing a source URL to become script.
+ *
+ * Static article HTML is served through Cloudflare Email Protection. A
+ * `mailto:` anchor is rewritten there to `/cdn-cgi/l/email-protection`, which
+ * is an endpoint rather than an article and becomes a crawlable frontier 404.
+ * Returning `null` keeps the visible contact label copyable while emitting no
+ * target for Cloudflare or a crawler to follow.
+ */
 const safeInlineHref = (value: string): string | null => {
  const href = decodeInlineHtmlEntities(value).trim().replace(/^(["'])|(["'])$/g, '');
  if (!href || /[\u0000-\u001f\u007f\\]/.test(href) || href.startsWith('//')) return null;
  if (/^https?:\/\//i.test(href)) {
   try { return new URL(href).hostname ? href : null; } catch { return null; }
  }
- if (/^mailto:/i.test(href)) return href;
+ if (/^mailto:/i.test(href)) return null;
  if (href.startsWith('/') || href.startsWith('#')) return href;
  if (/^\.{1,2}\//.test(href) || href.startsWith('?')) return href;
  // Reject unsupported schemes, not ordinary relative references. Bare web

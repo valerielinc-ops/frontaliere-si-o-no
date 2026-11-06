@@ -205,6 +205,10 @@ describe('portal account pages', () => {
       .toBe('https://career5.successfactors.eu/career?career_job_req_id=20604&career_ns=job_application&company=tenant1&lang=de_CH&login_ns=register');
     expect(successFactorsRegistrationTarget('https://career5.successfactors.eu/career?career_job_req_id=20604&career_ns=job_application&company=tenant1&lang=de_CH&login_ns=login'))
       .toBe('https://career5.successfactors.eu/career?career_job_req_id=20604&career_ns=job_application&company=tenant1&lang=de_CH&login_ns=register');
+    expect(successFactorsRegistrationTarget('https://career5.successfactors.eu/career?company=hornbach&job=148901'))
+      .toBe('https://career5.successfactors.eu/career?company=hornbach&job=148901&login_ns=register');
+    expect(successFactorsRegistrationTarget('https://career5.successfactors.eu/career?company=kantonsspi&career_job_req_id=1601'))
+      .toBe('https://career5.successfactors.eu/career?company=kantonsspi&career_job_req_id=1601&login_ns=register');
   });
 
   it.each([
@@ -213,6 +217,11 @@ describe('portal account pages', () => {
     'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=register',
     'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=login&token=opaque',
     'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=login&login_ns=login',
+    'https://career5.successfactors.eu/career?company=company&job=1&career_ns=job_listing',
+    'https://career5.successfactors.eu/career?company=Coop&career_ns=&job=123&jobid=&login_ns=',
+    'https://career5.successfactors.eu/career?company=Coop&career_ns=job_application&job=123&jobid=',
+    'https://career5.successfactors.eu/career?company=Coop&career_ns=job_application&job=123&login_ns=',
+    'https://career74.sapsf.eu/career?company=company&job=1',
     'https://evil.example/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=login',
     'http://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=login',
   ])('does not derive a registration route from an incomplete or unsafe SuccessFactors URL: %s', (url) => {

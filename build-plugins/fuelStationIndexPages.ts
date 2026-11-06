@@ -83,6 +83,7 @@ import { paginationRobots } from './shared/paginationIndexPolicy';
 import { assertSelfCanonical } from './shared/sitemapCanonicalContract';
 import { infeedAdListItemHtml } from './lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 
 // Index pages use shared semantic-token CSS classes instead of repeating long
 // inline declarations in every row and pagination chip.
@@ -1417,6 +1418,12 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     scope === 'national' ? copy.nationalJumpNavLabel : copy.jumpNavLabel,
   ) : '';
   const pagination = renderIndexPagination(locale, page, totalPages, pagePathFor);
+  // Declare the fuel producer's deep-pagination decision at the page boundary.
+  // The shared shell preserves an explicit marker, while this keeps the
+  // contract tied to the same page policy that selected the robots directive.
+  const paginationNoindexMarker = paginationRobots(page) === 'noindex,follow'
+    ? PAGINATION_NOINDEX_TARGET_MARKER
+    : '';
   // The national index intentionally has no map until its map payload covers
   // the full provider snapshot. A Ticino-only map would make the national
   // page look incomplete while the list below is national.
@@ -1468,7 +1475,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     robots: paginationRobots(page),
     ogType: 'website',
     hreflangHtml: alternatesHtml,
-    extraHeadHtml: prevNextHtml,
+    extraHeadHtml: [paginationNoindexMarker, prevNextHtml].filter(Boolean).join('\n'),
     jsonLdScripts: [breadcrumbLd, webPageLd],
     bodyHtml,
     distDir,

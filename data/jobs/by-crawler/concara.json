@@ -3837,12 +3837,12 @@
     },
     {
       "id": "concara-d6b8112d0a58",
-      "slug": "collaboratore-trice-betreuung-e-pflege-80-concara-domicil-spitex-bern-thun",
+      "slug": "collaboratore-trice-nell-assistenza-e-nella-cura-80-concara-domicil-spitex-bern-thun",
       "slugByLocale": {
         "de": "mitarbeiter-in-betreuung-und-pflege-80-concara-thun",
-        "it": "collaboratore-trice-betreuung-e-pflege-80-concara-domicil-spitex-bern-thun",
-        "en": "mitarbeiter-in-betreuung-und-pflege-80-concara-thun",
-        "fr": "mitarbeiter-in-betreuung-und-pflege-80-concara-thun"
+        "it": "collaboratore-trice-nell-assistenza-e-nella-cura-80-concara-domicil-spitex-bern-thun",
+        "en": "care-and-nursing-assistant-80-concara-domicil-spitex-bern-thun",
+        "fr": "collaborateur-trice-en-accompagnement-et-soins-80-concara-domicil-spitex-bern-thun"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3891,11 +3891,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-betreuung-und-pflege-80-concara-thun",
+          "collaboratore-trice-betreuung-e-pflege-80-concara-domicil-spitex-bern-thun"
+        ],
+        "en": [
+          "mitarbeiter-in-betreuung-und-pflege-80-concara-thun"
+        ],
+        "fr": [
           "mitarbeiter-in-betreuung-und-pflege-80-concara-thun"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-betreuung-und-pflege-80-concara-thun"
+        "mitarbeiter-in-betreuung-und-pflege-80-concara-thun",
+        "collaboratore-trice-betreuung-e-pflege-80-concara-domicil-spitex-bern-thun"
       ],
       "salaryMin": 68000,
       "salaryMax": 95200,
@@ -3917,12 +3925,12 @@
     },
     {
       "id": "concara-ff084f8b1133",
-      "slug": "koch-kochin-efz-60-100-concara-bern",
+      "slug": "cuoco-cuoca-efz-60-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "de": "koch-kochin-efz-60-100-concara-bern",
-        "it": "koch-kochin-efz-60-100-concara-bern",
-        "en": "koch-kochin-efz-60-100-concara-bern",
-        "fr": "koch-kochin-efz-60-100-concara-bern"
+        "it": "cuoco-cuoca-efz-60-100-concara-domicil-spitex-bern-bern",
+        "en": "cook-cook-efz-60-100-concara-domicil-spitex-bern-bern",
+        "fr": "faire-cuire-cuire-efz-60-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3985,7 +3993,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:23:13.738Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:23:13.738Z"
+      "firstSeenAt": "2026-11-06T09:23:13.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-60-100-concara-bern"
+        ],
+        "en": [
+          "koch-kochin-efz-60-100-concara-bern"
+        ],
+        "fr": [
+          "koch-kochin-efz-60-100-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-efz-60-100-concara-bern"
+      ]
     }
   ]
 }

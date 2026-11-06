@@ -13035,7 +13035,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -13087,7 +13087,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13095,7 +13095,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -16688,7 +16688,7 @@
       "slug": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
-        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen",
+        "en": "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-st-gallen",
         "fr": "sante-professionnelle-40-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -16737,7 +16737,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
         "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
-        "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+        "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16745,7 +16745,7 @@
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-          "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+          "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
@@ -19111,12 +19111,12 @@
     },
     {
       "id": "hoch-health-e798485775bd",
-      "slug": "stationsleiter-in-90-100-hoch-health-grabs",
+      "slug": "responsabile-di-reparto-90-100-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "stationsleiter-in-90-100-hoch-health-grabs",
-        "it": "stationsleiter-in-90-100-hoch-health-grabs",
-        "en": "stationsleiter-in-90-100-hoch-health-grabs",
-        "fr": "stationsleiter-in-90-100-hoch-health-grabs"
+        "it": "responsabile-di-reparto-90-100-hoch-health-ostschweiz-grabs",
+        "en": "ward-manager-90-100-hoch-health-ostschweiz-grabs",
+        "fr": "responsable-de-station-90-100-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -19179,16 +19179,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:43:53.730Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:43:53.730Z"
+      "firstSeenAt": "2026-11-06T09:43:53.730Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiter-in-90-100-hoch-health-grabs"
+        ],
+        "en": [
+          "stationsleiter-in-90-100-hoch-health-grabs"
+        ],
+        "fr": [
+          "stationsleiter-in-90-100-hoch-health-grabs"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiter-in-90-100-hoch-health-grabs"
+      ]
     },
     {
       "id": "hoch-health-1806cb699de1",
-      "slug": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-hoch-health-ostschweiz-grabs",
+      "slug": "posto-di-apprendistato-come-specialista-in-albergheria-economia-domestica-afc-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-grabs",
-        "it": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-hoch-health-ostschweiz-grabs",
-        "en": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-grabs",
-        "fr": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-grabs"
+        "it": "posto-di-apprendistato-come-specialista-in-albergheria-economia-domestica-afc-hoch-health-ostschweiz-grabs",
+        "en": "apprenticeship-as-a-specialist-hotel-industry-household-industry-efz-hoch-health-ostschweiz-grabs",
+        "fr": "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-industrie-domestique-efz-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -19236,11 +19250,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-grabs",
+          "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-hoch-health-ostschweiz-grabs"
+        ],
+        "en": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-grabs"
+        ],
+        "fr": [
           "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-grabs"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-grabs"
+        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-grabs",
+        "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-hoch-health-ostschweiz-grabs"
       ],
       "salaryMin": 41600,
       "salaryMax": 76000,

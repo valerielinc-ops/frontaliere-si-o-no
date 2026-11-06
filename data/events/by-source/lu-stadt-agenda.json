@@ -3,7 +3,7 @@
   "sourceKey": "lu-stadt-agenda",
   "sourceName": "Stadt Luzern — Termine",
   "canton": "LU",
-  "assembledAt": "2026-10-30T12:12:17.365Z",
+  "assembledAt": "2026-11-06T13:51:24.602Z",
   "events": [
     {
       "id": "lu-stadt-agenda:6840391",
@@ -579,16 +579,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7587574",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-30T12:12:17.365Z",
-      "organizer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine",
-        "url": "https://www.stadtluzern.ch/aktuelles"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine"
-      },
+      "crawledAt": "2026-11-06T13:51:24.602Z",
       "sourceDescriptionHash": "e5d010aa4c32d49208c061d3a9a6ac94f421c53957bbdcd2ff0657862431c899"
     },
     {
@@ -648,17 +639,8 @@
       "url": "https://www.stadtluzern.ch/sitzung/7723786",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-30T12:12:17.365Z",
-      "organizer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine",
-        "url": "https://www.stadtluzern.ch/aktuelles"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine"
-      },
-      "sourceDescriptionHash": "6ecdaf3d593b3b4caf902a3ced82c4d4aee1418a7bcbc1692c9a8f138da79275"
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "b577b6c95f71dc25098879098cdb7b7fcc858615f229c388a332c0b0cdb49630"
     },
     {
       "id": "lu-stadt-agenda:7648411",
@@ -738,16 +720,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694302",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-30T12:12:17.365Z",
-      "organizer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine",
-        "url": "https://www.stadtluzern.ch/aktuelles"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine"
-      },
+      "crawledAt": "2026-11-06T13:51:24.602Z",
       "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0"
     },
     {
@@ -761,16 +734,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7463716",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-30T12:12:17.365Z",
-      "organizer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine",
-        "url": "https://www.stadtluzern.ch/aktuelles"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine"
-      },
+      "crawledAt": "2026-11-06T13:51:24.602Z",
       "sourceDescriptionHash": "8c6c0807b13d80b5df6a4ae6f68d9b35e3820bde1fcecefd729fc01168911a11"
     },
     {
@@ -782,17 +746,73 @@
       "url": "https://www.stadtluzern.ch/sitzung/7629616",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-30T12:12:17.365Z",
-      "organizer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine",
-        "url": "https://www.stadtluzern.ch/aktuelles"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Stadt Luzern — Termine"
-      },
+      "crawledAt": "2026-11-06T13:51:24.602Z",
       "sourceDescriptionHash": "717c07a3625f0dc3e238d710feb11f2ae3928f943ec67ae1f84a5fa87e435342"
+    },
+    {
+      "id": "lu-stadt-agenda:7648414",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-11-09",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7648414",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7694116",
+      "title": "Winter Qi Gong Inseli",
+      "startDate": "2026-11-10",
+      "startTime": "09:00",
+      "comune": "Ebikon",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7694116",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6"
+    },
+    {
+      "id": "lu-stadt-agenda:7399984",
+      "title": "Preisverleihung Anerkennungspreis Quartierleben",
+      "startDate": "2026-11-10",
+      "startTime": "17:30",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7399984",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z"
+    },
+    {
+      "id": "lu-stadt-agenda:7629682",
+      "title": "«Melodie» - Film im Rahmen der «Lebensreise»",
+      "startDate": "2026-11-11",
+      "startTime": "16:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7629682",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "a14ce71e79a98b43120a5000f3603d46a10a9b649ac9536fd85ff0f2cba44905"
+    },
+    {
+      "id": "lu-stadt-agenda:7771576",
+      "title": "29. Sitzung des Grossen Stadtrates von Luzern vom 12. November 2026",
+      "startDate": "2026-11-12",
+      "startTime": "10:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7771576",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "f15a553ff8383b69508bfde50330dfa0e09056c4b8e2669b3e04d92278a7a34d"
     }
   ]
 }

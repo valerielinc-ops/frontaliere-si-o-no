@@ -6982,7 +6982,7 @@
     },
     {
       "id": "company-94aota",
-      "slug": "servicetechniker-in-heimservice-fust-oberburen",
+      "slug": "tecnico-a-di-assistenza-per-il-servizio-a-domicilio-fust-oberburen",
       "company": "Fust",
       "title": "Servicetechniker:in Heimservice",
       "location": "Oberbüren",
@@ -7022,10 +7022,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "servicetechniker-in-heimservice-fust-oberburen",
-        "en": "servicetechniker-in-heimservice-fust-oberburen",
+        "it": "tecnico-a-di-assistenza-per-il-servizio-a-domicilio-fust-oberburen",
+        "en": "home-service-technician-fust-oberburen-489eb6",
         "de": "servicetechniker-in-heimservice-fust-oberburen-94aota",
-        "fr": "servicetechniker-in-heimservice-fust-oberburen"
+        "fr": "technicien-ne-de-service-a-domicile-fust-oberburen-489eb6"
       },
       "requirementsByLocale": {},
       "addressLocality": "Oberbüren",
@@ -7050,7 +7050,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-heimservice-fust-oberburen"
+        ],
+        "en": [
+          "servicetechniker-in-heimservice-fust-oberburen"
+        ],
+        "fr": [
+          "servicetechniker-in-heimservice-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-heimservice-fust-oberburen"
+      ]
     }
   ]
 }

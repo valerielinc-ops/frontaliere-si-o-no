@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "lalive-4b47189f8a0a",
-      "slug": "senior-business-development-marketing-executive-geneva-lalive-ginevra",
+      "slug": "senior-business-sviluppo-mercato-esecutivo-geneva-lalive-ginevra",
       "slugByLocale": {
         "en": "senior-business-development-marketing-executive-geneva-lalive-ginevra",
-        "it": "senior-business-development-marketing-executive-geneva-lalive-ginevra",
-        "de": "senior-business-development-marketing-executive-geneva-lalive-ginevra",
-        "fr": "senior-business-development-marketing-executive-geneva-lalive-ginevra"
+        "it": "senior-business-sviluppo-mercato-esecutivo-geneva-lalive-ginevra",
+        "de": "entwicklung-und-vermarktungsuberwachung-von-geschaften-geneva-lalive-ginevra",
+        "fr": "developpement-des-entreprises-et-commercialisation-geneve-lalive-ginevra"
       },
       "company": "LALIVE",
       "companyKey": "lalive",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:23:55.407Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:23:55.407Z"
+      "firstSeenAt": "2026-11-06T09:23:55.407Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-business-development-marketing-executive-geneva-lalive-ginevra"
+        ],
+        "de": [
+          "senior-business-development-marketing-executive-geneva-lalive-ginevra"
+        ],
+        "fr": [
+          "senior-business-development-marketing-executive-geneva-lalive-ginevra"
+        ]
+      },
+      "previousSlugs": [
+        "senior-business-development-marketing-executive-geneva-lalive-ginevra"
+      ]
     },
     {
       "id": "lalive-5955fcade4d0",

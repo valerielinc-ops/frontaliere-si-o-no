@@ -25,11 +25,11 @@
         "en": "Young Insurance Professional AFA (m/f) 100%",
         "de": "Young Insurance Professional AFA (m/w) 100%"
       },
-      "slug": "young-insurance-professional-afa-h-f-100-groupe-mutuel",
+      "slug": "giovane-assicurazione-professionale-afa-m-f-100-groupe-mutuel-sion",
       "slugByLocale": {
         "fr": "young-insurance-professional-afa-h-f-100-groupe-mutuel",
         "en": "young-insurance-professional-afa-h-f-100-groupe-mutuel",
-        "it": "young-insurance-professional-afa-h-f-100-groupe-mutuel",
+        "it": "giovane-assicurazione-professionale-afa-m-f-100-groupe-mutuel-sion",
         "de": "young-insurance-professional-afa-h-f-100-groupe-mutuel"
       },
       "category": "insurance",
@@ -69,7 +69,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:23:08.772Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:23:08.772Z"
+      "firstSeenAt": "2026-11-06T09:23:08.772Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-afa-h-f-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-afa-h-f-100-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4457?c=groupemutuel&lang=fr-FR",

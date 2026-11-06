@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "gesundheitsnetz-kuesnacht-6960f0406320",
-      "slug": "hilfskochin-hilfskoch-100-gesundheitsnetz-kuesnacht-kusnacht",
+      "slug": "assistente-cuoco-cuoco-ausiliario-100-gesundheitsnetz-kusnacht-ag-kusnacht",
       "slugByLocale": {
         "de": "hilfskochin-hilfskoch-100-gesundheitsnetz-kuesnacht-kusnacht",
-        "it": "hilfskochin-hilfskoch-100-gesundheitsnetz-kuesnacht-kusnacht",
-        "en": "hilfskochin-hilfskoch-100-gesundheitsnetz-kuesnacht-kusnacht",
-        "fr": "hilfskochin-hilfskoch-100-gesundheitsnetz-kuesnacht-kusnacht"
+        "it": "assistente-cuoco-cuoco-ausiliario-100-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "assistant-cook-auxiliary-cook-100-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "fr": "cuisinier-adjoint-cuisinier-auxiliaire-100-gesundheitsnetz-kusnacht-ag-kusnacht"
       },
       "company": "Gesundheitsnetz Küsnacht AG",
       "companyKey": "gesundheitsnetz-kuesnacht",
@@ -76,7 +76,21 @@
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:31:45.851Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskochin-hilfskoch-100-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "en": [
+          "hilfskochin-hilfskoch-100-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "fr": [
+          "hilfskochin-hilfskoch-100-gesundheitsnetz-kuesnacht-kusnacht"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskochin-hilfskoch-100-gesundheitsnetz-kuesnacht-kusnacht"
+      ]
     },
     {
       "id": "gesundheitsnetz-kuesnacht-6b72e33594c3",

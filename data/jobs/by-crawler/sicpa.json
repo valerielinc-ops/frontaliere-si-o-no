@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "sicpa-904d7853911c",
-      "slug": "ingenieur-de-production-h-f-sicpa-chavornay",
+      "slug": "ingegnere-di-produzione-m-f-sicpa-sa-chavornay",
       "slugByLocale": {
         "fr": "ingenieur-de-production-h-f-sicpa-chavornay",
-        "it": "ingenieur-de-production-h-f-sicpa-chavornay",
-        "en": "ingenieur-de-production-h-f-sicpa-chavornay",
-        "de": "ingenieur-de-production-h-f-sicpa-chavornay"
+        "it": "ingegnere-di-produzione-m-f-sicpa-sa-chavornay",
+        "en": "production-engineer-m-f-sicpa-sa-chavornay",
+        "de": "produktionsingenieur-m-w-sicpa-sa-chavornay"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:42:25.529Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:42:25.529Z"
+      "firstSeenAt": "2026-11-06T09:42:25.529Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-de-production-h-f-sicpa-chavornay"
+        ],
+        "en": [
+          "ingenieur-de-production-h-f-sicpa-chavornay"
+        ],
+        "de": [
+          "ingenieur-de-production-h-f-sicpa-chavornay"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-de-production-h-f-sicpa-chavornay"
+      ]
     },
     {
       "id": "sicpa-10acf27c763d",

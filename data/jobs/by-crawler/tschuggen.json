@@ -535,12 +535,12 @@
     },
     {
       "id": "tschuggen-56a9c7f49cb6",
-      "slug": "apprendistato-come-unterhaltspraktiker-in-afp-m-w-d-tschuggen-collection-arosa",
+      "slug": "posto-di-apprendistato-come-addetto-a-alla-manutenzione-eba-m-f-d-tschuggen-collection-arosa",
       "slugByLocale": {
         "de": "lehrstelle-als-unterhaltspraktiker-in-eba-m-w-d-tschuggen-ch",
-        "it": "apprendistato-come-unterhaltspraktiker-in-afp-m-w-d-tschuggen-collection-arosa",
-        "en": "lehrstelle-als-unterhaltspraktiker-in-eba-m-w-d-tschuggen-ch",
-        "fr": "lehrstelle-als-unterhaltspraktiker-in-eba-m-w-d-tschuggen-ch"
+        "it": "posto-di-apprendistato-come-addetto-a-alla-manutenzione-eba-m-f-d-tschuggen-collection-arosa",
+        "en": "apprenticeship-as-maintenance-practitioner-eba-m-f-d-tschuggen-collection-arosa",
+        "fr": "place-d-apprentissage-de-praticien-ne-en-entretien-afp-h-f-d-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -589,11 +589,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-unterhaltspraktiker-in-eba-m-w-d-tschuggen-ch",
+          "apprendistato-come-unterhaltspraktiker-in-afp-m-w-d-tschuggen-collection-arosa"
+        ],
+        "en": [
+          "lehrstelle-als-unterhaltspraktiker-in-eba-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
           "lehrstelle-als-unterhaltspraktiker-in-eba-m-w-d-tschuggen-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-unterhaltspraktiker-in-eba-m-w-d-tschuggen-ch"
+        "lehrstelle-als-unterhaltspraktiker-in-eba-m-w-d-tschuggen-ch",
+        "apprendistato-come-unterhaltspraktiker-in-afp-m-w-d-tschuggen-collection-arosa"
       ],
       "salaryMin": 46500,
       "salaryMax": 70500,

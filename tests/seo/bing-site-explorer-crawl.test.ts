@@ -54,6 +54,7 @@ import { EVENT_SLUG_MIGRATION_BRIDGE_MARKER } from '../../build-plugins/shared/e
 import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
+import { renderArticleInlineMarkup } from '../../build-plugins/articleSeoFallback';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -588,6 +589,14 @@ describe('Bing-compatible full-tree crawler', () => {
     }).findings.map((item) => item.code);
     expect(topicCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
     expect(topicCodes).not.toContain(BING_FRONTIER_NOINDEX);
+
+    const fuelUrl = `${BASE}/prezzi-benzina/stazioni-italia/page-11/`;
+    const fuelMarked = `${PAGINATION_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow"><link rel="canonical" href="${fuelUrl}">`;
+    expect(isDeclaredPaginationTarget({ url: fuelUrl, html: fuelMarked })).toBe(true);
+    expect(isDeclaredPaginationTarget({
+      url: fuelUrl.replace('/page-11/', '/page-10/'),
+      html: fuelMarked,
+    })).toBe(false);
 
     const redirectCodes = classifyDocument({
       url,
@@ -1245,6 +1254,14 @@ describe('Bing-compatible full-tree crawler', () => {
       'https://frontaliereticino.ch/cerca-lavoro-ticino/',
       'https://frontaliereticino.ch/contattaci/',
     ]);
+  });
+
+  it('does not expose article email contacts as Cloudflare email-protection frontier links', () => {
+    const rendered = renderArticleInlineMarkup('[Contatti](mailto:help@example.test)');
+
+    expect(rendered).toBe('Contatti');
+    expect(rendered).not.toContain('/cdn-cgi/l/email-protection');
+    expect(extractInternalLinks(`<p>${rendered}</p>`, `${BASE}/articoli/test/`, BASE)).toEqual([]);
   });
 
   it('keeps /ricerca job links on canonical detail URLs, not T6→T5 redirects', () => {

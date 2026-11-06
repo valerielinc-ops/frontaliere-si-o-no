@@ -23,7 +23,9 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(cantonFetch).toBeGreaterThan(interactionWait);
     expect(JOB_BOARD_SOURCE).toContain('jobBoardInteractionSeenRef.current = true');
     expect(JOB_BOARD_SOURCE).toContain('if (!event.isTrusted) return;');
-    expect(JOB_BOARD_SOURCE).toContain("'pointerdown', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'");
+    expect(JOB_BOARD_SOURCE).toContain("'pointerdown', 'touchstart', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'");
+    expect(JOB_BOARD_SOURCE).toContain('catalogInteractionGestureRef.current');
+    expect(JOB_BOARD_SOURCE).toContain('&& (targetElement?.closest(interactionSurface) || pageScroll)');
     expect(JOB_BOARD_SOURCE).toContain("input, select, textarea, nav button, [role=\"group\"] button, [data-job-board-filter-control]");
     expect(JOB_BOARD_SOURCE).toContain('data-job-board-filter-control');
     expect(JOB_BOARD_SOURCE).not.toContain("'pointerdown', 'keydown', 'wheel', 'touchstart', 'focusin'");

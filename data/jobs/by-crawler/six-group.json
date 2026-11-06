@@ -2123,12 +2123,12 @@
     },
     {
       "id": "six-group-b5f2f059671d",
-      "slug": "internship-trade-repository-six-group-zurich",
+      "slug": "repositore-commerciale-di-stage-six-group-zurich",
       "slugByLocale": {
         "en": "internship-trade-repository-six-group-zurich",
-        "it": "internship-trade-repository-six-group-zurich",
-        "de": "internship-trade-repository-six-group-zurich",
-        "fr": "internship-trade-repository-six-group-zurich"
+        "it": "repositore-commerciale-di-stage-six-group-zurich",
+        "de": "praktikum-handel-repository-six-group-zurich",
+        "fr": "depots-commerciaux-de-stagiaires-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2190,7 +2190,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:41:38.357Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:41:38.357Z"
+      "firstSeenAt": "2026-11-06T09:41:38.357Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-trade-repository-six-group-zurich"
+        ],
+        "de": [
+          "internship-trade-repository-six-group-zurich"
+        ],
+        "fr": [
+          "internship-trade-repository-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "internship-trade-repository-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-4a9b31396595",

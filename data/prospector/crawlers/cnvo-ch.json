@@ -1,0 +1,23 @@
+{
+  "companyKey": "cnvo-ch",
+  "companyName": "CNVO SA",
+  "companyHost": "cnvo.ch",
+  "verifiedEmployerDomain": "cnvo.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.cnvo.ch/offres-demploi/"
+  ],
+  "detailTemplate": "/offres-demploi/",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Instrumentiste TSO en ophtalmologie (H/F) – 40 %"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-06T13:11:06.349Z",
+  "candidateKey": "cnvo@yverdon-les-bains"
+}

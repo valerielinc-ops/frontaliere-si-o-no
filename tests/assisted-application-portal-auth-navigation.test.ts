@@ -199,6 +199,62 @@ describe('assisted portal account navigation', () => {
     ]);
   });
 
+  it('opens registration for a career5 legacy job route when sign-in exposes only Anmelden', async () => {
+    let currentUrl = 'https://career5.successfactors.eu/career?company=hornbach&job=148901';
+    let pageKind: 'sign_in' | 'create' = 'sign_in';
+    const loginFields = [
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, frame: 0, formId: 'login-form' },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Kennwort:*', required: true, frame: 0, formId: 'login-form' },
+    ];
+    const registrationFields = [
+      ...loginFields,
+      { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Kennwort bestätigen:*', required: true, frame: 0, formId: 'registration-form' },
+    ];
+    const frame = {
+      url: () => currentUrl,
+      goto: vi.fn(async (target: string) => { currentUrl = target; pageKind = 'create'; }),
+      evaluate: vi.fn(async () => ({
+        url: currentUrl,
+        fields: pageKind === 'sign_in' ? loginFields : registrationFields,
+        buttons: pageKind === 'sign_in' ? [{ id: 'login', text: 'Anmelden', frame: 0, formId: 'login-form' }] : [],
+        links: [], dialogs: [], captcha: false, passwordVisible: true, errors: [], text: '',
+      })),
+    };
+    const page = {
+      url: () => currentUrl,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+      getByRole: vi.fn(() => ({
+        filter: () => ({
+          first: () => ({
+            waitFor: vi.fn(async () => { throw new Error('late registration control not found'); }),
+          }),
+        }),
+      })),
+    };
+
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: {
+        url: currentUrl,
+        fields: loginFields,
+        buttons: [{ id: 'login', text: 'Anmelden', frame: 0, formId: 'login-form' }],
+        links: [], dialogs: [], captcha: false, passwordVisible: true, errors: [], text: '',
+      } as any,
+      ctx: { accounts: { load: vi.fn(async () => null) } } as any,
+    });
+
+    expect(frame.goto).toHaveBeenCalledWith(
+      'https://career5.successfactors.eu/career?company=hornbach&job=148901&login_ns=register',
+      { waitUntil: 'domcontentloaded', timeout: 60_000 },
+    );
+    expect(result.snapshot.fields.map((field: any) => field.label)).toEqual([
+      'E-Mail-Adresse:*', 'Kennwort:*', 'Kennwort bestätigen:*',
+    ]);
+  });
+
   it('finds a late account link in the login form frame when the snapshot contains only Login', async () => {
     let pageKind: 'sign_in' | 'create' = 'sign_in';
     const click = vi.fn(async () => { pageKind = 'create'; });

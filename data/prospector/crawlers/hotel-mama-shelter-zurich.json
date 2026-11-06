@@ -1,0 +1,27 @@
+{
+  "companyKey": "hotel-mama-shelter-zurich",
+  "companyName": "Hotel Mama Shelter Zürich",
+  "companyHost": "careers.ennismore.com",
+  "verifiedEmployerDomain": "mamashelter.com",
+  "platform": "ennismore.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://careers.ennismore.com/?brand=brand--mama-shelter&country=Choose&city=Choose&team=Choose"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 933,
+  "sampleTitles": [
+    "Spa Receptionist – Russian Speaker",
+    "Comptable Client – Tresorier (H/F)",
+    "Painter – The Hoxton, Amsterdam",
+    "BARMAN (H/F/NB)",
+    "Front Office Supervisor"
+  ],
+  "canton": "ZH",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-06T13:15:08.469Z",
+  "candidateKey": "hotel-mama-shelter-zurich@zurich"
+}

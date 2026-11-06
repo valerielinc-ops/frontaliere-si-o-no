@@ -7774,11 +7774,11 @@
     },
     {
       "id": "nestle-1455060933",
-      "slug": "nestep-talent-in-coffee-expertise-insights-nestle-ch",
+      "slug": "approfondimenti-sulle-competenze-di-nestep-nel-settore-del-caffe-nestle-romont",
       "slugByLocale": {
         "en": "nestep-talent-in-coffee-expertise-insights-nestle-ch",
-        "it": "nestep-talent-in-coffee-expertise-insights-nestle-ch",
-        "de": "nestep-talent-in-coffee-expertise-insights-nestle-ch",
+        "it": "approfondimenti-sulle-competenze-di-nestep-nel-settore-del-caffe-nestle-romont",
+        "de": "nestep-talent-in-kaffee-expertise-einblicke-nestle-romont",
         "fr": "nestep-talent-in-coffee-expertise-insights-nestle-ch"
       },
       "company": "Nestlé",
@@ -7842,7 +7842,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:46:06.820Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:46:06.820Z"
+      "firstSeenAt": "2026-11-06T09:46:06.820Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nestep-talent-in-coffee-expertise-insights-nestle-ch"
+        ],
+        "de": [
+          "nestep-talent-in-coffee-expertise-insights-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nestep-talent-in-coffee-expertise-insights-nestle-ch"
+      ]
     }
   ]
 }

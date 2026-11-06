@@ -4,18 +4,20 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { createExpiredArchivePublicationEvidence } from '../build-plugins/shared/expiredArchivePublicationEvidence.mjs';
+import { minifyHtml } from '../build-plugins/shared/htmlMinify';
 
 const roots: string[] = [];
 const SOURCE_SHA = 'a'.repeat(40);
 
-function fixture() {
+function fixture({ metaDescriptionHtml = 'Descrizione SEO dell’offerta archiviata' }: {
+  metaDescriptionHtml?: string;
+} = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'expired-archive-publication-'));
   roots.push(root);
   const route = 'cerca-lavoro-ticino/late-alias/index.html';
   const file = path.join(root, route);
   const url = 'https://frontaliereticino.ch/cerca-lavoro-ticino/late-alias/';
   const titleHtml = 'Leitende Ärztin — Onkologie | Frontaliere Ticino';
-  const metaDescriptionHtml = 'Descrizione SEO dell’offerta archiviata';
   const payload = JSON.stringify({
     slug: 'late-alias',
     title: 'Leitende Ärztin — Onkologie',
@@ -58,6 +60,26 @@ describe('expired archive publication evidence', () => {
     });
     expect(manifests[0].entries[0].ownerSha256).toMatch(/^[0-9a-f]{64}$/u);
     expect(fs.existsSync(path.join(root, 'assets', 'expired-archive-evidence-it.json'))).toBe(true);
+  });
+
+  it('attests the minified HTML shape emitted by the production write collector', () => {
+    const values = fixture({ metaDescriptionHtml: 'A > B' });
+    const { root, file } = values;
+    const minifiedHtml = minifyHtml(fs.readFileSync(file, 'utf8'));
+    expect(minifiedHtml).toContain('data-expired-static-body=true');
+    expect(minifiedHtml).toContain('rel=canonical');
+    expect(minifiedHtml).toContain('content="A > B"');
+    fs.writeFileSync(file, minifiedHtml);
+    const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
+    recordFixture(evidence, values);
+
+    const manifests = evidence.write({
+      distDir: root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
+    });
+
+    expect(manifests[0].entries[0]).toMatchObject({
+      evidenceKind: 'expired-archive', section: 'ticino', path: values.route, url: values.url,
+    });
   });
 
   it('fails closed when the written payload no longer belongs to the sampled owner', () => {

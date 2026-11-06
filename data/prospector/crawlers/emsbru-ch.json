@@ -1,0 +1,23 @@
+{
+  "companyKey": "emsbru-ch",
+  "companyName": "EMS Bru SA",
+  "companyHost": "emsbru.ch",
+  "verifiedEmployerDomain": "emsbru.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://emsbru.ch/emplois/infirmier-en-sante-mentale-h-f"
+  ],
+  "detailTemplate": "/emplois/infirmier-en-sante-mentale-h-f",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "INFIRMIER EN SANTE MENTALE (H/F)"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-06T13:07:15.718Z",
+  "candidateKey": "ems-bru@grandson"
+}

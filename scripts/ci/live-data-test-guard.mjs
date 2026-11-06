@@ -75,6 +75,7 @@ export const BOT_AUDIT_LIVE_DATA_ROOTS = Object.freeze([
   'data/events-translation-cache.json',
   'data/evidence-index.json',
   'data/experimental-candidates.json',
+  'data/fb-posted-events.json',
   'data/fb-posted-jobs.json',
   'data/gsc-top-marquee-candidates.json',
   'data/health-premiums-eu/2026.json',

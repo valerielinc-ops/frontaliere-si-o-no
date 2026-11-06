@@ -46,9 +46,11 @@ jobs:
             /package.json
             /package-lock.json
             /data/borderCrossings.ts
+            /data/border-wait-averages.json
             /data/border-wait-current.json
             /data/webcam-status.json
             /functions/src/lib/trafficCollectionCalendar.js
+            /services/borderCrossingSlug.ts
             /scripts/check-border-data-health.mjs
             /scripts/load-rc-env.mjs
             /scripts/lib/configure-main-push-auth.sh

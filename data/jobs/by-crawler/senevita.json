@@ -8903,7 +8903,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8949,7 +8949,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8959,7 +8959,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -16718,12 +16718,12 @@
     },
     {
       "id": "senevita-0499c861a898",
-      "slug": "teamleitung-hauswirtschaft-80-senevita-lu-ebikon",
+      "slug": "gestione-del-team-senevita-lu-ebikon",
       "slugByLocale": {
         "de": "teamleitung-hauswirtschaft-80-senevita-lu-ebikon",
-        "it": "teamleitung-hauswirtschaft-80-senevita-lu-ebikon",
-        "en": "teamleitung-hauswirtschaft-80-senevita-lu-ebikon",
-        "fr": "teamleitung-hauswirtschaft-80-senevita-lu-ebikon"
+        "it": "gestione-del-team-senevita-lu-ebikon",
+        "en": "team-management-housekeeping-80-senevita-lu-ebikon",
+        "fr": "gestion-d-equipe-menage-80-senevita-lu-ebikon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -16785,7 +16785,21 @@
       "streetAddress": "LU Ebikon",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-06T09:28:42.950Z"
+      "firstSeenAt": "2026-11-06T09:28:42.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-hauswirtschaft-80-senevita-lu-ebikon"
+        ],
+        "en": [
+          "teamleitung-hauswirtschaft-80-senevita-lu-ebikon"
+        ],
+        "fr": [
+          "teamleitung-hauswirtschaft-80-senevita-lu-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-hauswirtschaft-80-senevita-lu-ebikon"
+      ]
     },
     {
       "id": "senevita-1323cb3d3783",
@@ -17031,12 +17045,12 @@
     },
     {
       "id": "senevita-cd81d2876065",
-      "slug": "wohnbereichsleitung-senevita-be-burgdorf",
+      "slug": "linea-di-soggiorno-senevita-be-burgdorf",
       "slugByLocale": {
         "de": "wohnbereichsleitung-senevita-be-burgdorf",
-        "it": "wohnbereichsleitung-senevita-be-burgdorf",
-        "en": "wohnbereichsleitung-senevita-be-burgdorf",
-        "fr": "wohnbereichsleitung-senevita-be-burgdorf"
+        "it": "linea-di-soggiorno-senevita-be-burgdorf",
+        "en": "living-area-line-senevita-be-burgdorf",
+        "fr": "ligne-de-la-zone-habitable-senevita-be-burgdorf"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -17098,7 +17112,21 @@
       "streetAddress": "BE Burgdorf",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-06T09:28:40.975Z"
+      "firstSeenAt": "2026-11-06T09:28:40.975Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wohnbereichsleitung-senevita-be-burgdorf"
+        ],
+        "en": [
+          "wohnbereichsleitung-senevita-be-burgdorf"
+        ],
+        "fr": [
+          "wohnbereichsleitung-senevita-be-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "wohnbereichsleitung-senevita-be-burgdorf"
+      ]
     },
     {
       "id": "senevita-023b4b859885",

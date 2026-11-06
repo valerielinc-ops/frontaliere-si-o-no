@@ -718,12 +718,12 @@
     },
     {
       "id": "rfsm-fribourg-ada1f01189d6",
-      "slug": "psychologue-psychotherapeute-ou-psychotherapeute-en-formation-rfsm-villars-sur-glane-rfsm",
+      "slug": "psicoterapeuta-o-psicoterapeuta-in-formazione-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
       "slugByLocale": {
         "fr": "psychologue-psychotherapeute-ou-psychotherapeute-en-formation-rfsm-villars-sur-glane-rfsm",
-        "it": "psychologue-psychotherapeute-ou-psychotherapeute-en-formation-rfsm-villars-sur-glane-rfsm",
-        "en": "psychologue-psychotherapeute-ou-psychotherapeute-en-formation-rfsm-villars-sur-glane-rfsm",
-        "de": "psychologue-psychotherapeute-ou-psychotherapeute-en-formation-rfsm-villars-sur-glane-rfsm"
+        "it": "psicoterapeuta-o-psicoterapeuta-in-formazione-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
+        "en": "psychotherapist-or-psychotherapist-in-training-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
+        "de": "psychotherapeut-oder-psychotherapeut-in-ausbildung-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -785,7 +785,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T10:04:29.613Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T10:04:29.613Z"
+      "firstSeenAt": "2026-11-06T10:04:29.613Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-ou-psychotherapeute-en-formation-rfsm-villars-sur-glane-rfsm"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-ou-psychotherapeute-en-formation-rfsm-villars-sur-glane-rfsm"
+        ],
+        "de": [
+          "psychologue-psychotherapeute-ou-psychotherapeute-en-formation-rfsm-villars-sur-glane-rfsm"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-ou-psychotherapeute-en-formation-rfsm-villars-sur-glane-rfsm"
+      ]
     },
     {
       "id": "rfsm-fribourg-10acb12683f0",
