@@ -196,7 +196,10 @@ bash scripts/social-robot/launchd.sh uninstall
 
 Il launch agent non esegue il working tree del checkout (che può essere su un
 altro ramo): a ogni finestra estrae i file del robot da `origin/main` in uno
-snapshot nella cartella di stato e usa i `node_modules` del checkout. Serve una
+snapshot nella cartella di stato e usa i `node_modules` del checkout. Se quel
+runtime persistente non contiene `abort-controller`, il solo launch agent
+espone a `google-gax` il compatibile `AbortController` nativo di Node 22; le
+installazioni normali continuano a usare la dipendenza dichiarata. Serve una
 sessione grafica aperta sul Mac: il browser non è headless.
 
 ## Cadenza (`lib/cadence.mjs`)

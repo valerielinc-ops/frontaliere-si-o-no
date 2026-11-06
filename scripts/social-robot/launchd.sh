@@ -14,7 +14,9 @@
 # on somebody else's branch: install copies this script into the state folder
 # (the plist runs that copy), and `run` fetches origin/main, extracts the robot's files of that
 # commit into a frozen snapshot under the state folder, links
-# the checkout's node_modules (Playwright) and runs it from there. The mode
+# the checkout's node_modules (Playwright) and runs it from there. A small
+# launchd-only module fallback uses Node's native AbortController when that
+# package is absent from a stale checkout install. The mode
 # comes from Remote Config (SOCIAL_ROBOT_MODE, read with the site's own
 # loader and the service account in ~/.config/frontaliere): the plist always
 # passes --publish, and only `live` makes the robot press the button.
@@ -235,7 +237,8 @@ snapshot() {
 load_rc_environment() {
   runner=$1
   [ -f "$sa_file" ] || { log "service account missing ($sa_file): Remote Config unavailable, dry run"; return 0; }
-  rc_exports=$(GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/load-rc-env.mjs" 2>/dev/null) || rc_exports=''
+  runtime_node_path="$runner/scripts/social-robot/runtime-shims${NODE_PATH:+:$NODE_PATH}"
+  rc_exports=$(GOOGLE_APPLICATION_CREDENTIALS="$sa_file" NODE_PATH="$runtime_node_path" node "$runner/scripts/load-rc-env.mjs" 2>/dev/null) || rc_exports=''
   [ -n "$rc_exports" ] || return 0
   eval "$rc_exports"
 }
@@ -252,14 +255,15 @@ cmd_run() {
   sha=$(g rev-parse --verify -q "$ref^{commit}") || { log "$ref unknown in $site: nothing run"; return 0; }
   runner=$(snapshot "$sha") || { log "snapshot of ${sha:0:8} failed: nothing run"; alarm_issue; trim_log; return 0; }
   load_rc_environment "$runner"
+  runtime_node_path="$runner/scripts/social-robot/runtime-shims${NODE_PATH:+:$NODE_PATH}"
   mode=${SOCIAL_ROBOT_MODE:-}
   log "run ${sha:0:8} SOCIAL_ROBOT_MODE=${mode:-<absent>}"
   run_status=0
-  GOOGLE_APPLICATION_CREDENTIALS="$sa_file" SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \
+  GOOGLE_APPLICATION_CREDENTIALS="$sa_file" NODE_PATH="$runtime_node_path" SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \
     node "$runner/scripts/social-robot/run.mjs" --publish --jitter >>"$log_file" 2>&1 || run_status=$?
   insights_status=0
   if [ "$mode" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'graph' ] && [ -f "$state_dir/instagram-insights.json" ]; then
-    GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/social-robot/persist-browser-insights.mjs" \
+    GOOGLE_APPLICATION_CREDENTIALS="$sa_file" NODE_PATH="$runtime_node_path" node "$runner/scripts/social-robot/persist-browser-insights.mjs" \
       --snapshot "$state_dir/instagram-insights.json" >>"$log_file" 2>&1 || insights_status=$?
     [ "$insights_status" -eq 0 ] || log "browser Insights persistence failed (exit $insights_status)"
   fi

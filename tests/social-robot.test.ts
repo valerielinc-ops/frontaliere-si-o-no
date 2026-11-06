@@ -1359,6 +1359,11 @@ describe('Mac host launch agent', () => {
     );
     fs.writeFileSync(path.join(socialDir, 'launchd.sh'), destinationLauncher);
     fs.copyFileSync(path.join(ROOT, 'scripts', 'social-robot', 'verify-snapshot.mjs'), path.join(socialDir, 'verify-snapshot.mjs'));
+    fs.cpSync(
+      path.join(ROOT, 'scripts', 'social-robot', 'runtime-shims'),
+      path.join(socialDir, 'runtime-shims'),
+      { recursive: true },
+    );
     fs.writeFileSync(
       path.join(socialDir, 'run.mjs'),
       runBody ?? [
@@ -1515,6 +1520,27 @@ describe('Mac host launch agent', () => {
     expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('ran');
     expect(fs.existsSync(path.join(fixture.state, 'runner', fixture.sha, '.snapshot-verified'))).toBe(true);
     expect(fs.readFileSync(fixture.stateLauncher, 'utf8')).toContain(fixture.extraPath);
+  });
+
+  it('uses the native AbortController fallback when the checkout install is stale', () => {
+    const fixture = createLaunchFixture({
+      runBody: [
+        "import { createRequire } from 'node:module';",
+        "import { appendFileSync } from 'node:fs';",
+        'const require = createRequire(import.meta.url);',
+        "const { AbortController } = require('abort-controller');",
+        'const controller = new AbortController();',
+        "if (controller.signal.aborted) throw new Error('fresh controller is already aborted');",
+        'controller.abort();',
+        "if (!controller.signal.aborted) throw new Error('native abort signal was not delivered');",
+        "appendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'native-abort-controller\\n');",
+      ].join('\n'),
+    });
+
+    expect(fs.existsSync(path.join(fixture.repo, 'node_modules', 'abort-controller'))).toBe(false);
+    runLauncher(fixture, launchEnv(fixture));
+
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('native-abort-controller');
   });
 
   it('replaces runner/current instead of writing current.tmp inside the old snapshot', () => {
