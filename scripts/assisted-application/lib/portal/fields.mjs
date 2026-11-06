@@ -111,16 +111,19 @@ function nativeQuestionText(value, counter = null) {
   const MIN_TYPED_BOX_PX = 2;
   const typedInto = (element) => element.tagName === 'TEXTAREA'
     || (element.tagName === 'INPUT' && !['checkbox', 'radio', 'file', 'range', 'color', 'hidden'].includes((element.getAttribute('type') || 'text').toLowerCase()));
-  const hiddenAncestor = (element) => {
+  const hiddenAncestor = (element, includeAriaHidden = true) => {
     for (let node = element.parentElement; node; node = node.parentElement) {
       if (node.hasAttribute('hidden') || node.hasAttribute('inert')
-        || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return true;
+        || (includeAriaHidden && node.getAttribute('aria-hidden')?.toLowerCase() === 'true')) return true;
       const ancestorStyle = window.getComputedStyle(node);
       if (ancestorStyle.display === 'none' || ['hidden', 'collapse'].includes(ancestorStyle.visibility)) return true;
     }
     return false;
   };
   const visible = (element) => {
+    // Mounted background steps can retain layout boxes. Their controls must
+    // not supply auth, cookie or candidate-question evidence for this step.
+    if (element.closest('[hidden], [inert]') || hiddenAncestor(element, false)) return false;
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
     // Keep a file input hidden only by its own styling: many portals pair it
@@ -128,7 +131,7 @@ function nativeQuestionText(value, counter = null) {
     // ancestor must keep the file out of the current page snapshot.
     if (element.type === 'file') return !hiddenAncestor(element);
     const min = typedInto(element) ? MIN_TYPED_BOX_PX : 0;
-    const shown = style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
+    const shown = !['hidden', 'collapse'].includes(style.visibility) && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
     if (shown || !['checkbox', 'radio'].includes(element.type)) return shown;
     // Custom-styled checkbox/radio: the native input is hidden, its label is what people click.
     const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
