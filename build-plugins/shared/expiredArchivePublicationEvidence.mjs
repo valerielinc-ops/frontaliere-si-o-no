@@ -9,6 +9,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const DEFAULT_CANARIES_PER_LOCALE = 4;
 const NOINDEX_ROBOTS_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots(?![a-z0-9_-])["']?)(?=[^>]*\bcontent\s*=\s*["']?[^"'>]*\bnoindex\b)[^>]*>/iu;
 const TITLE_RE = /<title(?:\s[^>]*)?>([\s\S]*?)<\/title\s*>/iu;
+const ATTRIBUTE_RE = /\s+([^\s"'<>/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?/gu;
 const SECTION_SLUGS = JSON.parse(fs.readFileSync(
   path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../scripts/lib/section-shard-slugs.json'),
   'utf8',
@@ -39,6 +40,48 @@ function payloadFromHtml(html) {
 
 function payloadDescription(payload, locale) {
   return String(payload?.descriptionByLocale?.[locale] ?? payload?.description ?? '').trim();
+}
+
+function startTagAttributes(tag) {
+  const attributes = new Map();
+  for (const match of tag.matchAll(ATTRIBUTE_RE)) {
+    const name = String(match[1] || '').toLowerCase();
+    if (!name || attributes.has(name)) continue;
+    attributes.set(name, match[2] ?? match[3] ?? match[4] ?? '');
+  }
+  return attributes;
+}
+
+function* startTagsNamed(html, tagName) {
+  const openingTagPattern = new RegExp(`<${tagName}\\b`, 'giu');
+  let match;
+  while ((match = openingTagPattern.exec(html)) !== null) {
+    let quote = '';
+    let end = openingTagPattern.lastIndex;
+    for (; end < html.length; end += 1) {
+      const character = html[end];
+      if (quote) {
+        if (character === quote) quote = '';
+        continue;
+      }
+      if (character === '"' || character === "'") {
+        quote = character;
+        continue;
+      }
+      if (character === '>') break;
+    }
+    if (end >= html.length) return;
+    yield html.slice(match.index, end + 1);
+    openingTagPattern.lastIndex = end + 1;
+  }
+}
+
+function hasTagWithAttributes(html, tagName, expected) {
+  for (const tag of startTagsNamed(html, tagName)) {
+    const attributes = startTagAttributes(tag);
+    if (Object.entries(expected).every(([name, value]) => attributes.get(name) === value)) return true;
+  }
+  return false;
 }
 
 export function createExpiredArchivePublicationEvidence({
@@ -94,10 +137,10 @@ export function createExpiredArchivePublicationEvidence({
             throw new Error(`expired archive canary path escapes dist: ${candidate.path}`);
           }
           const html = fs.readFileSync(file, 'utf8');
-          if (!html.includes('data-expired-static-body="true"')) {
+          if (!hasTagWithAttributes(html, 'main', { 'data-expired-static-body': 'true' })) {
             throw new Error(`expired archive canary lost its static body marker: ${candidate.path}`);
           }
-          if (!html.includes(`<link rel="canonical" href="${candidate.url}">`)) {
+          if (!hasTagWithAttributes(html, 'link', { rel: 'canonical', href: candidate.url })) {
             throw new Error(`expired archive canary canonical differs from ${candidate.url}`);
           }
           if (!NOINDEX_ROBOTS_RE.test(html)) {
@@ -107,7 +150,10 @@ export function createExpiredArchivePublicationEvidence({
           if (publishedTitleHtml !== candidate.titleHtml) {
             throw new Error(`expired archive canary title differs from its rendered source: ${candidate.path}`);
           }
-          if (!html.includes(`<meta name="description" content="${candidate.metaDescriptionHtml}">`)) {
+          if (!hasTagWithAttributes(html, 'meta', {
+            name: 'description',
+            content: candidate.metaDescriptionHtml,
+          })) {
             throw new Error(`expired archive canary meta description differs from its rendered source: ${candidate.path}`);
           }
           const publishedPayloadJson = payloadFromHtml(html);
