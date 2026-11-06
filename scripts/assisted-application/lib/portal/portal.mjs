@@ -3224,6 +3224,23 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
   const label = normalizedQuestionText(nativePortalQuestion(item));
   const countryKey = label === 'paese' ? 'country' : label === 'nazionalita' ? 'nationality' : '';
   if (countryKey && applicationOptions.length) {
+    if (countryKey === 'nationality') {
+      // EOC's Italian nationality catalogue contains duplicate visible labels
+      // (for example «Dominicano»). Keep the portal's Italian labels verbatim
+      // so the candidate can answer; the downstream exact-match guard still
+      // refuses an answer whose label is ambiguous in that catalogue.
+      const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+      return {
+        ...item,
+        question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+        applicationQuestion: nativePortalQuestion(item),
+        applicationOptions,
+        options: applicationOptions,
+        optionMap,
+        applicationQuestionLocale: candidateLanguage,
+        localizationStatus: 'same_language',
+      };
+    }
     const candidateOptions = applicationOptions.map((option) => deterministicItalianCountryOption(option, countryKey));
     if (candidateOptions.every(Boolean)) {
       const optionMap = portalOptionMap({

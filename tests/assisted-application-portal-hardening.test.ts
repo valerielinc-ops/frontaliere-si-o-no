@@ -1114,6 +1114,35 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     });
   });
 
+  it('preserves EOC nationality options verbatim when duplicate labels prevent a complete map', async () => {
+    const options = [
+      'Selezionare', '-----------------------------------------', 'Svizzera', 'Tedesca', 'Italiana',
+      'Afgano', 'Aland', 'Dominicano', 'Dominicano', 'Honduregno', 'Honduregno',
+    ];
+    const localized = await localizePortalQuestions([{
+      id: 'nationality',
+      question: 'Nazionalità',
+      applicationQuestion: 'Nazionalità',
+      options,
+      applicationOptions: options,
+    }], {
+      candidateLocale: 'it',
+      applicationLocale: 'it',
+      codex: async () => { throw new Error('same-language nationality must not need translation'); },
+    });
+
+    expect(localized[0]).toMatchObject({
+      question: 'Nazionalità',
+      applicationQuestion: 'Nazionalità',
+      options,
+      applicationOptions: options,
+      applicationQuestionLocale: 'it',
+      localizationStatus: 'same_language',
+    });
+    expect(portalAnswerForApplication(localized[0], 'Italiana')).toBe('Italiana');
+    expect(portalAnswerForApplication(localized[0], 'Dominicano')).toBe('');
+  });
+
   it('recognizes Unicode CV labels and keeps same-prefix portal file fields distinct', () => {
     expect(portalRequiredDocumentFromField({ kind: 'file', required: true, label: 'Résumé' })).toBeNull();
     const first = portalRequiredDocumentFromField({ id: 'field_same_prefix_alpha', kind: 'file', required: true, label: 'Same label with a long normalized prefix 1234567890' });
