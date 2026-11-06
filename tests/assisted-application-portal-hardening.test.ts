@@ -328,6 +328,32 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(postingAddressForPortal({ applyUrl: 'https://jobs.lever.co/example/1/apply', fallback: publishedUrl })).toBe(publishedUrl);
   });
 
+  it('recovers the Umantis posting route for a legacy direct Application/New URL', () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+    const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+    const job = { company: 'EOC – Ente Ospedaliero Cantonale', title: 'Impiegato/a amministrativo' };
+    const form = [
+      'Application Tracking System',
+      'Attualmente ho un contratto con l\'EOC',
+      'In passato ho già lavorato per l\'EOC',
+      'Avanti',
+    ].join('\n');
+
+    expect(postingAddressForPortal({
+      applyUrl: applicationUrl,
+      postingUrls: [applicationUrl],
+      fallback: 'https://frontaliereticino.ch/it/lavoro/impiegato-amministrativo-eoc/',
+    })).toBe(postingUrl);
+    expect(portalEntryUrl({ applyUrl: applicationUrl })).toBe(postingUrl);
+    expect(isVerifiedPostingEntry({ applyUrl: applicationUrl, postingUrl })).toBe(true);
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: applicationUrl,
+      postingUrl,
+    })).toBe('match');
+  });
+
   it('uses a bound Umantis vacancy route when EOC application questions mention the employer', () => {
     const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
     const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';

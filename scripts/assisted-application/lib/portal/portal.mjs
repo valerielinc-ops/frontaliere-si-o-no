@@ -448,6 +448,45 @@ function isUmantisUrl(value) {
   }
 }
 
+const UMANTIS_APPLICATION_NEW_ROUTE_RE = /^\/vacancies\/(\d+)\/application\/new\/(\d+)\/?$/i;
+
+function umantisApplicationNewRoute(value) {
+  try {
+    const url = new URL(String(value || ''));
+    const match = UMANTIS_APPLICATION_NEW_ROUTE_RE.exec(url.pathname);
+    if (url.protocol !== 'https:' || url.username || url.password || url.hash
+      || !isUmantisUrl(url.href) || !match) return null;
+    return { origin: url.origin, vacancyId: match[1], stepId: match[2] };
+  } catch {
+    return null;
+  }
+}
+
+function umantisPostingAddressFromApplication(value) {
+  const route = umantisApplicationNewRoute(value);
+  return route ? `${route.origin}/Vacancies/${route.vacancyId}/Description/${route.stepId}` : '';
+}
+
+function umantisVacancyRoute(value) {
+  try {
+    const url = new URL(String(value || ''));
+    if (!isUmantisUrl(url.href)) return null;
+    const vacancyId = /^\/vacancies\/(\d+)(?:\/|$)/i.exec(url.pathname)?.[1] || '';
+    return vacancyId ? { origin: url.origin, vacancyId } : null;
+  } catch {
+    return null;
+  }
+}
+
+function hasConflictingUmantisVacancyRoute(applyUrl, candidates) {
+  const application = umantisVacancyRoute(applyUrl);
+  if (!application) return false;
+  return candidates.some((candidate) => {
+    const route = umantisVacancyRoute(candidate);
+    return route?.origin === application.origin && route.vacancyId !== application.vacancyId;
+  });
+}
+
 /**
  * Umantis application URLs carry the vacancy id in the ATS route
  * (`/Vacancies/<id>/Application/...`). Only a posting on the same origin is
@@ -495,7 +534,13 @@ function verifiedPostingEntryFor(ctx = {}) {
   return Boolean(applicationUrl && isVerifiedPostingEntry({
     applyUrl: applicationUrl,
     postingUrl: ctx.postingUrl,
-  }));
+  })) || (!String(ctx.postingUrl || '').trim() && (() => {
+    const inferredPostingUrl = umantisPostingAddressFromApplication(ctx.applyUrl);
+    return Boolean(inferredPostingUrl && isVerifiedPostingEntry({
+      applyUrl: ctx.applyUrl,
+      postingUrl: inferredPostingUrl,
+    }));
+  })());
 }
 
 /**
@@ -555,6 +600,10 @@ export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof } = {})
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
+  if (!String(postingUrl || '').trim()) {
+    const inferredPostingUrl = umantisPostingAddressFromApplication(directUrl);
+    if (inferredPostingUrl) return inferredPostingUrl;
+  }
   return umantisApplicationEntryUrl({ applyUrl: directUrl, postingUrl }) || directUrl;
 }
 
@@ -573,6 +622,12 @@ export function verifiedUmantisPostingAddress({ applyUrl, postingUrls = [] } = {
 export function postingAddressForPortal({ applyUrl, postingUrls = [], fallback = '' } = {}) {
   const verified = verifiedUmantisPostingAddress({ applyUrl, postingUrls });
   if (verified) return verified;
+  const candidates = [
+    ...(Array.isArray(postingUrls) ? postingUrls : []),
+    fallback,
+  ].map((value) => String(value || '').trim()).filter(Boolean);
+  const inferred = umantisPostingAddressFromApplication(applyUrl);
+  if (inferred && !hasConflictingUmantisVacancyRoute(applyUrl, candidates)) return inferred;
   return isUmantisUrl(applyUrl) ? '' : String(fallback || '');
 }
 
@@ -2717,14 +2772,7 @@ const UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE = new RegExp([
   String.raw`(?:soumission|envoi) de la candidature.{0,100}(?:crée|créé).{0,60}profil utilisateur`,
 ].join('|'), 'iu');
 function isUmantisApplicationRoute(url) {
-  try {
-    const parsed = new URL(String(url || ''));
-    return parsed.protocol === 'https:'
-      && /(?:^|\.)umantis\.com$/i.test(parsed.hostname)
-      && /^\/vacancies\/\d+\/application\/new\/\d+\/?$/i.test(parsed.pathname);
-  } catch {
-    return false;
-  }
+  return Boolean(umantisApplicationNewRoute(url));
 }
 
 function isObservedUmantisApplicationStep(snapshot, channelType) {
