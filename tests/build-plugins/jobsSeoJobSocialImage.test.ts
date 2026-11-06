@@ -2,9 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
+import { ITALIAN_EMPLOYMENT_LABELS } from '../../build-plugins/shared/italianEmploymentLabels.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SOURCE = fs.readFileSync(path.join(ROOT, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');
+const CARD_SOURCE = fs.readFileSync(path.join(ROOT, 'build-plugins/jobOgImagesPlugin.ts'), 'utf8');
 const ACTIVE_JOB_HEAD_START = SOURCE.indexOf('<meta property="og:type" content="article">');
 const ACTIVE_JOB_HEAD_END = SOURCE.indexOf('<link rel="canonical" href="${effectiveCanonicalUrl}">', ACTIVE_JOB_HEAD_START);
 const ACTIVE_JOB_HEAD = SOURCE.slice(ACTIVE_JOB_HEAD_START, ACTIVE_JOB_HEAD_END);
@@ -24,5 +26,12 @@ describe('active job social image metadata', () => {
     expect(start).toBeGreaterThanOrEqual(0);
     expect(end).toBeGreaterThan(start);
     expect(SOURCE.slice(start, end)).toContain('socialImage,');
+  });
+
+  it('renders the card with Italian employment labels', () => {
+    expect(CARD_SOURCE).toContain('const EMPLOYMENT_LABEL_IT: Record<string, string> = ITALIAN_EMPLOYMENT_LABELS');
+    expect(ITALIAN_EMPLOYMENT_LABELS.PART_TIME).toBe('Tempo parziale');
+    expect(ITALIAN_EMPLOYMENT_LABELS.INTERN).toBe('Tirocinio');
+    expect(Object.values(ITALIAN_EMPLOYMENT_LABELS)).not.toContain('Part-time');
   });
 });
