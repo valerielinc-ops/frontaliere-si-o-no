@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1061,
+      "5": 1062,
       "6": 5061
     },
-    "publishedCovers": 7804,
+    "publishedCovers": 7805,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -212534,6 +212534,39 @@
         "provider": "openai-codex",
         "assetId": "article-adeguamento-merkblatt-beteiligungen-zrh",
         "imageUrl": "/images/blog/article-adeguamento-merkblatt-beteiligungen-zrh.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-andermatt-piano-max-uristier": {
+      "cover": "/images/blog/article-andermatt-piano-max-uristier.webp",
+      "hash": "41d66f99982ea1c222ad917696eef5da488626cb49e2410e7793433721ef04be",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "andermatt-piano-max-uristier",
+          "category": "novita",
+          "date": "2026-11-06T08:13:38.091Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-andermatt-piano-max-uristier.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-andermatt-piano-max-uristier",
+        "imageUrl": "/images/blog/article-andermatt-piano-max-uristier.webp",
         "evidence": "generated-engine-record"
       }
     },

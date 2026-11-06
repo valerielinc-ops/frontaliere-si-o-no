@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "27afddb9191e22af41c1fedb7d3681de2557abc6",
+  "commit": "9a742dbf1194caf8edcb98dac098814b99868fe6",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -47015,6 +47015,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic autumn school-building scene with no readable text, logos, or identifiable people."
+      }
+    },
+    "/images/blog/article-andermatt-piano-max-uristier.webp": {
+      "schema": 1,
+      "assetId": "article-andermatt-piano-max-uristier",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "7f9567ff82b3ea6e663355d44d11ae967ee0c201648d3128c83be8480bb0f5f2",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "41d66f99982ea1c222ad917696eef5da488626cb49e2410e7793433721ef04be",
+      "bytes": 168232,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-06T08:13:17.940Z",
+      "verifiedAt": "2026-11-06T08:13:38.007Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-andermatt-piano-max-uristier.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original synthetic illustration of a wooden bull in an alpine landscape; no text, logos, or people."
       }
     },
     "/images/places/lugano-view.webp": {
