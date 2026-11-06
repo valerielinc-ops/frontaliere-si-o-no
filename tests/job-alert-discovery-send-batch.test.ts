@@ -39,17 +39,44 @@ describe('discovery provider outcomes', () => {
     const ref = { set, collection: () => ({ doc: () => ref }) };
     __setFirestoreAdminForTest({ collection: () => ({ doc: () => ref }), runTransaction: async () => {} });
     send.mockImplementation(async (items) => {
-      const unknown = { ...items[0], provider: 'resend' };
-      return { sent: [unknown], failed: [], ambiguous: [unknown] };
+      const unknown = { ...items[0], provider: 'resend', ack: 'unidentifiable', messageId: null };
+      return { sent: [unknown], accepted: [unknown], failed: [], ambiguous: [unknown] };
     });
     const result = await sendBatch([{ to: 'discovery@example.test', alertId: 'empty', subject: 'Popular', html: '<p>Popular</p>',
       discoveryMode: true, discoveryClaim: { attemptId: 'claim', deliveryId: 'stable' } }]);
     expect(result).toMatchObject({ sent: 0, failed: 1, discoveryUnknown: 1, ambiguous: 0 });
+    expect(result.sentDeliveryKeys.has('discovery@example.test\0empty')).toBe(true);
+    expect(result.confirmedDeliveryKeys.has('discovery@example.test\0empty')).toBe(false);
     const db = { collection: vi.fn(() => { throw new Error('must not enqueue'); }) };
     await enqueueFailedEmails(db, result.failedItems);
     expect(db.collection).not.toHaveBeenCalled();
     const funnel = buildJobAlertFunnel({ archive: 1, base: 1, eligible: 1, planned: 1, failed: 1, discoveryUnknown: 1 });
     expect(funnel.balanced).toBe(true);
     expect(funnel.rows.find((row: { label: string }) => row.label.includes('discovery con esito'))).toMatchObject({ count: 1 });
+  });
+
+  it('does not promote an unidentifiable accepted discovery into cadence-confirmed delivery', async () => {
+    const ref = { collection: () => ({ doc: () => ref }) };
+    __setFirestoreAdminForTest({ collection: () => ({ doc: () => ref }), runTransaction: async () => {} });
+    send.mockImplementation(async (items) => {
+      const unknown = { ...items[0], provider: 'resend', ack: 'unidentifiable' };
+      return { sent: [unknown], accepted: [unknown], failed: [], ambiguous: [] };
+    });
+    const result = await sendBatch([{ to: 'discovery@example.test', alertId: 'empty', subject: 'Popular', html: '<p>Popular</p>',
+      discoveryMode: true, discoveryClaim: { attemptId: 'claim', deliveryId: 'stable' } }]);
+
+    expect(result.confirmedDeliveryKeys.has('discovery@example.test\0empty')).toBe(false);
+    expect(result.confirmedDeliveryKeys.size).toBe(0);
+  });
+
+  it('does not finalize a discovery claim already represented as ambiguous', async () => {
+    const runTransaction = vi.fn(async () => {});
+    const ref = { collection: () => ({ doc: () => ref }) };
+    __setFirestoreAdminForTest({ collection: () => ({ doc: () => ref }), runTransaction });
+    send.mockImplementation(async (items) => ({ sent: [], accepted: [], failed: [], ambiguous: [items[0]] }));
+    await sendBatch([{ to: 'discovery@example.test', alertId: 'empty', subject: 'Popular', html: '<p>Popular</p>',
+      discoveryMode: true, discoveryClaim: { attemptId: 'claim', deliveryId: 'stable' } }]);
+
+    expect(runTransaction).not.toHaveBeenCalled();
   });
 });

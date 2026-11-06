@@ -961,14 +961,11 @@ const RFC2822_MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'A
 
 // ── Transport-level ambiguity guard ──────────────────────────
 // fetch() throwing (network drop, DNS failure, or an AbortSignal firing
-// mid-request) means we never got an HTTP response at all — unlike the
-// provider replying with an explicit 4xx/5xx, which tells us definitively
-// "not delivered, safe to cascade to the next provider". A transport failure
-// could just as easily mean the provider fully received and queued the
-// message but the ack never made it back (timeout/5xx-after-accept, #4911):
-// sendSingle below must NOT fall back to another provider in that case, or a
-// message that already went out gets sent again. Every sendVia* fetch() call
-// below goes through this wrapper so that ambiguity is tagged, not lost.
+// mid-request) means we never got an HTTP response at all. A provider can
+// also return 408 or 5xx after accepting work but before producing its ack.
+// Both cases are ambiguous: falling back to another provider could duplicate
+// a message that already went out. Every sendVia* fetch() call goes through
+// this wrapper, and HTTP failures use providerResponseError below.
 async function fetchOrTagAmbiguous(url, opts) {
   try {
     return await fetch(url, opts);
@@ -977,6 +974,16 @@ async function fetchOrTagAmbiguous(url, opts) {
     wrapped.ambiguousDelivery = true;
     throw wrapped;
   }
+}
+
+/**
+ * Build an HTTP rejection for a provider response. An HTTP response is a
+ * definite provider outcome for this transport contract, so it remains
+ * eligible for the existing fallback path; transport failures are the cases
+ * that must be quarantined as ambiguous.
+ */
+function providerResponseError(provider, status, detail) {
+  return new Error(`${provider} ${status}: ${detail}`);
 }
 
 /** Extract a durable string identifier from the provider response shape. */
@@ -1055,7 +1062,7 @@ async function sendViaMailjet(email, _scheduledAt, signal) {
 
   if (!res.ok) {
     const err = await res.text().catch(() => '');
-    throw new Error(`Mailjet ${res.status}: ${err.slice(0, 200)}`);
+    throw providerResponseError('Mailjet', res.status, err.slice(0, 200));
   }
 
   const data = await res.json().catch(() => ({}));
@@ -1146,7 +1153,7 @@ async function sendViaMailgun(email, scheduledAt, signal) {
 
   if (!res.ok) {
     const err = await res.text().catch(() => '');
-    throw new Error(`Mailgun ${res.status}: ${err.slice(0, 200)}`);
+    throw providerResponseError('Mailgun', res.status, err.slice(0, 200));
   }
 
   const data = await res.json().catch(() => ({}));
@@ -1184,7 +1191,7 @@ async function sendViaMailtrap(email, _scheduledAt, signal) {
 
   if (!res.ok) {
     const err = await res.text().catch(() => '');
-    throw new Error(`Mailtrap ${res.status}: ${err.slice(0, 200)}`);
+    throw providerResponseError('Mailtrap', res.status, err.slice(0, 200));
   }
 
   const data = await res.json().catch(() => ({}));
@@ -1270,7 +1277,7 @@ async function sendViaMaileroo(email, scheduledAt, signal) {
 
   if (!res.ok) {
     const err = await res.text().catch(() => '');
-    throw new Error(`Maileroo ${res.status}: ${err.slice(0, 200)}`);
+    throw providerResponseError('Maileroo', res.status, err.slice(0, 200));
   }
 
   const data = await res.json().catch(() => ({}));
@@ -1322,7 +1329,7 @@ async function sendViaResend(email, scheduledAt, signal) {
 
   if (!res.ok) {
     const err = await res.text().catch(() => '');
-    throw new Error(`Resend ${res.status}: ${err.slice(0, 200)}`);
+    throw providerResponseError('Resend', res.status, err.slice(0, 200));
   }
 
   const data = await res.json().catch(() => ({}));
@@ -1407,7 +1414,7 @@ async function sendViaCloudflare(email, _scheduledAt, signal) {
       }
     } catch {}
     console.warn(`   ⚠️  [cf-send] HTTP ${res.status} code=${cfCode} message="${redactEmailAddresses(String(cfMsg)).slice(0, 160)}"`);
-    throw new Error(`Cloudflare ${res.status} code=${cfCode}: ${String(cfMsg || err).slice(0, 200)}`);
+    throw providerResponseError('Cloudflare', res.status, `code=${cfCode}: ${String(cfMsg || err).slice(0, 200)}`);
   }
 
   const data = await res.json().catch(() => ({}));
@@ -1487,9 +1494,9 @@ function isSoftThrottleError(msg) {
 /**
  * Explicit HTTP rejections that are safe to retry more slowly. Transport-level
  * failures are deliberately excluded: fetchOrTagAmbiguous marks those as
- * ambiguousDelivery because the provider may already have accepted the email.
- * Cloudflare code=10004 keeps its established 30s cooldown instead of being
- * retried inside the same run.
+ * ambiguousDelivery because no response was received. Cloudflare code=10004
+ * keeps its established 30s cooldown instead of being retried inside the same
+ * run.
  */
 /**
  * A 429/403 whose body says a DAILY/MONTHLY quota is used up — e.g. Mailgun's
@@ -1595,7 +1602,7 @@ function isProviderCoolingDown(providerId) {
   return (_providerCooldownUntil[providerId] || 0) > Date.now();
 }
 
-async function sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle, spacing) {
+async function sendSingle(email, forceProvider, finalizeForProvider, beforeProviderAttempt, signal, adaptiveThrottle, spacing) {
   const errors = [];
   const providers = forceProvider
     ? PROVIDERS.filter(p => Array.isArray(forceProvider) ? forceProvider.includes(p.id) : p.id === forceProvider)
@@ -1629,6 +1636,31 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal, ada
     // delivery keeps it consumed because the provider may have accepted it.
     while (true) {
       incrementCounter(provider.id, 1);
+      // The caller may need a durable per-recipient intent before any provider
+      // request. Keep this outside the provider-error catch: a failed intent
+      // write is not a provider rejection and must never fall through to the
+      // next provider.
+      if (typeof beforeProviderAttempt === 'function') {
+        let maySend;
+        try {
+          maySend = await beforeProviderAttempt(email, provider.id);
+        } catch (err) {
+          incrementCounter(provider.id, -1);
+          const persistenceError = new Error('Could not persist the delivery intent before provider send.', { cause: err });
+          persistenceError.beforeProviderAttemptFailed = true;
+          throw persistenceError;
+        }
+        if (maySend === false) {
+          incrementCounter(provider.id, -1);
+          return { skipped: true, provider: provider.id };
+        }
+        if (maySend !== true) {
+          incrementCounter(provider.id, -1);
+          const persistenceError = new Error('The pre-provider callback must return an explicit boolean.');
+          persistenceError.beforeProviderAttemptFailed = true;
+          throw persistenceError;
+        }
+      }
       try {
         // Optional hook: let the caller finalize the payload for the provider that
         // is actually about to send (e.g. swap the subject to that provider's A/B
@@ -1696,7 +1728,7 @@ function providerSpacingMs(providerId, delayMs, adaptiveThrottle, providerMinInt
  * get a floor here before a concurrent bulk sender can reach it.
  * maileroo (the paid bulk channel) uses the live Pro account's current
  * 10k/hour ceiling as a conservative floor; mailgun/mailjet have no floor and
- * rely on the adaptive throttle on explicit 429/5xx.
+ * rely on the adaptive throttle on explicit 429 responses.
  */
 export const BULK_PROVIDER_MIN_INTERVAL_MS = Object.freeze({
   cloudflare: 1000,
@@ -1729,8 +1761,8 @@ async function reserveProviderSlot(providerId, spacing, adaptiveThrottle) {
  * sendSingle's cascade loop (first choice and fallbacks) reserves its own
  * spacing slot via reserveProviderSlot.
  */
-async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider, signal, adaptiveThrottle, providerMinIntervalMs) {
-  return sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle,
+async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider, beforeProviderAttempt, signal, adaptiveThrottle, providerMinIntervalMs) {
+  return sendSingle(email, forceProvider, finalizeForProvider, beforeProviderAttempt, signal, adaptiveThrottle,
     { lastSendMap, delayMs, providerMinIntervalMs });
 }
 
@@ -1759,6 +1791,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @property {'identified'|'unidentifiable'} ack
  * @property {string|null} scheduledFor
  * @property {boolean} [persistFailed]
+ * @property {boolean} [skipped]
  */
 
 /** Error details for a send whose provider outcome must not be retried. */
@@ -1782,6 +1815,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @property {string|string[]} [forceProvider]
  * @property {(item: EmailCascadeItem, result: EmailCascadeSendResult) => void|Promise<void>} [onSent]
  * @property {(item: EmailCascadeItem, error: EmailCascadeAmbiguousError) => void|Promise<void>} [onAmbiguous]
+ * @property {(item: EmailCascadeItem, provider: string) => boolean|Promise<boolean>} [beforeProviderAttempt]
  * @property {(payload: Record<string, unknown>, provider: string) => void} [finalizeForProvider]
  * @property {AbortSignal} [signal]
  * @property {boolean} [quiet]
@@ -1810,7 +1844,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @param {number} [opts.concurrency=1] - Max parallel sends (default 1 to avoid rate limits)
  * @param {number} [opts.delayMs=1000] - Delay in ms between sends to the same provider
  * @param {{stepMs:number,maxDelayMs:number}} [opts.adaptiveThrottle] - Opt-in
- *   additive backoff for explicit 408/425/429/5xx responses. Starts at delayMs,
+ *   additive backoff for explicit 425/429 responses. Starts at delayMs,
  *   retries the rejected message and never exceeds maxDelayMs.
  * @param {Record<string, number>} [opts.providerMinIntervalMs] - Opt-in
  *   per-provider spacing floor in ms (see BULK_PROVIDER_MIN_INTERVAL_MS); the
@@ -1822,6 +1856,9 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @param {(item: EmailCascadeItem, error: EmailCascadeAmbiguousError) => void|Promise<void>} [opts.onAmbiguous]
  *   Called for transport ambiguity and accepted 2xx responses without a durable
  *   message ID. New queue claims pause while it runs; a write failure stops the run.
+ * @param {(item: EmailCascadeItem, provider: string) => boolean|Promise<boolean>} [opts.beforeProviderAttempt]
+ *   Awaited before each provider request. Return false to skip a recipient whose
+ *   durable intent already exists; a rejection stops new queue claims.
  * @param {Function} [opts.finalizeForProvider] - Called just before sending, once
  *   the provider is chosen: (payload, providerId) => void. May mutate the payload
  *   (e.g. swap the subject for that provider). Must not throw.
@@ -1835,7 +1872,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @returns {EmailCascadeBatchResult}
  */
 export async function sendEmailCascade(emails, opts = {}) {
-  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, providerMinIntervalMs, forceProvider, onSent, onAmbiguous, finalizeForProvider, signal, quiet = false } = opts;
+  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, providerMinIntervalMs, forceProvider, onSent, onAmbiguous, finalizeForProvider, beforeProviderAttempt, signal, quiet = false } = opts;
   const sent = [];
   const accepted = [];
   const ambiguous = [];
@@ -1864,6 +1901,7 @@ export async function sendEmailCascade(emails, opts = {}) {
   const _lastSend = {};
   const adaptiveThrottle = createAdaptiveThrottleController(adaptiveConfig, delayMs, _lastSend);
   let ambiguousPersistenceFailure = false;
+  let beforeProviderPersistenceFailure = false;
   let activeAmbiguousCallbacks = 0;
   let claimsPaused = null;
   let releasePausedClaims = null;
@@ -1906,10 +1944,10 @@ export async function sendEmailCascade(emails, opts = {}) {
     }
   };
   const nextWorkItem = async () => {
-    while (claimsPaused && !ambiguousPersistenceFailure) {
+    while (claimsPaused && !ambiguousPersistenceFailure && !beforeProviderPersistenceFailure) {
       await claimsPaused;
     }
-    if (ambiguousPersistenceFailure || idx >= emails.length) return null;
+    if (ambiguousPersistenceFailure || beforeProviderPersistenceFailure || idx >= emails.length) return null;
     const i = idx++;
     return { i, item: emails[i] };
   };
@@ -1919,7 +1957,14 @@ export async function sendEmailCascade(emails, opts = {}) {
       if (!work) return;
       const { i, item } = work;
       try {
-        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, signal, adaptiveThrottle, providerMinIntervalMs);
+        const beforeAttempt = typeof beforeProviderAttempt === 'function'
+          ? (_payload, providerId) => beforeProviderAttempt(item, providerId)
+          : null;
+        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, beforeAttempt, signal, adaptiveThrottle, providerMinIntervalMs);
+        if (result?.skipped) {
+          if (!quiet) console.log(`⏭️  [${i + 1}/${emails.length}] durable delivery intent already exists; skipped`);
+          continue;
+        }
         const outcome = { ...item, ...result };
         sent.push(outcome);
         if (result?.ack === 'unidentifiable') {
@@ -1955,6 +2000,7 @@ export async function sendEmailCascade(emails, opts = {}) {
           }
         }
       } catch (err) {
+        if (err.beforeProviderAttemptFailed) beforeProviderPersistenceFailure = true;
         // ambiguousDelivery (#4911): the message may have already gone out
         // via a provider that then failed on the response — surfaced here
         // instead of silently deducing failure, so callers can distinguish
@@ -1982,7 +2028,24 @@ export async function sendEmailCascade(emails, opts = {}) {
   await Promise.all(Array.from({ length: Math.min(concurrency, emails.length) }, () => worker()));
 
   if (ambiguousPersistenceFailure) {
-    throw new Error('Ambiguous email delivery could not be durably quarantined; campaign send stopped.');
+    const error = new Error('Ambiguous email delivery could not be durably quarantined; campaign send stopped.');
+    error.partialResult = {
+      sent: sent.slice(),
+      accepted: accepted.slice(),
+      ambiguous: ambiguous.slice(),
+      failed: failed.slice(),
+    };
+    throw error;
+  }
+  if (beforeProviderPersistenceFailure) {
+    const error = new Error('Newsletter delivery intent could not be persisted; campaign send stopped before unclaimed deliveries.');
+    error.partialResult = {
+      sent: sent.slice(),
+      accepted: accepted.slice(),
+      ambiguous: ambiguous.slice(),
+      failed: failed.slice(),
+    };
+    throw error;
   }
 
   // Print summary
