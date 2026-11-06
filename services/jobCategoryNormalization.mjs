@@ -19,7 +19,7 @@ function normalizeText(value) {
 export function normalizeJobCategory(raw, hintText = '') {
   const rawNorm = normalizeText(raw);
   const hintNorm = normalizeText(hintText);
-  if (rawNorm && Object.hasOwn(CATEGORY_ALIASES, rawNorm)) {
+  if (rawNorm && Object.prototype.hasOwnProperty.call(CATEGORY_ALIASES, rawNorm)) {
     if (rawNorm === 'general services' && /(manutent|mainten|elettro|mechanic|tecnic|facility)/.test(hintNorm)) {
       return 'engineering';
     }

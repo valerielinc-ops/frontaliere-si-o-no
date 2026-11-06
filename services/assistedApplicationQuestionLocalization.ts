@@ -30,7 +30,7 @@ const QUESTION_LOCALIZATION_WARNING: Record<SupportedLocale, {
 /** Warning copy follows the candidate's selected communication language, not the browser locale. */
 export function localizedQuestionWarning(candidateLocale: string, sourceLocale?: string | null) {
   const language = String(candidateLocale || '').trim().toLowerCase().split(/[-_]/)[0];
-  const copy = Object.hasOwn(QUESTION_LOCALIZATION_WARNING, language)
+  const copy = Object.prototype.hasOwnProperty.call(QUESTION_LOCALIZATION_WARNING, language)
     ? QUESTION_LOCALIZATION_WARNING[language as SupportedLocale]
     : QUESTION_LOCALIZATION_WARNING.it;
   const source = String(sourceLocale || '').trim();
