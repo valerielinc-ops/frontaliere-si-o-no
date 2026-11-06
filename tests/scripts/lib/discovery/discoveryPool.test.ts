@@ -8,10 +8,13 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   buildDiscoveryPool,
+  canonicalizeEvidenceUrl,
   dedupAgainstProven,
+  parseEvidencePubDate,
   scoreCandidates,
   fetchAll,
 } from '../../../../scripts/lib/discovery/discoveryPool.mjs';
+import { NEWS_RSS_MAX_SEED_DURATION_MS } from '../../../../scripts/lib/discovery/sources/googleNewsRssSource.mjs';
 
 const evidence = {
   windowDays: 90,
@@ -91,6 +94,93 @@ const stubTrends = async () => [
 ];
 
 describe('fetchAll', () => {
+  it('parses only readable evidence dates and canonicalizes secure evidence URLs', () => {
+    const pubDate = ' 2026-11-06T12:00:00.000Z ';
+    expect(parseEvidencePubDate(pubDate)).toBe(Date.parse(pubDate.trim()));
+    expect(parseEvidencePubDate(null)).toBeNull();
+    expect(parseEvidencePubDate('not-a-date')).toBeNull();
+    expect(parseEvidencePubDate(new Date(pubDate))).toBeNull();
+
+    expect(canonicalizeEvidenceUrl('http://example.com/story?id=42')).toBeNull();
+    expect(canonicalizeEvidenceUrl('https://example.com/story?utm_source=rss&id=42')).toBe(
+      'https://example.com/story?id=42',
+    );
+    expect(canonicalizeEvidenceUrl('https://news.example/News/1')).toBe('https://news.example/News/1');
+    expect(canonicalizeEvidenceUrl('https://news.example/news/1')).toBe('https://news.example/news/1');
+  });
+
+  it('deduplicates trend evidence by canonical URL, not raw feed URL', async () => {
+    const nowMs = Date.parse('2026-11-06T12:00:00.000Z');
+    const newsFn = async (_evidence: unknown, opts: { seeds?: string[]; nowMs?: number } = {}) => {
+      if (!opts.seeds) return [];
+      return [
+        {
+          headline: 'Prima evidenza',
+          url: 'https://example.com/story?utm_source=rss&id=42',
+          source: 'news' as const,
+          meta: { seed: opts.seeds[0], pubDate: new Date(nowMs - 60 * 60 * 1000).toISOString() },
+        },
+        {
+          headline: 'Seconda evidenza dello stesso articolo',
+          url: 'https://example.com/story?id=42&utm_medium=feed',
+          source: 'news' as const,
+          meta: { seed: opts.seeds[0], pubDate: new Date(nowMs - 2 * 60 * 60 * 1000).toISOString() },
+        },
+      ];
+    };
+    const out = await fetchAll(evidence, {
+      suggestFn: async () => [],
+      newsFn,
+      trendsFn: async () => [{
+        headline: 'telelavoro frontalieri svizzera italia',
+        url: null,
+        source: 'trends' as const,
+        meta: { score: 80 },
+      }],
+      nowMs,
+    });
+
+    const trendArticles = out.candidates.filter((candidate) => candidate.source === 'trends');
+    expect(trendArticles).toHaveLength(1);
+    expect(trendArticles[0].headline).toBe('Prima evidenza');
+  });
+
+  it('uses the injected clock for both deadline admission and evidence age', async () => {
+    const nowMs = Date.parse('2000-01-01T12:00:00.000Z');
+    const deadlineMs = nowMs + (3 * NEWS_RSS_MAX_SEED_DURATION_MS);
+    const evidenceCalls: Array<{ nowMs?: number }> = [];
+    const newsFn = async (_evidence: unknown, opts: { seeds?: string[]; nowMs?: number } = {}) => {
+      if (!opts.seeds) return [];
+      evidenceCalls.push(opts);
+      return [{
+        headline: 'Evidenza con clock iniettato',
+        url: 'https://example.com/clocked-evidence',
+        source: 'news' as const,
+        meta: {
+          seed: opts.seeds[0],
+          pubDate: new Date(nowMs - 60 * 60 * 1000).toISOString(),
+        },
+      }];
+    };
+    const out = await fetchAll(evidence, {
+      suggestFn: async () => [],
+      newsFn,
+      trendsFn: async () => [{
+        headline: 'telelavoro frontalieri svizzera italia',
+        url: null,
+        source: 'trends' as const,
+        meta: { score: 80 },
+      }],
+      nowMs,
+      deadlineMs,
+    });
+
+    expect(evidenceCalls).toHaveLength(1);
+    expect(evidenceCalls[0].nowMs).toBe(nowMs);
+    expect(out.perSource.trends).toBe(1);
+    expect(out.candidates.find((candidate) => candidate.source === 'trends')?.meta.evidenceAgeHours).toBe(1);
+  });
+
   it('aggregates candidates from all 4 sources', async () => {
     const out = await fetchAll(evidence, { suggestFn: stubSuggest, newsFn: stubNews, trendsFn: stubTrends });
     expect(out.candidates.length).toBe(5);
