@@ -889,7 +889,20 @@ async function extractListingCandidates(html, effectiveUrl, templateRx, spec, ru
       },
     };
   }
-  const { vacancies } = extractVacancies(html, effectiveUrl, links);
+  const listingOrigin = new URL(effectiveUrl).origin;
+  const allowedOrigins = new Set((spec?.allowedDetailOrigins || []).flatMap((rawOrigin) => {
+    try { return [new URL(rawOrigin).origin]; } catch { return []; }
+  }));
+  const vacancyLinks = links.filter((link) => {
+    try {
+      const url = new URL(link.url);
+      return url.origin === listingOrigin
+        || (templateRx && allowedOrigins.has(url.origin) && matchesDetailTemplate(link.url, templateRx));
+    } catch {
+      return false;
+    }
+  });
+  const { vacancies } = extractVacancies(html, effectiveUrl, vacancyLinks);
   const runtimeListingExtractor = typeof runtime.listingExtractor === 'function'
     ? runtime.listingExtractor
     : null;

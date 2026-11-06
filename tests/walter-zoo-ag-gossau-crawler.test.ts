@@ -89,6 +89,34 @@ describe('WALTER ZOO AG GOSSAU crawler parser', () => {
     expect(requests).not.toContain(unrelatedUrl);
   });
 
+  it('does not promote an allowlisted cross-origin anchor without a detail template', async () => {
+    const seedUrl = 'https://www.walterzoo.ch/unser-zoo/';
+    const detailUrl = 'https://link.ostendis.com/publication/praktikant-in-tierpflege/source-token';
+    const requests: string[] = [];
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      requests.push(url);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === seedUrl) return new Response(`<a href="${detailUrl}">Praktikant:in Tierpflege</a>`);
+      throw new Error(`unexpected fixture URL ${url}`);
+    };
+
+    const rows = await runSpecInProduction({
+      ...loadSpec(WALTER_ZOO_AG_GOSSAU_KEY),
+      seedUrls: [seedUrl],
+      detailTemplate: null,
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      disableWafProxy: true,
+    });
+
+    expect(rows).toEqual([]);
+    expect(requests).not.toContain(detailUrl);
+  });
+
   // ── isCompanyJob ──
   describe('isWalterZooAgGossauJob', () => {
     it('matches by companyKey', () => {
