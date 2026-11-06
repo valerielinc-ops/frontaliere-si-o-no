@@ -1179,10 +1179,9 @@ describe('crawler generation state cleanup', () => {
     expect(body).toContain('flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
     expect(body).toContain('timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
     expect(body).toContain('started_file="$RUNNER_TEMP/crawler-generation/group-02/bounded-crawler.started"');
-    expect(body).toContain('started_present=0');
     expect(body).toContain('classifyCrawlerTimeoutRace() {');
     expect(body).toContain('validateGeneratedWorkerScript() {');
-    expect(body).toContain('bash -n "$candidate"');
+    expect(body).toContain('bash -n "$1"');
   });
 
   it('splits the host-sensitive groups into a three-worker resource lane without quarantining members', () => {
