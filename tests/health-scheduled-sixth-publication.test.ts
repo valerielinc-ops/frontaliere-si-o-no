@@ -18,7 +18,6 @@ const dualoo = (portal: string, city: string) => `<a class="row jobElement" data
 const profiles = [
   ['aadorf', fetchAllKlinikAadorfJobs, 'https://jobs.dualoo.com/portal/3ibnwlo9?lang=DE', dualoo('3ibnwlo9', 'Aadorf'), `<div class="advertisementDescriptionText"><p>${body}</p></div>`],
   ['arlesheim', fetchAllKlinikArlesheimJobs, 'https://jobs.dualoo.com/portal/s60emmh3?lang=DE', dualoo('s60emmh3', 'Arlesheim'), `<div class="advertisementDescriptionText"><p>${body}</p></div>`],
-  ['adelheid', fetchAllKlinikAdelheidJobs, KLINIK_ADELHEID_PUBLIC_CAREER_URL, '<tr><td><a href="/job/pflege/">Pflegefachperson</a></td><td><a href="/job/pflege/">Pflege</a></td></tr>', `<p>Wir suchen nach Vereinbarung</p><p>${body}</p><h2>Online-Bewerbung</h2>`],
   ['barmelweid', fetchAllKlinikBarmelweidJobs, 'https://jobs.barmelweid.ch/offene-stellen', `<div class="hf-portrait" onclick="javascript:location.href='/pflege'"><h3>Pflegefachperson</h3><p>${body}</p><p>100%, 01.09.2026</p></div></div></div>`, `<div class="jobheader"><h1>Pflegefachperson</h1></div><div class="jobinfo"><p>${body}</p></div>`],
 ] as const;
 const cases: ReadonlyArray<readonly [string, unknown, string]> = [
@@ -75,6 +74,42 @@ for (const [name, producer, listingUrl, listingHtml, detailHtml] of profiles) {
     });
   });
 }
+
+describe('adelheid Ostendis publication with original fetch', () => {
+  it.each(cases)('%s', async (_, raw, expected) => {
+    const token = 'd1bd317b5080428a898215e0bf2cb47e';
+    const detailUrl = 'https://link.ostendis.com/publication/pflege/source-token';
+    const fetcher = vi.fn(async (input: string | URL | Request) => {
+      const url = urlOf(input);
+      if (url === KLINIK_ADELHEID_PUBLIC_CAREER_URL) {
+        return new Response(`<script data-token="${token}" id="ostendisLoader"></script><script>OSTENDISJOBS.embed("${token}", "DE", "#ostendisJobs", {});</script>`);
+      }
+      if (url === `https://odm.ostendis.com/ojp/assets/version/${token}`) {
+        return Response.json({ version: 'v55' });
+      }
+      if (url === `https://odm.ostendis.com/ojp/data/v55/jobs/${token}/DE?domain=www.klinik-adelheid.ch`) {
+        return Response.json({ jobs: [{ id: 81968, title: 'Pflegefachperson', department: 'Pflege', detail: detailUrl, action: '' }] });
+      }
+      return new Response(`<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        datePosted: raw,
+        description: `<p>${body}</p>`,
+        employmentType: ['FULL_TIME'],
+        jobLocation: { address: { addressLocality: 'Unterägeri', addressRegion: 'ZG', postalCode: '6314' } },
+      })}</script>`);
+    });
+    vi.stubGlobal('fetch', fetcher);
+
+    const jobs = await fetchAllKlinikAdelheidJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown', crawledAt: '2026-10-04T12:00:00.000Z' });
+    expect(jobs[0].description).toContain('interdisziplinären Team');
+    expect(jobs[0].url).toBe(detailUrl);
+    expect(jobs[0].applyUrl).toBe(detailUrl);
+    expect(fetcher).toHaveBeenCalledTimes(4);
+  });
+});
 describe('Klinik Gut per-vacancy accordion publication', () => {
   it.each(cases)('%s without borrowing page metadata', async (_, raw, expected) => {
     const fetcher = vi.fn(async () => new Response(`${ld('2026-09-01')}<a class="btn btn-primary" title="Klinik Gut Fläsch">Fläsch</a><button class="accordion-button" data-bs-target="#drz-accordion-id-123">Pflegefachperson</button><div id="drz-accordion-id-123"><div class="accordion-body">${ld(raw)}<p>${body}</p><p>Eintritt 01.09.2026</p></div></div>${ld('2026-09-03')}`));

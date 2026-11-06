@@ -363,4 +363,83 @@ describe('careers.nagra.com detail body', () => {
     expect(jobs[0].url).not.toBe('https://careers.nagra.com/');
     expect(fetchHtml).toHaveBeenCalledWith(detailUrl, { timeoutMs: 20000 });
   });
+
+  it('normalizes the live NAGRA Grand Cheseaux locality to its Swiss municipality', async () => {
+    const detailUrl = 'https://boards.greenhouse.io/kudelski/jobs/15883';
+    const title = 'Apprenti(e) Informaticien(ne) - orientation Exploitation et Infrastructure';
+    const description = 'A source-backed apprenticeship description long enough to pass the crawler quality gate without synthetic fallback content.';
+    vi.mocked(fetchJson).mockReset();
+    vi.mocked(fetchJson).mockResolvedValue({
+      jobs: [{
+        id: 15883,
+        title,
+        absolute_url: detailUrl,
+        content: description,
+        location: { name: 'Switzerland' },
+      }],
+    } as never);
+    vi.mocked(fetchHtml).mockReset();
+    vi.mocked(fetchHtml).mockResolvedValue(`
+      <h1>${title}</h1>
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title,
+        description,
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Grand Cheseaux',
+            addressRegion: '',
+            addressCountry: 'CH',
+          },
+        },
+      })}</script>`);
+
+    const jobs = await fetchAllKudelskiNagraJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      location: 'Cheseaux-sur-Lausanne',
+      canton: 'VD',
+      addressLocality: 'Cheseaux-sur-Lausanne',
+    });
+  });
+
+  it('does not normalize the Grand Cheseaux alias without Swiss country evidence', async () => {
+    const detailUrl = 'https://boards.greenhouse.io/kudelski/jobs/15883';
+    const title = 'Infrastructure Engineer';
+    vi.mocked(fetchJson).mockReset();
+    vi.mocked(fetchJson).mockResolvedValue({
+      jobs: [{
+        id: 15883,
+        title,
+        absolute_url: detailUrl,
+        content: 'A source-backed description that remains unavailable because its structured country contradicts the Swiss listing summary.',
+        location: { name: 'Switzerland' },
+      }],
+    } as never);
+    vi.mocked(fetchHtml).mockReset();
+    vi.mocked(fetchHtml).mockResolvedValue(`
+      <h1>${title}</h1>
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title,
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Grand Cheseaux',
+            addressCountry: 'FR',
+          },
+        },
+      })}</script>`);
+
+    const jobs = await fetchAllKudelskiNagraJobs();
+
+    expect(jobs).toHaveLength(0);
+    expect((jobs as unknown as { fetchOutcome?: string | null }).fetchOutcome).toBeNull();
+  });
 });

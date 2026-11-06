@@ -68,7 +68,7 @@ export const WEBCAM_SOURCES: WebcamSource[] = [
   id: '4insiders-arzo',
   entityName: '4Insiders Weather Webcam',
   officialUrl: 'https://www.4insiders.webcam/webcam/arzo/10557',
-  accessMethod: 'hotlink',
+  accessMethod: 'external-link',
   status: 'active',
  },
  {
