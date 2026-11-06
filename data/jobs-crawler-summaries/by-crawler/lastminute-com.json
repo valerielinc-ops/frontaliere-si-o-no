@@ -1,18 +1,63 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-11-06T09:31:42.156Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-11-06T21:53:10.136Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9435,
-  "avgDurationMs": 9435,
+  "durationMs": 9686,
+  "avgDurationMs": 9686,
   "durationHistory": [
-    9435
+    9686
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Data Architect",
+      "slug": "data-architect-chiasso",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000160231309&jobName=Data+Architect",
+      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000160231309-data-architect?oga=true",
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "source": "Company Careers Crawler",
+      "sourceLang": "en",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "datePosted": "2026-11-06T15:09:17.906Z",
+      "postedDate": "2026-11-06T15:09:17.906Z",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6830",
+      "streetAddress": "Corso San Gottardo 84",
+      "contract": "full-time",
+      "id": "lastminute-com-3d1136a0a8ba",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-04T21:52:58.257Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T21:52:58.257Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "CRM Application Engineer",
@@ -324,5 +369,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
+  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
 }
