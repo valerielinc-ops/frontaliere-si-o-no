@@ -2772,7 +2772,14 @@ const UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE = new RegExp([
   String.raw`(?:soumission|envoi) de la candidature.{0,100}(?:crée|créé).{0,60}profil utilisateur`,
 ].join('|'), 'iu');
 function isUmantisApplicationRoute(url) {
-  return Boolean(umantisApplicationNewRoute(url));
+  try {
+    const parsed = new URL(String(url || ''));
+    return parsed.protocol === 'https:'
+      && /(?:^|\.)umantis\.com$/i.test(parsed.hostname)
+      && UMANTIS_APPLICATION_NEW_ROUTE_RE.test(parsed.pathname);
+  } catch {
+    return false;
+  }
 }
 
 function isObservedUmantisApplicationStep(snapshot, channelType) {
