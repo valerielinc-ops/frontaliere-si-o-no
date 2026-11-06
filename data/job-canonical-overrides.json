@@ -1,0 +1,6 @@
+{
+  "_doc": "Per-slug canonical override map for job-detail and search-hub pages. Used by build-plugins/jobsSeoPagesPlugin.ts to consolidate pages with the same search intent. Key = page slug (last URL segment, no leading slash). Value = absolute canonical URL of the winner. Search-hub pages may point to a company hub when they target the same company query. Job-detail pages have distinct vacancy content and must not canonicalize to a company hub; detail-to-detail deduplication remains allowed. Source: Semrush DB ch cannibalization audit, 2026-04-24, with active-vacancy review 2026-10-20.",
+  "overrides": {
+    "search-lugano-eoc-ente-ospedaliero-cantonale": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/"
+  }
+}

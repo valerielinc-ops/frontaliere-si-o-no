@@ -1,0 +1,21 @@
+{
+  "companyKey": "polipraxis-ch",
+  "companyName": "polipraxis",
+  "companyHost": "polipraxis.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.polipraxis.ch/offene-stellen"
+  ],
+  "detailTemplate": "/offene-stellen/*/wil",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Button",
+    "Button"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-28T12:02:00.423Z",
+  "candidateKey": "polipraxis.ch"
+}

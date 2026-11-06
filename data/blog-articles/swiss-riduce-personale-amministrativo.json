@@ -1,0 +1,40 @@
+{
+  "id": "swiss-riduce-personale-amministrativo",
+  "slug": "swiss-riduce-personale-amministrativo",
+  "publishedAt": "2026-05-10T08:51:45.379Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.672488054087362,
+    "confidence": 0.8,
+    "finalScore": 7.73799044326989,
+    "topK": [
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8872064748060831
+      },
+      {
+        "slug": "banche-ticino-disoccupazione",
+        "cosine": 0.8621833532340742
+      },
+      {
+        "slug": "swiss-risultati-trimestre-frontalieri",
+        "cosine": 0.8571285146874121
+      },
+      {
+        "slug": "kuhne-nagel-tagli-posti-ticino-2026",
+        "cosine": 0.8531592807444958
+      },
+      {
+        "slug": "economia-svizzera-rischio-burocrazia",
+        "cosine": 0.8468081755147735
+      }
+    ],
+    "score": 0.9672488054087363,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

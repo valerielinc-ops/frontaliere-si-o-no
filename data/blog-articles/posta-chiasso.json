@@ -1,0 +1,40 @@
+{
+  "id": "posta-chiasso",
+  "slug": "posta-chiasso",
+  "publishedAt": "2026-07-07T06:31:48.374Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 23.93623109021493,
+    "confidence": 0.8,
+    "finalScore": 19.148984872171944,
+    "topK": [
+      {
+        "slug": "ufficio-postale-chiasso-trasloco",
+        "cosine": 0.9028377235296666
+      },
+      {
+        "slug": "trasferimento-ufficio-postale-chiasso",
+        "cosine": 0.8820035406942178
+      },
+      {
+        "slug": "omaggio-angeli-ponte-chiasso",
+        "cosine": 0.8758154695737422
+      },
+      {
+        "slug": "petizione-chiasso-ritorno-alla-natura-2025",
+        "cosine": 0.8598455080657799
+      },
+      {
+        "slug": "tassa-mensa-asilo-chiasso",
+        "cosine": 0.8596169753369653
+      }
+    ],
+    "score": 4.787246218042986,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

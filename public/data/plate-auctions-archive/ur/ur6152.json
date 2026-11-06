@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ur-6152",
+      "sourceKey": "UR",
+      "sourceRecordId": "6152",
+      "canton": "Uri",
+      "platePrefix": "UR",
+      "plateNumber": "6152",
+      "normalizedPlate": "UR6152",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 500,
+      "closedAt": "2026-10-28T12:53:29.645Z",
+      "officialAuctionUrl": "https://www.ur.ch/dienstleistungen/4046",
+      "officialDetailUrl": "https://www.ur.ch/_rtr/publikation_4932",
+      "sourceFetchedAt": "2026-10-28T12:53:29.645Z",
+      "lastVerifiedAt": "2026-10-28T12:53:29.645Z",
+      "firstSeenAt": "2026-09-15T06:51:17.132Z",
+      "lastSeenAt": "2026-10-28T12:53:29.645Z",
+      "sourceCategory": "fixed-price-list",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "d72e37fe0351"
+    }
+  ]
+}

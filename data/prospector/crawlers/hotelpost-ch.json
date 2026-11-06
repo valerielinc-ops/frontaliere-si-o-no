@@ -1,0 +1,22 @@
+{
+  "companyKey": "hotelpost-ch",
+  "companyName": "Pöstli Stübli",
+  "companyHost": "hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/unique-hotel-post-zermatt-16754"
+  ],
+  "detailTemplate": "/jobs/unique-hotel-post-zermatt-16754/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Chef de Partie (m/w/d) Vivanda",
+    "Pizzaiolo / Hilfspizzaiolo"
+  ],
+  "canton": "VS",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:51:28.750Z",
+  "candidateKey": "hotelpost.ch"
+}

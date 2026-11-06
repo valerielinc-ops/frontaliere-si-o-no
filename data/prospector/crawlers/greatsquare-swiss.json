@@ -1,0 +1,27 @@
+{
+  "companyKey": "greatsquare-swiss",
+  "companyName": "Great Square SA",
+  "companyHost": "greatsquare.swiss",
+  "verifiedEmployerDomain": "greatsquare.swiss",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://greatsquare.swiss/emplois/"
+  ],
+  "detailTemplate": "/emplois/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 86,
+  "sampleTitles": [
+    "Voir l'annonce",
+    "Voir l'annonce",
+    "Voir l'annonce",
+    "Voir l'annonce",
+    "Zur Stellenanzeige Annonce"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-03T13:22:05.932Z",
+  "candidateKey": "great-square@monthey"
+}

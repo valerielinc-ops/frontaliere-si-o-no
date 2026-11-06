@@ -1,0 +1,20 @@
+{
+  "companyKey": "sihlcity",
+  "companyName": "sihlcity",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/job-advertisement/84e7dd27-c6e0-4293-b1cd-aa1392413f7c/c007f298-a0bf-3c45-e625-a4facf0274ad"
+  ],
+  "detailTemplate": "/job-advertisement/84e7dd27-c6e0-4293-b1cd-aa1392413f7c/c007f298-a0bf-3c45-e625-a4facf0274ad",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Verkäuferin TZ ML, ZSC82"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-10-25T10:56:18.511Z",
+  "candidateKey": "sihlcity.ch"
+}

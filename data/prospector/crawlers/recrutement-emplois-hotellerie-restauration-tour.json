@@ -1,0 +1,24 @@
+{
+  "companyKey": "recrutement-emplois-hotellerie-restauration-tour",
+  "companyName": "Recrutement, emplois hôtellerie restauration tourisme en Suisse, France, Luxembourg. Offres d’emploi hôtel restaurant ga",
+  "companyHost": "fr.hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://fr.hotelcareer.ch/"
+  ],
+  "detailTemplate": "/emploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 25,
+  "sampleTitles": [
+    "Chef de Cuisine / Second",
+    "Chef de Rang / Serveur",
+    "Réceptionniste / Night Auditor",
+    "Bagagiste / Voiturier / Chasseur",
+    "Bienne"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-29T13:30:58.913Z",
+  "candidateKey": "fr@hotelcareer.ch"
+}

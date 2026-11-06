@@ -1,0 +1,16 @@
+{
+  "companyKey": "ermenegildo-zegna-logistica",
+  "companyName": "Ermenegildo Zegna Group",
+  "companyHost": "careers.zegnagroup.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://careers.zegnagroup.com/?FreeSearch=&Location=177940409",
+    "https://careers.zegnagroup.com/jobs/job-details?JobID=272704425&Team=231361273"
+  ],
+  "notes": "Zegna Group careers portal — national Switzerland listing filter, followed by a source-backed per-detail Swiss location and canton check. No historical HQ location is substituted when a detail page omits its workplace.",
+  "updatedAt": "2026-09-17T18:35:30.139Z"
+}

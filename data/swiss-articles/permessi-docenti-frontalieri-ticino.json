@@ -1,0 +1,19 @@
+{
+  "id": "permessi-docenti-frontalieri-ticino",
+  "slug": "permessi-docenti-frontalieri-ticino",
+  "publishedAt": "2026-07-12T15:15:47.591Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 155.76341666666667,
+    "confidence": 1,
+    "finalScore": 155.76341666666667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 38.94085416666667,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

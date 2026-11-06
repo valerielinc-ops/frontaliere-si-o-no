@@ -1,0 +1,24 @@
+{
+  "companyKey": "personal-kolin-ch",
+  "companyName": "Personal Kolin AG",
+  "companyHost": "personal-kolin.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://personal-kolin.ch/aktuelle-jobs"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 48,
+  "sampleTitles": [
+    "Inserat Nr. 66 Sachbearbeiter Rechnungswesen (m/w/d) 60-100% Location Kanton Zug Level Festanstellung Department Dienstleistung",
+    "Inserat Nr. 65 Finanzbuchhalter/ in inkl. Personaladministration 60-70% Location Baar Level Festanstellung Department Maschinenbau-/Fördertechnikbranche",
+    "Inserat Nr. 64 Finanzbuchhalter (m/w/d) 100% Location Kanton Zug Level Festanstellung Department Finanzen",
+    "Inserat Nr. 63 Dipl. Treuhandexperte (m/w/d) 80-100% Location Kanton Zug Level Festanstellung Department Treuhand",
+    "Inserat Nr. 62 Product Operations Manager (m/w/d) 80-100% Location Kanton Zug Level Festanstellung Department Tourismus"
+  ],
+  "canton": "LU",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-22T11:58:15.923Z"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-ticino-pokerce-dimezzati",
+  "slug": "frontalieri-ticino-pokerce-dimezzati",
+  "publishedAt": "2026-05-08T06:47:55.131Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 16.801202152325246,
+    "confidence": 0.8,
+    "finalScore": 13.440961721860198,
+    "topK": [
+      {
+        "slug": "nomine-annullate-sims-tram",
+        "cosine": 0.8400601076162623
+      },
+      {
+        "slug": "casse-malati-ticino-divise-2026",
+        "cosine": 0.829986254663926
+      },
+      {
+        "slug": "polizia-ticinese-fase-progettuale-conclusa",
+        "cosine": 0.8299528410585277
+      },
+      {
+        "slug": "iniziative-cassa-malati-piano-lega-ticino",
+        "cosine": 0.8286365631405203
+      },
+      {
+        "slug": "coalizione-sanitario-volonta-calpestata",
+        "cosine": 0.8273247257976132
+      }
+    ],
+    "score": 3.3602404304650495,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

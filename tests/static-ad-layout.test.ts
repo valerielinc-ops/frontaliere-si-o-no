@@ -1,0 +1,115 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { describe, expect, it } from 'vitest';
+
+import { ADSENSE_LOADER_CONTENT, DRIVEBY_AD_SNIPPET } from '@/build-plugins/constants';
+import { adSlotHtml } from '@/build-plugins/lib/adSlotHtml';
+import {
+  CRITICAL_CSS,
+  DRIVEBY_AD_RESERVE_CSS,
+  STATIC_TOP_AUTO_AD_RESERVE_CSS,
+  STATIC_AD_COLLAPSE_CSS,
+} from '@/build-plugins/shared/criticalCss';
+import {
+  AD_FILL_TIMEOUT_MS,
+  DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT,
+  MULTIPLEX_DESKTOP_MIN_WIDTH,
+} from '@/services/adsenseSlots';
+
+const ROOT = resolve(__dirname, '..');
+
+describe('static AdSense layout recovery', () => {
+  it('marks the drive-by slot for the static loader', () => {
+    const html = adSlotHtml('FT_DRIVEBY_ATF_DISPLAY', { collapseWhenUnfilled: true });
+
+    expect(html).toContain('data-ft-static-ad="true"');
+    expect(html).toContain('min-height:1100px');
+  });
+
+  it('reserves the measured wide-screen drive-by fill in the critical sheet', () => {
+    expect(DRIVEBY_AD_SNIPPET).toContain('class="my-6 ft-driveby-ad"');
+    expect(DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT).toBeGreaterThanOrEqual(1790);
+    expect(DRIVEBY_AD_RESERVE_CSS).toBe(
+      `@media(min-width:${MULTIPLEX_DESKTOP_MIN_WIDTH}px){.ft-driveby-ad{min-height:${DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT}px}}`,
+    );
+    expect(CRITICAL_CSS).toContain(DRIVEBY_AD_RESERVE_CSS);
+  });
+
+  it('keeps the route-scoped top Auto Ad transfer in the critical sheet', () => {
+    expect(STATIC_TOP_AUTO_AD_RESERVE_CSS).toContain('--driveby-top-ad-reserve:400px');
+    expect(STATIC_TOP_AUTO_AD_RESERVE_CSS).toContain(
+      'main.seo-static-content:has(>article[data-ft-driveby-top-ad])',
+    );
+    expect(STATIC_TOP_AUTO_AD_RESERVE_CSS).toContain(
+      '>article:has(>.google-auto-placed+header)>nav.s-bcr',
+    );
+    expect(STATIC_TOP_AUTO_AD_RESERVE_CSS).toContain(
+      '>article>.google-auto-placed:has(+header)',
+    );
+    expect(CRITICAL_CSS).toContain(STATIC_TOP_AUTO_AD_RESERVE_CSS);
+  });
+
+  it('marks the article near-ATF slot with its measured experiment metadata', () => {
+    const html = adSlotHtml('ARTICLE_INLINE_MOBILE', {
+      collapseWhenUnfilled: true,
+      placement: 'article-atf',
+      experimentId: 'article-detail-atf-ad-v1',
+      experimentVariant: 'atf',
+    });
+
+    expect(html).toContain('data-ad-placement="article-atf"');
+    expect(html).toContain('data-ft-static-ad="true"');
+    expect(html).toContain('data-ad-experiment="article-detail-atf-ad-v1"');
+    expect(html).toContain('data-ad-variant="atf"');
+    expect(html).toContain('data-ad-layout="in-article"');
+  });
+
+  it('wires the static lifecycle to the shared request and script schedulers', () => {
+    expect(ADSENSE_LOADER_CONTENT).toContain('data-ft-static-ad-collapsed');
+    expect(ADSENSE_LOADER_CONTENT).toContain('observeManualAd');
+    expect(ADSENSE_LOADER_CONTENT).toContain(String(AD_FILL_TIMEOUT_MS));
+    expect(ADSENSE_LOADER_CONTENT).toContain('createStaticAdDelivery');
+    expect(ADSENSE_LOADER_CONTENT).toContain('scriptLoader.subscribe');
+  });
+
+  it('arms static collapse before consent and no-ads gates can return', () => {
+    const armIndex = ADSENSE_LOADER_CONTENT.indexOf('staticAdArm();');
+    const noAdsIndex = ADSENSE_LOADER_CONTENT.indexOf(
+      "if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';",
+    );
+    const consentIndex = ADSENSE_LOADER_CONTENT.indexOf('if(hasAdsDecision()){');
+
+    expect(armIndex).toBeGreaterThan(-1);
+    expect(noAdsIndex).toBeGreaterThan(armIndex);
+    expect(consentIndex).toBeGreaterThan(armIndex);
+  });
+
+  it('zeroes both the inline reserve and its wrapper margin', () => {
+    const css = readFileSync(resolve(ROOT, 'index.css'), 'utf8');
+
+    expect(css).toContain('ins.adsbygoogle[data-ft-static-ad-collapsed]');
+    expect(css).not.toContain('data-ad-slot="2093992129"][data-ad-status="unfilled"]');
+    expect(css).toContain('height: 0 !important');
+    expect(css).toContain(':where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]:only-child)');
+    expect(STATIC_AD_COLLAPSE_CSS).toContain('data-ft-static-ad-collapsed');
+    expect(STATIC_AD_COLLAPSE_CSS).not.toContain('data-ad-status="unfilled"');
+  });
+});
+
+describe('static reading-page rail breakpoints', () => {
+  it('reserves 160px rails from 1200px and keeps the 300px xlw tier', () => {
+    const css = readFileSync(resolve(ROOT, 'index.css'), 'utf8');
+    const criticalCss = readFileSync(resolve(ROOT, 'build-plugins/shared/criticalCss.ts'), 'utf8');
+    const stack = readFileSync(resolve(ROOT, 'components/shared/ArticleRailAdStack.tsx'), 'utf8');
+    const panel = readFileSync(resolve(ROOT, 'components/shared/ArticleRailAd.tsx'), 'utf8');
+
+    expect(css).toContain('@media (min-width: 1200px) and (max-width: 1399.98px)');
+    expect(css).toContain('grid-template-columns: 160px minmax(0, 1fr) 160px');
+    expect(criticalCss).toContain('grid-template-columns:160px minmax(0,1fr) 160px');
+    expect(criticalCss).toContain("'@media(min-width:1400px){'");
+    expect(stack).toContain('desktopRail?: boolean');
+    expect(stack).toContain('ft-static-rail-stack');
+    expect(panel).toContain('RAIL_SIZES_NARROW');
+    expect(panel).toContain('ft-static-rail-panel');
+  });
+});

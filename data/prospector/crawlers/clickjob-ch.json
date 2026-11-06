@@ -1,0 +1,24 @@
+{
+  "companyKey": "clickjob-ch",
+  "companyName": "Click & Job SA",
+  "companyHost": "clickjob.ch",
+  "verifiedEmployerDomain": "clickjob.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://clickjob.ch/chefarzt-radiologie-job"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Chef de clinique emploi",
+    "Médecin spécialiste emploi"
+  ],
+  "canton": "GE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-06T13:04:41.210Z",
+  "candidateKey": "click-job@geneve"
+}

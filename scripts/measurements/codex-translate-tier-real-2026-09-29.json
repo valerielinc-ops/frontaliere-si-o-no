@@ -1,0 +1,67 @@
+{
+  "_what": "Misura prima/dopo con Codex vero del livello Codex di scripts/lib/free-translate.mjs, sugli stessi tre scenari e modi di scripts/measure-codex-translate-tier.mjs (before: FREE_TRANSLATE_CODEX_LANES=1 e FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS=1, cioe' il livello di prima; after: default, 2 corsie e gruppi fino a 5).",
+  "_how": "Il modulo vero di questa PR, con la sola chiamata a Codex sostituita (setCodexTranslateCallForTests) da `codex exec` reale: modello gpt-5.6-luna, model_reasoning_effort=max, profilo function del broker CI (model_instructions_file minimo, niente contesto di permessi e ambiente, web search e 13 feature dell'agente spente), --output-schema per i gruppi, prompt costruito come _codexPrompt di ai-models.mjs. Codex CLI 0.158.0 in locale (la CI pinna 0.153.4, stessi flag). Token di input da turn.completed.usage; tempo reale di orologio per scenario. DeepL 456 e Azure 401 simulati, cosi' ogni testo passa dal livello Codex; budget di tempo del livello alzato a 1 h perche' entrambi i modi traducano tutto.",
+  "measuredAt": "2026-09-29",
+  "rows": [
+    {
+      "scenario": "article-10-fields-x-3-languages",
+      "mode": "before",
+      "texts": 30,
+      "requests": 30,
+      "wallSeconds": 311.2,
+      "inputTokens": 182010,
+      "outputTokens": 4657,
+      "translated": 30
+    },
+    {
+      "scenario": "article-10-fields-x-3-languages",
+      "mode": "after",
+      "texts": 30,
+      "requests": 10,
+      "wallSeconds": 50.5,
+      "inputTokens": 61746,
+      "outputTokens": 2359,
+      "translated": 30
+    },
+    {
+      "scenario": "faq-8-texts",
+      "mode": "before",
+      "texts": 8,
+      "requests": 8,
+      "wallSeconds": 62.8,
+      "inputTokens": 48548,
+      "outputTokens": 882,
+      "translated": 8
+    },
+    {
+      "scenario": "faq-8-texts",
+      "mode": "after",
+      "texts": 8,
+      "requests": 5,
+      "wallSeconds": 23.2,
+      "inputTokens": 30562,
+      "outputTokens": 741,
+      "translated": 8
+    },
+    {
+      "scenario": "one-text-at-a-time-10",
+      "mode": "before",
+      "texts": 10,
+      "requests": 10,
+      "wallSeconds": 75.6,
+      "inputTokens": 60682,
+      "outputTokens": 1331,
+      "translated": 10
+    },
+    {
+      "scenario": "one-text-at-a-time-10",
+      "mode": "after",
+      "texts": 10,
+      "requests": 10,
+      "wallSeconds": 79.6,
+      "inputTokens": 60670,
+      "outputTokens": 1355,
+      "translated": 10
+    }
+  ]
+}

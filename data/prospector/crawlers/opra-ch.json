@@ -1,0 +1,23 @@
+{
+  "companyKey": "opra-ch",
+  "companyName": "opra",
+  "companyHost": "workwallis.ch",
+  "platform": "workwallis.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://workwallis.ch/job/opra-qualifizierendes-arbeitsmarktprogramm-lehrstelle-malerpraktiker-in-eba-brig-glis-4/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Top-Job Neu FESTANSTELLUNG · GAMSEN Serviceberater/-in 100% Garage Atlantic AG 100 %",
+    "LEHRSTELLE · BRIG-GLIS Lehrstelle Fachfrau/-mann Gesundheit EFZ 01.08.2027 Sozialmedizinisches Zentrum Oberwallis 100 %",
+    "Neu FESTANSTELLUNG · VISP Sozialarbeiter/in Intake 60-80% Sozialmedizinisches Zentrum Oberwallis 60–80 %",
+    "FESTANSTELLUNG · ZERMATT Leitung Investitionen & Projekte und Stellvertretung Burgerschreiber/in 80–100 % Burgergemeinde Zermatt 50–100 %"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:47:26.639Z",
+  "candidateKey": "opra.ch"
+}

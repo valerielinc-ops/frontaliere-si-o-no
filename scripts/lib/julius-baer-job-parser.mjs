@@ -1,0 +1,264 @@
+/**
+ * Julius Baer — Workday API job parser
+ *
+ * Julius Baer is a Swiss private banking group headquartered in Zurich,
+ * with offices across Switzerland.
+ *
+ * Workday API endpoints:
+ *   Listing: POST https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/jobs
+ *   Detail:  GET  https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/job/{externalPath}
+ *
+ * Public URL base:
+ *   https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/{externalPath}
+ *
+ * NOTE: The Workday site name changed from "JuliusBaer" to "External" (discovered 2026-03-25).
+ */
+
+import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
+import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
+
+export const WORKDAY_API_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External';
+export const WORKDAY_PUBLIC_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/en-US/External';
+export const COMPANY_HOST = 'juliusbaer.wd3.myworkdayjobs.com';
+
+/**
+ * Normalize whitespace.
+ */
+export function normalizeSpace(value = '') {
+  return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Strip HTML tags and decode entities.
+ */
+export function stripHtml(html = '') {
+  if (!html) return '';
+  return String(html)
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&#39;/gi, "'")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#8211;/g, '–')
+    .replace(/&#8217;/g, "'")
+    .replace(/\u00a0/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
+ * Slugify a text string.
+ */
+export function slugify(value = '', suffix = '') {
+  let s = String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  if (suffix) {
+    s = `${s}-${suffix}`.replace(/--+/g, '-');
+  }
+  return truncateSlugAtWordBoundary(s, 200);
+}
+
+/**
+ * Check if a Workday location string identifies Switzerland across all 26 cantons.
+ */
+export function isSwissLocation(locationText = '') {
+  return isSwissLocationText(locationText);
+}
+
+/** @deprecated Misleading legacy name; alias of isSwissLocation. Keep until callers are migrated. */
+export const isTicinoLocation = isSwissLocation;
+
+/**
+ * Whether a listing row may be a Swiss Julius Baer posting worth reading the
+ * detail of: Swiss location text, or a Swiss locality / postal code outside
+ * the commune gazetteer (`isWorkdaySwissPlaceCandidate`), whose structured
+ * country the detail then confirms. The ONE pre-filter of the listing, shared
+ * by `parseWorkdayListings` and the runner.
+ */
+export function isJuliusBaerSwissListing(locationsText = '') {
+  return isSwissLocation(locationsText) || isWorkdaySwissPlaceCandidate(locationsText);
+}
+
+/**
+ * The Swiss place a Julius Baer req is published under — `{ city, canton }`,
+ * or null. The req's own location first (commune gazetteer); a place the
+ * gazetteer cannot resolve (a locality, an address) gets the shared Workday
+ * recovery: official directory or unique postal code, only on the req's
+ * structured Swiss country. The ONE place rule, shared by
+ * `parseWorkdayJobDetail` and the runner.
+ *
+ * @param {object} info the detail's `jobPostingInfo`
+ * @param {string} [listingLocationsText] the listing row, when the detail
+ *   carries no location
+ * @returns {{ city: string, canton: string } | null}
+ */
+export function resolveJuliusBaerPlace(info = {}, listingLocationsText = '') {
+  const locationRaw = info?.location || listingLocationsText || '';
+  const city = parseWorkdayCity(locationRaw);
+  const canton = city ? inferAnyCanton(`${city} ${locationRaw}`) : '';
+  if (city && canton) return { city, canton };
+  const recovered = recoverWorkdayPrimarySwissPlace(info);
+  return recovered ? { city: recovered.location, canton: recovered.canton } : null;
+}
+
+/**
+ * Parse city name from Workday location text.
+ * Workday format: "CHE - Lugano" or "Lugano, Switzerland"
+ */
+export function parseWorkdayCity(locText = '') {
+  const city = firstLocationSegment(locText).split(/\s*,\s*/)[0].trim();
+  return city;
+}
+
+/**
+ * Build a public URL for a Workday job posting.
+ */
+export function buildPublicUrl(externalPath = '') {
+  return `${WORKDAY_PUBLIC_BASE}${externalPath}`;
+}
+
+/**
+ * Detect job category from title.
+ */
+export function detectCategory(title = '') {
+  const t = String(title || '').toLowerCase();
+  if (/engineer|developer|software|it\b|system|data|devops|cyber|network|architect/i.test(t)) return 'technology';
+  if (/analyst|quantitative|risk|compliance|regulat/i.test(t)) return 'risk';
+  if (/relationship\s*manager|client\s*advisor|wealth|private\s*bank/i.test(t)) return 'wealth-management';
+  if (/sales|commercial|marketing|brand|communication/i.test(t)) return 'sales';
+  if (/legal|counsel|lawyer/i.test(t)) return 'legal';
+  if (/account|financ|controller|audit|treasury|tax/i.test(t)) return 'finance';
+  if (/hr|human|recruit|people|talent/i.test(t)) return 'hr';
+  if (/operations|middle\s*office|back\s*office|settlement/i.test(t)) return 'operations';
+  if (/manag|director|head|lead|chief|vp\b/i.test(t)) return 'management';
+  if (/assistant|admin|secretary|reception/i.test(t)) return 'admin';
+  return 'general';
+}
+
+/**
+ * Detect experience level from title.
+ */
+export function detectExperienceLevel(title = '') {
+  const t = String(title || '').toLowerCase();
+  if (/\b(junior|jr\.?|entry|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|trainee|graduate)/i.test(t)) return 'ENTRY';
+  if (/senior|sr\.?|lead|head|director|manager|principal|chief|vp\b|managing/i.test(t)) return 'SENIOR';
+  return 'MID';
+}
+
+/**
+ * Detect employment type from Workday time type.
+ */
+export function detectEmploymentType(timeType = '') {
+  const t = String(timeType || '').toLowerCase();
+  if (t.includes('full')) return 'FULL_TIME';
+  if (t.includes('part')) return 'PART_TIME';
+  return 'FULL_TIME';
+}
+
+/**
+ * Parse job listings from the Workday API JSON response.
+ * Filters to positions whose location identifies Switzerland.
+ *
+ * @param {object} apiResponse - Parsed JSON from the Workday listing endpoint
+ * @returns {Array<{title: string, externalPath: string, location: string, city: string, bulletFields: string[]}>}
+ */
+export function parseWorkdayListings(apiResponse) {
+  if (!apiResponse || !Array.isArray(apiResponse.jobPostings)) return [];
+
+  const results = [];
+  const seen = new Set();
+
+  for (const posting of apiResponse.jobPostings) {
+    const title = normalizeSpace(posting.title || '');
+    const externalPath = posting.externalPath || '';
+    const locationsText = posting.locationsText || '';
+
+    if (!title || !externalPath) continue;
+    if (seen.has(externalPath)) continue;
+    seen.add(externalPath);
+
+    // Filter for Swiss locations; the detail path resolves the canton per job.
+    if (!isJuliusBaerSwissListing(locationsText)) continue;
+
+    results.push({
+      title,
+      externalPath,
+      location: locationsText,
+      city: parseWorkdayCity(locationsText),
+      bulletFields: posting.bulletFields || [],
+    });
+  }
+
+  return results;
+}
+
+/**
+ * Parse a single Workday job detail response into a job object.
+ *
+ * @param {object} detail - Parsed JSON from Workday job detail endpoint
+ * @param {string} externalPath - The external path of the job
+ * @returns {object|null} Job object or null if invalid
+ */
+export function parseWorkdayJobDetail(detail, externalPath = '') {
+  if (!detail) return null;
+
+  const info = detail.jobPostingInfo || {};
+  const title = normalizeSpace(info.title || '');
+  if (!title || title.length < 3) return null;
+
+  // A country-only or otherwise unresolved detail is not safe to publish as a
+  // structured Swiss job location. Keep the listing admission broad, but
+  // require both fields before emitting the detail record.
+  const place = resolveJuliusBaerPlace(info);
+  if (!place) return null;
+  const { city, canton } = place;
+  const descriptionHtml = info.jobDescription || '';
+  const descriptionText = stripHtml(descriptionHtml);
+  const publicUrl = buildPublicUrl(externalPath);
+  const timeType = info.timeType || '';
+  const jobReqId = info.jobReqId || '';
+
+  return {
+    title,
+    description: descriptionText,
+    url: publicUrl,
+    city,
+    canton,
+    employmentType: detectEmploymentType(timeType),
+    category: detectCategory(title),
+    experienceLevel: detectExperienceLevel(title),
+    ...workdayPostingDateFields({ jobPostingInfo: info }),
+    jobReqId,
+    externalPath,
+  };
+}
+
+// The text this crawler used to write itself: the lines the runner wrote ("<title> position at Julius Baer in <city>, Switzerland." and "Posizione aperta presso Julius Baer a <city>. Ruolo: …").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const JULIUS_BAER_FABRICATED_RE = / position at Julius Baer in [^\n]*, Switzerland\.|Posizione aperta presso Julius Baer a /;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropJuliusBaerFabricatedText(job) {
+  return dropFabricatedDescription(job, JULIUS_BAER_FABRICATED_RE);
+}

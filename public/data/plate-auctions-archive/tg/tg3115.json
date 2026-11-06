@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109711",
+      "sourceKey": "TG",
+      "sourceRecordId": "109711",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "3115",
+      "normalizedPlate": "TG3115",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 0,
+      "endsAt": "2026-10-28T18:00:00.000Z",
+      "closedAt": "2026-10-22T11:51:25.324Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109711",
+      "sourceFetchedAt": "2026-10-22T11:51:25.324Z",
+      "lastVerifiedAt": "2026-10-22T11:51:25.324Z",
+      "firstSeenAt": "2026-10-14T05:00:06.875Z",
+      "lastSeenAt": "2026-10-22T11:51:25.324Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "5d71c1cd12fa"
+    }
+  ]
+}

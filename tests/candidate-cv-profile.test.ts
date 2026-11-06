@@ -1,0 +1,934 @@
+import { describe, expect, it, vi } from 'vitest';
+vi.mock('../functions/src/applicationConciergeEligibility.js', async original => ({ ...await original<typeof import('../functions/src/applicationConciergeEligibility.js')>(), prepareConciergeEligibility: vi.fn(async () => async () => ({ status: 'compatible' })) }));
+import { parseCandidateCvText } from '../functions/src/candidateCvProfile.js';
+import {
+  approvedRolePreference,
+  conciergeMatchingWork,
+  proposalDocumentId,
+  runApplicationConciergeMatching,
+  scoreJobForProfile,
+  shouldRunApplicationConciergeMatchingForServiceUpdate,
+} from '../functions/src/applicationConciergeMatching.js';
+import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
+import { CONCIERGE_ELIGIBILITY_VERSION } from '../functions/src/applicationConciergeEligibility.js';
+
+function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
+  const documents = new Map(Object.entries(seed));
+  let autoId = 0;
+  let transactionQueue = Promise.resolve();
+  const normalize = (path: string) => path.replace(/^\/+|\/+$/g, '');
+  type SetOptions = { merge?: boolean; mergeFields?: string[] };
+  const write = (path: string, data: Record<string, unknown>, options?: SetOptions) => {
+    const key = normalize(path);
+    if (Array.isArray(options?.mergeFields)) {
+      const next = { ...(documents.get(key) || {}) };
+      for (const field of options.mergeFields) {
+        if (Object.prototype.hasOwnProperty.call(data, field)) next[field] = data[field];
+      }
+      documents.set(key, next);
+      return;
+    }
+    documents.set(key, options?.merge === true ? { ...(documents.get(key) || {}), ...data } : { ...data });
+  };
+  const ref = (path: string): any => {
+    const key = normalize(path);
+    const parts = key.split('/');
+    return {
+      id: parts[parts.length - 1],
+      get ref() { return ref(key); },
+      async delete() { documents.delete(key); },
+      async get() {
+        return { exists: documents.has(key), data: () => documents.get(key) };
+      },
+      data() {
+        return documents.get(key);
+      },
+      set(data: Record<string, unknown>, options?: SetOptions) {
+        write(key, data, options);
+      },
+      collection(name: string) {
+        return collection(`${key}/${name}`);
+      },
+    };
+  };
+  const collection = (path: string): any => {
+    const key = normalize(path);
+    const query = (filters: Array<[string, string, any]> = [], limit = Infinity, order = ''): any => ({
+      where: (field: string, op: string, value: any) => query([...filters, [field, op, value]], limit, order),
+      orderBy: (field: string) => query(filters, limit, field),
+      limit: (value: number) => query(filters, value, order),
+      count: () => ({ get: async () => {
+        const snapshot = await query(filters, limit, order).get();
+        return { data: () => ({ count: snapshot.docs.length }) };
+      } }),
+      async get() {
+        const prefix = `${key}/`;
+        const rows = [...documents.keys()].filter(candidate => candidate.startsWith(prefix) && !candidate.slice(prefix.length).includes('/'))
+          .filter(candidate => filters.every(([field, op, value]) => {
+            const actual: any = documents.get(candidate)?.[field];
+            return op === '==' ? actual === value : op === '<=' ? actual != null && actual <= value : actual != null && actual > value;
+          }));
+        if (order) rows.sort((a, b) => Number(documents.get(a)?.[order] || 0) - Number(documents.get(b)?.[order] || 0));
+        return { docs: rows.slice(0, limit).map(candidate => ref(candidate)) };
+      },
+    });
+    return {
+      ...query(),
+      doc(id?: string) {
+        return ref(`${key}/${id || `auto-${++autoId}`}`);
+      },
+    };
+  };
+  return {
+    db: {
+      collection,
+      batch() {
+        const operations: Array<() => void> = [];
+        return {
+          set(target: any, data: Record<string, unknown>, options?: SetOptions) {
+            operations.push(() => target.set(data, options));
+          },
+          async commit() {
+            await new Promise((resolve) => setTimeout(resolve, 5));
+            operations.forEach((operation) => operation());
+          },
+        };
+      },
+      async runTransaction(callback: (transaction: any) => Promise<unknown>) {
+        const queued = transactionQueue.then(async () => {
+        const operations: Array<() => void> = [];
+        const transaction = {
+          get: (target: any) => target.get(),
+          delete: (target: any) => operations.push(() => target.delete()),
+          set(target: any, data: Record<string, unknown>, options?: SetOptions) {
+            operations.push(() => target.set(data, options));
+          },
+        };
+        const result = await callback(transaction);
+        operations.forEach((operation) => operation());
+        return result;
+        });
+        transactionQueue = queued.then(() => undefined, () => undefined);
+        return queued;
+      },
+    },
+    documents,
+  };
+}
+
+describe('candidate CV profile projection', () => {
+  it('extracts traceable contact, role, skills and language facts', () => {
+    const profile = parseCandidateCvText(`
+      Antonio Pangallo
+      antonio@example.com · +41 79 123 45 67
+      Infermiere diplomato
+      ESPERIENZA
+      2022 - oggi Infermiere reparto medicina, Lugano
+      COMPETENZE
+      triage, assistenza pazienti, cartella clinica
+      LINGUE
+      Italiano, tedesco B1
+    `);
+
+    expect(profile.fullName).toBe('Antonio Pangallo');
+    expect(profile.email).toBe('antonio@example.com');
+    expect(profile.phone).toContain('+41');
+    expect(profile.workPosition).toContain('Infermiere');
+    expect(profile.skills).toContain('triage');
+    expect(profile.languages).toEqual(expect.arrayContaining(['italiano', 'tedesco']));
+    expect(profile.languagesExplicitList).toBe(true);
+    expect(profile.searchText).toContain('Infermiere');
+  });
+
+  it('does not fabricate a profile from an empty or scanned document', () => {
+    const profile = parseCandidateCvText('');
+    expect(profile.extractedTextAvailable).toBe(false);
+    expect(profile.workPosition).toBe('');
+    expect(profile.skills).toEqual([]);
+  });
+
+  it('recognizes common technical and competency section headings without crossing into experience', () => {
+    const profile = parseCandidateCvText([
+      'Candidate Example',
+      'Senior IT Manager, Group Application at Swatch Group',
+      'Core Competencies',
+      'SAP S/4HANA, ServiceNow, ITIL',
+      'Professional Experience',
+      '2020 - Present Senior IT Manager',
+    ].join('\n'));
+
+    expect(profile.skills).toEqual(['SAP S/4HANA', 'ServiceNow', 'ITIL']);
+    expect(profile.workPosition).toContain('Senior IT Manager');
+    expect(profile.skills).not.toContain('2020 - Present Senior IT Manager');
+  });
+
+  it('recognizes technical skills headings in English and French', () => {
+    const english = parseCandidateCvText('Candidate Example\nTechnical Skills\nAzure, M365');
+    const french = parseCandidateCvText('Candidate Example\nCompétences techniques\nSAP, ServiceNow');
+
+    expect(english.skills).toEqual(['Azure', 'M365']);
+    expect(french.skills).toEqual(['SAP', 'ServiceNow']);
+  });
+
+  it('recognizes language names written in German, French and other common CV languages', () => {
+    const profile = parseCandidateCvText([
+      'Candidate Example',
+      'Languages',
+      'Deutschkenntnissen B2, Français C1, English C2',
+    ].join('\n'));
+
+    expect(profile.languages).toEqual(expect.arrayContaining(['deutsch', 'français', 'english']));
+    expect(profile.languagesExplicitList).toBe(true);
+  });
+
+  it('does not treat an incomplete language section as proof that other languages are absent', () => {
+    const profile = parseCandidateCvText([
+      'Candidate Example',
+      'Languages',
+      'English / Xhosa',
+    ].join('\n'));
+
+    expect(profile.languages).toContain('english');
+    expect(profile.languagesExplicitList).toBe(false);
+  });
+
+  it('keeps representative experience details as matching evidence when no skills section exists', () => {
+    const profile = parseCandidateCvText([
+      'Candidate Example',
+      'IT Manager',
+      'Professional Experience',
+      '2022 - Present',
+      'IT Manager',
+      'Led SAP S/4HANA migration and established ServiceNow governance',
+      'Coordinated application lifecycle controls across finance and supply chain',
+      '2018 - 2022',
+      'Application Specialist',
+      'Managed CRM integrations and enterprise application support',
+      'Education',
+      'MBA Finance',
+    ].join('\n'));
+
+    expect(profile.skills).toEqual([]);
+    expect(profile.experienceSummary).toEqual(expect.arrayContaining([
+      '2022 - Present',
+      '2018 - 2022',
+      'Led SAP S/4HANA migration and established ServiceNow governance',
+      'Managed CRM integrations and enterprise application support',
+    ]));
+    expect(profile.experienceSummary).not.toContain('MBA Finance');
+    expect(profile.experienceSummary.length).toBeLessThanOrEqual(12);
+
+    const longExperience = ['Candidate Example', 'Professional Experience'];
+    for (let index = 0; index < 7; index += 1) {
+      longExperience.push(`${2025 - index} - Present`);
+      longExperience.push(`Delivered SAP platform modernization and governance for business teams ${index}`);
+    }
+    longExperience.push('Education', 'MBA Finance');
+    const longProfile = parseCandidateCvText(longExperience.join('\n'));
+    expect(longProfile.experienceSummary.length).toBeLessThanOrEqual(12);
+    expect(longProfile.experienceSummary.filter((line) => line.startsWith('Delivered SAP'))).toHaveLength(6);
+
+    const roleOnlyScore = scoreJobForProfile(
+      { title: 'IT Manager', description: 'SAP S/4HANA ServiceNow governance' },
+      { headline: 'IT Manager', workPosition: 'IT Manager', skills: [], experienceSummary: ['2022 - 2024'] },
+    ).score;
+    const evidenceScore = scoreJobForProfile(
+      { title: 'IT Manager', description: 'SAP S/4HANA ServiceNow governance' },
+      profile,
+    ).score;
+    expect(evidenceScore).toBeGreaterThan(roleOnlyScore);
+  });
+});
+describe('application concierge matching', () => {
+  it('adds a bounded locality bonus without using location as CV relevance evidence', () => {
+    const profile = {
+      workPosition: 'Infermiere diplomato',
+      headline: 'Infermiere',
+      skills: ['triage', 'assistenza pazienti'],
+      experienceSummary: ['2022 - oggi reparto medicina'],
+    };
+    const job = { title: 'Infermiere diplomato – reparto medicina', requirements: 'triage e assistenza pazienti' };
+    const relevanceOnly = scoreJobForProfile(job, profile);
+    const sameLocality = scoreJobForProfile({ ...job, location: 'Mendrisio' }, profile, '6850 Mendrisio');
+    const nearbyPostcode = scoreJobForProfile({ ...job, location: 'Chiasso', postalCode: '6830' }, profile, '6850 Mendrisio');
+    const distantPostcode = scoreJobForProfile({ ...job, location: 'Zurigo', postalCode: '8000' }, profile, '6850 Mendrisio');
+
+    expect(sameLocality.score).toBe(relevanceOnly.score + 8);
+    expect(sameLocality.rankScore).toBe(relevanceOnly.rankScore + 8);
+    expect(sameLocality.reasons).toContain('Località vicina alla zona di residenza');
+    expect(nearbyPostcode.score).toBe(relevanceOnly.score + 4);
+    expect(nearbyPostcode.rankScore).toBe(relevanceOnly.rankScore + 4);
+    expect(distantPostcode.score).toBe(relevanceOnly.score);
+    expect(distantPostcode.rankScore).toBe(relevanceOnly.rankScore);
+    expect(scoreJobForProfile(job, profile).score).toBe(relevanceOnly.score);
+  });
+
+  it('uses country-qualified catalogue locations only as a ranking hint', () => {
+    const profile = { workPosition: 'Infermiere', skills: ['triage'], experienceSummary: ['reparto medicina'] };
+    const job = { title: 'Infermiere reparto medicina', requirements: 'triage', location: 'Como', addressCountry: 'IT' };
+    const baseline = scoreJobForProfile(job, profile);
+    const sameTown = scoreJobForProfile(job, profile, 'Como (Lombardy), Italia');
+    const otherCountry = scoreJobForProfile(job, profile, 'Como, Österreich');
+    expect(sameTown.rankScore).toBe(baseline.rankScore + 8);
+    expect(otherCountry.rankScore).toBe(baseline.rankScore);
+    expect(otherCountry.score).toBeGreaterThan(0);
+    expect(sameTown.evidenceStrength).toBe(baseline.evidenceStrength);
+    expect(scoreJobForProfile(job, { skills: ['construction'] }, 'Como (Lombardy), Italia').score).toBe(0);
+  });
+
+  it('keeps the proximity tie-breaker when the displayed match score is capped', () => {
+    const profile = {
+      workPosition: 'Technology applications management strategy director',
+      headline: 'Information technology applications management strategy',
+      skills: ['architecture', 'governance', 'portfolio', 'cloud', 'security', 'implementation'],
+      experienceSummary: ['technology applications management strategy architecture governance portfolio'],
+      languages: ['English', 'German'],
+    };
+    const job = {
+      title: 'Technology applications management strategy director',
+      requirements: 'architecture governance portfolio cloud security implementation',
+      languages: ['English', 'German'],
+      location: 'Mendrisio',
+      postalCode: '6850',
+    };
+    const remote = scoreJobForProfile({ ...job, location: 'Zurich', postalCode: '8000' }, profile, '6850 Mendrisio');
+    const nearby = scoreJobForProfile(job, profile, '6850 Mendrisio');
+
+    expect(remote.score).toBe(99);
+    expect(nearby.score).toBe(99);
+    expect(nearby.rankScore).toBe(remote.rankScore + 8);
+  });
+
+  it('re-runs matching when the uploaded CV or the candidate locality changes', () => {
+    const before = { cvStorageKey: 'application-concierge-uploads/service-1/cv.pdf', applicantLocation: 'Lugano 6900' };
+
+    expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, applicantLocation: 'Mendrisio 6850' })).toBe(true);
+    expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, matchingStatus: 'queued' })).toBe(false);
+    expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, applicantLocationCountry: 'IT' })).toBe(false);
+    expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, cvStorageKey: 'application-concierge-uploads/service-1/new-cv.pdf' })).toBe(true);
+    expect(shouldRunApplicationConciergeMatchingForServiceUpdate({ applicantLocation: 'Lugano 6900' }, { applicantLocation: 'Mendrisio 6850' })).toBe(false);
+  });
+
+  it('derives the same service-scoped proposal id for retries and concurrent runs', () => {
+    const job = {
+      id: 'job-42',
+      slug: 'infermiere-lugano',
+      url: 'https://jobs.example.test/job-42',
+      title: 'Infermiere diplomato',
+    };
+
+    expect(proposalDocumentId('service-1', job)).toBe(proposalDocumentId('service-1', job));
+    expect(proposalDocumentId('service-1', job)).not.toBe(proposalDocumentId('service-2', job));
+  });
+
+  it('converges concurrent runs to one proposal per job and respects the cap', async () => {
+    const { db, documents } = createMatchingDb({
+      'application_concierge_services/service-1': {
+        userId: 'candidate-1',
+        paymentStatus: 'paid',
+        serviceStatus: 'active',
+        maxPositions: 2,
+        acceptedPositionsCount: 0,
+        expiresAt: new Date(Date.now() + 60_000),
+      },
+      'user_cv_profiles/candidate-1': {
+        status: 'ready',
+        profile: {
+          searchText: 'infermiere triage assistenza',
+          workPosition: 'Infermiere',
+          skills: ['triage', 'assistenza'],
+          experienceSummary: ['reparto medicina'],
+        },
+      },
+    });
+    const jobs = [
+      { id: 'job-1', url: 'https://jobs.example.test/job-1', title: 'Infermiere', requirements: 'triage assistenza', location: 'Lugano' },
+      { id: 'job-2', url: 'https://jobs.example.test/job-2', title: 'Infermiere', requirements: 'triage assistenza', location: 'Bellinzona' },
+      { id: 'job-3', url: 'https://jobs.example.test/job-3', title: 'Infermiere', requirements: 'triage assistenza', location: 'Locarno' },
+    ];
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, async json() { return jobs; } })));
+
+    try {
+      const results = await Promise.all([
+        runApplicationConciergeMatching({ db: db as never, serviceId: 'service-1', jobIndexUrl: 'https://jobs.example.test/index.json' }),
+        runApplicationConciergeMatching({ db: db as never, serviceId: 'service-1', jobIndexUrl: 'https://jobs.example.test/index.json' }),
+      ]);
+      const proposalPrefix = 'application_concierge_services/service-1/proposals/';
+      const proposals = [...documents.entries()].filter(([path]) => path.startsWith(proposalPrefix));
+
+      expect(results.map(result => result.proposals).sort()).toEqual([0, 2]);
+      expect(results.every(result => result.status === 'complete' && result.retracted === 0)).toBe(true);
+      expect(proposals).toHaveLength(2);
+      expect(new Set(proposals.map(([path]) => path)).size).toBe(2);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('fails matching when an HTTP-200 job index has an unknown JSON shape', async () => {
+    const { db, documents } = createMatchingDb({
+      'application_concierge_services/service-shape': {
+        userId: 'candidate-shape',
+        paymentStatus: 'paid',
+        serviceStatus: 'active',
+        maxPositions: 10,
+        acceptedPositionsCount: 0,
+        expiresAt: new Date(Date.now() + 60_000),
+      },
+      'user_cv_profiles/candidate-shape': {
+        status: 'ready',
+        profile: { searchText: 'infermiere triage', workPosition: 'Infermiere', skills: ['triage'] },
+      },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, async json() { return { error: 'upstream unavailable' }; } })));
+
+    try {
+      await expect(runApplicationConciergeMatching({
+        db: db as never,
+        serviceId: 'service-shape',
+        jobIndexUrl: 'https://jobs.example.test/index.json',
+      })).rejects.toThrow('job_index_invalid_shape');
+      expect(documents.get('application_concierge_services/service-shape')).toMatchObject({
+        matchingStatus: 'failed',
+        matchingError: 'job_search_failed',
+      });
+      expect([...documents.keys()].some((path) => path.startsWith('application_concierge_services/service-shape/proposals/'))).toBe(false);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('proposes the nearer compatible job first when the position cap is limited', async () => {
+    const { db, documents } = createMatchingDb({
+      'application_concierge_services/service-nearby': {
+        userId: 'candidate-nearby',
+        paymentStatus: 'paid',
+        serviceStatus: 'active',
+        maxPositions: 1,
+        acceptedPositionsCount: 0,
+        applicantLocation: 'Mendrisio 6850',
+        expiresAt: new Date(Date.now() + 60_000),
+      },
+      'user_cv_profiles/candidate-nearby': {
+        status: 'ready',
+        profile: {
+          searchText: 'infermiere triage assistenza reparto medicina',
+          workPosition: 'Infermiere',
+          skills: ['triage', 'assistenza'],
+          experienceSummary: ['reparto medicina'],
+        },
+      },
+    });
+    const jobs = [
+      { id: 'job-far', url: 'https://jobs.example.test/job-far', title: 'Infermiere reparto medicina', requirements: 'triage assistenza', location: 'Zurigo', postalCode: '8000' },
+      { id: 'job-near', url: 'https://jobs.example.test/job-near', title: 'Infermiere reparto medicina', requirements: 'triage assistenza', location: 'Mendrisio', postalCode: '6850' },
+    ];
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, async json() { return jobs; } })));
+
+    try {
+      const result = await runApplicationConciergeMatching({ db: db as never, serviceId: 'service-nearby', jobIndexUrl: 'https://jobs.example.test/index.json' });
+      const proposals = [...documents.entries()].filter(([path]) => path.startsWith('application_concierge_services/service-nearby/proposals/'));
+
+      expect(result).toMatchObject({ status: 'complete', proposals: 1 });
+      expect(proposals).toHaveLength(1);
+      expect(proposals[0][1].jobId).toBe('job-near');
+      expect(proposals[0][1].matchReasons).toContain('Località vicina alla zona di residenza');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('returns an explainable match for overlapping role and skills', () => {
+    const result = scoreJobForProfile(
+      {
+        title: 'Infermiere diplomato – reparto medicina',
+        company: 'Clinica Example',
+        location: 'Lugano',
+        requirements: 'triage e assistenza pazienti',
+      },
+      {
+        workPosition: 'Infermiere diplomato',
+        headline: 'Infermiere',
+        skills: ['triage', 'assistenza pazienti'],
+        experienceSummary: ['2022 - oggi reparto medicina'],
+      },
+    );
+
+    expect(result.score).toBeGreaterThan(0);
+    expect(result.reasons.length).toBeGreaterThan(0);
+  });
+
+  it('matches an IT leadership role without letting seniority, employer or location inflate the score', () => {
+    const profile = {
+      workPosition: 'Senior IT Manager Group Application at Swatch Group',
+      headline: 'Senior IT Manager Group Application at Swatch Group',
+      skills: ['governance'],
+      experienceSummary: [],
+    };
+    const job = {
+      title: 'Senior IT Manager IT Strategy and Operating Model',
+      description: 'Governance responsibilities',
+      company: 'Swatch Group',
+      location: 'Zurigo',
+    };
+
+    const result = scoreJobForProfile(job, profile);
+    const withoutLocation = scoreJobForProfile({ ...job, location: undefined }, profile);
+
+    expect(result.score).toBe(37);
+    expect(result.score).toBe(withoutLocation.score);
+    expect(result.reasons).toContain('Ruolo compatibile: gestione IT');
+    expect(result.reasons.join(' ').toLowerCase()).not.toMatch(/senior|manager|swatch|zurigo/);
+    expect(scoreJobForProfile({ title: 'ICT Application Manager', description: 'Governance responsibilities' }, profile).score).toBe(67);
+    expect(scoreJobForProfile({ title: 'Application Manager', description: 'Governance responsibilities' }, profile).score).toBe(37);
+    expect(scoreJobForProfile({ title: 'IT Manager' }, {
+      workPosition: 'IT Manager',
+      headline: 'IT Manager',
+      skills: [],
+      experienceSummary: [],
+    })).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({ title: 'IT Manager' }, {
+      workPosition: 'IT Manager',
+      headline: 'IT Manager',
+      skills: [],
+      experienceSummary: ['2018 - 2024 IT Manager'],
+    }).score).toBe(28);
+  });
+
+  it('gives a small bonus for CV languages explicitly required by a relevant role', () => {
+    const profile = {
+      workPosition: 'Senior IT Manager',
+      headline: 'Senior IT Manager',
+      skills: ['governance'],
+      experienceSummary: [],
+      languages: ['tedesco', 'inglese', 'francese'],
+    };
+    const scoreWithEvidence = (job: Record<string, unknown>) => scoreJobForProfile({
+      ...job,
+      description: [job.description, 'Governance'].filter(Boolean).join(' '),
+    }, profile);
+    const result = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Buona conoscenza del tedesco e dell’inglese richiesta.',
+    });
+
+    expect(result.score).toBe(45);
+    expect(result.reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Gute Deutschkenntnisse.',
+    }).reasons).toContain('Lingue richieste: tedesco');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Mit guten Deutschkenntnissen auf B2-Niveau.',
+    }).reasons).toContain('Lingue richieste: tedesco');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Verhandlungssicheres Deutsch und fliessendes Englisch.',
+    }).reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Mit fliessendem Deutsch und verhandlungssicherem Englisch.',
+    }).reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Languages: German, English',
+    }).reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'German and English are required.',
+    }).reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Français courant exigé.',
+    }).reasons).toContain('Lingue richieste: francese');
+  });
+
+  it('does not score passing language mentions or let a language requirement rescue an unrelated role', () => {
+    const profile = {
+      workPosition: 'Senior IT Manager',
+      headline: 'Senior IT Manager',
+      skills: ['governance'],
+      experienceSummary: [],
+      languages: ['tedesco', 'inglese', 'francese'],
+    };
+    const scoreWithEvidence = (job: Record<string, unknown>) => scoreJobForProfile({
+      ...job,
+      description: [job.description, 'Governance'].filter(Boolean).join(' '),
+    }, profile);
+
+    const passingMention = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      description: 'IT management experience is required. German and English customers are in the portfolio.',
+    });
+    expect(passingMention.score).toBe(37);
+    expect(passingMention.reasons).not.toContain('Lingue richieste: tedesco, inglese');
+    const unrelatedRequirement = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      description: 'Our German and English customers are a large part of the portfolio, and a degree is required.',
+    });
+    expect(unrelatedRequirement.score).toBe(37);
+    expect(unrelatedRequirement.reasons).not.toContain('Lingue richieste: tedesco, inglese');
+    const cuisineMention = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Excellent knowledge of French cuisine is required.',
+    });
+    expect(cuisineMention.score).toBe(37);
+    expect(cuisineMention.reasons).not.toContain('Lingue richieste: francese');
+    const waivedLanguage = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'German proficiency is not required.',
+    });
+    expect(waivedLanguage.score).toBe(37);
+    expect(waivedLanguage.reasons).not.toContain('Lingue richieste: tedesco');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Languages: German and French are not required.',
+    }).score).toBe(37);
+    for (const requirements of ['No requirement for German.', 'No proficiency in German required.']) {
+      const noLanguageRequirement = scoreWithEvidence({ title: 'Senior IT Manager', requirements });
+      expect(noLanguageRequirement.score).toBe(37);
+      expect(noLanguageRequirement.reasons).not.toContain('Lingue richieste: tedesco');
+    }
+    const contractedNoLanguageRequirement = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: "German proficiency isn't required.",
+    });
+    expect(contractedNoLanguageRequirement.score).toBe(37);
+    expect(contractedNoLanguageRequirement.reasons).not.toContain('Lingue richieste: tedesco');
+    const mixedLanguageRequirement = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'German is required, but French is not required.',
+    });
+    expect(mixedLanguageRequirement.score).toBe(41);
+    expect(mixedLanguageRequirement.reasons).toContain('Lingue richieste: tedesco');
+    expect(mixedLanguageRequirement.reasons).not.toContain('Lingue richieste: tedesco, francese');
+    expect(scoreJobForProfile({
+      title: 'Senior Project Manager Engineering',
+      requirements: 'German and English are required.',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+  });
+
+  it('rejects generic manager overlap and penalizes a different job specialization', () => {
+    const profile = {
+      workPosition: 'Senior IT Manager Group Application at Swatch Group',
+      headline: 'Senior IT Manager Group Application at Swatch Group',
+      skills: [],
+      experienceSummary: [],
+    };
+
+    expect(scoreJobForProfile({
+      title: 'Senior Project Manager Engineering',
+      company: 'Swatch Group',
+      location: 'Lugano',
+      description: 'Senior manager for a global group',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Senior IT Sales Manager Cloud M365 Cybersecurity',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Senior IT Project Manager',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'ICT System Ingegnere Senior Application Platform',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Addetto alla ristorazione Responsabile Take it',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Payroll Specialist (IT/DE)',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Payroll Manager (IT/DE)',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+  });
+
+  it('does not treat CV date ranges as matching skills', () => {
+    expect(scoreJobForProfile(
+      { title: 'Senior Project Manager', description: 'Position available from 2024 to 2026' },
+      { workPosition: 'Infermiere', skills: [], experienceSummary: ['2024 - 2026'] },
+    )).toEqual({ score: 0, reasons: [] });
+  });
+
+  it('re-scores pending proposals and keeps weak legacy matches when current eligibility is unverified', async () => {
+    const matchingProfile = {
+      searchText: 'Senior IT Manager Group Application',
+      workPosition: 'Senior IT Manager Group Application at Swatch Group',
+      headline: 'Senior IT Manager Group Application at Swatch Group',
+      skills: ['governance'],
+      experienceSummary: [],
+    };
+    const { db, documents } = createMatchingDb({
+      'application_concierge_services/service-1': {
+        userId: 'candidate-1',
+        paymentStatus: 'paid',
+        serviceStatus: 'active',
+        maxPositions: 10,
+        acceptedPositionsCount: 0,
+        expiresAt: new Date(Date.now() + 60_000),
+      },
+      'user_cv_profiles/candidate-1': { status: 'ready', profile: matchingProfile },
+      'application_concierge_services/service-1/proposals/legacy-relevant': {
+        jobId: 'job-it-manager',
+        jobUrl: 'https://jobs.example.test/it-manager',
+        status: 'proposed',
+        matchScore: 99,
+        matchReasons: ['senior, manager, group'],
+      },
+      'application_concierge_services/service-1/proposals/legacy-weak': {
+        jobId: 'job-project-manager',
+        jobUrl: 'https://jobs.example.test/project-manager',
+        status: 'proposed',
+        matchScore: 99,
+        matchReasons: ['senior, manager'],
+      },
+      'application_concierge_services/service-1/proposals/already-accepted': {
+        jobId: 'job-project-manager',
+        jobUrl: 'https://jobs.example.test/accepted',
+        status: 'accepted',
+        matchScore: 99,
+      },
+    });
+    const jobs = [
+      { id: 'job-it-manager', url: 'https://jobs.example.test/it-manager', title: 'Senior IT Manager IT Strategy and Operating Model', description: 'Governance responsibilities' },
+      { id: 'job-project-manager', url: 'https://jobs.example.test/project-manager', title: 'Senior Project Manager Engineering' },
+      { id: 'job-project-manager', url: 'https://jobs.example.test/accepted', title: 'Senior Project Manager Engineering' },
+    ];
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, async json() { return jobs; } })));
+
+    try {
+      const result = await runApplicationConciergeMatching({
+        db: db as never,
+        serviceId: 'service-1',
+        jobIndexUrl: 'https://jobs.example.test/index.json',
+      });
+      const relevant = documents.get('application_concierge_services/service-1/proposals/legacy-relevant');
+      const weak = documents.get('application_concierge_services/service-1/proposals/legacy-weak');
+      const accepted = documents.get('application_concierge_services/service-1/proposals/already-accepted');
+
+      expect(result).toMatchObject({ status: 'complete', proposals: 1, retracted: 0 });
+      expect(relevant).toEqual(expect.objectContaining({
+        status: 'proposed',
+        matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+        matchScore: expect.any(Number),
+      }));
+      expect((relevant?.matchScore as number)).toBeLessThan(99);
+      expect(weak).toEqual(expect.objectContaining({
+        status: 'proposed',
+        eligibilityStatus: 'unverified',
+        matchScore: 99,
+        matchReasons: ['senior, manager'],
+      }));
+      expect(accepted).toEqual(expect.objectContaining({ status: 'accepted', matchScore: 99 }));
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('rejects a job with no meaningful profile overlap', () => {
+    const result = scoreJobForProfile(
+      { title: 'Senior accountant', requirements: 'US GAAP and audit' },
+      { workPosition: 'Infermiere', skills: ['triage'], experienceSummary: [] },
+    );
+    expect(result.score).toBe(0);
+    expect(result.reasons).toEqual([]);
+    expect(scoreJobForProfile(
+      { title: 'Senior accountant', requirements: 'US GAAP and audit', location: 'Lugano', postalCode: '6900' },
+      { workPosition: 'Infermiere', skills: ['triage'], experienceSummary: [] },
+      'Lugano 6900',
+    )).toEqual({ score: 0, reasons: [] });
+  });
+});
+// End of focused CV workflow coverage.
+
+
+describe('CV section boundaries in extracted PDF text', () => {
+  it('keeps contact sidebars, certifications and privacy declarations out of matching evidence', () => {
+    const year = new Date().getUTCFullYear();
+    const profile = parseCandidateCvText([
+      'Example Candidate', 'Consulente commerciale', 'CAPACITÀ E', 'COMPETENZE',
+      '+41 00 000 00 00', 'candidate@example.com', 'Exampletown', 'Data di nascita',
+      `01/01/${year - 30}`, 'ESPERIENZE LAVORATIVE E PROFESSIONALI',
+      `${year - 3} - ${year}`, 'Consulente commerciale',
+      'Acquisizione e gestione clienti B2B e sviluppo del portafoglio commerciale',
+      'Autorizzo il trattamento dei dati personali contenuti nel mio CV',
+      'CERTIFICAZIONI', 'Attestato commerciale', 'TRATTAMENTO DATI',
+      `Acconsento al trattamento ai sensi del regolamento ${year - 10}/123`,
+      'ISTRUZIONE E FORMAZIONE', 'Diploma commerciale',
+      'Lingue: Inglese (B2), Francese (A2),', 'Tedesco (A2)',
+      'Digital skills: MS Office',
+    ].join('\n'));
+    expect(profile.skills).toEqual(['MS Office']);
+    expect(profile.languages).toEqual(['inglese', 'francese', 'tedesco']);
+    expect(profile.experienceSummary).toContain('Acquisizione e gestione clienti B2B e sviluppo del portafoglio commerciale');
+    expect(profile.searchText).not.toMatch(/candidate@example|Exampletown|Data di nascita|regolamento|Diploma commerciale/i);
+  });
+
+  it('retains skills before a personal field without absorbing the following sidebar', () => {
+    const profile = parseCandidateCvText('Example Candidate\nSkills\nSAP; CRM\nData di nascita\nExampletown\nWork Experience\nSales account');
+    expect(profile.skills).toEqual(['SAP', 'CRM']);
+    expect(profile.searchText).not.toContain('Exampletown');
+  });
+});
+
+
+describe('dated historical positions as matching evidence', () => {
+  it('keeps earlier commercial roles relevant when the latest position is HR without suggesting tax specialties', () => {
+    const year = new Date().getUTCFullYear();
+    const profile = parseCandidateCvText([
+      'Example Candidate', 'Consulente HR', 'ESPERIENZE LAVORATIVE E PROFESSIONALI',
+      `${year - 1} - ${year}`, 'Consulente HR',
+      `${year - 5} - ${year - 1}`, 'Consulente commerciale Legale',
+      `${year - 10} - ${year - 5}`, 'Sales account',
+      'Acquisizione e gestione clienti commerciali B2B con utilizzo di CRM',
+      'TRATTAMENTO DATI', 'Autorizzo il trattamento dei dati personali',
+    ].join('\n'));
+    expect(profile.previousPositions).toEqual(['Consulente HR', 'Consulente commerciale Legale', 'Sales account']);
+    expect(scoreJobForProfile({ title: 'Sales Representative B2B', category: 'sales' }, profile).score).toBeGreaterThan(0);
+    expect(scoreJobForProfile({ title: 'Consulente del personale nel settore delle finiture' }, profile).score).toBeGreaterThan(0);
+    expect(scoreJobForProfile({ title: 'Responsabile manutenzione e assistenza post-vendita tecnica edile' }, profile).score).toBe(0);
+    expect(scoreJobForProfile({ title: 'Salesforce Developer' }, profile).score).toBe(0);
+    expect(scoreJobForProfile({ title: 'Senior Manager Business Tax Advisory Tax Legal', category: 'tax' }, profile).score).toBe(0);
+    expect(scoreJobForProfile({ title: 'Intern Transfer Pricing Tax Legal', category: 'tax' }, profile).score).toBe(0);
+  });
+
+  it('includes an earlier position in specialty mismatch evidence', () => {
+    const profile = { previousPositions: ['Sales Manager'], skills: [], experienceSummary: [] };
+    expect(scoreJobForProfile({ title: 'Sales Manager' }, profile).score).toBeGreaterThanOrEqual(28);
+  });
+});
+
+describe('progress through the complete relevant job pool', () => {
+  it('keeps a stale proposed job when the current eligibility pass is unverified', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-stale-proposal';
+    const jobUrl = 'https://jobs.example.test/eligible-internship/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-stale', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-stale': { status: 'ready', profile: { searchText: 'IT support', workPosition: 'IT Support Manager', skills: ['support', 'IT'] } },
+      [`${path}/proposals/old-placement`]: { jobId: 'old-placement', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: 'full-posting-requirements-v3-source-citations-v1' },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'old-placement', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-stale-proposal', eligibility: async () => ({ status: 'unverified' }) });
+      expect(result).toMatchObject({ status: 'complete', retracted: 0 });
+      expect(documents.get(`${path}/proposals/old-placement`)).toMatchObject({
+        status: 'proposed', eligibilityStatus: 'unverified', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+      });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it('keeps unavailable jobs retryable without letting them pin discovery beyond the old top-40 window', async () => {
+    const path = 'application_concierge_services/service-progress';
+    const now = Date.now();
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-progress', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86400000) },
+      'user_cv_profiles/candidate-progress': { status: 'ready', profile: { searchText: 'IT support', workPosition: 'IT Support Manager', skills: ['support', 'IT'] } },
+    });
+    const jobs = Array.from({ length: 70 }, (_, index) => ({ id: `job-${String(index).padStart(3, '0')}`,
+      url: `https://jobs.example.test/job-${String(index).padStart(3, '0')}`, title: 'IT Support Manager', description: 'IT support responsibilities' }));
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => jobs })));
+    const clock = vi.spyOn(Date, 'now').mockReturnValue(now);
+    const seen: string[][] = [];
+    const attempts = new Map<string, number>();
+    const unverifiedCounts: number[] = [];
+    const retryDiagnostics: Array<{ statusCounts: any; reasonCounts: any }> = [];
+    const run = async () => {
+      let budget = 0;
+      const checked: string[] = [];
+      await runApplicationConciergeMatching({ db, serviceId: 'service-progress', eligibility: async (job: any) => {
+        if (budget++ >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
+        checked.push(job.id);
+        attempts.set(job.id, (attempts.get(job.id) || 0) + 1);
+        if (job.id === 'job-000') return { status: 'unverified', reason: 'analysis_unavailable' };
+        return job.id === 'job-055' ? { status: 'compatible' } : { status: 'incompatible', gaps: [{ knownMissing: true }] };
+      } });
+      seen.push(checked);
+      unverifiedCounts.push(Number(documents.get(path)?.matchingUnverifiedCount || 0));
+      retryDiagnostics.push({
+        statusCounts: structuredClone(documents.get(path)?.matchingRetryStatusCounts || {}),
+        reasonCounts: structuredClone(documents.get(path)?.matchingRetryReasonCounts || {}),
+      });
+    };
+    try {
+      for (let index = 0; index < 4; index++) await run();
+      expect(seen[0]).toEqual(jobs.slice(0, 20).map(job => job.id));
+      expect(seen[1]).toEqual(jobs.slice(24, 44).map(job => job.id));
+      expect(seen[2]).toEqual(jobs.slice(48, 68).map(job => job.id));
+      expect(attempts.get('job-000')).toBe(1);
+      expect(unverifiedCounts).toEqual([5, 9, 11, 11]);
+      expect(retryDiagnostics[0]).toEqual({ statusCounts: { unverified: 5 },
+        reasonCounts: { analysis_unavailable: 1, analysis_deferred: 4 } });
+      expect(documents.get(path)?.matchingPendingCount).toBe(0);
+      clock.mockReturnValue(now + 3600001);
+      await run();
+      await run();
+      expect(attempts.get('job-000')).toBe(2);
+      expect(unverifiedCounts.at(-1)).toBe(1);
+      expect(retryDiagnostics.at(-1)).toEqual({ statusCounts: { unverified: 1 }, reasonCounts: { analysis_unavailable: 1 } });
+      expect([...documents.entries()].filter(([key, value]) => key.startsWith(`${path}/proposals/`) && value.status === 'proposed').map(([, value]) => value.jobId)).toEqual(['job-055']);
+    } finally { clock.mockRestore(); vi.unstubAllGlobals(); }
+  });
+
+  it('revalidates current proposals, advances the frontier and starts another cycle after its end', () => {
+    const candidates = Array.from({ length: 90 }, (_, index) => ({ url: `job-${index}` }));
+    const priority = new Set(['job-0', 'job-1']);
+    const next = conciergeMatchingWork(candidates, priority, 'job-45');
+    expect(next.work.slice(0, 3).map((row: any) => row.url)).toEqual(['job-0', 'job-1', 'job-46']);
+    expect(next.work).toHaveLength(40);
+    expect(conciergeMatchingWork(candidates, priority, 'job-89').work[2].url).toBe('job-2');
+    expect(conciergeMatchingWork(candidates, priority, 'removed-job').work[2].url).toBe('job-2');
+  });
+
+  it('uses accepted roles as ordering preferences without creating CV qualifications', () => {
+    const proposals = [{ status: 'accepted', jobTitle: 'IT Support Manager' }];
+    expect(approvedRolePreference({ title: 'IT Support Lead' }, proposals)).toBeGreaterThan(0);
+    expect(approvedRolePreference({ title: 'IT Support Lead' }, [{ ...proposals[0], status: 'declined' }])).toBe(0);
+    expect(approvedRolePreference({ title: 'IT Support Lead' }, [{ ...proposals[0], withdrawnAt: Date.now() }])).toBe(0);
+    expect(scoreJobForProfile({ title: 'IT Support Lead' }, { searchText: 'infermiere', workPosition: 'Infermiere', skills: ['assistenza infermieristica'] }).score).toBe(0);
+    expect(proposals).toEqual([{ status: 'accepted', jobTitle: 'IT Support Manager' }]);
+  });
+
+  it.each([
+    { withdrawn: false, preferredCompatible: true, expected: 'second' },
+    { withdrawn: true, preferredCompatible: true, expected: 'first' },
+    { withdrawn: false, preferredCompatible: false, expected: 'first' },
+  ])('applies accepted-role preferences to real proposal ordering with one slot: %j', async ({ withdrawn, preferredCompatible, expected }) => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-preference';
+    const history = { jobId: 'previous', jobUrl: 'https://jobs.example.test/previous/',
+      jobTitle: 'Infermiere medicina', status: withdrawn ? 'declined' : 'accepted', ...(withdrawn ? { withdrawnAt: now - 1_000 } : {}) };
+    const expectedHistory = structuredClone(history);
+    const acceptedPositionsCount = withdrawn ? 0 : 1;
+    const profile = { searchText: 'infermiere triage medicina', workPosition: 'Infermiere', skills: ['triage', 'medicina'], experienceSummary: [] };
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-preference', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: acceptedPositionsCount + 1,
+        acceptedPositionsCount, expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-preference': { status: 'ready', profile },
+      [`${path}/proposals/history`]: history,
+    });
+    const jobs = [
+      { id: 'first', url: 'https://jobs.example.test/a/', title: 'Infermiere triage' },
+      { id: 'second', url: 'https://jobs.example.test/b/', title: 'Infermiere medicina' },
+    ];
+    // Without preference, relevance and all tie-breakers leave the first job first.
+    expect(scoreJobForProfile(jobs[0], profile)).toMatchObject({ rankScore: scoreJobForProfile(jobs[1], profile).rankScore });
+    const eligibility = vi.fn(async (job: { id: string }) => ({ status: job.id === 'second' && !preferredCompatible ? 'incompatible' : 'compatible' }));
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => jobs })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-preference', eligibility });
+      const proposals = [...documents.entries()].filter(([key, value]) => key.startsWith(`${path}/proposals/`) && value.status === 'proposed');
+      expect(result).toMatchObject({ status: 'complete', proposals: 1 });
+      expect(proposals.map(([, value]) => value.jobId)).toEqual([expected]);
+      expect(proposals[0][1].eligibilityStatus).toBe('compatible');
+      expect(new Set(eligibility.mock.calls.map(([job]) => job.id))).toEqual(new Set(['first', 'second']));
+      expect(documents.get(`${path}/proposals/history`)).toEqual(expectedHistory);
+      expect(documents.get(path)?.acceptedPositionsCount).toBe(acceptedPositionsCount);
+    } finally { vi.unstubAllGlobals(); }
+  });
+});

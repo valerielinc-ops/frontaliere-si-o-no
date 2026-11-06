@@ -1,0 +1,21 @@
+{
+  "companyKey": "bico-ch",
+  "companyName": "Bico",
+  "companyHost": "bico.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://bico.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs-und-karriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Sachbearbeiter/in Verkauf-Innendienst 100% (m/w/d) mit Schwerpunkt Hotel & Objektgeschäft Anzeigen",
+    "Verkaufsberatende im Nebenerwerb (10-15% – w/m/d) Anzeigen"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T10:59:29.985Z"
+}

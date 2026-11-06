@@ -1,0 +1,1 @@
+../../packages/articles/content/seo/seo-blog.ts

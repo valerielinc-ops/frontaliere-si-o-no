@@ -1,0 +1,25 @@
+{
+  "companyKey": "surseepark-1",
+  "companyName": "Surseepark 1",
+  "companyHost": "jobs.migros.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/migros-gruppe/offene-stellen?location=Sursee::47.172253737608::8.1076755032086"
+  ],
+  "detailTemplate": "/de/unsere-unternehmen/job/*/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Fresh Food & Beverage Group, Migros Industrie Mitarbeiter*​in Hausbäckerei ‧ 100% 6210 Sursee Befristete Anstellung",
+    "Genossenschaft Migros Luzern Fachverkäufer*​in Frischland und Stv. Fachleitung Früchte/​Gemüse ‧ 80 – 100% 6210 Sursee Festanstellung (unbefristet)",
+    "Genossenschaft Migros Luzern Nachwuchs&shy;fachperson mit Ziel Fach- oder Bereichsleitung, Region Luzern-Land ‧ 80 – 100% 6210 Sursee Festanstellung (unbefriste",
+    "Genossenschaft Migros Luzern Fachleiter*​in Brot/​Backwaren ‧ 80 – 100% 6130 Willisau Festanstellung (unbefristet)",
+    "Genossenschaft Migros Luzern Mitarbeiter*​in Filiallogistik ‧ 40% 6130 Willisau Festanstellung (unbefristet)"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:51:22.321Z",
+  "candidateKey": "surseepark.ch"
+}

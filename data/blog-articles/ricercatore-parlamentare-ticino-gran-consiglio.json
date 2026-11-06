@@ -1,0 +1,19 @@
+{
+  "id": "ricercatore-parlamentare-ticino-gran-consiglio",
+  "slug": "ricercatore-parlamentare-ticino-gran-consiglio",
+  "publishedAt": "2026-07-17T14:58:52.492Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 155.82111328000002,
+    "confidence": 1,
+    "finalScore": 155.82111328000002,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 155.82111328000002,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

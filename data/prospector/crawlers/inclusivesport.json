@@ -1,0 +1,20 @@
+{
+  "companyKey": "inclusivesport",
+  "companyName": "inclusivesport",
+  "companyHost": "inclusivesport.onapply.de",
+  "platform": "onapply.de",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://inclusivesport.onapply.de/details/296025.html"
+  ],
+  "detailTemplate": "/details/296025.html",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Initiativbewerbung"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:51:42.188Z",
+  "candidateKey": "inclusivesport.ch"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43649",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43649",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "87968",
+      "normalizedPlate": "ZH87968",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1020,
+      "bidCount": 30,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-21T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43649",
+      "sourceFetchedAt": "2026-10-21T11:49:09.869Z",
+      "lastVerifiedAt": "2026-10-21T11:49:09.869Z",
+      "firstSeenAt": "2026-10-15T11:35:31.199Z",
+      "lastSeenAt": "2026-10-21T11:49:09.869Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "1ed92e0a7e75"
+    }
+  ]
+}

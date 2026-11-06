@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sh-69512",
+      "sourceKey": "SH",
+      "sourceRecordId": "69512",
+      "canton": "Sciaffusa",
+      "platePrefix": "SH",
+      "plateNumber": "44622",
+      "normalizedPlate": "SH44622",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 300,
+      "bidCount": 1,
+      "endsAt": "2026-09-30T20:00:00.000Z",
+      "closedAt": "2026-09-30T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69512",
+      "sourceFetchedAt": "2026-09-30T12:39:22.218Z",
+      "lastVerifiedAt": "2026-09-30T12:39:22.218Z",
+      "firstSeenAt": "2026-09-24T04:55:20.861Z",
+      "lastSeenAt": "2026-09-30T12:39:22.218Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "bf3c8b355380"
+    }
+  ]
+}

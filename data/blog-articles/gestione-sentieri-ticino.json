@@ -1,0 +1,19 @@
+{
+  "id": "gestione-sentieri-ticino",
+  "slug": "gestione-sentieri-ticino",
+  "publishedAt": "2026-07-26T06:37:49.710Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 149.80582182222224,
+    "confidence": 1,
+    "finalScore": 149.80582182222224,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 37.45145545555556,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

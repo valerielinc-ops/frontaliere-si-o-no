@@ -1,0 +1,40 @@
+{
+  "id": "dipendenza-fossili-svizzera-energia",
+  "slug": "dipendenza-fossili-svizzera-energia",
+  "publishedAt": "2026-07-06T04:52:36.840Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.517074552549566,
+    "confidence": 0.8,
+    "finalScore": 8.413659642039653,
+    "topK": [
+      {
+        "slug": "svizzera-credito-energetico-2026",
+        "cosine": 0.8764228793791304
+      },
+      {
+        "slug": "svizzera-indipendenza-energetica-importazioni-2026",
+        "cosine": 0.8691725313521999
+      },
+      {
+        "slug": "conflitto-medio-oriente-energia-ticino",
+        "cosine": 0.8628413644567486
+      },
+      {
+        "slug": "benzina-record-annuale-svizzera-2026",
+        "cosine": 0.8579253861111827
+      },
+      {
+        "slug": "svizzeri-contributo-clima-acquisti-online-2026",
+        "cosine": 0.8499706263885726
+      }
+    ],
+    "score": 0.8413659642039653,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

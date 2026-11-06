@@ -1,0 +1,18 @@
+{
+  "companyKey": "swiss-timing-swatch-group",
+  "companyName": "Swiss Timing (Swatch Group)",
+  "companyHost": "swisstiming.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.swisstiming.com/company/job-offers/"
+  ],
+  "requestTimeoutMs": 30000,
+  "notes": "Seed URLs corrected 2026-08-10 (issue #5395). The live careers page is /company/job-offers/ and groups openings per legal entity. Reverified 2026-10-15: Swiss Timing LTD (company=81, Corgémont) publishes Swiss vacancies again, while ST Sportservice GmbH (company=138, Leipzig) remains out of scope. The origin takes 10-17 seconds to serve listing/detail HTML, so this adapter declares a 30-second request timeout instead of inheriting the generic 9-second budget.",
+  "updatedAt": "2026-10-15T00:00:00.000Z"
+}

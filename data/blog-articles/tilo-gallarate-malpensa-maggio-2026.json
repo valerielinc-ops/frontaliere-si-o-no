@@ -1,0 +1,40 @@
+{
+  "id": "tilo-gallarate-malpensa-maggio-2026",
+  "slug": "tilo-gallarate-malpensa-maggio-2026",
+  "publishedAt": "2026-05-28T05:25:34.764Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.232840623086858,
+    "confidence": 0.8,
+    "finalScore": 7.386272498469487,
+    "topK": [
+      {
+        "slug": "disagi-tilo-sciopero-italia",
+        "cosine": 0.8602435970953161
+      },
+      {
+        "slug": "tilo-s50-lavori-mal-pensa-varese-2026",
+        "cosine": 0.8481383900470628
+      },
+      {
+        "slug": "disagi-tilo-mendrisio-malpensa-2026",
+        "cosine": 0.8474238037537587
+      },
+      {
+        "slug": "tilo-s50-modifiche-aprile",
+        "cosine": 0.8444377164621245
+      },
+      {
+        "slug": "malpensa-carburante-rischio-frontalieri-2026",
+        "cosine": 0.8389778514442372
+      }
+    ],
+    "score": 7.386272498469487,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

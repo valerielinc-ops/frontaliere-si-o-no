@@ -1,0 +1,516 @@
+import { readFileSync } from 'node:fs';
+import { describe, expect, it } from 'vitest';
+import {
+  parseRittmeyerListingsPage,
+  isRittmeyerTicinoListing,
+  parseRittmeyerJobDetail,
+  parseRittmeyerJobDetailWithUrl,
+  buildRittmeyerLocalizedContent,
+} from '../scripts/lib/rittmeyer-job-parser.mjs';
+import {
+  resolveRittmeyerSiteAddress,
+  RITTMEYER_SITES,
+  scrubRittmeyerLegacyLocaleCopies,
+  jobMatchKey,
+  buildRittmeyerOnlyfyListingPageUrl,
+  fetchRittmeyerOnlyfyListingSource,
+} from '../scripts/update-rittmeyer-jobs.mjs';
+
+describe('rittmeyer-job-parser', () => {
+  it('parses listing links and detects Ticino rows', () => {
+    const html = `
+      <a href="/offene-stellen/sales-project-engineer-a-ticino/">Sales Project Engineer (a) Ticino</a>
+      <a href="/offene-stellen/sales-project-engineer-a/">Sales Project Engineer (a)</a>
+    `;
+    const listings = parseRittmeyerListingsPage(html);
+    expect(listings).toHaveLength(2);
+    // listings[0] carries "Ticino" in the href/title → genuine target listing.
+    expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
+    // listings[1] has NO location signal — only the word "Sales". Previously it
+    // matched the tiny commune Sâles (FR) and was wrongly read as a target
+    // listing (the Swatch Group US-jobs leak class, 2026-06-17). "sales" is now
+    // excluded from the city-token set, so a location-less listing is treated
+    // the same as every other location-less row: not a confirmable target
+    // listing. (It is the only stray-word exception that used to slip the
+    // listing-stage filter; location-bearing rows like listings[0] are
+    // unaffected.)
+    expect(isRittmeyerTicinoListing(listings[1])).toBe(false);
+
+    const isoInTitle = parseRittmeyerListingsPage(`
+      <a href="/offene-stellen/it-support-in-lugano/">IT Support in Lugano</a>
+    `);
+    expect(isRittmeyerTicinoListing(isoInTitle[0])).toBe(true);
+
+    expect(parseRittmeyerListingsPage(
+      '<a href="//untrusted.example/offene-stellen/it-support-in-lugano/">Foreign mirror</a>',
+    )).toHaveLength(0);
+  });
+
+  it('parses the public Onlyfy board listing and its structured detail metadata', () => {
+    const listings = parseRittmeyerListingsPage(`
+      <p>2 jobs found</p>
+      <div id="jobList">
+        <a href="/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn/">
+          Sales Project Engineer (a) Ticino | Part-time employee
+        </a>
+        <a href="/en/job/other-role/">Teamleiter Lager &amp; Logistik (a) Baar | Full-time employee</a>
+      </div>
+    `);
+    expect(listings).toHaveLength(2);
+    expect(listings.rittmeyerListingAdvertisedCount).toBe(2);
+    expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
+
+    const detail = parseRittmeyerJobDetailWithUrl(`
+      <html><head>
+        <script type="application/ld+json">
+          {"@type":"JobPosting","title":"Sales Project Engineer (a) Ticino",
+           "description":"<p>Per il nostro team di vendita interno cerchiamo una persona motivata.</p>",
+           "datePosted":"2026-09-21","employmentType":"FULL_TIME",
+           "jobLocation":{"address":{"addressLocality":"Camorino","addressCountry":"CH"}}}
+        </script>
+      </head><body>
+        <a href="/application/it/apply/4it6c5xx4ivuhudv7e6kk1oyh232efn">Candidati</a>
+      </body></html>
+    `, 'https://brugg.onlyfy.jobs/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn/');
+    expect(detail).toMatchObject({
+      title: 'Sales Project Engineer (a) Ticino',
+      location: 'Camorino',
+      employmentType: 'FULL_TIME',
+      datePosted: '2026-09-21',
+    });
+    expect(detail.applyUrl).toBe('https://brugg.onlyfy.jobs/application/it/apply/4it6c5xx4ivuhudv7e6kk1oyh232efn');
+    expect(detail.summary).toContain('Per il nostro team di vendita interno');
+  });
+
+  it('parses redesigned Onlyfy cards through the shared listing contract', () => {
+    const listings = parseRittmeyerListingsPage(`
+      <div class="results">
+        <a data-testid="job-card"
+           aria-label="Sales Project Engineer (a) Ticino"
+           href="/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn">
+          <div><h3 data-testid="job-title">Sales Project Engineer (a) Ticino</h3></div>
+          <div data-testid="job-more-info">Camorino | Teilzeit / Vollzeit | 18.05.2026</div>
+        </a>
+        <a data-testid="job-card"
+           aria-label="Teamleiter Lager &amp; Logistik (a)"
+           href="/en/job/other-role">
+          <div><h3 data-testid="job-title">Teamleiter Lager &amp; Logistik (a)</h3></div>
+          <div data-testid="job-more-info">Baar | Vollzeit | 18.05.2026</div>
+        </a>
+      </div>
+    `);
+
+    expect(listings).toHaveLength(2);
+    expect(listings[0]).toMatchObject({
+      href: 'https://brugg.onlyfy.jobs/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn',
+      title: 'Sales Project Engineer (a) Ticino',
+      location: 'Camorino',
+      employmentTypeStr: 'Teilzeit / Vollzeit',
+    });
+    expect(listings[0].snippet).toContain('Camorino');
+    expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
+    expect(listings.rittmeyerListingMarkupSeen).toBe(true);
+    expect(listings.rittmeyerListingSkippedMalformedRows).toBe(0);
+  });
+
+  it('follows Onlyfy listing pages when the board advertises more than one page', async () => {
+    const card = (id: number, location: string) => `
+      <a data-testid="job-card" aria-label="Rittmeyer role ${id}"
+         href="/en/job/rittmeyer-role-${id}">
+        <h3 data-testid="job-title">Rittmeyer role ${id}</h3>
+        <div data-testid="job-more-info">${location} | Full-time employee | 01.11.2026</div>
+      </a>`;
+    const firstUrl = 'https://brugg.onlyfy.jobs/en/';
+    const secondUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 2);
+    expect(secondUrl).toBe('https://brugg.onlyfy.jobs/en/?page=2');
+    const pages = new Map([
+      [firstUrl, `<p>1-10 out of 16</p><div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1, 'Baar')).join('')}</div>`],
+      [secondUrl, `<p>11-16 out of 16</p><div class="results">${Array.from({ length: 6 }, (_, i) => card(i + 11, 'Camorino')).join('')}</div>`],
+    ]);
+    const requested = [];
+    const rows = await fetchRittmeyerOnlyfyListingSource(
+      { url: firstUrl, label: 'Onlyfy employer board' },
+      async (url) => {
+        requested.push(url);
+        return pages.get(url) || '';
+      },
+    );
+
+    expect(requested).toEqual([firstUrl, secondUrl]);
+    expect(rows).toHaveLength(16);
+    expect(rows.rittmeyerListingAdvertisedCount).toBe(16);
+    expect(new Set(rows.map((row) => row.href)).size).toBe(16);
+  });
+
+  it('prefers the explicit job total when a stale pager reports a smaller total', async () => {
+    const card = (id: number) => `
+      <a data-testid="job-card" aria-label="Rittmeyer role ${id}"
+         href="/en/job/rittmeyer-role-${id}">
+        <h3 data-testid="job-title">Rittmeyer role ${id}</h3>
+        <div data-testid="job-more-info">${id <= 10 ? 'Baar' : 'Camorino'} | Full-time employee</div>
+      </a>`;
+    const firstUrl = 'https://brugg.onlyfy.jobs/en/';
+    const secondUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 2);
+    const pages = new Map([
+      [firstUrl, `<p>16 jobs found</p>
+        <p>1-10 out of 1 jobs</p>
+        <div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1)).join('')}</div>`],
+      [secondUrl, `<p>16 jobs found</p>
+        <p>11-16 out of 16 jobs</p>
+        <div class="results">${Array.from({ length: 6 }, (_, i) => card(i + 11)).join('')}</div>`],
+    ]);
+    const requested = [];
+    const rows = await fetchRittmeyerOnlyfyListingSource(
+      { url: firstUrl, label: 'Onlyfy employer board' },
+      async (url) => {
+        requested.push(url);
+        return pages.get(url) || '';
+      },
+    );
+
+    expect(requested).toEqual([firstUrl, secondUrl]);
+    expect(rows).toHaveLength(16);
+    expect(rows.rittmeyerListingAdvertisedCount).toBe(16);
+  });
+
+  it('walks to a terminal page when the board total is stale below the first page size', async () => {
+    const card = (id: number) => `
+      <a data-testid="job-card" aria-label="Rittmeyer role ${id}"
+         href="/en/job/rittmeyer-role-${id}">
+        <h3 data-testid="job-title">Rittmeyer role ${id}</h3>
+        <div data-testid="job-more-info">${id <= 10 ? 'Baar' : 'Camorino'} | Full-time employee</div>
+      </a>`;
+    const firstUrl = 'https://brugg.onlyfy.jobs/en/';
+    const secondUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 2);
+    const pages = new Map([
+      [firstUrl, `<p>1 jobs found</p><div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1)).join('')}</div>`],
+      [secondUrl, `<p>1 jobs found</p><div class="results">${Array.from({ length: 6 }, (_, i) => card(i + 11)).join('')}</div>`],
+    ]);
+    const requested = [];
+    const rows = await fetchRittmeyerOnlyfyListingSource(
+      { url: firstUrl, label: 'Onlyfy employer board' },
+      async (url) => {
+        requested.push(url);
+        return pages.get(url) || '';
+      },
+    );
+
+    expect(requested).toEqual([firstUrl, secondUrl]);
+    expect(rows).toHaveLength(16);
+    expect(rows.rittmeyerListingAdvertisedCount).toBeNull();
+  });
+
+  it('fails closed when distinct stale totals conflict', () => {
+    const page = `<p>1 jobs found</p>
+      <p>1-2 out of 2</p>
+      <div class="results">${Array.from({ length: 10 }, (_, i) => `
+        <a data-testid="job-card" aria-label="Rittmeyer role ${i + 1}"
+           href="/en/job/rittmeyer-role-${i + 1}">
+          <h3 data-testid="job-title">Rittmeyer role ${i + 1}</h3>
+          <div data-testid="job-more-info">Baar | Full-time employee</div>
+        </a>`).join('')}</div>`;
+
+    const listings = parseRittmeyerListingsPage(page);
+    expect(listings.rittmeyerListingCountConflict).toBe(true);
+    expect(listings.rittmeyerListingAdvertisedCountStale).toBe(false);
+  });
+
+  it('fails closed instead of terminating on a short page with malformed rows', async () => {
+    const card = (id: number) => `
+      <a data-testid="job-card" aria-label="Rittmeyer role ${id}"
+         href="/en/job/rittmeyer-role-${id}">
+        <h3 data-testid="job-title">Rittmeyer role ${id}</h3>
+        <div data-testid="job-more-info">Camorino | Full-time employee</div>
+      </a>`;
+    const firstUrl = 'https://brugg.onlyfy.jobs/en/';
+    const secondUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 2);
+    const thirdUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 3);
+    const pages = new Map([
+      [firstUrl, `<p>1 jobs found</p><div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1)).join('')}</div>`],
+      [secondUrl, `<p>1 jobs found</p><div class="results">${Array.from({ length: 9 }, (_, i) => card(i + 11)).join('')}
+        <a data-testid="job-card" aria-label="Malformed card">
+          <h3 data-testid="job-title">Malformed card</h3>
+          <div data-testid="job-more-info">Camorino | Full-time employee</div>
+        </a>
+      </div>`],
+      [thirdUrl, `<p>1 jobs found</p><div class="results">${card(20)}</div>`],
+    ]);
+    const requested: string[] = [];
+
+    await expect(fetchRittmeyerOnlyfyListingSource(
+      { url: firstUrl, label: 'Onlyfy employer board' },
+      async (url) => {
+        requested.push(url);
+        return pages.get(url) || '';
+      },
+    )).rejects.toThrow(/short after skipping malformed rows/);
+    expect(requested).toEqual([firstUrl, secondUrl]);
+  });
+
+  it('fails closed when structural and pager totals disagree', async () => {
+    const page = `<p>10 jobs found</p>
+      <p>1-10 out of 21</p>
+      <div class="results">${Array.from({ length: 10 }, (_, i) => `
+        <a data-testid="job-card" aria-label="Rittmeyer role ${i + 1}"
+           href="/en/job/rittmeyer-role-${i + 1}">
+          <h3 data-testid="job-title">Rittmeyer role ${i + 1}</h3>
+          <div data-testid="job-more-info">Baar | Full-time employee</div>
+        </a>`).join('')}</div>`;
+
+    const listings = parseRittmeyerListingsPage(page);
+    expect(listings.rittmeyerListingCountConflict).toBe(true);
+
+    await expect(fetchRittmeyerOnlyfyListingSource(
+      { url: 'https://brugg.onlyfy.jobs/en/', label: 'Onlyfy employer board' },
+      async () => page,
+    )).rejects.toThrow(/conflicting usable advertised counts/);
+  });
+
+  it('fails closed when the advertised total is not a safe integer', async () => {
+    const page = `<p>9007199254740993 jobs found</p>
+      <div class="results">
+        <a data-testid="job-card" aria-label="Rittmeyer role 1"
+           href="/en/job/rittmeyer-role-1/">
+          <h3 data-testid="job-title">Rittmeyer role 1</h3>
+          <div data-testid="job-more-info">Baar | Full-time employee</div>
+        </a>
+      </div>`;
+
+    const listings = parseRittmeyerListingsPage(page);
+    expect(listings.rittmeyerListingCountConflict).toBe(true);
+
+    await expect(fetchRittmeyerOnlyfyListingSource(
+      { url: 'https://brugg.onlyfy.jobs/en/', label: 'Onlyfy employer board' },
+      async () => page,
+    )).rejects.toThrow(/conflicting usable advertised counts/);
+  });
+
+  it('fails closed when the Onlyfy page parameter does not advance the listing', async () => {
+    const page = `<p>16 jobs found</p><div class="results">${Array.from({ length: 10 }, (_, i) => `
+      <a data-testid="job-card" aria-label="Role ${i}" href="/en/job/role-${i}">
+        <h3 data-testid="job-title">Role ${i}</h3>
+        <div data-testid="job-more-info">Baar | Full-time employee</div>
+      </a>`).join('')}</div>`;
+
+    await expect(fetchRittmeyerOnlyfyListingSource(
+      { url: 'https://brugg.onlyfy.jobs/en/', label: 'Onlyfy employer board' },
+      async () => page,
+    )).rejects.toThrow(/duplicate listing row while paging/);
+  });
+
+  it('parses detail content and builds localized descriptions', () => {
+    const html = `
+      <html>
+        <head>
+          <meta name="description" content="Riassunto ruolo" />
+        </head>
+        <body>
+          <h1>Sales Project Engineer (a) Ticino</h1>
+          <p>Sales</p><p>Bereich</p>
+          <p>Tessin</p><p>Schweiz</p>
+          <p>80-100%</p><p>Pensum</p>
+          <a href="https://brugg.onlyfy.jobs/job/0dv8x2rj">Jetzt bewerben</a>
+          <div class="etx-flex gv-50 specificPrintColumn">
+            <div><h2>La tua area di competenza</h2></div>
+            <div><ul><li>Ricevi le richieste di offerta dal reparto vendite</li><li>Identifichi e documenti i rischi</li></ul></div>
+          </div>
+          <div class="etx-flex gv-50 specificPrintColumn">
+            <div><h2>Ciò che porti con te</h2></div>
+            <div><ul><li>Hai conseguito una laurea in ambito tecnico</li></ul></div>
+          </div>
+          <div class="CardIcon__item">
+            <p>Lavori con un futuro</p>
+            <p>Lavoro significativo in un'azienda orientata al futuro</p>
+          </div>
+        </body>
+      </html>
+    `;
+
+    const detail = parseRittmeyerJobDetail(html);
+    expect(detail.title).toBe('Sales Project Engineer (a) Ticino');
+    expect(detail.location).toBe('Tessin');
+    expect(detail.workload).toBe('80-100%');
+    expect(detail.responsibilities).toContain('Ricevi le richieste di offerta dal reparto vendite');
+    expect(detail.requirements).toContain('Hai conseguito una laurea in ambito tecnico');
+    expect(detail.benefits[0]).toContain('Lavori con un futuro');
+    expect(detail.applyUrl).toContain('onlyfy.jobs');
+
+    const localized = buildRittmeyerLocalizedContent(detail);
+    expect(localized.slugByLocale.it).toContain('sales-project-engineer-a-ticino-rittmeyer-ag-tessin');
+    expect(localized.descriptionByLocale.it).toContain('## La tua area di competenza');
+    // Only the source slot is built: copying the source text under translated
+    // headings into en/de/fr made the translation step skip those locales.
+    expect(Object.keys(localized.descriptionByLocale)).toEqual(['it']);
+    expect(Object.keys(localized.titleByLocale)).toEqual(['it']);
+  });
+
+  it('reads the German posting by its language-neutral eyebrows and uses the JSON-LD intro', () => {
+    // Minimized from the live page (2026-09-29). Its meta description belongs
+    // to another vacancy ("Projekte in der Wasser- und Energieversorgung"),
+    // the JSON-LD description is this posting's own intro.
+    const html = readFileSync(new URL('./fixtures/rittmeyer-detail-eyebrow-de.html', import.meta.url), 'utf8');
+    const detail = parseRittmeyerJobDetail(html);
+    expect(detail.summary).toMatch(/^Bist du bereit für eine spannende Herausforderung in der Welt der Wasserkraft/);
+    expect(detail.summary).not.toContain('Wasser- und Energieversorgung von Anfang bis Ende');
+    expect(detail.responsibilitiesHeading).toBe('Was du bei uns bewegen kannst');
+    expect(detail.responsibilities).toHaveLength(5);
+    expect(detail.requirementsHeading).toBe('Was du mitbringst');
+    expect(detail.requirements).toHaveLength(7);
+    expect(detail.benefitsHeading).toBe('Was wir dir bieten');
+    expect(detail.company).toContain('Als Teil der BRUGG-Gruppe');
+
+    const d = buildRittmeyerLocalizedContent(detail, 'de').descriptionByLocale.de;
+    const markers = [
+      'Bist du bereit',
+      'Als Teil der BRUGG-Gruppe',
+      '## Was du bei uns bewegen kannst',
+      '- Du erstellst und entwickelst anlagenspezifische Applikationssoftware',
+      '## Was du mitbringst',
+      '- Eine Reisebereitschaft von etwa 30 %',
+      '## Was wir dir bieten',
+      '- Jobs mit Zukunft:',
+    ];
+    let cursor = -1;
+    for (const marker of markers) {
+      const at = d.indexOf(marker);
+      expect(at, marker).toBeGreaterThan(cursor);
+      cursor = at;
+    }
+    // Blog/team teasers after the benefits are page chrome.
+    expect(d).not.toContain('Lerne dein Team kennen');
+    // Only the page's own text and headings: no invented application line,
+    // no parser-side labels (the facts stay structured fields).
+    expect(d).not.toMatch(/Onlyfy|Candidat|Bewirb dich über/);
+    expect(d).not.toMatch(/^## (?:Wichtige Eckdaten|Überblick|Bewerbung)$/m);
+    expect([...d.matchAll(/^## (.+)$/gm)].map((m) => m[1])).toEqual([
+      'Was du bei uns bewegen kannst',
+      'Was du mitbringst',
+      'Was wir dir bieten',
+    ]);
+    expect(detail).toMatchObject({ area: 'Operations', location: 'Baar', workload: '100%' });
+  });
+
+  it('drops the legacy placeholder titles and untranslated locale copies, keeps real translations', () => {
+    const scrubbed = scrubRittmeyerLegacyLocaleCopies({
+      title: 'Teamleiter Lager & Logistik (a)',
+      sourceLang: 'de',
+      titleByLocale: {
+        it: 'Team Leader Magazzino e Logistica (a)',
+        en: 'Sales Project Engineer (m/f/x) Ticino',
+        de: 'Teamleiter Lager & Logistik (a)',
+        fr: 'Ingenieur commercial projets Tessin',
+      },
+      descriptionByLocale: {
+        de: 'Wir suchen eine engagierte Führungspersönlichkeit für unser Lager und die Logistik in Baar.',
+        it: 'Cerchiamo una personalità dirigenziale impegnata per il nostro magazzino e la logistica a Baar.',
+        en: '## Overview\nWir suchen eine engagierte Führungspersönlichkeit für unser Lager und die Logistik in Baar.',
+        fr: '## Aperçu\nWir suchen eine engagierte Führungspersönlichkeit für unser Lager und die Logistik in Baar.',
+      },
+    });
+    expect(scrubbed.titleByLocale).toEqual({
+      it: 'Team Leader Magazzino e Logistica (a)',
+      de: 'Teamleiter Lager & Logistik (a)',
+    });
+    expect(Object.keys(scrubbed.descriptionByLocale).sort()).toEqual(['de', 'it']);
+
+    // The pinned snapshot job (slice 995a6583431): the Italian source slot of
+    // the old builder and its copies ended with an invented application line.
+    const legacy = scrubRittmeyerLegacyLocaleCopies({
+      title: 'Sales Project Engineer (a) Ticino',
+      sourceLang: 'de',
+      descriptionByLocale: {
+        de: 'Wir suchen eine engagierte Persönlichkeit für den Verkauf im Tessin.',
+        it: '## Panoramica\nCerchiamo una persona motivata per il nostro team di vendita interno.\n\n## Candidatura\nCandidati tramite il portale ufficiale Rittmeyer/Onlyfy.',
+      },
+    });
+    expect(Object.keys(legacy.descriptionByLocale)).toEqual(['de']);
+  });
+
+  it('drops the source title copied into another locale and flags the retranslation (review #10333)', () => {
+    const scrubbed = scrubRittmeyerLegacyLocaleCopies({
+      title: 'Titel Deutsch',
+      sourceLang: 'de',
+      titleByLocale: { de: 'Titel Deutsch', it: 'Titel Deutsch' },
+      descriptionByLocale: { de: 'Wir suchen eine engagierte Persönlichkeit für unser Team in Baar.' },
+    });
+    expect(scrubbed.titleByLocale).not.toHaveProperty('it');
+    expect(scrubbed.titleByLocale.de).toBe('Titel Deutsch');
+    expect(scrubbed.needsRetranslation).toBe(true);
+  });
+
+  it('matches legacy and Onlyfy URLs by normalized title and location', () => {
+    const legacy = {
+      url: 'https://karriere.rittmeyer.com/offene-stellen/legacy-0441e237-ebd9-4263-9fe5-e21facbd03ba/',
+      title: 'Engineer',
+      location: 'Camorino',
+    };
+    const onlyfy = {
+      url: 'https://brugg.onlyfy.jobs/en/job/new-8f6d1a2b-3c4d-4e5f-8a9b-0c1d2e3f4a5b/',
+      title: 'Engineer',
+      location: 'Camorino',
+    };
+
+    expect(jobMatchKey(legacy)).toBe('title:engineer|location:camorino');
+    expect(jobMatchKey(onlyfy)).toBe(jobMatchKey(legacy));
+  });
+});
+
+// ─── Site resolver (regression: Camorino jobs were getting Baar HQ postal) ──
+
+describe('resolveRittmeyerSiteAddress', () => {
+  it('maps the German label "Tessin" to Camorino TI 6528', () => {
+    const site = resolveRittmeyerSiteAddress('Tessin');
+    expect(site.canton).toBe('TI');
+    expect(site.postalCode).toBe('6528');
+    expect(site.streetAddress).toBe('Via Sottomontagna 9');
+    expect(site.addressLocality).toBe('Camorino');
+  });
+
+  it('maps "Romanshorn" to TG, not TI', () => {
+    const site = resolveRittmeyerSiteAddress('Romanshorn');
+    expect(site.canton).toBe('TG');
+    expect(site.postalCode).toBe('8590');
+    expect(site.addressLocality).toBe('Romanshorn');
+  });
+
+  it('maps "Baar" to ZG (HQ)', () => {
+    const site = resolveRittmeyerSiteAddress('Baar');
+    expect(site.canton).toBe('ZG');
+    expect(site.postalCode).toBe('6340');
+    expect(site.streetAddress).toBe('Inwilerriedstrasse 57');
+  });
+
+  it('falls back to Baar HQ for empty input', () => {
+    const site = resolveRittmeyerSiteAddress('');
+    expect(site.key).toBe('baar');
+  });
+
+  it('infers the canton for an off-registry Swiss site, never forging Baar HQ', () => {
+    // Nationwide crawl can surface a 4th Swiss site. Resolve its real canton
+    // from the source location text and keep street/postal empty (safe-default
+    // downstream) instead of forging the Baar ZG address onto it.
+    const site = resolveRittmeyerSiteAddress('Bern');
+    expect(site.canton).toBe('BE');
+    expect(site.addressLocality).toBe('Bern');
+    expect(site.postalCode).toBe('');
+    expect(site.streetAddress).toBe('');
+    // Must NOT carry the Baar HQ postal/street/canton.
+    expect(site.canton).not.toBe('ZG');
+    expect(site.postalCode).not.toBe('6340');
+  });
+
+  it('falls back to Baar HQ only when the canton cannot be inferred', () => {
+    const site = resolveRittmeyerSiteAddress('Atlantis');
+    expect(site.key).toBe('baar');
+    expect(site.canton).toBe('ZG');
+  });
+
+  it('registry exposes Camorino with verified Via Sottomontagna 9 address', () => {
+    const camorino = RITTMEYER_SITES.find((s) => s.key === 'camorino');
+    expect(camorino?.streetAddress).toBe('Via Sottomontagna 9');
+    expect(camorino?.postalCode).toBe('6528');
+    // Regression guard: must NOT carry the Baar HQ postal/street.
+    expect(camorino?.postalCode).not.toBe('6340');
+    expect(camorino?.streetAddress).not.toBe('Inwilerriedstrasse 57');
+  });
+});

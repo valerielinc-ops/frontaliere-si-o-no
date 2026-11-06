@@ -1,0 +1,416 @@
+/**
+ * The platform registry — the loop's memory, and the reason it compounds.
+ *
+ * A "platform" is a hosted ATS / careers-site vendor: one registrable domain
+ * serving many employers, each on its own subdomain or path. Learning ONE
+ * platform is worth more than learning one employer by exactly the number of
+ * tenants it has, because a single family parser then reads all of them.
+ *
+ * Lifecycle of an entry:
+ *
+ *   candidate  — seen once, as the careers outlink of a single employer.
+ *                Not actionable: could just be that employer's second domain.
+ *   confirmed  — seen for >= PLATFORM_CONFIRM_THRESHOLD unrelated employers.
+ *                Tenant enumeration is now allowed to run against it.
+ *   supported  — a family extractor exists, so new tenants cost ~0 to onboard.
+ *   rejected   — measured and dismissed (aggregator, CMS, false cluster).
+ *
+ * Nothing here is hand-seeded with a vendor list. Entries arrive from
+ * measurement — outlink clustering and apply-URL clustering — so the registry
+ * reflects the market the loop actually observes, including vendors nobody
+ * would have thought to type in.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { PLATFORMS_PATH, PLATFORM_CONFIRM_THRESHOLD, NON_PLATFORM_HOSTS } from './config.mjs';
+import { registrableDomain, normalizeHost, sameOrg } from './registrable.mjs';
+
+/** @typedef {'candidate'|'confirmed'|'supported'|'rejected'} PlatformStatus */
+
+/**
+ * @typedef {Object} Platform
+ * @property {string} domain            registrable domain of the vendor
+ * @property {PlatformStatus} status
+ * @property {string} [family]          extractor family key once supported
+ * @property {string[]} seenOn          registrable domains of employers pointing here
+ * @property {string[]} markers         HTML fingerprints observed on tenant pages
+ * @property {string[]} hostSamples     example tenant hosts
+ * @property {'subdomain'|'shared'|'mixed'|'unknown'} tenantShape
+ * @property {Record<string, number>} hostHits  full host -> employers seen on it
+ * @property {Record<string, string[]>} hostEmployers full host -> verified employer domains seen on it
+ * @property {Record<string, boolean>} hostEmployerUnknown full host -> an owner could not be verified
+ * @property {Record<string, number>} pathHits     first DETAIL url segment -> times seen
+ * @property {string[]} listingPaths                 listing paths learned from our own adapters
+ * @property {number} tenantCount
+ * @property {string} [lastExpandedAt]               last enumeration attempt
+ * @property {number} [expansionAttempts]            number of enumeration attempts
+ * @property {number} [expansionProbeOffset]          next position in the ranked tenant probe queue
+ * @property {{ host: string, attempts: number }[]} [expansionRetryHosts] transient tenant probes due for another attempt
+ * @property {{ at: string, outcome: string, discoveredHosts: number, liveTenants: number, probeLimitReached: boolean, sources: Record<string, { outcome: string, items: number, errorCode: string|null }> }} [lastExpansion]
+ * @property {string} discoveredAt
+ * @property {string} [note]
+ */
+
+const EMPTY = { version: 1, updatedAt: null, platforms: {} };
+
+/**
+ * @param {string} [file]
+ * @returns {{ version: number, updatedAt: string|null, platforms: Record<string, Platform> }}
+ */
+export function loadRegistry(file = PLATFORMS_PATH) {
+  let text;
+  try {
+    text = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return structuredClone(EMPTY);
+    throw new Error(`Cannot read Prospector platform registry at ${file}`, { cause: error });
+  }
+
+  let raw;
+  try {
+    raw = JSON.parse(text);
+  } catch (error) {
+    throw new Error(`Malformed Prospector platform registry at ${file}`, { cause: error });
+  }
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)
+    || !raw.platforms || typeof raw.platforms !== 'object' || Array.isArray(raw.platforms)) {
+    throw new Error(`Invalid Prospector platform registry shape at ${file}`);
+  }
+  return raw;
+}
+
+/**
+ * @param {ReturnType<typeof loadRegistry>} registry
+ * @param {string} [file]
+ */
+export function saveRegistry(registry, file = PLATFORMS_PATH) {
+  registry.updatedAt = new Date().toISOString();
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  const tmp = `${file}.tmp`;
+  fs.writeFileSync(tmp, `${JSON.stringify(registry, null, 2)}\n`);
+  fs.renameSync(tmp, file);
+}
+
+/**
+ * Is this host even eligible to be a platform?
+ *
+ * Rejects the social/CDN/aggregator denylist and bare registrable domains with
+ * no subdomain AND no path — a link to `https://example.com/` carries no
+ * tenant signal at all.
+ *
+ * @param {string} host
+ * @returns {boolean}
+ */
+export function isPlatformEligible(host) {
+  const h = normalizeHost(host);
+  if (!h || !h.includes('.')) return false;
+  const reg = registrableDomain(h);
+  if (NON_PLATFORM_HOSTS.has(reg) || NON_PLATFORM_HOSTS.has(h)) return false;
+  // Anything under a government or academic suffix is an institution, not a vendor.
+  if (/\.(admin|gov)\.[a-z]{2}$/.test(reg) || reg.endsWith('.admin.ch')) return false;
+  return true;
+}
+
+/**
+ * Return an employer's registrable domain only when the input is domain-shaped.
+ * Crawler feeds also put company names in this field; those are useful as
+ * observations, but must never become verified tenant owners.
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+export function verifiedEmployerDomain(value) {
+  const raw = String(value || '').trim();
+  if (!raw || /\s/.test(raw)) return '';
+  const host = normalizeHost(raw);
+  if (host.length > 253) return '';
+  const labels = host.split('.');
+  if (labels.length < 2 || labels.some((label) => label.length > 63
+    || !/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label))) return '';
+  const tld = labels.at(-1);
+  if (!/^(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})$/i.test(tld)) return '';
+  const domain = registrableDomain(host);
+  // Reject public suffixes such as `co.uk`, which are domain-shaped but do not
+  // identify an employer.
+  return domain.includes('.') && registrableDomain(`owner.${domain}`) === domain ? domain : '';
+}
+
+/**
+ * Record that `employerDomain` publishes its vacancies on `tenantHost`.
+ * Promotes candidate -> confirmed once enough UNRELATED employers agree.
+ *
+ * The "unrelated" test is what keeps a corporate group from confirming itself:
+ * `acme.ch` and `acme-group.com` pointing at `jobs.acme.com` is one employer,
+ * not two, and `sameOrg` collapses them.
+ *
+ * @param {ReturnType<typeof loadRegistry>} registry
+ * @param {{ tenantHost: string, employerDomain?: string, markers?: string[], note?: string, path?: string }} obs
+ * @returns {{ platform: Platform|null, promoted: boolean, created: boolean }}
+ */
+export function observePlatform(registry, { tenantHost, employerDomain, markers = [], note, path }) {
+  const host = normalizeHost(tenantHost);
+  if (!isPlatformEligible(host)) return { platform: null, promoted: false, created: false };
+  const domain = registrableDomain(host);
+  const employer = verifiedEmployerDomain(employerDomain);
+  // The employer's own domain is never a platform, however many subdomains it has.
+  if (employer && sameOrg(domain, employer)) return { platform: null, promoted: false, created: false };
+
+  let created = false;
+  let p = registry.platforms[domain];
+  if (!p) {
+    created = true;
+    p = registry.platforms[domain] = {
+      domain,
+      status: 'candidate',
+      seenOn: [],
+      markers: [],
+      hostSamples: [],
+      tenantShape: 'unknown',
+      hostHits: {},
+      hostEmployers: {},
+      hostEmployerUnknown: {},
+      pathHits: {},
+      tenantCount: 0,
+      discoveredAt: new Date().toISOString(),
+    };
+  }
+  if (note) p.note = note;
+
+  if (employer && !p.seenOn.some((d) => sameOrg(d, employer))) p.seenOn.push(employer);
+  if (!p.hostSamples.includes(host)) p.hostSamples = [...p.hostSamples, host].slice(0, 25);
+  for (const m of markers) if (m && !p.markers.includes(m)) p.markers.push(m);
+
+  // Classify the vendor by WHERE the tenant id sits, because the two shapes
+  // need completely different expansion strategies:
+  //
+  //   subdomain — each employer gets its own host
+  //               (`recruitingapp-122706.umantis.com`, `vaudoise.softgarden.io`).
+  //               Expandable by enumerating hosts: certificate logs, the web
+  //               index, or probing employer names as tenant ids.
+  //   shared    — every employer sits on ONE host and the tenant id lives in the
+  //               path or query (`apply.refline.ch`, `jobs.dualoo.com`,
+  //               `sozialinfo.ch`). Host enumeration is meaningless here; the
+  //               way in is to crawl that single host's own index, which is
+  //               cheaper still — one crawler picks up every employer on it.
+  //
+  // Decided by counting DISTINCT hosts against distinct employers, not by
+  // whether a subdomain exists: `apply.refline.ch` has a subdomain and is
+  // nonetheless a single shared host, which an is-there-a-dot test gets wrong.
+  p.hostHits = p.hostHits || {};
+  p.hostHits[host] = (p.hostHits[host] || 0) + 1;
+
+  // Counts alone do not tell whether one host is shared by several employers:
+  // a single Umantis tenant can contribute many vacancy URLs. Preserve the
+  // actual employer domains per host so identity keys can rely on host-specific
+  // evidence instead of a platform-wide `mixed` classification.
+  const employerIdentity = verifiedEmployerDomain(employerDomain);
+  p.hostEmployerUnknown = p.hostEmployerUnknown || {};
+  if (!employerIdentity) p.hostEmployerUnknown[host] = true;
+  if (employerIdentity) {
+    p.hostEmployers = p.hostEmployers || {};
+    p.hostEmployers[host] = [...new Set([...(p.hostEmployers[host] || []), employerIdentity])].sort();
+  }
+
+  // Learn WHERE on the host the vacancies sit. Probing a tenant's bare root is
+  // not enough: an Umantis tenant root serves a login form and the listing
+  // lives at /Vacancies, so a root-only probe scored 0 live tenants out of 135
+  // candidate hosts (measured). The first URL segment of vacancies we already
+  // crawl gives that path for free.
+  //
+  // It also reveals the other tenant shape: on shared hosts the first segment
+  // IS the tenant (`live.solique.ch/ottosag`, `apply.refline.ch/424626`), which
+  // is what makes those vendors enumerable at all.
+  if (path) {
+    const seg = `/${String(path).split('/').filter(Boolean)[0] || ''}`;
+    if (seg.length > 1) {
+      p.pathHits = p.pathHits || {};
+      p.pathHits[seg] = (p.pathHits[seg] || 0) + 1;
+    }
+  }
+  const hostCount = Object.keys(p.hostHits).length;
+  const employerCount = Math.max(p.seenOn.length, 1);
+  if (employerCount >= 2) {
+    if (hostCount === 1) p.tenantShape = 'shared';
+    else if (hostCount >= employerCount * 0.6) p.tenantShape = 'subdomain';
+    else p.tenantShape = 'mixed';
+  }
+
+
+  const promoted = p.status === 'candidate' && p.seenOn.length >= PLATFORM_CONFIRM_THRESHOLD;
+  if (promoted) p.status = 'confirmed';
+  return { platform: p, promoted, created };
+}
+
+/**
+ * Listing paths worth probing on this platform's tenants, commonest first.
+ *
+ * A path seen for MANY employers is a fixed part of the vendor's URL scheme
+ * (`/Vacancies`); one seen for a single employer is that employer's own tenant
+ * id and must not be probed against everyone else.
+ *
+ * @param {Platform} platform
+ * @returns {string[]}
+ */
+export function listingPathHints(platform) {
+  // Listing paths learned from our own adapters outrank anything inferred from
+  // detail URLs: they are the page a crawler actually starts from.
+  const learned = platform?.listingPaths || [];
+  const hits = Object.entries(platform?.pathHits || {});
+  if (!hits.length) return learned.slice(0, 3);
+  const shared = hits.filter(([, n]) => n >= 2).sort((a, b) => b[1] - a[1]);
+  const distinct = hits.length;
+  // Nearly every path distinct => the segment is the tenant id, not a fixed
+  // listing path. Nothing generalisable to probe.
+  if (shared.length === 0 || distinct > shared.length * 3) return learned.slice(0, 3);
+  return [...new Set([...learned, ...shared.map(([seg]) => seg)])].slice(0, 4);
+}
+
+/**
+ * True when the first URL segment is the TENANT id rather than a fixed path —
+ * the signature of a shared-host vendor, and what makes one enumerable by
+ * probing employer-name slugs against a single host.
+ *
+ * @param {Platform} platform
+ * @returns {boolean}
+ */
+export function tenantIsInPath(platform) {
+  const hits = Object.entries(platform?.pathHits || {});
+  if (hits.length < 2) return false;
+  return platform.tenantShape === 'shared' && listingPathHints(platform).length === 0;
+}
+
+/**
+ * Shared-host vendors whose first path segment identifies the tenant. These
+ * need a separate, bounded slug-probe budget; host enumeration cannot find
+ * tenants on a single shared host.
+ */
+export function enumerablePathTenantPlatforms(registry) {
+  return sharedHostPlatforms(registry)
+    .filter((platform) => tenantIsInPath(platform))
+    .sort((a, b) => {
+      const aAt = Date.parse(a.lastExpandedAt || '');
+      const bAt = Date.parse(b.lastExpandedAt || '');
+      const aNever = !Number.isFinite(aAt);
+      const bNever = !Number.isFinite(bAt);
+      if (aNever !== bNever) return Number(bNever) - Number(aNever);
+      if (!aNever && aAt !== bAt) return aAt - bAt;
+      return (b.seenOn.length - a.seenOn.length) || a.domain.localeCompare(b.domain);
+    });
+}
+
+/**
+ * The platform an arbitrary host belongs to, if the registry knows it.
+ *
+ * @param {ReturnType<typeof loadRegistry>} registry
+ * @param {string} host
+ * @returns {Platform|null}
+ */
+export function matchPlatform(registry, host) {
+  const domain = registrableDomain(host);
+  const p = registry.platforms[domain];
+  return p && p.status !== 'rejected' ? p : null;
+}
+
+/**
+ * Remember an enumeration attempt, including an empty or failed one. The
+ * rotation must account for attempts rather than only successful discoveries,
+ * otherwise one platform that returns no tenants would monopolise the budget.
+ *
+ * @param {Platform} platform
+ * @param {string} [at]
+ * @returns {Platform}
+ */
+export function recordExpansionAttempt(platform, at = new Date().toISOString()) {
+  platform.lastExpandedAt = at;
+  platform.expansionAttempts = (Number(platform.expansionAttempts) || 0) + 1;
+  return platform;
+}
+
+/**
+ * Persist bounded outcome metadata for the latest tenant enumeration. Raw
+ * response bodies, URLs, and tenant identities stay out of this health record.
+ *
+ * @param {Platform} platform
+ * @param {{ outcome?: string, discovered?: string[], live?: any[], retryHosts?: { host: string, attempts: number }[], probeLimitReached?: boolean, nextProbeOffset?: number, sourceOutcomes?: Record<string, { outcome?: string, items?: number, errorCode?: string|null }> }} result
+ * @param {string} [at]
+ * @returns {Platform}
+ */
+export function recordExpansionResult(platform, result = {}, at = new Date().toISOString()) {
+  const allowed = new Set(['complete', 'partial', 'unavailable', 'malformed']);
+  const outcome = allowed.has(result.outcome) ? result.outcome : 'unavailable';
+  if (Number.isSafeInteger(result.nextProbeOffset) && result.nextProbeOffset >= 0) {
+    platform.expansionProbeOffset = result.nextProbeOffset;
+  }
+  if (Array.isArray(result.retryHosts)) {
+    platform.expansionRetryHosts = result.retryHosts
+      .filter((entry) => entry && typeof entry.host === 'string' && Number.isSafeInteger(entry.attempts)
+        && entry.attempts >= 1 && entry.attempts < 4)
+      .slice(0, 500)
+      .map(({ host, attempts }) => ({ host: normalizeHost(host), attempts }))
+      .filter((entry) => entry.host);
+  }
+  const sources = {};
+  for (const [name, source] of Object.entries(result.sourceOutcomes || {})) {
+    const sourceOutcome = source?.outcome;
+    if (sourceOutcome === 'skipped') continue;
+    const code = String(source?.errorCode || '');
+    sources[name] = {
+      outcome: allowed.has(sourceOutcome) ? sourceOutcome : 'unavailable',
+      items: Number.isFinite(Number(source?.items)) ? Math.max(0, Math.floor(Number(source.items))) : 0,
+      errorCode: /^[a-z0-9_.-]{1,60}$/i.test(code) ? code : null,
+    };
+  }
+  platform.lastExpansion = {
+    at,
+    outcome,
+    discoveredHosts: Array.isArray(result.discovered) ? result.discovered.length : 0,
+    liveTenants: Array.isArray(result.live) ? result.live.length : 0,
+    probeLimitReached: result.probeLimitReached === true,
+    sources,
+  };
+  return platform;
+}
+
+/**
+ * Platforms worth spending enumeration budget on, best first.
+ *
+ * Ranked by expansion recency first, then by employers-seen and tenants-known.
+ * A high-signal vendor still wins ties, but a static ranking would spend every
+ * nightly budget on the same two platforms forever. Entries never attempted
+ * yet are deliberately first; after the first full pass the oldest attempt
+ * rotates back to the front.
+ *
+ * @param {ReturnType<typeof loadRegistry>} registry
+ * @returns {Platform[]}
+ */
+export function enumerablePlatforms(registry) {
+  return Object.values(registry.platforms)
+    .filter((p) => p.status === 'confirmed' || p.status === 'supported')
+    // A shared host has no tenants to enumerate — it is crawled as one source.
+    .filter((p) => p.tenantShape === 'subdomain' || p.tenantShape === 'mixed' || p.tenantShape === 'unknown')
+    .sort((a, b) => {
+      const aAt = Date.parse(a.lastExpandedAt || '');
+      const bAt = Date.parse(b.lastExpandedAt || '');
+      const aNever = !Number.isFinite(aAt);
+      const bNever = !Number.isFinite(bAt);
+      if (aNever !== bNever) return Number(bNever) - Number(aNever);
+      if (!aNever && aAt !== bAt) return aAt - bAt;
+      return (b.seenOn.length - a.seenOn.length)
+        || (b.tenantCount - a.tenantCount)
+        || a.domain.localeCompare(b.domain);
+    });
+}
+
+/**
+ * Shared-host vendors and niche boards: one crawler each, many employers apiece.
+ * Ranked by employers seen, which is the number of employers that ONE crawler
+ * would add — the best return per unit of work anywhere in the loop.
+ *
+ * @param {ReturnType<typeof loadRegistry>} registry
+ * @returns {Platform[]}
+ */
+export function sharedHostPlatforms(registry) {
+  return Object.values(registry.platforms)
+    .filter((p) => (p.status === 'confirmed' || p.status === 'supported') && (p.tenantShape === 'shared' || p.tenantShape === 'mixed'))
+    .sort((a, b) => b.seenOn.length - a.seenOn.length);
+}

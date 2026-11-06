@@ -1,0 +1,26 @@
+{
+  "companyKey": "bellevue-gstaad-ch",
+  "companyName": "Le Grand Bellevue",
+  "companyHost": "hotelcareer.ch",
+  "verifiedEmployerDomain": "bellevue-gstaad.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/le-grand-bellevue-640?intcid=CompanyProfile_CompanyResultList_640"
+  ],
+  "detailTemplate": "/jobs/le-grand-bellevue-640/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Chef de Partie (m/w)",
+    "Commis de Cuisine (m/w)",
+    "Demichef de Partie (m/w)",
+    "Souschef (m/w) Catering & Banquets"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-04T13:28:27.611Z",
+  "candidateKey": "le-grand-bellevue@gstaad"
+}

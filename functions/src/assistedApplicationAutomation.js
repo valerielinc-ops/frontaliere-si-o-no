@@ -1,0 +1,1046 @@
+/**
+ * Orchestrator of the automated assisted application (the second half of the
+ * 1,99 € service, formerly done by hand).
+ *
+ * Split of responsibilities (owner decisions 2026-09-30):
+ *   - GitHub Actions (`assisted-application-agent.yml`) does the heavy work:
+ *     Codex Luna Max drafts the application, and later submits it. It only
+ *     ever receives the order id; it reports back by writing a document in
+ *     `assisted_applications/{id}/automation_events`.
+ *   - This module owns the state, the clocks and the side effects: it starts
+ *     the flow when a CV is verified, applies every event through the pure
+ *     state machine (assistedApplicationFlow.js), sends the e-mails, dispatches
+ *     the workflow and marks the order as submitted.
+ *
+ * Where the state lives:
+ *   - `assisted_applications/{id}/automation/flow` — the full flow (held-by
+ *     reasons, history, candidate feedback and answers). No firestore.rules
+ *     entry matches it, so clients are denied.
+ *   - the order document only mirrors `automationState` and `automationDueAt`
+ *     (the next moment a clock or a watchdog must look at it), because the
+ *     customer can read their order and the sweep needs a queryable field.
+ *
+ * The whole flow is gated by the Remote Config flag
+ * ASSISTED_APPLICATION_AUTOMATION ('true' = on). Default: off.
+ */
+
+import { FieldValue } from 'firebase-admin/firestore';
+import { randomUUID } from 'node:crypto';
+import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
+import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
+import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
+import { postalPacketReadiness } from './assistedApplicationPostalPacket.js';
+import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, needsFactRepair, transition } from './assistedApplicationFlow.js';
+import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
+import { DISPATCH_RECOVERY_DELAY_MS, DISPATCH_RECOVERY_MAX_ATTEMPTS, dispatchRecoveryCountValue, dispatchRecoveryDueAt, preDispatchFailureCode } from './assistedApplicationDispatchRetryPolicy.js';
+import { checkPostingLiveness, resolvePostingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
+import { scheduleFollowups } from './assistedApplicationFollowup.js';
+import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
+import { reconcileSubmissionReceipt } from './assistedApplicationReceiptReconcile.js';
+import { verifySubmissionReceipt } from './lib/submissionReceiptContract.js';
+import { GITHUB_API, getRepoConfig } from './githubProxy.js';
+import { githubApiHeaders } from './githubApiHeaders.js';
+import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
+import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
+
+import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
+export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
+export const AGENT_WORKFLOW = 'assisted-application-agent.yml';
+export const AUTOMATION_SUBCOLLECTION = 'automation';
+export const FLOW_DOC_ID = 'flow';
+export const AUTOMATION_EVENTS_SUBCOLLECTION = 'automation_events';
+export const AI_DRAFTS_SUBCOLLECTION = 'ai_drafts';
+export const AI_DRAFT_DOC_ID = 'current';
+
+/**
+ * A dispatched run that reported nothing for this long is presumed lost.
+ * Longer than the agent job's timeout-minutes (120, three 30-minute Codex
+ * calls in a row): a slow run that is still alive is never dispatched twice.
+ */
+export const RUN_WATCHDOG_MS = 150 * 60 * 1000;
+/** Draft runs at Codex effort max take ~10–15 min; submissions can take longer. */
+export const MAX_DISPATCH_ATTEMPTS = 2;
+const DISPATCH_TIMEOUT_MS = 20_000;
+const SWEEP_BATCH = 50;
+const RUNNER_EVENT_TYPES = new Set([
+  'draft_ready',
+  'draft_failed',
+  'posting_closed',
+  'submit_succeeded',
+  'submit_handoff',
+  'submit_needs_candidate',
+  'submit_failed',
+]);
+const STARTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
+const SUPPORTED_CV_TYPES = new Set(['pdf', 'docx', 'doc']);
+
+export function orderRefFor(db, orderId) {
+  return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
+}
+
+export function flowRefFor(db, orderId) {
+  return orderRefFor(db, orderId).collection(AUTOMATION_SUBCOLLECTION).doc(FLOW_DOC_ID);
+}
+
+export function draftRefFor(db, orderId) {
+  return orderRefFor(db, orderId).collection(AI_DRAFTS_SUBCOLLECTION).doc(AI_DRAFT_DOC_ID);
+}
+
+function candidateQuestionAnswersRefFor(db, userId) {
+  const id = String(userId || '').trim();
+  return id ? db.collection('user_cv_profiles').doc(id) : null;
+}
+
+async function candidateQuestionAnswerContext({ db, transaction, orderId, order, profileSnapshot, flow, draft, nowMs }) {
+  const context = await loadRunnerAnswerContext({
+    db, orderId, order, flow, draft, nowMs,
+    profileRecord: profileSnapshot?.data() || {},
+    getDocument: ref => transaction.get(ref),
+  });
+  return { answers: context.flow.answers, questionAnswers: context.flow.questionAnswers,
+    orderAnswers: context.orderAnswers, orderAnswerSnapshots: context.orderAnswerSnapshots,
+    orderAnswerSnapshotIds: context.orderAnswerSnapshotIds, orderAnswerCompatibility: context.orderAnswerCompatibility,
+    orderAnswerConfirmationHashes: context.orderAnswerConfirmationHashes, orderAnswerSources: context.orderAnswerSources };
+}
+
+/** Fails closed: any error reading Remote Config means "off". */
+async function readAutomationFlag(read) {
+  try {
+    return parseAutomationFlag(await (read || getRemoteConfigValue)(AUTOMATION_FLAG_KEY));
+  } catch (error) {
+    console.warn('[assistedApplicationAutomation] flag read failed', error instanceof Error ? error.message : String(error));
+    return parseAutomationFlag('');
+  }
+}
+
+/** On for at least one order: the sweeps run (they only touch orders that have a flow). */
+export async function isAutomationEnabled(read = null) {
+  const flag = await readAutomationFlag(read);
+  return flag.all || flag.orders.size > 0;
+}
+
+/** On for this order: whatever creates a flow or changes its e-mails asks this. */
+export async function isAutomationEnabledFor(orderId, read = null) {
+  const flag = await readAutomationFlag(read);
+  return flag.all || flag.orders.has(String(orderId || ''));
+}
+
+/** The order's CV passed the magic-byte check for its current key. */
+export function isCvReady(order) {
+  const check = order?.cvFileCheck;
+  return Boolean(order?.cvStorageKey && check && check.key === order.cvStorageKey && check.verdict === 'ok');
+}
+
+export function automationEligibility(order, orderId) {
+  if (!order || order.paymentStatus !== 'paid') return { eligible: false, reason: 'not_paid' };
+  if (!STARTABLE_STATUSES.has(order.submissionStatus)) return { eligible: false, reason: 'order_closed' };
+  if (order.refundStatus === 'pending') return { eligible: false, reason: 'refund_in_progress' };
+  if (!isAssistedApplicationCvKey(orderId, order.cvStorageKey)) return { eligible: false, reason: 'cv_missing' };
+  if (!isCvReady(order)) return { eligible: false, reason: 'cv_not_verified' };
+  if (!SUPPORTED_CV_TYPES.has(order.cvFileCheck.detectedType)) return { eligible: false, reason: 'cv_format_unsupported' };
+  return { eligible: true, reason: null };
+}
+
+/** Backfill old fact-held orders into the normal scheduled recovery, without dispatching here. */
+export async function reconcileFactRepairSchedule({ db, orderId, apply = false }) {
+  return db.runTransaction(async (transaction) => {
+    const orderRef = orderRefFor(db, orderId);
+    const [orderSnapshot, flowSnapshot] = await Promise.all([
+      transaction.get(orderRef), transaction.get(flowRefFor(db, orderId)),
+    ]);
+    const order = orderSnapshot.data() || {};
+    const flow = flowSnapshot.data() || {};
+    if (order.paymentStatus !== 'paid' || !STARTABLE_STATUSES.has(order.submissionStatus)
+      || order.refundStatus === 'pending' || !needsFactRepair(flow) || order.automationDueAt === 1) return { changed: false };
+    if (apply) transaction.set(orderRef, { automationDueAt: 1 }, { merge: true });
+    return { changed: true };
+  });
+}
+
+/** Next moment the sweep must look at this flow (clock, reminder or watchdog). */
+export function computeDueAt(flow) {
+  if (!flow) return null;
+  if (needsFactRepair(flow)) return 1;
+  if (flow.state === 'owner_takeover') {
+    return draftRetryDueAt(flow) || portalRetryDueAt(flow);
+  }
+  if (TERMINAL_STATES.has(flow.state)) return null;
+  if (['drafting', 'regenerating', 'submitting'].includes(flow.state)) {
+    const dispatchRecoveryAt = dispatchRecoveryDueAt(flow);
+    if (dispatchRecoveryAt) return dispatchRecoveryAt;
+    const requestedAt = Number(flow.dispatch?.requestedAt) || 0;
+    return requestedAt ? requestedAt + RUN_WATCHDOG_MS : null;
+  }
+  const candidates = [flow.deadlineAt, flow.reminderAt].map(Number).filter((value) => Number.isFinite(value) && value > 0);
+  return candidates.length ? Math.min(...candidates) : null;
+}
+
+/**
+ * Queue one retry only when Remote Config failed before the GitHub POST. A
+ * network error after the POST is intentionally not accepted here: its
+ * outcome is ambiguous and the existing watchdog remains the safe authority.
+ */
+export async function scheduleDispatchRecovery({ db, orderId, nowMs = Date.now(), failureCode } = {}) {
+  if (!preDispatchFailureCode({ code: failureCode })) return { scheduled: false, ignored: 'failure_not_pre_dispatch' };
+  return db.runTransaction(async transaction => {
+    const orderRef = orderRefFor(db, orderId);
+    const flowRef = flowRefFor(db, orderId);
+    const [orderSnapshot, flowSnapshot] = await Promise.all([
+      transaction.get(orderRef), transaction.get(flowRef),
+    ]);
+    const order = orderSnapshot.data() || {};
+    const flow = flowSnapshot.data() || {};
+    if (order.paymentStatus !== 'paid' || !STARTABLE_STATUSES.has(order.submissionStatus)
+      || !['drafting', 'regenerating', 'submitting'].includes(flow.state)
+      || order.withdrawnAt || order.purgingAt || order.purgedAt
+      || order.submissionStatus === 'submitted' || order.submissionStatus === 'withdrawn'
+      || order.submissionStatus === 'refunded' || order.refundStatus === 'pending'
+      || order.refundStatus === 'succeeded' || order.refundStatus === 'refunded') {
+      return { scheduled: false, ignored: 'dispatch_not_active' };
+    }
+    const dispatch = flow.dispatch || {};
+    if (!['draft', 'submit'].includes(dispatch.mode)) return { scheduled: false, ignored: 'dispatch_mode_missing' };
+    if (dispatch.mode === 'submit') {
+      const submission = (await transaction.get(submissionRefFor(db, orderId))).data()?.[`r${Number(flow.round) || 1}`] || null;
+      if (submission?.state === 'sent' || isUnconfirmedSubmission(submission)) {
+        return { scheduled: false, ignored: 'submission_outcome_uncertain' };
+      }
+    }
+    const attempts = dispatchRecoveryCountValue(flow);
+    if (attempts === null || attempts >= DISPATCH_RECOVERY_MAX_ATTEMPTS) {
+      return { scheduled: false, ignored: 'dispatch_recovery_limit' };
+    }
+    if (dispatchRecoveryDueAt(flow)) return { scheduled: false, ignored: 'dispatch_recovery_already_scheduled' };
+    const dueAt = nowMs + DISPATCH_RECOVERY_DELAY_MS;
+    // claimWatchdogDispatch increments the watchdog attempt before it calls
+    // the effect. Since this failure happened before the POST, give that
+    // attempt back; the bounded recovery owns the next try.
+    const currentAttempts = Number(dispatch.attempts) || 1;
+    transaction.set(flowRef, {
+      dispatch: { ...dispatch, attempts: Math.max(1, currentAttempts - 1) },
+      dispatchRecoveryAt: dueAt,
+      dispatchRecoveryCount: attempts + 1,
+      updatedAt: nowMs,
+    }, { merge: true });
+    transaction.set(orderRef, { automationDueAt: dueAt }, { merge: true });
+    transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_dispatch_recovery_scheduled', {
+      actor: 'dispatch-recovery',
+      round: Number(flow.round) || 1,
+      mode: dispatch.mode,
+      reason: failureCode,
+      dueAt,
+    }));
+    return { scheduled: true, dueAt };
+  });
+}
+
+function mirrorFields(flow) {
+  return {
+    automationState: flow.state,
+    automationDueAt: computeDueAt(flow),
+    automationUpdatedAt: FieldValue.serverTimestamp(),
+  };
+}
+
+/** Claim a due watchdog atomically with the candidate's possible withdrawal. */
+export async function claimWatchdogDispatch({ db, orderId, nowMs }) {
+  return db.runTransaction(async transaction => {
+    const orderRef = orderRefFor(db, orderId);
+    const flowRef = flowRefFor(db, orderId);
+    const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
+    const order = orderDoc.data();
+    const flow = flowDoc.data();
+    if (!order || order.withdrawnAt || !['drafting', 'regenerating', 'submitting'].includes(flow?.state)) return null;
+    const dueAt = computeDueAt(flow);
+    const attempts = Number(flow.dispatch?.attempts) || 1;
+    if (!dueAt || dueAt > nowMs || attempts >= MAX_DISPATCH_ATTEMPTS) return null;
+    const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
+    const dispatch = { ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 };
+    const nextFlow = { ...flow, dispatch, dispatchRecoveryAt: null, updatedAt: nowMs };
+    transaction.set(flowRef, { dispatch, dispatchRecoveryAt: null, updatedAt: nowMs }, { merge: true });
+    transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
+    return nextFlow;
+  });
+}
+
+/** Repair clocks written before a retry reason was recognized by the mirror.
+ * Only the query index changes; the state machine still owns every retry.
+ */
+export async function reconcilePortalRetrySchedule({ db, orderId, apply = false }) {
+  return db.runTransaction(async transaction => {
+    const orderRef = orderRefFor(db, orderId);
+    const order = (await transaction.get(orderRef)).data();
+    const flow = (await transaction.get(flowRefFor(db, orderId))).data();
+    if (order?.automationState !== 'owner_takeover' || flow?.state !== 'owner_takeover') return { changed: false };
+    const dueAt = computeDueAt(flow);
+    const mirroredDueAt = dueAt || null;
+    if ((order.automationDueAt ?? null) === mirroredDueAt) return { changed: false };
+    if (apply) transaction.set(orderRef, { automationDueAt: mirroredDueAt }, { merge: true });
+    return { changed: true };
+  });
+}
+
+// ── GitHub Actions dispatch ────────────────────────────────────────────────
+
+/**
+ * Dispatch the agent workflow. Only the order id, the mode and the round
+ * leave for GitHub: the repository is public, so nothing personal may appear
+ * in the run's inputs.
+ */
+export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = fetch, getRepoConfigImpl = getRepoConfig }) {
+  const { pat, owner, repo } = await getRepoConfigImpl();
+  if (!pat) throw new Error('github_pat_not_configured');
+  const response = await fetchImpl(`${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/${AGENT_WORKFLOW}/dispatches`, {
+    method: 'POST',
+    headers: githubApiHeaders(pat, { 'Content-Type': 'application/json' }),
+    body: JSON.stringify({ ref: 'main', inputs: { order_id: String(orderId), mode, round: String(round) } }),
+    signal: AbortSignal.timeout(DISPATCH_TIMEOUT_MS),
+  });
+  if (!response.ok) {
+    const body = await response.text().catch(() => '');
+    throw new Error(`agent_dispatch_failed:${response.status}:${body.slice(0, 160)}`);
+  }
+  return { ok: true };
+}
+
+// ── Applying events ────────────────────────────────────────────────────────
+
+/**
+ * Apply one event to one order's flow, atomically, then run its effects.
+ *
+ * @param {object} args
+ * @param {FirebaseFirestore.Firestore} args.db
+ * @param {string} args.orderId
+ * @param {{type:string}} args.event
+ * @param {string} [args.actor] 'runner' | 'candidate' | 'owner:<email>' | 'clock'
+ * @param {(ctx:object)=>Promise<object>} args.runEffect executes one side effect
+ * @param {number} [args.nowMs]
+ * @param {number} [args.expectedRound] rejects a request whose round changed after its precheck
+ * @param {(context:{order:object,flow:object,draft:object|null,orderId:string})=>object} [args.transitionFlowPatch]
+ *   projects owner-controlled configuration into the same transaction before evaluating its transition
+ * @param {(flow:object)=>object} [args.patchFlow] extra fields merged into the next flow
+ * @param {(ctx:object)=>Promise<object>} [args.writeSubmissionReceipt] writes a validated submission
+ *   receipt only after the live transition succeeds, in the same Firestore transaction
+ * @param {FirebaseFirestore.DocumentReference} [args.claimRef] a runner event document: marked
+ *   `appliedAt` in the SAME transaction as the transition, so an error in between can never leave
+ *   an event marked applied with the flow unchanged (a redelivery then applies it)
+ */
+export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), expectedRound = null, transitionFlowPatch = null, patchFlow = null, writeSubmissionReceipt = null, claimRef = null }) {
+  const orderRef = orderRefFor(db, orderId);
+  const flowRef = flowRefFor(db, orderId);
+  const draftRef = draftRefFor(db, orderId);
+  let outcome = null;
+  await db.runTransaction(async (transaction) => {
+    const orderSnapshot = await transaction.get(orderRef);
+    const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, orderSnapshot.data()?.userId);
+    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot] = await Promise.all([
+      transaction.get(flowRef),
+      transaction.get(draftRef),
+      claimRef ? transaction.get(claimRef) : Promise.resolve(null),
+      candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
+    ]);
+    if (claimSnapshot?.data()?.appliedAt) {
+      outcome = { ok: false, ignored: 'already_applied' };
+      return;
+    }
+    // Every deterministic outcome (applied or ignored) marks the event; an
+    // exception aborts the whole transaction and leaves it unmarked.
+    const claim = (result) => {
+      if (claimRef) transaction.set(claimRef, { appliedAt: nowMs, result }, { merge: true });
+    };
+    if (!orderSnapshot.exists || !flowSnapshot.exists) {
+      claim('ignored:no_flow');
+      outcome = { ok: false, ignored: 'no_flow' };
+      return;
+    }
+    const order = orderSnapshot.data() || {};
+    const storedFlow = flowSnapshot.data() || {};
+    const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const flow = transitionFlowPatch
+      ? { ...storedFlow, ...(transitionFlowPatch({ order, flow: storedFlow, draft, orderId }) || {}) }
+      : storedFlow;
+    const postalPacketReady = flow.postalSubmission?.enabled === true
+      ? postalPacketReadiness({ order, orderId, flow, draft }).ready
+      : true;
+    if (Number(expectedRound) && Number(expectedRound) !== Number(flow.round || 1)) {
+      claim('ignored:stale_round');
+      outcome = { ok: false, ignored: 'stale_round', state: flow.state };
+      return;
+    }
+    const candidateAnswerContext = await candidateQuestionAnswerContext({
+      db, transaction, orderId, order, profileSnapshot: candidateProfileSnapshot, flow, draft, nowMs,
+    });
+    // Only source-verified candidate facts can travel between postings or
+    // clear an application hold. The review handler commits direct answers and
+    // their proof before dispatching this event; every unmarked legacy value
+    // stays unknown, including when a document upload re-evaluates the flow.
+    const transitionAnswers = { ...candidateAnswerContext.answers };
+    const flowForTransition = {
+      ...flow,
+      answers: transitionAnswers,
+      questionAnswers: candidateAnswerContext.questionAnswers,
+      questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
+      questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
+      questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility,
+      questionAnswerConfirmationHashes: candidateAnswerContext.orderAnswerConfirmationHashes,
+      questionAnswerSources: candidateAnswerContext.orderAnswerSources,
+    };
+    // A runner event from a superseded round is stale: never let it move the
+    // current round (e.g. a slow draft of round 1 finishing after a rejection).
+    if (RUNNER_EVENT_TYPES.has(event.type) && Number(event.round) && Number(event.round) !== Number(flow.round || 1)) {
+      claim('ignored:stale_round');
+      outcome = { ok: false, ignored: 'stale_round' };
+      return;
+    }
+    const result = transition(flowForTransition, event, {
+      order, draft, answers: transitionAnswers, documents: flow.documents || {}, postalPacketReady, nowMs,
+    });
+    // Recovery can be scheduled before a refund or a manual closure. The
+    // order read in this transaction is authoritative for starting and
+    // continuing a fact-repair chain, including its candidate-review emails.
+    const startsFactRepair = result.effects.some((effect) => effect.type === 'dispatch' && effect.reason === 'fact_repair');
+    const continuesFactRepair = Number(flow.factRepairAttempts) > 0
+      && !['submit_succeeded', 'submit_acknowledged', 'owner_takeover'].includes(event.type);
+    const eligibility = automationEligibility(orderSnapshot.data() || {}, orderId);
+    if ((startsFactRepair || continuesFactRepair) && !eligibility.eligible) {
+      claim(`ignored:${eligibility.reason}`);
+      transaction.set(orderRef, { automationDueAt: null }, { merge: true });
+      outcome = { ok: false, ignored: eligibility.reason, state: flow.state };
+      return;
+    }
+    if (result.ignored) {
+      claim(`ignored:${result.ignored}`);
+      outcome = { ok: false, ignored: result.ignored, state: flow.state };
+      return;
+    }
+    const nextFlow = {
+      ...flow,
+      ...result.flow,
+      ...(patchFlow ? patchFlow(flow) : {}),
+      updatedAt: nowMs,
+    };
+    // A dispatch effect is recorded now, in the same write, so the watchdog
+    // always knows when the run was asked for.
+    const dispatch = result.effects.find((effect) => effect.type === 'dispatch');
+    if (dispatch) {
+      nextFlow.dispatch = {
+        mode: dispatch.mode,
+        round: nextFlow.round,
+        requestedAt: nowMs,
+        // A retry carries its count, so the watchdog and the flow share the limit.
+        attempts: Number(dispatch.attempts) || 1,
+        reason: dispatch.reason || null,
+      };
+    }
+    const persistedFlow = { ...nextFlow, answers: transitionAnswers,
+      questionAnswers: candidateAnswerContext.orderAnswers, questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
+      questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
+      questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility,
+      questionAnswerConfirmationHashes: candidateAnswerContext.orderAnswerConfirmationHashes,
+      questionAnswerSources: candidateAnswerContext.orderAnswerSources };
+    const receiptResult = writeSubmissionReceipt ? await writeSubmissionReceipt({ transaction, flow, order, draft, event, nextFlow: persistedFlow }) : null;
+    const accountFailure = getAccountFailure(event);
+    claim('applied');
+    transaction.set(flowRef, persistedFlow);
+    transaction.set(orderRef, { ...mirrorFields(persistedFlow), ...(receiptResult?.orderPatch || {}) }, { merge: true });
+    transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_transition', {
+      actor: String(actor).slice(0, 120),
+      eventType: event.type,
+      fromState: flow.state || null,
+      toState: persistedFlow.state,
+      round: persistedFlow.round,
+      ...(accountFailure ? { accountFailure } : {}),
+      ...(candidateRequestTelemetryOf(event.candidateRequestTelemetry)
+        ? { candidateRequestTelemetry: candidateRequestTelemetryOf(event.candidateRequestTelemetry) } : {}),
+    }));
+    outcome = { ok: true, fromState: flow.state, flow: nextFlow, effects: result.effects };
+  });
+
+  if (outcome?.ok && runEffect) {
+    outcome.effectResults = [];
+    for (const effect of outcome.effects) {
+      try {
+        outcome.effectResults.push(await runEffect({ db, orderId, effect, flow: outcome.flow, nowMs }));
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error('[assistedApplicationAutomation] effect failed', orderId, effect.type, effect.kind || effect.mode || '', message);
+        const errorCode = String(error?.code || '').trim() || null;
+        const effectResult = { ok: false, effect: effect.type, error: message, errorCode };
+        const preDispatchCode = preDispatchFailureCode({ code: errorCode, message });
+        if (effect.type === 'dispatch' && preDispatchCode) {
+          try {
+            effectResult.recovery = await scheduleDispatchRecovery({
+              db, orderId, nowMs, failureCode: preDispatchCode,
+            });
+          } catch (recoveryError) {
+            console.error('[assistedApplicationAutomation] dispatch recovery scheduling failed', orderId,
+              recoveryError instanceof Error ? recoveryError.message : String(recoveryError));
+            effectResult.recovery = { scheduled: false, error: recoveryError instanceof Error ? recoveryError.message : String(recoveryError) };
+          }
+        }
+        outcome.effectResults.push(effectResult);
+      }
+    }
+  }
+  return outcome || { ok: false, ignored: 'unknown' };
+}
+
+/**
+ * Run one explicitly authorised owner-takeover relaunch.
+ *
+ * The command path must name the same order twice: once as the target and
+ * once as the owner-approved order. There is deliberately no list or
+ * first-match fallback here. The state machine then performs the authoritative
+ * checks for the current flow, draft round and candidate-approved submit
+ * dispatch, and commits at most this one owner_retry_submit transition.
+ */
+export async function relaunchAuthorizedOwnerTakeover({
+  db,
+  orderId,
+  authorizedOrderId,
+  runEffect,
+  nowMs = Date.now(),
+} = {}) {
+  const target = String(orderId || '').trim();
+  const authorized = String(authorizedOrderId || '').trim();
+  if (!ASSISTED_APPLICATION_ORDER_ID_RE.test(target) || target !== authorized) {
+    return { ok: false, ignored: 'order_not_authorized' };
+  }
+  if (typeof runEffect !== 'function') return { ok: false, ignored: 'run_effect_missing' };
+
+  return applyAutomationEvent({
+    db,
+    orderId: target,
+    event: { type: 'owner_retry_submit' },
+    actor: 'owner-takeover-relaunch',
+    runEffect,
+    nowMs,
+  });
+}
+
+// ── Start ──────────────────────────────────────────────────────────────────
+
+/**
+ * Firestore onDocumentWritten for the order: when the CV has just been
+ * verified and automation is on, create the flow and dispatch the first draft.
+ */
+export async function maybeStartAutomation(before, after, orderId, {
+  db,
+  enabled = isAutomationEnabledFor,
+  runEffect,
+  ensureAlias = null,
+  nowMs = Date.now(),
+} = {}) {
+  if (!after) return { ok: true, skipped: 'deleted' };
+  const cvJustReady = isCvReady(after) && !(isCvReady(before) && before?.cvStorageKey === after.cvStorageKey);
+  if (!cvJustReady) return { ok: true, skipped: 'no_new_cv' };
+  const eligibility = automationEligibility(after, orderId);
+  if (!eligibility.eligible) return { ok: true, skipped: eligibility.reason };
+  if (!(await enabled(orderId))) return { ok: true, skipped: 'automation_disabled' };
+  const reopenPending = after.reopenAfterWithdrawal?.status === 'pending';
+  return startAutomation({
+    db,
+    orderId,
+    runEffect,
+    nowMs,
+    reason: reopenPending ? 'owner_reopen_after_withdrawal' : 'cv_verified',
+    ensureAlias,
+  });
+}
+
+/** Create the flow (idempotent) and dispatch the first draft. */
+export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now(), reason = 'owner_request', ensureAlias = null }) {
+  const orderRef = orderRefFor(db, orderId);
+  const flowRef = flowRefFor(db, orderId);
+  const draftRef = draftRefFor(db, orderId);
+  let created = null;
+  await db.runTransaction(async (transaction) => {
+    created = null; // Firestore retries a contended transaction: never keep a previous attempt's result
+    const orderSnapshot = await transaction.get(orderRef);
+    const order = orderSnapshot.data() || {};
+    const [flowSnapshot, draftSnapshot] = await Promise.all([
+      transaction.get(flowRef),
+      transaction.get(draftRef),
+    ]);
+    if (!orderSnapshot.exists) return;
+    const existing = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
+    const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const withdrawalReopen = reason === 'owner_reopen_after_withdrawal'
+      && existing?.state === 'withdrawn'
+      && order.reopenAfterWithdrawal?.status === 'pending'
+      && String(order.reopenAfterWithdrawal.requestId || '').length > 0;
+    // A live flow is never restarted; a finished takeover can be restarted by the owner.
+    // A withdrawn flow is restartable only after the explicit owner-only CV replacement
+    // operation has written its pending marker and reset the paid order to in_progress.
+    if (existing && !((reason === 'owner_request' && existing.state === 'owner_takeover') || withdrawalReopen)) return;
+    if (!automationEligibility(order, orderId).eligible) return;
+    const orderContext = orderQuestionAnswerContext({ orderId, order, flow: existing || {}, draft, nowMs });
+    const round = withdrawalReopen ? Math.max(1, Number(existing.round) || 1) + 1 : 1;
+    const flow = {
+      state: 'drafting',
+      round,
+      deadlineAt: null,
+      reminderAt: null,
+      reminderSentAt: null,
+      heldBy: [],
+      // No draft of this flow has reached the candidate yet (assistedApplicationFlow.js roundsShown).
+      shownRounds: [],
+      ...(existing?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+        ? { orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION }
+        : {}),
+      feedback: withdrawalReopen ? [] : existing?.feedback || [],
+      answers: orderContext.answers,
+      // Keep only order-local answers in Firestore. Verified cross-posting
+      // facts are reloaded for the runner's execution context and not copied
+      // into another order's retention window.
+      questionAnswers: orderContext.orderAnswers,
+      questionAnswerSnapshots: orderContext.questionAnswerSnapshots,
+      questionAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds,
+      questionAnswerCompatibility: orderContext.questionAnswerCompatibility,
+      questionAnswerConfirmationHashes: orderContext.questionAnswerConfirmationHashes,
+      questionAnswerSources: orderContext.questionAnswerSources,
+      history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
+      dispatch: { mode: 'draft', round, requestedAt: nowMs, attempts: 1, reason },
+      startedAt: nowMs,
+      updatedAt: nowMs,
+    };
+    transaction.set(flowRef, flow);
+    transaction.set(orderRef, {
+      ...mirrorFields(flow),
+      ...(withdrawalReopen ? {
+        reopenAfterWithdrawal: {
+          ...order.reopenAfterWithdrawal,
+          status: 'started',
+          startedAt: nowMs,
+        },
+      } : {}),
+    }, { merge: true });
+    transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_transition', {
+      actor: 'system',
+      eventType: `start:${reason}`,
+      fromState: existing?.state || null,
+      toState: 'drafting',
+      round,
+    }));
+    created = flow;
+  });
+  if (!created) return { ok: true, skipped: 'already_started_or_ineligible' };
+  // The alias must exist before the draft: the runner writes it into the
+  // letter, the e-mail signature and the portal answers. Best-effort — an
+  // inactive alias makes the runner fall back to the candidate's address.
+  if (ensureAlias) {
+    try {
+      await ensureAlias({ db, orderId, nowMs });
+    } catch (error) {
+      console.error('[assistedApplicationAutomation] alias not created', orderId, error instanceof Error ? error.message : String(error));
+    }
+  }
+  if (runEffect) {
+    try {
+      await runEffect({ db, orderId, effect: { type: 'dispatch', mode: 'draft', reason }, flow: created, nowMs });
+    } catch (error) {
+      console.error('[assistedApplicationAutomation] first dispatch failed', orderId, error instanceof Error ? error.message : String(error));
+      const preDispatchCode = preDispatchFailureCode(error);
+      if (preDispatchCode) {
+        await scheduleDispatchRecovery({
+          db, orderId, nowMs, failureCode: preDispatchCode,
+        }).catch(recoveryError => console.error('[assistedApplicationAutomation] first dispatch recovery scheduling failed', orderId,
+          recoveryError instanceof Error ? recoveryError.message : String(recoveryError)));
+      }
+      // The watchdog re-dispatches within RUN_WATCHDOG_MS.
+    }
+  }
+  return { ok: true, started: true };
+}
+
+// ── Sweep (clocks, reminders, watchdog) ────────────────────────────────────
+
+// How long the sweep waits for the look at one ad. A posting's page, its ATS and its redirects each have their
+// own timeout, and together they can outlast the sweep's run, which serves every due order: a look that takes
+// longer says nothing, and the reminder goes out.
+export const POSTING_LOOK_MS = 15_000;
+// How many ads are looked at together. A whole batch of due reminders (SWEEP_BATCH, 50) is then looked at in
+// 50 / 10 × 15 s = 75 s at worst, inside the 120 s of the scheduled sweep (functions/index.js) with room for
+// the ticks; one at a time it would take 750 s (review of #12366).
+export const POSTING_LOOKS_AT_ONCE = 10;
+
+/** The look's answer, or false when it fails or outlasts `ms`. */
+function lookWithin(look, ms) {
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(false), ms);
+    timer.unref?.();
+    Promise.resolve().then(look).then((closed) => resolve(Boolean(closed)), () => resolve(false)).finally(() => clearTimeout(timer));
+  });
+}
+
+/** `work` over `items`, at most `size` at a time. */
+async function pooled(items, size, work) {
+  let next = 0;
+  const worker = async () => {
+    while (next < items.length) {
+      const item = items[next];
+      next += 1;
+      await work(item);
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(size, items.length) }, worker));
+}
+
+/**
+ * The due orders whose ad says it is closed, looked at before the ticks and several at once. Only an order
+ * with a reminder to its candidate due is looked at (CANDIDATE_REMINDER_STATES, by the state the order
+ * mirrors, then by its flow's own reminder).
+ * @returns {Promise<Set<string>>} their ids
+ */
+async function closedPostingsAmong({ db, docs, nowMs, postingClosed, postingLookMs }) {
+  const closed = new Set();
+  // An order that mirrors no state yet is read too: its flow says.
+  const candidates = docs.filter((doc) => !doc.data()?.automationState || CANDIDATE_REMINDER_STATES.has(doc.data().automationState));
+  await pooled(candidates, POSTING_LOOKS_AT_ONCE, async (doc) => {
+    const flow = (await flowRefFor(db, doc.id).get().catch(() => null))?.data() || {};
+    const reminderDue = CANDIDATE_REMINDER_STATES.has(flow.state) && Number(flow.reminderAt) > 0 && Number(flow.reminderAt) <= nowMs;
+    if (reminderDue && await lookWithin(() => postingClosed({ db, orderId: doc.id, order: doc.data() || {} }), postingLookMs)) closed.add(doc.id);
+  });
+  return closed;
+}
+
+/**
+ * The order's ad says it is closed (assistedApplicationLiveness.js postingSaysClosed), read now at the address
+ * the runner reads before it submits. Any failure reads as «not known closed»: the reminder then goes out.
+ */
+export async function postingClosedForOrder({ db, orderId, order, fetchImpl = fetch, resolve }) {
+  const draftSnapshot = await draftRefFor(db, orderId).get();
+  const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
+  const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve });
+  return postingSaysClosed(await checkPostingLiveness({ order, posting: { postingUrl }, fetchImpl, resolve }));
+}
+
+/**
+ * Every few minutes: fire due clocks and reminders, and re-dispatch (once) a
+ * run that never reported back; a second silence hands the order to Valerie.
+ * `postingClosed` (functions/index.js passes postingClosedForOrder): asked before a reminder to a candidate,
+ * so that none goes out for an ad that closed (owner decision 2026-10-08). Left out, no ad is looked at.
+ * `postingLookMs`: how long one look may take (POSTING_LOOK_MS).
+ */
+export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), postingClosed = null, postingLookMs = POSTING_LOOK_MS } = {}) {
+  const [automationSnapshot, receiptSnapshot] = await Promise.all([
+    db.collection(ASSISTED_APPLICATIONS_COLLECTION).where('automationDueAt', '<=', nowMs).limit(SWEEP_BATCH).get(),
+    db.collection(ASSISTED_APPLICATIONS_COLLECTION).where('submissionReceiptDueAt', '<=', nowMs).limit(SWEEP_BATCH).get(),
+  ]);
+  const docs = [];
+  const seen = new Set();
+  const sources = [receiptSnapshot.docs || [], automationSnapshot.docs || []];
+  for (let index = 0; index < SWEEP_BATCH && docs.length < SWEEP_BATCH; index += 1) {
+    for (const source of sources) {
+      const doc = source[index];
+      if (doc && !seen.has(doc.id)) { seen.add(doc.id); docs.push(doc); }
+    }
+  }
+  const summary = { ticks: 0, redispatched: 0, portalRetries: 0, factRepairs: 0, timedOut: 0, ignored: 0, failed: 0, refunds: 0, receiptsReconciled: 0 };
+  // Automatic refunds that failed (closed ad): retried until they go through
+  // or the effect gives up and alerts the owner.
+  const refunds = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
+    .where('automationRefundDueAt', '<=', nowMs)
+    .limit(SWEEP_BATCH)
+    .get();
+  for (const doc of refunds.docs || []) {
+    try {
+      const pending = doc.data()?.automationRefund || {};
+      const flowSnapshot = await flowRefFor(db, doc.id).get();
+      await runEffect({ db, orderId: doc.id, effect: { type: 'refund', reason: pending.reason || 'posting_closed', notify: pending.notify || null }, flow: flowSnapshot.data() || {}, nowMs });
+      summary.refunds += 1;
+    } catch (error) {
+      summary.failed += 1;
+      console.error('[assistedApplicationAutomation] refund retry failed for order', doc.id, error instanceof Error ? error.message : String(error));
+    }
+  }
+  // The ads of the orders about to be reminded, looked at together before any tick (closedPostingsAmong).
+  const closedPostings = postingClosed
+    ? await closedPostingsAmong({ db, docs: automationSnapshot.docs || [], nowMs, postingClosed, postingLookMs })
+    : new Set();
+  for (const doc of docs) {
+    try {
+      const flowSnapshot = await flowRefFor(db, doc.id).get();
+      const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
+      if (!flow) {
+        const order = doc.data() || {};
+        const submissionHistory = (await submissionRefFor(db, doc.id).get()).data() || {};
+        const latestSubmissionKey = Object.keys(submissionHistory).filter(key => /^r\d+$/.test(key))
+          .sort((a, b) => Number(b.slice(1)) - Number(a.slice(1)))[0];
+        const submission = latestSubmissionKey ? submissionHistory[latestSubmissionKey] : null;
+        const receiptDueAt = Number(order.submissionReceiptDueAt) || 0;
+        const legacyReceiptNeedsUpgrade = submission?.state === 'sent'
+          && !submission.receipt && !submission.attemptId && !order.submissionReceiptStatus;
+        if ((receiptDueAt > 0 && receiptDueAt <= nowMs) || legacyReceiptNeedsUpgrade) {
+          const receiptResult = await reconcileSubmissionReceipt({
+            db, orderId: doc.id, nowMs, runEffect,
+            applyEvent: args => applyAutomationEvent(args),
+          });
+          if (receiptResult.reconciled) summary.receiptsReconciled += 1;
+        }
+        await orderRefFor(db, doc.id).set({ automationDueAt: null }, { merge: true });
+        summary.ignored += 1;
+        continue;
+      }
+      const order = doc.data() || {};
+      const round = Number(flow.round) || 1;
+      const submission = (await submissionRefFor(db, doc.id).get()).data()?.[`r${round}`] || null;
+      const receiptDueAt = Number(order.submissionReceiptDueAt) || 0;
+      const projectionMissing = flow.state === 'submitted' && order.submissionStatus !== 'submitted';
+      const legacyReceiptNeedsUpgrade = submission?.state === 'sent'
+        && !submission.receipt && !submission.attemptId && !order.submissionReceiptStatus;
+      let receiptResult = null;
+      if ((receiptDueAt > 0 && receiptDueAt <= nowMs) || projectionMissing || legacyReceiptNeedsUpgrade) {
+        receiptResult = await reconcileSubmissionReceipt({
+          db, orderId: doc.id, nowMs, runEffect,
+          applyEvent: args => applyAutomationEvent(args),
+        });
+        if (receiptResult.reconciled) summary.receiptsReconciled += 1;
+      }
+      // A positive send record, even one awaiting its next retry or bounded
+      // review, is never dispatched again.
+      if (submission?.state === 'sent') {
+        if (order.automationDueAt != null) await orderRefFor(db, doc.id).set({ automationDueAt: null }, { merge: true });
+        continue;
+      }
+      if (receiptResult?.receiptVerified) continue;
+      if (flow.state === 'owner_takeover') {
+        const draftRetry = draftRetryDueAt(flow);
+        const event = needsFactRepair(flow)
+          ? { type: 'repair_facts' }
+          : draftRetry && draftRetry <= nowMs
+            ? { type: 'draft_auto_retry' }
+            : { type: 'portal_auto_retry' };
+        const result = await applyAutomationEvent({
+          db,
+          orderId: doc.id,
+          event,
+          actor: needsFactRepair(flow) ? 'fact-recovery' : event.type === 'draft_auto_retry' ? 'draft-recovery' : 'portal-recovery',
+          runEffect,
+          nowMs,
+        });
+        const failedDispatch = result.effectResults?.find(effectResult => effectResult?.effect === 'dispatch' && effectResult.ok === false);
+        if (result.ok && !failedDispatch) {
+          if (needsFactRepair(flow)) summary.factRepairs += 1;
+          else if (event.type === 'draft_auto_retry') summary.redispatched += 1;
+          else summary.portalRetries += 1;
+        } else if (failedDispatch?.recovery?.scheduled) {
+          summary.dispatchRecoveries = (summary.dispatchRecoveries || 0) + 1;
+        } else if (failedDispatch) {
+          summary.failed += 1;
+        }
+        else {
+          summary.ignored += 1;
+          const latest = await flowRefFor(db, doc.id).get();
+          const dueAt = computeDueAt(latest.data() || null);
+          await orderRefFor(db, doc.id).set({ automationDueAt: dueAt && dueAt > nowMs ? dueAt : null }, { merge: true });
+        }
+        continue;
+      }
+      if (['drafting', 'regenerating', 'submitting'].includes(flow.state)) {
+        const attempts = Number(flow.dispatch?.attempts) || 1;
+        const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
+        if (attempts < MAX_DISPATCH_ATTEMPTS) {
+          const claimed = await claimWatchdogDispatch({ db, orderId: doc.id, nowMs });
+          if (!claimed) { summary.ignored += 1; continue; }
+          try {
+            await runEffect({ db, orderId: doc.id, effect: { type: 'dispatch', mode: claimed.dispatch.mode, reason: 'watchdog' }, flow: claimed, nowMs });
+            summary.redispatched += 1;
+          } catch (error) {
+            const preDispatchCode = preDispatchFailureCode(error);
+            if (preDispatchCode) {
+              const recovery = await scheduleDispatchRecovery({ db, orderId: doc.id, nowMs, failureCode: preDispatchCode });
+              if (recovery.scheduled) summary.dispatchRecoveries = (summary.dispatchRecoveries || 0) + 1;
+            }
+            throw error;
+          }
+        } else {
+          const failure = mode === 'submit' ? 'submit_failed' : 'draft_failed';
+          await applyAutomationEvent({ db, orderId: doc.id, event: { type: failure, error: 'runner_timeout' }, actor: 'clock', runEffect, nowMs });
+          summary.timedOut += 1;
+        }
+        continue;
+      }
+      // The flow decides whether a reminder to the candidate is still due (the tick): it may have moved since the look.
+      const postingExpired = closedPostings.has(doc.id);
+      const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'tick', ...(postingExpired ? { postingExpired: true } : {}) }, actor: 'clock', runEffect, nowMs });
+      if (result.ok) summary.ticks += 1;
+      else {
+        summary.ignored += 1;
+        // Nothing due any more (e.g. a clock cleared by a held flag): stop
+        // selecting this order until its flow changes again.
+        await orderRefFor(db, doc.id).set({ automationDueAt: computeDueAt(flow) > nowMs ? computeDueAt(flow) : null }, { merge: true });
+      }
+    } catch (error) {
+      summary.failed += 1;
+      console.error('[assistedApplicationAutomation] sweep failed for order', doc.id, error instanceof Error ? error.message : String(error));
+    }
+  }
+  return summary;
+}
+
+// ── Runner events (automation_events/{id}) ─────────────────────────────────
+
+/**
+ * Firestore onDocumentCreated for `automation_events/{eventId}`: the Actions
+ * runner reports what happened. The document is marked as applied in the
+ * same transaction as the flow's transition (applyAutomationEvent's
+ * claimRef): a redelivered trigger cannot apply it twice, and a failure in
+ * between leaves it unapplied, so the redelivery applies it.
+ */
+export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect, nowMs = Date.now() }) {
+  const type = String(data?.type || '');
+  if (!RUNNER_EVENT_TYPES.has(type)) {
+    await eventRef.set({ appliedAt: nowMs, result: 'unknown_type' }, { merge: true });
+    return { ok: false, ignored: 'unknown_type' };
+  }
+  let round = Number(data?.round) || null;
+  let submission = null;
+  if (type === 'submit_succeeded') {
+    round = round || 1;
+    submission = (await submissionRefFor(db, orderId).get()).data()?.[`r${round}`] || null;
+    const receiptId = String(data.receiptId || '');
+    const validReceipt = /^[a-f0-9]{40}$/.test(receiptId)
+      && submission?.state === 'sent'
+      && data.channel === submission.channel
+      && verifySubmissionReceipt(submission.receipt, {
+        orderId, round, attemptId: submission.attemptId, channel: data.channel,
+        sentRecord: submission.sent && typeof submission.sent === 'object' ? submission.sent : {},
+        receiptId,
+      });
+    if (!validReceipt) {
+      await eventRef.set({ appliedAt: nowMs, result: 'ignored:submission_receipt_missing' }, { merge: true });
+      return { ok: false, ignored: 'submission_receipt_missing' };
+    }
+  }
+  const accountFailure = getAccountFailure(data);
+  const event = {
+    type,
+    round,
+    error: data.error ? String(data.error).slice(0, 120) : undefined,
+    reason: data.reason ? String(data.reason).slice(0, 120) : undefined,
+    ...(accountFailure ? { accountFailure } : {}),
+    questions: Array.isArray(data.questions) ? data.questions.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
+    questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
+    documents: Array.isArray(data.documents) ? data.documents.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
+    ...(candidateRequestTelemetryOf(data.candidateRequestTelemetry)
+      ? { candidateRequestTelemetry: candidateRequestTelemetryOf(data.candidateRequestTelemetry) } : {}),
+    ...(type === 'submit_succeeded' ? { receiptId: String(data.receiptId) } : {}),
+  };
+  const result = await applyAutomationEvent({
+    db,
+    orderId,
+    event,
+    actor: 'runner',
+    runEffect,
+    nowMs,
+    expectedRound: round,
+    patchFlow: type === 'submit_succeeded' && data.channel ? () => ({ submittedVia: String(data.channel).slice(0, 40) }) : null,
+    claimRef: eventRef,
+  });
+  return result;
+}
+
+// ── Employer e-mail on the alias (inbox) ───────────────────────────────────
+
+const ACKNOWLEDGED = Object.freeze({ type: 'submit_acknowledged' });
+
+/**
+ * A send whose outcome was uncertain, now confirmed (Valerie's «Segna come inviata», or the employer's
+ * e-mail on the alias): the record the runner wrote before it (`sentAttempt`,
+ * scripts/assisted-application/lib/submit.mjs) becomes the record of what left (`sent`), with who
+ * confirmed it. Only on the round's own draft; nothing when there is no attempt.
+ * @param {{db, orderId:string, round?:number, confirmedBy:'owner'|'acknowledgement', nowMs?:number}} args
+ * @returns {Promise<boolean>} whether a record was confirmed
+ */
+export async function confirmSentAttempt({ db, orderId, round, confirmedBy, nowMs = Date.now() }) {
+  const ref = draftRefFor(db, orderId);
+  return db.runTransaction(async (transaction) => {
+    const draft = (await transaction.get(ref)).data() || {};
+    const attempt = draft.sentAttempt;
+    if (!attempt || typeof attempt !== 'object' || (round && Number(draft.round) !== Number(round))) return false;
+    transaction.set(ref, { sent: { ...attempt, confirmedBy, confirmedAt: nowMs }, sentAttempt: null }, { merge: true });
+    return true;
+  });
+}
+
+/**
+ * career-ops apply.md: an application is sent on the success page OR the
+ * confirmation e-mail. A submit of unknown outcome (a portal after its final
+ * click, an e-mail send nobody confirmed) stays "sending" in the submission
+ * guard and the flow holds it for Valerie; an acknowledgement or a reply of
+ * the employer on the order's alias proves it arrived. The guard goes on
+ * record as sent, then the flow moves to `submitted` as on submit_succeeded,
+ * and the runner's record of the attempt becomes the record of what left.
+ * Nothing happens when nothing left (no final click: the message is about
+ * something else), for a message older than the send, or once the flow is
+ * past it: a second message finds it submitted.
+ *
+ * @param {{db, orderId:string, receivedAt:number, runEffect:Function, nowMs?:number}} args
+ */
+export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, runEffect, nowMs = Date.now() }) {
+  const flowSnapshot = await flowRefFor(db, orderId).get();
+  if (!flowSnapshot.exists) return { ok: false, ignored: 'no_flow' };
+  const flow = flowSnapshot.data() || {};
+  // The flow's own rule decides first: the guard is never touched for a flow past it.
+  const refused = transition(flow, ACKNOWLEDGED, { nowMs }).ignored;
+  if (refused) return { ok: false, ignored: refused };
+  const guard = submissionGuard(db, orderId, flow.round);
+  const record = await guard.read();
+  const leftAt = submissionLeftAt(record);
+  // Confirmed by an earlier message whose flow event did not land: applied now.
+  const existingReceipt = verifySubmissionReceipt(record?.receipt, {
+    orderId, round: flow.round, attemptId: record?.attemptId, channel: record?.channel,
+    sentRecord: record?.sent && typeof record.sent === 'object' ? record.sent : {},
+  });
+  const confirmedBefore = record?.state === 'sent' && record.confirmedBy === 'acknowledgement';
+  let writeSubmissionReceipt = null;
+  if (!existingReceipt) {
+    if (!confirmedBefore && !isUnconfirmedSubmission(record)) return { ok: false, ignored: 'nothing_unconfirmed' };
+    if (Number(receivedAt) < leftAt) return { ok: false, ignored: 'before_submit' };
+    const attemptId = record.attemptId || `ack-${Math.floor(Number(receivedAt))}`;
+    writeSubmissionReceipt = async ({ transaction, draft }) => guard.markSent({
+      channel: record.channel, sentAt: leftAt, confirmedBy: 'acknowledgement', confirmedAt: nowMs,
+      sent: draft?.sentAttempt || draft?.sent || record.sent || {},
+    }, leftAt || nowMs, {
+      kind: 'employer_acknowledgement', attemptId,
+      observedAt: Number(receivedAt), evidence: { receivedAt: Number(receivedAt) },
+    }, { transaction });
+  }
+  const result = await applyAutomationEvent({
+    db,
+    orderId,
+    event: ACKNOWLEDGED,
+    actor: 'employer_email',
+    runEffect,
+    nowMs,
+    expectedRound: Number(flow.round) || 1,
+    patchFlow: () => ({ submittedVia: record.channel }),
+    writeSubmissionReceipt,
+  });
+  // What the runner was sending is what arrived: its record follows the send (best effort, the flow is settled).
+  if (result.ok) {
+    await confirmSentAttempt({ db, orderId, round: flow.round, confirmedBy: 'acknowledgement', nowMs })
+      .catch((error) => console.warn('[assistedApplicationAutomation] sent record not confirmed', orderId, error instanceof Error ? error.message : String(error)));
+  }
+  if (result.ok && record.channel === 'email') await scheduleConfirmedEmailFollowups(db, orderId, leftAt);
+  return result;
+}
+
+/**
+ * The follow-ups the runner schedules after an e-mail application that went
+ * through; this one's outcome was unknown, so it had none. Its Message-ID is
+ * not on record: the "Re:" subject threads them anyway.
+ */
+async function scheduleConfirmedEmailFollowups(db, orderId, sentAt) {
+  const draft = (await draftRefFor(db, orderId).get()).data() || {};
+  const to = String(draft.applicationEmail?.to || draft.channel?.email || '').trim().toLowerCase();
+  if (!to) return null;
+  return scheduleFollowups(db, orderId, { to, subject: draft.applicationEmail?.subject || '', messageId: '', sentAt });
+}
+
+export function newRequestId() {
+  return randomUUID();
+}

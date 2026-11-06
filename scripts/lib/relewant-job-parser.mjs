@@ -1,0 +1,442 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+/**
+ * ReleWant — Zoho Recruit career page parser
+ *
+ * API: https://relewant.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Careers
+ * Returns JSON with job listings including title, city, country, type, id, and detail URL.
+ *
+ * Detail page: https://relewant.zohorecruit.com/jobs/Careers/{id}/{title}
+ * Contains embedded JSON with full job data including Job_Description HTML.
+ *
+ * Detail URL pattern: https://relewant.zohorecruit.com/jobs/Careers/{id}/{title}?source=CareerSite
+ * Apply URL pattern:  https://relewant.zohorecruit.com/jobs/Careers/{id}/{title}/apply?source=CareerSite
+ */
+
+import { JSDOM } from 'jsdom';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+
+const API_URL = 'https://relewant.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Careers';
+
+function normalizeSpace(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function slugify(value = '') {
+  return truncateSlugAtWordBoundary(String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-'), 180);
+}
+
+// ─────────────────────────────────────────────────────────────
+// Title overlap guard
+// ─────────────────────────────────────────────────────────────
+
+function normWords(s = '') {
+  return s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .filter(Boolean);
+}
+
+export function titleOverlap(expected = '', actual = '') {
+  const expWords = normWords(expected);
+  const actWords = new Set(normWords(actual));
+  if (expWords.length === 0) return 1;
+  const matches = expWords.filter((w) => actWords.has(w)).length;
+  return matches / expWords.length;
+}
+
+// ─────────────────────────────────────────────────────────────
+// HTML → Markdown converter for Zoho Recruit descriptions
+// ─────────────────────────────────────────────────────────────
+
+export function zohoHtmlToMarkdown(html = '') {
+  if (!html || !html.trim()) return '';
+
+  const dom = new JSDOM(`<div id="root">${html}</div>`);
+  const root = dom.window.document.getElementById('root');
+  if (!root) return '';
+
+  const lines = [];
+
+  function processElement(el) {
+    for (const child of el.childNodes) {
+      if (child.nodeType === 3) {
+        const text = child.textContent.replace(/\s+/g, ' ').trim();
+        if (text) lines.push(text);
+        continue;
+      }
+      if (child.nodeType !== 1) continue;
+
+      const tag = child.tagName.toLowerCase();
+
+      if (tag === 'h1' || tag === 'h2' || tag === 'h3') {
+        const text = normalizeSpace(child.textContent);
+        if (text) {
+          const prefix = tag === 'h1' ? '## ' : tag === 'h2' ? '### ' : '#### ';
+          lines.push('', prefix + text);
+        }
+        continue;
+      }
+
+      if (tag === 'ul' || tag === 'ol') {
+        const items = child.querySelectorAll(':scope > li');
+        for (const li of items) {
+          const text = normalizeSpace(li.textContent);
+          if (text) lines.push(`- ${text}`);
+        }
+        continue;
+      }
+
+      if (tag === 'li') continue; // handled by parent
+
+      if (tag === 'br') continue;
+
+      // Bold text that looks like a section header
+      if (tag === 'b' || tag === 'strong') {
+        const text = normalizeSpace(child.textContent);
+        if (
+          text &&
+          text.length < 80 &&
+          (text.endsWith('?') ||
+            text.endsWith(':') ||
+            /^(Chi|La nostra|Cosa|Sede|Assunzione|Requisiti|Profilo|Il tuo|Le tue|Perch)/i.test(text))
+        ) {
+          lines.push('', `### ${text}`);
+          continue;
+        }
+      }
+
+      if (tag === 'div' || tag === 'p' || tag === 'span') {
+        // If this element has child elements, recurse rather than flatten
+        const hasChildElements = Array.from(child.childNodes).some((n) => n.nodeType === 1);
+        if (hasChildElements) {
+          processElement(child);
+          continue;
+        }
+        const text = normalizeSpace(child.textContent);
+        if (!text || text.length <= 1) continue;
+        lines.push(text);
+        continue;
+      }
+
+      // For other elements, recurse
+      processElement(child);
+    }
+  }
+
+  processElement(root);
+
+  // Deduplicate consecutive identical lines and clean up
+  const result = [];
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed === '' && result.length > 0 && result[result.length - 1].trim() === '') continue;
+    if (result.length > 0 && result[result.length - 1].trim() === trimmed && trimmed !== '') continue;
+    result.push(trimmed);
+  }
+
+  return result.join('\n').trim();
+}
+
+// ─────────────────────────────────────────────────────────────
+// Detail page fetcher — extracts embedded JSON from page HTML
+// ─────────────────────────────────────────────────────────────
+
+export async function fetchRelewantDetailPage(detailUrl, timeoutMs = 15000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(detailUrl, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
+    if (!res.ok) {
+      console.warn(`  ⚠️ Detail page HTTP ${res.status} for ${detailUrl}`);
+      return null;
+    }
+    const html = await res.text();
+    return extractEmbeddedJobData(html);
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      console.warn(`  ⚠️ Detail page timeout for ${detailUrl}`);
+    } else {
+      console.warn(`  ⚠️ Detail page fetch error for ${detailUrl}: ${err.message}`);
+    }
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Extract the embedded `var jobs = JSON.parse('...')` data from the Zoho page HTML.
+ */
+export function extractEmbeddedJobData(html = '') {
+  const startMarker = "var jobs = JSON.parse('";
+  const idx1 = html.indexOf(startMarker);
+  if (idx1 < 0) return null;
+
+  const afterStart = idx1 + startMarker.length;
+  const idx2 = html.indexOf("');", afterStart);
+  if (idx2 < 0) return null;
+
+  const escaped = html.substring(afterStart, idx2);
+  try {
+    const evaluated = new Function("return '" + escaped + "'")();
+    const jobs = JSON.parse(evaluated);
+    return Array.isArray(jobs) && jobs.length > 0 ? jobs[0] : null;
+  } catch (err) {
+    console.warn(`  ⚠️ Failed to parse embedded job JSON: ${err.message}`);
+    return null;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Validation
+// ─────────────────────────────────────────────────────────────
+
+export function validateRelewantDescription(markdown = '', sourceHtmlLength = 0) {
+  const warnings = [];
+  const textLength = markdown.replace(/[#\-*>\n]/g, ' ').replace(/\s+/g, ' ').trim().length;
+
+  if (textLength < 200) {
+    warnings.push(`Description too short: ${textLength} chars (minimum 200)`);
+  }
+
+  if (sourceHtmlLength > 0) {
+    const ratio = textLength / sourceHtmlLength;
+    if (ratio < 0.15) {
+      warnings.push(`Coverage ratio too low: ${(ratio * 100).toFixed(1)}% (minimum 15%)`);
+    }
+  }
+
+  const headings = (markdown.match(/^#{2,4}\s+/gm) || []).length;
+  const listItems = (markdown.match(/^- /gm) || []).length;
+  const paragraphs = markdown.split('\n\n').filter((b) => b.trim().length > 20).length;
+  const blocks = headings + listItems + paragraphs;
+  if (blocks < 3) {
+    warnings.push(`Too few content blocks: ${blocks} (minimum 3)`);
+  }
+
+  return { ok: warnings.length === 0, warnings };
+}
+
+// ─────────────────────────────────────────────────────────────
+// Public API — Listing fetcher
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Fetch job listings from the Zoho Recruit public API.
+ */
+export async function fetchRelewantJobs(timeoutMs = 20000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(API_URL, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const payload = await res.json();
+    if (payload?.code !== 'success' || !Array.isArray(payload?.data)) {
+      throw new Error(`Unexpected API response: ${JSON.stringify(payload).slice(0, 200)}`);
+    }
+    return payload.data;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Parse a single Zoho Recruit job listing into a normalized object.
+ */
+export function parseRelewantJob(raw = {}) {
+  const title = normalizeSpace(raw.Posting_Title || raw.Job_Opening_Name || '');
+  const city = normalizeSpace(raw.City || '');
+  const country = normalizeSpace(raw.Country || '');
+  const jobType = normalizeSpace(raw.Job_Type || '');
+  const id = String(raw.id || '');
+  const detailUrl = String(raw.$url || '').replace(/\?.*$/, '');
+  const applyUrl = detailUrl ? `${detailUrl}/apply` : '';
+
+  return { title, city, country, jobType, id, detailUrl, applyUrl };
+}
+
+/**
+ * Enrich a parsed job with detail page data (description, title validation, metadata).
+ */
+export async function enrichRelewantJob(parsed, timeoutMs = 15000) {
+  const detail = await fetchRelewantDetailPage(parsed.detailUrl, timeoutMs);
+  if (!detail) {
+    return { ...parsed, description: '', detailTitle: '', enriched: false };
+  }
+
+  const detailTitle = normalizeSpace(detail.Posting_Title || detail.Job_Opening_Name || '');
+  const descHtml = detail.Job_Description || '';
+  const markdown = zohoHtmlToMarkdown(descHtml);
+
+  // Title validation: use detail page title as source of truth
+  let resolvedTitle = parsed.title;
+  if (detailTitle) {
+    const overlap = titleOverlap(parsed.title, detailTitle);
+    if (overlap < 0.6) {
+      console.warn(
+        `  ⚠️ Title mismatch for ${parsed.id}: API="${parsed.title}" vs detail="${detailTitle}" (overlap=${overlap.toFixed(2)})`
+      );
+      resolvedTitle = detailTitle;
+    }
+  }
+
+  // Validate description quality
+  const validation = validateRelewantDescription(markdown, descHtml.length);
+  if (!validation.ok) {
+    for (const w of validation.warnings) {
+      console.warn(`  ⚠️ ${parsed.id} — ${w}`);
+    }
+  }
+
+  return {
+    ...parsed,
+    title: resolvedTitle,
+    detailTitle,
+    description: markdown,
+    descriptionHtml: descHtml,
+    workExperience: normalizeSpace(detail.Work_Experience || ''),
+    industry: normalizeSpace(detail.Industry || ''),
+    dateOpened: normalizeSpace(detail.Date_Opened || ''),
+    state: normalizeSpace(detail.State || ''),
+    zipCode: normalizeSpace(detail.Zip_Code || ''),
+    enriched: true,
+  };
+}
+
+/**
+ * Build localized content for a ReleWant job: the Zoho Recruit description as
+ * the source wrote it, in the slot of its language (`job.sourceLang`, set by
+ * the runner); the translation step fills the other locales.
+ *
+ * This used to copy that Italian text into the en/de/fr slots too, to wrap it
+ * in lines of its own — a "## <title> / **ReleWant** — <city>, Svizzera"
+ * header and "**Esperienza richiesta/Settore/Sede/Tipo:**" footers — and, for
+ * a posting whose detail yielded under 100 characters, to publish a paragraph
+ * of its own in four languages ("ReleWant, an IT consulting firm based in …,
+ * is looking for a … Apply through the official portal."). A posting without
+ * text now gets no description and takes the pipeline's thin-source path.
+ */
+export function buildRelewantLocalizedContent(job = {}) {
+  const title = String(job.title || '').trim();
+  const city = String(job.city || '').trim() || 'Switzerland';
+  const description = String(job.description || '').trim();
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
+
+  return {
+    description,
+    titleByLocale: { it: title, en: title, de: title, fr: title },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
+    slugByLocale: {
+      it: slugify(`${title} relewant ${city}`),
+      en: slugify(`${title} relewant ${city}`),
+      de: slugify(`${title} relewant ${city}`),
+      fr: slugify(`${title} relewant ${city}`),
+    },
+  };
+}
+
+// The header the builder used to put above the Zoho text in stored jobs
+// ("## <title>\n\n**ReleWant** — <city>, Svizzera"), also translated
+// (Switzerland/Schweiz/Suisse) and in the flattened form some slots were
+// saved in ("<title> ReleWant — <city>, Ticino, Svizzera …").
+const RELEWANT_COUNTRY = '(?:Svizzera|Switzerland|Schweiz|Suisse)';
+const RELEWANT_HEADER_RE = new RegExp(
+  String.raw`^\s*(?:##\s+)?(?:[^\n]{0,200}?\s+)?(?:\*\*)?ReleWant(?:\*\*)? — [^\n]{0,80}?${RELEWANT_COUNTRY}\b[ \t]*\n*`,
+);
+// Its footers: a trailing block of "**Label:** value" lines (Esperienza
+// richiesta/Settore/Sede/Tipo and their translations), optionally after
+// "---"; flattened, the same fields on one line ending with the location.
+const RELEWANT_FOOTER_RE = /(?:\s*\n\s*---\s*)?(?:\s*\n[ \t]*\*\*[^*\n:]{2,40}\s?:\*\*[^\n]*)+\s*$/;
+const RELEWANT_FLAT_FOOTER_RE = new RegExp(
+  String.raw`\s*(?:---\s*)?(?:(?:Esperienza richiesta|Required experience|Erforderliche Erfahrung|Expérience requise)\s?:[^\n]*?)?(?:(?:Settore|Sector|Bereich|Secteur)\s?:[^\n]*?)?(?:Sede|Location|Standort|Lieu)\s?:\s*[^\n]{0,60}?${RELEWANT_COUNTRY}(?:\s+(?:Tipo|Type|Typ)\s?:[^\n]{0,40})?\s*$`,
+);
+
+/**
+ * The Zoho text inside a stored wrapped description, or null when `text`
+ * does not start with the former header.
+ */
+function stripRelewantWrapper(text) {
+  const value = String(text || '');
+  if (!RELEWANT_HEADER_RE.test(value)) return null;
+  return value
+    .replace(RELEWANT_HEADER_RE, '')
+    .replace(RELEWANT_FOOTER_RE, '')
+    .replace(RELEWANT_FLAT_FOOTER_RE, '')
+    .trim();
+}
+
+/**
+ * Remove the former header and footers from a stored job, before the merge:
+ *
+ * - from `description` and from EVERY locale slot (a job whose language is
+ *   now detected differently must not keep the wrapper in its old source
+ *   slot); a slot left empty is dropped;
+ * - when the stored source text was wrapped, the other slots were translated
+ *   from it: they are dropped and the job is flagged for retranslation (the
+ *   fresh crawl replaces the source slot with the bare Zoho text).
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropRelewantFabricatedText(job) {
+  if (!job || typeof job !== 'object') return false;
+  let changed = false;
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
+  const byLocale = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : null;
+  const sourceWrapped = [job.description, byLocale?.[sourceLang]]
+    .some((text) => RELEWANT_HEADER_RE.test(String(text || '')));
+
+  const cleanDescription = stripRelewantWrapper(job.description);
+  if (cleanDescription !== null) {
+    job.description = cleanDescription;
+    changed = true;
+  }
+  if (!byLocale) return changed;
+
+  for (const locale of Object.keys(byLocale)) {
+    if (sourceWrapped && locale !== sourceLang) {
+      delete byLocale[locale];
+      job.needsRetranslation = true;
+      changed = true;
+      continue;
+    }
+    const clean = stripRelewantWrapper(byLocale[locale]);
+    if (clean === null) continue;
+    if (clean) byLocale[locale] = clean;
+    else delete byLocale[locale];
+    changed = true;
+  }
+  return changed;
+}
+
+/**
+ * Check whether a job city is in one of the 26 Swiss target cantons.
+ */
+export function isRelewantSwissRelevant(city = '') {
+  const loc = normalizeSpace(city);
+  return Boolean(loc && isTargetSwissLocation(loc));
+}

@@ -1,0 +1,97 @@
+name: Post-deploy Audit (live report-only)
+
+# Reusable report workflow called in parallel with validate-live. It measures
+# the static article → SPA handoff, which is a UX/performance audit rather than
+# a serving/integrity invariant. The blocking live smoke excludes this suite.
+on:
+  workflow_call:
+    inputs:
+      deploy_ref:
+        description: 'Commit SHA containing the live audit test. Empty = caller default.'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  hydration-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout (build SHA via deploy_ref, else caller default)
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.deploy_ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v6
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+        with:
+          path: /home/runner/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Hydration handoff audit (report-only)
+        id: hydration
+        continue-on-error: true
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: |
+          set -o pipefail
+          : > "$RUNNER_TEMP/live-hydration-audit.log"
+          npx playwright test \
+            --config=playwright.live.config.ts \
+            tests/e2e/article-hydration-gap-live.spec.ts \
+            2>&1 | tee -a "$RUNNER_TEMP/live-hydration-audit.log"
+
+      - name: Upload live hydration evidence
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: live-hydration-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/live-hydration-audit.log
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Summarize live hydration audit
+        if: always()
+        run: |
+          {
+            echo '## Live hydration audit (report-only)'
+            echo ''
+            echo "- outcome: \`${{ steps.hydration.outcome }}\`"
+            echo ''
+            echo '```text'
+            tail -120 "$RUNNER_TEMP/live-hydration-audit.log" 2>/dev/null || echo '(no log captured)'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

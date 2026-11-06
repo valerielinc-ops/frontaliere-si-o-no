@@ -1,0 +1,40 @@
+{
+  "id": "controlli-frontiera-g7-divieti-entrata",
+  "slug": "controlli-frontiera-g7-divieti-entrata",
+  "publishedAt": "2026-06-24T16:24:01.878Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 26.681276734711357,
+    "confidence": 0.8,
+    "finalScore": 21.345021387769087,
+    "topK": [
+      {
+        "slug": "g7-evian-controlli-frontiere-ticino",
+        "cosine": 0.8883091273792129
+      },
+      {
+        "slug": "controlli-frontiere-svizzera-francia-2024",
+        "cosine": 0.8719865940650144
+      },
+      {
+        "slug": "g7-evian-frontiere-chiuse-2026",
+        "cosine": 0.8651799103611615
+      },
+      {
+        "slug": "confine-italia-svizzera-6-regole-doganali",
+        "cosine": 0.8565611628602344
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.8498553637358752
+      }
+    ],
+    "score": 21.345021387769087,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

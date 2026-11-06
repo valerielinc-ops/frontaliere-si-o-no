@@ -1,0 +1,1 @@
+../packages/articles/content/swiss-articles-data.ts

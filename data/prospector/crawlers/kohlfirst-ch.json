@@ -1,0 +1,23 @@
+{
+  "companyKey": "kohlfirst-ch",
+  "companyName": "Zentrum Kohlfirst",
+  "companyHost": "pflegestelle-schweiz.ch",
+  "platform": "pflegestelle-schweiz.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.pflegestelle-schweiz.ch/"
+  ],
+  "detailTemplate": "/apply/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Jetzt bewerben",
+    "Jetzt bewerben",
+    "Jetzt bewerben"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:54:04.631Z",
+  "candidateKey": "kohlfirst.ch"
+}

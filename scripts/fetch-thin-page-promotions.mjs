@@ -1,0 +1,291 @@
+#!/usr/bin/env node
+import { realpathSync } from 'node:fs';
+// fetch-thin-page-promotions.mjs
+//
+// Hourly self-heal feedback loop for tiered emission (artifact-shrink
+// Fase 1). Polls GA4 for `thin_page_view` events emitted by
+// App.tsx when window.__THIN_SHELL__ is set on a thinned static page,
+// PLUS GSC page-level impressions (issue #4407). Any URL hit by a
+// JS-enabled client (real user or render-bot), or any URL Google has
+// shown in search results, gets added to
+// data/thin-page-promotions-active.json — the next build sees it via
+// trafficEvidenceFilter and serves the FULL bridge HTML instead of the
+// thin shell.
+//
+// PostHog is no longer polled (decisione H9 del 2026-10-05, «rimpiazza
+// PostHog con GA4»): the same `thin_page_view` reaches GA4 through
+// Analytics.log(), and PostHog is under quota by choice.
+//
+// Why GSC too: GA4 `thin_page_view` only fires once a JS-enabled
+// client actually lands on the page, but a thin page structurally
+// suppresses the organic click-through needed to trigger that in the
+// first place (chicken-and-egg). GSC records an impression the moment
+// Google *shows* the URL, independent of any click, so it promotes pages
+// the click-based signal can never reach.
+//
+// Output files
+//   data/thin-page-promotions.jsonl
+//     Append-only history. One row per refresh:
+//     { generatedAt, windowHours, ga4Hits, gscHits, freshUnion, activeTotal,
+//       complete, errors }  (rows before H9 also carry `posthogHits`)
+//
+//   data/thin-page-promotions-active.json
+//     Compact, read by build:
+//     { generatedAt, windowDays: 30, urls: [path,...] }
+//
+// Auth
+//   FIREBASE_SERVICE_ACCOUNT_JSON (or GOOGLE_APPLICATION_CREDENTIALS) for GA4 + GSC
+//   (the Firebase SA doubles as a GSC credential in this project).
+//   GA4_PROPERTY_ID for GA4.
+//
+// Usage
+//   node scripts/fetch-thin-page-promotions.mjs [--window-hours=24]
+//                                               [--active-window-days=30]
+//
+// Exit codes
+//   0  ok, no-op (no hits, files untouched)
+//   0  ok, urls promoted (active.json updated)
+//   3  partial — feeds incomplete (observed promotions still committed)
+//   2  every feed (GA4 + GSC) errored (any partial observations are saved first)
+// Incomplete feeds never expire previously promoted URLs.
+
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { appendFileSync, existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
+import { fetchGscPageImpressions } from './lib/evidence/gscFetcher.mjs';
+import { GSC_MIN_IMP } from './lib/evidence/constants.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken, paginateGa4Report } from './lib/ga4-service-account.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '..');
+const ACTIVE_PATH = join(ROOT, 'data', 'thin-page-promotions-active.json');
+const HISTORY_PATH = join(ROOT, 'data', 'thin-page-promotions.jsonl');
+
+function parseArgs(argv) {
+  const out = { windowHours: 24, activeWindowDays: 30 };
+  for (const a of argv) {
+    if (a.startsWith('--window-hours=')) out.windowHours = Number(a.slice(15));
+    else if (a.startsWith('--active-window-days=')) out.activeWindowDays = Number(a.slice(21));
+  }
+  return out;
+}
+
+function normalizePath(p) {
+  if (!p) return '';
+  let s = p;
+  const q = s.indexOf('?'); if (q >= 0) s = s.slice(0, q);
+  const h = s.indexOf('#'); if (h >= 0) s = s.slice(0, h);
+  s = s.replace(/\/index\.html$/, '/');
+  if (s.length > 1 && s.endsWith('/')) s = s.slice(0, -1);
+  if (!s.startsWith('/')) s = '/' + s;
+  return s;
+}
+
+// ─── GA4: runReport with eventName=thin_page_view ────────────────────
+
+async function fetchGa4(windowHours) {
+  const propertyRaw = process.env.GA4_PROPERTY_ID;
+  if (!propertyRaw) throw new Error('GA4_PROPERTY_ID missing');
+  const property = propertyRaw.startsWith('properties/') ? propertyRaw : `properties/${propertyRaw}`;
+  const token = await getServiceAccountToken([GA4_READONLY_SCOPE]);
+  if (!token) throw new Error('no service-account credentials');
+  // GA4 Data API doesn't support sub-day windows on runReport's dateRanges
+  // (the smallest grain is a day). For windowHours <= 24 we query "today"
+  // + "yesterday" and let the volume be a one-day approximation; the
+  // active-window-days rollup on the build side absorbs the over-fetch.
+  const days = Math.max(1, Math.ceil(windowHours / 24));
+  const url = `https://analyticsdata.googleapis.com/v1beta/${property}:runReport`;
+  const body = {
+    dateRanges: [{ startDate: `${days}daysAgo`, endDate: 'today' }],
+    dimensions: [{ name: 'pagePath' }, { name: 'eventName' }],
+    metrics: [{ name: 'eventCount' }],
+    dimensionFilter: {
+      filter: {
+        fieldName: 'eventName',
+        stringFilter: { value: 'thin_page_view', matchType: 'EXACT' },
+      },
+    },
+  };
+  // Paginato fino a rowCount: un limit fisso senza offset poteva troncare in
+  // silenzio la coda dei pagePath con la fonte dichiarata completa (stessa
+  // classe della issue 11423). Una coda mancante resta un errore parziale,
+  // come per GSC: gli URL osservati si tengono.
+  const report = await paginateGa4Report({
+    body,
+    fetchPage: async (page) => {
+      const r = await httpFetchWithRetry(url, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(page),
+      }, { label: 'ga4 runReport' });
+      if (r.status === 403) {
+        throw new Error(`ga4 access denied (SA needs Viewer on property): ${(await r.text()).slice(0, 200)}`);
+      }
+      if (!r.ok) throw new Error(`ga4 ${r.status}: ${(await r.text()).slice(0, 200)}`);
+      return r.json();
+    },
+  });
+  const urls = new Set();
+  for (const row of report.rows) {
+    const path = normalizePath(row.dimensionValues?.[0]?.value || '');
+    if (path) urls.add(path);
+  }
+  const error = report.complete ? null
+    : `incomplete GA4 response (${report.rows.length}/${report.rowCount ?? 'unknown'} rows)`;
+  return { urls, error };
+}
+
+function fmtDate(d) {
+  return d.toISOString().slice(0, 10);
+}
+
+// ─── GSC: page-level impressions (no click required) ─────────────────
+//
+// See issue #4407: reuses the established gscFetcher.mjs auth/query
+// plumbing (Firebase SA doubles as a GSC credential — same
+// GOOGLE_APPLICATION_CREDENTIALS already prepared for GA4 above), just a
+// single page-dimension pass rather than the full 3-pass
+// `fetchGscQueries` used by the daily evidence-index build.
+export async function fetchGscImpressions(windowHours) {
+  // GSC Search Analytics has ~2-day reporting lag and day-granularity
+  // data — mirrors scripts/build-evidence-index.mjs `windowDates()`.
+  const days = Math.max(1, Math.ceil(windowHours / 24));
+  const end = new Date();
+  end.setUTCDate(end.getUTCDate() - 2);
+  const start = new Date(end);
+  start.setUTCDate(start.getUTCDate() - days);
+  const { pages, error } = await fetchGscPageImpressions({
+    startDate: fmtDate(start),
+    endDate: fmtDate(end),
+    // Reuse the project's established GSC noise floor (constants.mjs)
+    // instead of the raw imp>=1 used by the sitewide evidence-index pass
+    // — keeps this hourly, unioned-into-30-day-window set from mirroring
+    // that much broader set verbatim.
+    minImpressions: GSC_MIN_IMP,
+  });
+  const urls = new Set();
+  for (const path of Object.keys(pages)) {
+    const norm = normalizePath(path);
+    if (norm) urls.add(norm);
+  }
+  return { urls, error };
+}
+
+// ─── Active window rollup ────────────────────────────────────────────
+
+async function readActive() {
+  if (!existsSync(ACTIVE_PATH)) return { urls: [], _seenAt: {} };
+  try {
+    const j = JSON.parse(await readFile(ACTIVE_PATH, 'utf8'));
+    return { urls: j.urls || [], _seenAt: j._seenAt || {} };
+  } catch {
+    return { urls: [], _seenAt: {} };
+  }
+}
+
+export function rollupActive(prev, freshUrls, activeWindowDays, complete = true) {
+  const today = new Date().toISOString().slice(0, 10);
+  const seenAt = { ...prev._seenAt };
+  for (const u of freshUrls) seenAt[u] = today;
+  const cutoff = Date.now() - activeWindowDays * 86400_000;
+  const kept = Object.entries(seenAt).filter(([_, d]) => !complete || new Date(d).getTime() >= cutoff);
+  return {
+    seenAt: Object.fromEntries(kept),
+    // Preserve legacy entries without timestamps too, without inventing a
+    // fresh observation. Only a complete refresh may age a promotion out.
+    urls: [...new Set([...kept.map(([u]) => u), ...(!complete ? prev.urls : [])])].sort(),
+  };
+}
+
+// ─── Main ────────────────────────────────────────────────────────────
+
+export async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  console.log(`[thin-promotions] window=${args.windowHours}h active=${args.activeWindowDays}d`);
+
+  const errors = [];
+  let ga = new Set();
+  let gsc = new Set();
+  try {
+    const result = await fetchGa4(args.windowHours);
+    ga = result.urls;
+    console.log(`[thin-promotions] ga4 hits: ${ga.size}`);
+    if (result.error) {
+      errors.push(`ga4: ${result.error}`);
+      console.error(`[thin-promotions] ga4 error: ${result.error}`);
+    }
+  }
+  catch (e) { errors.push(`ga4: ${e.message}`); console.error(`[thin-promotions] ga4 error: ${e.message}`); }
+  try {
+    const result = await fetchGscImpressions(args.windowHours);
+    gsc = result.urls;
+    console.log(`[thin-promotions] gsc observed hits: ${gsc.size}`);
+    if (result.error) {
+      errors.push(`gsc: ${result.error}`);
+      console.error(`[thin-promotions] gsc error: ${result.error}`);
+    }
+  }
+  catch (e) { errors.push(`gsc: ${e.message}`); console.error(`[thin-promotions] gsc error: ${e.message}`); }
+
+  const FEED_COUNT = 2; // GA4 + GSC
+  const fresh = new Set([...ga, ...gsc]);
+  if (errors.length === FEED_COUNT && fresh.size === 0) {
+    console.error('[thin-promotions] every feed errored — leaving active.json unchanged');
+    return 2;
+  }
+
+  const prev = await readActive();
+  const { seenAt, urls } = rollupActive(prev, fresh, args.activeWindowDays, errors.length === 0);
+
+  // Append history row regardless (audit trail).
+  const historyRow = {
+    generatedAt: new Date().toISOString(),
+    windowHours: args.windowHours,
+    ga4Hits: ga.size,
+    gscHits: gsc.size,
+    freshUnion: fresh.size,
+    activeTotal: urls.length,
+    complete: errors.length === 0,
+    errors,
+  };
+  await mkdir(dirname(HISTORY_PATH), { recursive: true });
+  appendFileSync(HISTORY_PATH, JSON.stringify(historyRow) + '\n');
+
+  // Persist refreshed observation dates even when the URL set is unchanged;
+  // otherwise a repeatedly observed URL eventually expires on its first date.
+  const prevSorted = [...prev.urls].sort();
+  const changed =
+    prevSorted.length !== urls.length ||
+    prevSorted.some((u, i) => u !== urls[i]) ||
+    Object.keys(prev._seenAt).length !== Object.keys(seenAt).length ||
+    Object.entries(seenAt).some(([url, date]) => prev._seenAt[url] !== date);
+
+  if (changed) {
+    await writeFile(
+      ACTIVE_PATH,
+      JSON.stringify(
+        {
+          generatedAt: new Date().toISOString(),
+          windowDays: args.activeWindowDays,
+          _seenAt: seenAt,
+          urls,
+        },
+        null,
+        2,
+      ) + '\n',
+    );
+    console.log(`[thin-promotions] active.json updated: ${urls.length} URLs (+${urls.length - prevSorted.length})`);
+  } else {
+    console.log(`[thin-promotions] active.json unchanged (${urls.length} URLs)`);
+  }
+
+  // Saving useful observations does not downgrade an all-feeds failure.
+  if (errors.length === FEED_COUNT) return 2;
+  return errors.length > 0 ? 3 : 0;
+}
+
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
+  main().then((code) => { process.exitCode = code; }).catch((e) => { console.error('[thin-promotions] fatal:', e); process.exitCode = 2; });
+}

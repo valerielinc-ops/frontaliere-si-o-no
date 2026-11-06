@@ -1,0 +1,40 @@
+{
+  "id": "pflegefachfrau-frontalieri-basel",
+  "slug": "pflegefachfrau-frontalieri-basel",
+  "publishedAt": "2026-07-07T07:20:50.977Z",
+  "cluster": "salute",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.306310492757943,
+    "confidence": 0.8,
+    "finalScore": 9.045048394206354,
+    "topK": [
+      {
+        "slug": "ticino-spitex-contributo-pressione",
+        "cosine": 0.8075936066255673
+      },
+      {
+        "slug": "direttrice-unispital-zurigo-whistleblower",
+        "cosine": 0.7987346456079784
+      },
+      {
+        "slug": "whistleblower-zurigo-frontalieri-2026",
+        "cosine": 0.7952442593705347
+      },
+      {
+        "slug": "openjobmetis-materia-castronno-2026",
+        "cosine": 0.7927479495115787
+      },
+      {
+        "slug": "divorzio-cassa-pensioni",
+        "cosine": 0.7923819724563931
+      }
+    ],
+    "score": 4.522524197103177,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

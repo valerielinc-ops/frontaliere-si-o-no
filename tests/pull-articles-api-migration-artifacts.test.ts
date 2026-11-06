@@ -1,0 +1,1589 @@
+/**
+ * Coverage for the two artifacts the generator migration adds to
+ * `scripts/pull-articles-api.mjs` (issue #4974 item 3; §3 and §5.5 of
+ * docs/articles-generator-migration.md): the hero-image manifest and the
+ * Google-News sitemap candidates nanako computes.
+ *
+ * These run the real script as a subprocess against a throwaway HTTP server and
+ * a throwaway checkout, because the behaviour under test IS the script's exit
+ * code and what it left on disk. The script is a top-level program with no
+ * exported units — importing pieces of it would test a different thing than the
+ * one the workflow runs.
+ *
+ * The posture being asserted, over and over: a missing artifact is tolerated
+ * (this ships BEFORE nanako emits either), a malformed one is refused, and a
+ * refusal writes NOTHING — the committed copy keeps serving.
+ */
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { spawn } from 'node:child_process';
+import fs from 'node:fs';
+import http from 'node:http';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const SCRIPT = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..',
+  'scripts',
+  'pull-articles-api.mjs',
+);
+
+/** A synthetic but structurally valid WebP: RIFF····WEBP + padding. */
+function webp(bytes = 64): Buffer {
+  const buf = Buffer.alloc(bytes);
+  buf.write('RIFF', 0, 'latin1');
+  buf.writeUInt32LE(bytes - 8, 4);
+  buf.write('WEBP', 8, 'latin1');
+  return buf;
+}
+
+const hoursAgo = (h: number) => new Date(Date.now() - h * 3_600_000).toISOString();
+
+function newsUrlBlock(loc: string, publishedAt: string | null): string {
+  const dateTag = publishedAt
+    ? `      <news:publication_date>${publishedAt}</news:publication_date>\n`
+    : '';
+  return `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${(publishedAt ?? new Date().toISOString()).slice(0, 10)}</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="${loc}" />
+    <news:news>
+      <news:publication>
+        <news:name>Frontaliere Ticino</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+${dateTag}      <news:title>Titolo</news:title>
+    </news:news>
+  </url>`;
+}
+
+const urlset = (blocks: string[]) =>
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+${blocks.join('\n\n')}
+
+</urlset>
+`;
+
+/** A sitemap that satisfies the pre-existing url/alternate gates. */
+const blogSitemap = urlset([
+  `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/a/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/a/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/a-en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/a-de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/a-fr/" />
+  </url>`,
+]);
+
+const articleUrlBlock = (slugs: Record<string, string>) => [
+  '  <url>',
+  '    <loc>https://frontaliereticino.ch/articoli-frontaliere/' + slugs.it + '/</loc>',
+  '    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/' + slugs.it + '/" />',
+  '    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/' + slugs.en + '/" />',
+  '    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/' + slugs.de + '/" />',
+  '    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/' + slugs.fr + '/" />',
+  '  </url>',
+].join('\n');
+
+const feed = `<?xml version="1.0"?><rss><channel>${'<item></item>'.repeat(12)}</channel></rss>`;
+
+const ticker = JSON.stringify({
+  articles: [
+    {
+      id: 'a',
+      title: { it: 'T', en: 'T', de: 'T', fr: 'T' },
+      slug: { it: 's', en: 's', de: 's', fr: 's' },
+    },
+  ],
+});
+
+/**
+ * The archive sitemap (issue #4974): `/{section}/{all}/` and its page-N chain,
+ * which appeared in no sitemap at all until the corpus began publishing them.
+ * The corpus now announces only canonical page 1; the full page-N HTML chain
+ * remains a separate, noindex surface. Keep this fixture distinct from
+ * `blogSitemap` so the archive projection has its own contract.
+ */
+const archiveProjectionGroups = [
+  {
+    it: '/articoli-frontaliere/tutti/',
+    en: '/en/cross-border-articles/all/',
+    de: '/de/grenzgaenger-artikel/alle/',
+    fr: '/fr/articles-frontalier/tous/',
+  },
+  {
+    it: '/articoli-svizzera/tutti/',
+    en: '/en/swiss-articles/all/',
+    de: '/de/schweiz-artikel/alle/',
+    fr: '/fr/articles-suisse/tous/',
+  },
+] as const;
+const archiveSitemap = urlset(
+  archiveProjectionGroups.flatMap((group) => Object.values(group).map((pathname) => `  <url>
+    <loc>https://frontaliereticino.ch${pathname}</loc>
+${(['it', 'en', 'de', 'fr'] as const).map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="https://frontaliereticino.ch${group[locale]}" />`).join('\n')}
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch${group.it}" />
+  </url>`)),
+);
+
+const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-archive.xml'];
+const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
+const BLOG_CREDITS_PATH = 'data/image-credits-blog.json';
+const DISCOVERY_ARTICLES_PATH = 'data/discovery-articles.json';
+const DISCOVERY_ARTICLES_MANIFEST_PATH = 'data/discovery-articles-manifest.json';
+const SLUGS_PATH = 'slugs.json';
+const CANTON_ARTICLES_PATH = 'canton-articles.json';
+const CANTON_ARTICLES = JSON.stringify([{
+  id: 'disoccupazione-berna-settembre-2026-stabile',
+  category: 'pratico',
+  date: '2026-10-07T19:58:52.255Z',
+  image: '/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp',
+  authorSlug: 'redazione',
+  commit: API_COMMIT,
+  section: 'canton-be',
+}]);
+const GENERATED_SNAPSHOT_PATH = 'data/published-blog-generated-image-evidence.json';
+const publishedSlugs = (blog: Record<string, Record<string, string>>, swiss = {}) => JSON.stringify({
+  commit: API_COMMIT,
+  blog,
+  swiss,
+});
+const PUBLISHED_SLUGS = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+});
+const PUBLISHED_SLUGS_A_B = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+  b: { it: 'b', en: 'b-en', de: 'b-de', fr: 'b-fr' },
+});
+const INDEX_EXCLUDED_ID = 'iran-tajani-non-tratta-navi';
+const INDEX_EXCLUDED_SLUGS = {
+  it: 'iran-tajani-non-tratta-navi',
+  en: 'iran-tajani-no-negotiation-shipping',
+  de: 'iran-tajani-keine-verhandlungen-schifffahrt',
+  fr: 'iran-tajani-pas-negociation-navires',
+};
+const PUBLISHED_SLUGS_A_INDEX_EXCLUDED = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+  [INDEX_EXCLUDED_ID]: INDEX_EXCLUDED_SLUGS,
+});
+const PUBLISHED_SLUGS_A_INDEX_EXCLUDED_B = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+  [INDEX_EXCLUDED_ID]: INDEX_EXCLUDED_SLUGS,
+  b: { it: 'b', en: 'b-en', de: 'b-de', fr: 'b-fr' },
+});
+const validGeneratedCover = () => {
+  const now = Date.now();
+  return {
+    schema: 1,
+    assetId: 'test-generated-cover',
+    kind: 'generated',
+    provider: 'openai-codex',
+    model: 'gpt-image-2.5',
+    executorModel: 'gpt-5.6-luna',
+    promptVersion: 'frontaliereticino.generated-image-policy.v1',
+    promptHash: 'a'.repeat(64),
+    license: 'generated-provider',
+    licenseUrl: 'https://openai.com/policies/terms-of-use/',
+    credit: 'frontaliereticino.ch',
+    sha256: 'b'.repeat(64),
+    bytes: 64,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    generatedAt: new Date(now - 10 * 60_000).toISOString(),
+    verifiedAt: new Date(now - 5 * 60_000).toISOString(),
+    restrictions: [
+      'illustrative-only',
+      'no-real-recognizable-foreground-person',
+      'no-public-figure-face',
+      'no-logo-brand-or-text',
+      'no-specific-real-event-photojournalism',
+    ],
+    scope: 'article-hero',
+    imageUrl: '/images/blog/test-generated-cover.webp',
+    category: 'blog',
+    area: 'Swiss Italian border region',
+    season: 'all seasons',
+    variant: 'pull-api-regression-test',
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      looks_like_specific_real_event: false,
+      is_photograph: false,
+      notes: 'Safe generic illustration for the API pull regression test.',
+    },
+  };
+};
+
+/** The real governed static fallback published by the corpus blog index. */
+const validLuganoPlaceFallback = () => ({
+  schema: 1,
+  assetId: 'lugano-view',
+  provider: 'openai-codex',
+  model: 'gpt-image-2.5',
+  executorModel: 'gpt-5.6-luna',
+  promptVersion: 'frontaliereticino.generated-image-policy.v1',
+  promptHash: 'a552b810810cf3e04267e7c17af799c7a182a0cda5732e97212ee0b1d9e0cecb',
+  license: 'generated-provider',
+  licenseUrl: 'https://openai.com/policies/terms-of-use/',
+  credit: 'frontaliereticino.ch',
+  sha256: 'feb0ec2c59872a3d1ccb23dba22a436ca1d747d5e909b142cd4a593c550b6a96',
+  bytes: 169332,
+  width: 1200,
+  height: 675,
+  format: 'webp',
+  generatedAt: '2026-10-06T19:26:04.084Z',
+  verifiedAt: '2026-10-06T19:26:14.671Z',
+  restrictions: [
+    'illustrative-only',
+    'no-real-recognizable-foreground-person',
+    'no-public-figure-face',
+    'no-logo-brand-or-text',
+    'no-specific-real-event-photojournalism',
+  ],
+  scope: 'place',
+  imageUrl: '/images/places/lugano-view.webp',
+  area: 'Canton Ticino e regione di confine',
+  season: 'luce diurna equilibrata',
+  variant: 'place-hero',
+  vision: {
+    ok: true,
+    contains_text: false,
+    contains_logo: false,
+    contains_recognizable_face: false,
+    looks_like_specific_real_event: false,
+    notes: 'Original generic illustrated landscape; no readable text, logos, signatures, recognizable faces, or specific real event.',
+  },
+});
+
+const validPrivateGrantCover = () => ({
+  schema: 1,
+  assetId: 'test-private-grant-cover',
+  provider: 'site-owned',
+  note: 'Site-owned cover with documented publication rights.',
+  license: 'private-grant',
+  credit: 'frontaliereticino.ch',
+  sha256: 'c'.repeat(64),
+  bytes: 64,
+  width: 1200,
+  height: 675,
+  format: 'webp',
+  scope: 'article-hero',
+  imageUrl: '/images/blog/test-private-grant-cover.webp',
+});
+
+const validPexelsCover = () => {
+  const now = new Date().toISOString();
+  return {
+    schema: 1,
+    assetId: 'test-licensed-cover',
+    kind: 'photo',
+    provider: 'pexels',
+    license: 'Pexels License',
+    licenseUrl: 'https://www.pexels.com/license/',
+    sourcePageUrl: 'https://www.pexels.com/photo/test-photo-1234567/',
+    author: { name: 'Test Photographer', url: 'https://www.pexels.com/@test-photographer' },
+    credit: 'Test Photographer / Pexels',
+    copyrightNotice: 'Photograph by Test Photographer via Pexels',
+    acquireLicensePage: 'https://www.pexels.com/license/',
+    sourceWidth: 1920,
+    sourceHeight: 1080,
+    generatedAt: now,
+    verifiedAt: now,
+    restrictions: ['licensed-source', 'no-recognizable-foreground-person', 'no-logo-brand-or-trademark'],
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
+      looks_like_specific_real_event: false,
+      is_photograph: true,
+      is_topic_relevant: true,
+      notes: 'Safe generic licensed editorial photo for the API pull regression test.',
+    },
+    sha256: 'd'.repeat(64),
+    bytes: 64,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    scope: 'article-hero',
+    imageUrl: '/images/blog/test-licensed-cover.webp',
+  };
+};
+const FEEDS = [
+  'rss.xml',
+  'rss-it.xml',
+  'rss-en.xml',
+  'rss-de.xml',
+  'rss-fr.xml',
+  'rss-svizzera.xml',
+  'rss-svizzera-it.xml',
+  'rss-svizzera-en.xml',
+  'rss-svizzera-de.xml',
+  'rss-svizzera-fr.xml',
+];
+
+/** Artifacts the server serves; a value of `undefined` is served as a 404. */
+type Routes = Record<string, string | Buffer | undefined>;
+
+let server: http.Server;
+let baseUrl: string;
+let routes: Routes = {};
+let manifestSequence: string[] | null = null;
+let manifestSequenceIndex = 0;
+
+function baseRoutes(slugs = PUBLISHED_SLUGS, newsCandidates?: string): Routes {
+  const credits = JSON.stringify({ schema: 1, section: 'blog', commit: API_COMMIT, generated: {} });
+  const r: Routes = {
+    // A FULL sha, as nanako's build-api.mjs actually emits (checked against the
+    // live manifest: c6897c287da4a97b40135713a217aef6579486c9). The fixture used
+    // to carry a 12-char placeholder, which stopped being a harmless shorthand
+    // when this field became the consistency pin — `git fetch origin <sha>`
+    // resolves nothing abbreviated, so an abbreviated commit now skips the sync
+    // (issue #5298, scripts/lib/articles-sync-pin.mjs).
+    'manifest.json': JSON.stringify({
+      commit: API_COMMIT,
+      counts: { articles: 500, cantonArticles: 1, sitemapArchiveUrls: 8 },
+      files: {
+        [BLOG_CREDITS_PATH]: Buffer.byteLength(credits),
+        [SLUGS_PATH]: Buffer.byteLength(slugs),
+        [CANTON_ARTICLES_PATH]: Buffer.byteLength(CANTON_ARTICLES),
+      },
+    }),
+    [BLOG_CREDITS_PATH]: credits,
+    [SLUGS_PATH]: slugs,
+    [CANTON_ARTICLES_PATH]: CANTON_ARTICLES,
+    'news-ticker-live.json': ticker,
+  };
+  if (newsCandidates !== undefined) {
+    const manifest = JSON.parse(r['manifest.json'] as string);
+    manifest.files['sitemap-news-candidates.xml'] = Buffer.byteLength(newsCandidates);
+    r['manifest.json'] = JSON.stringify(manifest);
+    r['sitemap-news-candidates.xml'] = newsCandidates;
+  }
+  for (const s of SITEMAPS) {
+    r[s] = s === 'sitemap-articles-archive.xml' ? archiveSitemap : blogSitemap;
+  }
+  for (const f of FEEDS) r[f] = feed;
+  return r;
+}
+
+function routesWithCredits(credits: string): Routes {
+  const result = baseRoutes();
+  const manifest = JSON.parse(result['manifest.json'] as string);
+  manifest.files[BLOG_CREDITS_PATH] = Buffer.byteLength(credits);
+  result['manifest.json'] = JSON.stringify(manifest);
+  result[BLOG_CREDITS_PATH] = credits;
+  return result;
+}
+
+function discoveryArticlesRaw({
+  generatedAt = new Date().toISOString(),
+  articles = [],
+}: { generatedAt?: string; articles?: Array<Record<string, unknown>> } = {}) {
+  return JSON.stringify({
+    schema: 1,
+    commit: API_COMMIT,
+    generatedAt,
+    count: articles.length,
+    articles,
+  });
+}
+
+function routesWithDiscoveryArticles(
+  raw: string,
+  { count = JSON.parse(raw).count, byteDelta = 0 }: { count?: number; byteDelta?: number } = {},
+): Routes {
+  const result = baseRoutes();
+  const manifest = JSON.parse(result['manifest.json'] as string);
+  manifest.counts.discoveryArticles = count;
+  manifest.files[DISCOVERY_ARTICLES_PATH] = Buffer.byteLength(raw, 'utf8') + byteDelta;
+  result['manifest.json'] = JSON.stringify(manifest);
+  result[DISCOVERY_ARTICLES_PATH] = raw;
+  return result;
+}
+
+beforeAll(async () => {
+  server = http.createServer((req, res) => {
+    const name = decodeURIComponent((req.url ?? '/').replace(/^\//, ''));
+    const body = name === 'manifest.json' && manifestSequence
+      ? manifestSequence[Math.min(manifestSequenceIndex++, manifestSequence.length - 1)]
+      : routes[name];
+    if (body === undefined) {
+      res.writeHead(404).end('not found');
+      return;
+    }
+    res.writeHead(200).end(body);
+  });
+  await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const addr = server.address() as { port: number };
+  baseUrl = `http://127.0.0.1:${addr.port}`;
+});
+
+beforeEach(() => {
+  manifestSequence = null;
+  manifestSequenceIndex = 0;
+});
+
+afterAll(async () => {
+  await new Promise<void>((resolve) => server.close(() => resolve()));
+});
+
+/** A throwaway checkout carrying the files the script expects to already serve. */
+function makeCheckout(opts: {
+  newsEntries?: string[];
+  windowHours?: number | null;
+  frontaliereShadowedSlugs?: string[];
+  currentBlogSitemap?: string;
+  articleIndexExclusions?: Array<{ section: 'frontaliere' | 'svizzera'; id: string }>;
+  localBlogSlugs?: Record<string, Record<string, string>>;
+} = {}) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'pull-articles-'));
+  const pub = path.join(dir, 'public');
+  fs.mkdirSync(pub, { recursive: true });
+  // The script reads the news window out of this file rather than re-typing 48.
+  // `null` models the post-cutover checkout where main no longer carries it.
+  if (opts.windowHours !== null) {
+    fs.mkdirSync(path.join(dir, 'data'), { recursive: true });
+    fs.writeFileSync(
+      path.join(dir, 'data', 'news-sitemap-whitelist.ts'),
+      `export const NEWS_SITEMAP_WINDOW_HOURS = ${opts.windowHours ?? 48};\n`,
+    );
+  }
+  if (opts.frontaliereShadowedSlugs?.length) {
+    const overridesDir = path.join(dir, 'packages', 'articles', 'engine', 'shared');
+    fs.mkdirSync(overridesDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(overridesDir, 'frontaliere-article-canonical-overrides.json'),
+      JSON.stringify({
+        overrides: Object.fromEntries(
+          opts.frontaliereShadowedSlugs.map((slug) => [
+            slug,
+            'https://frontaliereticino.ch/articoli-frontaliere/a/',
+          ]),
+        ),
+      }),
+    );
+  }
+  if (opts.articleIndexExclusions?.length) {
+    const ledger = path.join(dir, 'content', 'article-index-exclusions.json');
+    fs.mkdirSync(path.dirname(ledger), { recursive: true });
+    fs.writeFileSync(ledger, JSON.stringify({ excluded: opts.articleIndexExclusions }, null, 2));
+  }
+  if (opts.localBlogSlugs) {
+    const registry = path.join(dir, 'packages', 'articles', 'content', 'routerBlogData.ts');
+    fs.mkdirSync(path.dirname(registry), { recursive: true });
+    fs.writeFileSync(
+      registry,
+      'export const BLOG_SLUGS = ' + JSON.stringify(opts.localBlogSlugs, null, 2) + ' as const;\n',
+    );
+  }
+  for (const s of SITEMAPS) {
+    fs.writeFileSync(
+      path.join(pub, s),
+      s === 'sitemap-articles-archive.xml'
+        ? archiveSitemap
+        : s === 'sitemap-blog.xml'
+          ? opts.currentBlogSitemap ?? blogSitemap
+          : blogSitemap,
+    );
+  }
+  for (const f of FEEDS) fs.writeFileSync(path.join(pub, f), feed);
+  fs.writeFileSync(path.join(pub, 'news-ticker-live.json'), ticker);
+  fs.writeFileSync(path.join(pub, 'sitemap-news.xml'), urlset(opts.newsEntries ?? []));
+  fs.writeFileSync(
+    path.join(pub, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://frontaliereticino.ch/sitemap-news.xml</loc>
+    <lastmod>2020-01-01</lastmod>
+  </sitemap>
+</sitemapindex>
+`,
+  );
+  return dir;
+}
+
+/**
+ * Deliberately async: the fixture server lives in THIS process, so a blocking
+ * spawnSync would park the event loop and the child's very first fetch would
+ * hang forever waiting for a server that cannot answer. That deadlock is silent
+ * — it looks exactly like a slow test — so it is worth the comment.
+ */
+function run(
+  cwd: string,
+  args: string[] = [],
+  extraEnv: Record<string, string> = {},
+): Promise<{ code: number | null; out: string }> {
+  return new Promise((resolve) => {
+    const child = spawn(process.execPath, [SCRIPT, ...args], {
+      cwd,
+      env: {
+        ...process.env,
+        ARTICLES_API_BASE: baseUrl,
+        // The sandbox exports a proxy; the fixture server is loopback.
+        NO_PROXY: '127.0.0.1,localhost',
+        no_proxy: '127.0.0.1,localhost',
+        ...extraEnv,
+      },
+    });
+    let out = '';
+    child.stdout.on('data', (d) => (out += d));
+    child.stderr.on('data', (d) => (out += d));
+    child.on('close', (code) => resolve({ code, out }));
+  });
+}
+
+const readPub = (dir: string, rel: string) =>
+  fs.readFileSync(path.join(dir, 'public', rel), 'utf-8');
+
+describe('pull-articles-api: sitemap/slug-map source parity', () => {
+  it('refuses a hreflang slug that disagrees with the same release slug map', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-blog.xml': urlset([
+        `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/a/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/a/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/wrong/" />
+  </url>`,
+      ]),
+    };
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-blog.xml: a en hreflang');
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('refuses a sitemap that omits a publishable Italian slug', async () => {
+    routes = baseRoutes(PUBLISHED_SLUGS_A_B);
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('b (b) absent from the sitemap');
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('allows a slug omitted by the corpus canonical-override rule', async () => {
+    routes = baseRoutes(PUBLISHED_SLUGS_A_B);
+    const dir = makeCheckout({ frontaliereShadowedSlugs: ['b'] });
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).toBe(0);
+    expect(result.out).not.toContain('absent from the sitemap');
+  });
+
+  it('allows ledger-withdrawn articles and keeps them out of reinstated and News sitemaps', async () => {
+    const includedLoc = 'https://frontaliereticino.ch/articoli-frontaliere/a/';
+    routes = baseRoutes(
+      PUBLISHED_SLUGS_A_INDEX_EXCLUDED,
+      urlset([newsUrlBlock(includedLoc, hoursAgo(1))]),
+    );
+    const excludedLoc = 'https://frontaliereticino.ch/articoli-frontaliere/'
+      + INDEX_EXCLUDED_SLUGS.it + '/';
+    const currentBlogSitemap = urlset([
+      articleUrlBlock({ it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' }),
+      articleUrlBlock(INDEX_EXCLUDED_SLUGS),
+    ]);
+    const dir = makeCheckout({
+      currentBlogSitemap,
+      articleIndexExclusions: [{ section: 'frontaliere', id: INDEX_EXCLUDED_ID }],
+      localBlogSlugs: {
+        a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+        [INDEX_EXCLUDED_ID]: INDEX_EXCLUDED_SLUGS,
+      },
+      newsEntries: [newsUrlBlock(excludedLoc, hoursAgo(1))],
+    });
+
+    const result = await run(dir);
+
+    expect(result.code).toBe(0);
+    expect(result.out).toContain(`sitemap-news.xml: dropping ${excludedLoc} — withdrawn from the index`);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+    expect(readPub(dir, 'sitemap-blog.xml')).not.toContain(excludedLoc);
+    expect(readPub(dir, 'sitemap-news.xml')).not.toContain(excludedLoc);
+    expect(readPub(dir, 'sitemap-news.xml')).toContain(includedLoc);
+    expect(readPub(dir, 'sitemap-news.xml')).toContain('<news:news>');
+  });
+
+  it('does not forgive a different missing publishable article when the ledger names one exclusion', async () => {
+    routes = baseRoutes(PUBLISHED_SLUGS_A_INDEX_EXCLUDED_B);
+    const dir = makeCheckout({
+      articleIndexExclusions: [{ section: 'frontaliere', id: INDEX_EXCLUDED_ID }],
+    });
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('b (b) absent from the sitemap');
+    expect(result.out).not.toContain(`${INDEX_EXCLUDED_ID} (${INDEX_EXCLUDED_SLUGS.it}) absent from the sitemap`);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('refuses a ledger-withdrawn article that the published sitemap still advertises', async () => {
+    routes = {
+      ...baseRoutes(PUBLISHED_SLUGS_A_INDEX_EXCLUDED),
+      'sitemap-blog.xml': urlset([
+        '  <url>\n    <loc>https://frontaliereticino.ch/articoli-frontaliere/'
+          + INDEX_EXCLUDED_SLUGS.it + '/</loc>\n  </url>',
+      ]),
+    };
+    const dir = makeCheckout({
+      articleIndexExclusions: [{ section: 'frontaliere', id: INDEX_EXCLUDED_ID }],
+    });
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain(`${INDEX_EXCLUDED_ID} is excluded from index but present in the sitemap`);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('accepts the intentional page-1-only archive projection after a full-chain copy', async () => {
+    routes = baseRoutes();
+    const dir = makeCheckout();
+    const previousArchive = urlset(
+      Array.from({ length: 12 }, (_, index) => `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/tutti/page-${index + 2}/</loc>
+  </url>`),
+    );
+    fs.writeFileSync(path.join(dir, 'public', 'sitemap-articles-archive.xml'), previousArchive);
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).toBe(0);
+    expect(result.out).toContain('sitemap-articles-archive.xml: 12 → 8 urls');
+  });
+
+  it('rejects a page-1 projection with a manifest count below the complete canonical set', async () => {
+    const manifest = JSON.parse(baseRoutes()['manifest.json'] as string);
+    manifest.counts.sitemapArchiveUrls = 1;
+    routes = {
+      ...baseRoutes(),
+      'manifest.json': JSON.stringify(manifest),
+    };
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-articles-archive.xml has 8 urls but manifest counts.sitemapArchiveUrls is 1');
+    expect(readPub(dir, 'sitemap-articles-archive.xml')).toBe(archiveSitemap);
+  });
+
+  it('rejects a canonical projection with a missing hreflang alternate or non-canonical origin', async () => {
+    const missingAlternate = archiveSitemap.replace(
+      '    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/tous/" />\n',
+      '',
+    );
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': missingAlternate,
+    };
+    const missingDir = makeCheckout();
+    const missing = await run(missingDir, ['--check']);
+    expect(missing.code).not.toBe(0);
+    expect(missing.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': archiveSitemap.replace(
+        'https://frontaliereticino.ch/articoli-frontaliere/tutti/',
+        'http://frontaliereticino.ch/articoli-frontaliere/tutti/',
+      ),
+    };
+    const originDir = makeCheckout();
+    const origin = await run(originDir, ['--check']);
+    expect(origin.code).not.toBe(0);
+    expect(origin.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': archiveSitemap.replace(
+        'https://frontaliereticino.ch/articoli-frontaliere/tutti/',
+        'https://user:pass@frontaliereticino.ch/articoli-frontaliere/tutti/',
+      ),
+    };
+    const userinfoDir = makeCheckout();
+    const userinfo = await run(userinfoDir, ['--check']);
+    expect(userinfo.code).not.toBe(0);
+    expect(userinfo.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+  });
+
+  it('rejects a complete but cross-wired canonical hreflang block', async () => {
+    const crossedAlternates = archiveSitemap.replace(
+      /(<loc>https:\/\/frontaliereticino\.ch\/articoli-frontaliere\/tutti\/<\/loc>[\s\S]*?)(?=\n  <\/url>)/,
+      (block) => block
+        .replace('/en/cross-border-articles/all/', '/en/swiss-articles/all/')
+        .replace('/de/grenzgaenger-artikel/alle/', '/de/schweiz-artikel/alle/')
+        .replace('/fr/articles-frontalier/tous/', '/fr/articles-suisse/tous/'),
+    );
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': crossedAlternates,
+    };
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+  });
+
+  it('still refuses a short archive made only of pagination tails', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': archiveSitemap.replaceAll('/tutti/', '/tutti/page-2/'),
+    };
+    const dir = makeCheckout();
+    const previousArchive = urlset(
+      Array.from({ length: 12 }, (_, index) => `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/tutti/page-${index + 2}/</loc>
+  </url>`),
+    );
+    fs.writeFileSync(path.join(dir, 'public', 'sitemap-articles-archive.xml'), previousArchive);
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+  });
+});
+
+describe('pull-articles-api: hero-image manifest', () => {
+  it('skips optional image and news artifacts when nanako does not publish them yet', async () => {
+    routes = baseRoutes();
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('images-manifest.json: not published yet');
+    expect(out).toContain('sitemap-news-candidates.xml: not published yet');
+    // The pre-existing pulls are untouched by the new code.
+    expect(out).toContain('rss.xml: 12 items');
+  });
+
+  it('refuses a manifest without the canton article count', async () => {
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    delete manifest.counts.cantonArticles;
+    routes['manifest.json'] = JSON.stringify(manifest);
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).not.toBe(0);
+    expect(out).toContain('canton-articles.json');
+    expect(out).toContain('canton article count');
+  });
+
+  it('refuses a manifest without the canton article byte count', async () => {
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    delete manifest.files[CANTON_ARTICLES_PATH];
+    routes['manifest.json'] = JSON.stringify(manifest);
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).not.toBe(0);
+    expect(out).toContain('canton-articles.json');
+    expect(out).toContain('byte count');
+  });
+
+  it('pulls the manifest-pinned canton article registry into public', async () => {
+    const cantonArticles = JSON.stringify([{
+      id: 'disoccupazione-berna-settembre-2026-stabile',
+      category: 'pratico',
+      date: '2026-10-07T19:58:52.255Z',
+      image: '/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp',
+      authorSlug: 'redazione',
+      commit: API_COMMIT,
+      section: 'canton-be',
+    }]);
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    manifest.counts.cantonArticles = 1;
+    manifest.files[CANTON_ARTICLES_PATH] = Buffer.byteLength(cantonArticles);
+    routes['manifest.json'] = JSON.stringify(manifest);
+    routes[CANTON_ARTICLES_PATH] = cantonArticles;
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('canton-articles.json: validated 1 articles');
+    expect(readPub(dir, CANTON_ARTICLES_PATH)).toBe(cantonArticles);
+  });
+
+  // The two artifacts have OPPOSITE absence semantics under --require-new, and
+  // asserting only "absence fails" hid that: the candidates are derived from the
+  // corpus and emitted on every publish (empty <urlset> included), so missing
+  // means a broken publisher; the manifest is emitted only when nanako holds hero
+  // images, because this script refuses one listing zero. Requiring both is
+  // unsatisfiable — nanako can neither publish an empty manifest nor omit it.
+  it('fails when the news candidates are absent but --require-new is set', async () => {
+    routes = baseRoutes();
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir, ['--require-new']);
+
+    expect(code).toBe(1);
+    expect(out).toContain('sitemap-news-candidates.xml is absent but --require-new is set');
+  });
+
+  it('tolerates an absent image manifest under --require-new, when candidates are published', async () => {
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([]) };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir, ['--require-new']);
+
+    expect(code).toBe(0);
+    expect(out).toContain('images-manifest.json: not published');
+    // ...and it must NOT claim the flag would make this fatal, because it does not.
+    expect(out).not.toContain('images-manifest.json is absent but --require-new is set');
+  });
+
+  it('pulls the border-wait ranking snapshot into public/data', async () => {
+    routes = {
+      ...baseRoutes(),
+      'border-wait-ranking.json': JSON.stringify({
+        ranking: [{ slug: 'chiasso', avgMinutes: 12.5 }],
+      }),
+    };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    const written = JSON.parse(readPub(dir, 'data/border-wait-ranking.json'));
+    expect(written.ranking).toHaveLength(1);
+  });
+
+  it('refuses a ranking snapshot with zero crossings rather than blanking the chart', async () => {
+    routes = { ...baseRoutes(), 'border-wait-ranking.json': JSON.stringify({ ranking: [] }) };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('carries no ranking entries');
+  });
+
+  it('tolerates an absent ranking snapshot under --require-new', async () => {
+    // The ranking producer cuts over LATER than the publisher, so absence here
+    // is a stage of the migration, not a broken publish.
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([]) };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir, ['--require-new']);
+
+    expect(code).toBe(0);
+  });
+
+  it('still refuses a PRESENT but zero-image manifest under --require-new', async () => {
+    // The tolerance above is for absence only. An emitted-but-empty manifest is
+    // the publisher-died-mid-write case and stays a refusal, which is precisely
+    // why absence has to be the way nanako says "no images yet".
+    routes = {
+      ...baseRoutes(),
+      'sitemap-news-candidates.xml': urlset([]),
+      'images-manifest.json': JSON.stringify({ images: [] }),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir, ['--require-new']);
+
+    expect(code).toBe(1);
+    expect(out).toContain('lists zero images');
+  });
+
+  it('downloads a listed image and writes it under public/images/blog', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp', bytes: 64 }],
+      }),
+      'images/blog/blog-x.webp': webp(64),
+    };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    const written = fs.readFileSync(path.join(dir, 'public', 'images', 'blog', 'blog-x.webp'));
+    expect(written.subarray(0, 4).toString('latin1')).toBe('RIFF');
+    expect(written).toHaveLength(64);
+  });
+
+  it('downloads a governed generated image and preserves its generated path', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'article-generated-x', path: 'images/generated/article-generated-x.webp', bytes: 64 }],
+      }),
+      'images/generated/article-generated-x.webp': webp(64),
+    };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    const written = fs.readFileSync(path.join(dir, 'public', 'images', 'generated', 'article-generated-x.webp'));
+    expect(written.subarray(0, 4).toString('latin1')).toBe('RIFF');
+    expect(written).toHaveLength(64);
+  });
+
+  it('does not re-download an image it already has', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp' }],
+      }),
+      // Deliberately NOT served: a fetch attempt would 404 and fail the run.
+    };
+    const dir = makeCheckout();
+    const dest = path.join(dir, 'public', 'images', 'blog');
+    fs.mkdirSync(dest, { recursive: true });
+    fs.writeFileSync(path.join(dest, 'blog-x.webp'), webp(32));
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('1 already local, 0 to fetch');
+  });
+
+  it('repairs an existing image that fails validation', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp', bytes: 64 }],
+      }),
+      'images/blog/blog-x.webp': webp(64),
+    };
+    const dir = makeCheckout();
+    const dest = path.join(dir, 'public', 'images', 'blog');
+    fs.mkdirSync(dest, { recursive: true });
+    fs.writeFileSync(path.join(dest, 'blog-x.webp'), Buffer.from('corrupt-webp'));
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('local file failed validation; refreshing from publisher');
+    expect(out).toContain('0 already local, 1 to fetch');
+    expect(fs.readFileSync(path.join(dest, 'blog-x.webp'))).toEqual(webp(64));
+  });
+
+  it('refuses a path that escapes public/images/blog', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'evil', path: '../../../../etc/passwd.webp' }],
+      }),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('is not an images/blog/<name>.webp or images/generated/<name>.webp path');
+    expect(fs.existsSync(path.join(dir, 'public', 'images'))).toBe(false);
+  });
+
+  it('refuses a body that is not actually a WebP', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp' }],
+      }),
+      'images/blog/blog-x.webp': '<html>404 from a CDN that answered 200</html>',
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('not a WebP file');
+    expect(fs.existsSync(path.join(dir, 'public', 'images', 'blog', 'blog-x.webp'))).toBe(false);
+  });
+
+  // Deploy run 37035643275: a hero with a plausible RIFF/WEBP header but bytes
+  // that no longer match it reached main and failed the thumbnail step.
+  it('refuses a WebP whose length contradicts its RIFF header', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp' }],
+      }),
+      'images/blog/blog-x.webp': webp(64).subarray(0, 40),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('images/blog/blog-x.webp is not a WebP file');
+    expect(fs.existsSync(path.join(dir, 'public', 'images', 'blog', 'blog-x.webp'))).toBe(false);
+  });
+
+  it('refuses an image over the generator’s own size cap', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp' }],
+      }),
+      'images/blog/blog-x.webp': webp(320 * 1024 + 16),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('unoptimised file');
+  });
+
+  it('refuses when the declared byte count disagrees with what was fetched', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp', bytes: 999 }],
+      }),
+      'images/blog/blog-x.webp': webp(64),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('manifest says 999 bytes, fetched 64');
+  });
+
+  it('refuses an empty manifest rather than treating it as "no images"', async () => {
+    routes = { ...baseRoutes(), 'images-manifest.json': JSON.stringify({ images: [] }) };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('lists zero images');
+  });
+});
+
+describe('pull-articles-api: discovery article index', () => {
+  const sampleArticle = {
+    id: 'trend-topic-example',
+    publishedAt: new Date().toISOString(),
+    provider: 'google_trends',
+    title: { it: 'Tema in crescita' },
+    excerpt: { it: 'Un tema utile per i frontalieri.' },
+    url: { it: 'https://frontaliereticino.ch/articoli-frontaliere/trend-topic-example/' },
+  };
+
+  it('pulls the optional discovery index when the manifest declares the release-pinned artifact', async () => {
+    const raw = discoveryArticlesRaw({ articles: [sampleArticle] });
+    routes = routesWithDiscoveryArticles(raw);
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 published discovery articles');
+    expect(readPub(dir, DISCOVERY_ARTICLES_PATH)).toBe(raw);
+    expect(JSON.parse(readPub(dir, DISCOVERY_ARTICLES_MANIFEST_PATH))).toEqual({
+      schema: 1,
+      commit: API_COMMIT,
+      files: { [DISCOVERY_ARTICLES_PATH]: Buffer.byteLength(raw, 'utf8') },
+      counts: { discoveryArticles: 1 },
+    });
+  });
+
+  it('removes an old snapshot when the legacy manifest does not publish discovery articles yet', async () => {
+    routes = baseRoutes();
+    const dir = makeCheckout();
+    const destination = path.join(dir, 'public', DISCOVERY_ARTICLES_PATH);
+    const manifestDestination = path.join(dir, 'public', DISCOVERY_ARTICLES_MANIFEST_PATH);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, 'stale discovery index');
+    fs.writeFileSync(manifestDestination, 'stale discovery manifest');
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('not published yet');
+    expect(fs.existsSync(destination)).toBe(false);
+    expect(fs.existsSync(manifestDestination)).toBe(false);
+  });
+
+  it('refuses stale or manifest-mismatched discovery data without changing the served copy', async () => {
+    const previous = 'previous discovery snapshot';
+    const dir = makeCheckout();
+    const destination = path.join(dir, 'public', DISCOVERY_ARTICLES_PATH);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, previous);
+
+    const stale = discoveryArticlesRaw({
+      generatedAt: hoursAgo(24 * 15),
+      articles: [sampleArticle],
+    });
+    routes = routesWithDiscoveryArticles(stale);
+    const staleResult = await run(dir);
+    expect(staleResult.code).toBe(1);
+    expect(staleResult.out).toContain('generatedAt is stale or in the future');
+    expect(readPub(dir, DISCOVERY_ARTICLES_PATH)).toBe(previous);
+
+    const fresh = discoveryArticlesRaw({ articles: [sampleArticle] });
+    routes = routesWithDiscoveryArticles(fresh, { count: 2 });
+    const countResult = await run(dir);
+    expect(countResult.code).toBe(1);
+    expect(countResult.out).toContain('count differs from manifest');
+    expect(readPub(dir, DISCOVERY_ARTICLES_PATH)).toBe(previous);
+
+    routes = routesWithDiscoveryArticles(fresh, { byteDelta: 1 });
+    const byteResult = await run(dir);
+    expect(byteResult.code).toBe(1);
+    expect(byteResult.out).toContain('byte count differs from manifest');
+    expect(readPub(dir, DISCOVERY_ARTICLES_PATH)).toBe(previous);
+  });
+});
+
+describe('pull-articles-api: generated cover evidence', () => {
+  it('stages generated records from the manifest-pinned HTTP blog index', async () => {
+    const generated = validGeneratedCover();
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [generated.imageUrl]: generated },
+    }));
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8'))).toEqual({
+      schema: 1,
+      commit: API_COMMIT,
+      generated: { [generated.imageUrl]: generated },
+    });
+  });
+
+  it('accepts schema-valid generated evidence when the publisher omits optional kind', async () => {
+    const generated = validGeneratedCover();
+    Reflect.deleteProperty(generated, 'kind');
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [generated.imageUrl]: generated },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 article image evidence records');
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
+      .toEqual({ [generated.imageUrl]: generated });
+  });
+
+  it('accepts the published governed place fallback as blog image evidence', async () => {
+    const record = validLuganoPlaceFallback();
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [record.imageUrl]: record },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 article image evidence records');
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
+      .toEqual({ [record.imageUrl]: record });
+  });
+
+  it.each([
+    ['private-grant', validPrivateGrantCover],
+    ['licensed Pexels photo', validPexelsCover],
+  ])('accepts schema-valid %s article-hero evidence', async (_label, makeRecord) => {
+    const record = makeRecord();
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [record.imageUrl]: record },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 article image evidence records');
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
+      .toEqual({ [record.imageUrl]: record });
+  });
+
+  it('still refuses a generated record whose image URL differs from its HTTP map key', async () => {
+    const generated = validGeneratedCover();
+    const wrongKey = '/images/blog/not-the-record.webp';
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [wrongKey]: generated },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('imageUrl does not match the record key');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('still refuses schema-valid evidence outside the published blog scopes', async () => {
+    const record = validGeneratedCover();
+    record.scope = 'event-library';
+    record.imageUrl = '/images/events/library/test-generated-cover.webp';
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [record.imageUrl]: record },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('scope is not article-hero or place');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('refuses a blog index whose bytes disagree with the pinned manifest before writing artifacts', async () => {
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    manifest.files[BLOG_CREDITS_PATH] += 1;
+    routes['manifest.json'] = JSON.stringify(manifest);
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} byte count differs from manifest`);
+    const outputs = fs.readFileSync(outputFile, 'utf8');
+    expect(outputs).toContain('retryable-snapshot=true\n');
+    expect(outputs).not.toContain('retry-reason=');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('does not retry a structurally invalid blog index as a snapshot race', async () => {
+    routes = routesWithCredits(JSON.stringify({ schema: 2, section: 'blog', commit: API_COMMIT, generated: {} }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} does not match the pinned blog-index contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).not.toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('does not retry a blog index whose commit pin is missing', async () => {
+    routes = routesWithCredits(JSON.stringify({ schema: 1, section: 'blog', generated: {} }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} has an invalid JSON contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).not.toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('does not retry a stale commit pin when the rest of the blog contract is invalid', async () => {
+    routes = routesWithCredits(JSON.stringify({ commit: 'other' }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} does not match the pinned blog-index contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).not.toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('marks a valid blog index pinned to another commit as a retryable snapshot mismatch', async () => {
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: 'f'.repeat(40),
+      generated: {},
+    }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} does not match the pinned blog-index contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('skips the complete staged batch when the release moves before the final manifest check', async () => {
+    routes = baseRoutes();
+    const originalManifest = routes['manifest.json'] as string;
+    const movedManifest = JSON.parse(originalManifest);
+    movedManifest.commit = 'f'.repeat(40);
+    manifestSequence = [originalManifest, JSON.stringify(movedManifest)];
+    const dir = makeCheckout();
+    const before = readPub(dir, 'sitemap-blog.xml');
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain(`published API moved from ${API_COMMIT} to ${'f'.repeat(40)}`);
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(before);
+  });
+});
+
+describe('pull-articles-api: sitemap-news candidates', () => {
+  const LOC_A = 'https://frontaliereticino.ch/articoli-frontaliere/fresh-a/';
+  const LOC_B = 'https://frontaliereticino.ch/articoli-frontaliere/fresh-b/';
+
+  it('merges candidates over what main is serving and bumps the index lastmod', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-news-candidates.xml': urlset([newsUrlBlock(LOC_B, hoursAgo(1))]),
+    };
+    const dir = makeCheckout({ newsEntries: [newsUrlBlock(LOC_A, hoursAgo(2))] });
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    const news = readPub(dir, 'sitemap-news.xml');
+    expect(news).toContain(LOC_A);
+    expect(news).toContain(LOC_B);
+    const today = new Date().toISOString().slice(0, 10);
+    expect(readPub(dir, 'sitemap.xml')).toContain(`<lastmod>${today}</lastmod>`);
+  });
+
+  it('prunes an entry that has aged out of the 48h window', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-news-candidates.xml': urlset([newsUrlBlock(LOC_B, hoursAgo(1))]),
+    };
+    const dir = makeCheckout({ newsEntries: [newsUrlBlock(LOC_A, hoursAgo(72))] });
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    const news = readPub(dir, 'sitemap-news.xml');
+    expect(news).not.toContain(LOC_A);
+    expect(news).toContain(LOC_B);
+    expect(out).toContain('1 outside the 48h window');
+  });
+
+  it('shrinking to fewer entries is allowed — the window prune is supposed to do that', async () => {
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([]) };
+    const dir = makeCheckout({
+      newsEntries: [newsUrlBlock(LOC_A, hoursAgo(80)), newsUrlBlock(LOC_B, hoursAgo(90))],
+    });
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(readPub(dir, 'sitemap-news.xml')).not.toContain('<url>');
+  });
+
+  it('prunes a future publication date instead of pinning it forever', async () => {
+    const future = new Date(Date.now() + 6 * 3_600_000).toISOString();
+    routes = {
+      ...baseRoutes(),
+      'sitemap-news-candidates.xml': urlset([newsUrlBlock(LOC_B, future)]),
+    };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(readPub(dir, 'sitemap-news.xml')).not.toContain(LOC_B);
+  });
+
+  it('keeps a guide declared evergreen out of the news sitemap', async () => {
+    const guide = 'https://frontaliereticino.ch/articoli-frontaliere/guida-permesso/';
+    const news = 'https://frontaliereticino.ch/articoli-frontaliere/notizia/';
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([newsUrlBlock(news, hoursAgo(1)), newsUrlBlock(guide, hoursAgo(1))]) };
+    const dir = makeCheckout({ newsEntries: [newsUrlBlock(guide, hoursAgo(2))] });
+    const content = path.join(dir, 'packages', 'articles', 'content');
+    fs.mkdirSync(content, { recursive: true });
+    fs.writeFileSync(
+      path.join(content, 'routerBlogData.ts'),
+      "export const BLOG_SLUGS = {\n  'guida-permesso': { it: 'guida-permesso', en: 'g-en', de: 'g-de', fr: 'g-fr' },\n  'notizia': { it: 'notizia', en: 'n-en', de: 'n-de', fr: 'n-fr' },\n};\n",
+    );
+    fs.writeFileSync(
+      path.join(content, 'blog-articles-data.ts'),
+      "const RAW_ARTICLES = [\n  { id: 'guida-permesso', articleType: 'evergreen' },\n  { id: 'notizia', articleType: 'news' },\n];\n",
+    );
+
+    const { code, out } = await run(dir);
+
+    expect(code, out).toBe(0);
+    const sitemap = readPub(dir, 'sitemap-news.xml');
+    expect(sitemap).toContain(news);
+    expect(sitemap).not.toContain(guide);
+    expect(out).toContain(`dropping ${guide} — declared evergreen, not news`);
+  });
+
+  it('keeps every locale page of a listed article and drops a de-listed one in any locale', async () => {
+    // Since 2026-10-24 the corpus emits one <url> per published locale page, so
+    // the de-listing check has to recognise the localized section prefixes too:
+    // an EN/DE/FR entry whose article left the registry must not linger until
+    // the window ages it out.
+    const EN_LIVE = 'https://frontaliereticino.ch/en/cross-border-articles/fresh-a-en/';
+    const DE_LIVE = 'https://frontaliereticino.ch/de/grenzgaenger-artikel/fresh-a-de/';
+    const EN_GONE = 'https://frontaliereticino.ch/en/cross-border-articles/gone-en/';
+    const FR_SWISS_GONE = 'https://frontaliereticino.ch/fr/articles-suisse/gone-ch-fr/';
+    const FR_SWISS_LIVE = 'https://frontaliereticino.ch/fr/articles-suisse/live-ch-fr/';
+    routes = {
+      ...baseRoutes(),
+      'sitemap-news-candidates.xml': urlset([newsUrlBlock(EN_LIVE, hoursAgo(1)), newsUrlBlock(FR_SWISS_LIVE, hoursAgo(1))]),
+    };
+    const dir = makeCheckout({
+      newsEntries: [
+        newsUrlBlock(LOC_A, hoursAgo(2)),
+        newsUrlBlock(DE_LIVE, hoursAgo(2)),
+        newsUrlBlock(EN_GONE, hoursAgo(2)),
+        newsUrlBlock(FR_SWISS_GONE, hoursAgo(2)),
+      ],
+    });
+    const content = path.join(dir, 'packages', 'articles', 'content');
+    fs.mkdirSync(content, { recursive: true });
+    fs.writeFileSync(
+      path.join(content, 'routerBlogData.ts'),
+      "export const BLOG_SLUGS = { 'a': { it: 'fresh-a', en: 'fresh-a-en', de: 'fresh-a-de', fr: 'fresh-a-fr' } };\n",
+    );
+    fs.writeFileSync(
+      path.join(content, 'routerSwissData.ts'),
+      "export const SWISS_SLUGS = { 'c': { it: 'live-ch', en: 'live-ch-en', de: 'live-ch-de', fr: 'live-ch-fr' } };\n",
+    );
+
+    const { code, out } = await run(dir);
+
+    expect(code, out).toBe(0);
+    const news = readPub(dir, 'sitemap-news.xml');
+    for (const live of [LOC_A, EN_LIVE, DE_LIVE, FR_SWISS_LIVE]) expect(news).toContain(live);
+    for (const gone of [EN_GONE, FR_SWISS_GONE]) {
+      expect(news).not.toContain(gone);
+      expect(out).toContain(`dropping ${gone} — no longer in the slug registry`);
+    }
+  });
+
+  it('takes the window from data/news-sitemap-whitelist.ts, not a hardcoded 48', async () => {
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([]) };
+    // A 6h window makes a 10h-old entry stale — under a hardcoded 48 it would survive.
+    const dir = makeCheckout({ newsEntries: [newsUrlBlock(LOC_A, hoursAgo(10))], windowHours: 6 });
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('outside the 6h window');
+    expect(readPub(dir, 'sitemap-news.xml')).not.toContain(LOC_A);
+  });
+
+  it('falls back to the 48h spec window when main no longer carries the whitelist', async () => {
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([]) };
+    const dir = makeCheckout({
+      newsEntries: [newsUrlBlock(LOC_A, hoursAgo(10))],
+      windowHours: null,
+    });
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('using the 48h Google News spec window');
+    // 10h old, so still inside the fallback window — it survives.
+    expect(readPub(dir, 'sitemap-news.xml')).toContain(LOC_A);
+  });
+
+  it('refuses a candidate with no publication date', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-news-candidates.xml': urlset([newsUrlBlock(LOC_B, null)]),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('has no <news:publication_date>');
+  });
+
+  it('leaves the served copy untouched when it refuses', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-news-candidates.xml': urlset([newsUrlBlock(LOC_B, null)]),
+    };
+    // ONE timestamp for both sides. `hoursAgo` is `Date.now()`-derived and
+    // millisecond-precise, so calling it twice let a 1 ms tick between these
+    // two lines produce two different `<news:publication_date>` values — the
+    // assertion below compares the served copy byte-for-byte against
+    // `before`, so that tick failed the test with a 1 ms diff that had
+    // nothing to do with the behaviour under test (green locally, red in CI
+    // under load). The fixture must be identical by construction, not by
+    // winning a race.
+    const publishedAt = hoursAgo(2);
+    const before = urlset([newsUrlBlock(LOC_A, publishedAt)]);
+    const dir = makeCheckout({ newsEntries: [newsUrlBlock(LOC_A, publishedAt)] });
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(readPub(dir, 'sitemap-news.xml')).toBe(before);
+  });
+
+  it('--check validates the new artifacts without writing them', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp' }],
+      }),
+      'images/blog/blog-x.webp': webp(64),
+      'sitemap-news-candidates.xml': urlset([newsUrlBlock(LOC_B, hoursAgo(1))]),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir, ['--check']);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated, wrote nothing');
+    expect(readPub(dir, 'sitemap-news.xml')).not.toContain(LOC_B);
+    expect(fs.existsSync(path.join(dir, 'public', 'images', 'blog', 'blog-x.webp'))).toBe(false);
+  });
+});

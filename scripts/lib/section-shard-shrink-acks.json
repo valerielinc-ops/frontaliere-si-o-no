@@ -1,0 +1,141 @@
+{
+  "_comment": "Acknowledged INTENTIONAL section-shard shrinks, pinned to one exact transition. Read by scripts/lib/shrink-ack-check.mjs, which push-section-shard.sh consults ONLY when its shrink guard has already tripped. Why this exists instead of the bare SHARD_SHRINK_GUARD_OVERRIDE_<SECTION>_<LOCALE>=true env var: that boolean disables the guard for as long as it is set, so the run that legitimises one correction also blinds the shard to every later collapse — and nothing forces anyone to take it back out. An entry here is pinned to `from` (the shard's CURRENT .shard-filecount) so it goes inert the moment the acknowledged push lands and the counter moves: the next deploy compares against the NEW baseline and no ack matches. `min_new` is a floor, not a target — an upward drift never needs a new ack (a smaller shrink simply stops tripping the guard), while a genuine collapse to a near-empty tree stays refused. Adding an entry is a claim that a HUMAN verified the shrink against the shard's real content; put the evidence in `reason` and the issue in `issue`. Optional `from_max` turns the exact pin into a band [from, from_max] (from_max <= 2*from, enforced) for a shard whose counter moves on every deploy while the change waits for merge: it still self-expires, because a shrink that trips the guard at prev <= from_max lands below from_max/2 <= from.",
+
+  "appenzello": {
+    "it": {
+      "from": 9707,
+      "min_new": 2247,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 9707 -> 3210 files for appenzello-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "friburgo": {
+    "it": {
+      "from": 23857,
+      "min_new": 7532,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 23857 -> 10760 files for friburgo-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "giura": {
+    "it": {
+      "from": 6702,
+      "min_new": 1054,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 6702 -> 1507 files for giura-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    },
+    "fr": {
+      "from": 4948,
+      "min_new": 880,
+      "issue": 5220,
+      "reason": "PR #5172 (issue #5136) stopped rescueSwissCityFromText from matching the German word 'alle' in free-text job descriptions, which had been publishing foreign and other-canton jobs as located in Alle (JU) — a 1.900-inhabitant Jura village. Measured on the live shard on 2026-08-06: 2056 of its 4937 job pages declared addressLocality 'Alle' against 66 for Delemont, the cantonal capital, plus 2571 more with no addressLocality at all. The build now emits 1259 files. The same correction ALREADY shipped on giura-it (10249 -> 7065, -31%), which stayed under the 50% threshold and pushed on 2026-08-06T06:02Z: fr/en/de tripped only because Alle was a larger share of their smaller trees. Blocking them keeps 2056 fabricated pages live and leaves the locales inconsistent with IT."
+    },
+    "en": {
+      "from": 4835,
+      "min_new": 840,
+      "issue": 5221,
+      "reason": "Same correction as giura/fr — see that entry. Build emits 1203 files."
+    },
+    "de": {
+      "from": 4737,
+      "min_new": 780,
+      "issue": 5222,
+      "reason": "Same correction as giura/fr — see that entry. Build emits 1125 files."
+    }
+  },
+  "ticino": {
+    "fr": {
+      "from": 650000,
+      "from_max": 900000,
+      "min_new": 200000,
+      "issue": 14979,
+      "reason": "The build stops writing the 200 legacy-TI copy of every expired non-TI soft-landing under /fr/trouver-emploi-tessin/<slug>/ (its canonical named the native canton page: 911,071 canonicalMismatch advisories on the full-corpus validate:page-seo replay) and the noindex active cross-canton copy; both URLs now 404 at the shard origin and the locale-router Worker 301s them via /job-canon. Measured on the fr build of deploy 39917633944: '(+ 375766 legacy slug bridges)' and 31406 active-job-cross-canton-legacy emits, against a shard of 712136 files (prev 693636); a sample of _tree bucket 07 (2768 entries) classified 1828 entries as registry slugs whose fr page lives in another canton, 330 as real TI pages. Expected after: ~280-310k files. Band, not exact pin, because the shard grows ~18k files per deploy (several deploys a day); it self-expires because the post-shrink count is far below `from`."
+    },
+    "en": {
+      "from": 650000,
+      "from_max": 900000,
+      "min_new": 200000,
+      "issue": 14979,
+      "reason": "Same change as ticino/fr — see that entry. en build of deploy 39917633944: '(+ 373115 legacy slug bridges)', 31463 active cross-canton emits, shard 715704 files."
+    },
+    "de": {
+      "from": 650000,
+      "from_max": 900000,
+      "min_new": 200000,
+      "issue": 14979,
+      "reason": "Same change as ticino/fr — see that entry. de build of deploy 39917633944: '(+ 372933 legacy slug bridges)', 30549 active cross-canton emits, shard 712044 files."
+    }
+  },
+  "svitto": {
+    "it": {
+      "from": 15786,
+      "min_new": 4319,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 15786 -> 6171 files for svitto-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "zugo": {
+    "it": {
+      "from": 20582,
+      "min_new": 6569,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 20582 -> 9385 files for zugo-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "sciaffusa": {
+    "it": {
+      "from": 16085,
+      "min_new": 4162,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 16085 -> 5947 files for sciaffusa-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "neuchatel": {
+    "it": {
+      "from": 10426,
+      "min_new": 2358,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 10426 -> 3369 files for neuchatel-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "obvaldo": {
+    "it": {
+      "from": 9584,
+      "min_new": 2007,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 9584 -> 2868 files for obvaldo-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "nidvaldo": {
+    "it": {
+      "from": 8752,
+      "min_new": 1838,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 8752 -> 2627 files for nidvaldo-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "uri": {
+    "it": {
+      "from": 7976,
+      "min_new": 1403,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 7976 -> 2005 files for uri-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "glarona": {
+    "it": {
+      "from": 5902,
+      "min_new": 857,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 5902 -> 1225 files for glarona-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  },
+  "vallese": {
+    "it": {
+      "from": 26966,
+      "min_new": 8667,
+      "issue": 15090,
+      "reason": "PR #15036 intentionally stopped emitting expired and canton-moved orphan copies because the locale-router Worker now owns their 301. Deploy 40087494526 measured 26966 -> 12382 files for vallese-it; this one-time pin keeps the shrink guard active for a deeper collapse."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "ghdl-ch",
+  "companyName": "EMOTIONS by Guy Ravet",
+  "companyHost": "hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/grand-hotel-du-lac-10708"
+  ],
+  "detailTemplate": "/jobs/grand-hotel-du-lac-10708/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Chef de Partie (H/F)",
+    "Chef de Rang (H/F)"
+  ],
+  "canton": "VD",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:51:27.632Z",
+  "candidateKey": "ghdl.ch"
+}

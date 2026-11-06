@@ -1,0 +1,25 @@
+{
+  "companyKey": "happycamper",
+  "companyName": "Happy Camper",
+  "companyHost": "happycamper.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://happycamper.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 57,
+  "sampleTitles": [
+    "Assistant General Manager",
+    "Brand Manager",
+    "Brokedown Palace - Bartender",
+    "Brokedown Palace - Host",
+    "Brokedown Palace - Security"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-11-03T13:20:54.351Z",
+  "candidateKey": "happycamper@applytojob.com"
+}

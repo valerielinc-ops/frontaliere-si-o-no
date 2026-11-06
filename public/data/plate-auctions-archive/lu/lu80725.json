@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "lu-car-long-format-80725",
+      "sourceKey": "LU",
+      "sourceRecordId": "car-long-format-80725",
+      "canton": "Lucerna",
+      "platePrefix": "LU",
+      "plateNumber": "80725",
+      "normalizedPlate": "LU80725",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 450,
+      "closedAt": "2026-09-23T04:48:31.699Z",
+      "officialAuctionUrl": "https://strassenverkehrsamt.lu.ch/strassenverkehr/fahrzeug/kontrollschilderboerse_wunschkontrollschild",
+      "officialDetailUrl": "https://strassenverkehrsamt.lu.ch/downloads/strassenverkehrsamt/kontrollschilder/wunschschilder.pdf",
+      "sourceFetchedAt": "2026-09-23T04:48:31.699Z",
+      "lastVerifiedAt": "2026-09-23T04:48:31.699Z",
+      "firstSeenAt": "2026-09-19T11:04:46.969Z",
+      "lastSeenAt": "2026-09-23T04:48:31.699Z",
+      "sourceCategory": "fixed-price-long-format",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "96485f7811cc"
+    }
+  ]
+}

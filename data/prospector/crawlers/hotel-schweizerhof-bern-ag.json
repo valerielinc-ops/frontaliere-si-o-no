@@ -1,0 +1,24 @@
+{
+  "companyKey": "hotel-schweizerhof-bern-ag",
+  "companyName": "Hotel Schweizerhof Bern AG",
+  "companyHost": "recruitingapp-2850.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2850.umantis.com/Jobs/All?DesignID=10008&amp;CompanyID=24&amp;Search=1&amp;Reset=G"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Assistant Restaurant Manager Jacks Brasserie 100% (m/w/d)",
+    "Stewardingmitarbeiter 100% (m/w/d)",
+    "Chef de Rang Jack's Brasserie 100% (m/w/d)",
+    "Chef de Partie - Jack's Brasserie 100% (m/w/d)",
+    "Sommelier/ère 100% (m/w/d)"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-05T11:48:45.921Z"
+}

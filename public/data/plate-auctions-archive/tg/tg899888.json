@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109894",
+      "sourceKey": "TG",
+      "sourceRecordId": "109894",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "899888",
+      "normalizedPlate": "TG899888",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-10-28T11:47:05.769Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109894",
+      "sourceFetchedAt": "2026-10-28T11:47:05.769Z",
+      "lastVerifiedAt": "2026-10-28T11:47:05.769Z",
+      "firstSeenAt": "2026-10-22T17:12:02.218Z",
+      "lastSeenAt": "2026-10-28T11:47:05.769Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "db5ad8b59dae"
+    }
+  ]
+}

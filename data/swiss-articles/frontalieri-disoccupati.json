@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-disoccupati",
+  "slug": "frontalieri-disoccupati",
+  "publishedAt": "2026-07-15T00:33:15.291Z",
+  "cluster": "novita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.668577575290788,
+    "confidence": 0.8,
+    "finalScore": 2.1348620602326305,
+    "topK": [
+      {
+        "slug": "frontalieri-disoccupazione-stato-lavoro",
+        "cosine": 0.8895258584302627
+      },
+      {
+        "slug": "frontalieri-disoccupati-svizzera-indennita",
+        "cosine": 0.8846287949112452
+      },
+      {
+        "slug": "disoccupazione-dei-frontalieri",
+        "cosine": 0.881156085590851
+      },
+      {
+        "slug": "riforma-frontalieri-costi-svizzera",
+        "cosine": 0.8808931609935419
+      },
+      {
+        "slug": "riforma-ue-disoccupazione-frontalieri",
+        "cosine": 0.8787708942294365
+      }
+    ],
+    "score": 2.1348620602326305,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

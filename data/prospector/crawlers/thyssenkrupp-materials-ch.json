@@ -1,0 +1,22 @@
+{
+  "companyKey": "thyssenkrupp-materials-ch",
+  "companyName": "thyssenkrupp-materials",
+  "companyHost": "thyssenkrupp-materials.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.thyssenkrupp-materials.ch/de/karriere"
+  ],
+  "detailTemplate": "/de/karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "zur Lernenden-Seite und zu den Lehrstellen 2027",
+    "Hier geht es zum Interview ...",
+    "Hier geht es zum Beitrag ..."
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:44:52.018Z",
+  "candidateKey": "thyssenkrupp-materials.ch"
+}

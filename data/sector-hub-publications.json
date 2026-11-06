@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-02T14:50:23.976Z",
+  "sourceWeek": "2026-W45",
+  "hubs": [
+    {
+      "slug": "admin",
+      "routeKind": "dynamic",
+      "label": "admin",
+      "labelByLocale": {
+        "it": "Amministrazione",
+        "en": "Administration",
+        "de": "Verwaltung",
+        "fr": "Administration"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "admin"
+      ],
+      "firstPublishedAt": "2026-10-19T21:15:47.242Z",
+      "status": "active"
+    },
+    {
+      "slug": "finance",
+      "routeKind": "dynamic",
+      "label": "finance",
+      "labelByLocale": {
+        "it": "Finanza",
+        "en": "Finance",
+        "de": "Finanzen",
+        "fr": "Finance"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "finance"
+      ],
+      "firstPublishedAt": "2026-10-19T21:15:47.242Z",
+      "status": "active"
+    },
+    {
+      "slug": "public-admin",
+      "routeKind": "dynamic",
+      "label": "public-admin",
+      "labelByLocale": {
+        "it": "Amministrazione pubblica",
+        "en": "Public administration",
+        "de": "Öffentliche Verwaltung",
+        "fr": "Administration publique"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "public-admin"
+      ],
+      "firstPublishedAt": "2026-11-02T14:50:23.976Z",
+      "status": "active"
+    },
+    {
+      "slug": "sanita-ospedali",
+      "routeKind": "dynamic",
+      "label": "Sanità / Ospedali",
+      "labelByLocale": {
+        "it": "Sanità / Ospedali",
+        "de": "Gesundheitswesen / Krankenhäuser"
+      },
+      "sourceFields": [
+        "category",
+        "sector"
+      ],
+      "matchLabels": [
+        "Sanità / Ospedali"
+      ],
+      "firstPublishedAt": "2026-10-20T08:22:55.192Z",
+      "status": "active"
+    },
+    {
+      "slug": "tecnica",
+      "routeKind": "dynamic",
+      "label": "Tecnica",
+      "labelByLocale": {
+        "it": "Tecnica",
+        "en": "Technical",
+        "de": "Technik",
+        "fr": "Technique"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "Tecnica"
+      ],
+      "firstPublishedAt": "2026-10-20T08:22:55.192Z",
+      "status": "active"
+    }
+  ]
+}

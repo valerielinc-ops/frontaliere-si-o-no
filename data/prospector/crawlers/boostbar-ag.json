@@ -1,0 +1,24 @@
+{
+  "companyKey": "boostbar-ag",
+  "companyName": "boostbar ag",
+  "companyHost": "boost-inc.jobs.personio.com",
+  "platform": "personio.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://boost-inc.jobs.personio.com/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 17,
+  "sampleTitles": [
+    "Werkstudent*in Sales (15-20 Std./Woche, Remote) <path d=\"M10.0005 3.5752C12.7755",
+    "Opérateur·trice sur machines à café et distributeurs automatiques - Genève (100%) <svg aria-hidden=\"true\" class=\"page_jobMetaIcon__kiDYs\" width=\"20\" height=\"20\"",
+    "IT Service & Operations Specialist, Boost inc - Lugano (100%) <path d=\"M10.00",
+    "Logistics Operator, Boostbar - Olten (100%) <path d=\"M10.0005 3.5752C12.7755 3.57",
+    "Merchandiser*in, Boostbar - Region Thurgau (100%) <path d=\"M10.0005 3.5752C12.775"
+  ],
+  "canton": "SO",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-01T18:56:15.902Z"
+}

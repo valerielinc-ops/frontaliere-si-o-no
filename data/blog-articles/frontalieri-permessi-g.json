@@ -1,0 +1,19 @@
+{
+  "id": "frontalieri-permessi-g",
+  "slug": "frontalieri-permessi-g",
+  "publishedAt": "2026-07-23T03:50:56.529Z",
+  "cluster": "novita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 150.27002549999997,
+    "confidence": 1,
+    "finalScore": 150.27002549999997,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 150.27002549999997,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "companyKey": "cgn-ch",
+  "companyName": "CGN SA",
+  "companyHost": "cgn.ch",
+  "verifiedEmployerDomain": "cgn.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.cgn.ch/fr/carriere"
+  ],
+  "detailTemplate": "/media/pdf/emplois/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Télécharger l'annonce complète",
+    "Télécharger l'annonce complète"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-05T13:52:02.873Z",
+  "candidateKey": "cgn@lausanne"
+}

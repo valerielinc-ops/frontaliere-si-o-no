@@ -1,0 +1,40 @@
+{
+  "id": "tassa-salute-frontalieri-sertori-2026",
+  "slug": "tassa-salute-frontalieri-sertori-2026",
+  "publishedAt": "2026-07-31T05:33:16.317Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.73297231750436,
+    "confidence": 0.8,
+    "finalScore": 9.38637785400349,
+    "topK": [
+      {
+        "slug": "frontalieri-tassa-salute-lombardia",
+        "cosine": 0.8691186851953153
+      },
+      {
+        "slug": "nuova-tassa-frontalieri-2026",
+        "cosine": 0.8674244758324948
+      },
+      {
+        "slug": "aumento-stipendi-frontalieri-lombardia-2026",
+        "cosine": 0.8666964416122944
+      },
+      {
+        "slug": "lombardia-tassa-sanitaria-frontalieri-2026",
+        "cosine": 0.8654594661910133
+      },
+      {
+        "slug": "lombardia-aumenta-stipendi-sanitari-2026",
+        "cosine": 0.8649420785622792
+      }
+    ],
+    "score": 9.38637785400349,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "precicast-sa",
+  "companyName": "Precicast SA",
+  "companyHost": "precicast.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.precicast.com/careers",
+    "https://www.precicast.com/career",
+    "https://www.precicast.com/jobs",
+    "https://www.precicast.com/karriere",
+    "https://www.precicast.com/offene-stellen",
+    "https://www.precicast.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.970Z"
+}

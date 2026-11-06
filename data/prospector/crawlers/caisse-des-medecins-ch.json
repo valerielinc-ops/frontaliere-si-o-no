@@ -1,0 +1,27 @@
+{
+  "companyKey": "caisse-des-medecins-ch",
+  "companyName": "CAISSE DES MEDECINS",
+  "companyHost": "caisse-des-medecins.ch",
+  "verifiedEmployerDomain": "caisse-des-medecins.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://caisse-des-medecins.ch/a-propos-de-nous/carriere/postes-a-pourvoir/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Agent support service desk 1er niveau (H/F) à 100% (CDD 10 mois) 100% du 1er février 2027 au 30 novembre 2027 CDD 10 mois Thônex (GE)",
+    "DBA PostgreSQL – Exploitation (H/F) 100% 100% date d’entrée à convenir à durée indéterminée Thônex",
+    "DBA Sybase / MS SQL (H/F) à 100% 100% date d’entrée à convenir à durée indéterminée Thônex",
+    "Senior Software Engineer (m/w) 100% 100% immediately or by appointment unlimited Thônex",
+    "Test Automation Engineer (m/f) 80-100% immediately or by appointment unlimited Urdorf"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-03T13:25:00.551Z",
+  "candidateKey": "caisse-des-medecins@thonex"
+}

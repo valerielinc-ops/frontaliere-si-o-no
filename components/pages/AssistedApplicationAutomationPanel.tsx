@@ -1,0 +1,955 @@
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { AlertTriangle, CheckCircle2, FileText, Loader2, Pause, Play, Plus, RefreshCw, Save, Send, Trash2, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
+import {
+  runAutomationAdminAction,
+  uploadAssistedApplicationCv,
+  type AssistedApplicationAdminOrder,
+  type AutomationAdminAction,
+  type AutomationPortalContractView,
+  type AutomationRequestedDocumentView,
+  type PostalSubmissionView,
+} from '@/services/assistedApplicationAdminService';
+import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererStatus';
+import { sentSummaryIt } from '@/services/assistedApplicationSentRecord';
+import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
+import { useAdminConfirm } from '@/components/admin/ui/AdminConfirmDialog';
+import { isCaptchaPortalHold, portalRetryDueAt } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
+
+/**
+ * Owner view of the automated assisted application for one order: flow
+ * state and clocks, why it is held, the AI draft with its analysis, and the
+ * actions Valerie can take. Italian only, like the rest of the admin queue.
+ */
+
+const STATE_LABELS: Record<string, string> = {
+  drafting: 'Bozza in preparazione (Codex)',
+  regenerating: 'Nuova versione in preparazione',
+  owner_review: 'In revisione da te',
+  candidate_review: 'In revisione dal candidato',
+  submitting: 'Invio in corso',
+  needs_candidate_action: 'Attende risposte del candidato',
+  candidate_handoff: 'Passaggio al candidato: spedizione cartacea o ultimo passaggio online',
+  submitted: 'Inviata',
+  owner_takeover: 'Sospesa: presa in carico da te',
+  failed: 'Fallita',
+};
+
+// Owner flags with no dedicated acknowledgement field: acknowledged by name.
+const OTHER_OWNER_FLAGS: Record<string, string> = {
+  no_posting: 'Testo dell’annuncio non recuperato: ho verificato l’annuncio, procedi',
+  channel_unknown: 'Canale di candidatura sconosciuto: il candidato completerà sul portale, procedi',
+};
+
+const FOLLOWUP_STATES: Record<string, string> = {
+  scheduled: 'programmato',
+  awaiting_candidate: 'in attesa del candidato (12 ore)',
+  sending: 'in invio',
+  done: 'completati',
+  stopped: 'fermati',
+};
+
+const LEGITIMACY_TIERS: Record<string, string> = {
+  high_confidence: 'affidabile',
+  caution: 'da verificare',
+  suspicious: 'sospetto',
+};
+
+const TAILORED_CV_LABELS: Record<string, string> = {
+  ready: 'pronto, verrà inviato',
+  fact_check_failed: 'scartato dal controllo dei fatti: parte il CV originale',
+  failed: 'non generato: parte il CV originale',
+  skipped: 'non generato',
+};
+
+const HELD_LABELS: Record<string, string> = {
+  fact_check: 'fatti non verificati nei testi',
+  no_posting: 'testo dell’annuncio non recuperato',
+  channel_unknown: 'canale di candidatura sconosciuto',
+  legitimacy: 'annuncio sospetto (Block G)',
+  max_rounds: '3 rifiuti del candidato',
+  draft_failed: 'bozza non generata',
+  posting_closed: 'annuncio chiuso (rimborso automatico)',
+  portal_needs_candidate: 'il portale richiede il candidato',
+  fact_check_not_acknowledged: 'correzione automatica dei testi prima di riprovare',
+  fact_repair_failed: 'correzione automatica non riuscita: serve una verifica tecnica',
+  sent_files_not_stored: 'file della candidatura non salvati: l’email non è partita',
+  sent_attempt_not_stored: 'tentativo d’invio non registrato: la candidatura non è partita',
+  postal_submission_missing: 'configurare destinatario e istruzioni per la spedizione cartacea',
+  postal_packet_not_ready: 'dossier postale non pronto: verificare il CV e i documenti caricati',
+  postal_application: 'materiali pronti: il candidato deve spedire la busta',
+  owner: 'presa in carico manuale',
+};
+
+const VERDICT_LABELS: Record<string, string> = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
+const MATCH_STYLES: Record<string, string> = { met: 'text-success', partial: 'text-warning', missing: 'text-danger' };
+
+function formatMs(ms: number | null | undefined): string {
+  if (!ms) return '—';
+  return new Date(ms).toLocaleString('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' });
+}
+
+const PORTAL_PROTOCOL_LABELS: Record<string, string> = {
+  native_form: 'form HTML nativo',
+  server_action: 'server action',
+  xhr_fetch: 'API XHR/fetch',
+  candidate_handoff: 'passaggio al candidato',
+  unknown: 'non determinato',
+};
+
+function PortalContractPanel({ contract }: { contract: AutomationPortalContractView }) {
+  const background = contract.background;
+  const form = contract.form;
+  const missing = contract.missing;
+  const requests = background?.requests || [];
+  return (
+    <div className="rounded-stripe border border-info-border bg-info-subtle/40 p-3 text-xs text-body sm:col-span-2">
+      <p className="font-semibold uppercase tracking-wide text-muted">Contratto form/API del portale</p>
+      <div className="mt-1 grid gap-1 sm:grid-cols-2">
+        <p><strong>Stato:</strong> {contract.status}{contract.postingMatch === 'mismatch' ? ' · annuncio non corrispondente' : ''}{contract.phase ? ` · ${contract.phase}` : ''}</p>
+        <p><strong>Submit:</strong> {PORTAL_PROTOCOL_LABELS[contract.submit?.capability || 'unknown'] || 'non determinato'} · {contract.submit?.status || 'non determinato'}</p>
+        <p><strong>Form:</strong> {form?.observed ? `${form.fieldCount} campi, ${form.requiredFieldCount} obbligatori` : 'non osservato'}{form?.requiredFileCount ? ` · ${form.requiredFileCount} file` : ''}</p>
+        <p><strong>Mancanti:</strong> {missing?.requiredQuestionCount || 0} risposte · {missing?.requiredDocumentCount || 0} documenti richiesti</p>
+        <p><strong>Background:</strong> {background ? `${background.status}, ${background.requestCount} richieste` : 'non determinato'}{background?.mutatingRequestCount ? ` · ${background.mutatingRequestCount} mutative` : ''}</p>
+        {contract.handoff && <p><strong>Handoff:</strong> {contract.handoff}</p>}
+      </div>
+      {requests.length > 0 && (
+        <details className="mt-2 rounded border border-info-border bg-surface p-2">
+          <summary className="cursor-pointer font-medium">Endpoint osservati ({requests.length})</summary>
+          <ul className="mt-2 space-y-1 font-mono text-[11px]">
+            {requests.map((request, index) => {
+              const href = `${request.endpoint.origin}${request.endpoint.path}`;
+              return <li key={`${request.method}-${href}-${index}`}><a className="text-link hover:underline" href={href} target="_blank" rel="noreferrer">{request.method} {href}</a> · {request.resourceType}{request.status ? ` · HTTP ${request.status}` : ''}{request.count && request.count > 1 ? ` · ×${request.count}` : ''}</li>;
+            })}
+          </ul>
+        </details>
+      )}
+      <p className="mt-2 text-muted">Sono conservati solo metadati tecnici: nessun body, query, cookie o valore del candidato.</p>
+    </div>
+  );
+}
+
+const PORTAL_STOP_LABELS: Record<string, string> = {
+  captcha: 'CAPTCHA sul portale: risolvilo tu nella scheda',
+  captcha_provider_unavailable: 'CAPTCHA sul portale: risolvilo tu nella scheda',
+  account: 'account sul portale da creare o verificare',
+  rejected: 'il portale ha rifiutato l’invio automatico',
+  portal_needs_candidate: 'una pagina del portale non completata dal robot',
+  posting_mismatch: 'il modulo non sembra di questo annuncio: controlla e riprova',
+  // #11161: a retry completes it when the channel has a PastaHR https link (the candidate gets it by e-mail).
+  whatsapp: 'candidatura solo via WhatsApp: con un link PastaHR (https) «Riprova l’invio automatico» la chiude mandando il link al candidato per email, altrimenti «Affida al candidato»',
+};
+
+const LOSONE_DOCUMENT_CHECKLIST: AutomationRequestedDocumentView[] = [
+  { id: 'handwritten_letter', label: 'Lettera manoscritta con termine di disponibilità', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Ricopia a mano la bozza mostrata nella pagina, completa il termine di disponibilità e aggiungi una scansione leggibile. La scansione resta su questo dispositivo e viene unita al PDF nel browser.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+  { id: 'curriculum_vitae', label: 'Curriculum vitae', kind: 'other', keywords: [], required: true, quote: '', instructions: '', delivery: 'service', exemptions: ['municipal_employee'] },
+  { id: 'certificati_di_studio_con_note', label: 'Certificati di studio (con note)', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica scansioni leggibili; saranno incluse nel dossier PDF da stampare.', delivery: 'upload', exemptions: ['municipal_employee'] },
+  { id: 'certificati_di_lavoro', label: 'Certificati di lavoro', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Carica scansioni leggibili; saranno incluse nel dossier PDF da stampare.', delivery: 'upload', exemptions: ['municipal_employee'] },
+  { id: 'certificato_individuale_di_stato_civile', label: 'Certificato individuale di stato civile o atto di famiglia', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Il certificato deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione nella pagina protetta; i nuovi file selezionati come locali restano sul tuo dispositivo. Non è richiesto se sei domiciliato/a nel Comune di Losone.', delivery: 'offline', localOnly: true, exemptions: ['municipal_resident', 'municipal_employee'] },
+  { id: 'certificato_di_buona_condotta', label: 'Certificato di buona condotta', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Richiedi al Comune di domicilio il certificato di buona condotta, distinto dall’estratto del casellario giudiziale. Deve essere stato rilasciato da meno di 6 mesi. Aggiungi la scansione nella pagina protetta; i nuovi file selezionati come locali restano sul tuo dispositivo. Non è richiesto se sei domiciliato/a nel Comune di Losone.', delivery: 'offline', localOnly: true, exemptions: ['municipal_resident', 'municipal_employee'] },
+  { id: 'estratto_del_casellario_giudiziale', label: 'Estratto del casellario giudiziale', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Aggiungi l’estratto, rilasciato da meno di 6 mesi. I nuovi file selezionati come locali restano sul tuo dispositivo. È richiesto anche a chi è domiciliato/a a Losone.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+  { id: 'questionario_sullo_stato_di_salute', label: 'Questionario sullo stato di salute', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Compila il questionario ufficiale del Comune e aggiungi la scansione nella pagina protetta. I nuovi file selezionati come locali restano sul tuo dispositivo.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+  { id: 'passport_photo', label: 'Fotografia formato passaporto', kind: 'other', keywords: [], required: true, quote: '', instructions: 'Aggiungi una fotografia recente in formato JPG o PNG. Sarà impaginata nel PDF localmente nel browser, senza caricarla sui nostri server.', delivery: 'offline', localOnly: true, exemptions: ['municipal_employee'] },
+];
+
+const LOSONE_POSTAL_SUBMISSION: PostalSubmissionView = {
+  enabled: true,
+  recipient: 'Municipio di Losone',
+  address: 'Via Municipio 7\nCasella postale 863\n6616 Losone\nSvizzera',
+  deadline: 'Entro le ore 16:00 di giovedì 12 novembre 2026',
+  envelopeMarking: 'Concorso impiegato/a amministrativo/a',
+  instructions: 'La candidatura deve pervenire al Municipio di Losone in busta chiusa entro le ore 16:00 di giovedì 12 novembre 2026. Spedisci con anticipo sufficiente perché arrivi entro la scadenza. Ricopia a mano la lettera indicata nel dossier e aggiungi gli eventuali originali cartacei richiesti dal bando. Non inserire nella busta le pagine del PDF contrassegnate come istruzioni o indice.',
+  officialFormUrl: 'https://www.losone.ch/Questionario-sullo-stato-di-salute-per-concorsi-95f1a700?i=1',
+};
+
+const EMPTY_POSTAL_SUBMISSION: PostalSubmissionView = {
+  enabled: false, recipient: '', address: '', deadline: '', envelopeMarking: '', instructions: '', officialFormUrl: '',
+};
+
+// Keep aligned with MAX_REQUIRED_DOCUMENTS in functions/src/assistedApplicationExtraDocuments.js.
+const MAX_REQUESTED_DOCUMENTS = 16;
+const EMPTY_REQUESTED_DOCUMENTS: AutomationRequestedDocumentView[] = [];
+
+export function heldLabel(reason: string): string {
+  if (reason.startsWith('question:')) return `domanda aperta: ${reason.slice(9)}`;
+  if (reason.startsWith('document:')) return `documento mancante: ${reason.slice(9)}`;
+  if (reason.startsWith('portal:')) return PORTAL_STOP_LABELS[reason.slice(7)] || PORTAL_STOP_LABELS.portal_needs_candidate;
+  if (reason === 'owner_handoff') return 'affidata al candidato per l’ultimo passaggio';
+  return HELD_LABELS[reason] || reason;
+}
+
+export default function AssistedApplicationAutomationPanel({
+  order,
+  user,
+  onChanged,
+}: {
+  order: AssistedApplicationAdminOrder;
+  user: { getIdToken: () => Promise<string> } | null | undefined;
+  onChanged: (message: { ok: boolean; text: string }) => Promise<void> | void;
+}) {
+  const { requestConfirmation } = useAdminConfirm();
+  const automation = order.automation || null;
+  const flow = automation?.flow || null;
+  const draft = automation?.draft || null;
+  const requestedDocumentsSource = useMemo(() => {
+    const documents = flow?.requestedDocumentsOverride === true
+      ? flow.requestedDocuments || EMPTY_REQUESTED_DOCUMENTS
+      : draft?.requiredDocuments || EMPTY_REQUESTED_DOCUMENTS;
+    return documents.map((document) => ({
+      ...document,
+      exemptions: Array.isArray(document.exemptions) ? document.exemptions : [],
+    }));
+  }, [flow?.requestedDocumentsOverride, flow?.requestedDocuments, draft?.requiredDocuments]);
+  const [busy, setBusy] = useState<string | null>(null);
+  const [letter, setLetter] = useState(draft?.coverLetter?.text || '');
+  const [emailTo, setEmailTo] = useState(draft?.applicationEmail?.to || '');
+  const [emailSubject, setEmailSubject] = useState(draft?.applicationEmail?.subject || '');
+  const [emailBody, setEmailBody] = useState(draft?.applicationEmail?.body || '');
+  const [answers, setAnswers] = useState<Record<string, string>>(flow?.answers || {});
+  const [ackFlags, setAckFlags] = useState<Record<string, boolean>>({});
+  const [requestedDocuments, setRequestedDocuments] = useState<AutomationRequestedDocumentView[]>(requestedDocumentsSource);
+  const [postalSubmission, setPostalSubmission] = useState<PostalSubmissionView>(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
+  const [requestedDocumentsDirty, setRequestedDocumentsDirty] = useState(false);
+  const [postalSubmissionDirty, setPostalSubmissionDirty] = useState(false);
+
+  useEffect(() => {
+    setLetter(draft?.coverLetter?.text || '');
+    setEmailTo(draft?.applicationEmail?.to || '');
+    setEmailSubject(draft?.applicationEmail?.subject || '');
+    setEmailBody(draft?.applicationEmail?.body || '');
+    setAnswers(flow?.answers || {});
+  }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, draft?.questionSnapshots, flow?.answers]);
+
+  useEffect(() => {
+    if (!requestedDocumentsDirty) setRequestedDocuments(requestedDocumentsSource);
+  }, [requestedDocumentsSource, requestedDocumentsDirty]);
+
+  useEffect(() => {
+    if (!postalSubmissionDirty) setPostalSubmission(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
+  }, [flow?.postalSubmission, postalSubmissionDirty]);
+
+  const act = async (action: AutomationAdminAction, extra: Record<string, unknown> = {}, success = 'Fatto.') => {
+    if (busy) return false;
+    setBusy(action);
+    try {
+      const result = await runAutomationAdminAction(user, order.orderId, action, extra);
+      const notificationFailed = action === 'automationConfigurePostalPackage' && result.notificationSent === false;
+      const message = notificationFailed
+        ? 'Checklist e istruzioni salvate, ma l’invio della notifica con il collegamento non è confermato.'
+        : success;
+      try { await onChanged({ ok: true, text: message }); } catch { /* the admin action is already persisted */ }
+      return true;
+    } catch (error) {
+      try { await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Operazione non riuscita.' }); } catch { /* keep the failed action retryable */ }
+      return false;
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const updateRequestedDocument = (id: string, update: Partial<AutomationRequestedDocumentView>) => {
+    setRequestedDocumentsDirty(true);
+    setRequestedDocuments((current) => current.map((item) => item.id === id ? { ...item, ...update } : item));
+  };
+  const addRequestedDocument = () => {
+    const id = `requested_${crypto.randomUUID().replace(/-/g, '').slice(0, 16)}`;
+    setRequestedDocumentsDirty(true);
+    setRequestedDocuments((current) => [...current, {
+      id, label: '', kind: 'other', keywords: [], required: true, quote: '', instructions: '', delivery: 'upload', localOnly: false, exemptions: [],
+    }]);
+  };
+  const saveRequestedDocuments = async () => {
+    const saved = await act('automationSetRequiredDocuments', { documents: requestedDocuments }, 'Richiesta documenti salvata nel dossier.');
+    if (saved) setRequestedDocumentsDirty(false);
+    return saved;
+  };
+  const savePostalSubmission = async () => {
+    const saved = await act('automationSetPostalSubmission', { postalSubmission }, 'Istruzioni per la candidatura cartacea salvate.');
+    if (saved) setPostalSubmissionDirty(false);
+    return saved;
+  };
+  const configureCandidatePostalPackage = async () => {
+    const confirmed = await requestConfirmation({
+      title: 'Aggiorna il dossier cartaceo',
+      what: 'Stai per aggiornare insieme la checklist dei documenti e le istruzioni postali della candidatura.',
+      impact: 'La candidata riceverà un nuovo avviso con il collegamento alla pagina protetta. Non partirà alcuna spedizione.',
+      input: `ordine=${order.orderId}, destinatario=${postalSubmission.recipient}`,
+      expectedDuration: 'meno di 1 min',
+      confirmLabel: 'Aggiorna e avvisa la candidata',
+    });
+    if (!confirmed) return false;
+    const saved = await act(
+      'automationConfigurePostalPackage',
+      { documents: requestedDocumentsDirty ? requestedDocuments : requestedDocumentsSource, postalSubmission },
+      'Checklist e istruzioni postali aggiornate; email con il link accettata per l’invio.',
+    );
+    if (saved) {
+      setRequestedDocumentsDirty(false);
+      setPostalSubmissionDirty(false);
+    }
+    return saved;
+  };
+  const setPostalField = (field: keyof PostalSubmissionView, value: string | boolean) => {
+    setPostalSubmissionDirty(true);
+    setPostalSubmission((current) => ({ ...current, [field]: value }));
+  };
+  const useLosoneChecklist = () => {
+    setRequestedDocumentsDirty(true);
+    setPostalSubmissionDirty(true);
+    setRequestedDocuments(LOSONE_DOCUMENT_CHECKLIST.map((item) => ({ ...item, exemptions: [...item.exemptions] })));
+    setPostalSubmission(LOSONE_POSTAL_SUBMISSION);
+  };
+
+  const retrySubmit = async () => {
+    const confirmed = await requestConfirmation({
+      title: 'Riprova invio candidatura',
+      what: `Stai per rilanciare l’invio automatico di «${order.jobTitle}» presso ${order.companyName}.`,
+      impact: 'Il robot ripartirà sul portale del datore e potrebbe inviare la candidatura.',
+      input: `ordine=${order.orderId}, azienda=${order.companyName}`,
+      expectedDuration: 'pochi minuti',
+      confirmLabel: 'Riprova l’invio',
+    });
+    if (confirmed) await act('automationRetrySubmit', {}, 'Invio automatico rilanciato: parte entro pochi minuti.');
+  };
+
+  const markSubmitted = async () => {
+    const confirmed = await requestConfirmation({
+      title: 'Segna candidatura come inviata',
+      what: 'Stai per confermare manualmente che la candidatura è stata inviata sul portale.',
+      impact: 'Aggiorna l’ordine e invia al cliente l’email di conferma.',
+      input: `ordine=${order.orderId}`,
+      expectedDuration: 'meno di 1 min',
+      confirmLabel: 'Segna come inviata',
+    });
+    if (confirmed) await act('automationMarkSubmitted', { via: 'manual_owner', round: flow?.round }, 'Candidatura segnata come inviata: il cliente riceve la conferma.');
+  };
+
+  const handoffToCandidate = async () => {
+    const confirmed = await requestConfirmation({
+      title: 'Affida candidatura al candidato',
+      what: 'Stai per affidare al candidato il completamento dell’invio sul portale.',
+      impact: 'Invia al candidato un’email con link, risposte e documenti necessari.',
+      input: `ordine=${order.orderId}`,
+      expectedDuration: 'meno di 1 min',
+      confirmLabel: 'Affida al candidato',
+    });
+    if (confirmed) await act('automationHandoff', {}, 'Affidata al candidato: riceve link, risposte e documenti.');
+  };
+
+  // The fill extension (scripts/assisted-application/extension): its bridge
+  // marks the page when installed. When the robot stopped on a portal,
+  // Valerie sends the application from her browser; the extension fills it
+  // and reports the portal's confirmation, which marks the order as sent.
+  const [extensionVersion, setExtensionVersion] = useState('');
+  useEffect(() => {
+    const read = () => setExtensionVersion(document.documentElement.dataset.compilaCandidatura || '');
+    read();
+    const timer = window.setTimeout(read, 800);
+    return () => window.clearTimeout(timer);
+  }, []);
+  const markedByExtension = useRef(false);
+  const markingByExtension = useRef<Promise<boolean> | null>(null);
+  // When Valerie pressed send: the verification e-mail the portal sends after it is newer.
+  const sendPressedAt = useRef(0);
+  const openingVerification = useRef(false);
+  /**
+   * The portal asks to verify the alias (JOIN): the link arrives on the
+   * order's alias within a minute or two; the extension opens it in this
+   * browser. Asked every 10 s for up to 4 minutes, once per page.
+   */
+  const openVerificationLink = async () => {
+    if (openingVerification.current) return;
+    openingVerification.current = true;
+    try {
+      // Only when the server did not record the press: then this computer's own time of it.
+      const since = sendPressedAt.current || Date.now();
+      for (let attempt = 0; attempt < 24; attempt += 1) {
+        const result = await runAutomationAdminAction(user, order.orderId, 'automationVerificationLink', { since }).catch(() => null);
+        const url = typeof result?.url === 'string' ? result.url : '';
+        if (url) {
+          // The extension answers whether it opened it (same site as the portal, its tab still open).
+          const opened = new Promise<{ ok: boolean; error: string }>((resolve) => {
+            const timer = window.setTimeout(() => { window.removeEventListener('message', onOpened); resolve({ ok: false, error: 'no_answer' }); }, 10_000);
+            function onOpened(event: MessageEvent) {
+              const data = event.data as { source?: string; type?: string; orderId?: string; ok?: boolean; error?: string } | null;
+              if (event.source !== window || data?.source !== 'compila-candidatura' || data.type !== 'verification-opened' || data.orderId !== order.orderId) return;
+              window.clearTimeout(timer);
+              window.removeEventListener('message', onOpened);
+              resolve({ ok: Boolean(data.ok), error: data.error || '' });
+            }
+            window.addEventListener('message', onOpened);
+          });
+          window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: order.orderId, url }, window.location.origin);
+          const answer = await opened;
+          await onChanged(answer.ok
+            ? { ok: true, text: 'Il portale chiedeva di verificare l’email dell’alias: link aperto nel browser.' }
+            : { ok: false, text: `L’estensione non ha aperto il link di verifica (${answer.error || 'errore'}): aprilo tu dall’email arrivata sull’alias dell’ordine.` });
+          return;
+        }
+        await new Promise((resolve) => window.setTimeout(resolve, 10_000));
+      }
+      await onChanged({ ok: false, text: 'L’email di verifica del portale non è arrivata sull’alias entro 4 minuti: controlla la casella dell’ordine.' });
+    } finally {
+      openingVerification.current = false;
+    }
+  };
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      if (event.source !== window || event.origin !== window.location.origin) return;
+      const data = event.data as { source?: string; type?: string; orderId?: string; status?: string; detail?: string; requestId?: string; ok?: boolean; error?: string } | null;
+      if (data?.source !== 'compila-candidatura' || data.orderId !== order.orderId) return;
+      if (data.type === 'fill-opened' && !data.ok) {
+        void onChanged({ ok: false, text: `L’estensione non ha aperto il portale: ${data.error || 'errore'}.` });
+      } else if (data.type === 'fill-status' && data.status === 'submitted') {
+        void (async () => {
+          let ok = markedByExtension.current;
+          if (!ok) {
+            let pending = markingByExtension.current;
+            if (!pending) {
+              pending = act('automationMarkSubmitted', { via: 'extension' }, 'Il portale ha confermato l’invio: candidatura segnata come inviata, il cliente riceve la conferma.');
+              markingByExtension.current = pending;
+            }
+            ok = await pending;
+            if (markingByExtension.current === pending) markingByExtension.current = null;
+            if (ok) markedByExtension.current = true;
+          }
+          if (data.requestId) window.postMessage({
+            source: 'frontaliere-queue', type: 'fill-status-ack', orderId: order.orderId,
+            requestId: data.requestId, ok, ...(ok ? {} : { error: 'admin_action_failed' }),
+          }, window.location.origin);
+        })();
+      } else if (data.type === 'fill-status' && data.status === 'verify-email') {
+        void openVerificationLink();
+      } else if (data.type === 'fill-status' && data.status === 'clicked') {
+        sendPressedAt.current = Date.now();
+        // Before the portal answers: the round is on record as possibly sent.
+        void runAutomationAdminAction(user, order.orderId, 'automationMarkClicked').catch(() => {});
+      } else if (data.type === 'fill-status' && data.status === 'ready') {
+        void onChanged({ ok: true, text: 'Tutto compilato: sul portale premi il pulsante d’invio evidenziato.' });
+      } else if (data.type === 'fill-status' && ['needs', 'stuck', 'refused'].includes(data.status || '')) {
+        const why = data.status === 'refused' ? 'il portale dice che non ha inviato la candidatura' : data.status === 'stuck' ? 'troppi passaggi, continua tu' : `manca: ${data.detail || 'una risposta'}`;
+        void onChanged({ ok: false, text: `Estensione ferma: ${why}.` });
+      }
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  });
+  const fillWithExtension = async () => {
+    if (busy) return;
+    setBusy('automationFillKit');
+    try {
+      let result: Record<string, unknown>;
+      try {
+        result = await runAutomationAdminAction(user, order.orderId, 'automationFillKit');
+      } catch (error) {
+        // The send button was already pressed with no confirmation: a kit only
+        // after Valerie checked the portal (a second application could leave).
+        if ((error as { code?: string })?.code !== 'submission_unconfirmed') throw error;
+        const confirmed = await requestConfirmation({
+          title: 'Verifica invio candidatura',
+          what: 'Il portale ha registrato un tentativo d’invio senza conferma dell’esito.',
+          impact: 'Un nuovo tentativo potrebbe creare una candidatura duplicata.',
+          input: `ordine=${order.orderId}, azienda=${order.companyName}`,
+          expectedDuration: 'meno di 1 min',
+          confirmLabel: 'Confermo: non è arrivata',
+          confirmVariant: 'danger',
+        });
+        if (!confirmed) return;
+        result = await runAutomationAdminAction(user, order.orderId, 'automationFillKit', { confirmNotReceived: true });
+      }
+      markedByExtension.current = false;
+      const kit = { ...(result.kit as Record<string, unknown>), applyUrl: portalUrl };
+      window.postMessage({ source: 'frontaliere-queue', type: 'fill-order', kit }, window.location.origin);
+      await onChanged({ ok: true, text: 'Portale aperto in una nuova scheda: l’estensione compila e si ferma sul pulsante d’invio, che premi tu.' });
+    } catch (error) {
+      await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Kit di compilazione non disponibile.' });
+    } finally {
+      setBusy(null);
+    }
+  };
+  const rawPortalUrl = draft?.channel?.applyUrl || draft?.job?.applyUrl || '';
+  const portalUrl = draft?.channel?.type !== 'email'
+    ? normalizeExternalJobDetailUrl(rawPortalUrl)
+    : '';
+
+  // Kept in memory only for this view: the password never goes to the order list.
+  const [revealed, setRevealed] = useState<Record<string, string>>({});
+  const reveal = async (host: string) => {
+    if (busy) return;
+    setBusy('automationRevealAccount');
+    try {
+      const body = await runAutomationAdminAction(user, order.orderId, 'automationRevealAccount', { host });
+      setRevealed((current) => ({ ...current, [host]: String(body.password || '') }));
+    } catch (error) {
+      await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Password non disponibile.' });
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const upload = async (file: File | undefined) => {
+    if (!file || busy) return;
+    setBusy('uploadCv');
+    try {
+      await uploadAssistedApplicationCv(user, order.orderId, file);
+      await onChanged({ ok: true, text: 'CV caricato: il controllo del file avvia l’automazione (se attiva).' });
+    } catch (error) {
+      await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Caricamento non riuscito.' });
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const button = 'inline-flex min-h-[40px] items-center gap-2 rounded-stripe px-3 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60';
+  const primary = `${button} bg-accent text-on-accent hover:bg-accent-hover`;
+  const secondary = `${button} border border-edge text-subtle hover:border-accent hover:text-link`;
+  const spinner = (name: string) => (busy === name ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : null);
+  const unsupported = draft?.factCheck?.unsupported || [];
+  // The runner checks the facts again before sending, with the gate of the day: a send it stopped
+  // leaves again only with the tick an approval needs (the runner stored the facts it found).
+  const repairingFacts = (flow?.heldBy || []).some((held) => ['fact_check', 'fact_check_not_acknowledged'].includes(held));
+  // Not blocking: words echoed from the posting, filler phrases, a letter out of 150-380 words.
+  const advisories = draft?.factCheck?.advisories || [];
+  const canUpload = order.paymentStatus === 'paid' && ['awaiting_upload', 'ready_for_manual_submission', 'in_progress', 'blocked'].includes(order.submissionStatus);
+
+  return (
+    <details className="mt-4 rounded-stripe border border-edge bg-surface-alt p-4">
+      <summary className="cursor-pointer text-sm font-semibold text-strong">Azioni e dettagli dell’automazione
+        <span className="ml-2 text-xs font-normal text-subtle">{flow ? STATE_LABELS[flow.state || ''] || flow.state : 'Non avviata'}</span>
+      </summary>
+      <div className="mt-4 space-y-4">
+      {canUpload && (
+        <label className={`${secondary} cursor-pointer`}>
+          {busy === 'uploadCv' ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : <UploadCloud size={14} aria-hidden="true" />}
+          {order.hasCv ? 'Sostituisci CV (ricevuto via email)' : 'Carica CV ricevuto via email'}
+          <input type="file" accept=".pdf,.doc,.docx" className="sr-only" disabled={Boolean(busy)} onChange={(event) => { void upload(event.target.files?.[0]); }} />
+        </label>
+      )}
+
+      {!flow && order.hasCv && order.cvFileCheck === 'ok' && (
+        <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationStart', {}, 'Automazione avviata: la bozza arriva in 10-15 minuti.'); }}>
+          {spinner('automationStart') || <Play size={14} aria-hidden="true" />} Avvia automazione
+        </button>
+      )}
+
+      {flow && (
+        <dl className="grid gap-2 text-xs text-subtle sm:grid-cols-3">
+          <div><dt className="font-semibold uppercase tracking-wide text-muted">Prossima scadenza</dt><dd>{formatMs(portalRetryDueAt(flow) || flow.deadlineAt)}</dd></div>
+          <div><dt className="font-semibold uppercase tracking-wide text-muted">Fermo per</dt><dd>{flow.heldBy.length ? flow.heldBy.map(heldLabel).join(', ') : '—'}</dd></div>
+          <div><dt className="font-semibold uppercase tracking-wide text-muted">Ultimo run</dt><dd>{flow.dispatch ? `${flow.dispatch.mode} · ${formatMs(flow.dispatch.requestedAt)} · tentativi ${flow.dispatch.attempts}` : '—'}</dd></div>
+        </dl>
+      )}
+
+      {flow?.state === 'owner_takeover' && isCaptchaPortalHold(flow) && draft?.round === flow.round && (
+        <section className="rounded-stripe border border-warning-border bg-warning-subtle/50 p-3 text-sm text-body">
+          <h3 className="font-semibold text-strong">Completa la verifica e invia tu</h3>
+          <p className="mt-1">Apri il portale con l’estensione e risolvi il CAPTCHA nella scheda. L’estensione compila il modulo, ma non risolve la verifica né preme il pulsante d’invio.</p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            {portalUrl && extensionVersion ? (
+              <button type="button" className={`${primary} min-h-[44px]`} disabled={Boolean(busy)} onClick={() => { void fillWithExtension(); }}>
+                {spinner('automationFillKit') || <Wand2 size={14} aria-hidden="true" />} Compila con l’estensione
+              </button>
+            ) : portalUrl ? (
+              <a className={`${secondary} min-h-[44px]`} href={portalUrl} target="_blank" rel="noreferrer">Apri il portale</a>
+            ) : (
+              <p className="text-xs text-subtle">Il link del portale non è disponibile: apri la pagina di candidatura dell’annuncio.</p>
+            )}
+            <button type="button" className={`${secondary} min-h-[44px]`} disabled={Boolean(busy)} onClick={() => { void markSubmitted(); }}>
+              {spinner('automationMarkSubmitted') || <CheckCircle2 size={14} aria-hidden="true" />} Segna come inviata
+            </button>
+          </div>
+          {!extensionVersion && (
+            <p className="mt-2 text-xs text-subtle">Estensione non rilevata. Puoi completare il modulo dal portale aperto oppure installare «Compila candidatura» seguendo <code>scripts/assisted-application/extension/README.md</code>.</p>
+          )}
+          <p className="mt-2 text-xs text-subtle">
+            {portalUrl && extensionVersion
+              ? 'Dopo la conferma del portale l’estensione aggiorna lo stato. Se non la rileva, verifica l’esito sul portale prima di «Segna come inviata».'
+              : 'Dopo l’invio, verifica la conferma sul portale e torna qui per «Segna come inviata».'}
+          </p>
+        </section>
+      )}
+
+      {(automation?.followup || automation?.interviewPrep || draft?.sent) && (
+        <div className="rounded-stripe border border-edge bg-surface p-3 text-xs text-body">
+          <p className="font-semibold uppercase tracking-wide text-muted">Dopo l’invio</p>
+          {draft?.sent && (
+            <div className="mt-1">
+              <p><strong>Inviato</strong> {formatMs(draft.sent.at)}: {sentSummaryIt(draft.sent)}</p>
+              {(draft.sent.files.length > 0 || draft.sent.letterUrl) && (
+                <p className="text-muted">
+                  {draft.sent.files.map((file, index) => (
+                    <span key={`${file.kind}-${index}`}>
+                      {index > 0 ? ' · ' : ''}
+                      {file.url ? <a className="text-link hover:underline" href={file.url} target="_blank" rel="noreferrer">{file.name}</a> : file.name}
+                    </span>
+                  ))}
+                  {draft.sent.packaging === 'single' && draft.sent.letterUrl && (
+                    <> · <a className="text-link hover:underline" href={draft.sent.letterUrl} target="_blank" rel="noreferrer">lettera da sola</a></>
+                  )}
+                </p>
+              )}
+            </div>
+          )}
+          {automation?.followup && (
+            <p className="mt-1">
+              <strong>Solleciti:</strong> {FOLLOWUP_STATES[automation.followup.state || ''] || automation.followup.state} · inviati {automation.followup.sent}/2
+              {automation.followup.dueAt ? ` · prossimo passo ${formatMs(automation.followup.dueAt)}` : ''}
+              {automation.followup.stopReason ? ` · motivo: ${automation.followup.stopReason}` : ''}
+            </p>
+          )}
+          {automation?.followup?.pending && (
+            <p className="mt-1 whitespace-pre-line rounded bg-surface-alt p-2 text-subtle">{automation.followup.pending.body}</p>
+          )}
+          {automation?.interviewPrep && (
+            <p className="mt-1"><strong>Preparazione colloquio:</strong> {automation.interviewPrep.status}{automation.interviewPrep.sentAt ? ` il ${formatMs(automation.interviewPrep.sentAt)}` : ''} · {automation.interviewPrep.questions} domande, {automation.interviewPrep.stories} storie</p>
+          )}
+        </div>
+      )}
+
+      {(automation?.accounts || []).length > 0 && (
+        <div className="rounded-stripe border border-edge bg-surface p-3 text-xs text-body">
+          <p className="font-semibold uppercase tracking-wide text-muted">Account sui portali (creati sull’alias)</p>
+          <ul className="mt-1 space-y-1">
+            {(automation?.accounts || []).map((account) => (
+              <li key={account.host} className="flex flex-wrap items-center gap-2">
+                <span><strong>{account.host}</strong> · {account.email} · creato {formatMs(account.createdAt)} · {account.verifiedAt ? `verificato ${formatMs(account.verifiedAt)}` : 'non verificato'}</span>
+                {revealed[account.host]
+                  ? <code className="rounded bg-surface-alt px-1.5 py-0.5 select-all">{revealed[account.host]}</code>
+                  : (
+                    <button type="button" className="rounded border border-edge px-2 py-0.5 hover:bg-surface-alt disabled:opacity-50" disabled={Boolean(busy)} onClick={() => void reveal(account.host)}>
+                      Mostra password
+                    </button>
+                  )}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-1 text-muted">Per prendere in carico la candidatura sul portale. Ogni visualizzazione viene registrata.</p>
+        </div>
+      )}
+
+      {flow && flow.feedback.length > 0 && (
+        <div className="rounded-stripe border border-warning-border bg-warning-subtle/50 p-3 text-xs text-body">
+          <strong>Feedback del candidato:</strong>
+          <ul className="mt-1 list-disc pl-4">{flow.feedback.map((item) => <li key={`${item.round}-${item.at}`}>giro {item.round}: {item.text}</li>)}</ul>
+        </div>
+      )}
+
+      {draft && draft.status === 'ready' && (
+        <div className="space-y-4">
+          <div className="text-sm text-body">
+            <p><strong>Verdetto:</strong> {VERDICT_LABELS[draft.verdict || ''] || '—'} · <strong>Canale:</strong> {draft.channel?.label || '—'}{draft.channel?.requiresAccount ? ' (richiede account)' : ''} · <strong>Lingua lettera:</strong> {draft.language || '—'} · <strong>CV letto con:</strong> {draft.cvTextMethod || '—'}</p>
+            {draft.summaryIt && <p className="mt-1 text-subtle">{draft.summaryIt}</p>}
+            {draft.checksIt.length > 0 && <ul className="mt-1 list-disc pl-5 text-xs text-subtle">{draft.checksIt.map((item) => <li key={item}>{item}</li>)}</ul>}
+            {draft.job?.applyUrl && <a className="mt-1 inline-block text-xs text-link hover:underline" href={normalizeExternalJobDetailUrl(draft.job.applyUrl)} target="_blank" rel="noreferrer">Pagina di candidatura</a>}
+          </div>
+
+          {draft.portalContract && <PortalContractPanel contract={draft.portalContract} />}
+
+          {(draft.ats || draft.legitimacy || draft.tailoredCv) && (
+            <div className="grid gap-2 text-xs text-body sm:grid-cols-2">
+              {draft.ats && (
+                <div className="rounded-stripe border border-edge bg-surface p-3">
+                  <p className="font-semibold uppercase tracking-wide text-muted">ATS (career-ops)</p>
+                  <p className="mt-1">CV del candidato: <strong>{draft.ats.original.structural.grade}</strong> ({draft.ats.original.structural.score}/100) · parole chiave {draft.ats.original.keywords.coverage ?? '—'}%</p>
+                  {draft.ats.tailored && <p>CV adattato: <strong>{draft.ats.tailored.structural.grade}</strong> ({draft.ats.tailored.structural.score}/100) · parole chiave {draft.ats.tailored.keywords.coverage ?? '—'}%{typeof draft.ats.tailored.keywords.ceiling === 'number' ? <> · tetto onesto {draft.ats.tailored.keywords.ceiling}%</> : null}</p>}
+                  {(draft.ats.tailored?.keywords.overCeiling || []).length > 0 && <p className="text-muted">Termini oltre il tetto (nell’annuncio e nel CV adattato, non nel CV del candidato): {draft.ats.tailored?.keywords.overCeiling?.join(', ')}</p>}
+                  {draft.ats.original.keywords.missing.length > 0 && <p className="mt-1 text-muted">Mancano nel CV: {draft.ats.original.keywords.missing.join(', ')}</p>}
+                  {draft.ats.original.structural.issues.length > 0 && <p className="text-muted">Problemi: {draft.ats.original.structural.issues.map((issue) => `${issue.code} (${issue.severity})`).join(', ')}</p>}
+                </div>
+              )}
+              {draft.legitimacy && (
+                <div className={`rounded-stripe border p-3 ${draft.legitimacy.tier === 'suspicious' ? 'border-danger-border bg-danger-subtle/50' : 'border-edge bg-surface'}`}>
+                  <p className="font-semibold uppercase tracking-wide text-muted">Legittimità annuncio (Block G)</p>
+                  <p className="mt-1"><strong>{LEGITIMACY_TIERS[draft.legitimacy.tier] || draft.legitimacy.tier}</strong>{draft.legitimacy.ageDays !== null ? ` · ${draft.legitimacy.ageDays} giorni` : ' · data non nota'}</p>
+                  <p className="text-muted">{draft.legitimacy.signals.filter((signal) => signal.weight !== 'neutral').map((signal) => `${signal.weight === 'positive' ? '+' : '−'} ${signal.key}`).join(' · ') || 'nessun segnale netto'}</p>
+                  {draft.legitimacy.notes.length > 0 && <p className="text-muted">Note: {draft.legitimacy.notes.map((note) => (note.quote ? `${note.key} «${note.quote}»` : note.key)).join(' · ')}</p>}
+                  {(flow?.heldBy || []).includes('legitimacy') && (
+                    <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={Boolean(ackFlags.legitimacy)} onChange={(event) => setAckFlags((current) => ({ ...current, legitimacy: event.target.checked }))} /> Ho verificato l’annuncio: invia comunque</label>
+                  )}
+                </div>
+              )}
+              {draft.tailoredCv && (
+                <div className="rounded-stripe border border-edge bg-surface p-3 sm:col-span-2">
+                  <p className="font-semibold uppercase tracking-wide text-muted">CV adattato ATS</p>
+                  <p className="mt-1">
+                    {TAILORED_CV_LABELS[draft.tailoredCv.status] || draft.tailoredCv.status} · scelta del candidato: {draft.cvChoice === 'original' ? 'CV originale' : draft.cvChoice === 'inplace' ? 'CV originale con le righe adattate' : draft.candidateCvChoice === 'inplace' ? `CV originale con le righe adattate, non più offerto${draft.tailoredCv.status === 'ready' ? ' → vale il CV adattato' : ''}` : 'CV adattato'}
+                    {draft.tailoredCv.url && <> · <a className="text-link hover:underline" href={draft.tailoredCv.url} target="_blank" rel="noreferrer">apri il PDF</a></>}
+                    {draft.tailoredCv.renderer === 'legacy' && <> · <span className="text-warning">{LEGACY_RENDERER_NOTE}</span></>}
+                  </p>
+                  {draft.tailoredCv.unsupported.length > 0 && <p className="text-muted">Fatti non trovati: {draft.tailoredCv.unsupported.map((item) => item.token).join(', ')}</p>}
+                  {draft.tailoredCv.dropped.length > 0 && <p className="text-muted">Competenze scartate (non nel CV): {draft.tailoredCv.dropped.join(', ')}</p>}
+                  {draft.tailoredCv.inplace && (
+                    <p className="text-muted">
+                      DOCX in-place: {draft.tailoredCv.inplace.status === 'ready'
+                        ? `${draft.tailoredCv.inplace.patched} righe riscritte, ${draft.tailoredCv.inplace.kept.length} lasciate come nel CV${draft.tailoredCv.inplace.kept.length ? ` (${[...new Set(draft.tailoredCv.inplace.kept)].join(', ')})` : ''} · pagine verificate con LibreOffice`
+                        : `ricaduta sul template (${draft.tailoredCv.inplace.reason || draft.tailoredCv.inplace.status})`}
+                      {draft.tailoredCv.inplace.url && <> · <a className="text-link hover:underline" href={draft.tailoredCv.inplace.url} target="_blank" rel="noreferrer">apri il DOCX</a></>}
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
+          <details className="rounded-stripe border border-edge bg-surface p-3 text-xs">
+            <summary className="cursor-pointer font-semibold text-strong">Requisiti e prove ({draft.requirements.length})</summary>
+            <ul className="mt-2 space-y-1.5">
+              {draft.requirements.map((requirement, index) => {
+                const match = draft.matches.find((item) => item.index === index);
+                return (
+                  <li key={`${requirement.requirement}-${index}`}>
+                    <span className={`font-semibold ${MATCH_STYLES[match?.status || 'missing']}`}>[{match?.status || 'n/d'}]</span>{' '}
+                    {requirement.requirement} <span className="text-muted">({requirement.importance}{requirement.basis === 'inferred' ? ', dedotto' : ''})</span>
+                    {match?.evidence && <span className="block text-muted">CV: «{match.evidence}»</span>}
+                  </li>
+                );
+              })}
+            </ul>
+          </details>
+
+          {draft.questions.length > 0 && (
+            <div className="space-y-2 rounded-stripe border border-edge bg-surface p-3">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted">Domande per il candidato (puoi rispondere tu se te lo ha detto via email)</p>
+              {draft.questions.map((question) => (
+                <label key={question.id} className="block text-xs text-body">
+                  {question.question}{question.required ? ' *' : ''}
+                  <input value={answers[question.id] || ''} onChange={(event) => setAnswers((current) => ({ ...current, [question.id]: event.target.value }))} className="mt-1 w-full rounded border border-edge bg-surface-alt px-2 py-1.5 text-sm" />
+                </label>
+              ))}
+              <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationSetAnswers', { answers, answerQuestionSnapshots: draft.questionSnapshots || {} }, 'Risposte salvate.'); }}>
+                {spinner('automationSetAnswers') || <Save size={14} aria-hidden="true" />} Salva risposte
+              </button>
+            </div>
+          )}
+
+          {unsupported.length > 0 && (
+            <div className="rounded-stripe border border-danger-border bg-danger-subtle/50 p-3 text-xs text-body">
+              <p className="flex items-center gap-1 font-semibold text-danger"><AlertTriangle size={14} aria-hidden="true" /> Fatti non trovati nel CV o nell’annuncio</p>
+              <ul className="mt-1 list-disc pl-4">{unsupported.map((item) => <li key={`${item.field}-${item.token}`}><strong>{item.token}</strong> ({item.kind}) — «{item.context}»</li>)}</ul>
+              <p className="mt-2 text-subtle">L’automazione riscrive o rimuove queste affermazioni e ripassa il controllo prima di mostrare la bozza al candidato. Non serve verificarle a mano.</p>
+            </div>
+          )}
+          {advisories.length > 0 && (
+            <div className="rounded-stripe border border-edge bg-surface-subtle p-3 text-xs text-body">
+              <p className="font-semibold text-heading">Da controllare (non blocca l’invio)</p>
+              <ul className="mt-1 list-disc pl-4">{advisories.map((item) => <li key={`${item.field}-${item.kind}-${item.token}`}><strong>{item.token}</strong> ({item.kind}){item.context ? <> — «{item.context}»</> : null}</li>)}</ul>
+            </div>
+          )}
+          {/* A profile that is not a full match no longer needs a tick here: the candidate is told on the review page. */}
+          {draft.verdict === 'poor' && (
+            <p className="rounded-stripe border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
+              Il CV non soddisfa un requisito indispensabile dell’annuncio. La bozza prosegue comunque: la pagina della candidatura lo dice al candidato, con i requisiti che non risultano dal CV quando ce ne sono, e la scelta di inviarla resta sua.
+            </p>
+          )}
+          {/* The other owner flags: approving needs an explicit acknowledgement of each (409 owner_flags_open otherwise). */}
+          {(flow?.heldBy || []).filter((flag) => OTHER_OWNER_FLAGS[flag]).map((flag) => (
+            <label key={flag} className="flex items-center gap-2 text-xs text-body">
+              <input type="checkbox" checked={Boolean(ackFlags[flag])} onChange={(event) => setAckFlags((current) => ({ ...current, [flag]: event.target.checked }))} /> {OTHER_OWNER_FLAGS[flag]}
+            </label>
+          ))}
+
+          {(draft.candidateEditedAt || Object.keys(flow?.formOverrides || {}).length > 0) && (
+            <p className="rounded-stripe border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
+              Il candidato ha modificato {draft.candidateEditedAt ? `i testi (${formatMs(draft.candidateEditedAt)})` : 'i suoi dati'}
+              {Object.keys(flow?.formOverrides || {}).length > 0 && `; campi: ${Object.keys(flow?.formOverrides || {}).join(', ')}`}.
+            </p>
+          )}
+          <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
+            Lettera ({draft.language})
+            <textarea value={letter} onChange={(event) => setLetter(event.target.value)} rows={10} className="mt-1 w-full rounded-stripe border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
+          </label>
+          {draft.coverLetterUrl && <a className="inline-flex items-center gap-1 text-xs text-link hover:underline" href={draft.coverLetterUrl} target="_blank" rel="noreferrer"><FileText size={13} aria-hidden="true" /> PDF lettera</a>}
+          {draft.coverLetterRenderer === 'legacy' && <span className="ml-2 text-xs text-warning">{LEGACY_RENDERER_NOTE}</span>}
+          <div className="grid gap-2 sm:grid-cols-2">
+            <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
+              Email a (vuoto = portale)
+              <input value={emailTo} onChange={(event) => setEmailTo(event.target.value)} className="mt-1 w-full rounded-stripe border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
+            </label>
+            <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
+              Oggetto
+              <input value={emailSubject} onChange={(event) => setEmailSubject(event.target.value)} className="mt-1 w-full rounded-stripe border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
+            </label>
+          </div>
+          <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
+            Testo email
+            <textarea value={emailBody} onChange={(event) => setEmailBody(event.target.value)} rows={6} className="mt-1 w-full rounded-stripe border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
+          </label>
+          <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationEditDraft', { coverLetterText: letter, emailTo, emailSubject, emailBody }, 'Bozza aggiornata e ricontrollata.'); }}>
+            {spinner('automationEditDraft') || <Save size={14} aria-hidden="true" />} Salva modifiche
+          </button>
+        </div>
+      )}
+
+      {['owner_review', 'candidate_review'].includes(flow?.state || '') && draft?.status === 'ready' && (
+        <section className="space-y-4 rounded-stripe border border-edge bg-surface p-4" aria-labelledby="candidate-document-requests-title">
+          <div>
+            <h3 id="candidate-document-requests-title" className="text-sm font-semibold text-heading">Richiesta documenti e candidatura cartacea</h3>
+            <p className="mt-1 text-xs text-subtle">{flow.state === 'candidate_review'
+              ? 'La candidata sta già rivedendo la bozza. Configurando ora checklist e indirizzo, aggiorneremo la stessa pagina protetta e le invieremo il collegamento; i file già caricati saranno conservati.'
+              : 'Configura tutto prima di approvare: le richieste e le risposte saranno gestite nella pagina protetta della candidata. Le email inviano soltanto il collegamento. Il CV già caricato sarà disponibile tra i materiali.'}</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={useLosoneChecklist}>
+              <FileText size={14} aria-hidden="true" /> Precompila checklist e invio bando Losone (12 novembre 2026)
+            </button>
+            <button type="button" className={secondary} disabled={Boolean(busy) || requestedDocuments.length >= MAX_REQUESTED_DOCUMENTS} onClick={addRequestedDocument}>
+              <Plus size={14} aria-hidden="true" /> Aggiungi documento
+            </button>
+          </div>
+          <div className="space-y-3">
+            {requestedDocuments.map((document) => (
+              <div key={document.id} className="space-y-2 rounded-stripe border border-edge p-3">
+                <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_12rem]">
+                  <label className="block text-xs font-medium text-body">
+                    Documento richiesto
+                    <input value={document.label} onChange={(event) => updateRequestedDocument(document.id, { label: event.target.value })} maxLength={160} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" />
+                  </label>
+                  <label className="block text-xs font-medium text-body">
+                    Modalità
+                    <select value={document.delivery} onChange={(event) => updateRequestedDocument(document.id, { delivery: event.target.value as 'upload' | 'offline' })} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm">
+                      <option value="upload">Carica nella pagina</option>
+                      <option value="offline">Prepara su carta, senza caricarlo</option>
+                      {document.id === 'curriculum_vitae' && <option value="service">Già fornito: prepara il servizio</option>}
+                    </select>
+                  </label>
+                </div>
+                <label className="block text-xs font-medium text-body">
+                  Indicazioni per la candidata
+                  <textarea value={document.instructions} onChange={(event) => updateRequestedDocument(document.id, { instructions: event.target.value })} rows={2} maxLength={500} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" />
+                </label>
+                <label className="block text-xs font-medium text-body">
+                  Estratto dell’annuncio (facoltativo)
+                  <input value={document.quote} onChange={(event) => updateRequestedDocument(document.id, { quote: event.target.value })} maxLength={300} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" />
+                </label>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-body">
+                  <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.required} onChange={(event) => updateRequestedDocument(document.id, { required: event.target.checked })} /> Obbligatorio prima di preparare il pacchetto</label>
+                  {document.delivery !== 'service' && <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.localOnly === true} onChange={(event) => updateRequestedDocument(document.id, { localOnly: event.target.checked })} /> Unisci solo su questo dispositivo (mai inviato né controllato dal servizio)</label>}
+                  <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.exemptions.includes('municipal_resident')} onChange={(event) => updateRequestedDocument(document.id, { exemptions: event.target.checked ? [...document.exemptions, 'municipal_resident'] : document.exemptions.filter((item) => item !== 'municipal_resident') })} /> Esonero per domiciliati nel Comune</label>
+                  <label className="inline-flex items-center gap-2"><input type="checkbox" checked={document.exemptions.includes('municipal_employee')} onChange={(event) => updateRequestedDocument(document.id, { exemptions: event.target.checked ? [...document.exemptions, 'municipal_employee'] : document.exemptions.filter((item) => item !== 'municipal_employee') })} /> Esonero per dipendenti comunali</label>
+                  <button type="button" className="inline-flex min-h-[36px] items-center gap-1 rounded px-2 font-semibold text-danger hover:bg-danger-subtle" onClick={() => { setRequestedDocumentsDirty(true); setRequestedDocuments((current) => current.filter((item) => item.id !== document.id)); }}>
+                    <Trash2 size={14} aria-hidden="true" /> Rimuovi
+                  </button>
+                </div>
+              </div>
+            ))}
+            {requestedDocuments.length === 0 && <p className="rounded-stripe border border-edge p-3 text-xs text-subtle">Nessuna richiesta configurata. Inserisci la checklist o aggiungi i documenti dell’annuncio.</p>}
+          </div>
+          {flow.state === 'owner_review' && (
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void saveRequestedDocuments(); }}>
+              {spinner('automationSetRequiredDocuments') || <Save size={14} aria-hidden="true" />} Salva richieste nel portale
+            </button>
+          )}
+
+          <div className="space-y-3 border-t border-edge pt-4">
+            <label className="flex items-start gap-2 text-sm font-semibold text-body">
+              <input type="checkbox" checked={postalSubmission.enabled} onChange={(event) => setPostalField('enabled', event.target.checked)} />
+              Il bando richiede una candidatura cartacea
+            </label>
+            {postalSubmission.enabled && (
+              <>
+                <p className="text-xs text-subtle">Copia dal bando il destinatario e l’indirizzo completo (ufficio, via, CAP, località e Paese), insieme a scadenza e istruzioni. La pagina mostrerà tutto alla candidata e il dossier riporterà dove spedire. La candidata imbusta e spedisce; il sistema non invia la busta.</p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <label className="block text-xs font-medium text-body">Destinatario<input value={postalSubmission.recipient} onChange={(event) => setPostalField('recipient', event.target.value)} maxLength={200} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                  <label className="block text-xs font-medium text-body">Scadenza<input value={postalSubmission.deadline} onChange={(event) => setPostalField('deadline', event.target.value)} maxLength={160} placeholder="es. 30 giugno 2026" className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                </div>
+                <label className="block text-xs font-medium text-body">Indirizzo postale<textarea value={postalSubmission.address} onChange={(event) => setPostalField('address', event.target.value)} rows={3} maxLength={1000} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                <label className="block text-xs font-medium text-body">Dicitura da scrivere sulla busta<input value={postalSubmission.envelopeMarking} onChange={(event) => setPostalField('envelopeMarking', event.target.value)} maxLength={200} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                <label className="block text-xs font-medium text-body">Istruzioni per preparare e spedire<textarea value={postalSubmission.instructions} onChange={(event) => setPostalField('instructions', event.target.value)} rows={4} maxLength={2000} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+                <label className="block text-xs font-medium text-body">Link HTTPS al modulo ufficiale (facoltativo)<input type="url" value={postalSubmission.officialFormUrl} onChange={(event) => setPostalField('officialFormUrl', event.target.value)} maxLength={2048} className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-2.5 py-2 text-sm" /></label>
+              </>
+            )}
+            {requestedDocuments.some((document) => document.delivery === 'offline' || document.localOnly) && !postalSubmission.enabled && (
+              <p className="rounded-stripe border border-warning-border bg-warning-subtle/50 p-3 text-xs text-body" role="status">Hai richiesto documenti da preparare su carta: completa e salva le istruzioni postali prima di approvare. In questo modo la candidatura non potrà essere inviata per via elettronica.</p>
+            )}
+            {flow.state === 'owner_review' && (
+              <button type="button" className={secondary} disabled={Boolean(busy) || requestedDocumentsDirty} onClick={() => { void savePostalSubmission(); }}>
+                {spinner('automationSetPostalSubmission') || <Save size={14} aria-hidden="true" />} Salva impostazioni cartacee
+              </button>
+            )}
+            {flow.state === 'candidate_review' && (
+              <button
+                type="button"
+                className={primary}
+                disabled={Boolean(busy) || !postalSubmission.enabled || (!requestedDocumentsDirty && !postalSubmissionDirty)}
+                onClick={() => { void configureCandidatePostalPackage(); }}
+              >
+                {spinner('automationConfigurePostalPackage') || <Send size={14} aria-hidden="true" />} Aggiorna la pagina protetta e avvisa la candidata
+              </button>
+            )}
+          </div>
+        </section>
+      )}
+
+      {flow && (
+        <>
+        {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && Boolean(draft?.portalAnswers?.answers?.length) && (
+          <details className="rounded-stripe border border-edge p-3 text-sm">
+            <summary className="cursor-pointer font-medium">Già inserito nel portale ({draft?.portalAnswers?.answers.length} risposte)</summary>
+            <dl className="mt-2 space-y-1">
+              {draft?.portalAnswers?.answers.map((item) => (
+                <div key={item.question} className="flex flex-col sm:flex-row sm:gap-2">
+                  <dt className="text-muted sm:w-1/2">{item.question}</dt>
+                  <dd className="break-words sm:w-1/2">{item.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </details>
+        )}
+        <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
+          {flow.state === 'owner_review' && !repairingFacts && (
+            <button type="button" className={primary} disabled={Boolean(busy) || requestedDocumentsDirty || postalSubmissionDirty || (requestedDocuments.some((document) => document.delivery === 'offline' || document.localOnly) && !postalSubmission.enabled)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, postalSubmission.enabled ? 'Approvata: ora tocca al candidato (12 ore).' : 'Approvata: il candidato riceve la pagina della candidatura.'); }}>
+              {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
+            </button>
+          )}
+          {['owner_review', 'owner_takeover', 'candidate_review'].includes(flow.state || '') && (
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationRegenerate', {}, 'Nuova bozza richiesta.'); }}>
+              {spinner('automationRegenerate') || <RefreshCw size={14} aria-hidden="true" />} Rigenera
+            </button>
+          )}
+          {/* The robot sends only a round the candidate approved (flow.roundSent). A real order of 2026-10-07,
+              taken over while in the owner's review, showed this button and its draft went to the portal. */}
+          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && !flow.roundSent && (
+            <p className="w-full text-xs text-subtle">Il candidato non ha ancora approvato la bozza di questo giro: l’invio automatico non è disponibile. «Riprendi automazione» la rimette in revisione.</p>
+          )}
+          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '')
+            && draft?.round === flow.round && flow.roundSent
+            && flow.postalSubmission?.enabled !== true
+            && !repairingFacts && !isCaptchaPortalHold(flow) && (
+            <>
+              <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void retrySubmit(); }}>
+                {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
+              </button>
+            </>
+          )}
+          {flow.state === 'owner_takeover' && flow.postalSubmission?.enabled !== true && draft?.round === flow.round && !repairingFacts && portalUrl && !isCaptchaPortalHold(flow) && (extensionVersion ? (
+            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void fillWithExtension(); }}>
+              {spinner('automationFillKit') || <Wand2 size={14} aria-hidden="true" />} Compila con l’estensione
+            </button>
+          ) : (
+            <p className="w-full text-xs text-subtle">Per compilare il portale con un clic installa l’estensione «Compila candidatura» (cartella <code>scripts/assisted-application/extension</code>, istruzioni nel README).</p>
+          ))}
+          {flow.state === 'owner_takeover' && flow.postalSubmission?.enabled !== true && !isCaptchaPortalHold(flow) && draft?.round === flow.round && (
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void markSubmitted(); }}>
+              {spinner('automationMarkSubmitted') || <CheckCircle2 size={14} aria-hidden="true" />} Segna come inviata
+            </button>
+          )}
+          {flow.state === 'owner_takeover' && flow.postalSubmission?.enabled !== true && !isCaptchaPortalHold(flow) && draft?.round === flow.round && (
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void handoffToCandidate(); }}>
+              {spinner('automationHandoff') || <UserCheck size={14} aria-hidden="true" />} Affida al candidato
+            </button>
+          )}
+          {flow.state === 'owner_takeover' ? (
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationResume', {}, 'Automazione ripresa.'); }}>
+              {spinner('automationResume') || <CheckCircle2 size={14} aria-hidden="true" />} Riprendi automazione
+            </button>
+          ) : flow.state !== 'submitted' && (
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationTakeover', {}, 'Automazione sospesa: la gestisci tu.'); }}>
+              {spinner('automationTakeover') || <Pause size={14} aria-hidden="true" />} Prendi in carico
+            </button>
+          )}
+        </div>
+        </>
+      )}
+      </div>
+    </details>
+  );
+}

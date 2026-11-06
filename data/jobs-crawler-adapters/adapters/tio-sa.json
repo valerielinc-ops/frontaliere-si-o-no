@@ -1,0 +1,22 @@
+{
+  "companyKey": "tio-sa",
+  "companyName": "TIO SA",
+  "companyHost": "tio.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.tio.ch/careers",
+    "https://www.tio.ch/career",
+    "https://www.tio.ch/jobs",
+    "https://www.tio.ch/karriere",
+    "https://www.tio.ch/offene-stellen",
+    "https://www.tio.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.995Z"
+}

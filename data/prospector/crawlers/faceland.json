@@ -1,0 +1,24 @@
+{
+  "companyKey": "faceland",
+  "companyName": "Faceland",
+  "companyHost": "faceland.jobs.personio.com",
+  "platform": "personio.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://faceland.jobs.personio.com/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 40,
+  "sampleTitles": [
+    "Business Controller <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5.82549 15.0",
+    "Clinic Assistant studentenjob <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5.",
+    "Clinic Assistant studentenjob <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5.",
+    "Clinic Assistant studentenjob <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5.",
+    "Clinic Assistant studentenjob <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5."
+  ],
+  "canton": "LU",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-23T10:58:39.266Z"
+}

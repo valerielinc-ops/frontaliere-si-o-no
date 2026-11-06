@@ -1,0 +1,23 @@
+{
+  "companyKey": "brr",
+  "companyName": "brr",
+  "companyHost": "brw.factorial.ch",
+  "platform": "factorial.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://brw.factorial.ch/"
+  ],
+  "detailTemplate": "/job_posting/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Jetzt bewerben",
+    "Jetzt bewerben",
+    "Jetzt bewerben",
+    "Jetzt bewerben"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T13:28:52.239Z",
+  "candidateKey": "brr.ch"
+}

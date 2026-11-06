@@ -1,0 +1,20 @@
+{
+  "companyKey": "sintio-ch",
+  "companyName": "sintio",
+  "companyHost": "join.com",
+  "platform": "join.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility"
+  ],
+  "detailTemplate": "/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Technische:r Verkaufsberater:in & Projektleiter:in E-Mobility"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-31T12:51:44.835Z",
+  "candidateKey": "sintio.ch"
+}

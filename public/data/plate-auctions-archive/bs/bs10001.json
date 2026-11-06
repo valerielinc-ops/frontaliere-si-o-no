@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "bs-motorcycle-10001",
+      "sourceKey": "BS",
+      "sourceRecordId": "motorcycle-10001",
+      "canton": "Basilea Città",
+      "platePrefix": "BS",
+      "plateNumber": "10001",
+      "normalizedPlate": "BS10001",
+      "listingType": "fixed-price",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "startingPriceChf": 500,
+      "closedAt": "2026-09-15T06:58:46.295Z",
+      "officialAuctionUrl": "https://www.bs.ch/themen/mobilitaet/kontrollschilder/wunschkontrollschilder",
+      "officialDetailUrl": "https://media.bs.ch/original_file/522007c247964e18b3fcc2359ede666419627d58/wuko-mr-33.pdf",
+      "sourceFetchedAt": "2026-09-15T06:58:46.295Z",
+      "lastVerifiedAt": "2026-09-15T06:58:46.295Z",
+      "firstSeenAt": "2026-09-15T06:58:46.295Z",
+      "lastSeenAt": "2026-09-15T06:58:46.295Z",
+      "sourceCategory": "fixed-price-order",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "a802c7593942"
+    }
+  ]
+}

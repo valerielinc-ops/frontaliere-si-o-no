@@ -1,0 +1,25 @@
+{
+  "companyKey": "greenwoodcounty",
+  "companyName": "Greenwood County",
+  "companyHost": "greenwoodcounty.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://greenwoodcounty.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Assessor",
+    "Assistant Mechanic",
+    "Courthouse Security - Part Time",
+    "Detention Center Officer - I",
+    "Equipment Operator II - Road Department"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-06T13:04:07.998Z",
+  "candidateKey": "greenwoodcounty@applytojob.com"
+}

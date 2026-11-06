@@ -1,0 +1,20 @@
+{
+  "companyKey": "vebego",
+  "companyName": "Vebego AG, succursale Ticino",
+  "companyHost": "vebego.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.vebego.ch/it/lavoro-e-carriera"
+  ],
+  "detailTemplate": "/it/lavoro-e-carriera/*",
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Apprendistato presso Vebego",
+    "Il mondo del lavoro da Vebego",
+    "Great Place to Work Vebego è un «Great Place To Work»"
+  ],
+  "canton": "TI",
+  "sourceLang": "it",
+  "learnedAt": "2026-08-21T10:02:28.399Z"
+}

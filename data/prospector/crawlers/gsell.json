@@ -1,0 +1,20 @@
+{
+  "companyKey": "gsell",
+  "companyName": "gsell",
+  "companyHost": "my.jobalino.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/job/de/a46b93f7c8667d7e3ce290b601573084/spontanbewerbung-m-w-d_9195"
+  ],
+  "detailTemplate": "/job/de/a46b93f7c8667d7e3ce290b601573084/spontanbewerbung-m-w-d_9195",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung (m/w/d) / 100%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:54:13.892Z",
+  "candidateKey": "gsell.ch"
+}

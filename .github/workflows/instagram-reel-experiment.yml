@@ -1,0 +1,127 @@
+name: Instagram Reel Experiment
+
+# Two reserved experiment slots per week publish through Instagram's Graph
+# API. The daily broadcast reserves the same-day cadence slot so these never
+# become an extra third post; Reels do not use the browser robot.
+# Manual dispatch remains available for previews or an owner-selected cohort.
+on:
+  # GitHub exposes the exact cron string in github.event.schedule; keep the
+  # weekdays separate so KIND can distinguish article from job reliably.
+  schedule:
+    - cron: '30 7 * * 1' # Monday article, before the 08:20 UTC broadcast
+    - cron: '30 7 * * 5' # Friday job, before the 08:20 UTC broadcast
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: 'Source cohort for the Reel'
+        required: true
+        default: article
+        type: choice
+        options: [article, job]
+      date:
+        description: 'GA4 report day (YYYY-MM-DD); empty means yesterday'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Preview only; do not upload or queue assets'
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  group: instagram-reel-experiment
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      KIND: ${{ github.event_name == 'schedule' && github.event.schedule == '30 7 * * 5' && 'job' || inputs.kind || 'article' }}
+      REPORT_DATE: ${{ inputs.date || '' }}
+      DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || inputs.dry_run || 'true' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup FFmpeg toolchain
+        id: setup_ffmpeg
+        continue-on-error: true
+        uses: FedericoCarboni/setup-ffmpeg@v3.1
+        with:
+          ffmpeg-version: release
+          linking-type: static
+
+      # Keep the sibling social broadcast resilient to the same transient
+      # release-download failure as TikTok; verification remains fail-closed.
+      - name: Retry FFmpeg toolchain after transient download failure
+        if: steps.setup_ffmpeg.outcome == 'failure'
+        uses: FedericoCarboni/setup-ffmpeg@v3.1
+        with:
+          ffmpeg-version: release
+          linking-type: static
+
+      - name: Ensure ffmpeg is available
+        run: |
+          set -euo pipefail
+          command -v ffmpeg
+          ffmpeg -version | sed -n '1p'
+
+      - name: Prepare Firebase credentials
+        if: env.DRY_RUN != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          printf 'GOOGLE_APPLICATION_CREDENTIALS=%s\n' "$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load Remote Config
+        if: env.DRY_RUN != 'true'
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN,GEMINI_API_KEY,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+
+      - name: Report missing Instagram Graph API credentials
+        if: env.DRY_RUN != 'true' && (env.INSTAGRAM_ACCESS_TOKEN == '' || env.INSTAGRAM_BUSINESS_ACCOUNT_ID == '')
+        run: |
+          set -euo pipefail
+          echo "::warning::Instagram Reel skipped: INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_BUSINESS_ACCOUNT_ID are required in Remote Config"
+
+      - name: Render and publish controlled Reel through Graph API
+        if: env.DRY_RUN == 'true' || (env.INSTAGRAM_ACCESS_TOKEN != '' && env.INSTAGRAM_BUSINESS_ACCOUNT_ID != '')
+        run: |
+          set -euo pipefail
+          args=("--kind=$KIND")
+          if [ -n "$REPORT_DATE" ]; then args+=("--date=$REPORT_DATE"); fi
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          npx --no-install tsx scripts/post-to-instagram-reel.mjs "${args[@]}"
+
+      - name: Commit published Reel ledger
+        if: env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          if [ ! -f data/instagram-posted.json ]; then
+            echo 'no Instagram posted ledger written — nothing to commit'
+            exit 0
+          fi
+          git add data/instagram-posted.json
+          if git diff --cached --quiet; then
+            echo 'no Reel ledger changes'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore(instagram): record controlled Reel publication [skip ci]'
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 20 --stash-dirty

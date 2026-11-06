@@ -1,0 +1,40 @@
+{
+  "id": "peter-magyar-ungheria-volta-pagina",
+  "slug": "peter-magyar-ungheria-volta-pagina",
+  "publishedAt": "2026-05-10T05:12:13.493Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.148904944688486,
+    "confidence": 0.8,
+    "finalScore": 9.719123955750788,
+    "topK": [
+      {
+        "slug": "guardie-svizzere-giuramento-vaticano-2026",
+        "cosine": 0.8094427523793758
+      },
+      {
+        "slug": "processo-quadroni-ex-capo-posto-contesta-accuse",
+        "cosine": 0.7975684716122584
+      },
+      {
+        "slug": "iniziativa-democrazia-respinta-nazionale",
+        "cosine": 0.7936047651759639
+      },
+      {
+        "slug": "ambasciatore-italiano-ritorno-berna",
+        "cosine": 0.7923473598456328
+      },
+      {
+        "slug": "due-ticinesi-guardie-svizzere-2026",
+        "cosine": 0.7911632035522852
+      }
+    ],
+    "score": 9.719123955750788,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

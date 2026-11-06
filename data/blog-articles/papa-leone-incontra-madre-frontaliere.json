@@ -1,0 +1,40 @@
+{
+  "id": "papa-leone-incontra-madre-frontaliere",
+  "slug": "papa-leone-incontra-madre-frontaliere",
+  "publishedAt": "2026-05-09T20:46:02.133Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "corriere.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 36.05560976532839,
+    "confidence": 0.8,
+    "finalScore": 28.844487812262713,
+    "topK": [
+      {
+        "slug": "incontro-solidarieta-sicurezza-bioggio",
+        "cosine": 0.7923072384264804
+      },
+      {
+        "slug": "villaggio-angelo-busto-arsizio",
+        "cosine": 0.7916624398817046
+      },
+      {
+        "slug": "nuove-leggi-violenza-domestica-2027",
+        "cosine": 0.7914988906358936
+      },
+      {
+        "slug": "lavena-brano-musicale-leone-xiv",
+        "cosine": 0.7913600869993496
+      },
+      {
+        "slug": "presunti-maltrattamenti-asilo-chiasso",
+        "cosine": 0.786873890299834
+      }
+    ],
+    "score": 7.211121953065678,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

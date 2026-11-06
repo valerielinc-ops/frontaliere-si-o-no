@@ -1,0 +1,40 @@
+{
+  "id": "tasse-mance-frontalieri-ticino",
+  "slug": "tasse-mance-frontalieri-ticino",
+  "publishedAt": "2026-05-08T18:57:01.528Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.76200489488343,
+    "confidence": 0.8,
+    "finalScore": 10.209603915906746,
+    "topK": [
+      {
+        "slug": "tassa-salute-berna-ticino",
+        "cosine": 0.7507061702872606
+      },
+      {
+        "slug": "sondaggio-tamedia-iva-esercito-avs",
+        "cosine": 0.7397330211161218
+      },
+      {
+        "slug": "tassazione-individuale-lavoro-donne",
+        "cosine": 0.736425703409988
+      },
+      {
+        "slug": "quellensteuer-schweiz-2026-hub",
+        "cosine": 0.7348497630865362
+      },
+      {
+        "slug": "aumento-franchigia-minima",
+        "cosine": 0.7328074831970985
+      }
+    ],
+    "score": 1.0209603915906746,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120466",
+      "sourceKey": "VD",
+      "sourceRecordId": "120466",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "638",
+      "normalizedPlate": "VD638",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 320,
+      "bidCount": 2,
+      "endsAt": "2026-10-18T20:00:00.000Z",
+      "closedAt": "2026-10-18T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/de/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120466",
+      "sourceFetchedAt": "2026-10-18T18:46:58.039Z",
+      "lastVerifiedAt": "2026-10-18T18:46:58.039Z",
+      "firstSeenAt": "2026-10-11T22:02:38.024Z",
+      "lastSeenAt": "2026-10-18T18:46:58.039Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "9d1734937583"
+    }
+  ]
+}

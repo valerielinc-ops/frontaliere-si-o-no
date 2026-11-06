@@ -1,0 +1,21 @@
+{
+  "companyKey": "caprez",
+  "companyName": "Caprez",
+  "companyHost": "my.jobalino.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/job/658ee306b792c/caprez-ingenieure-ag/bauingenieurin-technikerin-tiefbau"
+  ],
+  "detailTemplate": "/job/658ee306b792c/caprez-ingenieure-ag/bauingenieurin-technikerin-tiefbau",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "BauingenieurIn / TechnikerIn Tiefbau / 60% - 100%"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T10:55:36.132Z",
+  "candidateKey": "caprez-ing.ch"
+}

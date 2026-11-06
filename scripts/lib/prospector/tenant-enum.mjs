@@ -1,0 +1,617 @@
+/**
+ * Tenant enumeration — where the loop stops being linear.
+ *
+ * Discovering one employer buys one employer. Discovering the PLATFORM that
+ * employer rents its careers page from, and then enumerating that platform's
+ * tenants, buys every employer on it — and they are overwhelmingly the small
+ * ones, because a 12-person haulier never builds a careers page but will happily
+ * pay a vendor CHF 40/month for one.
+ *
+ * Three enumerators, complementary because each fails differently:
+ *
+ *   commoncrawl — the public web index. Broad and free, but a tiny tenant that
+ *                 nobody links to may never have been crawled.
+ *   certspotter — Certificate Transparency. Complete for per-tenant certs, and
+ *                 USELESS against a wildcard cert: Some vendors serve every tenant
+ *                 under a single `*.vendor.example` wildcard, so CT shows infrastructure hosts
+ *                 and no customers at all (measured). Kept because plenty of
+ *                 vendors do issue per-tenant certs, where it is exhaustive.
+ *   slugprobe   — take the employer names we already hold and test them AS
+ *                 tenant ids. Cheap, and the only one that reaches an employer
+ *                 nobody has ever linked to or indexed.
+ *
+ * The wildcard-DNS trap, measured and guarded here: `does-not-exist-123.vendor.example`
+ * RESOLVES. DNS existence proves nothing on these platforms, so a tenant only
+ * counts once an HTTP fetch returns a page that scores as a vacancy page.
+ */
+import { politeFetch, mapPool } from './polite-fetch.mjs';
+import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
+import { listingPathHints, tenantIsInPath } from './platform-registry.mjs';
+import { scoreVacancyPage } from './extract.mjs';
+import { extractLinks, isCareerLink } from './careers-trail.mjs';
+import { CONCURRENCY } from './config.mjs';
+import { decodeEntities } from './entities.mjs';
+import { readAttr, readMetaContent } from '../html-attr.mjs';
+
+function httpFailureCode(response) {
+  const status = Number(response?.status);
+  return Number.isInteger(status) && status >= 100 && status <= 599 ? `http_${status}` : 'http_error';
+}
+
+function enumerationOutcome({ successes, failures, malformed, truncated = 0 }) {
+  if (failures === 0 && malformed === 0 && truncated === 0) return 'complete';
+  if (successes > 0) return 'partial';
+  if (failures > 0) return 'unavailable';
+  if (malformed > 0) return 'malformed';
+  return truncated > 0 ? 'partial' : 'malformed';
+}
+
+function isRetryableTenantResponse(response) {
+  if (response?.policyBlocked || response?.blockedByRobots) return false;
+  const status = Number(response?.status) || 0;
+  return status === 0 || status === 401 || status === 403 || status === 408
+    || status === 425 || status === 429 || status >= 500;
+}
+
+function isBlockedTenantResponse(response) {
+  return Boolean(response?.policyBlocked || response?.blockedByRobots);
+}
+
+/**
+ * Query the Common Crawl URL index for every host under a platform domain.
+ *
+ * @param {string} platformDomain
+ * @param {{ collections?: string[], limit?: number, fetcher?: typeof politeFetch }} [opts]
+ * @returns {Promise<{ hosts: string[], outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null }>}
+ */
+export async function enumerateViaCommonCrawl(platformDomain, opts = {}) {
+  const limit = opts.limit ?? 800;
+  const fetcher = opts.fetcher || politeFetch;
+  let collections = opts.collections;
+  if (!collections) {
+    let idx;
+    try {
+      idx = await fetcher('https://index.commoncrawl.org/collinfo.json', { accept: 'application/json', ignoreRobots: true, retries: 3 });
+    } catch {
+      return { hosts: [], outcome: 'unavailable', errorCode: 'collinfo_request' };
+    }
+    if (!idx.ok) return { hosts: [], outcome: 'unavailable', errorCode: httpFailureCode(idx) };
+    try {
+      const all = JSON.parse(idx.body);
+      if (!Array.isArray(all) || !all.every((item) => item && typeof item.id === 'string' && item.id.trim())) {
+        return { hosts: [], outcome: 'malformed', errorCode: 'invalid_collinfo' };
+      }
+      collections = all.slice(0, 3).map((c) => c.id);
+    } catch {
+      return { hosts: [], outcome: 'malformed', errorCode: 'invalid_collinfo_json' };
+    }
+    if (collections.length === 0) return { hosts: [], outcome: 'malformed', errorCode: 'empty_collinfo' };
+  }
+  const hosts = new Set();
+  let successes = 0;
+  let failures = 0;
+  let malformed = 0;
+  let truncated = 0;
+  let errorCode = null;
+  for (const coll of collections) {
+    let res;
+    try {
+      res = await fetcher(
+        `https://index.commoncrawl.org/${coll}-index?url=*.${encodeURIComponent(platformDomain)}&output=json&limit=${limit}`,
+        { accept: 'application/json', timeoutMs: 120000, ignoreRobots: true, retries: 3 },
+      );
+    } catch {
+      failures++;
+      errorCode ||= 'index_request';
+      continue;
+    }
+    if (!res.ok) {
+      failures++;
+      errorCode ||= httpFailureCode(res);
+      continue;
+    }
+    if (typeof res.body !== 'string') {
+      malformed++;
+      errorCode ||= 'invalid_index_body';
+      continue;
+    }
+    let validRows = 0;
+    let nonEmptyRows = 0;
+    for (const line of res.body.split('\n')) {
+      if (!line.trim()) continue;
+      nonEmptyRows++;
+      if (line.startsWith('<')) {
+        malformed++;
+        errorCode ||= 'html_index_response';
+        continue;
+      }
+      try {
+        const rec = JSON.parse(line);
+        if (typeof rec?.url !== 'string') throw new Error('missing URL');
+        const h = normalizeHost(new URL(rec.url).hostname);
+        validRows++;
+        if (h && registrableDomain(h) === platformDomain && h !== platformDomain) hosts.add(h);
+      } catch {
+        malformed++;
+        errorCode ||= 'malformed_index_row';
+      }
+    }
+    // An empty 200 is a valid empty census. A non-empty response is a source
+    // success only when at least one row has a structurally valid URL.
+    if (validRows > 0 || nonEmptyRows === 0) successes++;
+    if (nonEmptyRows >= limit) {
+      truncated++;
+      errorCode ||= 'result_limit_reached';
+    }
+  }
+  const outcome = collections.length === 0
+    ? 'malformed'
+    : enumerationOutcome({ successes, failures, malformed, truncated });
+  return { hosts: [...hosts], outcome, errorCode: outcome === 'complete' ? null : errorCode || 'no_collections' };
+}
+
+/**
+ * Query Certificate Transparency for subdomains of a platform.
+ *
+ * @param {string} platformDomain
+ * @param {{ fetcher?: typeof politeFetch }} [opts]
+ * @returns {Promise<{ hosts: string[], outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null }>}
+ */
+export async function enumerateViaCertSpotter(platformDomain, opts = {}) {
+  let res;
+  try {
+    res = await (opts.fetcher || politeFetch)(
+      `https://api.certspotter.com/v1/issuances?domain=${encodeURIComponent(platformDomain)}&include_subdomains=true&expand=dns_names`,
+      { accept: 'application/json', ignoreRobots: true, retries: 2 },
+    );
+  } catch {
+    return { hosts: [], outcome: 'unavailable', errorCode: 'issuance_request' };
+  }
+  if (!res.ok) return { hosts: [], outcome: 'unavailable', errorCode: httpFailureCode(res) };
+  let rows;
+  try { rows = JSON.parse(res.body); } catch { return { hosts: [], outcome: 'malformed', errorCode: 'invalid_issuance_json' }; }
+  if (!Array.isArray(rows)) return { hosts: [], outcome: 'malformed', errorCode: 'invalid_issuance_shape' };
+  const hosts = new Set();
+  let malformed = 0;
+  for (const r of rows) {
+    if (!r || typeof r !== 'object' || Array.isArray(r) || !Array.isArray(r.dns_names)) {
+      malformed++;
+      continue;
+    }
+    for (const n of r.dns_names) {
+      if (typeof n !== 'string') {
+        malformed++;
+        continue;
+      }
+      const h = normalizeHost(n);
+      if (h.includes('*')) continue;
+      if (registrableDomain(h) === platformDomain && h !== platformDomain) hosts.add(h);
+    }
+  }
+  return {
+    hosts: [...hosts],
+    outcome: malformed ? (rows.length > malformed ? 'partial' : 'malformed') : 'complete',
+    errorCode: malformed ? 'malformed_issuance_row' : null,
+  };
+}
+
+/** Infrastructure subdomains every vendor has and no employer is. */
+const INFRA_LABELS = /^(www|dev|test|staging|stage|preprod|next|main|portal|api|app|admin|cdn|static|assets|mail|webmail|smtp|imap|ftp|vpn|git|ci|build|docs|blog|help|support|status|monitor|grafana|sso|auth|login|demo|sandbox|tfs\d*|ns\d*|mx\d*|autodiscover|sites|home|devops)$/i;
+const MAX_RETRY_HOSTS = 500;
+const MAX_RETRY_ATTEMPTS = 4;
+
+/**
+ * Turn an employer name into the tenant ids a vendor would have handed it.
+ *
+ * @param {string} name
+ * @returns {string[]}
+ */
+export function tenantSlugCandidates(name = '') {
+  const words = String(name)
+    .toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w && !/^(sa|ag|sagl|gmbh|srl|sarl|spa|ltd|inc|llc|di|e|the|group|gruppo|holding|swiss|suisse|svizzera|schweiz|ch)$/.test(w));
+  if (!words.length) return [];
+  const out = new Set([
+    words.join(''),
+    words.join('-'),
+    words[0],
+  ]);
+  if (words.length > 2) out.add(words.slice(0, 2).join(''));
+  return [...out].filter((s) => s.length >= 3 && s.length <= 40);
+}
+
+/**
+ * Do this vendor's tenant ids look derived from employer names?
+ *
+ * @param {{ hostHits?: Record<string, number>, hostSamples?: string[], domain: string }} platform
+ * @returns {boolean}
+ */
+export function tenantIdsAreNameLike(platform) {
+  const hosts = [...new Set([...Object.keys(platform.hostHits || {}), ...(platform.hostSamples || [])])];
+  const labels = hosts.map((h) => tenantLabel(h)).filter((l) => l && !INFRA_LABELS.test(l));
+  if (!labels.length) return true; // nothing observed yet — let the prober try
+  const nameLike = labels.filter((l) => /^[a-z][a-z-]{2,}$/.test(l) && !/^\d/.test(l));
+  return nameLike.length / labels.length >= 0.5;
+}
+
+/**
+ * Confirm a URL really is a live tenant listing with vacancies.
+ *
+ * Probes the root AND any listing paths the registry has learned for this
+ * vendor, keeping the best-scoring answer. Root-only probing was measured at
+ * 0 live tenants from 135 Umantis candidate hosts, because an Umantis tenant
+ * root serves a login form and the vacancies live at /Vacancies.
+ *
+ * @param {string} host
+ * @param {{ minScore?: number, paths?: string[], fetcher?: typeof politeFetch }} [opts]
+ * @returns {Promise<{ host: string, live: boolean, score: number, vacancyCount: number, company: string, url: string, signals: string[], retryable: boolean, blocked: boolean, failureStatuses: number[] }>}
+ */
+export async function probeTenant(host, opts = {}) {
+  const minScore = opts.minScore ?? 3;
+  const blank = { host, live: false, score: 0, vacancyCount: 0, company: '', url: `https://${host}/`, signals: [] };
+  const failureStatuses = [];
+  let blockedRequests = 0;
+  const fetcher = opts.fetcher || politeFetch;
+  const bases = host.includes('/') ? [`https://${host}`] : [`https://${host}/`];
+  const urls = [...bases];
+  for (const p of opts.paths || []) urls.push(`https://${host.replace(/\/$/, '')}${p}`);
+
+  let res = null;
+  let scored = null;
+  let links = [];
+  const consider = (r, l, sc) => {
+    if (!scored || sc.score > scored.score) { res = r; scored = sc; links = l; }
+  };
+  for (const u of urls.slice(0, 4)) {
+    let r;
+    try { r = await fetcher(u); } catch { r = { ok: false, status: 0, url: u, body: '' }; }
+    if (!r.ok) {
+      if (isBlockedTenantResponse(r)) blockedRequests++;
+      else if (isRetryableTenantResponse(r)) failureStatuses.push(Number(r.status) || 0);
+      continue;
+    }
+    if (r.body.length < 300) continue;
+    const l = extractLinks(r.body, r.url);
+    consider(r, l, scoreVacancyPage(r.body, r.url, l));
+    if (scored.score >= minScore + 2) break; // decisive, stop paying
+  }
+
+  // One hop, exactly as on an employer site. The learned path hint comes from
+  // vacancy DETAIL urls (`/Vacancies/1234/Description/1`), which is not where
+  // the listing lives (`/Jobs/All`) — and no amount of per-vendor path guessing
+  // generalises. What does generalise: whatever page we landed on links to the
+  // listing, so follow the most vacancy-looking internal link and score that.
+  if (res && scored && scored.score < minScore) {
+    const self = normalizeHost(new URL(res.url).hostname);
+    const hop = links
+      .filter((l) => normalizeHost(l.host) === self && isCareerLink(l) && l.url !== res.url)
+      .slice(0, 3);
+    for (const l of hop) {
+      let r;
+      try { r = await fetcher(l.url); } catch { r = { ok: false, status: 0, url: l.url, body: '' }; }
+      if (!r.ok) {
+        if (isBlockedTenantResponse(r)) blockedRequests++;
+        else if (isRetryableTenantResponse(r)) failureStatuses.push(Number(r.status) || 0);
+        continue;
+      }
+      if (r.body.length < 300) continue;
+      const ll = extractLinks(r.body, r.url);
+      consider(r, ll, scoreVacancyPage(r.body, r.url, ll));
+      if (scored.score >= minScore) break;
+    }
+  }
+  if (!res || !scored) return {
+    ...blank,
+    retryable: failureStatuses.length > 0,
+    blocked: blockedRequests > 0,
+    failureStatuses,
+  };
+  // The <title> of a tenant page is nearly always the employer's own name —
+  // "Cippà Trasporti S.A. | Lavora con noi" — so the platform hands us the
+  // company identity for free, no name resolution needed.
+  const company = employerNameFromPage(res.body, host, links);
+  const surface = looksLikeAggregator(scored.vacancies, host);
+  return {
+    host,
+    // An aggregator is live and full of vacancies and still not what the loop
+    // is for, so it is excluded here rather than downstream — a tenant that
+    // turns out to be a board must never be filed as an employer.
+    live: scored.score >= minScore && !surface.aggregator,
+    aggregator: surface.aggregator,
+    distinctCompanies: surface.distinctCompanies,
+    score: scored.score,
+    vacancyCount: scored.vacancies.length,
+    company,
+    url: res.url,
+    signals: scored.signals,
+    retryable: failureStatuses.length > 0,
+    blocked: blockedRequests > 0,
+    failureStatuses,
+  };
+}
+
+/**
+ * Is this surface an aggregator rather than one employer's own vacancy page?
+ *
+ * The loop's value is employers who hire DIRECTLY: their vacancies exist
+ * nowhere else, which is the entire reason to crawl them. An aggregator — a
+ * sector job board, an apprenticeship portal, a hospitality exchange — carries
+ * many employers' ads, is already indexed by everyone, and adds duplicate
+ * inventory rather than new inventory.
+ *
+ * Told apart structurally, not by a denylist of names, because the denylist
+ * would need a new entry for every board that exists: a direct employer's page
+ * names ONE hiring organisation, an aggregator names many. Two independent
+ * readings of that, so a page with no structured data is still classifiable:
+ *   - distinct `hiringOrganization` values in the extracted vacancies;
+ *   - distinct third-party hosts the vacancy links point at (a board sends you
+ *     off to each employer's own site).
+ *
+ * @param {{ company?: string, url?: string }[]} vacancies
+ * @param {string} selfHost
+ * @returns {{ aggregator: boolean, distinctCompanies: number, distinctHosts: number }}
+ */
+export function looksLikeAggregator(vacancies = [], selfHost = '') {
+  const companies = new Set(
+    vacancies.map((v) => String(v.company || '').trim().toLowerCase()).filter(Boolean),
+  );
+  const hosts = new Set();
+  for (const v of vacancies) {
+    try {
+      const h = registrableDomain(new URL(v.url).hostname);
+      if (h && h !== registrableDomain(selfHost)) hosts.add(h);
+    } catch { /* relative or malformed */ }
+  }
+  return {
+    aggregator: companies.size >= 2 || hosts.size >= 3,
+    distinctCompanies: companies.size,
+    distinctHosts: hosts.size,
+  };
+}
+
+/** Page-furniture words that are never an employer's name. */
+const GENERIC_TITLE_RX = /^(jobs?|karriere|offene stellen|stellen|stellenangebote|login|initiativbewerbung|bewerbung|carriere|carriera|lavora con noi|emplois|careers?|vacancies|home|willkommen|portal|bewerberportal|e-?recruiting|bewerbermanagement|rekrutierungstool|jobportal|jobboard)$/i;
+
+/** Prefixes/suffixes vendors bolt onto a tenant title around the real name. */
+const TITLE_FURNITURE_RX =
+  /\b(bewerberportal|bewerbermanagement|rekrutierungstool|bewerbungsplattform|e-?recruiting|jobportal|job ?board|stellenportal|offene stellen|stellenangebote|stellen|jobs?|karriere|carriere|carriera|vacancies|lavora con noi|arbeiten (?:bei|im|in)|willkommen bei)\b/gi;
+
+/**
+ * The employer's name, as read off a tenant page.
+ *
+ * A hosted ATS puts the tenant's own name in the <title>, which is why tenant
+ * enumeration needs no name resolution at all — but it wraps it in vendor
+ * furniture ("Bewerberportal MPI AGE Stellen") and sometimes replaces it
+ * entirely with a generic label ("Jobs", "Offene Stellen"). So: strip the
+ * furniture, and when nothing identifying survives, fall back through
+ * og:site_name, the logo's alt text, and finally the tenant id — which is at
+ * least stable and unique, where "Jobs" is neither.
+ *
+ * @param {string} html
+ * @param {string} host
+ * @param {{ url: string, text: string }[]} [links]
+ * @returns {string}
+ */
+export function employerNameFromPage(html = '', host = '', links = []) {
+  // Decode rather than strip: `Soci&egrave;t&eacute; X` must come back as
+  // `Sociètè X`, not `Soci t  X` — the mangled form fails every
+  // later name match against coverage and against the employer's own site.
+  const clean = (raw) => decodeEntities(String(raw || ''))
+    .split(/[|–—·»]|\s-\s/)[0]
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const candidates = [];
+  const title = clean(/<title[^>]*>([\s\S]{0,200}?)<\/title>/i.exec(html)?.[1]);
+  if (title) candidates.push(title);
+  const ogSite = clean(readMetaContent(html, 'og:site_name'));
+  if (ogSite) candidates.push(ogSite);
+  // Quote-balanced (#6480): a company name with an apostrophe — `Casa d'Anziani`,
+  // `L'Oréal` — was truncated at the apostrophe by the old `[^"']+` class.
+  const logoImg = [...String(html || '').matchAll(/<img\b[^>]*>/gi)]
+    .map((match) => match[0])
+    .find((tag) => /logo/i.test(readAttr(tag, 'class')) || /logo/i.test(readAttr(tag, 'id')));
+  const logoAlt = clean(logoImg ? readAttr(logoImg, 'alt') : '');
+  if (logoAlt) candidates.push(logoAlt);
+
+  for (const raw of candidates) {
+    const stripped = raw.replace(TITLE_FURNITURE_RX, ' ').replace(/\s+/g, ' ').trim();
+    if (stripped.length >= 3 && !GENERIC_TITLE_RX.test(stripped)) return stripped.slice(0, 120);
+  }
+  for (const raw of candidates) {
+    if (raw.length >= 3 && !GENERIC_TITLE_RX.test(raw)) return raw.slice(0, 120);
+  }
+  void links;
+  return tenantLabel(host) || host;
+}
+
+/**
+ * Full enumeration for one platform.
+ *
+ * @param {import('./platform-registry.mjs').Platform} platform
+ * @param {{ nameSeeds?: string[], maxProbe?: number, probeOffset?: number, retryHosts?: { host: string, attempts: number }[], useCommonCrawl?: boolean, useCertSpotter?: boolean, fetcher?: typeof politeFetch }} [opts]
+ * @returns {Promise<{ platform: string, discovered: string[], probed: any[], live: any[], retryHosts: { host: string, attempts: number }[], byMethod: Record<string, number>, outcome: 'complete'|'partial'|'unavailable'|'malformed', sourceOutcomes: Record<string, { outcome: string, items: number, errorCode: string|null }>, probeLimitReached: boolean, nextProbeOffset: number }>}
+ */
+export async function enumerateTenants(platform, opts = {}) {
+  const domain = platform.domain;
+  const byMethod = {};
+  const found = new Map();
+  const previousRetries = [];
+  const sourceOutcomes = {
+    commoncrawl: { outcome: 'skipped', items: 0, errorCode: null },
+    certspotter: { outcome: 'skipped', items: 0, errorCode: null },
+  };
+  const paths = listingPathHints(platform);
+  const pathTenant = tenantIsInPath(platform);
+
+  const add = (host, method) => {
+    const h = normalizeHost(host);
+    if (!h || h === domain) return;
+    const label = tenantLabel(h);
+    if (!label || INFRA_LABELS.test(label)) return;
+    if (!found.has(h)) found.set(h, method);
+    byMethod[method] = (byMethod[method] || 0) + 1;
+  };
+
+  // Shared-host vendors put the tenant in the PATH, so there are no hosts to
+  // enumerate — the candidate space is `<one host>/<employer slug>`. Skipping
+  // this branch would write off every vendor of that shape, which is half the
+  // Swiss SME tier (refline, solique).
+  const addPathTenant = (base, slug) => {
+    const key = `${base}/${slug}`;
+    if (!found.has(key)) found.set(key, 'pathprobe');
+    byMethod.pathprobe = (byMethod.pathprobe || 0) + 1;
+  };
+
+  if (opts.useCommonCrawl !== false) {
+    try {
+      const result = await enumerateViaCommonCrawl(domain, { fetcher: opts.fetcher });
+      sourceOutcomes.commoncrawl = {
+        outcome: result.outcome,
+        items: result.hosts.length,
+        errorCode: result.errorCode,
+      };
+      for (const h of result.hosts) add(h, 'commoncrawl');
+    } catch {
+      sourceOutcomes.commoncrawl = { outcome: 'unavailable', items: 0, errorCode: 'enumerator_error' };
+    }
+  }
+  if (opts.useCertSpotter !== false) {
+    try {
+      const result = await enumerateViaCertSpotter(domain, { fetcher: opts.fetcher });
+      sourceOutcomes.certspotter = {
+        outcome: result.outcome,
+        items: result.hosts.length,
+        errorCode: result.errorCode,
+      };
+      for (const h of result.hosts) add(h, 'certspotter');
+    } catch {
+      sourceOutcomes.certspotter = { outcome: 'unavailable', items: 0, errorCode: 'enumerator_error' };
+    }
+  }
+  // Slug probing only makes sense where the vendor derives tenant ids from the
+  // employer's NAME. Umantis hands out `recruitingapp-122706`; probing 6'000
+  // employer names against an opaque id space would be thousands of requests
+  // for a guaranteed zero. Decided from the tenant labels already observed.
+  if (opts.nameSeeds?.length) {
+    if (pathTenant) {
+      const base = Object.entries(platform.hostHits || {}).sort((a, b) => b[1] - a[1])[0]?.[0]
+        || platform.hostSamples?.[0] || domain;
+      for (const seed of opts.nameSeeds) {
+        for (const slug of tenantSlugCandidates(seed)) addPathTenant(base, slug);
+      }
+    } else if (tenantIdsAreNameLike(platform)) {
+      for (const seed of opts.nameSeeds) {
+        for (const slug of tenantSlugCandidates(seed)) add(`${slug}.${domain}`, 'slugprobe');
+      }
+    }
+  }
+  for (const sample of platform.hostSamples || []) add(sample, 'known');
+
+  // A failed transient probe is retried in a small rotating queue on the next
+  // run. Without this, a host in a 20k slug list could wait ~100 daily runs
+  // before the normal discovery window reached it again.
+  const retrySeen = new Set();
+  for (const retry of (Array.isArray(opts.retryHosts) ? opts.retryHosts : []).slice(0, MAX_RETRY_HOSTS)) {
+    const host = normalizeHost(retry?.host);
+    const attempts = Number(retry?.attempts);
+    if (!host || !Number.isSafeInteger(attempts) || attempts < 1 || attempts >= MAX_RETRY_ATTEMPTS || retrySeen.has(host)) continue;
+    retrySeen.add(host);
+    previousRetries.push({ host, attempts });
+    if (!found.has(host)) found.set(host, 'retry');
+  }
+
+  // Probe in order of EVIDENCE, not insertion order. A slug probe is a guess
+  // and there can be tens of thousands of them (20'215 in one measured run);
+  // a host seen in the web index or in a certificate log is a host that exists.
+  // Left unordered, the probe budget is spent entirely on guesses and a vendor
+  // whose tenants are all already known scores zero.
+  const METHOD_RANK = { retry: -1, known: 0, commoncrawl: 1, certspotter: 2, pathprobe: 3, slugprobe: 4 };
+  const rankedHosts = [...found.keys()]
+    .sort((a, b) => (METHOD_RANK[found.get(a)] ?? 9) - (METHOD_RANK[found.get(b)] ?? 9)
+      || a.localeCompare(b));
+  const maxProbe = Math.min(MAX_RETRY_HOSTS, Math.max(0, Math.floor(Number(opts.maxProbe ?? 300) || 0)));
+  const normalRetryBatchLimit = Math.min(previousRetries.length, 50, Math.ceil(maxProbe * 0.25));
+  // Reserve enough probe slots for the existing queue to absorb every new
+  // transient failure from this run. When the queue is nearly full, retries
+  // temporarily use more of the probe budget instead of evicting untried hosts.
+  const retryBatchNeededForCapacity = Math.max(0, previousRetries.length + maxProbe - MAX_RETRY_HOSTS);
+  const retryBatchLimit = Math.min(previousRetries.length, Math.max(normalRetryBatchLimit, retryBatchNeededForCapacity));
+  const retryBatch = previousRetries.slice(0, retryBatchLimit);
+  const normalHosts = rankedHosts.filter((host) => !retrySeen.has(host));
+  const probeOffset = normalHosts.length
+    ? Math.max(0, Math.floor(Number(opts.probeOffset) || 0)) % normalHosts.length
+    : 0;
+  const normalLimit = Math.max(0, maxProbe - retryBatch.length);
+  const normalProbeHosts = Array.from({ length: Math.min(normalLimit, normalHosts.length) }, (_, index) =>
+    normalHosts[(probeOffset + index) % normalHosts.length]);
+  const hosts = [...retryBatch.map(({ host }) => host), ...normalProbeHosts];
+  const nextProbeOffset = normalHosts.length
+    ? (probeOffset + normalProbeHosts.length) % normalHosts.length
+    : probeOffset;
+  const probeLimitReached = previousRetries.length > retryBatch.length
+    || normalHosts.length > normalProbeHosts.length;
+  const probed = (await mapPool(hosts, CONCURRENCY, (h) => probeTenant(h, { paths, fetcher: opts.fetcher }))).filter(Boolean);
+  for (const p of probed) p.method = found.get(p.host);
+  const probedByHost = new Map(probed.map((result) => [result.host, result]));
+  const retryByHost = new Map(previousRetries.map((retry) => [retry.host, retry]));
+  const retriedFailures = [];
+  for (const retry of retryBatch) {
+    const result = probedByHost.get(retry.host);
+    if (!result) {
+      retriedFailures.push(retry);
+    } else if (result.retryable && !result.live && retry.attempts + 1 < MAX_RETRY_ATTEMPTS) {
+      retriedFailures.push({ host: retry.host, attempts: retry.attempts + 1 });
+    }
+  }
+  const newTransientFailures = [];
+  for (const result of probed) {
+    if (!result.retryable || result.live || retryByHost.has(result.host)) continue;
+    newTransientFailures.push({ host: result.host, attempts: 1 });
+  }
+  // The adaptive retry budget above leaves enough room for every result from
+  // this run while retaining all previous retries that were not probed.
+  const currentFailures = [...new Map([...retriedFailures, ...newTransientFailures]
+    .map((retry) => [retry.host, retry])).values()];
+  const retainedOlderRetries = previousRetries.slice(retryBatch.length);
+  const boundedRetryHosts = [...new Map([...currentFailures, ...retainedOlderRetries]
+    .map((retry) => [retry.host, retry])).values()].slice(0, MAX_RETRY_HOSTS);
+  const retryableProbeFailures = probed.filter((result) => result.retryable).length;
+  const blockedProbeFailures = probed.filter((result) => result.blocked).length;
+  const incompleteProbeCount = retryableProbeFailures + blockedProbeFailures;
+  sourceOutcomes.probes = hosts.length
+    ? {
+      outcome: incompleteProbeCount ? 'partial' : 'complete',
+      items: hosts.length,
+      errorCode: retryableProbeFailures && blockedProbeFailures
+        ? 'mixed_probe_incomplete'
+        : retryableProbeFailures ? 'transient_probe_failures'
+          : blockedProbeFailures ? 'blocked_probe_requests' : null,
+    }
+    : { outcome: 'skipped', items: 0, errorCode: null };
+  const activeOutcomes = Object.values(sourceOutcomes).filter((source) => source.outcome !== 'skipped');
+  const sourceSucceeded = activeOutcomes.some((source) => source.outcome === 'complete' || source.outcome === 'partial');
+  const sourceFailed = activeOutcomes.some((source) => source.outcome === 'unavailable' || source.outcome === 'malformed');
+  const allMalformed = activeOutcomes.length > 0 && activeOutcomes.every((source) => source.outcome === 'malformed');
+  const outcome = probeLimitReached || (sourceSucceeded && sourceFailed)
+    || activeOutcomes.some((source) => source.outcome === 'partial')
+    ? 'partial'
+    : sourceSucceeded || activeOutcomes.length === 0
+      ? 'complete'
+      : allMalformed ? 'malformed' : 'unavailable';
+  return {
+    platform: domain,
+    discovered: hosts,
+    probed,
+    live: probed.filter((p) => p.live),
+    retryHosts: boundedRetryHosts,
+    byMethod,
+    outcome,
+    sourceOutcomes,
+    probeLimitReached,
+    nextProbeOffset,
+  };
+}

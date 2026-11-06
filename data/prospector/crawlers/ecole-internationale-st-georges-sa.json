@@ -1,0 +1,24 @@
+{
+  "companyKey": "ecole-internationale-st-georges-sa",
+  "companyName": "ECOLE INTERNATIONALE ST GEORGES SA",
+  "companyHost": "jobs.inspirededu.com",
+  "verifiedEmployerDomain": "stgeorges.ch",
+  "platform": "inspirededu.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.inspirededu.com/search/?createNewAlert=false&q=george%27s&locationsearch=&optionsFacetsDD_location=&optionsFacetsDD_facility=&optionsFacetsDD_title=&optionsFacetsDD_customfield2="
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Specialist Teacher - Humanities",
+    "Specialist Teacher - Physics & Mathematics"
+  ],
+  "canton": "VD",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:29:39.008Z",
+  "candidateKey": "ecole-internationale-st-georges@clarens"
+}

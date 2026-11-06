@@ -1,0 +1,21 @@
+{
+  "companyKey": "wehrlipartner-ch",
+  "companyName": "Wehrli & Partner Rechtsanwälte",
+  "companyHost": "kfmv.ch",
+  "platform": "kfmv.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.kfmv.ch/angebot/dienstleistungen/ratgeber/"
+  ],
+  "detailTemplate": "/ueber-uns/freie-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Karriere",
+    "KV-Lehrstellen"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-24T10:46:54.186Z"
+}

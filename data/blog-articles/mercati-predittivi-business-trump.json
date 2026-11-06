@@ -1,0 +1,40 @@
+{
+  "id": "mercati-predittivi-business-trump",
+  "slug": "mercati-predittivi-business-trump",
+  "publishedAt": "2026-07-28T04:19:51.877Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.153676650430167,
+    "confidence": 0.8,
+    "finalScore": 11.322941320344135,
+    "topK": [
+      {
+        "slug": "sfruttamento-corsieri-ticino-2026",
+        "cosine": 0.8325692147311863
+      },
+      {
+        "slug": "cpb-forfettario-semplificato-soglia-150mila",
+        "cosine": 0.8289986915873941
+      },
+      {
+        "slug": "ricorso-patente-lavoro-varese-2026",
+        "cosine": 0.8264723448645914
+      },
+      {
+        "slug": "prezzi-dinamici-ticino-futuro",
+        "cosine": 0.825856236460698
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.825367458208445
+      }
+    ],
+    "score": 11.322941320344135,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

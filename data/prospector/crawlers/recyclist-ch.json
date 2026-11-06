@@ -1,0 +1,21 @@
+{
+  "companyKey": "recyclist-ch",
+  "companyName": "recyclist",
+  "companyHost": "zhaw.ch",
+  "platform": "zhaw.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.zhaw.ch/de/lsfm/studium/bachelor/umweltingenieurwesen"
+  ],
+  "detailTemplate": "/de/lsfm/studium/bachelor/*/karriere",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Karriere",
+    "Karriere"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:51:32.933Z",
+  "candidateKey": "recyclist.ch"
+}

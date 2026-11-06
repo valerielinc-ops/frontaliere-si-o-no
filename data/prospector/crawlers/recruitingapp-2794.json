@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2794",
+  "companyName": "Bewerbungsplattform Primarschule Uster Stellen",
+  "companyHost": "recruitingapp-2794.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2794.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Betreuungsassistenzen, Hort Hasenbühl, ca. 10% (m/w/d)",
+    "GRUPPENLEITER/IN HORT KRÄMERACKER 45-50%",
+    "SPRINGER/IN MORGENBETREUUNG, PENSUM 10%",
+    "GRUPPENLEITUNG TAGESSCHULE NIEDERUSTER MIT MORGENBETREUUNG ca. 70%",
+    "Gruppenleitung und Leitung Ferienbetreuung (ca. 60–65%)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:34.432Z"
+}

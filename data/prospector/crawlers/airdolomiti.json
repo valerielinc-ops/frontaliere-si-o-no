@@ -1,0 +1,23 @@
+{
+  "companyKey": "airdolomiti",
+  "companyName": "Air Dolomiti Spa",
+  "companyHost": "airdolomiti.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://airdolomiti.altamiraweb.com/default"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Field Support Agent",
+    "Crew Coordination Officer",
+    "Operations Control Officer",
+    "Certifying Staff CAT B1 / Munich Station",
+    "Tecnico di manutenzione certificato LMA CAT B1- Firenze"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:51.744Z"
+}

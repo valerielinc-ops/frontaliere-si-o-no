@@ -1,0 +1,22 @@
+{
+  "companyKey": "ti-m",
+  "companyName": "ti&m",
+  "companyHost": "ti8m.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.ti8m.ch/careers",
+    "https://www.ti8m.ch/career",
+    "https://www.ti8m.ch/jobs",
+    "https://www.ti8m.ch/karriere",
+    "https://www.ti8m.ch/offene-stellen",
+    "https://www.ti8m.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.993Z"
+}

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ai-8410",
+      "sourceKey": "AI",
+      "sourceRecordId": "8410",
+      "canton": "Appenzello Interno",
+      "platePrefix": "AI",
+      "plateNumber": "8410",
+      "normalizedPlate": "AI8410",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 1200,
+      "closedAt": "2026-11-02T06:00:53.380Z",
+      "officialAuctionUrl": "https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder#liste-freie-kontrollschilder",
+      "officialDetailUrl": "https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file/Freie%20Auto-Kontrollschilder.pdf",
+      "sourceFetchedAt": "2026-11-02T06:00:53.380Z",
+      "lastVerifiedAt": "2026-11-02T06:00:53.380Z",
+      "firstSeenAt": "2026-10-13T14:16:07.598Z",
+      "lastSeenAt": "2026-11-02T06:00:53.380Z",
+      "sourceCategory": "fixed-price-price-group",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "310a1083e45e"
+    }
+  ]
+}

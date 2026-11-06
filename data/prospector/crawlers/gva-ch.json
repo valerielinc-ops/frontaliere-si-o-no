@@ -1,0 +1,22 @@
+{
+  "companyKey": "gva-ch",
+  "companyName": "GA Service Laissez-passer",
+  "companyHost": "emplois.geneve-aeroport.ch",
+  "platform": "geneve-aeroport.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://emplois.geneve-aeroport.ch/go/offres-emploi/9050455/"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Stagiaire graphiste",
+    "Agente ou agent de surveillance"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-26T12:13:50.676Z",
+  "candidateKey": "gva.ch"
+}

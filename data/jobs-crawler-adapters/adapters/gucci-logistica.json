@@ -1,0 +1,22 @@
+{
+  "companyKey": "gucci-logistica",
+  "companyName": "Gucci (logistica)",
+  "companyHost": "gucci.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.gucci.com/careers",
+    "https://www.gucci.com/career",
+    "https://www.gucci.com/jobs",
+    "https://www.gucci.com/karriere",
+    "https://www.gucci.com/offene-stellen",
+    "https://www.gucci.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.951Z"
+}

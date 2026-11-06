@@ -1,0 +1,21 @@
+{
+  "companyKey": "lapis-personal",
+  "companyName": "Lapis Personal GmbH",
+  "companyHost": "lapis-personal.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://lapis-personal.ch/stellen/"
+  ],
+  "detailTemplate": "/eazyrecruitz_jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "BEWERBEN",
+    "BEWERBEN"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-16T10:39:40.575Z"
+}

@@ -1,0 +1,64 @@
+{
+  "_comment": "Title/slug locale fields of real records from data/jobs/by-crawler at dataset commit 995a6583431 (2026-09-29), pinned for keyPostTitleBySourceLocale(): the runners forced the German/French page title into titleByLocale.it; slugs must not move.",
+  "postaSourceCopyInIt": {
+    "url": "https://job.post.ch/default/job/Teamleaderin-Inhouselogistik/74761-de_DE",
+    "title": "Teamleader:in Inhouselogistik",
+    "sourceLang": "de",
+    "titleByLocale": {
+      "it": "Teamleader:in Inhouselogistik",
+      "en": "Teamleader:in Inhouselogistik",
+      "de": "Teamleader:in Inhouselogistik",
+      "fr": "Teamleader:in Inhouselogistik"
+    },
+    "slug": "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen",
+    "slugByLocale": {
+      "it": "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen",
+      "en": "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen",
+      "de": "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen",
+      "fr": "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen"
+    },
+    "previousSlugs": [
+      "teamleader-in-inhouselogistik-post"
+    ]
+  },
+  "postaTranslatedIt": {
+    "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74624-de_DE",
+    "title": "Zusteller:in Briefe und Pakete",
+    "sourceLang": "de",
+    "titleByLocale": {
+      "it": "Zusteller:in lettere e pacchi",
+      "en": "Delivery letters and packages",
+      "de": "Zusteller:in Briefe und Pakete",
+      "fr": "Lettres de livraison et colis"
+    },
+    "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ennenda",
+    "slugByLocale": {
+      "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ennenda",
+      "en": "delivery-in-letters-and-packages-die-schweizerische-post-ennenda",
+      "de": "zusteller-in-briefe-und-pakete-post",
+      "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-ennenda"
+    },
+    "previousSlugs": [
+      "zusteller-in-briefe-und-pakete-post"
+    ]
+  },
+  "postfinanceSourceCopyInIt": {
+    "url": "https://jobs.postfinance.ch/job/Fachspezialistin-Testing-Asset-Management-%28wmd%29/74767-de_DE",
+    "title": "Fachspezialist:in Testing Asset Management (w/m/d)",
+    "sourceLang": "de",
+    "titleByLocale": {
+      "it": "Fachspezialist:in Testing Asset Management (w/m/d)",
+      "en": "Fachspezialist:in Testing Asset Management (w/m/d)",
+      "de": "Fachspezialist:in Testing Asset Management (w/m/d)",
+      "fr": "Fachspezialist:in Testing Asset Management (w/m/d)"
+    },
+    "slug": "fachspezialist-in-testing-asset-management-w-m-d-postfinance",
+    "slugByLocale": {
+      "it": "fachspezialist-in-testing-asset-management-w-m-d-postfinance",
+      "en": "fachspezialist-in-testing-asset-management-w-m-d-postfinance",
+      "de": "fachspezialist-in-testing-asset-management-w-m-d-postfinance",
+      "fr": "fachspezialist-in-testing-asset-management-w-m-d-postfinance"
+    },
+    "previousSlugs": []
+  }
+}

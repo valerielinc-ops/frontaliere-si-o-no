@@ -1,0 +1,25 @@
+{
+  "companyKey": "henryscheinone",
+  "companyName": "Henry Schein One",
+  "companyHost": "henryscheinone.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://henryscheinone.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Director, Technology",
+    "IT Incident Manager",
+    "IT Project Manager",
+    "Principal Architect, GTM Systems",
+    "Software Implementations Project Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:04:50.175Z",
+  "candidateKey": "henryscheinone@applytojob.com"
+}

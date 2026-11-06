@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "libraryVersion": "2026-10-06",
+  "cdnPrefix": "/images/events/library/",
+  "assetCount": 1,
+  "generatedAt": "2026-10-07T19:46:33.326Z",
+  "assets": [
+    {
+      "schema": 1,
+      "assetId": "event-cinema-alpi-montagna-autunno-inverno",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "b6f0e63f01ac1110bf7b1b49da5e4ebb7456d023846157802c59a629742cdfb2",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "755f7813084333f2cdd5507089c75ac856100c74738fab3deb0d78e3a5c018ea",
+      "bytes": 172978,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-07T03:08:41.222Z",
+      "verifiedAt": "2026-10-07T03:08:49.071Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "event-library",
+      "imageUrl": "/images/events/library/event-cinema-alpi-montagna-autunno-inverno.webp",
+      "category": "cinema",
+      "area": "alpi-montagna",
+      "season": "autunno-inverno",
+      "variant": "01",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "looks_like_specific_real_event": false,
+        "notes": "Original generic illustrated outdoor cinema scene; no readable text, logos, recognizable faces, or depiction of a specific real event."
+      }
+    }
+  ]
+}

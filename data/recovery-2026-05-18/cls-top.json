@@ -1,0 +1,337 @@
+{
+  "generated_at": "2026-05-18T10:15:04.377Z",
+  "approach": "CrUX API (real-user p75) + Lighthouse 13 desktop lab (shifter elements)",
+  "crux": {
+    "https://frontaliereticino.ch/": {
+      "DESKTOP": {
+        "cls_p75": "1.02",
+        "cls_dist": [
+          {
+            "start": "0.00",
+            "end": "0.10",
+            "density": 0.311
+          },
+          {
+            "start": "0.10",
+            "end": "0.25",
+            "density": 0.0626
+          },
+          {
+            "start": "0.25",
+            "density": 0.6264
+          }
+        ],
+        "lcp_p75": 787
+      },
+      "PHONE": {
+        "cls_p75": "1.09",
+        "cls_dist": [
+          {
+            "start": "0.00",
+            "end": "0.10",
+            "density": 0.2487
+          },
+          {
+            "start": "0.10",
+            "end": "0.25",
+            "density": 0.2009
+          },
+          {
+            "start": "0.25",
+            "density": 0.5504
+          }
+        ],
+        "lcp_p75": 1000,
+        "inp_p75": 345
+      }
+    },
+    "https://frontaliereticino.ch/cerca-lavoro-ticino/": {
+      "DESKTOP": {
+        "error": "chrome ux report data not found"
+      },
+      "PHONE": {
+        "cls_p75": "0.72",
+        "cls_dist": [
+          {
+            "start": "0.00",
+            "end": "0.10",
+            "density": 0.1345
+          },
+          {
+            "start": "0.10",
+            "end": "0.25",
+            "density": 0.0574
+          },
+          {
+            "start": "0.25",
+            "density": 0.8081
+          }
+        ],
+        "lcp_p75": 955
+      }
+    },
+    "https://frontaliereticino.ch/calcola-stipendio/": {
+      "DESKTOP": {
+        "error": "chrome ux report data not found"
+      },
+      "PHONE": {
+        "error": "chrome ux report data not found"
+      }
+    },
+    "https://frontaliereticino.ch/articoli-frontaliere/": {
+      "DESKTOP": {
+        "error": "chrome ux report data not found"
+      },
+      "PHONE": {
+        "error": "chrome ux report data not found"
+      }
+    }
+  },
+  "lighthouse_desktop": {
+    "https://frontaliereticino.ch/": {
+      "cls": 1.2949,
+      "lcp_ms": 1042.3717400000003,
+      "top_shifters": [
+        {
+          "score": 1,
+          "selector": "body.bg-slate-50",
+          "snippet": "<body class=\"bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transitio…\">"
+        },
+        {
+          "score": 0.2833,
+          "selector": null,
+          "snippet": null
+        },
+        {
+          "score": 0.0092,
+          "selector": "div.hidden > div.grid > div.md:col-span-13 > div.flex",
+          "snippet": "<div class=\"flex items-center gap-2 h-[34px] bg-surface rounded-xl border border-edge …\" data-testid=\"news-ticker\">"
+        },
+        {
+          "score": 0.0024,
+          "selector": "nav.sticky > div.max-w-[2400px] > div.flex > div.flex",
+          "snippet": "<div class=\"flex items-center gap-0.5 sm:gap-1.5 pl-2 sm:pl-4 border-l border-edge shr…\">"
+        },
+        {
+          "score": 0,
+          "selector": "div.relative > div.flex > a.flex > span.leading-tight",
+          "snippet": "<span class=\"leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full…\">"
+        }
+      ],
+      "culprits": [
+        {
+          "score": 1.2949,
+          "selector": null
+        },
+        {
+          "score": 1,
+          "selector": "body.bg-slate-50"
+        },
+        {
+          "score": 0.2833,
+          "selector": null,
+          "cause": [
+            {
+              "cause": "Web font",
+              "url": "https://frontaliereticino.ch/fonts/inter-latin.woff2"
+            },
+            {
+              "cause": "Web font",
+              "url": "https://frontaliereticino.ch/fonts/space-grotesk-latin.woff2"
+            }
+          ]
+        },
+        {
+          "score": 0.0092,
+          "selector": "div.hidden > div.grid > div.md:col-span-13 > div.flex"
+        },
+        {
+          "score": 0.0024,
+          "selector": "nav.sticky > div.max-w-[2400px] > div.flex > div.flex"
+        },
+        {
+          "score": 0,
+          "selector": "div.relative > div.flex > a.flex > span.leading-tight"
+        }
+      ]
+    },
+    "https://frontaliereticino.ch/cerca-lavoro-ticino/": {
+      "cls": 0.8983,
+      "lcp_ms": 717.625,
+      "top_shifters": [
+        {
+          "score": 0.6076,
+          "selector": "body.bg-surface-alt > div#root > div.min-h-screen > footer.border-t",
+          "snippet": "<footer class=\"border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-…\" style=\"content-visibility: auto; contain-intrins"
+        },
+        {
+          "score": 0.2597,
+          "selector": "body.bg-surface-alt > div#root > div.min-h-screen > footer.border-t",
+          "snippet": "<footer class=\"border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-…\" style=\"content-visibility: auto; contain-intrins"
+        },
+        {
+          "score": 0.0179,
+          "selector": "body.bg-surface-alt",
+          "snippet": "<body class=\"bg-surface-alt text-heading overflow-x-hidden\" style=\"overflow: hidden;\">"
+        },
+        {
+          "score": 0.0042,
+          "selector": "div.min-h-screen > footer.border-t > div.max-w-7xl > div.text-center",
+          "snippet": "<div class=\"text-center text-muted text-sm space-y-3\">"
+        },
+        {
+          "score": 0.0037,
+          "selector": "body.bg-surface-alt > div.fc-consent-root > div.fc-dialog-container",
+          "snippet": "<div class=\"fc-dialog-container\">"
+        }
+      ],
+      "culprits": [
+        {
+          "score": 0.8983,
+          "selector": null
+        },
+        {
+          "score": 0.6076,
+          "selector": "body.bg-surface-alt > div#root > div.min-h-screen > footer.border-t"
+        },
+        {
+          "score": 0.2597,
+          "selector": "body.bg-surface-alt > div#root > div.min-h-screen > footer.border-t"
+        },
+        {
+          "score": 0.0179,
+          "selector": "body.bg-surface-alt"
+        },
+        {
+          "score": 0.0042,
+          "selector": "div.min-h-screen > footer.border-t > div.max-w-7xl > div.text-center"
+        },
+        {
+          "score": 0.0037,
+          "selector": "body.bg-surface-alt > div.fc-consent-root > div.fc-dialog-container",
+          "cause": [
+            {
+              "cause": "Unsized image element"
+            }
+          ]
+        }
+      ]
+    },
+    "https://frontaliereticino.ch/calcola-stipendio/": {
+      "cls": 0.0293,
+      "lcp_ms": 474.18600000000004,
+      "top_shifters": [
+        {
+          "score": 0.0179,
+          "selector": "body.bg-surface-alt",
+          "snippet": "<body class=\"bg-surface-alt text-heading overflow-x-hidden\" style=\"overflow: hidden;\">"
+        },
+        {
+          "score": 0.0092,
+          "selector": "div.hidden > div.grid > div.md:col-span-13 > div.flex",
+          "snippet": "<div class=\"flex items-center gap-2 h-[34px] bg-surface rounded-xl border border-edge …\" data-testid=\"news-ticker\">"
+        },
+        {
+          "score": 0.0015,
+          "selector": "body.bg-surface-alt > div.fc-consent-root > div.fc-dialog-container",
+          "snippet": "<div class=\"fc-dialog-container\">"
+        },
+        {
+          "score": 0.0007,
+          "selector": "nav.sticky > div.max-w-[2400px] > div.flex > div.flex",
+          "snippet": "<div class=\"flex items-center gap-0.5 sm:gap-1.5 pl-2 sm:pl-4 border-l border-edge shr…\">"
+        }
+      ],
+      "culprits": [
+        {
+          "score": 0.0293,
+          "selector": null
+        },
+        {
+          "score": 0.0179,
+          "selector": "body.bg-surface-alt"
+        },
+        {
+          "score": 0.0092,
+          "selector": "div.hidden > div.grid > div.md:col-span-13 > div.flex"
+        },
+        {
+          "score": 0.0015,
+          "selector": "body.bg-surface-alt > div.fc-consent-root > div.fc-dialog-container",
+          "cause": [
+            {
+              "cause": "Unsized image element"
+            },
+            {
+              "cause": "Web font",
+              "url": "https://fonts.gstatic.com/s/opensans/v40/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2"
+            }
+          ]
+        },
+        {
+          "score": 0.0007,
+          "selector": "nav.sticky > div.max-w-[2400px] > div.flex > div.flex"
+        }
+      ]
+    },
+    "https://frontaliereticino.ch/articoli-frontaliere/": {
+      "cls": 0.1764,
+      "lcp_ms": 4008.6704999999984,
+      "top_shifters": [
+        {
+          "score": 0.1705,
+          "selector": "div.min-h-screen > main#main-content > div.max-w-7xl > div.max-w-5xl",
+          "snippet": "<div class=\"max-w-5xl mx-auto space-y-6\">"
+        },
+        {
+          "score": 0.0142,
+          "selector": null,
+          "snippet": null
+        },
+        {
+          "score": 0.0037,
+          "selector": "body.bg-surface-alt > div.fc-consent-root > div.fc-dialog-container",
+          "snippet": "<div class=\"fc-dialog-container\">"
+        },
+        {
+          "score": 0.0015,
+          "selector": "body.bg-surface-alt > div.fc-consent-root > div.fc-dialog-container",
+          "snippet": "<div class=\"fc-dialog-container\">"
+        },
+        {
+          "score": 0.0006,
+          "selector": "nav.sticky > div.max-w-[2400px] > div.flex > div.flex",
+          "snippet": "<div class=\"flex items-center gap-0.5 sm:gap-1.5 pl-2 sm:pl-4 border-l border-edge shr…\">"
+        }
+      ],
+      "culprits": [
+        {
+          "score": 0.0142,
+          "selector": null
+        },
+        {
+          "score": 0.0142,
+          "selector": null
+        }
+      ]
+    }
+  },
+  "fixes_applied": [
+    {
+      "shifter": "body (homepage, score 1.0)",
+      "fix": "Removed transition-colors duration-300 from body — eliminates transition cascade during SPA hydration"
+    },
+    {
+      "shifter": "web fonts Inter+SpaceGrotesk (homepage, score 0.28)",
+      "fix": "Added size-adjust + ascent/descent overrides to Space Grotesk @font-face to match Inter"
+    },
+    {
+      "shifter": "footer.border-t on /cerca-lavoro-ticino/ (score 0.61+0.26=0.87)",
+      "fix": "Removed content-visibility:auto on footer — actual height diverges too much from 1600px intrinsic-size"
+    },
+    {
+      "shifter": "div.max-w-5xl on /articoli-frontaliere/ (score 0.17)",
+      "fix": "Added min-h-[600px] on articles list container to absorb async article-load reflow"
+    }
+  ]
+}

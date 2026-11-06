@@ -1,0 +1,24 @@
+{
+  "companyKey": "rosta-com",
+  "companyName": "ROSTA AG",
+  "companyHost": "rosta.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://rosta.com/"
+  ],
+  "detailTemplate": "/unternehmen-karriere/news/detail/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Kleine Änderung mit grosser Wirkung",
+    "Das OPTIMUM® optimiert mit ROSTA",
+    "Zuverlässige Batterieladung durch einfache Konstruktion",
+    "ATEX-Motorsockel erhört die Umweltsicherheit",
+    "Steigerung der Produktivität in nur wenigen Tagen"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:53:06.264Z"
+}

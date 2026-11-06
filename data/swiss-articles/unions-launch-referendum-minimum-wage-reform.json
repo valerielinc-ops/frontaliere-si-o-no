@@ -1,0 +1,40 @@
+{
+  "id": "unions-launch-referendum-minimum-wage-reform",
+  "slug": "unions-launch-referendum-minimum-wage-reform",
+  "publishedAt": "2026-07-06T01:44:17.985Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "lenews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.78663149384729,
+    "confidence": 0.8,
+    "finalScore": 3.8293051950778323,
+    "topK": [
+      {
+        "slug": "ristorni-italia-sospesi",
+        "cosine": 0.7977719156412151
+      },
+      {
+        "slug": "divorzio-cassa-pensioni",
+        "cosine": 0.7898808353364306
+      },
+      {
+        "slug": "sindacati-ticino-leonardo-cascina-costa",
+        "cosine": 0.789463901540419
+      },
+      {
+        "slug": "petizione-usi-supsi-500-firme",
+        "cosine": 0.7860723763732739
+      },
+      {
+        "slug": "aumento-mezzi-pubblici-ticino",
+        "cosine": 0.7850984425109718
+      }
+    ],
+    "score": 3.8293051950778323,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

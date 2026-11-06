@@ -1,0 +1,20 @@
+{
+  "companyKey": "sw-gossau",
+  "companyName": "sw-gossau",
+  "companyHost": "jobs.dualoo.com",
+  "platform": "dualoo.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.dualoo.com/link/e20e9f28-0764-4558-98a4-0dd001908215/detail?lang=DE"
+  ],
+  "detailTemplate": "/link/e20e9f28-0764-4558-98a4-0dd001908215/detail",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Netzelektriker/in"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T11:05:21.365Z",
+  "candidateKey": "sw-gossau.ch"
+}

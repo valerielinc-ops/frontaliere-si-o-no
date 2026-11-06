@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43695",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43695",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "597",
+      "normalizedPlate": "ZH597",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 17600,
+      "bidCount": 23,
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-11-04T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43695",
+      "sourceFetchedAt": "2026-11-04T14:34:55.873Z",
+      "lastVerifiedAt": "2026-11-04T14:34:55.873Z",
+      "firstSeenAt": "2026-10-29T13:01:34.101Z",
+      "lastSeenAt": "2026-11-04T14:34:55.873Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "fd8ecbc61e1d"
+    }
+  ]
+}

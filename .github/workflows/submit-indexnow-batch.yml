@@ -1,0 +1,86 @@
+name: Submit IndexNow Batch
+
+on:
+  # The complete sitemap graph is the durable reconciliation path. It runs
+  # daily so a transient post-deploy/edge failure cannot leave a changed URL
+  # unsubmitted forever; workflow_dispatch remains useful for an immediate
+  # recovery or a filtered surface.
+  schedule:
+    - cron: '20 3 * * *'
+  workflow_dispatch:
+    inputs:
+      endpoint:
+        description: 'Target engine (leave empty for all)'
+        required: false
+        default: ''
+        type: string
+      sitemap:
+        description: 'Sitemap filter (e.g. "jobs", "blog", leave empty for all)'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Dry run (preview only, no submissions)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    # No build/dist or package install: the script uses Node built-ins and
+    # reads the complete deployed sitemap graph over HTTP. The longer bound
+    # covers a first reconciliation after a v2 snapshot without allowing a
+    # hung request to consume the runner indefinitely.
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      # No build/dist or package install: the script uses Node built-ins and
+      # reads every reachable sitemap over HTTP.
+      - name: Submit IndexNow batch
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text. The
+          # array form also stops an unquoted value word-splitting, which
+          # `--sitemap $VALUE` did even without malice.
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_ENDPOINT: ${{ inputs.endpoint }}
+          INPUT_SITEMAP: ${{ inputs.sitemap }}
+        run: |
+          ARGS=()
+          if [ "$INPUT_DRY_RUN" = "true" ]; then
+            ARGS+=(--dry-run)
+          fi
+          if [ -n "$INPUT_ENDPOINT" ]; then
+            ARGS+=(--endpoint "$INPUT_ENDPOINT")
+          fi
+          if [ -n "$INPUT_SITEMAP" ]; then
+            ARGS+=(--sitemap "$INPUT_SITEMAP")
+          fi
+          node scripts/submit-indexnow-batch.mjs "${ARGS[@]}"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

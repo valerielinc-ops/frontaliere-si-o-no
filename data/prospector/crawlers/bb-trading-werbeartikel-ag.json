@@ -1,0 +1,21 @@
+{
+  "companyKey": "bb-trading-werbeartikel-ag",
+  "companyName": "bb trading werbeartikel ag",
+  "companyHost": "link.ostendis.com",
+  "platform": "ostendis.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://link.ostendis.com/publication/spezialist-in-sonderanfertigungen-textiles/aaxqrt3i8wz2kyidnxy5ehwtkdxyiqdtkixw7qo7jl1osyqi7o9omytp252x5rmc"
+  ],
+  "detailTemplate": "/publication/spezialist-in-sonderanfertigungen-textiles/aaxqrt3i8wz2kyidnxy5ehwtkdxyiqdtkixw7qo7jl1osyqi7o9omytp252x5rmc",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spezialist:in Sonderanfertigungen Textiles"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:54:11.136Z",
+  "candidateKey": "bb-trading-werbeartikel@dietikon"
+}

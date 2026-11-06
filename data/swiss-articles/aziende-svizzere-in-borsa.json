@@ -1,0 +1,40 @@
+{
+  "id": "aziende-svizzere-in-borsa",
+  "slug": "aziende-svizzere-in-borsa",
+  "publishedAt": "2026-07-23T18:36:56.523Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.829142711889286,
+    "confidence": 0.8,
+    "finalScore": 5.463314169511429,
+    "topK": [
+      {
+        "slug": "swiss-market-index-crescita-2026",
+        "cosine": 0.8523030982751593
+      },
+      {
+        "slug": "beko-cassinetta-risultati-2026",
+        "cosine": 0.8437413840200962
+      },
+      {
+        "slug": "naspi-unemployment-benefits",
+        "cosine": 0.8404040031115796
+      },
+      {
+        "slug": "prezzi-dinamici-ticino-futuro",
+        "cosine": 0.8387949249266553
+      },
+      {
+        "slug": "varese-lavoro-specializzato-paradosso-2026",
+        "cosine": 0.8387311750042417
+      }
+    ],
+    "score": 0.6829142711889287,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

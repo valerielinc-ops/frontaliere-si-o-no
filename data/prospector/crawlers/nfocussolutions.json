@@ -1,0 +1,22 @@
+{
+  "companyKey": "nfocussolutions",
+  "companyName": "nFocus Solutions",
+  "companyHost": "nfocussolutions.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://nfocussolutions.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Desktop and IT Support Technician",
+    "Client Support Specialist"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:05:01.920Z",
+  "candidateKey": "nfocussolutions@applytojob.com"
+}

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ai-motorcycle-153",
+      "sourceKey": "AI",
+      "sourceRecordId": "motorcycle-153",
+      "canton": "Appenzello Interno",
+      "platePrefix": "AI",
+      "plateNumber": "153",
+      "normalizedPlate": "AI153",
+      "listingType": "fixed-price",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "startingPriceChf": 200,
+      "closedAt": "2026-09-21T08:13:05.898Z",
+      "officialAuctionUrl": "https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder#liste-freie-kontrollschilder",
+      "officialDetailUrl": "https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/@@download/file/Freie%20Motorrad-Kontrollschilder.pdf",
+      "sourceFetchedAt": "2026-09-21T08:13:05.898Z",
+      "lastVerifiedAt": "2026-09-21T08:13:05.898Z",
+      "firstSeenAt": "2026-09-15T17:26:03.603Z",
+      "lastSeenAt": "2026-09-21T08:13:05.898Z",
+      "sourceCategory": "fixed-price-price-group",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "ec33d6f34ecd"
+    }
+  ]
+}

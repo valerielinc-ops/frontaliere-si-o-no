@@ -1,0 +1,40 @@
+{
+  "id": "dati-precalcolati-isa-2026-frontalieri",
+  "slug": "dati-precalcolati-isa-2026-frontalieri",
+  "publishedAt": "2026-05-08T05:36:27.939Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "commercialistatelematico.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.810617872774529,
+    "confidence": 0.8,
+    "finalScore": 10.248494298219624,
+    "topK": [
+      {
+        "slug": "nuove-regole-scambio-informazioni-ader-enti-creditori",
+        "cosine": 0.8540411915183019
+      },
+      {
+        "slug": "dichiarazione-precompilata-2026-disponibile",
+        "cosine": 0.8379180474790646
+      },
+      {
+        "slug": "avs-dati-digitale-frontalieri",
+        "cosine": 0.8343731303070439
+      },
+      {
+        "slug": "dichiarazione-redditi-ticino-2026",
+        "cosine": 0.814913033848182
+      },
+      {
+        "slug": "cu-2026-novita-frontalieri",
+        "cosine": 0.8100331821985407
+      }
+    ],
+    "score": 10.248494298219624,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

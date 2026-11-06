@@ -1,0 +1,25 @@
+{
+  "companyKey": "ciges-ch",
+  "companyName": "CIGES SA",
+  "companyHost": "ciges.ch",
+  "verifiedEmployerDomain": "ciges.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.ciges.ch/carriere/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Conseil et applications Chef-fe de projet senior Conseil et applications",
+    "Conseil et applications Consultant-e Administrations Communales Conseil et applications",
+    "IT Operations Apprenti-e Informaticien-ne IT Operations"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T17:15:31.867Z",
+  "candidateKey": "ciges@sion"
+}

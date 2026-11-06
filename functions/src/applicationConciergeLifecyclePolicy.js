@@ -1,0 +1,135 @@
+/** Shared server policy for refresh cadence and the time-limited renewal offer. */
+import { createHash } from 'node:crypto';
+import {
+  APPLICATION_CONCIERGE_MATCHING_VERSION,
+  APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
+  acceptedPositionsCount,
+  serviceIsActive,
+  servicePositionLimit,
+  timestampMillis,
+} from './applicationConciergeConstants.js';
+
+export const CONCIERGE_DAY_MS = 24 * 60 * 60 * 1000;
+export const CONCIERGE_REFRESH_INTERVAL_MS = 3 * CONCIERGE_DAY_MS;
+// Pending frontier scans can run for almost the full worker timeout. Keep the
+// lifecycle sweep as a 15-minute poll, but start an expensive pending scan at
+// most once per hour.
+export const CONCIERGE_FRESH_PENDING_INTERVAL_MS = 60 * 60 * 1000;
+export const CONCIERGE_RETRY_INTERVAL_MS = 60 * 60 * 1000;
+// Several matcher deploys can land during one rollout window.  Let the latest
+// version settle before starting a full scan for each active service; the
+// lifecycle sweep still polls every 15 minutes and never drops the refresh.
+export const CONCIERGE_MATCHING_VERSION_SETTLE_MS = 60 * 60 * 1000;
+export const CONCIERGE_RENEWAL_DISCOUNT_MS = 3 * CONCIERGE_DAY_MS;
+export const CONCIERGE_RENEWAL_PRICE_EUR_CENTS = 2999;
+export const CONCIERGE_MATCHING_STALE_AFTER_MS = 10 * 60 * 1000;
+export const CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS = 3;
+export const CONCIERGE_STALE_RECOVERY_BACKOFF_MS = Object.freeze([60 * 60 * 1000, 3 * 60 * 60 * 1000, 12 * 60 * 60 * 1000]);
+
+/** Stable per-input scope for bounded automatic recovery of a failed or crashed matcher run. */
+export function conciergeMatchingRecoveryContext(service) {
+  return createHash('sha256').update(JSON.stringify([
+    String(service?.cvStorageKey || ''),
+    timestampMillis(service?.cvUploadedAt),
+    String(service?.applicantLocation || '').trim(),
+    Number(service?.eligibilityFactsRevision) || 0,
+    Number(service?.matchingFeedbackRevision) || 0,
+    acceptedPositionsCount(service),
+    APPLICATION_CONCIERGE_MATCHING_VERSION,
+  ])).digest('hex');
+}
+
+function staleRecoveryState(service) {
+  const context = conciergeMatchingRecoveryContext(service);
+  const sameContext = service?.matchingStaleRecoveryContext === context;
+  return {
+    context,
+    attempts: sameContext ? Math.max(0, Math.floor(Number(service?.matchingStaleRecoveryAttempt) || 0)) : 0,
+    retryAt: sameContext ? timestampMillis(service?.matchingStaleRecoveryRetryAt) : 0,
+  };
+}
+
+export function conciergeStaleRecoveryExhausted(service, nowMs = Date.now()) {
+  if (!['running', 'failed'].includes(service?.matchingStatus)) return false;
+  const recovery = staleRecoveryState(service);
+  return recovery.attempts >= CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS
+    && (!recovery.retryAt || nowMs >= recovery.retryAt);
+}
+
+function staleRecoveryDue(service, nowMs) {
+  const recovery = staleRecoveryState(service);
+  return recovery.attempts < CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS
+    && (!recovery.retryAt || nowMs >= recovery.retryAt);
+}
+
+export function conciergeMatchingVersionRefreshReady(service, nowMs = Date.now()) {
+  if (service?.matchingStatus !== 'complete'
+    || service.matchingVersion === APPLICATION_CONCIERGE_MATCHING_VERSION) return false;
+  const observedVersion = String(service.matchingVersionRefreshVersion || '');
+  const observedAt = timestampMillis(service.matchingVersionRefreshObservedAt);
+  return observedVersion === APPLICATION_CONCIERGE_MATCHING_VERSION
+    && observedAt > 0
+    && nowMs >= observedAt + CONCIERGE_MATCHING_VERSION_SETTLE_MS;
+}
+
+export function conciergeRefreshDue(service, nowMs = Date.now()) {
+  if (!serviceIsActive(service, nowMs) || !service.cvStorageKey || !service.consentedAt) return false;
+  const cap = servicePositionLimit(service);
+  if (acceptedPositionsCount(service) >= cap) return false;
+  if (service.matchingStatus === 'running') {
+    const started = timestampMillis(service.matchingStartedAt);
+    return started > 0 && nowMs - started >= CONCIERGE_MATCHING_STALE_AFTER_MS
+      && staleRecoveryDue(service, nowMs);
+  }
+  // Feedback, accepted positions and candidate facts are already marked by
+  // their writers. The document trigger records this marker and the 15-minute
+  // lifecycle sweep coalesces the resulting full scan with any nearby event.
+  if (timestampMillis(service.matchingEventRefreshRequestedAt) > 0) return true;
+  // Failed and crashed matcher runs share one bounded recovery budget.
+  if (service.matchingStatus === 'failed' && staleRecoveryState(service).attempts > 0
+    && !staleRecoveryDue(service, nowMs)) return false;
+  if (service.proposalRefreshRerunAfterWorker === true
+    && service.proposalRefreshRerunAfterWorkerContext === conciergeMatchingRecoveryContext(service)) return true;
+  // Revalidate existing proposals after an eligibility upgrade without asking the owner to re-upload a CV.
+  if (service.matchingStatus === 'complete' && service.matchingVersion !== APPLICATION_CONCIERGE_MATCHING_VERSION) return true;
+  const lastRefresh = timestampMillis(service.matchingCompletedAt)
+    || timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt);
+  const freshPending = Number(service.matchingPendingCount) > 0;
+  if (Number(service.matchingLegacyRecoveryPendingCount) > 0 && !freshPending) {
+    const fallbackAt = lastRefresh + (service.matchingStatus === 'failed' ? CONCIERGE_RETRY_INTERVAL_MS : CONCIERGE_REFRESH_INTERVAL_MS);
+    const retryAt = timestampMillis(service.matchingLegacyRecoveryRetryAt) || fallbackAt;
+    // A legacy-row backoff controls that recovery queue only. Do not let it
+    // suppress the hourly scan of unvisited jobs or independent eligibility retries.
+    if (nowMs >= Math.min(retryAt, fallbackAt)) return true;
+  }
+  if (Number(service.matchingUnverifiedCount) > 0 && Number(service.matchingPendingCount || 0) === 0 && service.matchingStatus !== 'failed') {
+    const retryAt = timestampMillis(service.matchingRetryAt);
+    if (retryAt) return nowMs >= Math.min(lastRefresh + CONCIERGE_REFRESH_INTERVAL_MS, retryAt);
+  }
+  const onlyExhaustedEligibility = Number(service.matchingUnverifiedCount) > 0
+    && Number(service.matchingPendingCount || 0) === 0
+    && Number(service.matchingRetryCount || 0) === 0
+    && Number(service.matchingRetryExhaustedCount || 0) > 0;
+  const interval = freshPending
+    ? CONCIERGE_FRESH_PENDING_INTERVAL_MS
+    : service.matchingStatus === 'failed' || (Number(service.matchingUnverifiedCount) > 0 && !onlyExhaustedEligibility)
+      ? CONCIERGE_RETRY_INTERVAL_MS
+      : CONCIERGE_REFRESH_INTERVAL_MS;
+  return lastRefresh > 0 && nowMs >= lastRefresh + interval;
+}
+
+/** Eligibility and price are computed from the source purchase, never a client-supplied amount. */
+export function conciergeRenewalOffer(service, nowMs = Date.now()) {
+  const expiresAt = timestampMillis(service?.expiresAt);
+  if (service?.paymentStatus !== 'paid' || !['active', 'expired'].includes(service.serviceStatus) || !expiresAt || nowMs < expiresAt || service.renewedByServiceId) return null;
+  const discountExpiresAt = expiresAt + CONCIERGE_RENEWAL_DISCOUNT_MS;
+  const discounted = nowMs < discountExpiresAt;
+  return {
+    amountTotal: discounted ? CONCIERGE_RENEWAL_PRICE_EUR_CENTS : APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
+    currency: 'eur',
+    discounted,
+    discountExpiresAt,
+    // A delayed scheduler sends only today's reminder, not a burst of older reminders.
+    reminderStage: discounted ? Math.floor((nowMs - expiresAt) / CONCIERGE_DAY_MS) : null,
+  };
+}

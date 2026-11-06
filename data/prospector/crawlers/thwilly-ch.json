@@ -1,0 +1,21 @@
+{
+  "companyKey": "thwilly-ch",
+  "companyName": "Th. Willy AG Kriens",
+  "companyHost": "thwilly.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.thwilly.ch/karriere/"
+  ],
+  "detailTemplate": "/karriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Mehr erfahren",
+    "Mehr erfahren"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:48:29.303Z"
+}

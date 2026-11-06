@@ -1,0 +1,21 @@
+{
+  "companyKey": "inlain-ch",
+  "companyName": "Vivanda",
+  "companyHost": "inlain.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.inlain.ch/de/jobs/detail/rezeptionistin-m-w-100"
+  ],
+  "detailTemplate": "/de/jobs/detail/de/kulinarik/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Lounge und Cigar-Lounge",
+    "Veuve Clicquot Champagnerkeller"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T06:25:21.471Z"
+}

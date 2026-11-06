@@ -1,0 +1,520 @@
+{
+  "generatedAt": "2026-07-16T22:22:29.320Z",
+  "zone": "frontaliereticino.ch",
+  "lookbackDays": 7,
+  "daysCollected": 7,
+  "totals": {
+    "bytesGB": 966.27,
+    "requests": 10646539,
+    "avgBytesPerDayGB": 138.04
+  },
+  "aiRelevantCategories": [
+    "AI Crawler",
+    "AI Search",
+    "AI Assistant"
+  ],
+  "namedAiLlmCrawlerTotal": {
+    "bytesGB": 7.83,
+    "requests": 1082304
+  },
+  "maskedAiTrafficTotal": {
+    "bytesGB": 8.9,
+    "requests": 194634
+  },
+  "days": [
+    {
+      "since": "2026-07-15T22:28:29.320Z",
+      "until": "2026-07-16T22:22:29.320Z",
+      "totalBytesGB": 112.08,
+      "totalRequests": 1282442,
+      "aiCategoryBytesGB": 48.05,
+      "aiCategoryUaAccountedBytesGB": 48.06
+    },
+    {
+      "since": "2026-07-14T22:28:29.320Z",
+      "until": "2026-07-15T22:22:29.320Z",
+      "totalBytesGB": 110.03,
+      "totalRequests": 1489427,
+      "aiCategoryBytesGB": 44.54,
+      "aiCategoryUaAccountedBytesGB": 44.56
+    },
+    {
+      "since": "2026-07-13T22:28:29.320Z",
+      "until": "2026-07-14T22:22:29.320Z",
+      "totalBytesGB": 111.99,
+      "totalRequests": 1763453,
+      "aiCategoryBytesGB": 41,
+      "aiCategoryUaAccountedBytesGB": 41.01
+    },
+    {
+      "since": "2026-07-12T22:28:29.320Z",
+      "until": "2026-07-13T22:22:29.320Z",
+      "totalBytesGB": 101.27,
+      "totalRequests": 1664092,
+      "aiCategoryBytesGB": 37.23,
+      "aiCategoryUaAccountedBytesGB": 37.23
+    },
+    {
+      "since": "2026-07-11T22:28:29.320Z",
+      "until": "2026-07-12T22:22:29.320Z",
+      "totalBytesGB": 114.22,
+      "totalRequests": 1360845,
+      "aiCategoryBytesGB": 34.02,
+      "aiCategoryUaAccountedBytesGB": 34.02
+    },
+    {
+      "since": "2026-07-10T22:28:29.320Z",
+      "until": "2026-07-11T22:22:29.320Z",
+      "totalBytesGB": 194.81,
+      "totalRequests": 1516670,
+      "aiCategoryBytesGB": 124.34,
+      "aiCategoryUaAccountedBytesGB": 124.35
+    },
+    {
+      "since": "2026-07-09T22:28:29.320Z",
+      "until": "2026-07-10T22:22:29.320Z",
+      "totalBytesGB": 221.88,
+      "totalRequests": 1569610,
+      "aiCategoryBytesGB": 138.47,
+      "aiCategoryUaAccountedBytesGB": 138.48
+    }
+  ],
+  "byHostAndCategory": [
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "AI Crawler",
+      "bytesGB": 450.745,
+      "requests": 238581
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "Search Engine Crawler",
+      "bytesGB": 370.7,
+      "requests": 454691
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "(unverified/human)",
+      "bytesGB": 83.884,
+      "requests": 2196856
+    },
+    {
+      "host": "frontaliereticino.ch",
+      "category": "(unverified/human)",
+      "bytesGB": 25.795,
+      "requests": 5628407
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "AI Search",
+      "bytesGB": 8.514,
+      "requests": 106901
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "Advertising & Marketing",
+      "bytesGB": 7.108,
+      "requests": 52794
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "Search Engine Optimization",
+      "bytesGB": 6.709,
+      "requests": 134205
+    },
+    {
+      "host": "frontaliereticino.ch",
+      "category": "AI Crawler",
+      "bytesGB": 5.482,
+      "requests": 823990
+    },
+    {
+      "host": "frontaliereticino.ch",
+      "category": "AI Assistant",
+      "bytesGB": 2.099,
+      "requests": 403828
+    },
+    {
+      "host": "frontaliereticino.ch",
+      "category": "Search Engine Crawler",
+      "bytesGB": 1.681,
+      "requests": 334724
+    },
+    {
+      "host": "cdn.frontaliereticino.ch:443",
+      "category": "(unverified/human)",
+      "bytesGB": 1.196,
+      "requests": 25387
+    },
+    {
+      "host": "frontaliereticino.ch",
+      "category": "AI Search",
+      "bytesGB": 0.787,
+      "requests": 183070
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "Security",
+      "bytesGB": 0.626,
+      "requests": 19419
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "Page Preview",
+      "bytesGB": 0.397,
+      "requests": 11244
+    },
+    {
+      "host": "frontaliereticino.ch",
+      "category": "Search Engine Optimization",
+      "bytesGB": 0.175,
+      "requests": 8305
+    },
+    {
+      "host": "frontaliereticino.ch",
+      "category": "Page Preview",
+      "bytesGB": 0.149,
+      "requests": 6616
+    },
+    {
+      "host": "frontaliereticino.ch",
+      "category": "Advertising & Marketing",
+      "bytesGB": 0.114,
+      "requests": 14370
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "Monitoring & Analytics",
+      "bytesGB": 0.042,
+      "requests": 730
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "Accessibility",
+      "bytesGB": 0.035,
+      "requests": 1510
+    },
+    {
+      "host": "cdn.frontaliereticino.ch",
+      "category": "AI Assistant",
+      "bytesGB": 0.032,
+      "requests": 911
+    }
+  ],
+  "aiCategoryByCacheStatus": [
+    {
+      "category": "AI Crawler",
+      "cacheStatus": "dynamic",
+      "bytesGB": 449.658,
+      "requests": 212055
+    },
+    {
+      "category": "AI Search",
+      "cacheStatus": "dynamic",
+      "bytesGB": 6.496,
+      "requests": 38218
+    },
+    {
+      "category": "AI Crawler",
+      "cacheStatus": "miss",
+      "bytesGB": 5.733,
+      "requests": 521467
+    },
+    {
+      "category": "AI Search",
+      "cacheStatus": "hit",
+      "bytesGB": 2.047,
+      "requests": 74235
+    },
+    {
+      "category": "AI Assistant",
+      "cacheStatus": "miss",
+      "bytesGB": 1.838,
+      "requests": 279412
+    },
+    {
+      "category": "AI Search",
+      "cacheStatus": "miss",
+      "bytesGB": 0.704,
+      "requests": 106950
+    },
+    {
+      "category": "AI Crawler",
+      "cacheStatus": "hit",
+      "bytesGB": 0.613,
+      "requests": 42700
+    },
+    {
+      "category": "AI Crawler",
+      "cacheStatus": "none",
+      "bytesGB": 0.224,
+      "requests": 286349
+    },
+    {
+      "category": "AI Assistant",
+      "cacheStatus": "hit",
+      "bytesGB": 0.198,
+      "requests": 15612
+    },
+    {
+      "category": "AI Assistant",
+      "cacheStatus": "none",
+      "bytesGB": 0.085,
+      "requests": 109689
+    },
+    {
+      "category": "AI Search",
+      "cacheStatus": "none",
+      "bytesGB": 0.054,
+      "requests": 70568
+    },
+    {
+      "category": "AI Assistant",
+      "cacheStatus": "dynamic",
+      "bytesGB": 0.01,
+      "requests": 26
+    }
+  ],
+  "byNamedBot": [
+    {
+      "name": "GoogleOther",
+      "isAiLlm": false,
+      "bytesGB": 451.016,
+      "requests": 508642,
+      "hosts": [
+        "cdn.frontaliereticino.ch",
+        "frontaliereticino.ch",
+        "www.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "Googlebot",
+      "isAiLlm": false,
+      "bytesGB": 241.297,
+      "requests": 323482,
+      "hosts": [
+        "cdn.frontaliereticino.ch",
+        "frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "Meta-ExternalAgent",
+      "isAiLlm": true,
+      "bytesGB": 3.701,
+      "requests": 248047,
+      "hosts": [
+        "frontaliereticino.ch",
+        "cdn.frontaliereticino.ch",
+        "www.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "ClaudeBot",
+      "isAiLlm": true,
+      "bytesGB": 1.761,
+      "requests": 364029,
+      "hosts": [
+        "frontaliereticino.ch",
+        "cdn.frontaliereticino.ch",
+        "www.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "GPTBot",
+      "isAiLlm": true,
+      "bytesGB": 1.251,
+      "requests": 297031,
+      "hosts": [
+        "frontaliereticino.ch",
+        "cdn.frontaliereticino.ch",
+        "www.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "bingbot",
+      "isAiLlm": false,
+      "bytesGB": 0.662,
+      "requests": 46717,
+      "hosts": [
+        "frontaliereticino.ch",
+        "cdn.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "facebookexternalhit",
+      "isAiLlm": false,
+      "bytesGB": 0.52,
+      "requests": 11595,
+      "hosts": [
+        "cdn.frontaliereticino.ch",
+        "frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "Amzn-SearchBot",
+      "isAiLlm": true,
+      "bytesGB": 0.439,
+      "requests": 97692,
+      "hosts": [
+        "frontaliereticino.ch",
+        "www.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "ChatGPT-User",
+      "isAiLlm": true,
+      "bytesGB": 0.366,
+      "requests": 40726,
+      "hosts": [
+        "frontaliereticino.ch",
+        "www.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "Amazonbot",
+      "isAiLlm": false,
+      "bytesGB": 0.197,
+      "requests": 4012,
+      "hosts": [
+        "cdn.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "OAI-SearchBot",
+      "isAiLlm": true,
+      "bytesGB": 0.156,
+      "requests": 22360,
+      "hosts": [
+        "frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "PerplexityBot",
+      "isAiLlm": true,
+      "bytesGB": 0.156,
+      "requests": 12037,
+      "hosts": [
+        "cdn.frontaliereticino.ch",
+        "frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "YandexBot",
+      "isAiLlm": false,
+      "bytesGB": 0.087,
+      "requests": 10141,
+      "hosts": [
+        "frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "PetalBot",
+      "isAiLlm": false,
+      "bytesGB": 0.074,
+      "requests": 6815,
+      "hosts": [
+        "frontaliereticino.ch",
+        "www.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "DuckDuckBot",
+      "isAiLlm": false,
+      "bytesGB": 0.005,
+      "requests": 295,
+      "hosts": [
+        "cdn.frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "CCBot",
+      "isAiLlm": true,
+      "bytesGB": 0.004,
+      "requests": 382,
+      "hosts": [
+        "frontaliereticino.ch"
+      ]
+    },
+    {
+      "name": "SemrushBot",
+      "isAiLlm": false,
+      "bytesGB": 0,
+      "requests": 4,
+      "hosts": [
+        "frontaliereticino.ch"
+      ]
+    }
+  ],
+  "maskedAiTraffic": [
+    {
+      "category": "AI Search",
+      "bytesGB": 8.863,
+      "requests": 190208,
+      "hosts": [
+        "cdn.frontaliereticino.ch",
+        "frontaliereticino.ch",
+        "www.frontaliereticino.ch"
+      ],
+      "sampleUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)"
+    },
+    {
+      "category": "AI Assistant",
+      "bytesGB": 0.028,
+      "requests": 1220,
+      "hosts": [
+        "cdn.frontaliereticino.ch",
+        "frontaliereticino.ch"
+      ],
+      "sampleUserAgent": "DuckAssistBot/1.2; (+http://duckduckgo.com/duckassistbot.html)"
+    },
+    {
+      "category": "AI Search",
+      "bytesGB": 0.007,
+      "requests": 2795,
+      "hosts": [
+        "frontaliereticino.ch",
+        "www.frontaliereticino.ch"
+      ],
+      "sampleUserAgent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0"
+    },
+    {
+      "category": "AI Assistant",
+      "bytesGB": 0.002,
+      "requests": 229,
+      "hosts": [
+        "frontaliereticino.ch",
+        "www.frontaliereticino.ch",
+        "cdn.frontaliereticino.ch"
+      ],
+      "sampleUserAgent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Claude-User/1.0; +claude-user@anthropic.com)"
+    },
+    {
+      "category": "AI Assistant",
+      "bytesGB": 0.001,
+      "requests": 179,
+      "hosts": [
+        "cdn.frontaliereticino.ch",
+        "frontaliereticino.ch"
+      ],
+      "sampleUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+    },
+    {
+      "category": "AI Assistant",
+      "bytesGB": 0,
+      "requests": 3,
+      "hosts": [
+        "frontaliereticino.ch"
+      ],
+      "sampleUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36; Manus-User/1.0"
+    }
+  ],
+  "notes": [
+    "botScore dimension is NOT available on this Cloudflare plan (Bot Management/Enterprise-only) — confirmed via GraphQL field-access error 2026-07-17.",
+    "verifiedBotCategory IS available; AI-relevant buckets on this plan are \"AI Crawler\", \"AI Search\", \"AI Assistant\".",
+    "AI-relevant category bytes are queried DIRECTLY via verifiedBotCategory_in (small, complete result set) rather than filtered out of a global top-N — an earlier version of this script tried the global-top-N approach and undercounted AI Crawler bytes by ~35x because high-cardinality non-AI traffic crowded the AI rows out of the top-1000-by-bytes cutoff.",
+    "maskedAiTraffic is the key finding: most AI-relevant-category bytes come from UA strings that do NOT self-identify as any named crawler (e.g. a UA presenting as a generic Android/Chrome mobile browser) — only detectable as AI Crawler via Cloudflare behavioral bot detection, not via UA regex. This traffic would NOT be caught by any robots.txt rule keyed on a bot name/UA token.",
+    "byNamedBot excludes rows already inside AI-relevant categories (avoids double count with maskedAiTraffic/namedAiLlmCrawlerTotal); it captures named bots regex-matched from the global top-1000-by-bytes UA query (Googlebot, bingbot, AhrefsBot, etc).",
+    "aiCategoryByCacheStatus breaks AI-relevant-category bytes down by Cloudflare cacheStatus, to check whether this traffic is actually the \"uncached\" bytes the issue is concerned about (vs. traffic CF is already serving from edge cache at near-zero origin cost).",
+    "Filtered to requestSource:eyeball (excludes Worker-internal synthetic rows per scripts/lib/cf-analytics.mjs)."
+  ]
+}

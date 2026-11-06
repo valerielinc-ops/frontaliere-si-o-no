@@ -1,0 +1,22 @@
+{
+  "companyKey": "natelo-ch",
+  "companyName": "Natelo",
+  "companyHost": "natelo.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://natelo.ch/karriere"
+  ],
+  "detailTemplate": "/karriere",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Store Leader Emmenbrücke",
+    "Store Agent ​Emmenbrücke",
+    "Jumper Regional"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:22:35.038Z"
+}

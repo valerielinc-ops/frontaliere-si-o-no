@@ -1,0 +1,24 @@
+{
+  "companyKey": "vsao-ch",
+  "companyName": "vsao",
+  "companyHost": "medicus.ch",
+  "platform": "medicus.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://medicus.ch/de/"
+  ],
+  "detailTemplate": "/de/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 65,
+  "sampleTitles": [
+    "Fachärztin/Facharzt für Allgemein Innere Medizin mit Interesse an Adipositasmedizin oder Endokrinologie/Diabetologie Seetal Docs Luzern Fachärzt:in Allgemeine I",
+    "Hausärzt:innen und Spezialist:innen gesucht - Pensum flexibel Arztpraxis Mollis Glarus Mehrere Karrierestufen Mehrere Fachgebiete Nach Vereinbarung 20 - 100%",
+    "Fachärztin / Facharzt Allgemeine Innere Medizin Gesundheits- und Notfallpraxis Schwyz Fachärzt:in Allgemeine Innere Medizin Nach Vereinbarung 60 - 100%",
+    "Stellvertretende/r Oberarzt / Oberärztin Allgemeine Innere Medizin Alterszentrum im Geeren Zürich Oberärzt:in Allgemeine Innere Medizin Nach Vereinbarung 60 - 1",
+    "Ärztin oder Arzt in Teilzeit 60-80% Tox Info Suisse Zürich Mehrere Karrierestufen Mehrere Fachgebiete Per sofort 60 - 80%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T13:28:44.416Z",
+  "candidateKey": "vsao.ch"
+}

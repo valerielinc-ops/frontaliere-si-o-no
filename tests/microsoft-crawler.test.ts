@@ -1,0 +1,162 @@
+import { describe, it, expect, afterEach, vi } from 'vitest';
+import {
+  MICROSOFT_KEY,
+  MICROSOFT_COMPANY_NAME,
+  isMicrosoftJob,
+  isTrustedDomain,
+  fetchAllMicrosoftJobs,
+} from '../scripts/lib/microsoft-job-parser.mjs';
+import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+describe('Microsoft crawler parser', () => {
+  // ── Constants ──
+  it('exports valid company key and name', () => {
+    expect(MICROSOFT_KEY).toBe('microsoft');
+    expect(MICROSOFT_COMPANY_NAME).toBe('Microsoft');
+  });
+
+  // ── isCompanyJob ──
+  describe('isMicrosoftJob', () => {
+    it('matches by companyKey', () => {
+      expect(isMicrosoftJob({ companyKey: 'microsoft' })).toBe(true);
+    });
+
+    it('matches by company name', () => {
+      expect(isMicrosoftJob({ company: 'Microsoft' })).toBe(true);
+    });
+
+    it('matches by URL domain', () => {
+      expect(isMicrosoftJob({ url: 'https://microsoft.com/jobs/123' })).toBe(true);
+    });
+
+    it('rejects unrelated jobs', () => {
+      expect(isMicrosoftJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
+    });
+
+    it('handles null/undefined gracefully', () => {
+      expect(isMicrosoftJob(null)).toBe(false);
+      expect(isMicrosoftJob(undefined)).toBe(false);
+      expect(isMicrosoftJob({})).toBe(false);
+    });
+  });
+
+  // ── isTrustedDomain ──
+  describe('isTrustedDomain', () => {
+    it('trusts primary domain', () => {
+      expect(isTrustedDomain('https://microsoft.com/careers/job-123')).toBe(true);
+    });
+
+    it('trusts subdomains', () => {
+      expect(isTrustedDomain('https://careers.microsoft.com/job/456')).toBe(true);
+    });
+
+    it('rejects other domains', () => {
+      expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
+    });
+
+    it('handles invalid URLs', () => {
+      expect(isTrustedDomain('')).toBe(false);
+      expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── slugify (imported from crawler-template) ──
+  describe('slugify', () => {
+    it('converts title to URL-safe slug', () => {
+      const slug = slugify('Software Engineer (m/f/d)');
+      expect(slug).toBe('software-engineer-m-f-d');
+    });
+
+    it('strips diacritics', () => {
+      expect(slugify('Ingénieur qualité')).toBe('ingenieur-qualite');
+    });
+
+    it('builds slug with company suffix inline', () => {
+      expect(slugify('Developer microsoft ch')).toBe('developer-microsoft-ch');
+    });
+
+    it('respects max length', () => {
+      const long = 'a'.repeat(200);
+      expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  // ── Job Shape Validation ──
+  describe('job shape', () => {
+    // A minimal valid job for reference
+    const validJob = {
+      id: 'microsoft-abc123',
+      slug: 'test-position-microsoft-ch',
+      slugByLocale: { en: 'test-position-microsoft-ch' },
+      company: 'Microsoft',
+      companyKey: 'microsoft',
+      title: 'Test Position',
+      titleByLocale: { en: 'Test Position' },
+      description: 'A test job description for validation.',
+      descriptionByLocale: { en: 'A test job description for validation.' },
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://microsoft.com/jobs/test',
+      source: 'Microsoft Dedicated Parser',
+      sourceLang: 'en',
+      crawledAt: new Date().toISOString(),
+    };
+
+    it('has all required fields', () => {
+      const required = [
+        'id', 'slug', 'slugByLocale', 'company', 'companyKey',
+        'title', 'titleByLocale', 'description', 'descriptionByLocale',
+        'location', 'canton', 'url', 'source', 'sourceLang', 'crawledAt',
+      ];
+      for (const field of required) {
+        expect(validJob).toHaveProperty(field);
+      }
+    });
+
+    it('slug only contains source locale', () => {
+      const locales = Object.keys(validJob.slugByLocale);
+      expect(locales).toHaveLength(1);
+      expect(locales[0]).toBe(validJob.sourceLang);
+    });
+
+    it('id starts with company key', () => {
+      expect(validJob.id).toMatch(/^microsoft-/);
+    });
+
+    it('slug is URL-safe', () => {
+      expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+});
+
+// Only the posting's own text is published (issue 5253): a position without a
+// description used to go out as "{title} — Microsoft". Shapes of the Eightfold
+// PCS endpoints of apply.careers.microsoft.com (session, search,
+// position_details).
+describe('fetchAllMicrosoftJobs — position without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the position with a description and skips the one without, never inventing text', async () => {
+    const pos = (id: string, name: string) => ({ id, name, displayJobId: `2000${id}`, standardizedLocations: ['Zürich, ZH, CH'], postedTs: 1790000000 });
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/careers?domain=')) return new Response('<html></html>', { status: 200, headers: { 'x-csrf-token': 'csrf', 'set-cookie': 'a=b; Path=/' } });
+      if (u.includes('/api/pcsx/search')) {
+        const first = u.includes('location=Switzerland&') && u.includes('start=0');
+        return new Response(JSON.stringify({ data: { count: first ? 2 : 0, positions: first ? [pos('1', 'Cloud Solution Architect'), pos('2', 'Account Executive')] : [] } }), { status: 200 });
+      }
+      if (u.includes('position_details') && u.includes('position_id=1')) {
+        return new Response(JSON.stringify({ data: { jobDescription: '<p>Design and deliver Azure solutions with our enterprise customers in Switzerland. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.</p>' } }), { status: 200 });
+      }
+      if (u.includes('position_details')) return new Response(JSON.stringify({ data: { jobDescription: '' } }), { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+
+    const jobs = await fetchAllMicrosoftJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Cloud Solution Architect']);
+    expect(jobs[0].description).toContain('Azure solutions');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Microsoft$/);
+  }, 30_000);
+});

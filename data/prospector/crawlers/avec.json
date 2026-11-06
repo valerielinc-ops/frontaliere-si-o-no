@@ -1,0 +1,24 @@
+{
+  "companyKey": "avec",
+  "companyName": "avec",
+  "companyHost": "career.valora.com",
+  "platform": "valora.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://career.valora.com/fr/?criteria%5Bbrand%5D=13"
+  ],
+  "detailTemplate": "/fr/job/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Verkäufer avec - 28 Std./Woche (w/m/d)",
+    "Verkäufer avec - 14 Std./Monat (w/m/d)",
+    "Verkäufer avec - 18 Std./Woche (w/m/d)",
+    "Verkäufer avec - 23 Std./Woche (w/m/d)<br />",
+    "Verkäufer avec - 23 Std./Woche (w/m/d)"
+  ],
+  "canton": "LU",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-20T06:24:19.553Z"
+}

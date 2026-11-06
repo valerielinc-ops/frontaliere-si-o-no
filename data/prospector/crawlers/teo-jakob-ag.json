@@ -1,0 +1,21 @@
+{
+  "companyKey": "teo-jakob-ag",
+  "companyName": "Teo Jakob AG",
+  "companyHost": "my.jobalino.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/public/job/de/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w"
+  ],
+  "detailTemplate": "/job/6627a44879cd0/teo-jakob-ag/lernende-detailhandel-efz-moebel-m-w",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lernende Detailhandel EFZ Möbel (m/w) / 100%"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T10:56:21.773Z",
+  "candidateKey": "teo-jakob@liebefeld"
+}

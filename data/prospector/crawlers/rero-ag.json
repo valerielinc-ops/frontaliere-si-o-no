@@ -1,0 +1,21 @@
+{
+  "companyKey": "rero-ag",
+  "companyName": "rero-ag",
+  "companyHost": "rero-ag.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.rero-ag.ch/karriere"
+  ],
+  "detailTemplate": "/karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "<source srcset=\" /img/containers/assets/rero_mitarbeiter_3.webp/a8675ef71bd9e745ce1eefe7e98c6669/rero_mitarbeiter_3.webp 320w, /img/containers/ass",
+    "<source srcset=\" /img/containers/assets/rero_mitarbeiter.webp/76d68dd5197955908608a4199cfebcd5/rero_mitarbeiter.webp 320w, /img/containers/assets/"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T19:37:32.108Z"
+}

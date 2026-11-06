@@ -1,0 +1,21 @@
+{
+  "companyKey": "bsz-stiftung-ch",
+  "companyName": "BSZ Stiftung",
+  "companyHost": "apply.refline.ch",
+  "platform": "refline.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://apply.refline.ch/337491/0405/pub/7/index.html"
+  ],
+  "detailTemplate": "/337491/0405/pub/7/index.html",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Sozialpädagog*in oder Fachfrau*mann Betreuung 50 - 100%"
+  ],
+  "canton": "SZ",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T10:55:35.416Z",
+  "candidateKey": "bsz-stiftung@brunnen"
+}

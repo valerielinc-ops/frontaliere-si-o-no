@@ -1,0 +1,21 @@
+{
+  "companyKey": "invaluable",
+  "companyName": "Invaluable",
+  "companyHost": "invaluable.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://invaluable.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Senior Backend Engineer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:20:56.883Z",
+  "candidateKey": "invaluable@applytojob.com"
+}

@@ -1,0 +1,434 @@
+#!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
+import { randomUUID } from 'node:crypto';
+/**
+ * Telegram broadcast poster for the free Bot API channel.
+ *
+ * Three modes:
+ *   jobs             — the "jobs of the day" digest: the top-N freshest
+ *                       never-posted jobs, deduped across runs via
+ *                       data/telegram-posted-jobs.json. Reuses the same
+ *                       recency selection as the Reddit/FB schedulers.
+ *   border           — the WEEKLY best/worst dogane wait-time ranking, reusing
+ *                       the same aggregation lib as the on-site ranking
+ *                       article. This mode imports `.ts` modules, so it MUST
+ *                       run under `tsx`:
+ *                         npx tsx scripts/post-to-telegram.mjs border
+ *                       The jobs mode stays plain `node` (never imports the
+ *                       .ts path).
+ *   preferred-source — ONE-OFF announcement (not a cron) explaining how to
+ *                       add the site as a Google "preferred source". Deduped
+ *                       via data/telegram-posted-announcements.json so a
+ *                       re-dispatch never double-posts the same message.
+ *
+ * SAFETY / FAIL-SOFT:
+ *   • Preview (dry-run) is the DEFAULT. A real post happens only with `--send`
+ *     (or TELEGRAM_SEND=1) AND both TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID set.
+ *   • With no credentials the script logs a clear skip and exits 0 — the whole
+ *     infrastructure is in place; activation is a one-time owner config (create
+ *     the bot + channel, store the token). CI stays green with no token.
+ *   • Definite API rejections release their reservation. Ambiguous outcomes
+ *     keep it held and fail the workflow so a retry cannot duplicate a post.
+ *
+ * Usage:
+ *   node    scripts/post-to-telegram.mjs jobs             [--send] [--limit N] [--dry-run]
+ *   npx tsx scripts/post-to-telegram.mjs border            [--send]            [--dry-run]
+ *   node    scripts/post-to-telegram.mjs preferred-source  [--send]            [--dry-run]
+ *
+ * Env:
+ *   TELEGRAM_BOT_TOKEN, TELEGRAM_CHANNEL_ID — Bot API credentials.
+ *   TELEGRAM_SEND=1        — post for real (same as --send). Default: preview.
+ *   TELEGRAM_JOBS_LIMIT=N  — jobs per digest (default 5).
+ *   TODAY_ISO=YYYY-MM-DD   — pin "today" for the border window (tests/CI).
+ */
+
+import { readFileSync, existsSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import {
+  selectUnpostedJobs,
+  loadLedger,
+  appendLedger,
+} from './lib/social-post-utils.mjs';
+import {
+  hasTelegramCredentials,
+  resolveTelegramCredentials,
+  getCanonicalTelegramChatId,
+  sendMessage,
+} from './lib/telegram-client.mjs';
+import {
+  buildDailyJobsDigest,
+  buildPreferredSourceAnnouncement,
+  DEFAULT_JOBS_LIMIT,
+  PREFERRED_SOURCE_ANNOUNCEMENT_ID,
+} from './lib/telegram-templates.mjs';
+import {
+  loadSocialCopyPack,
+  releaseUnpublishedSocialCopyAssignment,
+  selectSocialCopyForPublish,
+  socialCopyLedgerFields,
+} from './lib/social-copy-pack.mjs';
+import {
+  markSocialPublishReservationPublished,
+  releaseSocialPublishReservation,
+  reserveSocialPublishBatch,
+  socialPublishLocalDay,
+  socialPublishReservationKey,
+} from './lib/social-publish-reservations.mjs';
+
+// Ledger trim cap (mirrors the Reddit poster).
+const POSTED_TRIM_LIMIT = 1000;
+
+function defaultRepoRoot() {
+  const __dirname = dirname(fileURLToPath(import.meta.url));
+  return resolve(__dirname, '..');
+}
+
+function jobsPath(repoRoot) {
+  // Prefer public/data, fall back to data/ (agent worktrees only have the
+  // latter). Same precedence as the Reddit/FB schedulers.
+  const pub = resolve(repoRoot, 'public', 'data', 'jobs.json');
+  if (existsSync(pub)) return pub;
+  return resolve(repoRoot, 'data', 'jobs.json');
+}
+
+function postedJobsPath(repoRoot) {
+  return resolve(repoRoot, 'data', 'telegram-posted-jobs.json');
+}
+
+function postedAnnouncementsPath(repoRoot) {
+  return resolve(repoRoot, 'data', 'telegram-posted-announcements.json');
+}
+
+function telegramMessageLedgerFields(result) {
+  return {
+    telegramDeliveryId: randomUUID(),
+    ...(Number.isSafeInteger(result?.messageId) && result.messageId > 0
+      ? { telegramMessageId: result.messageId }
+      : {}),
+  };
+}
+
+function loadJobs(repoRoot, log) {
+  const file = jobsPath(repoRoot);
+  try {
+    if (!existsSync(file)) {
+      log('⚠️', `jobs.json not found at ${file}`);
+      return [];
+    }
+    const parsed = JSON.parse(readFileSync(file, 'utf-8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (err) {
+    log('⚠️', `failed to read jobs.json: ${err.message}`);
+    return [];
+  }
+}
+
+function itDateLabel(now) {
+  try {
+    return now.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+  } catch {
+    return now.toISOString().slice(0, 10);
+  }
+}
+
+/** Build the message + (jobs mode) the ledger commit callback. */
+async function buildForMode(mode, { env, repoRoot, now, log, dryRun = false, socialCopyPack = null }) {
+  if (mode === 'border') {
+    // tsx-only path — dynamically imported so the jobs mode can stay on plain
+    // `node` (this module transitively imports `.ts` files).
+    const { buildWeeklyBorderDigest, telegramBorderCopyAssignmentKey } = await import('./lib/telegram-border-digest.mjs');
+    const historyDir = resolve(repoRoot, 'data', 'border-wait-history');
+    const todayIso = env.TODAY_ISO || now.toISOString().slice(0, 10);
+    const ledgerPath = postedAnnouncementsPath(repoRoot);
+    const ledger = loadLedger(ledgerPath);
+    const copyAssignmentKey = telegramBorderCopyAssignmentKey(todayIso);
+    const socialCopy = await selectSocialCopyForPublish({
+      pack: socialCopyPack,
+      channel: 'telegram',
+      kind: 'border',
+      assignmentKey: copyAssignmentKey,
+      dryRun,
+    });
+    let digest;
+    try {
+      digest = buildWeeklyBorderDigest({ historyDir, todayIso, socialCopy });
+    } catch (err) {
+      await releaseUnpublishedSocialCopyAssignment(socialCopy, {
+        reason: 'Telegram border digest failed before sending',
+      });
+      throw err;
+    }
+    const { text, rankedCount, weekStart, weekEnd } = digest;
+    log('ℹ️', `border ranking: ${rankedCount} crossings ranked`);
+    const id = 'border-ranking:' + weekStart;
+    if (ledger.posted.some((entry) => entry?.id === id)) {
+      await releaseUnpublishedSocialCopyAssignment(socialCopy, {
+        reason: 'Telegram border digest was already posted',
+      });
+      log('ℹ️', 'border ranking already posted for ' + weekStart + ' — skipping');
+      return { text: '', onSent: null };
+    }
+    const copyFields = socialCopyLedgerFields(socialCopy, {
+      fallbackHook: 'Classifica delle dogane del Ticino',
+      fallbackCta: 'Classifica completa e trend settimanale',
+    });
+    const reservation = {
+      type: 'border-digest',
+      id: weekStart,
+      key: socialPublishReservationKey('telegram', 'border-digest', weekStart),
+    };
+    const onSent = (result = {}) => appendLedger(ledgerPath, [{
+      id,
+      ts: new Date().toISOString(),
+      weekStart,
+      weekEnd,
+      socialReservationType: reservation.type,
+      socialReservationId: reservation.id,
+      ...telegramMessageLedgerFields(result),
+      ...copyFields,
+    }], POSTED_TRIM_LIMIT);
+    return {
+      text,
+      reservation,
+      onSent,
+      onNotSent: () => releaseUnpublishedSocialCopyAssignment(socialCopy, {
+        reason: 'Telegram border digest was not sent',
+      }),
+    };
+  }
+
+  if (mode === 'preferred-source') {
+    const ledgerPath = postedAnnouncementsPath(repoRoot);
+    const ledger = loadLedger(ledgerPath);
+    const announcementAlreadyPosted = ledger.posted.some((e) => e?.id === PREFERRED_SOURCE_ANNOUNCEMENT_ID);
+    if (announcementAlreadyPosted) {
+      log('ℹ️', 'preferred-source announcement already posted — skipping (one-off, not a recurring digest)');
+      return { text: '', onSent: null };
+    }
+    const { text } = buildPreferredSourceAnnouncement();
+    const reservation = {
+      type: 'announcement',
+      id: PREFERRED_SOURCE_ANNOUNCEMENT_ID,
+      key: socialPublishReservationKey('telegram', 'announcement', PREFERRED_SOURCE_ANNOUNCEMENT_ID),
+    };
+    const onSent = (result = {}) =>
+      appendLedger(ledgerPath, [{
+        id: PREFERRED_SOURCE_ANNOUNCEMENT_ID,
+        ts: new Date().toISOString(),
+        socialReservationType: reservation.type,
+        socialReservationId: reservation.id,
+        ...telegramMessageLedgerFields(result),
+      }]);
+    return { text, reservation, onSent };
+  }
+
+  // jobs mode (default)
+  const limitRaw = Number(env.TELEGRAM_JOBS_LIMIT);
+  const limit = Number.isFinite(limitRaw) && limitRaw > 0 ? Math.floor(limitRaw) : DEFAULT_JOBS_LIMIT;
+
+  // The digest is branded "Offerte di lavoro in Ticino" and its hub CTA is
+  // /cerca-lavoro-ticino/, but the dataset is nationwide (~24k jobs): without
+  // this filter the 5 most recent jobs were picked from anywhere in
+  // Switzerland (run 35996812210: Martigny, Winterthur, Zofingen, Frauenfeld,
+  // Hinwil — zero in Ticino). Same class as the Germany-corridor exclusion in
+  // the Ticino-branded border digest (#4952).
+  const jobs = loadJobs(repoRoot, log).filter((j) => j?.canton === 'TI');
+  if (jobs.length === 0) {
+    log('ℹ️', 'no Ticino jobs available');
+    return { text: '', onSent: null };
+  }
+
+  const ledgerPath = postedJobsPath(repoRoot);
+  const ledger = loadLedger(ledgerPath);
+  const postedSet = new Set(ledger.posted.map((e) => e?.id).filter(Boolean));
+
+  // Take a buffer (2×) so digest can drop any job without a resolvable URL and
+  // still fill the shortlist.
+  const candidates = selectUnpostedJobs(jobs, postedSet, limit * 2);
+  if (candidates.length === 0) {
+    log('ℹ️', 'no unposted Ticino jobs available');
+    return { text: '', onSent: null };
+  }
+  const dateLabel = itDateLabel(now);
+  const day = env.TODAY_ISO || now.toISOString().slice(0, 10);
+  const socialCopy = await selectSocialCopyForPublish({
+    pack: socialCopyPack,
+    channel: 'telegram',
+    kind: 'job',
+    assignmentKey: 'jobs:' + day,
+    dryRun,
+  });
+  let digest;
+  try {
+    digest = buildDailyJobsDigest(candidates, { limit, dateLabel, socialCopy });
+  } catch (err) {
+    await releaseUnpublishedSocialCopyAssignment(socialCopy, {
+      reason: 'Telegram jobs digest failed before sending',
+    });
+    throw err;
+  }
+  const { text, jobIds } = digest;
+  const localDay = socialPublishLocalDay(now);
+  // One jobs digest per local day remains the same reservation across retries,
+  // even if the source inventory changes after an ambiguous API response.
+  const reservationId = localDay;
+  const reservation = {
+    type: 'jobs-digest',
+    id: reservationId,
+    key: socialPublishReservationKey('telegram', 'jobs-digest', reservationId),
+    pendingGroup: 'telegram-jobs-digest',
+  };
+  const copyFields = socialCopyLedgerFields(socialCopy, {
+    fallbackHook: 'Offerte di lavoro in Ticino',
+    fallbackCta: 'Tutte le offerte in Ticino',
+  });
+
+  // On a successful real send, record the posted job ids so tomorrow's digest
+  // doesn't repeat them.
+  const onSent = jobIds.length
+    ? (result = {}) => {
+        const ts = new Date().toISOString();
+        const messageFields = telegramMessageLedgerFields(result);
+        appendLedger(
+          ledgerPath,
+          jobIds.map((id) => ({
+            id,
+            ts,
+            socialReservationType: reservation.type,
+            socialReservationId: reservation.id,
+            ...messageFields,
+            ...copyFields,
+          })),
+          POSTED_TRIM_LIMIT,
+        );
+      }
+    : null;
+
+  return {
+    text,
+    reservation,
+    onSent,
+    onNotSent: () => releaseUnpublishedSocialCopyAssignment(socialCopy, {
+      reason: 'Telegram jobs digest was not sent',
+    }),
+  };
+}
+
+async function main() {
+  const args = process.argv.slice(2);
+  const env = process.env;
+  const positional = args.filter((a) => !a.startsWith('--'));
+  const mode = ['border', 'preferred-source'].includes(positional[0]) ? positional[0] : 'jobs';
+
+  const forceDry = args.includes('--dry-run');
+  const wantSend = args.includes('--send') || env.TELEGRAM_SEND === '1' || env.TELEGRAM_SEND === 'true';
+  const dryRun = forceDry || !wantSend;
+
+  // --limit N overrides TELEGRAM_JOBS_LIMIT for the jobs mode.
+  const limitIdx = args.indexOf('--limit');
+  if (limitIdx !== -1 && args[limitIdx + 1]) env.TELEGRAM_JOBS_LIMIT = args[limitIdx + 1];
+
+  const log = (icon, msg) => console.log(`${icon} ${msg}`);
+  const repoRoot = defaultRepoRoot();
+  const now = new Date();
+  const socialCopyPack = loadSocialCopyPack({
+    onWarning: (warning) => log('⚠️', warning),
+  });
+
+  log('📣', `Telegram broadcast — mode=${mode}, send=${!dryRun}`);
+
+  const { text, onSent, onNotSent, reservation: publishReservation } = await buildForMode(mode, { env, repoRoot, now, log, dryRun, socialCopyPack });
+
+  if (!text) {
+    log('ℹ️', 'nothing to post this run — exiting');
+    await onNotSent?.();
+    return;
+  }
+
+  console.log('─── Telegram message preview ───');
+  console.log(text);
+  console.log('────────────────────────────────');
+
+  if (dryRun) {
+    log('🏃', 'preview only (dry-run) — not posting. Pass --send (or TELEGRAM_SEND=1) to post for real.');
+    await onNotSent?.();
+    return;
+  }
+
+  if (!hasTelegramCredentials(env)) {
+    log('⚠️', 'TELEGRAM_BOT_TOKEN / TELEGRAM_CHANNEL_ID not set — skipping send (channel not yet configured).');
+    await onNotSent?.();
+    return;
+  }
+
+  const { token, chatId } = resolveTelegramCredentials(env);
+  const canonicalChat = await getCanonicalTelegramChatId({ token, chatId });
+  if (!canonicalChat.ok || !canonicalChat.chatId) {
+    await onNotSent?.();
+    throw new Error(`Telegram target could not be resolved: ${canonicalChat.error || 'unknown chat identity'}`);
+  }
+  const accountId = canonicalChat.chatId;
+  if (!publishReservation || typeof onSent !== 'function') {
+    await onNotSent?.();
+    throw new Error('Telegram publish intent is missing its stable reservation identity');
+  }
+  const reserved = await reserveSocialPublishBatch({
+    platform: 'telegram',
+    accountId,
+    repoRoot,
+    reservations: [{
+      key: publishReservation.key,
+      publishAt: now,
+      ...(publishReservation.pendingGroup ? { pendingGroup: publishReservation.pendingGroup } : {}),
+    }],
+    now,
+  });
+  if (!reserved[0]?.allowed) {
+    log('🛑', `Telegram send held by the shared daily cap (${reserved[0]?.reason || 'reservation-denied'})`);
+    await onNotSent?.();
+    return;
+  }
+
+  const res = await sendMessage({ token, chatId: accountId, text });
+  if (res.ok) {
+    log('✅', `posted to Telegram (message_id=${res.messageId ?? '?'})`);
+    onSent(res);
+    await markSocialPublishReservationPublished({
+      platform: 'telegram',
+      accountId,
+      key: publishReservation.key,
+      publishAt: now,
+      publishedAt: new Date().toISOString(),
+    });
+  } else {
+    log('⚠️', `Telegram send failed: ${res.error}`);
+    if (res.deliveryUncertain) {
+      process.exitCode = 1;
+      throw new Error('Telegram delivery is ambiguous; reservation retained and automatic replay is blocked');
+    }
+    await releaseSocialPublishReservation({
+      platform: 'telegram',
+      accountId,
+      key: publishReservation.key,
+      publishAt: now,
+    });
+    await onNotSent?.();
+    process.exitCode = 1;
+  }
+}
+
+const isDirectInvocation = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
+if (isDirectInvocation) {
+  main().then(
+    () => process.exit(process.exitCode || 0),
+    (err) => {
+      console.error('⚠️ post-to-telegram crashed:', err?.message || err);
+      process.exit(1);
+    },
+  );
+}
+
+export { buildForMode };

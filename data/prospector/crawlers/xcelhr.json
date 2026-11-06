@@ -1,0 +1,21 @@
+{
+  "companyKey": "xcelhr",
+  "companyName": "XcelHR",
+  "companyHost": "xcelhr.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://xcelhr.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Business Development Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:04:46.017Z",
+  "candidateKey": "xcelhr@applytojob.com"
+}

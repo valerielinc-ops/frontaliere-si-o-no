@@ -1,0 +1,24 @@
+{
+  "companyKey": "vsgu-ashb-ch",
+  "companyName": "vsgu-ashb",
+  "companyHost": "goldor.ch",
+  "platform": "goldor.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.goldor.ch/fr/emplois/annonces-demploi/"
+  ],
+  "detailTemplate": "/fr/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Allrounder*In im Diamanthandel gesucht! (m/w/d)",
+    "Schmuckexperte / Gemmologe (m/w), 100 %",
+    "Collaborateur-trice au service commercial interne 100%",
+    "Goldschmied*in 80–100 % gesucht",
+    "Verkaufsberater/ in Uhren & Schmuck 60-100%"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T13:28:47.337Z",
+  "candidateKey": "vsgu-ashb.ch"
+}

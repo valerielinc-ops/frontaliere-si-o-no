@@ -1,0 +1,22 @@
+{
+  "companyKey": "nexthink-sede-ti",
+  "companyName": "Nexthink (sede TI)",
+  "companyHost": "nexthink.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.nexthink.com/careers",
+    "https://www.nexthink.com/career",
+    "https://www.nexthink.com/jobs",
+    "https://www.nexthink.com/karriere",
+    "https://www.nexthink.com/offene-stellen",
+    "https://www.nexthink.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.962Z"
+}

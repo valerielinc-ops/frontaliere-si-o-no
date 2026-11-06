@@ -1,0 +1,64 @@
+{
+  "_source": "https://pharmageneve.swiss/pharmacie-de-garde/",
+  "_sourceKey": "pharmageneve-garde-2026",
+  "_fetchedAt": "2026-11-06T13:04:10.141Z",
+  "_attemptedAt": "2026-11-06T13:04:10.141Z",
+  "_timezone": "Europe/Zurich",
+  "_scope": {
+    "country": "CH",
+    "canton": "GE"
+  },
+  "_coverage": {
+    "validFrom": "2026-01-01",
+    "validTo": "2026-12-31",
+    "minimumCalendarDays": 365,
+    "observedCalendarDays": 365,
+    "uncoveredCalendarDays": 0,
+    "coverage": "covered"
+  },
+  "_observedEntryCount": 3,
+  "_resolvedDutyCount": 379,
+  "_unresolvedIdentities": [],
+  "_allSourcesFailed": false,
+  "_releaseReady": true,
+  "_state": "fresh",
+  "_errors": [],
+  "_warnings": [
+    "permanent 24/7 cards are expanded into explicit daily 24h duty intervals"
+  ],
+  "_release": {
+    "version": 1,
+    "timezone": "Europe/Zurich",
+    "state": "fresh",
+    "evaluatedAt": "2026-11-06T13:04:10.141Z",
+    "scope": {
+      "country": "CH",
+      "canton": "GE"
+    },
+    "source": {
+      "key": "pharmageneve-garde-2026",
+      "url": "https://pharmageneve.swiss/pharmacie-de-garde/"
+    },
+    "coverage": {
+      "validFrom": "2026-01-01",
+      "validTo": "2026-12-31",
+      "minimumCalendarDays": 365,
+      "observedCalendarDays": 365,
+      "uncoveredCalendarDays": 0,
+      "coverage": "covered"
+    },
+    "snapshots": {
+      "duties": {
+        "path": "data/pharmacy-duties-geneva.json",
+        "sha256": "c14a0e28c180b823d13154738c814678345ea9bee85e6e206bfb1f1daa930e91",
+        "fetchedAt": "2026-11-06T13:04:10.141Z"
+      },
+      "status": {
+        "path": "data/pharmacy-duties-geneva-status.json",
+        "sha256": "e1db3e6c6e5fe64aa8f0fb46b7e562a653dec3c1fdca665edb6b14c465d8520b",
+        "fetchedAt": "2026-11-06T13:04:10.141Z"
+      }
+    },
+    "releaseId": "pharmacy-geneva-v1-929f8052d1b52b2af10096a41f087c8f4062b098c9257d9aadb8b15f528d48f2"
+  }
+}

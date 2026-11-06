@@ -1,0 +1,21 @@
+{
+  "companyKey": "diakonie-ch",
+  "companyName": "diakonie",
+  "companyHost": "zhref.ch",
+  "platform": "zhref.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.zhref.ch/kirche/offene-stellen/co-leitung-des-jugendtreffs-poestli"
+  ],
+  "detailTemplate": "/kirche/offene-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Weiterlesen",
+    "Weiterlesen"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:07:58.123Z",
+  "candidateKey": "diakonie.ch"
+}

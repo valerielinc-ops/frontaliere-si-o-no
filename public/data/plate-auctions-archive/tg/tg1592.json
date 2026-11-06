@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109559",
+      "sourceKey": "TG",
+      "sourceRecordId": "109559",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "1592",
+      "normalizedPlate": "TG1592",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 0,
+      "endsAt": "2026-09-16T17:00:00.000Z",
+      "closedAt": "2026-09-16T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109559",
+      "sourceFetchedAt": "2026-09-15T06:58:56.145Z",
+      "lastVerifiedAt": "2026-09-15T06:58:56.145Z",
+      "firstSeenAt": "2026-09-14T20:51:10.954Z",
+      "lastSeenAt": "2026-09-15T06:58:56.145Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "c22ad768144f"
+    }
+  ]
+}

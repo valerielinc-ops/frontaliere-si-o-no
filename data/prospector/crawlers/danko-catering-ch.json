@@ -1,0 +1,22 @@
+{
+  "companyKey": "danko-catering-ch",
+  "companyName": "danko-catering",
+  "companyHost": "zhaw.ch",
+  "platform": "zhaw.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.zhaw.ch/de/hochschule"
+  ],
+  "detailTemplate": "/de/studium/nach-dem-studium/career-services/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Standortbestimmung",
+    "Job mit Sinn",
+    "Onlineprofil und wie man sich vernetzt"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-28T12:09:54.602Z",
+  "candidateKey": "danko-catering.ch"
+}

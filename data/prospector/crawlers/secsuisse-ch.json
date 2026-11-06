@@ -1,0 +1,21 @@
+{
+  "companyKey": "secsuisse-ch",
+  "companyName": "secsuisse",
+  "companyHost": "kfmv.ch",
+  "platform": "kfmv.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.kfmv.ch/wissen/themen/anstellung/massenentlassung-sozialvertraegliche-loesungen-dank-sozialplan"
+  ],
+  "detailTemplate": "/ueber-uns/freie-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Karriere",
+    "KV-Lehrstellen"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-28T12:14:08.016Z",
+  "candidateKey": "secsuisse.ch"
+}

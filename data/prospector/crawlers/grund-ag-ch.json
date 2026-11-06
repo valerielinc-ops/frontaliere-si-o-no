@@ -1,0 +1,22 @@
+{
+  "companyKey": "grund-ag-ch",
+  "companyName": "Grund AG Fahrzeuge",
+  "companyHost": "yousty.ch",
+  "platform": "yousty.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/firmen/821127-grund-ag-fahrzeuge"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/profile/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Automobil-Fachmann/-frau EFZ Nutzfahrzeuge, Triengen",
+    "Automobil-Mechatroniker/in EFZ Nutzfahrzeuge, Triengen"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-26T12:13:46.117Z",
+  "candidateKey": "grund-ag.ch"
+}

@@ -1,0 +1,204 @@
+import { describe, expect, it } from 'vitest';
+import { buildFuelViewSearch, datasetFreshness, fuelRowView, fuelRowViewWithExchangeRate, fuelTripPrefillPrices, italyStationObservationDate, pageForSelectedRow, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
+import type { FuelPricesDataset, FuelStationItaly, FuelStationSwitzerland, MunicipalityFuelRow } from '../services/fuelPricesService';
+
+type IsAny<T> = 0 extends (1 & T) ? true : false;
+type Assert<T extends true> = T;
+type FuelTypeIsConcrete = Assert<IsAny<FuelType> extends false ? true : false>;
+type FuelRowViewIsConcrete = Assert<IsAny<ReturnType<typeof fuelRowView>> extends false ? true : false>;
+type FuelRowViewFactoryIsConcrete = Assert<IsAny<FuelRowViewFactory> extends false ? true : false>;
+
+const IT: FuelStationItaly = {
+  id: 'it-1', stationName: 'Stazione Italia', brand: 'Test', address: 'Via Roma 1, Como', lat: 45.8, lng: 9.1,
+  priceEur: 1.9, dieselPriceEur: 1.7, isSelf: true, updatedAt: '2026-09-09T08:00:00Z',
+};
+const CH: FuelStationSwitzerland = {
+  id: 'ch-1', name: 'Stazione Svizzera', brand: 'Test', address: 'Via Test 1, Chiasso', lat: 45.84, lng: 9.03,
+  sp95PriceChf: 2.1, dieselPriceChf: 1.8, sp95PriceEur: 2, dieselPriceEur: 1.7,
+  updatedAt: '2026-09-09T08:00:00Z', nearestMunicipality: 'Como (CO)', nearestMunicipalityDistanceKm: 2, distanceKm: 5,
+};
+
+function row(overrides: Partial<MunicipalityFuelRow> = {}): MunicipalityFuelRow {
+  return {
+    municipality: 'Como', province: 'CO', lat: 45.8, lng: 9.1, distanceKm: 5, fascia: '1',
+    italy: { stationCount: 1, minPriceEur: 1.9, avgPriceEur: 1.9, maxPriceEur: 1.9, minSelfPriceEur: 1.9, minServedPriceEur: null, minDieselPriceEur: null, avgDieselPriceEur: null, dieselStationCount: 1, cheapestStation: IT, stations: [IT] },
+    swiss: { searchRadiusKm: 20, optionCount: 1, dieselOptionCount: 1, cheapestStation: CH, nearbyStations: [CH], minPriceChf: 2.1, minPriceEur: 2, minDieselPriceChf: null, minDieselPriceEur: null, cheapestDieselStation: null },
+    comparison: { cheaperCountry: 'CH', priceDeltaEur: -0.1, saving50LEur: 5 },
+    ...overrides,
+  };
+}
+
+function dataset(overrides: Partial<FuelPricesDataset> = {}): FuelPricesDataset {
+  return {
+    generatedAt: '2026-09-09T11:00:00.000Z',
+    sources: {
+      italy: { provider: 'MIMIT', priceSnapshotDate: '2026-09-09', stationsUrl: '', pricesUrl: '' },
+      switzerland: { provider: 'TCS', providerUrl: '', stationCount: 1, latestObservedUpdate: '2026-09-09T11:00:00.000Z' },
+      exchangeRate: { provider: 'ECB', sourceUrl: '', chfPerEur: 1, eurPerChf: 1 },
+    },
+    summary: { municipalityCount: 1, municipalitiesWithItalyPrices: 1, municipalitiesWithSwissComparison: 1, cheaperItalyCount: 0, cheaperSwissCount: 1, tieCount: 0, cheapestItalyMunicipality: null, cheapestSwissStation: null },
+    rankings: { cheapestItalyMunicipalities: [], cheapestSwissStations: [], bestCrossBorderSavings: [] },
+    municipalities: [row()],
+    ...overrides,
+  };
+}
+
+describe('fuel comparison view model', () => {
+  it('uses only the selected Italian fuel observation date', () => {
+    const station = { ...IT, benzinaUpdatedAt: '2026-09-07', dieselUpdatedAt: '2026-09-08' };
+    expect(italyStationObservationDate(station, 'benzina')).toBe('2026-09-07');
+    expect(italyStationObservationDate(station, 'diesel')).toBe('2026-09-08');
+    expect(italyStationObservationDate(IT, 'benzina')).toBeNull();
+    expect(italyStationObservationDate(IT, 'diesel')).toBeNull();
+  });
+
+  it('keeps the diesel projection behind the typed row-view contract', () => {
+    const project: FuelRowViewFactory = fuelRowView;
+    const view = project(row(), 'diesel');
+    expect(view.italy.stationCount).toBe(1);
+    expect(view.swiss.optionCount).toBe(1);
+  });
+
+  it('round-trips shareable controls without creating an indexed route', () => {
+    const state: FuelViewState = { fuelType: 'diesel', search: 'Como centro', province: 'CO', sortKey: 'swiss', selectedKey: 'Como|CO', homeMunicipalityKey: 'Como|CO', tankLiters: 65, costPerKmEur: 0.23, page: 3 };
+    expect(parseFuelViewState(`?${buildFuelViewSearch(state)}`)).toEqual(state);
+    expect(buildFuelViewSearch({ ...state, fuelType: 'benzina', search: '', province: 'ALL', sortKey: 'saving', selectedKey: null, homeMunicipalityKey: '', tankLiters: 50, costPerKmEur: 0.18, page: 1 })).toBe('');
+  });
+
+  it('uses the same trip defaults when the URL has no liters or vehicle-cost values', () => {
+    expect(parseFuelViewState('')).toMatchObject({ tankLiters: 50, costPerKmEur: 0.18 });
+    expect(parseFuelViewState('?liters=&cost=%20')).toMatchObject({ tankLiters: 50, costPerKmEur: 0.18 });
+  });
+
+  it('hydrates and serializes the existing liters and car-cost share parameters', () => {
+    expect(parseFuelViewState('?liters=80&cost=0.3')).toMatchObject({ tankLiters: 80, costPerKmEur: 0.3 });
+    expect(parseFuelViewState('?liters=0&cost=0')).toMatchObject({ tankLiters: 0, costPerKmEur: 0 });
+    expect(buildFuelViewSearch({ ...parseFuelViewState(''), tankLiters: 80, costPerKmEur: 0.3 })).toBe('liters=80&cost=0.3');
+    expect(parseFuelViewState('?liters=150&cost=1.2')).toMatchObject({ tankLiters: 150, costPerKmEur: 1.2 });
+    expect(buildFuelViewSearch({ ...parseFuelViewState(''), tankLiters: 150, costPerKmEur: 1.2 })).toBe('liters=150&cost=1.2');
+  });
+
+  it.each(['EUR', 'CHF'] as const)('round-trips the complete %s trip scenario through a share URL', (currency) => {
+    const state: FuelViewState = {
+      ...parseFuelViewState(''),
+      tankLiters: 65,
+      costPerKmEur: 0.3,
+      tripScenario: {
+        currency,
+        referencePrice: currency === 'EUR' ? '1.85' : '1.95',
+        alternativePrice: '1.7',
+        liters: '65',
+        additionalRoundTripKm: '42',
+        vehicleCostPerKm: currency === 'EUR' ? '0.3' : '0.285',
+        otherTripCosts: currency === 'EUR' ? '12' : '11.4',
+        monthlyTrips: '8',
+      },
+    };
+    const shared = buildFuelViewSearch(state);
+    const restored = parseFuelViewState(`?${shared}`);
+
+    expect(restored.tripScenario).toEqual(state.tripScenario);
+    expect(restored.tankLiters).toBe(65);
+    expect(restored.costPerKmEur).toBe(0.3);
+    expect(new URLSearchParams(shared).get('tripRoundTripKm')).toBe('42');
+    expect(new URLSearchParams(shared).get('tripMonthlyTrips')).toBe('8');
+    expect(new URLSearchParams(shared).get('tripCurrency')).toBe(currency);
+  });
+
+  it('preserves legacy EUR cost links without interpreting them as CHF scenario values', () => {
+    const legacy = parseFuelViewState('?liters=80&cost=0.3');
+    expect(legacy).toMatchObject({ tankLiters: 80, costPerKmEur: 0.3 });
+    expect(legacy.tripScenario).toBeUndefined();
+
+    const current = parseFuelViewState('?cost=0.3&tripCurrency=CHF&tripVehicleCostPerKm=&tripLiters=50');
+    expect(current.costPerKmEur).toBe(0.3);
+    expect(current.tripScenario?.currency).toBe('CHF');
+    expect(current.tripScenario?.vehicleCostPerKm).toBe('');
+    expect(current.tripScenario?.liters).toBe('50');
+  });
+
+  it('keeps blank fields and rejects negative, zero-price and nonfinite scenario parameters', () => {
+    const parsed = parseFuelViewState('?tripCurrency=CHF&tripReferencePrice=-1&tripAlternativePrice=Infinity&tripLiters=0&tripRoundTripKm=-2&tripVehicleCostPerKm=NaN&tripOtherCosts=&tripMonthlyTrips=Infinity');
+    expect(parsed.tripScenario).toEqual({
+      currency: 'CHF', referencePrice: '', alternativePrice: '', liters: '', additionalRoundTripKm: '',
+      vehicleCostPerKm: '', otherTripCosts: '', monthlyTrips: '',
+    });
+  });
+
+  it('uses the same dated-FX validated view for aggregate and detail renderers', () => {
+    const stale = fuelRowViewWithExchangeRate(row(), 'benzina', null);
+    expect(stale.swiss.minPriceEur).toBeNull();
+    expect(stale.comparison.cheaperCountry).toBe('NO_DATA');
+
+    const dated = fuelRowViewWithExchangeRate(row(), 'benzina', {
+      provider: 'ECB', sourceUrl: 'https://www.ecb.europa.eu/rates', rateDate: '2026-09-09', chfPerEur: 1, eurPerChf: 1,
+    });
+    expect(dated.swiss.minPriceEur).toBe(2.1);
+    expect(dated.comparison.cheaperCountry).toBe('IT');
+  });
+
+  it('keeps Italian reference and Swiss alternative identities stable in both currencies', () => {
+    const rate = { provider: 'ECB' as const, sourceUrl: 'https://www.ecb.europa.eu/rates', rateDate: '2026-09-09', chfPerEur: 0.95, eurPerChf: 1 / 0.95 };
+    expect(fuelTripPrefillPrices(1.9, 2.1, 'EUR', rate)).toEqual({ referencePrice: 1.9, alternativePrice: Number((2.1 / 0.95).toFixed(4)) });
+    expect(fuelTripPrefillPrices(1.9, 2.1, 'CHF', rate)).toEqual({ referencePrice: 1.805, alternativePrice: 2.1 });
+    expect(fuelTripPrefillPrices(1.9, 2.1, 'CHF', null)).toEqual({ referencePrice: null, alternativePrice: 2.1 });
+  });
+
+  it('moves a selected municipality onto the visible page when a shared URL is stale', () => {
+    const rows = Array.from({ length: 49 }, (_, index) => row({ municipality: `Comune ${index}`, province: 'TI' }));
+    expect(pageForSelectedRow(rows, rows[24], 24)).toBe(2);
+    expect(pageForSelectedRow(rows, rows[48], 24)).toBe(3);
+    expect(pageForSelectedRow(rows, row({ municipality: 'Missing', province: 'TI' }), 24)).toBeNull();
+    expect(pageForSelectedRow(rows, rows[24], 0)).toBeNull();
+  });
+
+  it('does not use benzina prices when diesel aggregates are unavailable', () => {
+    const view = fuelRowView(row({
+      italy: { ...row().italy, minPriceEur: 1.95, minDieselPriceEur: null, stations: [{ ...IT, dieselPriceEur: 1.7 }] },
+      swiss: { ...row().swiss, minPriceEur: 2.1, minDieselPriceEur: null, nearbyStations: [{ ...CH, dieselPriceEur: 1.7 }] },
+    }), 'diesel');
+    expect(view.italy.minPriceEur).toBe(1.7);
+    expect(view.swiss.minPriceEur).toBe(1.7);
+    expect(view.comparison.cheaperCountry).toBe('SAME');
+  });
+
+  it('keeps the diesel-cheapest station visible when the list is benzina-ranked', () => {
+    const dieselCheapest = { ...CH, id: 'ch-diesel', dieselPriceChf: 1.6, dieselPriceEur: 1.5 };
+    const view = fuelRowView(row({ swiss: { ...row().swiss, nearbyStations: [CH], cheapestDieselStation: dieselCheapest, minDieselPriceChf: 1.6, minDieselPriceEur: 1.5 } }), 'diesel');
+    expect(view.swiss.nearbyStations[0]?.id).toBe('ch-diesel');
+    expect(view.swiss.minPriceEur).toBe(1.5);
+  });
+});
+
+describe('fuel data freshness', () => {
+  const now = Date.parse('2026-09-09T12:00:00.000Z');
+
+  it('requires every source timestamp to be within the freshness window', () => {
+    expect(datasetFreshness(dataset(), now)).toBe('current');
+    expect(datasetFreshness(dataset({ sources: { ...dataset().sources, italy: { ...dataset().sources.italy, priceSnapshotDate: '2026-09-07' } } }), now)).toBe('stale');
+  });
+
+  it('keeps a same-day dataset current when the italian snapshot date lags by a day', () => {
+    const lagging = dataset({ sources: { ...dataset().sources, italy: { ...dataset().sources.italy, priceSnapshotDate: '2026-09-08' } } });
+    expect(datasetFreshness(lagging, now)).toBe('current');
+    expect(datasetFreshness(lagging, Date.parse('2026-09-09T23:00:00.000Z'))).toBe('current');
+  });
+
+  it('keeps the tighter window for full timestamps', () => {
+    const sources = dataset().sources;
+    expect(datasetFreshness(dataset({ generatedAt: '2026-09-08T00:00:00.000Z', sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: '2026-09-08T00:00:00.000Z' } } }), now)).toBe('current');
+    expect(datasetFreshness(dataset({ generatedAt: '2026-09-07T23:00:00.000Z', sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: '2026-09-07T23:00:00.000Z' } } }), now)).toBe('stale');
+  });
+
+  it('tolerates a small producer clock skew but rejects a future timestamp beyond it', () => {
+    const sources = dataset().sources;
+    const slightlyAhead = new Date(now + 2 * 60 * 1000).toISOString();
+    const tooFarAhead = new Date(now + 6 * 60 * 1000).toISOString();
+    expect(datasetFreshness(dataset({ sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: slightlyAhead } } }), now)).toBe('current');
+    expect(datasetFreshness(dataset({ sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: tooFarAhead } } }), now)).toBe('stale');
+  });
+
+  it('returns unknown only when no usable timestamp exists', () => {
+    expect(datasetFreshness(dataset({ generatedAt: '', sources: { ...dataset().sources, italy: { ...dataset().sources.italy, priceSnapshotDate: null }, switzerland: { ...dataset().sources.switzerland, latestObservedUpdate: null } } }), now)).toBe('unknown');
+  });
+});

@@ -1,0 +1,22 @@
+{
+  "companyKey": "varibelle-ch",
+  "companyName": "Coiffure Varibelle",
+  "companyHost": "varibelle.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.varibelle.ch/jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Coiffeuse / Coiffeur Zürich St. Peterstrasse Für unser Coiffure Studio in Zürich suchen wir motivierte und kompetente Persönlichkeiten. 60 - 100%",
+    "Coiffeuse / Coiffeur Kriens Für unser Coiffure Studio in Kriens suchen wir motivierte und kompetente Persönlichkeiten. 80 - 100%"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:19:33.271Z",
+  "candidateKey": "varibelle.ch"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109738",
+      "sourceKey": "TG",
+      "sourceRecordId": "109738",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "69690",
+      "normalizedPlate": "TG69690",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 0,
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-10-28T05:47:05.200Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109738",
+      "sourceFetchedAt": "2026-10-28T05:47:05.200Z",
+      "lastVerifiedAt": "2026-10-28T05:47:05.200Z",
+      "firstSeenAt": "2026-10-21T11:49:02.461Z",
+      "lastSeenAt": "2026-10-28T05:47:05.200Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "fb3122683d78"
+    }
+  ]
+}

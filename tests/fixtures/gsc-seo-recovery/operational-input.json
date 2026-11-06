@@ -1,0 +1,38 @@
+{
+  "_comment": "Dati sintetici offline: numeri di forma, non misure di produzione.",
+  "today": "2026-10-20",
+  "availableDates": [
+    "2026-09-30", "2026-10-01", "2026-10-02", "2026-10-03", "2026-10-04",
+    "2026-10-05", "2026-10-06", "2026-10-07", "2026-10-08", "2026-10-09",
+    "2026-10-10", "2026-10-11", "2026-10-12", "2026-10-13", "2026-10-14",
+    "2026-10-15", "2026-10-16", "2026-10-17", "2026-10-18", "2026-10-20"
+  ],
+  "firstIncompleteDate": "2026-10-19",
+  "previousPageRows": [
+    { "path": "/articoli-frontaliere/guida-permesso/", "clicks": 20, "impressions": 200, "position": 8 },
+    { "path": "/en/swiss-articles/permit-guide/", "clicks": 100, "impressions": 1000, "position": 5 },
+    { "path": "/de/jobs-in-der-waadt/suche-pflege/", "clicks": 100, "impressions": 1000, "position": 4 },
+    { "path": "/fr/articles-frontalier/guide-permis/", "clicks": 10, "impressions": 200, "position": 10 },
+    { "path": "/fr/articles-frontalier/assurance-maladie/", "clicks": 5, "impressions": 80, "position": 9 },
+    { "path": "/de/jobs-im-tessin/ancienne-offre/", "clicks": 12, "impressions": 300, "position": 7 }
+  ],
+  "previousQueryRows": [
+    { "path": "/en/swiss-articles/permit-guide/", "query": "site:example.invalid permit guide", "clicks": 0, "impressions": 600, "position": 5 },
+    { "path": "/de/jobs-in-der-waadt/suche-pflege/", "query": "beispiel rabatt", "clicks": 0, "impressions": 300, "position": 4 }
+  ],
+  "currentPageRows": [
+    { "path": "/articoli-frontaliere/guida-permesso/", "clicks": 20, "impressions": 200, "position": 8 },
+    { "path": "/en/swiss-articles/permit-guide/", "clicks": 120, "impressions": 1200, "position": 5 },
+    { "path": "/de/jobs-in-der-waadt/suche-pflege/", "clicks": 30, "impressions": 400, "position": 8 },
+    { "path": "/fr/articles-frontalier/guide-permis/", "clicks": 8, "impressions": 200, "position": 10 },
+    { "path": "/de/jobs-im-tessin/ancienne-offre/", "clicks": 10, "impressions": 300, "position": 7 }
+  ],
+  "currentQueryRows": [
+    { "path": "/en/swiss-articles/permit-guide/", "query": "site:example.invalid permit guide", "clicks": 100, "impressions": 800, "position": 5 },
+    { "path": "/de/jobs-in-der-waadt/suche-pflege/", "query": "beispiel rabatt", "clicks": 15, "impressions": 200, "position": 8 }
+  ],
+  "indexabilityEvidence": [
+    { "path": "/fr/articles-frontalier/assurance-maladie/", "httpStatus": 404 },
+    { "path": "/de/jobs-im-tessin/ancienne-offre/", "httpStatus": 301, "redirectTargetVerified": false }
+  ]
+}

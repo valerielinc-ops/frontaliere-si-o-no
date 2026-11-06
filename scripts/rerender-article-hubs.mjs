@@ -1,0 +1,1288 @@
+#!/usr/bin/env -S npx -y tsx
+// scripts/rerender-article-hubs.mjs — re-render an article section's hub pages,
+// publish the matching client chunks, and push the pages to the shard repos.
+//
+// WHAT THIS IS FOR (issue #5432 point 2)
+// ──────────────────────────────────────
+// The hub pages — a section's root landing, `/tutti/` archive + pagination and
+// its `/…/argomenti/<topic>/` topic clusters — had exactly one producer on the
+// serving path: `scripts/publish-article-fast.mjs`, reachable only by
+// publishing an article, and only for THAT article's section. Two consequences,
+// both measured on 2026-08-09:
+//
+//   - A change to the RENDERERS never arrives. No workflow in this repo named
+//     seoHubsPlugin.ts, topicClusterHubsPlugin.ts, topicClusterHubsData.ts,
+//     articleHubPagesPlugin.ts or topicTaxonomy.ts in a `push: paths:` filter,
+//     and the full build does not emit these pages at all
+//     (ARTICOLI*_BUILD_EMIT_SKIP=true, plus the rehydrate REPLACE that puts the
+//     old shard back). #5422's flat page-N ladder was merged, correct, on main
+//     — and `sitemap-topics-frontaliere.xml` still reported `deepest 14`,
+//     because not one served page had ever been re-rendered with it.
+//   - A section that does not publish falls behind indefinitely. `svizzera`
+//     last published at 2026-08-08T21:38Z, 64 minutes before the merge, so
+//     `sitemap-topics-svizzera.xml` reported `reached 0` — the whole tier
+//     unreachable, which is what held `audit:max-bfs-depth` red and skipped
+//     `publish` (IndexNow, Google Indexing API, GSC, social) on every deploy.
+//
+// This driver is the missing producer: reactive to the CODE (the workflow's
+// `push: paths:` names the five renderer files) and periodic (its `schedule`),
+// instead of reactive to the editorial cadence.
+//
+// NOT A SECOND IMPLEMENTATION. The render is `renderHubsAndOffload` from
+// scripts/lib/render-and-push-hubs.mjs — the exact function
+// publish-article-fast.mjs calls, in the exact order (root landing → archive →
+// topic hubs → CDN offload, issue #5270). The push is the exact merge-only, never-force
+// scripts/lib/push-article-shard-incremental.sh every other article path uses.
+// This file contributes the enumeration, the validation, the client-chunk
+// publication and the push fan-out. The workflow supplies the shared R2 lease
+// around the last three operations so the registry and the hub cannot cross
+// another article publisher (#5819).
+//
+// WHY NOT rerender-article-corpus.yml. That workflow exists for template
+// drift and is the obvious host — but it re-renders 3571 articles under a
+// 180-minute timeout and serialises on `rerender-corpus-<section>`. Putting a
+// repair that takes minutes behind a lock that takes hours means the repair is
+// unavailable exactly when a hub regression is live. Its TODO at :38-42 now
+// points here instead.
+//
+// WHY NOT the corpus repo. `topicClusterHubsPlugin.ts` is 1000+ lines and
+// depends on `build-plugins/shared/`; it is not under `packages/articles/engine/`,
+// so no mirror carries it, and moving it there first is a much larger change.
+// It would also put the repair in a repo where the gate that detects the
+// failure (`audit:max-bfs-depth`, run by this repo's validate-dist) does not
+// run.
+//
+// CLI:
+//   npx -y tsx@4.23.15 scripts/rerender-article-hubs.mjs \
+//     --section <all|frontaliere|svizzera> --out <scratchDir> --summary <path> \
+//     [--locale <all|it|en|de|fr>] [--dry-run] [--allow-content-overlay]
+//
+// Content source follows the article rerender contract: CI pins the corpus to
+// the commit named by the published API manifest; a local dry run renders from
+// the checked-out site copy and says so; a real local render requires
+// `--allow-content-overlay`.
+//
+// `--dry-run` renders and VALIDATES and pushes nothing. It is a complete
+// exercise of everything that can go wrong locally, which is why the workflow
+// defaults a manual dispatch to dry.
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { spawn } from 'node:child_process';
+import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
+import {
+  ARTICLE_PATH_BASE,
+  ARTICLE_REGISTRY_FILES,
+  readSlugRegistryWithRows,
+} from './lib/article-slug-registry.mjs';
+import { renderedSlugs } from './lib/hydratedParity.mjs';
+
+import {
+  pinRenderEnv,
+  renderHubsAndOffload,
+  hubPathsByLocale,
+  shardTokenForSection,
+} from './lib/render-and-push-hubs.mjs';
+import {
+  corpusArticleChangeTimestamp,
+  decideCorpusOverlayMode,
+  normalizeCorpusCommit,
+  prepareCorpusContentOverlay,
+} from './lib/article-corpus-overlay.mjs';
+import { httpFetchAndReadWithRetry } from './lib/transient-fetch.mjs';
+
+const SELF_PATH = fileURLToPath(import.meta.url);
+const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
+const LOCALES = ['it', 'en', 'de', 'fr'];
+const SECTIONS = ['frontaliere', 'svizzera'];
+const LOG = '[rerender-article-hubs]';
+
+/**
+ * The published corpus manifest is the coarse cross-repo count check. The
+ * published slug registry and the live Italian hub below add identity-level
+ * checks, so an equal count cannot hide a different article set.
+ */
+const MANIFEST_URL = `${ARTICLES_API_BASE}/manifest.json`;
+const PUBLISHED_SLUGS_URL = `${ARTICLES_API_BASE}/slugs.json`;
+const LIVE_SITE_BASE = (process.env.ARTICLE_HUB_SITE_BASE ?? 'https://frontaliereticino.ch').replace(/\/$/, '');
+const LIVE_HUB_TIMEOUT_MS = 20_000;
+const LIVE_HUB_FETCH_RETRIES = 2;
+const LIVE_HUB_RETRY_BASE_MS = 1_000;
+const FETCH_HEADERS = {
+  'User-Agent': 'frontaliere-article-hub-refresh/1.0',
+};
+const LIVE_ARTICLE_INDEX_CDN_BASE = (process.env.ARTICLE_HUB_CDN_BASE ?? 'https://cdn.frontaliereticino.ch').replace(/\/$/, '');
+const LIVE_ARTICLE_INDEX_FRESHNESS_BUCKET_MS = 5 * 60 * 1000;
+
+function fetchArticleHubResource(
+  url,
+  {
+    fetchImpl = globalThis.fetch,
+    headers = FETCH_HEADERS,
+    label = url,
+    readResponse,
+  } = {},
+) {
+  return httpFetchAndReadWithRetry(url, { headers }, {
+    timeout: LIVE_HUB_TIMEOUT_MS,
+    retries: LIVE_HUB_FETCH_RETRIES,
+    retryBaseMs: LIVE_HUB_RETRY_BASE_MS,
+    label,
+    fetchImpl,
+    readResponse,
+  });
+}
+
+export async function fetchPublishedCorpusCommit({
+  manifestUrl = MANIFEST_URL,
+  fetchImpl = globalThis.fetch,
+} = {}) {
+  const response = await fetchArticleHubResource(manifestUrl, {
+    fetchImpl,
+    label: `published corpus manifest ${manifestUrl}`,
+    readResponse: (res) => res.json(),
+  });
+  const payload = response;
+  const commit = normalizeCorpusCommit(payload?.commit);
+  if (!commit) {
+    throw new Error(`manifest ${manifestUrl} carries no usable corpus commit`);
+  }
+  return commit;
+}
+
+/**
+ * How far the rendered archive count may differ from the published manifest
+ * before the push is refused. The identity decision below is separate: after
+ * the published-snapshot overlay, a small publication handoff can legitimately leave
+ * ids on opposite sides for a short time. Hub HTML still waits for the
+ * handoff, while a client-only subset is allowed only for ids already proved
+ * by the live hub.
+ */
+export const MAX_ARTICLES_BEHIND = 25;
+export const MAX_CORPUS_DRIFT_AGE_SECONDS = 24 * 60 * 60;
+
+const publishedSlugsPromiseBySection = new Map();
+
+function readLocalRegistry(section) {
+  const config = ARTICLE_REGISTRY_FILES[section];
+  if (!config) throw new Error(`unknown article section ${section}`);
+  const parsed = readSlugRegistryWithRows(path.join(ROOT_DIR, config.file), config.constName);
+  const ids = Object.keys(parsed.registry);
+  if (parsed.rows === 0 || ids.length !== parsed.rows) {
+    throw new Error(
+      `${section}: local article registry ${config.file} parsed ${ids.length} of ${parsed.rows} rows`,
+    );
+  }
+  return parsed.registry;
+}
+
+function publishedSectionKey(section) {
+  return section === 'svizzera' ? 'swiss' : 'blog';
+}
+
+async function fetchPublishedSection(section) {
+  if (!publishedSlugsPromiseBySection.has(section)) {
+    const promise = (async () => {
+      const response = await fetchArticleHubResource(PUBLISHED_SLUGS_URL, {
+        label: `${section} published article registry ${PUBLISHED_SLUGS_URL}`,
+        readResponse: (res) => res.json(),
+      });
+      const payload = response;
+      const records = payload?.[publishedSectionKey(section)];
+      if (!records || typeof records !== 'object' || Array.isArray(records)) {
+        throw new Error(`slugs.json has no usable ${publishedSectionKey(section)} registry`);
+      }
+      const ids = new Set(Object.keys(records).filter(Boolean));
+      if (ids.size === 0) throw new Error(`slugs.json ${publishedSectionKey(section)} registry is empty`);
+      const italianSlugs = new Set();
+      let completeItalianSlugs = true;
+      for (const row of Object.values(records)) {
+        const italianSlug = row
+          && typeof row === 'object'
+          && !Array.isArray(row)
+          && typeof row.it === 'string'
+          ? row.it.trim()
+          : '';
+        if (!italianSlug) completeItalianSlugs = false;
+        else italianSlugs.add(italianSlug);
+      }
+      return { ids, italianSlugs, completeItalianSlugs };
+    })();
+    publishedSlugsPromiseBySection.set(section, promise);
+  }
+  return publishedSlugsPromiseBySection.get(section);
+}
+
+async function fetchLiveHubSlugs(section) {
+  const hubPath = ARTICLE_PATH_BASE[section]?.it;
+  if (!hubPath) throw new Error(`no Italian hub path configured for ${section}`);
+  const url = `${LIVE_SITE_BASE}${hubPath}`;
+  const response = await fetchArticleHubResource(url, {
+    label: `${section} live Italian hub ${url}`,
+    readResponse: (res) => res.text(),
+  });
+  const slugs = renderedSlugs(response, hubPath);
+  if (slugs.length === 0) throw new Error(`no article cards found in the live hub ${url}`);
+  return { url, slugs };
+}
+
+function rotatingArticleIndexUrl(url) {
+  const bucket = Math.floor(Date.now() / LIVE_ARTICLE_INDEX_FRESHNESS_BUCKET_MS);
+  return `${url}?v=${bucket}`;
+}
+
+function liveArticleIndexUrl(section, full = false) {
+  const suffix = full ? '-full' : '';
+  return `${LIVE_ARTICLE_INDEX_CDN_BASE}/data/blog-index-${section}-it${suffix}.json`;
+}
+
+function usableLiveArticleIndexEntry(entry) {
+  if (!entry || typeof entry !== 'object') return false;
+  const row = entry;
+  return typeof row.id === 'string' && row.id.trim().length > 0
+    && typeof row.title === 'string' && row.title.trim().length > 0;
+}
+
+/**
+ * Read the same two CDN cache identities the runtime overlay reads. A live
+ * hub can be published by the fast path before the corpus API registry catches
+ * up; the overlay is the independent publication surface that proves this is
+ * that bounded handoff rather than an unexplained stale card.
+ */
+async function fetchLiveArticleIndexEntries(section, full = false) {
+  const baseUrl = liveArticleIndexUrl(section, full);
+  const urls = [baseUrl, rotatingArticleIndexUrl(baseUrl)];
+  const variants = await Promise.all(urls.map(async (url) => {
+    try {
+      const response = await fetchArticleHubResource(url, {
+        headers: {
+          ...FETCH_HEADERS,
+          Origin: LIVE_SITE_BASE,
+          Referer: `${LIVE_SITE_BASE}${ARTICLE_PATH_BASE[section]?.it ?? '/'}`,
+        },
+        label: `${section} runtime article index ${url}`,
+        readResponse: (res) => res.json(),
+      });
+      const payload = response;
+      return Array.isArray(payload?.articles)
+        ? payload.articles.filter(usableLiveArticleIndexEntry)
+        : null;
+    } catch {
+      return null;
+    }
+  }));
+  const usableVariants = variants.filter((entries) => entries !== null);
+  if (usableVariants.length === 0) {
+    throw new Error(`runtime article index unavailable for ${section}${full ? ' (full)' : ''}`);
+  }
+  return usableVariants.flat();
+}
+
+/**
+ * Match a live Italian card to the overlay without guessing across locales.
+ * New overlay rows normally use their id as the Italian slug; when a publisher
+ * supplies an explicit slug, that declaration is authoritative and the id is
+ * not used as a fallback.
+ */
+function overlayProvesItalianSlug(entries, slug) {
+  return entries.some((entry) => {
+    const declaredSlug = typeof entry.slug === 'string' ? entry.slug.trim() : '';
+    if (declaredSlug) return declaredSlug === slug;
+    return entry.id.trim() === slug;
+  });
+}
+
+async function proveLiveOnlySlugs(section, slugs) {
+  let entries = await fetchLiveArticleIndexEntries(section);
+  let proven = slugs.filter((slug) => overlayProvesItalianSlug(entries, slug));
+  if (proven.length === slugs.length) return proven;
+
+  // The recent index is the normal runtime path. Only inspect the complete
+  // index for the unresolved remainder, so a large payload is fetched solely
+  // on the anomaly path and never becomes part of the ordinary rerender.
+  entries = await fetchLiveArticleIndexEntries(section, true);
+  proven = slugs.filter((slug) => overlayProvesItalianSlug(entries, slug));
+  return proven;
+}
+
+function missingPublishedIds(localRegistry, publishedIds) {
+  const localIds = new Set(Object.keys(localRegistry));
+  return [...publishedIds].filter((id) => !localIds.has(id));
+}
+
+function unpublishedLocalIds(localRegistry, publishedIds) {
+  const publishedIdSet = new Set(publishedIds);
+  return Object.keys(localRegistry).filter((id) => !publishedIdSet.has(id));
+}
+
+function driftDetails(missingIds, unpublishedIds) {
+  return [
+    missingIds.length > 0
+      && `published ids absent from corpus main (retired: ${missingIds.join(', ')})`,
+    unpublishedIds.length > 0
+      && `corpus-main ids absent from the published registry (not yet published: ${unpublishedIds.join(', ')})`,
+  ].filter(Boolean).join('; ');
+}
+
+/**
+ * Decide the only safe action for a corpus-main/published registry handoff.
+ * Hub rendering has no supported exclude-id input, so HTML never renders a
+ * mixed snapshot. An old, large, or undated handoff fails visibly with the
+ * ids named; a fresh bounded handoff remains deferred for the caller to prove
+ * whether any client-only subset is already served.
+ */
+export function decideCorpusRegistryDrift({
+  section = 'article',
+  localRegistry,
+  publishedIds,
+  changeAtById = {},
+  nowEpochSeconds = Math.floor(Date.now() / 1000),
+  maxDriftIds = MAX_ARTICLES_BEHIND,
+  maxDriftAgeSeconds = MAX_CORPUS_DRIFT_AGE_SECONDS,
+} = {}) {
+  const missingIds = missingPublishedIds(localRegistry, publishedIds);
+  const unpublishedIds = unpublishedLocalIds(localRegistry, publishedIds);
+  const driftIds = [...new Set([...missingIds, ...unpublishedIds])];
+  const details = driftDetails(missingIds, unpublishedIds);
+
+  if (driftIds.length === 0) {
+    return {
+      action: 'proceed',
+      ok: true,
+      deferred: false,
+      missingIds,
+      unpublishedIds,
+      driftIds,
+      staleIds: [],
+      unknownTimestampIds: [],
+      note: `${section}: corpus-main and published article registries converge`,
+    };
+  }
+
+  // The quantity alone decides: an oversized handoff is refused without
+  // consulting a commit date, each of which is a history lookup for the caller.
+  if (driftIds.length > maxDriftIds) {
+    return {
+      action: 'fail',
+      ok: false,
+      deferred: false,
+      missingIds,
+      unpublishedIds,
+      driftIds,
+      staleIds: [],
+      unknownTimestampIds: [],
+      note:
+        `${section}: ${details}; drift contains ${driftIds.length} id(s), limit ${maxDriftIds}; `
+        + 'refusing to publish a non-converged client registry',
+    };
+  }
+
+  const timestampFor = (id) => {
+    const value = typeof changeAtById === 'function' ? changeAtById(id) : changeAtById[id];
+    if (value === null || value === undefined || value === '') return null;
+    const numeric = Number(value);
+    return Number.isFinite(numeric) ? numeric : null;
+  };
+  const unknownTimestampIds = driftIds.filter((id) => {
+    const timestamp = timestampFor(id);
+    return timestamp === null || timestamp > nowEpochSeconds;
+  });
+  const staleIds = driftIds.filter((id) => {
+    const timestamp = timestampFor(id);
+    return timestamp !== null && timestamp <= nowEpochSeconds
+      && nowEpochSeconds - timestamp > maxDriftAgeSeconds;
+  });
+  const reasons = [];
+  if (unknownTimestampIds.length > 0) {
+    reasons.push(`no valid corpus commit timestamp for ${unknownTimestampIds.join(', ')}`);
+  }
+  if (staleIds.length > 0) {
+    reasons.push(
+      `handoff is older than ${Math.round(maxDriftAgeSeconds / 3600)} hours for ${staleIds.join(', ')}`,
+    );
+  }
+
+  if (reasons.length > 0) {
+    return {
+      action: 'fail',
+      ok: false,
+      deferred: false,
+      missingIds,
+      unpublishedIds,
+      driftIds,
+      staleIds,
+      unknownTimestampIds,
+      note:
+        `${section}: ${details}; ${reasons.join('; ')}; `
+        + 'refusing to publish a non-converged client registry',
+    };
+  }
+
+  return {
+    action: 'defer',
+    ok: false,
+    deferred: true,
+    missingIds,
+    unpublishedIds,
+    driftIds,
+    staleIds,
+    unknownTimestampIds,
+    note:
+      `${section}: ${details}; deferring hub rerender until the publication handoff converges `
+      + `(bounded to ${maxDriftIds} IDs and ${Math.round(maxDriftAgeSeconds / 3600)} hours; `
+      + 'no HTML or client chunks will be published)',
+  };
+}
+
+function missingLiveHubSlugs(localRegistry, liveSlugs) {
+  const localItalianSlugs = new Set(
+    Object.values(localRegistry)
+      .map((slugs) => slugs?.it)
+      .filter((slug) => typeof slug === 'string' && slug),
+  );
+  return liveSlugs.filter((slug) => !localItalianSlugs.has(slug));
+}
+
+/**
+ * IDs added by corpus main are recoverable only when the serving hub already
+ * proves their Italian slugs. The hub landing is the first page, so this is a
+ * deliberately narrow proof for the newest handoff: an ID not present there
+ * remains deferred rather than being treated as live by implication.
+ */
+function unpublishedIdsAbsentFromLiveHub(localRegistry, unpublishedIds, liveSlugs) {
+  const liveSlugSet = new Set(liveSlugs);
+  return unpublishedIds.filter((id) => {
+    const italianSlug = localRegistry[id]?.it;
+    return typeof italianSlug !== 'string' || italianSlug.length === 0 || !liveSlugSet.has(italianSlug);
+  });
+}
+
+function parseArgs(argv) {
+  const out = {
+    section: 'all',
+    locale: 'all',
+    dryRun: false,
+    allowContentOverlay: false,
+    out: null,
+    summary: null,
+  };
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i];
+    if (a === '--section') out.section = argv[++i];
+    else if (a === '--locale') out.locale = argv[++i];
+    else if (a === '--out') out.out = argv[++i];
+    else if (a === '--summary') out.summary = argv[++i];
+    else if (a === '--dry-run') out.dryRun = true;
+    else if (a === '--allow-content-overlay') out.allowContentOverlay = true;
+    else {
+      console.error(`${LOG} unknown argument "${a}"`);
+      process.exit(1);
+    }
+  }
+  if (out.section !== 'all' && !SECTIONS.includes(out.section)) {
+    console.error(`${LOG} --section must be all|frontaliere|svizzera, got "${out.section}"`);
+    process.exit(1);
+  }
+  if (out.locale !== 'all' && !LOCALES.includes(out.locale)) {
+    console.error(`${LOG} --locale must be all|it|en|de|fr, got "${out.locale}"`);
+    process.exit(1);
+  }
+  if (!out.out) {
+    console.error(`${LOG} --out <scratchDir> is required`);
+    process.exit(1);
+  }
+  return out;
+}
+
+function spawnAsync(cmd, args, opts) {
+  return new Promise((resolve) => {
+    const child = spawn(cmd, args, opts);
+    child.on('close', (status) => resolve({ status }));
+    child.on('error', (err) => {
+      console.error(`${LOG} spawn ${cmd} failed:`, err);
+      resolve({ status: 1 });
+    });
+  });
+}
+
+/**
+ * Fail closed before a client-chunk upload or shard push when the workflow's
+ * lease watcher has reported a loss. The watcher is deliberately external to
+ * this driver so the same R2 lock remains shared with fast-publish/resync.
+ * Dry runs may omit the enforcement flag because they do not publish. Every
+ * non-dry invocation must be armed by the workflow's lease enforcement before
+ * it can reach a client-chunk upload or shard push.
+ */
+function assertArticleChunkLease({ required = false } = {}) {
+  if (process.env.ARTICLE_CHUNK_LOCK_ENFORCE !== 'true') {
+    if (required) {
+      throw new Error(`${LOG} article chunk lock enforcement is required for non-dry publication`);
+    }
+    return;
+  }
+
+  const failureFile = process.env.ARTICLE_CHUNK_LOCK_FAILURE_FILE;
+  const pidFile = process.env.ARTICLE_CHUNK_LOCK_PID_FILE;
+  if (!failureFile || !pidFile) {
+    throw new Error(`${LOG} article chunk lock watcher paths are not configured`);
+  }
+  if (fs.existsSync(failureFile) && fs.statSync(failureFile).size > 0) {
+    const reason = fs.readFileSync(failureFile, 'utf8').trim();
+    throw new Error(`${LOG} article chunk lock was lost${reason ? `: ${reason}` : ''}`);
+  }
+
+  const pid = Number(fs.readFileSync(pidFile, 'utf8').trim());
+  if (!Number.isInteger(pid) || pid <= 0) {
+    throw new Error(`${LOG} article chunk lock watcher PID is invalid`);
+  }
+  try {
+    process.kill(pid, 0);
+  } catch (err) {
+    throw new Error(`${LOG} article chunk lock watcher is no longer alive: ${err.message}`);
+  }
+}
+
+async function publishClientChunks(
+  sections,
+  dryRun,
+  { clientArticleIdsBySection = new Map(), scratchDir = null } = {},
+) {
+  const filteredSections = sections.filter((section) => clientArticleIdsBySection.has(section));
+  const unfilteredSections = sections.filter((section) => !clientArticleIdsBySection.has(section));
+  const invocations = [];
+  if (unfilteredSections.length > 0) invocations.push({ sections: unfilteredSections, ids: null });
+  for (const section of filteredSections) {
+    const ids = clientArticleIdsBySection.get(section);
+    if (!Array.isArray(ids) || ids.length === 0) {
+      throw new Error(`${LOG} client-only publication for ${section} has no proven article ids`);
+    }
+    invocations.push({ sections: [section], ids });
+  }
+
+  for (const invocation of invocations) {
+    const args = [
+      '-y',
+      'tsx@4.23.15',
+      path.join(ROOT_DIR, 'scripts', 'publish-article-chunks.mjs'),
+    ];
+    if (invocation.sections.length === 1) args.push('--section', invocation.sections[0]);
+    let includeIdsFile = null;
+    if (invocation.ids) {
+      if (!scratchDir) throw new Error(`${LOG} client-only publication has no scratch directory`);
+      includeIdsFile = path.join(scratchDir, `client-article-ids-${invocation.sections[0]}.json`);
+      fs.writeFileSync(includeIdsFile, JSON.stringify(invocation.ids) + '\n', 'utf8');
+      args.push('--include-ids-file', includeIdsFile);
+    }
+    args.push('--strict', '--no-ticker');
+    if (dryRun) args.push('--dry-run');
+
+    console.log(
+      `${LOG} publishing client article chunks before hub shards` +
+        (invocation.ids ? ` (live-proven subset for ${invocation.sections[0]})` : '') +
+        (dryRun ? ' (dry run)' : ''),
+    );
+    try {
+      const { status } = await spawnAsync('npx', args, {
+        stdio: 'inherit',
+        env: process.env,
+        cwd: ROOT_DIR,
+      });
+      if (status !== 0) {
+        throw new Error(`${LOG} client article chunk publication failed (exit ${status})`);
+      }
+    } finally {
+      if (includeIdsFile) fs.rmSync(includeIdsFile, { force: true });
+    }
+  }
+}
+
+/**
+ * The one page in a locale's archive family that is not a `page-N` — i.e. the
+ * `/tutti/` landing itself.
+ *
+ * Found by shape rather than by index. `pathsByLocale[locale][0]` happens to
+ * be it today, but the ordering is an emission detail of
+ * `renderArticleHubPagesCore`, and a validation that silently starts checking
+ * page-2 instead is worse than no validation. Locale-agnostic on purpose: the
+ * slug differs per locale (`tutti` / `all` / `alle` / `tous`) and hardcoding
+ * the four would be a fifth copy of a table that already exists.
+ *
+ * Matched POSITIVELY on the directory form. "Not a page-N" alone is not
+ * enough: the hub families also emit a FLAT `…/page-2.html` bridge next to
+ * every `…/page-2/index.html`, and a `/page-\d+\//` test does not see it — so
+ * a family whose landing ever went missing would silently validate a redirect
+ * bridge instead.
+ */
+function findArchiveLanding(paths) {
+  return (
+    paths.find((p) => p.endsWith('/index.html') && !/\/page-\d+\/index\.html$/.test(p)) ?? null
+  );
+}
+
+/**
+ * Count the article cards emitted by the Italian archive family.
+ *
+ * The fast publisher and the section rerender use the same archive renderer,
+ * so the corpus freshness proof must measure the same rendered population in
+ * both paths.
+ */
+export function countRenderedArticleArchiveItems({ distDir, archivePathsByLocale } = {}) {
+  let itemCount = 0;
+  for (const relPath of archivePathsByLocale?.it ?? []) {
+    const file = path.join(distDir, relPath);
+    if (!fs.existsSync(file)) continue;
+    itemCount += (fs.readFileSync(file, 'utf-8').match(/<li>/g) ?? []).length;
+  }
+  return itemCount;
+}
+
+/**
+ * Refuse to publish bytes that would break the pages they replace.
+ *
+ * Every check here defends a failure that renders "successfully". None of them
+ * are hypothetical: each one has a live incident behind it, recorded in the
+ * comment on the check.
+ */
+function validateRenderedSection({ section, distDir, pathsByLocale, archivePathsByLocale }) {
+  const errors = [];
+  const notes = [];
+
+  // 1. Every promised path must exist and be non-empty. A path in the summary
+  //    that is not on disk fails push-article-shard-incremental.sh's own
+  //    source check half-way through a locale, leaving a partially-pushed
+  //    section.
+  for (const locale of Object.keys(pathsByLocale)) {
+    for (const rel of pathsByLocale[locale]) {
+      let size = -1;
+      try {
+        size = fs.statSync(path.join(distDir, rel)).size;
+      } catch {
+        /* stays -1 */
+      }
+      if (size <= 0) errors.push(`${section}/${locale}: missing or empty rendered file: ${rel}`);
+    }
+  }
+
+  // 2. Each locale must have an archive family with a landing page. An empty
+  //    `pathsByLocale` entry means the render produced nothing for that locale
+  //    and the push would be a no-op that looks like a success.
+  for (const locale of Object.keys(archivePathsByLocale)) {
+    const landing = findArchiveLanding(archivePathsByLocale[locale]);
+    if (!landing) {
+      errors.push(
+        `${section}/${locale}: no non-paginated archive landing among ${archivePathsByLocale[locale].length} archive page(s)`,
+      );
+    }
+  }
+
+  // 3. The archive must LIST something. `renderArticleHubPagesCore` emits an
+  //    empty archive by design when the registry resolves to nothing — it does
+  //    not fail, it publishes nothing over a live page that had 3129 entries.
+  //    This is the check that caught the first corpus-side render producing
+  //    four pages with zero <li> items because the registry symlinks were
+  //    missing.
+  //
+  //    Counted across the WHOLE `it` family, not just the landing: the landing
+  //    holds one page of 100, so a landing-only count is a constant that says
+  //    nothing about the corpus behind it — and it is this number check 5
+  //    compares against the published manifest. Measured 2026-08-09 on
+  //    svizzera: 100+100+100+100+100+100+49 = 649, exactly
+  //    `manifest.counts.swissArticles`. The bare `<li>` pattern is what makes
+  //    that exact — pagination and nav emit `<li class="…">`, which it does
+  //    not match — and it is the same pattern the corpus workflow's own
+  //    empty-archive gate uses.
+  const itArchive = archivePathsByLocale.it ?? [];
+  const itemCount = countRenderedArticleArchiveItems({ distDir, archivePathsByLocale });
+  if (itArchive.length > 0 && itemCount < 1) {
+    errors.push(
+      `${section}: the IT archive (${itArchive.length} page(s)) lists 0 articles — refusing to publish an empty archive over the live one`,
+    );
+  } else if (itArchive.length > 0) {
+    notes.push(`${section}: IT archive lists ${itemCount} items across ${itArchive.length} page(s)`);
+  }
+
+  // 4. No page may leave with a same-origin `/assets/` reference (issue
+  //    #5270). This is the BYTE gate, deliberately separate from the
+  //    source-order test: it holds even if the rewrite ever moves elsewhere.
+  //    The deploy deletes `dist/assets`, so such a ref is a guaranteed 404 —
+  //    no CSS, no SPA bundle, no AdSense loader on every page pushed.
+  //
+  //    Anchored on `src="` / `href="`: a healthy page still contains
+  //    `href*="/assets/"` inside an inline CSS selector (the print-media swap),
+  //    which is not a resource reference and must not fail anything.
+  const assetRx = /(src|href)="\/assets\/[^"]/;
+  const offenders = [];
+  for (const locale of Object.keys(pathsByLocale)) {
+    for (const rel of pathsByLocale[locale]) {
+      const abs = path.join(distDir, rel);
+      if (!fs.existsSync(abs)) continue;
+      if (assetRx.test(fs.readFileSync(abs, 'utf-8'))) offenders.push(rel);
+    }
+  }
+  if (offenders.length > 0) {
+    errors.push(
+      `${section}: ${offenders.length} rendered page(s) still carry same-origin /assets/ refs (404 in production — issue #5270). First: ${offenders.slice(0, 5).join(', ')}`,
+    );
+  }
+
+  return { errors, notes, itemCount };
+}
+
+/**
+ * Compare what the archive just listed against the published corpus manifest.
+ * See MAX_ARTICLES_BEHIND for the regression this exists to prevent.
+ *
+ * The count is only a coarse guard. A published fast-path article can make the
+ * live hub move ahead before `slugs.json` catches up, without changing the
+ * manifest count that the corpus-main overlay reads. The identity checks below
+ * therefore compare the pinned corpus registry with both published IDs and the
+ * cards already served by the hub. When the only drift is corpus-main-ahead and
+ * the live hub already proves those new IDs, the client registry can safely
+ * catch up. If the live hub is ahead of the pinned snapshot, the existing live
+ * bytes remain authoritative and this rerender is deferred until the snapshot
+ * catches up; publishing the older snapshot would move the client backwards.
+ * Any unreadable external source fails closed: this function authorises a
+ * destructive replacement of live bytes, so an unproved snapshot is not safe
+ * to publish.
+ */
+export async function checkCorpusFreshness(
+  section,
+  itemCount,
+  {
+    localRegistry = readLocalRegistry(section),
+    corpusCheckoutDir = null,
+    changeAtById = {},
+    nowEpochSeconds = Math.floor(Date.now() / 1000),
+    articleChangeTimestamp = corpusArticleChangeTimestamp,
+  } = {},
+) {
+  let manifest;
+  try {
+    const res = await fetchArticleHubResource(MANIFEST_URL, {
+      label: `${section} corpus manifest ${MANIFEST_URL}`,
+      readResponse: (response) => response.json(),
+    });
+    manifest = res;
+  } catch (err) {
+    return {
+      ok: false,
+      note: `${section}: corpus manifest unreachable (${err.message}) — refusing publication without a freshness proof`,
+    };
+  }
+  const published =
+    section === 'svizzera' ? manifest?.counts?.swissArticles : manifest?.counts?.articles;
+  if (typeof published !== 'number') {
+    return { ok: false, note: `${section}: manifest carries no usable count — refusing publication without a freshness proof` };
+  }
+  const behind = published - itemCount;
+
+  let publishedSurface;
+  try {
+    publishedSurface = await fetchPublishedSection(section);
+  } catch (err) {
+    return {
+      ok: false,
+      note: `${section}: published registry unreadable (${err.message}) — refusing publication without an identity proof`,
+    };
+  }
+  const publishedIds = publishedSurface.ids;
+  const missingIds = missingPublishedIds(localRegistry, publishedIds);
+  const unpublishedIds = unpublishedLocalIds(localRegistry, publishedIds);
+  const driftIds = [...new Set([...missingIds, ...unpublishedIds])];
+  // The two quantity limits come first. Neither needs a commit date, and each
+  // date is a history lookup in the blobless corpus clone: a handoff too large
+  // to defer is refused before the first one.
+  if (behind > MAX_ARTICLES_BEHIND) {
+    const identityNote = driftIds.length > 0
+      ? ` Registry drift: ${driftDetails(missingIds, unpublishedIds)}.`
+      : '';
+    return {
+      ok: false,
+      note:
+        `${section}: the corpus-main archive lists ${itemCount} articles, the published corpus has ${published} ` +
+        `(${behind} behind, tolerance ${MAX_ARTICLES_BEHIND}). Refusing to push a stale archive over a fresher live one — ` +
+        'the published corpus count is too far from the rendered snapshot; refusing the replacement.'
+        + identityNote,
+    };
+  }
+  const driftTimestamps = { ...changeAtById };
+  if (driftIds.length <= MAX_ARTICLES_BEHIND) {
+    for (const id of driftIds) {
+      if (Object.prototype.hasOwnProperty.call(driftTimestamps, id) || !corpusCheckoutDir) continue;
+      try {
+        // Twice the tolerated age: enough to tell a recent handoff from a
+        // stale one, without walking the whole registry history.
+        driftTimestamps[id] = articleChangeTimestamp(corpusCheckoutDir, section, id, {
+          sinceEpochSeconds: nowEpochSeconds - 2 * MAX_CORPUS_DRIFT_AGE_SECONDS,
+        });
+      } catch {
+        driftTimestamps[id] = null;
+      }
+    }
+  }
+  const drift = decideCorpusRegistryDrift({
+    section,
+    localRegistry,
+    publishedIds,
+    changeAtById: driftTimestamps,
+    nowEpochSeconds,
+  });
+  let liveHub;
+  let handoff = drift;
+  let recoveredLiveHandoff = false;
+  let retiredLiveOnlySlugs = [];
+
+  // A corpus publisher can place a new article and its hub card on the
+  // serving shard before its API registry (`slugs.json`) is visible. In this
+  // one-way race, a live-hub proof lets the client catch up for the IDs already
+  // served, without exposing a corpus-main-only ID whose card is not live yet.
+  // Hub HTML stays deferred for every mixed handoff because this renderer has
+  // no exclude-id input. A retired/published-ahead drift still follows the
+  // original fail-closed path.
+  if (drift.action === 'defer' && missingIds.length === 0 && unpublishedIds.length > 0) {
+    try {
+      liveHub = await fetchLiveHubSlugs(section);
+    } catch (err) {
+      return {
+        ok: false,
+        deferred: true,
+        note: `${drift.note}; live hub proof unavailable (${err.message}) — no HTML or client chunks will be published`,
+      };
+    }
+    const notYetLive = unpublishedIdsAbsentFromLiveHub(localRegistry, unpublishedIds, liveHub.slugs);
+    if (notYetLive.length > 0) {
+      if (notYetLive.length < unpublishedIds.length) {
+        const notYetLiveSet = new Set(notYetLive);
+        const servedIds = unpublishedIds.filter((id) => !notYetLiveSet.has(id));
+        const clientArticleIds = Object.keys(localRegistry).filter((id) => !notYetLiveSet.has(id));
+        return {
+          ok: false,
+          deferred: true,
+          clientOnly: true,
+          clientArticleIds,
+          note:
+            `${drift.note}; live hub already serves corpus-main ID(s) ${servedIds.join(', ')}; `
+            + `publishing the proven client registry subset (${clientArticleIds.join(', ')}) while deferring hub HTML `
+            + `and not-yet-live ID(s) ${notYetLive.join(', ')}`,
+        };
+      }
+      return {
+        ok: false,
+        deferred: true,
+        note:
+          `${drift.note}; live hub does not yet serve corpus-main ID(s) ${notYetLive.join(', ')} `
+          + '— no HTML or client chunks will be published',
+      };
+    }
+    handoff = {
+      ...drift,
+      action: 'proceed',
+      ok: true,
+      deferred: false,
+      note:
+        `${section}: corpus-main-only handoff is already served by the live hub for ${unpublishedIds.join(', ')}; `
+        + 'publishing the client registry now closes the hub/client parity window',
+    };
+    recoveredLiveHandoff = true;
+  }
+
+  if (handoff.action !== 'proceed') {
+    return { ok: false, deferred: handoff.deferred, note: handoff.note };
+  }
+
+  if (!liveHub) {
+    try {
+      liveHub = await fetchLiveHubSlugs(section);
+    } catch (err) {
+      return {
+        ok: false,
+        note: `${section}: live hub unreadable (${err.message}) — refusing publication without a served-snapshot proof`,
+      };
+    }
+  }
+  const missingLiveSlugs = missingLiveHubSlugs(localRegistry, liveHub.slugs);
+  if (missingLiveSlugs.length > 0) {
+    let provenLiveOnlySlugs;
+    try {
+      provenLiveOnlySlugs = await proveLiveOnlySlugs(section, missingLiveSlugs);
+    } catch (err) {
+      return {
+        ok: false,
+        note:
+          `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from corpus main ` +
+          `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); runtime overlay proof unavailable (${err.message}), ` +
+          'refusing to move the client behind the hub',
+      };
+    }
+    const provenSet = new Set(provenLiveOnlySlugs);
+    const unprovenLiveOnlySlugs = missingLiveSlugs.filter((slug) => !provenSet.has(slug));
+    if (unprovenLiveOnlySlugs.length > 0) {
+      // Replace a stale HTML card only when both independent publication
+      // surfaces exclude it. Incomplete registry data or a mixed proof stays
+      // fail-closed so a real live-only handoff cannot be discarded.
+      const canRetireStaleCards = provenLiveOnlySlugs.length === 0
+        && publishedSurface.completeItalianSlugs
+        && unprovenLiveOnlySlugs.every((slug) => !publishedSurface.italianSlugs.has(slug));
+      if (!canRetireStaleCards) {
+        return {
+          ok: false,
+          note:
+            `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from corpus main ` +
+            `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); runtime overlay did not prove ` +
+            `${unprovenLiveOnlySlugs.slice(0, 5).join(', ')}, refusing to move the client behind the hub`,
+        };
+      }
+      retiredLiveOnlySlugs = unprovenLiveOnlySlugs;
+    } else {
+      return {
+        ok: false,
+        deferred: true,
+        note:
+          `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from the pinned corpus snapshot ` +
+          `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); the runtime overlay proves ` +
+          `${provenLiveOnlySlugs.join(', ')} as a live publication handoff — deferring hub and client publication until corpus main converges`,
+      };
+    }
+  }
+
+  return {
+    ok: true,
+    note:
+      `${section}: archive lists ${itemCount}, published corpus has ${published} ` +
+      `(${behind} behind, tolerance ${MAX_ARTICLES_BEHIND}); ` +
+      (recoveredLiveHandoff
+        ? `${handoff.note}; live hub and corpus-main identities converge`
+        : 'registry and live hub identities converge')
+      + (retiredLiveOnlySlugs.length > 0
+        ? `; replacing stale live-only card(s) excluded from the complete published registry and runtime overlay: ${retiredLiveOnlySlugs.join(', ')}`
+        : ''),
+  };
+}
+
+/** Test seam — a test must not retain a mocked published registry between cases. */
+export function __resetCorpusFreshnessCache() {
+  publishedSlugsPromiseBySection.clear();
+}
+
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const t0 = Date.now();
+  const leaseRequired = !args.dryRun;
+
+  const overlayMode = decideCorpusOverlayMode({
+    isCi: process.env.GITHUB_ACTIONS === 'true',
+    dryRun: args.dryRun,
+    explicit: args.allowContentOverlay,
+  });
+  if (overlayMode.mode === 'refuse') throw new Error(overlayMode.reason);
+
+  // Refuse an armed direct invocation before rendering or publishing anything.
+  // The workflow is the only supported non-dry caller because it owns the
+  // shared R2 section lease and its watcher paths.
+  assertArticleChunkLease({ required: leaseRequired });
+
+  const publishedCorpusCommit = overlayMode.mode === 'overlay'
+    ? await fetchPublishedCorpusCommit()
+    : null;
+  const corpusOverlay = overlayMode.mode === 'overlay'
+    ? prepareCorpusContentOverlay({
+      rootDir: ROOT_DIR,
+      commit: publishedCorpusCommit,
+      retainCheckout: true,
+      logPrefix: LOG,
+    })
+    : { commit: null, contentRevision: null, checkoutDir: null, cleanup: null };
+  if (overlayMode.mode === 'local') console.log(`${LOG} ${overlayMode.reason}`);
+
+  try {
+    // Before the first dynamic import of any build plugin — see the function's
+    // own doc comment for why later is a no-op.
+    pinRenderEnv();
+
+    const sections = args.section === 'all' ? SECTIONS : [args.section];
+    const targetLocales = args.locale === 'all' ? LOCALES : [args.locale];
+    const outRoot = path.resolve(args.out);
+    fs.mkdirSync(outRoot, { recursive: true });
+
+    const summary = {
+      generatedAt: new Date().toISOString(),
+      dryRun: args.dryRun,
+      corpusCommit: corpusOverlay.commit,
+      corpusContentRevision: corpusOverlay.contentRevision,
+      contentOverlay: overlayMode,
+      sections: {},
+    };
+    let fatal = false;
+    const freshnessBySection = new Map();
+    const deferredSections = [];
+    const clientArticleIdsBySection = new Map();
+
+    // The hub HTML and the client registry are two representations of the same
+    // article snapshot. Render and validate every target section before
+    // publishing any client chunk: the corpus-freshness guard needs the rendered
+    // item count, and a non-converged publication handoff must not upload a
+    // registry only to leave its matching hub on another snapshot. Once every
+    // section has passed its local and freshness gates, strict companion/registry
+    // publication happens before the shard push so a hub never becomes servable
+    // before its matching client assets exist. On the armed workflow this all
+    // runs inside the shared section lease.
+
+    for (const section of sections) {
+      // A scratch dist PER SECTION. Not an optimisation — the CDN offload is a
+      // whole-dist walk and the topic sitemap is written per section, so sharing
+      // one dist across sections would make each section's offload re-walk the
+      // other's pages and give the push fan-out no way to tell them apart.
+      const distDir = path.join(outRoot, section);
+      fs.mkdirSync(distDir, { recursive: true });
+
+      console.log(`${LOG} ── rendering ${section} hubs into ${distDir}`);
+      const { landingResult, hubResult, topicHubResult } = await renderHubsAndOffload({
+        rootDir: ROOT_DIR,
+        distDir,
+        section,
+        logPrefix: LOG,
+      });
+
+      const archivePathsByLocale = {};
+      for (const locale of LOCALES) {
+        archivePathsByLocale[locale] = hubResult.pathsByLocale?.[locale] ?? [];
+      }
+      const pathsByLocale = hubPathsByLocale({ landingResult, hubResult, topicHubResult }, LOCALES);
+      const totalPaths = Object.values(pathsByLocale).reduce((n, l) => n + l.length, 0);
+      console.log(
+        `${LOG} ${section}: ${landingResult.written} root landing(s) + ${hubResult.written} archive file(s) + ` +
+          `${topicHubResult.written} topic-hub file(s) written; ${totalPaths} path(s) to push`,
+      );
+
+      // A topic-hub render that produced nothing is NOT fatal — step 6c is
+      // non-blocking by contract, and pushing the archive alone still repairs
+      // half the problem. It is loud, though: this driver's whole reason to
+      // exist is that nothing else re-renders the topic hubs at all.
+      if (topicHubResult.written === 0) {
+        console.warn(
+          `::warning::${LOG} ${section}: the topic-hub render produced no files — pushing the archive only`,
+        );
+      }
+
+      const { errors, notes, itemCount } = validateRenderedSection({
+        section,
+        distDir,
+        pathsByLocale,
+        archivePathsByLocale,
+      });
+      for (const landingError of landingResult.errors ?? []) errors.push(landingError);
+      for (const n of notes) console.log(`${LOG} ${n}`);
+
+      const freshness = await checkCorpusFreshness(section, itemCount, {
+        corpusCheckoutDir: corpusOverlay.checkoutDir,
+      });
+      freshnessBySection.set(section, freshness);
+      console.log(`${LOG} ${freshness.note}`);
+      if (freshness.deferred) {
+        deferredSections.push(section);
+        if (freshness.clientOnly) {
+          clientArticleIdsBySection.set(section, freshness.clientArticleIds);
+          console.warn(
+            `::warning::${LOG} ${freshness.note} — only the live-proven client subset will be published; hub HTML remains deferred`,
+          );
+        } else {
+          console.warn(`::warning::${LOG} ${freshness.note} — no bytes will be published`);
+        }
+      } else if (!freshness.ok) {
+        errors.push(freshness.note);
+      }
+
+      if (errors.length > 0) {
+        for (const e of errors) console.error(`::error::${LOG} ${e}`);
+        fatal = true;
+      }
+
+      summary.sections[section] = {
+        shardToken: shardTokenForSection(section),
+        distDir,
+        landingWritten: landingResult.written,
+        archiveWritten: hubResult.written,
+        topicHubWritten: topicHubResult.written,
+        landingPathsByLocale: landingResult.pathsByLocale,
+        landingErrors: landingResult.errors,
+        archiveLandingByLocale: Object.fromEntries(
+          LOCALES.map((l) => [l, findArchiveLanding(archivePathsByLocale[l])]),
+        ),
+        pathsByLocale,
+        sitemapPath: topicHubResult.sitemapPath ?? null,
+        announcedUrlCount: topicHubResult.announcedUrlPaths?.length ?? 0,
+        deferred: Boolean(freshness.deferred),
+        clientOnly: Boolean(freshness.clientOnly),
+        clientArticleIds: freshness.clientArticleIds ?? null,
+        freshnessNote: freshness.note,
+        validationErrors: errors,
+      };
+    }
+
+  if (args.summary) {
+    const summaryPath = path.resolve(args.summary);
+    fs.mkdirSync(path.dirname(summaryPath), { recursive: true });
+    fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2) + '\n', 'utf-8');
+    console.log(`${LOG} summary written to ${summaryPath}`);
+  }
+
+  if (fatal) {
+    console.error(`${LOG} validation failed — nothing pushed`);
+    process.exitCode = 1;
+    return;
+  }
+
+  // A bounded registry mismatch is an expected handoff between corpus `main`
+  // and the published API. A mixed handoff can publish only the IDs proved by
+  // the live hub; the rendered hub itself remains deferred until all IDs are
+  // live. Other sections that passed their freshness gate may still complete.
+  const publishableSections = sections.filter((section) => !freshnessBySection.get(section)?.deferred);
+  const clientPublicationSections = sections.filter(
+    (section) => !freshnessBySection.get(section)?.deferred || clientArticleIdsBySection.has(section),
+  );
+
+  // No external client asset may move until its section has passed the local
+  // gates. Strict mode requires every upload and purge to succeed; the lease
+  // is rechecked after the render, which may be long enough for the watcher to
+  // report a loss. A client-only section uses an ID allow-list so an article
+  // whose hub card is not live cannot enter the browser registry early.
+  if (clientPublicationSections.length > 0) {
+    assertArticleChunkLease({ required: leaseRequired });
+    await publishClientChunks(clientPublicationSections, args.dryRun, {
+      clientArticleIdsBySection,
+      scratchDir: outRoot,
+    });
+  }
+
+  if (args.dryRun) {
+    if (deferredSections.length > 0 && process.env.GITHUB_OUTPUT) {
+      fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
+    }
+    console.log(`${LOG} --dry-run set — rendered and validated, pushed nothing`);
+    console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+    return;
+  }
+
+  if (publishableSections.length === 0) {
+    if (deferredSections.length > 0 && process.env.GITHUB_OUTPUT) {
+      fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
+    }
+    console.log(`${LOG} freshness deferred for ${deferredSections.join(', ')} — no hub shards pushed`);
+    return;
+  }
+
+  // The chunk publisher may take long enough for the lease watcher to report a
+  // loss after its final purge. Do not start a shard mutation in that window.
+  assertArticleChunkLease({ required: leaseRequired });
+
+  // ── Push: ONE invocation per (section, locale) ────────────────────────────
+  //
+  // One, not several. Two pushes to the same shard repo seconds apart start
+  // two concurrent GitHub Pages builds, and one of them goes `errored`
+  // systematically — visible for days in frontaliere-articolisvizzera-it's
+  // history as a PAIR of builds at the same minute. On 2026-08-06 11:34 both
+  // failed and the origin served a 404 for hours with the commit sitting in
+  // the shard. So the archive and the topic hubs travel together in a single
+  // call, and this loop is deliberately not chunked:
+  // push-article-shard-incremental.sh takes an arbitrary relpath list, and a
+  // section+locale is ~30 archive pages + ~100 topic hubs + 1 root landing ≈ 8 KB of argv,
+  // three orders of magnitude under ARG_MAX. Chunking would reintroduce the
+  // exact multi-build race this comment is about.
+  //
+  // Serial ACROSS locales: the watcher must be checked after each completed
+  // mutation and before the next one. Four distinct shard repos could be
+  // pushed in parallel, but doing so would start every mutation before a
+  // failure file written during the first push could be observed. A failing
+  // locale is still recorded and does not abort the other locales unless the
+  // shared lease itself has been lost.
+  const pushScript = path.join(ROOT_DIR, 'scripts', 'lib', 'push-article-shard-incremental.sh');
+  const { pushFailed } = await pushRenderedLocales({
+    sections: publishableSections,
+    targetLocales,
+    summary,
+    pushScript,
+    articleContentRevision: corpusOverlay.contentRevision,
+  });
+
+  if (args.summary) {
+    fs.writeFileSync(path.resolve(args.summary), JSON.stringify(summary, null, 2) + '\n', 'utf-8');
+  }
+
+  if (deferredSections.length > 0) {
+    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
+    console.log(`${LOG} freshness deferred for ${deferredSections.join(', ')} — proven client subsets published; deferred hub shards left unchanged`);
+  }
+
+  console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+  if (pushFailed) process.exitCode = 1;
+  } finally {
+    corpusOverlay.cleanup?.();
+  }
+}
+
+/**
+ * Push one section's locale shards in order, rechecking the shared lease
+ * between every mutation. `spawn` is injectable so the lease-loss boundary is
+ * covered without starting real shard pushes in the unit test.
+ */
+export async function pushRenderedLocales({
+  sections,
+  targetLocales,
+  summary,
+  pushScript,
+  articleContentRevision = '',
+  spawn: spawnCommand = spawnAsync,
+}) {
+  let pushFailed = false;
+
+  for (const section of sections) {
+    const entry = summary.sections[section];
+    const results = [];
+    for (const locale of targetLocales) {
+      const relpaths = entry.pathsByLocale[locale] ?? [];
+      if (relpaths.length === 0) {
+        console.log(`${LOG} ${entry.shardToken}-${locale}: nothing to push`);
+        results.push({ locale, status: 0 });
+        continue;
+      }
+      // This check is deliberately adjacent to the mutation. If the watcher
+      // writes the failure file while the previous locale is pushing, this
+      // throws before the next locale can invoke the shard push.
+      assertArticleChunkLease({ required: true });
+      console.log(`${LOG} pushing ${relpaths.length} path(s) to ${entry.shardToken}-${locale}`);
+      const { status } = await spawnCommand(
+        'bash',
+        [pushScript, entry.shardToken, locale, entry.distDir, ...relpaths],
+        {
+          stdio: 'inherit',
+          env: { ...process.env, ARTICLE_CONTENT_REVISION: articleContentRevision || '' },
+          cwd: ROOT_DIR,
+        },
+      );
+      results.push({ locale, status });
+    }
+    entry.pushedLocales = results.filter((r) => r.status === 0).map((r) => r.locale);
+    for (const r of results) {
+      if (r.status !== 0) {
+        console.error(
+          `::warning::${LOG} ${entry.shardToken}-${r.locale} push failed (exit ${r.status}) — continuing with the other locales`,
+        );
+        pushFailed = true;
+      }
+    }
+  }
+
+  return { pushFailed };
+}
+
+// Standalone only when invoked directly (repo idiom — see
+// scripts/rerender-article-corpus.mjs), so a plain `import` of this module
+// cannot execute a whole side-effecting run.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => {
+    console.error(`${LOG} fatal error:`, err);
+    process.exit(1);
+  });
+}

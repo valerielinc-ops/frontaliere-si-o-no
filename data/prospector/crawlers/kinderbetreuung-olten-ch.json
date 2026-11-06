@@ -1,0 +1,19 @@
+{
+  "companyKey": "kinderbetreuung-olten-ch",
+  "companyName": "kinderbetreuung-olten",
+  "companyHost": "krippenstellen.ch",
+  "platform": "krippenstellen.ch",
+  "mode": "microdata",
+  "seedUrls": [
+    "https://krippenstellen.ch/de/inserate/71553"
+  ],
+  "detailTemplate": "/de/inserate",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Pädagogische Fachkraft"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T10:58:52.567Z"
+}

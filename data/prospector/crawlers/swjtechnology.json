@@ -1,0 +1,25 @@
+{
+  "companyKey": "swjtechnology",
+  "companyName": "SWJ TECHNOLOGY, LLC",
+  "companyHost": "swjtechnology.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://swjtechnology.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 18,
+  "sampleTitles": [
+    "Administrative Support Specialist (bilingual english/ german)",
+    "Automotive Packaging Planning Specialist",
+    "BAS-Engineer – Building Automation & Utilities",
+    "Building / Project Manager / Industrial Engineer",
+    "Building Electrician"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:20:55.616Z",
+  "candidateKey": "swjtechnology@applytojob.com"
+}

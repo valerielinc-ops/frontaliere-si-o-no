@@ -1,0 +1,27 @@
+{
+  "companyKey": "bratschi-ch",
+  "companyName": "Bratschi SA",
+  "companyHost": "bratschi.ch",
+  "verifiedEmployerDomain": "bratschi.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.bratschi.ch/karriere"
+  ],
+  "detailTemplate": "/karriere/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Rechtsanwältin / Rechtsanwalt (100%) für unser Team im öffentlichen Recht",
+    "Rechtsanwältin / Rechtsanwalt (80-100%)",
+    "Rechtsanwältin / Rechtsanwalt (80-100%) mit Schwerpunkt privates Bau- und Immobilienrecht",
+    "Rechtsanwältin / Rechtsanwalt (80–100%) im Bereich Technologie-, Datenschutz- und Vertragsrecht",
+    "Assistentin / Assistenten Notariat und Advokatur (60-100%)"
+  ],
+  "canton": "VD",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-06T13:07:22.247Z",
+  "candidateKey": "bratschi@lausanne"
+}

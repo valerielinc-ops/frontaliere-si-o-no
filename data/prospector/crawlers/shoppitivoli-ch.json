@@ -1,0 +1,19 @@
+{
+  "companyKey": "shoppitivoli-ch",
+  "companyName": "shoppitivoli",
+  "companyHost": "join.com",
+  "platform": "join.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://join.com/companies/leonardocompany/16822358-barista-20-40-60-80-80-100-w-m-d?widgetv2=true&amp;pid=d73d1a20e99ab4ced633"
+  ],
+  "detailTemplate": "/companies/leonardocompany/16822358-barista-20-40-60-80-80-100-w-m-d",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Barista, 20-40%, 60-80%, 80-100%, (w/m/d)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-24T10:47:06.835Z"
+}

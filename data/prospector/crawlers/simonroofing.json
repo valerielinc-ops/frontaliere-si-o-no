@@ -1,0 +1,25 @@
+{
+  "companyKey": "simonroofing",
+  "companyName": "Simon Roofing",
+  "companyHost": "simonroofing.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://simonroofing.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 61,
+  "sampleTitles": [
+    "Architectural Sheet Metal Roofer",
+    "Architectural Sheet Metal Roofer",
+    "Architectural Sheet Metal Roofer",
+    "Architectural Sheet Metal Roofing Foreman- Houston, TX",
+    "Commercial Roofer - Charleston, WV"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:20:59.443Z",
+  "candidateKey": "simonroofing@applytojob.com"
+}

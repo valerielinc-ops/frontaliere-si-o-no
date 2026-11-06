@@ -1,0 +1,405 @@
+import type { CheckedDocument } from './assistedApplicationDocumentCheck';
+import type { EmployerResponse } from './assistedApplicationEmployerResponse';
+/**
+ * Client of the candidate review page of the automated assisted application
+ * (functions/src/assistedApplicationReview.js). The signed token from the
+ * review e-mail is the only credential: no Firebase login is involved.
+ */
+
+import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
+import { mergeLocalPostalDocuments, type LocalPostalDocument } from './assistedApplicationPostalPacket';
+
+export type ReviewAction = 'approve' | 'reject' | 'withdraw' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip'
+  | 'document_upload' | 'document_remove' | 'document_recheck' | 'document_set_prepared' | 'document_set_exemption' | 'photo_upload' | 'photo_remove' | 'cv_lines';
+
+/** The candidate's choice for one line of the tailored CV (functions/src/assistedApplicationReview.js cvChangesView). */
+export interface ReviewCvLineChoice {
+  use: 'adapted' | 'original' | 'own';
+  text?: string;
+}
+
+/** What the tailored CV changed: the summary and each rewritten line beside the CV's own line. */
+export interface ReviewCvChanges {
+  summary: ReviewCvLine | null;
+  roles: Array<{ title: string; employer: string; lines: ReviewCvLine[] }>;
+}
+
+export interface ReviewCvLine {
+  id: string;
+  adapted: string;
+  /** The CV's own line it rewrites ('' when it rewrites none). */
+  original: string;
+  use: ReviewCvLineChoice['use'];
+  text: string;
+}
+
+/** A document the posting asks for besides the CV and the letter (functions/src/assistedApplicationExtraDocuments.js). */
+export interface ReviewDocument {
+  id: string;
+  /** As the posting names it. */
+  label: string;
+  kind: string;
+  /** Words printed on such a document: the browser's check looks for them. */
+  keywords: string[];
+  required: boolean;
+  /** The posting's own words asking for it. */
+  quote: string;
+  /** Instructions supplied by the operator, e.g. the six-month issue date. */
+  instructions: string;
+  delivery: 'upload' | 'offline' | 'service';
+  /** Files stay in the browser and are appended to the postal packet on device. */
+  localOnly?: boolean;
+  exemptions: Array<'municipal_resident' | 'municipal_employee'>;
+  preparedAt: number | null;
+  exemption: 'municipal_resident' | 'municipal_employee' | null;
+  files: Array<{
+    id: string;
+    name: string;
+    size: number;
+    detectedType: string | null;
+    uploadedAt: number | null;
+    clientCheck: { verdict: 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable' | 'unknown'; matched: string; version?: number };
+    url: string | null;
+  }>;
+}
+
+/** A follow-up to the employer waiting for the candidate (af1 link). */
+export interface FollowupPayload {
+  ok: true;
+  kind: 'followup';
+  n: number;
+  of: number;
+  state: 'awaiting_candidate' | 'sent' | 'stopped' | string;
+  locale: string;
+  deadlineAt: number | null;
+  body: string;
+  job: { title: string; company: string };
+  can: { send: boolean; skip: boolean };
+}
+
+export interface ReviewQuestion {
+  id: string;
+  question: string;
+  /** The exact native ATS question, shown as source evidence when candidate copy differs. */
+  localizationStatus?: 'fallback';
+  applicationQuestion?: string;
+  applicationQuestionLocale?: string | null;
+  why: string;
+  type: 'text' | 'yes_no' | 'choice' | 'number' | 'date';
+  options: string[];
+  required: boolean;
+  /** Earliest accepted date (YYYY-MM-DD) for a start-date question, else null. */
+  minDate?: string | null;
+  /** Proposed start date shown in the empty field (saved only by the candidate). */
+  suggested?: string | null;
+  /** Optional answer draft with CV passages selected by the generator; never saved until the candidate saves it. */
+  suggestedAnswer?: string | null;
+  answerEvidence?: string[];
+  /** One fact the CV does not contain and the candidate can add to complete the draft. */
+  answerMissingDetail?: string | null;
+  /** The rule checked as the candidate types (functions/src/lib/answerRules.js). */
+  validation?: {
+    pattern: string;
+    minLength: number;
+    maxLength: number;
+    min: number | null;
+    max: number | null;
+    minDate: '' | 'today';
+    example: string;
+    message: string;
+  } | null;
+}
+
+/** A decisive requirement of the posting the CV does not show (functions/src/assistedApplicationFitNotice.js). */
+export interface ReviewFitGap {
+  /** Short, in Italian (the language of the analysis). */
+  requirement: string;
+  /** The posting’s own words ('' when the requirement was inferred). */
+  quote: string;
+  importance: 'critical' | 'high';
+  status: 'missing' | 'partial';
+}
+
+export interface ReviewFitNotice {
+  /** low: a must-have is clearly missing; partial: some requirements do not show. */
+  level: 'low' | 'partial';
+  gaps: ReviewFitGap[];
+}
+
+/** A proposed form field (functions/src/assistedApplicationCandidateEdits.js). */
+export interface ReviewFormField {
+  key: string;
+  label: string;
+  value: string;
+  editable?: boolean;
+  /** Why it cannot be changed here: the alias address, or a question that asks it. */
+  locked?: 'alias' | 'question' | null;
+  required?: boolean;
+  /** Printed in the letter header (shown for e-mail applications too). */
+  inLetter?: boolean;
+  /** Printed in the tailored CV: shown for e-mail applications too. */
+  inCv?: boolean;
+  /** A closed list (the permit status), in the candidate's language. */
+  options?: string[];
+  validation?: ReviewQuestion['validation'];
+}
+
+/** An editable Word copy the server builds on request (functions/src/assistedApplicationReview.js buildWordCopy): never the file that leaves. */
+export type ReviewWordFile = 'letter.docx' | 'cv.docx';
+export type ReviewDownloadFile = ReviewWordFile | 'postal-packet.pdf';
+
+/** A file the candidate keeps after the sending (keptDocumentsOf). */
+export interface ReviewKeptDocument {
+  kind: 'letter' | 'cvTailored' | 'cvOriginal' | 'cvInplace' | 'dossier' | 'documents' | 'document';
+  /** As it left, e.g. CV_Maria_Rossi.pdf. */
+  name: string;
+  url: string;
+  /** The Word copies offered beside it. */
+  word: ReviewWordFile[];
+  /** A WhatsApp application: the CV highlighted among those the candidate chooses from (never stored as a choice). */
+  suggested?: boolean;
+}
+
+export interface ReviewKeptDocuments {
+  /** sent: the files the runner recorded; prepared: an older order, a WhatsApp application. */
+  source: 'sent' | 'prepared';
+  whatsapp: boolean;
+  files: ReviewKeptDocument[];
+}
+
+export interface ReviewPayload {
+  ok: true;
+  employerResponse?: EmployerResponse | null;
+  employerResponseTimeline?: EmployerResponse[];
+  stale: boolean;
+  /** The link's round was just sent back: its next version is being prepared. */
+  preparingNext?: boolean;
+  state: string;
+  round: number;
+  roundsLeft: number;
+  deadlineAt: number | null;
+  locale: string;
+  job: {
+    title: string;
+    company: string;
+    jobUrl: string;
+    applyUrl: string;
+    channel: string | null;
+    channelLabel: string | null;
+  };
+  /** Postal submission details, visible only on this signed candidate page. */
+  postalSubmission?: {
+    recipient: string;
+    address: string;
+    deadline: string;
+    envelopeMarking: string;
+    instructions: string;
+    officialFormUrl: string | null;
+  } | null;
+  /** Preflight for the single PDF offered when a paper application is ready. */
+  postalPacket?: {
+    ready: boolean;
+    unsupportedFiles: string[];
+    missingDocuments: string[];
+    localDocuments: Array<{ id: string; label: string; required: boolean }>;
+    missingSizes: boolean;
+    tooLarge: boolean;
+    sourceBytes: number;
+    maxBytes: number;
+  } | null;
+  /** Sent as a WhatsApp application (PastaHR): the link the candidate opens from the phone. */
+  whatsappUrl?: string | null;
+  ready: boolean;
+  coverLetter: { subject: string; text: string } | null;
+  coverLetterUrl: string | null;
+  originalCvUrl?: string | null;
+  applicationEmail: { to: string; subject: string; body: string } | null;
+  formAnswers: ReviewFormField[];
+  /** Opaque HMAC of the exact locale-specific edit contract shown on this review. */
+  editSnapshot?: string | null;
+  /** Letter and e-mail lengths accepted by an edit. */
+  editLimits?: Record<'coverLetterText' | 'emailSubject' | 'emailBody', { min: number; max: number }>;
+  /** When the candidate last saved their own changes. */
+  editedAt?: number | null;
+  questions: ReviewQuestion[];
+  /** The posting’s decisive requirements the CV does not show, said above the questions (null: a full match). */
+  fit?: ReviewFitNotice | null;
+  answers: Record<string, string>;
+  /** CV answer suggestions the candidate explicitly cleared in this draft round. */
+  dismissedAnswerSuggestionIds?: string[];
+  /** Opaque version of the exact question payload shown; contains no answer values. */
+  answerQuestionSnapshots?: Record<string, string>;
+  /** School reports, test results… the posting requires besides the CV and the letter. */
+  documents?: ReviewDocument[];
+  documentLimits?: { maxBytes: number; maxFiles: number };
+  feedback: Array<{ round: number; text: string }>;
+  /** The tailored ATS CV, sent unless the candidate chooses their original. */
+  tailoredCv: {
+    url: string | null;
+    choice: 'tailored' | 'original' | 'inplace';
+    /** The candidate gave the optional photo of the tailored CV. */
+    photo?: boolean;
+    /** The PDF linked here carries it (false: the writer in use prints no photo). */
+    photoPrinted?: boolean;
+    /** Customary in German-speaking Switzerland ("recommended"), optional elsewhere. */
+    photoAdvice?: 'recommended' | 'optional';
+    photoMaxBytes?: number;
+    changes?: ReviewCvChanges | null;
+    /** Phase 5: the candidate's own Word file with the adapted lines (null when there is none). */
+    inplace?: { url: string | null; patched: number; kept: number } | null;
+    /** The candidate's line choices changed the Word file: it comes back when they match the checked layout. */
+    inplaceNeedsPageCheck?: boolean;
+    /** The G permit is left out of the CV: the nationality given is not EU/EFTA. */
+    permitOmitted?: boolean;
+  } | null;
+  /** The editable Word copies the server can build now: never sent, never a CV choice. */
+  word?: { letter: boolean; cv: boolean };
+  /** After the sending: the files that left, or the letter and the CV prepared (older order, WhatsApp). */
+  keptDocuments?: ReviewKeptDocuments | null;
+  ats: { original: ReviewAtsView | null; tailored: ReviewAtsView | null } | null;
+  can: { approve: boolean; reject: boolean; withdraw?: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean; uploadDocuments?: boolean; uploadPhoto?: boolean; reviewCvLines?: boolean };
+}
+
+export interface ReviewAtsView {
+  grade: string | null;
+  keywordCoverage: number | null;
+  missing: string[];
+}
+
+export class ReviewRequestError extends Error {
+  constructor(public readonly code: string, public readonly fields: Record<string, string> = {}) {
+    super(code);
+  }
+}
+
+// ar1 = review of the application, af1 = a follow-up to approve.
+const TOKEN_RE = /^a[rf]1\.[A-Za-z0-9_-]{6,128}\.\d{1,2}\.[0-9a-z]{1,12}\.[0-9a-f]{32}$/;
+
+/** The review token from the current URL, or null. */
+export function readReviewToken(search: string = typeof window === 'undefined' ? '' : window.location.search): string | null {
+  const value = new URLSearchParams(search).get('assisted_application_review');
+  return value && TOKEN_RE.test(value) ? value : null;
+}
+
+async function parse(response: Response): Promise<any> {
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok || !data?.ok) {
+    const fields = data?.fields && typeof data.fields === 'object' ? data.fields as Record<string, string> : {};
+    throw new ReviewRequestError(String(data?.error || `http_${response.status}`), fields);
+  }
+  return data;
+}
+
+export async function fetchReview(token: string): Promise<ReviewPayload | FollowupPayload> {
+  const url = new URL(ASSISTED_APPLICATION_REVIEW_URL);
+  url.searchParams.set('t', token);
+  return parse(await fetch(url.toString(), { method: 'GET' })) as Promise<ReviewPayload | FollowupPayload>;
+}
+
+/** Download link from the signed candidate page. */
+export function reviewFileUrl(token: string, file: ReviewDownloadFile): string {
+  const url = new URL(ASSISTED_APPLICATION_REVIEW_URL);
+  url.searchParams.set('t', token);
+  url.searchParams.set('file', file);
+  return url.toString();
+}
+
+/** Backwards-compatible helper for an editable Word copy. */
+export function reviewWordUrl(token: string, file: ReviewWordFile): string {
+  return reviewFileUrl(token, file);
+}
+
+/** Downloads the assembled postal dossier and surfaces a structured API error to the page. */
+export async function downloadPostalPacket(
+  token: string,
+  localDocuments: LocalPostalDocument[] = [],
+  sourceBytes = 0,
+  maxBytes = 0,
+  locale = 'it',
+): Promise<void> {
+  const response = await fetch(reviewFileUrl(token, 'postal-packet.pdf'), { method: 'GET', cache: 'no-store' });
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    throw new ReviewRequestError(typeof body?.error === 'string' ? body.error : 'postal_packet_download_failed', body?.fields || {});
+  }
+  const blob = await response.blob();
+  if (blob.type !== 'application/pdf') throw new ReviewRequestError('postal_packet_download_failed');
+  let packetBlob = blob;
+  if (localDocuments.some((document) => document.files.length > 0)) {
+    if (!maxBytes) throw new ReviewRequestError('postal_packet_download_failed');
+    try {
+      const bytes = await mergeLocalPostalDocuments({ basePdf: await blob.arrayBuffer(), documents: localDocuments, sourceBytes, maxBytes, locale });
+      packetBlob = new Blob([bytes], { type: 'application/pdf' });
+    } catch (error) {
+      const code = error instanceof Error && 'code' in error && typeof error.code === 'string'
+        ? error.code : 'postal_packet_download_failed';
+      throw new ReviewRequestError(code);
+    }
+  }
+  const href = URL.createObjectURL(packetBlob);
+  const link = document.createElement('a');
+  link.href = href;
+  link.download = 'dossier-candidatura-cartacea.pdf';
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(href), 30_000);
+}
+
+export async function sendReviewAction(
+  token: string,
+  action: ReviewAction,
+  extra: {
+    feedback?: string;
+    withdrawalReason?: string;
+    answers?: Record<string, string>;
+    cvChoice?: string;
+    documentId?: string;
+    fileName?: string;
+    contentBase64?: string;
+    clientCheck?: { verdict: string; matched: string; version?: number };
+    fileId?: string;
+    prepared?: boolean;
+    exemption?: string;
+    editSnapshot?: string;
+  } = {},
+): Promise<{ ok: true; state: string }> {
+  return parse(await fetch(ASSISTED_APPLICATION_REVIEW_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ t: token, action, ...extra }),
+  }));
+}
+
+/** Versioned metadata only. The file is read and classified entirely in the browser. */
+export async function recheckReviewDocument(
+  token: string,
+  document: ReviewDocument,
+  file: ReviewDocument['files'][number],
+  signal: AbortSignal,
+): Promise<ReviewDocument['files'][number]['clientCheck'] | null> {
+  const request = async (extra: Record<string, unknown> = {}) => parse(await fetch(ASSISTED_APPLICATION_REVIEW_URL, {
+    method: 'POST', signal, cache: 'no-store', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ t: token, action: 'document_recheck', documentId: document.id, fileId: file.id, ...extra }),
+  }));
+  const descriptor = await request();
+  if (descriptor.state === 'unchanged') return descriptor.clientCheck;
+  if (descriptor.state !== 'ready') return null;
+  const context = descriptor.document;
+  if (!context || typeof context.label !== 'string' || typeof context.kind !== 'string'
+    || !Array.isArray(context.keywords) || !context.keywords.every((word: unknown) => typeof word === 'string')) throw new Error('invalid_check');
+  const checkedDocument: CheckedDocument = { label: context.label, kind: context.kind, keywords: context.keywords };
+  if (descriptor.size !== file.size || descriptor.size > 10 * 1024 * 1024) throw new Error('invalid_file');
+  const response = await fetch(descriptor.url, { signal, credentials: 'omit', cache: 'no-store', referrerPolicy: 'no-referrer' });
+  if (!response.ok) throw new Error('file_unavailable');
+  const declared = Number(response.headers.get('content-length'));
+  if (declared && declared !== descriptor.size) throw new Error('file_changed');
+  const buffer = await response.arrayBuffer();
+  if (buffer.byteLength !== descriptor.size) throw new Error('file_changed');
+  const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', buffer))].map(byte => byte.toString(16).padStart(2, '0')).join('');
+  if (sha256 !== descriptor.sha256) throw new Error('file_changed');
+  const { checkDocumentFile, DOCUMENT_CHECK_VERSION } = await import('./assistedApplicationDocumentCheck');
+  if (descriptor.version !== DOCUMENT_CHECK_VERSION) throw new Error('check_version_changed');
+  const check = await checkDocumentFile(new File([buffer], file.name, { type: file.detectedType === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }), checkedDocument);
+  if (signal.aborted) return null;
+  const result = await request({ descriptor: descriptor.descriptor, sha256, clientCheck: check });
+  return result.state === 'checked' ? result.clientCheck : null;
+}

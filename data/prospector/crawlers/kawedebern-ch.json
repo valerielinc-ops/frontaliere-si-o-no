@@ -1,0 +1,23 @@
+{
+  "companyKey": "kawedebern-ch",
+  "companyName": "KWD Bistrolounge",
+  "companyHost": "ronorp.net",
+  "verifiedEmployerDomain": "kawedebern.ch",
+  "platform": "ronorp.net",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://ronorp.net/market/posts/die-ka-we-de-ist-zuruck-wir-suchen-verstarkung-mit-herzblut"
+  ],
+  "detailTemplate": "/market/posts/die-ka-we-de-ist-zuruck-wir-suchen-verstarkung-mit-herzblut",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "DIE KA-WE-DE IST ZURÜCK - WIR SUCHEN VERSTÄRKUNG MIT HERZBLUT"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-03T13:32:43.461Z",
+  "candidateKey": "kwd-bistrolounge@bern"
+}

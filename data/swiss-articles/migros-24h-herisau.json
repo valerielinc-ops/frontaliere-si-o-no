@@ -1,0 +1,18 @@
+{
+  "id": "migros-24h-herisau",
+  "slug": "migros-24h-herisau",
+  "publishedAt": "2026-06-07T07:44:32.846Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "generic",
+    "score": 0,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

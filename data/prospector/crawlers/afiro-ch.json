@@ -1,0 +1,25 @@
+{
+  "companyKey": "afiro-ch",
+  "companyName": "Afiro (Ecublens)",
+  "companyHost": "afiro.ch",
+  "verifiedEmployerDomain": "afiro.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.afiro.ch/emploi-adapte.html"
+  ],
+  "detailTemplate": "/emplois/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Soudure et construction métallique",
+    "Conditionnement alimentaire",
+    "Service de restauration"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-06T13:11:02.578Z",
+  "candidateKey": "afiro-ecublens@ecublens-vd"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "tassa-salute-frontalieri-confronto-2026",
+  "slug": "tassa-salute-frontalieri-confronto-2026",
+  "publishedAt": "2026-05-13T15:06:30.765Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.1276996269922215,
+    "confidence": 0.8,
+    "finalScore": 3.3021597015937774,
+    "topK": [
+      {
+        "slug": "frontalieri-tassa-salute-teatro",
+        "cosine": 0.8271643206966326
+      },
+      {
+        "slug": "frontalieri-tassa-salute-scontro",
+        "cosine": 0.8246131246758052
+      },
+      {
+        "slug": "confusione-tassa-salute-frontalieri",
+        "cosine": 0.8128568337373249
+      },
+      {
+        "slug": "abolire-tassa-salute-frontalieri",
+        "cosine": 0.8090245224703115
+      },
+      {
+        "slug": "lombardia-tassa-sanitaria-frontalieri-2026",
+        "cosine": 0.8082818955371469
+      }
+    ],
+    "score": 0.41276996269922217,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

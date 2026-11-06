@@ -1,0 +1,21 @@
+{
+  "companyKey": "xeloba-ch",
+  "companyName": "Xeloba GmbH",
+  "companyHost": "xeloba.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://xeloba.ch/kandidaten/jobs/"
+  ],
+  "detailTemplate": "/jobs/geschaeftsfuehrung/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "<span class=\"w-blog-post-prev LEITER/IN HUMAN RESOURCES",
+    "<span class=\"w-blog-pos CFO & LEITER/IN SERVICES"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-11T11:51:45.209Z"
+}

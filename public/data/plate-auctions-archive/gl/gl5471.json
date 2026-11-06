@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "gl-1100",
+      "sourceKey": "GL",
+      "sourceRecordId": "1100",
+      "canton": "Glarona",
+      "platePrefix": "GL",
+      "plateNumber": "5471",
+      "normalizedPlate": "GL5471",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 600,
+      "closedAt": "2026-10-27T12:10:17.378Z",
+      "officialAuctionUrl": "https://www.gl.ch/verwaltung/sicherheit-und-justiz/justiz/strassenverkehrsamt/strassenverkehr/kontrollschilder/wunschkontrollschilder.html/450",
+      "officialDetailUrl": "https://eschild.gl.ch/api/v1/plate",
+      "sourceFetchedAt": "2026-10-27T12:10:17.378Z",
+      "lastVerifiedAt": "2026-10-27T12:10:17.378Z",
+      "firstSeenAt": "2026-10-18T18:46:01.212Z",
+      "lastSeenAt": "2026-10-27T12:10:17.378Z",
+      "sourceCategory": "fixed-price-api",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "fbe78e314ad4"
+    }
+  ]
+}

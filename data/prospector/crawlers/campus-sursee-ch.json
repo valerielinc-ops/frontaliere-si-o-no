@@ -1,0 +1,21 @@
+{
+  "companyKey": "campus-sursee-ch",
+  "companyName": "Campus Sursee Seminarzentrum",
+  "companyHost": "campus-sursee.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.campus-sursee.ch/karriere/"
+  ],
+  "detailTemplate": "/karriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Arbeiten beim CAMPUS SURSEE",
+    "Mehr über uns erfahren"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T06:24:47.535Z"
+}

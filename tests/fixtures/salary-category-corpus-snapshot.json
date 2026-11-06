@@ -1,0 +1,1012 @@
+{
+  "source": "cdn.frontaliereticino.ch/data/jobs-it-index.json",
+  "measuredAt": "2026-08-21",
+  "note": "Snapshot of distinct job category label -> posting count, used by the salary-category-fallback-rate guard test (issue #6230). Regenerate via the script in that issue body if the corpus drifts significantly.",
+  "totalJobs": 21544,
+  "categories": [
+    {
+      "category": "Sanità / Ospedali",
+      "count": 4227
+    },
+    {
+      "category": "Altro",
+      "count": 2386
+    },
+    {
+      "category": "admin",
+      "count": 2199
+    },
+    {
+      "category": "other",
+      "count": 837
+    },
+    {
+      "category": "Tecnica",
+      "count": 774
+    },
+    {
+      "category": "IT",
+      "count": 680
+    },
+    {
+      "category": "finance",
+      "count": 677
+    },
+    {
+      "category": "Ingegneria",
+      "count": 525
+    },
+    {
+      "category": "Formazione",
+      "count": 502
+    },
+    {
+      "category": "Amministrazione Pubblica",
+      "count": 471
+    },
+    {
+      "category": "Amministrazione",
+      "count": 416
+    },
+    {
+      "category": "tech",
+      "count": 383
+    },
+    {
+      "category": "Vendita & Commercio",
+      "count": 342
+    },
+    {
+      "category": "Commerciale",
+      "count": 325
+    },
+    {
+      "category": "Sanità",
+      "count": 297
+    },
+    {
+      "category": "healthcare",
+      "count": 287
+    },
+    {
+      "category": "Risorse Umane",
+      "count": 255
+    },
+    {
+      "category": "Ospitalità",
+      "count": 245
+    },
+    {
+      "category": "Ingegneria & Tecnica",
+      "count": 236
+    },
+    {
+      "category": "engineering",
+      "count": 229
+    },
+    {
+      "category": "health",
+      "count": 221
+    },
+    {
+      "category": "sales",
+      "count": 212
+    },
+    {
+      "category": "Logistica",
+      "count": 208
+    },
+    {
+      "category": "Vendita",
+      "count": 187
+    },
+    {
+      "category": "servizi-postali",
+      "count": 180
+    },
+    {
+      "category": "manufacturing",
+      "count": 172
+    },
+    {
+      "category": "Vendite",
+      "count": 155
+    },
+    {
+      "category": "Ricerca",
+      "count": 150
+    },
+    {
+      "category": "Finanza",
+      "count": 135
+    },
+    {
+      "category": "Agricoltura & Commercio",
+      "count": 132
+    },
+    {
+      "category": "Produzione",
+      "count": 123
+    },
+    {
+      "category": "Gesundheitswesen",
+      "count": 111
+    },
+    {
+      "category": "Legale",
+      "count": 109
+    },
+    {
+      "category": "Istruzione / Docenza",
+      "count": 94
+    },
+    {
+      "category": "it",
+      "count": 92
+    },
+    {
+      "category": "edilizia",
+      "count": 92
+    },
+    {
+      "category": "Ottica",
+      "count": 92
+    },
+    {
+      "category": "Infermieristica",
+      "count": 88
+    },
+    {
+      "category": "logistics",
+      "count": 85
+    },
+    {
+      "category": "retail",
+      "count": 84
+    },
+    {
+      "category": "public-administration",
+      "count": 78
+    },
+    {
+      "category": "technology",
+      "count": 75
+    },
+    {
+      "category": "apprenticeship",
+      "count": 75
+    },
+    {
+      "category": "general",
+      "count": 71
+    },
+    {
+      "category": "Turismo & Ospitalità",
+      "count": 65
+    },
+    {
+      "category": "Marketing",
+      "count": 65
+    },
+    {
+      "category": "Istruzione",
+      "count": 60
+    },
+    {
+      "category": "management",
+      "count": 58
+    },
+    {
+      "category": "Commercio & Servizi",
+      "count": 54
+    },
+    {
+      "category": "Sicurezza",
+      "count": 53
+    },
+    {
+      "category": "Medicina",
+      "count": 52
+    },
+    {
+      "category": "Istruzione / Sostegno pedagogico",
+      "count": 50
+    },
+    {
+      "category": "Qualità",
+      "count": 48
+    },
+    {
+      "category": "Sociale",
+      "count": 47
+    },
+    {
+      "category": "Assicurazioni",
+      "count": 46
+    },
+    {
+      "category": "Lusso / Orologeria",
+      "count": 45
+    },
+    {
+      "category": "internship",
+      "count": 42
+    },
+    {
+      "category": "hr",
+      "count": 42
+    },
+    {
+      "category": "Cucina",
+      "count": 37
+    },
+    {
+      "category": "consulting",
+      "count": 34
+    },
+    {
+      "category": "tax",
+      "count": 34
+    },
+    {
+      "category": "Strumentazione industriale / Automazione",
+      "count": 33
+    },
+    {
+      "category": "audit",
+      "count": 31
+    },
+    {
+      "category": "Ristorazione",
+      "count": 30
+    },
+    {
+      "category": "Management",
+      "count": 30
+    },
+    {
+      "category": "Apprendistato",
+      "count": 30
+    },
+    {
+      "category": "Sanità / Assistenza",
+      "count": 29
+    },
+    {
+      "category": "elettricità",
+      "count": 28
+    },
+    {
+      "category": "quality",
+      "count": 27
+    },
+    {
+      "category": "Servizio Clienti",
+      "count": 26
+    },
+    {
+      "category": "hospitality",
+      "count": 26
+    },
+    {
+      "category": "science",
+      "count": 24
+    },
+    {
+      "category": "Impiantistica",
+      "count": 23
+    },
+    {
+      "category": "impiantistica",
+      "count": 23
+    },
+    {
+      "category": "Produktion und Fertigung",
+      "count": 23
+    },
+    {
+      "category": "healthcare-nursing",
+      "count": 22
+    },
+    {
+      "category": "healthcare-medical",
+      "count": 22
+    },
+    {
+      "category": "chemistry",
+      "count": 22
+    },
+    {
+      "category": "Ambiente / Energia",
+      "count": 21
+    },
+    {
+      "category": "design",
+      "count": 21
+    },
+    {
+      "category": "Ospitalità / Ristorazione",
+      "count": 20
+    },
+    {
+      "category": "Sanità e Sociale",
+      "count": 20
+    },
+    {
+      "category": "legal",
+      "count": 18
+    },
+    {
+      "category": "Logistica & Trasporti",
+      "count": 17
+    },
+    {
+      "category": "Agricoltura & Mangimi",
+      "count": 17
+    },
+    {
+      "category": "Trasporti",
+      "count": 17
+    },
+    {
+      "category": "insurance",
+      "count": 17
+    },
+    {
+      "category": "pharma",
+      "count": 16
+    },
+    {
+      "category": "Servizio",
+      "count": 16
+    },
+    {
+      "category": "Istruzione / Scuola speciale",
+      "count": 15
+    },
+    {
+      "category": "operations",
+      "count": 15
+    },
+    {
+      "category": "hospitality-food-beverage",
+      "count": 14
+    },
+    {
+      "category": "Educazione & Cultura",
+      "count": 14
+    },
+    {
+      "category": "education",
+      "count": 13
+    },
+    {
+      "category": "IT / Sviluppo software",
+      "count": 13
+    },
+    {
+      "category": "production",
+      "count": 13
+    },
+    {
+      "category": "Kundenberatung",
+      "count": 13
+    },
+    {
+      "category": "biotech",
+      "count": 13
+    },
+    {
+      "category": "Design",
+      "count": 13
+    },
+    {
+      "category": "Ingenieurwesen",
+      "count": 13
+    },
+    {
+      "category": "Consulenza",
+      "count": 12
+    },
+    {
+      "category": "Industria Alimentare",
+      "count": 12
+    },
+    {
+      "category": "Costruzioni",
+      "count": 12
+    },
+    {
+      "category": "medical",
+      "count": 12
+    },
+    {
+      "category": "Housekeeping",
+      "count": 11
+    },
+    {
+      "category": "meccanica",
+      "count": 11
+    },
+    {
+      "category": "Turismo",
+      "count": 11
+    },
+    {
+      "category": "Sicurezza & Giustizia",
+      "count": 11
+    },
+    {
+      "category": "Elettrotecnica",
+      "count": 11
+    },
+    {
+      "category": "staff",
+      "count": 11
+    },
+    {
+      "category": "risk",
+      "count": 11
+    },
+    {
+      "category": "IT / Infrastruttura",
+      "count": 10
+    },
+    {
+      "category": "Sociale / Educazione",
+      "count": 10
+    },
+    {
+      "category": "Pulizie di Manutenzione",
+      "count": 10
+    },
+    {
+      "category": "project-management",
+      "count": 9
+    },
+    {
+      "category": "Banca",
+      "count": 9
+    },
+    {
+      "category": "Qualità / Compliance",
+      "count": 9
+    },
+    {
+      "category": "Assistenza Clienti",
+      "count": 9
+    },
+    {
+      "category": "technical",
+      "count": 9
+    },
+    {
+      "category": "development",
+      "count": 9
+    },
+    {
+      "category": "Istruzione / Direzione scolastica",
+      "count": 8
+    },
+    {
+      "category": "Produzione Media",
+      "count": 8
+    },
+    {
+      "category": "tourism",
+      "count": 8
+    },
+    {
+      "category": "technician",
+      "count": 8
+    },
+    {
+      "category": "Autisti / Chauffeur",
+      "count": 8
+    },
+    {
+      "category": "Project Management",
+      "count": 7
+    },
+    {
+      "category": "Qualitaetsmanagement",
+      "count": 7
+    },
+    {
+      "category": "Ambiente & Infrastrutture",
+      "count": 7
+    },
+    {
+      "category": "Life Science & Tecnologia Medica",
+      "count": 7
+    },
+    {
+      "category": "Ricevimento",
+      "count": 6
+    },
+    {
+      "category": "Servizi Aziendali",
+      "count": 6
+    },
+    {
+      "category": "energy",
+      "count": 6
+    },
+    {
+      "category": "administration",
+      "count": 6
+    },
+    {
+      "category": "Giuridico",
+      "count": 6
+    },
+    {
+      "category": "Sport",
+      "count": 6
+    },
+    {
+      "category": "Cucina / Gastronomia",
+      "count": 6
+    },
+    {
+      "category": "Informatik und Digital Services",
+      "count": 6
+    },
+    {
+      "category": "Assistenza clienti",
+      "count": 5
+    },
+    {
+      "category": "Autisti / Conducenti",
+      "count": 5
+    },
+    {
+      "category": "Finanza / Banca",
+      "count": 5
+    },
+    {
+      "category": "hospitality-housekeeping",
+      "count": 5
+    },
+    {
+      "category": "Gastronomia",
+      "count": 5
+    },
+    {
+      "category": "Robotica & Automazione",
+      "count": 5
+    },
+    {
+      "category": "research",
+      "count": 5
+    },
+    {
+      "category": "IT und Software",
+      "count": 5
+    },
+    {
+      "category": "Eventi & Catering",
+      "count": 5
+    },
+    {
+      "category": "Psicologia",
+      "count": 5
+    },
+    {
+      "category": "Consulenza Finanziaria",
+      "count": 5
+    },
+    {
+      "category": "analysis",
+      "count": 5
+    },
+    {
+      "category": "phd",
+      "count": 5
+    },
+    {
+      "category": "wealth-management",
+      "count": 5
+    },
+    {
+      "category": "hospitality-spa",
+      "count": 4
+    },
+    {
+      "category": "Trasporti / Autisti",
+      "count": 4
+    },
+    {
+      "category": "metallo",
+      "count": 4
+    },
+    {
+      "category": "Media / Giornalismo",
+      "count": 4
+    },
+    {
+      "category": "Einkauf und Beschaffungsmanagement",
+      "count": 4
+    },
+    {
+      "category": "Sicurezza Pubblica",
+      "count": 4
+    },
+    {
+      "category": "Clienti Corporate",
+      "count": 4
+    },
+    {
+      "category": "cantiere",
+      "count": 4
+    },
+    {
+      "category": "Corporate & Support Functions",
+      "count": 4
+    },
+    {
+      "category": "nursing",
+      "count": 4
+    },
+    {
+      "category": "Vertrieb und Technischer Kundenservice",
+      "count": 4
+    },
+    {
+      "category": "Operazioni",
+      "count": 4
+    },
+    {
+      "category": "marketing",
+      "count": 4
+    },
+    {
+      "category": "progettazione",
+      "count": 4
+    },
+    {
+      "category": "Progetti / Tecnica edile",
+      "count": 4
+    },
+    {
+      "category": "researcher",
+      "count": 4
+    },
+    {
+      "category": "Büro-Projektmanagement",
+      "count": 4
+    },
+    {
+      "category": "Servizi Generali",
+      "count": 3
+    },
+    {
+      "category": "healthcare-medtech",
+      "count": 3
+    },
+    {
+      "category": "Facility Management",
+      "count": 3
+    },
+    {
+      "category": "Chimica & Analisi",
+      "count": 3
+    },
+    {
+      "category": "IT / Sicurezza",
+      "count": 3
+    },
+    {
+      "category": "aviation",
+      "count": 3
+    },
+    {
+      "category": "data",
+      "count": 3
+    },
+    {
+      "category": "Ambiente",
+      "count": 3
+    },
+    {
+      "category": "hospitality-front-office",
+      "count": 3
+    },
+    {
+      "category": "Tecnica Agricola",
+      "count": 3
+    },
+    {
+      "category": "Chimica",
+      "count": 3
+    },
+    {
+      "category": "risorse-umane",
+      "count": 3
+    },
+    {
+      "category": "Lager und Logistik",
+      "count": 3
+    },
+    {
+      "category": "Edilizia & Costruzioni",
+      "count": 3
+    },
+    {
+      "category": "customer-service",
+      "count": 3
+    },
+    {
+      "category": "Verkauf und Kundenberatung",
+      "count": 3
+    },
+    {
+      "category": "maintenance",
+      "count": 2
+    },
+    {
+      "category": "transport",
+      "count": 2
+    },
+    {
+      "category": "IT / Project management",
+      "count": 2
+    },
+    {
+      "category": "Retail",
+      "count": 2
+    },
+    {
+      "category": "Emergenza",
+      "count": 2
+    },
+    {
+      "category": "Amministrazione & Risorse Umane",
+      "count": 2
+    },
+    {
+      "category": "Sonstiges",
+      "count": 2
+    },
+    {
+      "category": "Projektmanagement",
+      "count": 2
+    },
+    {
+      "category": "support",
+      "count": 2
+    },
+    {
+      "category": "Energia",
+      "count": 2
+    },
+    {
+      "category": "Vendita al dettaglio",
+      "count": 2
+    },
+    {
+      "category": "Informatica",
+      "count": 2
+    },
+    {
+      "category": "public-admin",
+      "count": 2
+    },
+    {
+      "category": "Gestione Progetti",
+      "count": 2
+    },
+    {
+      "category": "Logistica & Magazzino",
+      "count": 2
+    },
+    {
+      "category": "Terapia",
+      "count": 2
+    },
+    {
+      "category": "Pulizie Specializzate",
+      "count": 2
+    },
+    {
+      "category": "Anlageberatung",
+      "count": 2
+    },
+    {
+      "category": "Laboratorio",
+      "count": 2
+    },
+    {
+      "category": "devops",
+      "count": 2
+    },
+    {
+      "category": "Servizio civile",
+      "count": 2
+    },
+    {
+      "category": "Sales Channels & Retail Excellence/Retail",
+      "count": 2
+    },
+    {
+      "category": "Direzione",
+      "count": 1
+    },
+    {
+      "category": "Istruzione / Assistenza in classe",
+      "count": 1
+    },
+    {
+      "category": "Innovazione / Prodotto",
+      "count": 1
+    },
+    {
+      "category": "public-safety",
+      "count": 1
+    },
+    {
+      "category": "Marketing / Comunicazione",
+      "count": 1
+    },
+    {
+      "category": "Compliance & Risk",
+      "count": 1
+    },
+    {
+      "category": "Pediatria",
+      "count": 1
+    },
+    {
+      "category": "business",
+      "count": 1
+    },
+    {
+      "category": "automotive",
+      "count": 1
+    },
+    {
+      "category": "social-services",
+      "count": 1
+    },
+    {
+      "category": "Vendite & Commerciale",
+      "count": 1
+    },
+    {
+      "category": "fashion",
+      "count": 1
+    },
+    {
+      "category": "healthcare-therapy",
+      "count": 1
+    },
+    {
+      "category": "Finanzen Controlling und Accounting",
+      "count": 1
+    },
+    {
+      "category": "Servizi",
+      "count": 1
+    },
+    {
+      "category": "Reception",
+      "count": 1
+    },
+    {
+      "category": "Ricerca e Sviluppo",
+      "count": 1
+    },
+    {
+      "category": "hospitality-events",
+      "count": 1
+    },
+    {
+      "category": "Acustica",
+      "count": 1
+    },
+    {
+      "category": "Radiologia",
+      "count": 1
+    },
+    {
+      "category": "Administration",
+      "count": 1
+    },
+    {
+      "category": "Operations",
+      "count": 1
+    },
+    {
+      "category": "Artigianato / Orologeria",
+      "count": 1
+    },
+    {
+      "category": "Scienza",
+      "count": 1
+    },
+    {
+      "category": "IT / Salesforce",
+      "count": 1
+    },
+    {
+      "category": "Guida / Conduzione",
+      "count": 1
+    },
+    {
+      "category": "Personalwesen",
+      "count": 1
+    },
+    {
+      "category": "Customer Success",
+      "count": 1
+    },
+    {
+      "category": "drafting",
+      "count": 1
+    },
+    {
+      "category": "IT & Digital Transformation",
+      "count": 1
+    },
+    {
+      "category": "Contract Management",
+      "count": 1
+    },
+    {
+      "category": "safety",
+      "count": 1
+    },
+    {
+      "category": "Firmenkundengeschäft",
+      "count": 1
+    },
+    {
+      "category": "Marketing und Kommunikation",
+      "count": 1
+    },
+    {
+      "category": "healthcare-psychology",
+      "count": 1
+    },
+    {
+      "category": "Formazione / Ricerca",
+      "count": 1
+    },
+    {
+      "category": "security",
+      "count": 1
+    },
+    {
+      "category": "Giardinaggio",
+      "count": 1
+    },
+    {
+      "category": "Tecnico",
+      "count": 1
+    },
+    {
+      "category": "Salute / Benessere",
+      "count": 1
+    },
+    {
+      "category": "Corporate and Staff Functions/Finance & Control",
+      "count": 1
+    },
+    {
+      "category": "Product Development, Manufacturing, End-to end Supply Chain/Manufacturing",
+      "count": 1
+    },
+    {
+      "category": "Büro-Finanzen und Revision",
+      "count": 1
+    },
+    {
+      "category": "Büro-Administration",
+      "count": 1
+    },
+    {
+      "category": "physiotherapy",
+      "count": 1
+    }
+  ]
+}

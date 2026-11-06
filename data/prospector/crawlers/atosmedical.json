@@ -1,0 +1,24 @@
+{
+  "companyKey": "atosmedical",
+  "companyName": "atosmedical",
+  "companyHost": "careers.coloplast.com",
+  "platform": "coloplast.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://careers.coloplast.com/Atos/go/Atos/8932301/"
+  ],
+  "detailTemplate": "/Atos/job/*/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 22,
+  "sampleTitles": [
+    "Customer Care Specialist (m*w*d)",
+    "Territory Sales Manager- Laryngectomy (IL, Northern MO, IA)",
+    "Account Manager Homecare (m/w/d) Region Frankfurt, Siegen, Fulda",
+    "Key Account Manager ENT - Vlaanderen",
+    "Territory Sales Manager- Laryngectomy (PA, NJ, DE)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-30T12:53:56.323Z",
+  "candidateKey": "atosmedical.ch"
+}

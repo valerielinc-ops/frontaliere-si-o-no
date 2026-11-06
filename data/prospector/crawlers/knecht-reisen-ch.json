@@ -1,0 +1,21 @@
+{
+  "companyKey": "knecht-reisen-ch",
+  "companyName": "knecht reisen",
+  "companyHost": "knecht-reisen.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.knecht-reisen.ch/jobs"
+  ],
+  "detailTemplate": "/jobs",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Reisespezialist/in 80-100%"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:18:03.425Z",
+  "candidateKey": "knecht-reisen.ch"
+}

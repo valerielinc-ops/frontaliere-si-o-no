@@ -1,0 +1,27 @@
+{
+  "companyKey": "pacovis-com",
+  "companyName": "Pacovis AG",
+  "companyHost": "pacovis.com",
+  "verifiedEmployerDomain": "pacovis.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.pacovis.com/de-de/karriere/"
+  ],
+  "detailTemplate": "/de-de/karriere/offene-stellen/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Kaufmännischer Sachbearbeiter Technik (w/m/d) - Teilzeit 35 Std. oder Vollzeit 40 Std.",
+    "Produktionsversorger / Logistikmitarbeiter (w/m/d) - Vollzeit",
+    "Produktionsmitarbeiter für die Abfüllerei – Vollzeit (w/m/d)",
+    "Produktionsmitarbeiter für die Mischerei (w/m/d)",
+    "Maschinenführer für den Bereich Feinkost - Vollzeit (w/m/d)"
+  ],
+  "canton": "GE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-03T13:28:02.987Z",
+  "candidateKey": "pacovis@genf"
+}

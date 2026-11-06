@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2717",
+  "companyName": "E-Recruiting GENERALI Stellen",
+  "companyHost": "recruitingapp-2717.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2717.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Versicherungs- und Vorsorgeberater (m/w/d), Agentur Chur",
+    "Versicherungs- und Vorsorgeberater (m/w/d), Agentur St. Gallen",
+    "Versicherungs- und Vorsorgeberater (m/w/d), Agentur Kreuzlingen",
+    "Versicherungs- und Vorsorgeberater (m/w/d), Agentur Rapperswil",
+    "Quereinsteiger Versicherungs- und Vorsorgeberater (m/w/d), Agentur Zürich Oerlikon"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:35.159Z"
+}

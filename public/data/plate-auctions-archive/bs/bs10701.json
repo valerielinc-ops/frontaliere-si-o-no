@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "bs-10701",
+      "sourceKey": "BS",
+      "sourceRecordId": "10701",
+      "canton": "Basilea Città",
+      "platePrefix": "BS",
+      "plateNumber": "10701",
+      "normalizedPlate": "BS10701",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 500,
+      "closedAt": "2026-09-25T05:02:13.264Z",
+      "officialAuctionUrl": "https://www.bs.ch/themen/mobilitaet/kontrollschilder/wunschkontrollschilder",
+      "officialDetailUrl": "https://media.bs.ch/original_file/33ac87d5a5e5bbddd5066f0e805780594de1f70e/wuko-pw-36.pdf",
+      "sourceFetchedAt": "2026-09-25T05:02:13.264Z",
+      "lastVerifiedAt": "2026-09-25T05:02:13.264Z",
+      "firstSeenAt": "2026-09-19T11:04:36.429Z",
+      "lastSeenAt": "2026-09-25T05:02:13.264Z",
+      "sourceCategory": "fixed-price-order",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "4d17d7ae9f5b"
+    }
+  ]
+}

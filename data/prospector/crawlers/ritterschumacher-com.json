@@ -1,0 +1,24 @@
+{
+  "companyKey": "ritterschumacher-com",
+  "companyName": "Ritter Schumacher AG",
+  "companyHost": "ritterschumacher.com",
+  "verifiedEmployerDomain": "ritterschumacher.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://ritterschumacher.com/menschen/offene-stellen"
+  ],
+  "detailTemplate": "/menschen/offene-stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Gesamtprojektleiter:in Hochbau (Chur oder Engadin) &shy; &rarr;",
+    "Zeichner:in / Techniker:in / Architekt:in für Ausführungsplanung &shy; &rarr;"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:12:08.157Z",
+  "candidateKey": "ritter-schumacher"
+}

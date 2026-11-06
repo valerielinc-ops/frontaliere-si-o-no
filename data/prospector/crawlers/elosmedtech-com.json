@@ -1,0 +1,25 @@
+{
+  "companyKey": "elosmedtech-com",
+  "companyName": "Elos Medtech",
+  "companyHost": "elosmedtech.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://elosmedtech.com/job-openings-2/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 17,
+  "sampleTitles": [
+    "Validation Specialist (m/w/d)",
+    "Mitarbeiter Qualitätsmanagement (m/w/d)",
+    "Customer Service Specialist (m/w/d)",
+    "Qualitätstechniker / Measurement Technician 80-100% (a)",
+    "Maschinenbediener Fräsen (m/w/d)"
+  ],
+  "canton": "BL",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-29T13:19:48.685Z",
+  "candidateKey": "elos-medtech@holstein"
+}

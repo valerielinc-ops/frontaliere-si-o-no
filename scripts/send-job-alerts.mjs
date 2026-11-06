@@ -1,0 +1,3607 @@
+#!/usr/bin/env node
+import { redactEmailAddresses } from '../functions/src/lib/redactEmails.js';
+import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
+import { renderBrandJobCard } from '../functions/src/assistedApplicationEmailLayout.js';
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
+import { companyLogoKeyForJob } from './lib/company-logo-key.mjs';
+/**
+ * FRO-333: Send Job Alert emails to subscribed users.
+ *
+ * Reads active job alerts from Firestore, matches them against jobs still
+ * present in the inventory window, and sends email notifications via the
+ * multi-provider email cascade (Mailgun → Mailjet → Maileroo → Cloudflare → Resend).
+ *
+ * Retry mechanism: When all providers exhaust their daily quota and emails
+ * fail, they are written to the Firestore `job_alert_retry_queue` collection.
+ * On the next run (daily at 07:00 UTC), retries are processed FIRST to get
+ * priority on fresh provider quota. Max 2 retries per email (3 total attempts).
+ *
+ * Environment variables:
+ *   RESEND_API_KEY            — Resend API key
+ *   GOOGLE_APPLICATION_CREDENTIALS — Firebase service account for Firestore
+ *
+ * Usage:
+ *   node scripts/send-job-alerts.mjs [--dry-run]
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
+import {
+  buildJobAlertFunnel,
+  formatJobAlertBatchLine,
+  formatJobAlertFunnelLines,
+  formatJobAlertFunnelMarkdown,
+  formatJobAlertProviderLine,
+  writeJobAlertStepSummary,
+} from './lib/job-alert-funnel.mjs';
+import { nlNormLocale } from '../services/newsletter-template.mjs';
+import {
+  isApplicationConciergeRecommendation,
+  pickNewsletterRecommendation,
+  renderRecommendedBlock,
+} from '../services/newsletter/recommendedBlock.mjs';
+import { htmlToText } from '../functions/src/lib/mimeMessage.js';
+import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
+import {
+  buildAlertProfile,
+  mergeAlertSubscriberSignals,
+  createAlertScorer,
+  createJobFeatureCache,
+  partitionByGeoPreference,
+  freshnessBoost,
+  FRESHNESS_BOOST_48H_MS,
+} from '../services/jobAlertMatching.mjs';
+import {
+  buildApplicationIntentJobKey,
+  compareApplicationIntentJobKeys,
+  ALERT_APPLICATION_INTENT_BOOST,
+} from '../services/applicationIntentRanking.mjs';
+import {
+  addZeroMatchPlanToSummary,
+  classifyZeroMatchCause,
+  createZeroMatchSummaryAccumulator,
+  finalizeZeroMatchSummary,
+} from './lib/job-alert-zero-match-diagnosis.mjs';
+import {
+  MATCHER_HEALTH_MAX_PROBES,
+  buildMatcherHealthProbes,
+  evaluateMatcherHealth,
+  getMatcherHealthMonitorAction,
+} from './lib/job-alert-matcher-health.mjs';
+import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
+import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
+import { commitInChunks } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { isCrossChannelStop, isJobAlertExcluded } from '../services/emailSuppression.mjs';
+import { isAccountDeletedTombstone } from '../functions/src/authAccountCleanup.js';
+import { evaluateJobAlertConsent } from './lib/jobalert-backfill-core.mjs';
+import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
+import {
+  normalizeSentMap,
+  filterUnsentJobs,
+  mergeSentJobs,
+  DEDUP_WINDOW_MS,
+} from './lib/alert-sent-jobs.mjs';
+import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
+import { readNewsletterDataset } from '../services/newsletter-datasets.mjs';
+import { createDiscoveryRanker, discoveryGeography, diversifyJobEmployers, findDiscoveryBlockedRecipients, DISCOVERY_COPY } from './lib/job-alert-discovery.mjs';
+import { discoveryCanAttempt, claimDiscoveryDelivery, finalizeDiscoveryDelivery, partitionDiscoveryOutcomes } from './lib/job-alert-discovery-delivery.mjs';
+import { createRegistrationGeoLookup } from './lib/job-alert-ip-geography.mjs';
+import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
+import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs';
+import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
+import { JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
+import {
+  JOB_ALERT_CADENCE_CEILING_DAYS,
+  JOB_ALERT_REACTIVATION_BLOCKS,
+  decayStampAfterSend,
+  engagedSinceLastJobAlertSend,
+  isJobAlertDueToday,
+  nextJobAlertCadenceState,
+  openedSinceLastJobAlertSend,
+  reactivationAfterReturnVisit,
+} from './lib/jobAlertCadence.mjs';
+import { buildDeliveryDocId, uniqueUnknownFallback } from '../functions/src/lib/deliveryDocId.js';
+import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
+import {
+  assignJobRankingVariant,
+  buildEmbeddedRankingUpdate,
+  buildJobEmailDeliveryId,
+  rankEmailJobs,
+  rankingNeedsAffinityProfile,
+  readJobEmailRankingConfig,
+  stableJobId,
+} from '../functions/src/lib/jobEmailRanking.js';
+import { appendJobRankingParams } from '../functions/src/lib/jobEmailRankingLinks.js';
+import { buildRankingJobsManifest, recordJobEmailImpressions } from '../functions/src/lib/jobEmailRankingStore.js';
+import { RANKING_PERSONALIZATION_OPT_OUT_FIELD, affinityRankingContext } from '../functions/src/lib/jobEmailAffinity.js';
+import { loadJobEmailAffinityProfiles } from '../functions/src/lib/jobEmailAffinityStore.js';
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
+import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
+import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
+import {
+  JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+  assignJobAlertSubjectVariant,
+  jobAlertSubjectPeriodId,
+  readJobAlertSubjectConfig,
+  renderJobAlertSubject,
+} from './lib/job-alert-subject-experiment.mjs';
+import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
+import {
+  DEFAULT_JOB_ALERT_LOOKBACK_MS,
+  createJobAlertCandidateSelector,
+  isOpenJobAlertJob,
+  jobInventoryTimestampMs,
+} from './lib/job-alert-newness.mjs';
+// localePathPrefix aliased to the local name this script has always used for
+// its locale-aware URL construction — the implementation is the canonical
+// shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
+import { localePathPrefix } from './lib/articleContent.mjs';
+import { translationHoldReleasedMs } from './lib/translation-publication-hold.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
+const BASE_URL = 'https://frontaliereticino.ch';
+// Brand logos were offloaded to the CDN (#1705) — the origin `/images/brands`
+// path now 404s, and email clients strip JS so there is no onerror fallback,
+// leaving the icon blank. Canonical CDN host (mirrors blogImageCdn CDN_BLOG_BASE).
+const IMAGE_CDN_BASE = 'https://cdn.frontaliereticino.ch';
+const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
+const DRY_RUN = process.argv.includes('--dry-run');
+// The UTC calendar day the cadence gate reasons about (#5705). Overridable from
+// the environment the same way send-daily-brief.mjs does it, for two reasons
+// that are not testing conveniences: a rerun inside the same day recomputes the
+// SAME due set and is therefore a no-op, and the cron's measured dispatch delay
+// (median 240 min, max 590 for the `33 0 * * *` slot) cannot push a run across
+// midnight into a different answer than the one the operator saw.
+const TODAY_ISO = process.env.TODAY_ISO || new Date().toISOString().slice(0, 10);
+const JOB_EMAIL_RANKING_CONFIG = readJobEmailRankingConfig();
+const JOB_ALERT_SUBJECT_CONFIG = readJobAlertSubjectConfig();
+const JOB_ALERT_SUBJECT_PERIOD_ID = jobAlertSubjectPeriodId(TODAY_ISO);
+const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
+  || process.env.RUN_ID
+  || `${TODAY_ISO}_${process.pid}_${Date.now()}`;
+// First-send fallback. Once the recipient has a successful job-alert send,
+// selectJobAlertCandidates() replaces this fixed bound with that recipient's
+// last_sent_at cursor. crawledAt remains an availability clock; firstSeenAt is
+// still the only novelty clock used by copy/badges and freshnessBoost.
+const MATCH_WINDOW_MS = DEFAULT_JOB_ALERT_LOOKBACK_MS;
+// Max job cards rendered in one alert email. Also the honest basis for the
+// subject/hero counts and for the sentJobIds rotation (only what the user
+// actually SAW is marked as sent).
+const MAX_JOB_CARDS = 10;
+const MAX_RETRY_COUNT = 2; // Max 2 retries (original + 2 = 3 total attempts)
+const RETRY_COLLECTION = 'job_alert_retry_queue';
+// Engagement-tier send priority: daily openers first, weekly last. Used both
+// to decide which alerts consume the shared cascade budget when it cannot
+// cover everyone today (see capacity check below), and to re-sort the finished
+// batch so a mid-send quota exhaustion still favors the most-engaged recipients.
+const ENGAGEMENT_SEND_PRIORITY = {
+  [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 0,
+  [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]: 1,
+  [JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]: 2,
+};
+// Reserve a slice of today's remaining cascade quota so send-time errors
+// (soft-throttle, a provider tripping mid-run) don't push otherwise-fitting
+// alerts into tomorrow's retry queue.
+const QUOTA_BUFFER_RATIO = 0.1;
+
+// The cascade quota is the only send budget. It must not be used as a
+// candidate-selection cap: zero-match, deduped and dead-link alerts do not
+// consume an email slot, so slicing the alert list before matching underfills
+// every run with a backlog. Memory safety is provided by the bounded planning
+// batches below, not by silently dropping eligible candidates.
+export function resolveJobAlertCapacity({
+  alertCount,
+  availableQuota,
+} = {}) {
+  const count = Number.isSafeInteger(alertCount) && alertCount > 0 ? alertCount : 0;
+  const quota = Number.isFinite(Number(availableQuota)) ? Math.max(0, Math.floor(Number(availableQuota))) : 0;
+  const quotaBuffer = Math.ceil(quota * QUOTA_BUFFER_RATIO);
+  const quotaCapacity = Math.max(0, quota - quotaBuffer);
+  return {
+    quotaBuffer,
+    quotaCapacity,
+    capacity: Math.min(count, quotaCapacity),
+  };
+}
+
+// Keep the full matched list only for a bounded number of alerts at a time.
+// Each match carries a copied job object until live-link checks and email
+// rendering finish; retaining every alert's list made the daily sender grow
+// beyond Node's heap as the audience and catch-up windows grew.
+export const JOB_ALERT_PLAN_BATCH_SIZE = 64;
+
+// Canonical title of the job-alert matcher monitor. Kept stable across the
+// change of measure (owner decision 2026-10-04, issue 9060) so the issue
+// history stays in one thread; the trigger is now the matcher-health probes of
+// scripts/lib/job-alert-matcher-health.mjs, not the zero-match yield.
+const MATCHER_MONITOR_ISSUE_TITLE = '[Monitor] Job-alert zero-match rate above threshold';
+
+// Testing allowlist: set to a Set of emails for admin-only testing,
+// or null to enable for all users.
+// Can also be set at runtime via TARGET_EMAIL env var (single email) — useful
+// for workflow_dispatch test sends without code changes.
+const TARGET_EMAIL_RAW = (process.env.TARGET_EMAIL || '').trim().toLowerCase();
+const ALLOWED_EMAILS = TARGET_EMAIL_RAW ? new Set([TARGET_EMAIL_RAW]) : null;
+
+// Dettaglio per alert nel log: ogni alert inviato, saltato o scartato ha la sua
+// riga con il motivo, così si risale a chi è stato filtrato e perché. Il funnel
+// in fondo al log e nel Job Summary dà i totali. JOB_ALERT_LOG_DETAIL=0 spegne
+// le righe per alert; il funnel resta.
+const JOB_ALERT_LOG_DETAIL = process.env.JOB_ALERT_LOG_DETAIL !== '0';
+const logDetail = (...args) => {
+  if (JOB_ALERT_LOG_DETAIL) console.log(...args);
+};
+
+// Totali delle chiamate al cascade in questo run: alimentano la tabella dei
+// provider (una volta sola) e la riga di link audit del funnel.
+const cascadeStats = { calls: 0, linkAuditBatches: 0, linkAuditDefects: 0 };
+function noteCascadeResult(result) {
+  cascadeStats.calls += 1;
+  if (result?.linkAudit) {
+    cascadeStats.linkAuditBatches += 1;
+    if (!result.linkAudit.ok) cascadeStats.linkAuditDefects += 1;
+  }
+}
+
+// Stampa il funnel e scrive il Job Summary. La chiamano tutti i ritorni, anche
+// quelli senza alert o senza inventario: il numero delle email (zero compreso,
+// retry compresi) deve esserci in ogni run. Gli argomenti mancanti valgono zero.
+async function printJobAlertFunnel({ funnelIn = {}, zeroMatch = {}, sends = {}, retryOutcome }) {
+  // La tabella dei provider sta nel Job Summary, non nel log: nel log basta una riga.
+  let providers = [];
+  if (cascadeStats.calls > 0) {
+    const { getProviderStats } = await import('./lib/email-cascade.mjs');
+    providers = getProviderStats();
+    const providerLine = formatJobAlertProviderLine(providers);
+    if (providerLine) console.log(providerLine);
+  }
+  const funnel = buildJobAlertFunnel({
+    ...funnelIn,
+    noCandidate: zeroMatch.noEligibleCandidateCount ?? 0,
+    emptyProfile: zeroMatch.emptyProfileCount ?? 0,
+    zeroMatch: zeroMatch.zeroMatchCount ?? 0,
+    // Gli alert non visitati dal ciclo (quota finita) restano per il giorno dopo:
+    // li conta la differenza con gli eleggibili, non un contatore a parte.
+    quotaDeferred: Math.max(0, (funnelIn.eligible ?? 0) - (zeroMatch.alertCount ?? 0)),
+    planned: sends.planned ?? 0,
+    sent: sends.sent ?? 0,
+    failed: sends.failed ?? 0,
+    discoveryUnknown: sends.discoveryUnknown ?? 0,
+    ambiguous: sends.ambiguous ?? 0,
+    retrySent: retryOutcome.succeeded,
+    uniqueRecipients: new Set([...(sends.recipients ?? []), ...retryOutcome.recipients]).size,
+  }, { dryRun: DRY_RUN });
+  const mode = DRY_RUN ? 'DRY RUN' : (ALLOWED_EMAILS ? 'TEST' : 'LIVE');
+  const linkAudit = { batches: cascadeStats.linkAuditBatches, defects: cascadeStats.linkAuditDefects };
+  for (const line of formatJobAlertFunnelLines(funnel, { date: TODAY_ISO, mode, linkAudit })) console.log(line);
+  if (writeJobAlertStepSummary(formatJobAlertFunnelMarkdown(funnel, { date: TODAY_ISO, mode, providers, linkAudit }))) {
+    console.log('   📝 Job Summary aggiornato (GITHUB_STEP_SUMMARY)');
+  }
+}
+
+if (TARGET_EMAIL_RAW) {
+  console.log('🎯 TARGET_EMAIL set — limiting send to one test recipient');
+}
+
+// The one-click unsubscribe endpoint (RFC 8058) and its two HMAC link builders
+// now live in scripts/lib/job-alert-unsub-urls.mjs — imported above and shared
+// with scripts/send-company-alerts.mjs.
+
+// makePreferencesUrl (and its per-locale slug table) lives in
+// services/newsletterUrls.mjs — shared with send-newsletter.mjs and the
+// welcome-email Cloud Function so the HMAC token scheme can't drift
+// (AGENTS.md #6). localePathPrefix lives in ./lib/articleContent.mjs
+// (shared with send-newsletter.mjs / send-saved-jobs-digest.mjs).
+
+// Canton-aware job-board section resolver (mirrors
+// migrate-all-known-job-slugs-canton-aware.mjs). Every canton has its own
+// board section (cerca-lavoro-vaud, jobs-in-aargau, …); the generic
+// Switzerland-wide allJobsUrl CTA (no single canton to resolve) uses the
+// AGGREGATE_KEY section instead.
+const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
+
+// ── Pre-send live-link preflight (issue #3172) ──────────────────────
+// data/jobs.json is a periodic crawl snapshot; a job listed as "recent" at
+// crawl-time can be pulled/expired by an employer, or its per-locale SSG page
+// may not have deployed yet, before this script actually sends the alert.
+//
+// This CANNOT reuse the plain HEAD-check from check-journalist-article-links.mjs
+// (scripts/lib/live-link-check.mjs checkLink): that check is blind to our own
+// job pages — the site's soft-404 policy (AGENTS.md "Static SEO Pages": no
+// real 404s, always a bridge) means an expired job's URL keeps returning 200
+// forever, rendering the "Questa offerta di lavoro non è più attiva"
+// soft-landing page instead (build-plugins/jobsSeoPagesPlugin.ts
+// buildSoftLandingHtml). So a HEAD/status check alone is a no-op here — it
+// was passing 200 for exactly the expired jobs it was meant to catch.
+// checkPageBodyLive (scripts/lib/live-link-check.mjs, shared with
+// check-journalist-article-links.mjs) is the real liveness signal: GET + look
+// for the `window.__EXPIRED_JOB_DATA__` marker buildSoftLandingHtml alone
+// seeds.
+// 16, not the 5 it was: with the checks now prefetched by ONE pool across
+// alerts (createJobLivenessPrefetcher), this cap is the throughput of the
+// step: run 35422626497 spent ~262 s awaiting per-alert checks with 5 slots
+// (first alert: 403 pages in ~11 s, ~37/s). 16 same-origin GETs in flight on our own
+// Cloudflare-cached pages; a burst that did make checks fail is still caught
+// per alert by the fail-open guard below, never an emptied email.
+const JOB_LIVE_CHECK_CONCURRENCY = 16;
+// Fail-open guard: check-journalist-article-links.mjs is a monitoring/report
+// tool (a failed check just marks one outlink broken in a report — never
+// empties anything), so it has no analogous "distrust the batch" step. Here
+// the check GATES what gets emailed, so a transient blip on OUR OWN outbound
+// fetch (e.g. GH Actions runner network hiccup) that makes every URL look
+// dead must not silently zero out a whole alert. Below this live-fraction, on
+// a large-enough sample, treat the batch as untrustworthy and send unfiltered
+// instead of empty.
+const JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE = 4;
+const JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO = 0.34;
+
+// The exact frontaliereticino.ch job-page URL that will be embedded in the
+// alert email for this locale (mirrors the `rawJobUrl` built inside
+// buildAlertEmail, minus the alert-specific utm query string — irrelevant to
+// liveness and would otherwise fragment the cache key per alertId).
+function jobPageUrl(job, locale) {
+  const cantonCode = resolveJobCanton({ canton: job.canton, location: job.location });
+  const jobBoardPath = resolveCantonSection(locale, cantonCode);
+  const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
+  const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
+  return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : null;
+}
+
+// Delegates to the shared checkPageBodyLive (scripts/lib/live-link-check.mjs)
+// — kept as its own export/name here since it's the job-alerts-specific
+// liveness check callers and tests reach for. Exported for tests.
+export const checkJobPageLive = checkPageBodyLive;
+
+/**
+ * Filters `jobs` down to those whose live page resolves OK AND is not the
+ * expired-job soft-landing bridge, checking each distinct URL at most once
+ * per run via `cache` (shared across alerts/locales so overlapping job pools
+ * aren't re-checked). Jobs with no resolvable slug fall back to the site root
+ * in the email (always live) and are never filtered. Exported for tests.
+ */
+async function inspectLiveJobs(
+  jobs,
+  locale,
+  cache,
+  { check = checkJobPageLive, maxNewChecks = Number.POSITIVE_INFINITY } = {},
+) {
+  const withUrls = jobs.map((job) => ({ job, url: jobPageUrl(job, locale) }));
+  // Dedupe by URL both across calls (via the shared `cache`) AND within this
+  // single call (two jobs — e.g. two locale variants — can resolve to the
+  // same page); otherwise a duplicate URL in the same batch would be
+  // checked once per occurrence before either result lands in `cache`.
+  const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cache.has(url)))];
+  const checkBudget = Number.isFinite(maxNewChecks)
+    ? Math.max(0, Math.trunc(maxNewChecks))
+    : uniqueToCheck.length;
+  const urlsToCheck = uniqueToCheck.slice(0, checkBudget);
+  if (urlsToCheck.length > 0) {
+    await runWithConcurrency(urlsToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
+      cache.set(url, await check(url));
+    });
+  }
+  const results = withUrls.map(({ job, url }) => {
+    const known = !url || cache.has(url);
+    return { job, url, known, live: known && (!url || cache.get(url) !== false) };
+  });
+  const knownResults = results.filter((result) => result.known);
+  const knownLiveJobs = knownResults.filter((result) => result.live).map((result) => result.job);
+  const unknownJobs = results.filter((result) => !result.known).map((result) => result.job);
+  const checked = knownResults.length;
+  const liveCount = knownLiveJobs.length;
+  if (checked >= JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE && liveCount / checked < JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO) {
+    console.warn(`   ⚠️  Live-link check: only ${liveCount}/${checked} job page(s) resolved live — suspected transient network issue, failing open (sending unfiltered) rather than emptying the alert`);
+    return { jobs, knownLiveJobs, unknownJobs, failOpen: true };
+  }
+  const deadCount = checked - liveCount;
+  if (deadCount > 0) {
+    logDetail(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
+  }
+  return { jobs: knownLiveJobs, knownLiveJobs, unknownJobs, failOpen: false };
+}
+
+async function filterLiveJobs(jobs, locale, cache) {
+  return (await inspectLiveJobs(jobs, locale, cache)).jobs;
+}
+
+/**
+ * Rank first, then live-check only the candidates that can fill this email.
+ *
+ * The old pipeline live-checked every item in `matched` before asking the
+ * ranking layer for its ten cards. On the 26/09 run that was 470,653 matched
+ * rows and 52,526 distinct page URLs. Ranking the complete list is cheap and
+ * deterministic; liveness is not. This loop checks the ranked shortlist,
+ * removes any dead URL, and re-ranks only when a replacement is needed. When
+ * the shortlist is live, the result is exactly the old
+ * `rankEmailJobs(filterLiveJobs(matched))` result without fetching the unused
+ * tail of the pool. If a shortlist looks like a network-wide failure, the
+ * existing fail-open rule is re-evaluated against the full matched pool before
+ * deciding whether to preserve the shortlist or choose live replacements.
+ */
+async function rankLiveJobsForEmail(
+  matched,
+  locale,
+  cache,
+  rankingOptions,
+  { limit = MAX_JOB_CARDS, initialRanked = null, check = checkJobPageLive } = {},
+) {
+  const excludedUrls = new Set();
+  const checkedUrls = new Set();
+  let ranked = initialRanked;
+
+  const inspectWithinBudget = async (jobs) => {
+    const uniqueUrls = [...new Set(jobs.map((job) => jobPageUrl(job, locale)).filter(Boolean))];
+    for (const url of uniqueUrls) {
+      if (cache.has(url)) checkedUrls.add(url);
+    }
+    const uncachedUrls = uniqueUrls.filter((url) => !cache.has(url));
+    const remaining = Math.max(0, limit - checkedUrls.size);
+    for (const url of uncachedUrls.slice(0, remaining)) checkedUrls.add(url);
+    return inspectLiveJobs(jobs, locale, cache, { check, maxNewChecks: remaining });
+  };
+
+  while (true) {
+    if (!ranked) {
+      const candidates = matched.filter((job) => {
+        const url = jobPageUrl(job, locale);
+        return !url || !excludedUrls.has(url);
+      });
+      ranked = rankEmailJobs(candidates, { ...rankingOptions, limit });
+    }
+    if (ranked.length === 0) return [];
+
+    const result = await inspectWithinBudget(ranked);
+    if (result.failOpen) {
+      // A dead top-ten shortlist is not enough evidence of a transient
+      // network failure: the lower-ranked pool may contain the live cards
+      // needed to replace it. Reuse the existing ratio guard on the full pool
+      // before returning anything unfiltered. This keeps true fail-open
+      // behaviour for an outage while preventing dead cards from winning over
+      // live replacements.
+      // The shortlist has exhausted this alert's HTTP budget. The full-pool
+      // pass is therefore a bounded fail-open classification: cached answers
+      // are respected, while the uncached tail is treated as unverified rather
+      // than triggering another network scan. This keeps the replacement pool
+      // live-orderable without reintroducing the pre-#9314 fan-out.
+      const fullResult = await inspectWithinBudget(matched);
+      if (fullResult.failOpen) {
+        const knownDeadUrls = new Set(
+          matched
+            .map((job) => jobPageUrl(job, locale))
+            .filter((url) => url && cache.get(url) === false),
+        );
+        const fallbackCandidates = [...fullResult.knownLiveJobs, ...fullResult.unknownJobs].filter((job) => {
+          const url = jobPageUrl(job, locale);
+          return !url || !knownDeadUrls.has(url);
+        });
+        return rankEmailJobs(
+          fallbackCandidates.length > 0 ? fallbackCandidates : fullResult.jobs,
+          { ...rankingOptions, limit },
+        );
+      }
+      ranked = rankEmailJobs(fullResult.jobs, { ...rankingOptions, limit });
+      continue;
+    }
+
+    const deadUrls = new Set(
+      ranked
+        .map((job) => jobPageUrl(job, locale))
+        .filter((url) => url && cache.get(url) === false),
+    );
+    if (deadUrls.size === 0 || checkedUrls.size >= limit) return result.jobs;
+
+    for (const url of deadUrls) excludedUrls.add(url);
+    ranked = null;
+  }
+}
+
+/**
+ * Background filler of the `filterLiveJobs` cache. The send loop used to await
+ * each alert's live-link batch before scoring the next alert, so the network
+ * sat idle during scoring and a batch of 2 new URLs used 2 of the pool slots
+ * (run 35422626497: ~260 s of the ~9 min matching loop spent inside those
+ * awaits). This keeps ONE pool of `concurrency` workers busy across alerts
+ * while scoring continues, so `filterLiveJobs` later finds every URL cached.
+ *
+ * Same check (`checkJobPageLive`), same URL (`jobPageUrl`), same cache, same
+ * cap on in-flight requests: only WHEN a URL is checked changes, never what
+ * the check answers. A check that throws leaves its URL uncached, so
+ * `filterLiveJobs` re-checks it exactly as it would have without prefetch.
+ * Exported for tests.
+ */
+function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCURRENCY, check = checkJobPageLive } = {}) {
+  const queue = [];
+  let head = 0;
+  const queued = new Set();
+  let totalQueued = 0;
+  let active = 0;
+  let idleWaiters = [];
+  // Workers have already copied the URLs they are checking before an await,
+  // so consumed queue entries can be dropped safely. Without compaction the
+  // old queue array retained every URL from every alert batch until process
+  // exit, defeating the bounded-plan memory boundary on large catch-ups.
+  const compactQueue = () => {
+    if (head === 0) return;
+    if (head === queue.length || (head >= 1024 && head * 2 >= queue.length)) {
+      queue.splice(0, head);
+      head = 0;
+    }
+  };
+  const settleIfIdle = () => {
+    if (active !== 0 || head < queue.length) return;
+    compactQueue();
+    const waiters = idleWaiters;
+    idleWaiters = [];
+    for (const resolve of waiters) resolve();
+  };
+  const worker = async () => {
+    active += 1;
+    try {
+      while (head < queue.length) {
+        const url = queue[head];
+        head += 1;
+        try {
+          cache.set(url, await check(url));
+        } catch {
+          // Left uncached on purpose — filterLiveJobs checks it again.
+        } finally {
+          // The cache, not this set, is the durable de-duplication record once
+          // a check has completed. A thrown check is deliberately retryable.
+          queued.delete(url);
+          compactQueue();
+        }
+      }
+    } finally {
+      active -= 1;
+      settleIfIdle();
+    }
+  };
+  return {
+    enqueue(jobs, locale) {
+      for (const job of jobs) {
+        const url = jobPageUrl(job, locale);
+        if (!url || cache.has(url) || queued.has(url)) continue;
+        queued.add(url);
+        queue.push(url);
+        totalQueued += 1;
+      }
+      while (active < concurrency && head < queue.length) void worker();
+    },
+    drain() {
+      return new Promise((resolve) => {
+        idleWaiters.push(resolve);
+        settleIfIdle();
+      });
+    },
+    /** URLs ever queued, and those not yet answered (waiting or in flight). */
+    stats() {
+      return {
+        queued: totalQueued,
+        pending: queue.length - head + active,
+        retained: queue.length,
+      };
+    },
+  };
+}
+
+/**
+ * Run plan/build work in bounded batches so full match lists are released after
+ * each batch. The callback is awaited before the next slice is created; the
+ * sender uses this to keep its per-alert plan memory proportional to the batch
+ * size instead of to the whole audience.
+ */
+export async function forEachJobAlertPlanBatch(
+  alerts,
+  callback,
+  batchSize = JOB_ALERT_PLAN_BATCH_SIZE,
+) {
+  if (!Array.isArray(alerts)) return;
+  if (typeof callback !== 'function') throw new TypeError('callback must be a function');
+  const size = Number.isInteger(batchSize) && batchSize > 0
+    ? batchSize
+    : JOB_ALERT_PLAN_BATCH_SIZE;
+  for (let start = 0; start < alerts.length; start += size) {
+    // A sender can stop after exhausting the real provider budget without
+    // pretending that the unvisited tail did not exist. The callback's false
+    // return is intentionally optional so existing callers remain unchanged.
+    const continuePlanning = await callback(alerts.slice(start, start + size));
+    if (continuePlanning === false) break;
+  }
+}
+
+// Brand logo lookup. Builds slug→filename map from public/images/brands/ at
+// startup (~72 logos). Used to render company logos in job cards instead of
+// the initial-letter placeholder. Falls back to initial when no logo matches.
+const BRAND_LOGOS_DIR = path.join(ROOT, 'public', 'images', 'brands');
+const BRAND_LOGO_BY_SLUG = (() => {
+  try {
+    const files = fs.readdirSync(BRAND_LOGOS_DIR);
+    const map = new Map();
+    for (const filename of files) {
+      const m = filename.match(/^(.+)\.(png|jpg|jpeg|svg|webp)$/i);
+      if (m) map.set(m[1].toLowerCase(), filename);
+    }
+    return map;
+  } catch (err) {
+    if (err && /** @type {NodeJS.ErrnoException} */ (err).code === 'ENOENT') {
+      return new Map();
+    }
+    throw err;
+  }
+})();
+
+// Brand aliases: when crawlers emit different legal-entity names for the same
+// parent brand (e.g. "Coop Genossenschaft" vs "Coop Ticino"), map them to the
+// bundled logo slug. Add new entries lower-cased on the LEFT, slug on the RIGHT.
+const BRAND_ALIASES = new Map([
+  ['coop-genossenschaft', 'coop-ticino'],
+  ['coop-svizzera', 'coop-ticino'],
+  ['eoc', 'eoc-ente-ospedaliero-cantonale'],
+  ['eoc-ospedaliero-cantonale', 'eoc-ente-ospedaliero-cantonale'],
+  ['tether-operations', 'tether'],
+  ['tether-io', 'tether'],
+  ['amministrazione-cantonale-ticino', 'amministrazione-cantonale-ti'],
+  ['banca-cler-ag', 'banca-cler'],
+  ['banca-sempione-sa', 'banca-sempione'],
+  ['bps-suisse-sa', 'bps-suisse'],
+  ['avaloq-group-ag', 'avaloq'],
+  ['alpiq-holding', 'alpiq'],
+  ['agie-charmilles-management', 'agie-charmilles'],
+  ['gf-machining-solutions', 'agie-charmilles'],
+  ['boggi-milano-sa', 'boggi-milano'],
+]);
+
+// Strip common legal suffixes so "Banca Cler AG" matches "banca-cler.png".
+const LEGAL_SUFFIX_RE = /[- ](?:sa|sagl|s-a|ag|gmbh|s-r-l|srl|spa|s-p-a|holding|group|international|svizzera|suisse|ticino)(?:[- ](?:sa|sagl|ag|gmbh|holding|group))?$/;
+
+// First PARSEABLE date among candidates → epoch ms (0 if none). Local twin of
+// build-plugins/shared/firstParsableDate.ts (runtime .mjs, cannot import .ts):
+// stops a malformed postedDate from shadowing another usable date.
+function firstParsableMs(...values) {
+  for (const v of values) {
+    if (v === null || v === undefined || v === '') continue;
+    const ts = new Date(v).getTime();
+    if (Number.isFinite(ts)) return ts;
+  }
+  return 0;
+}
+
+// `crawledAt` means "last verified live" for the rolling inventory and is
+// intentionally excluded here: publisher projections refresh it on every sync.
+// Real novelty is anchored to the immutable discovery/source dates instead.
+// An agency job held out of publication until its titles were translated is
+// new to the site from its release (scripts/lib/translation-publication-hold.mjs).
+export function jobRealFreshnessMs(job) {
+  return Math.max(firstParsableMs(job?.firstSeenAt, job?.postedDate), translationHoldReleasedMs(job));
+}
+
+/**
+ * Whether an offer may be described as new in the email copy.
+ *
+ * The sender still uses `crawledAt` to keep the live inventory available to
+ * normal alerts and the first `backfill-newsletter` send. This separate
+ * predicate prevents that availability check from becoming a false novelty
+ * claim. Unknown dates are conservative: the offer can still be delivered,
+ * but it is described as selected rather than new.
+ */
+export function isActuallyNewJob(job, nowMs = Date.now(), windowMs = FRESHNESS_BOOST_48H_MS) {
+  const freshnessMs = jobRealFreshnessMs(job);
+  return freshnessMs > 0
+    && Number.isFinite(nowMs)
+    && Number.isFinite(windowMs)
+    && freshnessMs <= nowMs
+    && nowMs - freshnessMs <= windowMs;
+}
+
+function trySlug(slug) {
+  if (!slug) return null;
+  const aliased = BRAND_ALIASES.get(slug) || slug;
+  const filename = BRAND_LOGO_BY_SLUG.get(aliased);
+  return filename ? `${IMAGE_CDN_BASE}/images/brands/${filename}` : null;
+}
+
+function brandLogoUrl(companyName, companyKey) {
+  if (!companyName && !companyKey) return null;
+  // 1. Crawler-provided companyKey (already normalized, most reliable).
+  if (companyKey) {
+    const hit = trySlug(String(companyKey).toLowerCase());
+    if (hit) return hit;
+  }
+  // 2. Slugified display name.
+  const baseSlug = String(companyName || '').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (!baseSlug) return null;
+  const direct = trySlug(baseSlug);
+  if (direct) return direct;
+  // 3. Strip a single legal-suffix tier ("Banca Cler AG" → "banca-cler").
+  const stripped = baseSlug.replace(LEGAL_SUFFIX_RE, '');
+  if (stripped !== baseSlug) {
+    const hit = trySlug(stripped);
+    if (hit) return hit;
+  }
+  return null;
+}
+
+function resolveAvatarSrc(job) {
+  // Bundled, high-quality brand logo only. No Google-favicon tier: it serves a
+  // grey globe for domains it can't resolve (and the wrong logo for aggregator
+  // hosts), both of which look broken in an inbox. A null result renders the
+  // coloured initial-letter avatar instead.
+  const bundled = brandLogoUrl(job.company, companyLogoKeyForJob(job));
+  if (bundled) return { src: bundled, kind: 'bundled' };
+  return null;
+}
+
+// formatSalary moved to services/newsletter-content.mjs (#6104) — shared
+// with send-saved-jobs-digest.mjs so the two job-card renderers can't drift.
+
+// ── i18n strings for email template ─────────────────────────
+const EMAIL_STRINGS = {
+  it: {
+    subjectNew: (n) => `\ud83d\udd14 ${n} nuov${n === 1 ? 'a offerta' : 'e offerte'}`,
+    subjectFor: 'per',
+    subjectDefault: 'le tue offerte',
+    preheader: (n, label, fresh = true) => fresh
+      ? `${n} nuov${n === 1 ? 'a offerta' : 'e offerte'}: ${label}`
+      : `${n} offert${n === 1 ? 'a selezionata' : 'e selezionate'}: ${label}`,
+    heroTitle: (n, fresh = true) => fresh
+      ? `\ud83d\udd14 ${n} nuov${n === 1 ? 'a offerta' : 'e offerte'} per te`
+      : `\ud83d\udd14 ${n} offert${n === 1 ? 'a selezionata' : 'e selezionate'} per te`,
+    filters: 'Filtri',
+    sectionLabel: '\ud83d\udcbc Lavoro',
+    sectionTitle: 'Le offerte che fanno per te',
+    sectionDesc: 'Selezionate in base ai tuoi filtri, aggiornate ogni giorno.',
+    viewAll: 'Vedi tutte le offerte \u2192',
+    closer: 'Conosci qualcuno che cerca lavoro in Ticino? Inoltra questa email.',
+    closerSign: 'Alla prossima. \u2615',
+    manageAlerts: 'Gestisci le tue alert',
+    unsubThis: (filters) => `Non vuoi pi\u00f9 ricevere alert per <strong>${filters}</strong>?`,
+    unsubThisLink: 'Disiscriviti da questa alert',
+    unsubAll: 'Disiscriviti da tutte le alert',
+    unsubJoke: '\u2014 giuro che non piangeremo. (Forse un po\'.)',
+    newBadge: '\u2728 NUOVA',
+    fallbackTitle: 'Offerta di lavoro',
+    allOffers: 'tutte le offerte',
+    at: 'presso',
+    more: 'altre offerte',
+    intendedFor: (email, filter) => `Questa email \u00e8 stata inviata a ${email} in base al tuo alert: <strong>${filter}</strong>.`,
+  },
+  en: {
+    subjectNew: (n) => `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'}`,
+    subjectFor: 'for',
+    subjectDefault: 'your alerts',
+    preheader: (n, label, fresh = true) => fresh
+      ? `${n} new job${n === 1 ? '' : 's'}: ${label}`
+      : `${n} selected job${n === 1 ? '' : 's'}: ${label}`,
+    heroTitle: (n, fresh = true) => fresh
+      ? `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'} for you`
+      : `\ud83d\udd14 ${n} selected job${n === 1 ? '' : 's'} for you`,
+    filters: 'Filters',
+    sectionLabel: '\ud83d\udcbc Jobs',
+    sectionTitle: 'Jobs that match your criteria',
+    sectionDesc: 'Selected based on your filters, updated every day.',
+    viewAll: 'View all jobs \u2192',
+    closer: 'Know someone looking for a job in Ticino? Forward this email.',
+    closerSign: 'See you next time. \u2615',
+    manageAlerts: 'Manage your alerts',
+    unsubThis: (filters) => `Don't want alerts for <strong>${filters}</strong> anymore?`,
+    unsubThisLink: 'Unsubscribe from this alert',
+    unsubAll: 'Unsubscribe from all alerts',
+    unsubJoke: '\u2014 we promise we won\'t cry. (Maybe a little.)',
+    newBadge: '\u2728 NEW',
+    fallbackTitle: 'Job offer',
+    allOffers: 'all offers',
+    at: 'at',
+    more: 'more',
+    intendedFor: (email, filter) => `This email was sent to ${email} based on your alert: <strong>${filter}</strong>.`,
+  },
+  de: {
+    subjectNew: (n) => `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'}`,
+    subjectFor: 'f\u00fcr',
+    subjectDefault: 'Ihre Alerts',
+    preheader: (n, label, fresh = true) => fresh
+      ? `${n} neue Stelle${n === 1 ? '' : 'n'}: ${label}`
+      : `${n} ausgewählte Stelle${n === 1 ? '' : 'n'}: ${label}`,
+    heroTitle: (n, fresh = true) => fresh
+      ? `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'} f\u00fcr Sie`
+      : `\ud83d\udd14 ${n} ausgewählte Stelle${n === 1 ? '' : 'n'} f\u00fcr Sie`,
+    filters: 'Filter',
+    sectionLabel: '\ud83d\udcbc Stellen',
+    sectionTitle: 'Passende Stellenangebote',
+    sectionDesc: 'Ausgew\u00e4hlt nach Ihren Filtern, t\u00e4glich aktualisiert.',
+    viewAll: 'Alle Stellen ansehen \u2192',
+    closer: 'Kennen Sie jemanden, der im Tessin arbeiten m\u00f6chte? Leiten Sie diese E-Mail weiter.',
+    closerSign: 'Bis zum n\u00e4chsten Mal. \u2615',
+    manageAlerts: 'Alerts verwalten',
+    unsubThis: (filters) => `Keine Alerts mehr f\u00fcr <strong>${filters}</strong>?`,
+    unsubThisLink: 'Von diesem Alert abmelden',
+    unsubAll: 'Von allen Alerts abmelden',
+    unsubJoke: '\u2014 wir weinen bestimmt nicht. (Vielleicht ein bisschen.)',
+    newBadge: '\u2728 NEU',
+    fallbackTitle: 'Stellenangebot',
+    allOffers: 'alle Angebote',
+    at: 'bei',
+    more: 'weitere',
+    intendedFor: (email, filter) => `Diese E-Mail wurde an ${email} basierend auf deinem Alert gesendet: <strong>${filter}</strong>.`,
+  },
+  fr: {
+    subjectNew: (n) => `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}`,
+    subjectFor: 'pour',
+    subjectDefault: 'vos alertes',
+    preheader: (n, label, fresh = true) => fresh
+      ? `${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}: ${label}`
+      : `${n} offre${n === 1 ? '' : 's'} sélectionnée${n === 1 ? '' : 's'}: ${label}`,
+    heroTitle: (n, fresh = true) => fresh
+      ? `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'} pour vous`
+      : `\ud83d\udd14 ${n} offre${n === 1 ? '' : 's'} sélectionnée${n === 1 ? '' : 's'} pour vous`,
+    filters: 'Filtres',
+    sectionLabel: '\ud83d\udcbc Emploi',
+    sectionTitle: 'Les offres qui vous correspondent',
+    sectionDesc: 'S\u00e9lectionn\u00e9es selon vos filtres, mises \u00e0 jour chaque jour.',
+    viewAll: 'Voir toutes les offres \u2192',
+    closer: 'Vous connaissez quelqu\'un qui cherche un emploi au Tessin? Transf\u00e9rez cet email.',
+    closerSign: '\u00c0 bient\u00f4t. \u2615',
+    manageAlerts: 'G\u00e9rer vos alertes',
+    unsubThis: (filters) => `Vous ne souhaitez plus recevoir d\'alertes pour <strong>${filters}</strong>?`,
+    unsubThisLink: 'Se d\u00e9sabonner de cette alerte',
+    unsubAll: 'Se d\u00e9sabonner de toutes les alertes',
+    unsubJoke: '\u2014 promis, on ne pleurera pas. (Peut-\u00eatre un peu.)',
+    newBadge: '\u2728 NOUVELLE',
+    fallbackTitle: 'Offre d\'emploi',
+    allOffers: 'toutes les offres',
+    at: 'chez',
+    more: 'autres',
+    intendedFor: (email, filter) => `Cet e-mail a \u00e9t\u00e9 envoy\u00e9 \u00e0 ${email} en fonction de votre alerte\u00a0: <strong>${filter}</strong>.`,
+  },
+};
+
+function getStrings(locale) {
+  return EMAIL_STRINGS[locale] || EMAIL_STRINGS.it;
+}
+
+// makeAlertUnsubscribeUrl / makeAllAlertsUnsubscribeUrl moved to
+// scripts/lib/job-alert-unsub-urls.mjs (#5012 phase 2) when the CompanyAlert
+// immediate sender needed the same links. Keeping a copy here would have put
+// the HMAC derivation in two files while its verifier lives in a third
+// (functions/src/jobAlertUnsubscribe.js) — Non-Negotiable #6, and the exact
+// drift class #5151 was spent extracting.
+
+// generateAutologinCode lives in services/newsletterUrls.mjs (shared with
+// send-newsletter.mjs and the win-back/sunset runner, AGENTS.md #6).
+
+// makeAuthenticatedUrl is the shared builder in services/newsletterUrls.mjs
+// (canonical under functions/src/lib/) — same autologin scheme as the weekly
+// newsletter and the welcome email. Job alerts keep their own deterministic
+// taxonomy: utm_source=job_alert, utm_medium=email, utm_campaign=alert_<id>.
+// The explicit options also cover the defensive fallback URL used when a job
+// has no resolvable slug; normal links keep the identical UTM values already
+// present in utmBase.
+//
+// `sessionGated` (#5725) is threaded through because the shared builder is now
+// fail-closed: it attaches `ne`/`ac` only to a destination on its allowlist, or
+// to a call site that states in one string why that destination needs a session.
+// Omitting it here would silently strip the credential from the job cards, which
+// is the one place in this email where it is load-bearing.
+const makeAuthenticatedUrl = (targetUrl, email, autologinCode, {
+  utmSource = null,
+  utmMedium = 'email',
+  utmCampaign = null,
+  sessionGated,
+} = {}) =>
+  makeAuthenticatedUrlShared(targetUrl, email, {
+    autologinCode,
+    utmSource,
+    utmMedium,
+    utmCampaign,
+    preserveExistingUtmMedium: true,
+    sessionGated,
+  });
+
+// ── Firebase Admin SDK (lazy init) ───────────────────────────
+
+let _db = null;
+
+// Test seam: inject a fake Firestore so the maileroo-meta writer can be unit-tested
+// without real credentials. No-op in production (only tests call it).
+export function __setFirestoreAdminForTest(fakeDb) {
+  _db = fakeDb;
+}
+
+async function getFirestoreAdmin() {
+  if (_db) return _db;
+  _db = await getFirestoreDb();
+  return _db;
+}
+
+// ── Load jobs from data/jobs.json ────────────────────────────
+
+// Static floor for the 4 cities the subscriber-preference flags hardcode
+// (jobAlertMatching.mjs preferenceCities). Without it, a subscriber whose
+// home city has zero live jobs in today's crawl snapshot would fail to
+// resolve to "ti" via the dataset-derived cityToCanton index below and fall
+// through to CH-wide, even though same-canton jobs from nearby TI cities
+// exist (review nit on PR #3146, issue #3155). Exported for direct unit
+// testing — see tests/job-alert-geo-preference-pipeline.test.ts.
+export const STATIC_CITY_CANTON_FLOOR = {
+  lugano: 'ti', bellinzona: 'ti', mendrisio: 'ti', chiasso: 'ti',
+};
+
+// Returns the live inventory AND a lightweight slug/id → geography index over
+// the FULL dataset. The old implementation threw away everything outside a
+// fixed 24h crawledAt window before it knew which recipient was being planned;
+// that made a weekly/paused recipient lose the catch-up interval. We retain the
+// inventory rows here and apply each recipient's cursor in main(). The index
+// still covers the full dataset so a one-tap source job can recover its
+// geography even when it is older than the current recipient window.
+function loadJobs() {
+  if (!fs.existsSync(JOBS_PATH)) return {
+    inventory: [],
+    recent: [],
+    locationIndex: new Map(),
+    cityToCanton: new Map(),
+  };
+  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
+  if (!Array.isArray(jobs)) return {
+    inventory: [],
+    recent: [],
+    locationIndex: new Map(),
+    cityToCanton: new Map(),
+  };
+
+  const now = Date.now();
+  const cutoff = now - MATCH_WINDOW_MS;
+  const inventory = [];
+  const locationIndex = new Map();
+  // City → canton index over the FULL dataset, so the graduated geo preference
+  // (#2993) can resolve a subscriber's preferred city (e.g. "bellinzona") to its
+  // canton ("ti") and treat every TI job as in-area — not just exact-city hits.
+  // Seeded with STATIC_CITY_CANTON_FLOOR; dataset entries below never override
+  // these (`!has` guard) since all four are unambiguously Ticino.
+  const cityToCanton = new Map(Object.entries(STATIC_CITY_CANTON_FLOOR));
+  for (const j of jobs) {
+    const geo = [j.location || j.addressLocality || '', j.canton || ''].filter(Boolean);
+    const company = j.company || '';
+    if (geo.length > 0 || company) {
+      const meta = { geo, company };
+      for (const key of [j.slug, ...Object.values(j.slugByLocale || {}), j.id]) {
+        if (key) locationIndex.set(String(key).toLowerCase(), meta);
+      }
+    }
+    const canton = String(j.canton || '').toLowerCase();
+    if (canton) {
+      for (const city of [j.location, j.addressLocality]) {
+        const c = String(city || '').toLowerCase().trim();
+        if (c && !cityToCanton.has(c)) cityToCanton.set(c, canton);
+      }
+    }
+    // needsRetranslation is NOT checked here: this pool is shared across every
+    // subscriber alert regardless of locale, and the flag only means
+    // translations FROM the job's source locale are stale — it never means
+    // the source locale's own title/description is bad. Blanket-excluding
+    // here wrongly dropped a job from EVERY alert (including ones in its own
+    // source language) whenever any other locale's translation was pending.
+    // The locale-aware exemption is applied per-alert below, where the
+    // recipient's locale is actually known (#4715).
+    const inventoryAt = jobInventoryTimestampMs(j);
+    // A future crawl timestamp is malformed input, not a reason to send a job
+    // before it can exist. Rows without any usable inventory timestamp are
+    // quarantined from matching rather than widening the pool to all history.
+    if (inventoryAt > 0 && inventoryAt <= now) inventory.push(j);
+  }
+  const recent = inventory.filter((job) => jobInventoryTimestampMs(job) >= cutoff);
+  return { inventory, recent, locationIndex, cityToCanton };
+}
+
+// Resolve the geography of the job a one-tap alert was created from, via its
+// stored slug / pinned id. Returns lowercased location + canton tokens ('' set
+// filtered out by the caller).
+function sourceJobLocationsFor(alert, locationIndex) {
+  if (!locationIndex || locationIndex.size === 0) return [];
+  const keys = [
+    alert.sourceJobSlug,
+    alert.specificJobId,
+    ...(Array.isArray(alert.specificJobIds) ? alert.specificJobIds : []),
+  ];
+  for (const k of keys) {
+    if (!k) continue;
+    const meta = locationIndex.get(String(k).toLowerCase());
+    if (meta?.geo?.length) return meta.geo;
+  }
+  return [];
+}
+
+// Resolve the job a subscriber CLICKED in a previous alert/newsletter email,
+// from the ESP-recorded `last_clicked_url`, into its geography + employer. A
+// click is the strongest intent signal we hold (the user picked that job out of
+// the inbox) — fed at the highest weight into personalization + matching (#3025).
+// The webhooks already persist `last_clicked_url`; we just consume it here,
+// where the jobs index is available (functions have no job data).
+function clickedJobMeta(lastClickedUrl, locationIndex) {
+  if (!lastClickedUrl || !locationIndex || locationIndex.size === 0) {
+    return { locations: [], company: '' };
+  }
+  // Reuse the canonical job-board-URL → slug parser (returns '' for non-job
+  // URLs like preferences/unsubscribe links, so those are ignored).
+  const slug = extractSlugFromSourcePage(lastClickedUrl);
+  if (!slug) return { locations: [], company: '' };
+  const meta = locationIndex.get(slug.toLowerCase());
+  if (!meta) return { locations: [], company: '' };
+  return { locations: meta.geo || [], company: meta.company || '' };
+}
+
+// Extract soft browsing signals from the personalization subdoc
+// (newsletter_subscribers/{email}/private/personalization). `filterUsage.location`
+// keys + viewed-job cities are the precise location data issue #2993 asks us to
+// use; `searches[].query` + viewed-job categories add intent tokens.
+function behaviorSignals(personalization) {
+  if (!personalization || typeof personalization !== 'object') {
+    return {
+      behaviorLocations: [],
+      behaviorTokens: [],
+      filterLocations: [],
+      applicationIntent: null,
+      applicationIntentAuthUid: null,
+    };
+  }
+  const viewedJobs = Array.isArray(personalization.viewedJobs) ? personalization.viewedJobs : [];
+  const searches = Array.isArray(personalization.searches) ? personalization.searches : [];
+  const filterLoc = personalization.filterUsage?.location;
+  // Locations the user EXPLICITLY filtered by on-site — the strongest browsing
+  // geo signal. Kept separate from the merged soft set so the graduated geo
+  // preference (#2993) can rely on it without the noise of passive viewed-job
+  // cities (a single curiosity click on a far-away role).
+  const filterLocations = filterLoc && typeof filterLoc === 'object' ? Object.keys(filterLoc) : [];
+  const behaviorLocations = [
+    ...filterLocations,
+    ...viewedJobs.map((v) => v?.location).filter(Boolean),
+  ];
+  const behaviorTokens = [
+    ...searches.map((s) => s?.query).filter(Boolean),
+    ...viewedJobs.map((v) => v?.category).filter(Boolean),
+  ];
+  return {
+    behaviorLocations,
+    behaviorTokens,
+    filterLocations,
+    applicationIntent: personalization.applicationIntent || null,
+    applicationIntentAuthUid: typeof personalization.applicationIntentAuthUid === 'string'
+      ? personalization.applicationIntentAuthUid.trim()
+      : null,
+  };
+}
+
+// ── Matching logic ───────────────────────────────────────────
+// The relevance heuristic lives in services/jobAlertMatching.mjs
+// (buildAlertProfile + scoreJobForAlert) so it is pure + unit-testable and
+// shares the keyword tokenizer with the newsletter funnel. The matching loop
+// in main() builds a per-alert profile (alert config + source-job intent +
+// newsletter_subscribers profile) and scores every recent job against it.
+
+// ── Email template ───────────────────────────────────────────
+
+// Mirrors the confidence bar used by the upstream needsRetranslation gate
+// (scripts/lib/dedicated-crawler-common.mjs, ~line 1395/1415: detectJobTitleLocaleDetails
+// + minConfidence 0.55) so the two layers stay consistent.
+const HEADLINE_LOCALE_MIN_CONFIDENCE = 0.55;
+
+// Second, independent line of defense against a wrong-language headline
+// (live bug, 2026-07-27: an 'it' subscriber's subject + lead card was built
+// from an untranslated German title, even though a correctly-localized job
+// sat lower in the same ranked list). The upstream `needsRetranslation` flag
+// is supposed to fully exclude untranslated-title jobs before they ever reach
+// `matchedJobs`, but by construction it can't catch every case (new
+// employers, new source languages, code-switched titles under its confidence
+// threshold). So rather than trust `shownJobs[0]` blindly, walk the
+// rank-ordered list and headline the FIRST job whose title reliably reads as
+// `locale` — a bad title can never become the thing a subscriber sees first,
+// regardless of whether the upstream flag caught it.
+//
+// Pure + unit-testable (kept next to buildAlertEmail per this file's stated
+// design goal — see the "Matching logic" comment above).
+function selectHeadlineIndex(shownJobs, locale) {
+  for (let i = 0; i < shownJobs.length; i++) {
+    const job = shownJobs[i];
+    const title = job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || '';
+    const detected = detectJobTitleLocaleDetails(title, locale);
+    const reliablyInLocale = detected.lang === locale || detected.confidence < HEADLINE_LOCALE_MIN_CONFIDENCE;
+    if (reliablyInLocale) return i;
+  }
+  // Edge case: none pass (e.g. a single-job alert whose only job is
+  // untranslated) — never break the "an alert always sends something"
+  // guarantee, and never produce an empty subject. Fall back to today's
+  // behavior: the top-ranked job leads regardless.
+  return 0;
+}
+
+function buildAlertEmail(
+  alert,
+  matchedJobs,
+  autologinEnabled = true,
+  rankingContext = null,
+  subjectExperiment = null,
+  { discoveryMode = false } = {},
+) {
+  const locale = nlNormLocale(alert.locale);
+  const recommendation = pickNewsletterRecommendation({ locale, interest: 'jobs', campaign: 'jobalert' });
+  const recommendationOwnsAutomation = isApplicationConciergeRecommendation(recommendation);
+  const discoveryCopy = discoveryMode ? DISCOVERY_COPY[locale] : null;
+  const s = discoveryCopy ? {
+    ...getStrings(locale),
+    heroTitle: () => discoveryCopy.title,
+    preheader: () => discoveryCopy.description,
+    sectionTitle: discoveryCopy.title,
+    sectionDesc: discoveryCopy.description,
+  } : getStrings(locale);
+  const jobBoardPath = resolveCantonSection(locale, AGGREGATE_KEY);
+  const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
+  const autologinCode = autologinEnabled ? generateAutologinCode(alert.email) : null;
+  // fallbackUnsigned: true reproduces this script's pre-consolidation behavior
+  // (an unsigned link instead of a dropped one when NEWSLETTER_SECRET is
+  // unset) — line ~830 below string-concatenates this value unguarded, so it
+  // must never be null. email.toLowerCase().trim() reproduces the old local
+  // implementation's exact query-param + token normalization (alert.email is
+  // a raw Firestore field, not pre-normalized like send-newsletter.mjs's
+  // subscriber.email).
+  const preferencesUrl = makePreferencesUrl(alert.email.toLowerCase().trim(), locale, { fallbackUnsigned: true });
+
+  const keyword = alert.keywords?.join(', ') || '';
+  const locationLabel = alert.locations?.length > 0 ? alert.locations.join(', ') : '';
+  const subjectLabel = keyword || locationLabel || s.subjectDefault;
+
+  // Honest counts (live report: "186 nuove offerte per te" on an email showing
+  // 10 cards). Every count the email states — subject "(+N more)", hero,
+  // preheader — is based on the jobs actually RENDERED in this email, not the
+  // full match-pool size: the pool is a rolling crawledAt window that re-admits
+  // the whole re-crawled inventory daily, so its size says nothing about
+  // novelty. `sentJobIds` says whether an offer is new to THIS alert; the
+  // copy below makes the stronger site-wide "new" claim only when every shown
+  // offer has a real first-seen/source date inside the freshness window.
+  const shownJobs = matchedJobs.slice(0, MAX_JOB_CARDS);
+  const nowMs = Date.now();
+  // An email containing even one older re-crawl uses neutral copy. This keeps
+  // the first backfill email useful for a subscriber who has never seen the
+  // offer, without calling a standing publisher ad a newly published offer.
+  const useNewCopy = shownJobs.length === 0
+    || shownJobs.every((job) => isActuallyNewJob(job, nowMs));
+
+  // Headline-language backstop (see selectHeadlineIndex): swap the first
+  // reliably-`locale` job into the lead position (index 0) so it becomes both
+  // the subject and the visually-first card. This only exchanges two
+  // positions — the rest of shownJobs keeps its original rank order, and the
+  // displaced job is NOT dropped, just no longer leads (its salary/location/
+  // company data is still valid; only its fitness as a headline was in doubt).
+  const headlineIdx = selectHeadlineIndex(shownJobs, locale);
+  if (headlineIdx > 0) {
+    [shownJobs[0], shownJobs[headlineIdx]] = [shownJobs[headlineIdx], shownJobs[0]];
+  }
+  // The visible card order is the source of truth for the impression position.
+  // Mutating the per-email clones also lets the post-send manifest use the same
+  // positions after the headline-language backstop swaps two cards.
+  if (rankingContext) {
+    shownJobs.forEach((job, index) => {
+      if (job?.ranking) job.ranking = { ...job.ranking, position: index + 1 };
+    });
+  }
+
+  // Subject: lead with the most relevant job (LinkedIn-style personalization).
+  // Format: "🔔 {title} at {company}" or "🔔 {title} at {company} (+N more)"
+  // Capped at 78 characters total. Non-empty subjects are deliberately
+  // item-specific and contain no novelty claim; the hero/preheader below carry
+  // the explicit new-vs-selected wording.
+  const SUBJECT_MAX = 78;
+  // Truncate at the last word boundary before max chars and strip dangling punctuation.
+  // This avoids ugly mid-word ellipses like "Revisori dei conti, esperti tecnici…".
+  const truncateAtWord = (str, max) => {
+    if (str.length <= max) return str;
+    const slot = str.slice(0, max - 1); // reserve 1 char for the ellipsis
+    const lastSpace = slot.lastIndexOf(' ');
+    // If a sensible word boundary exists past 50% of the slot, cut there;
+    // otherwise hard-cut to avoid producing a 2-character title.
+    let cut = lastSpace > Math.floor(max * 0.5) ? slot.slice(0, lastSpace) : slot;
+    // Balance brackets: if the cut left an unmatched "(" / "[" \u2014 e.g. truncating
+    // inside a "(100%)" or "(m/w/d)" suffix produced "\u2026 Portafogli (100%" \u2014 drop
+    // the dangling fragment so the subject never emits an unbalanced "(100%\u2026".
+    const opens = (cut.match(/[([]/g) || []).length;
+    const closes = (cut.match(/[)\]]/g) || []).length;
+    if (opens > closes) {
+      const lastOpen = Math.max(cut.lastIndexOf('('), cut.lastIndexOf('['));
+      if (lastOpen > Math.floor(max * 0.4)) cut = cut.slice(0, lastOpen);
+    }
+    // Drop trailing punctuation AND any dangling function word — the shared
+    // peel, so an alert subject never ends on "… esperti tecnici per".
+    cut = peelDanglingClauseTail(cut);
+    return cut + '\u2026';
+  };
+  // Strip filler prefixes the crawler / AI translator sometimes prepends to job
+  // titles ("Posizione aperta:", "Open position:", "Job opening:", "Open role:")
+  // and uppercase the first character so cards never display "addetti..." or
+  // "Posizione aperta: consulente..." — both seen live in the latest test send.
+  const cleanTitle = (raw) => {
+    let t = String(raw || '').trim();
+    t = t.replace(/^(?:posizione\s+aperta|posto\s+vacante|annuncio\s+aperto|open\s+(?:position|role|job|posting)|job\s+opening|stellenausschreibung|offene\s+stelle|poste\s+ouvert|offre\s+ouverte)\s*:?\s*/i, '');
+    if (t && /[a-zà-ÿ]/i.test(t[0])) {
+      t = t.charAt(0).toLocaleUpperCase(locale === 'it' ? 'it-CH' : locale) + t.slice(1);
+    }
+    return t || raw;
+  };
+  // Strip Swiss workload (Pensum) and gender markers from a title for the SUBJECT
+  // line ONLY — "(100%)", "(80-100%)", "(m/w/d)", "(w/m)" carry no value in a
+  // space-constrained subject and used to overflow it and get truncated mid-token
+  // into a dangling "(100%…" (reported live). Job CARDS keep these (more room; the
+  // workload % is genuinely useful there).
+  const stripTitleNoise = (raw) => {
+    const original = String(raw || '').trim();
+    let t = original
+      // Workload: (100%), (80 %), (80-100%), (ca. 60–100 %).
+      .replace(/\s*\(\s*(?:ca\.?\s*)?\d{1,3}\s*(?:[–—-]\s*\d{1,3}\s*)?%\s*\)/gi, '')
+      // Gender markers: (m/w/d) (w/m) (f/h) (h/f) (m/f/d) (m/w/x) — slash/dash sep.
+      .replace(/\s*\(\s*[mwfdhx](?:\s*[/\-]\s*[mwfdhx])+\s*\)/gi, '')
+      // Collapse leftover double spaces and any dangling trailing separator.
+      .replace(/\s{2,}/g, ' ')
+      .replace(/\s*[-–—|·,]\s*$/, '')
+      .trim();
+    return t || original;
+  };
+  let subject;
+  if (matchedJobs.length === 0) {
+    subject = `${s.subjectNew(matchedJobs.length)} ${s.subjectFor}: ${subjectLabel}`;
+  } else {
+    const topJob = shownJobs[0];
+    const topTitle = stripTitleNoise(cleanTitle(topJob.titleByLocale?.[locale] || topJob.titleByLocale?.it || topJob.title || s.fallbackTitle));
+    const topCompany = (topJob.company || '').trim();
+    const extra = shownJobs.length - 1;
+    const bell = '\ud83d\udd14';
+    const suffix = extra > 0 ? ` (+${extra} ${s.more})` : '';
+    // Build: "🔔 {title} at {company}{suffix}"
+    const atPart = topCompany ? ` ${s.at} ${topCompany}` : '';
+    let candidate = `${bell} ${topTitle}${atPart}${suffix}`;
+    if (candidate.length > SUBJECT_MAX) {
+      // Step 1: drop the company — preserves the full title (the most informative
+      // part) when the company name is too long. "🔔 Assistente di studio medico
+      // (+57 altre offerte)" is far better than "🔔 Assistente di… presso EOC –
+      // Ente Ospedaliero Cantonale (+57 altre offerte)".
+      const noCompany = `${bell} ${topTitle}${suffix}`;
+      if (noCompany.length <= SUBJECT_MAX) {
+        candidate = noCompany;
+      } else {
+        // Step 2: title alone still too long — truncate it at a word boundary.
+        // Need ≥10 chars of usable title; otherwise fall through to a hard cap.
+        const fixed = `${bell} ${suffix}`;
+        const room = SUBJECT_MAX - fixed.length;
+        if (room >= 10) {
+          const truncatedTitle = truncateAtWord(topTitle, room);
+          candidate = `${bell} ${truncatedTitle}${suffix}`;
+        } else {
+          candidate = truncateAtWord(noCompany, SUBJECT_MAX);
+        }
+      }
+      // Final defensive cap (handles edge cases where suffix itself is huge).
+      if (candidate.length > SUBJECT_MAX) {
+        candidate = truncateAtWord(candidate, SUBJECT_MAX);
+      }
+    }
+    subject = candidate;
+  }
+  // The body/preheader stay identical across arms. Only the subject changes,
+  // and the control is the exact subject built above so the experiment can be
+  // disabled without changing production copy.
+  const renderedSubject = renderJobAlertSubject({
+    variant: subjectExperiment?.variant || 'control',
+    locale,
+    controlSubject: subject,
+    shownCount: shownJobs.length,
+    keyword,
+    locationLabel,
+    subjectLabel,
+    useNewCopy,
+  });
+  subject = discoveryCopy ? discoveryCopy.title : renderedSubject.subject;
+
+  // Brand colors (aligned with newsletter-template.mjs)
+  const BRAND_ORANGE = '#f97316';
+  const BRAND_DARK = '#0f172a';
+  const LIGHT_BG = '#f1f5f9';
+  const WHITE = '#ffffff';
+  const MUTED = '#64748b';        // 4.76:1 on WHITE/CARD_BG — fine on the light sections that use it
+  const CARD_BG = '#f8fafc';
+  // #5714 item 1 (follow-up of #5707, review of #5697): the dark footer below
+  // (background: BRAND_DARK) reused MUTED unchanged — 3.75:1 there, below AA
+  // (4.5:1) for its 11-12px text, the same low-contrast pattern the review
+  // flagged on `unsubAllUrl`. `#94a3b8` was already the value that ONE link
+  // used correctly on this background (6.96:1); this names it and applies it
+  // to the rest of the same footer instead of leaving one line fixed and its
+  // neighbours (and the "joke" text right next to the unsubscribe link) at a
+  // contrast that fails the same test.
+  const MUTED_ON_DARK = '#94a3b8';
+
+  const alertUtm = {
+    utmSource: 'job_alert',
+    utmMedium: 'email',
+    utmCampaign: `alert_${alert.id}`,
+  };
+  const utmBase = `utm_source=job_alert&utm_medium=email&utm_campaign=${alertUtm.utmCampaign}`;
+  const unsubscribeUrl = makeAlertUnsubscribeUrl(alert.id, alert.email);
+  const unsubAllUrl = makeAllAlertsUnsubscribeUrl(alert.email);
+
+  // ── Two wrappers, because two kinds of destination (#5725) ────────────────
+  //
+  // Both add the campaign parameters. Only one can add the `ne`/`ac` autologin
+  // pair, and which one it is no longer depends on this file: the shared builder
+  // consults its own fail-closed allowlist and ignores anything it does not
+  // recognise. `wrapJobUrl` is the single opt-out, and it carries its reason.
+  //
+  // JOB DETAIL PAGES ARE NOT PUBLIC, which is the correction #5725's own count
+  // needs. components/community/JobBoard.tsx gates the detail view on
+  // `hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor` and
+  // returns the sign-in gate otherwise; the same component holds a skeleton
+  // while `newsletterAutologinInFlight` is true so the gate never flashes for a
+  // reader arriving from one of these very links. Strip the credential here and
+  // every recipient meets a login wall on the job the email exists to show them.
+  // So the ten cards keep it, deliberately and in writing.
+  const wrapPublicUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode, alertUtm);
+  const wrapJobUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode, {
+    ...alertUtm,
+    sessionGated:
+      'job detail page — components/community/JobBoard.tsx renders the sign-in gate '
+      + 'instead of the listing when hasAccess is false',
+  });
+  // "Manage alerts" points to the user's preferences page (which has alert controls),
+  // NOT the job board landing — the job board has no alert-management UI.
+  // Inside the perimeter by destination (`newsletter-preferences`), so it needs
+  // no declaration: it is the one link #5725 leaves untouched.
+  const manageUrl = wrapPublicUrl(`${preferencesUrl}&${utmBase}`);
+  // The Switzerland-wide board LANDING, not a listing: a public results page
+  // that renders identically signed out. Out of the perimeter — it keeps utm_*
+  // and loses the credential.
+  const allJobsUrl = wrapPublicUrl(`${BASE_URL}${localizedJobBoardPath}/?${utmBase}`);
+
+  const jobCards = shownJobs.map((job, i) => {
+    const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
+    const company = job.company || '';
+    const rawLocation = job.location || job.addressLocality || '';
+    const location = rawLocation.replace(/^[-\u2013\u2014\s]+/, '').trim();
+    const jobUrl = jobPageUrl(job, locale);
+    let rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
+    if (rankingContext && jobUrl) {
+      rawJobUrl = appendJobRankingParams(rawJobUrl, {
+        jobId: stableJobId(job),
+        surface: 'job_alert',
+        surfaceId: alert.id,
+        deliveryId: rankingContext.deliveryId,
+        position: i + 1,
+        variant: rankingContext.variant,
+        alertId: alert.id,
+        rankingScore: job.ranking?.rankingScore,
+        relevanceScore: job.ranking?.relevanceScore,
+      });
+    }
+    const url = wrapJobUrl(rawJobUrl);
+    const avatar = resolveAvatarSrc(job);
+    const card = renderBrandJobCard({
+      title,
+      company,
+      location,
+      logoUrl: avatar?.src || '',
+      contract: job.contract || '',
+      salaryMin: job.salaryMin,
+      salaryMax: job.salaryMax,
+      salaryCurrency: job.salaryCurrency,
+      baseSalary: job.baseSalary,
+      firstSeenAt: job.firstSeenAt || job.postedDate || '',
+      isNew: isActuallyNewJob(job, nowMs),
+      locale,
+      newLabel: s.newBadge,
+      url,
+    });
+    return `<tr><td style="padding:0 0 10px;">${card}</td></tr>`;
+  }).join('');
+
+  const filterParts = [];
+  // CompanyAlert (#5012 phase 2): the followed employer IS the filter, and it
+  // must be named FIRST. A company-pinned alert has no keywords, no locations
+  // and no sectors, so this block used to fall through to `s.allOffers` \u2014 the
+  // email told a user who had followed one employer that its filter was
+  // "tutte le offerte". Read from the shown jobs (correctly-cased display
+  // name) with the persisted slug as the fallback.
+  if (alert.specificCompanyKey) {
+    const pinnedCompanyName = String(shownJobs[0]?.company || '').trim()
+      || String(alert.specificCompanyKey).split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    filterParts.push(pinnedCompanyName);
+  }
+  if (keyword) filterParts.push(keyword);
+  if (alert.locations?.length > 0) filterParts.push(alert.locations.join(', '));
+  if (alert.sectors?.length > 0) filterParts.push(alert.sectors.join(', '));
+  const filterLabel = filterParts.length > 0 ? filterParts.join(' \u00b7 ') : s.allOffers;
+  const filterSummary = escHtml(filterLabel);
+
+  const html = `<!DOCTYPE html>
+<html lang="${locale}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Job Alert \u2014 Frontaliere Ticino</title>
+  <style>
+    body{margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}
+    table{border-collapse:collapse;}
+    @media only screen and (max-width:620px){
+      .outer-table{width:100%!important;}
+      .section-pad{padding-left:16px!important;padding-right:16px!important;}
+    }
+  </style>
+</head>
+<body>
+  ${renderEmailPreview(s.preheader(shownJobs.length, subjectLabel, useNewCopy))}
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
+    <tr><td align="center" style="padding:0;">
+      <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">
+
+        <!-- Top bar -->
+        <tr><td style="background:${BRAND_DARK};padding:14px 28px;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="font-size:15px;font-weight:800;color:${WHITE};letter-spacing:-0.3px;">
+                <span style="color:${BRAND_ORANGE};">\u25cf</span> Frontaliere Ticino
+              </td>
+              <td align="right" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">
+                <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:none;">${s.manageAlerts}</a>
+              </td>
+            </tr>
+          </table>
+        </td></tr>
+
+        <!-- Hero -->
+        <tr><td style="background:${BRAND_DARK};padding:20px 28px 28px;" class="section-pad">
+          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${s.heroTitle(shownJobs.length, useNewCopy)}</div>
+          <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:6px;">${s.filters}: ${filterSummary}</div>
+        </td></tr>
+
+        <!-- Section header -->
+        <tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">${s.sectionLabel}</div>
+          <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${s.sectionTitle}</div>
+          <div style="font-size:13px;color:${MUTED};margin:4px 0 0;">${s.sectionDesc}</div>
+        </td></tr>
+
+        <!-- Job cards -->
+        <tr><td class="section-pad" style="background:${WHITE};padding:8px 28px 20px;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            ${jobCards}
+            <tr><td style="text-align:center;padding-top:14px;">
+              <a target="_blank" rel="noopener noreferrer" href="${allJobsUrl}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${s.viewAll}</a>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <!-- Recommended (revenue) block — config-driven affiliate/sponsor slot
+             (#4450/#4449 "every email carries a revenue block"). Job-alert
+             recipients are jobs-interested by definition. Renders only when a
+             partner/sponsor is active (never an empty box). -->
+        ${renderRecommendedBlock({
+          locale,
+          interest: 'jobs',
+          acquisitionSource: alert.acquisitionSource || alert.source || null,
+          campaign: 'jobalert',
+        })}
+
+        <!-- Closer (aligned with newsletter) -->
+        <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
+          <div style="background:${CARD_BG};border-radius:12px;padding:18px 20px;text-align:center;">
+            <div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">${s.closer}</div>
+            <div style="font-size:12px;color:${BRAND_ORANGE};font-weight:700;">${s.closerSign}</div>
+          </div>
+        </td></tr>
+
+        ${renderEmailEngagementBanners({ locale, includeAutomation: !recommendationOwnsAutomation })}
+
+        <!-- Footer (dark, aligned with newsletter) -->
+        <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 14px;line-height:1.5;">
+            ${s.intendedFor(escHtml(alert.email), filterSummary)}
+          </div>
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${s.manageAlerts}</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            ${s.unsubThis(filterLabel)} <a target="_blank" rel="noopener noreferrer" href="${unsubscribeUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">${s.unsubThisLink}</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            <a target="_blank" rel="noopener noreferrer" href="${unsubAllUrl}" style="color:${MUTED_ON_DARK};text-decoration:underline;">${s.unsubAll}</a> ${s.unsubJoke}
+          </div>
+          <!-- #5714 item 1: #475569 measured 2.36:1 on BRAND_DARK \u2014 the worst
+               offender in this footer, below even the MUTED-on-dark case above. -->
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin-top:6px;">${escHtml(dataControllerFooterLine(locale))}</div>
+        </td></tr>
+
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+
+  // Keep every visible detail and destination in both alternatives, including
+  // salary/contract chips, the selected recommendation and unsubscribe links.
+  // Rendering the complete HTML once also avoids selecting a different sponsor
+  // when building the text alternative.
+  const text = htmlToText(html);
+
+  return {
+    subject,
+    html,
+    text,
+    unsubscribeUrl,
+    subjectVariant: discoveryMode ? 'control' : renderedSubject.variant,
+    subjectFreshnessQualified: discoveryMode ? false : renderedSubject.freshnessQualified,
+  };
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// ── Send via email cascade (multi-provider) ──────────────────
+
+// Maileroo's open/click webhooks carry only message_reference_id (no recipient,
+// no tags). Persist an authoritative lookup record keyed by that id so the webhook
+// can attribute opens/clicks to the job-alert subscriber. Stored under
+// newsletter_subscribers/_meta_/maileroo_refs (shared lookup family, distinguished
+// by is_job_alert) — same path as the newsletter persistDelivery writer. See
+// functions/src/newsletterMailerooWebhookCore.js. The webhook uses meta.email
+// directly as the job_alert_subscribers/{email} doc id, and every other writer
+// keys that collection by lowercased/trimmed email — so normalize here to avoid
+// attributing engagement to an orphan doc for mixed-case addresses.
+// Used by both the first-send (sendBatch) and retry (processRetryQueue) paths.
+// The write itself now lives in functions/src/lib/mailerooRef.js — the single
+// writer every sender shares, so the normalization rule above cannot drift
+// between copies. This wrapper stays because the job-alert send path composes
+// it with its other post-send bookkeeping (onSentComposed) and because the
+// retry path reuses the same callback; it adds no logic of its own.
+export async function mailerooMetaOnSent(item, sendResult) {
+  if (sendResult?.provider !== 'maileroo' || !sendResult?.messageId) return;
+  const email = item.recipient?.email;
+  if (!email) return;
+  try {
+    const db = await getFirestoreAdmin();
+    await recordMailerooRef(db, {
+      provider: sendResult.provider,
+      messageId: sendResult.messageId,
+      email,
+      campaignId: 'job-alert',
+      isJobAlert: true,
+    });
+  } catch (e) {
+    console.warn('⚠️ Maileroo meta persist failed:', redactEmailAddresses(e?.message));
+  }
+}
+
+// Job-alert delivery record (#3798 report accuracy): mirrors send-newsletter.mjs's
+// persistDelivery, but keyed by alertId instead of campaignId — writes under
+// job_alert_subscribers/{email}/campaign_deliveries/{buildDeliveryDocId(deliveryId,
+// email)} so scripts/report-send-hour-impact.mjs's collectionGroup('campaign_deliveries')
+// query (previously job-alert-blind — job alerts only wrote alert_deliveries, a
+// differently-named/shaped subcollection) sees per-user send-time outcomes for
+// job alerts too. Used by both the first-send (sendBatch) and retry
+// (processRetryQueue) paths, same as mailerooMetaOnSent above.
+export async function persistJobAlertDelivery(item, sendResult) {
+  const email = item.recipient?.email?.toLowerCase().trim();
+  const alertId = String(item.meta?.alertId || '').trim();
+  const consentProof = item.meta?.consentProof || null;
+  if (!email) return;
+  try {
+    const db = await getFirestoreAdmin();
+    const rankingDeliveryId = item.meta?.rankingDeliveryId || null;
+    const sentAt = new Date();
+    // The audience filter may run long before a provider accepts this item
+    // (especially when a scheduled send waits in the cascade). Preserve the
+    // timestamp captured by that filter alongside the already-evaluated allow
+    // decision and its basis. `sentAt` is the provider-accepted boundary, not
+    // a consent read, so it must never replace the filter timestamp.
+    const consentCheckedAt = consentProof?.checkedAt || null;
+    // A successful provider send must remain observable even if an upstream
+    // item lost its alert id. The null campaign_id keeps attribution closed;
+    // the provider id/time fallback prevents two unknown sends collapsing into
+    // one Firestore document and lets the exporter report missingAlertId.
+    const deliveryKey = rankingDeliveryId || alertId || uniqueUnknownFallback(sendResult?.messageId, sentAt.toISOString());
+    const deliveryDocId = buildDeliveryDocId(deliveryKey, email);
+    await db.collection('job_alert_subscribers').doc(email)
+      .collection('campaign_deliveries').doc(deliveryDocId).set({
+      email,
+      campaign_id: alertId || null,
+      ranking_delivery_id: rankingDeliveryId,
+      ranking_variant: item.meta?.rankingVariant || null,
+      recommendation_mode: item.meta?.discoveryMode ? 'discovery' : 'targeted',
+      discovery_delivery_id: item.meta?.discoveryClaim?.deliveryId || null,
+      subject_experiment: item.meta?.subjectExperiment || null,
+      subject_experiment_active: item.meta?.subjectExperimentActive === true,
+      subject_experiment_period: item.meta?.subjectExperimentPeriod || null,
+      subject_variant: item.meta?.subjectVariant || null,
+      subject_line: item.meta?.subject || null,
+      subject_freshness_qualified: item.meta?.subjectFreshnessQualified ?? null,
+      // Lean manifest only (job_id, position, scores): the full job objects stay
+      // in memory on item.meta.rankingJobs for recordJobEmailImpressions and the
+      // retry queue. Storing them here cost ~200 KB per delivery document.
+      ranking_jobs: buildRankingJobsManifest(item.meta?.rankingJobs),
+      message_id: sendResult?.messageId || null,
+      provider: sendResult?.provider || null,
+      // Per-user send-time (#3798): scheduledFor is the cascade's authoritative
+      // outcome (null when provider didn't honor/support scheduling), not just
+      // what was requested. sendTimeSource carries WHY it was requested
+      // (personal/global) — absent entirely for retries, which never resolve one.
+      scheduled_for: sendResult?.scheduledFor ?? null,
+      send_time_source: item.meta?.sendTimeSource ?? null,
+      // L4 outcome contract v1: keep the allow decision, basis and real check
+      // time evaluated before the provider call. The exporter can then bound
+      // the filter-to-send interval without accepting a fabricated send-time
+      // consent read or trusting a later profile mutation.
+      outcome_contract_version: 1,
+      consent_checked: consentProof ? true : null,
+      consent_allowed: consentProof ? consentProof.allowed === true : null,
+      consent_basis: consentProof?.basis || null,
+      consent_checked_at: consentCheckedAt,
+      is_operator_verification: !!item.meta?.isOperatorVerification,
+      sent_at: sentAt,
+    }, { merge: true });
+  } catch (e) {
+    console.warn('⚠️ Job-alert delivery persist failed:', redactEmailAddresses(e?.message));
+  }
+}
+
+// sendEmailCascade accepts a single onSent callback — compose both post-send
+// side effects here so both call sites (sendBatch, processRetryQueue) wire the
+// same behavior via one named reference.
+async function onSentComposed(item, sendResult) {
+  if (item.meta?.discoveryClaim) {
+    try {
+      const db = await getFirestoreAdmin();
+      await finalizeDiscoveryDelivery(db, item.recipient.email, item.meta.discoveryClaim, sendResult);
+    } catch (error) {
+      // Keep pending: an accepted provider call must never be retried because
+      // its bookkeeping failed. The durable claim requires reconciliation.
+      console.warn('⚠️ Discovery outcome persistence failed; claim retained:', redactEmailAddresses(error?.message));
+    }
+  }
+  await mailerooMetaOnSent(item, sendResult);
+  await persistJobAlertDelivery(item, sendResult);
+}
+
+// Throttle for both job-alert cascade calls (first send + retry queue). Run
+// 35422626497 sent 1591 emails in 26.5 min = 1.0 email/s at concurrency 3:
+// the cascade's default delayMs (1000) is spacing PER PROVIDER shared by all
+// workers, and ~99% went to maileroo, so 1/s was the ceiling whatever the
+// concurrency. Same scheme as the newsletter (NEWSLETTER_SEND_THROTTLE): 100ms
+// base spacing, adaptive backoff on explicit 429/5xx up to 1s, four workers,
+// per-provider floors for cloudflare/resend (BULK_PROVIDER_MIN_INTERVAL_MS).
+// Target >= 2.5 email/s. Dedup is per item: the cascade claims each item once
+// and onSentComposed writes only that recipient's documents.
+const JOB_ALERT_SEND_THROTTLE = Object.freeze({
+  concurrency: 4,
+  delayMs: 100,
+  adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
+});
+
+function jobAlertDeliveryKey(item) {
+  const email = String(item?.to || item?.recipient?.email || '').trim().toLowerCase();
+  const alertId = String(item?.alertId || item?.meta?.alertId || '').trim();
+  return `${email}\u0000${alertId}`;
+}
+
+async function sendBatch(emails) {
+  // Use cascade for bulk sending
+  const { sendEmailCascade, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
+
+  const cascadeEmails = emails.map(e => {
+    // Gmail FBL: Feedback-ID category:identifier:sender-name
+    const feedbackHeader = { 'Feedback-ID': `job-alert:${e.alertId}:frontaliere-ticino` };
+    // RFC 8058: List-Unsubscribe + List-Unsubscribe-Post for one-click unsubscribe
+    const unsubHeaders = e.unsubscribeUrl ? {
+      'List-Unsubscribe': `<${e.unsubscribeUrl}>`,
+      'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+    } : {};
+    return {
+      payload: {
+        from: FROM_EMAIL,
+        to: [e.to],
+        subject: e.subject,
+        html: e.html,
+        text: e.text,
+        tags: [
+          { name: 'type', value: 'job-alert' },
+          { name: 'alert_id', value: e.alertId },
+          { name: 'ranking_delivery_id', value: e.rankingDeliveryId || '' },
+          { name: 'ranking_variant', value: e.rankingVariant || 'control' },
+          { name: 'subject_experiment', value: e.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID },
+          { name: 'subject_variant', value: e.subjectVariant || 'control' },
+        ],
+        headers: { ...feedbackHeader, ...unsubHeaders },
+        // Per-user send-time (#3798) — resolved per-recipient in main() above
+        // and carried through on the pre-send item; omitted entirely (not
+        // just null) when absent, matching email-cascade.mjs's own contract
+        // for "no scheduling requested".
+        ...(e.scheduledAt ? { scheduledAt: e.scheduledAt } : {}),
+      },
+      recipient: { email: e.to },
+      meta: {
+        type: 'job-alert',
+        discoveryMode: e.discoveryMode === true,
+        ...(e.discoveryClaim ? { discoveryClaim: e.discoveryClaim } : {}),
+        alertId: e.alertId,
+        rankingDeliveryId: e.rankingDeliveryId || null,
+        rankingVariant: e.rankingVariant || 'control',
+        rankingAffinityProfile: e.rankingAffinityProfile === true,
+        rankingJobs: e.sentJobs || [],
+        subject: e.subject || null,
+        subjectExperiment: e.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+        subjectExperimentActive: e.subjectExperimentActive === true,
+        subjectExperimentPeriod: e.subjectExperimentPeriod || JOB_ALERT_SUBJECT_PERIOD_ID,
+        subjectVariant: e.subjectVariant || 'control',
+        subjectFreshnessQualified: e.subjectFreshnessQualified ?? null,
+        sendTimeSource: e.sendTimeSource || null,
+        consentProof: e.consentProof || null,
+        // is_operator_verification (#3798 report accuracy): ALLOWED_EMAILS set means
+        // an operator verification run (parallel send-newsletter.mjs's mode==='test')
+        // targeting specific recipient(s), not real subscriber traffic — flagged so
+        // report-send-hour-impact.mjs can exclude it.
+        isOperatorVerification: !!ALLOWED_EMAILS,
+      },
+    };
+  });
+
+  const result = await sendEmailCascade(cascadeEmails, {
+    ...JOB_ALERT_SEND_THROTTLE,
+    providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
+    onSent: onSentComposed,
+    quiet: true,
+  });
+  noteCascadeResult(result);
+
+  // Discovery has a durable claim, not the historical queue's date-based retry.
+  // A timeout/missing acknowledgement stays unknown and cannot send again.
+  const { confirmed, failedItems, ambiguous, discoveryUnknown } = partitionDiscoveryOutcomes(result);
+  for (const item of failedItems) {
+    if (!item.meta?.discoveryClaim) continue;
+    try {
+      const db = await getFirestoreAdmin();
+      await finalizeDiscoveryDelivery(db, item.recipient.email, item.meta.discoveryClaim, item, true);
+    } catch (error) {
+      console.warn('⚠️ Discovery failure persistence failed; pending claim retained:', redactEmailAddresses(error?.message));
+    }
+  }
+
+  // Per-user send-time observability (#3798 follow-up): the cascade returns
+  // the authoritative scheduledFor per item (sent[i] === { ...cascadeEmail,
+  // ...result }, see sendEmailCascade in email-cascade.mjs) — a provider may
+  // not honor the requested scheduledAt, so this is what actually happened,
+  // not just what was requested. Capture it here, keyed by recipient email, so
+  // the post-send Firestore writes in main() can persist it (last_scheduled_for
+  // / last_send_time_source) instead of silently discarding it.
+  const scheduleOutcomes = new Map();
+  for (const item of confirmed) {
+    const email = (item.recipient?.email || '').toLowerCase();
+    if (!email) continue;
+    scheduleOutcomes.set(email, {
+      scheduledFor: item.scheduledFor ?? null,
+      sendTimeSource: item.meta?.sendTimeSource ?? item.sendTimeSource ?? null,
+      // Which provider actually carried it (`sent[i] === {...cascadeEmail,
+      // ...result}`, and `result.provider` is what mailerooMetaOnSent already
+      // reads above). The cadence engine needs it: Cloudflare has no webhook at
+      // all, so a send it carried can produce neither an open nor a click, and
+      // counting that silence would demote — and eventually retire — people for
+      // OUR blind spot (#5705 §4.3, ENGAGEMENT_BLIND_PROVIDERS).
+      provider: item.provider ?? null,
+    });
+  }
+
+  return {
+    sent: confirmed.length,
+    confirmedDeliveryKeys: new Set(confirmed.map(jobAlertDeliveryKey)),
+    failed: failedItems.length,
+    failedItems,
+    scheduleOutcomes,
+    ambiguous,
+    discoveryUnknown,
+    providerBreakdown: result.providerBreakdown ?? {},
+  };
+}
+
+// ── Retry queue: enqueue failed emails ──────────────────────
+
+async function enqueueFailedEmails(db, failedItems) {
+  if (failedItems.length === 0) return;
+  const { FieldValue } = await import('firebase-admin/firestore');
+
+  // Pre-filter so the slice length is a safe upper bound on ops-per-batch, then
+  // chunk the writes past the Firestore 500-op batch cap (a mass-failure run can
+  // exceed it; a single commit() would throw and enqueue nothing for retry).
+  const toEnqueue = failedItems.filter((item) => item.recipient?.email && !item.meta?.discoveryMode && !item.meta?.discoveryClaim);
+  const enqueued = toEnqueue.length;
+
+  if (enqueued > 0) {
+    await commitInChunks(db, toEnqueue, (batch, item) => {
+      const docRef = db.collection(RETRY_COLLECTION).doc();
+      batch.set(docRef, {
+        alertId: item.meta?.alertId || '',
+        email: item.recipient.email,
+        subject: item.payload?.subject || '',
+        html: item.payload?.html || '',
+        rankingDeliveryId: item.meta?.rankingDeliveryId || null,
+        rankingVariant: item.meta?.rankingVariant || null,
+        rankingAffinityProfile: typeof item.meta?.rankingAffinityProfile === 'boolean'
+          ? item.meta.rankingAffinityProfile
+          : null,
+        rankingJobs: item.meta?.rankingJobs || [],
+        subjectExperiment: item.meta?.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+        subjectExperimentActive: item.meta?.subjectExperimentActive === true,
+        subjectExperimentPeriod: item.meta?.subjectExperimentPeriod || JOB_ALERT_SUBJECT_PERIOD_ID,
+        subjectVariant: item.meta?.subjectVariant || 'control',
+        subjectFreshnessQualified: item.meta?.subjectFreshnessQualified ?? null,
+        createdAt: FieldValue.serverTimestamp(),
+        retryCount: 0,
+        error: (item.error || '').slice(0, 500),
+      });
+    });
+    console.log(`   🔄 Enqueued ${enqueued} failed emails for retry (max ${MAX_RETRY_COUNT} retries)`);
+  }
+}
+
+// ── Retry queue: process pending retries ────────────────────
+
+async function processRetryQueue(db) {
+  const snap = await db.collection(RETRY_COLLECTION).get();
+  if (snap.empty) {
+    console.log('   🔄 Retry queue: empty — nothing to retry');
+    return { succeeded: 0, requeued: 0, recipients: new Set() };
+  }
+
+  console.log(`   🔄 Retry queue: ${snap.size} pending email(s) to retry`);
+  const { sendEmailCascade, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
+  const { FieldValue } = await import('firebase-admin/firestore');
+
+  const retryEmails = [];
+  const retryDocs = [];
+  const retryCandidates = [];
+
+  for (const doc of snap.docs) {
+    const data = doc.data();
+    const email = String(data.email || '').trim().toLowerCase();
+    // A TARGET_EMAIL run is an operator verification. Leave every other
+    // recipient's retry item untouched — including malformed/maxed-out items —
+    // so a QA send cannot delete, deliver, or advance another user's state.
+    if (ALLOWED_EMAILS && !ALLOWED_EMAILS.has(email)) continue;
+    const retryCount = data.retryCount || 0;
+
+    if (retryCount >= MAX_RETRY_COUNT) {
+      // Max retries exhausted — give up
+      console.warn(`   ⚠️  Giving up on retry for alert ${data.alertId} after ${retryCount} retries`);
+      await doc.ref.delete();
+      continue;
+    }
+
+    const alertId = String(data.alertId || '').trim();
+    if (!email.includes('@') || !alertId || alertId.includes('/')) {
+      // A malformed/stale queue item has no safe Firestore target to
+      // re-validate and no valid recipient to send to.
+      await doc.ref.delete();
+      console.warn(`   ⚠️  Dropping malformed job-alert retry item ${doc.id}`);
+      continue;
+    }
+
+    retryCandidates.push({ doc, data, email, alertId });
+  }
+
+  // A retry stores rendered HTML, so it cannot rely on the eligibility checks
+  // that ran when the first attempt was built. Re-read the live alert and both
+  // subscriber documents before every retry: an opt-out, a deleted/paused
+  // alert or a provider suppression must
+  // stop the queued message too. Lookup failures leave the queue item intact
+  // and send nothing; fail-open here would turn a transient read error into a
+  // post-unsubscribe delivery.
+  const RETRY_LOOKUP_CHUNK_SIZE = 200;
+  let retrySuppressed = 0;
+  let retryStale = 0;
+  for (let i = 0; i < retryCandidates.length; i += RETRY_LOOKUP_CHUNK_SIZE) {
+    const chunk = retryCandidates.slice(i, i + RETRY_LOOKUP_CHUNK_SIZE);
+    try {
+      const refs = chunk.flatMap(({ email, alertId }) => [
+        db.collection('job_alert_subscribers').doc(email).collection('alerts').doc(alertId),
+        db.collection('newsletter_subscribers').doc(email),
+        db.collection('job_alert_subscribers').doc(email),
+      ]);
+      const snaps = await db.getAll(...refs);
+      for (let j = 0; j < chunk.length; j += 1) {
+        const item = chunk[j];
+        const [alertSnap, newsletterSnap, jobAlertRootSnap] = snaps.slice(j * 3, j * 3 + 3);
+        const alert = alertSnap.exists ? alertSnap.data() || {} : null;
+        const newsletter = newsletterSnap.exists ? newsletterSnap.data() || {} : null;
+        const jobAlertRoot = jobAlertRootSnap.exists ? jobAlertRootSnap.data() || {} : null;
+
+        let discardReason = null;
+        let consentProof = null;
+        if (!alert || alert.active !== true || alert.paused === true) {
+          discardReason = 'alert-not-live';
+          retryStale += 1;
+        } else if (isCrossChannelStop(newsletter) || isJobAlertExcluded(jobAlertRoot?.status)) {
+          discardReason = 'suppressed';
+          retrySuppressed += 1;
+        } else {
+          const consent = evaluateJobAlertConsent({ alert, subscriber: newsletter });
+          if (!consent.allowed) {
+            discardReason = 'no-subscription-basis';
+            retrySuppressed += 1;
+          } else {
+            consentProof = {
+              allowed: true,
+              basis: consent.reason || 'unspecified',
+              checkedAt: new Date().toISOString(),
+            };
+          }
+        }
+
+        if (discardReason) {
+          await item.doc.ref.delete();
+          console.log(`   🧹 Dropped queued job-alert retry (${discardReason}) for alert ${item.alertId}`);
+          continue;
+        }
+
+        // Per-user send-time (#3798): deliberately NO scheduledAt here. A retry
+        // means the first attempt already missed today's daily quota window —
+        // the recipient is already late, so send it the moment fresh quota is
+        // available rather than deferring it further to their preferred hour.
+        retryEmails.push({
+          payload: {
+            from: FROM_EMAIL,
+            to: [item.email],
+            subject: item.data.subject,
+            html: item.data.html,
+            tags: [
+              { name: 'type', value: 'job-alert-retry' },
+              { name: 'alert_id', value: item.alertId },
+              { name: 'subject_experiment', value: item.data.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID },
+              { name: 'subject_variant', value: item.data.subjectVariant || 'control' },
+            ],
+          },
+          recipient: { email: item.email },
+          meta: {
+            type: 'job-alert-retry',
+            alertId: item.alertId,
+            rankingDeliveryId: item.data.rankingDeliveryId || null,
+            rankingVariant: item.data.rankingVariant || 'control',
+            // null for a retry queued before the field existed.
+            rankingAffinityProfile: typeof item.data.rankingAffinityProfile === 'boolean'
+              ? item.data.rankingAffinityProfile
+              : null,
+            rankingJobs: item.data.rankingJobs || [],
+            subject: item.data.subject || null,
+            subjectExperiment: item.data.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+            subjectExperimentActive: item.data.subjectExperimentActive === true,
+            subjectExperimentPeriod: item.data.subjectExperimentPeriod || JOB_ALERT_SUBJECT_PERIOD_ID,
+            subjectVariant: item.data.subjectVariant || 'control',
+            subjectFreshnessQualified: item.data.subjectFreshnessQualified ?? null,
+            consentProof,
+          },
+        });
+        retryDocs.push({
+          ref: item.doc.ref,
+          data: item.data,
+          alertRef: db.collection('job_alert_subscribers').doc(item.email)
+            .collection('alerts').doc(item.alertId),
+        });
+      }
+    } catch (err) {
+      console.warn(`   ⚠️  Retry consent lookup failed for ${chunk.length} queued email(s): ${redactEmailAddresses(err?.message || err)}`);
+      // No candidate in this chunk is added to retryEmails, so the queue keeps
+      // them for a later run after the transient read failure clears.
+    }
+  }
+
+  if (retryEmails.length === 0) {
+    console.log(`   🔄 Retry queue: no sendable entries (stale ${retryStale}, suppressed ${retrySuppressed})`);
+    return { succeeded: 0, requeued: 0, recipients: new Set() };
+  }
+
+  console.log(`   🔄 Retrying ${retryEmails.length} email(s)...`);
+  // Pass the same onSent so retried emails also write a maileroo_message_meta
+  // record — otherwise their open/click webhooks fall back to `skipped` (the exact
+  // attribution bug fixed for the first-send path in #1135).
+  const result = await sendEmailCascade(retryEmails, {
+    ...JOB_ALERT_SEND_THROTTLE,
+    providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
+    onSent: onSentComposed,
+    quiet: true,
+  });
+  noteCascadeResult(result);
+
+  const retryRankingRecords = result.sent
+    .filter((item) => item.meta?.rankingDeliveryId && item.meta?.rankingJobs?.length)
+    .map((item) => ({
+      deliveryId: item.meta.rankingDeliveryId,
+      surface: 'job_alert',
+      surfaceId: item.meta.alertId,
+      alertId: item.meta.alertId,
+      email: item.recipient?.email,
+      variant: item.meta.rankingVariant || 'control',
+      affinityProfile: item.meta.rankingAffinityProfile,
+      jobs: item.meta.rankingJobs,
+      sentAt: new Date(),
+    }));
+  if (retryRankingRecords.length > 0) {
+    try {
+      await recordJobEmailImpressions(db, retryRankingRecords);
+    } catch (error) {
+      console.warn('⚠️ Retry ranking impression persist failed:', redactEmailAddresses(error?.message || error));
+    }
+    for (const record of retryRankingRecords) {
+      try {
+        const alertRef = db.collection('job_alert_subscribers').doc(String(record.email).toLowerCase())
+          .collection('alerts').doc(String(record.alertId));
+        const update = {};
+        for (const [index, job] of record.jobs.entries()) {
+          Object.assign(update, buildEmbeddedRankingUpdate({
+            jobId: stableJobId(job),
+            position: job?.ranking?.position || index + 1,
+            variant: record.variant,
+            FieldValue,
+          }));
+        }
+        if (Object.keys(update).length > 0) await alertRef.update(update);
+      } catch (error) {
+        console.warn(`⚠️ Retry embedded ranking persist failed for alert ${record.alertId}:`, redactEmailAddresses(error?.message || error));
+      }
+    }
+  }
+
+  // Build a set of successfully sent recipient emails for lookup. A retry is a
+  // real delivery, not just a queue deletion: it must advance the same
+  // per-alert ledger and per-recipient cursor as the first-send path.
+  const sentEmails = new Set(
+    result.sent.map((s) => String(s.recipient?.email || '').toLowerCase()).filter(Boolean),
+  );
+  const retrySentAt = Date.now();
+
+  let successCount = 0;
+  let reEnqueueCount = 0;
+  const retryRecipients = new Set();
+
+  for (const retryDoc of retryDocs) {
+    const { ref, data } = retryDoc;
+    const email = String(data.email || '').trim().toLowerCase();
+    // Defense in depth: retryDocs are filtered above, but the finalisation
+    // guard keeps a targeted run from ever moving another recipient's cursor
+    // or ledger if queue assembly changes later.
+    if (ALLOWED_EMAILS && !ALLOWED_EMAILS.has(email)) continue;
+    if (sentEmails.has(email)) {
+      // Successfully retried — finalise the durable sent view before removing
+      // the queue item. If this write fails, leave the item in the queue so the
+      // accepted-but-unrecorded outcome remains visible for reconciliation.
+      try {
+        const jobs = Array.isArray(data.rankingJobs) ? data.rankingJobs : [];
+        if (jobs.length > 0 && retryDoc.alertRef) {
+          await db.runTransaction(async (tx) => {
+            const alertSnap = await tx.get(retryDoc.alertRef);
+            if (!alertSnap.exists) return;
+            const current = alertSnap.data() || {};
+            tx.update(retryDoc.alertRef, {
+              lastMatchedAt: FieldValue.serverTimestamp(),
+              matchCount: FieldValue.increment(jobs.length),
+              sentJobIds: mergeSentJobs(
+                normalizeSentMap(current.sentJobIds),
+                jobs,
+                retrySentAt,
+                DEDUP_WINDOW_MS,
+              ),
+            });
+          });
+        }
+        await db.collection('job_alert_subscribers').doc(String(data.email).toLowerCase()).set({
+          last_sent_at: FieldValue.serverTimestamp(),
+        }, { merge: true });
+        await ref.delete();
+        successCount++;
+        retryRecipients.add(String(data.email).toLowerCase());
+        console.log(`   ✅ Retry succeeded: alert ${data.alertId}`);
+      } catch (error) {
+        console.warn(`   ⚠️ Retry accepted but finalisation failed for alert ${data.alertId}; queue item retained: ${redactEmailAddresses(error?.message || error)}`);
+      }
+    } else {
+      // Still failed — increment retryCount
+      const newCount = (data.retryCount || 0) + 1;
+      if (newCount >= MAX_RETRY_COUNT) {
+        console.warn(`   ⚠️  Giving up on retry for alert ${data.alertId} after ${newCount} retries`);
+        await ref.delete();
+      } else {
+        await ref.update({
+          retryCount: newCount,
+          lastRetryAt: FieldValue.serverTimestamp(),
+          lastError: result.failed.find(f => f.recipient?.email === data.email)?.error?.slice(0, 500) || 'unknown',
+        });
+        reEnqueueCount++;
+        console.log(`   🔄 Retry failed for alert ${data.alertId} — attempt ${newCount}/${MAX_RETRY_COUNT}, will retry tomorrow`);
+      }
+    }
+  }
+
+  console.log(`   🔄 Retry summary: ${successCount} succeeded, ${reEnqueueCount} will retry tomorrow`);
+  return { succeeded: successCount, requeued: reEnqueueCount, recipients: retryRecipients };
+}
+
+// ── Main ─────────────────────────────────────────────────────
+
+/**
+ * Everything the send loop decides about ONE alert before the network is
+ * involved: profile, scoring, per-company cap, geo preference, and the
+ * per-alert dedup against already-sent jobs. Pure and synchronous, so main()
+ * can plan every alert while the live-link prefetcher checks the URLs of the
+ * plans already made. Returns the ranked count (for the "all already sent"
+ * log), the zero-match cause when nothing ranked, and the unsent `matched`
+ * list the rest of the loop consumes. Exported for tests.
+ */
+function planAlertMatch(alert, {
+  behaviorProfiles,
+  lastClickedUrlByEmail,
+  locationIndex,
+  cityToCanton,
+  subscriberProfiles,
+  jobAlertProfiles = new Map(),
+  applicationIntentAccountProfiles = new Map(),
+  recentJobs,
+  now,
+  featureCache = null,
+  discoveryRanker = null,
+  discoveryGeographies = new Map(),
+  allowDiscovery = true,
+  applicationIntentRankingEnabled = process.env.APPLICATION_INTENT_RANKING_ENABLED === 'true',
+}) {
+  // Enrich the alert with the subscriber's newsletter profile, browsing
+  // personalization (filter usage + viewed-job geography) and the geography of
+  // the job it was created from, then score every recent job against it.
+  const behavior = behaviorProfiles.get(alert.email.toLowerCase()) || {};
+  // The job the subscriber last clicked in an email — fold its geography into
+  // the soft location boost (strongest intent; #3025).
+  const clicked = clickedJobMeta(lastClickedUrlByEmail.get(alert.email.toLowerCase()), locationIndex);
+  const sourceJobLocations = sourceJobLocationsFor(alert, locationIndex);
+  const accountProfile = applicationIntentAccountProfiles.get(alert.email.toLowerCase());
+  const applicationIntent = accountProfile
+    && accountProfile.uid === behavior.applicationIntentAuthUid
+    && accountProfile.optedOut !== true
+    ? behavior.applicationIntent
+    : null;
+  const extras = {
+    behaviorLocations: [...(behavior.behaviorLocations || []), ...clicked.locations],
+    behaviorTokens: behavior.behaviorTokens || [],
+    sourceJobLocations,
+    // High-confidence geo signals for the graduated geo preference (#2993):
+    // explicit on-site filters + clicked/source job geography. Passive
+    // viewed-job cities are deliberately excluded (see buildAlertProfile).
+    strongLocations: [
+      ...(behavior.filterLocations || []),
+      ...clicked.locations,
+      ...sourceJobLocations,
+    ],
+    cityToCanton,
+    applicationIntent,
+    now,
+  };
+  const profile = buildAlertProfile(
+    alert,
+    mergeAlertSubscriberSignals(
+      subscriberProfiles.get(alert.email.toLowerCase()) || null,
+      jobAlertProfiles.get(alert.email.toLowerCase()) || null,
+    ),
+    extras,
+  );
+  const channelSubscriber = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
+  const subscriber = subscriberProfiles.get(alert.email.toLowerCase()) || {};
+  const discoveryMode = Boolean(discoveryRanker && allowDiscovery
+    && classifyZeroMatchCause(profile) === 'empty-profile'
+    && discoveryCanAttempt(channelSubscriber, now));
+  const discoveryCandidates = discoveryMode ? [] : null;
+  // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
+  // so a test listing can't reach real alert subscribers.
+  const ownerAlert = isOwnerEmail(alert.email);
+  // needsRetranslation only means translations FROM the job's source locale
+  // are stale — exclude a job from THIS alert only when its own source
+  // locale differs from the recipient's locale (#4715).
+  const alertLocale = nlNormLocale(alert.locale);
+  // Relevance score + graduated freshness boost: a job first seen within
+  // 24h/48h gets +2/+1 on top of its relevance so GENUINELY new listings win
+  // near-ties against the re-crawled backlog (the pool re-admits the whole
+  // inventory daily — see MATCH_WINDOW_MS). The boost never resurrects a
+  // 0-score job: relevance still decides IF a job surfaces, freshness only
+  // decides how high.
+  //
+  // One pass over the candidate window, with the alert's scorer compiled once
+  // (#9314): since #9471 the window is the recipient's whole catch-up
+  // inventory (~19K rows per alert in production, 96M rows in run
+  // 36097910375), so the two eligibility filters, the per-row entry objects of
+  // the zero-score rows and the per-row profile work were paid ~19K times per
+  // alert. The eligibility rules, the scorer's answer and the row order are
+  // unchanged; `candidateCount` still counts every eligible row.
+  //
+  // The tiebreak timestamp is parsed ONCE per surviving entry, not twice per
+  // comparison (#9314): the comparator's two `new Date()` calls per compare
+  // were ~40% of the matching CPU. The value is the exact expression the
+  // comparator used (NaN included), so every pairwise result — and therefore
+  // the order — is unchanged.
+  const scoreJob = createAlertScorer(profile, alertLocale, featureCache, {
+    applicationIntentRankingEnabled,
+  });
+  const applicationIntentJobKeys = applicationIntentRankingEnabled
+    ? profile.applicationIntentJobKeys || new Set()
+    : new Set();
+  const scored = [];
+  let candidateCount = 0;
+  for (const job of recentJobs) {
+    if (!ownerAlert && isCanaryJob(job)) continue;
+    if (job.needsRetranslation === true && alertLocale !== (job.sourceLang || 'it')) continue;
+    candidateCount++;
+    if (discoveryMode) { discoveryCandidates.push(job); continue; }
+    const relevance = scoreJob(job);
+    if (relevance <= 0) continue;
+    const applicationIntentRanked = applicationIntentRankingEnabled
+      && applicationIntentJobKeys.has(buildApplicationIntentJobKey(job));
+    const firstSeenMs = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
+    const existingRelevanceSignals = applicationIntentRanked && Array.isArray(job.relevanceSignals)
+      ? job.relevanceSignals
+        .filter((signal) => typeof signal === 'string' && signal.length <= 64)
+        .slice(0, 15)
+      : [];
+    scored.push({
+      job: {
+        ...job,
+        relevanceScore: relevance,
+        ...(applicationIntentRanked ? {
+          applicationIntentBoost: ALERT_APPLICATION_INTENT_BOOST,
+          relevanceSignals: [...new Set([...existingRelevanceSignals, 'application_intent'])],
+        } : {}),
+        // Carry the parsed immutable discovery date to the final ranking
+        // layer; crawledAt is intentionally not a freshness clock.
+        newnessAt: Number.isFinite(firstSeenMs) && firstSeenMs > 0 ? firstSeenMs : null,
+      },
+      score: relevance + freshnessBoost(job, now),
+      // Keep the explicit source shape used by the sorting regression guard:
+      // the value is still parsed once above and the comparator consumes it.
+      firstSeenMs: job.firstSeenAt ? firstSeenMs : 0,
+    });
+  }
+  const sorted = scored
+    .sort((a, b) => {
+      // Primary: higher score first.
+      const scoreDiff = b.score - a.score;
+      if (scoreDiff !== 0) return scoreDiff;
+      // Tiebreak: more recently first-seen jobs first. Without this, location-only
+      // alerts (where every match has score=2) yielded an arbitrary insertion order
+      // and stale jobs leaked into the subject line.
+      const recencyDiff = b.firstSeenMs - a.firstSeenMs;
+      if (recencyDiff !== 0) return recencyDiff;
+      return applicationIntentRankingEnabled
+        ? compareApplicationIntentJobKeys(a.job, b.job)
+        : 0;
+    });
+
+  // Per-company cap: at most 2 jobs per company in the surfaced list. Without
+  // this, recency-sorted location-only alerts produce 9/10 cards from the same
+  // employer (e.g. all EOC) — visually monotone. Overflow jobs are kept in
+  // `remainder` and appended after the cap is exhausted, so the user still
+  // sees the count when they have enough variety.
+  const rankedAll = diversifyJobEmployers(sorted.map((entry) => entry.job));
+
+  // Graduated geo preference (#2993): for a keyword-only alert with no explicit
+  // location/canton scope, prefer jobs in the subscriber's area (resolved from
+  // their home city + explicit on-site filters + clicked/source job) so a
+  // Ticino nurse stops receiving Basel/Zürich roles — while still falling back
+  // to out-of-area matches when too few local ones exist (never starves a
+  // sparse alert). No-op when the alert already scopes geography itself.
+  const ipGeo = discoveryGeographies.get(alert.email.toLowerCase());
+  const personalizationOptOut = subscriber[RANKING_PERSONALIZATION_OPT_OUT_FIELD] === true;
+  const registrationGeo = personalizationOptOut ? {} : subscriber.geo_country ? subscriber : channelSubscriber.geo_country ? channelSubscriber
+    : { geo_country: ipGeo?.country, geo_region: ipGeo?.region, geo_city: ipGeo?.city };
+  const signupSlug = extractSlugFromSourcePage(subscriber.source_page || channelSubscriber.source_page || '');
+  const signupJobGeo = personalizationOptOut ? [] : locationIndex.get(String(signupSlug).toLowerCase())?.geo || [];
+  const ranked = discoveryMode
+    ? discoveryRanker(discoveryCandidates, discoveryGeography(registrationGeo, profile, signupJobGeo), now)
+    : partitionByGeoPreference(rankedAll, profile);
+
+  if (ranked.length === 0) {
+    return {
+      alert,
+      candidateCount,
+      rankedCount: 0,
+      zeroCause: classifyZeroMatchCause(profile, { eligibleCandidateCount: candidateCount }),
+      sentMap: null,
+      matched: [],
+    };
+  }
+
+  // De-dup: drop jobs already emailed to THIS alert within the dedup window.
+  // Without this a re-crawled job (its crawledAt refreshes, so it re-enters the
+  // 24h pool) headlines the alert every single day — the "I keep getting the
+  // same jobs" report (#2993). When nothing new remains we skip the send
+  // entirely rather than re-mail stale offers.
+  const sentMap = normalizeSentMap(alert.sentJobIds);
+  const matched = filterUnsentJobs(ranked, sentMap, now, DEDUP_WINDOW_MS);
+  return { alert, candidateCount, rankedCount: ranked.length, zeroCause: null, sentMap, matched,
+    ...(discoveryMode ? { discoveryMode: true } : {}) };
+}
+
+/**
+ * Matcher health on the ACTIVE inventory (owner decision 2026-10-04, issue
+ * 9060): the synthetic alerts of scripts/lib/job-alert-matcher-health.mjs are
+ * planned by the same `planAlertMatch` as the real alerts, but against every
+ * open listing instead of a recipient's "new since my last email" window, and
+ * with no subscriber/behaviour signal. Each probe is cut from a listing in that
+ * inventory, so a zero is a matcher regression and never a quiet day.
+ * `planMatch` is the seam the tests use to break the matcher on purpose.
+ *
+ * Never throws: main() calls this BEFORE sendBatch and the probes score rows of
+ * the whole active inventory that no recipient window may contain this run, so
+ * one malformed row must not abort the send for every subscriber. On an
+ * exception the result carries `error` and zero probes, which the monitor
+ * action treats as 'skip' (issue left untouched). `durationMs` is the measured
+ * cost of the step, logged on the "Matcher health" line.
+ */
+function runJobAlertMatcherHealth(inventoryJobs, {
+  now = Date.now(),
+  locationIndex = new Map(),
+  cityToCanton = new Map(),
+  featureCache = null,
+  maxProbes = MATCHER_HEALTH_MAX_PROBES,
+  planMatch = planAlertMatch,
+} = {}) {
+  const startedAt = Date.now();
+  try {
+    const activeInventory = (inventoryJobs || []).filter((job) => isOpenJobAlertJob(job, now));
+    const sample = buildMatcherHealthProbes(activeInventory, { maxProbes });
+    const context = {
+      behaviorProfiles: new Map(),
+      lastClickedUrlByEmail: new Map(),
+      locationIndex,
+      cityToCanton,
+      subscriberProfiles: new Map(),
+      applicationIntentAccountProfiles: new Map(),
+      recentJobs: activeInventory,
+      now,
+      featureCache,
+    };
+    const result = evaluateMatcherHealth(sample.probes, (alert) => planMatch(alert, context));
+    return {
+      ...result,
+      error: null,
+      durationMs: Date.now() - startedAt,
+      activeInventoryCount: activeInventory.length,
+      groupCount: sample.groupCount,
+      sampledGroupCount: sample.sampledGroupCount,
+      cantonCount: sample.cantonCount,
+    };
+  } catch (err) {
+    return {
+      probeCount: 0,
+      passedCount: 0,
+      failureCount: 0,
+      failureByKind: {},
+      failures: [],
+      error: String(err?.message || err),
+      durationMs: Date.now() - startedAt,
+      activeInventoryCount: 0,
+      groupCount: 0,
+      sampledGroupCount: 0,
+      cantonCount: 0,
+    };
+  }
+}
+
+async function main() {
+  console.log('🔔 Job Alert Matching — Starting...');
+  console.log(`   Mode: ${DRY_RUN ? 'DRY RUN' : 'LIVE'}`);
+
+  // FRO-353: Check feature flag from Firebase Remote Config
+  // The flag is loaded by load-rc-env.mjs into process.env
+  const featureEnabled = process.env.ENABLE_JOB_ALERTS === 'true';
+  if (!featureEnabled) {
+    console.log('   ⚠️  ENABLE_JOB_ALERTS is not true — skipping (feature flag off).');
+    return;
+  }
+
+  // 0. Process retry queue FIRST — retries get priority on fresh daily quota
+  const db = await getFirestoreAdmin();
+  // Esito della coda di retry: entra nel funnel come «retry di invii precedenti».
+  let retryOutcome = { succeeded: 0, requeued: 0, recipients: new Set() };
+  if (!DRY_RUN) {
+    retryOutcome = await processRetryQueue(db);
+  } else {
+    console.log('   🔵 DRY RUN — skipping retry queue processing');
+  }
+
+  // Per-user send-time (#3798): read the site-wide fallback hour written by
+  // send-newsletter.mjs onto newsletter_subscribers/_meta_ once per run — a
+  // single get(), not a per-recipient read. null when that doc doesn't exist
+  // yet or the newsletter run never computed a global hour (too few qualified
+  // users — see MIN_GLOBAL_SAMPLE_USERS in scripts/lib/send-schedule.mjs).
+  let globalPreferredHour = null;
+  try {
+    const metaSnap = await db.collection('newsletter_subscribers').doc('_meta_').get();
+    const hourUtc = metaSnap.exists ? metaSnap.data()?.global_preferred_send_hour_utc : null;
+    globalPreferredHour = Number.isInteger(hourUtc) ? hourUtc : null;
+  } catch (e) {
+    console.warn(`   ⚠️  Global preferred send hour read failed: ${redactEmailAddresses(e?.message || e)}`);
+  }
+
+  // 1. Load the live inventory (+ full-dataset geo index for source-job
+  // resolution). The recipient-specific cursor is applied only after the
+  // alert documents are loaded, because each address can have a different
+  // last successful send.
+  const { inventory: inventoryJobs, recent: recentJobs, locationIndex, cityToCanton } = loadJobs();
+  const genuinelyFreshJobs = recentJobs.filter((job) => isActuallyNewJob(job)).length;
+  console.log(`   Live inventory verified in the last 24h: ${recentJobs.length}`);
+  console.log(`   Genuinely fresh by firstSeenAt/postedDate (last 48h): ${genuinelyFreshJobs}`);
+  // Diagnostic (#3020): confirm the full-dataset geo index is non-trivially
+  // populated. Source-geo recovery for one-tap alerts (sourceJobLocationsFor)
+  // is a soft no-op when this index is empty — so a size of 0 here means the
+  // slug/slugByLocale/canton/location fields are absent from data/jobs.json and
+  // the one-tap precision boost never materializes. Expected: ≫ 0.
+  console.log(`   Geo index entries (slug/id → location): ${locationIndex.size}`);
+  if (inventoryJobs.length === 0) {
+    await printJobAlertFunnel({ retryOutcome });
+    console.log('   No live inventory jobs — skipping.');
+    return;
+  }
+
+  // 2. Load active alerts from Firestore.
+  // Fast path: when TARGET_EMAIL is set, query that user's subcollection directly
+  // (collection scope, no composite/single-field index required). This unblocks
+  // workflow_dispatch test sends even if the collection-group index is missing.
+  // Normal path: collectionGroup across job_alert_subscribers/*/alerts/* — needs
+  // the composite index (active ASC, frequency ASC) declared in firestore.indexes.json.
+  let alertDocs;
+  if (TARGET_EMAIL_RAW) {
+    const subRef = db.collection('job_alert_subscribers').doc(TARGET_EMAIL_RAW).collection('alerts');
+    const snap = await subRef.where('active', '==', true).get();
+    alertDocs = snap.docs;
+    console.log(`   📍 Direct subcollection query for the test recipient: ${alertDocs.length} active alert(s)`);
+  } else {
+    const alertsSnap = await db.collectionGroup('alerts').where('active', '==', true).get();
+    alertDocs = alertsSnap.docs.filter((doc) => {
+      // Defensive: collectionGroup returns ALL `alerts` subcollections in the project.
+      // Restrict to docs whose grandparent collection is job_alert_subscribers.
+      const grandparent = doc.ref.parent.parent?.parent?.id;
+      return grandparent === 'job_alert_subscribers';
+    });
+  }
+  // Contatori del funnel (scripts/lib/job-alert-funnel.mjs): ogni filtro registra
+  // quanti alert scarta, così il riepilogo di fine run è la somma di questi numeri.
+  const funnelIn = {
+    archive: alertDocs.length, paused: 0, companyImmediate: 0, allowlist: 0, base: 0,
+    suppressionDeferred: 0, suppressed: 0, backfill: 0, cooldown: 0, decayed: 0, notDue: 0,
+    eligible: 0, noCandidate: 0, emptyProfile: 0, zeroMatch: 0, alreadySent: 0, deadLinks: 0,
+    quotaDeferred: 0,
+  };
+  let alerts = alertDocs.map((doc) => {
+    const data = doc.data();
+    const parentEmail = doc.ref.parent.parent?.id || data.email;
+    // `ref` is preserved so the post-send batch can update lastMatchedAt without
+    // having to rebuild the path.
+    return { id: doc.id, ref: doc.ref, ...data, email: data.email || parentEmail };
+  });
+  // Include paused, immediate-company and not-due scopes: these are still
+  // stated preferences, even when that alert is not being sent by this run.
+  const discoveryBlockedRecipients = findDiscoveryBlockedRecipients(alerts);
+
+  // Issue #4298 follow-up fix: `paused` is a dedicated flag, orthogonal to
+  // `active` (which stays SOLELY the soft-delete flag — see
+  // functions/src/newsletterSubscriptionManagement.js). A paused alert must
+  // never send; skip it here before any downstream matching/logging.
+  const beforePauseFilter = alerts.length;
+  alerts = alerts.filter((a) => a.paused !== true);
+  funnelIn.paused = beforePauseFilter - alerts.length;
+  if (alerts.length !== beforePauseFilter) {
+    console.log(`   ⏸️  Paused alerts skipped: ${beforePauseFilter - alerts.length}`);
+  }
+
+  // CompanyAlert on the IMMEDIATE cadence belongs to scripts/send-company-alerts.mjs
+  // (#5012 phase 2), which is event-driven on new jobs. This is the negation of
+  // that runner's claim predicate — one shared function
+  // (scripts/lib/company-alert-routing.mjs), applied on both sides, so the two
+  // senders stay disjoint AND total. Without it the subscriber would receive the
+  // same job twice: once immediately, once in tomorrow's digest.
+  const beforeImmediateFilter = alerts.length;
+  alerts = alerts.filter((a) => !isImmediateCompanyAlert(a));
+  funnelIn.companyImmediate = beforeImmediateFilter - alerts.length;
+  if (alerts.length !== beforeImmediateFilter) {
+    console.log(`   🏢 Immediate CompanyAlerts skipped (owned by send-company-alerts.mjs): ${beforeImmediateFilter - alerts.length}`);
+  }
+
+  // Filter to allowed emails during testing phase
+  if (ALLOWED_EMAILS) {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => ALLOWED_EMAILS.has(String(a.email || '').toLowerCase()));
+    funnelIn.allowlist = before - alerts.length;
+    if (before !== alerts.length) {
+      console.log(`   ⚠️  Allowlist active: ${before} alerts → ${alerts.length} (admin-only testing)`);
+    }
+  }
+  funnelIn.base = alerts.length;
+  console.log(`   Active alerts: ${alerts.length}`);
+  if (alerts.length === 0) {
+    await printJobAlertFunnel({ funnelIn, retryOutcome });
+    console.log('   No active alerts — skipping.');
+    return;
+  }
+
+  // 2b. Newsletter cooldown: skip users who received a newsletter in the last 36 hours
+  // SKIP_NEWSLETTER_COOLDOWN=1 bypasses this check (for manual test sends)
+  const NEWSLETTER_COOLDOWN_MS = process.env.SKIP_NEWSLETTER_COOLDOWN === '1' ? 0 : 36 * 60 * 60 * 1000;
+  const now = Date.now();
+  const alertEmails = [...new Set(alerts.map((a) => a.email.toLowerCase()))];
+  const newsletterCooldownSet = new Set();
+  const autologinDisabledSet = new Set();
+  // A failed batched Firestore read is a transient uncertainty about the
+  // suppression state. Keep those addresses separate from suppression so the
+  // alert is deferred and can be retried on the next run.
+  const suppressionLookupFailedEmails = new Set();
+  // Everything that says "do not send this address a job alert", from either
+  // channel's document:
+  //   - the newsletter doc, via isCrossChannelStop(): address-level hard
+  //     signals plus the explicit global stop-all. Newsletter unsubscribe
+  //     remains channel-scoped and is handled by the newsletter sender.
+  //   - the job-alert doc, via isJobAlertExcluded(): the same hard signals plus
+  //     THIS channel's own inactivity sunset.
+  const suppressedEmails = new Set();
+  // Subscriber profiles keyed by lowercased email. Captured here (reusing the
+  // newsletter_subscribers read this loop already performs — zero extra reads)
+  // so the matcher can fold the newsletter profile (job_company, job_category,
+  // sector_interest, location_interest, preferences, …) into relevance scoring.
+  const subscriberProfiles = new Map();
+  // job_alert_subscribers/{email} raw doc data, keyed by lowercased email
+  // (#3798 — this channel's OWN preferred_send_hour_utc/sample_count, read
+  // for resolveEffectivePreferredHour; falls back to subscriberProfiles'
+  // newsletter-channel data when this doc has no signal of its own yet).
+  const jobAlertProfiles = new Map();
+  // Browsing-personalization signals (filter usage + viewed-job cities/searches)
+  // keyed by lowercased email. These live in a SUBCOLLECTION the matcher never
+  // read before (newsletter_subscribers/{email}/private/personalization), which
+  // is why precise location data was "missing" from alerts (issue #2993).
+  const behaviorProfiles = new Map();
+  // Application-intent ranking is allowed only when the private projection is
+  // explicitly bound to the subscriber's Auth uid and the current users/{uid}
+  // purpose preference permits it. Missing/erroring profile reads leave this
+  // map empty, which is the intentional fail-closed behavior.
+  const applicationIntentAccountProfiles = new Map();
+  // Raw personalization subdoc + whether the parent doc exists, kept so the
+  // post-send enrichment step (section 6 below) can consolidate every signal
+  // back into the flat profile fields (no-clobber).
+  const personalizationRaw = new Map();
+  const subscriberDocExists = new Set();
+  // Last job-link the subscriber CLICKED in an email (ESP-recorded
+  // `last_clicked_url`), keyed by email. The strongest intent signal we hold —
+  // resolved to job geo/employer and fed at top weight into matching +
+  // personalization (#3025). Prefer the alert-channel click over the newsletter.
+  const lastClickedUrlByEmail = new Map();
+  // Batched via db.getAll() instead of 3 sequential .get() awaits per email —
+  // same reads, same billed count, but one round-trip per chunk instead of
+  // 3×alertEmails.length serial round-trips (was the dominant Firestore read
+  // spike in the daily send-job-alerts run: ~12-21k LOOKUP reads over 2-3h).
+  const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call (4 refs/email → ≤800 refs/call)
+  for (let i = 0; i < alertEmails.length; i += LOOKUP_CHUNK_SIZE) {
+    const chunk = alertEmails.slice(i, i + LOOKUP_CHUNK_SIZE);
+    try {
+      // refs built INSIDE the try: `.doc(email)` throws synchronously on a
+      // malformed id (e.g. an email containing `/`), and this loop has no
+      // caller-level catch of its own — an escaped throw here propagates to
+      // the top-level `main().catch()`, aborting the WHOLE script (every
+      // remaining chunk + the downstream matching/send step), not just this
+      // chunk's email(s).
+      const refs = chunk.flatMap((email) => [
+        db.collection('newsletter_subscribers').doc(email),
+        // A bounce/complaint reported on the alert channel lands on the
+        // job_alert_subscribers doc, not newsletter_subscribers — check both.
+        // isJobAlertExcluded also covers this channel's OWN inactivity-sunset
+        // 'inactive' state (scripts/lib/jobAlertSunset.mjs, issue #2852 item 1) —
+        // soft and reversible, and it stays scoped to THIS document: the
+        // newsletter's 'inactive' (a never-engager sunset on the weekly) is a
+        // statement about that channel's engagement, not an instruction from
+        // the recipient, so isCrossChannelStop deliberately does not cross it.
+        db.collection('job_alert_subscribers').doc(email),
+        // Personalization subdoc (browsing-derived location + intent). Read here
+        // so the matcher can fold it into ranking; absent for users who never
+        // browsed while identified — the matcher tolerates an empty profile.
+        db.collection('newsletter_subscribers').doc(email).collection('private').doc('personalization'),
+        // Server-only state: the public subscription parent is not an
+        // authoritative idempotency ledger and may be changed by a client.
+        db.collection('job_alert_subscribers').doc(email).collection('delivery_state').doc('first_discovery'),
+      ]);
+      const snaps = await db.getAll(...refs);
+      chunk.forEach((email, idx) => {
+        const [subDoc, alertSubDoc, personDoc, discoveryDoc] = snaps.slice(idx * 4, idx * 4 + 4);
+
+        if (subDoc.exists) {
+          subscriberDocExists.add(email.toLowerCase());
+          const data = subDoc.data() || {};
+          subscriberProfiles.set(email.toLowerCase(), data);
+          if (data.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), data.last_clicked_url);
+          // The whole row, not data.status: isCrossChannelStop owns the
+          // address-level hard/global decision. Newsletter-only status/stamps
+          // stay in the newsletter sender's channel-specific gate.
+          if (isCrossChannelStop(data)) suppressedEmails.add(email.toLowerCase());
+          const lastSentAt = data.last_sent_at;
+          if (lastSentAt) {
+            const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
+            if (now - ts < NEWSLETTER_COOLDOWN_MS) {
+              newsletterCooldownSet.add(email.toLowerCase());
+            }
+          }
+          if (data.autologin_enabled === false) {
+            autologinDisabledSet.add(email.toLowerCase());
+          }
+        }
+
+        if (alertSubDoc.exists) {
+          const alertData = alertSubDoc.data() || {};
+          const discoveryData = discoveryDoc.exists ? discoveryDoc.data() || {} : {};
+          jobAlertProfiles.set(email.toLowerCase(), {
+            ...alertData,
+            discovery_email: discoveryData.discovery || null,
+            discovery_ip_geo: discoveryData.ipGeo || null,
+          });
+          if (isJobAlertExcluded(alertData.status)) suppressedEmails.add(email.toLowerCase());
+          // Alert-channel click is the most relevant — overrides the newsletter one.
+          if (alertData.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), alertData.last_clicked_url);
+        }
+
+        if (personDoc.exists) {
+          const personData = personDoc.data() || {};
+          behaviorProfiles.set(email.toLowerCase(), behaviorSignals(personData));
+          personalizationRaw.set(email.toLowerCase(), personData);
+        }
+      });
+    } catch (err) {
+      // Fail closed: without the subscriber documents we cannot evaluate the
+      // suppression predicates safely. The alert stays queued for the
+      // next run instead of becoming an accidental send.
+      // Granularity is per-chunk now (was per-email): a getAll() failure is a
+      // single RPC-level error, not per-document, so isolating further would
+      // need per-email getAll calls — defeating the batching this fixes.
+      chunk.forEach((email) => suppressionLookupFailedEmails.add(email.toLowerCase()));
+      console.warn(`   ⚠️  batched subscriber lookup failed for ${chunk.length} subscriber(s): ${redactEmailAddresses(err?.message || err)}`);
+    }
+  }
+  if (suppressionLookupFailedEmails.size > 0) {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => !suppressionLookupFailedEmails.has(a.email.toLowerCase()));
+    funnelIn.suppressionDeferred = before - alerts.length;
+    console.warn(`   ⏳ Subscriber suppression lookup failed; ${before - alerts.length} alert(s) deferred for the next run.`);
+  }
+
+  try {
+    const uidByEmail = new Map();
+    for (const [email, behavior] of behaviorProfiles) {
+      const newsletter = subscriberProfiles.get(email) || {};
+      const alertSubscriber = jobAlertProfiles.get(email) || {};
+      const uid = [
+        newsletter.user_id,
+        newsletter.userId,
+        newsletter.uid,
+        alertSubscriber.user_id,
+        alertSubscriber.userId,
+        alertSubscriber.uid,
+      ].find((candidate) => typeof candidate === 'string' && candidate.trim());
+      const normalizedUid = typeof uid === 'string' ? uid.trim() : '';
+      if (normalizedUid && normalizedUid === behavior.applicationIntentAuthUid) {
+        uidByEmail.set(email, normalizedUid);
+      }
+    }
+    const uids = [...new Set(uidByEmail.values())];
+    if (uids.length > 0) {
+      if (typeof db.getAll !== 'function') throw new Error('batched users profile lookup unavailable');
+      const accountProfiles = new Map();
+      const PROFILE_CHUNK_SIZE = 200;
+      for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
+        const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
+        const snapshots = await db.getAll(...chunk.map((uid) => db.collection('users').doc(uid)));
+        snapshots.forEach((snapshot, index) => {
+          const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
+          if (!exists) return;
+          const data = snapshot.data() || {};
+          accountProfiles.set(chunk[index], { optedOut: data.applicationIntent?.optedOut === true });
+        });
+      }
+      for (const [email, uid] of uidByEmail) {
+        const account = accountProfiles.get(uid);
+        if (account && !account.optedOut) applicationIntentAccountProfiles.set(email, { uid, optedOut: false });
+      }
+    }
+  } catch (err) {
+    // The alert audience and suppression path remain usable, but application
+    // intent must not be used without a current, readable account profile.
+    applicationIntentAccountProfiles.clear();
+    console.warn(`   ⚠️  Application-intent account preference lookup failed; ranking signal disabled: ${redactEmailAddresses(err?.message || err)}`);
+  }
+  if (suppressedEmails.size > 0) {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => {
+      if (!suppressedEmails.has(a.email.toLowerCase())) return true;
+      logDetail(`   🚫 soppresso — alert ${a.id} · stop globale, bounce, reclamo o lista provider`);
+      return false;
+    });
+    funnelIn.suppressed = before - alerts.length;
+    console.log(`   🚫 Suppressed (global stop / bounced / complained / provider list): ${before - alerts.length} alert(s) skipped`);
+  }
+  // An alert backfilled from a newsletter document that carries no
+  // relationship (profile-only: login fields, no status, no terms, no
+  // consent) has no basis either — the same `hasSubscriptionBasis` floor the
+  // newsletter senders apply since #9734, via the shared per-alert predicate.
+  // Explicit alerts (alert form, company follow) keep their own basis.
+  const alertConsentProofs = new Map();
+  {
+    const before = alerts.length;
+    const consentCheckedAt = new Date().toISOString();
+    alerts = alerts.filter((a) => {
+      const consent = evaluateJobAlertConsent({
+        alert: a,
+        subscriber: subscriberProfiles.get(a.email.toLowerCase()) ?? null,
+      });
+      if (consent.allowed === true) {
+        alertConsentProofs.set(`${a.email.toLowerCase()}\u0000${a.id}`, {
+          allowed: true,
+          basis: consent.reason || 'unspecified',
+          checkedAt: consentCheckedAt,
+        });
+      }
+      if (consent.allowed !== true) {
+        logDetail(`   🚫 senza base di iscrizione — alert ${a.id} · ${consent.reason || 'nessun consenso verificabile'}`);
+      }
+      return consent.allowed === true;
+    });
+    funnelIn.backfill = before - alerts.length;
+    if (before !== alerts.length) {
+      console.log(`   🚫 Backfilled alerts without a subscription basis: ${before - alerts.length} alert(s) skipped`);
+    }
+  }
+  if (autologinDisabledSet.size > 0) {
+    console.log(`   🔒 Autologin opt-out: ${autologinDisabledSet.size} subscriber(s) will receive email without autologin token`);
+  }
+  if (newsletterCooldownSet.size > 0) {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => {
+      if (!newsletterCooldownSet.has(a.email.toLowerCase())) return true;
+      logDetail(`   📬 rinviato (newsletter inviata da poco) — alert ${a.id}`);
+      return false;
+    });
+    funnelIn.cooldown = before - alerts.length;
+    console.log(`   📬 Newsletter cooldown (36h): ${before - alerts.length} alerts deferred (newsletter sent recently)`);
+  }
+
+  // 2b-bis. Bring back the alerts whose owner came back to the site (#5705,
+  // owner's decision of 2026-08-14).
+  //
+  // WHY HERE. The decision needs the newsletter document, the job-alert document
+  // and the alert itself; all three were loaded by the batched getAll above, so
+  // this costs zero extra reads. It runs BEFORE the cadence gate on purpose —
+  // an alert reactivated on this pass is due today like any other, which is the
+  // behaviour "torna attivo da solo quando la persona torna sul sito" describes.
+  // And it runs on the sender rather than in the browser because
+  // `job_alert_subscribers/{email}` is `allow write: if true` in firestore.rules:
+  // the stamp the site writes is a claim, and every one of the seven refusals is
+  // re-checked here against state the browser cannot forge. The full argument is
+  // in the docblock of reactivationAfterReturnVisit.
+  //
+  // Filter 5 of the owner's list — "an alert the person switched off never comes
+  // back" — is also true by construction on this path: the query above only
+  // loads `active == true`, so a switched-off alert is not even in `alerts`. The
+  // predicate is still asked, because a guard that holds only because of how its
+  // caller happens to query is the shape this repo keeps finding broken.
+  {
+    const reactivationNowIso = new Date().toISOString();
+    const reactivations = [];
+    const refusedByReason = {};
+    for (const alert of alerts) {
+      const emailKey = alert.email.toLowerCase();
+      const verdict = reactivationAfterReturnVisit({
+        alert,
+        sub: jobAlertProfiles.get(emailKey) || null,
+        newsletter: subscriberProfiles.get(emailKey) || null,
+        nowIso: reactivationNowIso,
+      });
+      if (verdict.reactivate) {
+        reactivations.push({ alert, emailKey, verdict });
+        // Apply to the in-memory copies so the cadence gate below, and the
+        // post-send state, both see the reactivated document rather than a
+        // stale decayed one.
+        Object.assign(alert, verdict.alertFields);
+        const profile = jobAlertProfiles.get(emailKey);
+        if (profile) Object.assign(profile, verdict.subFields);
+        // NOT_DECAYED is the answer for every live alert in the run, i.e. almost
+        // all of them: counting it would drown the log in the uninteresting case.
+      } else if (verdict.verdict !== JOB_ALERT_REACTIVATION_BLOCKS.NOT_DECAYED) {
+        refusedByReason[verdict.verdict] = (refusedByReason[verdict.verdict] || 0) + 1;
+      }
+    }
+    if (reactivations.length > 0 || Object.keys(refusedByReason).length > 0) {
+      console.log(`   🔁 Return-visit reactivations: ${reactivations.length}; refused: ${JSON.stringify(refusedByReason)}`);
+    }
+    if (reactivations.length > 0 && !DRY_RUN) {
+      // Two passes, because commitInChunks contracts for AT MOST ONE operation
+      // per item (scripts/lib/firestore-batch.mjs) — the op cap it enforces is
+      // computed from the slice length, so two writes per item would silently
+      // let a batch exceed 500 and throw away the whole chunk.
+      await commitInChunks(
+        db,
+        reactivations.filter((item) => item.alert.ref),
+        (batch, item) => batch.update(item.alert.ref, item.verdict.alertFields),
+      );
+      // One write per ADDRESS: the per-recipient counters are shared, so two
+      // reactivated alerts on the same person are one identical reset.
+      const subFieldsByEmail = new Map();
+      for (const item of reactivations) subFieldsByEmail.set(item.emailKey, item.verdict.subFields);
+      await commitInChunks(db, [...subFieldsByEmail], (batch, [emailKey, fields]) => {
+        batch.set(db.collection('job_alert_subscribers').doc(emailKey), fields, { merge: true });
+      });
+      console.log(`   🔁 ${reactivations.length} decayed alert(s) reactivated — cadence_decayed_at kept as the record of what we did`);
+    }
+  }
+
+  // 2c. Resolve each alert's effective cadence, then gate on it (#5705).
+  //
+  // WHAT CHANGED, AND WHY THE OLD GATE COULD NOT STAY. Until 2026-08-13 this
+  // was three millisecond intervals — no gate at all on the `daily` tier, 36h
+  // on `every-other-day`, 7 days on `weekly` — driven by the engagement tier
+  // alone. Two things were wrong with it, both measured:
+  //
+  //   - Milliseconds against a cron whose dispatch delay is median 240 minutes
+  //     and max 590 do not produce the interval they name: the "36h" gate
+  //     behaved as 48h on a fast day and 72h on a slow one. The scale is now
+  //     UTC CALENDAR DAYS (scripts/lib/cadenceCalendar.mjs), so the due set is
+  //     a pure function of stored state and the day, and a rerun is a no-op.
+  //
+  //   - 1.025 alerts were on a cadence of one email a day, on a channel where
+  //     6.306 of 6.835 active digest alerts were created by a backfill from the
+  //     newsletter list rather than requested by anybody. The owner's decision
+  //     of 2026-08-13 is a ceiling: JOB_ALERT_CADENCE_CEILING_DAYS = 7, which
+  //     engagement may not lift, over the whole channel, with the alerts that
+  //     carry `frequencyOverride: true` as the single exemption — those hold
+  //     the person's own explicit choice about their own frequency.
+  //
+  // Reducing the frequency does NOT make these alerts consented; it makes them
+  // less invasive. "Should they receive this at all?" stays open and is the
+  // owner's (#5705).
+  //
+  // `effectiveTier` keeps carrying the ENGINE tier label (not the capped
+  // interval) so the capacity-cut priority below still serves the most engaged
+  // first and `last_engagement_tier` stays comparable with what previous runs
+  // wrote.
+  let decayedSkipped = 0;
+  const ceilingHeld = { daily: 0, 'every-other-day': 0 };
+  const beforeDue = alerts.length;
+  alerts = alerts.filter((alert) => {
+    const emailKey = alert.email.toLowerCase();
+    const decision = isJobAlertDueToday({
+      alert,
+      sub: jobAlertProfiles.get(emailKey) || null,
+      todayIso: TODAY_ISO,
+      nowMs: now,
+    });
+    alert.effectiveTier = decision.tier;
+    alert.cadenceIntervalDays = decision.intervalDays;
+    alert.cadenceManual = decision.manual;
+    if (decision.decayed) {
+      decayedSkipped++;
+      logDetail(`   🪦 decaduto per cadenza — alert ${alert.id}`);
+      return false;
+    }
+    if (decision.ceilingApplied && ceilingHeld[decision.tier] != null) ceilingHeld[decision.tier]++;
+    return decision.due;
+  });
+  funnelIn.decayed = decayedSkipped;
+  // «Non in programma oggi»: scartati dalla cadenza, né decaduti né in invio.
+  funnelIn.notDue = beforeDue - decayedSkipped - alerts.length;
+  if (decayedSkipped > 0) {
+    console.log(`   🪦 Cadence-decayed alerts skipped: ${decayedSkipped} (terminal state; the alert stays active — see scripts/lib/jobAlertCadence.mjs)`);
+  }
+  // Con il tetto disattivato (null) la riga diceva «nulld»: si stampa solo se attivo.
+  if (JOB_ALERT_CADENCE_CEILING_DAYS != null) console.log(`   ⏳ Cadence ceiling ${JOB_ALERT_CADENCE_CEILING_DAYS}d: ${ceilingHeld.daily} tier-1 and ${ceilingHeld['every-other-day']} tier-3 alerts held to the ceiling today`);
+
+  // 2d. Resolve the real provider budget before matching, but do not slice the
+  // candidate list here. Matching can eliminate zero-match, already-sent and
+  // dead-link alerts; spending a slot on those only after the match is known
+  // lets the sender reach the next eligible recipient. The loop below scans
+  // the complete engagement-ordered list and stops only when this budget is
+  // actually consumed. Its bounded batches are the memory boundary.
+  funnelIn.eligible = alerts.length;
+  const { getAvailableCascadeQuota } = await import('./lib/email-cascade.mjs');
+  const availableQuota = await getAvailableCascadeQuota();
+  alerts.sort((a, b) => (ENGAGEMENT_SEND_PRIORITY[a.effectiveTier] ?? 2) - (ENGAGEMENT_SEND_PRIORITY[b.effectiveTier] ?? 2));
+  const { quotaBuffer, quotaCapacity, capacity: sendBudget } = resolveJobAlertCapacity({
+    alertCount: alerts.length,
+    availableQuota,
+  });
+  if (alerts.length > sendBudget) {
+    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}, usable ${quotaCapacity}); considering all ${alerts.length} eligible alerts in engagement order; matching until the send budget of ${sendBudget} emails remains after zero-match/dedup/live-link filtering`);
+  } else {
+    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}, usable ${quotaCapacity}); matching all ${alerts.length} eligible alerts; send budget ${sendBudget} emails`);
+  }
+
+  // 3. Match alerts to jobs
+  let totalMatches = 0;
+  // Shared across every alert/locale below so the same job's page is never
+  // HEAD-checked twice in one run (#3172).
+  const jobLiveCheckCache = new Map();
+
+  // 3a. Plan every alert (CPU only), letting the live-link prefetcher check
+  // the URLs of the plans already made in the background. The yield after each
+  // alert is what lets the pool's I/O callbacks run between two plans. Job-side
+  // scoring features are memoised across alerts (the pool is not mutated here).
+  const featureCache = createJobFeatureCache();
+  // Row timestamps and expiry are recipient-independent: parsed once for the
+  // run, not once per alert (#9314). Same windows as selectJobAlertCandidates.
+  const selectCandidateWindow = createJobAlertCandidateSelector(inventoryJobs, { nowMs: now });
+  const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache);
+  // Affinity profiles are read only when the configured treatment is affinity.
+  // The newness treatment is independent of personal profiles, so it avoids
+  // this batch of Firestore reads. A failed read degrades to "no profile"
+  // (standard order), never blocks.
+  const affinityNow = new Date(now);
+  const needsAffinityProfiles = rankingNeedsAffinityProfile({ config: JOB_EMAIL_RANKING_CONFIG });
+  const { profiles: affinityProfiles, stats: affinityLoadStats } = needsAffinityProfiles
+    ? await loadJobEmailAffinityProfiles(
+      db,
+      alerts.map((alert) => {
+        const emailKey = alert.email.toLowerCase();
+        return {
+          email: emailKey,
+          optOut: subscriberProfiles.get(emailKey)?.[RANKING_PERSONALIZATION_OPT_OUT_FIELD] === true,
+        };
+      }),
+    )
+    : {
+      profiles: new Map(),
+      stats: { recipients: 0, opted_out: 0, read: 0, found: 0, failed: 0, skipped_reason: 'not_required' },
+    };
+  const affinityContextByEmail = new Map();
+  const affinityContextFor = (email) => {
+    const emailKey = String(email || '').toLowerCase();
+    if (!affinityContextByEmail.has(emailKey)) {
+      affinityContextByEmail.set(emailKey, affinityRankingContext(affinityProfiles.get(emailKey) ?? null, affinityNow));
+    }
+    return affinityContextByEmail.get(emailKey);
+  };
+  // Keep only scalar diagnostics and recipient state across batches. The full
+  // `matched` list, rendered HTML/text and provider result arrays stay inside
+  // one callback so their copied job objects can be collected before the next
+  // group of alerts is planned/sent.
+  const zeroMatchAccumulator = createZeroMatchSummaryAccumulator();
+  const popularity = readNewsletterDataset('data', 'job-popularity.json') || {};
+  const discoveryRanker = createDiscoveryRanker(new Map(Object.entries(popularity)
+    .map(([slug, views]) => [slug, Number(views) || 0])));
+  const discoveryRecipientsPlanned = new Set();
+  const discoveryGeographies = new Map();
+  const lookupRegistrationGeo = createRegistrationGeoLookup();
+  const geoLookupEmails = [...new Set(alerts.filter((alert) => {
+    const email = alert.email.toLowerCase();
+    const sub = subscriberProfiles.get(email) || {};
+    const channel = jobAlertProfiles.get(email) || {};
+    return !discoveryBlockedRecipients.has(email) && discoveryCanAttempt(channel, now)
+      && sub[RANKING_PERSONALIZATION_OPT_OUT_FIELD] !== true
+      && !sub.geo_country && !channel.geo_country
+      && classifyZeroMatchCause(buildAlertProfile(alert, mergeAlertSubscriberSignals(sub, channel),
+        { behaviorTokens: behaviorProfiles.get(email)?.behaviorTokens || [] })) === 'empty-profile';
+  }).map((alert) => alert.email.toLowerCase()))];
+  await runWithConcurrency(geoLookupEmails, 2, async (email) => {
+    const channel = jobAlertProfiles.get(email) || {};
+    const geo = await lookupRegistrationGeo(subscriberProfiles.get(email) || {}, channel.discovery_ip_geo);
+    if (!geo) return;
+    if (geo.country) discoveryGeographies.set(email, geo);
+    if (!DRY_RUN && !ALLOWED_EMAILS) {
+      try {
+        const owner = db.collection('job_alert_subscribers').doc(email);
+        await db.runTransaction(async (tx) => {
+          const current = await tx.get(owner);
+          if (!current.exists || isAccountDeletedTombstone(current.data()) || isJobAlertExcluded(current.data()?.status)) return;
+          tx.set(owner.collection('delivery_state').doc('first_discovery'),
+            { ipGeo: geo }, { mergeFields: ['ipGeo'] });
+        });
+      } catch { /* Approximate geography is optional; popularity still works. */ }
+    }
+  });
+  console.log(`   🧭 Registration-IP geography: ${discoveryGeographies.size}/${geoLookupEmails.length} approximate hints; missing lookups retain global popularity (no profile fields overwritten)`);
+  const rankingVariantCounts = {};
+  let rankingProfileCount = 0;
+  const subjectCounts = {};
+  let activeSubjectAssignments = 0;
+  // sent = accettate dal provider (comprese le ambigue); ambiguous è il sottoinsieme
+  // il cui esito non è confermato; recipients sono gli indirizzi unici raggiunti.
+  const runStats = { planned: 0, sent: 0, failed: 0, ambiguous: 0, discoveryUnknown: 0, batches: 0, recipients: new Set(), discoveryPlanned: 0, discoveryDeferred: 0 };
+  const scheduleOutcomes = new Map();
+  const cadenceStateByEmail = new Map();
+  const effectiveTierByEmail = new Map();
+  const engineManagedSend = new Set();
+  const cadenceSentAtIso = new Date().toISOString();
+  let decayedNow = 0;
+  const { FieldValue } = DRY_RUN
+    ? { FieldValue: null }
+    : await import('firebase-admin/firestore');
+
+  const persistSentBatch = async (batchEmails, result) => {
+    const failedKeys = new Set(result.failedItems.map(jobAlertDeliveryKey));
+    const successfulEmails = batchEmails.filter((email) => email.discoveryClaim
+      ? result.confirmedDeliveryKeys?.has(jobAlertDeliveryKey(email))
+      : !failedKeys.has(jobAlertDeliveryKey(email)));
+    runStats.sent += successfulEmails.length;
+    runStats.failed += result.failedItems.length;
+    runStats.ambiguous += result.ambiguous ?? 0;
+    runStats.discoveryUnknown += result.discoveryUnknown ?? 0;
+    for (const delivery of successfulEmails) runStats.recipients.add(delivery.to.toLowerCase());
+
+    for (const delivery of successfulEmails) {
+      const email = delivery.to.toLowerCase();
+      const outcome = result.scheduleOutcomes?.get(email);
+      if (outcome) scheduleOutcomes.set(email, outcome);
+      if (ALLOWED_EMAILS) continue;
+
+      const existingTier = effectiveTierByEmail.get(email);
+      if (!existingTier || (ENGAGEMENT_SEND_PRIORITY[delivery.effectiveTier] ?? 2) < (ENGAGEMENT_SEND_PRIORITY[existingTier] ?? 2)) {
+        effectiveTierByEmail.set(email, delivery.effectiveTier);
+      }
+      if (!delivery.cadenceManual) engineManagedSend.add(email);
+      // Recompute when a later alert for the same recipient has a newer
+      // provider outcome; the old all-at-once path used the last outcome too.
+      if (!cadenceStateByEmail.has(email) || outcome) {
+        const sub = jobAlertProfiles.get(email) || {};
+        cadenceStateByEmail.set(email, nextJobAlertCadenceState({
+          sub,
+          engaged: engagedSinceLastJobAlertSend(sub),
+          opened: openedSinceLastJobAlertSend(sub),
+          sentAtIso: cadenceSentAtIso,
+          provider: outcome?.provider ?? null,
+          scheduledFor: scheduleOutcomes.get(email)?.scheduledFor ?? null,
+        }));
+      }
+    }
+
+    if (ALLOWED_EMAILS) return;
+
+    const rankingRecords = successfulEmails
+      .filter((email) => email.rankingDeliveryId && email.sentJobs?.length)
+      .map((email) => ({
+        deliveryId: email.rankingDeliveryId,
+        surface: 'job_alert',
+        surfaceId: email.alertId,
+        alertId: email.alertId,
+        email: email.to,
+        variant: email.rankingVariant || 'control',
+        affinityProfile: email.rankingAffinityProfile === true,
+        jobs: email.sentJobs,
+        sentAt: new Date(),
+      }));
+    if (rankingRecords.length > 0) {
+      try {
+        await recordJobEmailImpressions(db, rankingRecords);
+      } catch (error) {
+        console.warn('⚠️ Job-alert ranking impression persist failed:', redactEmailAddresses(error?.message || error));
+      }
+    }
+
+    const toUpdate = successfulEmails.filter((email) => email.ref);
+    await commitInChunks(db, toUpdate, (batch, email) => {
+      const key = email.to.toLowerCase();
+      const decay = decayStampAfterSend({
+        alert: email.alert,
+        nextState: cadenceStateByEmail.get(key),
+        sentAtIso: cadenceSentAtIso,
+      });
+      if (decay) decayedNow++;
+      const rankingUpdate = {};
+      for (const [index, job] of (email.sentJobs || []).entries()) {
+        Object.assign(rankingUpdate, buildEmbeddedRankingUpdate({
+          jobId: stableJobId(job),
+          position: job?.ranking?.position || index + 1,
+          variant: email.rankingVariant || 'control',
+          FieldValue,
+        }));
+      }
+      batch.update(email.ref, {
+        lastMatchedAt: FieldValue.serverTimestamp(),
+        matchCount: FieldValue.increment(email.matchCount),
+        cadence_scheduled_for: scheduleOutcomes.get(key)?.scheduledFor ?? null,
+        sentJobIds: mergeSentJobs(email.sentMap, email.sentJobs, now, DEDUP_WINDOW_MS),
+        ...rankingUpdate,
+        ...(decay || {}),
+      });
+    });
+
+    const recipientsInBatch = [...new Set(successfulEmails.map((email) => email.to.toLowerCase()))];
+    if (recipientsInBatch.length > 0) {
+      await commitInChunks(db, recipientsInBatch, (batch, email) => {
+        batch.set(db.collection('job_alert_subscribers').doc(email), {
+          last_sent_at: FieldValue.serverTimestamp(),
+          last_scheduled_for: scheduleOutcomes.get(email)?.scheduledFor ?? null,
+          last_send_time_source: scheduleOutcomes.get(email)?.sendTimeSource ?? null,
+          last_engagement_tier: effectiveTierByEmail.get(email) ?? null,
+          ...(engineManagedSend.has(email) ? (cadenceStateByEmail.get(email) || {}) : {}),
+        }, { merge: true });
+      });
+    }
+  };
+
+  const cursorReasons = {};
+  let cursorCandidateCount = 0;
+  let planningMs = 0;
+  let prefetchDrainMs = 0;
+  let quotaExhausted = quotaCapacity <= 0;
+  if (quotaCapacity > 0) await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
+    const batchPlans = [];
+    const batchPlanningStartedAt = Date.now();
+    for (const alert of alertBatch) {
+      const recipientProfile = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
+      const candidateWindow = selectCandidateWindow({
+        recipientLastSentAt: recipientProfile.last_sent_at,
+        alertCreatedAt: alert.createdAt,
+        initialLookbackMs: MATCH_WINDOW_MS,
+      });
+      cursorReasons[candidateWindow.reason] = (cursorReasons[candidateWindow.reason] || 0) + 1;
+      cursorCandidateCount += candidateWindow.jobs.length;
+      const plan = planAlertMatch(alert, {
+        behaviorProfiles,
+        lastClickedUrlByEmail,
+        locationIndex,
+        cityToCanton,
+        subscriberProfiles,
+        jobAlertProfiles,
+        applicationIntentAccountProfiles,
+        // `planAlertMatch` keeps its historical property name for the test
+        // oracle, but the value is now the recipient-aware candidate pool.
+        recentJobs: candidateWindow.jobs,
+        now,
+        featureCache,
+        discoveryRanker,
+        discoveryGeographies,
+        allowDiscovery: !discoveryRecipientsPlanned.has(alert.email.toLowerCase())
+          && !discoveryBlockedRecipients.has(alert.email.toLowerCase()),
+      });
+      if (plan.discoveryMode && plan.matched.length > 0) discoveryRecipientsPlanned.add(alert.email.toLowerCase());
+      const rankingVariant = plan.discoveryMode ? 'control' : assignJobRankingVariant({
+        subjectId: alert.email,
+        config: JOB_EMAIL_RANKING_CONFIG,
+      });
+      const subjectAssignment = plan.discoveryMode ? { variant: 'control', inExperiment: false } : assignJobAlertSubjectVariant({
+        email: alert.email,
+        alertId: alert.id,
+        periodId: JOB_ALERT_SUBJECT_PERIOD_ID,
+        config: JOB_ALERT_SUBJECT_CONFIG,
+      });
+      const { affinityProfile, affinityScorer } = affinityContextFor(alert.email);
+      const rankingOptions = {
+        variant: rankingVariant,
+        affinityScorer,
+        config: JOB_EMAIL_RANKING_CONFIG,
+      };
+      // Prefetch only the current ranking shortlist. If a page is dead,
+      // rankLiveJobsForEmail expands it one replacement at a time after the
+      // shared pool has drained.
+      const preflightRanked = plan.matched.length > 0
+        ? rankEmailJobs(plan.matched, { ...rankingOptions, limit: MAX_JOB_CARDS })
+        : [];
+      batchPlans.push({
+        ...plan,
+        rankingVariant,
+        rankingAffinityProfile: affinityProfile,
+        rankingOptions,
+        preflightRanked,
+        subjectAssignment,
+      });
+      if (preflightRanked.length > 0) livenessPrefetcher.enqueue(preflightRanked, nlNormLocale(alert.locale));
+      await new Promise((resolve) => setImmediate(resolve));
+    }
+    planningMs += Date.now() - batchPlanningStartedAt;
+
+    const batchDrainStartedAt = Date.now();
+    await livenessPrefetcher.drain();
+    prefetchDrainMs += Date.now() - batchDrainStartedAt;
+
+    // Build and send before the next batch is planned. This is the memory
+    // boundary: `batchPlans` and `batchEmails` contain the only full matched
+    // lists and rendered payloads retained by the sender.
+    const batchEmails = [];
+    for (const {
+      alert,
+      candidateCount,
+      rankedCount,
+      zeroCause,
+      sentMap,
+      matched,
+      discoveryMode,
+      rankingVariant,
+      rankingAffinityProfile,
+      rankingOptions,
+      preflightRanked,
+      subjectAssignment,
+    } of batchPlans) {
+      // A match is the unit that consumes provider quota, not an alert
+      // candidate. Stop inside the bounded batch as soon as the real budget is
+      // reached; the unvisited alert tail remains untouched for the next run.
+      if (runStats.planned + batchEmails.length >= quotaCapacity) {
+        quotaExhausted = true;
+        break;
+      }
+      addZeroMatchPlanToSummary(zeroMatchAccumulator, {
+        candidateCount,
+        rankedCount,
+        zeroCause,
+        rankingVariant,
+        rankingAffinityProfile,
+        subjectAssignment,
+        discoveryMode,
+      });
+      rankingVariantCounts[rankingVariant] = (rankingVariantCounts[rankingVariant] || 0) + 1;
+      if (rankingAffinityProfile) rankingProfileCount++;
+      const subjectKey = subjectAssignment?.variant || 'control';
+      subjectCounts[subjectKey] = (subjectCounts[subjectKey] || 0) + 1;
+      if (subjectAssignment?.inExperiment === true) activeSubjectAssignments++;
+
+    if (rankedCount === 0) {
+      logDetail(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
+      continue;
+    }
+    if (matched.length === 0) {
+      funnelIn.alreadySent += 1;
+      logDetail(`   ⏭️  Alert ${alert.id}: ${rankedCount} matches, all already sent → skip`);
+      continue;
+    }
+
+    // Preflight (#3172): drop any job whose live page 404s/times out before
+    // it gets baked into the email — data/jobs.json is a crawl snapshot and
+    // can lag the job actually being pulled/expired, or the deploy of its
+    // per-locale SSG page.
+    const rankedForEmail = await rankLiveJobsForEmail(
+      matched,
+      nlNormLocale(alert.locale),
+      jobLiveCheckCache,
+      rankingOptions,
+      { initialRanked: preflightRanked },
+    );
+    if (rankedForEmail.length === 0) {
+      funnelIn.deadLinks += 1;
+      logDetail(`   ⏭️  Alert ${alert.id}: ${matched.length} matches, all failed the live-link check → skip`);
+      continue;
+    }
+
+    // This counter now reflects live candidates selected for the email. An
+    // exact count of every live item in the unused tail would recreate the
+    // network work this bounded preflight removes.
+    totalMatches += rankedForEmail.length;
+    const rankingDeliveryId = buildJobEmailDeliveryId({
+      surface: 'job_alert',
+      surfaceId: alert.id,
+      recipientId: alert.email,
+      campaignId: TODAY_ISO,
+      runId: JOB_EMAIL_RANKING_RUN_ID,
+    });
+    const autologinEnabled = !autologinDisabledSet.has(alert.email.toLowerCase());
+    const builtEmail = buildAlertEmail(
+      alert,
+      rankedForEmail,
+      autologinEnabled,
+      { deliveryId: rankingDeliveryId, variant: rankingVariant },
+      subjectAssignment,
+      { discoveryMode },
+    );
+    const {
+      subject,
+      html,
+      text,
+      unsubscribeUrl,
+      subjectVariant,
+      subjectFreshnessQualified,
+    } = builtEmail;
+
+    // Mark the jobs actually shown (the rendered cards) as sent so they rotate
+    // out next run. buildAlertEmail renders up to MAX_JOB_CARDS cards.
+    // References, not copies — cheap to carry to the post-send persistence step.
+    const sentJobs = rankedForEmail.slice(0, MAX_JOB_CARDS);
+
+    // Per-user send-time (#3798): this channel's own preferred hour first
+    // (job_alert_subscribers/{email}), falling back to the subscriber's
+    // newsletter-channel hour, then the site-wide global hour. Both doc
+    // lookups were already loaded above (zero extra reads) — see
+    // jobAlertProfiles/subscriberProfiles.
+    let scheduledAt = null;
+    let sendTimeSource = null;
+    // TARGET_EMAIL/ALLOWED_EMAILS set means this is an operator verification
+    // run against specific recipient(s) (parallel to send-newsletter.mjs's
+    // --test --target-email) — it must arrive immediately so the operator can
+    // confirm the send works, not get deferred to the preferred hour.
+    if (!ALLOWED_EMAILS && perUserSendTimeEnabled()) {
+      const emailKey = alert.email.toLowerCase();
+      const resolved = resolveEffectivePreferredHour({
+        subscriberDoc: jobAlertProfiles.get(emailKey) || null,
+        fallbackDoc: subscriberProfiles.get(emailKey) || null,
+        globalHour: globalPreferredHour,
+      });
+      if (resolved.hourUtc !== null) {
+        scheduledAt = computeScheduledSendAt({ preferredHourUtc: resolved.hourUtc, email: alert.email });
+        sendTimeSource = resolved.source;
+      }
+    }
+
+    let discoveryClaim = null;
+    if (discoveryMode && !DRY_RUN && !ALLOWED_EMAILS) {
+      try {
+        discoveryClaim = await claimDiscoveryDelivery(db, alert.email);
+      } catch (error) {
+        console.warn('⚠️ Discovery claim unavailable; delivery deferred:', redactEmailAddresses(error?.message));
+      }
+      if (!discoveryClaim) { runStats.discoveryDeferred++; continue; }
+    }
+    if (discoveryMode) runStats.discoveryPlanned++;
+    batchEmails.push({
+      to: alert.email,
+      subject,
+      html,
+      text,
+      alertId: alert.id,
+      discoveryClaim,
+      discoveryMode,
+      ref: alert.ref,
+      // The loaded alert doc itself, carried so the post-send batch can ask the
+      // cadence engine whether THIS send retires it (#5705) without re-reading
+      // Firestore. `ref` alone is not enough: the decay predicate needs the
+      // backfill markers, the manual pin and the current cadence_state.
+      alert,
+      effectiveTier: alert.effectiveTier,
+      cadenceManual: alert.cadenceManual === true,
+      cadenceIntervalDays: alert.cadenceIntervalDays ?? null,
+      matchCount: matched.length,
+      sentMap,
+      sentJobs,
+      rankingDeliveryId,
+      rankingVariant,
+      rankingAffinityProfile,
+      subjectExperiment: subjectAssignment.experimentId || JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+      subjectExperimentActive: subjectAssignment.inExperiment === true,
+      subjectExperimentPeriod: subjectAssignment.periodId || JOB_ALERT_SUBJECT_PERIOD_ID,
+      subjectVariant,
+      subjectFreshnessQualified,
+      consentProof: alertConsentProofs.get(`${alert.email.toLowerCase()}\u0000${alert.id}`) || null,
+      unsubscribeUrl,
+      scheduledAt,
+      sendTimeSource,
+    });
+
+    logDetail(`   📬 Alert ${alert.id}: ${matched.length} matches`);
+    }
+
+    runStats.planned += batchEmails.length;
+    if (DRY_RUN) {
+      if (batchEmails.length > 0) logScheduleDistribution(batchEmails, { indent: '   ' });
+    } else if (batchEmails.length > 0) {
+      const result = await sendBatch(batchEmails);
+      runStats.batches += 1;
+      console.log(formatJobAlertBatchLine(runStats.batches, result));
+      if (result.failed > 0) await enqueueFailedEmails(db, result.failedItems);
+      await persistSentBatch(batchEmails, result);
+    }
+    // Drop the current batch's copied match rows and rendered payloads before
+    // the next slice is planned. The callback is awaited by
+    // forEachJobAlertPlanBatch, so no subsequent batch can observe these refs.
+    batchEmails.length = 0;
+    batchPlans.length = 0;
+    return !quotaExhausted && runStats.planned < quotaCapacity;
+  });
+  if (quotaExhausted && alerts.length > runStats.planned) {
+    console.log(`   ⏸️ Send budget exhausted after ${runStats.planned} email(s); remaining eligible alerts stay untouched for the next run`);
+  }
+
+  // #9314: `Capacity check` → `Total` mixes CPU (planning) and network (the
+  // live-link prefetch drains). Log the split so a run shows which one bounds
+  // the matching step. The prefetch queue is drained at every memory boundary.
+  const prefetchAfterPlanning = livenessPrefetcher.stats();
+  console.log(`   ⏱️ Matching split: planning ${(planningMs / 1000).toFixed(1)} s for ${alerts.length} alerts; live-link prefetch ${prefetchAfterPlanning.queued} URL(s), ${prefetchAfterPlanning.pending} pending, ${prefetchAfterPlanning.retained} queue entries retained after the last batch, drained across batches in ${(prefetchDrainMs / 1000).toFixed(1)} s`);
+  console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
+  console.log(`   🎯 Job-email ranking: ${JSON.stringify(rankingVariantCounts)} alerts; ${rankingProfileCount} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
+  console.log(`   🧪 Job-alert subject test: ${JSON.stringify(subjectCounts)} planned alerts; ${activeSubjectAssignments} in experiment (enabled=${JOB_ALERT_SUBJECT_CONFIG.enabled}, rollout=${JOB_ALERT_SUBJECT_CONFIG.rollout}, variants=${JOB_ALERT_SUBJECT_CONFIG.variantIds.join(',')})`);
+  zeroMatchAccumulator.discoveryCount -= runStats.discoveryDeferred;
+  zeroMatchAccumulator.emptyProfileCount += runStats.discoveryDeferred;
+  const zeroMatchSummary = finalizeZeroMatchSummary(zeroMatchAccumulator);
+  console.log(`   🧭 Discovery: ${zeroMatchSummary.discoveryCount} empty-profile plans using real popularity; ${runStats.discoveryPlanned} first emails planned; ${runStats.discoveryDeferred} claims deferred (excluded from targeted match yield)`);
+
+  console.log(`\n   Total: ${runStats.planned} emails planned, ${totalMatches} job matches`);
+
+  // Zero-match YIELD of the real alerts: informative only (owner decision
+  // 2026-10-04, issue 9060). It is computed on each recipient's "available
+  // since my last email" window, so it rises in quiet periods, on a second run
+  // of the same day and for criteria the inventory does not carry — none of
+  // which is a matcher defect. It is logged and quoted in the monitor report,
+  // and it opens or closes nothing.
+  const {
+    evaluatedAlertCount,
+    noEligibleCandidateCount,
+    emptyProfileCount,
+    zeroMatchCount,
+    zeroMatchRate,
+    zeroMatchByCause,
+  } = zeroMatchSummary;
+  const rateLabel = zeroMatchRate === null ? 'n/a' : `${(zeroMatchRate * 100).toFixed(1)}%`;
+  if (alerts.length > 0) {
+    console.log(`   📉 Zero-match yield (informative): ${zeroMatchCount}/${evaluatedAlertCount} alerts with eligible candidates (${rateLabel}) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
+    console.log(`   🪟 No eligible candidates after recipient cursor: ${noEligibleCandidateCount}/${alerts.length} alerts (excluded from the yield rate)`);
+    console.log(`   🧭 Empty profiles with no hard/soft signal: ${emptyProfileCount}/${alerts.length} alerts (excluded from the yield rate)`);
+  }
+
+  // Matcher health: synthetic alerts cut from the active inventory, planned by
+  // the same matcher against every open listing. This — not the yield — drives
+  // the canonical monitor issue.
+  const matcherHealth = runJobAlertMatcherHealth(inventoryJobs, {
+    now,
+    locationIndex,
+    cityToCanton,
+    featureCache,
+  });
+  if (matcherHealth.error) {
+    console.warn(`   ⚠️ matcher-health probe failed (non-fatal, deliveries already processed; monitor left untouched) after ${matcherHealth.durationMs} ms: ${redactEmailAddresses(matcherHealth.error)}`);
+  } else {
+    console.log(`   🩺 Matcher health: ${matcherHealth.passedCount}/${matcherHealth.probeCount} synthetic alerts matched ≥1 job on the active inventory (${matcherHealth.activeInventoryCount} open listings; ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups sampled across ${matcherHealth.cantonCount} cantons, cap ${MATCHER_HEALTH_MAX_PROBES} probes) in ${matcherHealth.durationMs} ms — failures by kind: ${JSON.stringify(matcherHealth.failureByKind)}`);
+  }
+  const monitorAction = getMatcherHealthMonitorAction({
+    probeCount: matcherHealth.probeCount,
+    failureCount: matcherHealth.failureCount,
+    dryRun: DRY_RUN,
+    targeted: Boolean(ALLOWED_EMAILS),
+  });
+  if (!matcherHealth.error && matcherHealth.probeCount === 0) {
+    console.warn('   ⚠️ Matcher health: no synthetic alert could be built from the active inventory (no listing with a canton and a title token) — monitor left untouched');
+  }
+  if (monitorAction === 'report') {
+    // Best-effort diagnostic report: this call sits after the bounded send
+    // batches, so any exception here (e.g. a future github-issue-creator.mjs
+    // change that adds a non-guarded internal path) must never turn accepted
+    // deliveries into a failed run. Same convention as
+    // scripts/reconcile-here-usage.mjs's alert-issue try-catch.
+    try {
+      const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
+      const failureLines = matcherHealth.failures
+        .slice(0, 30)
+        .map((f) => `- \`${f.kind}\` canton \`${f.canton}\`, profession \`${f.profession || '(none)'}\`, keyword \`${f.keyword}\` (seed job \`${f.sourceJobId}\`): ${f.candidateCount} eligible rows, cause \`${f.zeroCause || 'n/a'}\``)
+        .join('\n');
+      const causeLines = Object.entries(zeroMatchByCause)
+        .sort((a, b) => b[1] - a[1])
+        .map(([cause, count]) => `- \`${cause}\`: ${count}`)
+        .join('\n');
+      await createGithubIssue({
+        title: MATCHER_MONITOR_ISSUE_TITLE,
+        description: [
+          `${matcherHealth.failureCount}/${matcherHealth.probeCount} synthetic job alerts built from the active inventory matched **zero** jobs this run.`,
+          'Each synthetic alert carries a profession keyword (a word of a listing\'s own title, or its category label) and that listing\'s canton as hard filters, and is planned by the real matcher (`planAlertMatch`) against every open listing. The listing it was cut from is in that inventory, so a zero is a matcher regression, not a quiet day.',
+          `Sample: ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups across ${matcherHealth.cantonCount} cantons (cap ${MATCHER_HEALTH_MAX_PROBES} probes), ${matcherHealth.activeInventoryCount} open listings.`,
+          '',
+          `Failing probes (first ${Math.min(30, matcherHealth.failures.length)}):`,
+          failureLines,
+          '',
+          `Informative, not a trigger — zero-match yield of the real alerts on their recipient windows: ${zeroMatchCount}/${evaluatedAlertCount} (${rateLabel}); ${noEligibleCandidateCount}/${alerts.length} with no eligible candidates after the recipient cursor; ${emptyProfileCount}/${alerts.length} with an empty profile.`,
+          causeLines,
+          '',
+          'See scripts/lib/job-alert-matcher-health.mjs (probes) and scripts/lib/job-alert-zero-match-diagnosis.mjs (yield causes).',
+          'No subscriber PII in this report (synthetic alerts and aggregate counts only).',
+        ].join('\n'),
+        priority: 3,
+        labels: ['automation', 'bug'],
+        workflow: 'send-job-alerts',
+      });
+    } catch (err) {
+      console.warn(`   ⚠️ matcher-health issue report failed (non-fatal, deliveries already processed): ${redactEmailAddresses(err.message)}`);
+    }
+  } else if (monitorAction === 'resolve') {
+    // A recovered production run must close the canonical monitor issue;
+    // otherwise one transient red run leaves a stale OPEN issue forever.
+    try {
+      const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+      await resolveGithubIssue(MATCHER_MONITOR_ISSUE_TITLE, {
+        workflow: 'send-job-alerts',
+      });
+    } catch (err) {
+      console.warn(`   ⚠️ matcher-health issue recovery failed (non-fatal, continuing to send): ${redactEmailAddresses(err.message)}`);
+    }
+  }
+
+  // Il funnel esce prima di ogni ritorno anticipato: è il numero che si legge ogni
+  // giorno, anche quando non c'è nulla da inviare.
+  await printJobAlertFunnel({
+    funnelIn,
+    zeroMatch: zeroMatchSummary,
+    sends: {
+      planned: runStats.planned,
+      sent: runStats.sent,
+      failed: runStats.failed,
+      ambiguous: runStats.ambiguous,
+      recipients: runStats.recipients,
+    },
+    retryOutcome,
+  });
+
+  if (runStats.planned === 0) {
+    console.log('   No matches — no emails to send.');
+    return;
+  }
+
+  if (DRY_RUN) {
+    console.log(`   🔵 DRY RUN — not sending emails (would send ${runStats.planned})`);
+  } else {
+    if (decayedNow > 0) {
+      console.log(`   🪦 Cadence decay recorded for ${decayedNow} backfilled alert(s) — terminal, active untouched`);
+    }
+
+    // 6. Personalization enrichment (no-clobber). Consolidate every signal we
+    // just read — browsing subdoc (filter usage, viewed-job cities/categories,
+    // searches) + the user's own alerts (locations, cantons, sectors, keywords)
+    // — into the flat newsletter_subscribers profile fields the matcher,
+    // newsletter and employer-blast funnels read. Only MISSING fields are
+    // filled, so an explicit user value is never overwritten. Runs every day,
+    // progressively enriching profiles that previously had empty location/sector
+    // targeting (the "personalization fields missing" half of #2993).
+    const alertsByEmail = new Map();
+    for (const alert of alerts) {
+      const key = String(alert.email || '').toLowerCase();
+      if (!key) continue;
+      if (!alertsByEmail.has(key)) alertsByEmail.set(key, []);
+      alertsByEmail.get(key).push(alert);
+    }
+    const enrichTargets = [];
+    for (const key of alertsByEmail.keys()) {
+      // Only enrich an existing subscriber doc — never create an orphan record.
+      if (!subscriberDocExists.has(key)) continue;
+      const patch = derivePersonalizationPatch({
+        subscriber: subscriberProfiles.get(key) || null,
+        personalization: personalizationRaw.get(key) || null,
+        alerts: alertsByEmail.get(key),
+        // Strongest signal: the job this subscriber last clicked in an email.
+        clicked: clickedJobMeta(lastClickedUrlByEmail.get(key), locationIndex),
+      });
+      if (patch) enrichTargets.push({ key, patch });
+    }
+    if (enrichTargets.length > 0) {
+      await commitInChunks(db, enrichTargets, (batch, { key, patch }) => {
+        batch.set(db.collection('newsletter_subscribers').doc(key), {
+          ...patch,
+          personalization_enriched_at: FieldValue.serverTimestamp(),
+          updated_at: FieldValue.serverTimestamp(),
+        }, { merge: true });
+      });
+      console.log(`   🧬 Personalization enriched: ${enrichTargets.length} subscriber profile(s)`);
+    }
+  }
+
+  console.log('\n🔔 Job Alert Matching — Done.');
+}
+
+// Only run main() when executed directly (not when imported by tests).
+const isEntryPoint = (() => {
+  try {
+    return process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
+  } catch {
+    return false;
+  }
+})();
+
+if (isEntryPoint) {
+  main().catch((err) => {
+    console.error('Fatal error:', redactEmailAddresses(err?.stack || err));
+    process.exit(1);
+  });
+}
+
+export {
+  buildAlertEmail,
+  filterLiveJobs,
+  jobPageUrl,
+  createJobLivenessPrefetcher,
+  planAlertMatch,
+  rankLiveJobsForEmail,
+  runJobAlertMatcherHealth,
+  sendBatch,
+  enqueueFailedEmails,
+};

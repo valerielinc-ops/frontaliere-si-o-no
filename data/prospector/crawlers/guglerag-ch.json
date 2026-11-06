@@ -1,0 +1,24 @@
+{
+  "companyKey": "guglerag-ch",
+  "companyName": "guglerag",
+  "companyHost": "yousty.ch",
+  "platform": "yousty.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/berufe/bau/1011-baumaschinenmechaniker-in-efz"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/berufe/fahrzeuge/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Automobil-Mechatroniker/in EFZ",
+    "Fahrzeugschlosser/in EFZ",
+    "Landmaschinenmechaniker/in EFZ",
+    "Motorgerätemechaniker/in EFZ",
+    "Automobil-Fachmann/-frau EFZ"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:54:01.325Z",
+  "candidateKey": "guglerag.ch"
+}

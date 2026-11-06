@@ -1,0 +1,25 @@
+{
+  "companyKey": "translated",
+  "companyName": "Translated",
+  "companyHost": "translated.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://translated.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 14,
+  "sampleTitles": [
+    "Account Manager (On-site)",
+    "HR Specialist (On-site)",
+    "Japanese Copywriter",
+    "Japanese Language Lead (Freelance)",
+    "Join Translated's Global Freelance Community: Multiple Roles Open"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:13:32.288Z",
+  "candidateKey": "translated@applytojob.com"
+}

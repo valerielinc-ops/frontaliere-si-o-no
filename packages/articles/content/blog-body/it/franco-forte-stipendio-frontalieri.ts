@@ -1,0 +1,20 @@
+const bodyFrancoForteStipendioFrontalieri: Record<string, string> = {
+  'blog.article.franco-forte-stipendio-frontalieri.body1': `## In breve
+- Il riferimento BCE EUR/CHF era 0,9462 il 18 settembre 2026
+- Nel primo trimestre 2026 i frontalieri in Ticino erano 78.561
+- 5.000 CHF convertiti a 0,9462 equivalgono a circa 5.284 EUR prima delle commissioni
+- Il cambio modifica il valore in euro dello stipendio, ma non determina da solo il reddito netto o le imposte
+
+## Fatti chiave
+- **Cambio di riferimento**: 0,9462 CHF per 1 EUR, dato BCE del 18 settembre 2026
+- **Frontalieri in Ticino**: 78.561 nel primo trimestre 2026
+- **Esempio puramente valutario**: 5.000 CHF ÷ 0,9462 = circa 5.284 EUR
+- **Attenzione**: il tasso BCE è indicativo e non include commissioni né il criterio fiscale individuale
+
+Il franco forte ha un effetto immediato quando lo stipendio è pagato in CHF e le spese sono sostenute in EUR. Al 18 settembre 2026 il riferimento BCE era 0,9462 CHF per 1 EUR. Con questo dato, 5.000 CHF corrispondono matematicamente a circa 5.284 EUR prima di commissioni: è un esempio di conversione, non una previsione della busta paga. La statistica Ustat conta 78.561 frontalieri nel Ticino nel primo trimestre 2026. Per capire l’effetto sulla propria situazione bisogna considerare data della conversione, costi applicati, salario effettivo e regole fiscali pertinenti.`,
+  'blog.article.franco-forte-stipendio-frontalieri.body2': `Un cambio favorevole può aumentare il potere d’acquisto in Italia, ma il risultato dipende dalla volatilità e dal momento in cui si convertono i franchi. Per le aziende ticinesi il cambio incide sul costo relativo del lavoro, mentre per il lavoratore il tasso BCE resta solo un riferimento: il tasso offerto dalla banca o dal servizio di cambio può essere diverso. Anche la fiscalità richiede cautela. Le imposte italiane possono richiedere una conversione in euro secondo il criterio applicabile al caso concreto; non è corretto usare automaticamente il dato giornaliero BCE come base imponibile. Per mutui, risparmi e budget familiare conviene confrontare più scenari e indicare sempre data e costi della conversione.`,
+  'blog.article.franco-forte-stipendio-frontalieri.body3': `Per gestire il rischio di cambio, separa il calcolo indicativo dalla pianificazione fiscale: annota tasso, data, importo e commissioni di ogni conversione e usa il simulatore solo come stima. Un conto in CHF e uno in EUR possono aiutare a distribuire le conversioni, ma non eliminano il rischio. Verifica sempre le condizioni del tuo intermediario e chiedi a un professionista quale criterio usare per la dichiarazione. Fonti: [BCE, tassi di cambio dell’euro](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html) e [Ustat Ticino, mercato del lavoro](https://www3.ti.ch/DFE/DR/USTAT/allegati/digitale/mercato_lavoro/psml/).`,
+  'blog.article.franco-forte-stipendio-frontalieri.faq': `[{"q":"Quanto valgono 5.000 CHF al cambio indicativo di 0,9462?","a":"5.000 CHF divisi per 0,9462 CHF per EUR equivalgono a circa 5.284 EUR, prima delle commissioni. È un calcolo illustrativo e non rappresenta automaticamente il netto in busta paga."},{"q":"Il tasso BCE determina le imposte italiane?","a":"No. Il tasso BCE è un riferimento per il confronto. La conversione fiscale dipende dal criterio previsto per il caso concreto e dalla documentazione richiesta."},{"q":"Cosa succede se il franco si indebolisce?","a":"A parità di stipendio in CHF, un franco più debole riduce il controvalore in EUR. L’impatto mensile dipende dall’importo, dal tasso applicato e dalle commissioni: non esiste una perdita fissa valida per tutti."},{"q":"Come posso gestire la volatilità EUR/CHF?","a":"Confronta i costi dei servizi, pianifica le conversioni senza concentrare tutto in un solo giorno e mantieni una riserva adeguata nella valuta delle spese. Per le imposte, segui il criterio applicabile al tuo caso."}]`,
+};
+
+export default bodyFrancoForteStipendioFrontalieri;

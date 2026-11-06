@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ti-1534",
+      "sourceKey": "TI",
+      "sourceRecordId": "1534",
+      "canton": "Ticino",
+      "platePrefix": "TI",
+      "plateNumber": "39992",
+      "normalizedPlate": "TI39992",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 900,
+      "startingPriceChf": 800,
+      "bidCount": 2,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-09-23T18:00:00.000Z",
+      "closedAt": "2026-09-23T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.carieauktion.ti.ch/ecari-auktion/",
+      "officialDetailUrl": "https://www.carieauktion.ti.ch/ecari-auktion/",
+      "sourceFetchedAt": "2026-09-14T19:29:05.676Z",
+      "lastVerifiedAt": "2026-09-14T19:29:05.676Z",
+      "firstSeenAt": "2026-09-14T13:29:09.313Z",
+      "lastSeenAt": "2026-09-14T19:29:05.676Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "7805e1eefeb8"
+    }
+  ]
+}

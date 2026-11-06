@@ -1,0 +1,40 @@
+{
+  "id": "blocco-ristorni-ticino-italia-2026",
+  "slug": "blocco-ristorni-ticino-italia-2026",
+  "publishedAt": "2026-05-13T00:59:30.355Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "wp-search:comozero.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.5912205400230475,
+    "confidence": 0.8,
+    "finalScore": 2.8729764320184383,
+    "topK": [
+      {
+        "slug": "ristorni-bloccati-ticino-italia",
+        "cosine": 0.8978051350057619
+      },
+      {
+        "slug": "accuse-svizzera-italia-2026",
+        "cosine": 0.8896645656188134
+      },
+      {
+        "slug": "udc-bilaterali-2026-frontalieri",
+        "cosine": 0.8811774135375909
+      },
+      {
+        "slug": "tassa-salute-scontro-ticino-berna",
+        "cosine": 0.8803637369134575
+      },
+      {
+        "slug": "ristorni-congelati-ticino-italia",
+        "cosine": 0.8801377045266489
+      }
+    ],
+    "score": 2.8729764320184383,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

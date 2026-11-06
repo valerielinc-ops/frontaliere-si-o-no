@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-230825",
+      "sourceKey": "BE",
+      "sourceRecordId": "230825",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "910100",
+      "normalizedPlate": "BE910100",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 390,
+      "bidCount": 0,
+      "endsAt": "2026-09-23T19:00:00.000Z",
+      "closedAt": "2026-09-23T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-be.ch/de/",
+      "officialDetailUrl": "https://www.auktion-be.ch/de/auction/230825",
+      "sourceFetchedAt": "2026-09-23T17:03:07.407Z",
+      "lastVerifiedAt": "2026-09-23T17:03:07.407Z",
+      "firstSeenAt": "2026-09-19T11:04:35.330Z",
+      "lastSeenAt": "2026-09-23T17:03:07.407Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "98d97f54de4b"
+    }
+  ]
+}

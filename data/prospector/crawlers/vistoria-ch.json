@@ -1,0 +1,24 @@
+{
+  "companyKey": "vistoria-ch",
+  "companyName": "Vistoria Group",
+  "companyHost": "vistoria.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://vistoria.ch/jobs/job.html"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 107,
+  "sampleTitles": [
+    "Personalfachfrau/mann (8000 Zürich), 80 - 100% 1 Personalfachfrau (8000 Zürich)",
+    "Betriebselektriker/in (8005 Zürich), 100% 27 Betriebselektriker (8005 Zürich)",
+    "Automechatroniker/in (8058 Flughafen Zürich), 100% 32 Automechatroniker (8058 Flughafen Zürich)",
+    "Disponent/in für die Servicetechniker (8000 Zürich), 100% 34 Disponent für die Servicertechniker (8000 Zürich)",
+    "Treuhänder/in, Junior Treuhänder/in (8000 Zürich), 80 - 100% 2 Treuhänder Junior Treuhänder (8000 Zürich)"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-01T18:57:10.600Z"
+}

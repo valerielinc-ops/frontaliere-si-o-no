@@ -1,0 +1,20 @@
+{
+  "companyKey": "tasted",
+  "companyName": "tasted",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/job-advertisement/17a34e32-7546-4b4d-9862-393c4c098eec/cf798fc2-cc70-f94a-b07f-6dd6289b250a"
+  ],
+  "detailTemplate": "/job-advertisement/17a34e32-7546-4b4d-9862-393c4c098eec/cf798fc2-cc70-f94a-b07f-6dd6289b250a",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Produktionsmitarbeiter auf Abruf"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-10-27T11:51:40.983Z",
+  "candidateKey": "tasted.ch"
+}

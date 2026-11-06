@@ -1,0 +1,21 @@
+{
+  "companyKey": "sicsvizzera-ch",
+  "companyName": "sicsvizzera",
+  "companyHost": "kfmv.ch",
+  "platform": "kfmv.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.kfmv.ch/ueber-uns/freie-stellen"
+  ],
+  "detailTemplate": "/ueber-uns/freie-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Karriere",
+    "KV-Lehrstellen"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:54:06.147Z",
+  "candidateKey": "sicsvizzera.ch"
+}

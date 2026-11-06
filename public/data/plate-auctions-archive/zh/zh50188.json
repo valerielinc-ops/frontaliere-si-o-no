@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43568",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43568",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "50188",
+      "normalizedPlate": "ZH50188",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1820,
+      "bidCount": 57,
+      "endsAt": "2026-10-07T17:00:00.000Z",
+      "closedAt": "2026-10-07T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43568",
+      "sourceFetchedAt": "2026-10-07T11:47:04.562Z",
+      "lastVerifiedAt": "2026-10-07T11:47:04.562Z",
+      "firstSeenAt": "2026-10-01T06:00:40.010Z",
+      "lastSeenAt": "2026-10-07T11:47:04.562Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "39869b34072f"
+    }
+  ]
+}

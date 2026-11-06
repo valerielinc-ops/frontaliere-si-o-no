@@ -1,0 +1,25 @@
+{
+  "companyKey": "schule-ballwil-ch",
+  "companyName": "Ambar",
+  "companyHost": "publicjobs.ch",
+  "platform": "publicjobs.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://publicjobs.ch/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Bildung Jobs 184 Stellen",
+    "Energie, Ingenieurwesen & Verkehr Jobs 33 Stellen",
+    "Gastronomie, Hotellerie & Hauswirtschaft Jobs 58 Stellen",
+    "Kinderkrippe & Kinderbetreuung Jobs 24 Stellen",
+    "Marketing, Kommunikation & PR Jobs"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T10:56:58.255Z",
+  "candidateKey": "schule-ballwil.ch"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "pewexalpasrl",
+  "companyName": "Pewex Alpa Srl",
+  "companyHost": "pewexalpasrl.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://pewexalpasrl.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Tecnico di Manutenzione",
+    "Capo Reparto Gastronomia - Nuova apertura Aventino, Viale Aventino, 88 - 00153 - Roma (RM)",
+    "Capo Reparto Safo - Nuova apertura Aventino, Viale Aventino, 88 - 00153 - Roma (RM)",
+    "Capo Reparto Pescheria - Nuova apertura Aventino, Viale Aventino, 88 - 00153 - Roma (RM)",
+    "Capo Reparto Safo - Nuova apertura Rieti, Via Salaria per L’Aquila Km 89+500, Località Villa Stoli - 02100 - Rieti (RI)"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:39.803Z"
+}

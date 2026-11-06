@@ -1,0 +1,40 @@
+{
+  "id": "attacco-informatico-iwb-basilea",
+  "slug": "attacco-informatico-iwb-basilea",
+  "publishedAt": "2026-07-16T01:48:53.548Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.589761213204545,
+    "confidence": 0.8,
+    "finalScore": 11.671808970563637,
+    "topK": [
+      {
+        "slug": "sfruttamento-corsieri-ticino-2026",
+        "cosine": 0.8582212478355614
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-2026",
+        "cosine": 0.8435560187326536
+      },
+      {
+        "slug": "lugano-sicurezza-2025",
+        "cosine": 0.8434438552645331
+      },
+      {
+        "slug": "comco-indaga-pubblicita-motori-ricerca",
+        "cosine": 0.8432268455530562
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8411066371294309
+      }
+    ],
+    "score": 11.671808970563637,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

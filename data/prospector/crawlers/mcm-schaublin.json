@@ -1,0 +1,22 @@
+{
+  "companyKey": "mcm-schaublin",
+  "companyName": "mcm-schaublin",
+  "companyHost": "healthcareholdingch.teamtailor.com",
+  "platform": "teamtailor.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://healthcareholdingch.teamtailor.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Operations Manager Deutschland 100 % (m/w/d)",
+    "Area Sales Manager (m/w/d)",
+    "Sales Manager im Verkauf Innen-und Aussendienst (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T13:28:54.151Z",
+  "candidateKey": "mcm-schaublin.ch"
+}

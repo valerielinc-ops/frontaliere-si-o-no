@@ -1,0 +1,20 @@
+{
+  "companyKey": "bccdelleprealpi",
+  "companyName": "Banca Prealpi SanBiagio Credito Cooperativo s.c.",
+  "companyHost": "bccdelleprealpi.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://bccdelleprealpi.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Compliance Specialist",
+    "Giovani da avviare alla professione bancaria"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:32:02.989Z"
+}

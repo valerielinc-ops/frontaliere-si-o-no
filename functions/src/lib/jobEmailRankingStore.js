@@ -1,0 +1,369 @@
+import { createHash } from 'node:crypto';
+import { FieldValue } from 'firebase-admin/firestore';
+import { parseJobRankingClick } from './jobEmailRankingLinks.js';
+import {
+  MANIFEST_ATTRIBUTE_MAX_LENGTH,
+  buildEmbeddedRankingUpdate,
+  jobRankingAttributes,
+  pseudonymousUserId,
+  rankingDay,
+  stableJobId,
+} from './jobEmailRanking.js';
+
+export { MANIFEST_ATTRIBUTE_MAX_LENGTH };
+
+export const JOB_EMAIL_RANKING_STATS_COLLECTION = 'job_email_ranking_stats';
+export const JOB_EMAIL_RANKING_EVENTS_COLLECTION = 'job_email_ranking_events';
+export const JOB_EMAIL_RANKING_DELIVERIES_COLLECTION = 'job_email_ranking_deliveries';
+export const JOB_EMAIL_RANKING_RETENTION_DAYS = 100;
+// Writes per impression batch (Firestore caps a batch at 500) and how many of
+// those batches may commit at once — see recordJobEmailImpressions.
+export const IMPRESSION_BATCH_SIZE = 400;
+export const IMPRESSION_COMMIT_CONCURRENCY = 8;
+
+function hashId(value) {
+  return createHash('sha256').update(String(value || '')).digest('hex').slice(0, 40);
+}
+
+function variantKey(value) {
+  return String(value || 'unknown').replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 40) || 'unknown';
+}
+
+function normalizeSurfaceId(surface, value) {
+  if (value) return String(value);
+  return surface === 'newsletter' ? 'newsletter_weekly' : null;
+}
+
+function retentionDate(value = Date.now()) {
+  const date = value instanceof Date ? new Date(value.getTime()) : new Date(value);
+  date.setUTCDate(date.getUTCDate() + JOB_EMAIL_RANKING_RETENTION_DAYS);
+  return date;
+}
+
+export function rankingStatsDocumentId({ surface, surfaceId, jobId, day }) {
+  return hashId(`${surface}|${surfaceId}|${jobId}|${day}`);
+}
+
+export function rankingEventDocumentId({ provider, messageId, deliveryId, jobId }) {
+  // A recipient/job pair is a binary click signal. Prefer our stable delivery
+  // id so a provider retry (or a provider-side id change) cannot inflate CTR;
+  // fall back to provider metadata for legacy links without delivery_id.
+  return hashId(deliveryId
+    ? `delivery|${deliveryId}|${jobId}`
+    : `${provider || 'unknown'}|${messageId || ''}|${jobId}`);
+}
+
+export function rankingDeliveryDocumentId(deliveryId) {
+  return hashId(deliveryId);
+}
+
+function incrementField(data, path, amount) {
+  if (amount > 0) data[path] = FieldValue.increment(amount);
+}
+
+function finiteOrNull(value) {
+  if (value === null || value === undefined || value === '') return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+/**
+ * One job of the delivery manifest. The four listing attributes come from
+ * jobRankingAttributes (./jobEmailRanking.js), the same extraction the
+ * affinity ranking scores at send time. `affinity_score` is the recipient's
+ * affinity with the job in [0, 1] when the person had a valid profile at send
+ * time (all ranking variants may record it; only `affinity` orders by it), else
+ * null. `newness_score` is the [0, 1] freshness score when the
+ * `control_plus_newness` treatment calculated one, else null.
+ */
+export function jobManifestEntry(job, index) {
+  const ranking = job?.ranking || {};
+  return {
+    job_id: String(job?.jobId || stableJobId(job)),
+    position: Math.max(1, Math.trunc(Number(ranking.position || index + 1))),
+    ranking_score: finiteOrNull(ranking.rankingScore),
+    relevance_score: finiteOrNull(ranking.relevanceScore),
+    newness_score: finiteOrNull(ranking.newnessScore),
+    affinity_score: finiteOrNull(ranking.affinityScore),
+    ...jobRankingAttributes(job),
+  };
+}
+
+/**
+ * Lean ranked manifest for a list of sent jobs: the same per-job shape that
+ * recordJobEmailImpressions stores in job_email_ranking_deliveries. Senders use
+ * it for every other Firestore copy of the ranked list, so a delivery record
+ * never carries the full job objects (description + descriptionByLocale are
+ * 21-24 KB per job, ~200 KB per ten-job delivery document).
+ */
+export function buildRankingJobsManifest(jobs) {
+  return Array.isArray(jobs) ? jobs.map(jobManifestEntry) : [];
+}
+
+/**
+ * Persist confirmed impressions and the exact ranked manifest.  The function
+ * aggregates writes in memory first, so a large newsletter does not issue one
+ * Firestore commit per recipient.
+ */
+export async function recordJobEmailImpressions(db, records) {
+  if (!db || !Array.isArray(records) || records.length === 0) return { recorded: 0 };
+  const stats = new Map();
+  const events = new Map();
+  const deliveries = new Map();
+
+  for (const record of records) {
+    if (!record?.deliveryId || !record.surface || !Array.isArray(record.jobs)) continue;
+    const sentAt = record.sentAt instanceof Date ? record.sentAt : new Date(record.sentAt || Date.now());
+    const day = rankingDay(sentAt);
+    const surfaceId = normalizeSurfaceId(record.surface, record.surfaceId);
+    if (!surfaceId) continue;
+    const variant = variantKey(record.variant);
+    const userId = record.userId || pseudonymousUserId(record.email);
+    const manifest = record.jobs.map(jobManifestEntry);
+    // Whether the person had a valid affinity profile when the email was
+    // built. Newness runs do not need a profile. null only for a record that
+    // predates the field (a job-alert retry queued before it existed).
+    const affinityProfile = typeof record.affinityProfile === 'boolean' ? record.affinityProfile : null;
+    deliveries.set(String(record.deliveryId), {
+      delivery_id: String(record.deliveryId),
+      user_id: userId,
+      surface: record.surface,
+      surface_id: surfaceId,
+      alert_id: record.alertId || null,
+      newsletter_id: record.newsletterId || null,
+      ranking_variant: record.variant || 'unknown',
+      affinity_profile: affinityProfile,
+      jobs: manifest,
+      sent_at: sentAt,
+      expires_at: retentionDate(sentAt),
+    });
+
+    for (const [index, job] of record.jobs.entries()) {
+      const manifestJob = manifest[index];
+      const jobId = manifestJob.job_id;
+      const docId = rankingStatsDocumentId({ surface: record.surface, surfaceId, jobId, day });
+      let row = stats.get(docId);
+      if (!row) {
+        row = {
+          surface: record.surface,
+          surface_id: surfaceId,
+          alert_id: record.alertId || null,
+          newsletter_id: record.newsletterId || null,
+          job_id: jobId,
+          date: day,
+          impressions: 0,
+          position_sum: 0,
+          variants: new Map(),
+          ref: db.collection(JOB_EMAIL_RANKING_STATS_COLLECTION).doc(docId),
+        };
+        stats.set(docId, row);
+      }
+      row.impressions += 1;
+      row.position_sum += manifestJob.position;
+      row.variants.set(variant, (row.variants.get(variant) || 0) + 1);
+
+      const eventId = hashId(`${record.deliveryId}|${jobId}`);
+      events.set(eventId, {
+        event_type: record.surface === 'job_alert' ? 'job_alert_impression' : 'newsletter_job_impression',
+        delivery_id: String(record.deliveryId),
+        surface: record.surface,
+        surface_id: surfaceId,
+        alert_id: record.alertId || null,
+        newsletter_id: record.newsletterId || null,
+        job_id: jobId,
+        position: manifestJob.position,
+        ranking_variant: record.variant || 'unknown',
+        ranking_score: manifestJob.ranking_score,
+        relevance_score: manifestJob.relevance_score,
+        affinity_profile: affinityProfile,
+        user_id: userId,
+        occurred_at: sentAt,
+        expires_at: retentionDate(sentAt),
+        ref: db.collection(JOB_EMAIL_RANKING_EVENTS_COLLECTION).doc(eventId),
+      });
+    }
+  }
+
+  const operations = [];
+  for (const row of stats.values()) {
+    const data = {
+      surface: row.surface,
+      surface_id: row.surface_id,
+      alert_id: row.alert_id || null,
+      newsletter_id: row.newsletter_id || null,
+      job_id: row.job_id,
+      date: row.date,
+      clicks: FieldValue.increment(0),
+      expires_at: retentionDate(),
+    };
+    incrementField(data, 'impressions', row.impressions);
+    incrementField(data, 'position_sum', row.position_sum);
+    for (const [variant, count] of row.variants) {
+      data.impressions_by_variant = {
+        ...(data.impressions_by_variant || {}),
+        [variantKey(variant)]: FieldValue.increment(count),
+      };
+    }
+    operations.push({ type: 'set', ref: row.ref, data });
+  }
+  for (const event of events.values()) {
+    const { ref, ...data } = event;
+    operations.push({ type: 'set', ref, data });
+  }
+  for (const delivery of deliveries.values()) {
+    const ref = db.collection(JOB_EMAIL_RANKING_DELIVERIES_COLLECTION).doc(rankingDeliveryDocumentId(delivery.delivery_id));
+    operations.push({ type: 'set', ref, data: delivery });
+  }
+
+  // Every operation targets a distinct document (the three Maps above are
+  // keyed by document id), so no two batches touch the same document and
+  // their commit order carries no meaning. Committing them one at a time made
+  // this the slowest step after a job-alert send: ~33k writes = 83 serial
+  // commits, 157 s in run 35422626497. A small bounded pool keeps the same
+  // batches and the same writes, only overlapped.
+  const chunks = [];
+  for (let offset = 0; offset < operations.length; offset += IMPRESSION_BATCH_SIZE) {
+    chunks.push(operations.slice(offset, offset + IMPRESSION_BATCH_SIZE));
+  }
+  let committed = 0;
+  let cursor = 0;
+  const commitNext = async () => {
+    while (cursor < chunks.length) {
+      const chunk = chunks[cursor];
+      cursor += 1;
+      const batch = db.batch();
+      for (const operation of chunk) {
+        batch.set(operation.ref, operation.data, { merge: true });
+      }
+      await batch.commit();
+      committed += chunk.length;
+    }
+  };
+  await Promise.all(
+    Array.from({ length: Math.min(IMPRESSION_COMMIT_CONCURRENCY, chunks.length) }, commitNext),
+  );
+  return { recorded: deliveries.size, writes: committed };
+}
+
+/**
+ * Persist one click idempotently. Provider webhooks can retry the same event;
+ * the deterministic event document prevents that retry from inflating CTR.
+ */
+export async function recordJobEmailRankingClick(db, {
+  email,
+  provider,
+  messageId,
+  occurredAt,
+  url,
+} = {}) {
+  if (!db || !email || !url) return { skipped: true, reason: 'missing_input' };
+  const click = parseJobRankingClick(url);
+  if (!click) return { skipped: true, reason: 'not_a_ranking_link' };
+  const surfaceId = normalizeSurfaceId(click.surface, click.surfaceId || click.alertId);
+  if (!surfaceId) return { skipped: true, reason: 'missing_surface_id' };
+
+  const occurred = occurredAt instanceof Date ? occurredAt : new Date(occurredAt || Date.now());
+  const day = rankingDay(occurred);
+  const eventId = rankingEventDocumentId({
+    provider,
+    messageId,
+    deliveryId: click.deliveryId,
+    jobId: click.jobId,
+  });
+  const eventRef = db.collection(JOB_EMAIL_RANKING_EVENTS_COLLECTION).doc(eventId);
+  const statsRef = db.collection(JOB_EMAIL_RANKING_STATS_COLLECTION).doc(
+    rankingStatsDocumentId({ surface: click.surface, surfaceId, jobId: click.jobId, day }),
+  );
+  const alertRef = click.surface === 'job_alert' && click.alertId
+    ? db.collection('job_alert_subscribers').doc(String(email).trim().toLowerCase())
+      .collection('alerts').doc(String(click.alertId))
+    : null;
+  const userId = pseudonymousUserId(email);
+  const eventData = {
+    event_type: click.surface === 'job_alert' ? 'job_alert_click' : 'newsletter_job_click',
+    surface: click.surface,
+    surface_id: surfaceId,
+    alert_id: click.alertId || null,
+    newsletter_id: click.newsletterId || null,
+    job_id: click.jobId,
+    delivery_id: click.deliveryId || null,
+    position: click.position,
+    ranking_variant: click.variant || 'unknown',
+    ranking_score: click.rankingScore,
+    relevance_score: click.relevanceScore,
+    // Only links in emails sent during the CTR experiment (until 2026-10)
+    // still carry these two; newer links leave them null.
+    ctr_shrink: click.ctrShrink,
+    random_boost: click.randomBoost,
+    user_id: userId,
+    provider: provider || 'unknown',
+    message_id: messageId || null,
+    occurred_at: occurred,
+    expires_at: retentionDate(occurred),
+  };
+
+  // The alert mirror is optional. Probe it outside the transaction so clicks
+  // on the same alert do not contend with the send path merely to decide
+  // whether an embedded mirror should be updated.
+  let alertSnapshot = null;
+  if (alertRef) {
+    try {
+      alertSnapshot = await alertRef.get();
+    } catch (error) {
+      console.warn('⚠️ Job-email ranking alert mirror probe failed:', error?.message || error);
+    }
+  }
+
+  let recorded = false;
+  try {
+    await db.runTransaction(async (transaction) => {
+      // Firestore may invoke the callback again after an optimistic conflict.
+      // The result must describe this attempt, not a previously aborted one.
+      recorded = false;
+      const existing = await transaction.get(eventRef);
+      if (existing.exists) return;
+      transaction.create(eventRef, eventData);
+      transaction.set(statsRef, {
+        surface: click.surface,
+        surface_id: surfaceId,
+        alert_id: click.alertId || null,
+        newsletter_id: click.newsletterId || null,
+        job_id: click.jobId,
+        date: day,
+        impressions: FieldValue.increment(0),
+        position_sum: FieldValue.increment(0),
+        clicks: FieldValue.increment(1),
+        clicks_by_variant: {
+          [variantKey(click.variant)]: FieldValue.increment(1),
+        },
+        expires_at: retentionDate(occurred),
+      }, { merge: true });
+      recorded = true;
+    });
+
+    if (recorded && alertRef && alertSnapshot?.exists) {
+      const alertUpdate = buildEmbeddedRankingUpdate({
+        jobId: click.jobId,
+        day,
+        eventType: 'click',
+        variant: click.variant,
+        FieldValue,
+      });
+      // buildEmbeddedRankingUpdate returns field-path keys for update()/batch.update().
+      // `set(..., { merge: true })` would persist those dots literally. This
+      // best-effort mirror is deliberately outside the durable transaction:
+      // an alert deleted after the probe must not discard the click aggregate.
+      try {
+        await alertRef.update(alertUpdate);
+      } catch (error) {
+        console.warn('⚠️ Job-email ranking alert mirror update failed:', error?.message || error);
+      }
+    }
+  } catch (error) {
+    // Ranking analytics must never turn a provider webhook into a retry storm
+    // or block the ordinary subscriber engagement update.
+    console.warn('⚠️ Job-email ranking click persist failed:', error?.message || error);
+    return { skipped: true, reason: 'persist_failed' };
+  }
+  return { recorded, click };
+}

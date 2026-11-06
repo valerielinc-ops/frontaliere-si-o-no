@@ -1,0 +1,419 @@
+import { describe, it, expect } from 'vitest';
+import {
+  ANKER_SWISS_KEY,
+  ANKER_SWISS_COMPANY_NAME,
+  ANKER_SWISS_HOST_DELAY_MS,
+  isAnkerSwissJob,
+  isAnkerSwissExpectedDetailFilter,
+  isTrustedDomain,
+  extractAnkerSwissDetailFields,
+  buildSlugDisambiguator,
+  buildAnkerSwissJobSlug,
+} from '../scripts/lib/anker-swiss-job-parser.mjs';
+import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { buildSlug as buildCanonicalSlug } from '../scripts/lib/regenerate-slugs-helpers.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { resolveDetailOrListingSwissGeography } from '../scripts/lib/prospector/location-evidence.mjs';
+import { lookupSwissPostalCode } from '../scripts/lib/swiss-postal-code.mjs';
+
+describe('Anker Swiss Ticino AG crawler parser', () => {
+  it('uses a source-specific cadence that avoids the live 429 threshold', () => {
+    expect(ANKER_SWISS_HOST_DELAY_MS).toBe(2_500);
+  });
+
+  it('promotes the live municipality-in-addressRegion JSON-LD shape to Swiss evidence', () => {
+    const url = 'https://anker-swiss.ch/stellen/elektroinstallateur-1548643/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Elektroinstallateur 100%',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Lyss',
+          addressCountry: 'CH',
+        },
+      },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+
+    expect(detail).toMatchObject({
+      location: 'Lyss',
+      addressLocality: 'Lyss',
+      addressCountry: 'CH',
+      country: 'CH',
+    });
+    expect(detail.locationCandidates[0]).toMatchObject({
+      location: 'Lyss',
+      addressLocality: 'Lyss',
+      addressRegion: '',
+      addressCountry: 'CH',
+    });
+  });
+
+  it('promotes a unique official Swiss locality from addressRegion', () => {
+    const url = 'https://anker-swiss.ch/stellen/produktionsmechaniker-1586374/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Produktionsmechaniker 100%',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Grafstal',
+        },
+      },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+    const decision = resolveDetailOrListingSwissGeography(detail);
+
+    expect(detail.locationCandidates[0]).toMatchObject({
+      location: 'Grafstal',
+      addressLocality: 'Grafstal',
+      addressRegion: 'ZH',
+      addressCountry: 'CH',
+    });
+    expect(decision).toMatchObject({
+      geography: { location: 'Grafstal', canton: 'ZH' },
+      explicitlyForeign: false,
+    });
+  });
+
+  it('does not promote an official locality shared by multiple cantons', () => {
+    const url = 'https://anker-swiss.ch/stellen/ambiguous-locality/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Ambiguous locality role',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Nussbaumen',
+        },
+      },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+
+    expect(detail.locationCandidates[0]).toMatchObject({
+      addressLocality: '',
+      addressRegion: 'Nussbaumen',
+      addressCountry: '',
+    });
+  });
+
+  it('does not promote an unknown addressRegion into a guessed Swiss location', () => {
+    const url = 'https://anker-swiss.ch/stellen/unknown/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Unknown role',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: { '@type': 'Place', address: { addressRegion: 'Unknown place' } },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+
+    expect(detail.locationCandidates[0]).toMatchObject({
+      addressRegion: 'Unknown place',
+      addressLocality: '',
+      addressCountry: '',
+    });
+  });
+
+  it('does not promote a known municipality when the source country is foreign', () => {
+    const url = 'https://anker-swiss.ch/stellen/foreign-location/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Foreign role',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Lyss',
+          addressCountry: 'DE',
+        },
+      },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+
+    expect(detail.locationCandidates[0]).toMatchObject({
+      addressRegion: 'Lyss',
+      addressLocality: '',
+      addressCountry: 'DE',
+    });
+  });
+
+  it('classifies only complete, explicitly unlocated vacancies as source filters', () => {
+    const base = {
+      reason: 'geography' as const,
+      row: {},
+      detail: { hasStructuredVacancy: true },
+      descriptionSufficient: true,
+      decision: { geography: null, explicitlyForeign: false },
+    };
+    expect(isAnkerSwissExpectedDetailFilter(base)).toBe(true);
+
+    for (const locationEvidence of [
+      { location: 'Lugano' },
+      { addressRegion: 'Lyss' },
+      { addressCountry: 'CH' },
+      { locationCandidates: [{ location: 'Bern' }] },
+      { workplaceLabels: ['Zürich'] },
+    ]) {
+      expect(isAnkerSwissExpectedDetailFilter({
+        ...base,
+        detail: { hasStructuredVacancy: true, ...locationEvidence },
+      })).toBe(false);
+    }
+
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      row: { location: 'Bellinzona' },
+    })).toBe(false);
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      decision: { geography: null, explicitlyForeign: true },
+    })).toBe(false);
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      detail: {},
+    })).toBe(false);
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      descriptionSufficient: false,
+    })).toBe(false);
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      reason: 'description',
+    })).toBe(false);
+  });
+
+  // ── Constants ──
+  it('exports valid company key and name', () => {
+    expect(ANKER_SWISS_KEY).toBe('anker-swiss');
+    expect(ANKER_SWISS_COMPANY_NAME).toBe('Anker Swiss Ticino AG');
+  });
+
+  it('resolves only catalogue-backed postal codes', () => {
+    expect(lookupSwissPostalCode('Zürich')).toBe('8001');
+    expect(lookupSwissPostalCode('Zürich, CH')).toBe('8001');
+    expect(lookupSwissPostalCode('8001')).toBe('8001');
+    expect(lookupSwissPostalCode('Unknown Swiss locality')).toBe('');
+  });
+
+  // ── isCompanyJob ──
+  describe('isAnkerSwissJob', () => {
+    it('matches by companyKey', () => {
+      expect(isAnkerSwissJob({ companyKey: 'anker-swiss' })).toBe(true);
+    });
+
+    it('matches by company name', () => {
+      expect(isAnkerSwissJob({ company: 'Anker Swiss Ticino AG' })).toBe(true);
+    });
+
+    it('matches by URL domain', () => {
+      expect(isAnkerSwissJob({ url: 'https://anker-swiss.ch/jobs/123' })).toBe(true);
+    });
+
+    it('rejects unrelated jobs', () => {
+      expect(isAnkerSwissJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
+    });
+
+    it('handles null/undefined gracefully', () => {
+      expect(isAnkerSwissJob(null)).toBe(false);
+      expect(isAnkerSwissJob(undefined)).toBe(false);
+      expect(isAnkerSwissJob({})).toBe(false);
+    });
+  });
+
+  // ── isTrustedDomain ──
+  describe('isTrustedDomain', () => {
+    it('trusts primary domain', () => {
+      expect(isTrustedDomain('https://anker-swiss.ch/careers/job-123')).toBe(true);
+    });
+
+    it('trusts subdomains', () => {
+      expect(isTrustedDomain('https://careers.anker-swiss.ch/job/456')).toBe(true);
+    });
+
+    it('rejects other domains', () => {
+      expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
+    });
+
+    it('handles invalid URLs', () => {
+      expect(isTrustedDomain('')).toBe(false);
+      expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── slugify (imported from crawler-template) ──
+  describe('slugify', () => {
+    it('converts title to URL-safe slug', () => {
+      const slug = slugify('Software Engineer (m/f/d)');
+      expect(slug).toBe('software-engineer-m-f-d');
+    });
+
+    it('strips diacritics', () => {
+      expect(slugify('Ingénieur qualité')).toBe('ingenieur-qualite');
+    });
+
+    it('builds slug with company suffix inline', () => {
+      expect(slugify('Developer anker-swiss ch')).toBe('developer-anker-swiss-ch');
+    });
+
+    it('respects max length', () => {
+      const long = 'a'.repeat(200);
+      expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  // ── slugDisambiguator (staffing agency: repeated title+location) ──
+  describe('buildSlugDisambiguator', () => {
+    const buildSlug = (title: string, location: string, url: string) =>
+      buildAnkerSwissJobSlug(title, location, url);
+
+    it('uses the canonical title-company-location slug base', () => {
+      const slug = buildAnkerSwissJobSlug(
+        'Bauarbeiter, Bauhauptgewerbe 100%',
+        'Lugano',
+        'https://anker-swiss.ch/stellen/bauarbeiter-1/',
+      );
+      expect(slug).toBe(buildCanonicalSlug(
+        'Bauarbeiter, Bauhauptgewerbe 100%',
+        ANKER_SWISS_COMPANY_NAME,
+        'Lugano',
+        buildSlugDisambiguator('https://anker-swiss.ch/stellen/bauarbeiter-1/'),
+      ));
+      expect(slug).toContain('anker-swiss-ticino-ag');
+    });
+
+    it('keeps canonical truncation for long title bases', () => {
+      const title = `${'Senior Bauprojektleiter '.repeat(8)}100%`;
+      const location = 'Lugano';
+      const url = 'https://anker-swiss.ch/stellen/long-title/';
+      expect(buildAnkerSwissJobSlug(title, location, url)).toBe(
+        buildCanonicalSlug(
+          title,
+          ANKER_SWISS_COMPANY_NAME,
+          location,
+          buildSlugDisambiguator(url),
+        ),
+      );
+    });
+
+    it('keeps two vacancies with identical title and location on distinct slugs', () => {
+      const a = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-1/');
+      const b = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-2/');
+      expect(a).not.toBe(b);
+    });
+
+    it('is deterministic across runs for the same detail URL', () => {
+      const url = 'https://anker-swiss.ch/stellen/kranfuehrer/';
+      expect(buildSlugDisambiguator(url)).toBe(buildSlugDisambiguator(url));
+    });
+
+    it('returns an empty suffix for a missing URL', () => {
+      expect(buildSlugDisambiguator('')).toBe('');
+      expect(buildSlugDisambiguator(undefined)).toBe('');
+    });
+
+    it('produces URL-safe slugs within the pipeline length budget', () => {
+      const slug = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-1/');
+      expect(slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+      expect(slug.length).toBeLessThanOrEqual(120);
+    });
+
+    it('keeps the previously published long base route as a redirect', () => {
+      const title = `${'Senior Bauprojektleiter '.repeat(8)}100%`;
+      const location = 'Lugano';
+      const url = 'https://anker-swiss.ch/stellen/long-title/';
+      const oldSlug = slugify(`${title} ${location} anker-swiss ch`);
+      const freshSlug = buildAnkerSwissJobSlug(title, location, url);
+      const old = {
+        id: 'anker-swiss-long-title',
+        url,
+        slug: oldSlug,
+        slugByLocale: { de: oldSlug },
+        company: ANKER_SWISS_COMPANY_NAME,
+        companyKey: ANKER_SWISS_KEY,
+        title,
+        location,
+        sourceLang: 'de',
+      };
+      const fresh = {
+        ...old,
+        slug: freshSlug,
+        slugByLocale: { de: freshSlug },
+        slugDisambiguator: buildSlugDisambiguator(url),
+      };
+
+      const merged = mergePreserveLocaleData([old], [fresh], {
+        matchKey: (job: { id: string }) => job.id,
+      });
+
+      expect(freshSlug).not.toBe(oldSlug);
+      expect(merged[0].slug).toBe(freshSlug);
+      expect(merged[0].previousSlugs).toContain(oldSlug);
+      expect(merged[0].previousSlugsByLocale.de).toContain(oldSlug);
+    });
+  });
+
+  // ── Job Shape Validation ──
+  describe('job shape', () => {
+    // A minimal valid job for reference
+    const validJob = {
+      id: 'anker-swiss-abc123',
+      slug: 'test-position-anker-swiss-ch',
+      slugByLocale: { de: 'test-position-anker-swiss-ch' },
+      company: 'Anker Swiss Ticino AG',
+      companyKey: 'anker-swiss',
+      title: 'Test Position',
+      titleByLocale: { de: 'Test Position' },
+      description: 'A test job description for validation.',
+      descriptionByLocale: { de: 'A test job description for validation.' },
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://anker-swiss.ch/jobs/test',
+      source: 'Anker Swiss Ticino AG Dedicated Parser',
+      sourceLang: 'de',
+      crawledAt: new Date().toISOString(),
+    };
+
+    it('has all required fields', () => {
+      const required = [
+        'id', 'slug', 'slugByLocale', 'company', 'companyKey',
+        'title', 'titleByLocale', 'description', 'descriptionByLocale',
+        'location', 'canton', 'url', 'source', 'sourceLang', 'crawledAt',
+      ];
+      for (const field of required) {
+        expect(validJob).toHaveProperty(field);
+      }
+    });
+
+    it('slug only contains source locale', () => {
+      const locales = Object.keys(validJob.slugByLocale);
+      expect(locales).toHaveLength(1);
+      expect(locales[0]).toBe(validJob.sourceLang);
+    });
+
+    it('id starts with company key', () => {
+      expect(validJob.id).toMatch(/^anker-swiss-/);
+    });
+
+    it('slug is URL-safe', () => {
+      expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+});

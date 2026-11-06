@@ -1,0 +1,40 @@
+{
+  "id": "esportazioni-svizzera-sfide-kagi",
+  "slug": "esportazioni-svizzera-sfide-kagi",
+  "publishedAt": "2026-07-21T09:14:26.648Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.97806615408631,
+    "confidence": 0.8,
+    "finalScore": 4.782452923269048,
+    "topK": [
+      {
+        "slug": "farmaci-competitiva-europa",
+        "cosine": 0.8540094505837585
+      },
+      {
+        "slug": "ffs-2027-ticino",
+        "cosine": 0.8531197395152958
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-2026",
+        "cosine": 0.8507954820008634
+      },
+      {
+        "slug": "divieti-social-media-minori",
+        "cosine": 0.8505086122286836
+      },
+      {
+        "slug": "migros-immigrazione-necessaria-offerta",
+        "cosine": 0.8504543335214131
+      }
+    ],
+    "score": 1.195613230817262,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

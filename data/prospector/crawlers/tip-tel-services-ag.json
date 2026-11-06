@@ -1,0 +1,21 @@
+{
+  "companyKey": "tip-tel-services-ag",
+  "companyName": "Tip Tel Services AG",
+  "companyHost": "apply.refline.ch",
+  "platform": "refline.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://apply.refline.ch/517628/0262/LISjQfWz.Wdljkey4REeQVtIK1wRGTGwr24BHbYW-zjL61t-yPgryE/apply"
+  ],
+  "detailTemplate": "/517628/0262/LISjQfWz.Wdljkey4REeQVtIK1wRGTGwr24BHbYW-zjL61t-yPgryE/apply",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Deutsch",
+    "English"
+  ],
+  "canton": "ZG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-29T05:43:43.186Z"
+}

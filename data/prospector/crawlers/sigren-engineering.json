@@ -1,0 +1,23 @@
+{
+  "companyKey": "sigren-engineering",
+  "companyName": "Sigren Engineering",
+  "companyHost": "job.bkw.com",
+  "platform": "bkw.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://job.bkw.com/?lang=de&cd=neutral&filter_70=1299884&hidefilter=1"
+  ],
+  "detailTemplate": "/offene-stellen/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Verkaufsingenieur:in Gebäudeautomation & Systemintegration (alle) Arbeitsorte: Egerkingen, Winterthur | Pensum: 80-100%",
+    "Verkaufssupport/Technische:r Sachbearbeiter:in Automation (alle) Arbeitsorte: Winterthur, Egerkingen | Pensum: 80-100%",
+    "Lehrstelle Automatiker:in EFZ (alle) Arbeitsort: Winterthur | Pensum: 100%"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:07:56.300Z",
+  "candidateKey": "sigren.ch"
+}

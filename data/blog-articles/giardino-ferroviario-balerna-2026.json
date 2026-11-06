@@ -1,0 +1,40 @@
+{
+  "id": "giardino-ferroviario-balerna-2026",
+  "slug": "giardino-ferroviario-balerna-2026",
+  "publishedAt": "2026-05-08T06:12:54.336Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.7722936345650036,
+    "confidence": 0.8,
+    "finalScore": 5.417834907652003,
+    "topK": [
+      {
+        "slug": "ferrovia-svizzera-300-progetti-2026",
+        "cosine": 0.8465367043206254
+      },
+      {
+        "slug": "boom-viaggiatori-treni-2026-ticino",
+        "cosine": 0.8359625137098083
+      },
+      {
+        "slug": "conservatorio-bellinzona-valori-musicali",
+        "cosine": 0.8308768028144822
+      },
+      {
+        "slug": "spazi-autogestione-lugano-ghisletta",
+        "cosine": 0.8305950656946507
+      },
+      {
+        "slug": "relazioni-italo-svizzere-2026",
+        "cosine": 0.8294158245714379
+      }
+    ],
+    "score": 2.7089174538260017,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

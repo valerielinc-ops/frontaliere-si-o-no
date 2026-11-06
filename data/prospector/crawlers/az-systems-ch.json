@@ -1,0 +1,24 @@
+{
+  "companyKey": "az-systems-ch",
+  "companyName": "AZ systems AG",
+  "companyHost": "az-systems.ch",
+  "verifiedEmployerDomain": "az-systems.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.az-systems.ch/jobs-karriere/offene-stellen"
+  ],
+  "detailTemplate": "/jobs-karriere/offene-stellen/detail/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Sachbearbeiter/in Administration & Innendienst 100% Landquart",
+    "Techniker/in Gebäudeautomation/MSRL 100% Landquart"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:14:21.011Z",
+  "candidateKey": "az-systems@landquart"
+}

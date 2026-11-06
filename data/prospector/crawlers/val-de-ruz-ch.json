@@ -1,0 +1,21 @@
+{
+  "companyKey": "val-de-ruz-ch",
+  "companyName": "Contrôle des habitants de la Commune de Val-de-Ruz",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/job-advertisement/cda29972-383c-4350-aac0-6dff204a768c/5946f97c-a567-0432-9f9d-af4972c00085?jp=ABACUS"
+  ],
+  "detailTemplate": "/job-advertisement/cda29972-383c-4350-aac0-6dff204a768c/5946f97c-a567-0432-9f9d-af4972c00085",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Collaborateur-trice administratif-tive finances"
+  ],
+  "canton": "NE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-29T13:31:13.695Z",
+  "candidateKey": "val-de-ruz.ch"
+}

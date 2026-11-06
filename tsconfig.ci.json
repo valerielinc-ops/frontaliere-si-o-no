@@ -1,0 +1,33 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/data/blog-articles-data": [
+        "./scripts/ci/typecheck-boundary/article-registry.d.ts"
+      ],
+      "@/data/swiss-articles-data": [
+        "./scripts/ci/typecheck-boundary/article-registry.d.ts"
+      ],
+      "@/packages/articles/content/blog-articles-data": [
+        "./scripts/ci/typecheck-boundary/article-registry.d.ts"
+      ],
+      "@/packages/articles/content/swiss-articles-data": [
+        "./scripts/ci/typecheck-boundary/article-registry.d.ts"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public",
+    "packages/articles/content",
+    "data/blog-articles-data.ts",
+    "data/swiss-articles-data.ts",
+    "services/locales/blog-body",
+    "services/locales/blog-body-ch",
+    "services/locales/blog-meta-*.ts"
+  ]
+}

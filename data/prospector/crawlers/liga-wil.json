@@ -1,0 +1,24 @@
+{
+  "companyKey": "liga-wil",
+  "companyName": "LIGA Wil",
+  "companyHost": "recruitingapp-3017.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-3017.umantis.com/Jobs/All"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 25,
+  "sampleTitles": [
+    "Kundendienstberater:in VW und VW Nutzfahrzeuge",
+    "Mitarbeiter:in Bau und Administration",
+    "Spezialist:in Geschäftsprozesse & Systeme",
+    "Techniker:in Instandstellung Fahrzeugchassis",
+    "Automobil-Mechatroniker:in / Automobilfachmann/ -frau"
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T00:10:00.593Z"
+}

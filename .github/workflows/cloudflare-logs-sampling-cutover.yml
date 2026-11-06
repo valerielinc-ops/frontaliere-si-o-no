@@ -1,0 +1,101 @@
+name: Cloudflare logs sampling cutover
+
+# Cloudflare bills Workers Logs by volume from 2026-12-01. The owner chose to keep
+# 100% sampling until then and 0.1 from that date, so this opens the one-line PR on
+# 30 November, early enough for tests, review and deploy to land before midnight.
+# Idempotent: at 0.1 it does nothing, so the yearly cron stays harmless.
+# cf-observability-audit.yml opens an issue if the rate is still higher in December.
+
+on:
+  schedule:
+    - cron: '0 6 30 11 *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: cloudflare-logs-sampling-cutover
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  cutover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load Remote Config secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Open the sampling PR
+        run: |
+          set -euo pipefail
+          toml=infra/cloudflare-worker/wrangler.toml
+          sed -i 's/^head_sampling_rate = 1$/head_sampling_rate = 0.1/' "$toml"
+          if git diff --quiet; then
+            echo 'head_sampling_rate already lowered.'
+            exit 0
+          fi
+          token="${GITHUB_PAT:-}"
+          if [ -z "$token" ]; then
+            echo '::error::GITHUB_PAT non disponibile da Remote Config; rifiuto il push/PR con GITHUB_TOKEN per non disattivare i workflow downstream.'
+            exit 1
+          fi
+          export GH_TOKEN="$token"
+          branch=chore/cloudflare-logs-sampling-0-1
+          git remote set-url origin "https://x-access-token:$token@github.com/$GITHUB_REPOSITORY.git"
+          git config user.name 'frontaliere-automation[bot]'
+          git config user.email 'frontaliere-automation[bot]@users.noreply.github.com'
+          git checkout -b "$branch"
+          git add "$toml"
+          git commit -m 'chore(cloudflare): sampling dei log a 0.1 dal 1 dicembre'
+          git push origin "HEAD:$branch"
+          body="$RUNNER_TEMP/sampling-pr-body.md"
+          cat > "$body" <<'EOF'
+          ## Implementato
+          - Porta `head_sampling_rate` del router a 0.1 prima del pricing a volume di Cloudflare Observability, come deciso dal proprietario: stima da ~70 $/mese a ~0 $.
+
+          ## Non implementato (ancora)
+          - Nessuno: per scelta, l'email worker resta al 100% perche' genera meno di 300 eventi al mese.
+          EOF
+          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+          gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$branch" \
+            --title 'chore(cloudflare): sampling dei log a 0.1 dal 1 dicembre' --body-file "$body"

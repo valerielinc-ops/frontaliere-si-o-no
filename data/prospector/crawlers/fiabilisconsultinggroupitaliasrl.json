@@ -1,0 +1,21 @@
+{
+  "companyKey": "fiabilisconsultinggroupitaliasrl",
+  "companyName": "Fiabilis Consulting Group Italia Srl",
+  "companyHost": "fiabilisconsultinggroupitaliasrl.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://fiabilisconsultinggroupitaliasrl.altamiraweb.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Full-stack Software Engineer",
+    "Key account manager",
+    "Payroll Analyst"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:32:01.250Z"
+}

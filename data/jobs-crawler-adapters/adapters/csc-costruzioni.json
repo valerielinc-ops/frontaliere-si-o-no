@@ -1,0 +1,23 @@
+{
+  "companyKey": "csc-costruzioni",
+  "companyName": "CSC Costruzioni SA",
+  "companyHost": "csc-sa.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "jsonld",
+    "html",
+    "generic_ats"
+  ],
+  "notes": "CSC Costruzioni SA — Lugano-headquartered construction company (Drupal CMS). Swiss locations are kept across all 26 cantons. Jobs page at /lavoro-carriera-edilizia (confirmed live 2026-03-19 via search; may have zero openings at times, spontaneous applications accepted). Seed URL verified from original notes and web search.",
+  "updatedAt": "2026-11-03T09:20:03.924Z",
+  "seedDetailUrls": [
+    "https://app.ncoreplat.com/jobposition/816552/senior-planning-manager-ch/csc-costruzioni-sa",
+    "https://app.ncoreplat.com/jobposition/815604/accountant-di-cantiere-it/csc-costruzioni-sa",
+    "https://app.ncoreplat.com/jobposition/814898/quality-assistant-mep-ch/csc-costruzioni-sa",
+    "https://app.ncoreplat.com/jobposition/813701/business-developer-suisse-romande-amp-suisse-alemanique-ch/csc-costruzioni-sa",
+    "https://app.ncoreplat.com/jobposition/813792/electrical-engineer-ch/csc-costruzioni-sa",
+    "https://app.ncoreplat.com/jobposition/813007/tecnico-opere-in-sotterraneo-ch/csc-costruzioni-sa",
+    "https://app.ncoreplat.com/jobposition/813014/design-manager-mechanical-ch/csc-costruzioni-sa"
+  ]
+}

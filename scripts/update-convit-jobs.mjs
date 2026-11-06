@@ -1,0 +1,531 @@
+#!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
+/**
+ * Convit Holding GmbH — Dedicated Swiss Crawler
+ *
+ * Crawls https://www.careers-page.com/convit-holding-gmbh (Manatal ATS)
+ * 1. Fetches listing page → extracts job codes
+ * 2. Fetches each detail page → extracts title, location, description, date from JSON-LD
+ * 3. Filters Swiss-relevant jobs via the shared all-canton geographic filter
+ * 4. Assigns canton dynamically using inferConvitCanton()
+ * 5. Merges into data/jobs.json
+ * 6. Updates adapter config
+ */
+
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import {
+  printPublishedJobUrls,
+  writeJobsSummary,
+  snapshotJobSlugs,
+  computeCrawlDiff,
+  printCrawlChangeSummary,
+  writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
+} from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSliceVerified,
+  writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
+  assembleJobsDataset,
+  readExistingCrawlerJobs,
+} from './assemble-jobs-dataset.mjs';
+import {
+  translateMissingJobLocales,
+  validateDedicatedLocaleCoverage,
+  detectLang,
+  mergeLocaleTextMap,
+  captureLostSlugs,
+} from './lib/dedicated-crawler-common.mjs';
+import {
+  parseConvitListingPage,
+  isConvitListingPage,
+  extractConvitListingCodes,
+  createConvitListingSourceValidator,
+  parseConvitDetailPage,
+  buildConvitLocalizedContent,
+  dropConvitFabricatedText,
+  isConvitSwissRelevant,
+  inferConvitCanton,
+} from './lib/convit-job-parser.mjs';
+import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
+import { splitJobLocation } from './lib/job-location-display.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'convit-holding.json');
+
+const COMPANY_KEY = 'convit-holding';
+// Per-crawler-scoped scratch path — this crawler does its own fetch+merge
+// (no runDedicatedBaseCrawler call), but still runs as one of ~25 sibling
+// background steps sharing a filesystem checkout in CI, so writing straight
+// to the shared, gitignored, CI-absent data/jobs.json is the same
+// cross-process-racy write pattern behind #3769/#3770. Scope it per-company.
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
+const COMPANY_NAME = 'Convit Holding GmbH';
+const COMPANY_HOST = 'www.careers-page.com';
+const COMPANY_DOMAIN = 'careers-page.com';
+const CAREERS_URL = 'https://www.careers-page.com/convit-holding-gmbh';
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+const MAX_DETAIL_PAGES = positiveIntFromEnv('CONVIT_MAX_DETAIL_PAGES', 100000);
+const DETAIL_DELAY_MS = 800;
+
+function readJson(filePath, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return fallback;
+  }
+}
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+async function fetchText(url, timeoutMs = TIMEOUT_MS) {
+  return fetchHtml(url, { timeoutMs, headers: { Accept: 'text/html,application/xhtml+xml' } });
+}
+
+// Manatal's own public career-page API, the endpoint the ATS exposes for this
+// tenant. Used ONLY as a count to corroborate that the server-rendered listing
+// is the whole inventory; the vacancies themselves still come from the HTML.
+const MANATAL_OPEN_JOBS_URL = 'https://core.api.manatal.com/open/v3/career-page/convit-holding-gmbh/jobs/?page_size=1';
+
+/** Official vacancy count published by Manatal for the Convit career page. */
+export async function fetchManatalListingCount(fetchJson = (url) => fetchHtml(url, {
+  timeoutMs: TIMEOUT_MS,
+  headers: { Accept: 'application/json' },
+})) {
+  const body = JSON.parse(await fetchJson(MANATAL_OPEN_JOBS_URL));
+  const count = body?.count;
+  if (!Number.isSafeInteger(count) || count < 0) {
+    throw new Error(`Manatal open API returned an invalid Convit vacancy count: ${JSON.stringify(count)}`);
+  }
+  return count;
+}
+
+function sameCodeSet(a = [], b = []) {
+  if (a.length !== b.length) return false;
+  const left = new Set(a);
+  return left.size === new Set(b).size && b.every((code) => left.has(code));
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isTargetJob(job = {}) {
+  const key = normalizeKey(job.companyKey || job.company || '');
+  const company = normalize(job.company || '');
+  const url = String(job.url || '').toLowerCase();
+  return (
+    key === COMPANY_KEY ||
+    company.includes('convit') ||
+    url.includes('careers-page.com/convit-holding')
+  );
+}
+
+function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === 'www.careers-page.com' || host === 'careers-page.com';
+  } catch {
+    return false;
+  }
+}
+
+function inferCategory(title = '') {
+  const haystack = normalize(title);
+  if (/finanz|financial|pianificaz|budgeting/i.test(haystack)) return 'finance';
+  if (/sales|vendita|consulen|consultant/i.test(haystack)) return 'sales';
+  if (/\b(tirocinante|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|junior)/i.test(haystack)) return 'internship';
+  if (/marketing|communication/i.test(haystack)) return 'marketing';
+  if (/admin|segretari|assistente/i.test(haystack)) return 'admin';
+  return 'finance';
+}
+
+export async function fetchAllListings({
+  fetchPage = fetchText,
+  sleepFn = sleep,
+  fetchListingCount = fetchManatalListingCount,
+} = {}) {
+  console.log('🔍 Fetching Convit listing page...');
+
+  // Walk `?page=N` until an empty terminal page. Since 2026-09 the live
+  // Manatal career page server-renders the WHOLE inventory and ignores
+  // `?page`: page 2 is byte-identical to page 1 (37 codes on 2026-09-28). A
+  // page that repeats page 1's exact code set is therefore the end of the
+  // walk — but only when Manatal's own count agrees with the codes listed, so
+  // a truncated server render can never pass as a complete snapshot.
+  const allItems = [];
+  const listedCodes = new Set();
+  const seenCodes = new Set();
+  let firstPageCodes = null;
+  let page = 1;
+  let terminalPageFound = false;
+
+  while (true) {
+    const url = page === 1 ? CAREERS_URL : `${CAREERS_URL}?page=${page}`;
+    console.log(`  📄 Page ${page}: ${url}`);
+    let html;
+    try {
+      html = await fetchPage(url);
+    } catch (err) {
+      console.log(`  ⚠️ Page ${page} fetch failed: ${err.message}`);
+      // A partial page walk is not an authoritative source snapshot. Let the
+      // crawler boundary preserve the previous slice instead of treating the
+      // pages fetched so far as the employer's complete inventory.
+      throw err;
+    }
+    if (!isConvitListingPage(html)) {
+      throw new Error(`Convit listing page ${page} returned an unrecognized or degraded HTML document`);
+    }
+    const pageCodes = extractConvitListingCodes(html);
+    if (page === 1) firstPageCodes = pageCodes;
+    if (page > 1 && pageCodes.length > 0 && sameCodeSet(pageCodes, firstPageCodes)) {
+      const officialCount = await fetchListingCount();
+      if (officialCount !== listedCodes.size) {
+        throw new Error(
+          `Convit listing page ${page} repeated page 1, and the official Manatal count (${officialCount}) `
+            + `does not match the ${listedCodes.size} listed vacancy codes`,
+        );
+      }
+      console.log(`     Page ${page} repeats page 1; Manatal count ${officialCount} confirms a single-page listing`);
+      terminalPageFound = true;
+      break;
+    }
+    for (const code of pageCodes) listedCodes.add(code);
+    const items = parseConvitListingPage(html);
+    const newItems = items.filter((item) => !seenCodes.has(item.code));
+    if (pageCodes.length === 0) {
+      terminalPageFound = true;
+      break;
+    }
+    if (newItems.length === 0) {
+      throw new Error(`Convit listing page ${page} was non-empty but added no new vacancy codes`);
+    }
+    for (const item of newItems) {
+      seenCodes.add(item.code);
+      allItems.push(item);
+    }
+    console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
+    page += 1;
+    await sleepFn(DETAIL_DELAY_MS);
+  }
+
+  console.log(`📋 Total unique listings: ${allItems.length}`);
+  return { items: allItems, complete: terminalPageFound, listedCodes: [...listedCodes] };
+}
+
+async function enrichWithDetails(listings) {
+  const enriched = [];
+  const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'Convit');
+
+  console.log(`\n🔎 Fetching up to ${toFetch.length} detail pages...`);
+
+  for (let i = 0; i < toFetch.length; i++) {
+    const item = toFetch[i];
+    try {
+      const html = await fetchText(item.detailUrl);
+      const detail = parseConvitDetailPage(html, item.title);
+      enriched.push({
+        ...item,
+        title: detail.title || item.title,
+        location: detail.location || '',
+        description: detail.description || '',
+        datePosted: detail.datePosted,
+      });
+      if ((i + 1) % 10 === 0) {
+        console.log(`  ✅ ${i + 1}/${toFetch.length} detail pages fetched`);
+      }
+    } catch (err) {
+      console.log(`  ⚠️ Detail fetch failed for ${item.code}: ${err.message}`);
+      enriched.push({ ...item, location: '', description: '', ...sourcePostingDateFields('') });
+    }
+    if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
+  }
+
+  // Filter to Swiss-relevant jobs and assign the resolved canton.
+  const relevant = enriched.filter((job) => isConvitSwissRelevant(job.location));
+  for (const job of relevant) {
+    job.canton = inferConvitCanton(job.location);
+    // The JSON-LD fallback in parseConvitDetailPage() joins
+    // [addressLocality, addressRegion, addressCountry] ("Bellinzona, Ticino, CH"),
+    // so the raw location already carries the canton and country.
+    // buildConvitLocalizedContent() then appends the region again ("...in
+    // Ticino"), freezing the duplicate into the stored description — same
+    // defect scripts/lib/nestle-job-parser.mjs fixes at the point the crawler
+    // assigns canton. Strip it once, here, so the stored field, the
+    // description and the page all read the clean city.
+    job.location = splitJobLocation(job.location, job.canton).city || job.location;
+  }
+  const cantonCounts = relevant.reduce((counts, job) => {
+    const canton = job.canton || '??';
+    counts[canton] = (counts[canton] || 0) + 1;
+    return counts;
+  }, {});
+  const cantonSummary = Object.entries(cantonCounts)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}: ${count}`)
+    .join(' | ');
+  console.log(`\n📍 Swiss-location jobs: ${relevant.length} / ${enriched.length}${cantonSummary ? ` (${cantonSummary})` : ''}`);
+  return relevant;
+}
+
+function buildConvitJob(row) {
+  const canton = row.canton || inferConvitCanton(row.location) || DEFAULT_CANTON;
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'it');
+  const localized = buildConvitLocalizedContent({ ...row, canton, sourceLang });
+  const defaultCity = getCantonDisplayName(canton, 'it') || canton || 'Svizzera';
+  const urlHash = createHash('sha1').update(row.detailUrl || row.title || '').digest('hex').slice(0, 12);
+  return {
+    id: `convit-${urlHash}`,
+    title: localized.titleByLocale.it,
+    slug: localized.slugByLocale.it,
+    url: row.detailUrl,
+    applyUrl: row.applyUrl,
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    companyDomain: COMPANY_DOMAIN,
+    location: row.location || defaultCity,
+    addressLocality: row.location || defaultCity,
+    addressRegion: canton,
+    addressCountry: 'CH',
+    canton,
+    country: 'CH',
+    category: inferCategory(row.title),
+    sector: 'Finanza & Previdenza',
+    source: 'convit-dedicated-crawler',
+    sourceLang,
+    ...sourcePostingDateFields(row.datePosted),
+    employmentType: 'full-time',
+    contractType: 'full-time',
+    validThrough: '',
+    description: localized.description,
+    titleByLocale: localized.titleByLocale,
+    descriptionByLocale: localized.descriptionByLocale,
+    slugByLocale: localized.slugByLocale,
+  };
+}
+
+function jobMatchKey(job = {}) {
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
+}
+
+function mergeJobs(discoveredJobs) {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropConvitFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former builder's sentences from ${fossils} stored Convit job(s); they will be translated from the posting`);
+  const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
+
+  let added = 0;
+  let updated = 0;
+  const mergedTarget = discoveredJobs.map((job) => {
+    const prev = existingByKey.get(jobMatchKey(job));
+    if (!prev) {
+      added += 1;
+      return job;
+    }
+    updated += 1;
+    const merged = {
+      ...prev,
+      ...job,
+      ...mergeSourcePostingDates(prev, job),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
+    };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
+  });
+
+  const allJobs = [...nonTargetJobs, ...mergedTarget];
+  writeJson(DATA_JOBS, allJobs);
+  writeJson(PUBLIC_JOBS, allJobs);
+
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(diff, 'Convit Holding');
+  writeCrawlChangeSummaryToGH(diff, 'Convit Holding');
+  writeJobsSummary(mergedTarget, 'Convit Holding');
+  printPublishedJobUrls(mergedTarget, 'Convit Holding');
+  return { total: mergedTarget.length, added, updated, diff };
+}
+
+function updateAdapterConfig(jobs) {
+  const seedMetaByUrl = {};
+  for (const job of jobs) {
+    seedMetaByUrl[job.url] = {
+      location: job.location,
+      canton: job.canton || DEFAULT_CANTON,
+      company: COMPANY_NAME,
+      ...mergeSourcePostingDates({}, job),
+    };
+  }
+  writeJson(ADAPTER_PATH, {
+    companyKey: COMPANY_KEY,
+    companyName: COMPANY_NAME,
+    companyHost: COMPANY_HOST,
+    enabled: true,
+    priority: 18,
+    crawlerModes: ['html'],
+    seedUrls: [CAREERS_URL],
+    notes: 'Dedicated Convit Holding crawler reads the Manatal (careers-page.com) listing and detail pages, extracting JobPosting JSON-LD. Keeps postings whose locations resolve to any Swiss canton.',
+    updatedAt: new Date().toISOString(),
+    seedMetaByUrl,
+  });
+}
+
+function validateLocales() {
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_CONVIT_STRICT',
+    label: 'Convit Holding',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+    locales: LOCALES,
+    isTrustedDomain,
+    untrustedDomainReason: 'url_not_convit_domain',
+    failWhenNoJobs: false,
+    noJobsMessage: 'No Convit jobs found after dedicated crawl.',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
+  });
+}
+
+async function main() {
+  setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Convit Holding');
+  console.log('═══════════════════════════════════════════════');
+  console.log('  Convit Holding GmbH — Dedicated Crawler');
+  console.log('═══════════════════════════════════════════════');
+  console.log(`  Careers page: ${CAREERS_URL}\n`);
+
+  const {
+    items: listings,
+    complete: listingSnapshotComplete,
+    listedCodes,
+  } = await fetchAllListings();
+  if (listings.length === 0) {
+    console.log('⚠️ No listings found on Convit careers page — skipping.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => { jobs.forEach(dropConvitFabricatedText); },
+      storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+      companyKey: COMPANY_KEY,
+      companyLabel: 'Convit Holding',
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob, ...options }),
+      assemble: () => assembleJobsDataset(),
+    });
+    return;
+  }
+
+  const enrichedListings = await enrichWithDetails(listings);
+
+  // Deduplicate by title (Convit posts many duplicates for different regions)
+  const seenTitles = new Map();
+  const deduplicated = [];
+  for (const listing of enrichedListings) {
+    const key = normalize(listing.title);
+    if (!seenTitles.has(key)) {
+      seenTitles.set(key, listing);
+      deduplicated.push(listing);
+    }
+  }
+  if (deduplicated.length < enrichedListings.length) {
+    console.log(`🔄 Deduplicated: ${enrichedListings.length} → ${deduplicated.length} unique titles`);
+  }
+
+  const jobs = deduplicated.map(buildConvitJob);
+
+  const { total, added, updated, diff} = mergeJobs(jobs);
+  updateAdapterConfig(jobs);
+
+  console.log('\n🌐 Running locale fill for Convit jobs...');
+  await translateMissingJobLocales({
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+  });
+
+  validateLocales();
+
+  console.log('\n📊 === Convit Holding Job Stats ===');
+  const cantonCounts = jobs.reduce((counts, job) => {
+    const canton = job.canton || '??';
+    counts[canton] = (counts[canton] || 0) + 1;
+    return counts;
+  }, {});
+  const cantonSummary = Object.entries(cantonCounts)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}: ${count}`)
+    .join(' | ');
+  console.log(`  🏢 Total Convit jobs (Swiss): ${total}`);
+  console.log(`  📍 By canton: ${cantonSummary || 'none'}`);
+  console.log(`  ➕ Added: ${added}`);
+  console.log(`  🔄 Updated: ${updated}`);
+
+  // Write per-crawler slice and reassemble global dataset
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    // The listing walk is complete only when every requested page was fetched
+    // and every response had the Convit source shell. This source-level proof
+    // handles stale detail URLs without weakening the global shrink threshold.
+    validate: createConvitListingSourceValidator(listings, {
+      complete: listingSnapshotComplete,
+      listedCodes,
+    }),
+  });
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'Convit Holding',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    newCount: diff.newJobs.length,
+    updatedCount: diff.updatedJobs.length,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: diff.unchangedCount,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: diff.newJobs.slice(0, 30),
+    updatedJobs: diff.updatedJobs.slice(0, 30),
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
+  });
+  await assembleJobsDataset();
+}
+
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
+  main().catch((err) => exitCrawlerOnError(err, 'Convit Holding'));
+}

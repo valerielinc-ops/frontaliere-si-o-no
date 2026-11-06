@@ -1,0 +1,24 @@
+{
+  "companyKey": "noveos-ch",
+  "companyName": "noveos",
+  "companyHost": "noveos.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.noveos.ch/stellen/fachmitarbeitende"
+  ],
+  "detailTemplate": "/stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Berater*in / Job Coach, 50% - 60%",
+    "Bekleidungsgestalter*in / Ausbildner*in 100 %",
+    "Pflegefachperson Psychiatrie oder Fachperson Betreuung als Springer*in (Anstellung im Stundenlohn)",
+    "Betriebsleiter*in - Wohnhaus Uster, 70-80%",
+    "Betriebsleiter*in - WG am See, 70-80%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-28T12:03:24.647Z",
+  "candidateKey": "noveos.ch"
+}

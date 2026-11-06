@@ -1,0 +1,40 @@
+{
+  "id": "putin-ucraina-termine-frontalieri",
+  "slug": "putin-ucraina-termine-frontalieri",
+  "publishedAt": "2026-05-10T06:19:34.262Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.879929461178897,
+    "confidence": 0.8,
+    "finalScore": 6.303943568943118,
+    "topK": [
+      {
+        "slug": "ucraina-russia-droni-2026",
+        "cosine": 0.8314219262180298
+      },
+      {
+        "slug": "svizzera-minaccia-ibrida-russa-2026",
+        "cosine": 0.811903383245537
+      },
+      {
+        "slug": "usa-missili-germania-2026",
+        "cosine": 0.8117170500582679
+      },
+      {
+        "slug": "trump-cina-russia-patto-2026",
+        "cosine": 0.8105114315170334
+      },
+      {
+        "slug": "stop-export-materiale-bellico",
+        "cosine": 0.8070137567190939
+      }
+    ],
+    "score": 3.151971784471559,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

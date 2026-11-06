@@ -1,0 +1,418 @@
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+/**
+ * Ferrovia Retica (RhB) — job parser
+ *
+ * Rhaetian Railway publishes vacancies at:
+ *   https://www.rhb.ch/de/arbeitgeber (German)
+ *   https://www.rhb.ch/it/datore-di-lavoro (Italian)
+ *
+ * RhB is the largest employer in Grisons (Graubünden) with ~1400 employees.
+ * Relevant for frontalieri in Grigioni italiani (Poschiavo, Brusio, Valposchiavo).
+ *
+ * The career page typically uses structured HTML or embeds an external
+ * job portal (e.g., gateway.one or custom). Job listings include:
+ *   - Title, location (Chur, Poschiavo, Landquart, etc.)
+ *   - Employment type, percentage
+ *   - Link to detail page
+ *
+ * Exports: parseListingPage, parseDetailPage, buildJob, sourceLangFromUrl,
+ *          stripHtml, normalizeSpace, isGrigioniItalianoJob
+ */
+
+import { decode as decodeHTML } from 'html-entities';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { detectLanguage } from './detect-language.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+
+const HQ = getCompanyDefaults('ferrovia-retica');
+
+/* ── Text helpers ──────────────────────────────────────────── */
+
+export function normalizeSpace(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+export function stripHtml(html = '') {
+  return String(html || '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(?:#(?:x[0-9a-f]+|[0-9]+)|[a-z][a-z0-9]+);/gi, (entity) => decodeHTML(entity))
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+export function slugify(value = '') {
+  return truncateSlugAtWordBoundary(String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-'), 180);
+}
+
+/* ── Location helpers ──────────────────────────────────────── */
+
+const GRIGIONI_ITALIANO_LOCATIONS = [
+  'poschiavo', 'brusio', 'campocologno', 'le prese',
+  'valposchiavo', 'bernina', 'pontresina', 'samedan',
+  'st. moritz', 'saint moritz', 'san moritz',
+];
+
+const ALL_RHB_LOCATIONS = [
+  ...GRIGIONI_ITALIANO_LOCATIONS,
+  'chur', 'coira', 'landquart', 'davos', 'klosters',
+  'thusis', 'ilanz', 'disentis', 'arosa', 'filisur',
+  'tiefencastel', 'scuol', 'zernez',
+];
+
+/**
+ * Check if a job location is in the Italian-speaking part of Graubünden.
+ */
+export function isGrigioniItalianoJob(location = '', description = '') {
+  const combined = `${location} ${description}`.toLowerCase();
+  return GRIGIONI_ITALIANO_LOCATIONS.some((loc) => combined.includes(loc));
+}
+
+/**
+ * Infer location from job content.
+ */
+export function inferLocation(title = '', description = '') {
+  const combined = `${title} ${description}`.toLowerCase();
+  for (const loc of ALL_RHB_LOCATIONS) {
+    if (combined.includes(loc)) {
+      return loc.charAt(0).toUpperCase() + loc.slice(1);
+    }
+  }
+  return 'Chur'; // Default to HQ
+}
+
+/* ── Listing page parser ───────────────────────────────────── */
+
+/**
+ * Parse the RhB career listing page.
+ * Returns an array of { title, url, location, datePosted, percentage }.
+ */
+export function parseListingPage(html) {
+  if (!html || typeof html !== 'string') return [];
+
+  const jobs = [];
+  const seen = new Set();
+
+  // Pattern 1: Job cards with title and link (typical CMS structure)
+  const cardRe = /<(?:div|article|li)[^>]*class="[^"]*(?:job|vacancy|stelle|position)[^"]*"[^>]*>([\s\S]*?)(?:<\/(?:div|article|li)>)/gi;
+  let match;
+  while ((match = cardRe.exec(html)) !== null) {
+    const cardHtml = match[1];
+    const linkMatch = cardHtml.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+    if (!linkMatch) continue;
+
+    const url = linkMatch[1];
+    const title = normalizeSpace(stripHtml(linkMatch[2]));
+    if (!title || title.length < 5) continue;
+
+    const fullUrl = url.startsWith('http') ? url : `https://www.rhb.ch${url}`;
+    if (seen.has(fullUrl)) continue;
+    seen.add(fullUrl);
+
+    // Extract percentage if present (e.g., "80-100%")
+    const pctMatch = cardHtml.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/);
+    const percentage = pctMatch ? `${pctMatch[1]}-${pctMatch[2]}%` : '';
+
+    // Extract location from card
+    const location = inferLocation(title, stripHtml(cardHtml));
+
+    jobs.push({ title, url: fullUrl, location, datePosted: '', percentage });
+  }
+
+  // Pattern 2: Direct job links matching /it/job/ or /de/job/ URL pattern
+  // The job-uebersicht page lists jobs as links like /it/job/title-slug_YYYY-NNNN/
+  const jobLinkRe = /<a[^>]+href="(\/(?:it|de|en|fr)\/job\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  while ((match = jobLinkRe.exec(html)) !== null) {
+    const url = match[1];
+    const rawTitle = normalizeSpace(stripHtml(match[2]));
+    if (!rawTitle || rawTitle.length < 5) continue;
+
+    const fullUrl = `https://www.rhb.ch${url}`;
+    if (seen.has(fullUrl)) continue;
+    seen.add(fullUrl);
+
+    // Extract location from title (e.g., "Standort Chur" or "Standort Samedan")
+    const standortMatch = rawTitle.match(/Standort\s+(\w+)/i);
+    const location = standortMatch ? standortMatch[1] : inferLocation(rawTitle, '');
+
+    // Extract percentage (e.g., "50-100%" or "100%")
+    const pctMatch = rawTitle.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/) || rawTitle.match(/\((\d{1,3})%\)/);
+    const percentage = pctMatch ? (pctMatch[2] ? `${pctMatch[1]}-${pctMatch[2]}%` : `${pctMatch[1]}%`) : '';
+
+    // Nearby dates may describe a deadline or employment start, not publication.
+    const datePosted = '';
+
+    jobs.push({ title: rawTitle, url: fullUrl, location, datePosted, percentage });
+  }
+
+  // Pattern 3: Simple link list with job-related URLs (fallback)
+  const linkRe = /<a[^>]+href="([^"]*(?:stellen|jobs|offene|vacancies)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
+  while ((match = linkRe.exec(html)) !== null) {
+    const url = match[1];
+    const title = normalizeSpace(stripHtml(match[2]));
+    if (!title || title.length < 5) continue;
+
+    const fullUrl = url.startsWith('http') ? url : `https://www.rhb.ch${url}`;
+    if (seen.has(fullUrl)) continue;
+    seen.add(fullUrl);
+
+    jobs.push({
+      title,
+      url: fullUrl,
+      location: inferLocation(title, ''),
+      datePosted: '',
+      percentage: '',
+    });
+  }
+
+  return jobs;
+}
+
+/* ── Detail page parser ────────────────────────────────────── */
+
+/**
+ * Extract the job content div from an RhB detail page.
+ * Targets the specific `JobDetailsPage_text` container which holds only
+ * the job description, requirements, and benefits — excluding navigation,
+ * breadcrumbs, share buttons, sidebar, contact cards, and related jobs.
+ *
+ * Returns the inner HTML of the content div, or falls back to <main>/<article>.
+ */
+function extractJobContentHtml(html) {
+  // Primary: RhB's React-rendered job content container
+  const textIdx = html.indexOf('JobDetailsPage_text');
+  if (textIdx >= 0) {
+    const divStart = html.lastIndexOf('<div', textIdx);
+    if (divStart >= 0) {
+      let depth = 0;
+      let i = divStart;
+      while (i < html.length) {
+        if (html.slice(i, i + 4) === '<div') depth++;
+        else if (html.slice(i, i + 6) === '</div>') {
+          depth--;
+          if (depth === 0) return html.slice(divStart, i + 6);
+        }
+        i++;
+      }
+    }
+  }
+  // Fallback: <main> or <article> (less precise)
+  const fallback = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  return fallback ? fallback[1] : html;
+}
+
+/**
+ * Parse an RhB job detail page.
+ * Returns { title, description, location, canton, sections[], requirements[] }
+ */
+export function parseDetailPage(html) {
+  if (!html || typeof html !== 'string') return null;
+
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
+  if (!title || title.length < 3) return null;
+
+  const contentHtml = extractJobContentHtml(html);
+  const description = stripHtml(contentHtml);
+
+  const sections = [];
+  const headingRe = /<h[2-3][^>]*>([\s\S]*?)<\/h[2-3]>/gi;
+  const headings = [];
+  let m;
+  while ((m = headingRe.exec(contentHtml)) !== null) {
+    headings.push({ text: normalizeSpace(stripHtml(m[1])), index: m.index, length: m[0].length });
+  }
+
+  for (let i = 0; i < headings.length; i++) {
+    const start = headings[i].index + headings[i].length;
+    const end = i + 1 < headings.length ? headings[i + 1].index : contentHtml.length;
+    const sectionHtml = contentHtml.slice(start, end);
+    const items = [];
+    const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+    let li;
+    while ((li = liRe.exec(sectionHtml)) !== null) {
+      const text = normalizeSpace(stripHtml(li[1]));
+      if (text.length > 5) items.push(text);
+    }
+    if (items.length > 0 || normalizeSpace(stripHtml(sectionHtml)).length > 30) {
+      sections.push({ heading: headings[i].text, items });
+    }
+  }
+
+  const location = inferLocation(title, description);
+  const canton = HQ.canton;
+
+  const requirements = sections
+    .filter((s) => /anforderung|profil|voraussetz|mitbring|qualifikat|requisit|competen/i.test(s.heading))
+    .flatMap((s) => s.items);
+
+  return {
+    title,
+    description: description.length > 50 ? description : '',
+    location,
+    canton,
+    sections,
+    requirements,
+    sourceTextLength: description.length,
+  };
+}
+
+/* ── Postal code mapping ────────────────────────────────────── */
+
+export const RHB_POSTAL_CODES = {
+  'chur': { postalCode: '7000', streetAddress: 'Bahnhofstrasse 25, 7001 Chur' },
+  'coira': { postalCode: '7000', streetAddress: 'Bahnhofstrasse 25, 7001 Chur' },
+  'landquart': { postalCode: '7302', streetAddress: 'Bahnhofstrasse 1, 7302 Landquart' },
+  'davos': { postalCode: '7270', streetAddress: 'Bahnhofstrasse 1, 7270 Davos Platz' },
+  'klosters': { postalCode: '7250', streetAddress: 'Bahnhofstrasse 1, 7250 Klosters' },
+  'samedan': { postalCode: '7503', streetAddress: 'Bahnhof, 7503 Samedan' },
+  'poschiavo': { postalCode: '7742', streetAddress: 'Piazza della Stazione, 7742 Poschiavo' },
+  'pontresina': { postalCode: '7504', streetAddress: 'Bahnhof, 7504 Pontresina' },
+  'st. moritz': { postalCode: '7500', streetAddress: 'Bahnhof, 7500 St. Moritz' },
+  'thusis': { postalCode: '7430', streetAddress: 'Bahnhofstrasse, 7430 Thusis' },
+  'ilanz': { postalCode: '7130', streetAddress: 'Bahnhof, 7130 Ilanz' },
+  'disentis': { postalCode: '7180', streetAddress: 'Bahnhof, 7180 Disentis/Mustér' },
+  'arosa': { postalCode: '7050', streetAddress: 'Bahnhof, 7050 Arosa' },
+  'filisur': { postalCode: '7477', streetAddress: 'Bahnhof, 7477 Filisur' },
+  'scuol': { postalCode: '7550', streetAddress: 'Bahnhof, 7550 Scuol' },
+  'zernez': { postalCode: '7530', streetAddress: 'Bahnhof, 7530 Zernez' },
+  'brusio': { postalCode: '7743', streetAddress: 'Stazione, 7743 Brusio' },
+  'campocologno': { postalCode: '7744', streetAddress: 'Stazione, 7744 Campocologno' },
+  'tiefencastel': { postalCode: '7450', streetAddress: 'Bahnhof, 7450 Tiefencastel' },
+};
+
+/**
+ * Get postal code and address for a location.
+ */
+export function getLocationAddress(location = '') {
+  const loc = location.toLowerCase().trim();
+  const match = RHB_POSTAL_CODES[loc];
+  if (match) return match;
+  // Default to Chur HQ
+  return { postalCode: '7000', streetAddress: 'Bahnhofstrasse 25, 7001 Chur' };
+}
+
+/* ── Invented fallback (removed) ───────────────────────────── */
+
+/**
+ * First sentence of the company paragraph earlier versions published when a
+ * detail page was thin ("<titolo> presso la Ferrovia Retica (RhB) a …
+ * La Ferrovia Retica è la più grande azienda di trasporti …"): text the
+ * source never showed. Its presence marks a STORED description as not
+ * source-read, so the runner removes it before the merge.
+ */
+export const RHB_INVENTED_FALLBACK_RE = /La Ferrovia Retica è la più grande azienda di trasporti del Cantone dei Grigioni/;
+
+/* ── Job builder ───────────────────────────────────────────── */
+
+const URL_LOCALE_RE = /\/(it|de|en|fr)\/job\//i;
+
+/**
+ * RhB publishes job detail pages at distinct per-locale URLs
+ * (`/it/job/...`, `/de/job/...`, `/en/job/...`, `/fr/job/...`). The crawled
+ * URL's locale segment tells us which language the extracted description
+ * actually is in — default to 'de' only when the URL carries no locale
+ * segment (e.g. a Pattern-1/3 listing fallback).
+ */
+export function sourceLangFromUrl(url = '') {
+  const match = String(url || '').match(URL_LOCALE_RE);
+  return match ? match[1].toLowerCase() : 'de';
+}
+
+export function buildJob(raw) {
+  if (!raw || !raw.title) return null;
+  const crawledAt = crawledAtFromObservation(raw.crawlObservedAt);
+  if (!crawledAt) return null;
+
+  const title = normalizeSpace(raw.title);
+  if (!title || title.length < 3) return null;
+
+  const location = raw.location || 'Chur';
+  const address = getLocationAddress(location);
+
+  // Only the detail page's own vacancy body is published, above the shared
+  // word floor (source-body-floor.mjs). A thinner or missing body yields NO
+  // description here: the runner keeps the body stored from an earlier read
+  // of the source, or leaves the job unpublished this run. The invented
+  // company paragraph that used to fill the gap is gone (#5253).
+  const description = meetsSourceBodyFloor(raw.description) ? raw.description : '';
+
+  // Detect employment type from percentage
+  let employmentType = 'FULL_TIME';
+  if (raw.percentage) {
+    const pctMatch = raw.percentage.match(/(\d{1,3})/);
+    if (pctMatch && parseInt(pctMatch[1], 10) < 80) employmentType = 'PART_TIME';
+  }
+
+  // Use consistent company identifier across ALL locales to prevent slug churn.
+  // "Ferrovia Retica (RhB)" slugifies to "ferrovia-retica-rhb" — this matches the
+  // stable form that hardenJobLocaleFields produces from the company name.
+  const baseSlug = slugify(`${title}-ferrovia-retica-rhb-${location}`);
+  // The URL locale is the language of the page CHROME, not of the vacancy:
+  // RhB's /it/job/ pages wrap German-written postings in Italian headings
+  // ("Cosa puoi fare • Begleitung unserer Reisezüge …"). Labelling that body
+  // 'it' made the pipeline "translate" the Italian slot from German into
+  // garbage ("Copuoi · …", "Ti 29 3 $ 3 $ 2 …") while the real text sat only
+  // in `description` (#5253). The detail body decides; the URL locale is the
+  // tie-breaker, and the only signal left when no body was read.
+  const urlLang = sourceLangFromUrl(raw.url);
+  const sourceLang = description ? detectLanguage(description, urlLang) : urlLang;
+
+  return {
+    title,
+    company: 'Ferrovia Retica (RhB)',
+    companyKey: 'ferrovia-retica',
+    url: raw.url || '',
+    location,
+    canton: HQ.canton,
+    country: 'CH',
+    postalCode: address.postalCode,
+    streetAddress: address.streetAddress,
+    employmentType,
+    category: detectCategory(title, description),
+    description,
+    // ParsedJob contract: the source slot carries the crawled text. Without it
+    // the merge kept the previous (stale or corrupt) source-locale copy forever.
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
+    ...sourcePostingDateFields(raw.datePosted),
+    crawledAt,
+    source: 'company-website',
+    sourceLang,
+    slug: baseSlug,
+    slugByLocale: { it: baseSlug, en: baseSlug, de: baseSlug, fr: baseSlug },
+    titleByLocale: { [sourceLang]: title },
+    percentage: raw.percentage || '',
+  };
+}
+
+/* ── Category detection ────────────────────────────────────── */
+
+function detectCategory(title = '', description = '') {
+  const combined = `${title} ${description}`.toLowerCase();
+  if (/lokführer|macchinista|conducent|zugbegleit|capotreno/i.test(combined)) return 'transport';
+  if (/gleisbau|binari|infrastruktur|infrastruttur|manutenz|unterhalt/i.test(combined)) return 'engineering';
+  if (/elektri|meccanico|techniker|tecnico|werkstatt|officina/i.test(combined)) return 'engineering';
+  if (/it\b|software|informatik|informatica|digital/i.test(combined)) return 'technology';
+  if (/kaufm|commerci|administrat|amministrativ|büro|ufficio/i.test(combined)) return 'administration';
+  if (/marketing|kommunikation|comunicazion|verkauf|vendita/i.test(combined)) return 'marketing';
+  if (/finanz|contabil|buchhalt|controlling/i.test(combined)) return 'finance';
+  if (/hr\b|personal|risorse umane/i.test(combined)) return 'hr';
+  return 'transport'; // Default for railway company
+}

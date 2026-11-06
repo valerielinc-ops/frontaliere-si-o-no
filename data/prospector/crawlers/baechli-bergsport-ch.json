@@ -1,0 +1,22 @@
+{
+  "companyKey": "baechli-bergsport-ch",
+  "companyName": "Bächli",
+  "companyHost": "baechli-bergsport.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.baechli-bergsport.ch/de/baechli/jobs/berufsbildung"
+  ],
+  "detailTemplate": "/de/baechli/jobs/berufsbildung/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Detailhandelsfachmann / -frau EFZ Gestalten von Einkaufserlebnissen",
+    "Detailhandelsfachmann / -frau EFZ Betreuen von Online-Shops"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:16:33.539Z",
+  "candidateKey": "baechli-bergsport.ch"
+}

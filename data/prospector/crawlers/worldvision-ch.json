@@ -1,0 +1,20 @@
+{
+  "companyKey": "worldvision-ch",
+  "companyName": "worldvision",
+  "companyHost": "wvi.org",
+  "platform": "wvi.org",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.wvi.org/careers"
+  ],
+  "detailTemplate": "/careers/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Emergency Response Roster",
+    "FAQs"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-21T11:22:55.311Z"
+}

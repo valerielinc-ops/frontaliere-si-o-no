@@ -1,0 +1,1114 @@
+/**
+ * Approval flow of the automated assisted application (owner decision
+ * 2026-09-30):
+ *
+ *   draft ready ──► candidate_review ──(candidate approves, or 12 h pass)──► submitting ──► submitted
+ *                   (an owner flag keeps it in owner_review until Valerie acts)
+ *   paper route: candidate_review ──(candidate approves, or 12 h pass)──► candidate_handoff
+ *               ──(candidate confirms mailing)──► submitted
+ *   candidate_review ──(candidate rejects with feedback)──► regenerating ──► candidate_review …
+ *     (a regenerated draft with an owner flag enters owner_review instead)
+ *   after the 3rd rejection ──► owner_takeover (Valerie gets every feedback);
+ *     the three are the drafts the candidate was shown (roundsShown), never
+ *     one Valerie had written again before it reached them
+ *   a submit of unknown outcome (submitting, or held for Valerie) ──(the
+ *     employer's acknowledgement or reply on the alias)──► submitted
+ *
+ * Red flags stop the clocks, they never skip a step:
+ *   - owner flags (invented facts in the texts, no posting text, unknown
+ *     channel, a suspicious posting, or missing paper-mailing instructions)
+ *     hold `owner_review` until Valerie acts;
+ *     a profile that is not a full match is no flag: the candidate is told
+ *     (assistedApplicationFitNotice.js);
+ *   - candidate flags (a required answer only the candidate can give: work
+ *     permit, salary expectation, availability, a portal screening question)
+ *     hold `candidate_review` until the candidate answers.
+ *
+ * This module is pure: `transition(flow, event, context)` returns the next
+ * flow and the side effects (e-mails, workflow dispatches) the caller runs.
+ * Keeping it free of I/O is what makes every edge of the diagram testable.
+ */
+
+import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
+import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
+import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
+import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
+export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
+import {
+  candidateAnswersForQuestions,
+  candidateQuestionAnswerKey,
+  candidateWithEdits,
+  ORDER_QUESTION_ANSWER_EVIDENCE_VERSION,
+  requiredPortalConsentAffirmed,
+  questionsForCandidate,
+} from './assistedApplicationCandidateEdits.js';
+
+export const OWNER_REVIEW_MS = 60 * 60 * 1000;
+export const CANDIDATE_REVIEW_MS = 12 * 60 * 60 * 1000;
+export const CANDIDATE_REMINDER_BEFORE_MS = 3 * 60 * 60 * 1000;
+export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
+// Waiting for answers only the candidate can give has no clock (nothing leaves
+// without them): the candidate is reminded 24 h and 72 h after the wait began,
+// and after 5 days Valerie hears that the order is stuck (owner question
+// 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
+export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
+export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
+// Retry clocks live in assistedApplicationPortalRetryPolicy.js. Unsupported
+// portal pages have a bounded repair window; definite infrastructure outages
+// stay in the normal queue with a capped delay until the posting closes.
+export const MAX_REVIEW_ROUNDS = 3;
+// Transient draft/broker run failures are dispatched up to this many times.
+// Infrastructure send failures use their independent queue policy instead.
+export const MAX_RUN_ATTEMPTS = 3;
+const TRANSIENT_RUN_ERROR_RE = /runner_infrastructure_unavailable|portal_question_localization_unavailable|broker|timed[ _]?out|timeout|rate[ _]?limit|(?:^|[^0-9])(?:429|5\d\d)(?![0-9])|econnreset|econnrefused|etimedout|enetunreach|ehostunreach|eai_again|socket|(?:service|temporarily)[ _]?unavailable|overloaded/i;
+
+/** Codex broker refusals, timeouts, rate limits, 5xx: worth another run. */
+// runner_timeout is the watchdog's own verdict after its re-dispatches: not retried again.
+export function isTransientRunError(error) {
+  const text = String(error || '');
+  return text !== 'runner_timeout' && TRANSIENT_RUN_ERROR_RE.test(text);
+}
+
+/** Another run for a transient failure, or null once the attempts are used up. */
+function transientRetry(flow, event, mode) {
+  const attempts = Number(flow?.dispatch?.attempts) || 1;
+  if (!isTransientRunError(event.error) || attempts >= MAX_RUN_ATTEMPTS) return null;
+  return [{ type: 'dispatch', mode, reason: 'transient_retry', attempts: attempts + 1 }];
+}
+
+/** The owner's e-mail says which step stopped and after how many runs. */
+function takeoverEmail(flow, event, stage) {
+  return {
+    type: 'email',
+    kind: 'owner_takeover',
+    reason: event.error || `${stage}_failed`,
+    stage,
+    attempts: Number(flow?.dispatch?.attempts) || 1,
+  };
+}
+
+/*
+ * `candidate_handoff` is career-ops' candidate-completed step. For a portal or
+ * WhatsApp handoff, the candidate completes the last step in their browser or
+ * phone. For a paper application, the signed page provides the prepared
+ * materials and mailing instructions; the candidate mails the envelope and
+ * confirms it there. CAPTCHA stops stay with Valerie, who can finish them
+ * with the owner fill extension.
+ */
+export const FLOW_STATES = Object.freeze([
+  'drafting',
+  'owner_review',
+  'candidate_review',
+  'regenerating',
+  'submitting',
+  'needs_candidate_action',
+  'candidate_handoff',
+  'submitted',
+  'owner_takeover',
+  'failed',
+  'withdrawn',
+]);
+
+export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed', 'withdrawn']);
+// What Valerie can do on an order that stopped (each event still checks the state it accepts).
+const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry', 'draft_auto_retry']);
+// ...and what settles one without her: the employer's e-mail proving a held submit arrived.
+const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged', 'repair_facts']);
+// The submit_failed errors of a send that may have reached the employer (never retried).
+// portal_antibot_ambiguous: the same unknown outcome, on a portal with an invisible reCAPTCHA.
+const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous', 'submission_receipt_invalid']);
+
+/**
+ * The warnings of a fact-check result as the owner confirms them: field, kind and token, sorted. The field
+ * belongs to the warning: «SAP» confirmed in the letter is not «SAP» in the e-mail the owner never read.
+ */
+export function factCheckTokens(factCheck) {
+  return [...new Set((factCheck?.unsupported || []).map((item) => `${item.field}:${item.kind}:${item.token}`))].sort();
+}
+
+/**
+ * Whether the owner confirmed the fact gate's warnings of a result: with the
+ * queue's own tick, or by name among the acknowledged flags, and only for the
+ * warnings they saw. The tick stores them (factCheckAcknowledgedTokens); an
+ * older tick, stored without them, covers the result the draft held when it
+ * was given. The gate at submit runs with the code of the day and may find a
+ * warning the owner never saw: that result is not confirmed. One reader for
+ * the flow and for the runner's gate at submit
+ * (scripts/assisted-application/lib/submit.mjs).
+ * @param {object} draft the AI draft (ai_drafts/current)
+ * @param {object} [factCheck] the result to confirm; the draft's own by default
+ */
+export function factCheckAcknowledged(draft, factCheck = draft?.factCheck) {
+  if (!draft?.factCheckAcknowledgedAt && !draft?.acknowledgedFlags?.fact_check) return false;
+  const confirmed = new Set(Array.isArray(draft.factCheckAcknowledgedTokens) ? draft.factCheckAcknowledgedTokens : factCheckTokens(draft.factCheck));
+  return factCheckTokens(factCheck).every((token) => confirmed.has(token));
+}
+
+/**
+ * @param {object} draft the AI draft (ai_drafts/current)
+ * @param {Record<string,string>} answers candidate answers by question id
+ * @param {object|null} flow current automation flow
+ * @param {object} order candidate identity and automation eligibility state
+ */
+export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAnswers = {}, flow = null, order = {}) {
+  const owner = [];
+  // A flag the owner explicitly acknowledged in the queue no longer holds.
+  const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
+  const unsupported = draft?.factCheck?.unsupported || [];
+  if (unsupported.length > 0 && !factCheckAcknowledged(draft)) owner.push('fact_check');
+  // A profile that is not a full match no longer stops here (owner decision
+  // 2026-10-03, was `knock_out`): the draft goes on and the candidate reads,
+  // above the questions, which requirements the CV does not show
+  // (assistedApplicationFitNotice.js).
+  if (draft?.job?.source === 'none' && !acknowledged('no_posting')) owner.push('no_posting');
+  if ((!draft?.channel || draft.channel.type === 'unknown') && !acknowledged('channel_unknown')) owner.push('channel_unknown');
+  // career-ops Block G "Suspicious": the owner looks at the posting first.
+  if (draft?.legitimacy?.tier === 'suspicious' && !acknowledged('legitimacy')) owner.push('legitimacy');
+  if (requiredDocumentsFor(draft, flow).some((document) => document.delivery === 'offline')
+    && flow?.postalSubmission?.enabled !== true) owner.push('postal_submission_missing');
+  const candidateFlow = { ...(flow && typeof flow === 'object' ? flow : {}), answers, questionAnswers };
+  const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow });
+  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
+  const candidate = questions
+    .filter((question) => question.required
+      && (!String(projected?.[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, projected?.[question.id])))
+    .map((question) => question.id);
+  // A required document (school reports, a test result…) the candidate has not given yet.
+  return { owner, candidate, documents: openRequiredDocuments(draft, documents, flow) };
+}
+
+/**
+ * The rounds whose draft the candidate was shown, in order. Their MAX_REVIEW_ROUNDS count these and never the
+ * round's number (owner decision 2026-10-08, on an order at «round 3 of 3» whose candidate had seen one
+ * draft: the other two were regenerations Valerie asked for before any reached them). The number still grows
+ * with every regeneration: it names the draft, so that a link of an older one can no longer approve.
+ * A flow written before the record counts every round up to its own, as it did then.
+ * @returns {number[]}
+ */
+export function roundsShown(flow) {
+  if (Array.isArray(flow?.shownRounds)) {
+    return [...new Set(flow.shownRounds.map(Number).filter((round) => Number.isInteger(round) && round > 0))].sort((left, right) => left - right);
+  }
+  return Array.from({ length: Number(flow?.round) || 1 }, (_, index) => index + 1);
+}
+
+/** Why the portal stopped ("whatsapp" from "portal:whatsapp"), or null. */
+function portalStopOf(heldBy = []) {
+  const hold = (Array.isArray(heldBy) ? heldBy : []).find((item) => String(item).startsWith('portal:'));
+  return hold ? String(hold).slice('portal:'.length) : null;
+}
+
+/** What only the candidate can give, as holds: the open questions, then the missing documents. */
+function candidateHolds(flags) {
+  return [...flags.candidate.map((id) => `question:${id}`), ...(flags.documents || []).map((id) => `document:${id}`)];
+}
+
+/** A persisted candidate hold must still be backed by the current draft. */
+function candidateHoldBelongsToDraft(hold, draft, flow) {
+  const value = String(hold || '');
+  const separator = value.indexOf(':');
+  if (separator < 1) return false;
+  const kind = value.slice(0, separator);
+  const id = value.slice(separator + 1);
+  if (!id) return false;
+  if (kind === 'question') return (Array.isArray(draft?.questions) ? draft.questions : [])
+    .some((question) => String(question?.id || '') === id);
+  if (kind === 'document') return requiredDocumentsFor(draft, flow)
+    .some((document) => String(document?.id || '') === id);
+  return false;
+}
+
+function candidateHoldsBelongToDraft(holds, draft, flow) {
+  return (Array.isArray(holds) ? holds : [])
+    .filter((hold) => /^(question|document):/.test(String(hold)))
+    .every((hold) => candidateHoldBelongsToDraft(hold, draft, flow));
+}
+
+/** Do not ask the candidate about a runner requirement the review page cannot show. */
+function candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments) {
+  const visibleQuestions = new Set((flags.candidate || []).map(String));
+  const visibleDocuments = new Set((flags.documents || []).map(String));
+  return unresolvedQuestions.every((id) => visibleQuestions.has(id))
+    && eventDocuments.every((id) => visibleDocuments.has(String(id)));
+}
+
+/** Current flow with every field present; transitions overwrite only what changes. */
+function base(flow) {
+  return {
+    state: flow?.state || 'drafting',
+    round: Number(flow?.round) || 1,
+    deadlineAt: Number(flow?.deadlineAt) || null,
+    reminderAt: Number(flow?.reminderAt) || null,
+    reminderSentAt: Number(flow?.reminderSentAt) || null,
+    heldBy: Array.isArray(flow?.heldBy) ? flow.heldBy : [],
+    heldSince: Number(flow?.heldSince) || null,
+    heldNudges: Number(flow?.heldNudges) || 0,
+    feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
+    history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
+    shownRounds: roundsShown(flow),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      ? { orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION }
+      : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerSnapshots && typeof flow.questionAnswerSnapshots === 'object' && !Array.isArray(flow.questionAnswerSnapshots)
+      ? { questionAnswerSnapshots: { ...flow.questionAnswerSnapshots } }
+      : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerSnapshotIds && typeof flow.questionAnswerSnapshotIds === 'object' && !Array.isArray(flow.questionAnswerSnapshotIds)
+      ? { questionAnswerSnapshotIds: { ...flow.questionAnswerSnapshotIds } }
+      : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerCompatibility && typeof flow.questionAnswerCompatibility === 'object' && !Array.isArray(flow.questionAnswerCompatibility)
+      ? { questionAnswerCompatibility: { ...flow.questionAnswerCompatibility } }
+      : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerConfirmationHashes && typeof flow.questionAnswerConfirmationHashes === 'object' && !Array.isArray(flow.questionAnswerConfirmationHashes)
+      ? { questionAnswerConfirmationHashes: { ...flow.questionAnswerConfirmationHashes } }
+      : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerSources && typeof flow.questionAnswerSources === 'object' && !Array.isArray(flow.questionAnswerSources)
+      ? { questionAnswerSources: { ...flow.questionAnswerSources } }
+      : {}),
+    // Keep the semantic answer ledger across every transition.  Older flows
+    // may not have the field yet; a plain object is the only shape accepted by
+    // the candidate-answer projection and avoids leaking malformed data into
+    // the next persisted state.
+    questionAnswers: flow?.questionAnswers && typeof flow.questionAnswers === 'object' && !Array.isArray(flow.questionAnswers)
+      ? { ...flow.questionAnswers }
+      : {},
+    ...(candidateRequestTelemetryState(flow?.candidateRequestTelemetry)
+      ? { candidateRequestTelemetry: candidateRequestTelemetryState(flow.candidateRequestTelemetry) }
+      : {}),
+    answerSuggestionDismissals: flow?.answerSuggestionDismissals
+      && Number.isInteger(Number(flow.answerSuggestionDismissals.round))
+      && Number(flow.answerSuggestionDismissals.round) > 0
+      && Array.isArray(flow.answerSuggestionDismissals.ids)
+      ? {
+        round: Number(flow.answerSuggestionDismissals.round),
+        ids: [...new Set(flow.answerSuggestionDismissals.ids
+          .filter(id => typeof id === 'string' && id.length > 0 && id.length <= 160))].slice(0, 80),
+      }
+      : null,
+    // The last wait for the candidate that ended (round, since, until), and when the ad was found closed
+    // during one: see the end of transition, and the tick.
+    lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,
+    postingExpiredAt: Number(flow?.postingExpiredAt) || null,
+    portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
+    // An explicitly malformed persisted count must not be normalized to zero:
+    // that would silently mint a fresh automatic retry budget.
+    portalAutoRetryCount: portalAutoRetryCountValue(flow) ?? -1,
+    draftAutoRetryAt: Number(flow?.draftAutoRetryAt) || null,
+    // An explicitly malformed persisted count must fail closed instead of
+    // creating another automatic draft run.
+    draftAutoRetryCount: draftAutoRetryCountValue(flow) ?? -1,
+    dispatchRecoveryAt: Number(flow?.dispatchRecoveryAt) || null,
+    // An explicitly malformed count must fail closed instead of minting a
+    // second retry after a pre-dispatch failure.
+    dispatchRecoveryCount: dispatchRecoveryCountValue(flow) ?? -1,
+    portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
+    portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
+    transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,
+    factRepairAttempts: Number(flow?.factRepairAttempts) || 0,
+  };
+}
+
+/** The flow waits for answers only the candidate can give (the review's questions, or the portal's). */
+function waitsForCandidate(flow) {
+  return ['candidate_review', 'needs_candidate_action'].includes(flow.state)
+    && flow.heldBy.some((held) => /^(question|document):/.test(String(held)));
+}
+
+/** This round waited, or waits, for what only the candidate can give. */
+function waitedForCandidate(flow) {
+  return waitsForCandidate(flow) || Number(flow.lastWait?.round) === Number(flow.round);
+}
+
+// Where a reminder that is due is one to the candidate: their review, a portal waiting for them, a portal step
+// handed to them. One list for the flow and for the sweep, which looks at the ad before such a reminder
+// (assistedApplicationAutomation.js runAutomationSweep; review of #12366).
+export const CANDIDATE_REMINDER_STATES = new Set(['candidate_review', 'needs_candidate_action', 'candidate_handoff']);
+
+/**
+ * The tick that is due would write to the candidate: a reminder of the questions and documents still open, of
+ * the 12 hours running out, or of the portal step handed to them. (The notice to Valerie after the reminders
+ * of a wait counts too: with the ad closed she hears that instead.)
+ */
+function remindsCandidate(flow, nowMs) {
+  return Boolean(flow.reminderAt) && nowMs >= flow.reminderAt && CANDIDATE_REMINDER_STATES.has(flow.state);
+}
+
+/** The wait for the candidate's answers starts its reminders, or keeps the ones of a wait already running. */
+function waitForCandidate(next, nowMs) {
+  if (next.heldSince) return;
+  next.heldSince = nowMs;
+  next.heldNudges = 0;
+  next.reminderAt = nowMs + HELD_REMINDERS_AFTER_MS[0];
+  // The 12 h clock that starts after the last answer is a new one, with its own reminder (review of #10803).
+  next.reminderSentAt = null;
+}
+
+function withHistory(next, event, nowMs) {
+  next.history = [...next.history, { at: nowMs, event, state: next.state }].slice(-40);
+  return next;
+}
+
+/**
+ * The round's draft never came out (its run failed, timed out, or Valerie
+ * took over while it was being written): the runner stores a draft only when
+ * it succeeds, so the stored one belongs to an earlier round, or there is none.
+ * The candidate has seen nothing of this round.
+ */
+function roundDraftMissing(current, draft) {
+  return Number(draft?.round) !== Number(current.round);
+}
+
+/**
+ * The round reached its sending: the candidate approved it, or let its 12 hours
+ * pass, and the last run asked for it was the sending (`dispatch`, written
+ * with every dispatch by assistedApplicationAutomation.js). A round stopped
+ * before that (Valerie took it over while it was in review, its draft failed,
+ * the candidate rejected it for the third time) was never approved: its draft
+ * exists, and is no application to send. A dispatch without its round (written
+ * before the round was recorded) is read as the current one's.
+ */
+export function roundWasSent(flow, round = Number(flow?.round) || 1) {
+  const dispatch = flow?.dispatch;
+  return dispatch?.mode === 'submit' && (dispatch.round === undefined || dispatch.round === null || Number(dispatch.round) === Number(round));
+}
+
+/** The round's draft is written again, in the same round. */
+/** Only generated-text fact holds can be recovered without an operator's judgement. */
+export function needsFactRepair(flow) {
+  return ['owner_review', 'owner_takeover'].includes(flow?.state)
+    && (flow.heldBy || []).some((held) => ['fact_check', 'fact_check_not_acknowledged'].includes(held));
+}
+
+function enterFactRepair(next, current) {
+  if (current.factRepairAttempts >= MAX_RUN_ATTEMPTS) {
+    next.state = 'owner_takeover';
+    next.heldBy = ['fact_repair_failed'];
+    next.deadlineAt = null;
+    next.reminderAt = null;
+    return [{ type: 'email', kind: 'owner_takeover', reason: 'fact_repair_failed', stage: 'draft', attempts: current.factRepairAttempts }];
+  }
+  next.factRepairAttempts = current.factRepairAttempts + 1;
+  // Changed documents must be shown again; an approval of an old draft never
+  // authorises the repaired one. Unseen drafts keep their current round.
+  if (current.shownRounds.includes(current.round)) next.round = current.round + 1;
+  return redraftSameRound(next, 'fact_repair');
+}
+
+function redraftSameRound(next, reason) {
+  next.state = 'regenerating';
+  next.deadlineAt = null;
+  next.reminderAt = null;
+  next.heldBy = [];
+  next.portalAutoRetryAt = null;
+  next.draftAutoRetryAt = null;
+  next.dispatchRecoveryAt = null;
+  next.dispatchRecoveryCount = 0;
+  return [{ type: 'dispatch', mode: 'draft', reason }];
+}
+
+function enterOwnerReview(next, flags, nowMs) {
+  next.state = 'owner_review';
+  next.heldBy = flags.owner;
+  next.deadlineAt = flags.owner.length ? null : nowMs + OWNER_REVIEW_MS;
+  next.reminderAt = null;
+  next.reminderSentAt = null;
+  return [{ type: 'email', kind: 'owner_review', held: flags.owner.length > 0, flags: flags.owner }];
+}
+
+function enterCandidateReview(next, flags, nowMs, { resend = true, keepDeadline = null } = {}) {
+  next.state = 'candidate_review';
+  // The candidate is shown this round's draft: it counts among theirs (roundsShown).
+  if (!next.shownRounds.includes(next.round)) next.shownRounds = [...next.shownRounds, next.round];
+  next.heldBy = candidateHolds(flags);
+  if (next.heldBy.length) {
+    next.deadlineAt = null;
+    waitForCandidate(next, nowMs);
+  } else {
+    // Answering the last open question starts the 12 h clock (or keeps the
+    // one already running), it never shortens it.
+    next.deadlineAt = keepDeadline && keepDeadline > nowMs ? keepDeadline : nowMs + CANDIDATE_REVIEW_MS;
+    next.reminderAt = next.reminderSentAt ? null : next.deadlineAt - CANDIDATE_REMINDER_BEFORE_MS;
+  }
+  return resend ? [{ type: 'email', kind: 'candidate_review', held: next.heldBy.length > 0, round: next.round }] : [];
+}
+
+function enterSubmitting(next, reason) {
+  next.state = 'submitting';
+  next.deadlineAt = null;
+  next.reminderAt = null;
+  next.heldBy = [];
+  return [{ type: 'dispatch', mode: 'submit', reason }];
+}
+
+function enterPostalHandoff(next, nowMs) {
+  next.state = 'candidate_handoff';
+  next.deadlineAt = null;
+  next.reminderAt = nowMs + HANDOFF_REMINDER_MS;
+  next.reminderSentAt = null;
+  next.heldBy = ['postal_application'];
+  next.submittedVia = 'postal';
+  return [{ type: 'email', kind: 'candidate_handoff', reason: 'postal_application' }];
+}
+
+const isPostalSubmission = (flow) => flow?.postalSubmission?.enabled === true;
+
+function hasAnswer(value) {
+  return typeof value === 'boolean'
+    || (typeof value === 'number' && Number.isFinite(value))
+    || (typeof value === 'string' && value.trim().length > 0)
+    || (Array.isArray(value) && value.some((item) => String(item ?? '').trim().length > 0));
+}
+
+/**
+ * A portal question is reported by id for backwards compatibility and by a
+ * descriptor when the runner knows its label. The descriptor lets the flow
+ * use the semantic answer ledger after an ATS regenerates the field id.
+ */
+function questionDescriptor(question) {
+  if (!question || typeof question !== 'object') return null;
+  const id = typeof question.id === 'string' || typeof question.id === 'number' ? String(question.id).trim() : '';
+  if (!id) return null;
+  return { ...question, id };
+}
+
+const MAX_CANDIDATE_REQUEST_ROUND = 1000;
+const MAX_CANDIDATE_REQUEST_QUESTIONS = 20;
+
+/** Safe, answer-free metadata emitted with a portal candidate-request round. */
+export function candidateRequestTelemetryOf(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const round = Number(value.round);
+  const questionCount = Number(value.questionCount);
+  if (!Number.isInteger(round) || round < 1 || round > MAX_CANDIDATE_REQUEST_ROUND
+    || !Number.isInteger(questionCount) || questionCount < 0 || questionCount > MAX_CANDIDATE_REQUEST_QUESTIONS
+    || typeof value.afterNewlyRevealedPortalFields !== 'boolean') return null;
+  return { round, questionCount, afterNewlyRevealedPortalFields: value.afterNewlyRevealedPortalFields };
+}
+
+function candidateRequestTelemetryState(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const rounds = Number(value.rounds);
+  const newlyRevealedRounds = Number(value.newlyRevealedRounds);
+  const lastRound = Number(value.lastRound);
+  const lastQuestionCount = Number(value.lastQuestionCount);
+  if (!Number.isInteger(rounds) || rounds < 0 || rounds > MAX_CANDIDATE_REQUEST_ROUND
+    || !Number.isInteger(newlyRevealedRounds) || newlyRevealedRounds < 0 || newlyRevealedRounds > rounds
+    || !Number.isInteger(lastRound) || lastRound < 0 || lastRound > MAX_CANDIDATE_REQUEST_ROUND
+    || !Number.isInteger(lastQuestionCount) || lastQuestionCount < 0 || lastQuestionCount > MAX_CANDIDATE_REQUEST_QUESTIONS
+    || (lastRound > 0 && typeof value.lastAfterNewlyRevealedPortalFields !== 'boolean')) return null;
+  return {
+    rounds,
+    newlyRevealedRounds,
+    lastRound,
+    lastQuestionCount,
+    ...(lastRound > 0 ? { lastAfterNewlyRevealedPortalFields: value.lastAfterNewlyRevealedPortalFields } : {}),
+  };
+}
+
+function recordCandidateRequestTelemetry(next, value) {
+  const report = candidateRequestTelemetryOf(value);
+  if (!report) return;
+  const previous = candidateRequestTelemetryState(next.candidateRequestTelemetry) || {
+    rounds: 0, newlyRevealedRounds: 0, lastRound: 0, lastQuestionCount: 0,
+  };
+  const isNewRound = report.round > previous.rounds;
+  next.candidateRequestTelemetry = {
+    rounds: Math.max(previous.rounds, report.round),
+    newlyRevealedRounds: Math.min(MAX_CANDIDATE_REQUEST_ROUND,
+      previous.newlyRevealedRounds + (isNewRound && report.afterNewlyRevealedPortalFields ? 1 : 0)),
+    lastRound: isNewRound || report.round >= previous.lastRound ? report.round : previous.lastRound,
+    lastQuestionCount: isNewRound || report.round >= previous.lastRound ? report.questionCount : previous.lastQuestionCount,
+    lastAfterNewlyRevealedPortalFields: isNewRound || report.round >= previous.lastRound
+      ? report.afterNewlyRevealedPortalFields : previous.lastAfterNewlyRevealedPortalFields,
+  };
+}
+
+function normalizedQuestionPart(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+/** Read an answer the portal already recorded, including answers derived from the CV. */
+function portalAnswerForQuestion(question, draft) {
+  const records = Array.isArray(draft?.portalAnswers?.answers) ? draft.portalAnswers.answers : [];
+  if (!records.length) return undefined;
+  const semanticKey = String(question?.semanticKey || question?.portalKey || '').trim();
+  const label = normalizedQuestionPart(question?.question);
+  if (!semanticKey && !label) return undefined;
+  const context = normalizedQuestionPart(question?.context);
+  const section = normalizedQuestionPart(question?.section);
+  const autocomplete = normalizedQuestionPart(question?.autocomplete);
+  let fallback;
+  for (const record of records) {
+    if (!record || typeof record !== 'object' || !hasAnswer(record.answer)) continue;
+    const recordKey = String(record.semanticKey || record.portalKey || '').trim();
+    if (semanticKey && recordKey === semanticKey) return record.answer;
+    if (!label || normalizedQuestionPart(record.question) !== label) continue;
+    if (context && normalizedQuestionPart(record.context) !== context) continue;
+    if (section && normalizedQuestionPart(record.section) !== section) continue;
+    if (autocomplete && normalizedQuestionPart(record.autocomplete) !== autocomplete) continue;
+    fallback = record.answer;
+  }
+  return fallback;
+}
+
+function knownAnswerForQuestion(question, { draft, answers, questionAnswers }) {
+  if (hasAnswer(answers?.[question.id])) return answers[question.id];
+  const projected = candidateAnswersForQuestions(draft?.questions || [], answers, questionAnswers);
+  if (hasAnswer(projected?.[question.id])) return projected[question.id];
+  const portalAnswer = portalAnswerForQuestion(question, draft);
+  if (hasAnswer(portalAnswer)) return portalAnswer;
+  const key = candidateQuestionAnswerKey(question);
+  if (!key) return operationalDefaultAnswer(question)?.value;
+  const remembered = candidateAnswersForQuestions([question], {}, questionAnswers);
+  if (hasAnswer(remembered?.[question.id])) return remembered[question.id];
+  for (const current of Array.isArray(draft?.questions) ? draft.questions : []) {
+    if (candidateQuestionAnswerKey(current) !== key) continue;
+    if (hasAnswer(projected?.[current.id])) return projected[current.id];
+  }
+  return operationalDefaultAnswer(question)?.value;
+}
+
+function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
+  next.state = 'owner_takeover';
+  next.deadlineAt = null;
+  next.reminderAt = null;
+  const reason = String(event.reason || 'portal_needs_candidate');
+  next.portalCodeVersion = portalCodeVersion(event.portalCodeVersion) || current.portalCodeVersion;
+  next.heldBy = [`${reason === 'email_provider_unavailable' ? 'transport' : 'portal'}:${reason.slice(0, 60)}`];
+  const infrastructure = isInfrastructureRetryHold(next);
+  const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
+  const delays = autoRetryDelaysForFlow(next);
+  const delay = delays[infrastructure ? Math.min(attempts, delays.length - 1) : attempts];
+  next.portalAutoRetryAt = isAutoRetryablePortalHold(next) && delay
+    ? nowMs + delay
+    : null;
+  // Infrastructure retries continue after the short backoff ladder. Notify
+  // operations once, without handing every affected application to a human.
+  if (next.portalAutoRetryAt && infrastructure && attempts !== delays.length) return null;
+  return {
+    type: 'email',
+    kind: 'owner_takeover',
+    reason: next.heldBy[0],
+    stage: 'submit',
+    attempts: Number(attemptsOverride) || Number(current?.dispatch?.attempts) || 1,
+  };
+}
+
+export function canOwnerHandoffToCandidate(flow, reason = '') {
+  return flow?.state === 'owner_takeover' && !isCaptchaPortalHold(flow) && !isCaptchaHandoffReason(reason);
+}
+
+/**
+ * @param {object|null} flow current flow (order.automation)
+ * @param {{type:string, feedback?:string, questions?:Array, error?:string}} event
+ * @param {{order?:object, draft?:object, answers?:object, documents?:object, postalPacketReady?:boolean, nowMs?:number}} context
+ * @returns {{flow:object, effects:Array<object>, ignored?:string}}
+ */
+export function transition(flow, event, { order = {}, draft = null, answers = {}, documents = {}, postalPacketReady = true, nowMs = Date.now() } = {}) {
+  const current = base(flow);
+  const state = current.state;
+  const next = { ...current };
+  const flags = evaluateRedFlags(draft, answers, documents, flow?.questionAnswers, flow, order);
+  const ignore = (why) => ({ flow: current, effects: [], ignored: why });
+  const enterReadyPostalHandoff = () => {
+    if (postalPacketReady !== false) return enterPostalHandoff(next, nowMs);
+    next.state = 'candidate_review';
+    next.deadlineAt = null;
+    next.reminderAt = null;
+    next.heldBy = ['postal_packet_not_ready'];
+    delete next.submittedVia;
+    return [];
+  };
+  if (state === 'withdrawn') return ignore('withdrawn');
+  if (TERMINAL_STATES.has(state) && !STOPPED_EXITS.has(event.type)) return ignore('terminal');
+
+  let effects = [];
+  switch (event.type) {
+    case 'draft_ready':
+      if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
+      // A clean draft is safe to show to the candidate immediately. The owner
+      // review remains a hard gate for fact, channel, legitimacy and posting
+      // flags, but a normal CV must not wait for an owner acknowledgement just
+      // to start the candidate's own review clock (ownerless automation).
+      if (flags.owner.includes('fact_check')) {
+        effects = enterFactRepair(next, current);
+        break;
+      }
+      effects = flags.owner.length ? enterOwnerReview(next, flags, nowMs) : enterCandidateReview(next, flags, nowMs);
+      break;
+    case 'draft_failed': {
+      if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
+      // A transient failure gets another run first; the owner takes over only
+      // after the last attempt, or for an error another run will not fix.
+      const retry = transientRetry(flow, event, 'draft');
+      if (retry) {
+        effects = retry;
+        break;
+      }
+      next.state = 'owner_takeover';
+      next.heldBy = ['draft_failed'];
+      effects = [takeoverEmail(flow, event, 'draft')];
+      break;
+    }
+    case 'repair_facts':
+      if (!needsFactRepair(current) || roundDraftMissing(current, draft)) return ignore('not_fact_held');
+      effects = enterFactRepair(next, current);
+      break;
+    case 'owner_approve':
+      if (state !== 'owner_review') return ignore('not_owner_review');
+      // Every owner flag needs its explicit acknowledgement (written to the
+      // draft by the queue before this event): approving is not enough.
+      if (flags.owner.length) return ignore('owner_flags_open');
+      effects = enterCandidateReview(next, flags, nowMs);
+      break;
+    case 'owner_takeover':
+      next.state = 'owner_takeover';
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.heldBy = ['owner'];
+      effects = [];
+      break;
+    case 'owner_regenerate':
+      // Valerie asks for a new draft (e.g. after editing the answers): a new
+      // round, so links of the previous round can no longer approve. A round
+      // whose draft never came out is written again as the same round. Neither
+      // costs the candidate one of their rounds: those are the drafts they
+      // were shown (roundsShown), and this one reaches them only when the
+      // flow enters their review.
+      if (!['owner_review', 'owner_takeover', 'candidate_review'].includes(state)) return ignore('not_regenerable');
+      if (state !== 'owner_takeover' || !roundDraftMissing(current, draft)) next.round = current.round + 1;
+      effects = redraftSameRound(next, 'owner_regenerate');
+      break;
+    case 'owner_resume':
+      if (state !== 'owner_takeover' && state !== 'failed') return ignore('not_taken_over');
+      // Nothing to review when the round's draft never came out: it is
+      // written again. A closed ad stays stopped: resuming it is Valerie's call
+      // on the draft she has.
+      if (roundDraftMissing(current, draft) && !current.heldBy.includes('posting_closed')) {
+        effects = redraftSameRound(next, 'owner_resume');
+        break;
+      }
+      effects = enterOwnerReview(next, { owner: [], candidate: flags.candidate, documents: flags.documents }, nowMs);
+      break;
+    case 'draft_auto_retry': {
+      if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (!Array.isArray(current.heldBy) || current.heldBy.length !== 1 || current.heldBy[0] !== 'draft_failed') {
+        return ignore('not_draft_retryable');
+      }
+      if (current.postingExpiredAt) return ignore('posting_expired');
+      const retryAt = draftRetryDueAt(current);
+      if (!retryAt || retryAt > nowMs) return ignore('draft_retry_not_due');
+      if (!roundDraftMissing(current, draft)) return ignore('draft_available');
+      const attempts = draftAutoRetryCountValue(current);
+      if (attempts === null || attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS) return ignore('draft_retry_limit');
+      next.draftAutoRetryCount = attempts + 1;
+      effects = redraftSameRound(next, 'draft_auto_retry');
+      break;
+    }
+    case 'tick': {
+      if (needsFactRepair(current)) {
+        effects = enterFactRepair(next, current);
+        break;
+      }
+      const deadline = current.deadlineAt || 0;
+      const reminder = current.reminderAt || 0;
+      // The ad closed while the candidate is awaited (the caller looks before it reminds them:
+      // assistedApplicationAutomation.js runAutomationSweep). No reminder for an application that can no
+      // longer leave (owner decision 2026-10-08): the order keeps waiting, silent, and Valerie hears of it
+      // once and decides how to close it. Nothing is refunded here: that is her call, or the runner's when
+      // it finds the ad closed (posting_closed). The 12 hours stop with the reminders: an application is not
+      // sent by itself to an ad known closed, behind the notice that says the order waits (review of #12366).
+      // The candidate's own approval still sends it, and the runner then looks at the ad itself.
+      if (event.postingExpired && remindsCandidate(current, nowMs)) {
+        next.reminderAt = null;
+        next.deadlineAt = null;
+        if (!current.postingExpiredAt) {
+          next.postingExpiredAt = nowMs;
+          effects = [{ type: 'email', kind: 'owner_posting_expired', since: current.heldSince || nowMs }];
+        }
+        break;
+      }
+      // A legacy question can become answerable from a complete CV list after
+      // the draft was shown. Release that review on its next scheduled tick;
+      // the original review link remains valid and no duplicate email is sent.
+      if (
+        state === 'candidate_review'
+        && current.heldBy.length > 0
+        && current.heldBy.every((held) => /^(question|document):/.test(String(held)))
+        && candidateHoldsBelongToDraft(current.heldBy, draft, flow)
+        && candidateHolds(flags).length === 0
+      ) {
+        effects = enterCandidateReview(next, flags, nowMs, { resend: false });
+        break;
+      }
+      // An already approved round held only by obsolete/missing operational
+      // answers can resume on a normal tick. Never release unknown holds,
+      // missing documents, owner flags or a known closed posting.
+      if (state === 'needs_candidate_action' && !event.postingExpired && !current.postingExpiredAt
+        && current.heldBy.length > 0
+        && current.heldBy.every(held => String(held).startsWith('question:')
+          && (draft?.questions || []).some(question => question.id === String(held).slice(9)))
+        && flags.owner.length === 0 && candidateHolds(flags).length === 0
+        && roundWasSent(flow, current.round)) {
+        effects = isPostalSubmission(flow)
+          ? enterReadyPostalHandoff()
+          : enterSubmitting(next, 'resolved_candidate_answers');
+        break;
+      }
+      if (waitsForCandidate(current) && reminder && nowMs >= reminder) {
+        const since = current.heldSince || nowMs;
+        const nudge = current.heldNudges + 1;
+        next.heldNudges = nudge;
+        if (nudge <= HELD_REMINDERS_AFTER_MS.length) {
+          next.reminderAt = since + (HELD_REMINDERS_AFTER_MS[nudge] ?? HELD_OWNER_NOTICE_AFTER_MS);
+          effects = [{ type: 'email', kind: 'candidate_questions_reminder', nudge, since }];
+        } else {
+          // The order keeps waiting (nothing leaves without the answers): Valerie decides.
+          next.reminderAt = null;
+          effects = [{ type: 'email', kind: 'owner_candidate_silent', since, days: Math.max(1, Math.round((nowMs - since) / (24 * 60 * 60 * 1000))), nudges: HELD_REMINDERS_AFTER_MS.length }];
+        }
+        break;
+      }
+      if (state === 'owner_review' && deadline && nowMs >= deadline) {
+        // A flag can appear after the clock started (e.g. an edit that
+        // reintroduced an unverified number): hold instead of passing it on.
+        if (flags.owner.length) {
+          next.heldBy = flags.owner;
+          next.deadlineAt = null;
+          effects = [{ type: 'email', kind: 'owner_review', held: true, flags: flags.owner }];
+          break;
+        }
+        effects = enterCandidateReview(next, flags, nowMs);
+        break;
+      }
+      if (state === 'candidate_review' && deadline && nowMs >= deadline) {
+        if (flags.owner.includes('postal_submission_missing')) {
+          effects = enterOwnerReview(next, flags, nowMs);
+          break;
+        }
+        if (candidateHolds(flags).length) {
+          next.heldBy = candidateHolds(flags);
+          next.deadlineAt = null;
+          waitForCandidate(next, nowMs);
+          effects = [];
+          break;
+        }
+        effects = isPostalSubmission(flow)
+          ? enterReadyPostalHandoff()
+          : enterSubmitting(next, 'auto_approved_12h');
+        break;
+      }
+      if (state === 'candidate_review' && reminder && nowMs >= reminder && !current.reminderSentAt) {
+        next.reminderAt = null;
+        next.reminderSentAt = nowMs;
+        effects = [{ type: 'email', kind: 'candidate_reminder', deadlineAt: current.deadlineAt }];
+        break;
+      }
+      if (state === 'candidate_handoff' && reminder && nowMs >= reminder && !current.reminderSentAt) {
+        next.reminderAt = null;
+        next.reminderSentAt = nowMs;
+        effects = [{ type: 'email', kind: 'candidate_handoff_reminder' }];
+        break;
+      }
+      return ignore('nothing_due');
+    }
+    case 'submit_handoff':
+      // CAPTCHA, account verification and candidate-only steps stay with
+      // Valerie. A generic unsupported page gets two delayed retries so the
+      // portal-stop fixer can teach the runner before the order stays held.
+      // A CAPTCHA provider outage is also an owner takeover; the robot does not
+      // retry CAPTCHA challenges.
+      if (state !== 'submitting') return ignore('not_submitting');
+      effects = [portalTakeover(next, current, event, nowMs)].filter(Boolean);
+      break;
+    case 'owner_retry_submit':
+      // The approved application is sent again by the robot (after a runner
+      // fix, or a portal that was briefly unavailable): only for the round's
+      // own draft, which the candidate approved.
+      if (!['owner_takeover', 'candidate_handoff'].includes(state)) return ignore('not_retryable');
+      if (isPostalSubmission(flow)) return ignore('postal_submission_requires_candidate');
+      if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
+      if (isCaptchaPortalHold(current)) return ignore('captcha_requires_owner');
+      // The robot sends only what the candidate approved. A real order of 2026-10-07 was taken over while
+      // in the owner's review, and «retry» sent its draft to the portal, never seen by the candidate.
+      if (!roundWasSent(flow, current.round)) return ignore('not_approved');
+      next.portalAutoRetryAt = null;
+      effects = enterSubmitting(next, 'owner_retry');
+      break;
+    case 'portal_auto_retry': {
+      if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (isPostalSubmission(flow)) return ignore('postal_submission_requires_candidate');
+      if (!isAutoRetryablePortalHold(current)) return ignore('not_auto_retryable');
+      const retryAt = portalRetryDueAt(current);
+      if (!retryAt || retryAt > nowMs) return ignore('portal_retry_not_due');
+      if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
+      if (!roundWasSent(flow, current.round)) return ignore('not_approved');
+      const infrastructure = isInfrastructureRetryHold(current);
+      const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
+      if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length) return ignore('portal_retry_limit');
+      if (!Number.isSafeInteger(attempts) || attempts < 0) return ignore('invalid_retry_count');
+      next[infrastructure ? 'transportAutoRetryCount' : 'portalAutoRetryCount'] = attempts + 1;
+      next.portalAutoRetryAt = null;
+      effects = enterSubmitting(next, 'portal_auto_retry');
+      break;
+    }
+    case 'owner_handoff':
+      // Valerie's choice, for a step only the candidate can do (an SMS to their phone).
+      if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (isPostalSubmission(flow)) {
+        if (roundDraftMissing(current, draft) || flow.submittedVia !== 'postal') return ignore('not_approved');
+        if (postalPacketReady === false) return ignore('postal_packet_not_ready');
+        effects = enterPostalHandoff(next, nowMs);
+        break;
+      }
+      if (!canOwnerHandoffToCandidate(current, event.reason)) return ignore('captcha_requires_owner');
+      if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
+      next.state = 'candidate_handoff';
+      next.deadlineAt = null;
+      next.reminderAt = nowMs + HANDOFF_REMINDER_MS;
+      next.reminderSentAt = null;
+      // The candidate is told why: the portal's own candidate-only step (for example, WhatsApp).
+      effects = [{ type: 'email', kind: 'candidate_handoff', reason: event.reason || portalStopOf(current.heldBy) }];
+      next.heldBy = ['owner_handoff'];
+      break;
+    case 'owner_submitted':
+      // Valerie sent it herself on the portal (the fill extension, or by
+      // hand), after the robot stopped: the candidate paid for the sending,
+      // so it is never handed to them (owner decision 2026-10-01).
+      if (!['owner_takeover', 'candidate_handoff'].includes(state)) return ignore('not_taken_over');
+      if (isPostalSubmission(flow)) return ignore('postal_submission_requires_candidate');
+      next.state = 'submitted';
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.heldBy = [];
+      effects = [{ type: 'mark_submitted', by: 'owner' }];
+      break;
+    case 'candidate_confirmed_submitted':
+      if (state !== 'candidate_handoff') return ignore('not_handoff');
+      if (isPostalSubmission(flow) && postalPacketReady === false) return ignore('postal_packet_not_ready');
+      next.state = 'submitted';
+      next.reminderAt = null;
+      next.heldBy = [];
+      effects = [{ type: 'mark_submitted', by: 'candidate' }];
+      break;
+    case 'posting_closed':
+      if (!['drafting', 'regenerating', 'owner_review', 'candidate_review', 'submitting'].includes(state)) {
+        return ignore('not_open');
+      }
+      next.state = 'owner_takeover';
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.heldBy = ['posting_closed'];
+      // Terms 6.5 (owner decision 2026-10-08): an ad that closes while the application waits for documents
+      // or answers only the candidate can give is not refunded. The robot cannot tell when the ad closed,
+      // only that this round waited for the candidate: it refunds nothing by itself, and Valerie decides
+      // and writes to them. For every order, with no day from which it holds (the owner's second word that
+      // day: the Terms name none); she can still refund from the queue an ad that was closed before the wait.
+      if (waitedForCandidate(current)) {
+        effects = [{ type: 'email', kind: 'owner_takeover', reason: 'posting_closed_waited' }];
+        break;
+      }
+      // Owner decision 2026-09-30: the refund the welcome e-mail promises is
+      // "the ad closed before we could send it" — so it is automatic.
+      // The candidate's "we refunded you" e-mail is sent by the refund effect
+      // itself, only once the refund went through (retried if it fails).
+      effects = [
+        { type: 'refund', reason: 'posting_closed', notify: 'candidate_posting_closed' },
+        { type: 'email', kind: 'owner_takeover', reason: 'posting_closed' },
+      ];
+      break;
+    case 'candidate_approve':
+      if (state !== 'candidate_review') return ignore('not_candidate_review');
+      if (flags.owner.includes('postal_submission_missing')) {
+        effects = enterOwnerReview(next, flags, nowMs);
+        break;
+      }
+      if (candidateHolds(flags).length) return { flow: current, effects: [], ignored: 'questions_open' };
+      effects = isPostalSubmission(flow)
+        ? enterReadyPostalHandoff()
+        : enterSubmitting(next, 'candidate_approved');
+      break;
+    case 'candidate_answers':
+      if (state !== 'candidate_review' && state !== 'needs_candidate_action') return ignore('not_waiting_for_candidate');
+      if (state === 'needs_candidate_action') {
+        if (flags.owner.includes('postal_submission_missing')) {
+          effects = enterOwnerReview(next, flags, nowMs);
+          break;
+        }
+        if (candidateHolds(flags).length) return { flow: { ...current }, effects: [], ignored: 'questions_open' };
+        effects = isPostalSubmission(flow)
+          ? enterReadyPostalHandoff()
+          : enterSubmitting(next, 'candidate_answered');
+        break;
+      }
+      effects = enterCandidateReview(next, flags, nowMs, { resend: false, keepDeadline: Number(flow?.deadlineAt) || null });
+      break;
+    case 'owner_update_candidate_requests':
+      if (state !== 'candidate_review') return ignore('not_candidate_review');
+      // The owner has changed the protected page's document checklist or
+      // postal instructions while the candidate was already reviewing it.
+      // Recompute holds from the new configuration and send the same review
+      // link again; keep any live deadline instead of extending it.
+      effects = enterCandidateReview(next, flags, nowMs, { resend: true, keepDeadline: Number(flow?.deadlineAt) || null });
+      break;
+    case 'candidate_reject': {
+      if (state !== 'candidate_review') return ignore('not_candidate_review');
+      const feedback = String(event.feedback || '').trim().slice(0, 2000);
+      next.feedback = [...current.feedback, { round: current.round, at: nowMs, text: feedback }];
+      // The third draft the candidate was shown, whatever its number (roundsShown).
+      if (current.shownRounds.length >= MAX_REVIEW_ROUNDS) {
+        next.state = 'owner_takeover';
+        next.heldBy = ['max_rounds'];
+        effects = [{ type: 'email', kind: 'owner_takeover', reason: 'max_rounds' }];
+        break;
+      }
+      next.state = 'regenerating';
+      next.round = current.round + 1;
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.heldBy = [];
+      effects = [{ type: 'dispatch', mode: 'draft', reason: 'candidate_feedback' }];
+      break;
+    }
+    case 'submit_succeeded':
+      if (state !== 'submitting') return ignore('not_submitting');
+      next.factRepairAttempts = 0;
+      next.state = 'submitted';
+      effects = [{ type: 'mark_submitted' }];
+      break;
+    case 'submit_acknowledged':
+      // career-ops apply.md: an application is sent on the success page OR
+      // the confirmation e-mail. The employer's acknowledgement (or reply) on
+      // the alias settles a send of unknown outcome, while the run is still
+      // out or once Valerie holds it; the caller checked the submission guard.
+      if (state !== 'submitting' && !(state === 'owner_takeover' && current.heldBy.some((held) => AMBIGUOUS_SUBMIT_HOLDS.has(held)))) {
+        return ignore('not_ambiguous_submit');
+      }
+      next.state = 'submitted';
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.heldBy = [];
+      effects = [{ type: 'mark_submitted' }];
+      break;
+    case 'submit_needs_candidate': {
+      if (state !== 'submitting') return ignore('not_submitting');
+      // Portal adapters return question IDs as strings; submit.mjs returns
+      // objects with an `id`. Normalize both shapes before persisting the hold.
+      const rawQuestions = Array.isArray(event.questions) ? event.questions : [];
+      const rawDetails = Array.isArray(event.questionDetails) ? event.questionDetails : [];
+      const detailsById = new Map(rawDetails.map(questionDescriptor).filter(Boolean).map((question) => [question.id, question]));
+      const questionIds = [...new Set([...rawQuestions, ...rawDetails].map((question) => {
+        const id = typeof question === 'string' ? question : question?.id;
+        return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
+      }).filter(Boolean))];
+      const eventDocuments = Array.isArray(event.documents) ? event.documents : [];
+      recordCandidateRequestTelemetry(next, event.candidateRequestTelemetry);
+      const attempts = Number(flow?.dispatch?.attempts) || 1;
+      // An unidentifiable question gives the candidate nothing they can act
+      // on. Treat it as an unsupported portal stop so the owner can retry
+      // after the runner or portal changes, instead of sending a blank request.
+      if (questionIds.length === 0 && eventDocuments.length === 0) {
+        // Keep the stop visible to the owner, but schedule the same bounded
+        // recovery used by an unsupported portal page. In particular, a
+        // portal that only exposes a generic form (without the employer or
+        // role in its visible fields) must not remain suspended forever.
+        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        break;
+      }
+      const unresolvedQuestions = questionIds.filter((id) => {
+        const question = detailsById.get(id) || (draft?.questions || []).find(item => item.id === id) || { id };
+        return !hasAnswer(knownAnswerForQuestion(question, {
+          draft,
+          answers,
+          questionAnswers: flow?.questionAnswers || {},
+        }));
+      });
+      // The review page is generated from the draft, not from the runner
+      // event. If a live requirement was not persisted into that draft, a
+      // candidate-action e-mail would open a page with nothing to answer.
+      // Fail closed into the bounded owner recovery path instead.
+      if (!candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments)) {
+        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        break;
+      }
+      const answersAlreadyExist = questionIds.length > 0 && unresolvedQuestions.length === 0;
+      // A portal can report a validation step as a candidate question even
+      // after the runner filled it from an answer already saved in the flow.
+      // Retry once without sending an unnecessary candidate-action notice;
+      // if the portal still asks, use the delayed portal recovery path below.
+      if (
+        answersAlreadyExist
+        && eventDocuments.length === 0
+        && candidateHolds(flags).length === 0
+        && roundWasSent(flow, current.round)
+        && attempts < 2
+      ) {
+        effects = enterSubmitting(next, 'existing_candidate_answers');
+        effects[0].attempts = attempts + 1;
+        break;
+      }
+      // The answer is known, but the portal still reports the field after the
+      // bounded immediate retry. This is a portal automation stop, not a
+      // candidate wait: schedule the same delayed recovery used for an
+      // unsupported page and never send a request for information we already
+      // have from the CV or the answer ledger.
+      if (answersAlreadyExist
+        && eventDocuments.length === 0
+        && candidateHolds(flags).length === 0
+        && roundWasSent(flow, current.round)) {
+        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        break;
+      }
+      next.state = 'needs_candidate_action';
+      // Red flags are the authoritative projection used by the review API.
+      // Persist all visible open requirements so a legacy event cannot create
+      // an empty hold even when it only reported an already-known field.
+      next.heldBy = candidateHolds(flags);
+      next.heldSince = null;
+      waitForCandidate(next, nowMs);
+      effects = [{ type: 'email', kind: 'candidate_action_needed' }];
+      break;
+    }
+    case 'submit_failed': {
+      if (state !== 'submitting') return ignore('not_submitting');
+      if (event.error === 'email_provider_unavailable') {
+        effects = [portalTakeover(next, current, { reason: 'email_provider_unavailable' }, nowMs)].filter(Boolean);
+        break;
+      }
+      if (event.error === 'fact_check_not_acknowledged') {
+        effects = enterFactRepair(next, current);
+        break;
+      }
+      // Safe to run again: the submission guard (scripts/assisted-application/
+      // lib/submit.mjs) replays an application already sent, and one that may
+      // have left (after the final click, or an e-mail of unknown outcome)
+      // comes back as *_ambiguous, which is never retried.
+      const retry = transientRetry(flow, event, 'submit');
+      if (retry) {
+        effects = retry;
+        break;
+      }
+      next.state = 'owner_takeover';
+      next.heldBy = [String(event.error || 'submit_failed').slice(0, 80)];
+      effects = [takeoverEmail(flow, event, 'submit')];
+      break;
+    }
+    default:
+      return ignore('unknown_event');
+  }
+  // Every way out of the wait (answers given, a new round, Valerie, a closed ad) ends its reminders, and
+  // leaves its mark: an ad found closed later in the round is judged knowing the candidate was awaited.
+  if (!waitsForCandidate(next)) {
+    if (waitsForCandidate(current) && current.heldSince) next.lastWait = { round: current.round, since: current.heldSince, until: nowMs };
+    next.heldSince = null;
+    next.heldNudges = 0;
+  }
+  return { flow: withHistory(next, event.type, nowMs), effects };
+}

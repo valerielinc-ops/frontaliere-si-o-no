@@ -1,0 +1,21 @@
+{
+  "companyKey": "huerlimann-transporte-ch",
+  "companyName": "huerlimann-transporte",
+  "companyHost": "huerlimann-railtec.ch",
+  "platform": "huerlimann-railtec.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.huerlimann-railtec.ch/offene-stellen"
+  ],
+  "detailTemplate": "/fileadmin/user_upload/dokumente/stellenausschreibung/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Chauffeur-Maschinist",
+    "LKW- oder Landmaschinenmechaniker, Baumaschinenmechaniker 100%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-28T12:14:06.454Z",
+  "candidateKey": "huerlimann-transporte.ch"
+}

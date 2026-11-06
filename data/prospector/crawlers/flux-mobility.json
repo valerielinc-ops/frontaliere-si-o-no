@@ -1,0 +1,21 @@
+{
+  "companyKey": "flux-mobility",
+  "companyName": "Flux Mobility",
+  "companyHost": "jobs.lever.co",
+  "platform": "lever.co",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.lever.co/flux-mobility/2b5c541d-90d1-4191-9a4d-54ad3deb3cfe"
+  ],
+  "detailTemplate": "/flux-mobility/2b5c541d-90d1-4191-9a4d-54ad3deb3cfe",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Konstrukteur:in"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:08:02.275Z",
+  "candidateKey": "fluxmobility.ch"
+}

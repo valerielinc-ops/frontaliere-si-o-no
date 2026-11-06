@@ -1,0 +1,70 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+import { parseLargeJsonArray, readJsonFile } from '../scripts/lib/read-large-json.mjs';
+
+describe('large JSON reader', () => {
+  it('parses nested records when chunks split strings and objects', () => {
+    const chunks = [
+      '[{"id":1,"title":"caf',
+      'é ","nested":{"ok":true}},',
+      '{"id":2,"items":[1,{"value":"x"}]}]',
+    ];
+
+    expect(parseLargeJsonArray(chunks)).toEqual([
+      { id: 1, title: 'café ', nested: { ok: true } },
+      { id: 2, items: [1, { value: 'x' }] },
+    ]);
+  });
+
+  it('switches to item-wise parsing before the inline threshold', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'read-large-json-'));
+    const target = path.join(dir, 'jobs.json');
+    const rows = [{ id: 1, title: 'café', description: 'a'.repeat(64) }, { id: 2, description: 'b'.repeat(64) }];
+
+    try {
+      fs.writeFileSync(target, JSON.stringify(rows), 'utf8');
+      expect(readJsonFile(target, { maxInlineBytes: 1 })).toEqual(rows);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('parses a record larger than one read chunk without per-character buffering', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'read-large-json-record-'));
+    const target = path.join(dir, 'jobs.json');
+    const payload = [{ id: 'large', description: 'x'.repeat(2 * 1024 * 1024) }];
+
+    try {
+      fs.writeFileSync(target, JSON.stringify(payload), 'utf8');
+      expect(readJsonFile(target, { maxInlineBytes: 1 })).toEqual(payload);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('streams the supported jobs wrapper when it crosses the inline threshold', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'read-large-json-wrapper-'));
+    const target = path.join(dir, 'jobs.json');
+    const payload = {
+      generatedAt: '2026-11-03T00:00:00.000Z',
+      jobs: [{ id: 'x', title: 'café', description: 'a'.repeat(64) }],
+    };
+
+    try {
+      fs.writeFileSync(target, JSON.stringify(payload), 'utf8');
+      expect(readJsonFile(target, { maxInlineBytes: 1 })).toEqual(payload);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects a large root object instead of silently returning partial data', () => {
+    expect(() => parseLargeJsonArray(['{"jobs":[]}'])).toThrow(/top-level array/);
+  });
+
+  it.each(['[,{}]', '[{},]', '[{},,{}]', '[{}{}]'])('rejects invalid separators: %s', (input) => {
+    expect(() => parseLargeJsonArray([input])).toThrow();
+  });
+});

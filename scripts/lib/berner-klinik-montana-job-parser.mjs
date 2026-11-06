@@ -1,0 +1,189 @@
+#!/usr/bin/env node
+/**
+ * Berner Klinik Montana — Clinique Bernoise Montana (VS Crans-Montana).
+ *
+ * Public career site: https://bernerklinik.ch/fr/emploi-et-carriere/offres-demploi/
+ *
+ * 110-bed rehabilitation clinic specialising in neurology, psychosomatics,
+ * musculoskeletal disorders, and internal medicine + oncology. Wordpress
+ * site using the bmg-page-list plugin: each offer is rendered as
+ *   <article class="page-list-item">
+ *     <a class="post-link" href=".../carriere/offres-d-emploi/{slug}/">
+ *       <h3 class="post-title post-title-in-data">{TITLE}</h3>
+ *       <span class="post-resume-wrapper">{INTRO}</span>
+ *     </a>
+ *   </article>
+ */
+import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
+import { slugify } from './crawler-template.mjs';
+import {
+  fetchHtml,
+  decodeEntities,
+  normalizeSpace,
+  detectHealthcareCategory,
+  detectHealthcareExperienceLevel,
+  detectHealthcareEmploymentType,
+  extractBalancedTagBlock,
+} from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
+
+export const BERNER_KLINIK_MONTANA_KEY = 'berner-klinik-montana';
+export const BERNER_KLINIK_MONTANA_COMPANY_NAME = 'Berner Klinik Montana';
+export const BERNER_KLINIK_MONTANA_COMPANY_DOMAIN = 'bernerklinik.ch';
+
+const LISTING_URL = 'https://bernerklinik.ch/fr/emploi-et-carriere/offres-demploi/';
+
+export function isBernerKlinikMontanaJob(job) {
+  const url = String(job?.url || '').toLowerCase();
+  return job?.companyKey === BERNER_KLINIK_MONTANA_KEY || url.includes('bernerklinik.ch');
+}
+
+export function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === 'bernerklinik.ch' || host.endsWith('.bernerklinik.ch');
+  } catch {
+    return false;
+  }
+}
+
+export function parseBernerKlinikListing(html) {
+  const out = [];
+  const seen = new Set();
+  const rx = /<article class="page-list-item[^"]*"[^>]*>([\s\S]*?)<\/article>/g;
+  let m;
+  while ((m = rx.exec(html))) {
+    const body = m[1];
+    const linkMatch = body.match(/<a\s+class="post-link"[^>]*href="([^"]+)"/);
+    if (!linkMatch) continue;
+    const url = linkMatch[1];
+    if (seen.has(url)) continue;
+    seen.add(url);
+
+    // Prefer post-title-in-data over the duplicate in-thumbnail
+    const titleMatch = body.match(/<h3\s+class="[^"]*post-title-in-data[^"]*"[^>]*>([\s\S]*?)<\/h3>/);
+    const title = titleMatch
+      ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, '')))
+      : '';
+    if (!title || title.length < 3) continue;
+
+    const introMatch = body.match(/<span class="post-resume-wrapper">([\s\S]*?)<\/span>/);
+    const intro = introMatch
+      ? normalizeSpace(decodeEntities(introMatch[1].replace(/<[^>]+>/g, ' ')))
+      : '';
+
+    out.push({ url, title, intro });
+  }
+  return out;
+}
+
+/**
+ * The vacancy text of a bernerklinik.ch offer page: the `post-excerpt`
+ * lead ("Notre clinique … recherche un/une …") and the WordPress
+ * `entry-content` block (activités, profil, offre, candidature), without the
+ * trailing "Télécharger l'offre d'emploi" button.
+ *
+ * The former sweep collected every `<p>/<li>/<h2-6>` of the page capped at
+ * 25 fragments: it opened on the site search form ("Recherche pour :
+ * Recherche Merci de saisir un mot-clé…"), glued the first heading into the
+ * first bullet and cut the application paragraph of longer offers.
+ *
+ * @param {string} html
+ * @returns {string} '' when the page has no `entry-content` block
+ */
+export function extractBernerKlinikDetailText(html = '') {
+  const page = String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
+  const open = /<div\b[^>]*class="[^"]*\bentry-content\b[^"]*"[^>]*>/i.exec(page);
+  if (!open) return '';
+  const content = extractBalancedTagBlock(page.slice(open.index + open[0].length), 'div', page.length)
+    .replace(/<div\b[^>]*class="[^"]*\bwp-block-buttons?\b[^"]*"[^>]*>[\s\S]*?<\/a>\s*<\/div>\s*(?:<\/div>)?/gi, '');
+  const excerpt = page.match(/<h2\b[^>]*class="[^"]*\bpost-excerpt\b[^"]*"[^>]*>([\s\S]*?)<\/h2>/i);
+  return [excerpt ? htmlToTextLines(excerpt[1]) : '', htmlToTextLines(content)]
+    .filter(Boolean)
+    .join('\n\n')
+    .trim();
+}
+
+async function fetchDetailContent(detailUrl) {
+  try {
+    const html = await fetchHtml(detailUrl);
+    return { body: extractBernerKlinikDetailText(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
+  } catch {
+    return { body: '', ...sourcePostingDateFields('') };
+  }
+}
+
+export async function fetchAllBernerKlinikMontanaJobs() {
+  console.log(`🏥 Fetching ${BERNER_KLINIK_MONTANA_COMPANY_NAME} jobs`);
+  console.log(`   Source: ${LISTING_URL}\n`);
+  const html = await fetchHtml(LISTING_URL);
+  const items = parseBernerKlinikListing(html);
+  console.log(`  ✓ ${items.length} offres trouvées`);
+  if (!items.length) return [];
+  console.log(`  📄 Fetching detail pages for rich descriptions...`);
+
+  const jobs = [];
+  let detailHits = 0;
+  for (const it of items) {
+    const detail = await fetchDetailContent(it.url);
+    const detailContent = detail.body;
+    if (detailContent) detailHits++;
+    await new Promise((r) => setTimeout(r, 250));
+    // The offer page carries the lead itself (post-excerpt); the listing
+    // teaser is only the fallback when the page could not be read. No company
+    // sentence of our own.
+    const description = detailContent || it.intro || '';
+
+    const sourceLang = detectLang(description || it.title, 'fr');
+    const jobSlug = slugify(`${it.title} ${BERNER_KLINIK_MONTANA_KEY} crans-montana`);
+    const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
+    jobs.push({
+      id: `${BERNER_KLINIK_MONTANA_KEY}-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: BERNER_KLINIK_MONTANA_COMPANY_NAME,
+      companyKey: BERNER_KLINIK_MONTANA_KEY,
+      companyDomain: BERNER_KLINIK_MONTANA_COMPANY_DOMAIN,
+      title: it.title,
+      titleByLocale: { [sourceLang]: it.title },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
+      // Newly-discovered jobs ship with source-locale-only fields. The shared
+      // AI-localization step clears this flag when it fills the remaining 3
+      // locales; if it can't (cache miss + AI quota), the flag stays and
+      // `translate-pending.yml` picks the job up out-of-band. Without this
+      // flag the locale-completeness gate trips before translation can run.
+      needsRetranslation: true,
+      location: 'Crans-Montana',
+      canton: 'VS',
+      url: it.url,
+      source: 'Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+      addressLocality: 'Crans-Montana',
+      addressRegion: 'VS',
+      addressCountry: 'CH',
+      country: 'CH',
+      postalCode: '3963',
+      category: detectHealthcareCategory(`${it.title} ${it.intro}`),
+      contract: 'full-time',
+      employmentType: detectHealthcareEmploymentType(`${it.title} ${it.intro}`),
+      experienceLevel: detectHealthcareExperienceLevel(it.title),
+      sector: 'Sanità / Ospedali',
+      currency: 'CHF',
+      featured: false,
+      ...mergeSourcePostingDates({}, detail),
+      applyUrl: it.url,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+    });
+  }
+  console.log(`📋 Total ${BERNER_KLINIK_MONTANA_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${items.length} with rich detail content)`);
+  return jobs;
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "flexsis-ch-3",
+  "companyName": "Flexsis AG, Mendrisio",
+  "companyHost": "flexsis.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.flexsis.ch/emploi/2496597036-operateur-fabrication-ebauches-h-f-fr/"
+  ],
+  "detailTemplate": "/emploi/2496597036-operateur-fabrication-ebauches-h-f-fr/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Opérateur fabrication ébauches"
+  ],
+  "canton": "TI",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T13:20:15.527Z",
+  "candidateKey": "flexsis-mendrisio@mendrisio"
+}

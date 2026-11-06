@@ -1,0 +1,420 @@
+# Prospector — il loop autonomo di copertura
+
+Trova datori di lavoro svizzeri che **non** crawliamo, capisce dove pubblicano
+davvero le loro offerte, si genera il crawler da solo e ne misura la qualità
+contro la pagina ufficiale del datore. Gira **in remoto** su GitHub Actions
+(`.github/workflows/prospector-loop.yml`), non in locale.
+
+## Perché esiste
+
+La scoperta di nuovi datori era **una lista curata a mano di 118 grandi nomi**
+(`data/marquee-companies-list.json`, campo `_source: "hand-curated"`). Le grandi
+aziende stanno però già su tutti i portali: non aggiungono inventario esclusivo.
+
+Misurato sul feed ufficiale SECO, Ticino, finestra 30 giorni: **185 datori
+distinti, di cui 163 (87%) assenti dall'intero dataset** — nomi come *Polverini
+Spazzacamino Sagl*, *Bio Recycling Sagl*, *V. Luraschi SA*. Quello è
+l'inventario che nessun altro ha.
+
+## L'intuizione che regge tutto
+
+Risolvere `nome azienda → pagina carriere` è difficile e fallisce spesso.
+Risolvere `piattaforma → tenant → azienda` è **enumerabile**, perché una
+micro-impresa non costruisce una pagina carriere: **ne affitta una**. Il loop
+spende quindi il suo sforzo a imparare le *piattaforme*, e le aziende cadono
+giù come conseguenza.
+
+L'economia: un estrattore di famiglia per un vendor costa come un crawler per
+una sola azienda, e rende ogni tenant che quel vendor ha.
+
+Questa intuizione vale per chi usa un ATS, non per la micro-impresa. Misurato il
+31/10/2026 sui candidati tracciati: 4.474 self-hosted contro 748 su piattaforma.
+La salumeria non affitta nulla: scrive una frase sul proprio sito, e il loop deve
+saperla leggere. Per questo TRACE accetta anche un'offerta in homepage e rilegge
+periodicamente chi oggi non assume.
+
+Tre regole seguono da qui:
+
+- **Dominio dall'email.** Gli annunci SECO portano spesso un indirizzo di
+  candidatura. Si tiene solo il dominio, mai la casella. Caselle gratuite, ISP e
+  domini visti su due datori diversi (agenzie) non contano. Il dominio resta un
+  suggerimento: `resolveDomain` lo accetta solo se la pagina nomina il datore.
+  Misurato su 100 annunci ticinesi: 15 datori con suggerimento, 11 risolti.
+- **Segnale in homepage.** Se non c'è pagina carriere ma la homepage annuncia un
+  posto (`hasHomepageHiringSignal`), la homepage diventa il seed
+  (`trailVia: homepage-hiring-signal`).
+- **"Nessuna pagina carriere" scade.** Il verdetto descrive una data, non un
+  datore: dopo 60 giorni TRACE lo rimette in coda, 150 per run, Ticino prima.
+
+### Dal nome al dominio
+
+`resolveDomain` indovina e verifica. Tre cose lo tengono onesto.
+
+- **Il nome può dire già il dominio.** `Iride.ch SA` è `iride.ch`, non
+  `iridech.ch`. Un dominio scritto nel nome legale vale come quello letto
+  dall'email: basta che la pagina nomini il datore.
+- **Gli n-grammi costano poco perché il DNS filtra prima dell'HTTP.** Da un nome
+  nascono fino a 36 domini: `&` scritto `and`/`e`, articoli che aprono il nome
+  (`la-motta`), parole come `garage` e `ristorante` tenute nelle sequenze. Solo i
+  domini che il DNS conosce consumano una delle 10 richieste per datore, in
+  ordine, `.ch` prima di `.com`. Un dominio inesistente non costa più quattro
+  tentativi con backoff.
+- **L'apex che rimanda a `www.` è il caso normale.** `politeFetch` ammette solo
+  l'origine dell'URL ricevuto, quindi `cianilugano.ch → www.cianilugano.ch` era
+  un rifiuto di policy e un sito vero sembrava assente. La verifica ora ammette
+  apex e `www.` dello stesso dominio, e nessun'altra origine.
+
+Più tentativi significano più omonimi, quindi la verifica è più stretta: la soglia
+resta 3, un token sotto i cinque caratteri deve stare da solo (`zio` è dentro
+`servizio`), e una pagina che copre solo parte del nome deve anche nominare CAP o
+località. I "dominio non risolto" precedenti tornano in coda una volta sola, 150
+per run, Ticino prima (`reviveUnresolvedDomainCandidates`).
+
+Quando i canali gratuiti non hanno una prova sufficiente, TRACE può usare Google
+Places API New Text Search come **indizio**, mai come identità persistente. Chiede
+solo `places.id,places.displayName,places.websiteUri`, con query `nome città`,
+`regionCode: CH` e `pageSize: 1`; visita poi il `websiteUri` (anche il suo path)
+con `politeFetch` e conserva il dominio solo dopo `verifyOwnership` a soglia 3.
+`websiteUri`, `displayName` e il resto della risposta restano transitori: lo
+stato committato contiene il contatore, il solo `googlePlaceId` stabile e il
+dominio indipendentemente verificato. I domini di agenzie/governo e quelli già
+condivisi da più datori vengono scartati.
+
+Le Maps Platform Terms/Service Specific Terms e le Places policies vietano di
+prefetchare, cacheare o conservare il contenuto Places oltre le eccezioni
+previste; l'eccezione esplicita è il place ID. Per questo `websiteUri` è usato
+solo per arrivare al sito e il dominio viene conservato soltanto come evidenza
+di prima parte dopo `verifyOwnership`, senza salvare la risposta Google. Se una
+revisione legale qualificasse anche quel dominio verificato come contenuto
+Google non conservabile, la feature va bloccata e il dominio non va scritto.
+
+Il campo `websiteUri` porta la richiesta allo SKU Text Search Enterprise, la cui
+soglia gratuita mensile è 1.000; il campo-mask delle farmacie è Text Search Pro,
+con soglia gratuita 5.000. Il proprietario assegna 800 richieste/mese al
+prospector e 100 alle farmacie: insieme restano a 900, sotto il limite Enterprise
+più restrittivo. Il contatore del prospector vive in
+`data/prospector/google-places-usage.json` e viene riservato/scritto prima della
+chiamata; 401/403/429, errori di rete e parse error consumano comunque lo slot.
+Al tetto o senza chiave, TRACE prosegue senza errore con email SECO, generatore
+DNS e le sorgenti Zefix/Common Crawl. Il report aggrega richieste, luoghi, siti,
+verifiche e scarti in `discovery-health.json`.
+
+Riferimenti ufficiali: [prezzi Google Maps Platform](https://developers.google.com/maps/billing-and-pricing/pricing),
+[Text Search fields e SKU](https://developers.google.com/maps/documentation/places/web-service/text-search),
+[Places policies](https://developers.google.com/maps/documentation/places/web-service/policies) e
+[Maps Service Specific Terms](https://cloud.google.com/maps-platform/terms/maps-service-terms).
+
+## I sei stadi
+
+| stadio | script | cosa fa |
+|---|---|---|
+| DISCOVER | `prospect-discover.mjs` | cinque sorgenti riempiono la coda dei candidati |
+| TRACE | `prospect-trace.mjs` | segue la traccia carriere e impara le piattaforme |
+| EXPAND | `prospect-expand.mjs` | enumera i tenant di una piattaforma — qui la copertura moltiplica |
+| SYNTHESIZE | `prospect-synthesize.mjs` | genera la spec del crawler dalla pagina viva |
+| VALIDATE | `prospect-validate.mjs` | confronta l'estratto con la pagina ufficiale, campo per campo |
+| PROMOTE | `prospect-promote.mjs` | manda in produzione chi supera il gate — **nessun passo umano** |
+
+`prospect-report.mjs` stampa lo stato e **dove il loop non arriva**.
+
+## Le cinque sorgenti di scoperta
+
+| sorgente | costo | cosa vede | resa misurata |
+|---|---|---|---|
+| `own` | zero rete | le piattaforme dei datori che già crawliamo | 34 piattaforme da 22.516 annunci |
+| `seco` | API pubblica | chi assume **ora**, per obbligo di legge (Stellenmeldepflicht) | 5.923 datori nuovi su 26 cantoni |
+| `osm` | Overpass | imprese con sito, per cantone | 1.411 in Ticino |
+| `web` | indice Common Crawl | pagine carriere di **tutto il web svizzero** | ~11 datori per pagina d'indice, su 1.223 pagine |
+| `zefix` | SPARQL LINDAS | ogni società iscritta, anche senza annunci né sito | 15 siti su 80 società ticinesi recenti |
+
+Nessuna richiede chiave o quota.
+
+DISCOVER registra per fonte `complete`, `partial`, `unavailable` o `malformed`.
+Un risultato parziale resta utilizzabile e non viene contato come outage totale.
+Lo storico separa i record ricevuti dai nuovi candidati davvero inseriti in
+coda; il report tratta i record senza outcome come `legacy/unknown`.
+
+`zefix` è l'unica sorgente che dà un'identità e nessun segnale. Registro di
+commercio: nome legale, sede, scopo. Lo scopo serve a scartare, non resta nel
+candidato: fuori holding, immobiliari e casse pensioni (18% delle righe sul
+campione ticinese), oltre a ditte individuali e associazioni per forma giuridica.
+Una riga non riapre un candidato morto e non fa da prova di assunzione: ogni
+stadio dopo cerca la sua evidenza sul sito. Entrano 60 candidati nuovi per run,
+Ticino prima, iscrizioni nuove prima e poi l'arretrato dal più recente, con un
+cursore per cantone in `zefix-cursors.json`. A questo ritmo l'arretrato ticinese
+copre più di un anno e `candidates.json` cresce di circa 20 KB al giorno, poi i
+morti escono con la ritenzione a 90 giorni. Le righe finiscono nel bucket
+`fallback` di TRACE, il più lento. Dati: opendata.swiss, «Open use. Must provide
+the source», citati in `THIRD_PARTY_NOTICES.md`.
+
+Il budget predefinito di Common Crawl è 40 pagine per run e quello OSM è 3
+cantoni per run. Common Crawl usa una permutazione dell'intero intervallo della
+collection, riprova per prime le pagine fallite e conserva la copertura per
+collection. Con 1.230 pagine, 40 per run completano un passaggio in circa 31
+run. TRACE è salito da 300 a 1.000 candidati al giorno; la pausa minima per host
+e la concorrenza restano invariate.
+
+## Aggregatori: esclusi per costruzione
+
+L'obiettivo sono le aziende che assumono **direttamente**. Un aggregatore
+(bacheca di settore, portale di apprendistato) porta inventario che hanno già
+tutti. La distinzione è **strutturale**, non solo una denylist di nomi: la
+pagina di un datore diretto nomina **una** hiring organisation, un aggregatore
+ne nomina molte, e i suoi link di dettaglio puntano a host diversi. Vedi
+`looksLikeAggregator()` in `scripts/lib/prospector/tenant-enum.mjs`.
+
+La denylist esplicita (`NON_PLATFORM_HOSTS` in `scripts/lib/prospector/config.mjs`)
+resta comunque necessaria accanto al controllo strutturale: una pagina profilo
+di jobs.ch filtrata su UN'azienda supera il test strutturale (nomina una sola
+hiring organisation) pur restando un marketplace multi-datore nel suo insieme.
+La lista dei domini e' condivisa con `scripts/lib/known-aggregator-domains.mjs`
+— **non duplicata** — perche' il prospector non e' l'unico modo in cui nasce un
+crawler dedicato: uno scritto a mano (come i quattro batch pre-prospector del
+2026-07-04, `equans`/`cham-swiss-properties`/`city-pop`/`dic-sa`) puo' sourciare
+da un aggregatore esattamente nel modo in cui il prospector e' costruito per non
+fare mai. Quel percorso e' coperto da un gate distinto, non da questo loop —
+vedi `docs/CRAWLERS.md#aggregator-sourced-crawlers--the-data-can-be-genuine-and-the-destination-still-wrong`.
+
+## Misura di copertura esclusiva e classificazione del datore
+
+Ogni report misura anche la parte che i grandi motori non mostrano. La sorgente
+ufficiale è la snapshot viva `data/jobs/by-crawler/seco-jobroom.json`; le altre
+slice vengono considerate aggregatori solo quando almeno uno dei loro URL di
+origine (`url`, `applyUrl`, `sourceUrl`, `sourcePageUrl` o `originalUrl`) cade
+su `isKnownAggregatorDomain()` in `scripts/lib/known-aggregator-domains.mjs`.
+La slice SECO non viene ricontata come aggregatore anche se il suo URL tecnico
+è `job-room.ch`, che è nella denylist dei marketplace.
+
+Il confronto è deterministico e dichiarato nel JSON: URL normalizzato (hash e
+tracking rimossi), oppure datore normalizzato + stesso cantone (quando presente
+in entrambe) + similarità del titolo a token `>= 0,80`; il datore richiede
+overlap token `>= 0,75`. L'indice usa sia il nome esatto sia i token condivisi,
+così `Acme SA` e `Acme Services` possono arrivare al confronto fuzzy. La
+liveness è quella della snapshot corrente, salvo stati espliciti `expired`,
+`inactive`, `archived`, `closed`, `filled` o `removed`.
+
+L'assenza di un match non è automaticamente un'offerta esclusiva: una slice
+aggregatore può essere assente, incompleta o non allineata temporalmente. Per
+questo la metrica v2 espone per ogni portale `status: nonMisurabile`, le offerte
+osservate e i match normalizzati, ma lascia `exclusiveOffers` e
+`exclusivityRate` a `null` finché non esiste un denominatore completo e
+confrontabile. `job-room.ch`, `arbeit.swiss` ed EURES sono esclusi dal confronto
+indipendente perché sono canali ufficiali/pubblici del feed SECO. Lo storico
+conserva il valore precedente, ma lo marca `invalidated` quando aveva contato
+una popolazione aggregatore vuota come prova di esclusività.
+
+Non esiste nel feed SECO una misura affidabile dei dipendenti. Le fasce
+`micro` (1–4), `small` (5–19), `medium` (20–99) e `large` (100+) sono quindi
+un proxy versionato del **volume di offerte SECO vive per datore**, non la
+dimensione legale dell'impresa. Il risultato completo per cantone e fascia,
+con denominatori e tassi, vive in
+`data/prospector/coverage-exclusivity-history.json`: ogni snapshot ha versione,
+metodo, sorgente, popolazione, classificazione e `byCantonAndSize`. Lo stesso
+report viene riversato nel summary di `prospector-loop.yml`, così uno zero
+dovuto a una sorgente assente resta visibile come `unavailable` e non diventa
+copertura fittizia.
+
+La distinzione agenzia/datore diretto usa
+`scripts/lib/prospector/seco-staffing-classifier.mjs`. La forma corretta del
+registro è `registry.agencies`, non il documento passato direttamente al
+matcher. Il classificatore v2 costruisce alias di brand e forme legali: per
+esempio `Adecco` combacia con `Adecco Resources SA`; quando il registry non
+basta usa parole del nome (personnel, placement, recrutement, interim, ecc.),
+`employerDisclosed` e la frequenza di offerte su più cantoni. Ogni risultato
+porta `evidence`, confidence e reason. `direct` è il residuo dopo registry e
+segnali, non la pretesa che il registro SECO completo sia stato verificato;
+`unknown` resta per nome mancante o registry non disponibile/malformata.
+Il benchmark fornito dal proprietario (31% stimato, con Adecco 522 su 2.432)
+resta separato dal valore misurato: non modifica il classificatore e non
+trasforma il residuo in una prova legale.
+La snapshot include anche l'audit controllato in
+`data/prospector/staffing-classifier-manual-sample.json`: 100 datori distinti
+scelti per volume, etichettati separatamente dal codice. Il report stampa
+precisione, richiamo e fino a tre esempi per ciascun tipo di errore residuo;
+quando gli array sono vuoti dichiara esplicitamente che non sono emersi errori
+nel campione, senza inventare esempi.
+
+Per l'overlap, il report può mostrare un campione di 30 micro-datori TI con
+`0/30` match osservati su `jobs.ch` e `jobup.ch`. È una verifica del confronto
+normalizzato e della popolazione disponibile, non una stima di esclusività:
+anche uno zero controllato resta `nonMisurabile` se la slice del portale non è
+un denominatore completo e temporalmente allineato.
+
+TRACE, SYNTHESIZE e VALIDATE condividono l'ordine di copertura: `TI → GR → VS
+→ GE → VD → BS → BL → JU → NE → SH → TG → SG`, poi gli altri cantoni. Ogni
+lotto riserva il 20% (almeno uno slot se il resto è disponibile) agli altri
+cantoni, per evitare che la frontiera li affami. All'interno della coda, un
+datore classificato `direct` con annunci SECO osservati negli ultimi 30 giorni
+precede gli altri; TRACE, SYNTHESIZE e VALIDATE ricalcolano questa classificazione
+tramite lo stesso modulo v2, invece di fidarsi di un campo storico eventualmente
+stale. Le quote di fairness e retry già proprie di ciascuno stadio restano
+attive.
+
+Le pagine che raccolgono candidature spontanee senza un posto preciso passano
+dal contratto free-text ma finiscono in `candidate.permanentApplications`, con
+`permanentApplicationOnly: true` quando non c'è un annuncio concreto. Non
+generano una spec né una `JobPosting`, e questa PR non aggiunge alcuna pagina
+pubblica.
+
+## Qualità: contro la pagina ufficiale, non contro il numero di righe
+
+Il monitor di salute esistente conta le righe tornate. Un parser che restituisce
+dodici righe di menu gira benissimo e pubblica dodici offerte finte.
+`prospect-validate.mjs` scarica la pagina di **dettaglio** che il datore serve e
+misura le condizioni indipendenti del contratto qualità corrente (v3):
+
+- `reachable` — l'URL che pubblicheremmo risolve;
+- `titleMatch` — il titolo è davvero quello della pagina;
+- `contentful` — la pagina ha prosa vera, non uno scheletro renderizzato lato client;
+- `distinct` — i titoli del listing differiscono fra loro;
+- `sourceBackedLocation` — la località pubblicata è provata dalla fonte;
+- `jobLikeEvidence` — la descrizione pubblicata legge come un annuncio oppure
+  una `JobPosting` strutturata prova titolo, datore e un campo occupazionale;
+  una pagina non leggibile resta senza prova e non passa il gate;
+- `employerIdentity` — nome strutturato, dominio aziendale o host tenant
+  conferma il datore atteso; un mismatch esplicito resta retryable e richiede
+  triage.
+
+Per le spec generate, VALIDATE passa dalla stessa trasformazione in memoria del
+runtime pubblicato: enumera la listing, arricchisce i dettagli, sceglie il titolo
+finale, applica descrizione/geografia/date source-backed e registra ogni drop.
+Il report separa il numero esatto di candidati listing, le righe trasformate in
+annunci pubblicabili e l'output accettato dal runtime; una snapshot oltre soglia
+mostra quindi `0/N` output accettati pur conservando il conteggio parziale per
+ragione di drop. Una listing che annuncia `rel=next` senza una regola di
+paginazione viene trattata come incompleta e non come un campione completo. Una
+snapshot oltre la tolleranza dei drop resta non buona e rimette il candidato in
+retry. La tolleranza di pubblicazione non rende buona una misura: una listing
+non vuota senza output per drop inattesi azzera la stabilità anche se il parser
+mantiene la propria tolleranza sui piccoli inventari. I filtri dichiarati e
+verificabili, come le sedi estere allowlistate, restano separati dai drop
+inattesi; il report espone anche il denominatore effettivo usato dalla soglia di
+incompletezza. La prova semantica usa la descrizione pubblicata o una
+`JobPosting` strutturata con titolo e identità coerenti; il titolo estratto viene
+confrontato solo con la sua fonte registrata (listing o dettaglio strutturato).
+
+Le pagine giudicate sono un campione, non il conteggio totale: l'algoritmo
+`utc-cyclic-strata-anomaly-v2` registra giorno, identità, indice e strato,
+ripete la stessa selezione nello stesso giorno e ruota il punto di partenza ogni
+giorno UTC. Gli inventari piccoli vengono censiti per intero; per gli inventari
+grandi o con esiti deboli il campione cresce fino a 8 pagine. Gli URL che hanno
+prodotto anomalie vengono ricontrollati prima della rotazione. Le osservazioni
+includono la versione del contratto qualità e solo prove v3 correnti entrano
+nel gate; il report separa tally misurato, verdict conservativo e completezza
+dello snapshot.
+
+VALIDATE salva un confronto fra gli identificativi URL della snapshot osservata
+e la slice pubblicata, conservando hash degli identificativi invece delle liste
+di URL complete. Solo snapshot distanti al massimo 6 ore possono risultare
+`matched` o `different_snapshot`; distanze maggiori sono `near_time_delta` e non
+vengono presentate come annunci persi.
+
+Su un lotto di 44 crawler generati: **34 promossi, 7 deboli, 1 respinto**. I due
+difetti trovati — titoli non corrispondenti, e titoli tutti uguali — sono
+esattamente quelli che un controllo per conteggio non vede.
+
+## Chiusura del loop: promozione senza passi umani
+
+Un crawler validato entra nel ciclo di produzione da solo. È difendibile solo perché la
+decisione non è «il punteggio è alto», ma la congiunzione in
+`scripts/lib/prospector/promotion-gate.mjs`:
+
+| condizione | soglia | cosa previene |
+|---|---|---|
+| qualità | ≥ 0,90 | estrazioni mediocri |
+| pagine di dettaglio giudicate | ≥ 3 | un voto su un campione che non prova nulla |
+| URL che risolvono | 100% | link morti pubblicati |
+| titoli che combaciano | ≥ 80% | cluster che ha agganciato un archivio news |
+| titoli distinti | ≥ 80% | un selettore su un elemento ricorrente |
+| pagine con prosa | ≥ 75% | listing renderizzati lato client |
+| prova semantica di annuncio | ≥ 75% | contenuto editoriale o dettaglio opaco |
+| identità del datore confermata | ≥ 75%, senza mismatch | risultati appartenenti a un'altra azienda |
+| logo dell'azienda verificato | sul dominio del datore, mai su quello del vendor ATS | pagine annuncio col badge a iniziali, o col marchio del vendor |
+| host non aggregatore | flag strutturale e denylist condivisa | una pagina annuncio di un motore di ricerca (`ch.talent.com`) |
+| **validazioni buone** | **≥ 2, su ≥ 2 giorni distinti** | **markup A/B, cookie wall al secondo giro, settimana vuota** |
+| annunci rispetto al massimo osservato | ≥ 50% | un listing che sta collassando |
+| chiave crawler | libera | collisione con un crawler esistente |
+| tetto per giro | 15 | contenere l'impatto di una promozione automatica |
+
+La condizione vincolante è quella sulla **stabilità**: non è soddisfacibile da
+una singola run, per quanto buona sembri. Un crawler sintetizzato e graduato
+stamattina non è promuovibile oggi pomeriggio.
+
+La sonda del logo legge la homepage del datore (`apple-touch-icon`, `rel=icon`,
+un `<img>` di logo, il `logo` del JSON-LD) e poi `/favicon.ico`, e registra
+l'URL dell'asset verificato. PROMOTE lo passa allo scaffold, che lo scrive come
+voce diretta di `CRAWLED_COMPANY_LOGOS` e ne fa il mirror: registro, manifest e
+file del logo entrano nella PR insieme al crawler. Prima del 2026-10-24 la
+sonda leggeva solo `/favicon.ico` (31 validazioni su 65 fallite il 2026-10-23)
+e la PR scartava i file del logo: i 15 crawler promossi dal 2026-10-09 sono
+andati in produzione senza logo pur avendo passato il check.
+
+## Chiavi crawler: una per datore, mai condivise
+
+La chiave crawler è il nome del file spec, e un parser in produzione rilegge
+la sua spec da quel file a ogni giro. L'etichetta dell'host ATS diventa chiave
+solo se nomina il datore: `my.jobalino.ch`, `app.jobportal.abaservices.ch`,
+`link.ostendis.com` o `company.sbb.ch` servono molti datori, e la chiave nasce
+allora dal nome (corroborato dal dominio del datore) o dal dominio. SYNTHESIZE
+non scrive mai una spec sotto una chiave già di un crawler in produzione o di
+un altro candidato: la disambigua. Misurato il 2026-10-24: la sintesi di
+Stiftung Helsenberg come `my` aveva riscritto la spec del crawler `my` (Teo
+Jakob AG), che pubblicava l'annuncio di Helsenberg col nome di Teo Jakob. I
+candidati non ancora in produzione con una chiave da etichetta del vendor
+tornano in sintesi con una chiave propria e lo storico azzerato (`rekeyedAt`),
+perché le loro validazioni potevano misurare la spec di un altro datore.
+
+Cosa significa «entrare nel ciclo di produzione»: lo stesso
+`scaffold-crawler.mjs` di ogni crawler scritto a mano, sul tier `prospected` —
+parser, runner, test unitario e voce in `data/crawler-manifest.json`, con i
+gruppi di workflow rigenerati. Dopo il merge il candidato resta
+`awaiting_first_crawl`: passa a `production` solo quando esiste una slice `jobs`
+fresca, con almeno un annuncio e timestamp non precedente al merge. Dopo 48 ore
+senza un primo output valido, PROMOTE emette un warning con owner e prossima
+azione.
+
+La PR che apre viaggia poi sul **ciclo autonomo che questo repo già usa**:
+`tests` verde → `pr-review-loop` → auto-merge su `## LGTM`. «Nessun passo umano»
+non è un meccanismo nuovo inventato qui, è quello su cui il repo gira già,
+alimentato da un gate abbastanza severo da meritarselo.
+
+Ogni candidato fermato riporta le sue cause: senza nessuno che guarda, **le
+cause sono la revisione**.
+
+## Cortesia
+
+Questi datori non hanno chiesto di essere crawlati. Ogni richiesta esce con UA
+identificante, **una richiesta per host al secondo**, e `robots.txt` rispettato
+per la nostra UA. Il workflow alza ulteriormente il ritardo.
+
+## Stato, e perché è versionato
+
+I runner di Actions sono effimeri: la memoria del loop vive in `data/prospector/`
+e viene committata a ogni giro. `candidates.json` è la coda, `platforms.json` il
+registro dei vendor, `crawlers/` le spec generate, `validation.json` il report di
+qualità. I candidati in stato terminale oltre i 90 giorni vengono potati, così la
+coda non cresce senza limite.
+
+`platforms.json` conserva anche `lastExpansion`, con esito, numero di host
+scoperti e tenant vivi, limite sonde raggiunto e stato separato di Common Crawl
+e CertSpotter. Un enumeratore vuoto ma riuscito (`complete`) resta distinguibile
+da una fonte non disponibile o da una risposta malformata; `partial` segnala
+copertura incompleta senza cancellare i risultati già raccolti.
+
+## Trappole misurate
+
+- **DNS wildcard**: su molte piattaforme `qualsiasi-cosa.vendor.com` risolve.
+  L'esistenza DNS non prova il tenant — serve una sonda HTTP che *punteggi* la pagina.
+- **Certificate Transparency è cieca sui wildcard**: un vendor con un solo
+  certificato `*.vendor.com` non espone alcun cliente.
+- **La radice di un tenant può essere un login**: sondare solo `/` ha dato
+  **0 tenant vivi su 135**. Il path di listing si impara dagli adapter che già abbiamo.
+- **Il path di dettaglio ≠ il path di listing**: `/Vacancies/123/Description` non
+  porta a `/Jobs/All`.
+- **Ordine delle sonde**: uno slug è un'ipotesi e ce ne sono decine di migliaia
+  (20.215 in una run misurata); un host visto nell'indice web esiste. Senza
+  ordinamento per evidenza il budget di sonde va tutto in ipotesi.
+- **Overpass rifiuta le UA contenenti "Bot"** con un 406, e la negoziazione di
+  contenuto di Apache rende la diagnosi fuorviante.
+- **Un canale giù non è "zero risultati"**: l'indice Common Crawl cade spesso;
+  senza retry il loop legge l'assenza come una misura.

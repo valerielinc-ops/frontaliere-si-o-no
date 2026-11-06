@@ -1,0 +1,21 @@
+{
+  "companyKey": "vivaluzern-ch",
+  "companyName": "Alters- und Plegeheim Dreilinden",
+  "companyHost": "ohws.prospective.ch",
+  "platform": "prospective.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://ohws.prospective.ch/public/v1/jobs/1613a715-d744-42dc-8788-64f7fac19e7a"
+  ],
+  "detailTemplate": "/public/v1/jobs/1613a715-d744-42dc-8788-64f7fac19e7a",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lernende/-r Assistent/-in Gesundheit und Soziales EBA - 100%"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-28T12:14:12.590Z",
+  "candidateKey": "vivaluzern.ch"
+}

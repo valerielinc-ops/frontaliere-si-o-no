@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109601",
+      "sourceKey": "TG",
+      "sourceRecordId": "109601",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "35445",
+      "normalizedPlate": "TG35445",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 0,
+      "endsAt": "2026-09-30T17:00:00.000Z",
+      "closedAt": "2026-09-30T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109601",
+      "sourceFetchedAt": "2026-09-30T12:40:06.435Z",
+      "lastVerifiedAt": "2026-09-30T12:40:06.435Z",
+      "firstSeenAt": "2026-09-19T11:04:58.654Z",
+      "lastSeenAt": "2026-09-30T12:40:06.435Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "0e8e63d1ef6b"
+    }
+  ]
+}

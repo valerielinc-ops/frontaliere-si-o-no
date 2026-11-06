@@ -1,0 +1,202 @@
+import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest';
+import { act, fireEvent, render, screen, cleanup } from '@testing-library/react';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
+import { summarizeJourneyRows, journeyReportRequest } from '../scripts/job-application-funnel-report.mjs';
+
+beforeEach(() => { vi.resetModules(); sessionStorage.clear(); localStorage.clear(); });
+afterEach(() => { cleanup(); vi.useRealTimers(); vi.restoreAllMocks(); });
+
+describe('application journey cohorts', () => {
+ it('ignores malformed, future, and unsupported persisted journeys', async () => {
+  const { parseStoredJobJourneys } = await import('@/services/jobApplicationJourney');
+  const valid = {
+   id: 'journey-1', jobSlug: 'job-1', aliases: ['job-1'], employerKey: 'employer',
+   startedAt: 9_000, source: 'direct', device: 'desktop', entry: 'direct', steps: ['detail_view'],
+  };
+  const raw = JSON.stringify([
+   valid,
+   { ...valid, id: 'future', startedAt: 10_001 },
+   { ...valid, id: 'bad-step', steps: ['not-a-step'] },
+   { ...valid, id: 'bad-alias', aliases: ['other-job'] },
+  ]);
+  expect(parseStoredJobJourneys(raw, 10_000)).toEqual([valid]);
+ });
+
+ it('preserves one ID across list, detail, failed auth, reload, success and handoff; deduplicates stages', async () => {
+  const job = { jobSlug: 'infermiere-demo-lugano', employerKey: 'demo-hospital' };
+  const first = await import('@/services/jobApplicationJourney');
+  const events = ['list_select', 'detail_view', 'gate_view', 'auth_start', 'auth_error'].map((step) => first.recordJobJourneyStep(job, step as never)!);
+  expect(first.recordJobJourneyStep(job, 'gate_view')).toBeNull();
+  vi.resetModules(); // OAuth full-page redirect: tab storage survives the module.
+  const resumed = await import('@/services/jobApplicationJourney');
+  for (const step of ['auth_success', 'apply_click', 'handoff'] as const) events.push(resumed.recordJobJourneyStep(job, step)!);
+  expect(new Set(events.map((event) => event.journey_id)).size).toBe(1);
+  expect(events.every((event) => event.journey_context.length < 100)).toBe(true);
+  expect(events.at(-1)).toMatchObject({ journey_path: 'list_select>detail_view>gate_view>auth_success>apply_click>handoff', employer_key: 'demo-hospital' });
+  expect(resumed.recordJobJourneyStep(job, 'handoff')).toBeNull();
+  expect(JSON.stringify(events)).not.toMatch(/email=|token=|@|uid/);
+ });
+
+ it('discards malformed and future persisted journeys without hiding valid entries', async () => {
+  const now = Date.now();
+  const valid = {
+   id: 'persisted-valid', jobSlug: 'persisted-job', jobId: 'persisted-id', aliases: ['persisted-job'],
+   employerKey: 'persisted-employer', startedAt: now - 1_000, source: 'newsletter', device: 'mobile',
+   entry: 'list', steps: ['detail_view'],
+  };
+  sessionStorage.setItem('ft_job_application_journeys_v1', JSON.stringify([
+   null,
+   { ...valid, id: 42, jobSlug: 'wrong-id' },
+   { ...valid, id: 'future', jobSlug: 'future-job', startedAt: now + 1 },
+   { ...valid, id: 'wrong-step', jobSlug: 'wrong-step', steps: ['not-a-step'] },
+   { ...valid, id: 'wrong-source', jobSlug: 'wrong-source', source: 'paid' },
+   { ...valid, id: 'wrong-alias', jobSlug: 'wrong-alias', aliases: [42] },
+   { ...valid, id: 'wrong-device', jobSlug: 'wrong-device', device: 'phone' },
+   { ...valid, id: 'wrong-entry', jobSlug: 'wrong-entry', entry: 'unknown' },
+   valid,
+  ]));
+
+  const { recordJobJourneyStep } = await import('@/services/jobApplicationJourney');
+  expect(recordJobJourneyStep({ jobSlug: 'persisted-job', employerKey: 'changed' }, 'apply_click')).toMatchObject({
+   journey_id: 'persisted-valid', journey_source: 'newsletter', journey_device: 'mobile',
+   journey_entry: 'list', employer_key: 'persisted-employer', previous_step: 'detail_view', step_index: 2,
+  });
+  expect(recordJobJourneyStep({ jobSlug: 'future-job' }, 'detail_view')?.journey_id).not.toBe('future');
+  expect(recordJobJourneyStep({ jobSlug: 'wrong-step' }, 'detail_view')?.journey_id).not.toBe('wrong-step');
+  for (const jobSlug of ['wrong-alias', 'wrong-device', 'wrong-entry']) {
+   expect(recordJobJourneyStep({ jobSlug }, 'detail_view')?.journey_id).not.toBe(jobSlug);
+  }
+ });
+
+ it('restores at most the latest 20 valid tab journeys', async () => {
+  const now = Date.now();
+  const stored = Array.from({ length: 21 }, (_, index) => ({
+   id: `persisted-${index}`, jobSlug: `persisted-job-${index}`, aliases: [`persisted-job-${index}`],
+   employerKey: 'persisted-employer', startedAt: now - index * 1_000, source: 'direct', device: 'desktop',
+   entry: 'direct', steps: ['detail_view'],
+  }));
+  sessionStorage.setItem('ft_job_application_journeys_v1', JSON.stringify(stored));
+
+  const { recordJobJourneyStep } = await import('@/services/jobApplicationJourney');
+  expect(recordJobJourneyStep({ jobSlug: 'persisted-job-0' }, 'apply_click')?.journey_id).not.toBe('persisted-0');
+  expect(recordJobJourneyStep({ jobSlug: 'persisted-job-20' }, 'apply_click')?.journey_id).toBe('persisted-20');
+  expect(JSON.parse(sessionStorage.getItem('ft_job_application_journeys_v1') || '[]')).toHaveLength(20);
+ });
+
+ it('preserves list CTA intent through the assisted/rewarded detail host', async () => {
+  const { recordJobJourneyStep } = await import('@/services/jobApplicationJourney');
+  const job = { jobSlug: 'list-application', employerKey: 'demo', jobId: 'demo-id' };
+  const events = ['list_select', 'apply_click', 'detail_view', 'handoff'].map((step) => recordJobJourneyStep(job, step as never)!);
+  expect(new Set(events.map((event) => event.journey_id)).size).toBe(1);
+  const rows = events.map((e) => ({ dimensionValues: [e.journey_context, e.journey_device, e.employer_key].map((value) => ({ value })), metricValues: [{ value: '1' }] }));
+  expect(summarizeJourneyRows(rows).segments[0].transitions['apply_click→handoff']).toEqual({ numerator: 1, denominator: 1, rate: 1 });
+  const source = readFileSync(resolve(process.cwd(), 'components/community/JobBoard.tsx'), 'utf8');
+  const handler = source.slice(source.indexOf(' const handleApply ='), source.indexOf(' // Receipts of earlier rewarded grants'));
+  expect(handler.indexOf("'list_select'")).toBeLessThan(handler.indexOf('trackPublisherApplySignals'));
+  expect(handler.match(/openDetail\(job, true\)/g)).toHaveLength(2);
+  expect(source).toContain('openDetail(assistedApplicationJob, true)');
+  expect(source).toContain('openDetail(rewardedApplicationJob, true)');
+ });
+
+ it('keeps source and employer fixed and starts a separate journey for another offer', async () => {
+  const { recordJobJourneyStep, classifyJobJourneySource } = await import('@/services/jobApplicationJourney');
+  window.history.replaceState({}, '', '/?utm_source=job_alert&utm_medium=email&token=private');
+  const first = recordJobJourneyStep({ jobSlug: 'first', employerKey: 'first-employer' }, 'detail_view')!;
+  window.history.replaceState({}, '', '/?utm_source=arbitrary-sensitive-value');
+  expect(recordJobJourneyStep({ jobSlug: 'first', employerKey: 'changed' }, 'apply_click')).toMatchObject({ journey_source: 'job_alert', employer_key: 'first-employer', journey_id: first.journey_id });
+  expect(recordJobJourneyStep({ jobSlug: 'second' }, 'detail_view')!.journey_id).not.toBe(first.journey_id);
+  expect(classifyJobJourneySource('?utm_source=private@example.com', '')).toBe('direct');
+  expect(classifyJobJourneySource('', 'https://www.google.ch/search?q=private')).toBe('search');
+  expect(sessionStorage.getItem('ft_job_application_journeys_v1')).not.toContain('private');
+  window.history.replaceState({}, '', '/');
+ });
+
+ it('keeps a midnight crossing in the original cohort and expires it after 30 minutes', async () => {
+  vi.useFakeTimers();
+  const nearMidnight = new Date(); nearMidnight.setUTCHours(23, 59, 0, 0);
+  vi.setSystemTime(nearMidnight);
+  const { recordJobJourneyStep } = await import('@/services/jobApplicationJourney');
+  const first = recordJobJourneyStep({ jobSlug: 'midnight' }, 'detail_view')!;
+  vi.advanceTimersByTime(2 * 60_000);
+  expect(recordJobJourneyStep({ jobSlug: 'midnight' }, 'apply_click')).toMatchObject({ journey_cohort: first.journey_cohort, journey_id: first.journey_id });
+  vi.advanceTimersByTime(30 * 60_000);
+  expect(recordJobJourneyStep({ jobSlug: 'midnight' }, 'detail_view')!.journey_id).not.toBe(first.journey_id);
+ });
+
+ it('uses the actual predecessor in the same cohort, never unrelated apply/handoff counts', async () => {
+  const { recordJobJourneyStep } = await import('@/services/jobApplicationJourney');
+  const events = [];
+  for (const [jobSlug, steps] of [
+   ['completed', ['detail_view', 'gate_view', 'auth_success', 'apply_click', 'handoff']],
+   ['abandoned', ['detail_view', 'gate_view']],
+   ['already-signed-in', ['detail_view', 'apply_click', 'handoff']],
+  ] as const) for (const step of steps) events.push(recordJobJourneyStep({ jobSlug, employerKey: 'demo' }, step)!);
+  const rows = events.map((e) => ({ dimensionValues: [e.journey_context, e.journey_device, e.employer_key].map((value) => ({ value })), metricValues: [{ value: '1' }] }));
+  const report = summarizeJourneyRows(rows);
+  expect(report.segments[0].transitions['gate_view→auth_success']).toEqual({ numerator: 1, denominator: 2, rate: 0.5 });
+  expect(report.segments[0].transitions['detail_view→handoff']).toEqual({ numerator: 2, denominator: 3, rate: 2 / 3 });
+  expect(report.segments[0].transitions['apply_click→handoff']).toEqual({ numerator: 2, denominator: 2, rate: 1 });
+  const date = events[0].journey_cohort;
+  expect(journeyReportRequest(date, date).dimensionFilter.andGroup.expressions).toContainEqual({ filter: { fieldName: 'hostName', stringFilter: { value: 'frontaliereticino.ch', matchType: 'EXACT' } } });
+ });
+
+ it('keeps an observed transition partial when its predecessor row is missing', () => {
+  const report = summarizeJourneyRows([{
+   dimensionValues: [
+    { value: '2026-10-05|direct|direct|handoff|d>h' },
+    { value: 'desktop' },
+    { value: 'demo-employer' },
+   ],
+   metricValues: [{ value: '1' }],
+  }]);
+  const transition = report.segments[0].transitions['detail_view→handoff'];
+  expect(transition).toEqual({ numerator: 1, denominator: 0, rate: null });
+  expect(report).toMatchObject({
+   quality: 'partial',
+   incompleteTransitions: [{ transition: 'detail_view→handoff', numerator: 1, denominator: 0 }],
+  });
+ });
+});
+
+function ReadingProbe({ route }: { route: string }) {
+ const ready = useJobReadingIntent(route);
+ return <div>{ready ? 'eligible' : 'reading'}</div>;
+}
+describe('alert reading and frequency controls', () => {
+ it('waits for both dwell and scroll, resets on navigation', () => {
+  vi.useFakeTimers();
+  Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'visible' });
+  Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 });
+  const view = render(<ReadingProbe route="first" />);
+  act(() => vi.advanceTimersByTime(20_000));
+  expect(screen.getByText('reading')).toBeTruthy();
+  Object.defineProperty(window, 'scrollY', { configurable: true, value: 200 });
+  fireEvent.scroll(window);
+  expect(screen.getByText('eligible')).toBeTruthy();
+  view.rerender(<ReadingProbe route="second" />);
+  expect(screen.getByText('reading')).toBeTruthy();
+ });
+
+ it('caps company/category prompts together per session and honors seven-day dismissal', async () => {
+  const policy = await import('@/services/jobAlertPromptPolicy');
+  expect(policy.canShowJobAlertPrompt()).toBe(true);
+  policy.markJobAlertPromptShown();
+  expect(policy.canShowJobAlertPrompt()).toBe(false);
+  policy.dismissJobAlertPrompt();
+  sessionStorage.clear(); vi.resetModules();
+  const nextSession = await import('@/services/jobAlertPromptPolicy');
+  expect(nextSession.canShowJobAlertPrompt()).toBe(false);
+  expect(nextSession.canShowJobAlertPrompt(Date.now() + 8 * 86400_000)).toBe(true);
+ });
+
+ it('expires an ISO dismissal after the cooldown instead of poisoning the in-memory timestamp', async () => {
+  const policy = await import('@/services/jobAlertPromptPolicy');
+  const dismissedAt = Date.parse('2026-10-20T00:00:00.000Z');
+  localStorage.setItem('ft_job_alert_prompt_dismissed', new Date(dismissedAt).toISOString());
+
+  expect(policy.canShowJobAlertPrompt(Date.parse('2026-10-21T00:00:00.000Z'))).toBe(false);
+  expect(policy.canShowJobAlertPrompt(Date.parse('2026-10-28T00:00:00.000Z'))).toBe(true);
+ });
+});

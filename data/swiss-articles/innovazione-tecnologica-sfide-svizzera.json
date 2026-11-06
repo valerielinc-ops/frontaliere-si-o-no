@@ -1,0 +1,40 @@
+{
+  "id": "innovazione-tecnologica-sfide-svizzera",
+  "slug": "innovazione-tecnologica-sfide-svizzera",
+  "publishedAt": "2026-06-27T06:44:57.282Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.664501110418241,
+    "confidence": 0.8,
+    "finalScore": 3.7316008883345932,
+    "topK": [
+      {
+        "slug": "italia-svizzera-ricerca-2026",
+        "cosine": 0.848199293304457
+      },
+      {
+        "slug": "lombardia-7mln-talenti-pmi-frontalieri",
+        "cosine": 0.8395613429361487
+      },
+      {
+        "slug": "como-vivibile-frontalieri-2026",
+        "cosine": 0.8394649548054336
+      },
+      {
+        "slug": "irb-bellinzona-valore-aggiunto-ticino",
+        "cosine": 0.837208870100416
+      },
+      {
+        "slug": "social-media-frontalieri-ticino",
+        "cosine": 0.8370094584875841
+      }
+    ],
+    "score": 3.7316008883345932,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

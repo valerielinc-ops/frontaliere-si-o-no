@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "_comment": "Historical mixed-vintage corpus ledger for validate:sitemap-pages and audit:hreflang. Used only when post-deploy-validate-dist sets AUDIT_REASSEMBLED_CORPUS=1; local/source validation remains zero-tolerance. Ceilings are measured rates: future regressions above them fail and every run prints the observed rate.",
+  "source": {
+    "validationRun": "37504397408",
+    "buildRun": "37463757652",
+    "buildSha": "cb0c41c48280ea2ccbb915699ea60b919c129e1d",
+    "measuredAt": "2026-10-06T21:26:45Z",
+    "sampleRate": 1,
+    "note": "Seeded from the first complete validator measurement recorded in issue 11996. The build was 150 commits behind main; the current source fixes the emitting paths. Ceilings only descend after a fresh measured run confirms the improvement."
+  },
+  "checks": {
+    "audit:sitemap-canonicals": {
+      "ceilingRatePct": 0.062884,
+      "tolerance": { "relPct": 0, "absPp": 0, "minAbsDelta": 0 },
+      "measurement": {
+        "filesScanned": 233765,
+        "observedOffenders": 147,
+        "ratePct": 0.0628837
+      }
+    },
+    "validate:canonical": {
+      "ceilingRatePct": 0.056113,
+      "tolerance": { "relPct": 0, "absPp": 0, "minAbsDelta": 0 },
+      "measurement": {
+        "filesScanned": 261972,
+        "observedOffenders": 147,
+        "ratePct": 0.0561129
+      }
+    },
+    "validate:content-quality": {
+      "ceilingRatePct": 0.078711,
+      "tolerance": { "relPct": 0, "absPp": 0, "minAbsDelta": 0 },
+      "measurement": {
+        "filesScanned": 233768,
+        "observedOffenders": 184,
+        "ratePct": 0.0787105,
+        "excludedExternalUrls": 28222
+      }
+    },
+    "audit:hreflang": {
+      "ceilingRatePct": 53.126853,
+      "measurement": {
+        "metric": "missingReturn issues per sampled HTML page",
+        "filesScanned": 1381437,
+        "observedOffenders": 733914,
+        "ratePct": 53.1268527,
+        "sampleRate": 0.25,
+        "sampleBucket": "1/4",
+        "filesOnDisk": 5529794,
+        "observedAt": "2026-10-16T14:02:34.094Z"
+      },
+      "observations": [
+        {
+          "validationRun": "38891425051",
+          "sampleBucket": "1/4",
+          "filesOnDisk": 5529794,
+          "filesScanned": 1381437,
+          "observedOffenders": 733914,
+          "ratePct": 53.1268527
+        },
+        {
+          "validationRun": "39165690888",
+          "sampleBucket": "4/4",
+          "filesOnDisk": 5585175,
+          "filesScanned": 1396664,
+          "observedOffenders": 591560,
+          "ratePct": 42.3552121
+        }
+      ],
+      "sourceNote": "Seeded from two disjoint 25% buckets in the reassembled post-deploy corpus. The ceiling is the highest measured bucket rate with zero added tolerance; a higher sampled rate remains blocking."
+    }
+  }
+}

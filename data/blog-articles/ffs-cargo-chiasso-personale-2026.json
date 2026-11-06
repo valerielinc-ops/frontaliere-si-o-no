@@ -1,0 +1,40 @@
+{
+  "id": "ffs-cargo-chiasso-personale-2026",
+  "slug": "ffs-cargo-chiasso-personale-2026",
+  "publishedAt": "2026-05-15T19:14:05.722Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.561740007519415,
+    "confidence": 0.8,
+    "finalScore": 7.649392006015532,
+    "topK": [
+      {
+        "slug": "ferrovia-svizzera-300-progetti-2026",
+        "cosine": 0.831313018131596
+      },
+      {
+        "slug": "a2-corsia-ritardi-lugano-2026",
+        "cosine": 0.8309141226255032
+      },
+      {
+        "slug": "ferrovia-tilo-s40-fermi-italia-personale",
+        "cosine": 0.8294000487274278
+      },
+      {
+        "slug": "boom-viaggiatori-treni-2026-ticino",
+        "cosine": 0.8284654188040371
+      },
+      {
+        "slug": "restringimento-a2-ritardi-2026",
+        "cosine": 0.8248813182451366
+      }
+    ],
+    "score": 0.9561740007519415,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

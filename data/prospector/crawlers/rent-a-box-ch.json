@@ -1,0 +1,23 @@
+{
+  "companyKey": "rent-a-box-ch",
+  "companyName": "Rent a Box",
+  "companyHost": "rent-a-box.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://rent-a-box.ch/jobs"
+  ],
+  "detailTemplate": "/media/rent-a-box/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Inserat als PDF",
+    "Inserat als PDF",
+    "Inserat als PDF",
+    "Inserat als PDF"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:24:44.947Z"
+}

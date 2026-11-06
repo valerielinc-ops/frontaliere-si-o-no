@@ -1,0 +1,21 @@
+{
+  "companyKey": "evojob",
+  "companyName": "Evojob GmbH",
+  "companyHost": "evojob.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://evojob.ch/jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "<img loading=\"lazy\" width=\"605\" height=\"321\" src=\"https://evojob.ch/wp-content/uploads/2026/09/Kalkulator.png\" class=\"wp-image-64762 avia-img-lazy-loading-64762",
+    "<img loading=\"lazy\" width=\"605\" height=\"321\" src=\"https://evojob.ch/wp-content/uploads/2026/08/Technischer-Berater-Tiefbau-Planer.png\" class=\"wp-image-64754 avi"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T06:45:06.111Z"
+}

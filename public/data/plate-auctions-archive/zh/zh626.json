@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43423",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43423",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "626",
+      "normalizedPlate": "ZH626",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 14800,
+      "bidCount": 30,
+      "endsAt": "2026-09-16T17:00:00.000Z",
+      "closedAt": "2026-09-16T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43423",
+      "sourceFetchedAt": "2026-09-15T06:59:00.727Z",
+      "lastVerifiedAt": "2026-09-15T06:59:00.727Z",
+      "firstSeenAt": "2026-09-14T11:56:46.121Z",
+      "lastSeenAt": "2026-09-15T06:59:00.727Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "a6b5c3dcf192"
+    }
+  ]
+}

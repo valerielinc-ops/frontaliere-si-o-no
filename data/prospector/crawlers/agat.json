@@ -1,0 +1,26 @@
+{
+  "companyKey": "agat",
+  "companyName": "AGAT ! Placements fixes et temporaires SA",
+  "companyHost": "agat-job.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.agat-job.com/blog"
+  ],
+  "detailTemplate": "/post/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 2,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Installateur Électricien CFC 100% H/F",
+    "Maçon Q/A/B 100%",
+    "Installateur sanitaire expérimenté 100% H/F",
+    "Paysagiste 100%",
+    "Poseur de sols 100 % H/F",
+    "Monteur Électricien CFC (F/H)",
+    "Machiniste (H/F) - M1 & M2",
+    "Charpentier Région de Sion"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-12T00:00:00.000Z"
+}

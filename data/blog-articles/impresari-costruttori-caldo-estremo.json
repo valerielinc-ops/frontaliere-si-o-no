@@ -1,0 +1,40 @@
+{
+  "id": "impresari-costruttori-caldo-estremo",
+  "slug": "impresari-costruttori-caldo-estremo",
+  "publishedAt": "2026-07-29T02:54:36.659Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.538666265261279,
+    "confidence": 0.8,
+    "finalScore": 11.630933012209024,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8552156626624282
+      },
+      {
+        "slug": "anticipo-orari-lavoro-canicola-ticino",
+        "cosine": 0.8487048254303066
+      },
+      {
+        "slug": "controlli-cantieri-mendrisiotto-2026",
+        "cosine": 0.846270863331706
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8446339494425158
+      },
+      {
+        "slug": "divario-irpef-pensionati-2026",
+        "cosine": 0.8430357605634169
+      }
+    ],
+    "score": 11.630933012209024,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

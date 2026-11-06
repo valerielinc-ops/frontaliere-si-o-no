@@ -1,0 +1,20 @@
+{
+  "companyKey": "recruitingapp-2913",
+  "companyName": "Universität Liechtenstein Stellen",
+  "companyHost": "recruitingapp-2913.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2913.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Wissenschaftliche:r Assistent:in im Bereich Daten- und Anwendungsicherheit 50 % (m/w/d)",
+    "Research Associate (Postdoc) in Innovative and Digital Finance 80 - 100% (m/f/d)",
+    "Wissenschaftliche:r Assistent:in (Doktorand:in) im Bereich Volkswirtschaftslehre 50 % (m/w/d)",
+    "Studentische:r Mitarbeiter:in 30 % (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T10:02:06.323Z"
+}

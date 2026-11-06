@@ -1,0 +1,147 @@
+name: Refresh Keyword Pages Config
+on:
+  schedule:
+    - cron: '30 3 * * 1'  # Every Monday at 03:30 UTC
+  # The ranking writer can take longer than the nominal 30-minute gap, and a
+  # scheduled checkout can race its commit even when both jobs are healthy.
+  # Re-run from the completed writer so a promotable profession is consumed
+  # from the commit that produced it, not from the previous week's snapshot.
+  workflow_run:
+    workflows: ['Profession Keyword Opportunities']
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled.'
+        required: false
+        default: true
+        type: boolean
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  # GitHub retains only one pending run per concurrency group. Keep a manual
+  # preview out of the writer lane so it cannot replace a successful
+  # workflow_run waiting behind an active writer.
+  group: >-
+    ${{ (inputs.dry_run == true || inputs.dry_run == 'true')
+        && 'refresh-keyword-config-preview'
+        || 'refresh-keyword-config-write' }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        # Needed by "Load RC secrets" below (scripts/load-rc-env.mjs dynamically
+        # imports firebase-admin, an npm package, not a builtin).
+        run: npm ci --no-audit --no-fund
+
+      - name: Prepare Firebase credentials for push auth
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Generate keyword pages config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/generate-keyword-pages-config.mjs
+
+      - name: Re-cluster orphan queries (F3b)
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        # Runs off the latest committed gsc-orphan-queries.json (refreshed by
+        # sync-gsc-orphans.mjs in its own workflow). Safe to run: produces a
+        # deterministic JSON artifact that the build plugin consumes.
+        run: node scripts/cluster-orphan-queries.mjs
+
+      - name: Commit if changed
+        id: commit
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/keyword-pages-config.json data/gsc-orphan-queries-clusters.json
+          if git diff --cached --quiet; then
+            echo "No changes to keyword config"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "chore: refresh GSC keyword pages config
+
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+
+          # Push with rebase-and-retry to survive concurrent pushes from other
+          # workflows. The generator is deterministic given the same GSC data
+          # file, so rebasing onto a newer main is always safe: our commit
+          # only touches data/keyword-pages-config.json. On rebase conflict,
+          # regenerate both data files on the new base and re-stage them.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/generate-keyword-pages-config.mjs && node scripts/cluster-orphan-queries.mjs && git add data/keyword-pages-config.json data/gsc-orphan-queries-clusters.json"
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare Firebase credentials
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — will use file config only."
+            exit 0
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load RC secrets
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Record self-driven deploy handoff if config changed
+        # keyword-pages-config.json feeds build-plugins/jobsSeoPagesPlugin.ts
+        # directly, so a config change with no deploy leaves new keyword pages
+        # (e.g. profession-gap feed) generated but never published (#3467).
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: echo '✅ Config committata; deploy.yml verrà avviato dal proprio schedule.'
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

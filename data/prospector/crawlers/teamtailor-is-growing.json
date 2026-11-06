@@ -1,0 +1,24 @@
+{
+  "companyKey": "teamtailor-is-growing",
+  "companyName": "Teamtailor is growing",
+  "companyHost": "career.teamtailor.com",
+  "platform": "teamtailor.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://career.teamtailor.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "UK Account Executive - SMB Sales &middot; London &middot; Hybrid",
+    "Senior Revenue Systems Administrator CRM &middot; Stockholm",
+    "Revenue Systems Engineer CRM &middot; Stockholm",
+    "Revenue Systems Product Manager CRM &middot; Stockholm &middot; Hybrid",
+    "Regional Director CSM Customer Success &middot; Stockholm"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-25T10:55:37.361Z",
+  "candidateKey": "career@teamtailor.com"
+}

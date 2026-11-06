@@ -1,0 +1,20 @@
+{
+  "companyKey": "quitt-ch",
+  "companyName": "quitt",
+  "companyHost": "join.com",
+  "platform": "join.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://join.com/companies/quitt/16890282-senior-backend-developer?utm_medium=social_sharing&utm_source=copy_link"
+  ],
+  "detailTemplate": "/companies/quitt/16890282-senior-backend-developer",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Senior Backend Developer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-01T13:08:05.490Z",
+  "candidateKey": "quitt.ch"
+}

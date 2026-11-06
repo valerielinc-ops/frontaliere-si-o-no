@@ -1,0 +1,40 @@
+{
+  "id": "bns-utile-semestre-2026",
+  "slug": "bns-utile-semestre-2026",
+  "publishedAt": "2026-07-31T07:46:40.267Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.629727158277223,
+    "confidence": 0.8,
+    "finalScore": 6.103781726621779,
+    "topK": [
+      {
+        "slug": "dogana-maggiore-snella",
+        "cosine": 0.8495166729663619
+      },
+      {
+        "slug": "ubs-utile-3-miliardi-2026",
+        "cosine": 0.846923281332192
+      },
+      {
+        "slug": "utile-bns-2025-ticino",
+        "cosine": 0.8458503574696735
+      },
+      {
+        "slug": "mendrisio-bilancio-positivo-2025-analisi",
+        "cosine": 0.8452737720708102
+      },
+      {
+        "slug": "beko-cassinetta-risultati-2026",
+        "cosine": 0.844225569109209
+      }
+    ],
+    "score": 6.103781726621779,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

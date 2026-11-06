@@ -1,0 +1,40 @@
+{
+  "id": "rallentamenti-autostrada-a8-milano-varese",
+  "slug": "rallentamenti-autostrada-a8-milano-varese",
+  "publishedAt": "2026-08-02T01:37:15.712Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 13.911796941869577,
+    "confidence": 0.8,
+    "finalScore": 11.129437553495663,
+    "topK": [
+      {
+        "slug": "lavori-a8-castellanza-notturni-2026",
+        "cosine": 0.8694873088668486
+      },
+      {
+        "slug": "autolaghi-chiusura-barriere-antirumore-2026",
+        "cosine": 0.853833194399928
+      },
+      {
+        "slug": "lavori-autostradali-a8-chiusure",
+        "cosine": 0.8482105555890469
+      },
+      {
+        "slug": "viabilita-varese-racordo-chiuso-2026",
+        "cosine": 0.8480472408638501
+      },
+      {
+        "slug": "lavori-autostrada-a8-luglio-2026",
+        "cosine": 0.8461476016508258
+      }
+    ],
+    "score": 11.129437553495663,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

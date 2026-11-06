@@ -1,0 +1,818 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "lu-stadt-agenda",
+  "sourceName": "Stadt Luzern — Termine",
+  "canton": "LU",
+  "assembledAt": "2026-11-06T13:51:24.602Z",
+  "events": [
+    {
+      "id": "lu-stadt-agenda:6840391",
+      "title": "Kunstausstellung Weltformat",
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-10",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/6840391",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "699a06b42d54908c5e627d86c532ec8905a2adcd7f7bed5f3653ee347a1690d6"
+    },
+    {
+      "id": "lu-stadt-agenda:7649719",
+      "title": "Wissen am Mittag",
+      "startDate": "2026-10-09",
+      "startTime": "12:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7649719",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "6f23092835b39b3c9b26459e82d544b9405c8c5f4a5d98d79b784d4f7dbd24c6"
+    },
+    {
+      "id": "lu-stadt-agenda:7463704",
+      "title": "Salonkonzert",
+      "startDate": "2026-10-09",
+      "startTime": "15:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7463704",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "e9114c271150d97011935be93c055c7c173cb46e8754b04de9239dbe7ad50d22"
+    },
+    {
+      "id": "lu-stadt-agenda:7629577",
+      "title": "KulTour - Blick hinter die Türen von Kulturschaffenden",
+      "startDate": "2026-10-12",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7629577",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "fc19b858a04a899c9e1e8738802c338676c9d4300798ba67d6aa55caf8added6"
+    },
+    {
+      "id": "lu-stadt-agenda:7648402",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-10-12",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7648402",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7456402",
+      "title": "Lebensreise - Lesung Emilia Roig",
+      "startDate": "2026-10-12",
+      "startTime": "18:30",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7456402",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "d3024b265a6f5f82c6198f89dff9191c96f0c3daf09e8e2e996887005af30212"
+    },
+    {
+      "id": "lu-stadt-agenda:7688353",
+      "title": "Im Gespräch über Sicherheit und Sauberkeit",
+      "startDate": "2026-10-15",
+      "startTime": "18:30",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7688353",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-15T10:58:17.696Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "d3b5d62dd297a95dad48298662b12e9f1a968df72e9aef9c4278192f7e299e30"
+    },
+    {
+      "id": "lu-stadt-agenda:7694293",
+      "title": "Winter Qi Gong Waldfriedhof Staffeln",
+      "startDate": "2026-10-16",
+      "startTime": "08:30",
+      "comune": "Sursee",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7694293",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-16T10:43:42.362Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "efca251af211407c73e0e88da6d745f986c0a36f72f7b6b385566b692983b299"
+    },
+    {
+      "id": "lu-stadt-agenda:7463707",
+      "title": "Salonkonzert",
+      "startDate": "2026-10-16",
+      "startTime": "15:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7463707",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-16T10:43:42.362Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "0a11eff8e93afa4b79262feb2469c99123573a7022aa04479ec1f04f2be485a2"
+    },
+    {
+      "id": "lu-stadt-agenda:7626901",
+      "title": "Ausstellung NachtLeben",
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-25",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7626901",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-23T11:07:32.366Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "cac4979fcee407a7ded4389ac094a1a7a72123afa67ffbc122a44adf847d42e6"
+    },
+    {
+      "id": "lu-stadt-agenda:7626880",
+      "title": "Pilzexkursion",
+      "startDate": "2026-10-17",
+      "startTime": "08:30",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7626880",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-17T10:15:06.812Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "87eebb903e237b70b6308774bfb3d72062afc58b5ff4e8387200d122e3eeddf1"
+    },
+    {
+      "id": "lu-stadt-agenda:7686649",
+      "title": "Tag der offenen Tür und Gespräch",
+      "startDate": "2026-10-18",
+      "startTime": "11:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7686649",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-18T10:26:53.977Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "0d7518414745490ac58cec67c60cc66684dafc56d3aa52adde2d6ff0c9d153af"
+    },
+    {
+      "id": "lu-stadt-agenda:7648405",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-10-19",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7648405",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-19T11:51:16.914Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7694107",
+      "title": "Winter Qi Gong Inseli",
+      "startDate": "2026-10-20",
+      "startTime": "09:00",
+      "comune": "Ebikon",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7694107",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-20T11:01:21.846Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "f9ec835b60eb69bc8f17eec6337bf5918b59b495432d955a9ba86ec1f67a60b0"
+    },
+    {
+      "id": "lu-stadt-agenda:6840403",
+      "title": "Kunstausstellung Arts Crossroad",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-25",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/6840403",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-23T11:07:32.366Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "20bd8dbe06fbe49b6653626b2876953ee32e3e34596e4663b9f431b9c0950ec9"
+    },
+    {
+      "id": "lu-stadt-agenda:7729408",
+      "title": "28. Sitzung des Grossen Stadtrates von Luzern vom 22. Oktober 2026",
+      "startDate": "2026-10-22",
+      "startTime": "08:15",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7729408",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-22T11:12:09.829Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "f15a553ff8383b69508bfde50330dfa0e09056c4b8e2669b3e04d92278a7a34d"
+    },
+    {
+      "id": "lu-stadt-agenda:7694296",
+      "title": "Winter Qi Gong Waldfriedhof Staffeln",
+      "startDate": "2026-10-23",
+      "startTime": "08:30",
+      "comune": "Sursee",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7694296",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-23T11:07:32.366Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0"
+    },
+    {
+      "id": "lu-stadt-agenda:7649788",
+      "title": "Wissen am Mittag",
+      "startDate": "2026-10-23",
+      "startTime": "12:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7649788",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-23T11:07:32.366Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "ad136bfc159fa091fc7f6efc1d528b50d00ed6c0124b7bac2ef4f0123d01d98a"
+    },
+    {
+      "id": "lu-stadt-agenda:7463710",
+      "title": "Salonkonzert",
+      "startDate": "2026-10-23",
+      "startTime": "15:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7463710",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-23T11:07:32.366Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "6342342145998e3da80dfd082a7d93229513e86aded4e001031ce242eef2e42b"
+    },
+    {
+      "id": "lu-stadt-agenda:7626904",
+      "title": "Flechten und Moose in Luzern",
+      "startDate": "2026-10-24",
+      "startTime": "13:30",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7626904",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-23T11:07:32.366Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "6a3c14a82bc4f297e39b26c8b4719864ee6372f60b656681bf2ed162f2793003"
+    },
+    {
+      "id": "lu-stadt-agenda:7463668",
+      "title": "Öffentliche Führung",
+      "startDate": "2026-10-25",
+      "startTime": "15:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7463668",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-23T11:07:32.366Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "cf94f0cc2d16e462ea5399eaf4662b3bf7ade3c8d0f3225df902ea3b05ee79f3"
+    },
+    {
+      "id": "lu-stadt-agenda:7648408",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-10-26",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7648408",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7253945",
+      "title": "Energie Apéro Luzern: Regenerative Baumaterialien – eine Wiederentdeckung",
+      "startDate": "2026-10-26",
+      "startTime": "17:30",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7253945",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "228bda093dc532d49d6311c507f10e581471c0a532c74bab662206d864d983cb"
+    },
+    {
+      "id": "lu-stadt-agenda:7694110",
+      "title": "Winter Qi Gong Inseli",
+      "startDate": "2026-10-27",
+      "startTime": "09:00",
+      "comune": "Ebikon",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7694110",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6"
+    },
+    {
+      "id": "lu-stadt-agenda:7629670",
+      "title": "«Trop chaud» - Klimaseniorinnen - Film im Rahmen der «Lebensreise»",
+      "startDate": "2026-10-28",
+      "startTime": "16:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7629670",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "96dfde197beab1ccfcf708cd7b3f7a28b49217121b948c5874ca05972448cc2d"
+    },
+    {
+      "id": "lu-stadt-agenda:7587574",
+      "title": "Kunstausstellung Visarte",
+      "startDate": "2026-10-30",
+      "endDate": "2026-11-15",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7587574",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "e5d010aa4c32d49208c061d3a9a6ac94f421c53957bbdcd2ff0657862431c899"
+    },
+    {
+      "id": "lu-stadt-agenda:7694299",
+      "title": "Winter Qi Gong Waldfriedhof Staffeln",
+      "startDate": "2026-10-30",
+      "startTime": "08:30",
+      "comune": "Sursee",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7694299",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-30T12:12:17.365Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0"
+    },
+    {
+      "id": "lu-stadt-agenda:7463713",
+      "title": "Salonkonzert",
+      "startDate": "2026-10-30",
+      "startTime": "15:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7463713",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-30T12:12:17.365Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "13007d88c9069effc593ca00a46085fbd56218bcc5388863bee81616314a030d"
+    },
+    {
+      "id": "lu-stadt-agenda:7723786",
+      "title": "Schweizer Wohntage: Luzern",
+      "startDate": "2026-10-31",
+      "endDate": "2026-11-15",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7723786",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "b577b6c95f71dc25098879098cdb7b7fcc858615f229c388a332c0b0cdb49630"
+    },
+    {
+      "id": "lu-stadt-agenda:7648411",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-11-02",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7648411",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-30T12:12:17.365Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7694113",
+      "title": "Winter Qi Gong Inseli",
+      "startDate": "2026-11-03",
+      "startTime": "09:00",
+      "comune": "Ebikon",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7694113",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-30T12:12:17.365Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6"
+    },
+    {
+      "id": "lu-stadt-agenda:6363316",
+      "title": "FUKA KIOSK - Kultur zum Abholen",
+      "startDate": "2026-11-05",
+      "startTime": "12:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/6363316",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-30T12:12:17.365Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "7a35bbc923c150dade1a7e9d52c4c393f0a431ad10dc3086c4d154f11fbcf129"
+    },
+    {
+      "id": "lu-stadt-agenda:7694302",
+      "title": "Winter Qi Gong Waldfriedhof Staffeln",
+      "startDate": "2026-11-06",
+      "startTime": "08:30",
+      "comune": "Sursee",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7694302",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0"
+    },
+    {
+      "id": "lu-stadt-agenda:7463716",
+      "title": "Salonkonzert",
+      "startDate": "2026-11-06",
+      "startTime": "15:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7463716",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "8c6c0807b13d80b5df6a4ae6f68d9b35e3820bde1fcecefd729fc01168911a11"
+    },
+    {
+      "id": "lu-stadt-agenda:7629616",
+      "title": "KulTour - Blick hinter die Türen von Kulturschaffenden",
+      "startDate": "2026-11-09",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7629616",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "717c07a3625f0dc3e238d710feb11f2ae3928f943ec67ae1f84a5fa87e435342"
+    },
+    {
+      "id": "lu-stadt-agenda:7648414",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-11-09",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7648414",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7694116",
+      "title": "Winter Qi Gong Inseli",
+      "startDate": "2026-11-10",
+      "startTime": "09:00",
+      "comune": "Ebikon",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7694116",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6"
+    },
+    {
+      "id": "lu-stadt-agenda:7399984",
+      "title": "Preisverleihung Anerkennungspreis Quartierleben",
+      "startDate": "2026-11-10",
+      "startTime": "17:30",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7399984",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z"
+    },
+    {
+      "id": "lu-stadt-agenda:7629682",
+      "title": "«Melodie» - Film im Rahmen der «Lebensreise»",
+      "startDate": "2026-11-11",
+      "startTime": "16:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7629682",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "a14ce71e79a98b43120a5000f3603d46a10a9b649ac9536fd85ff0f2cba44905"
+    },
+    {
+      "id": "lu-stadt-agenda:7771576",
+      "title": "29. Sitzung des Grossen Stadtrates von Luzern vom 12. November 2026",
+      "startDate": "2026-11-12",
+      "startTime": "10:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7771576",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-06T13:51:24.602Z",
+      "sourceDescriptionHash": "f15a553ff8383b69508bfde50330dfa0e09056c4b8e2669b3e04d92278a7a34d"
+    }
+  ]
+}

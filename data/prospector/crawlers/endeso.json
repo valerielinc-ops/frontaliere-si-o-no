@@ -1,0 +1,24 @@
+{
+  "companyKey": "endeso",
+  "companyName": "endeso GmbH",
+  "companyHost": "endeso.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://endeso.ch/stellenangebote/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Praktikum Personalwesen und Disposition – Option auf Festanstellung",
+    "Remote - Grafiker/in für Webgrafiken als Freelance",
+    "HR Fachspezialist/in (Lohn)",
+    "Projektleiter/in Elektroinstallation",
+    "Chefgärtner/in für die Parkanlage eines Schlosses"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T09:56:42.752Z"
+}

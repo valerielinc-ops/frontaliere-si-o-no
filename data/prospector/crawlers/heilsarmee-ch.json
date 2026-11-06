@@ -1,0 +1,24 @@
+{
+  "companyKey": "heilsarmee-ch",
+  "companyName": "Heilsarmee Wohnen und Begleiten",
+  "companyHost": "armeedusalut.ch",
+  "platform": "armeedusalut.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://armeedusalut.ch/carriere/"
+  ],
+  "detailTemplate": "/carriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "PERSONNES SANS EXPÉRIENCE",
+    "PERSONNES AVEC EXPÉRIENCE",
+    "TRAVAILLER À L'ARMÉE DU SALUT",
+    "Tous les postes vacants"
+  ],
+  "canton": "LU",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-26T12:13:42.072Z",
+  "candidateKey": "heilsarmee.ch"
+}

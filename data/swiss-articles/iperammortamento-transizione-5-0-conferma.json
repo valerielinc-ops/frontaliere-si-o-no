@@ -1,0 +1,40 @@
+{
+  "id": "iperammortamento-transizione-5-0-conferma",
+  "slug": "iperammortamento-transizione-5-0-conferma",
+  "publishedAt": "2026-07-21T08:10:47.735Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "fiscoetasse.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.078361957270605,
+    "confidence": 0.8,
+    "finalScore": 8.062689565816484,
+    "topK": [
+      {
+        "slug": "nuovo-contratto-edilizia-ticino-2026",
+        "cosine": 0.8409167779316548
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8358761792855037
+      },
+      {
+        "slug": "permessi-dimora-grigioni-cambia-prassi",
+        "cosine": 0.8339116858794831
+      },
+      {
+        "slug": "nuove-regole-scambio-informazioni-ader-enti-creditori",
+        "cosine": 0.8325810446797065
+      },
+      {
+        "slug": "tassa-salute-frontalieri-accordo-frontalieri",
+        "cosine": 0.8323577438597018
+      }
+    ],
+    "score": 8.062689565816484,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

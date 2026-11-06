@@ -1,0 +1,25 @@
+{
+  "companyKey": "mobomo",
+  "companyName": "Mobomo, LLC",
+  "companyHost": "mobomo.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://mobomo.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Front End Engineer",
+    "Senior Full Stack React/Node.js Developer",
+    "Senior WordPress Engineer - Remote in Washington, D.C.",
+    "Sr. Software Engineer - DMV",
+    "UX/UI Developer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:04:47.409Z",
+  "candidateKey": "mobomo@applytojob.com"
+}

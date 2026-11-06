@@ -1,0 +1,19 @@
+{
+  "id": "mobilita-transfrontaliera-treni-autobus",
+  "slug": "mobilita-transfrontaliera-treni-autobus",
+  "publishedAt": "2026-06-16T19:16:21.602Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 126.71767289999997,
+    "confidence": 1,
+    "finalScore": 126.71767289999997,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 31.679418224999992,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

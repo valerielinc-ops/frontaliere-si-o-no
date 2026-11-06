@@ -1,0 +1,21 @@
+{
+  "companyKey": "iph-hitzkirch-ch",
+  "companyName": "Interkantonale Polizeischule Hitzkirch",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/b9c8cf34-d364-4248-a28d-5d60a0e2182d/b517862c-8381-37b2-75d9-ab95fff6349a?jp=ABACUS"
+  ],
+  "detailTemplate": "/application-process/b9c8cf34-d364-4248-a28d-5d60a0e2182d/b517862c-8381-37b2-75d9-ab95fff6349a",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Küchenchef/in"
+  ],
+  "canton": "LU",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-28T12:14:14.501Z",
+  "candidateKey": "iph-hitzkirch.ch"
+}

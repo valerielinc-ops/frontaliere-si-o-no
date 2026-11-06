@@ -1,0 +1,40 @@
+{
+  "id": "assicurazione-malattie-pilota-ticino",
+  "slug": "assicurazione-malattie-pilota-ticino",
+  "publishedAt": "2026-05-08T21:33:38.265Z",
+  "cluster": "salute",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.587761584854512,
+    "confidence": 0.8,
+    "finalScore": 8.47020926788361,
+    "topK": [
+      {
+        "slug": "premi-non-oltre-10-percento",
+        "cosine": 0.7556629319817573
+      },
+      {
+        "slug": "cassa-malati-franchigia-minima-ticino",
+        "cosine": 0.7554909006765711
+      },
+      {
+        "slug": "riforma-cassa-malati-ticino-2029",
+        "cosine": 0.7550889957495281
+      },
+      {
+        "slug": "assicurazione-malattia-famiglia",
+        "cosine": 0.7508638021981939
+      },
+      {
+        "slug": "aumento-franchigia-minima",
+        "cosine": 0.7477146227419493
+      }
+    ],
+    "score": 0.8470209267883609,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

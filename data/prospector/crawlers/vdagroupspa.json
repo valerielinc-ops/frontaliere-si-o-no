@@ -1,0 +1,23 @@
+{
+  "companyKey": "vdagroupspa",
+  "companyName": "VDA Group Spa",
+  "companyHost": "vdagroupspa.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://vdagroupspa.altamiraweb.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "GRAPHIC DESIGNER",
+    "ORDER MANAGEMENT SPECIALIST",
+    "SENIOR SYSTEM LINUX ENGINEER",
+    "APPLICATION ENGINEER",
+    "PRESALES ENGINEER"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:38.020Z"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "lavoro-insegnanti-ticino-opportunita",
+  "slug": "lavoro-insegnanti-ticino-opportunita",
+  "publishedAt": "2026-05-11T01:57:36.857Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.323831456226909,
+    "confidence": 0.8,
+    "finalScore": 5.859065164981527,
+    "topK": [
+      {
+        "slug": "trovare-lavoro-ticino",
+        "cosine": 0.7311769359323425
+      },
+      {
+        "slug": "lavoro-carceri-ticino",
+        "cosine": 0.7196644355645485
+      },
+      {
+        "slug": "mercato-lavoro-ticino-q4-2025",
+        "cosine": 0.7105595720418104
+      },
+      {
+        "slug": "diventare-pastore-ticino",
+        "cosine": 0.7092913495974424
+      },
+      {
+        "slug": "sportello-lavoro-varese-frontalieri-ticino",
+        "cosine": 0.7087546724116496
+      }
+    ],
+    "score": 5.859065164981527,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

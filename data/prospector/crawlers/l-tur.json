@@ -1,0 +1,20 @@
+{
+  "companyKey": "l-tur",
+  "companyName": "l'tur",
+  "companyHost": "jobs.tuigroup.com",
+  "platform": "tuigroup.com",
+  "mode": "microdata",
+  "seedUrls": [
+    "https://jobs.tuigroup.com/job/Mainz-Selbstst%C3%A4ndiger-Reiseb%C3%BCro-Inhaber-%28mwd%29-in-Mainz-RP-55116/1447228033/?feedId=299501&"
+  ],
+  "detailTemplate": "/talentcommunity/apply/1447228033/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Selbstständiger Reisebüro-Inhaber (m/w/d) in Mainz"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:27.110Z"
+}

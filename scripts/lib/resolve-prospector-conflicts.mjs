@@ -1,0 +1,706 @@
+#!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
+/**
+ * Resolve the generated Prospector files when the queue commit is rebased.
+ *
+ * `prospector-loop.yml` can spend several minutes between checkout and push.
+ * Other writers of `main` can therefore land a commit first.  Git cannot
+ * safely merge the re-serialised JSON documents by lines: a plain conflict
+ * resolution would either drop the other run's observations or duplicate
+ * them.  This resolver runs inside `git-push-with-retry.sh`'s rebase and knows
+ * the data semantics of each Prospector document.
+ *
+ * During a rebase, index stage 2 is the upstream version and stage 3 is the
+ * local commit being replayed.  Local observations win on an exact collision,
+ * while append-mostly histories and monotonic statuses are merged explicitly.
+ * Unknown conflicted paths and malformed JSON fail closed.
+ */
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+
+import { gitShowStage } from './git-show-stage.mjs';
+
+export const PROSPECTOR_PATHS = Object.freeze({
+  candidates: 'data/prospector/candidates.json',
+  platforms: 'data/prospector/platforms.json',
+  validation: 'data/prospector/validation.json',
+  webChannelHealth: 'data/prospector/web-channel-health.json',
+  secoPageCursors: 'data/prospector/seco-page-cursors.json',
+  zefixCursors: 'data/prospector/zefix-cursors.json',
+});
+
+const MISSING = Symbol('missing');
+const CRAWLER_PATH = /^data\/prospector\/crawlers\/[^/]+\.json$/;
+const CANDIDATE_STATUS_RANK = Object.freeze({
+  // `rejected` is a terminal candidate verdict. It must beat every live
+  // status when two runs were based on the same candidate, otherwise a stale
+  // local snapshot could resurrect a record that the other run tombstoned.
+  rejected: 10,
+  dead: 1,
+  new: 2,
+  resolved: 3,
+  traced: 4,
+  synthesized: 5,
+  validated: 6,
+  promoted: 7,
+  promoting: 8,
+  production: 9,
+});
+const PLATFORM_STATUS_RANK = Object.freeze({ candidate: 0, confirmed: 1, supported: 2, rejected: 3 });
+const VALIDATION_VERDICTS = ['good', 'weak', 'bad', 'insufficient'];
+const CHANNEL_HISTORY_LIMIT = 60;
+
+const hasOwn = (value, key) => Object.prototype.hasOwnProperty.call(value || {}, key);
+const isObject = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
+
+function clone(value) {
+  if (value === MISSING) return MISSING;
+  return structuredClone(value);
+}
+
+function canonical(value) {
+  if (Array.isArray(value)) return value.map(canonical);
+  if (isObject(value)) {
+    return Object.fromEntries(Object.keys(value).sort().map((key) => [key, canonical(value[key])]));
+  }
+  return value;
+}
+
+function same(a, b) {
+  if (a === MISSING || b === MISSING) return a === b;
+  return JSON.stringify(canonical(a)) === JSON.stringify(canonical(b));
+}
+
+function objectOrEmpty(value) {
+  return isObject(value) ? value : {};
+}
+
+function newest(...values) {
+  return values
+    .filter((value) => value !== null && value !== undefined && value !== '')
+    .map(String)
+    .sort(compareTemporal)
+    .at(-1) || null;
+}
+
+function oldest(...values) {
+  return values
+    .filter((value) => value !== null && value !== undefined && value !== '')
+    .map(String)
+    .sort(compareTemporal)
+    .at(0) || null;
+}
+
+function compareTemporal(a, b) {
+  const aMs = Date.parse(a);
+  const bMs = Date.parse(b);
+  if (Number.isFinite(aMs) && Number.isFinite(bMs)) return aMs - bMs;
+  return a.localeCompare(b);
+}
+
+function unionArray(...arrays) {
+  const out = [];
+  const seen = new Set();
+  for (const array of arrays) {
+    if (!Array.isArray(array)) continue;
+    for (const value of array) {
+      const key = JSON.stringify(canonical(value));
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(clone(value));
+    }
+  }
+  return out;
+}
+
+/**
+ * Three-way value merge. A side that is unchanged from the base yields to the
+ * side that changed. If both changed, `mergeBoth` owns the domain semantics.
+ */
+export function mergeThreeWay(base, upstream, local, mergeBoth = (_upstream, local) => clone(local)) {
+  if (same(upstream, local)) return clone(upstream);
+  if (same(base, upstream)) return clone(local);
+  if (same(base, local)) return clone(upstream);
+  if (upstream === MISSING && local === MISSING) return MISSING;
+  if (upstream === MISSING) return clone(local);
+  if (local === MISSING) return clone(upstream);
+  return mergeBoth(upstream, local, base);
+}
+
+function mergeMap(base, upstream, local, mergeValue) {
+  const baseMap = objectOrEmpty(base);
+  const upstreamMap = objectOrEmpty(upstream);
+  const localMap = objectOrEmpty(local);
+  const keys = new Set([...Object.keys(baseMap), ...Object.keys(upstreamMap), ...Object.keys(localMap)]);
+  const result = {};
+  for (const key of [...keys].sort()) {
+    const value = mergeThreeWay(
+      hasOwn(baseMap, key) ? baseMap[key] : MISSING,
+      hasOwn(upstreamMap, key) ? upstreamMap[key] : MISSING,
+      hasOwn(localMap, key) ? localMap[key] : MISSING,
+      mergeValue,
+    );
+    if (value !== MISSING) result[key] = value;
+  }
+  return result;
+}
+
+function mergeUnknownObject(base, upstream, local) {
+  const baseObject = objectOrEmpty(base);
+  const upstreamObject = objectOrEmpty(upstream);
+  const localObject = objectOrEmpty(local);
+  const keys = new Set([...Object.keys(baseObject), ...Object.keys(upstreamObject), ...Object.keys(localObject)]);
+  const result = {};
+  for (const key of [...keys].sort()) {
+    const value = mergeThreeWay(
+      hasOwn(baseObject, key) ? baseObject[key] : MISSING,
+      hasOwn(upstreamObject, key) ? upstreamObject[key] : MISSING,
+      hasOwn(localObject, key) ? localObject[key] : MISSING,
+      (upstreamValue, localValue, baseValue) => {
+        if (Array.isArray(upstreamValue) && Array.isArray(localValue)) {
+          return unionArray(upstreamValue, localValue);
+        }
+        if (isObject(upstreamValue) && isObject(localValue)) {
+          return mergeUnknownObject(baseValue, upstreamValue, localValue);
+        }
+        return clone(localValue);
+      },
+    );
+    if (value !== MISSING) result[key] = value;
+  }
+  return result;
+}
+
+function mergeCandidate(upstream, local) {
+  const merged = { ...clone(upstream), ...clone(local) };
+  const statuses = [upstream.status, local.status].filter((status) => status in CANDIDATE_STATUS_RANK);
+  if (statuses.length) merged.status = statuses.sort((a, b) => CANDIDATE_STATUS_RANK[a] - CANDIDATE_STATUS_RANK[b]).at(-1);
+
+  if (isObject(upstream.sourceSeenAt) || isObject(local.sourceSeenAt)) {
+    const upstreamSeen = objectOrEmpty(upstream.sourceSeenAt);
+    const localSeen = objectOrEmpty(local.sourceSeenAt);
+    const seenAt = {};
+    for (const source of new Set([...Object.keys(upstreamSeen), ...Object.keys(localSeen)])) {
+      const timestamp = newest(upstreamSeen[source], localSeen[source]);
+      if (timestamp) seenAt[source] = timestamp;
+    }
+    merged.sourceSeenAt = seenAt;
+  }
+
+  // SECO signal fields form one observation snapshot. A concurrent OSM/web
+  // merge must not overwrite fresher listing data just because its candidate
+  // object was serialized locally. Timestamp-less legacy collisions retain
+  // the established spread/local-wins behavior.
+  const upstreamSecoAt = Date.parse(String(upstream.sourceSeenAt?.seco || ''));
+  const localSecoAt = Date.parse(String(local.sourceSeenAt?.seco || ''));
+  if (Number.isFinite(upstreamSecoAt) || Number.isFinite(localSecoAt)) {
+    const secoWinner = Number.isFinite(upstreamSecoAt)
+      && (!Number.isFinite(localSecoAt) || upstreamSecoAt > localSecoAt)
+      ? upstream
+      : local;
+    for (const field of [
+      'adCount',
+      'sampleTitles',
+      'applyHosts',
+      'secoEmployerName',
+      'secoEmployerClassification',
+      'secoStaffingAgency',
+      'secoStaffingMatchConfidence',
+    ]) {
+      if (hasOwn(secoWinner, field)) merged[field] = clone(secoWinner[field]);
+      else delete merged[field];
+    }
+  }
+
+  // These fields are observations accumulated by independent stages. A local
+  // re-run must not erase a source, URL, or trail learned by the other run.
+  for (const field of ['sources', 'careersUrls', 'trailVia', 'vacancySignals']) {
+    if (Array.isArray(upstream[field]) || Array.isArray(local[field])) {
+      merged[field] = unionArray(upstream[field], local[field]);
+    }
+  }
+  if (Array.isArray(upstream.validationHistory) || Array.isArray(local.validationHistory)) {
+    const history = unionArray(upstream.validationHistory, local.validationHistory)
+      .sort((a, b) => String(a?.at || '').localeCompare(String(b?.at || '')));
+    merged.validationHistory = history.slice(-8);
+  }
+  if (upstream.firstSeenAt || local.firstSeenAt) merged.firstSeenAt = oldest(upstream.firstSeenAt, local.firstSeenAt);
+  if (upstream.updatedAt || local.updatedAt) merged.updatedAt = newest(upstream.updatedAt, local.updatedAt);
+  if (upstream.rejectedAt || local.rejectedAt) merged.rejectedAt = newest(upstream.rejectedAt, local.rejectedAt);
+  resolveLegacySynthesisRecovery(merged, upstream, local);
+  return merged;
+}
+
+function resolveLegacySynthesisRecovery(merged, upstream, local) {
+  // Keep the normal monotonic status merge for live progress. This special
+  // ordering only resolves terminal-rejection conflicts against a recovery.
+  if (merged.status !== 'rejected') return;
+  // `synthesisOutcome` is per-attempt and changes to `transient_seed_failure`
+  // after a retry. The queue timestamp is the durable recovery marker.
+  const candidates = [upstream, local];
+  const recoveries = candidates
+    .map((candidate) => ({ candidate, queuedAt: Date.parse(String(candidate?.synthesisRecoveryQueuedAt || '')) }))
+    .filter(({ queuedAt }) => Number.isFinite(queuedAt));
+  if (!recoveries.length) return;
+
+  // Queue time alone is insufficient: a branch from an older queue can carry
+  // a later terminal attempt than a newer queue's transient failure. Compare
+  // every marked state with unmarked terminal rejections by effective state
+  // time; a truly later queue remains eligible to reopen the candidate.
+  const terminalRejections = candidates.filter((candidate) =>
+    candidate?.status === 'rejected'
+      && !Number.isFinite(Date.parse(String(candidate.synthesisRecoveryQueuedAt || ''))));
+  const winner = [...recoveries.map(({ candidate }) => candidate), ...terminalRejections]
+    .sort(compareSynthesisState)
+    .at(-1);
+  if (!winner) return;
+  const synthesisFields = [
+    'synthesisRetryable',
+    'synthesisAttempts',
+    'synthesisLastAttemptAt',
+    'synthesisRetryAt',
+    'synthesisRetryExhausted',
+    'synthesisOutcome',
+    'synthesisDiagnostics',
+    'synthesisRecoveryQueuedAt',
+    'reopenedAt',
+  ];
+  for (const field of synthesisFields) {
+    if (hasOwn(winner, field)) merged[field] = clone(winner[field]);
+    else delete merged[field];
+  }
+
+  merged.status = winner.status;
+  if (hasOwn(winner, 'reason')) merged.reason = clone(winner.reason);
+  else delete merged.reason;
+  if (hasOwn(winner, 'rejectedAt')) merged.rejectedAt = clone(winner.rejectedAt);
+  else delete merged.rejectedAt;
+}
+
+function compareSynthesisState(left, right) {
+  const stateAt = (candidate) => {
+    if (candidate?.status === 'rejected') {
+      const rejectedAt = Date.parse(String(candidate.rejectedAt || ''));
+      if (Number.isFinite(rejectedAt)) return rejectedAt;
+    }
+    const eventTimes = [candidate?.synthesisLastAttemptAt, candidate?.synthesisRecoveryQueuedAt];
+    const parsedTimes = eventTimes.map((value) => Date.parse(String(value || ''))).filter(Number.isFinite);
+    if (parsedTimes.length) return Math.max(...parsedTimes);
+    const updatedAt = Date.parse(String(candidate?.updatedAt || ''));
+    if (Number.isFinite(updatedAt)) return updatedAt;
+    return Number.NEGATIVE_INFINITY;
+  };
+  const leftAt = stateAt(left);
+  const rightAt = stateAt(right);
+  if (leftAt !== rightAt) return leftAt > rightAt ? 1 : -1;
+  if ((left?.status === 'rejected') !== (right?.status === 'rejected')) {
+    return left?.status === 'rejected' ? 1 : -1;
+  }
+  return 0;
+}
+
+function mergeCounter(upstream, local, base) {
+  const upstreamValue = Number(upstream) || 0;
+  const localValue = Number(local) || 0;
+  const baseValue = Number(base) || 0;
+  // host/path hits and expansion attempts are cumulative observations. Each
+  // side may have added a different delta since the common base, so taking the
+  // max would silently discard one run's evidence. Negative deltas are not
+  // expected, but treating them as zero keeps a stale writer from regressing
+  // the counter.
+  return baseValue + Math.max(0, upstreamValue - baseValue) + Math.max(0, localValue - baseValue);
+}
+
+function mergePlatform(upstream, local, base = {}) {
+  const merged = { ...clone(upstream), ...clone(local) };
+  const statuses = [upstream.status, local.status].filter((status) => status in PLATFORM_STATUS_RANK);
+  if (statuses.length) merged.status = statuses.sort((a, b) => PLATFORM_STATUS_RANK[a] - PLATFORM_STATUS_RANK[b]).at(-1);
+
+  for (const field of ['seenOn', 'markers', 'hostSamples', 'listingPaths']) {
+    if (Array.isArray(upstream[field]) || Array.isArray(local[field])) merged[field] = unionArray(upstream[field], local[field]);
+  }
+  for (const field of ['hostHits', 'pathHits']) {
+    if (isObject(upstream[field]) || isObject(local[field])) {
+      const values = { ...objectOrEmpty(upstream[field]), ...objectOrEmpty(local[field]) };
+      for (const key of new Set([...Object.keys(upstream[field] || {}), ...Object.keys(local[field] || {})])) {
+        values[key] = mergeCounter(upstream[field]?.[key], local[field]?.[key], base[field]?.[key]);
+      }
+      merged[field] = Object.fromEntries(Object.keys(values).sort().map((key) => [key, values[key]]));
+    }
+  }
+  if (isObject(upstream.hostEmployers) || isObject(local.hostEmployers)) {
+    const values = {};
+    for (const host of new Set([
+      ...Object.keys(objectOrEmpty(upstream.hostEmployers)),
+      ...Object.keys(objectOrEmpty(local.hostEmployers)),
+    ])) {
+      values[host] = [...new Set([
+        ...(Array.isArray(upstream.hostEmployers?.[host]) ? upstream.hostEmployers[host] : []),
+        ...(Array.isArray(local.hostEmployers?.[host]) ? local.hostEmployers[host] : []),
+      ].map(String))].sort();
+    }
+    merged.hostEmployers = Object.fromEntries(Object.keys(values).sort().map((host) => [host, values[host]]));
+  }
+  if (isObject(upstream.hostEmployerUnknown) || isObject(local.hostEmployerUnknown)
+    || isObject(base.hostEmployerUnknown)) {
+    const hosts = new Set([
+      ...Object.keys(objectOrEmpty(base.hostEmployerUnknown)),
+      ...Object.keys(objectOrEmpty(upstream.hostEmployerUnknown)),
+      ...Object.keys(objectOrEmpty(local.hostEmployerUnknown)),
+    ]);
+    const values = Object.fromEntries([...hosts].sort()
+      .filter((host) => base.hostEmployerUnknown?.[host] === true
+        || upstream.hostEmployerUnknown?.[host] === true
+        || local.hostEmployerUnknown?.[host] === true)
+      .map((host) => [host, true]));
+    merged.hostEmployerUnknown = values;
+  }
+  if (upstream.tenantCount !== undefined || local.tenantCount !== undefined) {
+    merged.tenantCount = Math.max(Number(upstream.tenantCount) || 0, Number(local.tenantCount) || 0);
+  }
+  if (upstream.expansionAttempts !== undefined || local.expansionAttempts !== undefined) {
+    merged.expansionAttempts = mergeCounter(upstream.expansionAttempts, local.expansionAttempts, base.expansionAttempts);
+  }
+  const upstreamExpandedAt = Date.parse(String(upstream.lastExpandedAt || ''));
+  const localExpandedAt = Date.parse(String(local.lastExpandedAt || ''));
+  const latestExpansionFirst = Number.isFinite(upstreamExpandedAt)
+    && (!Number.isFinite(localExpandedAt) || upstreamExpandedAt > localExpandedAt)
+    ? [upstream, local]
+    : [local, upstream];
+  if (upstream.expansionProbeOffset !== undefined || local.expansionProbeOffset !== undefined) {
+    const latestOffset = latestExpansionFirst.find((platform) => Number.isSafeInteger(platform.expansionProbeOffset)
+      && platform.expansionProbeOffset >= 0)?.expansionProbeOffset;
+    if (latestOffset !== undefined) merged.expansionProbeOffset = latestOffset;
+  }
+  if (Array.isArray(upstream.expansionRetryHosts) || Array.isArray(local.expansionRetryHosts)) {
+    const preferred = latestExpansionFirst.map((platform) => platform.expansionRetryHosts);
+    const baseRetries = new Map((Array.isArray(base.expansionRetryHosts) ? base.expansionRetryHosts : [])
+      .filter((entry) => typeof entry?.host === 'string' && Number.isSafeInteger(entry.attempts) && entry.attempts >= 1)
+      .map((entry) => [entry.host, entry]));
+    const sideRetries = [upstream.expansionRetryHosts, local.expansionRetryHosts].map((entries) => new Map(
+      (Array.isArray(entries) ? entries : [])
+        .filter((entry) => typeof entry?.host === 'string' && Number.isSafeInteger(entry.attempts) && entry.attempts >= 1)
+        .map((entry) => [entry.host, entry]),
+    ));
+    const retained = new Map();
+    const hosts = new Set([...baseRetries.keys(), ...sideRetries.flatMap((entries) => [...entries.keys()])]);
+    for (const host of hosts) {
+      const baseEntry = baseRetries.get(host);
+      const entries = sideRetries.map((side) => side.get(host)).filter(Boolean);
+      if (!entries.length) continue;
+      if (!baseEntry || entries.length === 2 || entries.some((entry) => entry.attempts !== baseEntry.attempts)) {
+        retained.set(host, { host, attempts: Math.max(...entries.map((entry) => entry.attempts)) });
+      }
+      // If one writer removed a base retry after a successful probe and the
+      // other left it untouched, the removal is meaningful. A changed retry
+      // entry above wins because it records a new transient failure.
+    }
+    // Preserve the complete queue order from the newest run first. Add changes
+    // from the older branch only into remaining capacity; this keeps unprobed
+    // pending entries from being evicted just to retain a stale side's tail.
+    const ordered = [];
+    const queued = new Set();
+    for (const entries of preferred) {
+      for (const entry of Array.isArray(entries) ? entries : []) {
+        const retry = retained.get(entry?.host);
+        if (!retry || queued.has(retry.host)) continue;
+        queued.add(retry.host);
+        ordered.push(retry);
+      }
+    }
+    merged.expansionRetryHosts = ordered.filter((entry) => entry.attempts < 4).slice(0, 500);
+  }
+  if (upstream.discoveredAt || local.discoveredAt) merged.discoveredAt = oldest(upstream.discoveredAt, local.discoveredAt);
+  if (upstream.lastExpandedAt || local.lastExpandedAt) merged.lastExpandedAt = newest(upstream.lastExpandedAt, local.lastExpandedAt);
+  return merged;
+}
+
+function mergeTombstone(upstream, local) {
+  if (isObject(upstream) && isObject(local)) {
+    const merged = { ...clone(upstream), ...clone(local) };
+    if (upstream.rejectedAt || local.rejectedAt) merged.rejectedAt = newest(upstream.rejectedAt, local.rejectedAt);
+    return merged;
+  }
+  return clone(local);
+}
+
+function documentMeta(base, upstream, local, known) {
+  const baseObject = objectOrEmpty(base);
+  const upstreamObject = objectOrEmpty(upstream);
+  const localObject = objectOrEmpty(local);
+  const result = {};
+  const keys = new Set([...Object.keys(baseObject), ...Object.keys(upstreamObject), ...Object.keys(localObject)]);
+  for (const key of [...keys].sort()) {
+    if (known.has(key)) continue;
+    const value = mergeThreeWay(
+      hasOwn(baseObject, key) ? baseObject[key] : MISSING,
+      hasOwn(upstreamObject, key) ? upstreamObject[key] : MISSING,
+      hasOwn(localObject, key) ? localObject[key] : MISSING,
+      (upstreamValue, localValue, baseValue) => {
+        if (Array.isArray(upstreamValue) && Array.isArray(localValue)) return unionArray(upstreamValue, localValue);
+        if (isObject(upstreamValue) && isObject(localValue)) return mergeUnknownObject(baseValue, upstreamValue, localValue);
+        return clone(localValue);
+      },
+    );
+    if (value !== MISSING) result[key] = value;
+  }
+  return result;
+}
+
+function mergeCandidatesDocument(base, upstream, local) {
+  const result = documentMeta(base, upstream, local, new Set(['version', 'updatedAt', 'candidates', 'rejectedTombstones']));
+  result.version = Math.max(Number(base?.version) || 1, Number(upstream?.version) || 1, Number(local?.version) || 1);
+  result.updatedAt = newest(base?.updatedAt, upstream?.updatedAt, local?.updatedAt);
+  result.candidates = mergeMap(base?.candidates, upstream?.candidates, local?.candidates, mergeCandidate);
+  result.rejectedTombstones = mergeMap(base?.rejectedTombstones, upstream?.rejectedTombstones, local?.rejectedTombstones, mergeTombstone);
+  return result;
+}
+
+function mergePlatformsDocument(base, upstream, local) {
+  const result = documentMeta(base, upstream, local, new Set(['version', 'updatedAt', 'platforms']));
+  result.version = Math.max(Number(base?.version) || 1, Number(upstream?.version) || 1, Number(local?.version) || 1);
+  result.updatedAt = newest(base?.updatedAt, upstream?.updatedAt, local?.updatedAt);
+  result.platforms = mergeMap(base?.platforms, upstream?.platforms, local?.platforms, mergePlatform);
+  return result;
+}
+
+function reportKey(report) {
+  if (report && report.companyKey) return String(report.companyKey);
+  return `__anonymous__:${JSON.stringify(canonical(report))}`;
+}
+
+function mergeValidationDocument(base, upstream, local) {
+  const result = documentMeta(base, upstream, local, new Set(['generatedAt', 'tally', 'promotedVacancies', 'reports', 'validationSchedule']));
+  result.generatedAt = newest(base?.generatedAt, upstream?.generatedAt, local?.generatedAt);
+  const toMap = (reports) => Object.fromEntries((Array.isArray(reports) ? reports : []).map((report) => [reportKey(report), report]));
+  const reports = mergeMap(toMap(base?.reports), toMap(upstream?.reports), toMap(local?.reports), (_upstream, localValue) => clone(localValue));
+  result.reports = Object.values(reports).sort((a, b) => reportKey(a).localeCompare(reportKey(b)));
+
+  result.validationSchedule = mergeMap(
+    base?.validationSchedule,
+    upstream?.validationSchedule,
+    local?.validationSchedule,
+    (upstreamEntry, localEntry) => {
+      const upstreamAt = Date.parse(String(upstreamEntry?.at || ''));
+      const localAt = Date.parse(String(localEntry?.at || ''));
+      if (Number.isFinite(upstreamAt) && (!Number.isFinite(localAt) || upstreamAt > localAt)) {
+        return clone(upstreamEntry);
+      }
+      return clone(localEntry);
+    },
+  );
+
+  const tally = Object.fromEntries(VALIDATION_VERDICTS.map((verdict) => [verdict, 0]));
+  for (const report of result.reports) {
+    const verdict = String(report?.verdict || '');
+    tally[verdict] = (tally[verdict] || 0) + 1;
+  }
+  result.tally = tally;
+  result.promotedVacancies = result.reports
+    .filter((report) => report?.verdict === 'good')
+    .reduce((sum, report) => sum + (Number(report?.vacancyCount) || 0), 0);
+  return result;
+}
+
+function channelEntryKey(entry) {
+  if (!entry?.at) return JSON.stringify(canonical(entry));
+  // `at` is normally unique, but two workers can observe the same
+  // millisecond. Include the measured payload so a coincident timestamp does
+  // not collapse two different channel observations.
+  return JSON.stringify([
+    entry.at,
+    entry.collection,
+    entry.totalPages,
+    entry.pagesRead,
+    entry.employers,
+    entry.outage,
+  ]);
+}
+
+function mergeChannelHealth(base, upstream, local) {
+  const merged = mergeThreeWay(base, upstream, local, (upstreamValue, localValue) => {
+    const byKey = new Map();
+    for (const entry of [...(Array.isArray(upstreamValue) ? upstreamValue : []), ...(Array.isArray(localValue) ? localValue : [])]) {
+      byKey.set(channelEntryKey(entry), clone(entry));
+    }
+    return [...byKey.values()]
+      .sort((a, b) => String(a?.at || '').localeCompare(String(b?.at || '')))
+      .slice(-CHANNEL_HISTORY_LIMIT);
+  });
+  return merged;
+}
+
+function mergeCantonCursors(base, upstream, local) {
+  const result = documentMeta(base, upstream, local, new Set(['version', 'updatedAt', 'cantons']));
+  result.version = Math.max(Number(base?.version) || 1, Number(upstream?.version) || 1, Number(local?.version) || 1);
+  result.updatedAt = newest(base?.updatedAt, upstream?.updatedAt, local?.updatedAt);
+  result.cantons = mergeMap(base?.cantons, upstream?.cantons, local?.cantons, (upstreamValue, localValue) => {
+    const upstreamAt = Date.parse(String(upstreamValue?.updatedAt || ''));
+    const localAt = Date.parse(String(localValue?.updatedAt || ''));
+    return Number.isFinite(upstreamAt) && (!Number.isFinite(localAt) || upstreamAt > localAt)
+      ? clone(upstreamValue)
+      : clone(localValue);
+  });
+  return result;
+}
+
+function mergeCrawlerDocument(base, upstream, local) {
+  return mergeThreeWay(base, upstream, local, (upstreamValue, localValue) => {
+    const merged = { ...clone(upstreamValue), ...clone(localValue) };
+    for (const field of new Set([...Object.keys(upstreamValue), ...Object.keys(localValue)])) {
+      if (isObject(upstreamValue[field]) && isObject(localValue[field])) {
+        merged[field] = mergeUnknownObject({}, upstreamValue[field], localValue[field]);
+      }
+    }
+    for (const field of ['seedUrls', 'allowedDetailOrigins', 'sampleTitles']) {
+      if (Array.isArray(upstreamValue[field]) || Array.isArray(localValue[field])) {
+        merged[field] = unionArray(upstreamValue[field], localValue[field]);
+      }
+    }
+    if (upstreamValue.detailTemplate !== undefined || localValue.detailTemplate !== undefined) {
+      const templates = unionArray(
+        Array.isArray(upstreamValue.detailTemplate) ? upstreamValue.detailTemplate : [upstreamValue.detailTemplate],
+        Array.isArray(localValue.detailTemplate) ? localValue.detailTemplate : [localValue.detailTemplate],
+      ).filter(Boolean);
+      merged.detailTemplate = templates.length <= 1 ? templates[0] : templates;
+    }
+    if (upstreamValue.sampleVacancyCount !== undefined || localValue.sampleVacancyCount !== undefined) {
+      merged.sampleVacancyCount = Math.max(Number(upstreamValue.sampleVacancyCount) || 0, Number(localValue.sampleVacancyCount) || 0);
+    }
+    if (upstreamValue.detailEnrichment !== undefined || localValue.detailEnrichment !== undefined) {
+      merged.detailEnrichment = Boolean(upstreamValue.detailEnrichment || localValue.detailEnrichment);
+    }
+    if (upstreamValue.learnedAt || localValue.learnedAt) merged.learnedAt = newest(upstreamValue.learnedAt, localValue.learnedAt);
+    return merged;
+  });
+}
+
+function ensureShape(target, value) {
+  if (value === MISSING) return;
+  if (target === PROSPECTOR_PATHS.candidates && (!isObject(value) || !isObject(value.candidates))) {
+    throw new Error(`${target}: expected an object with a candidates map`);
+  }
+  if (target === PROSPECTOR_PATHS.platforms && (!isObject(value) || !isObject(value.platforms))) {
+    throw new Error(`${target}: expected an object with a platforms map`);
+  }
+  if (target === PROSPECTOR_PATHS.validation && (!isObject(value) || !Array.isArray(value.reports))) {
+    throw new Error(`${target}: expected an object with a reports array`);
+  }
+  if (target === PROSPECTOR_PATHS.secoPageCursors && (!isObject(value) || !isObject(value.cantons))) {
+    throw new Error(`${target}: expected an object with a cantons map`);
+  }
+  if (target === PROSPECTOR_PATHS.secoPageCursors) {
+    for (const [canton, cursor] of Object.entries(value.cantons)) {
+      const stable = isObject(cursor)
+        && (cursor.headId === null || typeof cursor.headId === 'string')
+        && (cursor.afterId === null || typeof cursor.afterId === 'string')
+        && Number.isSafeInteger(cursor.afterPageHint) && cursor.afterPageHint >= 0;
+      const legacy = isObject(cursor)
+        && Number.isSafeInteger(cursor.nextPage) && cursor.nextPage >= 0;
+      if (!/^[A-Z]{2}$/.test(canton) || (!stable && !legacy)
+        || !Number.isSafeInteger(cursor.onlineSinceDays) || cursor.onlineSinceDays < 1
+        || typeof cursor.updatedAt !== 'string') {
+        throw new Error(`${target}: invalid cursor for ${canton}`);
+      }
+    }
+  }
+  if (target === PROSPECTOR_PATHS.zefixCursors && (!isObject(value) || !isObject(value.cantons))) {
+    throw new Error(`${target}: expected an object with a cantons map`);
+  }
+  if (target === PROSPECTOR_PATHS.webChannelHealth && !Array.isArray(value)) {
+    throw new Error(`${target}: expected an array`);
+  }
+  if (CRAWLER_PATH.test(target) && !isObject(value)) {
+    throw new Error(`${target}: expected a crawler object`);
+  }
+}
+
+function mergePath(target, base, upstream, local) {
+  if (!isSupportedProspectorPath(target)) throw new Error(`unsupported Prospector conflict: ${target}`);
+  if (upstream === MISSING && local === MISSING) return MISSING;
+  for (const value of [base, upstream, local]) ensureShape(target, value);
+  if (target === PROSPECTOR_PATHS.candidates) return mergeCandidatesDocument(base, upstream, local);
+  if (target === PROSPECTOR_PATHS.platforms) return mergePlatformsDocument(base, upstream, local);
+  if (target === PROSPECTOR_PATHS.validation) return mergeValidationDocument(base, upstream, local);
+  if (target === PROSPECTOR_PATHS.webChannelHealth) return mergeChannelHealth(base, upstream, local);
+  if (target === PROSPECTOR_PATHS.secoPageCursors || target === PROSPECTOR_PATHS.zefixCursors) {
+    return mergeCantonCursors(base, upstream, local);
+  }
+  if (CRAWLER_PATH.test(target)) return mergeCrawlerDocument(base, upstream, local);
+  throw new Error(`unsupported Prospector conflict: ${target}`);
+}
+
+export function mergeProspectorPath(target, base, upstream, local) {
+  return mergePath(target, base, upstream, local);
+}
+
+export function isSupportedProspectorPath(target) {
+  return Object.values(PROSPECTOR_PATHS).includes(target) || CRAWLER_PATH.test(target);
+}
+
+function readStageOrMissing(stage, target) {
+  try {
+    return JSON.parse(gitShowStage(stage, target));
+  } catch (error) {
+    const stderr = String(error?.stderr || '');
+    const message = String(error?.message || '');
+    if (/does not exist in|exists on disk, but not in|is in the index, but not at stage|path .* does not exist/i.test(`${stderr}\n${message}`)) {
+      return MISSING;
+    }
+    throw new Error(`cannot read rebase stage ${stage} for ${target}: ${message}`);
+  }
+}
+
+function conflictedPaths() {
+  return execFileSync('git', ['diff', '--name-only', '--diff-filter=U'], { encoding: 'utf-8' })
+    .split('\n')
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
+function writeResolved(target, value) {
+  if (value === MISSING) {
+    execFileSync('git', ['rm', '--', target], { stdio: 'inherit' });
+    return;
+  }
+  const output = path.resolve(process.cwd(), target);
+  fs.mkdirSync(path.dirname(output), { recursive: true });
+  fs.writeFileSync(output, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
+  execFileSync('git', ['add', '--', target]);
+}
+
+export function resolveProspectorConflicts(paths = conflictedPaths()) {
+  if (!paths.length) {
+    return { paths: [], resolved: 0 };
+  }
+  const unsupported = paths.filter((target) => !isSupportedProspectorPath(target));
+  if (unsupported.length) {
+    throw new Error(`unexpected conflicted files: ${unsupported.join(', ')}`);
+  }
+  for (const target of paths) {
+    const base = readStageOrMissing(1, target);
+    const upstream = readStageOrMissing(2, target);
+    const local = readStageOrMissing(3, target);
+    writeResolved(target, mergePath(target, base, upstream, local));
+  }
+  execFileSync('git', ['add', '-A']);
+  return { paths, resolved: paths.length };
+}
+
+export function main() {
+  try {
+    const result = resolveProspectorConflicts();
+    if (!result.paths.length) {
+      process.stdout.write('[resolve-prospector] no Prospector conflicts\n');
+      return;
+    }
+    process.stdout.write(`[resolve-prospector] resolved ${result.resolved} generated path(s): ${result.paths.join(', ')}\n`);
+  } catch (error) {
+    process.stderr.write(`[resolve-prospector] ${error instanceof Error ? error.message : String(error)}\n`);
+    process.exitCode = 1;
+  }
+}
+
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

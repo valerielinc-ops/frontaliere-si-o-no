@@ -1,0 +1,481 @@
+import { describe, it, expect } from 'vitest';
+import {
+  buildMopupRequest,
+  classifyMopupStructure,
+  missingSlots,
+  negativeMopupCacheKey,
+  opusMtRescueEnabled,
+  orderMopupJobsByTraffic,
+  queueableMopupSlots,
+  rescueMopupRejects,
+} from '../scripts/local-mt-mopup.mjs';
+
+describe('local-mt-mopup missingSlots()', () => {
+  it('versions negative cache keys by field and translation input', () => {
+    const base = { text: 'Fachfrau:mann EFZ', from: 'de', to: 'it', field: 'title' };
+    expect(negativeMopupCacheKey(base)).toMatch(/^[a-f0-9]{64}$/);
+    expect(negativeMopupCacheKey(base)).toBe(negativeMopupCacheKey({ ...base }));
+    expect(negativeMopupCacheKey({ ...base, field: 'description' })).not.toBe(negativeMopupCacheKey(base));
+    expect(negativeMopupCacheKey({ ...base, text: 'Fachmann EFZ' })).not.toBe(negativeMopupCacheKey(base));
+    expect(negativeMopupCacheKey({ ...base, existing: 'Fachfrau:mann EFZ' })).not.toBe(negativeMopupCacheKey(base));
+  });
+
+  it('flags a title slot that is present but still lexically German (compound-residue) — issue #6354', () => {
+    const job = {
+      sourceLang: 'de',
+      titleByLocale: {
+        de: 'Metzger 60-100%',
+        it: 'Aiuto Metzger 60-100%',
+        en: 'Assistant Butcher 60-100%',
+        fr: 'Aide boucher 60-100%',
+      },
+      descriptionByLocale: {},
+    };
+
+    const slots = missingSlots(job);
+    expect(slots).toContainEqual({ locale: 'it', field: 'title' });
+    // The already-clean en/fr slots must not be touched.
+    expect(slots).not.toContainEqual({ locale: 'en', field: 'title' });
+    expect(slots).not.toContainEqual({ locale: 'fr', field: 'title' });
+  });
+
+  it('still flags an exact source-copy title (pre-existing behaviour, unchanged)', () => {
+    const job = {
+      sourceLang: 'de',
+      titleByLocale: {
+        de: 'Metzger 60-100%',
+        it: 'Metzger 60-100%',
+      },
+      descriptionByLocale: {},
+    };
+
+    expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'title' });
+  });
+
+  it('flags a lexically-untranslated title even when the SOURCE title is shorter than MIN_TITLE_CHARS — issue #6539', () => {
+    const job = {
+      sourceLang: 'de',
+      titleByLocale: {
+        de: 'KV', // 2 chars, below the MIN_TITLE_CHARS=3 floor
+        it: 'Aiuto Metzger', // still lexically German (compound-residue)
+        en: 'Assistant',
+        fr: 'Aide',
+      },
+      descriptionByLocale: {},
+    };
+
+    expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'title' });
+  });
+
+  it('does not flag a clean, fully-translated title', () => {
+    const job = {
+      sourceLang: 'de',
+      titleByLocale: {
+        de: 'Metzger 60-100%',
+        it: 'Macellaio 60-100%',
+        en: 'Butcher 60-100%',
+        fr: 'Boucher 60-100%',
+      },
+      descriptionByLocale: {},
+    };
+
+    expect(missingSlots(job)).toEqual([]);
+  });
+
+  it('flags a whitespace-only description copy from the source locale even when the legacy source differs', () => {
+    const source = 'Als Fachperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Qualitätssicherung unserer täglichen Aufgaben im Team. '.repeat(3);
+    const wrapped = source.replace(/ /g, '\n  ');
+    const job = {
+      sourceLang: 'de',
+      description: 'A stale legacy source representation that is not the source-locale slot.',
+      descriptionByLocale: {
+        de: source,
+        it: wrapped,
+        en: 'This is a translated English description with enough operational detail for the job posting. '.repeat(3),
+        fr: 'Voici une description française traduite avec suffisamment de détails opérationnels pour le poste. '.repeat(3),
+      },
+    };
+
+    expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'description' });
+  });
+
+  it('rejects a provider echo of the source-locale description before writing it', () => {
+    const source = 'Als Fachperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Qualitätssicherung unserer täglichen Aufgaben im Team. '.repeat(3);
+    const job = {
+      sourceLang: 'de',
+      description: 'A stale legacy source representation that is not the source-locale slot.',
+      descriptionByLocale: { de: source, it: '' },
+    };
+    const result = classifyMopupStructure({
+      job,
+      locale: 'it',
+      field: 'description',
+      rawText: source.replace(/ /g, '\n  '),
+    });
+
+    expect(result.decision).toBe('skip:source-copy');
+  });
+
+  it('falls back to a long legacy source when the source-locale slot is below the floor', () => {
+    const source = 'The authoritative legacy description contains enough detail for translation and quality checks in this posting. '.repeat(3);
+    const job = {
+      sourceLang: 'en',
+      description: source,
+      descriptionByLocale: {
+        en: 'Short source slot.',
+        it: source.replace(/ /g, '\n  '),
+      },
+    };
+
+    expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'description' });
+    expect(classifyMopupStructure({
+      job,
+      locale: 'it',
+      field: 'description',
+      rawText: source.replace(/ /g, '\n  '),
+    }).decision).toBe('skip:source-copy');
+  });
+
+  it('does not let a negative-cached source-copy job consume the mopup cap', () => {
+    const now = Date.parse('2026-10-26T00:00:00Z');
+    const source = 'The authoritative source description contains enough operational detail for this translation repair. '.repeat(3);
+    const translated = 'La descrizione tradotta contiene dettagli operativi sufficienti per questa riparazione della traduzione. '.repeat(3);
+    const base = {
+      sourceLang: 'en',
+      titleByLocale: {
+        en: 'Senior operations specialist',
+        it: 'Specialista senior delle operazioni',
+        de: 'Senior Operationsspezialist',
+        fr: 'Spécialiste senior des opérations',
+      },
+      descriptionByLocale: {
+        en: source,
+        de: translated,
+        fr: translated,
+      },
+    };
+    const stale = {
+      ...base,
+      slug: 'stale',
+      firstSeenAt: new Date(now - 3 * 86_400_000).toISOString(),
+      descriptionByLocale: { ...base.descriptionByLocale, it: source },
+    };
+    const actionable = {
+      ...base,
+      slug: 'actionable',
+      descriptionByLocale: { ...base.descriptionByLocale, it: '' },
+    };
+    const staleKey = negativeMopupCacheKey({
+      text: source.trim(),
+      from: 'en',
+      to: 'it',
+      field: 'description',
+      existing: source.trim(),
+    });
+    const negativeCache = {
+      entries: {
+        [staleKey]: {
+          decision: 'skip:source-copy',
+          expiresAt: new Date(now + 60_000).toISOString(),
+        },
+      },
+    };
+    const staleSlots = missingSlots(stale);
+    const actionableSlots = missingSlots(actionable);
+
+    expect(queueableMopupSlots(stale, staleSlots, negativeCache, now)).toEqual([]);
+    expect(queueableMopupSlots(actionable, actionableSlots, negativeCache, now))
+      .toContainEqual({ locale: 'it', field: 'description' });
+
+    const candidates = [stale, actionable].filter((job) =>
+      queueableMopupSlots(job, missingSlots(job), negativeCache, now).length > 0);
+    const { selected } = orderMopupJobsByTraffic(
+      candidates,
+      { stale: 1, actionable: 500 },
+      1,
+    );
+
+    expect(selected.map((job: any) => job.slug)).toEqual(['actionable']);
+  });
+
+  it('retries a stale source-copy description despite an active negative cache', () => {
+    const now = Date.parse('2026-10-26T00:00:00Z');
+    const source = 'The authoritative source description contains enough operational detail for this translation repair. '.repeat(3);
+    const translated = 'La descrizione tradotta contiene dettagli operativi sufficienti per questa riparazione della traduzione. '.repeat(3);
+    const base = {
+      sourceLang: 'en',
+      titleByLocale: {
+        en: 'Senior operations specialist',
+        it: 'Specialista senior delle operazioni',
+        de: 'Senior Operationsspezialist',
+        fr: 'Spécialiste senior des opérations',
+      },
+      descriptionByLocale: {
+        en: source,
+        de: translated,
+        fr: translated,
+      },
+    };
+    const stale = {
+      ...base,
+      slug: 'stale-source-copy',
+      firstSeenAt: new Date(now - 8 * 86_400_000).toISOString(),
+      descriptionByLocale: { ...base.descriptionByLocale, it: source },
+    };
+    const actionable = {
+      ...base,
+      slug: 'actionable',
+      descriptionByLocale: { ...base.descriptionByLocale, it: '' },
+    };
+    const staleKey = negativeMopupCacheKey({
+      text: source.trim(),
+      from: 'en',
+      to: 'it',
+      field: 'description',
+      existing: source.trim(),
+    });
+    const negativeCache = {
+      entries: {
+        [staleKey]: {
+          decision: 'skip:source-copy',
+          createdAt: new Date(now - 86_400_000).toISOString(),
+          expiresAt: new Date(now + 86_400_000).toISOString(),
+        },
+      },
+    };
+    const candidates = [stale, actionable].filter((job) =>
+      queueableMopupSlots(job, missingSlots(job), negativeCache, now).length > 0);
+    const { selected } = orderMopupJobsByTraffic(
+      candidates,
+      { 'stale-source-copy': 1, actionable: 500 },
+      1,
+      { priorityOf: (job: any) => job.slug === 'stale-source-copy' },
+    );
+
+    expect(selected.map((job: any) => job.slug)).toEqual(['stale-source-copy']);
+  });
+});
+
+function auditTitleTarget({ id, sourceLang, locale, sourceText, existing, company }) {
+  const job = {
+    sourceLang,
+    company,
+    titleByLocale: {
+      [sourceLang]: sourceText,
+      [locale]: existing,
+    },
+    descriptionByLocale: {},
+  };
+  const { request, protectedTokens } = buildMopupRequest({
+    id,
+    text: sourceText,
+    from: sourceLang,
+    to: locale,
+    field: 'title',
+  });
+  return { job, locale, field: 'title', request, protectedTokens };
+}
+
+describe('local-mt-mopup OpusMT rescue', () => {
+  it('rescues the report case Argos rejected as candidate-untranslated and reuses the masked guard path', async () => {
+    const id = 'r49';
+    const target = auditTitleTarget({
+      id,
+      sourceLang: 'en',
+      locale: 'de',
+      company: 'lonza',
+      sourceText: 'Global MSAT Drug Product Qualification and Validation Lead 80-100% (m/f/d)',
+      existing: 'Global MSAT Drug Product Qualification and Validation Lead 80-100% (m/w/d)',
+    });
+    const argosRaw = 'Global MSAT Drug Product Qualification and Validation Lead 80-100% ZQX0XQZ';
+    const opusRaw = 'Globale MSAT-Drogenproduktqualifizierung und Validierungsblei 80-100% ZQX0XQZ';
+
+    expect(target.request.text).toContain('ZQX0XQZ');
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision)
+      .toBe('skip:candidate-untranslated');
+
+    const calls = [];
+    const rescue = await rescueMopupRejects({
+      targets: new Map([[id, target]]),
+      results: new Map([[id, argosRaw]]),
+      enabled: true,
+      langAwareOverwrite: true,
+      translate: async (...args) => {
+        calls.push(args);
+        return opusRaw;
+      },
+    });
+
+    expect(calls).toEqual([[target.request.text, 'en', 'de']]);
+    expect(rescue.decisionTally.write).toBe(1);
+    expect(rescue.recovered).toBe(1);
+    expect(rescue.writes.get(id).rawText).toBe(opusRaw);
+
+    const final = classifyMopupStructure({ ...target, rawText: opusRaw });
+    expect(final.decision).toBe('write');
+    expect(final.incoming).toBe('Globale MSAT-Drogenproduktqualifizierung und Validierungsblei 80-100% (m/w/d)');
+  });
+
+  it('rescues the report source-copy case with the same classifier', async () => {
+    const id = 'r46';
+    const target = auditTitleTarget({
+      id,
+      sourceLang: 'en',
+      locale: 'it',
+      company: 'six group',
+      sourceText: 'Business Continuity Manager',
+      existing: 'Business Continuity Manager',
+    });
+    const argosRaw = 'Business Continuity Manager';
+    const opusRaw = 'Gestore della continuità aziendale';
+
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
+    const rescue = await rescueMopupRejects({
+      targets: new Map([[id, target]]),
+      results: new Map([[id, argosRaw]]),
+      enabled: true,
+      translate: async () => opusRaw,
+    });
+
+    expect(rescue.recovered).toBe(1);
+    expect(rescue.writes.get(id).rawText).toBe(opusRaw);
+    expect(classifyMopupStructure({ ...target, rawText: opusRaw })).toMatchObject({ decision: 'write' });
+  });
+
+  it('rejects a source echo whose protected sentinel is mangled before finalization', () => {
+    const target = auditTitleTarget({
+      id: 'mangled-sentinel',
+      sourceLang: 'it',
+      locale: 'fr',
+      company: 'example',
+      sourceText: 'Tecnico laboratorio (m/w/d)',
+      existing: '',
+    });
+    const result = classifyMopupStructure({
+      ...target,
+      rawText: 'Tecnico laboratorio ZQ ①000%',
+    });
+
+    expect(result.decision).toBe('skip:source-copy');
+    expect(result.incoming).toBe('Tecnico laboratorio (h/f/d)');
+  });
+
+  it('keeps a report case rejected when both Argos and OpusMT fail the candidate guard', async () => {
+    const id = 'r1';
+    const target = auditTitleTarget({
+      id,
+      sourceLang: 'de',
+      locale: 'it',
+      company: 'coop',
+      sourceText: 'Detailhandelsfachfrau:mann EFZ "Gestalten von Einkaufserlebnissen"',
+      existing: 'Detailhandelsfachfrau:mann CFC "Gestalten von Einkaufserlebnissen"',
+    });
+    const argosRaw = 'Dettaglio manopolafrau:mann EFZ "Scopri di esperienze di shopping"';
+    const opusRaw = 'Specialista del commercio al dettaglio:mann EFZ "Progettare esperienze di shopping"';
+
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision)
+      .toBe('skip:candidate-untranslated');
+    const rescue = await rescueMopupRejects({
+      targets: new Map([[id, target]]),
+      results: new Map([[id, argosRaw]]),
+      enabled: true,
+      translate: async () => opusRaw,
+    });
+
+    expect(rescue.decisionTally['skip:candidate-untranslated']).toBe(1);
+    expect(rescue.recovered).toBe(0);
+    expect(rescue.writes.size).toBe(0);
+  });
+
+  it('keeps language-driven rescue writes gated by the independent language switch', async () => {
+    const id = 'language-driven-rescue';
+    const target = auditTitleTarget({
+      id,
+      sourceLang: 'de',
+      locale: 'it',
+      company: '',
+      sourceText: 'Metzger 60-100%',
+      existing: 'Aiuto Metzger 60-100%',
+    });
+    const argosRaw = 'Metzger Aushilfe 60-100%';
+    const opusRaw = 'Macellaio 60-100%';
+
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw })).toMatchObject({
+      decision: 'skip:candidate-untranslated',
+      languageDriven: true,
+    });
+    expect(classifyMopupStructure({ ...target, rawText: opusRaw })).toMatchObject({
+      decision: 'write',
+      languageDriven: true,
+    });
+
+    const rescue = await rescueMopupRejects({
+      targets: new Map([[id, target]]),
+      results: new Map([[id, argosRaw]]),
+      enabled: true,
+      langAwareOverwrite: false,
+      translate: async () => opusRaw,
+    });
+
+    expect(rescue.decisionTally.write).toBe(1);
+    expect(rescue.recovered).toBe(0);
+    expect(rescue.writes.size).toBe(0);
+  });
+
+  it('does not call OpusMT, mutate the job, or change the result when the rescue flag is off', async () => {
+    const id = 'r46';
+    const target = auditTitleTarget({
+      id,
+      sourceLang: 'en',
+      locale: 'it',
+      company: 'six group',
+      sourceText: 'Business Continuity Manager',
+      existing: 'Business Continuity Manager',
+    });
+    const argosRaw = 'Business Continuity Manager';
+    const before = structuredClone(target.job);
+    let calls = 0;
+
+    const rescue = await rescueMopupRejects({
+      targets: new Map([[id, target]]),
+      results: new Map([[id, argosRaw]]),
+      enabled: opusMtRescueEnabled('0'),
+      translate: async () => {
+        calls++;
+        return 'Gestore della continuità aziendale';
+      },
+    });
+
+    expect(opusMtRescueEnabled(undefined)).toBe(false);
+    expect(opusMtRescueEnabled('true')).toBe(false);
+    expect(opusMtRescueEnabled('1')).toBe(true);
+    expect(calls).toBe(0);
+    expect(target.job).toEqual(before);
+    expect(rescue).toMatchObject({ attempted: 0, recovered: 0, deferred: 0 });
+    expect(rescue.writes.size).toBe(0);
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
+  });
+
+  it('defers every eligible slot when the elapsed-aware budget is exhausted', async () => {
+    const id = 'r46';
+    const target = auditTitleTarget({
+      id,
+      sourceLang: 'en',
+      locale: 'it',
+      company: 'six group',
+      sourceText: 'Business Continuity Manager',
+      existing: 'Business Continuity Manager',
+    });
+
+    const rescue = await rescueMopupRejects({
+      targets: new Map([[id, target]]),
+      results: new Map([[id, 'Business Continuity Manager']]),
+      enabled: true,
+      budgetOk: () => false,
+      translate: async () => 'Gestore della continuità aziendale',
+    });
+
+    expect(rescue).toMatchObject({ attempted: 0, recovered: 0, deferred: 1 });
+    expect(rescue.writes.size).toBe(0);
+  });
+});

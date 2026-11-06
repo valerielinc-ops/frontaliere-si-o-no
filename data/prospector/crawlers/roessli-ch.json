@@ -1,0 +1,20 @@
+{
+  "companyKey": "roessli-ch",
+  "companyName": "Equo 1706",
+  "companyHost": "roessli.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.roessli.ch/de/job/servicemitarbeiter-m-w"
+  ],
+  "detailTemplate": "/de/job/servicemitarbeiter-m-w",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Servicemitarbeiter (m/w) Per sofort oder nach Vereinbarung."
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:25:02.292Z"
+}

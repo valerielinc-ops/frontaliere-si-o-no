@@ -1,0 +1,24 @@
+{
+  "companyKey": "alfa-personal-ch",
+  "companyName": "Alfa Personal GmbH",
+  "companyHost": "alfa-personal.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.alfa-personal.ch/offene-stellen/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 15,
+  "sampleTitles": [
+    "Jetzt Karriere machen: Personalberater/in (100%) Bau & Handwerk – Standort Männedorf",
+    "Jetzt Karriere machen: Personalberater/in (100%) Bau & Handwerk – Standort Otelfingen",
+    "Jetzt Karriere machen: Personalberater/in (100%) Bau & Handwerk – Standort Stäfa",
+    "Jetzt Karriere machen: Personalberater/in (100%) Bau & Handwerk – Standort Richterswil",
+    "Jetzt Karriere machen: Personalberater/in (100%) Bau & Handwerk – Standort Hinwil"
+  ],
+  "canton": "SZ",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-24T10:53:16.605Z"
+}

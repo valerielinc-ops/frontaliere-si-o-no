@@ -1,0 +1,24 @@
+{
+  "companyKey": "kobeltenergie-ch",
+  "companyName": "kobeltenergie",
+  "companyHost": "bwt.com",
+  "platform": "bwt.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.bwt.com/de-ch/"
+  ],
+  "detailTemplate": "/de-ch/karriere/aktuelle-jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 14,
+  "sampleTitles": [
+    "Details",
+    "Details",
+    "Details",
+    "Details",
+    "Details"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:53:59.569Z",
+  "candidateKey": "kobeltenergie.ch"
+}

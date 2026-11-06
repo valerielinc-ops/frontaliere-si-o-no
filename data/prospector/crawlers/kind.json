@@ -1,0 +1,24 @@
+{
+  "companyKey": "kind",
+  "companyName": "KIND Hörgeräte",
+  "companyHost": "kind.softgarden.io",
+  "platform": "softgarden.io",
+  "mode": "template",
+  "seedUrls": [
+    "https://kind.softgarden.io/de/vacancies"
+  ],
+  "detailTemplate": "/job/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 308,
+  "sampleTitles": [
+    "Hörakustikmeister für Göttingen-Zentrum (w/m/d)",
+    "Hörakustikmeister für Einbeck-Zentrum (w/m/d)",
+    "Hörakustikmeister für Wolgast (w/m/d)",
+    "Hörakustikmeister für Zeitz (w/m/d)",
+    "Hörakustikmeister für Expansion Göppingen (w/m/d)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-09T09:08:42.397Z"
+}

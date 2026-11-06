@@ -1,0 +1,22 @@
+{
+  "companyKey": "suva-sede-ticino",
+  "companyName": "SUVA (sede Ticino)",
+  "companyHost": "suva.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.suva.ch/careers",
+    "https://www.suva.ch/career",
+    "https://www.suva.ch/jobs",
+    "https://www.suva.ch/karriere",
+    "https://www.suva.ch/offene-stellen",
+    "https://www.suva.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.987Z"
+}

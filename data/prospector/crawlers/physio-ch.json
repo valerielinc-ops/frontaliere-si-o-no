@@ -1,0 +1,21 @@
+{
+  "companyKey": "physio-ch",
+  "companyName": "Physio Swiss",
+  "companyHost": "physio.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://physio.ch/jobs/physiotherapeut-zuerich-domizil/"
+  ],
+  "detailTemplate": "/jobs/physiotherapeut-zuerich-domizil/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Dipl. Physiotherapeut:in"
+  ],
+  "canton": "TI",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:00:38.081Z",
+  "candidateKey": "physio"
+}

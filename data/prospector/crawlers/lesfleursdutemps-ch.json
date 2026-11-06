@@ -1,0 +1,25 @@
+{
+  "companyKey": "lesfleursdutemps-ch",
+  "companyName": "Les Fleurs du Temps SA",
+  "companyHost": "lesfleursdutemps.ch",
+  "verifiedEmployerDomain": "lesfleursdutemps.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.lesfleursdutemps.ch/les-fleurs-du-temps/jobs-et-carrieres"
+  ],
+  "detailTemplate": "/documents/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Détail du poste",
+    "Détail du poste",
+    "Détail du poste"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T17:17:09.111Z",
+  "candidateKey": "les-fleurs-du-temps@fully"
+}

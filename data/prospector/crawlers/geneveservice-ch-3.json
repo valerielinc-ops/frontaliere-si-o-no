@@ -1,0 +1,24 @@
+{
+  "companyKey": "geneveservice-ch-3",
+  "companyName": "Ville de Genève - Service de l'espace public",
+  "companyHost": "ge.ch",
+  "verifiedEmployerDomain": "geneveservice.ch",
+  "platform": "ge.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.ge.ch/dossier/emploi"
+  ],
+  "detailTemplate": "/dossier/emploi-employabilite/ameliorer-mon-employabilite/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Evaluer mon employabilité Comment identifier mes compétences pour mieux les valoriser?",
+    "Développer mon parcours professionnel Comment compléter ma formation et quelles sont les aides à disposition?"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-03T13:25:07.458Z",
+  "candidateKey": "ville-de-geneve-service-de-l-espace-public@geneve"
+}

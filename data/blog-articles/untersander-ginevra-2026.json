@@ -1,0 +1,40 @@
+{
+  "id": "untersander-ginevra-2026",
+  "slug": "untersander-ginevra-2026",
+  "publishedAt": "2026-05-08T05:22:14.881Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.540804855029995,
+    "confidence": 0.8,
+    "finalScore": 11.632643884023997,
+    "topK": [
+      {
+        "slug": "nuovo-allenatore-orsi-serge-aubin",
+        "cosine": 0.83100419168745
+      },
+      {
+        "slug": "lugano-young-boys-cornaredo-2026",
+        "cosine": 0.8257653968677909
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8215743621926046
+      },
+      {
+        "slug": "ambasciatore-italiano-ritorno-berna",
+        "cosine": 0.8212063538043592
+      },
+      {
+        "slug": "san-gallo-vince-thun-ritardo-festa",
+        "cosine": 0.8152199344929552
+      }
+    ],
+    "score": 11.632643884023997,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

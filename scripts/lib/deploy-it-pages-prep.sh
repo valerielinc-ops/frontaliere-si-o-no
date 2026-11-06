@@ -1,0 +1,1636 @@
+#!/usr/bin/env bash
+# ─────────────────────────────────────────────────────────────────────────────
+# scripts/lib/deploy-it-pages-prep.sh — IT-shard post-build Pages prep
+#
+# Reproduces, IN ORDER, the BASH/script logic that the production monolith
+# deploy job (.github/workflows/deploy.yml) runs against dist/ between the
+# build and the github-pages artifact upload, so the matrix deploy's IT shard
+# runner produces a byte-for-byte equivalent dist/ + the same side-effect
+# files/markers + the same exported env vars.
+#
+# SCOPE — ONLY the bash/script logic. The GitHub-Actions `uses:` steps
+# (upload-artifact, configure-pages, deploy-pages) STAY in YAML and are wired
+# by the caller. The locale-shard push (dist/en|de|fr → frontaliere-{loc}) is
+# NOT handled here (handled separately). The dist-size-history / url-first-seen
+# GIT COMMIT step (deploy.yml "Commit dist-size-history row + url-first-seen
+# updates") is NOT here either: this script only RUNS the scripts that WRITE
+# data/dist-size-history.jsonl + data/url-first-seen.json; the commit+push to
+# main (with its retry loop) stays in YAML.
+#
+# Maps to these deploy.yml steps (see README in report):
+#   1. SPA fallback                         → cp dist/index.html dist/404.html
+#   2. Push generated assets to CDN repo    → stage + blobless clone + cp -n
+#                                             merge + force-push, export CDN_BASE
+#   3. Offload og refs + data base          → offload-generated-images-cdn.mjs
+#   4. Prune superseded CDN asset hashes    → ci/prune-cdn-assets.mjs
+#   5. Drop dist/assets after CDN push      → cdnAssetOffloadRx guard + rm
+#   6. Capture pre-deploy sitemap URLs      → capture-deployed-sitemaps.mjs
+#   7. Pack new sitemap URLs from dist/     → sitemap graph crawler → new-sitemap-urls.json
+#   8. Stage sitemaps bundle                → /tmp/sitemaps-bundle/
+#   9. Pack dist/ into Pages tar archive    → tar → artifact.tar, export TAR_BYTES
+#  10. Audit dist bytes                     → report-dist-bytes-by-plugin.mjs
+#  11. File delta vs previous deploy        → deploy-file-delta.mjs
+#  12. Refresh url-first-seen               → refresh-url-first-seen.mjs
+#
+# The original `if: github.event.inputs.profile_sequential != 'true'` guards are
+# intentionally OMITTED — the matrix path never profiles, so every section here
+# always runs (profile_sequential is monolith-only).
+#
+# Required env vars:
+#   CDN_DEPLOY_KEY   — SSH deploy key (write-only) to valerielinc-ops/frontaliere-cdn.
+#                      Missing/empty → CDN push skipped, assets stay in dist (and
+#                      then "Drop dist/assets" FAILS, exactly as in the monolith).
+#   RUNNER_TEMP      — runner temp dir (falls back to /tmp if unset).
+#   GITHUB_ENV       — env-file for exporting CDN_BASE + TAR_BYTES to later YAML
+#                      steps (no-op echo only when unset, e.g. local runs).
+#   GITHUB_SHA, GITHUB_RUN_ID — used in CDN commit message / audit / delta args.
+#
+# Exported (appended to $GITHUB_ENV + echoed):
+#   CDN_BASE   — https://cdn.frontaliereticino.ch  (only when the CDN push succeeded)
+#   TAR_BYTES  — size in bytes of $RUNNER_TEMP/artifact.tar
+#
+# Output files / markers written (same as the monolith):
+#   $RUNNER_TEMP/artifact.tar                  — packed Pages artifact
+#   $RUNNER_TEMP/assets-same-origin.marker     — produced by offload step (consumed by guard)
+#   /tmp/new-sitemap-urls.json                 — packed new sitemap URLs
+#   /tmp/pre-deploy-sitemap-urls.json          — produced by capture-deployed-sitemaps.mjs
+#   /tmp/sitemaps-bundle/                       — pre-deploy + build-id.txt + new-sitemap-urls
+#   data/dist-size-history.jsonl               — appended by report-dist-bytes-by-plugin.mjs
+#   data/url-first-seen.json                    — updated by refresh-url-first-seen.mjs
+#
+# FATAL vs NON-FATAL (matches deploy.yml exactly):
+#   FATAL    : SPA fallback (1); Drop dist/assets guard (5); tar pack (9);
+#              audit dist bytes (10); refresh url-first-seen (12)
+#   NON-FATAL: CDN push (2); offload (3); prune CDN (4); capture sitemaps (6);
+#              pack new sitemap URLs (7); stage bundle (8); file delta (11)
+#              — each was `continue-on-error: true` in deploy.yml; here each runs
+#                in a guarded sub-shell and only logs a ::warning:: on failure.
+#
+# Run against dist/ in the CURRENT working dir (the IT shard's built dist).
+# ─────────────────────────────────────────────────────────────────────────────
+set -uo pipefail
+
+# shard_push_with_retry (+ its auth classifier and PAT fallback) — shared with
+# push-section-shard.sh / push-locale-shard.sh, used by the CDN assets push
+# below instead of a second copy of the retry loop (AGENTS.md #6).
+source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/r2-image-lease-process.sh"
+
+RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
+
+# R2 wall-clock limit (seconds) read from the environment. `timeout 0` means NO
+# limit in GNU coreutils, and a non-number makes `timeout` fail before the call
+# runs, so only a whole number from 1 to 9999 is taken; anything else (0, empty,
+# "-5", "2m", "inf") falls back to the default with a warning. Kept
+# byte-identical in upload-cdn-file.sh and deploy-it-pages-prep.sh:
+# tests/r2-calls-bounded.test.ts compares the two copies.
+_r2_timeout_s() {
+  local name="$1" fallback="$2" value
+  value="${!name-}"
+  if [[ "$value" =~ ^[1-9][0-9]{0,3}$ ]]; then
+    printf '%s\n' "$value"
+    return 0
+  fi
+  if [ -n "$value" ]; then
+    echo "::warning::[r2] $name='$value' is not a whole number of seconds from 1 to 9999 — using ${fallback}s" >&2
+  fi
+  printf '%s\n' "$fallback"
+}
+
+# Export a key=value INTO THE CURRENT PROCESS (so later sections of THIS script
+# see it) AND to $GITHUB_ENV (so later YAML steps see it) AND echo it. The
+# in-process export is essential: the monolith propagated CDN_BASE/TAR_BYTES
+# between SEPARATE YAML steps via $GITHUB_ENV, but here the whole prep is ONE
+# bash script, so $GITHUB_ENV does NOT propagate intra-run — later steps
+# (step_offload/step_prune_cdn/step_drop_assets read CDN_BASE; step_audit_bytes
+# reads TAR_BYTES) need it set in this very process. Without the export,
+# CDN_BASE stayed empty after a SUCCESSFUL CDN push → offload skipped + the
+# drop-assets FATAL guard wrongly fired (run 27918706767 IT leg).
+export_env() {
+  local key="$1" value="$2"
+  export "$key"="$value"
+  if [ -n "${GITHUB_ENV:-}" ]; then
+    printf '%s=%s\n' "$key" "$value" >> "$GITHUB_ENV"
+  fi
+  echo "$key=$value"
+}
+
+# Run a NON-FATAL section: invoke a function in a guarded way so its failure
+# (the `continue-on-error: true` steps) logs a warning and continues, exactly
+# like the monolith where the step is allowed to fail without failing the job.
+run_nonfatal() {
+  local label="$1"; shift
+  if "$@"; then
+    return 0
+  fi
+  echo "::warning::[deploy-it-pages-prep] non-fatal section failed (continuing): ${label}"
+  return 0
+}
+
+# ── 1. SPA fallback (GitHub Pages serves 404.html for unknown paths) ──────────
+# deploy.yml: "SPA fallback" — FATAL (plain `run:`).
+# public/404.html (canton-drift recovery + generic SPA redirect-restore — see
+# its own header comment) is already copied to dist/404.html by Vite's default
+# publicDir behavior, so only fall back to the plain index.html copy when it is
+# somehow absent (defensive: public/404.html is git-tracked and should always
+# exist). Previously this unconditionally overwrote dist/404.html, silently
+# discarding the canton-drift recovery script for every IT-locale deploy.
+step_spa_fallback() {
+  [ -f dist/404.html ] || cp dist/index.html dist/404.html
+}
+
+# ── R2 publish (Cloudflare R2 via S3 API) — instant PUT, no Pages build ───────
+# Used when CDN_TARGET=r2 (else the legacy git force-push below runs). Replaces
+# the ~22min GitHub Pages publish latency (root cause of the #2569/#2872 stale-
+# locale class) with an instant, read-after-write-strong R2 upload. `rclone copy
+# --checksum` is ADDITIVE (copy = no delete → prior asset hashes stay, GC'd by
+# the janitor past grace) AND content-diffed (only changed bytes PUT), so the
+# clone-prev `cp -n` dance Pages needs is unnecessary here. Per-class
+# Cache-Control lets the Cloudflare edge absorb reads (R2 Class B stays in the
+# free tier). Content-Type is auto-detected from the file extension by rclone.
+# The #2569 atomicity marker is PUT LAST with `no-store` so the cache-busted
+# gate (wait-cdn-build-id.sh) sees the new id the instant the full payload is on
+# R2 — never an edge-cached stale value.
+_publish_cdn_r2() {
+  local stage="$1"
+  local og_copy_option="${2:-}"
+  if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
+     || [ -z "${R2_S3_ENDPOINT:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
+    echo "::warning::CDN_TARGET=r2 but R2_* creds missing — skipping CDN publish (assets stay in dist)"
+    return 0
+  fi
+  if ! node scripts/ci/check-house-ad-images.mjs --root "$stage"; then
+    echo "::error::[r2] campaign image stage is incomplete — refusing to publish executable assets"
+    return 1
+  fi
+  # rclone COPY with --checksum: a true CONTENT diff (per-file MD5 vs the S3
+  # ETag read from the LIST — no per-object HEAD) → only files whose BYTES
+  # changed are PUT. We use `copy`, NOT `sync`: `sync` DELETES dest objects
+  # absent from the local stage, which would wipe superseded asset hashes the
+  # INSTANT a new build lands — but a visitor whose cached index.html
+  # (max-age=600) still references assets/index-OLDHASH.js would then 404 →
+  # blank SPA (the 2026-06-04 outage class). `copy` is ADDITIVE (prior hashes
+  # stay, GC'd later by the janitor past grace), preserving the same contract
+  # as the Pages additive `cp -n` path. `aws s3 sync` was wrong for a different
+  # reason: it compares size+mtime, and every deploy rebuilds the files with a
+  # newer mtime → it re-uploaded the WHOLE payload (~35k PutObject/deploy,
+  # measured), which would exhaust the R2 free-tier Class-A budget (1M/mo) in
+  # ~2 days. With copy --checksum stable assets and unchanged data are skipped.
+  # For og/, a local SHA-256 manifest stages only files changed since the last
+  # successful OG copy; small deltas also use --no-traverse to avoid
+  # listing the accumulated prefix. Broad OG changes keep --fast-list, which
+  # is cheaper than a per-object destination lookup for every card. (First
+  # rclone run may re-PUT files aws had stored multipart — composite ETag ≠
+  # plain MD5 — once; thereafter single-part.)
+  local rtmp="${RUNNER_TEMP:-/tmp}"
+  local og_manifest_candidate="$rtmp/r2-og-published-manifest.next.json"
+  local og_manifest_synced_hash="$rtmp/r2-og-published-manifest.synced.sha256"
+  if ! command -v rclone >/dev/null 2>&1; then
+    echo "[r2] rclone not found — installing static binary…"
+    # --retry: a bare Recv-failure/Connection-reset on this single-shot download
+    # (transient network blip, e.g. #run-28599750786) previously failed the
+    # WHOLE deploy prep step (no fallback) even though nothing else was wrong.
+    # #7503: `unzip` exits 1 for NON-fatal warnings with the member extracted
+    # anyway (>= 2 are the real errors), so gating the install on rc == 0
+    # threw away a working binary and skipped the whole R2 sync. The binary on
+    # disk is the contract, not unzip's exit code.
+    if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors --connect-timeout 15 --max-time 120 \
+         https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip"; then
+      unzip_rc=0
+      unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin" || unzip_rc=$?
+      if [ "$unzip_rc" -eq 1 ]; then
+        echo "::warning::[r2] rclone archive extracted with unzip warnings (exit 1)"
+      elif [ "$unzip_rc" -ge 2 ]; then
+        echo "::warning::[r2] rclone archive extraction failed (unzip exit $unzip_rc)"
+      fi
+      if [ "$unzip_rc" -lt 2 ] && [ -s "$rtmp/rclone-bin/rclone" ] \
+         && chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null \
+         && timeout -k 5 30 "$rtmp/rclone-bin/rclone" version >/dev/null 2>&1; then
+        export PATH="$rtmp/rclone-bin:$PATH"
+      fi
+    fi
+    command -v rclone >/dev/null 2>&1 || { echo "::error::CDN_TARGET=r2 but rclone install failed — cannot sync to R2"; return 0; }
+  fi
+  # On-the-fly S3 remote (no config file). --checksum = content-hash compare;
+  # --no-update-modtime avoids rewriting metadata on skipped files;
+  # --s3-no-check-bucket skips a HeadBucket (1 fewer op, no CreateBucket perm).
+  # --contimeout/--timeout: connect and IO-idle limits of each request, so a
+  # silent connection errors out and is retried instead of hanging.
+  local RC=(rclone
+    --s3-provider=Cloudflare
+    --s3-access-key-id="$R2_ACCESS_KEY_ID"
+    --s3-secret-access-key="$R2_SECRET_ACCESS_KEY"
+    --s3-endpoint="$R2_S3_ENDPOINT"
+    --s3-region=auto
+    --s3-no-check-bucket
+    --contimeout=15s --timeout=60s
+    --checksum --no-update-modtime --transfers=24 --checkers=48 --fast-list)
+  # WALL-CLOCK LIMIT ON EVERY R2 CALL (NX-SKEW-2b). The IO-idle limit above does
+  # not bound a call that keeps making slow progress, or that retries forever:
+  # #11318 added an `rclone lsjson -R --hash` of the whole assets/ prefix with no
+  # limit of any kind, and runs 37178543559 / 37198287938 sat in this step until
+  # the 6 h job timeout while `pages-build-run` (cancel-in-progress: false) held
+  # every later deploy behind them (03-10 16:59Z → 04-10). The listing was not
+  # the slow part: lsjson prints a MimeType per entry, and on S3/R2 the
+  # Content-Type is not in the LIST page, so rclone sent one HEAD per object,
+  # one after the other. Measured on the production bucket on 05-10 (54,399
+  # objects under assets/, every ETag a plain MD5): without --no-mimetype,
+  # 6 LIST + 5,986 HEAD in 9 min, still running; with --no-mimetype, 26 s,
+  # 55 LIST + 1 HEAD. Any lsjson here needs --no-mimetype (the test checks it).
+  # So every rclone/aws call in this file runs under coreutils `timeout`
+  # (present on the runner); tests/r2-calls-bounded.test.ts fails on one that
+  # does not. Budgets are ~3x the slowest measured duration (deploys
+  # 36088944074 and 37138892066), except og/ and data/:
+  #   copy assets 66-135 s → 420 · og 61-83 s → 900 (Nov 3 timeout) · images 16-26 s → 120
+  #   copy data 153-201 s, 1,622 s on a backlog → 1800 · job-canon 4-6 s → 120
+  #   one object (index.html, marker, ledger) ~1 s → 60
+  # No R2 listing runs on this path: a missing purge ledger starts empty (see
+  # below), so the only listing left is the janitor's dry-run scan.
+  # data/ is sized on the backlog, not on a routine deploy: run 37237201212,
+  # the first green deploy after 30 h of hung runs, rewrote 31,627 changed
+  # files of data/ (152,729 objects, mostly data/job-detail/) at ~1,250 PUT/min.
+  # With 600 s both this step and the full prep's retry would stop it at
+  # ~12,500 files each: no marker, CDN_BASE unset, and step_drop_assets fails
+  # the deploy, so recovering from an outage would cost one more 3.5 h run per
+  # missing 25k files. The copy is additive, so a cut one still resumes.
+  # A call that runs out fails like any other failed call: a sync sets ok=0
+  # (marker withheld, the full prep retries the push), a ledger read falls back
+  # to the log-only purge. The step itself has `timeout-minutes` in deploy.yml
+  # as the last backstop.
+  local _t_obj _t_og _t_purge
+  _t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
+  # The incident retry observed og/ exceeding 300 s while the assets purge and
+  # ledger completed. Keep the operation bounded, but allow this large
+  # mostly-static prefix enough time to finish on a slow R2 listing.
+  _t_og="$(_r2_timeout_s R2_TIMEOUT_OG_S 900)"
+  _t_purge="$(_r2_timeout_s R2_TIMEOUT_PURGE_S 300)"
+  local bkt=":s3:$R2_BUCKET" ok=1
+  echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
+  _r2_release_owned_image_namespace_lease() {
+    [ "${_image_lease_owned:-0}" = 1 ] || return 0
+    # Do not retry a release from EXIT if this request itself is interrupted.
+    _image_lease_owned=0
+    if ! node "$_lease_cli" release --context "$_image_lease_context"; then
+      echo "::error::[r2] image namespace lease release failed; refusing to mark the R2 payload complete"
+      return 1
+    fi
+    return 0
+  }
+  _r2_restore_image_lease_context() {
+    if [ "$_prior_context_set" = x ]; then
+      export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_prior_context"
+    else
+      unset FRONTALIERE_R2_IMAGE_LEASE_CONTEXT
+    fi
+  }
+  _r2_image_namespace_lease_exit_cleanup() {
+    local exit_status=$?
+    trap '' EXIT INT TERM
+    if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ] && ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+    fi
+    if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ]; then
+      _r2_release_owned_image_namespace_lease || {
+        [ "$exit_status" = 0 ] && exit_status=1
+      }
+    fi
+    _r2_restore_image_lease_context
+    exit "$exit_status"
+  }
+  _r2_image_namespace_lease_signal() {
+    local exit_status="$1"
+    trap '' INT TERM
+    if ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+    fi
+    exit "$exit_status"
+  }
+  _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] [copy-option] — COPY (additive, no delete)
+    [ -d "$2" ] || return 0
+    local attempts=2 attempt=1 sync_status=0 attempt_log=""
+    local -a copy_flags=()
+    case "${6:-}" in
+      no-traverse) copy_flags+=(--no-traverse) ;;
+      force-no-traverse) copy_flags+=(--no-traverse --ignore-times) ;;
+      "") ;;
+      *) echo "::error::[r2] unsupported copy option for $3/: ${6}"; return 1 ;;
+    esac
+    if [ "$3" = images/job-search-campaign ]; then
+      # Every manifest asset is WebP. Do not rely on the runner's mime.types,
+      # and leave provenance JSON sidecars to the ordinary images batch.
+      copy_flags+=(--include '*.webp' --header-upload 'Content-Type: image/webp')
+    fi
+    # `copy` is additive and checksum-diffed, so repeating a prefix resumes
+    # objects left behind by a timed-out attempt without deleting live keys.
+    # Keep each attempt's upload log separately and append it to the aggregate:
+    # the asset purge must see keys uploaded before a timeout as well as keys
+    # moved by the successful retry.
+    if [ -n "${5:-}" ]; then
+      rm -f "$5"
+    fi
+    while [ "$attempt" -le "$attempts" ]; do
+      sync_status=0
+      if [ -n "${5:-}" ]; then
+        attempt_log="$5.attempt-$attempt"
+        rm -f "$attempt_log"
+        if _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" "${copy_flags[@]}" --header-upload "Cache-Control: $4" --stats=0 \
+          -v --use-json-log --log-file="$attempt_log"; then
+          sync_status=0
+        else
+          sync_status=$?
+        fi
+        # An EMPTY log (nothing changed — the common case) is normal and must
+        # not alter the sync result returned below.
+        if [ -s "$attempt_log" ]; then
+          cat "$attempt_log" >> "$5"
+          cat "$attempt_log"
+        fi
+        rm -f "$attempt_log"
+      elif _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" "${copy_flags[@]}" --header-upload "Cache-Control: $4" --stats=0; then
+        sync_status=0
+      else
+        sync_status=$?
+      fi
+
+      [ "$sync_status" -eq 0 ] && return 0
+      if [ "$attempt" -lt "$attempts" ]; then
+        echo "::warning::[r2] sync of $3/ attempt $attempt/$attempts failed or exceeded its ${1}s limit (exit $sync_status) — retrying additive copy after 5s"
+        sleep 5
+      else
+        ok=0
+        echo "::warning::[r2] sync of $3/ failed or exceeded its ${1}s limit after $attempt attempts (last exit $sync_status)"
+      fi
+      attempt=$((attempt + 1))
+    done
+    return 1
+  }
+  _r2_with_image_namespace_leases() { # <namespace-list> <command> <argv...> — run the image batch under all present namespace leases
+    local _image_lease_namespaces="$1"
+    shift
+    local _image_lease_context _image_lease_owned=0 _command_status=0 _release_status=0
+    local _image_lease_namespace
+    local -a _image_lease_namespace_list=()
+    local _prior_context_set="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT+x}"
+    local _prior_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT-}"
+    local _lease_cli="scripts/lib/r2-image-namespace-lock.mjs"
+    local _R2_IMAGE_LEASE_ACTIVE=1 _R2_IMAGE_LEASE_TIMEOUT_PID=
+    local _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=1
+    local _R2_IMAGE_LEASE_SIGNAL_HANDLER=_r2_image_namespace_lease_signal
+    local _prior_exit_trap _prior_int_trap _prior_term_trap
+
+    if [ -n "$_prior_context" ]; then
+      _image_lease_context="$_prior_context"
+      IFS=',' read -r -a _image_lease_namespace_list <<< "$_image_lease_namespaces"
+      for _image_lease_namespace in "${_image_lease_namespace_list[@]}"; do
+        if ! node "$_lease_cli" verify --namespace "$_image_lease_namespace" --context "$_image_lease_context"; then
+          echo "::error::[r2] existing image lease does not cover the requested namespaces or is no longer valid; skipping images/ sync"
+          return 1
+        fi
+      done
+    else
+      if ! _image_lease_context="$(FRONTALIERE_R2_IMAGE_LEASE_PRIORITY=1 node "$_lease_cli" acquire --namespace "$_image_lease_namespaces")" || [ -z "$_image_lease_context" ]; then
+        echo "::error::[r2] could not acquire the image namespace lease; skipping images/ sync"
+        return 1
+      fi
+      _image_lease_owned=1
+    fi
+
+    _prior_exit_trap="$(trap -p EXIT)"
+    _prior_int_trap="$(trap -p INT)"
+    _prior_term_trap="$(trap -p TERM)"
+    trap '_r2_image_namespace_lease_exit_cleanup' EXIT
+    trap '_r2_image_namespace_lease_signal 130' INT
+    trap '_r2_image_namespace_lease_signal 143' TERM
+
+    export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_image_lease_context"
+    if "$@"; then
+      _command_status=0
+    else
+      _command_status=$?
+    fi
+
+    if ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+      _release_status=1
+    fi
+    if [ "$_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED" = 1 ] \
+      && ! _r2_release_owned_image_namespace_lease; then
+      _release_status=1
+    fi
+    _r2_restore_image_lease_context
+    trap - EXIT INT TERM
+    [ -n "$_prior_exit_trap" ] && eval "$_prior_exit_trap"
+    [ -n "$_prior_int_trap" ] && eval "$_prior_int_trap"
+    [ -n "$_prior_term_trap" ] && eval "$_prior_term_trap"
+    [ "$_command_status" = 0 ] || return "$_command_status"
+    return "$_release_status"
+  }
+  # Publish-window handshake for the runtime watchdog. Stable asset names are
+  # overwritten one by one, so cdn-build-id.txt deliberately stays on the last
+  # complete generation until the payload is whole AND every executable asset
+  # changed by this publish has passed the targeted edge purge. Without a
+  # separate start marker, a concurrent watchdog cannot distinguish that
+  # partial origin from a missed edge purge and may spread the half-uploaded
+  # generation to the edge.
+  #
+  # The token starts with the upload epoch (not DEPLOY_BUILD_ID, which is
+  # minted hours earlier at matrix setup) and ends with a cryptographically
+  # random numeric nonce. The timestamp prefix keeps watchdog stall detection
+  # meaningful; the 64-bit nonce makes ownership unique across runners even
+  # when their clocks and PIDs coincide. The matching completion marker is
+  # written only after the authoritative build marker succeeds AND the code
+  # purge succeeds. A
+  # killed/failed upload or partial purge therefore remains explicitly
+  # incomplete instead of looking purgeable.
+  local _publish_token _publish_marker_file _publish_clock _publish_nonce
+  _publish_clock="$(date +%s%3N)"
+  case "$_publish_clock" in
+    ''|*[!0-9]*) _publish_clock="$(date +%s)000" ;;
+  esac
+  if ! _publish_nonce="$(od -An -N8 -tu8 /dev/urandom 2>/dev/null)"; then
+    echo "::warning::R2 publish-start nonce generation failed — refusing to mutate the CDN origin without a unique upload window"
+    return 0
+  fi
+  _publish_nonce="${_publish_nonce//[[:space:]]/}"
+  case "$_publish_nonce" in
+    ''|*[!0-9]*)
+      echo "::warning::R2 publish-start nonce was not numeric — refusing to mutate the CDN origin without a unique upload window"
+      return 0
+      ;;
+  esac
+  # Keep the nonce fixed-width so concatenated tokens retain timestamp order
+  # when the watchdog compares them as BigInts.
+  _publish_nonce="$(printf '%020s' "$_publish_nonce" | tr ' ' 0)"
+  _publish_token="${_publish_clock}${_publish_nonce}"
+  _publish_marker_file="${RUNNER_TEMP:-/tmp}/cdn-publish-$$_${_publish_token}.txt"
+  printf '%s' "$_publish_token" > "$_publish_marker_file"
+  if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-start-id.txt" \
+       --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+    echo "::warning::R2 publish-start marker PUT failed — refusing to mutate the CDN origin without a visible upload window"
+    return 0
+  fi
+  # A support script can reach existing HTML before Pages finishes publishing.
+  # Publish its photographs before exposing any executable asset, including
+  # content-hashed loaders. The existing image redirect keeps deployed apex
+  # image URLs working independently of the Pages artifact.
+  if ! _r2_sync 120 "$stage/images/job-search-campaign" images/job-search-campaign "public,max-age=86400" "" no-traverse; then
+    echo "::error::[r2] campaign images not published — withholding executable assets and completion markers"
+    return 1
+  fi
+  # assets/ Cache-Control — read this before changing it.
+  #
+  # Root bundle aliases retain STABLE, non-content-hashed names
+  # (tests/stable-asset-names.test.ts): their BYTES can change under the SAME
+  # URL on every code deploy, so _r2_sync publishes those aliases with a short
+  # revalidatable TTL. The versioned application graph is copied separately to
+  # assets/releases/<DEPLOY_BUILD_ID>/ and is safe to serve immutable because
+  # its URL changes with every build. The zone rule
+  # `cdn-r2-passthrough-cache` (infra/cloudflare/rules.md) respects both
+  # origin policies.
+  #
+  # The previous `max-age=31536000,immutable` made edge freshness depend
+  # ENTIRELY on cf-purge-cache.mjs `purge_everything`, which runs only in
+  # post-deploy-validate-live.yml, downstream of deploy-publish.yml. When this
+  # was written that purge was simply not happening — deploy-publish.yml had
+  # 0 successes in its last 60 runs — so the edge held one build's chunks while
+  # R2 served another's: the cross-chunk version skew behind #5062 / #4644.
+  #
+  # The cause was NOT the three `if:` gates on that chain, which is what this
+  # comment used to say. Measured 2026-08-07 over the 300 runs from
+  # 2026-08-01T20:25Z to 2026-08-07T05:40Z (0 success / 200 skipped / 65
+  # cancelled / 33 failure, last success 30310076907 on 2026-07-27T22:15Z): the
+  # `pages-deploy` concurrency QUEUE was jammed, and the gates never got a say.
+  # Two overlapping defects:
+  #
+  #   · the old workflow_run fan-in dispatched publish for build runs that
+  #     deploy.yml's own newest-wins lock CANCELS — 121 of 141 builds per 48 h
+  #     (#5251). Those runs skipped every job, but a run joined its concurrency
+  #     group BEFORE any job `if:` was evaluated, and an arrival into a full
+  #     group (1 running + 1 pending) cancelled the PENDING member. The current
+  #     direct build→publish handoff and the publish-only reconciler admit only
+  #     a verified successful source build.
+  #   · no run in that group had a deadline of any kind. A `deploy` job parked
+  #     at the `github-pages` environment gate is not "running", so neither
+  #     `timeout-minutes` nor the 360-min default applies: run 31118787881 sat
+  #     in `waiting` for 14 h with nothing to approve, and with
+  #     `cancel-in-progress: false` it pinned the group for all of it.
+  #
+  # Both are fixed: `.github/workflows/deploy-publish.yml` now routes no-op runs
+  # to a per-run group so only real publishes contend, and
+  # scripts/ci/unwedge-pages-deploy-queue.mjs (hourly, from
+  # pages-publish-lag-watchdog.yml) cancels runs stuck in `waiting`. That
+  # restores the purge chain. Root aliases still retain a bounded TTL, while
+  # release URLs are immutable by construction; neither path depends on a
+  # multi-key purge for module coherence.
+  #
+  # The TTL is a BACKSTOP, not the freshness mechanism — freshness comes from
+  # the targeted purge below, which runs in this same step right after the
+  # upload. The number is therefore chosen to bound how long a MISSED purge can
+  # go unnoticed without inflating edge→R2 fetch-through, because every extra
+  # origin hop is another chance to hit the transient connect failure
+  # (`originResponseStatus: 0`) Cloudflare surfaces as the 502s in
+  # #5034/#5035/#5036/#5052/#5081/#5092/#5093/#5094.
+  #
+  # Measured over 23h: the 661 distinct root /assets/ keys took 520k requests but
+  # only ~2.9k origin hops (0.57%) — these keys are HOT, so their hop count is
+  # driven by TTL expiry per PoP, not by request arrival. Scaling that way,
+  # max-age=600 would be ~100x the hops and max-age=86400 ~3x; the root alias
+  # policy is now 600s because the executable graph no longer uses those names.
+  local _assets_log="$(mktemp -t r2-assets-XXXXXX.jsonl 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-assets.jsonl")"
+  local assets_sync_ok=0 assets_sync_status=0
+  # ── Purge ledger, read BEFORE the assets sync (NX-SKEW-2b, Refs #9465/#8612)
+  # The purge below diffs this build's assets against purge-ledger/assets.json
+  # (per key, the MD5 the edge was last purged for), so a key a dead run
+  # uploaded without purging is still purged by the next run even though its
+  # rclone log no longer names it. See purge-changed-cdn-assets.mjs's header.
+  # Every step here is fail-open: a missing, invalid or unreadable ledger
+  # starts empty, so all current stage keys stay dirty until purged. If the
+  # stage itself is unavailable, the purge falls back to this run's upload log.
+  local _pdir _ledger_key="purge-ledger/assets.json" _ledger_state=unreadable _rrc=0
+  _pdir="$(mktemp -d "${RUNNER_TEMP:-/tmp}/r2-purge.XXXXXX" 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-purge.$$")"
+  mkdir -p "$_pdir"
+  if [ -d "$stage/assets" ]; then
+    # rclone exits 0 and writes NOTHING when the object does not exist
+    # (measured 2026-10-04 on this bucket, rclone v1.74.3) — the exit codes 3/4
+    # #11318 relied on never occur here. Non-zero is a real read failure.
+    timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$bkt/$_ledger_key" "$_pdir/ledger-in.json" --retries=1 \
+      2> "$_pdir/ledger.err" || _rrc=$?
+    if [ "$_rrc" -ne 0 ]; then
+      echo "::warning::[r2] purge ledger read failed or exceeded ${_t_obj}s (exit $_rrc) — starting from an empty ledger: $(tail -c 300 "$_pdir/ledger.err" 2>/dev/null)"
+      _ledger_state=absent
+    elif [ ! -s "$_pdir/ledger-in.json" ]; then
+      _ledger_state=absent
+    elif node scripts/ci/purge-changed-cdn-assets.mjs --check-ledger --ledger-in="$_pdir/ledger-in.json"; then
+      _ledger_state=present
+    else
+      echo "::warning::[r2] stored purge ledger is not a readable v1 ledger — starting from an empty one"
+      _ledger_state=absent
+    fi
+  fi
+  if [ "$_ledger_state" = absent ]; then
+    # First run (or a ledger nobody can read): start from an EMPTY ledger, so
+    # every key of this build's stage is dirty and takes its fingerprint only
+    # when its own purge batch succeeds (review of #11508). A baseline taken
+    # from R2 — even one listed before the sync — would mark clean a key an
+    # earlier run uploaded but never purged: R2 already holds the new bytes,
+    # the edge still serves the old ones, and this run's upload log is empty.
+    # The price is a purge of the whole bundle the first time, and no R2 listing
+    # at all on the push path. Measured on deploy 37271618085: 27,177 keys, of
+    # which 12,570 fit in the 300 s purge limit (419 batches of 30, ~0.7 s
+    # each). The purge therefore runs under a budget below that limit and
+    # always writes the ledger with the keys it did purge: the bundle converges
+    # over two or three deploys instead of starting from zero on each one.
+    printf '{"version":1,"keys":{}}\n' > "$_pdir/ledger-in.json"
+    _ledger_state=present
+    echo "::notice::[r2] no usable purge ledger — starting from an empty one: every assets/ key of this build is purged once and recorded as its batch succeeds"
+  fi
+  # Root assets retain their stable compatibility aliases, so keep their
+  # backstop short and revalidatable. Build-scoped release assets are copied
+  # separately with immutable caching: their URL includes DEPLOY_BUILD_ID and
+  # therefore never changes bytes under the same cache key.
+  local _release_assets_stage="$stage/.assets-releases"
+  local _release_assets_log="$stage/.assets-releases.jsonl"
+  local _bootstrap_asset_stage="$stage/.asset-bootstrap"
+  local _bootstrap_asset_log="$stage/.asset-bootstrap.jsonl"
+  rm -rf "$_release_assets_stage" "$_release_assets_log" "$_bootstrap_asset_stage" "$_bootstrap_asset_log"
+  if [ -d "$stage/assets/releases" ]; then
+    mv "$stage/assets/releases" "$_release_assets_stage"
+  fi
+  # Do not expose the new stable bootstrap before its immutable release graph
+  # is complete. R2 object PUTs are individually atomic, not a directory-level
+  # transaction: uploading assets/index-entry.js with the root batch would let
+  # a request observe the new bootstrap while releases/<id>/index-entry.js was
+  # still being copied. Keep it aside and publish it last, after root aliases
+  # and the complete release have both synced successfully.
+  if [ -f "$stage/assets/index-entry.js" ]; then
+    mkdir -p "$_bootstrap_asset_stage"
+    mv "$stage/assets/index-entry.js" "$_bootstrap_asset_stage/index-entry.js"
+  fi
+  # The loaders named `<name>-<content-hash>.js` (build-plugins/constants.ts)
+  # never change bytes under their URL, unlike the stable alias next to them. They
+  # are the same class as a release, so they get the same immutable header; the
+  # zone rule cdn-assets-revalidate excludes these prefixes (infra/cloudflare/rules.md)
+  # and the file goes back into the stage so the purge fingerprints still see it.
+  # A prior rclone copy can leave the same key with the old 600 s metadata:
+  # force this tiny content-addressed batch so the header is repaired even when
+  # the producer bytes and filename have not changed.
+  local _hashed_assets_stage="$stage/.assets-content-addressed"
+  local _hashed_assets_log="$stage/.assets-content-addressed.jsonl"
+  rm -rf "$_hashed_assets_stage" "$_hashed_assets_log"
+  mkdir -p "$_hashed_assets_stage"
+  if [ -d "$stage/assets" ]; then
+    find "$stage/assets" -maxdepth 1 -type f \
+      \( -name 'gtag-init-*.js' -o -name 'adsense-loader-*.js' -o -name 'partnerize-tag-*.js' -o -name 'site-support-*.js' -o -name 'meta-pixel-base-code-*.js' \) \
+      -exec mv {} "$_hashed_assets_stage/" \;
+  fi
+  _r2_sync 420 "$stage/assets" assets "public,max-age=600,must-revalidate" "$_assets_log"
+  assets_sync_status=$?
+  if [ -n "$(ls -A "$_hashed_assets_stage" 2>/dev/null)" ]; then
+    # These few loaders share assets/ with every historical release. Do not
+    # recursively list that archive to compare a handful of exact keys: run
+    # 41628599322 exhausted 120s on this small copy. Keep checksum comparison
+    # and additive retries, looking up only the staged destination objects.
+    if ! _r2_sync 120 "$_hashed_assets_stage" assets "public,max-age=31536000,immutable" "$_hashed_assets_log" force-no-traverse; then
+      assets_sync_status=1
+    fi
+    mkdir -p "$stage/assets"
+    mv "$_hashed_assets_stage"/* "$stage/assets/"
+  fi
+  rm -rf "$_hashed_assets_stage" "$_hashed_assets_log"
+  if [ -d "$_release_assets_stage" ]; then
+    mkdir -p "$stage/assets"
+    mv "$_release_assets_stage" "$stage/assets/releases"
+    if ! _r2_sync 420 "$stage/assets/releases" assets/releases "public,max-age=31536000,immutable" "$_release_assets_log"; then
+      assets_sync_status=1
+    fi
+    rm -f "$_release_assets_log"
+  fi
+  if [ "$assets_sync_status" -eq 0 ] && [ -d "$_bootstrap_asset_stage" ]; then
+    # The release sync is complete, so this final one-file copy is the commit
+    # point at which new browsers can discover this build. Its upload log is
+    # deliberately kept separate: the stateful purge fingerprints the restored
+    # stage recursively, while treating a nested rclone log as root assets
+    # would produce the wrong `assets/<file>` key instead of
+    # `assets/releases/<build>/<file>`.
+    if ! _r2_sync 120 "$_bootstrap_asset_stage" assets "public,max-age=600,must-revalidate" "$_bootstrap_asset_log" no-traverse; then
+      assets_sync_status=1
+    fi
+  fi
+  if [ -d "$_bootstrap_asset_stage" ]; then
+    mkdir -p "$stage/assets"
+    mv "$_bootstrap_asset_stage/index-entry.js" "$stage/assets/index-entry.js"
+  fi
+  rm -f "$_bootstrap_asset_log"
+  if [ "$assets_sync_status" -eq 0 ]; then
+    assets_sync_ok=1
+  fi
+  if _r2_sync "$_t_og" "$stage/og" og "public,max-age=86400" "" "$og_copy_option"; then
+    # This manifest covers only og/. Its copy is complete even if a later R2
+    # prefix fails and withholds the global build marker. Bind the completion
+    # record to these exact candidate bytes so a retry cannot promote a
+    # different/unpublished manifest from the same runner temp directory.
+    if [ -s "$og_manifest_candidate" ]; then
+      local og_manifest_hash=""
+      if og_manifest_hash="$(sha256sum "$og_manifest_candidate" | awk '{print $1}')" \
+        && [[ "$og_manifest_hash" =~ ^[a-f0-9]{64}$ ]]; then
+        printf '%s\n' "$og_manifest_hash" > "$og_manifest_synced_hash.tmp" \
+          && mv "$og_manifest_synced_hash.tmp" "$og_manifest_synced_hash"
+      else
+        echo "::warning::[r2-og-manifest] could not fingerprint the successfully copied OG manifest"
+      fi
+    fi
+  else
+    ok=0
+  fi
+  local _image_namespaces=''
+  if [ -d "$stage/images/blog" ]; then
+    _image_namespaces=blog
+  fi
+  if [ -d "$stage/images/places" ]; then
+    if [ -n "$_image_namespaces" ]; then
+      _image_namespaces="${_image_namespaces},places"
+    else
+      _image_namespaces=places
+    fi
+  fi
+  if [ -n "$_image_namespaces" ]; then
+    if ! _r2_with_image_namespace_leases "$_image_namespaces" _r2_sync 120 "$stage/images" images "public,max-age=86400"; then
+      # An unleased or partially published image generation must not receive a
+      # completion marker. Keep the other R2 prefixes additive and retryable.
+      ok=0
+    fi
+  else
+    _r2_sync 120 "$stage/images" images "public,max-age=86400"
+  fi
+  _r2_sync 1800 "$stage/data"     data      "public,max-age=600"
+  _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
+  timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
+    --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
+  # A purge is safe only inside the publish window owned by this invocation.
+  # The build marker still names the last closed generation while assets/ is
+  # being copied, so coherence here means that the start token is still ours;
+  # the marker is deliberately closed only after the purge accepts all code.
+  # This is a fresh read for every purge branch: another publisher may have
+  # opened a newer window while this one was uploading.
+  _r2_revalidate_publish_window() {
+    local _build_file="$_pdir/purge-build-id.txt"
+    local _start_file="$_pdir/purge-start-id.txt"
+    local _complete_file="$_pdir/purge-complete-id.txt"
+    local _marker _dest _build _start _complete _markers_valid=1
+    local _build_missing=0 _complete_missing=0 _bootstrap=0
+    for _marker in cdn-build-id.txt cdn-publish-start-id.txt cdn-publish-complete-id.txt; do
+      case "$_marker" in
+        cdn-build-id.txt) _dest="$_build_file" ;;
+        cdn-publish-start-id.txt) _dest="$_start_file" ;;
+        cdn-publish-complete-id.txt) _dest="$_complete_file" ;;
+      esac
+      rm -f "$_dest" 2>/dev/null || true
+      if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$bkt/$_marker" "$_dest" --retries=1; then
+        case "$_marker" in
+          cdn-build-id.txt|cdn-publish-complete-id.txt)
+            # A fresh bucket has no closed-generation markers yet. Keep an
+            # empty local result so the start marker can authorize bootstrap.
+            : > "$_dest"
+            ;;
+          *)
+            echo "::warning::[r2] skipping targeted CDN purge: could not revalidate build/start/complete markers immediately before purge"
+            return 1
+            ;;
+        esac
+      fi
+      if [ ! -s "$_dest" ]; then
+        case "$_marker" in
+          cdn-build-id.txt) _build_missing=1 ;;
+          cdn-publish-complete-id.txt) _complete_missing=1 ;;
+          *)
+            echo "::warning::[r2] skipping targeted CDN purge: R2 marker $bkt/$_marker is missing or empty"
+            return 1
+            ;;
+        esac
+      fi
+    done
+    _build="$(tr -d '[:space:]' < "$_build_file")"
+    _start="$(tr -d '[:space:]' < "$_start_file")"
+    _complete="$(tr -d '[:space:]' < "$_complete_file")"
+    if [ "$_build_missing" = 1 ] && [ "$_complete_missing" = 1 ]; then
+      _bootstrap=1
+    fi
+    case "$_start" in ''|*[!0-9]*) _markers_valid=0 ;; esac
+    if [ "$_bootstrap" != 1 ]; then
+      case "$_complete" in ''|*[!0-9]*) _markers_valid=0 ;; esac
+      [ -n "$_build" ] || _markers_valid=0
+      [ -n "$_complete" ] || _markers_valid=0
+    fi
+    if [ "$_markers_valid" != 1 ] || [ -z "${DEPLOY_BUILD_ID:-}" ] \
+      || [ "$_start" != "$_publish_token" ]; then
+      echo "::warning::[r2] skipping targeted CDN purge: publish window is not owned by this upload (build=${_build:-<empty>} expected-after-publish=${DEPLOY_BUILD_ID:-<empty>}, start=${_start:-<empty>} owner=${_publish_token:-<empty>}, complete=${_complete:-<empty>}, bootstrap=$_bootstrap)"
+      return 1
+    fi
+    echo "::notice::[r2] CDN purge revalidated publish-window ownership (previous-build=${_build:-<none>}, next-build=$DEPLOY_BUILD_ID, start=$_start, complete=${_complete:-<none>}, bootstrap=$_bootstrap)"
+    return 0
+  }
+  _purge_r2_changed_assets() {
+    local _prc=0 _purge_ok=0
+    if [ "$assets_sync_ok" = 1 ] && [ "$_ledger_state" = present ]; then
+      # Stateful: --stage-dir is valid R2 state only because the assets sync
+      # exited 0 (see the script's header). The log still goes in (union).
+      # The script's own budget ends 45 s before `timeout`, so it stops
+      # starting batches and still writes the ledger; the kill is the backstop.
+      if _r2_revalidate_publish_window; then
+        CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
+          timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+          --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
+          --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" \
+          --require-code-complete || _prc=$?
+        if [ "$_prc" -ne 0 ]; then
+          echo "::error::[r2] targeted CDN asset purge exited $_prc (124 = over ${_t_purge}s) — publish marker withheld; the next deploy re-diffs and retries"
+        else
+          _purge_ok=1
+        fi
+        # Written only AFTER the purge, and only with what the script recorded:
+        # a key takes its new MD5 only if its own batch succeeded. Even when
+        # the code-complete gate fails, keep this partial progress: the next
+        # deploy must retry the dirty keys, not start the whole bundle again.
+        # no-store so a read of it is never an edge copy.
+        if [ -s "$_pdir/ledger-out.json" ]; then
+          timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-out.json" "$bkt/$_ledger_key" \
+            --header-upload "Content-Type: application/json; charset=utf-8" \
+            --header-upload "Cache-Control: no-store, max-age=0" \
+            || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
+        fi
+      fi
+    elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
+      # Fallback (stage unavailable): this run's uploads only. No budget here:
+      # without a ledger, a key the budget left untried would be forgotten
+      # (review of #11641); the script ignores CDN_PURGE_BUDGET_MS in this mode.
+      if _r2_revalidate_publish_window; then
+        timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+          --require-code-complete
+        _prc=$?
+        if [ "$_prc" -eq 0 ]; then
+          _purge_ok=1
+        else
+          echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — publish marker withheld; root aliases fall back to the 600s max-age and release URLs remain build-scoped"
+        fi
+      fi
+    elif [ "$assets_sync_ok" = 1 ]; then
+      # A successful assets sync with neither a readable ledger nor an upload
+      # log can only be a no-op/data-only publish (there is no stage/assets
+      # state to diff). Keep the marker path live; the final ownership read
+      # below still protects against a concurrent publisher.
+      echo "::notice::[r2] assets/ sync completed with no changed-key state — no targeted purge required"
+      _purge_ok=1
+    elif [ "$assets_sync_ok" != 1 ]; then
+      echo "⚠️ [r2] assets/ sync failed — no edge purge this run; with a ledger, what it did upload stays dirty for the next deploy"
+    fi
+    if [ "$_purge_ok" = 1 ] && ! _r2_revalidate_publish_window; then
+      echo "::error::[r2] publish window changed during targeted CDN purge — withholding build/completion markers"
+      _purge_ok=0
+    fi
+    rm -f "$_assets_log" 2>/dev/null || true
+    rm -rf "$_pdir" 2>/dev/null || true
+    if [ "$_purge_ok" = 1 ]; then
+      return 0
+    fi
+    return 1
+  }
+  if [ "$ok" != 1 ]; then
+    echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
+    # A later prefix can fail after the assets sync has overwritten stable bundle
+    # URLs. Purge those changed assets before returning, but keep the marker
+    # withheld so other shards continue to gate on the last complete payload.
+    _purge_r2_changed_assets || true
+    return 0
+  fi
+  # Invalidate the edge for EXACTLY the assets/ keys whose bytes changed since
+  # the edge was last purged. This must finish before the generation marker is
+  # closed: the shard gate may publish HTML as soon as it sees the marker, so a
+  # partial purge would recreate the cross-chunk version skew this handshake
+  # is meant to prevent.
+  if ! _purge_r2_changed_assets; then
+    echo "⚠️ R2 payload is present but executable CDN purge is incomplete — withholding build/completion markers; next deploy retries"
+    _janitor_cdn_r2 "$stage" "dry-run"
+    return 0
+  fi
+  # Generation marker last (atomicity #2569): only now is this build's full
+  # payload on R2 AND its changed executable assets have passed the targeted
+  # edge purge. Then close the publish window with the exact token written
+  # before the first payload mutation; watchdog observations are authoritative
+  # only while start == complete.
+  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
+  if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
+       --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+    if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-complete-id.txt" \
+         --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+      export_env CDN_BASE "https://cdn.frontaliereticino.ch"
+      echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}; publish-window=$_publish_token"
+    else
+      echo "⚠️ R2 publish-complete marker PUT failed — offload stays unacknowledged and the full prep will retry"
+    fi
+  else
+    echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
+  fi
+  # The purge above uses the ledger diff ∪ this run's uploads (the log alone
+  # when the ledger is unavailable). The `ok != 1` branch above runs it too,
+  # because a later prefix failing does not un-upload assets/. Targeted
+  # (`--files=`, batches of 30) and never `purge_everything`: this
+  # host serves ~634k eyeball requests/day at a ~93% edge hit ratio, and
+  # dropping all of that at once produces the cold-fill stampede against R2
+  # whose edge→origin failures (`originResponseStatus: 0`) Cloudflare returns to
+  # users and Googlebot as the 502s in #5034/#5035/#5036/#5052/#5081/#5092/
+  # #5093/#5094. Same targeted-purge pattern scripts/publish-article-chunks.mjs
+  # already uses for its own out-of-band chunk PUTs.
+  #
+  # This does NOT replace cf-purge-cache.mjs `purge_everything` in
+  # post-deploy-validate-live.yml (still needed for the apex HTML, which the
+  # it-apex-html-cache rule holds with `override_origin` 24h). It removes the
+  # CDN bundle's DEPENDENCE on that purge, which sits at the end of a workflow
+  # chain that went ten days without completing once — see the assets/
+  # Cache-Control comment for the queue jam that caused it. The jam is fixed;
+  # the decoupling stays, because the failure mode it protects against is
+  # "the publish chain stopped running", not "this particular bug existed".
+  # GC visibility scan (Refs #2886, follow-up of #2883's "GC storage R2
+  # (janitor): skippato" deferral). DRY-RUN ONLY at this automatic call site —
+  # see _janitor_cdn_r2's header comment for why. This just makes bucket growth
+  # visible in every deploy log; it never deletes anything on its own.
+  _janitor_cdn_r2 "$stage" "dry-run"
+}
+
+# ── R2 storage janitor (GC orphaned assets/ hashes past grace) ───────────────
+# Follow-up of #2883 (Refs #2886): the git-based CDN janitor (prune-cdn-assets.mjs,
+# step_prune_cdn below) explicitly skips R2 — no git repo, no ~1 GB Pages soft
+# limit to defend. But R2's additive `rclone copy` (see _publish_cdn_r2 above:
+# `copy`, not `sync`, so prior content-hashed generations are NEVER deleted by
+# the publish path itself) means every superseded assets/ hash accumulates
+# forever. At 1.27 GB of the 10 GB free tier there is ample margin today, but
+# unbounded growth eventually saturates the tier → PUT failures → deploy
+# failure → SEO impact (issue #2886 rationale).
+#
+# SAFETY (standing repo rule: no irreversible production action without
+# explicit owner sign-off) — DRY-RUN BY DEFAULT, always:
+#   - Real deletion requires BOTH mode="apply" (2nd arg) AND the explicit env
+#     opt-in R2_JANITOR_APPLY=1. Either missing → dry-run, zero DeleteObject
+#     calls. Mirrors the --apply convention this repo already uses for other
+#     destructive one-off scripts (scripts/dev/backfill-newsletter-subscriber-auth.mjs).
+#   - The ONLY automatic call site (end of _publish_cdn_r2 above) always passes
+#     mode="dry-run" literally — it never sets R2_JANITOR_APPLY. Real deletion
+#     is a manual, owner-triggered invocation only
+#     (`R2_JANITOR_APPLY=1 bash -c '. scripts/lib/deploy-it-pages-prep.sh; _janitor_cdn_r2 <stage> apply'`),
+#     never wired into deploy.yml or any other CI trigger.
+#
+# Grace period: R2_JANITOR_GRACE_DAYS (default 7) — same default GRACE_DAYS
+# uses in prune-cdn-assets.mjs, for a consistent GC posture across both CDN
+# publish paths (pages vs r2). Objects newer than the cutoff are NEVER
+# candidates, in ANY mode — checked before the anti-clobber re-check below.
+#
+# Anti-clobber (assertFreshRemote-equivalent, see prune-cdn-assets.mjs): R2 has
+# no git tip to re-check, so the analogous defense-in-depth is per-object —
+# right before deleting a candidate, re-`head-object` it and compare ETag
+# against the value captured at list-time. A mismatch (or the object having
+# vanished) means something touched that key mid-run (e.g. a concurrent
+# deploy's re-upload) — skip deleting THAT key rather than trust the stale
+# list snapshot, exactly the same "verify nothing moved since we looked"
+# principle assertFreshRemote applies before the git janitor's force-push.
+#
+# Scope: only the `assets/` prefix — content-hashed bundle files are tracked by
+# the existing grace-safe inventory. OG paths can include a job slug that
+# changes over time, so historical keys may accumulate; automatic deletion
+# remains disabled for those objects and is not part of this janitor.
+_janitor_cdn_r2() {
+  local stage="$1"
+  local mode="${2:-dry-run}"  # 'dry-run' (only value the automatic call site ever passes) | 'apply'
+  if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
+     || [ -z "${R2_S3_ENDPOINT:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
+    echo "[r2-janitor] R2_* creds missing — skipping GC scan"
+    return 0
+  fi
+  if ! command -v aws >/dev/null 2>&1; then
+    echo "[r2-janitor] aws CLI not found (expected preinstalled on GitHub-hosted ubuntu runners) — skipping GC scan"
+    return 0
+  fi
+  if [ ! -d "$stage/assets" ]; then
+    # Authoritative active set is THIS build's stage/assets — absent means we
+    # cannot tell what's still referenced. FAIL-CLOSED (same posture as
+    # prune-cdn-assets.mjs's DIST_ASSETS_DIR guard): no candidates, no scan.
+    echo "[r2-janitor] $stage/assets absent — FAIL-CLOSED, skipping GC scan"
+    return 0
+  fi
+
+  # Double gate: caller must literally pass mode="apply" AND the explicit env
+  # opt-in must be "1". Either missing → dry-run.
+  local do_apply=0
+  if [ "$mode" = "apply" ] && [ "${R2_JANITOR_APPLY:-}" = "1" ]; then
+    do_apply=1
+  fi
+
+  local grace_days="${R2_JANITOR_GRACE_DAYS:-7}"
+  case "$grace_days" in (''|*[!0-9]*) grace_days=7 ;; esac
+  local cutoff_epoch
+  cutoff_epoch=$(( $(date -u +%s) - grace_days * 86400 ))
+
+  local aws_env=(env "AWS_ACCESS_KEY_ID=$R2_ACCESS_KEY_ID" "AWS_SECRET_ACCESS_KEY=$R2_SECRET_ACCESS_KEY" "AWS_DEFAULT_REGION=auto")
+  local AWS=("${aws_env[@]}" aws --endpoint-url "$R2_S3_ENDPOINT" --cli-connect-timeout 15 --cli-read-timeout 60)
+  # Wall-clock limits (NX-SKEW-2b, see _publish_cdn_r2): this scan runs inside
+  # the deploy's CDN push step on every deploy. Its listing measured 42-53 s.
+  local t_list t_obj
+  t_list="$(_r2_timeout_s R2_TIMEOUT_LIST_S 180)"
+  t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
+
+  local active_list; active_list="$(mktemp)"
+  # Release assets live below assets/releases/<BUILD_ID>; the active protect
+  # set must be recursive or the R2 janitor would treat every executable in the
+  # current release as an orphan after the first deploy.
+  ( cd "$stage/assets" && find . -type f -print | sed 's#^\./##' | sort ) > "$active_list" 2>/dev/null || true
+
+  local listing; listing="$(mktemp)"
+  if ! timeout -k 10 "$t_list" "${AWS[@]}" s3api list-objects-v2 --bucket "$R2_BUCKET" --prefix "assets/" \
+       --query 'Contents[].{Key:Key,Size:Size,LastModified:LastModified,ETag:ETag}' \
+       --output json > "$listing" 2>/tmp/r2-janitor-list.err; then
+    echo "::warning::[r2-janitor] list-objects-v2 failed or exceeded ${t_list}s — $(cat /tmp/r2-janitor-list.err 2>/dev/null)"
+    rm -f "$active_list" "$listing"
+    return 0
+  fi
+
+  # node does the set-diff + grace filter + byte totals — parsing the aws CLI's
+  # JSON output in pure bash would be fragile/quoting-hazardous.
+  local candidates; candidates="$(mktemp)"
+  node -e '
+    const fs = require("node:fs");
+    const raw = fs.readFileSync(process.argv[1], "utf8").trim();
+    const objects = raw ? (JSON.parse(raw) || []) : [];
+    const active = new Set(fs.readFileSync(process.argv[2], "utf8").split("\n").filter(Boolean));
+    const cutoffEpoch = Number(process.argv[3]);
+    const out = [];
+    for (const o of objects) {
+      if (!o || !o.Key) continue;
+      const base = o.Key.slice("assets/".length);
+      if (!base || base === ".hash-age.json") continue; // never a real bundle file
+      if (active.has(base)) continue; // referenced by the CURRENT build — never a candidate
+      const lm = Date.parse(o.LastModified) / 1000;
+      if (!Number.isFinite(lm) || lm > cutoffEpoch) continue; // inside grace — never a candidate
+      out.push({ key: o.Key, size: o.Size || 0, etag: o.ETag || "" });
+    }
+    fs.writeFileSync(process.argv[4], JSON.stringify(out));
+  ' "$listing" "$active_list" "$cutoff_epoch" "$candidates"
+  rm -f "$active_list" "$listing"
+
+  local count total_bytes
+  count="$(node -e 'process.stdout.write(String(JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8")).length))' "$candidates")"
+  total_bytes="$(node -e 'process.stdout.write(String(JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8")).reduce((a,o)=>a+(o.size||0),0)))' "$candidates")"
+
+  echo "[r2-janitor] scan: bucket=$R2_BUCKET prefix=assets/ grace=${grace_days}d candidates=${count} bytes=${total_bytes}"
+  if [ "${count:-0}" -eq 0 ]; then
+    echo "[r2-janitor] nothing to prune"
+    rm -f "$candidates"
+    return 0
+  fi
+
+  if [ "$do_apply" -ne 1 ]; then
+    echo "[r2-janitor] DRY-RUN (mode=$mode, R2_JANITOR_APPLY=${R2_JANITOR_APPLY:-<unset>}) — would delete ${count} object(s), ${total_bytes} bytes total. Zero DeleteObject calls issued. Candidates:"
+    node -e 'for(const o of JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8"))) console.log("  - "+o.key+" ("+o.size+" bytes)")' "$candidates"
+    rm -f "$candidates"
+    return 0
+  fi
+
+  echo "[r2-janitor] APPLY mode — deleting ${count} object(s), ${total_bytes} bytes"
+  local deleted=0 skipped_changed=0
+  while IFS=$'\t' read -r key etag; do
+    [ -n "$key" ] || continue
+    # Anti-clobber re-check (see header comment) — trust nothing older than
+    # "right now".
+    local live_etag
+    live_etag="$(timeout -k 10 "$t_obj" "${AWS[@]}" s3api head-object --bucket "$R2_BUCKET" --key "$key" \
+      --query 'ETag' --output text 2>/dev/null || true)"
+    if [ -z "$live_etag" ] || [ "$live_etag" != "$etag" ]; then
+      echo "[r2-janitor] skip (changed/vanished since scan): $key"
+      skipped_changed=$((skipped_changed + 1))
+      continue
+    fi
+    if timeout -k 10 "$t_obj" "${AWS[@]}" s3 rm "s3://$R2_BUCKET/$key" >/dev/null 2>&1; then
+      deleted=$((deleted + 1))
+    else
+      echo "::warning::[r2-janitor] delete failed: $key"
+    fi
+  done < <(node -e 'for(const o of JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8"))) console.log(o.key+"\t"+o.etag)' "$candidates")
+
+  echo "[r2-janitor] ✅ deleted ${deleted} object(s), skipped ${skipped_changed} (changed/vanished since scan)"
+  rm -f "$candidates"
+}
+
+# ── 2. Push generated assets to CDN repo (frontaliere-cdn / Pages) ────────────
+# deploy.yml: "Push generated assets to CDN repo" — NON-FATAL (continue-on-error).
+# Stages CDN payload (dist/og, dist/data, dist/assets, dist/job-canon,
+# public/images/*), then
+# publishes via CDN_TARGET: 'r2' (S3 sync, default-off) or 'pages' (legacy git
+# force-push to valerielinc-ops/frontaliere-cdn). Exports CDN_BASE on success.
+# Internally non-fatal: every failure path keeps the assets in dist.
+step_push_cdn() {
+  set -uo pipefail
+  # CDN_TARGET selects the publish path; default 'pages' keeps the legacy
+  # git-push behaviour byte-identical. The credential guard is per-target,
+  # applied inside each branch below (fail-closed): r2 → R2_* creds, pages →
+  # CDN_DEPLOY_KEY.
+  local cdn_target="${CDN_TARGET:-pages}"
+  local stage="${CDN_STAGE_DIR:-${RUNNER_TEMP}/cdn-stage}"
+  # Same leaked-staging-dir class fixed for push-locale-shard.sh /
+  # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
+  # (og+data+assets+images) and is never read again after this function
+  # returns, on any of its several exit paths (no-offloadable-assets,
+  # r2-only, missing CDN_DEPLOY_KEY, or the normal push-then-fallthrough
+  # path). trap RETURN frees it on every path instead of duplicating
+  # rm -rf at each return.
+  # shellcheck disable=SC2064
+  trap "rm -rf '$stage'" RETURN
+  rm -rf "$stage" && mkdir -p "$stage"
+  : > "$stage/.nojekyll"                              # serve every path verbatim, skip Jekyll
+  printf 'cdn.frontaliereticino.ch' > "$stage/CNAME"  # keep custom domain (force-push would else wipe it)
+  # Offloadable dirs: og cards, ALL runtime data JSON, the bundler assets
+  # (JS/CSS) whose URLs renderBuiltUrl already rebased to the CDN, and the
+  # git-tracked full blog heroes (served at cdn.frontaliereticino.ch/images/
+  # blog; finalize plugin already rewrote HTML + deleted dist heroes, so we
+  # push from the public/ source). The 480w thumbnails are committed under
+  # public/images/blog/thumbnails/ (generate-image-thumbnails.mjs encodes
+  # them; generate-article.yml commits each new one), so the public/images/blog
+  # copy below ALREADY pushes them to ${CDN}/images/blog/thumbnails/ — the offload
+  # script then deletes the dist copy of dist/images/blog/thumbnails.
+  local r2_og_copy_option=""
+  local r2_og_candidate="${RUNNER_TEMP:-/tmp}/r2-og-published-manifest.next.json"
+  if [ "$cdn_target" = "r2" ] && [ -d dist/og ]; then
+    rm -f "$r2_og_candidate"
+    local r2_og_summary=""
+    if r2_og_summary="$(node scripts/ci/prepare-r2-og-delta.mjs dist/og .cache/r2-og-published-manifest.json "$stage/og" "$r2_og_candidate")"; then
+      echo "[r2-og] $r2_og_summary"
+      case "$r2_og_summary" in
+        mode=full\ *)
+          cp -r dist/og "$stage/og" || {
+            echo "::error::[r2-og-manifest] could not stage the full OG directory" >&2
+            return 1
+          }
+          ;;
+        mode=delta\ *)
+          case "$r2_og_summary" in
+            *" no_traverse=true") r2_og_copy_option="no-traverse" ;;
+          esac
+          ;;
+        *)
+          echo "::warning::[r2-og-manifest] unexpected helper output; falling back to full OG stage"
+          rm -f "$r2_og_candidate"
+          rm -rf "$stage/og"
+          cp -r dist/og "$stage/og" || {
+            echo "::error::[r2-og-manifest] could not stage the full OG directory" >&2
+            return 1
+          }
+          ;;
+      esac
+    else
+      echo "::warning::[r2-og-manifest] delta preparation failed; falling back to full OG stage"
+      rm -f "$r2_og_candidate"
+      rm -rf "$stage/og"
+      cp -r dist/og "$stage/og" || {
+        echo "::error::[r2-og-manifest] could not stage the full OG directory" >&2
+        return 1
+      }
+    fi
+  else
+    if [ -d dist/og ]; then
+      cp -r dist/og "$stage/og" || {
+        echo "::error::[r2-og-manifest] could not stage the OG directory" >&2
+        return 1
+      }
+    fi
+  fi
+  [ -d dist/data ]         && cp -r dist/data         "$stage/data"
+  [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"
+  # The GA4 static page_view producer is identity-bearing. New HTML points at
+  # a content-addressed gtag-init-<hash>.js, while the stable alias keeps old
+  # HTML alive during cache convergence. Fail closed if either side is absent:
+  # publishing only a legacy or only an unversioned producer can recreate the
+  # D18 untagged page_view gap.
+  if [ ! -d "$stage/assets" ]; then
+    echo "::error::CDN asset stage is missing dist/assets and cannot publish the GA4 producer" >&2
+    return 1
+  fi
+  local gtag_html_references html_scan_status gtag_reference_count gtag_versioned_filename
+  gtag_html_references="$(grep -RhoE --include='*.html' 'gtag-init-[0-9a-f]+\.js' dist | sort -u)"
+  html_scan_status=$?
+  if [ "$html_scan_status" -gt 1 ]; then
+    echo "::error::could not read generated HTML to resolve the current GA4 producer filename" >&2
+    return 1
+  fi
+  gtag_reference_count=0
+  if [ -n "$gtag_html_references" ]; then
+    gtag_reference_count="$(printf '%s\n' "$gtag_html_references" | wc -l | tr -d '[:space:]')"
+  fi
+  if [ "$gtag_reference_count" -ne 1 ]; then
+    echo "::error::generated HTML must reference exactly one content-addressed GA4 producer (found ${gtag_reference_count})" >&2
+    return 1
+  fi
+  gtag_versioned_filename="$gtag_html_references"
+  if [ ! -f "$stage/assets/gtag-init.js" ] || [ ! -f "$stage/assets/$gtag_versioned_filename" ]; then
+    echo "::error::CDN asset stage must contain gtag-init.js and the current HTML producer $gtag_versioned_filename" >&2
+    return 1
+  fi
+  # Preserve the existing non-fatal credential path for the legacy Pages
+  # target. The caller will fail the build-scoped prep because CDN_BASE stays
+  # unset, but this branch must still report the actionable missing secret
+  # instead of masking it with the release-layout guard below.
+  if [ "$cdn_target" = "pages" ] && [ -z "${CDN_DEPLOY_KEY:-}" ]; then
+    echo "no CDN_DEPLOY_KEY secret — skipping CDN push, assets stay in dist"
+    return 0
+  fi
+  # A production matrix build must publish the executable graph under the
+  # build-scoped namespace before any CDN target is touched. If this guard is
+  # absent, a plugin/config drift can silently put the old stable graph back on
+  # the CDN and recreate the mixed-import failure that this release layout is
+  # meant to eliminate. Local builds have no DEPLOY_BUILD_ID and retain the
+  # ordinary developer path. The missing-credential return above stays first so
+  # the legacy Pages diagnostic remains compatible when no publish can occur.
+  if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+    case "$DEPLOY_BUILD_ID" in
+      ''|*[!0-9]*)
+        echo "::error::DEPLOY_BUILD_ID must contain digits only for a production CDN release" >&2
+        return 1
+        ;;
+    esac
+    local versioned_release_entry="$stage/assets/releases/$DEPLOY_BUILD_ID/index-entry.js"
+    if [ ! -s "$versioned_release_entry" ] || ! grep -q 'FRONTALIERE_VERSIONED_CDN_BOOTSTRAP' "$stage/assets/index-entry.js"; then
+      echo "::error::CDN asset stage is missing the build-scoped executable release for DEPLOY_BUILD_ID=$DEPLOY_BUILD_ID" >&2
+      echo "::error::expected $versioned_release_entry and a FRONTALIERE_VERSIONED_CDN_BOOTSTRAP stable entry" >&2
+      return 1
+    fi
+  fi
+  # Canton-drift 404-recovery shard map (jobCanonRedirectMapPlugin, ~29 MB /
+  # 400 shards): runtime-fetch only (public/404.html + the Worker), no static
+  # HTML ref to rewrite, so the offload script just deletes dist/job-canon
+  # once this push succeeds (see its job-canon phase).
+  [ -d dist/job-canon ]    && cp -r dist/job-canon    "$stage/job-canon"
+  [ -d public/images/blog ] && mkdir -p "$stage/images" && cp -r public/images/blog "$stage/images/blog"
+  # Self-hosted brand/logo/author images (#1360): push from the git-tracked
+  # public/images/<dir> source to ${CDN}/images/<dir>, so the offload script
+  # (offload-generated-images-cdn.mjs IMAGE TARGETS) can rewrite the static HTML
+  # refs + the SPA's cdnImageUrl() runtime refs to the CDN and then delete the
+  # dist copies. MUST stay in sync with that script's TARGETS and
+  # services/cdnImageBase.ts CDN_OFFLOADED_IMAGE_PREFIXES.
+  # (/images/places is intentionally excluded — it stays same-origin.)
+  #
+  # `events` is NOT in this list any more (#6163). Those 5'568 mirrored source
+  # images were 4'108 MB of the tracked tree and are no longer committed, so in
+  # a deploy checkout public/images/events simply does not exist: leaving it
+  # here would have staged nothing and looked like it still worked. The CDN copy
+  # is now written by whoever produces it — crawl-events.yml uploads each image
+  # it mirrors, in the same run, via scripts/lib/upload-cdn-file.sh. Do not add
+  # it back: a deploy has no source to push from, and re-adding it would make
+  # this loop's silence look like coverage.
+  # The generated event library follows the same rule: its WebP bytes never
+  # enter dist or git; scripts/upload-event-image-library-cdn.mjs publishes
+  # images/events/library/<assetId>.webp directly to R2 before its data PR.
+  #
+  # Nothing is lost at the edge by dropping it: the R2 publish path
+  # (_publish_cdn_r2, CDN_TARGET=r2) is `rclone copy` — additive, never
+  # `sync` — so an absent stage dir cannot delete the 5'568 objects already in
+  # the bucket, and _janitor_cdn_r2 only ever scans the `assets/` prefix.
+  # The legacy Pages path below IS a force-push of the whole stage, so if
+  # CDN_TARGET is ever flipped back to 'pages' the events images WOULD be
+  # dropped from the frontaliere-cdn repo — flip it only after giving that path
+  # its own source for them.
+  for d in brands insurers providers logos authors publisher job-search-campaign; do
+    [ -d "public/images/$d" ] && mkdir -p "$stage/images" && cp -r "public/images/$d" "$stage/images/$d"
+  done
+  # Build-time generated per-category "catalog" fallback SVGs (#3740,
+  # writeCatalogImages() in build-plugins/eventsSeoPagesPlugin.ts). These 11
+  # deterministic SVGs are emitted straight into dist/images/events/catalog/ at
+  # build time and are NOT git-tracked, so the public/images/$d loop above never
+  # picks them up. (Until #6163 this comment contrasted them with the mirrored
+  # real event photos "git-tracked under public/images/events/" — those are
+  # neither tracked nor staged by that loop any more, so the contrast no longer
+  # holds; what survives is the reason this copy exists.) Without this stage
+  # copy, offload-generated-images-cdn.mjs
+  # still rewrote the HTML refs to the CDN and deleted the dist copies, leaving
+  # cdn.frontaliereticino.ch/images/events/catalog/*.svg permanently 404.
+  [ -d dist/images/events/catalog ] && mkdir -p "$stage/images/events" && cp -r dist/images/events/catalog "$stage/images/events/catalog"
+  # Both R2 and the legacy Pages publisher must receive the complete campaign;
+  # a skipped source directory or failed staging copy is not an empty success.
+  if ! node scripts/ci/check-house-ad-images.mjs --root "$stage"; then
+    echo "::error::campaign image staging failed — refusing the CDN publish"
+    return 1
+  fi
+  # Strip junk the recursive copies drag in: macOS .DS_Store files and the
+  # internal build-telemetry assets/.hash-age.json (chunk first-seen/last-access
+  # timestamps — not a runtime asset, must not be published).
+  find "$stage" -name '.DS_Store' -delete 2>/dev/null || true
+  rm -f "$stage/assets/.hash-age.json" 2>/dev/null || true
+  if [ ! -d "$stage/og" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ] && [ ! -d "$stage/images" ] && [ ! -d "$stage/job-canon" ]; then
+    echo "no offloadable assets present — skipping CDN push"; return 0
+  fi
+  printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
+
+  # ── Publish: r2 (instant) | both (dual-publish for cutover) | pages (legacy) ─
+  # 'both' writes R2 AND Pages so the live domain (still → Pages until the R2
+  # custom-domain flip) keeps serving while R2 is populated+validated in
+  # parallel — zero-downtime cutover. 'r2' is R2-only (post-flip). 'pages'
+  # (default) is the legacy git force-push, byte-identical to before.
+  if [ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]; then
+    _publish_cdn_r2 "$stage" "$r2_og_copy_option"
+    if [ "$cdn_target" = "r2" ]; then
+      cd "$PREP_CWD"
+      return 0
+    fi
+    # 'both': fall through to ALSO publish to Pages (live domain unchanged).
+  fi
+  # Legacy Pages path below (CDN_TARGET=pages or both).
+  if [ -z "${CDN_DEPLOY_KEY:-}" ]; then
+    echo "no CDN_DEPLOY_KEY secret — skipping CDN push, assets stay in dist"
+    cd "${PREP_CWD:-$PWD}"
+    return 0
+  fi
+  keyfile="$RUNNER_TEMP/cdn_deploy_key"
+  printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
+  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+  # ── Additive assets/ (anti-clobber) ──────────────────────────────────
+  # Bundler assets/ have STABLE names (index-entry.js, App.js, index.css …
+  # vite.config.ts chunkFileNames/assetFileNames): the stage already holds
+  # the freshly-built bytes for every stable name, and `cp -n` (never
+  # overwrites a freshly-built file) only carries forward files ABSENT
+  # from the new build — i.e. the legacy content-hashed generations still
+  # referenced by HTML cached/live from before the cutover. Replacing the
+  # whole repo each deploy used to DELETE those still-referenced files
+  # while the ~13 GB Pages site kept serving the previous build for the
+  # 10-20 min a publish takes to propagate → live HTML 404'd on its own
+  # JS → SPA dead (prod outage 2026-06-04). og/data/images are refreshed from
+  # the current build above (overwrite is correct for them).
+  # prune-cdn-assets.mjs GCs the carried-forward legacy hashes post-grace.
+  # Sparse + blob:none keeps the clone to the small assets/ tree only.
+  if [ -d "$stage/assets" ]; then
+    prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
+    if git clone --depth 1 --filter=blob:none --sparse \
+         git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null; then
+      git -C "$prev" sparse-checkout set assets 2>/dev/null || true
+      if [ -d "$prev/assets" ]; then
+        cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
+        echo "additive CDN: carried forward prior assets/ (now $(ls -1 "$stage/assets" | wc -l) files)"
+      fi
+    else
+      echo "additive CDN: no prior CDN clone (first push / transient) — proceeding with new assets only"
+    fi
+    rm -rf "$prev"
+  fi
+  echo "CDN payload: $(du -sh "$stage" | cut -f1)"
+  # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
+  # With additive assets/ the payload grows slowly across deploys (only NEW
+  # hashes accumulate; data/og/images are refreshed in this Pages stage).
+  # The inline "Prune superseded CDN asset hashes" step below GCs superseded hashes past
+  # a grace window (runs post-push in this same job — no concurrent-deploy race).
+  payload_bytes="$(du -sb "$stage" | cut -f1)"
+  if [ "$payload_bytes" -gt 950000000 ]; then
+    echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; run the CDN assets/ janitor or split (e.g. keep blog heroes on jsDelivr)"
+  fi
+  # Cross-shard atomicity marker (#2569): stamp THIS build's DEPLOY_BUILD_ID
+  # into the CDN payload so it is published in the SAME force-push as the
+  # assets/data. The non-IT shards (en/de/fr) poll cdn.frontaliereticino.ch/
+  # cdn-build-id.txt for this exact id BEFORE publishing → they never go live
+  # referencing a CDN that does not yet hold this build's /data + /assets.
+  # When DEPLOY_BUILD_ID is unset (local run / monolith path) the marker is
+  # written empty — harmless, the shard gate only enforces on a non-empty id.
+  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
+  cd "$stage"
+  git init -q
+  git checkout -q -b main
+  git config user.email "deploy-bot@frontaliereticino.ch"
+  git config user.name "deploy-bot"
+  git add -A
+  git commit -qm "cdn assets (og + data + additive assets) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+  # Force-push a single fresh commit → CDN repo history never accumulates.
+  # Content is additive (prior assets/ merged above), so the force-push no
+  # longer clobbers in-flight entry hashes — it just flattens history.
+  # Was a hand-rolled copy of shard_push_with_retry's 3-attempts-with-backoff
+  # loop. Routed through the shared helper instead (AGENTS.md #6) so this push
+  # also gets the auth-failure classifier and the PAT fallback: a read-only or
+  # revoked CDN_DEPLOY_KEY used to mean "offload skipped, og/data stay in dist"
+  # on every deploy, the same silent-degradation shape as the uri-it shard
+  # incident of 2026-07-30.
+  _push_ok=0
+  if shard_push_with_retry "$stage" "git@github.com:valerielinc-ops/frontaliere-cdn.git" main "CDN"; then
+    _push_ok=1
+  fi
+  if [ "$_push_ok" = 1 ]; then
+    export_env CDN_BASE "https://cdn.frontaliereticino.ch"
+    echo "✅ pushed assets to frontaliere-cdn"
+  else
+    echo "⚠️ CDN push failed after 3 attempts — offload skipped, og/data stay in dist"
+  fi
+  rm -f "$keyfile"
+  # Return to the prep cwd (the IT shard dist root) for the steps that follow,
+  # since the monolith ran each YAML step from the workspace root regardless.
+  cd "$PREP_CWD"
+}
+
+# ── 3. Offload og refs + data base into dist ──────────────────────────────────
+# deploy.yml: "Offload og refs + data base into dist" — NON-FATAL.
+# Rewrites dist HTML asset refs → CDN, injects window.__CDN_DATA_BASE__, writes
+# $RUNNER_TEMP/assets-same-origin.marker consumed by the guard below.
+step_offload() {
+  node scripts/offload-generated-images-cdn.mjs
+}
+
+# ── 4. Prune superseded CDN asset hashes (inline GC, post-push) ───────────────
+# deploy.yml: "Prune superseded CDN asset hashes" — NON-FATAL.
+# Original gate: `env.CDN_BASE != ''` → only runs after a successful CDN push.
+step_prune_cdn() {
+  if [ -z "${CDN_BASE:-}" ]; then
+    echo "CDN_BASE unset (no CDN push this run) — skipping CDN prune"; return 0
+  fi
+  # The janitor is git-based (clone + force-push frontaliere-cdn). On R2 there is
+  # no git repo and no ~1 GB Pages limit to defend, so skip it here — R2 storage
+  # GC is a separate (S3 ListObjects + DeleteObject) follow-up; at 1.27 GB the
+  # 10 GB R2 free-tier has ample headroom in the meantime.
+  if [ "${CDN_TARGET:-pages}" = "r2" ]; then
+    echo "CDN_TARGET=r2 — skipping git-based assets janitor (R2 has no 1 GB limit; GC is a follow-up)"; return 0
+  fi
+  node scripts/ci/prune-cdn-assets.mjs
+}
+
+# ── 5. Drop dist/assets after CDN push (build-time guards) ────────────────────
+# deploy.yml: "Drop dist/assets after CDN push" — FATAL.
+#   (A) FAIL if the push failed (CDN_BASE unset) — Vite refs already CDN-baked
+#       with no fallback, so the artifact would be broken.
+#   (B) If ANY dist HTML still references a SAME-ORIGIN /assets/ path, KEEP
+#       dist/assets (skip delete) — non-fatal within this step.
+step_drop_assets() {
+  set -uo pipefail
+  [ -d dist/assets ] || { echo "no dist/assets — nothing to offload"; return 0; }
+  if [ -z "${CDN_BASE:-}" ]; then
+    echo "::error::CDN push failed but dist/assets URLs are already rebased to the CDN (no fallback) — failing deploy (last good stays live)"; return 1
+  fi
+  # Guard B: any surviving SAME-ORIGIN /assets/ reference in dist HTML?
+  # The offload step (which already read+rewrote every CONTENT html in a
+  # top-level-only walk) emitted its verdict to
+  # $RUNNER_TEMP/assets-same-origin.marker using the SAME superset regex
+  # (ASSETS_SAME_ORIGIN_RX) — covering every content *.html at ANY depth.
+  # Reuse it instead of re-reading the whole ~470k-file HTML corpus a second
+  # time (~6min). The marker does NOT cover the three TOP-LEVEL
+  # dist/{assets,data,images} dirs that walk skips (vite assets / *.json /
+  # binary — no *.html by construction), so belt-grep just those three roots
+  # here (cheap, near-empty) to keep coverage IDENTICAL to the original
+  # full-tree grep. FAIL-SAFE: a missing marker (offload crashed mid-walk)
+  # falls back to the original full-tree grep, so this guard is NEVER weaker
+  # than before.
+  # SINGLE SOURCE OF TRUTH (no copy-paste, AGENTS.md #6): the bash ERE below
+  # is NOT hand-maintained — it is the exact string the offload marker
+  # producer uses, exported as ASSETS_SAME_ORIGIN_ERE from
+  # build-plugins/shared/cdnAssetOffloadRx.mjs. Deriving it here makes a
+  # marker↔grep divergence (→ 404 on offloaded /assets/) impossible.
+  ASSET_RX="$(node -e "import('./build-plugins/shared/cdnAssetOffloadRx.mjs').then(m=>process.stdout.write(m.ASSETS_SAME_ORIGIN_ERE))" 2>/dev/null || true)"
+  if [ -z "$ASSET_RX" ]; then
+    # Defensive fallback (module unreadable for any reason): inline the same
+    # ERE literal so the guard is never weaker than before.
+    ASSET_RX="[\"'(]/?assets/[^\"'() ]*\.(js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json)"
+  fi
+  marker="${RUNNER_TEMP:-/tmp}/assets-same-origin.marker"
+  # `|| true` on EVERY grep/tail pipe substitution below: the GitHub
+  # default shell is `bash -eo pipefail`, so grep exiting 1 when it finds
+  # nothing (the EXPECTED clean case) — or tail getting SIGPIPE from a
+  # `head` that closed early — makes the substitution non-zero, which
+  # under -e aborts the whole step (zero output, deploy fails). The
+  # original Guard B avoided this by running grep inside an `if`
+  # condition (exempt from -e); the marker path must guard each
+  # substitution explicitly.
+  if [ -f "$marker" ]; then
+    if [ "$(head -1 "$marker")" = "CLEAN" ]; then
+      # marker covered the content tree (any depth); belt-grep only the
+      # top-level roots walk skipped — normally zero *.html, so near-instant.
+      leak="$(grep -rlE "$ASSET_RX" --include='*.html' dist/assets dist/data dist/images 2>/dev/null | head -1 || true)"
+      [ -n "$leak" ] && echo "marker=CLEAN but a top-level assets|data|images *.html still has a same-origin /assets/ ref: $leak" || true
+    else
+      leak="$(tail -n +2 "$marker" | head -1 || true)"
+      echo "offload marker reports surviving same-origin /assets/ ref(s):"
+      tail -n +2 "$marker" | head -8 || true
+    fi
+  else
+    echo "offload marker absent — falling back to full-tree grep (Guard B)"
+    leak="$(grep -rlE "$ASSET_RX" --include='*.html' dist 2>/dev/null | head -1 || true)"
+  fi
+  if [ -n "$leak" ]; then
+    echo "⚠️ some dist HTML still references same-origin /assets/ (not CDN-rebased) — KEEPING dist/assets (no breakage, no asset reduction this round)"
+    return 0
+  fi
+  freed="$(du -sh dist/assets | cut -f1)"
+  rm -rf dist/assets
+  echo "✅ no same-origin /assets/ refs survive; dropped dist/assets (${freed}) from artifact (CDN: ${CDN_BASE}/assets — verified live in validate-live)"
+}
+
+# ── 6. Capture pre-deploy sitemap URLs (for IndexNow diff) ────────────────────
+# deploy.yml: "Capture pre-deploy sitemap URLs" — NON-FATAL.
+# Writes /tmp/pre-deploy-sitemap-urls.json.
+step_capture_sitemaps() {
+  if ! node scripts/capture-deployed-sitemaps.mjs; then
+    echo '⚠️ pre-deploy sitemap capture failed — IndexNow will reconcile the full current build graph'
+  fi
+}
+
+# ── 7. Pack new sitemap URLs from dist/ ───────────────────────────────────────
+# deploy.yml: "Pack new sitemap URLs from dist/" — NON-FATAL.
+# Use the same recursive crawler as the live pre-deploy snapshot. This keeps
+# sitemap indexes, nested canton files, hreflang URLs and change metadata on one
+# contract instead of maintaining a second direct-file parser here.
+step_pack_new_sitemaps() {
+  if [ ! -d dist ]; then
+    echo 'dist/ missing — skipping new-sitemap-urls.json'
+    return 0
+  fi
+  if ! SOURCE=local LOCAL_ROOT=dist OUTPUT=/tmp/new-sitemap-urls.json \
+    node scripts/capture-deployed-sitemaps.mjs; then
+    echo '⚠️ new sitemap graph packing failed — post-deploy IndexNow will use its safe local fallback'
+  fi
+}
+
+# ── 8. Stage sitemaps bundle (pre-deploy + new + build-id) ────────────────────
+# deploy.yml: "Stage sitemaps bundle" — NON-FATAL.
+step_stage_bundle() {
+  mkdir -p /tmp/sitemaps-bundle
+  cp -f /tmp/pre-deploy-sitemap-urls.json /tmp/sitemaps-bundle/ 2>/dev/null || true
+  # build-id.txt is consumed by `wait-for-pages-propagation.mjs`
+  # in validate-live to verify the live site is serving THIS deploy.
+  # Bundling it here means validate-live can run without
+  # downloading the 1.5 GB github-pages artifact.
+  cp -f dist/build-id.txt /tmp/sitemaps-bundle/ 2>/dev/null || true
+  cp -f /tmp/new-sitemap-urls.json /tmp/sitemaps-bundle/ 2>/dev/null || true
+  ls -la /tmp/sitemaps-bundle/
+}
+
+# ── 9. Pack dist/ into Pages tar archive ──────────────────────────────────────
+# deploy.yml: "Pack dist/ into Pages tar archive" — FATAL.
+# Produces $RUNNER_TEMP/artifact.tar, exports TAR_BYTES.
+step_pack_tar() {
+  tar \
+    --dereference --hard-dereference \
+    --directory dist \
+    -cf "$RUNNER_TEMP/artifact.tar" \
+    --exclude=.git \
+    --exclude=.github \
+    --exclude=.write-collisions.json \
+    --exclude=.write-collisions-data \
+    . || return 1
+  # Surface size early so a regression past the 1 GB Pages
+  # threshold is visible in the workflow log right after pack
+  # (instead of only at the deploy-pages "Deployment failed"
+  # tail) — the artifact size is the binding constraint.
+  ls -lh "$RUNNER_TEMP/artifact.tar"
+  # Export for downstream report step (Audit dist bytes).
+  TAR_BYTES=$(stat -c %s "$RUNNER_TEMP/artifact.tar") || return 1
+  [ -n "$TAR_BYTES" ] || return 1
+  export TAR_BYTES
+  export_env TAR_BYTES "$TAR_BYTES"
+}
+
+# ── 10. Audit dist bytes (per-plugin report) ──────────────────────────────────
+# deploy.yml: "Audit dist bytes" — FATAL (plain `run:`).
+# Appends a row to data/dist-size-history.jsonl. Commit handled by YAML.
+step_audit_bytes() {
+  node scripts/report-dist-bytes-by-plugin.mjs \
+    --dist=dist \
+    --tar-size-bytes="${TAR_BYTES}" \
+    --run-id="${GITHUB_RUN_ID}" \
+    --sha="${GITHUB_SHA}"
+}
+
+# ── 11. File delta vs previous deploy (build summary) ─────────────────────────
+# deploy.yml: "File delta vs previous deploy" — NON-FATAL.
+step_file_delta() {
+  node scripts/deploy-file-delta.mjs \
+    --history=data/dist-size-history.jsonl \
+    --prev-manifest=prev-content-manifest.tsv \
+    --cur-manifest=content-manifest.tsv
+}
+
+# ── 12. Refresh url-first-seen (grace-window seed) ────────────────────────────
+# deploy.yml: "Refresh url-first-seen" — FATAL (plain `run:`).
+# Updates data/url-first-seen.json. Commit handled by YAML.
+step_refresh_url_first_seen() {
+  node scripts/refresh-url-first-seen.mjs --dist=dist
+}
+
+# ── Orchestration (preserve ORDER + fatal/non-fatal exactly) ──────────────────
+# FATAL step runner: abort the whole script (non-zero exit) if a fatal step
+# fails, mirroring the monolith where each fatal step was its own `run:` that
+# failed the build job. WITHOUT this, main()'s trailing `echo` would mask a
+# fatal failure and return 0 — e.g. step_drop_assets' `return 1` (CDN push
+# failed → dist HTML already rebased to a CDN that has no assets) would be
+# swallowed and a broken github-pages artifact (JS/CSS 404) would deploy live.
+# (The script intentionally does NOT use a global `set -e`: the step functions
+# have their own internal error handling — explicit returns, grep exit codes —
+# that a global -e would break. So fatality is enforced here, per-step.)
+run_fatal() {
+  local label="$1"; shift
+  if "$@"; then
+    return 0
+  fi
+  echo "::error::[deploy-it-pages-prep] FATAL step failed — aborting deploy prep (last good stays live): ${label}"
+  exit 1
+}
+
+main() {
+  PREP_CWD="$(pwd)"
+  export PREP_CWD
+
+  # ── EARLY-CDN-PUSH MODE (deploy.yml "Push generated assets to CDN (early)") ─
+  # Runs section 2 ALONE and returns. deploy.yml hoists it ahead of the IT
+  # section-shard fan-out so the #2569 marker turns ~40min earlier and the
+  # en/de/fr ordering gate stops living on the edge of its 2700s budget (run
+  # 31076991699: matched with 0s to spare; run 31062047677: all three timed
+  # out). See that step's comment for why the payload bytes are identical at
+  # either call site. Everything else in this script still runs, in the
+  # original order, from the normal (unflagged) invocation below.
+  if [ "${DEPLOY_CDN_PUSH_ONLY:-}" = "1" ]; then
+    run_nonfatal "Push generated assets to CDN repo (early phase)" step_push_cdn
+    if [ -n "${CDN_BASE:-}" ]; then
+      echo "✅ early CDN push complete — CDN_BASE exported, the full prep will skip its own push"
+    else
+      # The full prep still retries at its original position, but the caller
+      # must see a non-zero outcome so section shards do not publish HTML that
+      # points at this build's not-yet-published global assets in the gap.
+      echo "::error::[deploy-it-pages-prep] early CDN push did not publish (CDN_BASE unset) — section shard publication must wait for the full retry"
+      return 1
+    fi
+    return 0
+  fi
+
+  run_fatal "SPA fallback" step_spa_fallback                        # FATAL
+  # Skipped iff the early phase above already published THIS build's payload
+  # (it exported CDN_BASE into $GITHUB_ENV, which GitHub injects into this
+  # step's env). Unset → push here, i.e. the pre-hoist behaviour verbatim.
+  if [ -n "${CDN_BASE:-}" ]; then
+    echo "CDN_BASE=$CDN_BASE already set by the early CDN push phase — skipping the CDN push (payload for this build is live)"
+  else
+    run_nonfatal "Push generated assets to CDN repo" step_push_cdn   # non-fatal
+  fi
+  # A matrix build carries a shared id because the non-IT shards must wait for
+  # this exact CDN generation. The push helper is intentionally non-fatal so
+  # the later prep steps can preserve the pre-hoist retry order, but that must
+  # not let a build-scoped IT prep certify success without a publish
+  # acknowledgement. Failing here makes the source leg terminal; the #2569
+  # observer can then stop its wait early while keeping the shard unpublished.
+  if [ -n "${DEPLOY_BUILD_ID:-}" ] && [ -z "${CDN_BASE:-}" ]; then
+    echo "::error::[deploy-it-pages-prep] CDN publish for build ${DEPLOY_BUILD_ID} was not acknowledged (CDN_BASE unset) — failing the IT leg so non-IT shards do not spend the full #2569 wait"
+    return 1
+  fi
+  run_nonfatal "Offload og refs + data base into dist" step_offload  # non-fatal
+  run_nonfatal "Prune superseded CDN asset hashes" step_prune_cdn    # non-fatal
+  run_fatal "Drop dist/assets after CDN push" step_drop_assets       # FATAL
+  run_nonfatal "Capture pre-deploy sitemap URLs" step_capture_sitemaps   # non-fatal
+  run_nonfatal "Pack new sitemap URLs from dist/" step_pack_new_sitemaps # non-fatal
+  run_nonfatal "Stage sitemaps bundle" step_stage_bundle            # non-fatal
+  run_fatal "Pack dist/ into Pages tar archive" step_pack_tar        # FATAL
+  run_fatal "Audit dist bytes" step_audit_bytes                      # FATAL
+  run_nonfatal "File delta vs previous deploy" step_file_delta      # non-fatal
+  run_fatal "Refresh url-first-seen" step_refresh_url_first_seen     # FATAL
+
+  echo "✅ deploy-it-pages-prep complete"
+}
+
+# Run only when executed (`bash deploy-it-pages-prep.sh`, as deploy.yml does).
+# Sourced, it only defines the functions: that is how the janitor's manual
+# `. deploy-it-pages-prep.sh; _janitor_cdn_r2 <stage> apply` recipe above and
+# tests/r2-calls-bounded.test.ts call one function without the whole prep.
+if [ "${BASH_SOURCE[0]}" = "$0" ]; then
+  main "$@"
+fi

@@ -1,0 +1,43 @@
+{
+  "_comment": "Records shaped like those written by update-postch-jobs.mjs / update-postfinance-jobs.mjs before 2026-09-29, when an unreadable vacancy body was replaced by an invented Italian text (one-liner / buildPostFinanceFallbackDescription). Pinned for stripPostFallbackSlots() and carryPostSourceBody(). Real bodies are live source text (2026-09-29) and clear the 50-word floor of source-body-floor.mjs.",
+  "postaInventedOnly": {
+    "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74624-de_DE",
+    "title": "Zusteller:in Briefe und Pakete",
+    "sourceLang": "it",
+    "description": "Posizione aperta presso Die Schweizerische Post. Ruolo: Zusteller:in Briefe und Pakete. Sede: Ennenda, Svizzera.",
+    "descriptionByLocale": {
+      "it": "Posizione aperta presso Die Schweizerische Post. Ruolo: Zusteller:in Briefe und Pakete. Sede: Ennenda, Svizzera.",
+      "en": "Open position at Swiss Post. Role: Letter and parcel carrier. Location: Ennenda, Switzerland."
+    }
+  },
+  "postaRealBodyWithStaleSlots": {
+    "url": "https://job.post.ch/default/job/Senior-Prozessmanagerin-Personalplanung/74695-de_DE",
+    "title": "Senior Prozessmanager:in Personalplanung",
+    "sourceLang": "de",
+    "description": "Du möchtest Planung, Daten und fachliche Koordination miteinander verbinden und die Weiterentwicklung unserer Personalplanung aktiv mitgestalten? Dann bist du bei uns richtig. Mit dir schaffen wir die Grundlage für eine vorausschauende und verlässliche Personalplanung.\n\nDas kannst du bewirken:\n\n- Als fachliche Ansprechperson bringst du das Team zusammen, verantwortest den Aufbau und die laufende Weiterentwicklung des Fachbereichs Personalplanung.\n\n- Aus Mengen-, Leistungs- und Planstunden leitest du zusammen mit unseren Betrieben belastbare Personalbedarfe ab und stimmst diese mit den relevanten Stakeholdern ab.",
+    "descriptionByLocale": {
+      "de": "Du möchtest Planung, Daten und fachliche Koordination miteinander verbinden und die Weiterentwicklung unserer Personalplanung aktiv mitgestalten? Dann bist du bei uns richtig. Mit dir schaffen wir die Grundlage für eine vorausschauende und verlässliche Personalplanung.\n\nDas kannst du bewirken:\n\n- Als fachliche Ansprechperson bringst du das Team zusammen, verantwortest den Aufbau und die laufende Weiterentwicklung des Fachbereichs Personalplanung.\n\n- Aus Mengen-, Leistungs- und Planstunden leitest du zusammen mit unseren Betrieben belastbare Personalbedarfe ab und stimmst diese mit den relevanten Stakeholdern ab.",
+      "it": "Posizione aperta presso Die Schweizerische Post. Ruolo: Senior Prozessmanager:in Personalplanung. Sede: Bern, Svizzera.",
+      "en": "Open position at Swiss Post. Role: Senior process manager personnel planning. Location: Bern, Switzerland."
+    }
+  },
+  "postfinanceInventedOnly": {
+    "url": "https://jobs.postfinance.ch/job/Kubernetes-Engineer/74638-de_DE",
+    "title": "Kubernetes Engineer",
+    "sourceLang": "it",
+    "description": "PostFinance, la sussidiaria di servizi finanziari della Posta Svizzera, ricerca attualmente la figura \"Kubernetes Engineer\" per la sede di Bern (Cantone BE). La posizione nell'ambito \"Informatik\" è pubblicata con un grado di occupazione flessibile tra il 80% e il 100% sul portale ufficiale delle carriere PostFinance/Posta Svizzera e rientra nell'offerta corrente di impieghi disponibili in Svizzera. Per consultare i requisiti completi del profilo ricercato, le condizioni di impiego e candidarsi direttamente, è necessario visitare la pagina dell'annuncio collegata a questo articolo.",
+    "descriptionByLocale": {
+      "it": "PostFinance, la sussidiaria di servizi finanziari della Posta Svizzera, ricerca attualmente la figura \"Kubernetes Engineer\" per la sede di Bern (Cantone BE). La posizione nell'ambito \"Informatik\" è pubblicata con un grado di occupazione flessibile tra il 80% e il 100% sul portale ufficiale delle carriere PostFinance/Posta Svizzera e rientra nell'offerta corrente di impieghi disponibili in Svizzera. Per consultare i requisiti completi del profilo ricercato, le condizioni di impiego e candidarsi direttamente, è necessario visitare la pagina dell'annuncio collegata a questo articolo."
+    }
+  },
+  "postfinanceRealBody": {
+    "url": "https://jobs.postfinance.ch/job/Kubernetes-Engineer/74638-de_DE",
+    "title": "Kubernetes Engineer",
+    "sourceLang": "de",
+    "description": "Deine Arbeit bleibt oft unsichtbar, ihre Wirkung aber nicht: Du stellst sicher, dass Zahlungen reibungslos funktionieren und Systeme jederzeit verfügbar sind. Dafür übernimmst du Verantwortung für eine stabile und hochverfügbare On-Prem-Plattform. Gleichzeitig evaluierst du neue Technologien, entwickelst eigene Lösungen und treibst die Automatisierung konsequent voran. Mit deinem Einsatz für Open Source bewegst du PostFinance nachhaltig.\n\nDas kannst du bewirken\n\n- Du verantwortest Engineering, Weiterentwicklung und Betrieb unserer On-Prem-Vanilla-Kubernetes-Cluster (Talos) sowie der Linux-Umgebung und stellst Stabilität, Sicherheit und Aktualität sicher",
+    "descriptionByLocale": {
+      "de": "Deine Arbeit bleibt oft unsichtbar, ihre Wirkung aber nicht: Du stellst sicher, dass Zahlungen reibungslos funktionieren und Systeme jederzeit verfügbar sind. Dafür übernimmst du Verantwortung für eine stabile und hochverfügbare On-Prem-Plattform. Gleichzeitig evaluierst du neue Technologien, entwickelst eigene Lösungen und treibst die Automatisierung konsequent voran. Mit deinem Einsatz für Open Source bewegst du PostFinance nachhaltig.\n\nDas kannst du bewirken\n\n- Du verantwortest Engineering, Weiterentwicklung und Betrieb unserer On-Prem-Vanilla-Kubernetes-Cluster (Talos) sowie der Linux-Umgebung und stellst Stabilität, Sicherheit und Aktualität sicher",
+      "en": "Your work often remains invisible, but its impact does not."
+    }
+  }
+}

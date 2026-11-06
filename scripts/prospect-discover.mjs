@@ -1,0 +1,418 @@
+#!/usr/bin/env node
+/**
+ * Prospector stage 1 — DISCOVER.
+ *
+ * Fans the discovery sources out over the requested cantons, drops everything
+ * we already crawl, and files the rest as candidates. It also does the cheapest
+ * platform learning available: cluster the apply-URL hosts the SECO feed hands
+ * us, and any host serving two or more unrelated employers is a hosted ATS.
+ *
+ * Usage:
+ *   node scripts/prospect-discover.mjs                       # TI, all sources
+ *   node scripts/prospect-discover.mjs --cantons=TI,GR,VS
+ *   node scripts/prospect-discover.mjs --sources=seco --days=60
+ *   node scripts/prospect-discover.mjs --cantons=all --dry-run
+ *
+ * Options:
+ *   --cantons=<list|all>  default TI
+ *   --sources=<list>      own,seco,osm,web,zefix    (default: all five)
+ *   --pages=<n>           index pages to sweep for `web`, default 40
+ *   --days=<n>            SECO window, default 30
+ *   --limit=<n>           cap candidates filed per run
+ *   --dry-run             report only, write nothing
+ */
+import { emailDomainHintsByEmployer, fetchSecoEmployers } from './lib/prospector/sources/seco-jobroom.mjs';
+import { fetchOsmBusinesses } from './lib/prospector/sources/osm-overpass.mjs';
+import {
+  loadZefixCursors,
+  saveZefixCursors,
+  sweepZefix,
+  ZEFIX_DAILY_BUDGET,
+} from './lib/prospector/sources/zefix-lindas.mjs';
+import { censusFromOwnCrawls, listingPathsFromAdapters } from './lib/prospector/sources/known-crawlers.mjs';
+import { sweepSwissCareerPages } from './lib/prospector/sources/commoncrawl-careers.mjs';
+import { loadCoverage, isCovered } from './lib/prospector/coverage.mjs';
+import {
+  loadCandidates,
+  saveCandidates,
+  upsertCandidate,
+  candidateKey,
+  reconcileCandidateDuplicates,
+  reviveRetryableDeadCandidate,
+  statusCounts,
+  pruneTerminal,
+  startLedgerPhase,
+  finishLedgerPhase,
+} from './lib/prospector/candidate-store.mjs';
+import { loadRegistry, saveRegistry, observePlatform } from './lib/prospector/platform-registry.mjs';
+import { registrableDomain, sameOrg } from './lib/prospector/registrable.mjs';
+import { CANTONS } from './lib/prospector/config.mjs';
+import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
+import { appendDiscoveryHealth, recordDiscoverySourceOutcome, startDiscoveryHealthRun } from './lib/prospector/source-health.mjs';
+import { loadSecoPageCursors, saveSecoPageCursors } from './lib/prospector/sources/seco-page-cursors.mjs';
+import { classifyStaffingEmployer, loadStaffingRegistry } from './lib/prospector/seco-staffing-classifier.mjs';
+
+const argv = process.argv.slice(2);
+// `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
+// e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
+assertKnownFlags(argv, {
+  booleans: ['dry-run'],
+  valued: ['cantons', 'sources', 'pages', 'days', 'limit', 'osm-cantons', 'osm-offset', 'prune-days', 'zefix-budget'],
+});
+const arg = (name, fallback) => {
+  const hit = argv.find((a) => a.startsWith(`--${name}=`));
+  return hit ? hit.slice(name.length + 3) : fallback;
+};
+const flag = (name) => argv.includes(`--${name}`);
+const boundedInt = (name, raw, fallback, min, max) => {
+  if (raw === undefined) return fallback;
+  if (!/^\d+$/.test(String(raw))) throw new Error(`--${name} must be an integer between ${min} and ${max}`);
+  const value = Number(raw);
+  if (!Number.isSafeInteger(value) || value < min || value > max) {
+    throw new Error(`--${name} must be an integer between ${min} and ${max}`);
+  }
+  return value;
+};
+
+const cantonArg = String(arg('cantons', 'TI'));
+const cantons = [...new Set(cantonArg === 'all' ? CANTONS : cantonArg.split(',').map((c) => c.trim().toUpperCase()).filter(Boolean))];
+if (!cantons.length || cantons.some((canton) => !CANTONS.includes(canton))) {
+  throw new Error(`--cantons must contain valid Swiss canton codes: ${CANTONS.join(',')}`);
+}
+const sources = [...new Set(String(arg('sources', 'own,seco,osm,web,zefix')).split(',').map((s) => s.trim()).filter(Boolean))];
+const knownSources = new Set(['own', 'seco', 'osm', 'web', 'zefix']);
+if (!sources.length || sources.some((source) => !knownSources.has(source))) {
+  throw new Error('--sources must be a comma-separated list of own,seco,osm,web,zefix');
+}
+const pages = boundedInt('pages', arg('pages', undefined), 40, 1, 100);
+const days = boundedInt('days', arg('days', undefined), 30, 1, 365);
+const limit = boundedInt('limit', arg('limit', undefined), 100000, 0, 1000000);
+const dryRun = flag('dry-run');
+startLedgerPhase('discover', { dryRun });
+const discoveryHealthRun = startDiscoveryHealthRun();
+
+const coverage = loadCoverage();
+const store = loadCandidates();
+const registry = loadRegistry();
+const staffingRegistry = loadStaffingRegistry();
+const duplicateReconciliation = reconcileCandidateDuplicates(store, dryRun ? null : undefined);
+const secoPageCursors = sources.includes('seco') ? loadSecoPageCursors() : null;
+const zefixCursors = sources.includes('zefix') ? loadZefixCursors() : null;
+
+console.log('═══ Prospector · DISCOVER ═══');
+console.log(`cantoni: ${cantons.join(',')}  sorgenti: ${sources.join(',')}  finestra SECO: ${days}g`);
+console.log(`già coperti: ${coverage.crawlerCount} crawler, ${coverage.names.size} nomi, ${coverage.domains.size} domini\n`);
+if (duplicateReconciliation.merged) {
+  console.log(`duplicati cross-source riconciliati: ${duplicateReconciliation.merged} chiavi unite in ${duplicateReconciliation.groupsChecked} gruppi verificati`);
+}
+
+let filed = 0;
+let skippedCovered = 0;
+const perSource = {};
+
+// Per-source outage tracking: a source counts as DOWN only if it was
+// requested AND every attempt on it failed. A partial failure (some
+// cantons reachable) is normal flakiness, not an outage.
+const sourceAttempts = { seco: 0, osm: 0, web: 0, zefix: 0 };
+const sourceFailures = { seco: 0, osm: 0, web: 0, zefix: 0 };
+const sourcePartial = { seco: 0, osm: 0, web: 0, zefix: 0 };
+
+/**
+ * @param {Record<string, any>} candidate
+ * @param {string} source
+ * @param {Record<string, any>} [sourceMetadata]
+ */
+function file(candidate, source, sourceMetadata = {}) {
+  if (filed >= limit) return;
+  const observation = { ...candidate, ...sourceMetadata };
+  const cov = isCovered(coverage, observation);
+  if (cov.covered) { skippedCovered++; return; }
+  const key = observation.key || candidateKey(observation);
+  // A registry row proves a company exists, not that anything changed about it.
+  if (source !== 'zefix') reviveRetryableDeadCandidate(store, key, observation, dryRun ? null : undefined, source);
+  const { created } = upsertCandidate(store, observation, source);
+  if (created) { filed++; perSource[source] = (perSource[source] || 0) + 1; }
+}
+
+function recordSourceOutcome(source, result) {
+  const outcome = recordDiscoverySourceOutcome(discoveryHealthRun, source, result);
+  sourceAttempts[source]++;
+  if (outcome === 'unavailable' || outcome === 'malformed') sourceFailures[source]++;
+  if (outcome === 'partial') sourcePartial[source]++;
+  return outcome;
+}
+
+/* ── Our own crawls, read as a platform census (no network) ───── */
+if (sources.includes('own')) {
+  const census = censusFromOwnCrawls();
+  console.log(`OWN : ${census.jobCount} annunci già crawlati → ${census.platforms.length} piattaforme con ≥2 datori (${census.weakHosts} host deboli scartati)`);
+  for (const p of census.platforms) {
+    for (const [, host, jobPath, employerDomain] of p.employerHosts) {
+      observePlatform(registry, {
+        tenantHost: host,
+        path: jobPath,
+        employerDomain,
+        note: `own-crawl census: ${p.employers.length} datori`,
+      });
+    }
+    const entry = registry.platforms[p.domain];
+    if (entry) entry.hostSamples = [...new Set([...(entry.hostSamples || []), ...p.sampleHosts])].slice(0, 25);
+  }
+  const listing = listingPathsFromAdapters();
+  let learned = 0;
+  for (const [domain, paths] of Object.entries(listing)) {
+    const entry = registry.platforms[domain];
+    if (!entry) continue;
+    entry.listingPaths = [...new Set([...(entry.listingPaths || []), ...paths])].slice(0, 4);
+    learned++;
+  }
+  console.log(`OWN : path di listing appresi dagli adapter per ${learned} piattaforme`);
+}
+
+/* ── SECO ─────────────────────────────────────────────────────── */
+if (sources.includes('seco')) {
+  for (const canton of cantons) {
+    // Una sorgente esterna che cade non deve azzerare il giro: con 26 cantoni,
+    // un timeout sul quinto butterebbe via i quattro gia' raccolti e i venti
+    // ancora da fare.
+    let employers; let adCount; let hostHistogram; let outcome; let errorCode;
+    const savedCursor = secoPageCursors?.cantons[canton];
+    const cursor = savedCursor?.onlineSinceDays === days ? savedCursor : null;
+    let headId = cursor?.headId ?? null;
+    let nextAfterId = cursor?.afterId ?? null;
+    let nextAfterPageHint = cursor?.afterPageHint ?? 0;
+    try {
+      ({ employers, adCount, hostHistogram, outcome, errorCode, headId, nextAfterId, nextAfterPageHint } = await fetchSecoEmployers({
+        cantons: [canton],
+        onlineSince: days,
+        headId,
+        startAfterId: nextAfterId,
+        startPageHint: nextAfterPageHint,
+      }));
+    } catch (err) {
+      recordSourceOutcome('seco', { outcome: 'unavailable', errorCode: 'source_exception' });
+      console.log(`SECO ${canton}: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
+      continue;
+    }
+    if (secoPageCursors) {
+      secoPageCursors.cantons[canton] = {
+        headId,
+        afterId: nextAfterId,
+        afterPageHint: nextAfterPageHint,
+        onlineSinceDays: days,
+        updatedAt: new Date().toISOString(),
+      };
+    }
+    const filedBefore = perSource.seco || 0;
+    const emailDomainHints = emailDomainHintsByEmployer(employers);
+    for (const e of employers) {
+      const staffing = classifyStaffingEmployer(e.name, staffingRegistry, {
+        adCount: e.adCount,
+        cantonCount: 1,
+        cantons: [canton],
+        employerDisclosed: e.employerDisclosed,
+        undisclosedCount: e.undisclosedCount,
+      });
+      file({
+        name: e.name,
+        secoEmployerName: e.name,
+        secoEmployerClassification: staffing.classification,
+        secoStaffingAgency: staffing.matchedAgency || null,
+        secoStaffingMatchConfidence: staffing.confidence,
+        city: e.city,
+        zip: e.zip,
+        canton,
+        country: 'CH',
+        domain: e.website ? registrableDomain(e.website) : undefined,
+        adCount: e.adCount,
+        sampleTitles: e.titles,
+        applyHosts: e.applyHosts,
+        emailDomainHints: emailDomainHints.get(e.name) || [],
+      }, 'seco');
+    }
+    outcome = recordSourceOutcome('seco', {
+      outcome, errorCode, recordsSeen: employers.length,
+      newCandidatesFiled: (perSource.seco || 0) - filedBefore,
+    });
+    console.log(`SECO ${canton}: ${adCount} annunci, ${employers.length} datori distinti${outcome !== 'complete' ? ` · ${outcome}${errorCode ? ` (${errorCode})` : ''}` : ''}`);
+
+    // Platform learning, for free: which host do UNRELATED employers send
+    // applications to? Two independent employers on one host is a vendor.
+    // Keyed by registrable domain, but the FULL host is kept per employer:
+    // the registry classifies a vendor by whether employers sit on their own
+    // subdomain or all share the apex, and reducing to the apex here would
+    // erase exactly that signal.
+    /** @type {Map<string, { employers: Map<string, string> }>} */
+    const byHost = new Map();
+    for (const e of employers) {
+      for (const h of e.applyHosts) {
+        const reg = registrableDomain(h);
+        if (!byHost.has(reg)) byHost.set(reg, { employers: new Map() });
+        byHost.get(reg).employers.set(e.name.toLowerCase(), h);
+      }
+    }
+    for (const [reg, entry] of byHost) {
+      if (entry.employers.size < 2) continue;
+      for (const [name, host] of entry.employers) {
+        observePlatform(registry, {
+          tenantHost: host,
+          employerDomain: name.replace(/\s+/g, '-'),
+          note: `apply-host cluster from SECO ${canton}`,
+        });
+      }
+    }
+  }
+}
+
+/* ── OSM ──────────────────────────────────────────────────────── */
+if (sources.includes('osm')) {
+  // Overpass is a volunteer-run service and a census changes over months, not
+  // hours: sweeping all 26 cantons every night would be both rude and pointless.
+  // So the national run walks a rotating slice.
+  //
+  // The offset advances by a WHOLE slice per day, not by one: advancing by one
+  // makes consecutive days overlap by `slice - 1` cantons, so covering 26 takes
+  // 26 days and visits each canton twice. Advancing by the slice covers the
+  // country in `ceil(26 / slice)` days — a fortnight at slice 2 — with no
+  // repeats inside a cycle.
+  const defaultSlice = cantons.length > 4 ? 3 : Math.max(1, cantons.length);
+  const slice = boundedInt('osm-cantons', arg('osm-cantons', undefined), defaultSlice, 1, CANTONS.length);
+  const day = boundedInt('osm-offset', arg('osm-offset', undefined), Math.floor(Date.now() / 86400000), 0, Number.MAX_SAFE_INTEGER);
+  const offset = ((day % Math.max(cantons.length, 1)) * slice) % Math.max(cantons.length, 1);
+  const osmCantons = cantons.length > slice
+    ? Array.from({ length: slice }, (_, i) => cantons[(offset + i) % cantons.length])
+    : cantons;
+  if (osmCantons.length !== cantons.length) {
+    console.log(`OSM : fetta a rotazione ${osmCantons.join(',')} (di ${cantons.length} cantoni)`);
+  }
+  for (const canton of osmCantons) {
+    let businesses; let outcome; let errorCode;
+    try {
+      ({ businesses, outcome, errorCode } = await fetchOsmBusinesses(canton));
+    } catch (err) {
+      recordSourceOutcome('osm', { outcome: 'unavailable', errorCode: 'source_exception' });
+      console.log(`OSM  ${canton}: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
+      continue;
+    }
+    const filedBefore = perSource.osm || 0;
+    console.log(`OSM  ${canton}: ${businesses.length} imprese con dominio${outcome !== 'complete' ? ` · ${outcome}${errorCode ? ` (${errorCode})` : ''}` : ''}`);
+    for (const b of businesses) {
+      file({ name: b.name, domain: b.domain, city: b.city, canton, country: 'CH', osmTags: b.tags }, 'osm');
+    }
+    recordSourceOutcome('osm', {
+      outcome, errorCode, recordsSeen: businesses.length,
+      newCandidatesFiled: (perSource.osm || 0) - filedBefore,
+    });
+  }
+}
+
+/* ── The Swiss web's own careers pages, via the crawl index ───── */
+if (sources.includes('web')) {
+  let sweep = { collection: null, pagesRead: [], totalPages: 0, employers: [], outcome: 'unavailable', errorCode: 'source_exception' };
+  try {
+    // DISCOVER --dry-run promises that no persistent state changes. Common
+    // Crawl owns its cursor and channel-health files, so suppress those writes
+    // at the source boundary too.
+    sweep = await sweepSwissCareerPages({ pages, persist: !dryRun });
+  } catch (err) {
+    recordSourceOutcome('web', { outcome: 'unavailable', errorCode: 'source_exception' });
+    sweep.outcome = null;
+    console.log(`WEB : indice non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
+  }
+  console.log(`WEB : ${sweep.collection} · ${sweep.pagesRead.length}/${sweep.totalPages} pagine d'indice → ${sweep.employers.length} datori con pagina carriere${sweep.outcome && sweep.outcome !== 'complete' ? ` · ${sweep.outcome}${sweep.errorCode ? ` (${sweep.errorCode})` : ''}` : ''}`);
+  const filedBefore = perSource.web || 0;
+  for (const e of sweep.employers) {
+    // The careers URL is already known, so these skip domain resolution
+    // entirely — the most expensive and most failure-prone step in TRACE.
+    file({ name: e.host.split('.')[0], domain: e.host, careersUrl: e.url, country: 'CH' }, 'web', {
+      commoncrawlCollection: sweep.collection,
+    });
+  }
+  if (sweep.outcome) recordSourceOutcome('web', {
+    outcome: sweep.outcome,
+    errorCode: sweep.errorCode,
+    recordsSeen: sweep.employers.length,
+    newCandidatesFiled: (perSource.web || 0) - filedBefore,
+  });
+}
+
+/* ── The commercial registers, last so real sources fill the limit first ── */
+if (sources.includes('zefix')) {
+  const budget = Math.min(
+    boundedInt('zefix-budget', arg('zefix-budget', undefined), ZEFIX_DAILY_BUDGET, 0, 5000),
+    Math.max(0, limit - filed),
+  );
+  if (budget > 0) {
+    const filedBefore = perSource.zefix || 0;
+    try {
+      const sweep = await sweepZefix({
+        cantons,
+        budget,
+        cursors: zefixCursors,
+        // Identity only: every later stage must find its own proof of hiring.
+        accept: ({ zefixId, name, city, zip, canton }) => {
+          const before = filed;
+          file({ name, city, zip, canton, country: 'CH', zefixId }, 'zefix');
+          return filed > before;
+        },
+      });
+      recordSourceOutcome('zefix', {
+        outcome: sweep.outcome,
+        errorCode: sweep.errorCode,
+        recordsSeen: sweep.recordsSeen,
+        newCandidatesFiled: (perSource.zefix || 0) - filedBefore,
+      });
+      console.log(`Zefix ${sweep.cantonsRead.join(',') || '—'}: ${sweep.accepted} nuovi su ${sweep.recordsSeen} righe, scartate ${JSON.stringify(sweep.excluded)}${sweep.outcome !== 'complete' ? ` · ${sweep.outcome}${sweep.errorCode ? ` (${sweep.errorCode})` : ''}` : ''}`);
+    } catch (err) {
+      recordSourceOutcome('zefix', { outcome: 'unavailable', errorCode: 'source_exception' });
+      console.log(`Zefix: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
+    }
+  }
+}
+
+/* ── Outage detection ─────────────────────────────────────────── */
+// Zero candidati filed è ambiguo: può voler dire "nulla di nuovo" oppure
+// "ogni fonte esterna era giù". Solo il secondo caso merita un segnale che
+// distingua un giro vuoto per outage da un giro vuoto per davvero — senza
+// far fallire lo stadio (coerente con l'isolamento per-elemento di #6287,
+// il resto del loop notturno deve comunque processare la coda esistente).
+const downSources = ['seco', 'osm', 'web', 'zefix'].filter(
+  (s) => sources.includes(s) && sourceAttempts[s] > 0 && sourceFailures[s] === sourceAttempts[s],
+);
+const requestedExternal = ['seco', 'osm', 'web', 'zefix'].filter((s) => sources.includes(s) && sourceAttempts[s] > 0);
+if (requestedExternal.length > 0 && downSources.length === requestedExternal.length) {
+  console.error(`\n⚠️  OUTAGE TOTALE: tutte le fonti esterne richieste (${downSources.join('+').toUpperCase()}) sono fallite in questo giro — zero candidati filed non e' "nessuna novita'".`);
+  process.exitCode = 1;
+} else if (Object.values(sourcePartial).some((count) => count > 0)) {
+  console.warn(`\n⚠️  Copertura parziale: alcuni tentativi hanno restituito risultati e altri richiedono retry (${JSON.stringify(sourcePartial)}).`);
+}
+
+/* ── Report ───────────────────────────────────────────────────── */
+const confirmed = Object.values(registry.platforms).filter((p) => p.status === 'confirmed' || p.status === 'supported');
+console.log(`\nnuovi candidati: ${filed}   (${Object.entries(perSource).map(([s, n]) => `${s}:${n}`).join(', ') || '—'})`);
+console.log(`scartati perché già coperti: ${skippedCovered}`);
+console.log(`piattaforme note: ${Object.keys(registry.platforms).length}  di cui confermate: ${confirmed.length}`);
+if (confirmed.length) {
+  console.log('  ' + confirmed.slice(0, 12).map((p) => `${p.domain}(${p.seenOn.length})`).join('  '));
+}
+console.log(`\ncoda: ${JSON.stringify(statusCounts(store))}`);
+
+const pruned = pruneTerminal(store, Number(arg('prune-days', 90)));
+if (pruned) console.log(`potati ${pruned} candidati terminali oltre la finestra di ritenzione`);
+
+if (dryRun) {
+  console.log('\n--dry-run: niente scritto su disco.');
+} else {
+  saveCandidates(store);
+  saveRegistry(registry);
+  if (secoPageCursors) saveSecoPageCursors(secoPageCursors);
+  if (zefixCursors) saveZefixCursors(zefixCursors);
+  try { appendDiscoveryHealth(discoveryHealthRun); } catch {
+    console.error('::warning::Telemetria discovery non aggiornata; lo storico corrotto o non scrivibile e\' stato preservato.');
+  }
+  console.log('\nscritti data/prospector/candidates.json e platforms.json');
+}
+finishLedgerPhase(process.exitCode ? 'source_outage' : (dryRun ? 'dry_run' : 'complete'), {
+  inputCount: Object.values(perSource).reduce((sum, value) => sum + Number(value || 0), 0),
+  successCount: filed,
+});

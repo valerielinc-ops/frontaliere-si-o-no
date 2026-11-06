@@ -1,0 +1,348 @@
+name: Post-deploy Validate (dist)
+
+# Fast, fail-closed provenance gate. Historical content-quality audits run in
+# Audit Published Dist, a separate workflow_run workflow with no dependency edge
+# back to the publisher.
+on:
+  workflow_call:
+    inputs:
+      deploy_run_id:
+        description: 'Run ID of the source build that produced the sitemap and locale artifacts.'
+        required: true
+        type: string
+      deploy_event_name:
+        description: 'Source build event name, retained for caller compatibility.'
+        required: true
+        type: string
+      deploy_ref:
+        description: 'Exact source build SHA.'
+        required: false
+        type: string
+        default: ''
+      shard_artifact_run_id:
+        description: 'Publisher run containing the non-IT section receipts.'
+        required: false
+        type: string
+        default: ''
+    outputs:
+      integrity_ok:
+        description: 'True only when source identity, sitemap coverage, shard layout and artifact digests all match.'
+        value: ${{ jobs.fast-gate.outputs.integrity_ok }}
+
+jobs:
+  fast-gate:
+    name: Validate sitemap and shard receipts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      integrity_ok: ${{ steps.publisher-fast-gate.outputs.integrity_ok }}
+      failed_gates: ${{ steps.publisher-fast-gate.outputs.failed_gates }}
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Start publisher gate timing
+        id: gate-clock
+        shell: bash
+        run: echo "start_ms=$(date +%s%3N)" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout source build validators
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.deploy_ref }}
+          sparse-checkout: |
+            scripts/ci/publisher-fast-gate.mjs
+            scripts/ci/shard-content-manifest.mjs
+            scripts/validate-sitemap-links.mjs
+            scripts/lib/auditReport.mjs
+            scripts/lib/externally-served-paths.mjs
+            scripts/lib/flat-string.mjs
+            scripts/lib/is-invoked-directly.mjs
+            scripts/lib/sitemap-family-coverage.mjs
+            scripts/lib/section-shard-slugs.json
+            data/sitemap-family-coverage-declarations.json
+            infra/cloudflare-worker/locale-router.js
+            infra/cloudflare-worker/ticino-tree-bucket.js
+            infra/cloudflare-worker/legacy-stub-redirects.generated.mjs
+            scripts/lib/pharmacySections.mjs
+            scripts/lib/weather-border-links.mjs
+            scripts/lib/fuel-station-aliases.mjs
+            scripts/lib/borderWaitSections.mjs
+            build-plugins/shared/redirectStubMarker.mjs
+            build-plugins/shared/fuelRouteSlugs.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Prepare deploy-ref skew guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > "$RUNNER_TEMP/deploy-ref-skew-guard.sh" <<'GUARD'
+          build_skew_guard_main_package="$RUNNER_TEMP/deploy-ref-skew-guard-main-package.json"
+          build_skew_guard_main_commit="$RUNNER_TEMP/deploy-ref-skew-guard-main-commit"
+
+          build_skew_guard_init() {
+            rm -f "$build_skew_guard_main_package" "$build_skew_guard_main_commit"
+            if git fetch --depth=1 origin main -q 2>/dev/null; then
+              if git rev-parse --verify -q 'FETCH_HEAD^{commit}' > "$build_skew_guard_main_commit" 2>/dev/null \
+                && git show "$(cat "$build_skew_guard_main_commit"):package.json" > "$build_skew_guard_main_package" 2>/dev/null; then
+                return 0
+              fi
+              rm -f "$build_skew_guard_main_package" "$build_skew_guard_main_commit"
+            fi
+            return 0
+          }
+
+          build_skew_guard_should_skip() {
+            local kind=$1 target=$2
+            case "$kind" in
+              npm)
+                if node -e "process.exit(require('./package.json').scripts?.[process.argv[1]] ? 0 : 1)" "$target" 2>/dev/null; then
+                  return 1
+                fi
+                if [ -s "$build_skew_guard_main_package" ] && node -e "process.exit(require(process.argv[1]).scripts?.[process.argv[2]] ? 0 : 1)" "$build_skew_guard_main_package" "$target" 2>/dev/null; then
+                  return 0
+                fi
+                ;;
+              node)
+                if [ -f "$target" ]; then
+                  return 1
+                fi
+                if [ -s "$build_skew_guard_main_commit" ] && git cat-file -e "$(cat "$build_skew_guard_main_commit"):$target" 2>/dev/null; then
+                  return 0
+                fi
+                ;;
+            esac
+            return 1
+          }
+
+          build_skew_guard_skip_row() {
+            printf '%s(skipped-deploy_ref-drift)\n' "$1"
+          }
+
+          build_skew_guard_run() {
+            local kind=$1 target=$2
+            shift 2
+            BUILD_SKEW_GUARD_SKIPPED=0
+            if build_skew_guard_should_skip "$kind" "$target"; then
+              printf '[deploy-ref-skew] skip: %s "%s" is absent from this build but present on origin/main; failing closed (skipped-deploy_ref-drift)\n' "$kind" "$target"
+              BUILD_SKEW_GUARD_SKIPPED=1
+              return 0
+            fi
+            "$@"
+          }
+
+          GUARD
+          chmod 700 "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_init
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Create receipt workspace
+        run: mkdir -p ${{ runner.temp }}/publisher-fast-gate/{sitemaps,page-manifests,section-manifests,archive-evidence}
+
+      - name: Download source sitemap bundle
+        uses: actions/download-artifact@v8
+        with:
+          name: sitemaps-${{ inputs.deploy_run_id }}
+          path: ${{ runner.temp }}/publisher-fast-gate/sitemaps
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.deploy_run_id }}
+
+      - name: Download source page manifests
+        uses: actions/download-artifact@v8
+        with:
+          pattern: sitemap-page-manifest-*
+          path: ${{ runner.temp }}/publisher-fast-gate/page-manifests
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.deploy_run_id }}
+
+      - name: Download expired archive publication evidence
+        uses: actions/download-artifact@v8
+        with:
+          pattern: expired-archive-evidence-*-${{ inputs.deploy_run_id }}
+          path: ${{ runner.temp }}/publisher-fast-gate/archive-evidence
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.deploy_run_id }}
+
+      - name: Download source IT section manifest
+        uses: actions/download-artifact@v8
+        with:
+          pattern: section-page-manifest-it-*
+          path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.deploy_run_id }}
+
+      - name: Download publisher non-IT section manifests
+        uses: actions/download-artifact@v8
+        with:
+          pattern: section-page-manifest-*
+          path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.shard_artifact_run_id || github.run_id }}
+
+      - name: Read artifact receipts from GitHub
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SOURCE_RUN_ID: ${{ inputs.deploy_run_id }}
+          PUBLISHER_RUN_ID: ${{ inputs.shard_artifact_run_id || github.run_id }}
+        run: |
+          set -euo pipefail
+          gh api --paginate --slurp "repos/$GH_REPO/actions/runs/$SOURCE_RUN_ID/artifacts?per_page=100" \
+            | jq '{artifacts: [ .[] | .artifacts[] | {name, digest, expired} ]}' \
+            > "$RUNNER_TEMP/publisher-fast-gate/source-artifacts.json"
+          gh api --paginate --slurp "repos/$GH_REPO/actions/runs/$PUBLISHER_RUN_ID/artifacts?per_page=100" \
+            | jq '{artifacts: [ .[] | .artifacts[] | {name, digest, expired} ]}' \
+            > "$RUNNER_TEMP/publisher-fast-gate/publisher-artifacts.json"
+
+      - name: Run fail-closed publisher fast gate
+        id: publisher-fast-gate
+        env:
+          SOURCE_RUN_ID: ${{ inputs.deploy_run_id }}
+          SOURCE_SHA: ${{ inputs.deploy_ref }}
+          PUBLISHER_RUN_ID: ${{ inputs.shard_artifact_run_id || github.run_id }}
+          REPORT_OUT: ${{ runner.temp }}/publisher-fast-gate/publisher-fast-gate.json
+          GATE_START_MS: ${{ steps.gate-clock.outputs.start_ms }}
+        run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          set +e
+          build_skew_guard_run node scripts/ci/publisher-fast-gate.mjs node scripts/ci/publisher-fast-gate.mjs \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --publisher-run-id "$PUBLISHER_RUN_ID" \
+            --sitemaps-dir "$RUNNER_TEMP/publisher-fast-gate/sitemaps" \
+            --page-manifests-dir "$RUNNER_TEMP/publisher-fast-gate/page-manifests" \
+            --section-manifests-dir "$RUNNER_TEMP/publisher-fast-gate/section-manifests" \
+            --archive-evidence-dir "$RUNNER_TEMP/publisher-fast-gate/archive-evidence" \
+            --source-artifacts "$RUNNER_TEMP/publisher-fast-gate/source-artifacts.json" \
+            --publisher-artifacts "$RUNNER_TEMP/publisher-fast-gate/publisher-artifacts.json" \
+            --out "$REPORT_OUT"
+          result=$?
+          gate_ms=$(( $(date +%s%3N) - GATE_START_MS ))
+          if [ -s "$REPORT_OUT" ]; then
+            jq --argjson duration "$gate_ms" '. + {publisherFastGateDurationMs: $duration, publisherFastGateBudgetMs: 300000}' \
+              "$REPORT_OUT" > "$REPORT_OUT.tmp"
+            mv "$REPORT_OUT.tmp" "$REPORT_OUT"
+          else
+            jq -n --arg sourceRunId "$SOURCE_RUN_ID" --arg sourceSha "$SOURCE_SHA" \
+              --arg publisherRunId "$PUBLISHER_RUN_ID" --argjson duration "$gate_ms" \
+              '{audit:"publisher-fast-gate", passed:false, sourceRunId:$sourceRunId, sourceSha:$sourceSha, publisherRunId:$publisherRunId, publisherFastGateDurationMs:$duration, publisherFastGateBudgetMs:300000, errorCount:1, errors:["publisher fast gate validator was absent or did not produce a report"]}' \
+              > "$REPORT_OUT"
+          fi
+          echo "duration_ms=$gate_ms" >> "$GITHUB_OUTPUT"
+          gate_seconds=$(awk -v ms="$gate_ms" 'BEGIN { printf "%.2f", ms / 1000 }')
+          if [ "${BUILD_SKEW_GUARD_SKIPPED:-0}" = 1 ]; then
+            build_skew_guard_skip_row scripts/ci/publisher-fast-gate.mjs >> "$GITHUB_STEP_SUMMARY"
+            echo 'integrity_ok=false' >> "$GITHUB_OUTPUT"
+            echo '::error::publisher fast gate is missing from the source build; failing closed'
+            exit 1
+          fi
+          if [ -s "$REPORT_OUT" ] && jq -e '.passed == true' "$REPORT_OUT" >/dev/null; then
+            echo 'integrity_ok=true' >> "$GITHUB_OUTPUT"
+            echo 'failed_gates=' >> "$GITHUB_OUTPUT"
+            echo "✅ PASS publisher-fast-gate ${gate_seconds}s rc=0"
+          else
+            echo 'integrity_ok=false' >> "$GITHUB_OUTPUT"
+            echo 'failed_gates=publisher-fast-gate' >> "$GITHUB_OUTPUT"
+            echo "❌ FAIL publisher-fast-gate ${gate_seconds}s rc=1"
+          fi
+          exit "$result"
+
+      - name: Upload fast-gate evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-reports-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/publisher-fast-gate/publisher-fast-gate.json
+          if-no-files-found: warn
+          retention-days: 8
+
+  validate-dist-report:
+    needs: [fast-gate]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      actions: read
+      issues: write
+    steps:
+      - name: Checkout source-side issue reporter
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.deploy_ref }}
+          sparse-checkout: |
+            package.json
+            scripts/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Download fast-gate evidence for issue details
+        if: always() && needs.fast-gate.result == 'failure'
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: audit-reports*-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/validate-dist-artifacts/audit-reports
+          merge-multiple: true
+
+      - name: Report failure to GitHub Issues
+        if: always() && needs.fast-gate.result == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          VALIDATE_DIST_REPORTS_DIR: ${{ runner.temp }}/validate-dist-artifacts/audit-reports
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
+          INPUT_DEPLOY_EVENT: ${{ inputs.deploy_event_name }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          DIST_RESULT: ${{ needs.fast-gate.result }}
+          FAILED_GATES: ${{ needs.fast-gate.outputs.failed_gates }}
+        run: |
+          set +e
+          if [ -f scripts/ci/report-validate-dist-failure.mjs ]; then
+            node scripts/ci/report-validate-dist-failure.mjs --mode report
+          else
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Validation Failure (dist): post-deploy" \
+              --build-sha "${INPUT_DEPLOY_REF}" \
+              --description "Publisher fast gate failed for source run ${INPUT_DEPLOY_RUN_ID} @ ${INPUT_DEPLOY_REF}; see ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}." \
+              --priority 1 --label Bug --workflow "Post-deploy Validate Dist"
+          fi
+
+      - name: Resolve GitHub Issue on success
+        if: needs.fast-gate.result == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          if [ -f scripts/ci/report-validate-dist-failure.mjs ]; then
+            node scripts/ci/report-validate-dist-failure.mjs --mode resolve
+          else
+            node scripts/lib/github-issue-creator.mjs \
+              --resolve \
+              --title "Validation Failure (dist): post-deploy" \
+              --workflow "Post-deploy Validate Dist" \
+              --run-url "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}"
+          fi

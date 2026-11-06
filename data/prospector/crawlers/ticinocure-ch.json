@@ -1,0 +1,39 @@
+{
+  "companyKey": "ticinocure-ch",
+  "companyName": "TICINOCURE SA",
+  "companyHost": "ticinocure.ch",
+  "verifiedEmployerDomain": "ticinocure.ch",
+  "platform": "",
+  "mode": "free-text",
+  "seedUrls": [
+    "https://www.ticinocure.ch/lavora-con-noi/"
+  ],
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Infermiere/a con specializzazione in Salute mentale e Psichiatria"
+  ],
+  "canton": "TI",
+  "freeTextContractVersion": 1,
+  "sourceLocation": {
+    "location": "Manno",
+    "addressLocality": "Manno",
+    "addressRegion": "TI",
+    "addressCountry": "CH",
+    "postalCode": "6928"
+  },
+  "permanentApplications": [
+    {
+      "label": "Candidatura spontanea",
+      "description": "Ticinocure SA invita gli interessati a partecipare alle selezioni inviando il proprio Curriculum Vitae all'indirizzo email candidature@ticinocure.ch. È richiesto di allegare il documento del CV in formato europeo per completare la presentazione della propria candidatura spontanea presso l'azienda che si occupa di assistenza e cure a domicilio.",
+      "sourceText": "Per partecipare alle selezioni, inviaci il tuo Curriculum Vitae all’indirizzo candidature@ticinocure.ch Ricorda di allegare anche il documento del cv in formato europeo.",
+      "applyUrl": "https://www.ticinocure.ch/lavora-con-noi/candidature@ticinocure.ch",
+      "via": "free-text"
+    }
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-11-02T17:08:28.045Z",
+  "candidateKey": "ticinocure@manno"
+}

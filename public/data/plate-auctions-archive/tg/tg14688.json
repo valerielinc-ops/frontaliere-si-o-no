@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109740",
+      "sourceKey": "TG",
+      "sourceRecordId": "109740",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "14688",
+      "normalizedPlate": "TG14688",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 610,
+      "bidCount": 2,
+      "endsAt": "2026-09-30T17:00:00.000Z",
+      "closedAt": "2026-09-30T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109740",
+      "sourceFetchedAt": "2026-09-30T12:40:06.435Z",
+      "lastVerifiedAt": "2026-09-30T12:40:06.435Z",
+      "firstSeenAt": "2026-09-19T11:04:58.654Z",
+      "lastSeenAt": "2026-09-30T12:40:06.435Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "0289ea7d618f"
+    }
+  ]
+}

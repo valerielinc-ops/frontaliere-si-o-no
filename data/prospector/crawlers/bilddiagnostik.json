@@ -1,0 +1,23 @@
+{
+  "companyKey": "bilddiagnostik",
+  "companyName": "bilddiagnostik",
+  "companyHost": "zentrum-fuer-bilddiagnostik-ag.jobs.personio.de",
+  "platform": "personio.de",
+  "mode": "template",
+  "seedUrls": [
+    "https://zentrum-fuer-bilddiagnostik-ag.jobs.personio.de/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Fachärztin/Facharzt Radiologie <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5",
+    "Initiativbewerbung Administration <path d=\"M10.0005 3.5752C12.7755 3.57541 15.024",
+    "Medizinisch-technische Radiologiefachfrau / Radiologiefachmann - MTR <path d=\"M10",
+    "Medizinische Praxisassistentin- MPA <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-25T11:05:09.537Z",
+  "candidateKey": "bilddiagnostik.ch"
+}

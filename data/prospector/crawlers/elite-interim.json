@@ -1,0 +1,28 @@
+{
+  "companyKey": "elite-interim",
+  "companyName": "Elite Interim SA",
+  "companyHost": "eliteinterim.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://eliteinterim.ch/toutes-nos-offres-demplois/"
+  ],
+  "detailTemplate": [
+    "/un-installateur-electricien-*",
+    "/un-electricien-*",
+    "/un-e-chef-ffe-*"
+  ],
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Installateur electricien de reseau CFC (Canton Neuchatel)",
+    "Electricien de montage CFC (Canton Neuchatel)",
+    "Chef/ffe de projet ou conseiller/e en securite electrique avec Brevet Federal (Canton Neuchatel)",
+    "Installateur-electricien (Canton Neuchatel)"
+  ],
+  "canton": "NE",
+  "sourceLang": "fr",
+  "logoUrl": "https://eliteinterim.ch/wp-content/uploads/2022/01/elite-logo-001.png",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}

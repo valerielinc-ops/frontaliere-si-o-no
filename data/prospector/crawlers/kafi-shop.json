@@ -1,0 +1,21 @@
+{
+  "companyKey": "kafi-shop",
+  "companyName": "Kafi-Shop Imhof KLG",
+  "companyHost": "kafi-shop.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://kafi-shop.ch/jobs"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "<source srcSet=\"https://kafi-shop.ch/_image?href=https%3A%2F%2Fcdn.builder.io%2Fapi%2Fv1%2Fimage%2Fassets%252Fbecae11077dc4829b5fa47e6f4903095%252Fc35cdb0f8ba44",
+    "<source srcSet=\"https://kafi-shop.ch/_image?href=https%3A%2F%2Fcdn.builder.io%2Fapi%2Fv1%2Fimage%2Fassets%252Fbecae11077dc4829b5fa47e6f4903095%252F22697a4525fc4"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-19T09:32:27.287Z"
+}

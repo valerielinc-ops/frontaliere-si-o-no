@@ -1,0 +1,40 @@
+{
+  "id": "livigno-engadina-treni",
+  "slug": "livigno-engadina-treni",
+  "publishedAt": "2026-07-25T17:22:18.052Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.459658348724506,
+    "confidence": 0.8,
+    "finalScore": 11.567726678979605,
+    "topK": [
+      {
+        "slug": "raffica-chiusure-a9-2026",
+        "cosine": 0.8505681381602651
+      },
+      {
+        "slug": "code-nord-san-gottardo",
+        "cosine": 0.8497707452481422
+      },
+      {
+        "slug": "benzina-conveniente",
+        "cosine": 0.8464527983184249
+      },
+      {
+        "slug": "lavori-giugno-sentiero-ronchitt-molinetto",
+        "cosine": 0.843482635039731
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8420402851665734
+      }
+    ],
+    "score": 11.567726678979605,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

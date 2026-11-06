@@ -1,0 +1,266 @@
+{
+  "_meta": {
+    "purpose": "Per-company enrichment data for company landing pages (Phase 3B). Used by build-plugins/jobsSeoPagesPlugin.ts to add a 'company-profile' prose section above the job list when the company has 3+ active jobs. Companies absent from this map fall back to the generic enrichment derived from job data. Keys are canonical company slugs (output of canonicalCompanySlugBuild).",
+    "schemaVersion": 1
+  },
+  "eoc": {
+    "name": "Ente Ospedaliero Cantonale",
+    "founded": 2003,
+    "size": "5500+",
+    "sector": "Sanita pubblica",
+    "headquarters": "Bellinzona",
+    "description": {
+      "it": "Ente Ospedaliero Cantonale (EOC) e la rete ospedaliera pubblica del Canton Ticino, che riunisce sette ospedali multisito tra cui Lugano, Bellinzona, Locarno e Mendrisio. Con oltre 5.500 collaboratori e' il principale datore di lavoro sanitario del Cantone, fortemente orientato all'assunzione di frontalieri qualificati per cure infermieristiche, medicina, riabilitazione e servizi tecnici.",
+      "en": "The Cantonal Hospital Authority (EOC) is the public hospital network of Canton Ticino, grouping seven multi-site hospitals including Lugano, Bellinzona, Locarno and Mendrisio. With over 5,500 staff it is the Canton's largest healthcare employer and actively hires qualified cross-border workers for nursing, medical, rehabilitation and technical roles.",
+      "de": "Die Kantonsspitalbehoerde (EOC) ist das oeffentliche Spitalnetz des Kantons Tessin und umfasst sieben Mehrstandortspitaeler in Lugano, Bellinzona, Locarno und Mendrisio. Mit ueber 5.500 Mitarbeitenden ist sie der groesste Gesundheitsarbeitgeber des Kantons und stellt aktiv qualifizierte Grenzgaenger in Pflege, Medizin, Reha und Technik ein.",
+      "fr": "L'Autorite hospitaliere cantonale (EOC) est le reseau hospitalier public du Canton du Tessin, regroupant sept hopitaux multi-sites a Lugano, Bellinzona, Locarno et Mendrisio. Avec plus de 5.500 collaborateurs, c'est le plus grand employeur de sante du Canton et il recrute activement des frontaliers qualifies en soins, medecine, reeducation et technique."
+    }
+  },
+  "lidl": {
+    "name": "Lidl Svizzera",
+    "founded": 2009,
+    "size": "4500+",
+    "sector": "Grande distribuzione",
+    "headquarters": "Weinfelden",
+    "description": {
+      "it": "Lidl Svizzera e la filiale elvetica del gruppo Lidl, con oltre 175 punti vendita nel Paese e diversi negozi attivi in Ticino tra cui Mendrisio, Bellinzona e Lugano. L'azienda assume regolarmente frontalieri italiani per ruoli di vendita, magazzino e logistica.",
+      "en": "Lidl Switzerland is the Swiss subsidiary of the Lidl group, with over 175 stores nationwide and several outlets in Ticino including Mendrisio, Bellinzona and Lugano. The company regularly hires Italian cross-border workers for sales, warehouse and logistics roles.",
+      "de": "Lidl Schweiz ist die Schweizer Tochter der Lidl-Gruppe, mit ueber 175 Filialen schweizweit und mehreren Standorten im Tessin (Mendrisio, Bellinzona, Lugano). Das Unternehmen stellt regelmaessig italienische Grenzgaenger fuer Verkauf, Lager und Logistik ein.",
+      "fr": "Lidl Suisse est la filiale suisse du groupe Lidl, avec plus de 175 magasins dans tout le pays et plusieurs implantations au Tessin (Mendrisio, Bellinzona, Lugano). L'entreprise recrute regulierement des frontaliers italiens pour la vente, l'entrepot et la logistique."
+    }
+  },
+  "migros": {
+    "name": "Migros Ticino",
+    "founded": 1933,
+    "size": "1800+",
+    "sector": "Grande distribuzione",
+    "headquarters": "S. Antonino",
+    "description": {
+      "it": "Migros Ticino e la cooperativa cantonale del piu grande gruppo di distribuzione svizzero, con sede a S. Antonino e oltre 1.800 collaboratori in Ticino. Gestisce supermercati, ristoranti, negozi specializzati e una rete di scuole-club. Assume frequentemente frontalieri per vendita, ristorazione e logistica.",
+      "en": "Migros Ticino is the cantonal cooperative of Switzerland's largest retail group, headquartered in S. Antonino with over 1,800 staff in Ticino. It runs supermarkets, restaurants, specialty stores and a network of adult-education clubs. It frequently hires cross-border workers for retail, food service and logistics.",
+      "de": "Migros Tessin ist die Kantonalgenossenschaft des groessten Detailhandelskonzerns der Schweiz mit Sitz in S. Antonino und ueber 1.800 Mitarbeitenden im Tessin. Sie betreibt Supermaerkte, Restaurants, Fachgeschaefte und ein Netz von Klubschulen und stellt haeufig Grenzgaenger im Verkauf, in der Gastronomie und in der Logistik ein.",
+      "fr": "Migros Tessin est la cooperative cantonale du plus grand groupe de distribution suisse, basee a S. Antonino avec plus de 1.800 collaborateurs au Tessin. Elle exploite des supermarches, restaurants, magasins specialises et un reseau d'ecoles-clubs et recrute frequemment des frontaliers pour la vente, la restauration et la logistique."
+    }
+  },
+  "coop": {
+    "name": "Coop",
+    "founded": 1969,
+    "size": "1500+",
+    "sector": "Grande distribuzione",
+    "headquarters": "Basel",
+    "description": {
+      "it": "Coop e il secondo gruppo svizzero di distribuzione al dettaglio, con oltre 90 punti vendita in Ticino tra supermercati, ristoranti e negozi specializzati. Assume frequentemente frontalieri italiani per ruoli di vendita, magazzino, panetteria e cucina.",
+      "en": "Coop is Switzerland's second-largest retail group, with over 90 outlets in Ticino across supermarkets, restaurants and specialty stores. It frequently hires Italian cross-border workers for sales, warehouse, bakery and kitchen roles.",
+      "de": "Coop ist die zweitgroesste Detailhandelsgruppe der Schweiz mit ueber 90 Filialen im Tessin (Supermaerkte, Restaurants, Fachgeschaefte). Sie stellt haeufig italienische Grenzgaenger im Verkauf, Lager, in der Baeckerei und Kueche ein.",
+      "fr": "Coop est le deuxieme groupe de distribution suisse, avec plus de 90 implantations au Tessin (supermarches, restaurants, magasins specialises). Il recrute frequemment des frontaliers italiens pour la vente, l'entrepot, la boulangerie et la cuisine."
+    }
+  },
+  "manor": {
+    "name": "Manor",
+    "founded": 1902,
+    "size": "1200+",
+    "sector": "Grandi magazzini",
+    "headquarters": "Basel",
+    "description": {
+      "it": "Manor e la principale catena di grandi magazzini svizzera, con punti vendita a Lugano, Mendrisio e Bellinzona. Offre opportunita di carriera in vendita, moda, profumeria, cucina e direzione di reparto.",
+      "en": "Manor is Switzerland's leading department store chain, with stores in Lugano, Mendrisio and Bellinzona. It offers career opportunities in sales, fashion, beauty, kitchen and department management.",
+      "de": "Manor ist die fuehrende Warenhauskette der Schweiz mit Filialen in Lugano, Mendrisio und Bellinzona. Sie bietet Karrieremoeglichkeiten in Verkauf, Mode, Beauty, Gastronomie und Abteilungsleitung.",
+      "fr": "Manor est la principale chaine de grands magasins de Suisse, avec des implantations a Lugano, Mendrisio et Bellinzona. Elle offre des opportunites de carriere dans la vente, la mode, la beaute, la restauration et la direction de rayon."
+    }
+  },
+  "ubs": {
+    "name": "UBS",
+    "founded": 1998,
+    "size": "1200+",
+    "sector": "Banca",
+    "headquarters": "Zurich/Basel",
+    "description": {
+      "it": "UBS e la principale banca svizzera, con presenza significativa in Ticino tramite filiali e centri di gestione patrimoniale a Lugano. Offre carriere in private banking, asset management, IT, compliance e operations.",
+      "en": "UBS is Switzerland's leading bank, with a significant Ticino presence through branches and wealth-management centres in Lugano. It offers careers in private banking, asset management, IT, compliance and operations.",
+      "de": "UBS ist die fuehrende Schweizer Bank mit bedeutender Tessiner Praesenz durch Filialen und Vermoegensverwaltungszentren in Lugano. Sie bietet Karrieren in Private Banking, Asset Management, IT, Compliance und Operations.",
+      "fr": "UBS est la principale banque suisse, avec une presence significative au Tessin via des succursales et des centres de gestion de fortune a Lugano. Elle offre des carrieres en private banking, asset management, IT, compliance et operations."
+    }
+  },
+  "bsi": {
+    "name": "BSI Banca",
+    "founded": 1873,
+    "size": "200+",
+    "sector": "Banca",
+    "headquarters": "Lugano",
+    "description": {
+      "it": "BSI e una banca privata storica con sede a Lugano, focalizzata su gestione patrimoniale per clientela internazionale. Assume profili in private banking, compliance, finance e middle office.",
+      "en": "BSI is a historic private bank headquartered in Lugano, focused on wealth management for international clients. It hires for private banking, compliance, finance and middle-office roles.",
+      "de": "BSI ist eine traditionsreiche Privatbank mit Sitz in Lugano, fokussiert auf Vermoegensverwaltung fuer internationale Kunden. Sie stellt Profile in Private Banking, Compliance, Finance und Middle Office ein.",
+      "fr": "BSI est une banque privee historique basee a Lugano, axee sur la gestion de fortune pour clientele internationale. Elle recrute en private banking, compliance, finance et middle office."
+    }
+  },
+  "abb": {
+    "name": "ABB Svizzera",
+    "founded": 1883,
+    "size": "800+",
+    "sector": "Industria elettrotecnica",
+    "headquarters": "Zurich",
+    "description": {
+      "it": "ABB e una multinazionale leader nell'elettrificazione, automazione e robotica. La sede ticinese coordina attivita per il Canton Ticino e Italia. Offre opportunita per ingegneri, tecnici, project manager e profili commerciali.",
+      "en": "ABB is a multinational leader in electrification, automation and robotics. Its Ticino office coordinates activities for the Canton and Italy. It offers opportunities for engineers, technicians, project managers and sales profiles.",
+      "de": "ABB ist ein Weltmarktfuehrer in Elektrifizierung, Automation und Robotik. Der Tessiner Standort koordiniert Aktivitaeten fuer den Kanton und Italien und bietet Chancen fuer Ingenieure, Techniker, Projektmanager und Verkaufsprofile.",
+      "fr": "ABB est un leader mondial de l'electrification, de l'automation et de la robotique. Le bureau tessinois coordonne les activites pour le Canton et l'Italie et offre des opportunites pour ingenieurs, techniciens, chefs de projet et profils commerciaux."
+    }
+  },
+  "swisscom": {
+    "name": "Swisscom",
+    "founded": 1998,
+    "size": "300+",
+    "sector": "Telecomunicazioni",
+    "headquarters": "Bern",
+    "description": {
+      "it": "Swisscom e il principale operatore telco svizzero. In Ticino opera tramite uffici e shop a Lugano, Bellinzona e Locarno. Assume profili tecnici, di vendita e customer-care.",
+      "en": "Swisscom is Switzerland's leading telecom operator. In Ticino it runs offices and shops in Lugano, Bellinzona and Locarno, hiring technical, sales and customer-care profiles.",
+      "de": "Swisscom ist der fuehrende Schweizer Telekomanbieter. Im Tessin betreibt sie Bueros und Shops in Lugano, Bellinzona und Locarno und stellt technische, Verkaufs- und Kundendienst-Profile ein.",
+      "fr": "Swisscom est le principal operateur telecom suisse. Au Tessin il exploite des bureaux et boutiques a Lugano, Bellinzona et Locarno et recrute des profils techniques, commerciaux et service client."
+    }
+  },
+  "credit-suisse": {
+    "name": "Credit Suisse / UBS Wealth Management",
+    "founded": 1856,
+    "size": "400+",
+    "sector": "Banca",
+    "headquarters": "Zurich",
+    "description": {
+      "it": "Credit Suisse, ora integrato in UBS, mantiene una forte presenza a Lugano nella gestione patrimoniale. Offre carriere in private banking, finance e operations bancarie.",
+      "en": "Credit Suisse, now integrated into UBS, retains a strong Lugano presence in wealth management. It offers careers in private banking, finance and bank operations.",
+      "de": "Credit Suisse, nun in die UBS integriert, behaelt eine starke Praesenz in Lugano in der Vermoegensverwaltung und bietet Karrieren in Private Banking, Finance und Bank Operations.",
+      "fr": "Credit Suisse, desormais integre a UBS, conserve une forte presence a Lugano en gestion de fortune et offre des carrieres en private banking, finance et operations bancaires."
+    }
+  },
+  "spitex": {
+    "name": "Spitex Ticino",
+    "founded": 1985,
+    "size": "900+",
+    "sector": "Cure a domicilio",
+    "headquarters": "Bellinzona",
+    "description": {
+      "it": "Spitex Ticino e la rete cantonale di servizi di cure e aiuto a domicilio (SACD). Impiega oltre 900 professionisti tra infermieri, ausiliari, OSS e personale amministrativo. Forte richiesta di personale frontaliero per turni e zone periferiche.",
+      "en": "Spitex Ticino is the cantonal home-care services network (SACD), employing over 900 professionals across nurses, aides, social-health workers and admin staff. There is strong demand for cross-border staff for shift work and outlying districts.",
+      "de": "Spitex Tessin ist das kantonale Netzwerk fuer Spitex-Dienste (SACD) mit ueber 900 Fachleuten in Pflege, Hilfsdiensten, OSS und Administration. Hohe Nachfrage nach Grenzgaengern fuer Schichten und Randregionen.",
+      "fr": "Spitex Tessin est le reseau cantonal des soins et aide a domicile (SACD) avec plus de 900 professionnels (infirmiers, auxiliaires, OSS, administratifs). Forte demande de personnel frontalier pour les horaires en equipes et les zones peripheriques."
+    }
+  },
+  "fart": {
+    "name": "FART - Ferrovie Autolinee Regionali Ticinesi",
+    "founded": 1923,
+    "size": "300+",
+    "sector": "Trasporti",
+    "headquarters": "Locarno",
+    "description": {
+      "it": "FART gestisce le ferrovie e autolinee regionali del Locarnese, inclusa la storica Centovallina. Assume autisti, controllori, tecnici di manutenzione e profili amministrativi.",
+      "en": "FART operates the regional railways and bus lines of the Locarno area, including the historic Centovalli line. It hires drivers, conductors, maintenance technicians and admin profiles.",
+      "de": "FART betreibt die Regionalbahnen und Busse der Locarno-Region, einschliesslich der historischen Centovalli-Bahn. Sie stellt Fahrer, Kontrolleure, Wartungstechniker und Administration ein.",
+      "fr": "FART exploite les chemins de fer et lignes de bus regionaux du Locarnais, dont l'historique Centovalli. Elle recrute conducteurs, controleurs, techniciens de maintenance et profils administratifs."
+    }
+  },
+  "tpl": {
+    "name": "TPL - Trasporti Pubblici Luganesi",
+    "founded": 1908,
+    "size": "350+",
+    "sector": "Trasporti",
+    "headquarters": "Lugano",
+    "description": {
+      "it": "TPL gestisce il trasporto pubblico urbano della citta di Lugano (autobus, filobus, funicolare). Assume autisti, tecnici, ingegneri e personale di customer-service.",
+      "en": "TPL runs urban public transport in Lugano (buses, trolleybuses, funicular). It hires drivers, technicians, engineers and customer-service staff.",
+      "de": "TPL betreibt den Stadtverkehr von Lugano (Busse, Trolleybusse, Standseilbahn) und stellt Fahrer, Techniker, Ingenieure und Kundendienstpersonal ein.",
+      "fr": "TPL exploite les transports publics urbains de Lugano (bus, trolleybus, funiculaire). Il recrute conducteurs, techniciens, ingenieurs et personnel de service client."
+    }
+  },
+  "raiffeisen": {
+    "name": "Raiffeisen",
+    "founded": 1900,
+    "size": "200+",
+    "sector": "Banca",
+    "headquarters": "St. Gallen",
+    "description": {
+      "it": "Raiffeisen e il terzo gruppo bancario svizzero, con presenza capillare in Ticino tramite oltre 20 filiali cooperative. Offre carriere in retail banking, mutui, financial advisory e back office.",
+      "en": "Raiffeisen is Switzerland's third-largest banking group, with a dense Ticino presence through 20+ cooperative branches. It offers careers in retail banking, mortgages, financial advisory and back office.",
+      "de": "Raiffeisen ist die drittgroesste Bankengruppe der Schweiz mit dichtem Tessiner Netz von ueber 20 Genossenschaftsfilialen und bietet Karrieren in Retail Banking, Hypotheken, Financial Advisory und Back Office.",
+      "fr": "Raiffeisen est le troisieme groupe bancaire suisse, avec une presence dense au Tessin via plus de 20 succursales cooperatives. Il offre des carrieres en banque de detail, hypotheques, conseil financier et back office."
+    }
+  },
+  "fidinam": {
+    "name": "Fidinam",
+    "founded": 1960,
+    "size": "300+",
+    "sector": "Fiduciaria",
+    "headquarters": "Lugano",
+    "description": {
+      "it": "Fidinam e una delle principali societa fiduciarie svizzere con sede a Lugano. Offre servizi di consulenza fiscale, contabile, M&A e wealth structuring per clientela internazionale.",
+      "en": "Fidinam is one of Switzerland's leading fiduciary firms, headquartered in Lugano. It provides tax, accounting, M&A and wealth-structuring services to international clients.",
+      "de": "Fidinam ist eines der fuehrenden Schweizer Treuhandbueros mit Sitz in Lugano. Es bietet Steuer-, Buchhaltungs-, M&A- und Wealth-Structuring-Dienste fuer internationale Kunden.",
+      "fr": "Fidinam est l'un des principaux cabinets fiduciaires suisses, base a Lugano. Il offre des services de conseil fiscal, comptable, M&A et de structuration patrimoniale pour clientele internationale."
+    }
+  },
+  "amag": {
+    "name": "AMAG",
+    "founded": 1945,
+    "size": "150+",
+    "sector": "Automotive",
+    "headquarters": "Cham",
+    "description": {
+      "it": "AMAG e il principale importatore svizzero di veicoli VW, Audi, Skoda, Seat e Porsche. In Ticino gestisce concessionarie e officine a Lugano, Bellinzona e Mendrisio. Assume meccatronici, consulenti vendita, magazzinieri e ricambisti.",
+      "en": "AMAG is Switzerland's leading importer of VW, Audi, Skoda, Seat and Porsche vehicles. In Ticino it runs dealerships and workshops in Lugano, Bellinzona and Mendrisio, hiring mechatronics technicians, sales advisors, warehouse staff and parts specialists.",
+      "de": "AMAG ist der fuehrende Schweizer Importeur von VW, Audi, Skoda, Seat und Porsche. Im Tessin betreibt sie Vertretungen und Werkstaetten in Lugano, Bellinzona und Mendrisio und stellt Mechatroniker, Verkaufsberater, Lageristen und Ersatzteilspezialisten ein.",
+      "fr": "AMAG est le principal importateur suisse de vehicules VW, Audi, Skoda, Seat et Porsche. Au Tessin il exploite des concessions et ateliers a Lugano, Bellinzona et Mendrisio et recrute mecatroniciens, conseillers vente, magasiniers et specialistes pieces."
+    }
+  },
+  "alptransit": {
+    "name": "AlpTransit Gottardo",
+    "founded": 1998,
+    "size": "100+",
+    "sector": "Costruzioni infrastrutturali",
+    "headquarters": "Lucerna",
+    "description": {
+      "it": "AlpTransit Gottardo gestisce le grandi opere ferroviarie alpine (Gottardo, Ceneri). In Ticino mantiene cantieri e uffici tecnici. Assume ingegneri, geologi, tecnici di sicurezza e profili specializzati in costruzioni sotterranee.",
+      "en": "AlpTransit Gottardo manages major Alpine railway works (Gotthard, Ceneri tunnels). It maintains sites and technical offices in Ticino, hiring engineers, geologists, safety technicians and underground-construction specialists.",
+      "de": "AlpTransit Gotthard verantwortet die grossen Alpenbahnvorhaben (Gotthard, Ceneri). Im Tessin unterhaelt sie Baustellen und technische Bueros und stellt Ingenieure, Geologen, Sicherheitstechniker und Untertagebau-Spezialisten ein.",
+      "fr": "AlpTransit Gottardo gere les grands ouvrages ferroviaires alpins (Gothard, Ceneri). Au Tessin elle maintient des chantiers et bureaux techniques et recrute ingenieurs, geologues, techniciens securite et specialistes des travaux souterrains."
+    }
+  },
+  "casagrande": {
+    "name": "Casagrande SA",
+    "founded": 1947,
+    "size": "200+",
+    "sector": "Costruzioni",
+    "headquarters": "Mendrisio",
+    "description": {
+      "it": "Casagrande SA e una delle principali imprese edili del Mendrisiotto. Realizza opere civili, industriali e residenziali. Assume muratori, carpentieri, capocantieri e tecnici di cantiere.",
+      "en": "Casagrande SA is one of the main construction companies in the Mendrisiotto. It builds civil, industrial and residential projects, hiring masons, carpenters, foremen and site technicians.",
+      "de": "Casagrande SA ist eines der wichtigsten Bauunternehmen im Mendrisiotto. Es realisiert Tief-, Industrie- und Wohnbauten und stellt Maurer, Zimmerleute, Vorarbeiter und Bautechniker ein.",
+      "fr": "Casagrande SA est l'une des principales entreprises de construction du Mendrisiotto. Elle realise des ouvrages civils, industriels et residentiels et recrute macons, charpentiers, chefs d'equipe et techniciens de chantier."
+    }
+  },
+  "comano": {
+    "name": "Clinica Luganese Moncucco",
+    "founded": 1972,
+    "size": "750+",
+    "sector": "Sanita privata",
+    "headquarters": "Lugano",
+    "description": {
+      "it": "La Clinica Luganese Moncucco e il principale ospedale privato del Cantone, parte della rete ente ospedaliero. Assume medici, infermieri, fisioterapisti, OSS e profili amministrativi e tecnici.",
+      "en": "Clinica Luganese Moncucco is the Canton's leading private hospital, part of the cantonal hospital network. It hires doctors, nurses, physiotherapists, social-health workers and administrative/technical profiles.",
+      "de": "Die Clinica Luganese Moncucco ist das fuehrende Privatspital des Kantons und Teil des Spitalnetzes. Sie stellt Aerzte, Pflegefachpersonen, Physiotherapeuten, OSS sowie Verwaltungs- und Technikprofile ein.",
+      "fr": "La Clinica Luganese Moncucco est le principal hopital prive du Canton, integre au reseau hospitalier cantonal. Elle recrute medecins, infirmiers, physiotherapeutes, OSS et profils administratifs et techniques."
+    }
+  },
+  "fmh": {
+    "name": "FMH Care",
+    "founded": 1989,
+    "size": "200+",
+    "sector": "Cure a domicilio",
+    "headquarters": "Bellinzona",
+    "description": {
+      "it": "FMH Care offre servizi infermieristici e assistenziali a domicilio in Ticino. Assume infermieri SSS, OSS, ausiliari sanitari e operatori socio-assistenziali con orari flessibili adatti ai frontalieri.",
+      "en": "FMH Care provides nursing and home-care services in Ticino. It hires SSS-qualified nurses, OSS, healthcare aides and social-care assistants with flexible schedules suited to cross-border workers.",
+      "de": "FMH Care bietet Pflege- und Betreuungsdienste zu Hause im Tessin und stellt SSS-Pflegefachpersonen, OSS, Pflegehelfer und Sozialbetreuer mit grenzgaengertauglichen flexiblen Arbeitszeiten ein.",
+      "fr": "FMH Care offre des services infirmiers et d'aide a domicile au Tessin et recrute infirmiers SSS, OSS, auxiliaires de sante et auxiliaires sociaux avec des horaires flexibles adaptes aux frontaliers."
+    }
+  }
+}

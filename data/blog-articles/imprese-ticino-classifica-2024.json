@@ -1,0 +1,19 @@
+{
+  "id": "imprese-ticino-classifica-2024",
+  "slug": "imprese-ticino-classifica-2024",
+  "publishedAt": "2026-05-30T01:57:48.506Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 88.0263104,
+    "confidence": 1,
+    "finalScore": 88.0263104,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 44.0131552,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

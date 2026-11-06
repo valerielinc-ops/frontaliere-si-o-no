@@ -1,0 +1,592 @@
+#!/usr/bin/env node
+/**
+ * Kudelski NAGRA job parser — Fetcher and job builder.
+ *
+ * Source: https://careers.nagra.com/
+ *
+ * Exports the 4 required functions for the crawler template:
+ *   - fetchAllKudelskiNagraJobs()  — Fetch and parse all jobs
+ *   - isKudelskiNagraJob()         — Match jobs belonging to this company
+ *   - isTrustedDomain()           — Validate URLs belong to this company
+ *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ */
+import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
+import { detectLang, isLikelyJobDetailUrl, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
+import { extractBalancedTagBlock, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
+import { extractJsonLd, selectDetailStructuredRecords } from './prospector/extract.mjs';
+
+/* ── Constants ─────────────────────────────────────────────── */
+
+export const KUDELSKI_NAGRA_KEY = 'kudelski-nagra';
+export const KUDELSKI_NAGRA_COMPANY_NAME = 'Kudelski NAGRA';
+export const KUDELSKI_NAGRA_COMPANY_DOMAIN = 'nagra.com';
+
+const CAREER_URL = 'https://careers.nagra.com/';
+const BASE_URL = 'https://careers.nagra.com';
+// The listing page lives under the `?page=advertisement` route of the
+// in-house ATS — the bare CAREER_URL root has no job table (issue #3797).
+const ADVERTISEMENT_URL = 'https://careers.nagra.com/?page=advertisement';
+
+/**
+ * Kudelski/NAGRA uses Greenhouse for recruitment. Greenhouse provides
+ * a public JSON API for job boards.
+ */
+const GH_BOARDS_API = 'https://boards-api.greenhouse.io/v1/boards/kudelski/jobs';
+const GH_BOARDS_DETAIL = 'https://boards-api.greenhouse.io/v1/boards/kudelski/jobs';
+const GH_PUBLIC_BASE = 'https://careers.nagra.com';
+const COMPANY_DEFAULTS = getCompanyDefaults(KUDELSKI_NAGRA_KEY);
+const GREENHOUSE_BOARD_SLUGS = new Set(['kudelski', 'nagra', 'kudelskigroup', 'kudelski-group']);
+
+/* ── Helpers ───────────────────────────────────────────────── */
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeSpace(s = '') {
+  return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Match NAGRA records across the legacy homepage identity migration.
+ *
+ * Before the vacancy-detail URL guard was added, stored rows could point at
+ * the careers homepage. The current parser emits the verified detail URL, so
+ * URL-only matching would retain the old row during the generic miss grace
+ * period and make the audit inspect both identities. The source title is the
+ * only identity shared by those legacy rows; use its exact normalized value
+ * as the bridge and return no key when the primary field is absent. The
+ * shared merge helper rejects non-injective keys, so duplicate titles remain
+ * fail-closed instead of being guessed together.
+ */
+export function kudelskiNagraMatchKey(job = {}) {
+  const title = normalizeSpace(job?.title || '')
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+  return title ? `kudelski-nagra:title:${title}` : '';
+}
+
+/* ── Company Matchers ──────────────────────────────────────── */
+
+/**
+ * Check if a job belongs to Kudelski NAGRA.
+ * Used by the template to filter this company's jobs from the global dataset.
+ */
+export function isKudelskiNagraJob(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = normalize(job?.url || '');
+
+  return (
+    key === KUDELSKI_NAGRA_KEY ||
+    key.startsWith('kudelski-nagra') ||
+    company.includes('kudelski nagra') ||
+    url.includes('nagra.com')
+  );
+}
+
+/**
+ * Validate that a URL belongs to Kudelski NAGRA's domain.
+ */
+export function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === 'nagra.com' || host.endsWith('.nagra.com');
+  } catch {
+    return false;
+  }
+}
+
+/* ── Category Detection ────────────────────────────────────── */
+
+function detectCategory(title = '') {
+  const t = normalize(title);
+  if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
+  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
+  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
+  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
+  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
+  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
+  if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
+  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
+  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
+  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
+  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
+  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
+  return 'Altro';
+}
+
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(junior|jr)/.test(t)) return 'junior';
+  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  return 'mid';
+}
+
+function detectEmploymentType(text = '') {
+  const t = normalize(text);
+  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
+  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
+  return 'OTHER';
+}
+
+/* ── Fetch + Parse ─────────────────────────────────────────── */
+
+/**
+ * Fetch jobs from Greenhouse Boards API.
+ * Greenhouse provides a public JSON API for job boards.
+ * The board slug may be 'kudelski', 'nagra', 'kudelskigroup', etc.
+ */
+async function tryGreenhouseApi() {
+  const boardSlugs = ['kudelski', 'nagra', 'kudelskigroup', 'kudelski-group'];
+
+  for (const board of boardSlugs) {
+    const apiUrl = `https://boards-api.greenhouse.io/v1/boards/${board}/jobs?content=true`;
+    try {
+      console.log(`   Trying Greenhouse API: ${apiUrl}`);
+      const data = await fetchJson(apiUrl, { timeoutMs: 15000 });
+      const items = assertJsonListShapeMultiKey(data, {
+        keys: ['jobs'],
+        allowBareArray: true,
+        source: KUDELSKI_NAGRA_KEY,
+      });
+      if (items.length > 0) {
+        console.log(`   Greenhouse API (board: ${board}) returned ${items.length} jobs`);
+        return { items: items.map((item) => ({ ...item, ...sourcePostingDateFields(item.first_published) })), board };
+      }
+    } catch (err) {
+      console.log(`   Greenhouse board '${board}' failed: ${err.message}`);
+    }
+  }
+  return null;
+}
+
+/**
+ * Parse the careers.nagra.com HTML page for job listings.
+ * If not Greenhouse, try generic HTML scraping.
+ */
+/**
+ * Parse careers.nagra.com's `?page=advertisement` listing table.
+ * Markup is a plain server-rendered <table> — no auth/JS execution needed:
+ *   <tr class="table-primary ...">
+ *     <td>{id}</td><td>{date DD-MM-YYYY}</td>
+ *     <td><a href="?page=advertisement_display&id={id}">{Title}.</a></td>
+ *     <td>{Contract type}</td><td>{Location}</td><td>{Entity}</td>
+ *     <td><a ...>Apply</a></td>
+ *   </tr>
+ * (issue #3797 — the old CAREER_URL root has no job table at all; the real
+ * data lives under this `?page=advertisement` route.)
+ */
+function parseNagraAdvertisementTable(html = '') {
+  if (!html) return [];
+  const jobs = [];
+  const rowRx = /<tr class="table-primary\s*">([\s\S]*?)<\/tr>/gi;
+  let rowMatch;
+  while ((rowMatch = rowRx.exec(html))) {
+    const cells = [...rowMatch[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((c) => c[1]);
+    if (cells.length < 6) continue;
+
+    const [, , titleCell, contractTypeRaw, locationRaw, entityRaw] = cells;
+    const idMatch = titleCell.match(/id=(\d+)/);
+    const title = normalizeSpace(stripHtml(titleCell)).replace(/\.$/, '');
+    if (!title || !idMatch) continue;
+
+    const contractType = normalizeSpace(stripHtml(contractTypeRaw));
+    const entity = normalizeSpace(stripHtml(entityRaw));
+    // The listing table has no free-text description (only Kudelski/id/date/
+    // contract/location/entity columns) — build a description long enough to
+    // clear the quality gate's 80-char floor instead of leaving it thin
+    // enough to get quarantined as a suspected crawl bug (issue #3797).
+    const description = (contractType || entity)
+      ? `${contractType || 'Open position'} at ${entity || 'Kudelski NAGRA'}, part of the Kudelski Group — a global leader in digital security and content protection technology.`
+      : '';
+
+    jobs.push({
+      title,
+      url: `${BASE_URL}/?page=advertisement_display&id=${idMatch[1]}`,
+      location: normalizeSpace(stripHtml(locationRaw)),
+      description,
+      ...sourcePostingDateFields(''),
+    });
+  }
+  return jobs;
+}
+
+/**
+ * Check whether a posting belongs to any Swiss canton.
+ */
+function isSwissLocation(location = '') {
+  const loc = normalizeSpace(location);
+  return Boolean(loc) && !isLocationExplicitlyForeign(loc) && isSwissLocationText(loc);
+}
+
+function isSwissListingCandidate(location = '') {
+  const loc = normalizeSpace(location);
+  if (!loc) return false;
+  // The listing table sometimes exposes only the country. Keep that source
+  // candidate long enough to resolve its actual city from the detail page;
+  // the publish gate below still requires inferAnyCanton().
+  return isSwissLocation(loc);
+}
+
+function locationKey(value = '') {
+  return normalizeSpace(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+function canonicalKudelskiStructuredLocation(candidate = {}) {
+  const location = normalizeSpace(candidate?.location || '');
+  const addressCountry = normalizeSpace(candidate?.addressCountry || '').toUpperCase();
+  // careers.nagra.com currently emits this source-specific JSON-LD locality
+  // for its Cheseaux-sur-Lausanne campus. Bind the alias to explicit CH
+  // evidence so the same free text from another country stays fail-closed.
+  if (locationKey(location) === 'grand cheseaux' && addressCountry === 'CH') {
+    return 'Cheseaux-sur-Lausanne';
+  }
+  return location;
+}
+
+function isTrustedKudelskiDetailUrl(rawUrl = '') {
+  if (!isLikelyJobDetailUrl(rawUrl)) return false;
+  if (isTrustedDomain(rawUrl)) return true;
+  try {
+    const url = new URL(rawUrl);
+    return url.hostname.toLowerCase() === 'boards.greenhouse.io'
+      && GREENHOUSE_BOARD_SLUGS.has((url.pathname.match(/^\/([^/]+)\/jobs\//)?.[1] || '').toLowerCase());
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Resolve a vacancy identity from the source record. A careers homepage is
+ * not a job URL: if the source omits its detail link, construct the exact
+ * Greenhouse/ATS identity from the numeric requisition id, otherwise fail
+ * closed instead of publishing a non-vacancy URL.
+ */
+function resolveKudelskiDetailUrl(listing = {}, greenhouseBoard = '') {
+  for (const candidate of [listing.absolute_url, listing.url, listing.link]) {
+    if (isTrustedKudelskiDetailUrl(candidate)) return String(candidate).trim();
+  }
+
+  const id = String(
+    listing.id
+    || listing.job_id
+    || listing.requisition_id
+    || '',
+  ).trim();
+  if (!/^\d+$/.test(id)) return '';
+
+  const constructed = greenhouseBoard && GREENHOUSE_BOARD_SLUGS.has(greenhouseBoard)
+    ? `https://boards.greenhouse.io/${greenhouseBoard}/jobs/${id}`
+    : `${BASE_URL}/?page=advertisement_display&id=${id}`;
+  return isTrustedKudelskiDetailUrl(constructed) ? constructed : '';
+}
+
+function broadListingLocation(location = '') {
+  return /\b(?:switzerland|schweiz|suisse|svizzera|hybrid|onsite|on-site|remote|home\s*office)\b/i.test(
+    normalizeSpace(location),
+  );
+}
+
+function structuredDetailLocation(html = '', pageUrl = '', title = '') {
+  const renderedTitle = normalizeSpace(stripHtml(
+    /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '',
+  ));
+  const records = selectDetailStructuredRecords(
+    extractJsonLd(html, pageUrl),
+    pageUrl,
+    renderedTitle,
+    pageUrl,
+    title,
+  );
+  const candidates = records.flatMap((record) => (
+    Array.isArray(record.locationCandidates)
+      ? record.locationCandidates
+      : [{ location: record.location, addressCountry: record.addressCountry }]
+  ));
+  const locations = candidates
+    .map((candidate) => canonicalKudelskiStructuredLocation(candidate))
+    .filter(Boolean);
+  const unique = [...new Map(locations.map((value) => [locationKey(value), value])).values()];
+  return unique.length === 1 ? unique[0] : '';
+}
+
+function extractDetailLocation(html = '', pageUrl = '', title = '') {
+  if (!html) return '';
+  const structured = structuredDetailLocation(html, pageUrl, title);
+  if (structured && (inferAnyCanton(structured) || isLocationExplicitlyForeign(structured))) return structured;
+
+  const labelled = [
+    /<(?:strong|b)[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/(?:strong|b)>\s*([^<]+)/gi,
+    /<label[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/label>\s*<span[^>]*>([\s\S]*?)<\/span>/gi,
+  ];
+  const values = [];
+  for (const pattern of labelled) {
+    for (const match of html.matchAll(pattern)) {
+      const location = normalizeSpace(stripHtml(match[1] || ''));
+      if (location) values.push(location);
+    }
+  }
+  const unique = [...new Map(values.map((value) => [locationKey(value), value])).values()];
+  const geographicallyVerified = unique.filter((value) => (
+    inferAnyCanton(value) || isLocationExplicitlyForeign(value)
+  ));
+  if (geographicallyVerified.length === 1) return geographicallyVerified[0];
+  if (geographicallyVerified.length > 1) return '';
+  return unique.length === 1 ? unique[0] : '';
+}
+
+/**
+ * The vacancy body of a careers.nagra.com `?page=advertisement_display` page:
+ * the `<div id="advert">` block (location, language requirements, "Who We
+ * Are", responsibilities, requirements, benefits). Read to its matching close
+ * tag because the body nests `<p>`/`<ul>`/`<span>` freely.
+ *
+ * @param {string} html
+ * @returns {string} inner HTML, or '' when the block is absent
+ */
+export function extractNagraAdvertHtml(html = '') {
+  const located = locateTagByAttribute(String(html || ''), `id=["']advert["']`, { skipVoidTags: true });
+  if (!located) return '';
+  return extractBalancedTagBlock(located.rest, located.tagName).trim();
+}
+
+/** Title of a raw listing, whatever shape the source used for it. */
+function listingTitle(listing) {
+  return normalizeSpace(listing?.title || listing?.name || '');
+}
+
+function listingLocation(listing) {
+  const rawLocation = listing?.location?.name || listing?.location || listing?.city || '';
+  return normalizeSpace(
+    typeof rawLocation === 'string' ? rawLocation : rawLocation?.name || '',
+  );
+}
+
+/**
+ * Fetch all Kudelski NAGRA jobs.
+ * Returns an array of ParsedJob objects (source-locale only).
+ *
+ * Strategy:
+ *  1. Try Greenhouse Boards API with multiple board slugs
+ *  2. Fall back to HTML scraping of careers.nagra.com
+ *  3. Filter for Swiss locations across all 26 cantons
+ */
+export async function fetchAllKudelskiNagraJobs() {
+  console.log(`🔍 Fetching Kudelski NAGRA jobs`);
+  console.log(`   Source: ${CAREER_URL}\n`);
+
+  let listings = [];
+  let ghBoard = '';
+
+  // Strategy 1: Greenhouse API
+  const ghResult = await tryGreenhouseApi();
+  if (ghResult) {
+    listings = ghResult.items;
+    ghBoard = ghResult.board;
+  }
+
+  // Strategy 2: HTML scraping of the advertisement listing table
+  if (!listings || listings.length === 0) {
+    console.log('   Greenhouse API did not return jobs, trying HTML scraping...');
+    try {
+      const html = await fetchHtml(ADVERTISEMENT_URL, { timeoutMs: 20000 });
+      listings = parseNagraAdvertisementTable(html);
+      console.log(`   HTML scraping found ${listings?.length || 0} job links`);
+    } catch (err) {
+      console.warn(`   HTML fetch failed: ${err.message}`);
+      listings = [];
+    }
+  }
+
+  if (!listings || listings.length === 0) {
+    console.warn('⚠️ No Kudelski NAGRA job listings found.');
+    return [];
+  }
+
+  // Filter for Swiss locations across the full canton set.
+  const swissListings = listings.filter((listing) => isSwissListingCandidate(listingLocation(listing)));
+
+  console.log(`  📋 Total listings: ${listings.length}, Swiss-filtered: ${swissListings.length}`);
+
+  // Candidates that cleared every NON-geographic gate the loop below applies
+  // (only the title gate), counted over the UNfiltered listings so the number
+  // stays pre-geographic — see the note next to `discoveredCount`.
+  const titleEligible = listings.filter((l) => listingTitle(l).length >= 3).length;
+
+  const jobs = [];
+  for (const listing of swissListings) {
+    const title = listingTitle(listing);
+    if (title.length < 3) continue;
+
+    // Greenhouse returns location as { name: "..." } or a string.
+    let location = listingLocation(listing);
+
+    // The NAGRA listing table carries no description at all, and gives some
+    // Swiss offers only as "Switzerland". The official detail page has both:
+    // the full vacancy body (`#advert`) and the workplace. Without it the
+    // published description was a 135-character sentence composed from the
+    // table's contract/entity columns against a 3,526-character posting
+    // (`advertisement_display&id=15828`, 2026-09-29). Greenhouse listings
+    // already carry `content` and only need the page for an unresolved city.
+    let advertHtml = '';
+    const needsDetailBody = !listing.content;
+    const detailUrl = resolveKudelskiDetailUrl(listing, ghBoard);
+    if (!detailUrl) {
+      throw new Error(`Kudelski NAGRA listing has no verified vacancy detail URL: ${title}`);
+    }
+    if (needsDetailBody || !inferAnyCanton(location) || broadListingLocation(location)) {
+      try {
+        const detailHtml = await fetchHtml(detailUrl, { timeoutMs: 20000 });
+        const detailLocation = extractDetailLocation(detailHtml, detailUrl, title);
+        // A vacancy detail is stronger than a listing summary, but an empty
+        // or ambiguous detail field must not erase usable listing evidence.
+        // Explicit foreign detail evidence remains authoritative and causes
+        // the normal Swiss publish gate below to reject the row.
+        if (detailLocation && (inferAnyCanton(detailLocation) || isLocationExplicitlyForeign(detailLocation))) {
+          location = detailLocation;
+        }
+        if (needsDetailBody) advertHtml = extractNagraAdvertHtml(detailHtml);
+      } catch (err) {
+        console.warn(`  ⚠️ Kudelski NAGRA: detail fetch failed for ${title}: ${err.message}`);
+      }
+    }
+
+    const canton = inferAnyCanton(location);
+    if (!location || !canton) {
+      console.warn(`  ⚠️ Kudelski NAGRA: skipping unresolvable Swiss location "${location || '(empty)'}" (${title})`);
+      continue;
+    }
+
+    // Keep source address data when present; otherwise resolve a complete
+    // same-canton fallback from the posting location. The company default is
+    // only eligible when its canton agrees with the derived canton, so a
+    // posting outside the historical Lugano HQ cannot inherit TI/6900.
+    const addressLocality = normalizeSpace(
+      location.replace(/,?\s*(?:Switzerland|Schweiz|Suisse|Svizzera)$/i, ''),
+    );
+    const fallbackAddress = resolveFallbackAddress(
+      KUDELSKI_NAGRA_KEY,
+      addressLocality || (COMPANY_DEFAULTS?.canton === canton ? COMPANY_DEFAULTS.city : ''),
+      canton,
+    );
+    const sourcePostalCode = normalizeSpace(
+      listing.postalCode
+      || listing.zipCode
+      || listing.location?.postalCode
+      || listing.location?.zipCode
+      || '',
+    );
+    const sourceStreetAddress = normalizeSpace(
+      listing.streetAddress
+      || listing.address
+      || listing.location?.streetAddress
+      || listing.location?.address
+      || '',
+    );
+
+    // Greenhouse provides job content as HTML
+    const descriptionHtml = listing.content || advertHtml || listing.description || '';
+    const descriptionText = stripHtml(descriptionHtml);
+
+    // The validated detail identity is the only publishable public URL. Never
+    // fall back to the careers homepage: it is not a vacancy and collapses
+    // unrelated rows onto one source page during assembly/audit.
+    const publicUrl = detailUrl;
+
+    const sourceLang = detectLang(descriptionText || title, 'en');
+    const jobSlug = slugify(`${title} kudelski-nagra ch`);
+    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+
+    const desc = descriptionText || `${title} — Position at Kudelski NAGRA in ${location}. The Kudelski Group is a world leader in digital security and convergent media solutions, with NAGRA providing content protection technology for major media companies.`;
+
+    const job = {
+      id: `kudelski-nagra-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: KUDELSKI_NAGRA_COMPANY_NAME,
+      companyKey: KUDELSKI_NAGRA_KEY,
+      companyDomain: KUDELSKI_NAGRA_COMPANY_DOMAIN,
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description: desc,
+      descriptionByLocale: { [sourceLang]: desc },
+      location,
+      canton,
+      url: publicUrl,
+      source: 'Kudelski NAGRA Dedicated Parser',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+      addressLocality: addressLocality || fallbackAddress.addressLocality,
+      addressRegion: canton,
+      streetAddress: sourceStreetAddress || fallbackAddress.streetAddress,
+      addressCountry: 'CH',
+      country: 'CH',
+      postalCode: /^\d{4}$/.test(sourcePostalCode) ? sourcePostalCode : fallbackAddress.postalCode,
+      category: detectCategory(title),
+      contract: detectEmploymentType(listing.timeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType: detectEmploymentType(listing.timeType || title),
+      experienceLevel: detectExperienceLevel(title),
+      sector: 'Sicurezza digitale / Media technology',
+      currency: 'CHF',
+      featured: false,
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, listing)),
+      applyUrl: publicUrl,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+    };
+
+    jobs.push(job);
+    await new Promise((r) => setTimeout(r, 300));
+  }
+
+  console.log(`\n📋 Total Kudelski NAGRA jobs discovered: ${jobs.length}`);
+  // Pre-filter candidate count (issue #6271, mirrors update-baronie-jobs.mjs)
+  // — lets the crawler-template pipeline report "found N listings, 0 Swiss
+  // after filtering" as healthy instead of broken (check-crawler-health.mjs
+  // filtered-empty evidence, issue #5945). Only explicit foreign locations
+  // qualify for this outcome; an empty or ambiguous location remains
+  // fail-closed so a location-selector drift cannot be laundered as a quiet
+  // source.
+  // It counts post-title-gate, not `listings.length` (issue #7707): if title
+  // extraction broke the outcome would otherwise be `discovered > 0,
+  // written === 0` — a real selector break disguised as filtered-empty.
+  const titleEligibleListings = listings.filter((listing) => listingTitle(listing).length >= 3);
+  const filteredEmpty = jobs.length === 0
+    && titleEligibleListings.length > 0
+    && swissListings.length === 0
+    && titleEligibleListings.every((listing) => {
+      const location = listingLocation(listing);
+      return Boolean(location) && isLocationExplicitlyForeign(location);
+    });
+  Object.defineProperty(jobs, 'discoveredCount', {
+    value: titleEligible,
+    enumerable: false,
+    writable: true,
+    configurable: true,
+  });
+  Object.defineProperty(jobs, 'fetchOutcome', {
+    value: filteredEmpty ? 'filtered_empty' : null,
+    enumerable: false,
+    writable: true,
+    configurable: true,
+  });
+  return jobs;
+}

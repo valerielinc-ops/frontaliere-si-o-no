@@ -1,0 +1,40 @@
+{
+  "id": "hantavirus-ginevra-identificazione",
+  "slug": "hantavirus-ginevra-identificazione",
+  "publishedAt": "2026-06-03T05:25:06.193Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.6220298872733325,
+    "confidence": 0.8,
+    "finalScore": 6.097623909818666,
+    "topK": [
+      {
+        "slug": "hantavirus-ginevrino-isolamento-frontalieri",
+        "cosine": 0.8967468533166595
+      },
+      {
+        "slug": "hantavirus-zurigo-crocerista-frontalieri",
+        "cosine": 0.8829430849550465
+      },
+      {
+        "slug": "hantavirus-oms-passeggeri-sudafrica",
+        "cosine": 0.8819238511626429
+      },
+      {
+        "slug": "hantavirus-crociera-isolamento",
+        "cosine": 0.8777516542493576
+      },
+      {
+        "slug": "hantavirus-svizzera-frontalieri-2026",
+        "cosine": 0.8773362563235224
+      }
+    ],
+    "score": 6.097623909818666,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

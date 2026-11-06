@@ -1,0 +1,26 @@
+{
+  "companyKey": "foppa-ch",
+  "companyName": "Foppa AG",
+  "companyHost": "foppa.ch",
+  "verifiedEmployerDomain": "foppa.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://foppa.ch/offene-stellen/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "'Technischer Einkäufer 80% – 100% (m/w)' ansehen",
+    "'Servicetechniker / Region Engadin, Albula und Davos – 100% (m/w)' ansehen",
+    "'Systemtechniker / Region Schwyz, Glarus und Uri – 100% (m/w)' ansehen",
+    "'Systemtechniker / Region Aargau/Bezirk Baden – 100% (m/w)' ansehen"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:10:17.586Z",
+  "candidateKey": "foppa@zizers"
+}

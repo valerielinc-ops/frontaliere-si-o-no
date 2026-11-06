@@ -1,0 +1,32 @@
+{
+  "companyKey": "muvimaint-com",
+  "companyName": "Muvimaint GmbH",
+  "companyHost": "muvimaint.com",
+  "verifiedEmployerDomain": "muvimaint.com",
+  "platform": "",
+  "mode": "free-text",
+  "seedUrls": [
+    "https://muvimaint.com/jobs"
+  ],
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Chef de Rang (m/w/d) – Service Job im Engadin",
+    "Küchen Chef (m/w/d) – Jahresstelle im Restaurant Pappaloù, Engadin"
+  ],
+  "canton": "GR",
+  "freeTextContractVersion": 1,
+  "sourceLocation": {
+    "location": "Champfèr",
+    "addressLocality": "Champfèr",
+    "addressRegion": "GR",
+    "addressCountry": "CH",
+    "postalCode": "7512"
+  },
+  "permanentApplications": [],
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:11:45.137Z",
+  "candidateKey": "muvimaint@champfer"
+}

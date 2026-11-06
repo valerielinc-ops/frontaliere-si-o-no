@@ -1,0 +1,40 @@
+{
+  "id": "ripresa-finanziaria-ospedali-grigionesi",
+  "slug": "ripresa-finanziaria-ospedali-grigionesi",
+  "publishedAt": "2026-07-14T13:24:17.442Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.507257209017599,
+    "confidence": 0.8,
+    "finalScore": 11.605805767214079,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8533680711186823
+      },
+      {
+        "slug": "vivere-valtellina-lavorare-grigioni-frontaliere",
+        "cosine": 0.8463518747839845
+      },
+      {
+        "slug": "premi-non-oltre-10-percento",
+        "cosine": 0.8447608107926668
+      },
+      {
+        "slug": "permessi-dimora-grigioni-cambia-prassi",
+        "cosine": 0.8428325109015944
+      },
+      {
+        "slug": "mobilita-infermieri-ticino",
+        "cosine": 0.8413370510792725
+      }
+    ],
+    "score": 11.605805767214079,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "digitale-frontaliere-ticino-varese",
+  "slug": "digitale-frontaliere-ticino-varese",
+  "publishedAt": "2026-07-16T17:58:50.889Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 156.06649333333334,
+    "confidence": 1,
+    "finalScore": 156.06649333333334,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 78.03324666666667,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

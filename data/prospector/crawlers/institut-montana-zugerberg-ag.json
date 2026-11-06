@@ -1,0 +1,22 @@
+{
+  "companyKey": "institut-montana-zugerberg-ag",
+  "companyName": "Institut Montana Zugerberg AG",
+  "companyHost": "institut-montana.jobs.personio.com",
+  "platform": "personio.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://institut-montana.jobs.personio.com/?language=de"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Junior HR Assistant (m/w/d) 80–100 % <path d=\"M10.0005 3.5752C12.7755 3.57541 15.",
+    "Spontanbewerbung / open application <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0"
+  ],
+  "canton": "ZG",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T13:28:56.009Z",
+  "candidateKey": "institut-montana-zugerberg@zugerberg"
+}

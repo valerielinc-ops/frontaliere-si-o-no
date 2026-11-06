@@ -1,0 +1,23 @@
+{
+  "companyKey": "albiniepitigliani",
+  "companyName": "Albini e Pitigliani Spa",
+  "companyHost": "albiniepitigliani.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://albiniepitigliani.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Freight Forwarding Operator - Basildon",
+    "Operativo Terra Import",
+    "Operativo Spedizioni Via Terra – Reparto FTL/LTL",
+    "Azure Integration Engineer",
+    "Operativo Mare/Aerea"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-09-19T09:31:49.967Z"
+}

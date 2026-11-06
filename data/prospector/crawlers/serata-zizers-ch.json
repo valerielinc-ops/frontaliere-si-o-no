@@ -1,0 +1,20 @@
+{
+  "companyKey": "serata-zizers-ch",
+  "companyName": "serata-zizers",
+  "companyHost": "schulheim-zizers.ch",
+  "platform": "schulheim-zizers.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.schulheim-zizers.ch/de"
+  ],
+  "detailTemplate": "/de/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Ausbildungsplatz zum / zur Sozialpädagog:in für die berufsintegrierte Ausbildung an der HFS Zizers",
+    "Praktikant:in für eine interne Wohngruppe und Schule 90 – 100 %"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:20.418Z"
+}

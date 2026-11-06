@@ -1,0 +1,21 @@
+{
+  "companyKey": "gastrosocial-ch",
+  "companyName": "GastroSocial",
+  "companyHost": "gastrosocial.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://gastrosocial.ch/fr/qui-sommes-nous/jobs-carriere/travailler-a-gastrosocial"
+  ],
+  "detailTemplate": "/fr/qui-sommes-nous/jobs-carriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Postes vacants et avantages",
+    "Travailler chez GastroSocial"
+  ],
+  "canton": "AG",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-23T10:54:47.983Z"
+}

@@ -1,0 +1,20 @@
+{
+  "companyKey": "boom",
+  "companyName": "Boom",
+  "companyHost": "jobs.dualoo.com",
+  "platform": "dualoo.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.dualoo.com/link/8cd34f1c-feba-4275-9946-6fd42a822f4c/detail?lang=DE"
+  ],
+  "detailTemplate": "/link/8cd34f1c-feba-4275-9946-6fd42a822f4c/detail",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Hauswirtschaftsmitarbeiter/in (Zimmermädchen) 80-100%"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:29.382Z"
+}

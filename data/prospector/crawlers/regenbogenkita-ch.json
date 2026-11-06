@@ -1,0 +1,21 @@
+{
+  "companyKey": "regenbogenkita-ch",
+  "companyName": "regenbogenkita",
+  "companyHost": "stiftung-eichholz.ch",
+  "platform": "stiftung-eichholz.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://stiftung-eichholz.ch/?utm_source=chatgpt.com"
+  ],
+  "detailTemplate": "/karriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Ausbildung und Zivildienst",
+    "Vorteile der Stiftung Eichholz"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:51:37.267Z",
+  "candidateKey": "regenbogenkita.ch"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "pemsa-lugano-mercato-lavoro",
+  "slug": "pemsa-lugano-mercato-lavoro",
+  "publishedAt": "2026-06-25T18:36:01.294Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 19.195439321854526,
+    "confidence": 0.8,
+    "finalScore": 15.35635145748362,
+    "topK": [
+      {
+        "slug": "pasto-vegetale-gratis-ticino-2026",
+        "cosine": 0.8345843183415012
+      },
+      {
+        "slug": "corteo-pro-palestina-lungolago-lugano",
+        "cosine": 0.8314304188012407
+      },
+      {
+        "slug": "mercatino-primavera-lugano-2026",
+        "cosine": 0.8245173808884836
+      },
+      {
+        "slug": "ucraini-con-permesso-b-preoccupazione",
+        "cosine": 0.8228361642698142
+      },
+      {
+        "slug": "incendi-nel-luganese-arrestato-un-piromane",
+        "cosine": 0.8211967626342422
+      }
+    ],
+    "score": 7.67817572874181,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

@@ -1,0 +1,260 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import {
+  SUCHTFACHSTELLE_ZUERICH_KEY,
+  SUCHTFACHSTELLE_ZUERICH_COMPANY_NAME,
+  SUCHTFACHSTELLE_ZUERICH_CAREERS_URL,
+  isSuchtfachstelleZuerichJob,
+  isTrustedDomain,
+  hasSuchtfachstelleZuerichVacancyAnchor,
+  isSuchtfachstelleZuerichEmptyListing,
+  fetchAllSuchtfachstelleZuerichJobs,
+  parseListing,
+  parseDetail,
+  cleanSfsTitle,
+} from '../scripts/lib/suchtfachstelle-zuerich-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const FIXTURE_LISTING_HTML = `
+<section>
+  <h1>Offene Stellen</h1>
+  <p>Wir freuen uns über Ihre Bewerbung.</p>
+  <a href="https://www.suchtfachstelle.zuerich/stellenausschreibung-fachperson-fuer-psychosoziale-suchtberatung-70">
+    Stellenausschreibung: Fachperson für psychosoziale Suchtberatung 70 %
+  </a>
+  <a href="https://www.suchtfachstelle.zuerich/ueber-uns/team">Team</a>
+  <a href="https://www.suchtfachstelle.zuerich/stellenausschreibung-psychotherapeut-in-50">
+    Stellenausschreibung: Psychotherapeut:in 50 %
+  </a>
+</section>
+`;
+
+const FIXTURE_DETAIL_HTML = `
+<html><head>
+  <title>Stellenausschreibung: Fachperson für psychosoziale Suchtberatung 70 %</title>
+</head><body>
+<header><nav>Top menu</nav></header>
+<section>
+<h2>Die Suchtfachstelle Zürich als Arbeitgeberin</h2>
+<p>Beratung und Begleitung von Menschen mit risikoreichem Substanzkonsum oder einer Verhaltensabhängigkeit.</p>
+<h3>Ihre Aufgaben</h3>
+<ul>
+  <li>Abklärung, psychosoziale Beratung und Krisenintervention</li>
+  <li>Beratung von Angehörigen, Paaren und Familien</li>
+</ul>
+<h3>Ihr Profil</h3>
+<p>Grundausbildung in Sozialer Arbeit und idealerweise eine beraterische Weiterbildung.</p>
+<h3>Unser Angebot</h3>
+<p>Attraktive Anstellungsbedingungen, Arbeitsort Josefstrasse 91, 8005 Zürich.</p>
+<h3>Online-Bewerbung</h3>
+<form>application form goes here</form>
+</section>
+<footer>Footer block</footer>
+</body></html>
+`;
+
+const FIXTURE_EMPTY_LISTING_HTML = `
+<html><body>
+  <section class="intro">
+    <h1 class="intro__title">Die Suchtfachstelle Zürich als Arbeitgeberin</h1>
+  </section>
+  <section class="links">
+    <h2>Wir bieten Ihnen Jobs mit vielfältigen und sinnvollen Aufgaben</h2>
+  </section>
+</body></html>
+`;
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
+describe('Suchtfachstelle Zürich crawler parser', () => {
+  it('exports valid constants', () => {
+    expect(SUCHTFACHSTELLE_ZUERICH_KEY).toBe('suchtfachstelle-zuerich');
+    expect(SUCHTFACHSTELLE_ZUERICH_COMPANY_NAME).toBe('Suchtfachstelle Zürich');
+    expect(SUCHTFACHSTELLE_ZUERICH_CAREERS_URL).toMatch(
+      /^https:\/\/www\.suchtfachstelle\.zuerich\/ueber-uns\/offene-stellen/
+    );
+  });
+
+  describe('isSuchtfachstelleZuerichJob', () => {
+    it('matches by companyKey', () => {
+      expect(isSuchtfachstelleZuerichJob({ companyKey: 'suchtfachstelle-zuerich' })).toBe(true);
+    });
+    it('matches by company name', () => {
+      expect(isSuchtfachstelleZuerichJob({ company: 'Suchtfachstelle Zürich' })).toBe(true);
+    });
+    it('matches by URL', () => {
+      expect(
+        isSuchtfachstelleZuerichJob({ url: 'https://www.suchtfachstelle.zuerich/stelle-x' })
+      ).toBe(true);
+    });
+    it('rejects unrelated', () => {
+      expect(isSuchtfachstelleZuerichJob(null)).toBe(false);
+      expect(isSuchtfachstelleZuerichJob({ companyKey: 'other' })).toBe(false);
+    });
+  });
+
+  describe('isTrustedDomain', () => {
+    it('trusts suchtfachstelle.zuerich (.zuerich TLD)', () => {
+      expect(isTrustedDomain('https://www.suchtfachstelle.zuerich/x')).toBe(true);
+    });
+    it('rejects suchtfachstelle.ch / .com (different domain)', () => {
+      expect(isTrustedDomain('https://www.suchtfachstelle.ch/x')).toBe(false);
+    });
+    it('rejects unrelated domains', () => {
+      expect(isTrustedDomain('https://example.com')).toBe(false);
+      expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('cleanSfsTitle', () => {
+    it('strips "Stellenausschreibung:" prefix', () => {
+      expect(
+        cleanSfsTitle('Stellenausschreibung: Fachperson für psychosoziale Suchtberatung 70 %')
+      ).toBe('Fachperson für psychosoziale Suchtberatung 70 %');
+    });
+    it('strips HTML and collapses whitespace', () => {
+      expect(cleanSfsTitle('  <b>Fachperson  Suchtberatung</b> ')).toBe(
+        'Fachperson Suchtberatung'
+      );
+    });
+    it('returns empty for blank', () => {
+      expect(cleanSfsTitle('')).toBe('');
+    });
+  });
+
+  describe('parseListing', () => {
+    it('extracts /stellenausschreibung-* anchors', () => {
+      const rows = parseListing(FIXTURE_LISTING_HTML);
+      expect(rows.length).toBe(2);
+      expect(rows[0].slug).toBe('fachperson-fuer-psychosoziale-suchtberatung-70');
+      expect(rows[1].slug).toBe('psychotherapeut-in-50');
+    });
+    it('does NOT pick non-job anchors (team, etc.)', () => {
+      const rows = parseListing(FIXTURE_LISTING_HTML);
+      for (const row of rows) expect(row.url).toContain('/stellenausschreibung-');
+    });
+    it('dedupes identical slugs', () => {
+      const html =
+        '<a href="https://www.suchtfachstelle.zuerich/stellenausschreibung-x">x1</a>' +
+        '<a href="https://www.suchtfachstelle.zuerich/stellenausschreibung-x">x2</a>';
+      expect(parseListing(html).length).toBe(1);
+    });
+    it('normalizes source-relative vacancy links', () => {
+      const rows = parseListing("<a href='/stellenausschreibung-relative-job'>x</a>");
+      expect(rows).toEqual([{
+        url: 'https://www.suchtfachstelle.zuerich/stellenausschreibung-relative-job',
+        slug: 'relative-job',
+      }]);
+    });
+    it('returns empty on empty HTML', () => {
+      expect(parseListing('')).toEqual([]);
+    });
+  });
+
+  describe('isSuchtfachstelleZuerichEmptyListing', () => {
+    it('recognizes the rendered empty jobs section', () => {
+      expect(isSuchtfachstelleZuerichEmptyListing(FIXTURE_EMPTY_LISTING_HTML)).toBe(true);
+    });
+
+    it('keeps an unrecognised or partial page fail-closed', () => {
+      expect(isSuchtfachstelleZuerichEmptyListing('<html><body></body></html>')).toBe(false);
+      expect(
+        isSuchtfachstelleZuerichEmptyListing(
+          FIXTURE_EMPTY_LISTING_HTML.replace('Wir bieten Ihnen Jobs', 'Jobs'),
+        ),
+      ).toBe(false);
+    });
+
+    it('does not call an active vacancy page empty', () => {
+      expect(
+        isSuchtfachstelleZuerichEmptyListing(
+          `${FIXTURE_EMPTY_LISTING_HTML}<a href="https://www.suchtfachstelle.zuerich/stellenausschreibung-active">Active</a>`,
+        ),
+      ).toBe(false);
+    });
+
+    it('does not call a page with a source-relative vacancy empty', () => {
+      expect(
+        isSuchtfachstelleZuerichEmptyListing(
+          `${FIXTURE_EMPTY_LISTING_HTML}<a href="/stellenausschreibung-relative-active">Active</a>`,
+        ),
+      ).toBe(false);
+    });
+
+    it('vetoes a vacancy href with query, fragment, and trailing slash', () => {
+      const html = `${FIXTURE_EMPTY_LISTING_HTML}<a href="/stellenausschreibung-foo/?ref=home#open">Active</a>`;
+      expect(parseListing(html)).toEqual([]);
+      expect(hasSuchtfachstelleZuerichVacancyAnchor(html)).toBe(true);
+      expect(isSuchtfachstelleZuerichEmptyListing(html)).toBe(false);
+    });
+  });
+
+  it('stamps the source-proven zero returned by the real fetch function', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(FIXTURE_EMPTY_LISTING_HTML)));
+    const jobs = await fetchAllSuchtfachstelleZuerichJobs();
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  describe('parseDetail', () => {
+    it('extracts title from <title> + strips prefix', () => {
+      const d = parseDetail(FIXTURE_DETAIL_HTML);
+      expect(d.title).toBe('Fachperson für psychosoziale Suchtberatung 70 %');
+    });
+    it('extracts body from H1 to Online-Bewerbung marker', () => {
+      const d = parseDetail(FIXTURE_DETAIL_HTML);
+      expect(d.body).toContain('Ihre Aufgaben');
+      expect(d.body).toContain('Ihr Profil');
+      expect(d.body).toContain('Josefstrasse 91');
+      expect(d.body).not.toContain('application form');
+      expect(d.body).not.toContain('Footer block');
+    });
+    it('handles empty input safely', () => {
+      const d = parseDetail('');
+      expect(d.title).toBe('');
+      expect(d.body).toBe('');
+    });
+  });
+
+  describe('slugify', () => {
+    it('handles diacritics, %, and colon', () => {
+      expect(slugify('Fachperson für psychosoziale Suchtberatung 70 %')).toBe(
+        'fachperson-fur-psychosoziale-suchtberatung-70'
+      );
+    });
+    it('respects max length', () => {
+      expect(slugify('a'.repeat(200)).length).toBeLessThanOrEqual(90);
+    });
+  });
+});
+
+// Live detail page (2026-09-29), minimized; contact persons replaced by
+// placeholders. The ad is the page's `section.richtext`.
+describe('parseDetail — live richtext template', () => {
+  const html = fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'suchtfachstelle-zuerich', 'detail-psychotherapie.html'),
+    'utf8',
+  );
+
+  it('keeps the lead, the role heading and each list line by line', () => {
+    const { title, body } = parseDetail(html);
+    expect(title).toBe('Fachperson für Psychotherapie und Suchtberatung 60-80 %');
+    expect(body.startsWith('Therapie und Begleitung von Menschen mit risikoreichem Substanzkonsum')).toBe(true);
+    expect(body).toContain('Fachperson für Psychotherapie und Suchtberatung (60-80 %)');
+    expect(body).toContain('Ihre Aufgaben\n• Psychotherapeutische Unterstützung von Personen mit komplexen und mehrfachen Indikationen\n• Abklärung, Beratung und Krisenintervention');
+    expect(body).toContain('Ihr Profil\n• Sie verfügen über ein abgeschlossenes Studium in Psychologie');
+    expect(body).toContain('Unser Angebot\nWir bieten regelmässige Arbeitszeiten');
+    expect(body).toContain('bis zum 5. Oktober 2026');
+  });
+
+  it('leaves out the contact paragraph, the application form and any invented blurb', () => {
+    const { body } = parseDetail(html);
+    expect(body).not.toMatch(/Vorname Nachname|000 000 00 00|nähere Auskünfte/);
+    expect(body).not.toMatch(/Online-Bewerbung|Infrastruktur/);
+    expect(body).not.toContain('Anlauf- und Beratungsstelle');
+  });
+});

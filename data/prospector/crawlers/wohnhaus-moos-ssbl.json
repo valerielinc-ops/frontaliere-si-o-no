@@ -1,0 +1,21 @@
+{
+  "companyKey": "wohnhaus-moos-ssbl",
+  "companyName": "Wohnhaus Moos (SSBL)",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/c84225bb-1d62-4097-b3b4-4c4fc5730f59/8a4d4593-6a46-f442-1db3-1047f170267b?jp=ABACUS"
+  ],
+  "detailTemplate": "/application-process/c84225bb-1d62-4097-b3b4-4c4fc5730f59/8a4d4593-6a46-f442-1db3-1047f170267b",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T10:56:20.160Z",
+  "candidateKey": "ssbl.ch"
+}

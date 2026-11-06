@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43519",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43519",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "18371",
+      "normalizedPlate": "ZH18371",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1000,
+      "bidCount": 19,
+      "endsAt": "2026-09-30T17:00:00.000Z",
+      "closedAt": "2026-09-30T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43519",
+      "sourceFetchedAt": "2026-09-30T12:40:34.558Z",
+      "lastVerifiedAt": "2026-09-30T12:40:34.558Z",
+      "firstSeenAt": "2026-09-24T11:50:56.152Z",
+      "lastSeenAt": "2026-09-30T12:40:34.558Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "d37199f228ff"
+    }
+  ]
+}

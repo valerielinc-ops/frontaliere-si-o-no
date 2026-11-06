@@ -1,0 +1,300 @@
+#!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
+/**
+ * Classify `validate-dist` gate failures: does this red run invalidate the
+ * DEPLOY, or does it report a QUALITY defect on pages that are already live?
+ *
+ * Why this exists (issues #4828 → #5128)
+ * -------------------------------------
+ * `deploy-publish.yml` gated `publish` on `needs.validate-dist.result ==
+ * 'success'`. `publish` is what tells Google a deploy happened: Indexing API,
+ * IndexNow, GSC submit, previous-slug-winners sync. When `audit:hreflang`
+ * started failing on 22 offenders (#5114), `publish` went `skipped` for 18
+ * consecutive runs — no search engine was told about ANY new page for two
+ * days, on a site that lives on organic traffic.
+ *
+ * The coupling was not doing what its comment claimed. `validate-dist` runs
+ * in PARALLEL with `deploy`, so by the time it goes red the dist is already
+ * live; and `deploy-publish.yml` wires NO rollback to it (grep: zero hits).
+ * The original rationale — "don't announce URLs a rollback is about to
+ * revert" — describes a mechanism that no longer exists in the caller. What
+ * remained was: a page with a broken hreflang stays live and unannounced,
+ * which is strictly worse for the page than announcing it.
+ *
+ * What this does NOT do
+ * ---------------------
+ * It does not silence, downgrade, or widen ANY gate (AGENTS.md
+ * non-negotiables #1 and #2). Every audit keeps its own pass/fail threshold,
+ * the gate job still exits non-zero, `validate-dist` still reports FAILURE,
+ * and the failure issue still opens. The only thing this changes is whether
+ * a QUALITY failure is allowed to sequester the indexing notification of a
+ * deploy that `deploy` and `validate-live` both certified as live.
+ *
+ * Default-deny by construction
+ * ----------------------------
+ * Every gate is deploy-invalidating UNLESS it appears in `QUALITY_GATES`
+ * below. A gate added to the workflow later therefore blocks `publish` until
+ * someone deliberately classifies it — the safe direction. An unparseable or
+ * missing result set also fails closed (`integrity_ok=false`), so a broken
+ * classifier can never widen the gate.
+ *
+ * Usage:
+ *   node scripts/ci/classify-validate-dist-failures.mjs --failed "a,b,c"
+ *   node scripts/ci/classify-validate-dist-failures.mjs --results-file <path>
+ *
+ * Writes `integrity_ok=true|false` (+ `blocking_gates`, `quality_gates`) to
+ * $GITHUB_OUTPUT when set. Always exits 0 — the verdict is the output, not
+ * the exit code — so the verdict is unambiguous and the caller's step summary
+ * can render it.
+ *
+ * This used to say "outputs of a FAILED job do not [survive the boundary]".
+ * That is FALSE, measured on probe runs 31081857672 (a job that wrote an
+ * output and then exited 1 still delivered it) and 31081032808 (a reusable
+ * workflow whose overall conclusion is `failure` still delivers outputs).
+ * The value is lost only when the step never writes it — see #4828.
+ */
+
+import { publishNonBlockingGateRationales } from './lib/seo-gate-classes.mjs';
+
+/**
+ * Gates whose failure does NOT sequester `publish`: every SEO gate classified
+ * in `scripts/ci/lib/seo-gate-classes.mjs`, the ONE classification shared
+ * with `cathedral-seo-gates-check`.
+ *
+ * Owner decision, 2026-10-02: «Nessuno blocca la pubblicazione: apriamo solo
+ * issue per gli errori riscontrati e poi saranno gli autofixer a sistemarle»,
+ * extended to class A on 2026-10-03.
+ *   - A (issue on failure): data/markup Google requires, or certain damage
+ *     (blank shell, unparseable JSON-LD, sitemap/canonical that `publish`
+ *     would submit verbatim). Any failure turns the run red and opens a P1
+ *     issue; `publish` proceeds.
+ *   - B (issue on regression): documented impact, measured backlog. A
+ *     regression turns the run red and opens a P2 issue that only the gate's
+ *     own recovery closes; `publish` proceeds.
+ *   - C (advisory): no evidence of impact. Red run, P3 issue, `publish`
+ *     proceeds. `audit:all/faqpage-validity` moved here from A on the same
+ *     date (FAQ rich results are limited to government/health sites).
+ *
+ * Everything not classified there is deploy-invalidating by default-deny
+ * below (non-SEO validators included).
+ */
+export const QUALITY_GATES = Object.freeze(publishNonBlockingGateRationales());
+
+/**
+ * Split a failed-gate list into the two classes.
+ * @param {readonly string[]} failedGates
+ * @returns {{ blocking: string[], quality: string[] }}
+ */
+export function classifyFailures(failedGates) {
+  const blocking = [];
+  const quality = [];
+  for (const raw of failedGates) {
+    const gate = String(raw || '').trim();
+    if (!gate) continue;
+    if (Object.prototype.hasOwnProperty.call(QUALITY_GATES, gate)) quality.push(gate);
+    else blocking.push(gate);
+  }
+  return { blocking, quality };
+}
+
+/**
+ * True for a row that names no gate: a workflow sentinel or the unexpanded
+ * `audit:all` bundle. These mean "could not determine" and fail closed.
+ * @param {string} gate
+ */
+export function isUndeterminedMarker(gate) {
+  return gate.startsWith('__') || gate === 'audit:all';
+}
+
+/**
+ * `publish` may run when nothing deploy-invalidating failed.
+ *
+ * `failedGates === null` means "could not determine" (a job crashed before
+ * writing its result set, a malformed row, an infra failure). That fails
+ * CLOSED: an unknown failure is treated as blocking.
+ *
+ * @param {readonly string[] | null} failedGates
+ * @returns {{ integrityOk: boolean, blocking: string[], quality: string[], reason: string }}
+ */
+export function evaluateIntegrity(failedGates) {
+  if (failedGates === null || failedGates === undefined) {
+    return {
+      integrityOk: false,
+      blocking: [],
+      quality: [],
+      unclassified: [],
+      reason: 'gate results unavailable — failing closed',
+    };
+  }
+  // Owner decision, 2026-10-07: «nessun gate blocca» — extended from the
+  // classified SEO gates to every NAMED gate. `deploy` runs in parallel with
+  // validate-dist and nothing rolls it back, so a red gate never un-publishes
+  // the site: withholding IndexNow/GSC only hides pages that are already live
+  // (runs 37543977878 and 37571743923, sequestered by validate:og-images).
+  // A gate outside seo-gate-classes.mjs is reported as `unclassified` so it
+  // can be given a class, but it no longer closes `publish`. The only
+  // fail-closed case left is the one above: results we could not read.
+  //
+  // What still blocks is not a gate but a marker that the verdict is unknown:
+  // the `__…__` sentinels the workflow writes when a job died before its gate
+  // step or the classifier never ran, and the opaque `audit:all` bundle name
+  // (its sub-auditor rows were not expanded, so we cannot tell what failed).
+  const named = classifyFailures(failedGates);
+  const quality = named.quality;
+  const blocking = named.blocking.filter(isUndeterminedMarker);
+  const unclassified = named.blocking.filter((gate) => !isUndeterminedMarker(gate));
+  if (blocking.length > 0) {
+    return {
+      integrityOk: false,
+      blocking,
+      quality,
+      unclassified,
+      reason: `gate results undetermined (${blocking.join(', ')}) — failing closed`,
+    };
+  }
+  if (unclassified.length > 0) {
+    return {
+      integrityOk: true,
+      blocking,
+      quality,
+      unclassified,
+      reason:
+        `gate(s) failed: ${[...unclassified, ...quality].join(', ')} — publish proceeds ` +
+        `(owner decision 2026-10-07). Unclassified: ${unclassified.join(', ')}. ` +
+        'validate-dist stays RED and the failure is tracked.',
+    };
+  }
+  if (quality.length > 0) {
+    return {
+      integrityOk: true,
+      blocking,
+      quality,
+      unclassified,
+      reason:
+        `only quality gate(s) failed: ${quality.join(', ')} — dist is valid, ` +
+        `publish proceeds. validate-dist stays RED and the failure is tracked.`,
+    };
+  }
+  return { integrityOk: true, blocking, quality, unclassified, reason: 'no gate failures' };
+}
+
+/**
+ * Render the annotation for the verdict without conflating a blocking gate
+ * with a quality-only gate. The distinction matters operationally: quality
+ * keeps the workflow red but does not sequester publish; blocking keeps both
+ * the workflow red and publish closed.
+ *
+ * @param {{ integrityOk: boolean, blocking: string[], quality: string[] }} verdict
+ * @returns {string | null}
+ */
+export function formatIntegrityAnnotation(verdict) {
+  if (verdict.blocking.length > 0) {
+    const qualitySuffix = verdict.quality.length > 0
+      ? ` Quality gate(s) also failed: ${verdict.quality.join(', ')}.`
+      : '';
+    return (
+      '::error::validate-dist blocked publish because the gate results are ' +
+      `undetermined: ${verdict.blocking.join(', ')}.${qualitySuffix} ` +
+      'Find why the verdict is missing; do not widen the classifier.'
+    );
+  }
+  if ((verdict.unclassified || []).length > 0) {
+    const qualitySuffix = verdict.quality.length > 0
+      ? ` Classified gate(s) also failed: ${verdict.quality.join(', ')}.`
+      : '';
+    return (
+      '::warning::validate-dist failed on unclassified gate(s) ' +
+      `${verdict.unclassified.join(', ')}.${qualitySuffix} Publish is not ` +
+      'sequestered (owner decision 2026-10-07: no gate blocks publish). The ' +
+      'validate-dist job stays RED and its failure issue still opens — fix ' +
+      'the gate and give it a class in scripts/ci/lib/seo-gate-classes.mjs.'
+    );
+  }
+  if (verdict.quality.length > 0) {
+    return (
+      '::warning::validate-dist failed on quality gate(s) ' +
+      `${verdict.quality.join(', ')}. Publish is not sequestered because ` +
+      'no deploy-invalidating gate failed. The validate-dist job stays RED ' +
+      'and its failure issue still opens — fix the audit, do not widen it.'
+    );
+  }
+  return null;
+}
+
+/**
+ * Parse the `<name>  <seconds>  rc=<code>` rows the gate jobs emit into the
+ * list of gates that failed. Returns null when a row is malformed — the
+ * summary loop in the workflow treats a missing rc as FAIL, and so do we,
+ * but a row we cannot even name has to fail closed.
+ *
+ * @param {string} text
+ * @returns {string[] | null}
+ */
+export function parseResultRows(text) {
+  const failed = [];
+  for (const line of String(text || '').split('\n')) {
+    const row = line.trim();
+    if (!row) continue;
+    const m = /^(\S+)\s+.*\brc=(\d+)\s*$/.exec(row);
+    if (!m) return null; // unparseable row → cannot classify → fail closed
+    if (m[2] !== '0') failed.push(m[1]);
+  }
+  return failed;
+}
+
+/* ── CLI ──────────────────────────────────────────────────────────────── */
+
+function argOf(flag) {
+  const i = process.argv.indexOf(flag);
+  return i === -1 ? undefined : process.argv[i + 1];
+}
+
+async function main() {
+  const { appendFileSync, readFileSync, existsSync } = await import('node:fs');
+
+  let failedGates;
+  const failedArg = argOf('--failed');
+  const resultsFile = argOf('--results-file');
+
+  if (failedArg !== undefined) {
+    failedGates = failedArg.split(',').map((s) => s.trim()).filter(Boolean);
+  } else if (resultsFile) {
+    // A missing results file means the job died before running any gate.
+    failedGates = existsSync(resultsFile)
+      ? parseResultRows(readFileSync(resultsFile, 'utf-8'))
+      : null;
+  } else {
+    failedGates = null;
+  }
+
+  const verdict = evaluateIntegrity(failedGates);
+
+  console.log('─'.repeat(70));
+  console.log(`validate-dist integrity verdict: ${verdict.integrityOk ? 'OK' : 'BLOCKED'}`);
+  console.log(`  reason:   ${verdict.reason}`);
+  console.log(`  blocking: ${verdict.blocking.join(', ') || '(none)'}`);
+  console.log(`  quality:  ${verdict.quality.join(', ') || '(none)'}`);
+  console.log(`  unclassified (reported, not blocking): ${(verdict.unclassified || []).join(', ') || '(none)'}`);
+  console.log('─'.repeat(70));
+  const annotation = formatIntegrityAnnotation(verdict);
+  if (annotation) console.log(annotation);
+
+  if (process.env.GITHUB_OUTPUT) {
+    appendFileSync(
+      process.env.GITHUB_OUTPUT,
+      `integrity_ok=${verdict.integrityOk ? 'true' : 'false'}\n` +
+        `blocking_gates=${verdict.blocking.join(',')}\n` +
+        `quality_gates=${verdict.quality.join(',')}\n` +
+        `unclassified_gates=${(verdict.unclassified || []).join(',')}\n`,
+    );
+  }
+  // Always 0: the verdict travels as an output, never as an exit code, so a
+  // quality-only failure stays distinguishable from an infra failure. (A
+  // non-zero exit would NOT by itself lose the output — see the header note.)
+  process.exit(0);
+}
+
+const isMain =
+  process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
+if (isMain) await main();

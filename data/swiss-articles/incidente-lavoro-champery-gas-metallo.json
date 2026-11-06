@@ -1,0 +1,19 @@
+{
+  "id": "incidente-lavoro-champery-gas-metallo",
+  "slug": "incidente-lavoro-champery-gas-metallo",
+  "publishedAt": "2026-06-26T17:45:07.372Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 137.83255123555557,
+    "confidence": 1,
+    "finalScore": 137.83255123555557,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 13.783255123555557,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

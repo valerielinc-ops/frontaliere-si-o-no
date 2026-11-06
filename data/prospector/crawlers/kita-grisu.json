@@ -1,0 +1,21 @@
+{
+  "companyKey": "kita-grisu",
+  "companyName": "Kita Grisu",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/1ba6234a-948c-44a2-86be-8c3b3e1e04f2/35b481db-108c-7a46-092d-d46ca82714b9?jp=ABACUS"
+  ],
+  "detailTemplate": "/application-process/1ba6234a-948c-44a2-86be-8c3b3e1e04f2/35b481db-108c-7a46-092d-d46ca82714b9",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung"
+  ],
+  "canton": "BE",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-25T11:05:13.998Z",
+  "candidateKey": "kita-grisu.ch"
+}

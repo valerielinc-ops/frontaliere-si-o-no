@@ -1,0 +1,22 @@
+{
+  "companyKey": "bekb-ch",
+  "companyName": "Bancomat BEKB | BCBE Bern-Bubenbergplatz",
+  "companyHost": "bcbe.ch",
+  "platform": "bcbe.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.bcbe.ch/fr/la-bcbe/employeur/postes?referrer=/de/die-bekb/arbeitgeberin/stellen"
+  ],
+  "detailTemplate": "/fr/la-bcbe/blog-guide/travail-carriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Arbeitgeberin De l’école hôtelière au Centre clientèle de la BCBE «Je n’aurais jamais pensé travailler dans une banque. Aujourd’hui, je ne pourrais pas m’imagin",
+    "Arbeitgeberin «Je n’ai jamais l’impression de faire du sur place» Nadin Spahr travaille à la BCBE depuis quinze ans. Elle y a commencé sa carrière en 2011 par u"
+  ],
+  "canton": "BE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-25T11:05:12.739Z",
+  "candidateKey": "bekb.ch"
+}

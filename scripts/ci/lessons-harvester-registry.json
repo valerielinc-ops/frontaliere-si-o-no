@@ -1,0 +1,202 @@
+{
+  "_doc": [
+    "Registro delle decisioni del lessons-harvester su ogni cluster proposto.",
+    "Letto da scripts/ci/harvest-agent-lessons.mjs (parseLessonsRegistry): un cluster registrato",
+    "torna NOVEL solo se dopo `decidedAt` raccoglie di nuovo almeno THRESHOLD esempi; `added`",
+    "vale come regola documentata (puo' ancora escalare), `declined` e' uno scarto per scelta.",
+    "La proposta Codex di lessons-harvester.yml aggiunge o aggiorna una voce per OGNI cluster",
+    "novel che decide, nella stessa PR. key = campo `registryKey` di harvest-clusters.json.",
+    "decidedAt = istante ISO UTC della decisione; ref = PR/issue; reason = perche'."
+  ],
+  "entries": [
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-treats-every",
+      "outcome": "added",
+      "decidedAt": "2026-09-27T19:33:23Z",
+      "ref": "#10153",
+      "reason": "Regola in AGENTS.md #6: parser e guard funnel-critical validano dominio, contesto e casi non-target invece di classificare shape sintattiche generiche."
+    },
+    {
+      "key": "reviewer-finding/fp:body-technical-blocker-not",
+      "outcome": "declined",
+      "decidedAt": "2026-09-27T19:33:23Z",
+      "ref": "#10153",
+      "reason": "Gia' coperto dal contratto di completezza del body PR e dalla distinzione fra `blocked: <causa tecnica>` e stati chiudenti."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:no-pr-no-root-cause",
+      "outcome": "added",
+      "decidedAt": "2026-09-27T19:33:23Z",
+      "ref": "#10153",
+      "reason": "`no-pr-no-root-cause` non e' un codice di issue-fix.yml. ISSUES.md > Abort senza PR ammette solo i codici dell'elenco di issue-fix.yml: causa non determinabile = `no-root-cause` + `AUTOMATION_DEFERRED: technical` + label `automation-deferred`."
+    },
+    {
+      "key": "reviewer-finding/fp:body-not-closing-state",
+      "outcome": "added",
+      "decidedAt": "2026-09-28T12:05:13Z",
+      "ref": "#10212",
+      "reason": "REVIEW.md: `per scelta` e `by construction` sono stati autonomi, non varianti di `blocked:`; `deferred, non funnel-critical` vale solo per 🟡/❓ di review."
+    },
+    {
+      "key": "reviewer-finding/fp:codex-fallback-review-scope",
+      "outcome": "declined",
+      "decidedAt": "2026-09-28T12:05:13Z",
+      "ref": "#10153, #10212",
+      "reason": "Cluster fantasma: review con body su una riga e `\\n` letterali, lette come una sola riga. tallyFindings ora normalizza i body malformati (reviewBodyLines), quindi il fingerprint non si forma piu'."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-accepts-any",
+      "outcome": "declined",
+      "decidedAt": "2026-10-01T11:46:17Z",
+      "ref": "#10707, #10400, #10156",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard funnel-critical non accettano shape truthy/non-empty generiche, ma validano dominio, contesto, unknown/ambigui e vicino non-target."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-tratta-ogni",
+      "outcome": "declined",
+      "decidedAt": "2026-10-01T11:46:17Z",
+      "ref": "#10626, #10401, #10326",
+      "reason": "E' la stessa classe gia' coperta da AGENTS.md #6 e dalla regola registrata `fp:scripts-funnel-treats-every`: la shape non basta per classificare righe, componenti o risposte."
+    },
+    {
+      "key": "reviewer-finding/fp:github-github-github-github",
+      "outcome": "declined",
+      "decidedAt": "2026-10-16T10:02:28Z",
+      "ref": "#13449, #11631, #11108",
+      "reason": "Fingerprint catch-all basato sui path `.github`: retry con side effect, propagazione errori e duplicati di path sono difetti eterogenei, quindi non sostengono una regola preventiva unica."
+    },
+    {
+      "key": "reviewer-finding/fp:packages-packages-packages-packages",
+      "outcome": "added",
+      "decidedAt": "2026-10-16T10:02:28Z",
+      "ref": "#13452, #12351, #11274",
+      "reason": "Aggiunta in AGENTS.md una verifica source/consumer per il corpus articolo: campi plain-text completi, niente placeholder/Markdown/vuoti, date valide e immagini pertinenti in tutte le localizzazioni."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-scripts-scripts-scripts",
+      "outcome": "declined",
+      "decidedAt": "2026-11-02T13:46:33Z",
+      "ref": "#16312, #15918, #15046",
+      "reason": "Fingerprint catch-all eterogeneo: #16312 riguarda il confine di superficie attiva cookie, #15918 identita' e default dei parser, #15046 replay/audit e metadata; non esiste una regola preventiva comune senza duplicare AGENTS.md #6."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-scripts-scripts-funnel",
+      "outcome": "declined",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14003, #12620, #12253",
+      "reason": "Catch-all eterogeneo già coperto da AGENTS.md #6: la scansione dei sibling e dei consumer funnel-critical è esplicita; non serve una seconda regola senza classe comune più precisa."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-treats-every",
+      "outcome": "declined",
+      "decidedAt": "2026-10-06T12:13:36Z",
+      "ref": "#11764, #11521, #10288",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard non devono trattare ogni shape come semantica, ma validare dominio/contesto e gestire unknown, ambigui e vicino non-target; aggiungere una riga duplicherbbe la regola."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-falls-back",
+      "outcome": "added",
+      "decidedAt": "2026-10-04T11:15:12Z",
+      "ref": "#11033, #10707, #9501",
+      "reason": "Pattern funnel reale: fonte primaria assente o ambigua e fallback generici (`first-match`, `substring` o campo vicino) possono attribuire dati al contesto sbagliato; aggiunta frase preventiva in AGENTS.md #6."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-treats-any",
+      "outcome": "declined",
+      "decidedAt": "2026-10-22T10:24:27Z",
+      "ref": "#14470, #14069, #13194",
+      "reason": "Ricorrenza della stessa classe gia' coperta da AGENTS.md #6: parser e guard funnel-critical non classificano shape generiche (`any`/`non-empty`), ma validano dominio, contesto, unknown, ambigui e vicino non-target."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-scripts-scripts-correctness",
+      "outcome": "declined",
+      "decidedAt": "2026-11-02T13:46:33Z",
+      "ref": "#16145, #16130, #14110",
+      "reason": "Fingerprint catch-all eterogeneo: #16145 riguarda contesto dei campi, #16130 segmenti e guard route ATS, #14110 identita' e validator CAS delle lease; AGENTS.md #6 copre gia' contesto, confini, unknown e invarianti, mentre una clausola unica sarebbe troppo generica."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-sends-every",
+      "outcome": "declined",
+      "decidedAt": "2026-10-08T12:10:56Z",
+      "ref": "#12238, #11340, #9948",
+      "reason": "Gia' coperto da AGENTS.md #6: non instradare ogni shape, valore non vuoto o errore verso lo stesso consumer/fallback; validare dominio, contesto e classe dell'errore e preservare unknown."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-treats-any",
+      "outcome": "declined",
+      "decidedAt": "2026-10-18T09:47:17Z",
+      "ref": "#13670, #13411, #13229",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard non trattano campi parziali, regex o heading come prova senza validare dominio/contesto e gestire unknown, ambigui e vicino non-target."
+    },
+    {
+      "key": "reviewer-finding/fp:body-contract-body-claims",
+      "outcome": "added",
+      "decidedAt": "2026-10-19T11:00:31Z",
+      "ref": "#13858, #12188, #12098",
+      "reason": "Aggiunta in REVIEW.md al punto sui claim perf/optimization: baseline, popolazione, fase e confronto dell'evidenza devono coincidere con il claim; un delta parziale o post-merge non prova un risultato piu' ampio."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:evidence-only",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14109, #13965, #13823, #13820, #13818",
+      "reason": "Clausola in ISSUES.md: FIX_OUTCOME resta riservato al terminale issue-fix; note manuali di sola evidenza non devono inventare esiti che il drainer interpreta come telemetria."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-does-not",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14122, #13300, #13151",
+      "reason": "AGENTS.md #6 richiede di verificare le rappresentazioni reali al confine parser/guard (case, Unicode, prefissi e header duplicati) e imporre l'invariante dopo normalizzazione."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-does-not",
+      "outcome": "declined",
+      "decidedAt": "2026-10-22T10:24:27Z",
+      "ref": "#14414, #14219, #13638",
+      "reason": "Gia' coperto da AGENTS.md #6 e dalla classe registrata `fp:scripts-correctness-does-not`: le regex/parser devono verificare le rappresentazioni reali al confine del consumer, inclusi label/formati locali e container HTML non nominali."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:pr-updated",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14111, #14063, #13743",
+      "reason": "Clausola in ISSUES.md: l'aggiornamento di una PR è progresso di riconciliazione, non un nuovo codice FIX_OUTCOME del fixer."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:recurrence-after-fix",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#13822, #13600, #12130",
+      "reason": "Clausola in ISSUES.md: la verifica di una ricorrenza dopo una fix resta evidenza manuale e non può introdurre un codice FIX_OUTCOME non previsto."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:recovery-observed",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#12669, #12001, #11916",
+      "reason": "Clausola in ISSUES.md: il recovery osservato è uno stato di riconciliazione, non un esito terminale dell'issue-fix."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:recovery-pending",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#9608, #9247, #9179",
+      "reason": "Clausola in ISSUES.md: recovery pending va documentato come evidenza in attesa, senza un marker FIX_OUTCOME inventato."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-accepts-any",
+      "outcome": "declined",
+      "decidedAt": "2026-10-23T10:18:47Z",
+      "ref": "#14643, #13411, #12555",
+      "reason": "Gia' coperto da AGENTS.md #6: la shape non basta; guard e regex devono validare dominio/contesto e gestire unknown o ambigui invece di accettare qualunque valore."
+    },
+    {
+      "key": "reviewer-finding/fp:build-plugins-build-plugins-build-plugins-build-plugins",
+      "outcome": "declined",
+      "decidedAt": "2026-11-01T11:59:28Z",
+      "ref": "#16262, #16193, #14938",
+      "reason": "Fingerprint catch-all eterogeneo: #16262/#16193 trattano literal editoriali/calcolati obsoleti, #14938 una guardia di lunghezza sui target filesystem; AGENTS.md #6 copre gia' verifica di classe, sibling e consumer, quindi non esiste una regola preventiva unica."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "companyKey": "schweizerhof-flims",
+  "companyName": "Schweizerhof",
+  "companyHost": "romantikhotels.hcm4all.de",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://romantikhotels.hcm4all.de/list/?l=de"
+  ],
+  "detailTemplate": "/list/*",
+  "detailCandidateText": "Schweizerhof Flims",
+  "tenantScope": {
+    "nativeMarker": "tenantHeading",
+    "expectedText": "Schweizerhof Flims",
+    "listingExpectedText": "Romantik Hotel Schweizerhof Flims",
+    "foreignLocationOutOfScope": true,
+    "listingMarker": {
+      "tag": "div",
+      "class": "job-ads-unit-icon__tooltip",
+      "containerTag": "div",
+      "containerClass": "job-ad-block"
+    }
+  },
+  "detailEnrichment": true,
+  "rescueOnEmptyListing": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Housekeeping-Mitarbeiter/in (m/w/d)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-12T08:50:50.994Z"
+}

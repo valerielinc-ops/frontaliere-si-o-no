@@ -1,0 +1,40 @@
+{
+  "id": "pflegehilfe-svizzera",
+  "slug": "pflegehilfe-svizzera",
+  "publishedAt": "2026-06-26T05:43:21.159Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.158705945919134,
+    "confidence": 0.8,
+    "finalScore": 3.326964756735307,
+    "topK": [
+      {
+        "slug": "costi-salute-svizzera-frontalieri-2026",
+        "cosine": 0.8317411891838268
+      },
+      {
+        "slug": "rifugiati-ucraini-assistenza-2027",
+        "cosine": 0.8295198451535023
+      },
+      {
+        "slug": "spese-cura-frontalieri-ufas-2026",
+        "cosine": 0.8225522125316447
+      },
+      {
+        "slug": "costo-vita-svizzera-mappa",
+        "cosine": 0.8195957918561897
+      },
+      {
+        "slug": "crans-montana-spese-cura-italiani-ufas-2026",
+        "cosine": 0.8180439451782873
+      }
+    ],
+    "score": 0.8317411891838268,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

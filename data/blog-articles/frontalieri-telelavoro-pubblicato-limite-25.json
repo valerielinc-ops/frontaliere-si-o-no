@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-telelavoro-pubblicato-limite-25",
+  "slug": "frontalieri-telelavoro-pubblicato-limite-25",
+  "publishedAt": "2026-07-21T08:57:50.851Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.5233129627683475,
+    "confidence": 0.8,
+    "finalScore": 6.0186503702146785,
+    "topK": [
+      {
+        "slug": "frontalieri-telelavoro",
+        "cosine": 0.8900285345191122
+      },
+      {
+        "slug": "telelavoro-accordo-definitivo-italia",
+        "cosine": 0.8607795032280342
+      },
+      {
+        "slug": "frontalieri-da-remoto-al-50-senza-impatto-su-contributi-e-pensioni",
+        "cosine": 0.8571052807746743
+      },
+      {
+        "slug": "telelavoro-italia-svizzera-ratifica",
+        "cosine": 0.8559625246850339
+      },
+      {
+        "slug": "cross-border-teleworking-2026",
+        "cosine": 0.8552137945715482
+      }
+    ],
+    "score": 1.5046625925536696,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

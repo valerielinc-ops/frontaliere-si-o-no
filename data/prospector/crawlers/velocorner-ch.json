@@ -1,0 +1,21 @@
+{
+  "companyKey": "velocorner-ch",
+  "companyName": "velocorner",
+  "companyHost": "sidecut.swiss",
+  "platform": "sidecut.swiss",
+  "mode": "template",
+  "seedUrls": [
+    "https://sidecut.swiss/site/bewerben-13/"
+  ],
+  "detailTemplate": "/site/bewerben-13/c/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Mode / Ausrüstung",
+    "Occasion / Test",
+    "Bergsport & Outdoor"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-24T10:46:51.202Z"
+}

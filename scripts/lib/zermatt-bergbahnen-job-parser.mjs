@@ -1,0 +1,347 @@
+#!/usr/bin/env node
+/**
+ * Zermatt Bergbahnen job parser — Fetcher and job builder.
+ *
+ * Source: https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere
+ *
+ * Pimcore CMS. The static careers page no longer embeds the job cards —
+ * they're loaded client-side via the "Alle" tab's AJAX endpoint
+ * (/de/career-tab?tab=1&team=), which returns JSON `{ html, success }`
+ * whose `html` field contains the actual listing markup:
+ *   .card-item__body containing:
+ *     .card-item__top-title  — department
+ *     h3.card-item__title > a.stretch-link__link — job title + link
+ *     .card-item__tag-list > .card-item__tag-list-item — tags (Vollzeit, Befristet, etc.)
+ * Detail pages at /de/ueber-uns/job-und-karriere/{slug}_job_{id}
+ *
+ * Exports the 4 required functions for the crawler template:
+ *   - fetchAllZermattBergbahnenJobs()  — Fetch and parse all jobs
+ *   - isZermattBergbahnenJob()         — Match jobs belonging to this company
+ *   - isTrustedDomain()           — Validate URLs belong to this company
+ *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
+import { detectLang } from './dedicated-crawler-common.mjs';
+import { slugify, buildJobSlug, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+/* ── Constants ─────────────────────────────────────────────── */
+
+const BASE_URL = 'https://www.matterhornparadise.ch';
+// "Alle" tab of https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere —
+// returns every open job (Jobs + Lehrstellen) in one JSON payload.
+const CAREERS_TAB_URL = 'https://www.matterhornparadise.ch/de/career-tab?tab=1&team=';
+const HQ = getCompanyDefaults('zermatt-bergbahnen');
+
+export const ZERMATT_BERGBAHNEN_KEY = 'zermatt-bergbahnen';
+export const ZERMATT_BERGBAHNEN_COMPANY_NAME = 'Zermatt Bergbahnen';
+export const ZERMATT_BERGBAHNEN_COMPANY_DOMAIN = 'matterhornparadise.ch';
+
+export const MIN_DESC_LENGTH = 100;
+
+/* ── Helpers ───────────────────────────────────────────────── */
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+/* ── Company Matchers ──────────────────────────────────────── */
+
+/**
+ * Check if a job belongs to Zermatt Bergbahnen.
+ * Used by the template to filter this company's jobs from the global dataset.
+ */
+export function isZermattBergbahnenJob(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = normalize(job?.url || '');
+
+  return (
+    key === ZERMATT_BERGBAHNEN_KEY ||
+    key.startsWith('zermatt-bergbahnen') ||
+    company.includes('zermatt bergbahnen') ||
+    url.includes('matterhornparadise.ch')
+  );
+}
+
+/**
+ * Validate that a URL belongs to Zermatt Bergbahnen's domain.
+ */
+export function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === 'matterhornparadise.ch' || host.endsWith('.matterhornparadise.ch');
+  } catch {
+    return false;
+  }
+}
+
+/* ── HTML Parsing ─────────────────────────────────────────── */
+
+/**
+ * Extract the listing markup from the "Alle" tab AJAX response.
+ * The endpoint returns JSON `{ html, success }`; if the response isn't
+ * JSON (site reverts to serving the fragment directly), fall back to
+ * treating the raw response as HTML.
+ */
+function extractListingHtml(raw = '') {
+  if (!raw) return '';
+  try {
+    const parsed = JSON.parse(raw);
+    if (typeof parsed?.html === 'string') return parsed.html;
+  } catch {
+    // Not JSON — assume it's already HTML.
+  }
+  return raw;
+}
+
+/**
+ * Parse the Zermatt Bergbahnen careers listing page.
+ * Jobs are in .card-item__body containers with:
+ *   .card-item__top-title — department name
+ *   h3.card-item__title > a.stretch-link__link — title + href
+ *   .card-item__tag-list-item — tags (Vollzeit/Teilzeit, Befristet/Unbefristet, Jobs/Lehrstellen)
+ *
+ * Returns an array of { title, url, department, tags } objects.
+ */
+function parseListingPage(html = '') {
+  if (!html) return [];
+  const { document } = new JSDOM(html).window;
+  const jobs = [];
+  const seen = new Set();
+
+  // Primary strategy: card items
+  const cards = document.querySelectorAll('.card-item__body');
+  for (const card of cards) {
+    const titleLink = card.querySelector('h3 a, h3.card-item__title a, .card-item__title a');
+    if (!titleLink) continue;
+
+    const title = normalizeSpace(titleLink.textContent || '');
+    if (!title || title.length < 3) continue;
+
+    let href = titleLink.getAttribute('href') || '';
+    if (!href) continue;
+    const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
+    if (seen.has(url)) continue;
+    seen.add(url);
+
+    const deptEl = card.querySelector('.card-item__top-title');
+    const department = normalizeSpace(deptEl?.textContent || '');
+
+    const tagEls = card.querySelectorAll('.card-item__tag-list-item');
+    const tags = [...tagEls].map(t => normalizeSpace(t.textContent || '')).filter(Boolean);
+
+    jobs.push({ title, url, department, tags });
+  }
+
+  // Fallback strategy: look for links with _job_ in href
+  if (jobs.length === 0) {
+    const jobLinks = document.querySelectorAll('a[href*="_job_"]');
+    for (const link of jobLinks) {
+      const title = normalizeSpace(link.textContent || '');
+      if (!title || title.length < 5) continue;
+
+      let href = link.getAttribute('href') || '';
+      const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
+      if (seen.has(url)) continue;
+      seen.add(url);
+
+      jobs.push({ title, url, department: '', tags: [] });
+    }
+  }
+
+  return jobs;
+}
+
+/**
+ * Parse a Zermatt Bergbahnen job detail page for full description.
+ *
+ * The posting's text lives in the page's text sections — the introduction
+ * (`.wysiwyg-usp-area`) and one `.wysiwyg-with-medium` section per block
+ * ("Dein Job", "Dein Profil", …) — read in page order, without the apply
+ * button. The former generic selectors matched the whole `<main>` instead,
+ * whose hero carries the department, the title and the breadcrumbs
+ * ("breadcrumbs.home Über uns Jobs und Karriere …"). A page without those
+ * sections gives no description.
+ */
+export function parseDetailPage(html = '') {
+  if (!html) return '';
+
+  const { document } = new JSDOM(html).window;
+
+  const sections = [...document.querySelectorAll('.wysiwyg-usp-area, .wysiwyg-with-medium')];
+  const parts = [];
+  for (const section of sections) {
+    for (const button of section.querySelectorAll('a.btn, .btn, button')) button.remove();
+    const text = stripHtml(section.innerHTML || '')
+      .split('\n')
+      .map((line) => line.trim())
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (text) parts.push(text);
+  }
+  // Without those sections the posting's text was not found: no description
+  // (the job takes the pipeline's thin-source path). The former fallback to
+  // `.content-block` / `article` / `main` / the largest `div` published the
+  // hero and the breadcrumbs instead.
+  return parts.join('\n\n').trim();
+}
+
+/* ── Category / Employment helpers ────────────────────────── */
+
+function detectCategory(title = '', department = '') {
+  const t = `${title} ${department}`.toLowerCase();
+  if (/techni|mechan|elektr|metallbau|seilbahn|maschinen/i.test(t)) return 'engineering';
+  if (/\bit\b|informati|software|telekomm/i.test(t)) return 'technology';
+  if (/market|sales|verkauf|berater/i.test(t)) return 'sales';
+  if (/gastro|restaurant|service|küch|koch|chef de/i.test(t)) return 'hospitality';
+  if (/admin|büro|office|sekretär/i.test(t)) return 'admin';
+  if (/lehr|ausbildung|apprent/i.test(t)) return 'apprenticeship';
+  if (/finan|buchhalt|controll/i.test(t)) return 'finance';
+  if (/piste|patrol|rettung|sicher/i.test(t)) return 'operations';
+  return 'tourism';
+}
+
+function detectExperienceLevel(title = '', tags = []) {
+  const combined = `${title} ${tags.join(' ')}`;
+  if (/\b(lehr|ausbildung|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|junior|entry|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprent|praktik)/i.test(combined)) return 'ENTRY';
+  if (/senior|lead|head|director|manager|chef|teamleit|stv\./i.test(combined)) return 'SENIOR';
+  return 'MID';
+}
+
+function inferEmploymentType(title = '', tags = []) {
+  const combined = `${title} ${tags.join(' ')}`;
+  if (/teilzeit|part[- ]?time|tempo parziale/i.test(combined)) return 'PART_TIME';
+  if (/vollzeit|full[- ]?time/i.test(combined)) return 'FULL_TIME';
+  // Check percentage
+  const pctMatch = combined.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || combined.match(/(\d{2,3})\s*%/);
+  if (pctMatch) {
+    const maxPct = pctMatch[2] ? parseInt(pctMatch[2]) : parseInt(pctMatch[1]);
+    if (maxPct < 80) return 'PART_TIME';
+  }
+  return 'FULL_TIME';
+}
+
+/* ── Main fetch function ──────────────────────────────────── */
+
+/**
+ * Fetch all Zermatt Bergbahnen jobs. Returns ParsedJob[] (source locale only).
+ */
+export async function fetchAllZermattBergbahnenJobs() {
+  console.log(`  Fetching Zermatt Bergbahnen jobs from ${CAREERS_TAB_URL}`);
+
+  // SSL may have issues — set env var to allow self-signed certs
+  const origTls = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+  let html = '';
+  try {
+    const raw = await fetchHtml(CAREERS_TAB_URL, { timeoutMs: 25000 });
+    html = extractListingHtml(raw);
+  } catch (err) {
+    console.warn(`  Failed to fetch ${CAREERS_TAB_URL}: ${err.message}`);
+    throw err;
+  } finally {
+    // Restore original TLS setting
+    if (origTls === undefined) {
+      delete process.env.NODE_TLS_REJECT_UNAUTHORIZED;
+    } else {
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = origTls;
+    }
+  }
+
+  const listings = parseListingPage(html);
+  console.log(`  Jobs found on listing page: ${listings.length}`);
+  if (!listings.length) return [];
+
+  const jobs = [];
+  for (const listing of listings) {
+    let description = '';
+    let publication = mergeSourcePostingDates();
+    if (listing.url) {
+      try {
+        // Detail pages may also have SSL issues
+        const origTls2 = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+        try {
+          const detailHtml = await fetchHtml(listing.url, { timeoutMs: 15000 });
+          description = parseDetailPage(detailHtml);
+          const records = extractJsonLd(detailHtml, listing.url);
+          const matched = records.find(record => {
+            if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(listing.title).toLowerCase()) return false;
+            if (!record.urlExplicit) return records.length === 1;
+            try { return new URL(record.url, listing.url).href === new URL(listing.url).href; } catch { return false; }
+          });
+          publication = mergeSourcePostingDates({}, matched);
+        } finally {
+          if (origTls2 === undefined) {
+            delete process.env.NODE_TLS_REJECT_UNAUTHORIZED;
+          } else {
+            process.env.NODE_TLS_REJECT_UNAUTHORIZED = origTls2;
+          }
+        }
+      } catch (err) {
+        console.warn(`  Detail fetch failed for ${listing.url}: ${err.message}`);
+      }
+    }
+
+    // The detail page's text is published whatever its length. Below
+    // MIN_DESC_LENGTH the crawler used to replace it with the listing metadata
+    // ("<Titel>. — Zermatt Bergbahnen, Zermatt. Abteilung: …. <Tags>"); a
+    // detail without text now gives no description and the job takes the
+    // pipeline's thin-source path.
+    const sourceLang = detectLang(description || listing.title, 'de');
+    const jobSlug = buildJobSlug(`${listing.title} Zermatt`, 'zermatt-bergbahnen');
+    const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
+    const empType = inferEmploymentType(listing.title, listing.tags);
+
+    jobs.push({
+      id: `${ZERMATT_BERGBAHNEN_KEY}-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: ZERMATT_BERGBAHNEN_COMPANY_NAME,
+      companyKey: ZERMATT_BERGBAHNEN_KEY,
+      companyDomain: ZERMATT_BERGBAHNEN_COMPANY_DOMAIN,
+      title: listing.title,
+      titleByLocale: { [sourceLang]: listing.title },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
+      location: 'Zermatt',
+      canton: HQ.canton,
+      addressLocality: 'Zermatt',
+      addressRegion: HQ.addressRegion,
+      addressCountry: 'CH',
+      country: 'CH',
+      postalCode: HQ.postalCode,
+      category: detectCategory(listing.title, listing.department),
+      sector: 'Turismo / Funivie',
+      contract: empType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType: empType,
+      experienceLevel: detectExperienceLevel(listing.title, listing.tags),
+      featured: false,
+      ...publication,
+      url: listing.url,
+      applyUrl: listing.url,
+      source: 'Zermatt Bergbahnen Dedicated Parser',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+    });
+  }
+
+  console.log(`  Total Zermatt Bergbahnen jobs discovered: ${jobs.length}`);
+  return jobs;
+}
+
+/**
+ * Fragments only the crawler once wrote: its metadata description, and the
+ * page hero (breadcrumbs) it used to take as part of the posting.
+ */
+export const ZERMATT_BERGBAHNEN_FABRICATED_DESCRIPTION_RE = /— Zermatt Bergbahnen, Zermatt\.|breadcrumbs\.home/;

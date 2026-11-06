@@ -1,0 +1,20 @@
+{
+  "companyKey": "swissteda-ch",
+  "companyName": "Swissteda GmbH",
+  "companyHost": "swissteda.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://swissteda.ch/jobs/staplerfahrer-w-m-d-100/"
+  ],
+  "detailTemplate": "/jobs/staplerfahrer-w-m-d-100/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Staplerfahrer/-in (w/m/d) 100%"
+  ],
+  "canton": "ZH",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-06T12:21:51.312Z"
+}

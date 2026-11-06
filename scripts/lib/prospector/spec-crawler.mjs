@@ -1,0 +1,2914 @@
+/**
+ * Production runtime for a synthesised crawler.
+ *
+ * A crawler promoted by the prospector is not a hand-written parser: it is a
+ * declarative spec (`data/prospector/crawlers/<key>.json`) plus this runtime.
+ * Everything vendor-specific lives in the spec, so a listing that changes shape
+ * is a data fix, not a code fix — which is what makes hundreds of micro-employer
+ * crawlers maintainable at all.
+ *
+ * Production, discovery and validation deliberately share the same polite,
+ * public-network-only transport. Otherwise a spec can pass its gate with
+ * robots, redirect and DNS checks that the promoted crawler later bypasses.
+ *
+ * The extraction itself is the same cascade the prospector graded, so what runs
+ * in production is what the quality gate measured. Anything else would make the
+ * grade a statement about a different program.
+ */
+import fs from 'node:fs';
+import { mergeSourcePostingDates } from '../source-posting-date.mjs';
+import path from 'node:path';
+import { lookup as dnsLookup } from 'node:dns/promises';
+import {
+  extractVacancies,
+  isSufficientVacancyDescription,
+  textOf,
+} from './extract.mjs';
+import { extractLinks } from './careers-trail.mjs';
+import { extractFreeTextOffers, isFreeTextSpec } from './free-text-extract.mjs';
+import { extractBalancedTagBlock } from '../hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from '../html-attr.mjs';
+import { decodeEntities } from './entities.mjs';
+import { politeFetch } from './polite-fetch.mjs';
+import { normalizeHost } from './registrable.mjs';
+import {
+  officialEmployerLocationLinks,
+  resolveDetailOrListingSwissGeography,
+  resolveOfficialEmployerSiteLocation,
+  sourceBackedSwissGeographyFields,
+} from './location-evidence.mjs';
+import { PROSPECTOR_DIR } from './config.mjs';
+import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+import { isConnectionLevelFetchError, isConnectionLevelFetchResult, WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
+import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
+import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES } from '../crawler-detail-drop.mjs';
+import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
+import { launchChromium } from '../ensure-chromium.mjs';
+import {
+  extractUmantisListingEvidence,
+  umantisVacancyIdentity,
+} from './umantis-detail.mjs';
+import { extractRuntimeDetailFields, listingEvidenceFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
+import { platformListingExtractorFor } from './platform-extractors.mjs';
+import {
+  rawDetailTitleEvidence,
+  selectPublishableTitle,
+  vacancyTitleFromDocumentTitle,
+} from './production-title.mjs';
+export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
+
+/**
+ * @param {string} companyKey
+ * @param {string} [dir]
+ * @returns {import('./synthesize.mjs').CrawlerSpec}
+ */
+export function loadSpec(companyKey, dir = path.join(PROSPECTOR_DIR, 'crawlers')) {
+  const file = path.join(dir, `${companyKey}.json`);
+  return JSON.parse(fs.readFileSync(file, 'utf8'));
+}
+
+const BROWSER_RESCUE_USER_AGENT =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
+  + '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+
+function browserAbortReason(signal, message) {
+  if (signal?.reason) return signal.reason;
+  const error = new Error(message);
+  error.name = 'AbortError';
+  return error;
+}
+
+function raceBrowserOperation(promise, signal, message, onLateValue) {
+  if (!signal) return promise;
+  if (signal.aborted) return Promise.reject(browserAbortReason(signal, message));
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const cleanup = () => signal.removeEventListener('abort', onAbort);
+    const onAbort = () => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(browserAbortReason(signal, message));
+    };
+    signal.addEventListener('abort', onAbort, { once: true });
+    Promise.resolve(promise).then((value) => {
+      if (settled) {
+        Promise.resolve(onLateValue?.(value)).catch(() => {});
+        return;
+      }
+      settled = true;
+      cleanup();
+      resolve(value);
+    }, (error) => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(error);
+    });
+  });
+}
+
+/**
+ * Fetch a source page through a real browser after direct transport and the
+ * clean-IP proxy have both hit the source's anti-bot wall. The caller still
+ * owns the URL policy; this helper only turns an already-validated URL into
+ * HTML and rejects a browser-rendered challenge instead of handing it to the
+ * vacancy extractor as an empty page.
+ *
+ * @param {string} url
+ * @param {{ timeoutMs?: number, attempts?: number, signal?: AbortSignal }} [options]
+ * @returns {Promise<string|null>}
+ */
+export async function fetchHtmlViaBrowser(
+  url,
+  { timeoutMs = 45000, attempts = 3, signal } = {},
+) {
+  let browser;
+  try {
+    if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
+    browser = await raceBrowserOperation(
+      launchChromium({
+        headless: true,
+        args: ['--disable-blink-features=AutomationControlled'],
+      }),
+      signal,
+      `browser rescue launch aborted for ${url}`,
+      (lateBrowser) => lateBrowser?.close?.(),
+    );
+    const context = await raceBrowserOperation(browser.newContext({
+      userAgent: BROWSER_RESCUE_USER_AGENT,
+      locale: 'de-CH',
+      viewport: { width: 1280, height: 720 },
+    }), signal, `browser rescue context aborted for ${url}`, (lateContext) => lateContext?.close?.());
+    const page = await raceBrowserOperation(
+      context.newPage(),
+      signal,
+      `browser rescue page creation aborted for ${url}`,
+      (latePage) => latePage?.close?.(),
+    );
+    let lastReason = 'unknown browser failure';
+    for (let attempt = 1; attempt <= attempts; attempt += 1) {
+      try {
+        const response = await raceBrowserOperation(page.goto(url, {
+          waitUntil: 'domcontentloaded',
+          timeout: Math.max(Number(timeoutMs) || 0, 45000),
+        }), signal, `browser rescue navigation aborted for ${url}`);
+        await raceBrowserOperation(
+          page.waitForTimeout(attempt === 1 ? 2500 : 4500),
+          signal,
+          `browser rescue settle wait aborted for ${url}`,
+        );
+        const title = await raceBrowserOperation(
+          Promise.resolve(page.title()).catch(() => ''),
+          signal,
+          `browser rescue title read aborted for ${url}`,
+        );
+        const bodyText = await raceBrowserOperation(
+          Promise.resolve(page.locator('body').textContent()).catch(() => ''),
+          signal,
+          `browser rescue body read aborted for ${url}`,
+        );
+        const html = await raceBrowserOperation(
+          page.content(),
+          signal,
+          `browser rescue content read aborted for ${url}`,
+        );
+        if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
+        if (!looksLikeAntiBotChallenge(`${title}\n${bodyText}\n${html}`)) {
+          return html;
+        }
+        lastReason = !response || !response.ok()
+          ? `HTTP ${response?.status?.() ?? 'no response'} with browser challenge marker`
+          : 'browser challenge marker';
+      } catch (error) {
+        if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
+        lastReason = error?.message || String(error);
+      }
+      if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
+      if (attempt < attempts) {
+        await raceBrowserOperation(
+          page.waitForTimeout(2500 * attempt),
+          signal,
+          `browser rescue retry wait aborted for ${url}`,
+        );
+      }
+    }
+    console.warn(`⚠️ Browser rescue exhausted for ${url} (${lastReason}).`);
+    return null;
+  } catch (error) {
+    if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
+    console.warn(`⚠️ Browser rescue unavailable for ${url}: ${error?.message || error}.`);
+    return null;
+  } finally {
+    await browser?.close().catch(() => {});
+  }
+}
+
+/**
+ * Run an opt-in browser rescue supplied by a source-specific parser.
+ *
+ * @param {string} url
+ * @param {Record<string, any>} runtime
+ * @returns {Promise<string|null>}
+ */
+async function tryBrowserRescue(url, runtime) {
+  if (typeof runtime.browserFetchImpl !== 'function') return null;
+  try {
+    const body = await runtime.browserFetchImpl(url, { timeoutMs: runtime.timeoutMs });
+    return typeof body === 'string' && body.trim() && !looksLikeAntiBotChallenge(body)
+      ? body
+      : null;
+  } catch (error) {
+    console.warn(`⚠️ Browser rescue failed for ${url}: ${error?.message || error}.`);
+    return null;
+  }
+}
+
+const SPEC_FETCH_METADATA_KEYS = [
+  'fetchOutcome',
+  'discoveredCount',
+  'fetchDetail',
+  'detailDrop',
+  'expectedFilterCount',
+  'expectedFilters',
+  'authoritativeEmptyState',
+  'observedDetailsByUrl',
+  'titleEvidenceByUrl',
+  'freeTextApplications',
+  'freeTextFailure',
+  'freeTextRejectedReasons',
+  'freeTextContractVersion',
+];
+
+/**
+ * Keep a spec fetch verdict attached to the array without making it part of the
+ * job payload. The standard crawler accepts this legacy array shape and reads
+ * the fields before any merge or validation step.
+ *
+ * @param {any[]} target
+ * @param {any[]|Record<string, any>} source
+ * @returns {any[]}
+ */
+export function copySpecFetchMetadata(target, source) {
+  for (const key of SPEC_FETCH_METADATA_KEYS) {
+    if (!Object.prototype.hasOwnProperty.call(source || {}, key)) continue;
+    Object.defineProperty(target, key, {
+      value: source[key],
+      enumerable: false,
+      configurable: true,
+    });
+  }
+  return target;
+}
+
+/**
+ * Mark a listing-stage failure so the shared crawler can write an explicit
+ * fail-closed receipt instead of letting the runner exit before the summary
+ * guard sees the crawler. The original error object is retained so transport
+ * classifiers (connection-level, retry budget, anti-bot) still run first in
+ * the standard template.
+ *
+ * @param {unknown} error
+ * @param {number} [discoveredCount]
+ * @returns {Error & { specListingFailure: true, specDiscoveredCount?: number }}
+ */
+function markSpecListingFailure(error, discoveredCount) {
+  const failure = error instanceof Error ? error : new Error(String(error));
+  Object.assign(failure, { specListingFailure: true });
+  if (Number.isInteger(discoveredCount)) {
+    Object.assign(failure, { specDiscoveredCount: discoveredCount });
+  }
+  return failure;
+}
+
+/**
+ * A spec may opt into an explicit outcome for a zero that remains after its
+ * own rescue path. Unknown values are deliberately ignored: the shared
+ * crawler vocabulary is fail-closed and must not gain a producer-only typo.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {string|null}
+ */
+function configuredEmptyListingOutcome(spec) {
+  const outcome = spec?.emptyListingOutcome;
+  return typeof outcome === 'string' && CRAWLER_FETCH_OUTCOMES.has(outcome)
+    ? outcome
+    : null;
+}
+
+/** @param {any[]} rows */
+function listingFetchOutcomeState(rows) {
+  const hasOutcome = Object.prototype.hasOwnProperty.call(rows || {}, 'fetchOutcome');
+  const rawOutcome = hasOutcome ? rows.fetchOutcome : null;
+  const outcome = typeof rawOutcome === 'string' ? rawOutcome : null;
+  const unknown = hasOutcome && rawOutcome !== null && (
+    typeof rawOutcome !== 'string' || !CRAWLER_FETCH_OUTCOMES.has(rawOutcome)
+  );
+  const failed = unknown || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome)
+    || Boolean(rows?.freeTextFailure);
+  const authoritativeEmpty = rows.length === 0
+    && !failed
+    && (outcome === 'ok' || outcome === 'filtered_empty');
+  const unverifiedEmpty = rows.length === 0 && !failed && !authoritativeEmpty;
+  return { outcome, unknown, failed, authoritativeEmpty, unverifiedEmpty };
+}
+
+/**
+ * Keep the source-backed geography gate fail-closed while recording why a row
+ * was not publishable. These are overlapping diagnostic flags, not alternate
+ * ways to accept a location: a page may both declare an unresolved workplace
+ * and belong to an employer with multiple official sites.
+ *
+ * @param {Record<string, any>} decision
+ * @param {{ detail?: Record<string, any>, listing?: Record<string, any>, officialEmployerSiteLocation?: Record<string, any>|null }} [context]
+ * @returns {string[]}
+ */
+function geographyDropClasses(decision = {}, context = {}) {
+  const classes = [];
+  if (decision.explicitlyForeign) classes.push('explicit_foreign_location');
+  const renderedFields = [
+    ...(Array.isArray(context.detail?.renderedJobLocationFields)
+      ? context.detail.renderedJobLocationFields : []),
+    ...(Array.isArray(context.listing?.renderedJobLocationFields)
+      ? context.listing.renderedJobLocationFields : []),
+  ].filter(Boolean);
+  if (renderedFields.length) classes.push('rendered_location_unresolved');
+  if (decision.hasDeclaredLocation) classes.push('declared_location_unresolved');
+  if (context.officialEmployerSiteLocation?.reasonCode === 'multiple_official_sedes') {
+    classes.push('multiple_official_sedes');
+  }
+  if (!classes.length) classes.push('no_source_backed_location');
+  return classes;
+}
+
+/** @param {Record<string, number>} counts @param {string[]} classes */
+function countGeographyDropClasses(counts, classes) {
+  for (const className of classes) counts[className] = (counts[className] || 0) + 1;
+}
+
+/**
+ * Legacy template specs predate the explicit flag, but their index rows never
+ * carry authoritative per-job fields. Mode is therefore the invariant; the
+ * flag remains useful for non-template specs that opt into detail enrichment.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {any[]} [rows]
+ */
+export function needsDetailEnrichment(spec, rows = []) {
+  if (isFreeTextSpec(spec)) return false;
+  if (spec.mode === 'template' || spec.detailEnrichment === true
+    || normalizeListingCandidateText(spec.detailCandidateText)) return true;
+  // Legacy structured specs may have been promoted before the synthesiser
+  // recorded this flag. If their listing carries no usable Swiss geography,
+  // runtime must visit the same detail page that validation graded.
+  return rows.some((row) => !resolveDetailOrListingSwissGeography({}, row).geography
+    || !isSufficientVacancyDescription(row.description));
+}
+
+/**
+ * Preserve structured address fields selected by the geography resolver.
+ * `location` remains the source display string; schema addressLocality should
+ * be the pure municipality whenever the source supplied it.
+ * Callers that own a source-backed country boundary can request that an absent
+ * country stays absent; the legacy default remains available to other specs.
+ *
+ * @param {{ geography?: any, candidate?: any }} decision
+ * @param {{ requireExplicitCountryEvidence?: boolean }} [options]
+ */
+export function geographyFieldsForDecision(decision = {}, options = {}) {
+  const geography = decision.geography;
+  if (!geography) return null;
+  // Select only publishable address fields. `decision.candidate` also carries
+  // duplicateCandidates, which is a diagnostic collision trace and must not
+  // enter a persisted vacancy or grow on a later evidence fold.
+  const candidate = decision.candidate || {};
+  // Keep the generic prospector runtime on the same source-backed projection
+  // as dedicated parsers. A multi-area source label can carry a translated
+  // canton or an ambiguous locality in the candidate; the verified canton and
+  // source parts are the only safe context for selecting a municipality.
+  const projectedAddress = sourceBackedSwissGeographyFields({
+    ...candidate,
+    location: geography.location,
+  }, geography);
+  const addressLocality = String(projectedAddress?.addressLocality || '').trim()
+    || String(geography.location || '').split(/[,;/|]/)[0].trim();
+  const addressRegion = String(projectedAddress?.addressRegion || geography.canton).trim();
+  const addressCountry = String(
+    candidate.addressCountry
+      || candidate.country
+      || geography.addressCountry
+      || (options.requireExplicitCountryEvidence ? '' : 'CH'),
+  ).trim();
+  const source = String(candidate.locationSource || options.locationSource || '').trim();
+  // Keep the offer's own declaration as a separate field even when the
+  // selected source is the employer site. Normally the official-site tier is
+  // reached with no offer locality, but a country-only/otherwise unresolved
+  // declaration is still useful provenance and must not be overwritten by
+  // the employer address.
+  const offerLocation = String(options.offerLocation || candidate.offerLocation || '').trim();
+  const evidenceUrl = String(
+    candidate.locationEvidenceUrl || options.locationEvidenceUrl || '',
+  ).trim();
+  const locationEvidence = candidate.locationEvidence || (options.recordLocationEvidence
+    ? { source: source || 'offer', url: evidenceUrl }
+    : null);
+  return {
+    ...geography,
+    addressLocality,
+    addressRegion,
+    ...(addressCountry ? { addressCountry, country: addressCountry } : {}),
+    ...(candidate.postalCode ? { postalCode: String(candidate.postalCode).trim() } : {}),
+    ...(candidate.streetAddress ? { streetAddress: String(candidate.streetAddress).trim() } : {}),
+    ...(options.recordLocationEvidence || source ? {
+      locationSource: source || 'offer',
+      offerLocation,
+      ...(evidenceUrl ? { locationEvidenceUrl: evidenceUrl } : {}),
+      ...(locationEvidence ? { locationEvidence } : {}),
+    } : {}),
+  };
+}
+
+function declaredOfferLocation(record = {}) {
+  const direct = String(record?.location || '').replace(/\s+/g, ' ').trim();
+  if (direct) return direct;
+  const candidate = Array.isArray(record?.locationCandidates)
+    ? record.locationCandidates.find((item) => String(item?.location || '').trim())
+    : null;
+  return String(candidate?.location || '').replace(/\s+/g, ' ').trim();
+}
+
+function rowNeedsOfficialEmployerLocation(row = {}) {
+  const decision = resolveDetailOrListingSwissGeography({}, row);
+  return !decision.geography && !decision.explicitlyForeign && !decision.hasDeclaredLocation;
+}
+
+function officialEmployerSeedUrls(domain = '') {
+  const host = normalizeHost(domain);
+  if (!host || !host.includes('.')) return [];
+  return [...new Set([
+    `https://${host}/`,
+    `https://www.${host}/`,
+    `http://${host}/`,
+    `http://www.${host}/`,
+  ])];
+}
+
+/**
+ * Fetch the employer's verified site once per spec and turn only its allowed
+ * address surfaces into a single-site proof. ATS/shared-platform pages never
+ * enter this list because the verified employer domain is a separate policy
+ * origin and is checked again by the resolver.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {Record<string, any>} runtime
+ * @returns {Promise<any|null>}
+ */
+async function fetchOfficialEmployerSiteLocation(spec, runtime = {}) {
+  const enabled = runtime.employerSiteLocationFallback === true
+    || spec.employerSiteLocationFallback === true;
+  if (!enabled) return null;
+  const domain = String(runtime.verifiedEmployerDomain || spec.verifiedEmployerDomain || '').trim();
+  const context = {
+    verifiedEmployerDomain: domain,
+    platform: spec.platform,
+    companyName: spec.companyName,
+    companyKey: spec.companyKey,
+    ...(runtime.employerAgencyContext && typeof runtime.employerAgencyContext === 'object'
+      ? runtime.employerAgencyContext
+      : {}),
+  };
+  const preflight = resolveOfficialEmployerSiteLocation([], context);
+  if (preflight.reasonCode && preflight.reasonCode !== 'official_address_missing') return preflight;
+  const seeds = officialEmployerSeedUrls(domain);
+  if (!seeds.length) return preflight;
+  const officialPolicy = createSpecUrlPolicy({ seedUrls: seeds }, {
+    lookupImpl: runtime.lookupImpl || dnsLookup,
+  });
+  const pages = [];
+  try {
+    let home;
+    for (const seed of seeds) {
+      try {
+        home = await fetchRuntimePage(seed, officialPolicy, runtime);
+      } catch {
+        continue;
+      }
+      if (home?.ok && typeof home.body === 'string' && home.body) {
+        const homeUrl = home.url || seed;
+        pages.push({ html: home.body, url: homeUrl, kind: 'homepage' });
+        const links = officialEmployerLocationLinks(home.body, homeUrl, domain).slice(0, 4);
+        for (const link of links) {
+          try {
+            const page = await fetchRuntimePage(link.url, officialPolicy, runtime);
+            if (page?.ok && typeof page.body === 'string' && page.body) {
+              pages.push({ html: page.body, url: page.url || link.url, kind: link.kind });
+            }
+          } catch {
+            // One unavailable contact surface does not become a fake address;
+            // the remaining allowed surfaces still have to prove one site.
+          }
+        }
+        break;
+      }
+    }
+    return resolveOfficialEmployerSiteLocation(pages, context);
+  } finally {
+    try {
+      await officialPolicy.dispatcher.close();
+    } catch (error) {
+      console.warn(`[prospector:${spec.companyKey}] official-site dispatcher cleanup failed:`, error);
+    }
+  }
+}
+
+/**
+ * Fetch one page on the spec's polite, public-network-only transport.
+ *
+ * Exported so offline analyses reach the same pages through the same robots,
+ * redirect and DNS checks the promoted crawler goes through.
+ *
+ * @param {string} url
+ * @param {any} urlPolicy
+ * @param {Record<string, any>} runtime
+ * @param {{ method?: string, body?: string, contentType?: string, accept?: string,
+ *   headers?: Record<string, string|undefined>, allowJinaProxy?: boolean }} [request]
+ */
+export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
+  const notifyPageFetched = (page) => {
+    // This is an observational, synchronous hook: its return value is
+    // deliberately ignored so it cannot change the fetch result or delay the
+    // crawler transport.
+    if (typeof runtime.onPageFetched === 'function') void runtime.onPageFetched(page, url);
+    return page;
+  };
+  const result = await politeFetch(url, {
+    urlPolicy,
+    dispatcher: urlPolicy.dispatcher,
+    fetchImpl: runtime.fetchImpl,
+    sleepImpl: runtime.sleepImpl,
+    retries: runtime.retries,
+    retryBaseMs: runtime.retryBaseMs,
+    timeoutMs: runtime.timeoutMs,
+    hostDelayMs: runtime.hostDelayMs,
+    method: request.method,
+    body: request.body,
+    contentType: request.contentType,
+    accept: request.accept,
+    headers: { ...(runtime.headers || {}), ...(request.headers || {}) },
+  });
+  let wafProxyExhausted = false;
+  const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
+  const connectionLevelFailure = isConnectionLevelFetchResult(result);
+  const antiBotResponse = directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status));
+
+  // A WAF may answer HTTP 200 with an interstitial instead of a hard block.
+  // Treat that response like the existing 403/406/415/451 rescue path: a
+  // successful status is not evidence that the source page was observed when
+  // the body is an explicit anti-bot challenge. Without this check a promoted
+  // spec crawler feeds the interstitial to vacancy extraction, gets zero rows,
+  // and the standard pipeline records a misleading `no-jobs-parsed` bail-out.
+  if (result.ok && !directChallenge) return notifyPageFetched(result);
+
+  // Two source-side egress failures can be rescued by the clean-IP Jina path:
+  // (a) a public career page answers 403/406/415/451, or an explicit 200
+  // challenge, only to the GitHub Actions egress IP; (b) the runner cannot
+  // establish a connection at all while a clean egress can still reach the
+  // source. The ordinary crawler transport already rescues both classes; the
+  // prospector used to be the one HTML path that failed closed before trying
+  // it. Keep the target URL policy in front of the request, then reuse the
+  // same retried Jina HTML rescue. If the rescue is exhausted, only a
+  // confirmed anti-bot response is marked as such; a transport failure stays
+  // a transport failure so the standard pipeline preserves the prior slice.
+  if (!result.policyBlocked && !result.blockedByRobots
+    && (connectionLevelFailure || antiBotResponse)
+    && runtime.disableWafProxy !== true
+    && request.allowJinaProxy !== false) {
+    const proxiedBody = await fetchHtmlViaJinaWithRetry(url, {
+      timeoutMs: runtime.timeoutMs,
+      retries: runtime.jinaRetries,
+      retryBaseMs: runtime.jinaRetryBaseMs,
+      fetchImpl: runtime.jinaFetchImpl,
+      sleepImpl: runtime.jinaSleepImpl,
+    });
+    if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
+      return notifyPageFetched({
+        ...result,
+        ok: true,
+        status: 200,
+        url: result.url || url,
+        body: proxiedBody,
+        proxiedBy: 'jina',
+      });
+    }
+    // Jina's retry helper filters its known error envelope, but some WAF
+    // challenge variants are valid-looking 200 bodies. Keep the same
+    // anti-bot safe-fail semantics for those variants instead of parsing a
+    // challenge as an empty listing page.
+    wafProxyExhausted = antiBotResponse;
+  } else if (directChallenge) {
+    // Proxy rescue was disabled or the response was otherwise not eligible;
+    // the body is still a confirmed anti-bot fence, not an empty source.
+    wafProxyExhausted = true;
+  }
+
+  // Some source WAFs also challenge every Jina egress IP. A source-specific
+  // browser callback gets one last chance after the proxy, while the default
+  // runtime remains unchanged for the rest of the prospector fleet.
+  if (!result.policyBlocked && !result.blockedByRobots
+    && (connectionLevelFailure || antiBotResponse)
+    && request.allowJinaProxy !== false) {
+    const browserBody = await tryBrowserRescue(url, runtime);
+    if (browserBody) {
+      return notifyPageFetched({
+        ...result,
+        ok: true,
+        status: 200,
+        url: result.url || url,
+        body: browserBody,
+        proxiedBy: 'browser',
+      });
+    }
+  }
+
+  // `HTTP 0` names the layer, not the cause. `politeFetch` now carries the
+  // transport kind, so a failure that never reached a status says dns/tls/
+  // timeout/reset instead of a zero nobody can act on (#7351).
+  const reason = result.blockedByRobots
+    ? 'blocked by robots.txt'
+    : result.policyBlocked ? (result.error || 'blocked by public URL policy')
+      : result.status ? `HTTP ${result.status}` : `transport ${result.transportError || 'other'}`;
+  // `politeFetch()` uses status=0 as the no-response sentinel. Do not copy
+  // that sentinel onto a transport error: `isConnectionLevelFetchError()`
+  // treats a present status as evidence that an HTTP response was received.
+  // Keep status=0 for robots/policy outcomes, where it is deliberate evidence
+  // that the request was blocked before an HTTP response reached the parser.
+  const hasHttpStatus = Number.isFinite(result.status) && result.status > 0;
+  const preserveStatusSentinel = result.blockedByRobots || result.policyBlocked;
+  const error = Object.assign(
+    new Error(`Prospector fetch failed for ${result.url || url}: ${reason}`),
+    {
+      ...(hasHttpStatus || preserveStatusSentinel ? { status: result.status } : {}),
+      retryable: !result.blockedByRobots && !result.policyBlocked && (!result.status || result.status >= 500),
+      ...(wafProxyExhausted ? { antiBotExhausted: true } : {}),
+    },
+  );
+  throw error;
+}
+
+function reportDroppedRows(spec, dropped, total, reason) {
+  if (!dropped) return;
+  console.warn(`[prospector:${spec.companyKey}] scartati ${dropped}/${total} annunci: ${reason}`);
+}
+
+function logRuntimeObservation(spec, observation) {
+  const drops = Object.entries(observation.dropCounts || {})
+    .filter(([, count]) => Number(count) > 0)
+    .map(([reason, count]) => `${reason}=${count}/${observation.listingCount}`);
+  const geographyReasons = Object.entries(observation.geographyDropReasons || {})
+    .filter(([, count]) => Number(count) > 0)
+    .map(([reason, count]) => `${reason}=${count}/${observation.listingCount}`);
+  console.info(
+    `[prospector:${spec.companyKey}] runtime output ${observation.runtimeOutputCount}/`
+    + `${observation.listingCount} listing candidates; ${observation.publishableCount} row(s) publishable; `
+    + `${observation.expectedFilterCount} expected filters; `
+    + `quality-drop denominator ${observation.qualityDropDenominator}; `
+    + `production snapshot ${observation.productionSnapshotAccepted ? 'accepted' : 'rejected'}; `
+    + `promotion observation ${observation.promotionObservationComplete ? 'complete' : 'incomplete'}; `
+    + `drops ${drops.length ? drops.join(', ') : '0'}; `
+    + `geography classes ${geographyReasons.length ? geographyReasons.join(', ') : '0'}`,
+  );
+}
+
+/**
+ * Match links directly against an already-learned detail template.
+ *
+ * `extractByTemplate` (the generic discovery cascade) refuses any cluster
+ * with fewer than two same-shaped links, because when the template itself is
+ * unknown a lone link is as likely to be chrome as a vacancy. In production
+ * the template was already learned from a real, graded sample — it is
+ * evidence, not a guess — so a single matching link is exactly as
+ * trustworthy as two. Without this, a company whose listing drops to one
+ * open role reports zero jobs forever, purely from the size-2 floor, not
+ * because anything on the page changed shape (observed on
+ * recruitingapp-2563, #6660).
+ *
+ * @param {{ url: string, text: string }[]} links
+ * @param {RegExp} templateRx
+ * @param {string} host
+ * @param {string[]} [allowedDetailOrigins]
+ * @returns {{ title: string, url: string, via: 'known-template' }[]}
+ */
+function matchKnownTemplate(links, templateRx, host, allowedDetailOrigins = []) {
+  const allowedOrigins = new Set();
+  for (const rawOrigin of allowedDetailOrigins) {
+    try {
+      const origin = new URL(rawOrigin);
+      if ((origin.protocol === 'http:' || origin.protocol === 'https:') && !origin.username && !origin.password) {
+        allowedOrigins.add(origin.origin);
+      }
+    } catch { /* invalid configured origins are rejected by the URL policy */ }
+  }
+  const seen = new Set();
+  /** @type {{ title: string, url: string, via: 'known-template' }[]} */
+  const out = [];
+  for (const l of links) {
+    let u;
+    try { u = new URL(l.url); } catch { continue; }
+    if (normalizeHost(u.hostname) !== host && !allowedOrigins.has(u.origin)) continue;
+    if (!templateRx.test(u.pathname)) continue;
+    if (seen.has(l.url)) continue;
+    seen.add(l.url);
+    const title = (l.text || '').replace(/\s+/g, ' ').trim();
+    if (title.length <= 3) continue;
+    out.push({ title: title.slice(0, 180), url: l.url, via: /** @type {const} */ ('known-template') });
+  }
+  return out;
+}
+
+/**
+ * Supplement a partial structured listing with links that match the already
+ * learned detail template. A listing page can retain all vacancy cards while
+ * publishing only one JobPosting node; treating that one node as the whole
+ * population silently contracts the crawler slice.
+ *
+ * Structured rows keep precedence so their source-backed fields are not
+ * replaced by anchor text. Template matches only add identities absent from
+ * the structured result; the caller still applies the template guard before
+ * returning the final candidates.
+ *
+ * @param {any[]} structuredCandidates
+ * @param {any[]} templateCandidates
+ * @returns {any[]}
+ */
+function supplementKnownTemplateCandidates(structuredCandidates, templateCandidates) {
+  const knownIdentities = new Set(
+    structuredCandidates
+      .map((candidate) => listingIdentityUrl(candidate?.url || candidate?.sourceUrl || ''))
+      .filter(Boolean),
+  );
+  return [
+    ...structuredCandidates,
+    ...templateCandidates.filter((candidate) => {
+      const identity = listingIdentityUrl(candidate?.url || candidate?.sourceUrl || '');
+      if (!identity || knownIdentities.has(identity)) return false;
+      knownIdentities.add(identity);
+      return true;
+    }),
+  ];
+}
+
+/**
+ * Compare two listing URLs after resolving them against the same source page.
+ *
+ * @param {string} left
+ * @param {string} right
+ * @param {string} baseUrl
+ * @returns {boolean}
+ */
+function sameListingUrl(left, right, baseUrl) {
+  try {
+    const a = new URL(left, baseUrl);
+    const b = new URL(right, baseUrl);
+    a.hash = '';
+    b.hash = '';
+    return a.href === b.href;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Read a source-native tenant label from the configured container of a detail
+ * link. The marker is deliberately spec-scoped: a global nearest-marker
+ * heuristic would turn an unrelated row or page chrome into tenant evidence.
+ *
+ * @param {string} html
+ * @param {string} effectiveUrl
+ * @param {string} detailUrl
+ * @param {{ tag?: string, class?: string, containerTag?: string, containerClass?: string }} marker
+ * @returns {string}
+ */
+function extractListingTenantMarker(html, effectiveUrl, detailUrl, marker) {
+  const markerClass = String(marker?.class || '').trim().toLowerCase();
+  const containerClass = String(marker?.containerClass || '').trim().toLowerCase();
+  if (!markerClass || !containerClass) return '';
+  const anchor = scanStartTags(html, 'a').find(({ raw, index }) => (
+    index >= 0
+      && sameListingUrl(decodeEntities(readAttr(raw, 'href')), detailUrl, effectiveUrl)
+  ));
+  if (!anchor) return '';
+  const tag = String(marker?.tag || '').trim().toLowerCase();
+  const containerTag = String(marker?.containerTag || 'div').trim().toLowerCase();
+  const container = scanStartTags(html, containerTag)
+    .filter(({ raw, index }) => {
+      if (index >= anchor.index) return false;
+      const classes = String(readAttr(raw, 'class') || '').toLowerCase().split(/\s+/u).filter(Boolean);
+      if (!classes.includes(containerClass)) return false;
+      const inner = extractBalancedTagBlock(html.slice(index + raw.length), containerTag);
+      const contentEnd = index + raw.length + inner.length;
+      return contentEnd >= anchor.index;
+    })
+    .at(-1);
+  if (!container) return '';
+  const markerTags = scanStartTags(html, tag).filter(({ raw, index }) => {
+    if (index < container.end || index >= anchor.index) return false;
+    const classes = String(readAttr(raw, 'class') || '').toLowerCase().split(/\s+/u).filter(Boolean);
+    return classes.includes(markerClass);
+  });
+  const opening = markerTags.at(-1);
+  if (!opening) return '';
+  const inner = extractBalancedTagBlock(html.slice(opening.end), opening.name);
+  if (opening.end + inner.length > anchor.index) return '';
+  return textOf(inner);
+}
+
+/**
+ * Carry a configured listing-side tenant marker alongside the candidate. It is
+ * non-persisted evidence: the detail gate may use it only to prove a positive
+ * non-target tenant, never to satisfy the requested tenant identity.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {string} html
+ * @param {string} effectiveUrl
+ * @param {any[]} candidates
+ * @returns {any[]}
+ */
+function attachListingTenantMarkers(spec, html, effectiveUrl, candidates) {
+  const marker = spec?.tenantScope?.listingMarker;
+  if (!marker || typeof marker !== 'object') return candidates;
+  return candidates.map((candidate) => {
+    const value = extractListingTenantMarker(html, effectiveUrl, candidate.url, marker);
+    return value ? { ...candidate, __tenantScopeMarker: value } : candidate;
+  });
+}
+
+/**
+ * Extract listing candidates using the same cascade as production.
+ *
+ * Keeping the template override here is important for the empty-page rescue:
+ * a clean Jina response must be judged by the exact same evidence rules as
+ * the direct response, otherwise the fallback could accept a navigation link
+ * that the normal path would reject.
+ *
+ * @param {string} html
+ * @param {string} effectiveUrl
+ * @param {RegExp|null} templateRx
+ * @param {import('./synthesize.mjs').CrawlerSpec} [spec]
+ * @returns {Promise<{ links: Array<{ url: string, text: string }>, candidates: any[], sourceFetchMetadata?: any }>}
+ */
+async function extractListingCandidates(html, effectiveUrl, templateRx, spec, runtime = {}) {
+  // Cross-origin ATS links are source candidates only when the spec names the
+  // detail origin explicitly. `matchKnownTemplate()` and the URL policy below
+  // still enforce that allowlist before any detail page is fetched.
+  const links = extractLinks(html, effectiveUrl, {
+    sameOriginOnly: !Array.isArray(spec?.allowedDetailOrigins)
+      || spec.allowedDetailOrigins.length === 0,
+  });
+  if (isFreeTextSpec(spec)) {
+    // Free-text specs have no detail URL to follow. The shared extractor is
+    // also used by SYNTHESIZE, and its homepage signal guard runs before the
+    // AI module is loaded or called.
+    const freeText = await extractFreeTextOffers(html, effectiveUrl, {
+      companyName: spec.companyName,
+      sourceLocation: spec.sourceLocation,
+      callLLM: runtime.callLLM,
+    });
+    return {
+      links,
+      candidates: attachListingTenantMarkers(spec, html, effectiveUrl, freeText.vacancies || []),
+      sourceFetchMetadata: {
+        fetchOutcome: freeText.llmFailure
+          ? 'free_text_llm_failure'
+          : freeText.vacancies?.length ? 'ok' : 'filtered_empty',
+        discoveredCount: freeText.vacancies?.length || 0,
+        freeTextApplications: freeText.permanentApplications || [],
+        ...(freeText.llmFailure ? { freeTextFailure: freeText.llmFailure } : {}),
+        ...(freeText.rejectedReasons?.length ? { freeTextRejectedReasons: freeText.rejectedReasons } : {}),
+        freeTextContractVersion: freeText.contractVersion,
+      },
+    };
+  }
+  const listingOrigin = new URL(effectiveUrl).origin;
+  const allowedOrigins = new Set((spec?.allowedDetailOrigins || []).flatMap((rawOrigin) => {
+    try { return [new URL(rawOrigin).origin]; } catch { return []; }
+  }));
+  const vacancyLinks = links.filter((link) => {
+    try {
+      const url = new URL(link.url);
+      return url.origin === listingOrigin
+        || (templateRx && allowedOrigins.has(url.origin) && matchesDetailTemplate(link.url, templateRx));
+    } catch {
+      return false;
+    }
+  });
+  const { vacancies } = extractVacancies(html, effectiveUrl, vacancyLinks);
+  const runtimeListingExtractor = typeof runtime.listingExtractor === 'function'
+    ? runtime.listingExtractor
+    : null;
+  const familyListingExtractor = platformListingExtractorFor(spec?.platform);
+  const isConfiguredFamilyExtractor = runtimeListingExtractor
+    && runtimeListingExtractor === familyListingExtractor;
+  const familyExtractorActive = Boolean(familyListingExtractor
+    && (!runtimeListingExtractor || isConfiguredFamilyExtractor));
+  const sourceCandidates = runtimeListingExtractor
+    ? await runtimeListingExtractor(html, effectiveUrl)
+    : familyListingExtractor
+      ? await familyListingExtractor(html, effectiveUrl)
+      : null;
+  // JSON-LD/microdata remain authoritative for identities and source-backed
+  // fields. If they cover only part of a page whose detail template is known,
+  // the vetted template links supplement the missing identities below.
+  let candidates = Array.isArray(sourceCandidates)
+    && (!familyExtractorActive || sourceCandidates.length > 0)
+    ? sourceCandidates
+    : vacancies;
+  if (!Array.isArray(sourceCandidates) && templateRx) {
+    let host = '';
+    try { host = normalizeHost(new URL(effectiveUrl).hostname); } catch { /* skip override */ }
+    const direct = host
+      ? matchKnownTemplate(links, templateRx, host, spec?.allowedDetailOrigins)
+      : [];
+    if (direct.length) {
+      const hasStructuredCandidates = vacancies.some((vacancy) => (
+        vacancy?.via === 'jsonld' || vacancy?.via === 'microdata'
+      ));
+      candidates = hasStructuredCandidates
+        ? supplementKnownTemplateCandidates(vacancies, direct)
+        : direct;
+    }
+  }
+  // A candidate outside the learned detail template is never published (the
+  // row builder drops it), so it must not count as a listing either. The
+  // generic cascade's own template guess can pick page chrome: Hotelcareer's
+  // empty employer page yields one "Karriere" footer link
+  // (`/jobs/yourcareergroup-schweiz-gmbh-42198`). Counted as a candidate, it
+  // skipped the empty-listing rescue and diagnostic and turned a page that
+  // says "no vacancies" into a silent `no-jobs-parsed` (vereinaklosters,
+  // corpus group 19 runs 36632563903 / 36778722341).
+  if (templateRx) candidates = candidates.filter((v) => matchesDetailTemplate(v.sourceUrl || v.url, templateRx));
+  return {
+    links,
+    candidates: attachListingTenantMarkers(spec, html, effectiveUrl, candidates),
+    sourceFetchMetadata: Array.isArray(sourceCandidates) ? sourceCandidates : null,
+  };
+}
+
+/**
+ * @param {string} rawUrl
+ * @param {RegExp} templateRx
+ * @returns {boolean}
+ */
+function matchesDetailTemplate(rawUrl, templateRx) {
+  try {
+    return templateRx.test(new URL(rawUrl).pathname);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Normalise the optional employer discriminator used when a public ATS feed
+ * contains several employers. Matching the complete source-backed candidate
+ * record (rather than only its URL) lets the same guard work for JSON-LD,
+ * microdata and anchor-template listings without allowing a feed-wide
+ * employer page to leak unrelated vacancies into a tenant slice.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+function normalizeListingCandidateText(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+
+/**
+ * Apply a spec-declared source discriminator before detail enrichment.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {any} candidate
+ * @returns {boolean}
+ */
+function matchesListingCandidateText(spec, candidate) {
+  return candidateContainsText(spec.listingCandidateText, candidate);
+}
+
+/**
+ * Apply a source discriminator to a candidate record. Listing candidates are
+ * allowed to carry only title/link evidence; detail candidates additionally
+ * carry the source-backed workplace labels and enriched description. Keeping
+ * the normalization shared prevents a multi-employer ATS from being filtered
+ * differently before and after detail enrichment.
+ *
+ * @param {unknown} requiredText
+ * @param {any} candidate
+ * @returns {boolean}
+ */
+function candidateText(candidate) {
+  return normalizeListingCandidateText([
+    candidate?.title,
+    candidate?.url,
+    candidate?.sourceUrl,
+    candidate?.company,
+    candidate?.location,
+    candidate?.addressLocality,
+    candidate?.addressRegion,
+    candidate?.addressCountry,
+    candidate?.postalCode,
+    candidate?.streetAddress,
+    candidate?.description,
+    ...(Array.isArray(candidate?.workplaceLabels)
+      ? candidate.workplaceLabels
+      : [candidate?.workplaceLabels]),
+  ].filter(Boolean).join(' '));
+}
+
+function candidateContainsText(requiredText, candidate) {
+  const needle = normalizeListingCandidateText(requiredText);
+  if (!needle) return true;
+  const haystack = candidateText(candidate);
+  return haystack.includes(needle);
+}
+
+/**
+ * Return the normalized text of a configured native tenant marker.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+function nativeTenantMarkerText(value) {
+  if (Array.isArray(value)) return normalizeListingCandidateText(value.join(' '));
+  if (value && typeof value === 'object') {
+    return normalizeListingCandidateText([
+      value.text,
+      value.name,
+      value.label,
+      value.value,
+    ].filter(Boolean).join(' '));
+  }
+  return normalizeListingCandidateText(value);
+}
+
+/**
+ * Compare source-native tenant markers by exact normalized value. A spec may
+ * provide an explicit listing-side alias when the source decorates the row
+ * label differently from the detail marker; free-text substrings are never
+ * accepted.
+ *
+ * @param {string} marker
+ * @param {string} expected
+ * @param {string[]} [aliases]
+ * @returns {boolean}
+ */
+function matchesExpectedTenantMarker(marker, expected, aliases = []) {
+  if (!marker || !expected) return false;
+  return new Set([expected, ...aliases.filter(Boolean)]).has(marker);
+}
+
+/**
+ * Distinguish a detail page that positively names another tenant from one that
+ * carries no usable tenant identity. A configured `tenantScope` is explicit:
+ * the detail extractor must expose the source-native marker named by
+ * `nativeMarker`; a listing-side marker may prove only a non-target tenant, and
+ * an explicitly foreign source location may do so only when the spec opts in.
+ * Missing markers remain unknown and therefore fail closed.
+ *
+ * Specs without `tenantScope` retain the legacy discriminator for compatibility
+ * with promoted crawlers whose detail extractor still exposes only free text.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {any} candidate
+ * @param {any} [listing]
+ * @param {{ explicitlyForeign?: boolean }} [decision]
+ * @returns {'matched'|'mismatch'|'missing'}
+ */
+function detailCandidateIdentityState(spec, candidate, listing = {}, decision = {}) {
+  const scope = spec?.tenantScope;
+  if (scope && typeof scope === 'object') {
+    const expected = nativeTenantMarkerText(scope.expectedText || spec.detailCandidateText);
+    const detailMarker = nativeTenantMarkerText(candidate?.[scope.nativeMarker]);
+    if (matchesExpectedTenantMarker(detailMarker, expected)) return 'matched';
+    if (detailMarker) return 'mismatch';
+    const listingMarker = nativeTenantMarkerText(listing?.__tenantScopeMarker);
+    const listingAlias = nativeTenantMarkerText(scope.listingExpectedText);
+    if (listingMarker && (!expected || !matchesExpectedTenantMarker(
+      listingMarker,
+      expected,
+      listingAlias ? [listingAlias] : [],
+    ))) {
+      return 'mismatch';
+    }
+    if (scope.foreignLocationOutOfScope === true && decision.explicitlyForeign === true) {
+      return 'mismatch';
+    }
+    return 'missing';
+  }
+  const needle = normalizeListingCandidateText(spec.detailCandidateText);
+  if (!needle || candidateContainsText(needle, candidate)) return 'matched';
+  const anchor = needle.split(/\s+/u).sort((a, b) => b.length - a.length)[0] || '';
+  const haystackTokens = new Set(candidateText(candidate).split(/\s+/u).filter(Boolean));
+  return anchor && haystackTokens.has(anchor) ? 'mismatch' : 'missing';
+}
+
+/**
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {any[]} candidates
+ * @returns {any[]}
+ */
+function filterListingCandidates(spec, candidates) {
+  if (!normalizeListingCandidateText(spec.listingCandidateText)) return candidates;
+  const filtered = candidates.filter((candidate) => matchesListingCandidateText(spec, candidate));
+  if (filtered.length !== candidates.length) {
+    console.warn(
+      `[prospector:${spec.companyKey}] listing discriminator kept `
+      + `${filtered.length}/${candidates.length} source candidates`,
+    );
+  }
+  return filtered;
+}
+
+const DEFAULT_PAGINATION_MAX_PAGES = 50;
+const DEFAULT_PAGINATION_MIN_COVERAGE = 0.95;
+
+/**
+ * A small number of promoted sources render their WP Job Manager listings
+ * through the source's own JSON AJAX endpoint. Keep that transport explicit in
+ * the spec: falling back to a guessed URL or scraping arbitrary script text
+ * would make a source mutation look like a valid empty board.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {{ url: string, method: 'GET', params: Record<string, string>, pageParam: string, maxPages: number, responseFormat: 'json'|'jsonp', responseHtmlField: string, responseMaxPagesField: string, responseMaxNumPages: number|null }|null}
+ */
+function configuredListingEndpoint(spec) {
+  if (spec?.listingEndpoint == null) return null;
+  const raw = typeof spec.listingEndpoint === 'string'
+    ? { url: spec.listingEndpoint }
+    : spec.listingEndpoint;
+  if (!raw || typeof raw !== 'object' || typeof raw.url !== 'string' || !raw.url.trim()) {
+    throw new Error(`[prospector:${spec.companyKey}] listingEndpoint must declare a URL`);
+  }
+  const method = String(raw.method || 'GET').toUpperCase();
+  if (method !== 'GET') {
+    throw new Error(`[prospector:${spec.companyKey}] listingEndpoint supports GET only`);
+  }
+  const params = {};
+  if (raw.params && typeof raw.params === 'object' && !Array.isArray(raw.params)) {
+    for (const [key, value] of Object.entries(raw.params)) {
+      if (value == null || Array.isArray(value) || typeof value === 'object') continue;
+      params[String(key)] = String(value);
+    }
+  }
+  const pageParam = String(raw.pageParam || 'page').trim() || 'page';
+  const maxPages = Number(raw.maxPages);
+  const responseFormat = String(raw.responseFormat || 'json').trim().toLowerCase();
+  if (!['json', 'jsonp'].includes(responseFormat)) {
+    throw new Error(`[prospector:${spec.companyKey}] listingEndpoint responseFormat must be json or jsonp`);
+  }
+  const responseHtmlField = String(
+    raw.responseHtmlField || (responseFormat === 'jsonp' ? 'HTML' : 'html'),
+  ).trim();
+  const responseMaxPagesField = String(raw.responseMaxPagesField || 'max_num_pages').trim();
+  const responseMaxNumPages = Number(raw.responseMaxNumPages);
+  return {
+    url: raw.url,
+    method: 'GET',
+    params,
+    pageParam,
+    maxPages: Number.isInteger(maxPages) && maxPages > 0 ? maxPages : DEFAULT_PAGINATION_MAX_PAGES,
+    responseFormat,
+    responseHtmlField: responseHtmlField || (responseFormat === 'jsonp' ? 'HTML' : 'html'),
+    responseMaxPagesField: responseMaxPagesField || 'max_num_pages',
+    responseMaxNumPages: Number.isInteger(responseMaxNumPages) && responseMaxNumPages > 0
+      ? responseMaxNumPages
+      : null,
+  };
+}
+
+/**
+ * @param {{ url: string, params: Record<string, string>, pageParam: string }} endpoint
+ * @param {number} page
+ * @returns {string}
+ */
+function listingEndpointUrl(endpoint, page) {
+  const url = new URL(endpoint.url);
+  for (const [key, value] of Object.entries(endpoint.params)) url.searchParams.set(key, value);
+  url.searchParams.set(endpoint.pageParam, String(page));
+  return url.href;
+}
+
+/**
+ * @param {string} body
+ * @param {string} companyKey
+ * @param {{ responseFormat?: 'json'|'jsonp', responseHtmlField?: string, responseMaxPagesField?: string, responseMaxNumPages?: number|null }} endpoint
+ * @returns {{ html: string, maxNumPages: number }}
+ */
+function parseListingEndpointResponse(body, companyKey, endpoint = {}) {
+  let payload;
+  const rawBody = String(body || '');
+  try {
+    if (endpoint.responseFormat === 'jsonp') {
+      const match = /^\s*[A-Za-z_$][\w$]*\s*\(([\s\S]*)\)\s*;?\s*$/.exec(rawBody);
+      if (!match) throw new Error('JSONP wrapper missing');
+      payload = JSON.parse(match[1]);
+    } else {
+      payload = JSON.parse(rawBody);
+    }
+  } catch (error) {
+    throw new Error(
+      `[prospector:${companyKey}] listingEndpoint returned invalid ${endpoint.responseFormat === 'jsonp' ? 'JSONP' : 'JSON'} content: ${error?.message || error}`,
+    );
+  }
+  const html = payload?.[endpoint.responseHtmlField || 'html'];
+  const announcedMaxNumPages = payload?.[endpoint.responseMaxPagesField || 'max_num_pages'];
+  const maxNumPages = announcedMaxNumPages == null
+    ? endpoint.responseMaxNumPages
+    : announcedMaxNumPages;
+  if (!payload || typeof html !== 'string'
+    || !Number.isInteger(maxNumPages) || maxNumPages < 0) {
+    throw new Error(
+      `[prospector:${companyKey}] listingEndpoint response is missing ${endpoint.responseHtmlField || 'html'}/${endpoint.responseMaxPagesField || 'max_num_pages'}`,
+    );
+  }
+  return { html, maxNumPages: Math.max(1, maxNumPages) };
+}
+
+/**
+ * Resolve the optional `spec.pagination` block.
+ *
+ * `maxPages` bounds the walk; reaching it with a next link still present is a
+ * truncated listing and fails the run. `declaredTotalPattern` is a regex source
+ * with one capture group that reads the source's own vacancy count from the
+ * seed page; the walk must then collect at least `minCoverage` of it. The
+ * tolerance absorbs a vacancy closed while the pages are being read, which
+ * shifts the next page up by one row. `pageStateParams` names the query
+ * parameters the listing echoes into its detail links (`sf_paged`); only those
+ * are stripped, so a real detail parameter (`lang`, a tenant id) survives.
+ * `declaredPageCountPattern` and `stopAfterDeclaredPageCount` are the
+ * corresponding source-backed terminal guard for generated `rel="next"` links.
+ * `numberedPagePattern` is an explicit source contract for indexes whose
+ * continuation is exposed as adjacent numeric `<a>` controls instead of
+ * `rel="next"`; it is applied to the URL pathname and must capture the page
+ * number in group 1.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, declaredPageCountRx: RegExp|null, numberedPageRx: RegExp|null, stopAfterDeclaredPageCount: boolean, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
+ */
+export function normalizeSpecPagination(spec) {
+  const raw = spec?.pagination && typeof spec.pagination === 'object' ? spec.pagination : {};
+  const maxPages = Number.isInteger(raw.maxPages) && raw.maxPages > 0
+    ? raw.maxPages
+    : DEFAULT_PAGINATION_MAX_PAGES;
+  const minCoverage = Number.isFinite(raw.minCoverage) && raw.minCoverage > 0 && raw.minCoverage <= 1
+    ? raw.minCoverage
+    : DEFAULT_PAGINATION_MIN_COVERAGE;
+  const declaredTotalRx = raw.declaredTotalPattern ? new RegExp(String(raw.declaredTotalPattern), 'i') : null;
+  const declaredPageCountRx = raw.declaredPageCountPattern
+    ? new RegExp(String(raw.declaredPageCountPattern), 'i')
+    : null;
+  const numberedPageRx = raw.numberedPagePattern
+    ? new RegExp(String(raw.numberedPagePattern), 'i')
+    : null;
+  const stopAfterDeclaredPageCount = raw.stopAfterDeclaredPageCount === true;
+  const pageStateParams = Array.isArray(raw.pageStateParams)
+    ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
+    : [];
+  const selfNextIsTerminal = raw.selfNextIsTerminal === true;
+  const countDuplicateRowsForCoverage = raw.countDuplicateRowsForCoverage === true;
+  return {
+    maxPages,
+    minCoverage,
+    declaredTotalRx,
+    declaredPageCountRx,
+    numberedPageRx,
+    stopAfterDeclaredPageCount,
+    pageStateParams,
+    selfNextIsTerminal,
+    countDuplicateRowsForCoverage,
+  };
+}
+
+/**
+ * Read the vacancy count the source declares on its own listing page.
+ *
+ * A spec that declares the pattern and does not find it fails closed: without
+ * the count the walk cannot prove it read the whole listing, and a markup
+ * change is exactly when it would silently stop at page one again.
+ *
+ * @param {string} html
+ * @param {{ declaredTotalRx: RegExp|null }} pagination
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {number|null}
+ */
+export function readDeclaredListingTotal(html, pagination, spec) {
+  if (!pagination.declaredTotalRx) return null;
+  const match = pagination.declaredTotalRx.exec(String(html || ''));
+  const total = match ? Number(String(match[1] || '').replace(/[^\d]/g, '')) : NaN;
+  if (!Number.isInteger(total) || total < 0 || !match?.[1]) {
+    throw markSpecListingFailure(new Error(
+      `[prospector:${spec.companyKey}] totale dichiarato dalla fonte non trovato `
+      + `(declaredTotalPattern ${pagination.declaredTotalRx.source}): impossibile provare la listing completa`,
+    ));
+  }
+  return total;
+}
+
+/**
+ * Read an optional source-declared number of listing pages.
+ *
+ * Unlike the vacancy total, this marker is used only as an explicit terminal
+ * boundary for providers that leave a generated `rel=next` link beyond their
+ * last real page. The caller decides whether its absence is fatal.
+ */
+export function readDeclaredListingPageCount(html, pagination) {
+  if (!pagination.declaredPageCountRx) return null;
+  const match = pagination.declaredPageCountRx.exec(String(html || ''));
+  const count = match ? Number(String(match[1] || '').replace(/[^\d]/g, '')) : NaN;
+  return Number.isInteger(count) && count > 0 ? count : null;
+}
+
+/**
+ * Remove from a detail URL the declared pagination parameters it shares, name
+ * and value, with the listing page it was found on.
+ *
+ * @param {string} url
+ * @param {string} pageUrl
+ * @param {string[]} [stateParams] Parameter names declared as listing state
+ * @returns {string}
+ */
+export function stripListingPageState(url, pageUrl, stateParams = []) {
+  if (!stateParams.length) return url;
+  let detail;
+  let page;
+  try {
+    detail = new URL(url);
+    page = new URL(pageUrl);
+  } catch {
+    return url;
+  }
+  const pageState = new Set([...page.searchParams]
+    .filter(([name]) => stateParams.includes(name))
+    .map(([name, value]) => `${name}=${value}`));
+  const kept = [...detail.searchParams].filter(([name, value]) => !pageState.has(`${name}=${value}`));
+  if (kept.length === [...detail.searchParams].length) return url;
+  detail.search = new URLSearchParams(kept).toString();
+  return detail.href;
+}
+
+function listingIdentityUrl(rawUrl) {
+  try {
+    const url = new URL(String(rawUrl));
+    // Fragments are not sent in HTTP requests, except that extractJsonLd uses
+    // `#job-<sha1>` and `#free-text-<sha1>` are stable identities for offers
+    // whose source page is shared. Keep those synthetic identity fragments
+    // while ignoring browser-only anchors when deduplicating the same linked
+    // vacancy across pages.
+    if (!/^#(?:job-[\da-f]{12}|free-text-[\da-f]{16})$/i.test(url.hash)) url.hash = '';
+    return url.href;
+  } catch {
+    return String(rawUrl || '');
+  }
+}
+
+/**
+ * Follow the next adjacent numbered page when a source explicitly declares
+ * that URL shape in its pagination contract.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {{ numberedPageRx?: RegExp|null }} [pagination]
+ * @returns {string|null}
+ */
+function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
+  const numberedPageRx = pagination?.numberedPageRx;
+  if (!(numberedPageRx instanceof RegExp)) return null;
+  let current;
+  try {
+    current = new URL(pageUrl);
+  } catch {
+    return null;
+  }
+  const currentPage = numberedPageNumber(current, numberedPageRx) ?? 1;
+  const sourceHtml = String(html || '');
+  const tagRx = /<(?:a|link)\b[^>]*>/gi;
+  let tag;
+  while ((tag = tagRx.exec(sourceHtml))) {
+    const control = extractNumberedListingControl(sourceHtml, tag[0], tagRx.lastIndex);
+    if (!control || control.tagName !== 'a') continue;
+    let next;
+    try {
+      next = new URL(control.hrefValue.replace(/&amp;/g, '&'), pageUrl);
+    } catch {
+      continue;
+    }
+    if (next.origin !== current.origin) continue;
+    if (numberedPageNumber(next, numberedPageRx) !== currentPage + 1) continue;
+    next.hash = '';
+    return next.href;
+  }
+  return null;
+}
+
+/**
+ * The listing's next page, from an `<a>` or `<link>` carrying `rel="next"`.
+ *
+ * Only a same-origin target counts: a next link to another host is not the
+ * continuation of this listing. A source may additionally opt into adjacent
+ * numeric controls through `pagination.numberedPagePattern`.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {{ numberedPageRx?: RegExp|null }} [pagination]
+ * @returns {string|null}
+ */
+export function findNextListingPageUrl(html, pageUrl, pagination) {
+  let current;
+  try {
+    current = new URL(pageUrl);
+  } catch {
+    return null;
+  }
+  const origin = current.origin;
+  current.hash = '';
+  const tagRx = /<(?:a|link)\b[^>]*>/gi;
+  let tag;
+  while ((tag = tagRx.exec(String(html || '')))) {
+    const rel = /\brel\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const relValue = rel ? (rel[1] ?? rel[2] ?? rel[3] ?? '') : '';
+    if (!relValue.toLowerCase().split(/\s+/).includes('next')) continue;
+    const href = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const hrefValue = href ? (href[1] ?? href[2] ?? href[3] ?? '') : '';
+    if (!hrefValue) continue;
+    let next;
+    try { next = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
+    if (next.origin !== origin) continue;
+    const samePageFragment = hrefValue.trim() === '#'
+      && next.pathname === current.pathname
+      && next.search === current.search;
+    next.hash = '';
+    // A few sources leave a placeholder `rel=next href="#"` on their last
+    // page. It is a same-page fragment, not a continuation. Do not generalize
+    // this to every URL equal to the current page: a real pagination loop can
+    // expose the current page as an absolute or query-bearing URL and must
+    // still reach the fail-closed visited-page guard.
+    if (samePageFragment) continue;
+    return next.href;
+  }
+  return findNumberedNextListingPageUrl(html, current.href, pagination);
+}
+
+/**
+ * A fetch failure that proves the page does not exist: a definitive HTTP 404,
+ * not retried, and not an anti-bot fence answering 404.
+ */
+function isTerminalNotFound(error) {
+  return error?.status === 404
+    && error?.retryable === false
+    && !error?.antiBotExhausted;
+}
+
+const DETAIL_NOT_FOUND_EXPECTED_FILTER_POLICY = 'expected-filter';
+const MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED = 10;
+
+/**
+ * A few employer indexes retain stale vacancy links after the detail is gone.
+ * This is an explicit source contract, not a generic 404 exemption: the
+ * caller must opt in and require enough independently publishable detail rows
+ * to prove that the index still serves the source's vacancy shape.
+ *
+ * @param {Record<string, any>} spec
+ * @returns {boolean}
+ */
+function allowsExpectedDetailNotFound(spec) {
+  return spec?.detailNotFoundPolicy === DETAIL_NOT_FOUND_EXPECTED_FILTER_POLICY;
+}
+
+function numericPathPage(url) {
+  const match = String(url.pathname || '').match(/^(.*\/page\/)(\d+)(\/.*)?$/i);
+  if (!match) return null;
+  return {
+    prefix: match[1],
+    number: Number(match[2]),
+    suffix: match[3] || '',
+  };
+}
+
+function numericQueryPage(url) {
+  for (const [name, value] of url.searchParams) {
+    if (/(?:^|[_-])(?:page|paged|p)(?:$|[_-])/i.test(name) && /^\d+$/.test(value)) {
+      return { name, number: Number(value) };
+    }
+  }
+  return null;
+}
+
+function comparableSearchParams(url, excludedName) {
+  return [...url.searchParams]
+    .filter(([name]) => name !== excludedName)
+    .sort(([leftName, leftValue], [rightName, rightValue]) => (
+      leftName.localeCompare(rightName) || leftValue.localeCompare(rightValue)
+    ));
+}
+
+/**
+ * Parse a source-owned numeric pagination control.
+ *
+ * Numeric links are not pagination evidence on their own: a job/detail URL
+ * can also contain a number. The caller supplies an explicit source route
+ * pattern, while this helper requires the control itself to expose a numeric
+ * label (or a localized page label) and excludes rel=next from the announced
+ * page set.
+ *
+ * @param {string} sourceHtml
+ * @param {string} tag
+ * @param {number} tagEnd
+ * @returns {{ tagName: string, hrefValue: string }|null}
+ */
+function extractNumberedListingControl(sourceHtml, tag, tagEnd) {
+  const tagName = /^<\s*([a-z]+)/i.exec(tag)?.[1]?.toLowerCase() || '';
+  const rel = /\brel\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag);
+  const relValue = rel ? (rel[1] ?? rel[2] ?? rel[3] ?? '') : '';
+  if (relValue.toLowerCase().split(/\s+/).includes('next')) return null;
+  const href = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag);
+  const hrefValue = href ? (href[1] ?? href[2] ?? href[3] ?? '') : '';
+  if (!hrefValue) return null;
+  const closeOffset = tagName === 'a'
+    ? sourceHtml.slice(tagEnd).search(/<\/a\b/i)
+    : -1;
+  const innerText = (closeOffset >= 0 ? sourceHtml.slice(tagEnd, tagEnd + closeOffset) : '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(?:nbsp|amp);/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const ariaLabel = /\baria-label\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag);
+  const ariaValue = ariaLabel ? (ariaLabel[1] ?? ariaLabel[2] ?? ariaLabel[3] ?? '') : '';
+  const title = /\btitle\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag);
+  const titleValue = title ? (title[1] ?? title[2] ?? title[3] ?? '') : '';
+  const controlLabel = [innerText, ariaValue, titleValue].join(' ');
+  if (!/^\d+$/.test(innerText)
+    && !/^\d+$/.test(ariaValue.trim())
+    && !/^\d+$/.test(titleValue.trim())
+    && !/(?:page|seite|pagina)\s*#?\s*\d+/i.test(controlLabel)) return null;
+  return { tagName, hrefValue };
+}
+
+function numberedPageNumber(url, numberedPageRx) {
+  if (!(numberedPageRx instanceof RegExp)) return null;
+  numberedPageRx.lastIndex = 0;
+  const match = numberedPageRx.exec(url.pathname);
+  numberedPageRx.lastIndex = 0;
+  const number = Number(match?.[1] || '');
+  return Number.isInteger(number) && number > 0 ? number : null;
+}
+
+/**
+ * The furthest numbered page the current listing announces on `nextUrl`'s
+ * route (same path prefix/suffix, or same query parameter and other params).
+ *
+ * Only numbered controls count — a link whose text, aria-label or title is a
+ * page number. The rel=next link itself is never evidence: it is the target
+ * being judged.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {string} nextUrl
+ * @returns {{ number: number, url: string }|null}
+ */
+export function largestAnnouncedListingPage(html, pageUrl, nextUrl) {
+  let current;
+  let next;
+  try {
+    current = new URL(pageUrl);
+    next = new URL(nextUrl, pageUrl);
+  } catch {
+    return null;
+  }
+  if (current.origin !== next.origin) return null;
+
+  const nextPathPage = numericPathPage(next);
+  const nextQueryPage = nextPathPage ? null : numericQueryPage(next);
+  if (!nextPathPage && !nextQueryPage) return null;
+
+  const sourceHtml = String(html || '');
+  const tagRx = /<(?:a|link)\b[^>]*>/gi;
+  let tag;
+  let largest = null;
+  while ((tag = tagRx.exec(sourceHtml))) {
+    const control = extractNumberedListingControl(sourceHtml, tag[0], tagRx.lastIndex);
+    if (!control) continue;
+    const { hrefValue } = control;
+    let candidate;
+    try { candidate = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
+    if (candidate.origin !== current.origin) continue;
+
+    if (nextPathPage) {
+      const candidatePage = numericPathPage(candidate);
+      if (!candidatePage
+        || candidatePage.prefix !== nextPathPage.prefix
+        || candidatePage.suffix !== nextPathPage.suffix
+        || candidate.search !== next.search) continue;
+      if (!largest || candidatePage.number > largest.number) {
+        largest = { number: candidatePage.number, url: candidate.href };
+      }
+      continue;
+    }
+
+    const candidatePage = numericQueryPage(candidate);
+    if (!candidatePage
+      || candidate.pathname !== next.pathname
+      || candidatePage.name !== nextQueryPage.name
+      || JSON.stringify(comparableSearchParams(candidate, candidatePage.name))
+        !== JSON.stringify(comparableSearchParams(next, nextQueryPage.name))) continue;
+    if (!largest || candidatePage.number > largest.number) {
+      largest = { number: candidatePage.number, url: candidate.href };
+    }
+  }
+
+  return largest;
+}
+
+/**
+ * Whether `nextUrl` is the last numbered page the current listing announces.
+ *
+ * A few sources expose a rel=next link to a one-past-the-end page. This helper
+ * only recognizes that case when the page itself contains a numbered
+ * pagination control whose largest same-route number is the rel=next target.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {string} nextUrl
+ * @returns {boolean}
+ */
+export function isLastAnnouncedListingPage(html, pageUrl, nextUrl) {
+  const largest = largestAnnouncedListingPage(html, pageUrl, nextUrl);
+  return largest != null && largest.number === listingPageNumber(nextUrl, pageUrl);
+}
+
+/**
+ * The page number a numbered listing URL carries (`/page/<n>/` or a
+ * `page`/`paged`/`p` query parameter), or null.
+ *
+ * @param {string} url
+ * @param {string} [base]
+ * @returns {number|null}
+ */
+function listingPageNumber(url, base) {
+  let parsed;
+  try { parsed = new URL(url, base); } catch { return null; }
+  return numericPathPage(parsed)?.number ?? numericQueryPage(parsed)?.number ?? null;
+}
+
+/**
+ * Whether `nextUrl` is the page right after `pageUrl` in a numbered listing.
+ * A seed without a page number is page 1.
+ *
+ * @param {string} pageUrl
+ * @param {string} nextUrl
+ * @returns {boolean}
+ */
+function isNextSequentialListingPage(pageUrl, nextUrl) {
+  const nextNumber = listingPageNumber(nextUrl, pageUrl);
+  if (nextNumber == null) return false;
+  return nextNumber === (listingPageNumber(pageUrl) ?? 1) + 1;
+}
+
+/**
+ * Compare two listing URLs after URL parsing and fragment removal. A small
+ * number of sources put a self-referential `rel=next` on their final page;
+ * only an explicitly opted-in spec may interpret that source quirk as an end
+ * marker. The default loop guard remains fail-closed for every other spec.
+ */
+function isSameListingPageUrl(left, right) {
+  try {
+    const a = new URL(left);
+    const b = new URL(right);
+    a.hash = '';
+    b.hash = '';
+    return a.href === b.href;
+  } catch {
+    return String(left || '').trim() === String(right || '').trim();
+  }
+}
+
+/**
+ * Listing rows a spec yields, before any detail-page enrichment.
+ *
+ * Extracted from `runSpecInProduction()` because the offline measurements have
+ * to read the same rows production reads: an analysis that re-implements the
+ * listing cascade measures a different program than the one that publishes
+ * (see `scripts/prospect-measure-postal-variance.mjs`). The URL policy is
+ * passed in and its dispatcher is closed by the caller, which is what lets the
+ * caller keep fetching detail pages on the same polite transport.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {Record<string, any>} runtime
+ * @param {any} validateUrl URL policy from `createSpecUrlPolicy()`
+ * @returns {Promise<Array<Record<string, any>>>}
+ */
+export async function collectSpecListingRows(spec, runtime, validateUrl) {
+  /** @type {Map<string, any>} */
+  const bySlug = new Map();
+  // Most specs measure coverage by distinct detail URL. A small number of
+  // sources declare raw listing rows while duplicating a vacancy across pages;
+  // those specs opt into counting the source rows after URL/template guards,
+  // before de-duplication, so a complete walk is not rejected as truncated.
+  let listingRowsForCoverage = 0;
+  const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
+  const emptyOutcome = spec.rescueOnEmptyListing === true
+    && runtime.disableWafProxy !== true
+    ? configuredEmptyListingOutcome(spec)
+    : null;
+  const emptyDetails = [];
+  const sourceFetchMetadata = [];
+  const recordSourceFetchMetadata = (extracted) => {
+    const source = extracted?.sourceFetchMetadata;
+    if (!source) return;
+    // Structured extractors historically attached metadata directly to their
+    // candidate array, while newer extractors may return one metadata object
+    // per page. Inspect both shapes: wrapping an array as one entry hides the
+    // properties carried by its objects, while inspecting only its objects
+    // would lose metadata attached to the array itself.
+    const sources = Array.isArray(source) ? [source, ...source] : [source];
+    for (const entry of sources) {
+      if (!entry || (typeof entry !== 'object' && typeof entry !== 'function')) continue;
+      if (['fetchOutcome', 'discoveredCount', 'fetchDetail', 'authoritativeEmptyState',
+        'freeTextFailure', 'freeTextApplications', 'freeTextRejectedReasons',
+        'freeTextContractVersion']
+        .some((key) => Object.prototype.hasOwnProperty.call(entry, key))) {
+        sourceFetchMetadata.push(entry);
+      }
+    }
+  };
+  const listingEndpoint = configuredListingEndpoint(spec);
+  let endpointConsumed = false;
+
+  /**
+   * Add one page of listing candidates to the de-duplicated row set.
+   *
+   * A page reached by pagination may echo its own state into the detail links
+   * (`/job/sa036315/?sf_paged=2`); `pageUrl` strips it so the vacancy keeps one
+   * URL, and therefore one id, whichever page it is listed on.
+   *
+   * @param {any[]} candidates
+   * @param {Map<string, any>} umantisListingEvidence
+   * @param {string} [pageUrl]
+   * @param {string[]} [stateParams]
+   */
+  const addListingCandidates = async (candidates, umantisListingEvidence, pageUrl = '', stateParams = []) => {
+    for (const candidate of candidates) {
+      if (!candidate.title || !candidate.url) continue;
+      const v = pageUrl
+        ? {
+          ...candidate,
+          url: stripListingPageState(candidate.url, pageUrl, stateParams),
+          ...(candidate.sourceUrl ? { sourceUrl: stripListingPageState(candidate.sourceUrl, pageUrl, stateParams) } : {}),
+        }
+        : candidate;
+      const vacancy = /** @type {any} */ (v);
+      const sourceUrl = vacancy.sourceUrl || v.url;
+      try { await validateUrl(sourceUrl); } catch { continue; }
+      if (templateRx && !matchesDetailTemplate(sourceUrl, templateRx)) continue;
+      listingRowsForCoverage += 1;
+      const identityUrl = listingIdentityUrl(v.url);
+      if (bySlug.has(identityUrl)) continue;
+      const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
+      const publication = mergeSourcePostingDates({}, vacancy);
+      const record = {
+        title: v.title,
+        url: v.url,
+        ...(vacancy.sourceUrl ? { sourceUrl: vacancy.sourceUrl } : {}),
+        location: vacancy.location || '',
+        addressLocality: vacancy.addressLocality || '',
+        addressRegion: vacancy.addressRegion || '',
+        addressCountry: vacancy.addressCountry || '',
+        postalCode: vacancy.postalCode || '',
+        streetAddress: vacancy.streetAddress || '',
+        locationCandidates: [...(vacancy.locationCandidates || [])],
+        ...(vacancy.sourceText ? { sourceText: vacancy.sourceText } : {}),
+        ...(vacancy.freeTextSourceText ? { freeTextSourceText: vacancy.freeTextSourceText } : {}),
+        ...(vacancy.freeTextSourceUrl ? { freeTextSourceUrl: vacancy.freeTextSourceUrl } : {}),
+        ...(vacancy.freeTextContractVersion ? { freeTextContractVersion: vacancy.freeTextContractVersion } : {}),
+        ...(vacancy.structuredDataContract ? { structuredDataContract: vacancy.structuredDataContract } : {}),
+        ...(vacancy.applyUrl ? { applyUrl: vacancy.applyUrl } : {}),
+        ...(vacancy.via ? { via: vacancy.via } : {}),
+        // Stessa piega dell'evidenza di listing che applica il sintetizzatore.
+        ...listingEvidenceFields(vacancy, listingEvidence),
+        description: vacancy.description || '',
+        ...publication,
+        postedAt: publication.postedDate || null,
+        company: vacancy.company || spec.companyName,
+      };
+      if (v.__tenantScopeMarker) {
+        Object.defineProperty(record, '__tenantScopeMarker', {
+          value: v.__tenantScopeMarker,
+          enumerable: false,
+          configurable: true,
+        });
+      }
+      bySlug.set(identityUrl, record);
+    }
+  };
+
+  const transportFallbackSeedUrls = [...new Set(
+    (Array.isArray(spec.transportFallbackSeedUrls) ? spec.transportFallbackSeedUrls : [])
+      .map((url) => String(url || '').trim())
+      .filter(Boolean),
+  )];
+
+  for (const seed of spec.seedUrls || []) {
+    if (listingEndpoint) {
+      if (endpointConsumed) continue;
+      endpointConsumed = true;
+      const endpointSeed = seed || listingEndpoint.url;
+      const fetchEndpointPage = async (pageNumber) => {
+        const endpointUrl = listingEndpointUrl(listingEndpoint, pageNumber);
+        let response;
+        try {
+          response = await fetchRuntimePage(endpointUrl, validateUrl, runtime, {
+            method: listingEndpoint.method,
+            accept: listingEndpoint.responseFormat === 'jsonp'
+              ? 'application/javascript'
+              : 'application/json',
+            headers: {
+              Referer: endpointSeed,
+              'X-Requested-With': 'XMLHttpRequest',
+            },
+            // Jina is an HTML rescue and must never be allowed to turn a JSON
+            // endpoint failure into parseable-looking source evidence.
+            allowJinaProxy: false,
+          });
+        } catch (error) {
+          throw markSpecListingFailure(error, bySlug.size);
+        }
+        try {
+          return {
+            endpointUrl,
+            response: parseListingEndpointResponse(response.body, spec.companyKey, listingEndpoint),
+          };
+        } catch (error) {
+          throw markSpecListingFailure(error, bySlug.size);
+        }
+      };
+      const first = await fetchEndpointPage(1);
+      if (first.response.maxNumPages > listingEndpoint.maxPages) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] listingEndpoint pagination exceeds `
+          + `maxPages=${listingEndpoint.maxPages} (${first.response.maxNumPages} pages announced)`,
+        ), bySlug.size);
+      }
+      const consumeEndpointPage = async ({ endpointUrl, response }) => {
+        const extracted = await extractListingCandidates(response.html, endpointUrl, templateRx, spec, runtime);
+        recordSourceFetchMetadata(extracted);
+        const candidates = filterListingCandidates(spec, extracted.candidates);
+        const listingEvidence = spec.platform === 'umantis.com'
+          ? extractUmantisListingEvidence(response.html, endpointUrl, {
+            cantonOverrides: spec.umantisListingCantonOverrides,
+          })
+          : new Map();
+        await addListingCandidates(candidates, listingEvidence);
+      };
+      await consumeEndpointPage(first);
+      for (let pageNumber = 2; pageNumber <= first.response.maxNumPages; pageNumber++) {
+        const next = await fetchEndpointPage(pageNumber);
+        if (next.response.maxNumPages > listingEndpoint.maxPages) {
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] listingEndpoint pagination exceeds `
+            + `maxPages=${listingEndpoint.maxPages} (${next.response.maxNumPages} pages announced)`,
+          ), bySlug.size);
+        }
+        await consumeEndpointPage(next);
+      }
+      continue;
+    }
+    const seedRowsBefore = bySlug.size;
+    const seedCoverageRowsBefore = listingRowsForCoverage;
+    let page;
+    let effectiveSeed = seed;
+    const seedCandidates = [seed, ...transportFallbackSeedUrls]
+      .filter((candidate, index, all) => all.indexOf(candidate) === index);
+    for (let candidateIndex = 0; candidateIndex < seedCandidates.length; candidateIndex += 1) {
+      const candidate = seedCandidates[candidateIndex];
+      try {
+        page = await fetchRuntimePage(candidate, validateUrl, runtime);
+        effectiveSeed = candidate;
+        break;
+      } catch (err) {
+        // The primary seed is the stable, source-declared ordering. An
+        // alternate seed is allowed only after a connection-level failure;
+        // HTTP responses, robots denials and URL-policy failures remain
+        // authoritative and fail closed.
+        const hasNextCandidate = candidateIndex < seedCandidates.length - 1;
+        if (!hasNextCandidate || !isConnectionLevelFetchError(err)) {
+          throw markSpecListingFailure(err);
+        }
+        console.warn(
+          `[prospector:${spec.companyKey}] listing seed ${candidate} `
+          + `failed at transport boundary; trying fallback seed ${seedCandidates[candidateIndex + 1]}`,
+        );
+      }
+    }
+    if (!page) {
+      throw markSpecListingFailure(new Error(
+        `[prospector:${spec.companyKey}] listing seed did not produce a page`,
+      ));
+    }
+    let html = page.body;
+    if (!html) continue;
+    let effectiveSeedUrl = page.url || effectiveSeed;
+    let umantisListingEvidence = spec.platform === 'umantis.com'
+      ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+        cantonOverrides: spec.umantisListingCantonOverrides,
+      })
+      : new Map();
+    const seedExtraction = await extractListingCandidates(html, effectiveSeedUrl, templateRx, spec, runtime);
+    recordSourceFetchMetadata(seedExtraction);
+    let { links, candidates } = seedExtraction;
+    candidates = filterListingCandidates(spec, candidates);
+
+    // Some source pages serve a small structured subset to direct HTTP
+    // clients while a browser receives the full vacancy board. A non-empty
+    // subset must not enter the normal detail pipeline as if it were the
+    // complete population: it is exactly the shape that can shrink a healthy
+    // slice without triggering the zero-result rescue. Treat equality as
+    // partial too: a page-sized response can stop at the learned sample
+    // boundary while the source still has more vacancies. The source-specific
+    // browser rescue is the evidence boundary here: a learned sample count is
+    // historical source evidence, not an upper bound on today's population.
+    // A growing board must still get the rescue, and the candidate-count
+    // comparison below keeps the browser response from replacing a complete
+    // direct response unless it proves that it contains more vacancies.
+    if (spec.rescueOnPartialListing === true
+      && candidates.length > 0
+      && runtime.disableWafProxy !== true
+      && typeof runtime.browserFetchImpl === 'function') {
+      const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);
+      if (browserBody) {
+        const rescuedRaw = await extractListingCandidates(
+          browserBody,
+          effectiveSeedUrl,
+          templateRx,
+          spec,
+          runtime,
+        );
+        recordSourceFetchMetadata(rescuedRaw);
+        const rescued = {
+          ...rescuedRaw,
+          candidates: filterListingCandidates(spec, rescuedRaw.candidates),
+        };
+        if (rescued.candidates.length > candidates.length) {
+          console.warn(
+            `[prospector:${spec.companyKey}] direct seed yielded a partial listing `
+              + `(${candidates.length} candidates; learned sample ${spec.sampleVacancyCount}); using browser rescue `
+              + `(${rescued.candidates.length} candidates)`,
+          );
+          html = browserBody;
+          ({ links, candidates } = rescued);
+          umantisListingEvidence = spec.platform === 'umantis.com'
+            ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+              cantonOverrides: spec.umantisListingCantonOverrides,
+            })
+            : new Map();
+        }
+      }
+    }
+
+    // Some protected boards answer the direct request with a 200 interstitial
+    // that has no stable challenge marker. That page is indistinguishable from
+    // a legitimate empty employer page until the same seed is viewed through
+    // the clean-IP rescue. Opt-in is deliberately spec-scoped: only a crawler
+    // with evidence of this source-specific failure pays for the extra fetch.
+    if (!candidates.length && spec.rescueOnEmptyListing === true
+      && runtime.disableWafProxy !== true) {
+      // `fetchRuntimePage()` may already have used Jina to replace a marked
+      // challenge. That response can still be a 200 interstitial that is not
+      // recognised by the proxy-body detector, so it is safe-looking to the
+      // transport layer but still yields no candidates. Give the opt-in spec
+      // one more clean-IP rescue in that case; the candidate check below is
+      // the source-backed acceptance gate and this block runs only once per
+      // seed, so it cannot loop.
+      const proxiedBody = await fetchHtmlViaJinaWithRetry(effectiveSeedUrl, {
+        timeoutMs: runtime.timeoutMs,
+        retries: runtime.jinaRetries,
+        retryBaseMs: runtime.jinaRetryBaseMs,
+        fetchImpl: runtime.jinaFetchImpl,
+        sleepImpl: runtime.jinaSleepImpl,
+      });
+      if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
+        const rescuedRaw = await extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx, spec, runtime);
+        recordSourceFetchMetadata(rescuedRaw);
+        const rescued = {
+          ...rescuedRaw,
+          candidates: filterListingCandidates(spec, rescuedRaw.candidates),
+        };
+        if (rescued.candidates.length) {
+          console.warn(
+            `[prospector:${spec.companyKey}] direct seed yielded no listings; using clean-IP rescue (${rescued.candidates.length} candidates)`,
+          );
+          html = proxiedBody;
+          ({ links, candidates } = rescued);
+          effectiveSeedUrl = page.url || seed;
+          umantisListingEvidence = spec.platform === 'umantis.com'
+            ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+              cantonOverrides: spec.umantisListingCantonOverrides,
+            })
+            : new Map();
+        }
+      }
+      if (!candidates.length) {
+        const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);
+        if (browserBody) {
+          const rescuedRaw = await extractListingCandidates(browserBody, effectiveSeedUrl, templateRx, spec, runtime);
+          recordSourceFetchMetadata(rescuedRaw);
+          const rescued = {
+            ...rescuedRaw,
+            candidates: filterListingCandidates(spec, rescuedRaw.candidates),
+          };
+          if (rescued.candidates.length) {
+            console.warn(
+              `[prospector:${spec.companyKey}] direct seed yielded no listings; using browser rescue (${rescued.candidates.length} candidates)`,
+            );
+            html = browserBody;
+            ({ links, candidates } = rescued);
+            effectiveSeedUrl = page.url || seed;
+            umantisListingEvidence = spec.platform === 'umantis.com'
+              ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+                cantonOverrides: spec.umantisListingCantonOverrides,
+              })
+              : new Map();
+          }
+        }
+      }
+    }
+    if (!candidates.length) {
+      // Un seed che risponde 200 senza nessun annuncio è indistinguibile, a
+      // valle, da un datore di lavoro senza offerte: `vereinaklosters`
+      // (hotelcareer.ch) dà due annunci da un IP pulito e zero righe dal
+      // runner CI, senza altra traccia nel log. Il titolo e il numero di link
+      // della pagina ricevuta dicono se era la pagina attesa o un interstiziale.
+      const pageTitle = (/<title[^>]*>([\s\S]{0,200}?)<\/title>/i.exec(html)?.[1] || '').replace(/\s+/g, ' ').trim();
+      console.warn(`[prospector:${spec.companyKey}] nessun annuncio su ${effectiveSeedUrl}: title="${pageTitle}", ${links.length} link, ${html.length} byte`);
+      if (emptyOutcome) {
+        emptyDetails.push(
+          `${effectiveSeedUrl}: title="${pageTitle}", links=${links.length}, bytes=${html.length}`,
+        );
+      }
+    }
+    await addListingCandidates(candidates, umantisListingEvidence);
+
+    // Opt-in pagination (`spec.pagination`). A listing that shows only its
+    // first page to a single-seed crawler makes every vacancy that scrolls
+    // onto page 2 look closed: the miss grace then archives live jobs and the
+    // anti-shrink guard aborts the slice (yellowshark, 1103 vacancies on 56
+    // pages read as 20, run corpus 36380344842). Every page is read on the
+    // same polite transport, and any failure propagates: publishing a partial
+    // listing is exactly the failure this exists to prevent.
+    if (spec.pagination) {
+      const pagination = normalizeSpecPagination(spec);
+      const declaredTotal = readDeclaredListingTotal(html, pagination, spec);
+      let declaredPageCount = readDeclaredListingPageCount(html, pagination);
+      if (pagination.stopAfterDeclaredPageCount && declaredPageCount === null) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] numero di pagine dichiarato dalla fonte non trovato `
+          + `(declaredPageCountPattern ${pagination.declaredPageCountRx?.source || 'missing'})`,
+        ), bySlug.size);
+      }
+      const visited = new Set([effectiveSeedUrl]);
+      let pageUrl = effectiveSeedUrl;
+      let nextUrl = findNextListingPageUrl(html, pageUrl, pagination);
+      let pages = 1;
+      let currentPageCandidateCount = candidates.length;
+      while (nextUrl) {
+        if (pagination.stopAfterDeclaredPageCount
+          && declaredPageCount !== null
+          && pages >= declaredPageCount) {
+          console.warn(
+            `[prospector:${spec.companyKey}] listing paginata: ${pages} pagine dichiarate dalla fonte; `
+              + 'fine della paginazione accettata nonostante il rel=next residuo',
+          );
+          break;
+        }
+        if (pagination.selfNextIsTerminal && isSameListingPageUrl(nextUrl, pageUrl)) {
+          console.warn(
+            `[prospector:${spec.companyKey}] listing paginata: rel=next punta alla stessa pagina dopo ${pages} pagine; fine dichiarata dalla spec`,
+          );
+          break;
+        }
+        if (visited.has(nextUrl)) {
+          // A next link back to a page already read is a loop or an alias,
+          // not the end of the listing: stopping here would publish a partial
+          // set as if it were complete.
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] listing troncata: il link rel=next dopo ${pages} pagine `
+            + `torna a una pagina gia letta (${nextUrl})`,
+          ), bySlug.size);
+        }
+        if (pages >= pagination.maxPages) {
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] listing troncata: ${pages} pagine lette, `
+            + `maxPages=${pagination.maxPages} e un link rel=next ancora presente (${nextUrl})`,
+          ), bySlug.size);
+        }
+        visited.add(nextUrl);
+        let next;
+        try {
+          next = await fetchRuntimePage(nextUrl, validateUrl, runtime);
+        } catch (error) {
+          const readRows = pagination.countDuplicateRowsForCoverage
+            ? listingRowsForCoverage - seedCoverageRowsBefore
+            : bySlug.size - seedRowsBefore;
+          const coverageSatisfied = declaredTotal != null
+            && readRows >= Math.ceil(declaredTotal * pagination.minCoverage);
+          const announcedFinal = currentPageCandidateCount > 0
+            && isLastAnnouncedListingPage(html, pageUrl, nextUrl);
+          const terminalNotFound = isTerminalNotFound(error);
+          if (terminalNotFound && (coverageSatisfied || announcedFinal)) {
+            console.warn(
+              `[prospector:${spec.companyKey}] listing paginata: ${nextUrl} risponde HTTP 404; `
+              + `fine della paginazione accettata (${coverageSatisfied ? 'copertura sufficiente' : 'ultima pagina annunciata'})`,
+            );
+            break;
+          }
+          // Announced page count overshooting the real listing: a source that
+          // declares no total can announce pages past its end (stellentreff:
+          // full page 57 links 58 and 59, both 404; page 1 announced 58; run
+          // corpus 36988228462). The first missing page ends the walk only
+          // when nothing contradicts that: the page just read had vacancies,
+          // the 404 is the very next numbered page, and the furthest page the
+          // listing announces is gone too (one probe request; a listing that
+          // announces no numbered page past the 404 has nothing to probe). If
+          // that page exists, the 404 is a hole in the middle and the walk
+          // still fails closed. A source that declares a total keeps the
+          // coverage rule above: its count is stronger evidence than a 404.
+          if (terminalNotFound
+            && declaredTotal == null
+            && currentPageCandidateCount > 0
+            && isNextSequentialListingPage(pageUrl, nextUrl)) {
+            const furthest = largestAnnouncedListingPage(html, pageUrl, nextUrl);
+            const probeUrl = furthest && furthest.number > (listingPageNumber(nextUrl, pageUrl) ?? 0)
+              ? furthest.url
+              : null;
+            let probeError = null;
+            if (probeUrl) {
+              try {
+                await fetchRuntimePage(probeUrl, validateUrl, runtime);
+              } catch (caught) {
+                probeError = caught;
+              }
+              if (!probeError) {
+                throw markSpecListingFailure(new Error(
+                  `[prospector:${spec.companyKey}] listing troncata: ${nextUrl} risponde HTTP 404 `
+                  + `ma la pagina annunciata ${probeUrl} esiste (pagina mancante a meta listing)`,
+                ), bySlug.size);
+              }
+            }
+            if (!probeUrl || isTerminalNotFound(probeError)) {
+              console.warn(
+                `[prospector:${spec.companyKey}] listing paginata: ${nextUrl} risponde HTTP 404 dopo ${pages} pagine; `
+                + `fine della paginazione accettata (${probeUrl
+                  ? `anche l'ultima pagina annunciata ${probeUrl} risponde 404`
+                  : 'nessuna pagina successiva annunciata'})`,
+              );
+              break;
+            }
+          }
+          throw markSpecListingFailure(error, bySlug.size);
+        }
+        pages += 1;
+        pageUrl = next.url || nextUrl;
+        const body = next.body || '';
+        const nextEvidence = spec.platform === 'umantis.com'
+          ? extractUmantisListingEvidence(body, pageUrl, {
+            cantonOverrides: spec.umantisListingCantonOverrides,
+          })
+          : new Map();
+        const extracted = await extractListingCandidates(body, pageUrl, templateRx, spec, runtime);
+        recordSourceFetchMetadata(extracted);
+        const nextCandidates = filterListingCandidates(spec, extracted.candidates);
+        const nextDeclaredPageCount = readDeclaredListingPageCount(body, pagination);
+        if (pagination.stopAfterDeclaredPageCount && nextDeclaredPageCount === null) {
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] numero di pagine dichiarato dalla fonte non trovato `
+            + `(declaredPageCountPattern ${pagination.declaredPageCountRx?.source || 'missing'})`,
+          ), bySlug.size);
+        }
+        if (nextDeclaredPageCount !== null) {
+          if (declaredPageCount !== null && nextDeclaredPageCount !== declaredPageCount) {
+            throw markSpecListingFailure(new Error(
+              `[prospector:${spec.companyKey}] numero di pagine dichiarato cambiato durante la paginazione `
+              + `(${declaredPageCount}/${nextDeclaredPageCount})`,
+            ), bySlug.size);
+          }
+          declaredPageCount = nextDeclaredPageCount;
+        }
+        const pageCoverageRowsBefore = listingRowsForCoverage;
+        const pageDistinctRowsBefore = bySlug.size;
+        await addListingCandidates(
+          nextCandidates,
+          nextEvidence,
+          pageUrl,
+          pagination.pageStateParams,
+        );
+        const pageCoverageRows = listingRowsForCoverage - pageCoverageRowsBefore;
+        const pageDistinctRows = bySlug.size - pageDistinctRowsBefore;
+        // A source may legitimately repeat an occasional vacancy across page
+        // boundaries, so Stellenpartner counts validated source rows for its
+        // declared-total coverage. A whole page with no new identity is a
+        // different signal: the provider returned an earlier page again (or
+        // replaced this page with a partial snapshot). Counting those rows
+        // would let a missing slice satisfy the declared total and retire
+        // still-live jobs. Keep the duplicate-row tolerance, but fail closed
+        // when a non-empty paginated page contributes no new URL.
+        if (pagination.countDuplicateRowsForCoverage
+          && pageCoverageRows > 0
+          && pageDistinctRows === 0) {
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] listing troncata: la pagina ${pageUrl} `
+            + `ha ${pageCoverageRows} righe source ma nessun URL distinto nuovo`,
+          ), bySlug.size);
+        }
+        html = body;
+        currentPageCandidateCount = nextCandidates.length;
+        nextUrl = findNextListingPageUrl(body, pageUrl, pagination);
+      }
+      if (pagination.stopAfterDeclaredPageCount
+        && declaredPageCount !== null
+        && pages < declaredPageCount) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] listing incompleta: ${pages}/${declaredPageCount} `
+          + 'pagine dichiarate dalla fonte lette senza un link rel=next',
+        ), bySlug.size);
+      }
+      const seedRows = bySlug.size - seedRowsBefore;
+      const coverageRows = pagination.countDuplicateRowsForCoverage
+        ? listingRowsForCoverage - seedCoverageRowsBefore
+        : seedRows;
+      console.log(
+        `[prospector:${spec.companyKey}] listing paginata: ${pages} pagine, ${seedRows} annunci`
+        + (declaredTotal == null
+          ? ''
+          : ` (copertura ${coverageRows}, totale dichiarato dalla fonte: ${declaredTotal})`),
+      );
+      if (declaredTotal != null && coverageRows < Math.ceil(declaredTotal * pagination.minCoverage)) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] listing incompleta: ${coverageRows}/${declaredTotal} righe di copertura `
+          + `(annunci distinti: ${seedRows}) `
+          + `dichiarati dalla fonte su ${pages} pagine (copertura minima ${pagination.minCoverage})`,
+        ), bySlug.size);
+      }
+    } else if (candidates.length) {
+      // A seed that advertises a next page to a spec without pagination is an
+      // incomplete listing. Never let one page masquerade as the population.
+      const unfollowed = findNextListingPageUrl(html, effectiveSeedUrl);
+      if (unfollowed) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] listing incompleta: la pagina seed espone `
+          + `un link rel=next non seguito (${unfollowed}; ${candidates.length} candidati). `
+          + 'Dichiarare spec.pagination.',
+        ), bySlug.size);
+      }
+    }
+  }
+  const rows = [...bySlug.values()];
+  if (listingEndpoint && endpointConsumed) {
+    copySpecFetchMetadata(rows, {
+      discoveredCount: rows.length,
+      ...(rows.length === 0
+        ? {
+          fetchOutcome: 'selector_miss',
+          fetchDetail: 'listingEndpoint returned no detail-template candidates',
+        }
+        : {}),
+    });
+  }
+  // A configured outcome is evidence about an UNVERIFIED zero only. Never
+  // attach it after a seed yielded accepted vacancies: a partial source result
+  // must continue through the normal detail/geography gates instead of being
+  // reinterpreted as a WAF failure.
+  if (rows.length === 0 && emptyOutcome && emptyDetails.length > 0) {
+    copySpecFetchMetadata(rows, {
+      fetchOutcome: emptyOutcome,
+      discoveredCount: 0,
+      fetchDetail: emptyDetails.join('; '),
+    });
+  }
+  if (sourceFetchMetadata.length) {
+    const outcomes = sourceFetchMetadata
+      .filter((source) => Object.prototype.hasOwnProperty.call(source, 'fetchOutcome'))
+      .map((source) => source.fetchOutcome);
+    const failedOutcomeIndex = outcomes.findIndex((outcome) => (
+      outcome !== null && (
+        typeof outcome !== 'string'
+        || !CRAWLER_FETCH_OUTCOMES.has(outcome)
+        || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome)
+      )
+    ));
+    const metadata = {};
+    if (failedOutcomeIndex >= 0) metadata.fetchOutcome = outcomes[failedOutcomeIndex];
+    else if (outcomes.length) metadata.fetchOutcome = outcomes.includes('ok') ? 'ok' : outcomes[0];
+    const [source] = sourceFetchMetadata;
+    if (sourceFetchMetadata.length === 1) {
+      if (Number.isInteger(source.discoveredCount) && source.discoveredCount >= 0) {
+        metadata.discoveredCount = source.discoveredCount;
+      }
+      if (typeof source.fetchDetail === 'string') metadata.fetchDetail = source.fetchDetail;
+      if (typeof source.authoritativeEmptyState === 'string') {
+        metadata.authoritativeEmptyState = source.authoritativeEmptyState;
+      }
+    }
+    // Free-text metadata is source evidence, not a job field. Aggregate every
+    // page before attaching it to the non-enumerable result so a later rescue
+    // page cannot be hidden by an earlier successful/empty page.
+    const freeTextSources = sourceFetchMetadata.filter((entry) => (
+      Object.prototype.hasOwnProperty.call(entry, 'freeTextApplications')
+        || Object.prototype.hasOwnProperty.call(entry, 'freeTextFailure')
+        || Object.prototype.hasOwnProperty.call(entry, 'freeTextRejectedReasons')
+        || Object.prototype.hasOwnProperty.call(entry, 'freeTextContractVersion')
+    ));
+    if (freeTextSources.length) {
+      if (freeTextSources.some((entry) => (
+        Object.prototype.hasOwnProperty.call(entry, 'freeTextApplications')
+      ))) {
+        metadata.freeTextApplications = freeTextSources.flatMap((entry) => (
+          Array.isArray(entry.freeTextApplications) ? entry.freeTextApplications : []
+        ));
+      }
+      const failures = freeTextSources
+        .map((entry) => typeof entry.freeTextFailure === 'string' ? entry.freeTextFailure : '')
+        .filter(Boolean);
+      if (failures.length) metadata.freeTextFailure = failures.join('; ');
+      if (freeTextSources.some((entry) => (
+        Object.prototype.hasOwnProperty.call(entry, 'freeTextRejectedReasons')
+      ))) {
+        metadata.freeTextRejectedReasons = freeTextSources.flatMap((entry) => (
+          Array.isArray(entry.freeTextRejectedReasons) ? entry.freeTextRejectedReasons : []
+        ));
+      }
+      const contractVersions = freeTextSources
+        .map((entry) => entry.freeTextContractVersion)
+        .filter((version) => Number.isInteger(version));
+      if (contractVersions.length) {
+        metadata.freeTextContractVersion = contractVersions[contractVersions.length - 1];
+      }
+    }
+    copySpecFetchMetadata(rows, metadata);
+  }
+  return rows;
+}
+
+/**
+ * Run a spec and return listing rows in the shape the generated parser's
+ * `fetchJobListings()` contract expects.
+ *
+ * Rows the spec's own detail template rejects are dropped: the template is the
+ * one piece of evidence that a link belongs to the listing rather than to the
+ * navigation around it, and in production — unattended — a chrome link becomes
+ * a published fake vacancy.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {{
+ *   isExpectedDetailFilter?: (context: {
+ *     spec: import('./synthesize.mjs').CrawlerSpec,
+ *     row: Record<string, any>,
+ *     detail: Record<string, any>,
+ *     decision: Record<string, any>,
+ *     descriptionSufficient: boolean,
+ *     reason: 'geography'
+ *   }) => boolean
+ *   requireExplicitCountryEvidence?: boolean
+ * }} [runtime]
+ * @returns {Promise<Array<Record<string, any> & {
+ *   title: string,
+ *   url: string,
+ *   sourceUrl?: string,
+ *   location: string,
+ *   description: string,
+ *   postedAt: string|null,
+ *   postedDate: string,
+ *   datePosted: string,
+ *   postingDateSource: 'reported'|'unknown',
+ *   company: string,
+ *   addressLocality?: string,
+ *   addressRegion?: string,
+ *   addressCountry?: string,
+ *   country?: string,
+ *   postalCode?: string,
+ *   streetAddress?: string,
+ * }>>}
+ */
+export async function runSpecInProduction(spec, runtime = {}) {
+  const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
+  try {
+    const rows = await collectSpecListingRows(spec, runtime, validateUrl);
+    const officialEmployerSiteLocation = rows.some(rowNeedsOfficialEmployerLocation)
+      ? (runtime.officialEmployerSiteLocation
+        || await fetchOfficialEmployerSiteLocation(spec, runtime))
+      : null;
+    const listingOutcome = listingFetchOutcomeState(rows);
+    const configuredEmptyOutcome = spec.rescueOnEmptyListing === true
+      && runtime.disableWafProxy !== true
+      ? configuredEmptyListingOutcome(spec)
+      : null;
+    // A configured empty-listing outcome is transport evidence for the caller
+    // that owns the source-specific rescue (for example, Vereina must still
+    // inspect the employer page for an authoritative zero). Preserve that
+    // typed empty result for production merge while VALIDATE grades it as an
+    // incomplete observation. An unconfigured zero likewise remains a plain
+    // empty result: no outcome is invented. Typed failures emitted directly by
+    // a listing extractor, or attached to a non-empty population, still fail
+    // closed below.
+    const preserveEmptyListingResult = rows.length === 0
+      && (listingOutcome.unverifiedEmpty || Boolean(configuredEmptyOutcome));
+    const detailPagesByUrl = runtime.retainDetailPages === true ? new Map() : null;
+    const titleEvidenceByUrl = runtime.returnObservation === true || runtime.retainDetailPages === true
+      ? new Map()
+      : null;
+    if (!needsDetailEnrichment(spec, rows)) {
+      const dropCounts = {
+        source_backed_geography_missing: 0,
+        generic_or_missing_title: 0,
+        ...(listingOutcome.failed
+          ? { [listingOutcome.unknown ? 'unknown_fetch_outcome' : `fetch_outcome_${listingOutcome.outcome}`]: 1 }
+          : {}),
+        ...(listingOutcome.unverifiedEmpty ? { unverified_empty_listing: 1 } : {}),
+      };
+      let sourceBackedLocationCount = 0;
+      const geographyDropReasons = {};
+      const safeRows = rows.flatMap((row) => {
+        const decision = resolveDetailOrListingSwissGeography({}, row, {
+          officialEmployerSiteLocation,
+        });
+        const fields = geographyFieldsForDecision(
+          decision,
+          {
+            ...runtime,
+            recordLocationEvidence: true,
+            locationEvidenceUrl: row.sourceUrl || row.url,
+            offerLocation: declaredOfferLocation(row),
+          },
+        );
+        if (!fields) {
+          dropCounts.source_backed_geography_missing++;
+          countGeographyDropClasses(geographyDropReasons, geographyDropClasses(decision, {
+            listing: row,
+            officialEmployerSiteLocation,
+          }));
+          return [];
+        }
+        sourceBackedLocationCount++;
+        const title = selectPublishableTitle('', row.title);
+        if (!title) {
+          dropCounts.generic_or_missing_title++;
+          return [];
+        }
+        titleEvidenceByUrl?.set(row.url, {
+          listingTitle: row.title,
+          finalTitle: title,
+          titleSource: 'listing',
+        });
+        return [{ ...row, title, ...fields }];
+      });
+      reportDroppedRows(spec, dropCounts.source_backed_geography_missing, rows.length,
+        'localita svizzera source-backed assente o non verificabile');
+      reportDroppedRows(spec, dropCounts.generic_or_missing_title, rows.length,
+        'titolo generico o assente');
+      const locationDenominator = rows.length;
+      const qualityDrops = dropCounts.source_backed_geography_missing + dropCounts.generic_or_missing_title;
+      const snapshotAccepted = !listingOutcome.failed
+        && !listingOutcome.unverifiedEmpty
+        && !(locationDenominator >= DETAIL_DROP_ADVISORY_MIN_CANDIDATES
+          && !isDetailFailureWithinGrace(qualityDrops, locationDenominator));
+      const allUnexpectedDropsNoOutput = rows.length > 0 && safeRows.length === 0 && qualityDrops > 0;
+      const complete = snapshotAccepted && !allUnexpectedDropsNoOutput;
+      const exactListingCount = (rows.length > 0 && !listingOutcome.failed) || listingOutcome.authoritativeEmpty;
+      const observation = {
+        algorithmVersion: 'spec-production-output-v1',
+        listingCount: rows.length,
+        exactListingCount,
+        listingPopulationComplete: exactListingCount,
+        publishableCount: safeRows.length,
+        runtimeOutputCount: snapshotAccepted ? safeRows.length : 0,
+        snapshotAccepted,
+        productionSnapshotAccepted: snapshotAccepted,
+        promotionObservationComplete: complete,
+        qualityDropDenominator: locationDenominator,
+        fetchOutcome: listingOutcome.outcome,
+        expectedFilterCount: 0,
+        expectedFilters: {},
+        dropCounts,
+        geographyDropReasons,
+        sourceBackedLocationCount,
+        sourceBackedLocationDenominator: locationDenominator,
+        sourceBackedLocationRate: locationDenominator
+          ? Number((sourceBackedLocationCount / locationDenominator).toFixed(3))
+          : 0,
+        complete,
+        detailDrop: {
+          candidates: locationDenominator,
+          gone: 0,
+          rejected: qualityDrops,
+          dropped: qualityDrops,
+        },
+      };
+      logRuntimeObservation(spec, observation);
+      const output = copySpecFetchMetadata(safeRows, rows);
+      copySpecFetchMetadata(output, {
+        detailDrop: observation.detailDrop,
+        discoveredCount: rows.length,
+        expectedFilterCount: observation.expectedFilterCount,
+        expectedFilters: observation.expectedFilters,
+        ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),
+        ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
+      });
+      if (!snapshotAccepted && runtime.failOnIncomplete !== false && !preserveEmptyListingResult) {
+        const incompleteReason = listingOutcome.failed
+          ? `fetch outcome ${listingOutcome.outcome || 'unknown'} is not successful`
+          : listingOutcome.unverifiedEmpty
+            ? 'empty listing has no authoritative success outcome'
+            : `${qualityDrops}/${locationDenominator} listing candidate(s) dropped`;
+        const error = new Error(
+          `[prospector:${spec.companyKey}] runtime output snapshot incomplete: ${incompleteReason}`,
+        );
+        Object.assign(error, {
+          specRuntimeObservation: observation,
+          specDiscoveredCount: rows.length,
+          specDetailDrop: observation.detailDrop,
+        });
+        throw error;
+      }
+      return runtime.returnObservation === true
+        ? { vacancies: output, observation, detailPagesByUrl, titleEvidenceByUrl }
+        : output;
+    }
+
+    // Template extraction has no per-row semantics. Visit the detail pages with
+    // a bounded pool so location and full descriptions are source-backed.
+    // Workers complete out of order; index-addressed writes keep the listing
+    // order deterministic so stable downstream sorts do not churn job slices.
+    const enriched = new Array(rows.length);
+    const emptyOutcome = configuredEmptyOutcome;
+    let detailAntiBotFailures = 0;
+    let geographyDrops = 0;
+    let descriptionDrops = 0;
+    let detailCandidateDrops = 0;
+    let detailNotFound = 0;
+    let detailTenantMatches = 0;
+    let detailTenantMismatches = 0;
+    let detailTenantMissing = 0;
+    let expectedGeographyFilters = 0;
+    let titleDrops = 0;
+    let sourceBackedLocationCount = 0;
+    const geographyDropReasons = {};
+    let next = 0;
+    const worker = async () => {
+      while (next < rows.length) {
+        const index = next++;
+        const row = rows[index];
+        try {
+          const detailUrl = row.sourceUrl || row.url;
+          let page;
+          try {
+            page = await fetchRuntimePage(detailUrl, validateUrl, runtime);
+          } catch (error) {
+            // Stessa regola di retry del validatore — see detail-extract.mjs.
+            const fallbackUrl = runtimeDetailFallbackUrl(spec, error?.status, detailUrl);
+            if (!fallbackUrl) throw error;
+            page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
+          }
+          // Same extractor the validator grades with — see detail-extract.mjs.
+          const detail = extractRuntimeDetailFields(spec, page.body, page.url || detailUrl, {
+            detailExtractor: runtime.detailExtractor,
+            recordUrl: row.url,
+            recordTitle: row.title,
+          });
+          const rawTitles = rawDetailTitleEvidence(page.body);
+          const decision = resolveDetailOrListingSwissGeography(detail, row, {
+            officialEmployerSiteLocation,
+          });
+          const geography = geographyFieldsForDecision(decision, {
+            ...runtime,
+            recordLocationEvidence: true,
+            locationEvidenceUrl: page.url || detailUrl,
+            offerLocation: declaredOfferLocation(detail) || declaredOfferLocation(row),
+          });
+          const description = isSufficientVacancyDescription(detail.description)
+            ? detail.description
+            : row.description;
+          // Tenant identity is a detail-page contract. Listing fields remain
+          // valid enrichment fallbacks below, but they must never satisfy the
+          // detail discriminator when the detail response omits that evidence.
+          const detailCandidate = { ...detail };
+          const tenantIdentity = detailCandidateIdentityState(spec, detailCandidate, row, decision);
+          if (tenantIdentity !== 'matched') {
+            if (tenantIdentity === 'mismatch') detailTenantMismatches++;
+            else detailTenantMissing++;
+            continue;
+          }
+          detailTenantMatches++;
+          if (geography) sourceBackedLocationCount++;
+          const publication = mergeSourcePostingDates(row, detail);
+          const publishable = { ...row, description,
+            ...publication,
+            postedAt: publication.postedDate || null,
+            employmentType: detail.employmentType || row.employmentType };
+          // Free-text NPA variance is measured for diagnostics, but its current
+          // precision/recall is not an authority for indexed job geography.
+          // Keep the source-backed contract fail-closed until the experiment
+          // proves it is safe to wire into publication.
+          if (!geography) {
+            // A generated consumer may have an explicit post-filter for rows the
+            // source lists but does not locate. That callback is deliberately
+            // narrow: it can classify only an already-extracted geography miss;
+            // fetch failures and thin descriptions remain detail failures and
+            // still trip the shared fail-closed guard.
+            const expectedDetailFilter = typeof runtime.isExpectedDetailFilter === 'function'
+              && runtime.isExpectedDetailFilter({
+                spec,
+                row,
+                detail,
+                decision,
+                descriptionSufficient: isSufficientVacancyDescription(description),
+                reason: 'geography',
+              }) === true;
+            if (expectedDetailFilter) {
+              expectedGeographyFilters++;
+            } else {
+              geographyDrops++;
+              countGeographyDropClasses(geographyDropReasons, geographyDropClasses(decision, {
+                detail,
+                listing: row,
+                officialEmployerSiteLocation,
+              }));
+            }
+            continue;
+          }
+          if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
+          const title = selectPublishableTitle(detail.title, row.title, [
+            rawTitles.rawH1Title,
+            rawTitles.rawOpenGraphTitle,
+            rawTitles.rawDocumentTitle,
+          ]);
+          if (!title) { titleDrops++; continue; }
+          enriched[index] = { ...publishable, ...geography };
+          enriched[index].title = title;
+          const titleEvidence = {
+            listingTitle: row.title,
+            detailTitle: detail.title || '',
+            ...rawTitles,
+            finalTitle: title,
+            titleSource: [
+              { source: 'detail', value: detail.title },
+              { source: 'listing', value: row.title },
+              { source: 'raw_h1', value: rawTitles.rawH1Title },
+              { source: 'raw_open_graph', value: rawTitles.rawOpenGraphTitle },
+              { source: 'raw_document_title', value: vacancyTitleFromDocumentTitle(rawTitles.rawDocumentTitle) },
+            ].find(({ value }) => title === String(value || '').replace(/\s+/g, ' ').trim())?.source || 'unknown',
+          };
+          titleEvidenceByUrl?.set(row.url, titleEvidence);
+          detailPagesByUrl?.set(row.url, {
+            body: page.body,
+            status: page.status,
+            url: page.url || detailUrl,
+            detail,
+            ...titleEvidence,
+          });
+        } catch (err) {
+          if (err?.antiBotExhausted) detailAntiBotFailures++;
+          // Some indexes keep withdrawn vacancy URLs in their listing for a
+          // while. A definitive 404 is an expected source filter only when the
+          // spec explicitly declares that contract; all other detail failures
+          // remain fail-closed parser/source evidence.
+          if (isTerminalNotFound(err) && allowsExpectedDetailNotFound(spec)) {
+            detailNotFound++;
+            continue;
+          }
+          // A failed detail fetch/extraction carries no source-backed tenant
+          // evidence. Never let index-only fields satisfy the detail gate.
+          detailCandidateDrops++;
+        }
+      }
+    };
+    const concurrency = Math.max(1, Math.min(8, Number(spec.detailFetchWorkers) || 4));
+    await Promise.all(Array.from({ length: concurrency }, worker));
+    reportDroppedRows(spec, geographyDrops, rows.length,
+      'localita svizzera source-backed assente o non verificabile');
+    reportDroppedRows(spec, descriptionDrops, rows.length,
+      'descrizione source-backed assente o non verificabile');
+    reportDroppedRows(spec, titleDrops, rows.length,
+      'titolo generico o assente');
+    reportDroppedRows(spec, detailCandidateDrops, rows.length,
+      'pagina dettaglio non recuperabile o non estraibile');
+    reportDroppedRows(spec, detailTenantMissing, rows.length,
+      'identità tenant assente nella pagina dettaglio source-backed');
+    if (detailTenantMismatches) {
+      console.info(
+        `[prospector:${spec.companyKey}] discriminante tenant ha escluso `
+        + `${detailTenantMismatches}/${rows.length} dettaglio/i`,
+      );
+    }
+    // Multi-employer ATS feeds may list many unrelated tenants alongside the
+    // requested one. Once at least one detail positively proves the requested
+    // tenant, discriminator mismatches are expected source filters, not gone
+    // vacancies: measure the fail-closed detail ratio over the matched tenant
+    // candidates plus actual fetch/extraction failures. If no detail proves
+    // the tenant, keep every mismatch in the failure denominator so a stale
+    // discriminator or changed source layout still aborts publication.
+    const expectedTenantFilters = detailTenantMatches > 0 ? detailTenantMismatches : 0;
+    const unmatchedTenantFailures = detailTenantMatches > 0 ? 0 : detailTenantMismatches;
+    const publishedRows = enriched.filter(Boolean);
+    const configuredMinimumPublished = Number(spec.detailNotFoundMinimumPublished);
+    const minimumPublishedForNotFoundFilter = Number.isInteger(configuredMinimumPublished)
+      && configuredMinimumPublished > 0
+      ? Math.max(MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED, configuredMinimumPublished)
+      : MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED;
+    const expectedNotFoundFilters = allowsExpectedDetailNotFound(spec)
+      && detailNotFound > 0
+      && publishedRows.length >= minimumPublishedForNotFoundFilter
+      ? detailNotFound
+      : 0;
+    const unexpectedNotFound = detailNotFound - expectedNotFoundFilters;
+    const locationDenominator = Math.max(
+      0,
+      rows.length - expectedGeographyFilters - expectedTenantFilters - expectedNotFoundFilters,
+    );
+    const detailDrop = {
+      candidates: locationDenominator,
+      gone: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures + unexpectedNotFound,
+      rejected: geographyDrops + descriptionDrops + titleDrops,
+      dropped: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures + unexpectedNotFound
+        + geographyDrops + descriptionDrops + titleDrops,
+    };
+    copySpecFetchMetadata(publishedRows, { detailDrop });
+    // A non-empty partial detail snapshot is just as dangerous as an empty
+    // one: the standard merge would age every dropped vacancy out and later
+    // report it as a resurrection. The shared 15% policy is the same grace
+    // used by detail-reuse and crawler-health; below it the surviving rows are
+    // publishable, above it the source/parser observation is not complete.
+    // Small sources keep their existing zero-row outcome semantics: one
+    // unavailable detail page must not turn a one-vacancy board into a new
+    // class of crash.
+    const exceedsDropGrace = detailDrop.candidates >= DETAIL_DROP_ADVISORY_MIN_CANDIDATES
+      && !isDetailFailureWithinGrace(detailDrop.dropped, detailDrop.candidates);
+    const expectedAllDetailAntiBotFailure = Boolean(emptyOutcome)
+      && detailAntiBotFailures === rows.length;
+    // The production crawler may carry a typed anti-bot outcome so the shared
+    // merge preserves the previous slice. VALIDATE still records that read as
+    // incomplete, which revokes any earlier promotion readiness.
+    const snapshotAccepted = !listingOutcome.failed
+      && !listingOutcome.unverifiedEmpty
+      && !exceedsDropGrace
+      && !expectedAllDetailAntiBotFailure;
+    const allUnexpectedDropsNoOutput = rows.length > 0
+      && publishedRows.length === 0
+      && detailDrop.dropped > 0;
+    const complete = snapshotAccepted && !allUnexpectedDropsNoOutput;
+    const dropCounts = {
+      detail_fetch_or_extraction: detailCandidateDrops + unexpectedNotFound,
+      ...(expectedNotFoundFilters ? { detail_not_found_expected: expectedNotFoundFilters } : {}),
+      tenant_identity_missing: detailTenantMissing + unmatchedTenantFailures,
+      source_backed_geography_missing: geographyDrops,
+      publishable_description_missing: descriptionDrops,
+      generic_or_missing_title: titleDrops,
+      ...(listingOutcome.failed
+        ? { [listingOutcome.unknown ? 'unknown_fetch_outcome' : `fetch_outcome_${listingOutcome.outcome}`]: 1 }
+        : {}),
+      ...(listingOutcome.unverifiedEmpty ? { unverified_empty_listing: 1 } : {}),
+    };
+    const observation = {
+      algorithmVersion: 'spec-production-output-v1',
+      listingCount: rows.length,
+      exactListingCount: (rows.length > 0 && !listingOutcome.failed) || listingOutcome.authoritativeEmpty,
+      listingPopulationComplete: (rows.length > 0 && !listingOutcome.failed) || listingOutcome.authoritativeEmpty,
+      publishableCount: publishedRows.length,
+      runtimeOutputCount: snapshotAccepted ? publishedRows.length : 0,
+      snapshotAccepted,
+      productionSnapshotAccepted: snapshotAccepted,
+      promotionObservationComplete: complete,
+      qualityDropDenominator: detailDrop.candidates,
+      fetchOutcome: listingOutcome.outcome,
+      expectedFilterCount: expectedGeographyFilters + expectedTenantFilters + expectedNotFoundFilters,
+      expectedFilters: {
+        source_geography: expectedGeographyFilters,
+        tenant_scope: expectedTenantFilters,
+        detail_not_found: expectedNotFoundFilters,
+      },
+      dropCounts,
+      geographyDropReasons,
+      sourceBackedLocationCount,
+      sourceBackedLocationDenominator: locationDenominator,
+      sourceBackedLocationRate: locationDenominator
+        ? Number((sourceBackedLocationCount / locationDenominator).toFixed(3))
+        : 0,
+      complete,
+      detailDrop,
+    };
+    logRuntimeObservation(spec, observation);
+    const shouldThrow = (listingOutcome.failed && !preserveEmptyListingResult)
+      || (listingOutcome.unverifiedEmpty && !preserveEmptyListingResult)
+      || (!preserveEmptyListingResult && !expectedAllDetailAntiBotFailure && !snapshotAccepted);
+    if (shouldThrow && runtime.failOnIncomplete !== false) {
+      const ratio = Math.round((detailDrop.dropped / detailDrop.candidates) * 100);
+      const error = new Error(
+        listingOutcome.failed
+          ? `[prospector:${spec.companyKey}] runtime output snapshot incomplete: fetch outcome ${listingOutcome.outcome || 'unknown'} is not successful`
+          : listingOutcome.unverifiedEmpty
+            ? `[prospector:${spec.companyKey}] runtime output snapshot incomplete: empty listing has no authoritative success outcome`
+          : expectedAllDetailAntiBotFailure
+            ? `[prospector:${spec.companyKey}] runtime output snapshot incomplete: all detail pages exhausted anti-bot rescue`
+            : `[prospector:${spec.companyKey}] detail snapshot incompleto: `
+              + `${detailDrop.dropped}/${detailDrop.candidates} detail page(s) dropped `
+              + `(${ratio}% > 15%); refusing partial publication`,
+      );
+      Object.assign(error, {
+        specDetailDrop: detailDrop,
+        specDiscoveredCount: rows.length,
+        specRuntimeObservation: observation,
+      });
+      throw error;
+    }
+    // A protected source can expose real listing links while blocking every
+    // detail page. Without carrying the same explicit outcome used by the
+    // zero-candidate rescue, the standard pipeline turns that proven outage
+    // into a misleading generic `no-jobs-parsed` result. Only classify this
+    // narrow case when every candidate exhausted the anti-bot rescue and the
+    // spec explicitly opted into an empty-listing outcome; ordinary parser or
+    // geography drops remain fail-closed without reinterpretation.
+    if (publishedRows.length === 0 && rows.length > 0
+      && emptyOutcome && detailAntiBotFailures === rows.length) {
+      copySpecFetchMetadata(publishedRows, {
+        fetchOutcome: emptyOutcome,
+        discoveredCount: rows.length,
+        fetchDetail: `${rows.length} detail page(s) exhausted anti-bot rescue`,
+      });
+    }
+    const output = copySpecFetchMetadata(publishedRows, rows);
+    copySpecFetchMetadata(output, {
+      detailDrop,
+      discoveredCount: rows.length,
+      expectedFilterCount: observation.expectedFilterCount,
+      expectedFilters: observation.expectedFilters,
+      ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),
+      ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
+    });
+    return runtime.returnObservation === true
+      ? { vacancies: output, observation, detailPagesByUrl, titleEvidenceByUrl }
+      : output;
+  } finally {
+    try {
+      await validateUrl.dispatcher.close();
+    } catch (error) {
+      console.warn(`[prospector:${spec.companyKey}] dispatcher cleanup failed:`, error);
+    }
+  }
+}
+
+/**
+ * Observe the exact in-memory output transformation used by production without
+ * converting a partial source snapshot into a publication error. VALIDATE
+ * grades this output and records its explicit listing/output/drop counts.
+ *
+ * This helper performs source reads only: it does not write candidate state,
+ * job slices, or crawl receipts. Detail HTML is retained only for the caller's
+ * immediate grading pass and is never attached to vacancy records.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {Record<string, any>} [runtime]
+ * @returns {Promise<{ vacancies: any[], observation: Record<string, any>, detailPagesByUrl: Map<string, any>|null }>}
+ */
+export async function observeSpecInProduction(spec, runtime = {}) {
+  return runSpecInProduction(spec, {
+    ...runtime,
+    returnObservation: true,
+    retainDetailPages: true,
+    failOnIncomplete: false,
+  });
+}
+
+/**
+ * Turn a `/annunci-lavoro/*` style template into a matcher.
+ *
+ * `*` stands for one variable segment and `#` for a numeric one — the same two
+ * placeholders `pathTemplate()` emits, so a template always round-trips.
+ *
+ * A spec may declare several templates: a multilingual site publishes the same
+ * listing page under one URL shape per language (okjob links both
+ * `/offres-demplois/<slug>/` and `/de/jobangebote/<slug>/` from the same seed),
+ * and a single shape would silently drop every vacancy of the other languages.
+ *
+ * @param {string | string[]} template
+ * @returns {RegExp}
+ */
+export function templateToRegex(template) {
+  const templates = (Array.isArray(template) ? template : [template]).filter(Boolean);
+  const bodies = templates.map((one) => String(one)
+    .split('/')
+    .map((seg) => seg.split(/([*#])/).map((part) => {
+      if (part === '*') return '[^/]+';
+      if (part === '#') return '\\d+';
+      return part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }).join(''))
+    .join('/'));
+  return new RegExp(`^(?:${bodies.join('|')})/?$`);
+}

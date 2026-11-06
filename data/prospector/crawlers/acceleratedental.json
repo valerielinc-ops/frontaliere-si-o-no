@@ -1,0 +1,25 @@
+{
+  "companyKey": "acceleratedental",
+  "companyName": "Accelerate Dental",
+  "companyHost": "acceleratedental.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://acceleratedental.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 19,
+  "sampleTitles": [
+    "Associate Dentist – Established Patient Base & Partnership Potential",
+    "Associate Dentist – Experienced Doctor with Ownership Potential",
+    "Associate Dentist – Mentorship & Career Growth",
+    "Associate Dentist – Mentorship & Partnership Opportunity",
+    "Associate Dentist – Mentorship & Partnership Opportunity"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:13:29.768Z",
+  "candidateKey": "acceleratedental@applytojob.com"
+}

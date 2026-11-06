@@ -1,0 +1,23 @@
+{
+  "companyKey": "forbidden",
+  "companyName": "Forbidden",
+  "companyHost": "forbidden.onlyfy.jobs",
+  "platform": "onlyfy.jobs",
+  "mode": "template",
+  "seedUrls": [
+    "https://forbidden.onlyfy.jobs/it"
+  ],
+  "detailTemplate": "/it/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Test-Job ASK Industries (M|W|D) Niederwinkling | Dipendente a tempo pieno <div class=\"hidd",
+    "Test-Job Lekkerland Vienna | Dipendente a tempo pieno <span cl",
+    "Test-Job Schlumberger - Hendricks Vienna | Dipendente a tempo pieno <div class=\"hidden lg:",
+    "Test-Job ÖSW (m/w/d) Vienna | Dipendente a tempo pieno <span c",
+    "Test-Job Schlumberger - Topspirit Vienna | Dipendente a tempo pieno <div class=\"hidden lg:"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-22T10:47:43.738Z"
+}

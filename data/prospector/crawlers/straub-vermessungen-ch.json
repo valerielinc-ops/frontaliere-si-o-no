@@ -1,0 +1,23 @@
+{
+  "companyKey": "straub-vermessungen-ch",
+  "companyName": "straub-vermessungen",
+  "companyHost": "steinmann-group.ch",
+  "platform": "steinmann-group.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://steinmann-group.ch/karriere/"
+  ],
+  "detailTemplate": "/karriere/offene-stellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "zur Stellenbeschreibung Standortleiter/in mit Fokus Tiefbau in Muri (80-100%)",
+    "zur Stellenbeschreibung Standortleiter/in mit Fokus Hochbau in Muri (80-100%)",
+    "zur Stellenbeschreibung Bereichleiter:in Statik Brugg (80-100%)",
+    "zur Stellenbeschreibung Geomatiker:in EFZ mit Leidenschaft für Werkleitungen & GIS (40-60%)",
+    "zur Stellenbeschreibung Projektleiter/in Tragwerksplanung (60-100%) in Brugg"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:22:49.049Z"
+}

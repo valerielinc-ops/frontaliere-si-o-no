@@ -1,0 +1,24 @@
+{
+  "companyKey": "taxnerds",
+  "companyName": "R.D. Barnett PLLC",
+  "companyHost": "taxnerds.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://taxnerds.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Controller",
+    "PracticeDen Senior Tax Associate",
+    "Senior Tax Associate",
+    "Tax Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:21:09.375Z",
+  "candidateKey": "taxnerds@applytojob.com"
+}

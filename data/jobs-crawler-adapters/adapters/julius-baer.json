@@ -1,0 +1,15 @@
+{
+  "companyKey": "julius-baer",
+  "companyName": "Julius Baer",
+  "companyHost": "juliusbaer.wd3.myworkdayjobs.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "api"
+  ],
+  "seedUrls": [
+    "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External"
+  ],
+  "notes": "Workday API at juliusbaer.wd3.myworkdayjobs.com — Swiss positions across all 26 cantons; canton inferred per listing.",
+  "updatedAt": "2026-11-06T09:20:37.863Z"
+}

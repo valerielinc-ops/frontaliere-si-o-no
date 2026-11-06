@@ -1,0 +1,40 @@
+{
+  "id": "lohn-denner-verkauf-2024",
+  "slug": "lohn-denner-verkauf-2024",
+  "publishedAt": "2026-07-07T01:33:19.097Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 23.494576707623878,
+    "confidence": 0.8,
+    "finalScore": 18.795661366099104,
+    "topK": [
+      {
+        "slug": "negozio-danese-arese-2026",
+        "cosine": 0.8102689588644731
+      },
+      {
+        "slug": "cessione-cargotrailers-lonate-pozzolo",
+        "cosine": 0.8102607824899126
+      },
+      {
+        "slug": "canapa-losanna-bilancio-positivo-2026",
+        "cosine": 0.8061498714686114
+      },
+      {
+        "slug": "servizio-trasfusionale-locarno-chiusura-24-giugno",
+        "cosine": 0.8054268545151861
+      },
+      {
+        "slug": "moon-stars-resident-discount-locarno-card",
+        "cosine": 0.8051356491266883
+      }
+    ],
+    "score": 18.795661366099104,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

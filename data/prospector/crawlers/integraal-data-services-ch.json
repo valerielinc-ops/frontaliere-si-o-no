@@ -1,0 +1,24 @@
+{
+  "companyKey": "integraal-data-services-ch",
+  "companyName": "Integraal Data Services",
+  "companyHost": "integraal-data-services.ch",
+  "verifiedEmployerDomain": "integraal-data-services.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://integraal-data-services.ch/job/2094/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Développeur FullStack Java Spring Angular .Net 80 à 100% - Genève",
+    "Chef de Projet IT Senior 80 à 100% - Genève"
+  ],
+  "canton": "GE",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:28:07.811Z",
+  "candidateKey": "integraal-data-services@geneve"
+}

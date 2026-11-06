@@ -1,0 +1,20 @@
+{
+  "companyKey": "gmbau-ch",
+  "companyName": "gmbau",
+  "companyHost": "gugger-ag.ch",
+  "platform": "gugger-ag.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://gugger-ag.ch/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Mehr Infos",
+    "Mehr Infos"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:25.291Z"
+}

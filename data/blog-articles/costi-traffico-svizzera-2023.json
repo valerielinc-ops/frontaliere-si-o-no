@@ -1,0 +1,19 @@
+{
+  "id": "costi-traffico-svizzera-2023",
+  "slug": "costi-traffico-svizzera-2023",
+  "publishedAt": "2026-07-19T06:19:18.850Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 155.82111328000002,
+    "confidence": 1,
+    "finalScore": 155.82111328000002,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 155.82111328000002,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

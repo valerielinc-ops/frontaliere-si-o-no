@@ -1,0 +1,20 @@
+{
+  "companyKey": "avantgarten-ch",
+  "companyName": "avantgarten",
+  "companyHost": "yousty.ch",
+  "platform": "yousty.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/profile/12402210-gaertner-in-efz-garten-und-landschaftsbau-riehen-bs-avantgarten-ag"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/profile/12402210-gaertner-in-efz-garten-und-landschaftsbau-riehen-bs-avantgarten-ag",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lehrstelle als Gärtner/in EFZ Garten- und Landschaftsbau"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:51:46.540Z",
+  "candidateKey": "avantgarten.ch"
+}

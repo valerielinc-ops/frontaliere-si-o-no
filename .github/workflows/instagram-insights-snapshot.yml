@@ -1,0 +1,131 @@
+name: Instagram Insights Autonomy
+
+# The external five-minute loop clock dispatches this workflow once per day;
+# GitHub's native schedule remains an independent safety net. The marker lets
+# loop-clock-health distinguish the clock-owned run from a manual or cron run.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Instagram Insights Autonomy [loop-clock {0}]', inputs.loop_clock) || 'Instagram Insights Autonomy' }}
+
+# Collection is owned by the authenticated Chrome profile on the Mac host.
+# The Mac collector persists the read-only 24h/72h snapshot; this workflow
+# scores it once a day and reports descriptive candidates. Remote Config
+# writes stay held until the qualified preregistered experiment protocol exists.
+# It never asks for a Graph token when the browser source is active.
+on:
+  schedule:
+    - cron: '35 9 * * *'
+  workflow_dispatch:
+    inputs:
+      window_hours:
+        description: 'Target measurement window in hours'
+        required: false
+        default: '72'
+        type: string
+      as_of:
+        description: 'Optional ISO timestamp for a reproducible report'
+        required: false
+        default: ''
+        type: string
+      apply:
+        description: 'Request apply (held until the statistical promotion protocol is implemented)'
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot)'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: instagram-insights-autonomy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      WINDOW_HOURS: ${{ github.event.inputs.window_hours || '72' }}
+      AS_OF: ${{ github.event.inputs.as_of || '' }}
+      APPLY: ${{ github.event_name == 'schedule' || github.event.inputs.apply == 'true' }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          test -n "$FIREBASE_SERVICE_ACCOUNT_JSON"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Export private Instagram Insights to runner temp
+        run: node scripts/social-native-insights-export.mjs --output="$RUNNER_TEMP/instagram-insights.json"
+
+      - name: Load Remote Config decision settings
+        if: env.APPLY == 'true'
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED,INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS,INSTAGRAM_INSIGHTS_MIN_OBSERVATIONS,INSTAGRAM_INSIGHTS_MIN_RELATIVE_LIFT,INSTAGRAM_INSIGHTS_MIN_ABSOLUTE_LIFT,INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS,INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS
+
+      - name: Evaluate Instagram candidates (Remote Config writes fail closed)
+        run: |
+          set -euo pipefail
+          args=(
+            --input "$RUNNER_TEMP/instagram-insights.json"
+            --ledger data/instagram-posted.json
+            --window-hours="$WINDOW_HOURS"
+            --json
+          )
+          if [ "$APPLY" = 'true' ]; then args+=(--apply); fi
+          node scripts/instagram-insights-decision.mjs "${args[@]}"
+
+      - name: Print creative scorecard
+        run: |
+          set -euo pipefail
+          node scripts/instagram-insights-report.mjs \
+            --input "$RUNNER_TEMP/instagram-insights.json" \
+            --ledger data/instagram-posted.json \
+            --window-hours="$WINDOW_HOURS"
+
+      - name: Print experiment status
+        run: |
+          set -euo pipefail
+          args=(--ledger data/instagram-posted.json --queue data/instagram-queue.json --insights "$RUNNER_TEMP/instagram-insights.json" --window-hours="$WINDOW_HOURS")
+          if [ -n "$AS_OF" ]; then args+=(--as-of "$AS_OF"); fi
+          node scripts/instagram-experiment-status.mjs "${args[@]}"

@@ -1,0 +1,20 @@
+{
+  "companyKey": "sinfonieorchesterbasel-ch",
+  "companyName": "sinfonieorchesterbasel",
+  "companyHost": "muvac.com",
+  "platform": "muvac.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.muvac.com/de/vacancy/sinfonieorchester-basel-71d7kxry"
+  ],
+  "detailTemplate": "/de/vacancy/sinfonieorchester-basel-71d7kxry",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Kontrabass Tutti"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T11:05:16.151Z",
+  "candidateKey": "sinfonieorchesterbasel.ch"
+}

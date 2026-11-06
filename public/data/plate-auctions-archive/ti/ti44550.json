@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ti-1539",
+      "sourceKey": "TI",
+      "sourceRecordId": "1539",
+      "canton": "Ticino",
+      "platePrefix": "TI",
+      "plateNumber": "44550",
+      "normalizedPlate": "TI44550",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1000,
+      "startingPriceChf": 800,
+      "bidCount": 3,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-10-25T19:00:00.000Z",
+      "closedAt": "2026-10-25T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.carieauktion.ti.ch/ecari-auktion/",
+      "officialDetailUrl": "https://www.carieauktion.ti.ch/ecari-auktion/ui/app/details/app?id=1539",
+      "sourceFetchedAt": "2026-10-25T17:47:05.554Z",
+      "lastVerifiedAt": "2026-10-25T17:47:05.554Z",
+      "firstSeenAt": "2026-10-14T23:47:05.106Z",
+      "lastSeenAt": "2026-10-25T17:47:05.554Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "acbdcd9af7dc"
+    }
+  ]
+}

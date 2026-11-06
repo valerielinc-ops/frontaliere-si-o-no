@@ -1,0 +1,308 @@
+#!/usr/bin/env node
+/**
+ * Dedicated Mikron Group crawler runner.
+ *
+ * Mikron Group is a Swiss industrial/precision manufacturing company with
+ * Swiss sites including Machining in Agno and Automation in Boudry.
+ *
+ * Career page: https://www.mikron.com/en/group/our-people/join-us/jobs
+ * The page uses Drupal Views with AJAX filtering; the crawler reads the
+ * national listing and resolves each posting's Swiss canton.
+ */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
+import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
+} from './assemble-jobs-dataset.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
+} from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
+import { parseMikronJobs, parseMikronJobDetail, dropMikronFabricatedText, keepMikronSourceBodies, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './lib/source-body-floor.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
+
+const COMPANY_KEY = 'mikron';
+// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
+// defaults to internally for a single-key run, so this script's own
+// pre/post-crawl reads see the shared engine's actual output instead of the
+// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
+// of #3775/#3768).
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
+const COMPANY_NAME = 'Mikron Group';
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+function normalize(value = '') { return String(value || '').trim().toLowerCase(); }
+
+function isMikronJob(job) {
+  const key = normalize(job?.companyKey || '').replace(/[^a-z0-9]+/g, '-');
+  const company = normalize(job?.company || '');
+  const url = String(job?.url || '').toLowerCase();
+  return key === COMPANY_KEY || key.startsWith('mikron') || company.includes('mikron') || url.includes('mikron.com');
+}
+
+function isTrustedDomain(rawUrl = '') {
+  try { const host = new URL(rawUrl).hostname.toLowerCase(); return host === MIKRON_HOST || host.endsWith('.mikron.com'); }
+  catch { return false; }
+}
+
+function detectCategory(title = '') {
+  const t = normalize(title);
+  if (/engineer|developer|software|it\b|system|data|motion\s*control/i.test(t)) return 'technology';
+  if (/produc|manufactur|operator|technic|cnc|machin/i.test(t)) return 'production';
+  if (/qa|quality|validation|metrol/i.test(t)) return 'quality';
+  if (/sales|commercial|marketing/i.test(t)) return 'sales';
+  if (/account|financ|controller/i.test(t)) return 'finance';
+  if (/hr|human|recruit|formateur/i.test(t)) return 'hr';
+  if (/logistic|supply|warehouse|procurement/i.test(t)) return 'logistics';
+  if (/manag|director|head|lead|chief/i.test(t)) return 'management';
+  if (/apprenti|apprendist|lehrling|azubi/i.test(t)) return 'apprenticeship';
+  return 'general';
+}
+
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/\b(junior|entry|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|apprendist|lehrling|dual)/i.test(t)) return 'ENTRY';
+  if (/senior|lead|head|director|manager|principal|chief/i.test(t)) return 'SENIOR';
+  return 'MID';
+}
+
+async function fetchPage(url) {
+  const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
+  try {
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+        Accept: 'text/html',
+        'Accept-Language': 'en,it-CH;q=0.9',
+      },
+    });
+  } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
+}
+
+/**
+ * Detect employmentType from title percentage (e.g. "80-100%" → PART_TIME if <100%).
+ */
+function detectEmploymentType(title = '') {
+  const pctMatch = title.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/) || title.match(/\((\d{1,3})%\)/);
+  if (pctMatch) {
+    const maxPct = pctMatch[2] ? parseInt(pctMatch[2], 10) : parseInt(pctMatch[1], 10);
+    const minPct = parseInt(pctMatch[1], 10);
+    if (maxPct < 100 || minPct < 80) return 'PART_TIME';
+  }
+  return 'FULL_TIME';
+}
+
+// Known Swiss site addresses, keyed by city. Other cities fall back to the
+// PLZ/city enrichment downstream (street/postalCode left empty).
+const MIKRON_SITE_ADDRESS = {
+  agno:   { postalCode: '6982', streetAddress: 'Via Ginnasio 17, 6982 Agno' },
+  boudry: { postalCode: '2017', streetAddress: 'Route du Vignoble 17, 2017 Boudry' },
+};
+
+/** Resolve {city, canton, postalCode, streetAddress} from a "Country, City" location.
+ * A blank canton means non-Swiss/unresolved — the caller drops the job. When the
+ * location string is empty, fall back to the Swiss division → site mapping
+ * (Machining → Agno TI, Automation → Boudry NE; Tool is Rottweil DE → unresolved). */
+function resolveMikronLocation(rawLocation = '', division = '') {
+  const parts = String(rawLocation || '').split(',').map((s) => s.trim()).filter(Boolean);
+  const city = parts.length > 1 ? parts[parts.length - 1] : (parts[0] || '');
+  const canton = city ? inferAnyCanton(city) : '';
+  if (canton) return { city, canton, ...(MIKRON_SITE_ADDRESS[city.toLowerCase()] || {}) };
+  if (!city) {
+    const d = String(division || '').toLowerCase();
+    if (d.includes('machining')) return { city: 'Agno', canton: 'TI', ...MIKRON_SITE_ADDRESS.agno };
+    if (d.includes('automation')) return { city: 'Boudry', canton: 'NE', ...MIKRON_SITE_ADDRESS.boudry };
+  }
+  return { city, canton: '' };
+}
+
+async function fetchMikronJobs() {
+  console.log(`🔍 Fetching Mikron Group jobs (all Swiss sites)`);
+  console.log(`   URL: ${MIKRON_CAREERS_URL}`);
+
+  const html = await fetchPage(MIKRON_CAREERS_URL);
+  if (!html) return [];
+
+  const parsed = parseMikronJobs(html, { filterSwiss: false });
+  console.log(`  📋 jobs parsed from page: ${parsed.length}`);
+
+  const jobs = [];
+  for (const p of parsed) {
+    const title = p.title;
+    const slug = slugify(title, 'mikron');
+
+    // Fetch detail page for rich description
+    let descEn = '';
+    let rawLocation = p.location || '';
+    if (p.url) {
+      console.log(`    🔗 Fetching detail page: ${p.url}`);
+      const detailHtml = await fetchPage(p.url);
+      if (detailHtml) {
+        const detail = parseMikronJobDetail(detailHtml);
+        if (detail.location) rawLocation = detail.location;
+        // One floor for the whole crawler (shared, 50 words): the detail gate
+        // used to accept 30 words and pad anything under 50 with an invented
+        // company paragraph.
+        if (meetsSourceBodyFloor(detail.description)) {
+          descEn = detail.description;
+          console.log(`    ✅ Detail description: ${sourceBodyWordCount(descEn)} words`);
+        } else {
+          console.log(`    ⚠️ Detail page description too short (${sourceBodyWordCount(detail.description || '')} words): kept only if a source body is stored`);
+        }
+      } else {
+        console.log(`    ⚠️ Could not fetch detail page: kept only if a source body is stored`);
+      }
+      // Small delay to be respectful to the server
+      await new Promise((r) => setTimeout(r, 500));
+    }
+
+    // Derive the real site/canton per job (Agno TI vs Boudry NE vs …).
+    // A blank canton = non-Swiss (USA/Germany) or unresolved → drop the job
+    // instead of mislabeling it as the Agno HQ.
+    const { city, canton, postalCode, streetAddress } = resolveMikronLocation(rawLocation, p.division);
+    if (!canton) {
+      console.log(`    ⏭️ Skipped non-Swiss/unresolved location: ${title} (${rawLocation || 'n/a'})`);
+      continue;
+    }
+    const city0 = city;
+
+    // The detail body is published in its own language (the Boudry postings
+    // are French under an English title): key it by the detected language so
+    // the French text is not stored as the `en` translation.
+    // A title is not evidence of the language (see sourceLangOfBody): without
+    // a body the stored one is kept, with its own language.
+    const sourceLang = sourceLangOfBody(descEn, 'en');
+
+    const employmentType = detectEmploymentType(title);
+
+    jobs.push({
+      url: p.url, applyUrl: p.url, title, company: COMPANY_NAME, companyKey: COMPANY_KEY,
+      location: city0, canton, country: 'CH',
+      ...(postalCode && { postalCode }),
+      ...(streetAddress && { streetAddress }),
+      description: descEn, descriptionByLocale: descEn ? { [sourceLang]: descEn } : {},
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang), slug,
+      sourceLang,
+      category: detectCategory(title), ...sourcePostingDateFields(''),
+      crawledAt: new Date().toISOString(),
+      source: 'mikron-html-crawler', employmentType,
+      experienceLevel: detectExperienceLevel(title), sector: 'Manifattura / Precision Manufacturing',
+      _targetScope: { canton, location: city0 },
+    });
+  }
+  return jobs;
+}
+
+function filterEmpty(obj = {}) { if (!obj || typeof obj !== 'object') return {}; const out = {}; for (const [k, v] of Object.entries(obj)) { if (v && String(v).trim()) out[k] = v; } return out; }
+
+async function mergeJobs(discoveredJobs) {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const allJobs = Array.isArray(existing) ? [...existing] : [];
+  const nonCompanyJobs = allJobs.filter((j) => !isMikronJob(j));
+  const existingMikronJobs = allJobs.filter(isMikronJob);
+  const fossils = existingMikronJobs.filter((job) => dropMikronFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the crawler-written fallback text from ${fossils} stored job(s); they will be retranslated`);
+  // A detail body under the word floor: keep the stored source body, or do
+  // not publish the job this run.
+  const withBody = keepMikronSourceBodies(discoveredJobs, existingMikronJobs, extractStableJobId);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
+
+  const existingKeys = new Set(existingMikronJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
+  const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
+
+  // mergePreserveLocaleData matches on the stable trailing job id extracted
+  // from the URL (falls back to the normalized full URL when no stable
+  // token is found), so a vendor title/slug rewrite no longer orphans the
+  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
+  // the previous exact-URL-keyed merge did (issue #3699).
+  const merged = mergePreserveLocaleData(existingMikronJobs, discoveredJobs).map((job) => ({
+    ...job, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'mikron-html-crawler',
+  }));
+  for (const job of merged) dropStaleLocaleDescriptions(job);
+
+  const final = [...nonCompanyJobs, ...merged];
+  writeJsonAtomic(DATA_JOBS, final);
+  fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
+  writeJsonAtomic(PUBLIC_JOBS, final);
+  console.log(`\n📦 Merge: ➕${added} 🔄${updated} 🗑️${removed} 📊${final.length}`);
+  return { added, updated, removed, total: final.length };
+}
+
+async function main() {
+  setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Mikron');
+  console.log('═══════════════════════════════════════════════');
+  console.log('  Mikron Group — Dedicated Crawler');
+  console.log('═══════════════════════════════════════════════\n');
+
+    const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isMikronJob))
+
+  const discoveredJobs = await fetchMikronJobs();
+  if (discoveredJobs.length === 0) {
+    console.log('\n⚠️ No Mikron Swiss jobs discovered. Keeping existing.');
+    const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isMikronJob)) : new Map();
+    printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Mikron');
+    writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Mikron');
+    return;
+  }
+
+  // Adapter
+  const adapterPath = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
+  const adapter = fs.existsSync(adapterPath) ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8')) : {};
+  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: MIKRON_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['html'], seedUrls: [MIKRON_CAREERS_URL], notes: 'Drupal Views page — national listing (all Swiss sites); canton derived per-job (Agno TI / Boudry NE).', updatedAt: new Date().toISOString() });
+  fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
+  fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
+
+  await mergeJobs(discoveredJobs);
+  // The base crawler seeds the per-crawler slice from the fresh data/jobs.json
+  // before localizing (see runDedicatedBaseCrawler), avoiding the stale-slice
+  // collapse in slice-only mode.
+  console.log('\n🌐 Running base crawler for AI localization...');
+  await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, localizeExistingOnly: true, extraEnv: { JOBS_CRAWLER_MAX_JOB_LINKS: '100000', JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000' } });
+
+  // Post-process
+  if (fs.existsSync(DATA_JOBS)) {
+    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    let fixed = 0;
+    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isMikronJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = DEFAULT_CANTON; fixed++; } if (!j.location) { j.location = 'Agno'; fixed++; } }
+    if (fixed > 0) { writeJsonAtomic(DATA_JOBS, jobs); writeJsonAtomic(PUBLIC_JOBS, jobs); }
+  }
+
+  const finalJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isMikronJob);
+  console.log(`\n📊 Mikron Swiss jobs: ${companyJobs.length}`);
+  const diff = computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs));
+  printCrawlChangeSummary(diff, 'Mikron');
+  writeCrawlChangeSummaryToGH(diff, 'Mikron');
+  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_MIKRON_STRICT', label: 'Mikron', dataJobsPath: DATA_JOBS, isTargetJob: isMikronJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_mikron_domain', failWhenNoJobs: false, noJobsMessage: 'No Mikron Swiss jobs found.' });
+  console.log('\n✅ Mikron Group crawler complete.');
+
+  const _durationMs = getCrawlerElapsedMs();
+  writeJobsCrawlerSlice(COMPANY_KEY, companyJobs);
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Mikron', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
+  await assembleJobsDataset();
+}
+
+main().catch((err) => exitCrawlerOnError(err, 'Mikron'));

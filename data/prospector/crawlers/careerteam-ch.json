@@ -1,0 +1,20 @@
+{
+  "companyKey": "careerteam-ch",
+  "companyName": "careerteam",
+  "companyHost": "ctg-consulting.com",
+  "platform": "ctg-consulting.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.ctg-consulting.com/karriere"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Traineeship HR (all genders) # 2615531 Hamburg, Berlin de Hamburg, Berlin Intern Z_alt_Recruiting Trainee/Ausbildung",
+    "Praktikum HR (all genders) # 2603640 Hamburg, Berlin de Hamburg, Berlin Intern Z_alt_Recruiting Praktikum/Werkstudium"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:19.014Z"
+}

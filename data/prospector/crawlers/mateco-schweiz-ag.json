@@ -1,0 +1,27 @@
+{
+  "companyKey": "mateco-schweiz-ag",
+  "companyName": "mateco Schweiz AG",
+  "companyHost": "recruitingapp-2623.umantis.com",
+  "verifiedEmployerDomain": "mateco.ch",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2623.umantis.com/Jobs/All?lang=ger&DesignID=10001"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Sachbearbeiter Disposition (m/w/d) 100%",
+    "Mécanicien*ne 100%",
+    "Mechaniker*in 100%",
+    "Mechaniker*in 100%",
+    "Disponent – Gestionnaire des machines et locations"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-03T13:32:37.419Z",
+  "candidateKey": "mateco@rumlang"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "gottardo-lavoratori-frontalieri",
+  "slug": "gottardo-lavoratori-frontalieri",
+  "publishedAt": "2026-05-29T00:37:45.160Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 85.08903172000001,
+    "confidence": 1,
+    "finalScore": 85.08903172000001,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 85.08903172000001,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

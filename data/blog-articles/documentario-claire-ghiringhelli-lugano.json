@@ -1,0 +1,40 @@
+{
+  "id": "documentario-claire-ghiringhelli-lugano",
+  "slug": "documentario-claire-ghiringhelli-lugano",
+  "publishedAt": "2026-05-10T04:55:26.044Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.186887180664206,
+    "confidence": 0.8,
+    "finalScore": 9.749509744531366,
+    "topK": [
+      {
+        "slug": "morte-bimbo-efamilia-ticino",
+        "cosine": 0.787882479557025
+      },
+      {
+        "slug": "malpensa-parigi-galline-frontalieri",
+        "cosine": 0.7760726952895078
+      },
+      {
+        "slug": "presentazione-libro-odio-massacro-varese",
+        "cosine": 0.7742734036248644
+      },
+      {
+        "slug": "hodler-dipinto-eredita-frontalieri",
+        "cosine": 0.773716128323278
+      },
+      {
+        "slug": "omaggio-angeli-ponte-chiasso-2026",
+        "cosine": 0.7735616786589908
+      }
+    ],
+    "score": 9.749509744531366,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

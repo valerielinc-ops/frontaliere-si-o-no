@@ -1,0 +1,23 @@
+{
+  "companyKey": "rschriber-ch",
+  "companyName": "Schriber",
+  "companyHost": "rschriber.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.rschriber.ch/Jobs/"
+  ],
+  "detailTemplate": "/userfiles/file/Jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Stellenbeschrieb",
+    "Stellenbeschrieb",
+    "Bewerbungsbogen Schnupperlehre"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:11:34.856Z",
+  "candidateKey": "rschriber.ch"
+}

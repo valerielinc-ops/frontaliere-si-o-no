@@ -1,0 +1,25 @@
+{
+  "companyKey": "kaufmann-personal-gmbh-zweigniederlassung-chur",
+  "companyName": "Kaufmann Personal GmbH, Zweigniederlassung Chur",
+  "companyHost": "forestgreen-monkey-477622.hostingersite.com",
+  "platform": "hostingersite.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://forestgreen-monkey-477622.hostingersite.com/jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Produktionsmitarbeiter (Mischerei-Anlage)",
+    "Produktionsmitarbeiter (Klebstoffe)",
+    "Mitarbeiter/in Konfektion 100%",
+    "Produktionsmitarbeiter/in (Etiketten) 100%",
+    "Betriebsmechaniker Instandhaltung (m/w)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T10:55:59.531Z",
+  "candidateKey": "kaufmann-personal-zweigniederlassung-chur@chur"
+}

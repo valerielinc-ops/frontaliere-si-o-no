@@ -1,0 +1,24 @@
+{
+  "companyKey": "creditx-ch",
+  "companyName": "CreditX Sàrl",
+  "companyHost": "creditx.ch",
+  "verifiedEmployerDomain": "creditx.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://creditx.ch/it/careers"
+  ],
+  "detailTemplate": "/careers/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Gestion & Conseil Relationship Manager Junior Développez votre expertise et construisez des relations durables. Un poste ouvert à la reconversion professionnell",
+    "Gestion & Conseil Relationship Manager Senior Développez et fidélisez un portefeuille de clientèle tout en accompagnant vos clientes et clients dans leurs besoi"
+  ],
+  "canton": "VS",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-03T13:22:18.835Z",
+  "candidateKey": "creditx@sion"
+}

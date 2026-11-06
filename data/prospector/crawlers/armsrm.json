@@ -1,0 +1,25 @@
+{
+  "companyKey": "armsrm",
+  "companyName": "ARMStrong Insurance Services",
+  "companyHost": "armsrm.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://armsrm.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 75,
+  "sampleTitles": [
+    "Litigation Coordinator",
+    "Collections Specialist (Experienced)",
+    "Accounting, Treasury & HR Administrator",
+    "Loss Control Field Inspector",
+    "Loss Control Field Inspector"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:04:48.771Z",
+  "candidateKey": "armsrm@applytojob.com"
+}

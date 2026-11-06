@@ -1,0 +1,40 @@
+{
+  "id": "axa-manno-lavoro-frontaliere",
+  "slug": "axa-manno-lavoro-frontaliere",
+  "publishedAt": "2026-07-11T05:34:22.175Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 19.473241976239365,
+    "confidence": 0.8,
+    "finalScore": 15.578593580991493,
+    "topK": [
+      {
+        "slug": "axa-manno",
+        "cosine": 0.9039580820399219
+      },
+      {
+        "slug": "furti-auto-ticino-2026-axa-segnalazioni",
+        "cosine": 0.816674044837492
+      },
+      {
+        "slug": "academy-fnma-autisti-bus-2026",
+        "cosine": 0.814963983869983
+      },
+      {
+        "slug": "nessun-prelievo-avs-sulle-mance",
+        "cosine": 0.8146599052967456
+      },
+      {
+        "slug": "mani-pulite-vite-salvate-asst-iniziativa",
+        "cosine": 0.8142790377393532
+      }
+    ],
+    "score": 15.578593580991493,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

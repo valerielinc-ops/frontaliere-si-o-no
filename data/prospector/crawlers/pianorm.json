@@ -1,0 +1,19 @@
+{
+  "companyKey": "pianorm",
+  "companyName": "pianorm",
+  "companyHost": "pianorm.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/"
+  ],
+  "detailTemplate": "/job/cnc-maschinist-m-w-100/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Maschinist oder Fertigungsspezialist (m/w) 100%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-29T10:37:51.640Z"
+}

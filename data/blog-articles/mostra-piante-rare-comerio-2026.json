@@ -1,0 +1,40 @@
+{
+  "id": "mostra-piante-rare-comerio-2026",
+  "slug": "mostra-piante-rare-comerio-2026",
+  "publishedAt": "2026-06-01T19:53:49.201Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.3050145526494297,
+    "confidence": 0.8,
+    "finalScore": 1.8440116421195438,
+    "topK": [
+      {
+        "slug": "spasso-weekend-1-maggio-varese-2026",
+        "cosine": 0.7683381842164766
+      },
+      {
+        "slug": "inaugurazione-parchetto-biumo-via-arconati",
+        "cosine": 0.7578637344981349
+      },
+      {
+        "slug": "festival-meraviglia-laveno-luino-2026",
+        "cosine": 0.7575286793192322
+      },
+      {
+        "slug": "comunita-montana-valli-verbano-incontri-natura-cambia",
+        "cosine": 0.7570276578116923
+      },
+      {
+        "slug": "varese-lago-perduto-memoria-comunita",
+        "cosine": 0.7568753949404351
+      }
+    ],
+    "score": 0.9220058210597719,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

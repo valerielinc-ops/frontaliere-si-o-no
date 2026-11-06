@@ -1,0 +1,21 @@
+{
+  "companyKey": "voicepoint-ag",
+  "companyName": "Voicepoint AG",
+  "companyHost": "jobs.dualoo.com",
+  "platform": "dualoo.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.dualoo.com/link/bc2303ff-8bc0-4a4d-a013-9298fae626c1/detail"
+  ],
+  "detailTemplate": "/link/bc2303ff-8bc0-4a4d-a013-9298fae626c1/detail",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-26T12:18:15.176Z",
+  "candidateKey": "voicepoint@wetzikon-zh"
+}

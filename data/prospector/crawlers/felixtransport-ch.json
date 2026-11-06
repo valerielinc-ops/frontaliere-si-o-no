@@ -1,0 +1,23 @@
+{
+  "companyKey": "felixtransport-ch",
+  "companyName": "Felix Transport AG",
+  "companyHost": "felixtransport.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://felixtransport.ch/karriere"
+  ],
+  "detailTemplate": "/images/karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "IT-Systemtechniker/in_IT-Supporter/in_60-100%.pdf",
+    "Lagermitarbeiter/in_100%_Nachtschicht.pdf",
+    "Lehrstelleninserat_Logistiker/in_EFZ_2027.pdf"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T11:04:45.763Z",
+  "candidateKey": "felix-transport@arlesheim"
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "mpa-praxisstellen-ch",
+  "companyName": "mpa-praxisstellen",
+  "companyHost": "pks-personal.ch",
+  "platform": "pks-personal.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php"
+  ],
+  "detailTemplate": "/stellen/*/basel/logistik-spedition/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Sachbearbeiter:in Spedition Export 100% – die Rampensau steht im Rampenlicht. Die Fleissbiene sorgt dafür, dass die Rampe leer wird... Sachbearbeiter/in Spediti",
+    "Zolldeklarant/in Import & Export 50% - ob Import, Export oder Zollpapier, den Überblick behalten Sie hier."
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-26T12:13:48.717Z",
+  "candidateKey": "mpa-praxisstellen.ch"
+}

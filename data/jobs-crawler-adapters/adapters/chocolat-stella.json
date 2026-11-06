@@ -1,0 +1,22 @@
+{
+  "companyKey": "chocolat-stella",
+  "companyName": "Chocolat Stella",
+  "companyHost": "chocolat-stella.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.chocolat-stella.ch/careers",
+    "https://www.chocolat-stella.ch/career",
+    "https://www.chocolat-stella.ch/jobs",
+    "https://www.chocolat-stella.ch/karriere",
+    "https://www.chocolat-stella.ch/offene-stellen",
+    "https://www.chocolat-stella.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.933Z"
+}

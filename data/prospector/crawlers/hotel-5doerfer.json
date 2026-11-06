@@ -1,0 +1,22 @@
+{
+  "companyKey": "hotel-5doerfer",
+  "companyName": "Fünf-Dörfer",
+  "companyHost": "hotel-5doerfer.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotel-5doerfer.ch/en/about-us/jobs/"
+  ],
+  "detailTemplate": "/en/about-us/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "{{ data.uploadedToTitle }}",
+    "{{data.originalImageName}}",
+    "Edit Image"
+  ],
+  "canton": "GR",
+  "sourceLang": "en",
+  "learnedAt": "2026-09-05T08:42:25.901Z"
+}

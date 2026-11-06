@@ -1,0 +1,40 @@
+{
+  "id": "lohnausweis-frontalieri",
+  "slug": "lohnausweis-frontalieri",
+  "publishedAt": "2026-06-26T03:32:40.417Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.7961371924933798,
+    "confidence": 0.8,
+    "finalScore": 3.036909753994704,
+    "topK": [
+      {
+        "slug": "lohnausweis-frontalieri-ticino",
+        "cosine": 0.8409899272174768
+      },
+      {
+        "slug": "questionario-scuole-ticino-2026",
+        "cosine": 0.8060415584043118
+      },
+      {
+        "slug": "casse-malati-alloggi-landsgemeinde-2026",
+        "cosine": 0.7981024342321822
+      },
+      {
+        "slug": "odermatt-dottorato-honoris-causa",
+        "cosine": 0.7955230436837291
+      },
+      {
+        "slug": "traduzione-documenti-finanziari-visto",
+        "cosine": 0.794973371171536
+      }
+    ],
+    "score": 3.036909753994704,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
+/** Turgovia official auction-card connector. */
+import { fetchCardCantonAuctions, parseCardCantonAuctions } from "./cards.mjs";
+import { TG_AUCTION_URLS } from "../../../functions/src/plateAuctionSourceUrls.js";
+
+export { TG_AUCTION_URLS };
+
+export const TG_CANTON = "Turgovia";
+export const TG_PLATE_CODE = "TG";
+export const TG_AUCTION_URL = TG_AUCTION_URLS[0];
+
+export function parseTgAuctionRows(
+  html,
+  { fetchedAt = new Date().toISOString() } = {},
+) {
+  return parseCardCantonAuctions(html, {
+    canton: TG_CANTON,
+    plateCode: TG_PLATE_CODE,
+    officialAuctionUrl: TG_AUCTION_URL,
+    detailBaseUrl: "https://auktion.tg.ch",
+    fetchedAt,
+  });
+}
+
+export async function fetchTgPlateAuctions(options = {}) {
+  return fetchCardCantonAuctions({
+    canton: TG_CANTON,
+    plateCode: TG_PLATE_CODE,
+    officialAuctionUrl: TG_AUCTION_URL,
+    officialAuctionUrls: TG_AUCTION_URLS.slice(1),
+    detailBaseUrl: "https://auktion.tg.ch",
+  }, options);
+}
+
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
+  fetchTgPlateAuctions()
+    .then((auctions) => console.log(JSON.stringify(auctions, null, 2)))
+    .catch((error) => {
+      console.error("TG plate-auction fetch failed:", error);
+      process.exitCode = 1;
+    });
+}

@@ -1,0 +1,25 @@
+{
+  "companyKey": "pemsa-ch-pemsa-ch",
+  "companyName": "Pemsa SA, succursale di Arbedo-Castione",
+  "companyHost": "pemsa.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.pemsa.ch/offres-demploi/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 335,
+  "sampleTitles": [
+    "Électricien",
+    "Constructeur Horloger (H/F/D)",
+    "TECHNICIEN CHARGÉ DES DEVIS POUR LES TABLEAUX ÉLECTRIQUES (Automatisation / Distribution)",
+    "Ouvrier du bâtiment B",
+    "Couvreur/Ferblantier"
+  ],
+  "canton": "TI",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T13:24:48.172Z",
+  "candidateKey": "pemsa-arbedo-castione@castione"
+}

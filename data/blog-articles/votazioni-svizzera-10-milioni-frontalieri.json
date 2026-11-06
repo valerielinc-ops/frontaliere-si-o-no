@@ -1,0 +1,40 @@
+{
+  "id": "votazioni-svizzera-10-milioni-frontalieri",
+  "slug": "votazioni-svizzera-10-milioni-frontalieri",
+  "publishedAt": "2026-05-09T18:46:13.558Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.767268544431634,
+    "confidence": 0.8,
+    "finalScore": 6.213814835545307,
+    "topK": [
+      {
+        "slug": "campagna-politica-frontalieri-15-milioni-franchi",
+        "cosine": 0.8630298382701815
+      },
+      {
+        "slug": "guerra-frena-viaggi-estero-2026",
+        "cosine": 0.8524758802177379
+      },
+      {
+        "slug": "svizzera-disoccupazione-frontalieri-quadri-2026",
+        "cosine": 0.8478450948515092
+      },
+      {
+        "slug": "delusi-svizzera-frontalieri-abbandonati",
+        "cosine": 0.8448938590395322
+      },
+      {
+        "slug": "pagare-vittime-crans-montana-2026",
+        "cosine": 0.8442803813403531
+      }
+    ],
+    "score": 6.213814835545307,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

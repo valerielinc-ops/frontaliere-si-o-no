@@ -1,0 +1,19 @@
+{
+  "id": "tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino",
+  "slug": "tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino",
+  "publishedAt": "2026-05-19T07:28:44.662Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 70.44953066666667,
+    "confidence": 1,
+    "finalScore": 70.44953066666667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 35.22476533333334,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

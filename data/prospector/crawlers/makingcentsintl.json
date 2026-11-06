@@ -1,0 +1,21 @@
+{
+  "companyKey": "makingcentsintl",
+  "companyName": "Making Cents International",
+  "companyHost": "makingcentsintl.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://makingcentsintl.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Call for Consultants: Join Our Global Network!"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:13:25.964Z",
+  "candidateKey": "makingcentsintl@applytojob.com"
+}

@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-05-25T07:35:42.732Z",
+  "result": "partial",
+  "window": {
+    "revenueMonitor": {
+      "start": "2026-05-17",
+      "end": "2026-05-23"
+    },
+    "subscriptions": {
+      "start": "2026-05-18T07:35:13.330Z",
+      "end": "2026-05-25T07:35:13.330Z"
+    }
+  },
+  "metrics": {
+    "subscriptions7d": {
+      "baseline": 164,
+      "current": 325,
+      "target": 250,
+      "pass": true,
+      "source": "Firestore newsletter_subscribers subscribed_at"
+    },
+    "gscClicks7d": {
+      "baseline": 5089,
+      "current": 5069,
+      "target": 5500,
+      "pass": false,
+      "source": "revenue-monitor GSC"
+    },
+    "gscAveragePosition": {
+      "baseline": 8.62,
+      "current": 9.81,
+      "target": 7.5,
+      "pass": false,
+      "source": "revenue-monitor GSC"
+    },
+    "appErrorRatePct30d": {
+      "baseline": 3.5,
+      "current": 0.272,
+      "target": 1,
+      "pass": true,
+      "source": "PostHog app_error / all events"
+    },
+    "calcEntryToInputStartPct": {
+      "baseline": 29,
+      "current": 3,
+      "target": 40,
+      "pass": false,
+      "source": "diagnose-calc-funnel.mjs"
+    },
+    "clsP75Desktop": {
+      "baseline": 1.016,
+      "current": 0.91,
+      "target": 0.5,
+      "pass": false,
+      "source": "revenue-monitor PostHog web vitals"
+    },
+    "adsenseRevenuePerDayCHF": {
+      "baseline": 2.99,
+      "current": 2.73,
+      "target": 4.5,
+      "pass": false,
+      "source": "revenue-monitor AdSense"
+    }
+  },
+  "summary": {
+    "passed": 2,
+    "failed": 5,
+    "closeTracker": false
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "blitz-droga-turate-frontalieri",
+  "slug": "blitz-droga-turate-frontalieri",
+  "publishedAt": "2026-05-10T07:02:03.459Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.022626092167737,
+    "confidence": 0.8,
+    "finalScore": 5.61810087373419,
+    "topK": [
+      {
+        "slug": "varese-arresto-spacciatore-frontaliere",
+        "cosine": 0.8454488948320092
+      },
+      {
+        "slug": "lavena-ponte-tresa-giro-spaccio",
+        "cosine": 0.8391515678248928
+      },
+      {
+        "slug": "scoperta-quantita-marijuana-colverde-confine-ticino",
+        "cosine": 0.8345419288603304
+      },
+      {
+        "slug": "arresto-droga-confine-brogeda-2026",
+        "cosine": 0.8295955535416903
+      },
+      {
+        "slug": "sequestro-stupefacenti-ecuador",
+        "cosine": 0.8266794411430606
+      }
+    ],
+    "score": 1.4045252184335475,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

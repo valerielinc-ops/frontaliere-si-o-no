@@ -1,0 +1,20 @@
+{
+  "companyKey": "ohws",
+  "companyName": "ibW Höhere Fachschule Südostschweiz",
+  "companyHost": "ohws.prospective.ch",
+  "platform": "prospective.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://ohws.prospective.ch/public/v1/jobs/ee8742f4-af6d-4038-9b76-6369507c1eef"
+  ],
+  "detailTemplate": "/public/v1/jobs/ee8742f4-af6d-4038-9b76-6369507c1eef",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Monteur/in für Kabelbau (80-100%)"
+  ],
+  "canton": "GR",
+  "sourceLang": "it",
+  "learnedAt": "2026-09-13T09:11:27.278Z"
+}

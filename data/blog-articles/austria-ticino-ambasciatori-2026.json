@@ -1,0 +1,40 @@
+{
+  "id": "austria-ticino-ambasciatori-2026",
+  "slug": "austria-ticino-ambasciatori-2026",
+  "publishedAt": "2026-05-08T22:57:36.423Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.519910003797719,
+    "confidence": 0.8,
+    "finalScore": 7.615928003038175,
+    "topK": [
+      {
+        "slug": "bilaterali-terza-fase-parlamento-ticino",
+        "cosine": 0.8650160543486499
+      },
+      {
+        "slug": "accordi-svizzera-ue-parmelin-bruxelles",
+        "cosine": 0.8645813189877832
+      },
+      {
+        "slug": "visita-ticinese-coira-criminalita-organizzata",
+        "cosine": 0.8641135632000271
+      },
+      {
+        "slug": "cooperazione-giudiziaria-svizzera-italia",
+        "cosine": 0.8633788620278081
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8614330434409397
+      }
+    ],
+    "score": 0.7615928003038176,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

@@ -1,0 +1,204 @@
+// GA4 fetcher for the evidence layer — runReport on `pagePath`, returns
+// per-page sessions, views and engagement time. Resilient: never throws,
+// returns `{ pages, coverage?, error? }`.
+//
+// Auth: same Firebase SA as GSC; verifies the SA has GA4 viewer access.
+// On 403 we return a clear actionable error string.
+//
+// Cluster attribution: uses `classifyByRegex` from cluster-classifier-prompt.mjs
+// against the known headline (when slug matches a blog-meta-it.ts entry) or
+// against the slug itself as a fallback. Articles that don't match a known
+// slug fall back to `'generic'`.
+
+import { GA4_MIN_SESSIONS } from './constants.mjs';
+import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken, paginateGa4Report } from '../ga4-service-account.mjs';
+import { parseStaticArticleTranslationSource } from '../../../packages/articles/engine/shared/articleStaticSource.mjs';
+
+function normalizePropertyId(raw) {
+  if (!raw) return null;
+  return raw.startsWith('properties/') ? raw : `properties/${raw}`;
+}
+
+/**
+ * Look up an article's headline + cluster from blog-meta-it map (preloaded).
+ * Slug derived from pagePath.
+ */
+function attachClusterFromPath(pagePath, blogMetaIt) {
+  // Path convention: GA4 reports paths exactly as the browser saw them.
+  // Articles live under `/articoli-frontaliere/<slug>/` (trailing slash —
+  // matches index.html resolution on GitHub Pages). We accept both.
+  const m = pagePath.match(/\/articoli-frontaliere\/([^/?#]+)/);
+  if (!m) return 'generic';
+  const slug = m[1];
+  const headlineKey = `blog.article.${slug}.title`;
+  const headline = blogMetaIt?.[headlineKey];
+  if (headline) return classifyByRegex(headline);
+  // Fallback: classify on slug tokens.
+  return classifyByRegex(slug.replace(/-/g, ' '));
+}
+
+/**
+ * Load the Italian blog-meta map so we can attach cluster + headline.
+ * A missing file returns `{}`; a malformed present module is surfaced through
+ * fetchGa4Pages' existing `{ pages: {}, error }` result shape.
+ */
+export function parseGa4BlogMetaItSource(text, sourcePath = 'blog-meta-it.ts') {
+  const translations = parseStaticArticleTranslationSource(text, sourcePath);
+  const entries = Object.create(null);
+  for (const [slug, fields] of translations) {
+    const title = fields.get('title');
+    if (title !== undefined) entries[`blog.article.${slug}.title`] = title;
+  }
+  return entries;
+}
+
+async function loadBlogMetaIt() {
+  const url = new URL('../../../services/locales/blog-meta-it.ts', import.meta.url);
+  const fs = await import('node:fs');
+  if (!fs.existsSync(url)) return {};
+  const text = fs.readFileSync(url, 'utf8');
+  return parseGa4BlogMetaItSource(text, url.pathname);
+}
+
+/**
+ * Best-effort: load the published-date map from data/blog-articles-data.ts.
+ * Returns Map<slug, ISO8601 date>.
+ */
+async function loadPublishedDates() {
+  try {
+    const url = new URL('../../../data/blog-articles-data.ts', import.meta.url);
+    const fs = await import('node:fs');
+    if (!fs.existsSync(url)) return new Map();
+    const text = fs.readFileSync(url, 'utf8');
+    const out = new Map();
+    // Match `id: 'slug',` then later `date: '2026-01-15',` within the same
+    // object. Article objects span multiple lines so we use a non-greedy
+    // window of ~600 chars between them.
+    const re = /id:\s*'([a-z0-9-]+)',[\s\S]{0,600}?date:\s*'(\d{4}-\d{2}-\d{2})'/g;
+    let m;
+    while ((m = re.exec(text)) !== null) {
+      out.set(m[1], m[2]);
+    }
+    return out;
+  } catch {
+    return new Map();
+  }
+}
+
+/**
+ * Fetch per-page sessions, views and engagement, last `startDate..endDate` window.
+ * Excludes newsletter-sourced sessions; direct, paid and referral traffic remain included.
+ * @param {object} options
+ * @param {string} options.propertyId - GA4 property id (with or without `properties/` prefix)
+ * @param {string} options.startDate - YYYY-MM-DD
+ * @param {string} options.endDate - YYYY-MM-DD
+ * @param {number} [options.minSessions=GA4_MIN_SESSIONS] - Minimum sessions retained per page.
+ * @param {Function} [options.fetchImpl=fetch]
+ * @param {Function} [options.getTokenImpl=getServiceAccountToken]
+ * @returns {Promise<{
+ *   pages: Record<string, {sessions: number, pageviews: number, engageTime: number, publishedAt: string|null, cluster: string}>,
+ *   coverage?: {complete: boolean, returnedRows: number, reportedRows: number|null},
+ *   error?: string
+ * }>}
+ */
+export async function fetchGa4Pages({
+  propertyId,
+  startDate,
+  endDate,
+  minSessions = GA4_MIN_SESSIONS,
+  fetchImpl = fetch,
+  getTokenImpl = () => getServiceAccountToken([GA4_READONLY_SCOPE]),
+} = {}) {
+  try {
+    const property = normalizePropertyId(propertyId || process.env.GA4_PROPERTY_ID);
+    if (!property) throw new Error('no GA4_PROPERTY_ID');
+    const token = await getTokenImpl();
+    if (!token) throw new Error('no service-account token');
+
+    const blogMetaIt = await loadBlogMetaIt();
+    const publishedDates = await loadPublishedDates();
+
+    const url = `https://analyticsdata.googleapis.com/v1beta/${property}:runReport`;
+    const requestBody = {
+      dateRanges: [{ startDate, endDate }],
+      dimensions: [{ name: 'pagePath' }],
+      metrics: [
+        { name: 'sessions' },
+        { name: 'userEngagementDuration' },
+        { name: 'screenPageViews' },
+      ],
+      dimensionFilter: {
+        notExpression: {
+          filter: {
+            fieldName: 'sessionMedium',
+            stringFilter: { value: 'newsletter', matchType: 'EXACT' },
+          },
+        },
+      },
+    };
+
+    // Paginato con offset fino a rowCount: un limit fisso senza offset
+    // troncava a 100000 righe una finestra di 138.894 pagePath e
+    // seo-health-loop leggeva GA4 come fonte assente a ogni run (issue 11423).
+    let accessDenied = null;
+    const report = await paginateGa4Report({
+      body: requestBody,
+      fetchPage: async (body) => {
+        const res = await fetchImpl(url, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        if (res.status === 403) {
+          accessDenied = (await res.text()).slice(0, 200);
+          return null;
+        }
+        if (!res.ok) throw new Error(`ga4 ${res.status}: ${await res.text()}`);
+        return res.json();
+      },
+    });
+    if (accessDenied !== null) {
+      return {
+        pages: {},
+        error: `GA4 access denied — service account needs Viewer role on property (${accessDenied})`,
+      };
+    }
+    const { rows } = report;
+
+    const pages = {};
+    for (const r of rows) {
+      const path = r.dimensionValues?.[0]?.value || '';
+      if (!path) continue;
+      const sessions = Number(r.metricValues?.[0]?.value || 0);
+      if (sessions < minSessions) continue;
+      const engageDur = Number(r.metricValues?.[1]?.value || 0);
+      const pageviews = Number(r.metricValues?.[2]?.value || 0);
+      const engageTime = sessions > 0 ? Number((engageDur / sessions).toFixed(2)) : 0;
+      const cluster = attachClusterFromPath(path, blogMetaIt);
+      const slugMatch = path.match(/\/articoli-frontaliere\/([^/?#]+)/);
+      const slug = slugMatch ? slugMatch[1] : null;
+      const publishedAt = slug && publishedDates.has(slug) ? publishedDates.get(slug) : null;
+      pages[path] = {
+        sessions,
+        pageviews,
+        engageTime,
+        publishedAt,
+        cluster,
+      };
+    }
+    const reportedRows = report.rowCount;
+    const metadata = report.metadata;
+    const limited = !report.complete || metadata.dataLossFromOtherRow || metadata.subjectToThresholding
+      || metadata.dataTruncationReasons?.length || metadata.schemaRestrictionResponse?.activeMetricRestrictions?.length
+      || metadata.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize));
+    return {
+      pages,
+      coverage: { complete: !limited, returnedRows: rows.length, reportedRows },
+      ...(limited ? { error: `GA4 incomplete or restricted response (${rows.length}/${reportedRows ?? 'unknown'} rows); observed pages retained, absence is not zero traffic` } : {}),
+    };
+  } catch (err) {
+    const reason = err && err.message ? err.message : String(err);
+    return { pages: {}, error: reason };
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "code-e-non-solo-in-autostrada",
+  "slug": "code-e-non-solo-in-autostrada",
+  "publishedAt": "2026-05-17T18:48:40.787Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.5299095598188925,
+    "confidence": 0.8,
+    "finalScore": 3.623927647855114,
+    "topK": [
+      {
+        "slug": "auto-truccate-polizia-zugo-2026",
+        "cosine": 0.8235139938458103
+      },
+      {
+        "slug": "cantieri-traffico-frontiera",
+        "cosine": 0.821391035923432
+      },
+      {
+        "slug": "code-nord-san-gottardo",
+        "cosine": 0.8206166121217228
+      },
+      {
+        "slug": "retromarcia-contromano-faido-chiggiogna-2026",
+        "cosine": 0.8179207563135151
+      },
+      {
+        "slug": "san-gottardo-code-giovedi-santo",
+        "cosine": 0.8156437047825416
+      }
+    ],
+    "score": 0.9059819119637785,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

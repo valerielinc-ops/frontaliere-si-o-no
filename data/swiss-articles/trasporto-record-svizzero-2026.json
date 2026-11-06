@@ -1,0 +1,40 @@
+{
+  "id": "trasporto-record-svizzero-2026",
+  "slug": "trasporto-record-svizzero-2026",
+  "publishedAt": "2026-07-30T10:37:50.385Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.663925600091094,
+    "confidence": 0.8,
+    "finalScore": 5.331140480072875,
+    "topK": [
+      {
+        "slug": "record-passeggeri-treni-svizzera-2026",
+        "cosine": 0.8886054249341552
+      },
+      {
+        "slug": "ffs-2027-ticino",
+        "cosine": 0.8548879920370324
+      },
+      {
+        "slug": "trasporti-lombardia-ticino-record-tilo",
+        "cosine": 0.8540790303477297
+      },
+      {
+        "slug": "svizzera-frontalieri-franco-lavoro",
+        "cosine": 0.8534431090653407
+      },
+      {
+        "slug": "boom-viaggiatori-treni-2026-ticino",
+        "cosine": 0.8525242726332125
+      }
+    ],
+    "score": 1.3327851200182188,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

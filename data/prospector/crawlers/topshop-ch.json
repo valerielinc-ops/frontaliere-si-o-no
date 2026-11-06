@@ -1,0 +1,22 @@
+{
+  "companyKey": "topshop-ch",
+  "companyName": "TopShop",
+  "companyHost": "fenaco.com",
+  "platform": "fenaco.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.fenaco.com/karriere/offene-stellen"
+  ],
+  "detailTemplate": "/karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Deine Karrierechancen",
+    "Dein Kontakt für Fragen"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T11:05:10.872Z",
+  "candidateKey": "topshop.ch"
+}

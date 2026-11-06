@@ -1,0 +1,21 @@
+{
+  "companyKey": "vereinaklosters",
+  "companyName": "Vereina",
+  "companyHost": "hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/hotel-vereina-52746"
+  ],
+  "detailTemplate": "/jobs/hotel-vereina-52746/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Chef de partie (m/w)",
+    "Chef de Rang (m/w)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-31T10:26:39.364Z"
+}

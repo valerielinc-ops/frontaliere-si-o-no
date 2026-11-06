@@ -1,0 +1,21 @@
+{
+  "companyKey": "walo",
+  "companyName": "walo",
+  "companyHost": "walo.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.walo.ch/de-ch/karriere"
+  ],
+  "detailTemplate": "/de-ch/karriere/lernende/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Baumaschinenmechaniker/in EFZ",
+    "Industrie- und Unterlagsbodenbauer/in EFZ",
+    "Maurer/in EFZ Ingenieurbau"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-30T09:50:19.253Z"
+}

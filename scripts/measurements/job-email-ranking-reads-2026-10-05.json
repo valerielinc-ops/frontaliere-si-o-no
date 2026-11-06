@@ -1,0 +1,52 @@
+{
+  "_what": "Letture Firestore e tempo degli input di ordinamento dei due invii con annunci: baseline (ramo CTR) contro HEAD (variante affinity). Solo aggregati.",
+  "_how": "node scripts/measure-job-email-ranking-reads.mjs --out <file> (sola lettura, produzione; NEWSLETTER_SECRET da Remote Config)",
+  "generated_at": "2026-10-05T17:41:55.158Z",
+  "baseline_ref": "origin/main",
+  "baseline_sha": "b02e367baec3b363498218f2be721cc5ec28ec15",
+  "newsletter": {
+    "baseline": {
+      "function": "loadNewsletterRankingStats (job_email_ranking_stats, finestra 60 giorni)",
+      "firestore_calls": 1,
+      "docs_read": 26587,
+      "jobs_with_stats": 8605,
+      "elapsed_ms": 6473
+    },
+    "head": {
+      "function": "loadJobEmailAffinityProfiles",
+      "firestore_calls": 31,
+      "docs_read": 9149,
+      "recipients": 9149,
+      "opted_out": 0,
+      "profiles_found": 1304,
+      "failed": 0,
+      "elapsed_ms": 2928
+    }
+  },
+  "job_alert": {
+    "baseline": {
+      "function": "embeddedAlertRankingStats (pura, sull'alert gia' caricato)",
+      "firestore_calls": 0,
+      "docs_read": 0,
+      "alerts_sampled": 200,
+      "active_alerts": 12783,
+      "elapsed_ms_sample": 3,
+      "elapsed_ms_per_send_estimated": 192
+    },
+    "head": {
+      "function": "loadJobEmailAffinityProfiles",
+      "firestore_calls": 43,
+      "docs_read": 12671,
+      "recipients": 12671,
+      "opted_out": 0,
+      "profiles_found": 1424,
+      "failed": 0,
+      "elapsed_ms": 4016
+    }
+  },
+  "notes": [
+    "Le liste dei destinatari (newsletter confirmed, job alert active) e il campione di alert sono letti prima e fuori dalla misura: nei sender sono gia' caricati per l'invio.",
+    "Job alert baseline: la funzione non tocca Firestore; il tempo per invio e' il tempo medio per alert del campione per gli alert attivi.",
+    "Job alert HEAD: l'opposizione si legge dal documento newsletter; qui gli iscritti job alert sono letti senza quel flag, quindi il conteggio e' un tetto superiore."
+  ]
+}

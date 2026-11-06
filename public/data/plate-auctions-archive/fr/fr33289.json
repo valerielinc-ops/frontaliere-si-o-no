@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "fr-7317",
+      "sourceKey": "FR",
+      "sourceRecordId": "7317",
+      "canton": "Friburgo",
+      "platePrefix": "FR",
+      "plateNumber": "33289",
+      "normalizedPlate": "FR33289",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 300,
+      "startingPriceChf": 300,
+      "bidCount": 0,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-11-02T11:00:00.000Z",
+      "closedAt": "2026-11-02T11:00:00.000Z",
+      "officialAuctionUrl": "https://appls.ocn.ch/ecari-auction?locale=fr_ch",
+      "officialDetailUrl": "https://appls.ocn.ch/ecari-auction/ui/app/details/app?id=7317&locale=fr_ch",
+      "sourceFetchedAt": "2026-11-02T05:47:04.815Z",
+      "lastVerifiedAt": "2026-11-02T05:47:04.815Z",
+      "firstSeenAt": "2026-10-26T11:47:02.696Z",
+      "lastSeenAt": "2026-11-02T05:47:04.815Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "6d0fece5a6ef"
+    }
+  ]
+}

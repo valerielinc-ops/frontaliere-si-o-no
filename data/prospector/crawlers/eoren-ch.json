@@ -1,0 +1,24 @@
+{
+  "companyKey": "eoren-ch",
+  "companyName": "Centre de La Côte - Collège des Coteaux",
+  "companyHost": "ne.ch",
+  "platform": "ne.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.ne.ch/autorites/dffi/seeo/cedo"
+  ],
+  "detailTemplate": "/themes/economie-et-emploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Santé et sécurité au travail",
+    "Employeurs et employeuses",
+    "Travailler pour le canton",
+    "Tout voir"
+  ],
+  "canton": "NE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-29T13:31:03.516Z",
+  "candidateKey": "eoren.ch"
+}

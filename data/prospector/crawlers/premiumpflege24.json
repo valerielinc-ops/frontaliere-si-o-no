@@ -1,0 +1,20 @@
+{
+  "companyKey": "premiumpflege24",
+  "companyName": "PremiumPflege24 GmbH",
+  "companyHost": "premiumpflege24.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://premiumpflege24.ch/job-registrierung/"
+  ],
+  "detailTemplate": "/job-registrierung/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Jobs in der Seniorenbetreuung - PremiumPflege24"
+  ],
+  "canton": "SO",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-24T10:00:02.692Z"
+}

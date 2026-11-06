@@ -1,0 +1,22 @@
+{
+  "companyKey": "betterbusinessbureauofaustin",
+  "companyName": "BBB Heart of Texas",
+  "companyHost": "betterbusinessbureauofaustin.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://betterbusinessbureauofaustin.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Advertising Sales Representative - Inside Sales",
+    "Business Development Representative - In Office Sales"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-05T13:42:10.929Z",
+  "candidateKey": "betterbusinessbureauofaustin@applytojob.com"
+}

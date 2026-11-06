@@ -1,0 +1,27 @@
+{
+  "companyKey": "service-7000-ag",
+  "companyName": "Service 7000 AG",
+  "companyHost": "service7000.ch",
+  "verifiedEmployerDomain": "service7000.ch",
+  "platform": "abaservices.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://service7000.ch/karriere/"
+  ],
+  "detailTemplate": "/karriere/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Disposition Mehr erfahren --> -->",
+    "Verkauf Innendienst Mehr erfahren --> -->",
+    "Verkauf Aussendienst Mehr erfahren --> -->",
+    "Finanzen & Verrechnen Mehr erfahren --> -->",
+    "Human Resources Mehr erfahren --> -->"
+  ],
+  "canton": "GL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-05T13:53:29.830Z",
+  "candidateKey": "service-7000@netstal"
+}

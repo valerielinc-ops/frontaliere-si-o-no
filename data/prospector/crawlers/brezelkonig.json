@@ -1,0 +1,24 @@
+{
+  "companyKey": "brezelkonig",
+  "companyName": "Brezelkönig",
+  "companyHost": "career.valora.com",
+  "platform": "valora.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://career.valora.com/de/"
+  ],
+  "detailTemplate": "/de/job/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Service Delivery POS Specialist (w/m/d)",
+    "stellvertretender Restaurantleiter (m/w/d)",
+    "Sachbearbeiter Rechnungsprüfung 100% (w/m/d)",
+    "Mitarbeiter Systemgastronomie (w/m/d)",
+    "IT Manager Finance & HR Applications (w/m/d)"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-24T10:46:45.407Z"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "cargo-chiasso-lavoro-saperi",
+  "slug": "cargo-chiasso-lavoro-saperi",
+  "publishedAt": "2026-06-11T00:53:39.420Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 96.23427814000001,
+    "confidence": 1,
+    "finalScore": 96.23427814000001,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 96.23427814000001,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

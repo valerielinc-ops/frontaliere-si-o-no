@@ -1,0 +1,21 @@
+{
+  "companyKey": "staffandtaff-ch",
+  "companyName": "staffandtaff",
+  "companyHost": "staffandtaff.ch",
+  "platform": "gastro-express.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://staffandtaff.ch/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Verbier, VS Chef de partie Au vieux verbier Chef de partie CDD Logement proposé",
+    "Gruyères, FR Chef(fe) de cuisine Le Saint Georges Hôtel & Restaurant Chef / Sous-chef CDI"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-28T12:16:08.030Z",
+  "candidateKey": "staffandtaff.ch"
+}

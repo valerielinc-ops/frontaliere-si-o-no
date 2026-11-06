@@ -1,0 +1,40 @@
+{
+  "id": "interroll-acquisisce-royal-apollo-group",
+  "slug": "interroll-acquisisce-royal-apollo-group",
+  "publishedAt": "2026-05-09T20:24:02.394Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.974721233511943,
+    "confidence": 0.8,
+    "finalScore": 7.979776986809554,
+    "topK": [
+      {
+        "slug": "kuhne-nagel-tagli-posti-ticino-2026",
+        "cosine": 0.7978366961048707
+      },
+      {
+        "slug": "successo-farmaceutica-ticino",
+        "cosine": 0.7968301701487782
+      },
+      {
+        "slug": "guerra-iran-industria-alimentare-svizzera",
+        "cosine": 0.7966598621693681
+      },
+      {
+        "slug": "chiasso-valore-economico-aggregazione",
+        "cosine": 0.7913839348684419
+      },
+      {
+        "slug": "guerra-iran-industria-alimentare-2026",
+        "cosine": 0.7891835308844289
+      }
+    ],
+    "score": 3.989888493404777,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

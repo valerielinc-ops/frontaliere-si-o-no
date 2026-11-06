@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2862",
+  "companyName": "Mammut eRecruiting Stellenmarkt",
+  "companyHost": "recruitingapp-2862.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2862.umantis.com/Jobs/All?lang=ger"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/*",
+  "sampleVacancyCount": 25,
+  "sampleTitles": [
+    "Team Lead Digital Account Management (all)",
+    "Kaufmännischer Mitarbeiter Logistik / Outbound (alle)",
+    "Intern AI & Automation (all, 80-100%), 6 months",
+    "Verkaufsberater (alle) in Voll-oder Teilzeit im Outlet Zweibrücken",
+    "Store Manager (alle) Outlet Zweibrücken"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:29.451Z"
+}

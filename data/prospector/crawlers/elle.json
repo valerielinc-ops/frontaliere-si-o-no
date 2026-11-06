@@ -1,0 +1,22 @@
+{
+  "companyKey": "elle",
+  "companyName": "elle",
+  "companyHost": "elle.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://elle.ch/tag/emploi"
+  ],
+  "detailTemplate": "/*/societe/carriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "« Les parcours les plus intéressants sont rarement linéaires » : avec Anna Gräbner, CEO du Genolier Innovation Hu",
+    "Ces entreprises suisses qui font de l’héritage un modèle de réussite",
+    "Anna Nash, directrice d’Explora Journeys : « J’essaie de donner aux jeun",
+    "« Je n’ai pas peur pour la planète, mais pour l’humanité » : Rencontre avec Babette Keller Liechti"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-15T09:58:11.818Z"
+}

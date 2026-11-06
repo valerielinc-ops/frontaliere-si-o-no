@@ -1,0 +1,23 @@
+{
+  "companyKey": "rhypersonal-ch",
+  "companyName": "rhypersonal",
+  "companyHost": "rhypersonal.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.rhypersonal.ch/jobs-in-basel-und-region-rhy-personal/?id=JobRequests-81-B"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 38,
+  "sampleTitles": [
+    "Hauswart (m/w) - Technischer Unterhalt / Facility Management",
+    "Encofrador (m/f) - NOROESTE DE SUIZA",
+    "Cofrador (m/f) - NOROESTE DA SUÍÇA",
+    "Schaler (m/w) - NORDWESTSCHWEIZ",
+    "Reinigungsangestellte für Privathaushalte (m/w) - Unterhaltsreinigung"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T00:09:48.522Z"
+}

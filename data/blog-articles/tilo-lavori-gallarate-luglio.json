@@ -1,0 +1,40 @@
+{
+  "id": "tilo-lavori-gallarate-luglio",
+  "slug": "tilo-lavori-gallarate-luglio",
+  "publishedAt": "2026-07-11T10:09:27.718Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.833254334047918,
+    "confidence": 0.8,
+    "finalScore": 3.0666034672383344,
+    "topK": [
+      {
+        "slug": "tilo-s50-lavori-mal-pensa-varese-2026",
+        "cosine": 0.8512427261556338
+      },
+      {
+        "slug": "autolaghi-chiusura-barriere-antirumore-2026",
+        "cosine": 0.8485985984111794
+      },
+      {
+        "slug": "tilo-gallarate-malpensa-maggio-2026",
+        "cosine": 0.847700688964717
+      },
+      {
+        "slug": "visite-gratuite-prevenzione-tumore-seno-gallarate-lilt",
+        "cosine": 0.8457416399110742
+      },
+      {
+        "slug": "lavori-giugno-sentiero-ronchitt-molinetto",
+        "cosine": 0.8457344125849429
+      }
+    ],
+    "score": 3.0666034672383344,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

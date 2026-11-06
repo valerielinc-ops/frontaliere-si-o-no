@@ -1,0 +1,20 @@
+{
+  "companyKey": "sgsa-ssts",
+  "companyName": "sgsa-ssts",
+  "companyHost": "apply.refline.ch",
+  "platform": "refline.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://apply.refline.ch/655298/4606/pub/1/index.html"
+  ],
+  "detailTemplate": "/655298/4606/pub/1/index.html",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Leiter*in Institut Soziale Arbeit und Gesundheit ISAGE (80-100%)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:54:12.509Z",
+  "candidateKey": "sgsa-ssts.ch"
+}

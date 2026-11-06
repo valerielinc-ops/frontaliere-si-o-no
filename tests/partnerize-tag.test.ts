@@ -1,0 +1,79 @@
+import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+
+/**
+ * Il tag Partnerize deve stare nel <head> di OGNI pagina emessa (doc Partnerize,
+ * "The Partnerize Tag for Partners"): se sparisce da un emettitore, i click su
+ * quella famiglia di pagine smettono di essere attribuiti e il Tag Health
+ * Checker segna la pagina come non coperta — nessun errore, nessun test rosso,
+ * solo commissioni perse. Da qui il pinning.
+ *
+ * Deliberatamente su TESTO, non su import: `build-plugins/constants.ts` legge
+ * `public/assets/seo-static.css` a module-load, e nei checkout sparse (dove
+ * `public/` non e' materializzato) l'import esplode con ENOENT. Leggere i
+ * sorgenti come stringhe rende il test verde sia in CI sia in locale.
+ */
+
+const ROOT = path.resolve(__dirname, '..');
+const read = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf-8');
+
+const TAG_ID = 'c98741ed-da90-49d5-a83f-d66821a170e5';
+
+describe('Partnerize tag', () => {
+  it('lo snippet in constants.ts e\' quello consegnato da Partnerize, non riscritto', () => {
+    const constants = read('build-plugins/constants.ts');
+    expect(constants).toContain(`var tid = '${TAG_ID}';`);
+    // Le quattro parti che fanno il tag: rotazione dominio via SHA-1, montaggio
+    // dello script, health check, aggancio a DOMContentLoaded. Se una sparisce,
+    // qualcuno ha "semplificato" uno snippet che la doc vieta di modificare.
+    expect(constants).toContain("window.crypto.subtle.digest('SHA-1', bin)");
+    expect(constants).toContain("return h.slice(0, 6) + 'p.' + h + '.com';");
+    expect(constants).toContain("fetch('https://api.performancehorizon.com/v3/pzthc/' + tid");
+    expect(constants).toContain("if(document.readyState==='loading')document.addEventListener('DOMContentLoaded', pzti,{once:true});else pzti();");
+  });
+
+  it('cattura il contesto inline senza rendere parser-blocking il producer esterno', () => {
+    const constants = read('build-plugins/constants.ts');
+    expect(constants).toContain("export const PARTNERIZE_TAG_FILENAME = 'partnerize-tag.js';");
+    expect(constants).toContain(
+      'export const PARTNERIZE_TAG_SNIPPET = `<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`;',
+    );
+  });
+
+  it('viene emesso in dist/assets da staticScriptsPlugin', () => {
+    const plugin = read('build-plugins/staticScriptsPlugin.ts');
+    expect(plugin).toContain('[PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT]');
+  });
+
+  it('e\' nel <head> di ogni emettitore di pagine', () => {
+    const emitters = [
+      'build-plugins/constants.ts', // ANALYTICS_SNIPPET → pagine statiche, whitepaper PDF
+      'build-plugins/htmlTemplate.ts', // buildSimplePage + HEAD_SUFFIX_*
+      'build-plugins/jobsSeoPagesPlugin.ts',
+      'build-plugins/jobSectorPagesPlugin.ts',
+      'build-plugins/jobRecencyPagesPlugin.ts',
+      'build-plugins/affiliateRedirectPlugin.ts', // pagine /go/<partner>/
+      'packages/articles/engine/ogPagesPlugin.ts', // pagine articolo
+      'packages/articles/engine/articleHubPagesPlugin.ts', // hub articoli
+    ];
+    for (const file of emitters) {
+      expect(read(file), `${file} non inietta piu' il tag Partnerize`).toContain(
+        '${PARTNERIZE_TAG_SNIPPET}',
+      );
+    }
+  });
+
+  it('la shell SPA usa il medesimo producer protetto prima del bootstrap React', () => {
+    const html = read('index.html');
+    const tag = '<script src="/assets/partnerize-tag.js"></script>';
+    expect(html).toContain(tag);
+    expect(html).not.toContain("var pzthc = function");
+    expect(html.indexOf(tag)).toBeLessThan(html.indexOf('<!-- SEO & Metadata -->'));
+  });
+
+  it('il contenitore del Dynamic Ad Widget espone il selettore configurato in dashboard', () => {
+    // Rinominare l'id senza aggiornare la dashboard spegne il widget in silenzio.
+    expect(read('components/comparators/CurrencyExchange.tsx')).toContain('id="pz-ad-landscape"');
+  });
+});

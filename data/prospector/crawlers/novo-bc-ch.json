@@ -1,0 +1,24 @@
+{
+  "companyKey": "novo-bc-ch",
+  "companyName": "novo-bc",
+  "companyHost": "jobs.novo-bc.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.novo-bc.ch/go/Jobangebote/9012502/?locale=de_DE&amp;previewCategory=true&amp;referrerSave=false"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Consultant SAP Real Estate (m/w/d)",
+    "Consultant Real Estate (m/w/d)",
+    "Consultant SAP EPPM (m/w/d)",
+    "SAP SuccessFactors EC Senior Consultant (m/w/d)",
+    "SAP Integration Developer (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-28T12:03:11.883Z",
+  "candidateKey": "novo-bc.ch"
+}

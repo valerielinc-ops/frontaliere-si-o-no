@@ -1,0 +1,304 @@
+name: Social Copy Pack (Codex)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.agents/skills/social-content/**'
+      - '.agents/skills/ig-reel/**'
+      - '.agents/skills/ig-caption/**'
+      - '.agents/skills/ig-carousel/**'
+      - '.agents/skills/ig-plan/**'
+      - '.agents/skills/ig-audit/**'
+      - '.agents/skills/ig-human/**'
+      - '.github/workflows/social-copy-pack.yml'
+      - 'docs/instagram-creative-study.md'
+      - 'docs/social-ai-automation.md'
+      - 'docs/third-party/instagram-agent-skill/UPSTREAM.md'
+      - 'scripts/lib/social-copy-pack.mjs'
+      - 'scripts/social-copy/**'
+  schedule:
+    - cron: '40 4 * * 1' # weekly adaptive pack, after the Monday insights snapshot
+  workflow_dispatch:
+    inputs:
+      promote:
+        description: 'Promote a valid generated pack on main'
+        required: false
+        default: true
+        type: boolean
+
+concurrency:
+  group: social-copy-pack
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    outputs:
+      codex_invocation_allowed: ${{ steps.codex_budget.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+            /docs/instagram-creative-study.md
+            /docs/social-ai-automation.md
+            /docs/third-party/instagram-agent-skill/UPSTREAM.md
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies for the read-only GA4 report
+        run: npm ci
+
+      - name: Reserve a rolling seven-day Codex invocation
+        id: codex_budget
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_REF: ${{ github.ref }}
+        run: node scripts/social-copy/reserve-codex-invocation.mjs >> "$GITHUB_OUTPUT"
+
+      - name: Build sanitized GA4 social-copy attribution brief
+        id: attribution
+        if: steps.codex_budget.outputs.allowed == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$RUNNER_TEMP/social-copy-ga4-brief.json"
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            node scripts/social-copy/ga4-performance-brief.mjs > "$output"
+          else
+            printf '%s' '{"schemaVersion":1,"source":"ga4-social-copy-attribution","available":false,"reason":"credentials-unavailable","minimumSessions":10,"acceptedRows":0,"variants":[],"interpretation":"Descriptive only; sessions are not impressions and do not establish causality or a winning template."}' > "$output"
+          fi
+          printf 'brief=%s\n' "$(cat "$output")" >> "$GITHUB_OUTPUT"
+
+      - name: Build minimized native social brief and growth scorecard
+        id: native
+        if: steps.codex_budget.outputs.allowed == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          TIKTOK_DISPLAY_ANALYTICS_APPROVED: ${{ vars.TIKTOK_DISPLAY_ANALYTICS_APPROVED }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          native_brief="$(node scripts/social-copy/native-performance-brief.mjs)"
+          scorecard="$(node scripts/social-growth-scorecard.mjs --json)"
+          printf 'brief=%s\n' "$native_brief" >> "$GITHUB_OUTPUT"
+          printf 'scorecard=%s\n' "$scorecard" >> "$GITHUB_OUTPUT"
+
+      - name: Build sanitized published-topic inventory
+        id: editorial_sources
+        if: steps.codex_budget.outputs.allowed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          brief="$(node scripts/social-copy/editorial-source-brief.mjs)"
+          printf 'brief=%s\n' "$brief" >> "$GITHUB_OUTPUT"
+
+      - name: Generate social copy with Codex
+        id: codex
+        if: steps.codex_budget.outputs.allowed == 'true'
+        uses: ./.github/actions/claude-codex-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          # Generation only reads the checked-out repo; keep Codex's GitHub bridge read-only.
+          codex_github_token: ${{ secrets.GITHUB_TOKEN }}
+          exec_timeout_minutes: '15'
+          response_artifact: social-copy-response.json
+          prompt: |
+            Read scripts/social-copy/CODEX-PROMPT.md and follow it exactly.
+            Recent GA4 30-day social-link attribution brief, sanitized and descriptive only.
+            Use only groups marked eligibleForDescription. Session counts are not impressions.
+            siteEngagedSessionRate describes website sessions after a click, not social-post
+            engagement or reach. The allowlisted siteActions are event counts, not unique users;
+            each row carries a versioned event contract and its strongest supported claim;
+            keyEventStatus does not verify live GA4 property configuration. job_apply_handoff
+            means an outbound click, not a completed application. An empty
+            action list means no matching evidence, not zero actions. Neither brief establishes
+            causality or a winning template. The brief includes faqSearchDemand when the Firebase-only
+            closed-category search signal has enough observations. Use it only
+            to prioritize future explainers; suppressed categories are unknown,
+            not zero, and these counts are not unique users or market demand.
+            The category report contains no search text:
+            ${{ steps.attribution.outputs.brief }}
+            Recent native social performance brief, sanitized and descriptive only.
+            It includes private Instagram, Facebook, and LinkedIn metrics when
+            exact-ID rows and valid windows are available. TikTok rows,
+            including stored snapshots, are included only when
+            TIKTOK_DISPLAY_ANALYTICS_APPROVED is exactly true; otherwise every
+            TikTok row is filtered before Codex receives the brief. Metrics join
+            by exact published IDs, use channel-specific windows, and require at
+            least three observations per metric before a median is exposed. Missing metrics are not zero;
+            assignment mode and experiment hash are separate cohorts. It does not establish
+            causality or a winning copy arm. copyAngleId is editorial intent;
+            copyRevisionId is an exact hook/CTA fingerprint for descriptive
+            diagnosis only and is not a winner signal. Instagram Story metrics
+            use a recent 30-day baseline, separate early and near-24h windows,
+            and per-1,000-reach rates only when reach is positive; no Story IDs
+            enter this brief. The brief also contains only thresholded closed-category
+            themes from public Instagram comments; it excludes comment text, usernames,
+            identifiers, and all DMs. Use these categories only to prioritize explainers,
+            never as trend claims, audience-size estimates, or factual sources:
+            ${{ steps.native.outputs.brief }}
+            Current dated rolling 30-day descriptive scorecard with source coverage.
+            Its default objective is net audience growth per channel, with qualified
+            social-attributed sessions reported separately. It contains no combined
+            target or forecast. Its provisional GA4 operating target is +25% tagged
+            sessions per channel and registered event at the roughly day-90 follow-up,
+            with a 90% retention guardrail on a positive baseline event rate; this is
+            descriptive and is not a business forecast or causal estimate. Channel
+            `growthTarget90d` values are separate audience-growth stretch goals after
+            a qualified frozen baseline, not forecasts or causal estimates.
+            It distinguishes rolling audience change from any frozen 30-day baseline
+            and 90-day follow-up, which remain descriptive.
+            TikTok audience and post metrics are absent unless its eligibility flag is true.
+            The socialRobotDelivery section is operational telemetry only: queued
+            items and confirmation-dispatch failures are not evidence of audience
+            exposure or content quality; only the UI-confirmed outcome indicates
+            the post appeared to publish.
+            It cannot establish lift or permission to promote a winner:
+            ${{ steps.native.outputs.scorecard }}
+            Current published-article inventory, privacy-screened topic-discovery
+            categories, and upcoming Ticino event-category inventory, sanitized and
+            dated. Topic-discovery counts are thresholded category signals, not raw
+            searches, search volume, audience evidence, or performance evidence;
+            recent publisher-news categories are hints only, with no headlines, URLs,
+            domains, Reddit text, or user-generated content in this brief.
+            Event categories may guide local Facebook event programming; titles, URLs,
+            organizers, people, and dates are intentionally absent. The publisher must
+            verify each fact and event against the current source before posting.
+            Topic-discovery categories can suggest what to investigate, never facts or
+            trend claims. Use the full dated brief as context:
+            ${{ steps.editorial_sources.outputs.brief }}
+            Return a complete JSON pack by writing only
+            /tmp/social-copy-response.json. Use the existing Frontaliere
+            Ticino editorial and platform guidance in this checkout.
+
+      - name: Upload generated response
+        if: steps.codex_budget.outputs.allowed == 'true' && steps.codex.outputs.primary_success == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: social-copy-response
+          path: ${{ runner.temp }}/social-copy-response.json
+          if-no-files-found: error
+          retention-days: 2
+
+  promote:
+    needs: generate
+    if: >-
+      needs.generate.result == 'success' &&
+      needs.generate.outputs.codex_invocation_allowed == 'true' &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'schedule' || github.event_name == 'push' || inputs.promote == true)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Download generated response
+        uses: actions/download-artifact@v8
+        with:
+          name: social-copy-response
+          path: ${{ runner.temp }}
+
+      - name: Validate and promote
+        run: >-
+          node scripts/social-copy/pack.mjs promote
+          --input="$RUNNER_TEMP/social-copy-response.json"
+          --output=data/social-copy-packs/current.json
+
+      - name: Mint App token for protected data PR
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Open PR with current social copy pack
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
+        run: |
+          set -euo pipefail
+          test "$APP_TOKEN_DATA_REFRESH" = true
+          body="$RUNNER_TEMP/social-copy-pack-pr-body.md"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          {
+            printf 'Auto-generated by [workflow run %s](%s).\n\n' \
+              "$GITHUB_RUN_ID" "$run_url"
+            cat <<'EOF'
+          ## Implementato
+          - Aggiornato il pacchetto di copy social Codex, validato per tutti i canali attivi e promosso tramite PR per il required check.
+
+          ## Non implementato (ancora)
+          Nessuno
+          EOF
+          } > "$body"
+          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/social-copy-packs/current.json \
+            --branch chore/social-copy-pack \
+            --commit-message "chore(social): refresh Codex copy pack" \
+            --title "chore(social): refresh Codex copy pack" \
+            --body-file "$body"

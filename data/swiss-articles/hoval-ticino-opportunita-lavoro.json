@@ -1,0 +1,19 @@
+{
+  "id": "hoval-ticino-opportunita-lavoro",
+  "slug": "hoval-ticino-opportunita-lavoro",
+  "publishedAt": "2026-06-17T02:12:22.793Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 126.71767289999997,
+    "confidence": 1,
+    "finalScore": 126.71767289999997,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 63.358836449999984,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

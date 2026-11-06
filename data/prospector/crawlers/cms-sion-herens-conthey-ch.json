@@ -1,0 +1,25 @@
+{
+  "companyKey": "cms-sion-herens-conthey-ch",
+  "companyName": "CMS Sion-Hérens-Conthey",
+  "companyHost": "cms-sion-herens-conthey.ch",
+  "verifiedEmployerDomain": "cms-sion-herens-conthey.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.cms-sion-herens-conthey.ch/fr/carrieres-12855/"
+  ],
+  "detailTemplate": "/fr/carrieres/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Travailler au CMS",
+    "Offres d’emploi et candidatures",
+    "Collaborateurs-rices, Métiers, Services"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-03T13:21:52.005Z",
+  "candidateKey": "cms-sion-herens-conthey@grimisuat"
+}

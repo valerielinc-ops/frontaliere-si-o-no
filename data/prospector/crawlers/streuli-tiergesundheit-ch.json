@@ -1,0 +1,23 @@
+{
+  "companyKey": "streuli-tiergesundheit-ch",
+  "companyName": "streuli-tiergesundheit",
+  "companyHost": "streuli-tiergesundheit.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://streuli-tiergesundheit.ch/fr/emplois/"
+  ],
+  "detailTemplate": "/fr/emplois/fr/blog/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 11,
+  "sampleTitles": [
+    "Les nutraceutiques d’Almapharm",
+    "Bienvenue à Tina Schönert",
+    "Matériel de suture pour petits animaux",
+    "Un grand cœur pour l'Ukraine!",
+    "Congrès AVA avec un nouveau stand d'exposition"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-21T00:10:47.664Z"
+}

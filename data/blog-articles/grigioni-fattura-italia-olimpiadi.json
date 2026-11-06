@@ -1,0 +1,40 @@
+{
+  "id": "grigioni-fattura-italia-olimpiadi",
+  "slug": "grigioni-fattura-italia-olimpiadi",
+  "publishedAt": "2026-05-08T04:56:15.762Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.03935076767332,
+    "confidence": 0.8,
+    "finalScore": 5.631480614138656,
+    "topK": [
+      {
+        "slug": "grigioni-viabilita-olimpica-2026",
+        "cosine": 0.879918845959165
+      },
+      {
+        "slug": "crans-montana-fatture-scontro-roma-2026",
+        "cosine": 0.848981815758537
+      },
+      {
+        "slug": "controlli-auto-immatricolate-grigioni",
+        "cosine": 0.8487869535994548
+      },
+      {
+        "slug": "crans-montana-spese-cura-italiani-2026",
+        "cosine": 0.8410159990844145
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8404479606937258
+      }
+    ],
+    "score": 5.631480614138656,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

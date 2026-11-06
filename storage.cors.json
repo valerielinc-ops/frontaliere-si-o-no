@@ -1,0 +1,26 @@
+[
+  {
+    "origin": [
+      "https://frontaliereticino.ch",
+      "https://www.frontaliereticino.ch",
+      "https://frontaliere-ticino.web.app",
+      "https://frontaliere-ticino.firebaseapp.com",
+      "http://localhost:5173",
+      "http://localhost:3000"
+    ],
+    "method": ["GET", "PUT", "POST", "HEAD"],
+    "responseHeader": [
+      "Content-Type",
+      "Content-Length",
+      "Authorization",
+      "X-Goog-Upload-Protocol",
+      "X-Goog-Upload-Command",
+      "X-Goog-Upload-Offset",
+      "X-Goog-Upload-Header-Content-Length",
+      "X-Goog-Upload-Status",
+      "X-Goog-Upload-URL",
+      "x-goog-resumable"
+    ],
+    "maxAgeSeconds": 3600
+  }
+]

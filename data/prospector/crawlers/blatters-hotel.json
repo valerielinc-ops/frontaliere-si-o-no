@@ -1,0 +1,22 @@
+{
+  "companyKey": "blatters-hotel",
+  "companyName": "Blatter's Arosa Hotel",
+  "companyHost": "hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340"
+  ],
+  "detailTemplate": "/jobs/blatter-s-hotel-arosa-4340/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Chef de Partie (m/w) Wintersaison 2026/27",
+    "Chef de Rang (m/w) für die Wintersaison",
+    "Pâtissier (m/w) Wintersaison 2026/27"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-12T08:50:52.382Z"
+}

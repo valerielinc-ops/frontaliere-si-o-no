@@ -1,0 +1,19 @@
+{
+  "id": "ia-cambia-lavoro-ma-non-sostituisce-persone",
+  "slug": "ia-cambia-lavoro-ma-non-sostituisce-persone",
+  "publishedAt": "2026-07-23T19:03:07.035Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 150.7259288888889,
+    "confidence": 1,
+    "finalScore": 150.7259288888889,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 37.68148222222222,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

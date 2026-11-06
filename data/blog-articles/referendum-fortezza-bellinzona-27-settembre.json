@@ -1,0 +1,40 @@
+{
+  "id": "referendum-fortezza-bellinzona-27-settembre",
+  "slug": "referendum-fortezza-bellinzona-27-settembre",
+  "publishedAt": "2026-05-30T02:31:30.860Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.096684754569231,
+    "confidence": 0.8,
+    "finalScore": 4.877347803655385,
+    "topK": [
+      {
+        "slug": "referendum-castelli-bellinzona-2026",
+        "cosine": 0.8709549649384615
+      },
+      {
+        "slug": "casa-montana-nante-voto-validato",
+        "cosine": 0.8330677551487482
+      },
+      {
+        "slug": "votazioni-svizzera-10-milioni-frontalieri",
+        "cosine": 0.81778300074892
+      },
+      {
+        "slug": "blocco-ristorni-ticino-politica-2026",
+        "cosine": 0.8149553517475977
+      },
+      {
+        "slug": "iniziativa-democrazia-respinta-2026",
+        "cosine": 0.8149519424154592
+      }
+    ],
+    "score": 4.877347803655385,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

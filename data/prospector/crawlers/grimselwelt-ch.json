@@ -1,0 +1,23 @@
+{
+  "companyKey": "grimselwelt-ch",
+  "companyName": "Kraftwerke Oberhasli AG",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "verifiedEmployerDomain": "grimselwelt.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/530cd16b-01ba-4be8-89e2-4884f65404ef/960cc6b6-b5aa-31ff-224b-1e6ac554224a?jp=ABACUS"
+  ],
+  "detailTemplate": "/application-process/530cd16b-01ba-4be8-89e2-4884f65404ef/960cc6b6-b5aa-31ff-224b-1e6ac554224a",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung DGH"
+  ],
+  "canton": "BE",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-03T13:32:42.001Z",
+  "candidateKey": "kraftwerke-oberhasli@innertkirchen"
+}

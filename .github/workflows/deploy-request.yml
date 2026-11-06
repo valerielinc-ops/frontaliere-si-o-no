@@ -1,0 +1,108 @@
+name: Reconcile latest GitHub Pages publish
+
+# This workflow no longer launches deploy.yml. The build workflow owns its
+# successor: its final job dispatches deploy-publish.yml and its in-workflow
+# schedule recovers a pending cancellation. This small workflow is only a
+# status-aware publish backstop for API outages and old/manual source runs.
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '*/10 * * * *'
+  push:
+    branches:
+      - main
+    # Keep the previous denylist here, where it now controls this cheap
+    # publish-recovery workflow rather than the production build. A mixed push
+    # remains eligible by GitHub's normal paths-ignore semantics. This filter
+    # applies only to push; manual recovery, the schedule, and workflow_run
+    # completion events remain eligible by design.
+    #
+    # The list is deliberately conservative: files that can feed Vite or an
+    # assemble/build plugin stay deploy-bound. A forgotten path therefore
+    # starts a request (safe), while an ignored path only rides the next real
+    # deploy (the established data-freshness contract).
+    paths-ignore:
+      - 'data/border-wait-current.json'
+      - 'public/data/border-wait-current.json'
+      - 'data/border-wait-history/**'
+      - 'data/build-history/**'
+      - 'data/seo-health-state.json'
+      - 'data/seo-health/**'
+      - 'data/border-wait-averages.json'
+      - 'public/data/border-wait-averages.json'
+      - 'data/road-events.json'
+      - 'public/data/road-events.json'
+      - 'data/weather-snapshot.json'
+      - 'data/loop-fleet/**'
+      - 'data/translation-observability-history.json'
+      - 'data/translation-observability-state.json'
+      - 'data/translation-stats-history.json'
+      - '*.md'
+      - 'docs/**'
+      - '.github/**'
+      - 'tests/**'
+      - '.claude/**'
+  workflow_run:
+    workflows: ['Deploy to GitHub Pages']
+    types: [completed]
+    branches:
+      - main
+
+concurrency:
+  # This is only the request coordinator. It has no production side effects;
+  # the real build lock remains pages-build-run in deploy.yml.
+  group: deploy-request-dispatcher
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: write
+  deployments: read
+  statuses: read
+
+jobs:
+  request:
+    name: Reconcile latest publish when needed
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout dispatcher
+        uses: actions/checkout@v7
+        with:
+          # Everything the reconciler imports, plus the workflow file for
+          # contract tests and incident inspection.
+          sparse-checkout: |
+            /.github/workflows/deploy-request.yml
+            /scripts/ci/request-latest-publish.mjs
+            /scripts/ci/lib/run-listing-window.mjs
+            /scripts/lib/is-invoked-directly.mjs
+            /scripts/lib/githubApiHeaders.mjs
+            /scripts/ci/publish-receipts.mjs
+            /scripts/ci/mint-app-token.mjs
+            /functions/src/githubApiHeaders.js
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Mint App token for downstream workflow events
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          APP_TOKEN_REQUEST_DEPLOYMENTS_READ: 'true'
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Reconcile the latest successful Pages publish
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || "${APP_TOKEN_DEPLOYMENTS_READ:-false}" != 'true' || "${APP_TOKEN_STATUSES_READ:-false}" != 'true' || -z "${APP_TOKEN:-}" ]]; then
+            echo '::warning::Pages publish reconciliation skipped: App token with actions:write, deployments:read, and statuses:read is unavailable'
+            exit 0
+          fi
+          GH_TOKEN="$APP_TOKEN" node scripts/ci/request-latest-publish.mjs

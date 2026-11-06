@@ -1,0 +1,40 @@
+{
+  "id": "aumenti-stipendi-svizzera-2026",
+  "slug": "aumenti-stipendi-svizzera-2026",
+  "publishedAt": "2026-05-08T18:08:21.512Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.642241742349606,
+    "confidence": 0.8,
+    "finalScore": 11.713793393879685,
+    "topK": [
+      {
+        "slug": "stipendi-svizzeri-crescono-2025",
+        "cosine": 0.8134578745749781
+      },
+      {
+        "slug": "salari-svizzera-aumentati-2025",
+        "cosine": 0.8084503429536787
+      },
+      {
+        "slug": "tredicesima-avs-stipendio-trattenute",
+        "cosine": 0.8027821905421985
+      },
+      {
+        "slug": "conti-federali-aumento-iva-ticino",
+        "cosine": 0.7935893915711343
+      },
+      {
+        "slug": "guida-contributi-sociali-svizzera",
+        "cosine": 0.7891547049671926
+      }
+    ],
+    "score": 1.1713793393879686,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

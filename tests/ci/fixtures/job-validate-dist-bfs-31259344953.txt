@@ -1,0 +1,51 @@
+2026-08-08T14:17:31.9488676Z 
+2026-08-08T14:17:32.0732370Z ══════════════════════════════════════════════════════════════════════
+2026-08-08T14:17:32.0903272Z BFS-chain gates — per-gate results
+2026-08-08T14:17:32.1965703Z ══════════════════════════════════════════════════════════════════════
+2026-08-08T14:17:32.2009366Z ❌ FAIL  audit:max-bfs-depth                       756.85 rc=1
+2026-08-08T14:17:32.3128465Z ✅ PASS  audit:orphan-sitemap-pages                674.23 rc=0
+2026-08-08T14:17:32.3148094Z ──────────────────────────────────────────────────────────────────────
+2026-08-08T14:17:32.3167873Z BFS-chain summary: 1 passed, 1 failed
+2026-08-08T14:17:32.3187966Z ══════════════════════════════════════════════════════════════════════
+2026-08-08T14:17:32.3207276Z 
+2026-08-08T14:17:32.5302042Z ##[error]audit:max-bfs-depth failed
+2026-08-08T14:17:32.5335828Z 
+2026-08-08T14:17:32.5338671Z > frontaliereticino@0.0.0 audit:max-bfs-depth
+2026-08-08T14:17:32.5355776Z > node scripts/audit-bfs-depth.mjs --baseline=data/bfs-depth-baseline.json --json
+2026-08-08T14:17:32.5366086Z 
+2026-08-08T14:17:32.5375563Z [audit-bfs-depth] Reading local sitemap index dist/sitemap.xml
+2026-08-08T14:17:32.5387535Z [audit-bfs-depth] Index lists 86 child sitemaps
+2026-08-08T14:17:32.5405300Z [audit-bfs-depth] BFS-walking dist/ from /
+2026-08-08T14:17:32.5419523Z [audit-bfs-depth] Visited 1051843 reachable paths
+2026-08-08T14:17:32.5437113Z {
+2026-08-08T14:17:32.5454529Z   "maxDepth": 4,
+2026-08-08T14:17:32.5464551Z   "perSitemap": {
+2026-08-08T14:17:32.5476574Z     "sitemap-annual-report.xml": {
+2026-08-08T14:17:32.5494732Z       "total": 4,
+2026-08-08T14:17:32.5507207Z       "reached": 4,
+2026-08-08T14:17:35.0000000Z [fixture-trim] ~141k righe di dump JSON omesse (finestra ridotta per il test)
+2026-08-08T14:17:37.3008608Z     depth=unreachable  https://***/fr/articles-suisse/sujets/energie-et-carburants/
+2026-08-08T14:17:37.3008979Z     depth=unreachable  https://***/articoli-svizzera/argomenti/famiglia-e-scuola/
+2026-08-08T14:17:37.3009335Z     depth=unreachable  https://***/en/swiss-articles/topics/family-and-school/
+2026-08-08T14:17:37.3009699Z     depth=unreachable  https://***/de/schweiz-artikel/themen/familie-und-schule/
+2026-08-08T14:17:37.3010054Z     depth=unreachable  https://***/fr/articles-suisse/sujets/famille-et-ecole/
+2026-08-08T14:17:37.3010066Z 
+2026-08-08T14:17:37.3010232Z How to fix
+2026-08-08T14:17:37.3010386Z ----------
+2026-08-08T14:17:37.3010827Z Link this tier's URLs from a hub page at depth ≤ 3 so real
+2026-08-08T14:17:37.3011152Z crawlers reach them, then rebuild. Per CLAUDE.md non-negotiable #5:
+2026-08-08T14:17:37.3011444Z orphans are fixed via internal links, never noindex, never by
+2026-08-08T14:17:37.3011684Z flooring the buried state into the baseline.
+2026-08-08T14:17:37.3033290Z ##[error]Process completed with exit code 1.
+2026-08-08T14:17:37.3125239Z ##[group]Run if [ -s /tmp/post-build-timings.txt ]; then
+2026-08-08T14:17:37.3125522Z if [ -s /tmp/post-build-timings.txt ]; then
+2026-08-08T14:17:37.3125714Z   printf 'failed_gates=%s\n' \
+2026-08-08T14:17:37.3126029Z     "$(awk '!/rc=0$/ {printf "%s%s", sep, $1; sep=","}' /tmp/post-build-timings.txt)" \
+2026-08-08T14:17:37.3126208Z     >> "$GITHUB_OUTPUT"
+2026-08-08T14:17:37.3126371Z else
+2026-08-08T14:17:37.3126607Z   echo 'failed_gates=__UNKNOWN__' >> "$GITHUB_OUTPUT"
+2026-08-08T14:17:37.3126761Z fi
+2026-08-08T14:17:37.3522570Z shell: /usr/bin/bash -e {0}
+2026-08-08T14:17:37.3522732Z env:
+2026-08-08T14:17:37.3522996Z   GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-sa.json
+2026-08-08T14:17:37.3523285Z   GEMINI_API_KEY: ***

@@ -1,0 +1,1 @@
+../../packages/articles/engine/shared/articleSectionCore.mjs

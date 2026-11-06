@@ -1,0 +1,23 @@
+{
+  "companyKey": "bigla-ch",
+  "companyName": "bigla",
+  "companyHost": "fhnw.ch",
+  "platform": "fhnw.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.fhnw.ch/de/ph"
+  ],
+  "detailTemplate": "/de/ph/dienstleistungen/beratungsstellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Bildung für Nachhaltige Entwicklung",
+    "Gesundheitsbildung und Prävention",
+    "Digitale Medien in Schule und Unterricht - imedias",
+    "Theaterpädagogik"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T13:28:50.778Z",
+  "candidateKey": "bigla.ch"
+}

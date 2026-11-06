@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109843",
+      "sourceKey": "TG",
+      "sourceRecordId": "109843",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "911917",
+      "normalizedPlate": "TG911917",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-10-28T18:00:00.000Z",
+      "closedAt": "2026-10-22T11:51:25.324Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109843",
+      "sourceFetchedAt": "2026-10-22T11:51:25.324Z",
+      "lastVerifiedAt": "2026-10-22T11:51:25.324Z",
+      "firstSeenAt": "2026-10-17T20:38:27.343Z",
+      "lastSeenAt": "2026-10-22T11:51:25.324Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "da4d137cff03"
+    }
+  ]
+}

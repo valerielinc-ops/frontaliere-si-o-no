@@ -1,0 +1,26 @@
+{
+  "companyKey": "invias-swiss",
+  "companyName": "Invias AG",
+  "companyHost": "invias.swiss",
+  "verifiedEmployerDomain": "invias.swiss",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://invias.swiss/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "ARCHITEKT:IN B.A. ODER IN AUSBILDUNG 50 – 80%",
+    "ZEICHNER:IN FACHRICHTUNG ARCHITEKTUR 60 – 100%",
+    "TECHNISCHE:R PROJEKTLEITER:IN 80 – 100%",
+    "HOLZBAUINGENIEUR:IN / BAUINGENIEUR:IN 80 – 100%"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:09:07.134Z",
+  "candidateKey": "invias@maienfeld"
+}

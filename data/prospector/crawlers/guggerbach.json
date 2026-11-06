@@ -1,0 +1,23 @@
+{
+  "companyKey": "guggerbach",
+  "companyName": "Bistro Guggerzyt",
+  "companyHost": "guggerbach.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.guggerbach.ch/guggerbach/jobs-karriere"
+  ],
+  "detailTemplate": "/guggerbach/jobs-karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Selbständige Coiffeuse/Coiffeur",
+    "Pflegehelferin",
+    "Assistent:in Gesundheit und Soziales EBA",
+    "Fachperson Gesundheit EFZ"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-06T09:07:01.982Z"
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "generali-svizzera",
+  "companyName": "Generali Svizzera",
+  "companyHost": "generali.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.generali.ch/careers",
+    "https://www.generali.ch/career",
+    "https://www.generali.ch/jobs",
+    "https://www.generali.ch/karriere",
+    "https://www.generali.ch/offene-stellen",
+    "https://www.generali.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.945Z"
+}

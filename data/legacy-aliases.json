@@ -1,0 +1,192 @@
+{
+  "generatedAt": "2026-10-20T15:40:56.000Z",
+  "counts": {
+    "blogLocaleMismatch": 13,
+    "blogITMissing": 8,
+    "fuelStation": 5
+  },
+  "aliases": [
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/banken-gewerkschaften-plattform-vereinbarung/",
+      "locale": "de",
+      "kind": "unmatched",
+      "canonicalPath": "/de/grenzgaenger-artikel/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/articoli-frontaliere/addiofrontalierelongo/",
+      "locale": "it",
+      "kind": "unmatched",
+      "canonicalPath": "/articoli-frontaliere/",
+      "cohort": "blogITMissing"
+    },
+    {
+      "orphanPath": "/articoli-frontaliere/tassa-salute-frontalieri/",
+      "locale": "it",
+      "kind": "unmatched",
+      "canonicalPath": "/articoli-frontaliere/",
+      "cohort": "blogITMissing"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/rega-helikopter-locarno/",
+      "locale": "de",
+      "kind": "unmatched",
+      "canonicalPath": "/de/grenzgaenger-artikel/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/tessin-justiz-referendum-2026/",
+      "locale": "de",
+      "kind": "unmatched",
+      "canonicalPath": "/de/grenzgaenger-artikel/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/bahnhofsicherheit-tessin-2026/",
+      "locale": "de",
+      "kind": "unmatched",
+      "canonicalPath": "/de/grenzgaenger-artikel/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/malpensa-arrest-cross-border-worker-murder-2026/",
+      "locale": "en",
+      "kind": "unmatched",
+      "canonicalPath": "/en/cross-border-articles/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/bossi-wanted-good-for-ticino/",
+      "locale": "en",
+      "kind": "unmatched",
+      "canonicalPath": "/en/cross-border-articles/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/swiss-italy-car-fuel-prices/",
+      "locale": "en",
+      "kind": "unmatched",
+      "canonicalPath": "/en/cross-border-articles/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/fr/articles-frontalier/referendum-justice-tessin-2026/",
+      "locale": "fr",
+      "kind": "unmatched",
+      "canonicalPath": "/fr/articles-frontalier/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/prezzi-benzina/chiasso/stazioni/piccadilly-via-s-gottardo/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/prezzi-benzina/chiasso/oggi/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/swiss-neutrality-initiative/",
+      "locale": "en",
+      "kind": "unmatched",
+      "canonicalPath": "/en/cross-border-articles/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/immobilienmarkt-ticino/",
+      "locale": "de",
+      "kind": "unmatched",
+      "canonicalPath": "/de/grenzgaenger-artikel/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/naspi-unemployment-frontaliers/",
+      "locale": "en",
+      "kind": "unmatched",
+      "canonicalPath": "/en/cross-border-articles/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/articoli-frontaliere/governo-tavolo-frontalieri-2026/",
+      "locale": "it",
+      "kind": "unmatched",
+      "canonicalPath": "/articoli-frontaliere/",
+      "cohort": "blogITMissing"
+    },
+    {
+      "orphanPath": "/en/gasoline-price-switzerland/bellinzona/stations/avia-via-cantonale/",
+      "locale": "en",
+      "kind": "matched",
+      "canonicalPath": "/en/gasoline-price-switzerland/bellinzona/today/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/prezzi-benzina/bellinzona/stazioni/socar-via-san-gottardo/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/prezzi-benzina/bellinzona/oggi/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/fr/prix-essence-suisse/bellinzona/stations/socar-via-san-gottardo/",
+      "locale": "fr",
+      "kind": "matched",
+      "canonicalPath": "/fr/prix-essence-suisse/bellinzona/aujourd-hui/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/rega-helicopter-locarno/",
+      "locale": "en",
+      "kind": "unmatched",
+      "canonicalPath": "/en/cross-border-articles/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/prezzi-diesel/mendrisio/stazioni/eni-via-gaggiolo/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/prezzi-diesel/mendrisio/oggi/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/switzerland-public-service-tv-fee/",
+      "locale": "en",
+      "kind": "unmatched",
+      "canonicalPath": "/en/cross-border-articles/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/articoli-frontaliere/frontalieri-redditi-2026/",
+      "locale": "it",
+      "kind": "unmatched",
+      "canonicalPath": "/articoli-frontaliere/",
+      "cohort": "blogITMissing"
+    },
+    {
+      "orphanPath": "/articoli-frontaliere/calo-frontalieri-ticino-economia/",
+      "locale": "it",
+      "kind": "unmatched",
+      "canonicalPath": "/articoli-frontaliere/",
+      "cohort": "blogITMissing"
+    },
+    {
+      "orphanPath": "/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte/",
+      "locale": "it",
+      "kind": "unmatched",
+      "canonicalPath": "/articoli-frontaliere/",
+      "cohort": "blogITMissing"
+    },
+    {
+      "orphanPath": "/articoli-frontaliere/kebab-case-3-5-words-max-40-chars/",
+      "locale": "it",
+      "kind": "unmatched",
+      "canonicalPath": "/articoli-frontaliere/",
+      "cohort": "blogITMissing"
+    },
+    {
+      "orphanPath": "/articoli-frontaliere/accesso-libero-alle-rive/",
+      "locale": "it",
+      "kind": "unmatched",
+      "canonicalPath": "/articoli-frontaliere/",
+      "cohort": "blogITMissing"
+    }
+  ]
+}

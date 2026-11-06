@@ -1,0 +1,23 @@
+{
+  "companyKey": "relewant",
+  "companyName": "ReleWant",
+  "companyHost": "relewant.zohorecruit.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "json"
+  ],
+  "seedUrls": [
+    "https://relewant.zohorecruit.com/jobs/Careers"
+  ],
+  "notes": "Dedicated ReleWant crawler reads the Zoho Recruit public JSON API. No HTML scraping needed. Keeps IT consulting vacancies whose listed city is in a Swiss target canton.",
+  "updatedAt": "2026-09-01T10:34:36.865Z",
+  "seedMetaByUrl": {
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000020211001/Network-Security-Engineer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-09-01"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "berufehotelgastro-ch",
+  "companyName": "berufehotelgastro",
+  "companyHost": "hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 22,
+  "sampleTitles": [
+    "Bern",
+    "Basel",
+    "Zürich",
+    "Luzern",
+    "St. Gallen"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:11.352Z"
+}

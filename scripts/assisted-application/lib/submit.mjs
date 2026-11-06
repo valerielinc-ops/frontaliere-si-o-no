@@ -1,0 +1,782 @@
+import { addressContextContract } from '../../../functions/src/lib/addressContextContract.js';
+/**
+ * Submit mode of the assisted-application agent (GitHub Actions).
+ *
+ *   liveness gate (career-ops: re-check right before applying)
+ *   → e-mail channel: send the application to the address the posting gives,
+ *     CV and cover letter attached, replies going straight to the candidate,
+ *     packaged as dossier.mjs decides (the CV and the letter apart by default,
+ *     the requested documents grouped, one PDF when the ad or the switch asks)
+ *   → portal channel: until the portal runner covers it, career-ops'
+ *     "browser handoff" — the candidate gets the direct link, the numbered
+ *     answers and the documents, and confirms once submitted.
+ * Returns the event for the Cloud Functions and stores encrypted evidence of
+ * exactly what left in the candidate's name. The run keeps next to the order
+ * the files that were not in Storage yet and returns the record of what left
+ * (`sent`, kept on the draft by agent.mjs, never in the event); the record of
+ * a send about to start goes on the draft first (`sentAttempt`), so an
+ * uncertain outcome keeps it until the send is confirmed.
+ */
+
+import {
+  applicationFileName,
+  checkDraftTexts,
+  safeFileStem,
+} from '../../../functions/src/assistedApplicationAiDraftCore.js';
+import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
+import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
+import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { classifyApplicationChannel, isPlausibleEmail, refreshApplicationChannel, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
+import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
+import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
+import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
+import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
+import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, postingAddressForPortal, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
+import { checkPostingLiveness } from './posting-liveness.mjs';
+import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
+import { storeEvidence } from './secure-run.mjs';
+import { portalPassFrom } from './portal/stop-report.mjs';
+import { compactApplicationContract } from './portal/application-contract.mjs';
+import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
+
+const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
+// PastaHR's application page (QR code / «Open WhatsApp»), over https.
+const WHATSAPP_APPLICATION_RE = /^https:\/\/([a-z0-9-]+\.)*pastahr\.(com|io)\//i;
+const EXTENSION = { pdf: 'pdf', docx: 'docx', doc: 'doc' };
+
+/**
+ * A draft whose channel the portal runner works: its planner (the Codex broker of the run) is then part of
+ * the run. Without it submitApplication hands the portal over, as it does where no runner is set up; in a
+ * run of the agent that is a broker that did not start, and agent.mjs asks for another run instead.
+ */
+export function portalNeedsPlanner(draft) {
+  const channel = draft?.channel || {};
+  return WAVE1_CHANNELS.has(channel.type) && Boolean(channel.applyUrl || draft?.job?.applyUrl);
+}
+
+export function navigationHandoffFor(error, { clicked = false, succeeded = false } = {}) {
+  if (!clicked && !succeeded && navigationInfrastructureFailure(error)) {
+    return { type: 'submit_handoff', reason: 'navigation_unavailable' };
+  }
+  return null;
+}
+
+/** Open required questions block the submission, whatever the channel. */
+export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {} } = {}) {
+  const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
+  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
+  return questions.filter((question) => {
+    const answer = projected?.[question.id];
+    const unresolvedConsent = !requiredPortalConsentAffirmed(question, answer);
+    return question.required
+      && !(deferPortal && question.source === 'portal' && !unresolvedConsent)
+      && (!String(answer ?? '').trim() || unresolvedConsent);
+  });
+}
+
+/** Project answers already recorded by the portal onto the current draft ids. */
+function portalAnswersForFlow(questions, answers, recordedAnswers, memory = {}) {
+  const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
+  const records = Array.isArray(recordedAnswers) ? recordedAnswers : [];
+  for (const question of Array.isArray(questions) ? questions : []) {
+    if (!question?.id || String(result[question.id] ?? '').trim()) continue;
+    if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)
+      && (Object.hasOwn(result, question.id) || (Object.hasOwn(memory, candidateQuestionAnswerKey(question))
+        && !String(memory[candidateQuestionAnswerKey(question)] ?? '').trim()))) continue;
+    const key = portalQuestionKey(question);
+    if (!key) continue;
+    const values = new Map();
+    for (const item of records) {
+      if (!item || typeof item !== 'object' || item.source === 'policy_default' || !String(item.answer ?? '').trim()) continue;
+      if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)) {
+        const currentOwner = addressContextContract(question);
+        const previousOwner = addressContextContract(item);
+        if (!['answers', 'candidate', 'user'].includes(item.source) || !currentOwner || currentOwner.unknown
+          || !previousOwner || previousOwner.unknown || JSON.stringify(currentOwner) !== JSON.stringify(previousOwner)) continue;
+      }
+      const itemKey = String(item.semanticKey || '').trim() || portalQuestionKey(item);
+      if (itemKey !== key) continue;
+      const answer = String(item.answer).trim();
+      const normalized = answer.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+      values.set(normalized, answer);
+    }
+    // A conflicting historical answer is not safe to infer: the candidate
+    // review must remain the source of truth in that case.
+    if (values.size === 1) result[question.id] = values.values().next().value;
+  }
+  return result;
+}
+
+/**
+ * @param {object} ctx
+ * @returns {Promise<{type:string, channel?:string, reason?:string, error?:string, questions?:Array}>}
+ */
+/**
+ * The CV that leaves: the tailored ATS CV when it passed the fact gate and the
+ * candidate did not choose their original on the review page; their own Word
+ * file with the adapted lines when they chose it (phase 5).
+ * `cvKey`: where the CV that leaves is in Storage (the record of the send names it).
+ */
+export async function chooseCv({ draft, flow, bucket, cvBuffer, cvType, cvKey = null }) {
+  // The rule the owner's fill kit and the candidate's page apply too (cvToSend).
+  const cv = cvToSend(draft, flow);
+  if (cv.cv === 'original') return { cvBuffer, cvType, cvSent: 'original', cvKey };
+  const [buffer] = await bucket.file(cv.key).download();
+  return { cvBuffer: Buffer.from(buffer), cvType: cv.extension, cvSent: cv.cv, cvKey: cv.key };
+}
+
+/**
+ * The documents the posting requires besides the CV and the letter, as the
+ * candidate gave them on the review page (flow.documents), downloaded and named.
+ * `type`: the type its bytes were verified as at upload; `key`: where it is in Storage. `keywords`: the names the
+ * document goes by in the other languages, for the form planner (plan.mjs attachedDocumentYes).
+ * @returns {Promise<Array<{slot:string, label:string, kind:string, keywords:string[], files:Array<{fileName:string, buffer:Buffer, key:string, type:string}>}>>}
+ */
+export async function downloadExtraDocuments({ bucket, draft, flow, orderId, name }) {
+  const out = [];
+  for (const document of extraDocumentsToSend(draft, flow, orderId)) {
+    const files = [];
+    for (const [index, file] of document.files.entries()) {
+      const [buffer] = await bucket.file(file.key).download();
+      files.push({ fileName: extraDocumentFileName({ label: document.label, index, count: document.files.length, name, type: file.detectedType }), buffer: Buffer.from(buffer), key: file.key, type: file.detectedType });
+    }
+    out.push({ slot: document.slot, label: document.label, kind: document.kind, keywords: document.keywords, files });
+  }
+  return out;
+}
+
+const RENDERERS = new Set(['typst', 'legacy']);
+/**
+ * The letter that leaves: rebuilt today with the enclosures that really leave
+ * with it (the required documents and those the candidate gave). A draft from
+ * before the recipient's address was kept on it (no `letterAddress`) sends its
+ * stored PDF, so its address is not lost; the draft records the writer of
+ * that very file (`coverLetterRenderer`, written with every `coverLetterPdfKey`).
+ * @returns {Promise<{pdf:Buffer, renderer:'typst'|'legacy'|null, key:string|null}>} key: where it already is (null when rebuilt)
+ */
+export async function letterForSubmission({ bucket, order, orderId, draft, flow, nowMs }) {
+  if (draft?.letterAddress) {
+    const { pdf, renderer } = await rebuildLetterPdf({ order, orderId, draft, flow, nowMs });
+    return { pdf: Buffer.from(pdf), renderer, key: null };
+  }
+  const [stored] = await bucket.file(draft.coverLetterPdfKey).download();
+  return { pdf: Buffer.from(stored), renderer: RENDERERS.has(draft.coverLetterRenderer) ? draft.coverLetterRenderer : null, key: draft.coverLetterPdfKey || null };
+}
+
+/**
+ * The record of what left (`sent`), as the draft, the submission guard and the evidence keep it. Every key
+ * is present, null when it does not apply: Firestore stores no undefined, and a merge must not leave an
+ * older value. The file names carry the candidate's name: the record never goes into the automation event
+ * or the log (agent.mjs keepSentRecord).
+ */
+export function recordOfSend({ at, channel, packaging, reason = 'default', ad = '', adCue = '', documentsGrouped = false, documentsReason = null, pages = null, bytes = null, letterRenderer = null, letterKey = null, files = [] }) {
+  return {
+    at, channel, packaging, reason,
+    ad: ad === 'single' || ad === 'separate' ? ad : '',
+    adCue: String(adCue || '').slice(0, 80),
+    documentsGrouped: Boolean(documentsGrouped),
+    documentsReason: documentsReason || null,
+    pages: pages ?? null,
+    bytes: bytes ?? null,
+    letterRenderer: RENDERERS.has(letterRenderer) ? letterRenderer : null,
+    letterKey: letterKey || null,
+    files: files.map(({ kind, name, key }) => ({ kind, name, key: key || null })),
+  };
+}
+
+// What a send makes that is not in Storage yet: PDFs only (the letter is passed apart).
+const NEW_FILE_KINDS = new Set(['dossier', 'documents']);
+
+/**
+ * Keeps next to the order the files of this send that are not in Storage yet (the letter rebuilt today,
+ * a merged PDF), under flat names with no personal data: the retention deletes the order's folder and
+ * accepts no sub-folder. The letter is kept even when it left inside the dossier. The other files keep
+ * the key they have.
+ * @param {{bucket:any, orderId:string, round:number, nowMs:number, prefix?:string, letter?:{buffer:Buffer, key:string|null}|null,
+ *   attachments:Array<{kind:string, name:string, buffer?:Buffer, key?:string|null}>}} input
+ * @returns {Promise<{letterKey:string|null, files:Array<{kind:string, name:string, key:string|null}>}>}
+ */
+export async function keepSentFiles({ bucket, orderId, round, nowMs, prefix = 'sent', letter = null, attachments }) {
+  const keep = async (kind, buffer) => {
+    const key = `assisted-application-uploads/${orderId}/${prefix}-r${round}-${nowMs}-${kind}.pdf`;
+    await bucket.file(key).save(buffer, { contentType: 'application/pdf', resumable: false });
+    return key;
+  };
+  const letterKey = letter ? letter.key || await keep('letter', letter.buffer) : null;
+  const files = [];
+  for (const item of attachments) {
+    const key = item.kind === 'letter' ? letterKey : NEW_FILE_KINDS.has(item.kind) ? await keep(item.kind, item.buffer) : item.key || null;
+    files.push({ kind: item.kind, name: item.name, key });
+  }
+  return { letterKey, files };
+}
+
+/** What a portal run put into the form's file fields (portal.mjs `evidence.uploads`): document → how many of its files. */
+export function portalUploads(evidence) {
+  const out = new Map();
+  for (const item of Array.isArray(evidence?.uploads) ? evidence.uploads : []) {
+    if (item?.document) out.set(String(item.document), Math.max(out.get(String(item.document)) || 0, Number(item.files) || 1));
+  }
+  return out;
+}
+
+export async function submitApplication(ctx) {
+  const { order, orderId, flow, bucket, runKey, sendCascade } = ctx;
+  let { draft } = ctx;
+  const fetchImpl = ctx.fetchImpl || fetch;
+  draft = await refreshApplicationChannel(draft, order, { fetchImpl, resolve: ctx.resolve });
+  const { cvBuffer, cvType, cvSent, cvKey } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType, cvKey: order?.cvStorageKey || null });
+  const nowMs = ctx.nowMs || Date.now();
+  // Resolve facts that the CV already states before the generic required-question gate.
+  // Older drafts can contain a newly discovered portal question with an empty answer;
+  // waiting for the planner would never work because the gate returns first.
+  // Only persisted nonempty candidate answers can attest a current statement.
+  // Automatic and remembered projections below never enlarge this set.
+  const originalCurrentAnswerIds = Object.entries(flow?.answers || {})
+    .filter(([, value]) => String(value ?? '').trim()).map(([id]) => id);
+  const initialEdited = candidateWithEdits({ order, draft, flow });
+  const portalQuestions = (draft?.questions || []).filter((question) => question.source === 'portal');
+  const initialCandidate = candidateForForm({
+    identity: initialEdited.identity,
+    profile: initialEdited.profile,
+    answers: initialEdited.answers,
+    currentAnswerIds: originalCurrentAnswerIds,
+    draft,
+    portalQuestions,
+    language: draft?.language,
+    personal: initialEdited.personal,
+    job: { title: draft?.job?.title || order.jobTitle || '', company: order.companyName || '' },
+  });
+  const autoAnswerSources = Object.create(null);
+  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers, sources: autoAnswerSources });
+  const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered, flow?.questionAnswers || {});
+  const mergedAnswers = { ...(flow?.answers || {}), ...rememberedAnswers, ...autoAnswers };
+  const submitFlow = Object.keys(mergedAnswers).length
+    ? { ...(flow || {}), answers: mergedAnswers }
+    : (flow || {});
+  const candidateRequestRound = Number(submitFlow?.candidateRequestTelemetry?.rounds) || 0;
+  const answers = submitFlow.answers || {};
+  const edited = candidateWithEdits({ order, draft, flow: submitFlow });
+  const emailBody = operationalEmailBody(draft, edited.answers);
+  const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
+  // The record of a send whose outcome may stay unknown, on the draft (agent.mjs: `sentAttempt`), or null
+  // once the send failed for certain. It becomes the record of what left when the owner or the employer's
+  // e-mail confirms the send (assistedApplicationAutomation.js confirmSentAttempt). Whether it is durable:
+  // without it an unknown outcome could never be confirmed, so the send or the final click waits for it.
+  const keepAttempt = async (attempt) => {
+    if (!ctx.keepSentAttempt) return true;
+    try {
+      await ctx.keepSentAttempt(attempt);
+      return true;
+    } catch {
+      log('send attempt not kept on the draft');
+      return false;
+    }
+  };
+
+  const publishedPostingUrl = await resolvePublishedPostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve });
+  const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve, publishedPostingUrl });
+  const liveness = await checkPostingLiveness({
+    order,
+    // The published job detail is canonical for legacy drafts whose order URL is an old application endpoint.
+    posting: { postingUrl },
+    fetchImpl,
+    resolve: ctx.resolve,
+  });
+  log('liveness before submit', liveness.page?.result, liveness.page?.code);
+  if (liveness.closed) return { type: 'posting_closed', reason: liveness.page?.code || 'dataset' };
+
+  // Portal questions can be stale: an earlier run stored only their label and
+  // stopped before the live field context was available. Let the runner read
+  // the current form and apply its structural safety checks; if the question
+  // is still unanswered, the runner hands it back with its context preserved.
+  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers });
+  const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {}, submitFlow);
+  if (open.length || missingDocuments.length) {
+    // Keep the legacy id list for the flow and add the bounded descriptor so
+    // the backend can match an answer after an ATS regenerates that id.
+    const questionDetails = open.filter((question) => question.source === 'portal').map((question) => ({
+      id: question.id,
+      question: question.question,
+      ...(question.applicationQuestion ? { applicationQuestion: question.applicationQuestion } : {}),
+      ...(question.context ? { context: question.context } : {}),
+      ...(question.section ? { section: question.section } : {}),
+      ...(question.autocomplete ? { autocomplete: question.autocomplete } : {}),
+      ...(Object.hasOwn(question, 'addressContext') ? { addressContext: addressContextContract(question) } : {}),
+      ...(question.type ? { type: question.type } : {}),
+      ...(portalQuestionKey(question) ? { semanticKey: portalQuestionKey(question) } : {}),
+      ...(Array.isArray(question.options) && question.options.length ? { options: question.options } : {}),
+      ...(Array.isArray(question.applicationOptions) && question.applicationOptions.length ? { applicationOptions: question.applicationOptions } : {}),
+      ...(Array.isArray(question.optionMap) && question.optionMap.length ? { optionMap: question.optionMap } : {}),
+    }));
+    const result = { type: 'submit_needs_candidate', questions: open.map(({ id }) => ({ id })), documents: missingDocuments };
+    if (questionDetails.length) result.questionDetails = questionDetails;
+    const portalOpen = open.filter((question) => question.source === 'portal');
+    if (portalOpen.length) {
+      result.candidateRequestTelemetry = {
+        round: Math.min(1000, candidateRequestRound + 1),
+        questionCount: Math.min(20, portalOpen.length),
+        // These questions came from the persisted draft, not from a newly
+        // revealed live portal step. The live runner reports true only after
+        // a candidate answer exposes another mounted contract field.
+        afterNewlyRevealedPortalFields: false,
+      };
+    }
+    return result;
+  }
+
+  // With the candidate's permit status of now: a letter naming a permit they no longer state stops here (decision 8).
+  const facts = checkDraftTexts({
+    coverLetter: draft.coverLetter?.text,
+    emailSubject: draft.applicationEmail?.subject,
+    emailBody: draft.applicationEmail?.body,
+  }, factSourcesNow({ order, draft, flow: submitFlow }), { language: draft.language });
+  // The gate of the day may be stricter than the one the draft was written with. Its result travels
+  // next to the failure: agent.mjs stores it with the draft, so the owner sees the tokens and can
+  // confirm them (the stored result alone would show nothing to confirm); it never reaches the event.
+  // The owner's confirmation counts only for the warnings they saw (factCheckAcknowledged): a new one stops the send.
+  if (!facts.ok && !factCheckAcknowledged(draft, facts)) return { type: 'submit_failed', error: 'fact_check_not_acknowledged', factCheck: facts };
+
+  const channel = draft.channel || {};
+  const to = String(draft.applicationEmail?.to || channel.email || '').trim().toLowerCase();
+  if (channel.type === 'email' && isPlausibleEmail(to) && to !== OWNER_MAILBOX) {
+    const guard = ctx.submissionGuard || null;
+    if (!ctx.dryRun && !guard) return { type: 'submit_failed', error: 'submission_guard_missing' };
+    const { identity } = edited;
+    const letter = await letterForSubmission({ bucket, order, orderId, draft, flow: submitFlow, nowMs });
+    const stem = safeFileStem(identity.name);
+    const extras = await downloadExtraDocuments({ bucket, draft, flow: submitFlow, orderId, name: identity.name });
+    // How the files leave (dossier.mjs): the posting's own instruction, then the switch; by
+    // default the CV and the letter apart and the requested documents grouped.
+    const packaged = await packageAttachments({
+      language: draft.language, name: identity.name, stem, ad: adPackaging(draft), nowMs,
+      cv: { buffer: cvBuffer, type: cvType, name: applicationFileName('cv', { name: identity.name, language: draft.language, extension: EXTENSION[cvType] || 'pdf' }), key: cvKey },
+      letter: { buffer: letter.pdf, name: applicationFileName('letter', { name: identity.name, language: draft.language, extension: 'pdf' }), key: letter.key },
+      extras, mode: dossierMode(), candidateType: draftCandidateType(draft),
+    });
+    // Codes and counts only: the file names carry the candidate's name.
+    log('attachments', packaged.packaging, packaged.reason, `ad=${packaged.ad || 'none'}`,
+      `documents=${packaged.documentsGrouped ? 'grouped' : packaged.documentsReason || packaged.attachments.filter((item) => item.kind === 'document').length}`,
+      packaged.pages ? `${packaged.pages} pages ${packaged.bytes} bytes` : '');
+    const attachments = packaged.attachments.map((item) => ({ filename: item.name, content: item.buffer.toString('base64') }));
+    const keep = (prefix) => keepSentFiles({ bucket, orderId, round: Number(draft.round) || 1, nowMs, prefix, letter: { buffer: letter.pdf, key: letter.key }, attachments: packaged.attachments });
+    const recordOf = (kept) => recordOfSend({ ...packaged, ...kept, at: nowMs, channel: 'email', letterRenderer: letter.renderer });
+    if (ctx.dryRun) {
+      // A dry run shows what would leave (encrypted, next to the order; its files under dry-run-…) and sends nothing.
+      const sent = recordOf(await keep('dry-run'));
+      await storeEvidence({
+        bucket, orderId, name: 'dry-run-email',
+        payload: { to, subject: draft.applicationEmail?.subject || '', body: emailBody, attachments: attachments.map((item) => item.filename), cvSent, sent },
+        key: runKey, nowMs,
+      });
+      return { type: 'dry_run_ready', channel: 'email' };
+    }
+    // Our own Message-ID, so the follow-ups can refer to this e-mail
+    // (best effort: a provider may replace it; the "Re:" subject threads anyway).
+    const messageId = `<aa-${String(orderId).replace(/[^A-Za-z0-9_-]/g, '')}-${nowMs}@candidature.frontaliereticino.ch>`;
+    const payload = {
+      from: `${senderName(identity.name)} <${OWNER_MAILBOX}>`,
+      to: [to],
+      subject: draft.applicationEmail.subject,
+      text: emailBody,
+      html: textToHtml(emailBody),
+      ...(identity.email ? { replyTo: identity.email } : {}),
+      headers: { 'Message-ID': messageId },
+      attachments,
+      // Sent in the candidate's name: no link rewriting and no open pixel.
+      tracking: false,
+      openTracking: false,
+    };
+    // What leaves is kept next to the order before anything is claimed or sent: no application leaves
+    // without the files of its record. Nothing was claimed, nothing left: a later run starts afresh.
+    let sentRecord;
+    try {
+      sentRecord = recordOf(await keep('sent'));
+    } catch {
+      return { type: 'submit_failed', error: 'sent_files_not_stored' };
+    }
+    // Durable idempotency per order and round (submission guard): a run the
+    // watchdog re-dispatched never sends the application a second time.
+    if (guard) {
+      const claim = await guard.claim('email', nowMs);
+      if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
+      if (claim.status === 'answer_source_changed') return { type: 'submit_failed', error: 'answer_source_changed' };
+      if (claim.status === 'already_sent') {
+        // Sent by an earlier run of this round: its follow-ups and its record come from the guard.
+        const record = claim.record || {};
+        return { type: 'submit_succeeded', channel: 'email', replayed: true, ...(record.receipt?.receiptId ? { receiptId: record.receipt.receiptId } : {}), ...(record.to ? { followup: { to: record.to, subject: record.subject || '', messageId: record.messageId || '', sentAt: record.sentAt || nowMs } } : {}), ...(record.sent ? { sent: record.sent } : {}) };
+      }
+      if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'email_ambiguous' };
+      if (claim.status !== 'claimed') return { type: 'submit_failed', error: 'submission_superseded' };
+    }
+    // Claimed: from here the outcome may stay unknown, so the record goes on the draft before the send.
+    // After the claim, never before: a re-dispatched run that finds the round in flight keeps this one's.
+    // Not durable: nothing leaves, and the claim goes back for the retry.
+    if (!(await keepAttempt(sentRecord))) {
+      if (guard) await guard.release('sent_attempt_not_stored', nowMs);
+      return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
+    }
+    if (guard && !(await guard.validateAnswerSources(nowMs))) {
+      await guard.release('answer_source_changed', nowMs);
+      await keepAttempt(null);
+      return { type: 'submit_failed', error: 'answer_source_changed' };
+    }
+    const { failed = [], sent = [], ambiguous: unidentifiable = [] } = await sendCascade(
+      [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
+      { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS },
+    );
+    const provider = String(sent[0]?.provider || '').trim();
+    const providerMessageId = String(sent[0]?.messageId || '').trim();
+    // A provider can accept a message but omit its durable identifier. That
+    // is an unknown outcome, not a failed send: keep the guard locked so the
+    // next run cannot submit the application twice. The same applies to a
+    // transport error after the provider may already have accepted it.
+    const ambiguous = Boolean(
+      unidentifiable.length
+      || failed[0]?.ambiguousDelivery
+      || (sent.length > 0 && (!provider || !providerMessageId))
+      || (sent.length === 0 && failed.length === 0),
+    );
+    if (failed.length || ambiguous) {
+      // An ambiguous delivery must never be retried blindly (career-ops: a
+      // submit of unknown outcome is not re-submitted): the guard stays
+      // "sending", so a later run reports it ambiguous too.
+      if (guard && !ambiguous) await guard.release('email_failed', nowMs);
+      // Failed for certain: nothing left, the attempt is no record. An ambiguous one keeps it.
+      if (!ambiguous) await keepAttempt(null);
+      const failure = failed[0] || {};
+      await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failure.error || (ambiguous ? 'provider_acceptance_unidentifiable' : '')).slice(0, 200), ambiguous, sent: sentRecord }, key: runKey, nowMs });
+      return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : emailInfrastructureFailure(failure) ? 'email_provider_unavailable' : 'email_failed' };
+    }
+    const threadMessageId = replyThreadMessageId(sent[0], messageId);
+    let receiptId = null;
+    if (guard) {
+      const receipt = await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId: threadMessageId, provider, providerMessageId, sent: sentRecord }, nowMs, {
+        kind: 'email_provider_accepted', observedAt: nowMs,
+        // Maileroo's reference_id proves provider acceptance but is not the
+        // RFC Message-ID used for reply threading. Keep the two contracts
+        // separate: follow-ups may have no In-Reply-To, while the receipt
+        // still has a durable provider reference.
+        evidence: { provider, messageId: providerMessageId },
+      });
+      receiptId = receipt?.receiptId || null;
+    }
+    await storeEvidence({
+      bucket,
+      orderId,
+      name: 'submit-email',
+      payload: {
+        to,
+        subject: payload.subject,
+        body: payload.text,
+        replyTo: payload.replyTo || null,
+        attachments: attachments.map((item) => item.filename),
+        cvSent,
+        provider: sent[0]?.provider || null,
+        messageId: sent[0]?.messageId || null,
+        sentAt: nowMs,
+        sent: sentRecord,
+      },
+      key: runKey,
+      nowMs,
+    });
+    // What the follow-ups (7 and 14 days) need and the record of what left; agent.mjs
+    // stores them, they never reach the automation event.
+    return { type: 'submit_succeeded', channel: 'email', ...(receiptId ? { receiptId } : {}), followup: { to, subject: payload.subject, messageId: threadMessageId, sentAt: nowMs }, sent: sentRecord };
+  }
+
+  // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login
+  // or anything it must not bypass ends in the career-ops handoff below.
+  let applyUrl = channel.applyUrl || draft.job?.applyUrl || postingUrl || '';
+  let channelType = channel.type;
+  let postingRouteProof = channel.via === 'successfactors'
+    ? { via: 'successfactors', applyUrl: channel.applyUrl, postingUrl: channel.postingUrl || draft.job?.postingUrl || '' }
+    : null;
+  const currentPostingRoute = publishedPostingUrl || channel.postingUrl || '';
+  // Older employer-site drafts, and SuccessFactors routes synthesized from
+  // page configuration, can keep an ATS URL that no longer opens this job.
+  // Re-resolve those from the current published posting. A Prospective redirect
+  // (`via: 'prospective'`) remains a proven direct route and is left alone.
+  const reResolveFromPosting = channel.type === 'employer_site'
+    || (channel.type === 'successfactors' && channel.via === 'successfactors'
+      && Boolean(currentPostingRoute) && currentPostingRoute !== applyUrl);
+  if (reResolveFromPosting && (postingUrl || applyUrl)) {
+    const routeUrl = publishedPostingUrl || channel.postingUrl || channel.applyUrl || draft.job?.applyUrl || postingUrl;
+    const directChannel = classifyApplicationChannel({ applyUrl: routeUrl }).type;
+    if (directChannel !== 'employer_site' && WAVE1_CHANNELS.has(directChannel)) {
+      applyUrl = routeUrl;
+      channelType = directChannel;
+      postingRouteProof = null;
+    } else {
+      const target = await resolveApplyUrl(routeUrl, { fetchImpl, resolve: ctx.resolve });
+      applyUrl = target.applyUrl || routeUrl;
+      postingRouteProof = target.via === 'successfactors'
+        ? { via: 'successfactors', applyUrl, postingUrl: routeUrl }
+        : null;
+      if (target.via || channel.type !== 'employer_site') {
+        channelType = classifyApplicationChannel({ applyUrl }).type;
+      }
+    }
+  }
+  // Liveness can resolve a legacy Umantis address to the site's published
+  // canonical URL. Portal matching still needs the same-origin ATS vacancy
+  // route, otherwise a generic EOC form cannot be bound to this posting.
+  const portalPostingUrl = postingAddressForPortal({
+    applyUrl,
+    postingUrls: [draft.job?.postingUrl, channel.postingUrl, draft.job?.applyUrl, channel.applyUrl, order.jobUrl],
+    fallback: postingUrl,
+  });
+  if (WAVE1_CHANNELS.has(channelType) && applyUrl && ctx.codex) {
+    // The same durable guard as the e-mail: a re-dispatched run never submits
+    // twice. A run may restart only after a confirmed pre-click failure
+    // released the claim; an unreconciled `sending` claim may still be live.
+    const guard = ctx.dryRun ? null : ctx.submissionGuard || null;
+    if (!ctx.dryRun && !guard) return { type: 'submit_failed', error: 'submission_guard_missing' };
+    if (guard) {
+      const claim = await guard.claim('portal', nowMs);
+      if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
+      if (claim.status === 'answer_source_changed') return { type: 'submit_failed', error: 'answer_source_changed' };
+      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true, ...(claim.record?.receipt?.receiptId ? { receiptId: claim.record.receipt.receiptId } : {}), ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
+      if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
+      if (claim.status !== 'claimed') return { type: 'submit_failed', error: 'submission_superseded' };
+    }
+    // With the candidate's corrections from the review page and any portal facts
+    // resolved from the CV before the required-question gate.
+    const { identity } = edited;
+    let dir = null;
+    // Set once `clickedAt` is on record, right before the final click.
+    let clicked = false;
+    let succeeded = false;
+    let armedSentRecord = null;
+    let receiptPersisted = false;
+    let receiptFinalUrl = null;
+    let receiptId = null;
+    // The attempt on the draft at the final click: kept, or not durable (then no click).
+    let attemptKept = false;
+    let attemptNotStored = false;
+    try {
+      dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
+      const letter = await letterForSubmission({ bucket, order, orderId, draft, flow: submitFlow, nowMs });
+      const files = {
+        cv: path.join(dir, applicationFileName('cv', { name: identity.name, language: draft.language, extension: EXTENSION[cvType] || 'pdf' })),
+        cover_letter: path.join(dir, applicationFileName('letter', { name: identity.name, language: draft.language, extension: 'pdf' })),
+      };
+      await writeFile(files.cv, cvBuffer);
+      await writeFile(files.cover_letter, letter.pdf);
+      // The requested documents: one slot each (extra_1…), all its files.
+      const extras = await downloadExtraDocuments({ bucket, draft, flow: submitFlow, orderId, name: identity.name });
+      for (const document of extras) {
+        files[document.slot] = [];
+        for (const file of document.files) {
+          const target = path.join(dir, file.fileName);
+          await writeFile(target, file.buffer);
+          files[document.slot].push(target);
+        }
+      }
+      // What the form's file fields received (portal.mjs evidence.uploads), kept and recorded as an e-mail's
+      // attachments are. Never fails the run: the application may have left.
+      const portalRecord = async (uploadList, prefix) => {
+        const uploads = portalUploads({ uploads: uploadList });
+        const letterLeft = uploads.has('cover_letter') ? { buffer: letter.pdf, key: letter.key } : null;
+        const uploaded = [
+          ...(uploads.has('cv') ? [{ kind: 'cv', name: path.basename(files.cv), key: cvKey }] : []),
+          ...(letterLeft ? [{ kind: 'letter', name: path.basename(files.cover_letter) }] : []),
+          ...extras.flatMap((document) => document.files.slice(0, uploads.get(document.slot) || 0)
+            .map((file) => ({ kind: 'document', name: file.fileName, key: file.key }))),
+        ];
+        const kept = await keepSentFiles({ bucket, orderId, round: Number(draft.round) || 1, nowMs, prefix, letter: letterLeft, attachments: uploaded })
+          .catch(() => {
+            log('sent files not kept');
+            return { letterKey: letterLeft?.key || null, files: uploaded.map(({ kind, name, key }) => ({ kind, name, key: key || null })) };
+          });
+        return recordOfSend({ at: nowMs, channel: channelType, packaging: 'portal', letterRenderer: letterLeft ? letter.renderer : null, ...kept });
+      };
+      // A round the guard releases sent nothing: the attempt recorded at its final click is no record.
+      const release = async (reason, accountFailure = null) => {
+        await guard.release(reason, undefined, accountFailure ? { accountFailure } : {});
+        if (attemptKept) {
+          if (!(await keepAttempt(null))) throw new Error('sent_attempt_clear_failed');
+          attemptKept = false;
+        }
+      };
+      const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
+        applyUrl,
+        postingUrl: portalPostingUrl,
+        postingRouteProof,
+        channelType,
+        // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
+        // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.
+        job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' },
+        skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
+        language: draft.language,
+        candidateLocale: draft.candidateLocale || order.locale || 'it',
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
+        knownPortalQuestionKeys: portalQuestions.map((question) => portalQuestionKey(question) || question.id).filter(Boolean),
+        candidateRequestRound,
+        files,
+        codex: ctx.codex,
+        accounts: ctx.accounts || null,
+        // What each portal taught earlier confirmed submissions (knowledge.mjs).
+        knowledge: ctx.knowledge || null,
+        log,
+        dryRun: Boolean(ctx.dryRun),
+        onBeforeSubmit: guard ? async ({ uploads = [], formBinding = null } = {}) => {
+          // From here the outcome may stay unknown: what the form holds goes on the draft first, durably, or
+          // the click does not happen (submitViaPortal does not catch this throw: see the catch below).
+          const attempt = await portalRecord(uploads, 'sent').catch(() => null);
+          if (!attempt || !(await keepAttempt(attempt))) {
+            attemptNotStored = true;
+            throw new Error('sent_attempt_not_stored');
+          }
+          attemptKept = true;
+          armedSentRecord = attempt;
+          await guard.markClicked(Date.now(), { formBinding });
+          clicked = true;
+        } : null,
+        onConfirmedNotSent: guard ? async ({ reason = 'portal_validation' } = {}) => {
+          await release(reason);
+          attemptKept = false;
+          armedSentRecord = null;
+          clicked = false;
+          const claim = await guard.claim('portal', Date.now());
+          if (claim.status !== 'claimed') throw new Error('portal_retry_claim_unavailable');
+        } : null,
+        onReceipt: guard ? async ({ finalUrl = null } = {}) => {
+          receiptFinalUrl = typeof finalUrl === 'string' ? finalUrl : null;
+          let lastError = null;
+          for (let attempt = 0; attempt < 3; attempt += 1) {
+            try {
+              if (!armedSentRecord) throw new Error('portal_receipt_without_attempt');
+              const observedAt = Date.now();
+              const receipt = await guard.markSent({ channel: channelType, finalUrl: receiptFinalUrl, sent: armedSentRecord }, observedAt, {
+                kind: 'portal_success_page', observedAt, evidence: { finalUrl: receiptFinalUrl },
+              });
+              receiptId = receipt?.receiptId || null;
+              receiptPersisted = true;
+              return;
+            } catch (error) {
+              lastError = error;
+              if (attempt < 2) await new Promise(resolve => setTimeout(resolve, 150 * (2 ** attempt)));
+            }
+          }
+          throw lastError;
+        } : null,
+      });
+      succeeded = event.type === 'submit_succeeded' || receiptPersisted;
+      const portalPass = portalPassFrom({ applyUrl, channel: channelType, event, evidence, dryRun: Boolean(ctx.dryRun) });
+      // A dry run keeps its files under dry-run-… and its record in the evidence only.
+      const sentRecord = receiptPersisted
+        ? armedSentRecord
+        : succeeded || event.type === 'dry_run_ready'
+          ? await portalRecord(evidence.uploads, ctx.dryRun ? 'dry-run' : 'sent')
+          : null;
+      if (guard) {
+        // Sent: on record. After the final click any other outcome (ambiguous,
+        // a CAPTCHA or an error page that appeared afterwards) is left
+        // "sending": the portal may have the application, so it is never
+        // re-submitted. Before the click nothing was sent: released. So too when
+        // the portal said, on the same page, that it did not send (portal_refused,
+        // JOIN «Non siamo riusciti a inviare…»): Valerie's retry may claim it again.
+        // Every final click answered by the portal's own validation (required
+        // fields missing, the form still there: Coop's SuccessFactors
+        // 2026-10-03) sent nothing either.
+        const refusedByValidation = (evidence.finalOutcomes || []).length > 0 && evidence.finalOutcomes.every((outcome) => outcome === 'validation');
+        if (event.type === 'submit_succeeded' && !receiptPersisted) {
+          const observedAt = Date.now();
+          const receipt = await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord }, observedAt, {
+            kind: 'portal_success_page', observedAt, evidence: { finalUrl: evidence.finalUrl },
+          });
+          receiptId = receipt?.receiptId || null;
+          receiptPersisted = true;
+          receiptFinalUrl = evidence.finalUrl || null;
+        }
+        if (receiptPersisted) succeeded = true;
+        else if (event.type === 'submit_failed' && event.error === 'portal_refused') await release('portal_refused', event.accountFailure);
+        else if (event.type === 'submit_failed' && event.error === 'form_changed_before_click') await release('form_changed_before_click', event.accountFailure);
+        else if (refusedByValidation && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release('portal_validation', event.accountFailure);
+        else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release(event.error || event.reason || event.type, event.accountFailure);
+      }
+      await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence, cvSent, ...(sentRecord ? { sent: sentRecord } : {}) }, key: runKey, nowMs });
+      // What went into the form, for the interview prep and for Valerie: agent.mjs
+      // stores it with the draft, it never reaches the automation event.
+      const portalAnswers = { status: event.type, at: nowMs, answers: evidence.answers || [] };
+      // Where the runner stopped, for the fix issue (agent.mjs strikes the candidate's values out first).
+      const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channelType } } : {};
+      const pass = portalPass ? { portalPass } : {};
+      const applicationContract = compactApplicationContract(evidence.portalContract);
+      return succeeded
+        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...(receiptId ? { receiptId } : {}), ...(applicationContract ? { applicationContract } : {}), ...pass }
+        : { ...event, portalAnswers, ...(applicationContract ? { applicationContract } : {}), ...stopReport, ...pass };
+    } catch (error) {
+      if (receiptPersisted) {
+        return {
+          type: 'submit_succeeded', channel: channelType,
+          ...(receiptId ? { receiptId } : {}),
+          ...(receiptFinalUrl ? { finalUrl: receiptFinalUrl } : {}),
+          ...(armedSentRecord ? { sent: armedSentRecord } : {}),
+        };
+      }
+      // Failed before the final click (temp dir, files, browser, network): nothing
+      // reached the employer, so the claim is released for the retry.
+      if (guard && !clicked && !succeeded) {
+        await guard.release(`error: ${error instanceof Error ? error.message : String(error)}`).catch(() => {});
+        // An attempt written for a click that never happened is no record.
+        if (attemptKept) await keepAttempt(null);
+      }
+      if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
+      if (error instanceof Error && error.message === 'answer_source_changed') return { type: 'submit_failed', error: 'answer_source_changed' };
+      if (error?.code === 'portal_question_localization_unavailable') {
+        return { type: 'submit_handoff', reason: 'question_localization_unavailable' };
+      }
+      const navigationHandoff = navigationHandoffFor(error, { clicked, succeeded });
+      if (navigationHandoff) return navigationHandoff;
+      throw error;
+    } finally {
+      if (dir) await rm(dir, { recursive: true, force: true });
+    }
+  }
+
+  // A WhatsApp application (PastaHR: Coop's apprenticeships). Owner decision
+  // 2026-10-03: it is done once the candidate has the link and the steps by
+  // e-mail, the order's «inviata» message (assistedApplicationNotifications.js).
+  // No browser runs and nobody presses anything in the candidate's name.
+  if (channelType === 'pastahr' && WHATSAPP_APPLICATION_RE.test(applyUrl)) {
+    if (ctx.dryRun) return { type: 'dry_run_ready', channel: 'whatsapp' };
+    const guard = ctx.submissionGuard || null;
+    if (!guard) return { type: 'submit_failed', error: 'submission_guard_missing' };
+    const claim = await guard.claim('whatsapp', nowMs, { resumable: true });
+    if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: 'whatsapp', replayed: true,
+      ...(claim.record?.receipt?.receiptId ? { receiptId: claim.record.receipt.receiptId } : {}), ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
+    if (claim.status !== 'claimed') return { type: 'submit_failed', error: claim.status === 'withdrawn' ? 'candidate_withdrawn' : 'whatsapp_handoff_ambiguous' };
+    // No file leaves from us: the candidate sends from their phone.
+    const sentRecord = recordOfSend({ at: nowMs, channel: 'whatsapp', packaging: 'whatsapp' });
+    await storeEvidence({ bucket, orderId, name: 'submit-whatsapp', payload: { channel, applyUrl, sent: sentRecord }, key: runKey, nowMs });
+    const receipt = await guard.markSent({ channel: 'whatsapp', sent: sentRecord }, nowMs, {
+      kind: 'candidate_handoff_link', observedAt: nowMs, evidence: { url: applyUrl },
+    });
+    return { type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: applyUrl, sent: sentRecord, ...(receipt?.receiptId ? { receiptId: receipt.receiptId } : {}) };
+  }
+
+  // LinkedIn, a WhatsApp channel without its link and any channel without a
+  // usable URL: career-ops browser handoff.
+  await storeEvidence({
+    bucket,
+    orderId,
+    name: 'submit-handoff',
+    payload: { channel, applyUrl, formAnswers: formAnswersWithEdits({ order, draft, flow: submitFlow }), answers },
+    key: runKey,
+    nowMs,
+  });
+  const reason = channelType === 'pastahr' ? 'whatsapp' : channel.requiresAccount ? 'account' : 'portal_needs_candidate';
+  return {
+    type: 'submit_handoff',
+    reason,
+    ...(reason === 'account' ? { accountFailure: { code: 'unknown', stage: 'unknown' } } : {}),
+  };
+}

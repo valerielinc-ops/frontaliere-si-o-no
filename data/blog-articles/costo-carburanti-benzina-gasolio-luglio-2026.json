@@ -1,0 +1,40 @@
+{
+  "id": "costo-carburanti-benzina-gasolio-luglio-2026",
+  "slug": "costo-carburanti-benzina-gasolio-luglio-2026",
+  "publishedAt": "2026-07-26T13:04:09.545Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.584562854951426,
+    "confidence": 0.8,
+    "finalScore": 4.467650283961141,
+    "topK": [
+      {
+        "slug": "benzina-19-euro-5-maggio-2026",
+        "cosine": 0.9307604758252377
+      },
+      {
+        "slug": "aumento-prezzi-carburanti-maggio-2026",
+        "cosine": 0.9208890328686835
+      },
+      {
+        "slug": "carburanti-prezzo-rialzo-ticino",
+        "cosine": 0.8861020117945807
+      },
+      {
+        "slug": "nuove-accise-carburanti-2026",
+        "cosine": 0.8739703211082971
+      },
+      {
+        "slug": "costo-benzina-ticino-frontalieri-2026",
+        "cosine": 0.8725999303821238
+      }
+    ],
+    "score": 1.1169125709902852,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

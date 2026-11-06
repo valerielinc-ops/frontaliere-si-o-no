@@ -1,0 +1,22 @@
+{
+  "companyKey": "emmanoah",
+  "companyName": "emmanoah",
+  "companyHost": "emma-noah-gmbh.jobs.personio.de",
+  "platform": "personio.de",
+  "mode": "template",
+  "seedUrls": [
+    "https://emma-noah-gmbh.jobs.personio.de/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Pflichtpraktikum Community Events & Social Media (m/w/d) <path d=\"M10.0005 3.",
+    "Produktentwickler:in (w/m/d) <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5.8",
+    "Qualitätsmanager:in (m/w/d) <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5.82"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-27T11:51:24.435Z",
+  "candidateKey": "emmanoah.ch"
+}

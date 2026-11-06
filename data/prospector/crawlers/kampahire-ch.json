@@ -1,0 +1,21 @@
+{
+  "companyKey": "kampahire-ch",
+  "companyName": "kampahire",
+  "companyHost": "verbandsfuehrung.com",
+  "platform": "verbandsfuehrung.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://verbandsfuehrung.com/jobs"
+  ],
+  "detailTemplate": "/jobs/detail/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Ausbildungssekretariat (60 – 80%) 1 offene Stellen -- Grossraum Zürich -- 11.09.2026 09:51:08",
+    "Bereichsleiter/in Wohnen und Tagesstruktur 80-100% Stellvertretung der Geschäftsführung 1 offene Stellen Bündtengasse 2, 4800 Zofingen, Schweiz 19.10.2026 10:26"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:51:35.938Z",
+  "candidateKey": "kampahire.ch"
+}

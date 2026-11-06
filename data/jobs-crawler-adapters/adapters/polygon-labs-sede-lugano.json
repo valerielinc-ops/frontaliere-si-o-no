@@ -1,0 +1,22 @@
+{
+  "companyKey": "polygon-labs-sede-lugano",
+  "companyName": "Polygon Labs (sede Lugano)",
+  "companyHost": "polygon.technology",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://polygon.technology/careers",
+    "https://polygon.technology/career",
+    "https://polygon.technology/jobs",
+    "https://polygon.technology/karriere",
+    "https://polygon.technology/offene-stellen",
+    "https://polygon.technology/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.969Z"
+}

@@ -1,0 +1,7 @@
+{
+  "_comment": "Una riga query incompleta non può essere scartata lasciando la copertura CTR dichiarata completa.",
+  "rows": [
+    { "path": "/en/swiss-articles/permit-guide/", "query": "", "clicks": 0, "impressions": 25, "position": 5 },
+    { "path": "/en/swiss-articles/permit-guide/", "query": "site:fixture.invalid", "clicks": null, "impressions": 25, "position": 5 }
+  ]
+}

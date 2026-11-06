@@ -1,0 +1,23 @@
+{
+  "companyKey": "telefonoazzurro",
+  "companyName": "telefonoazzurro",
+  "companyHost": "telefonoazzurro.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://telefonoazzurro.altamiraweb.com/"
+  ],
+  "detailTemplate": "/Annunci/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Amministrazione",
+    "Area Fundraising - Roma-Milano",
+    "Assistente di Presidenza - ROMA",
+    "Coordinatore Centro Territoriale - Bologna",
+    "Coordinatore Centro Territoriale - MILANO"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:34.353Z"
+}

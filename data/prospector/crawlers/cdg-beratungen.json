@@ -1,0 +1,23 @@
+{
+  "companyKey": "cdg-beratungen",
+  "companyName": "cdg Beratungen AG",
+  "companyHost": "cdg-beratungen.softgarden.io",
+  "verifiedEmployerDomain": "cdg-beratungen.ch",
+  "platform": "softgarden.io",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://cdg-beratungen.softgarden.io/job/67261350?l=de"
+  ],
+  "detailTemplate": "/job/67261350",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Trainee Sales (80–100%) (m/w/d)"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-03T13:32:40.122Z",
+  "candidateKey": "cdg-beratungen@winterthur"
+}

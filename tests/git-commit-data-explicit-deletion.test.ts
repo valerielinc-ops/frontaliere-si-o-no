@@ -1,0 +1,188 @@
+// @vitest-environment node
+import { describe, expect, it } from 'vitest';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { dirname, join, resolve } from 'node:path';
+import {
+  LEGACY_CRAWLER_RESIDUE_PATHS,
+  purgeLegacyCrawlerResidues,
+} from '../scripts/cleanup-legacy-crawler-residues.mjs';
+
+const WORKTREE_ROOT = resolve(import.meta.dirname, '..');
+const SCRIPT_PATH = resolve(WORKTREE_ROOT, 'scripts/lib/git-commit-data.sh');
+const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
+const ARCHIVE_PATH = 'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json';
+const SENTINEL_PATH = 'data/jobs/by-crawler/coop-ticino-locale-cache.json';
+
+function git(cwd: string, ...args: string[]): string {
+  return execFileSync('git', args, { cwd, encoding: 'utf8' }).trim();
+}
+
+function initHarness() {
+  const originDir = mkdtempSync(join(tmpdir(), 'gcd-delete-origin-'));
+  const repoDir = mkdtempSync(join(tmpdir(), 'gcd-delete-repo-'));
+  execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+  execFileSync('git', ['clone', '-q', originDir, repoDir]);
+  git(repoDir, 'config', 'user.email', 'test@example.com');
+  git(repoDir, 'config', 'user.name', 'Test');
+  mkdirSync(dirname(join(repoDir, ARCHIVE_PATH)), { recursive: true });
+  writeFileSync(join(repoDir, ARCHIVE_PATH), `${JSON.stringify([{
+    companyKey: 'coop-ticino',
+    description: 'x'.repeat(1_400_000),
+  }])}\n`);
+  // Keep an unrelated tracked entry in the fixture tree. The production
+  // main-push guard must reject a candidate that deletes the only file in a
+  // repository; this test is about an explicit data deletion, not an empty
+  // repository tree.
+  writeFileSync(join(repoDir, 'main-push-guard-sentinel.txt'), 'keep the fixture tree non-empty\n');
+  git(repoDir, 'add', ARCHIVE_PATH, 'main-push-guard-sentinel.txt');
+  git(repoDir, 'commit', '-q', '-m', 'seed archive');
+  git(repoDir, 'push', '-q', 'origin', 'HEAD:main');
+  const proofDir = mkdtempSync(join(tmpdir(), 'gcd-delete-proofs-'));
+  return { originDir, proofDir, repoDir };
+}
+
+function runExtraOnly(repoDir: string, proofDir: string, paths: readonly string[] = [ARCHIVE_PATH]) {
+  return spawnSync(
+    BASH_BIN,
+    [SCRIPT_PATH, '--extra-only', 'purge retired archive', ...paths],
+    {
+      cwd: repoDir,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        DATA_PIPELINE_LEASE: '0',
+        SKIP_AI_TRANSLATION: '1',
+        SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+        GH_TOKEN: '',
+        GITHUB_TOKEN: '',
+        JOBS_HOUSEKEEPING_PROOF_DIR: proofDir,
+        GITHUB_RUN_ID: 'delete-run',
+        GITHUB_RUN_ATTEMPT: '1',
+        GITHUB_REPOSITORY: '',
+        GITHUB_OUTPUT: '',
+      },
+    },
+  );
+}
+
+describe('git-commit-data.sh --extra-only explicit deletions', () => {
+  it('publishes an explicitly requested deletion', () => {
+    const { originDir, proofDir, repoDir } = initHarness();
+    try {
+      purgeLegacyCrawlerResidues({
+        expiredDir: dirname(join(repoDir, ARCHIVE_PATH)),
+        apply: true,
+        proofDir,
+        cwd: repoDir,
+        baseSha: git(repoDir, 'rev-parse', 'HEAD'),
+        env: { GITHUB_RUN_ID: 'delete-run', GITHUB_RUN_ATTEMPT: '1' },
+      });
+
+      const result = runExtraOnly(repoDir, proofDir);
+      const log = `${result.stdout}${result.stderr}`;
+
+      expect(result.status, log).toBe(0);
+      expect(log).toContain('Pushed successfully');
+      expect(spawnSync('git', ['cat-file', '-e', `main:${ARCHIVE_PATH}`], { cwd: originDir }).status)
+        .not.toBe(0);
+      expect(git(repoDir, 'status', '--short', '--', ARCHIVE_PATH)).toBe(`D ${ARCHIVE_PATH}`);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(proofDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects a catastrophic explicit deletion without housekeeping proof', () => {
+    const { originDir, proofDir, repoDir } = initHarness();
+    try {
+      rmSync(join(repoDir, ARCHIVE_PATH));
+
+      const result = runExtraOnly(repoDir, proofDir);
+      const log = `${result.stdout}${result.stderr}`;
+
+      expect(result.status, log).toBe(1);
+      expect(log).toContain('refusing catastrophic crawler slice deletion');
+      expect(spawnSync('git', ['cat-file', '-e', `main:${ARCHIVE_PATH}`], { cwd: originDir }).status)
+        .toBe(0);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(proofDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed when the remote file changed after the checkout', () => {
+    const { originDir, proofDir, repoDir } = initHarness();
+    const otherDir = mkdtempSync(join(tmpdir(), 'gcd-delete-other-'));
+    try {
+      execFileSync('git', ['clone', '-q', originDir, otherDir]);
+      git(otherDir, 'config', 'user.email', 'other@example.com');
+      git(otherDir, 'config', 'user.name', 'Other');
+      writeFileSync(join(otherDir, ARCHIVE_PATH), '[{"companyKey":"coop-ticino","new":true}]\n');
+      git(otherDir, 'add', ARCHIVE_PATH);
+      git(otherDir, 'commit', '-q', '-m', 'remote archive update');
+      git(otherDir, 'push', '-q', 'origin', 'HEAD:main');
+      rmSync(join(repoDir, ARCHIVE_PATH));
+
+      const result = runExtraOnly(repoDir, proofDir);
+      const log = `${result.stdout}${result.stderr}`;
+
+      expect(result.status, log).toBe(1);
+      expect(log).toContain('delete conflicts with a newer remote blob');
+      expect(git(originDir, 'show', `main:${ARCHIVE_PATH}`)).toContain('"new":true');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(proofDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(otherDir, { recursive: true, force: true });
+    }
+  });
+
+  // #9142 residue 3: the state of main after #11295 — the expired archive is
+  // already gone and only the 3-byte active-side `[]` sentinel is left. The
+  // weekly step names both paths; the sentinel deletion must reach main
+  // without a housekeeping proof (it is below the accumulator floor).
+  it('publishes the ownerless active-side sentinel deletion with the workflow path list', () => {
+    const originDir = mkdtempSync(join(tmpdir(), 'gcd-sentinel-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'gcd-sentinel-repo-'));
+    const proofDir = mkdtempSync(join(tmpdir(), 'gcd-sentinel-proofs-'));
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      git(repoDir, 'config', 'user.email', 'test@example.com');
+      git(repoDir, 'config', 'user.name', 'Test');
+      mkdirSync(dirname(join(repoDir, SENTINEL_PATH)), { recursive: true });
+      writeFileSync(join(repoDir, SENTINEL_PATH), '[]\n');
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/coop-ticino.json'), '[]\n');
+      git(repoDir, 'add', 'data');
+      git(repoDir, 'commit', '-q', '-m', 'seed sentinel');
+      git(repoDir, 'push', '-q', 'origin', 'HEAD:main');
+
+      const report = purgeLegacyCrawlerResidues({
+        expiredDir: join(repoDir, 'data/jobs/expired/by-crawler'),
+        activeDir: join(repoDir, 'data/jobs/by-crawler'),
+        apply: true,
+        proofDir,
+        cwd: repoDir,
+        baseSha: git(repoDir, 'rev-parse', 'HEAD'),
+        env: { GITHUB_RUN_ID: 'delete-run', GITHUB_RUN_ATTEMPT: '1' },
+      });
+      expect(report.filesRemoved).toEqual([join(repoDir, SENTINEL_PATH)]);
+
+      const result = runExtraOnly(repoDir, proofDir, LEGACY_CRAWLER_RESIDUE_PATHS);
+      const log = `${result.stdout}${result.stderr}`;
+
+      expect(result.status, log).toBe(0);
+      expect(spawnSync('git', ['cat-file', '-e', `main:${SENTINEL_PATH}`], { cwd: originDir }).status)
+        .not.toBe(0);
+      expect(git(originDir, 'show', 'main:data/jobs/by-crawler/coop-ticino.json')).toBe('[]');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(proofDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+});

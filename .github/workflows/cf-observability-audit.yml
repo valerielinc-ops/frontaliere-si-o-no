@@ -1,0 +1,79 @@
+name: Cloudflare Observability Audit
+
+# Weekly read of the locale-router's Workers Logs: who generates the traffic and
+# whether the fixes of the 2026-10-30 audit still hold. Every failing check opens
+# a backlog issue with a stable title; a green run closes it.
+
+on:
+  schedule:
+    - cron: '17 5 * * 1'
+  workflow_dispatch: {}
+
+concurrency:
+  group: cloudflare-observability-audit
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load Remote Config secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Require backlog write token
+        run: |
+          set -euo pipefail
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT missing from Remote Config — cannot create or reconcile backlog issues. The workflow token is intentionally not a fallback because it suppresses downstream issues.opened triage."
+            exit 1
+          fi
+          echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
+
+      - name: Audit Workers Logs and sync backlog
+        env:
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/cf-observability-audit.mjs

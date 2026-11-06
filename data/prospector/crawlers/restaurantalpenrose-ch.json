@@ -1,0 +1,24 @@
+{
+  "companyKey": "restaurantalpenrose-ch",
+  "companyName": "Restaurant Alpenrose",
+  "companyHost": "arbeitskette.ch",
+  "verifiedEmployerDomain": "restaurantalpenrose.ch",
+  "platform": "arbeitskette.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.arbeitskette.ch/freie-stellen"
+  ],
+  "detailTemplate": "/freie-stellen/bewerbung/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Job Coach Arbeitsintegration",
+    "Gelernter Koch mit Betreuungsauftrag von psychisch beeinträchtigten Menschen"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-06T13:15:13.510Z",
+  "candidateKey": "restaurant-alpenrose@zurich"
+}

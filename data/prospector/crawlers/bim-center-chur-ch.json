@@ -1,0 +1,22 @@
+{
+  "companyKey": "bim-center-chur-ch",
+  "companyName": "bim-center-chur",
+  "companyHost": "walker-renova.ch",
+  "platform": "walker-renova.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://walker-renova.ch/offene-stellen/"
+  ],
+  "detailTemplate": "/stellenangebote/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Nachwuchsschreiner:in Innenausbau 60-100% Du bist jung, handwerklich geschickt und willst coole Innenausbau-Projekte umsetzen? Dann komm zu uns! Bei uns arbeite",
+    "Techniker:in / Projektleiter:in Innenarchitektur & Schreinerei (m/w/d) Du liebst es, Ideen in hochwertige Innenausbauten zu verwandeln und Projekte von Anfang b",
+    "Praktikum 3D CAD Planer:in Bist du im Studium oder in der Ausbildung als Architekt:in, Innenarchitekt:in oder Techniker:in? Bist du an digitalen Arbeitsmethoden"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-26T12:13:43.958Z",
+  "candidateKey": "bim-center-chur.ch"
+}

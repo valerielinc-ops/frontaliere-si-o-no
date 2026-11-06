@@ -1,0 +1,27 @@
+{
+  "companyKey": "nussbaum-ch",
+  "companyName": "R. Nussbaum AG",
+  "companyHost": "nussbaum.ch",
+  "verifiedEmployerDomain": "nussbaum.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.nussbaum.ch/de/jobs.html"
+  ],
+  "detailTemplate": "/de/offene-stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Bern Objektmanager*in Sanitär-/Heiztechnik 100 %",
+    "Olten SAP-Spezialist*in Logistik ERP/EWM 70–100%",
+    "Trimbach Anlagenführer*in Logistik 100%",
+    "Trimbach Technische*n Sachbearbeiter*in Servicecenter D/F 80-100%",
+    "Giubiasco Consulente tecnico/a commerciale per la regione Ticino al 100%"
+  ],
+  "canton": "TI",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:08:49.327Z",
+  "candidateKey": "r-nussbaum@giubiasco"
+}

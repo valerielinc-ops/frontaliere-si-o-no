@@ -1,0 +1,40 @@
+{
+  "id": "agenzie-interinali-ticino",
+  "slug": "agenzie-interinali-ticino",
+  "publishedAt": "2026-06-26T04:24:21.969Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.410567792905122,
+    "confidence": 0.8,
+    "finalScore": 5.928454234324098,
+    "topK": [
+      {
+        "slug": "agenzie-interim-lugano-ticino-frontaliere",
+        "cosine": 0.825608190988119
+      },
+      {
+        "slug": "chiasso-dogana-tempi-attesa",
+        "cosine": 0.8176840318719952
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.8119494463095589
+      },
+      {
+        "slug": "tassa-mensa-asilo-chiasso",
+        "cosine": 0.809542576125754
+      },
+      {
+        "slug": "documenti-necessari-frontaliere",
+        "cosine": 0.8081636859297607
+      }
+    ],
+    "score": 2.964227117162049,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}
