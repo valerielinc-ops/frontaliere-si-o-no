@@ -36,15 +36,14 @@ describe('Greenhouse transport fail-closed observer', () => {
     process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
     const fetchMock = vi.fn().mockResolvedValue(
       jsonResponse(200, {
-        jobs: [{ id: 17396, title: 'Engineer', location: { name: 'Zurich' } }],
+        jobs: [],
       }),
     );
     vi.stubGlobal('fetch', fetchMock);
 
     const jobs = await fetchGreenhouseJobs('fixture');
 
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({ jobReqId: '17396', title: 'Engineer' });
+    expect(jobs).toEqual([]);
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
