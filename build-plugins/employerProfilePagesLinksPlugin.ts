@@ -35,6 +35,7 @@ import {
   employerProfilesFlushed,
   getJobSitemapAllowlist,
   jobsSeoPagesFlushed,
+  shouldAwaitJobsSeoPagesFlushed,
   staticPagesFlushed,
   type EmittedEmployerProfile,
 } from './shared/buildSignals';
@@ -149,10 +150,12 @@ export function employerProfilePagesLinksPlugin(rootDir: string): Plugin {
       // producer (publishes the all-locale self-canonical detail allowlist).
       // This consumer is already registered after jobsSeoPagesPlugin, so the
       // extra barrier is safe in the sequential profile and closes the race
-      // in the normal parallel closeBundle mode as well.
+      // in the normal parallel closeBundle mode as well. FAST_BUILD omits the
+      // jobs producer, so its explicit no-await path remains non-blocking.
+      const waitForJobs = shouldAwaitJobsSeoPagesFlushed();
       const [profiles] = await Promise.all([
         employerProfilesFlushed,
-        jobsSeoPagesFlushed,
+        waitForJobs ? jobsSeoPagesFlushed : Promise.resolve(),
         staticPagesFlushed,
       ]);
 
@@ -161,8 +164,8 @@ export function employerProfilePagesLinksPlugin(rootDir: string): Plugin {
         return;
       }
 
-      const jobSitemapAllowlist = getJobSitemapAllowlist();
-      if (jobSitemapAllowlist === null) {
+      const jobSitemapAllowlist = waitForJobs ? getJobSitemapAllowlist() : null;
+      if (waitForJobs && jobSitemapAllowlist === null) {
         throw new Error(
           '[employer-profile-pages-links] jobs producer completed without publishing its detail allowlist',
         );
@@ -170,19 +173,21 @@ export function employerProfilePagesLinksPlugin(rootDir: string): Plugin {
 
       const filteredProfilePaths = new Set<string>();
       let filteredProfileFiles = 0;
-      for (const profile of profiles) {
-        if (filteredProfilePaths.has(profile.path)) continue;
-        filteredProfilePaths.add(profile.path);
-        for (const filePath of [
-          np.join(distDir, profile.path, 'index.html'),
-          np.join(distDir, profile.path.replace(/\/+$/, '') + '.html'),
-        ]) {
-          if (!fs.existsSync(filePath)) continue;
-          const html = fs.readFileSync(filePath, 'utf-8');
-          const filtered = filterEmployerProfileJobLinks(html, jobSitemapAllowlist);
-          if (filtered === html) continue;
-          fs.writeFileSync(filePath, filtered, 'utf-8');
-          filteredProfileFiles++;
+      if (jobSitemapAllowlist !== null) {
+        for (const profile of profiles) {
+          if (filteredProfilePaths.has(profile.path)) continue;
+          filteredProfilePaths.add(profile.path);
+          for (const filePath of [
+            np.join(distDir, profile.path, 'index.html'),
+            np.join(distDir, profile.path.replace(/\/+$/, '') + '.html'),
+          ]) {
+            if (!fs.existsSync(filePath)) continue;
+            const html = fs.readFileSync(filePath, 'utf-8');
+            const filtered = filterEmployerProfileJobLinks(html, jobSitemapAllowlist);
+            if (filtered === html) continue;
+            fs.writeFileSync(filePath, filtered, 'utf-8');
+            filteredProfileFiles++;
+          }
         }
       }
       console.log(
