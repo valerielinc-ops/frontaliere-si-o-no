@@ -1,7 +1,7 @@
 {
   "crawlerKey": "elektriker-elektromonteur-jobs-ch",
-  "assembledAt": "2026-11-05T21:58:00.271Z",
-  "runId": "42112380936",
+  "assembledAt": "2026-11-06T09:41:51.640Z",
+  "runId": "42194867609",
   "jobs": [
     {
       "id": "elektriker-elektromonteur-jobs-ch-c916dccbf332",
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-professional-60-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:57:55.367Z",
+      "crawledAt": "2026-11-06T09:41:44.766Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -54,25 +54,25 @@
       "applyUrl": "https://www.pks-personal.ch/stellen/hr-professional-60-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "hr-professional-60-mit-payroll-erfahrung-prazise-bis-auf-den-letzten-rappen-4102-binningen"
-        ],
-        "it": [
-          "hr-professional-60-mit-payroll-erfahrung-prazise-bis-auf-den-letzten-rappen-4102-binningen",
-          "hr-professional-60-mit-payroll-erfahrung-4102-binningen-elektriker-elektromonteur-jobs-ch",
-          "hr-professional-60-mit-payroll-erfahrung-sie-sind-prazise-wie-origami-bis-auf-den-letzten"
-        ],
-        "fr": [
-          "hr-professional-60-mit-payroll-erfahrung-4102-binningen-elektriker-elektromonteur-jobs-ch"
-        ]
-      },
       "previousSlugs": [
         "hr-professional-60-mit-payroll-erfahrung-prazise-bis-auf-den-letzten-rappen-4102-binningen",
         "hr-professional-60-mit-payroll-erfahrung-4102-binningen-elektriker-elektromonteur-jobs-ch",
         "hr-professional-60-mit-payroll-erfahrung-sie-sind-prazise-wie-origami-bis-auf-den-letzten"
       ],
-      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-professional-60-mit-payroll-erfahrung-prazise-bis-auf-den-letzten-rappen-4102-binningen",
+          "hr-professional-60-mit-payroll-erfahrung-4102-binningen-elektriker-elektromonteur-jobs-ch",
+          "hr-professional-60-mit-payroll-erfahrung-sie-sind-prazise-wie-origami-bis-auf-den-letzten"
+        ],
+        "de": [
+          "hr-professional-60-mit-payroll-erfahrung-prazise-bis-auf-den-letzten-rappen-4102-binningen"
+        ],
+        "fr": [
+          "hr-professional-60-mit-payroll-erfahrung-4102-binningen-elektriker-elektromonteur-jobs-ch"
+        ]
+      },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-11-04T21:42:47.575Z",
       "salaryMin": 37200,
       "salaryMax": 56400,
@@ -88,7 +88,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:57:55.367Z",
+      "validThrough": "2027-02-03T09:41:44.766Z",
       "validThroughSource": "last-observed-window"
     }
   ]

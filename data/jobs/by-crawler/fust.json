@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-11-05T21:48:40.960Z",
-  "runId": "42112380936",
+  "assembledAt": "2026-11-06T09:40:30.906Z",
+  "runId": "42194867609",
   "jobs": [
     {
       "id": "company-crl8b1",
@@ -29,7 +29,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-11-05T21:47:52.880Z",
       "titleByLocale": {
         "de": "Sanitärmonteur:in Küchen & Bäder",
@@ -59,7 +59,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "de",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:47:52.880Z",
+      "validThrough": "2027-02-03T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -103,7 +103,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-12T09:41:20.676Z",
       "titleByLocale": {
         "it": "Falegname-Montatore di cucine & bagni",
@@ -139,7 +139,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "it",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:47:52.880Z",
+      "validThrough": "2027-02-03T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -153,7 +153,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "falegname-montatore-di-cucine-bagni-fust-bellinzona-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "falegname-montatore-di-cucine-bagni-fust-bellinzona-ticino"
+      ]
     },
     {
       "id": "company-qndjny",
@@ -181,7 +189,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-11-05T21:47:52.880Z",
       "titleByLocale": {
         "fr": "Concepteur / Conceptrice de Cuisines et Salles de bain",
@@ -210,7 +218,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "fr",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:47:52.880Z",
+      "validThrough": "2027-02-03T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -252,7 +260,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-11-05T21:47:52.880Z",
       "titleByLocale": {
         "fr": "Concepteur / Conceptrice Cuisines et Salles de bain",
@@ -281,7 +289,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "fr",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:47:52.880Z",
+      "validThrough": "2027-02-03T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -323,7 +331,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-11-04T09:36:58.966Z",
       "titleByLocale": {
         "it": "Montatore/trice per la consegna a domicilio di elettrodomestici",
@@ -352,7 +360,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "de",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:47:52.880Z",
+      "validThrough": "2027-02-02T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salarySource": "estimated",
       "baseSalary": {
@@ -410,7 +418,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-11-04T21:33:27.799Z",
       "titleByLocale": {
         "it": "Tecnico/a per la consegna e il montaggio a domicilio di apparecchi multimediali",
@@ -439,7 +447,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "de",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:47:52.880Z",
+      "validThrough": "2027-02-02T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salarySource": "estimated",
       "baseSalary": {
@@ -495,7 +503,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-11-03T21:57:24.767Z",
       "titleByLocale": {
         "it": "tecnico post-vendita",
@@ -524,7 +532,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "fr",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:47:52.880Z",
+      "validThrough": "2027-02-01T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salarySource": "estimated",
       "baseSalary": {
@@ -580,7 +588,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-09T23:27:05.730Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -609,7 +617,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "de",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:47:52.880Z",
+      "validThrough": "2027-02-01T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salarySource": "estimated",
       "baseSalary": {
@@ -669,7 +677,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-05T21:49:31.175Z",
       "titleByLocale": {
         "it": "Tecnico/a di officina per grandi elettrodomestici",
@@ -698,7 +706,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "de",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:47:52.880Z",
+      "validThrough": "2027-02-01T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salarySource": "estimated",
       "baseSalary": {
@@ -758,7 +766,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "2nd Level Support Ingegnere",
@@ -787,7 +795,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "de",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:47:52.880Z",
+      "validThrough": "2027-02-01T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salarySource": "estimated",
       "baseSalary": {
@@ -829,7 +837,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-24T14:55:37.092Z",
       "titleByLocale": {
         "it": "Impiegato/a per la gestione dei pezzi di ricambio",
@@ -858,7 +866,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "de",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:47:52.880Z",
+      "validThrough": "2027-02-01T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salarySource": "estimated",
       "baseSalary": {
@@ -916,7 +924,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio EFZ \"Creare esperienze d'acquisto\"",
@@ -945,7 +953,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "de",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:47:52.880Z",
+      "validThrough": "2026-12-17T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salarySource": "estimated",
       "baseSalary": {
@@ -1005,7 +1013,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Montatore/trice a domicilio di elettrodomestici",
@@ -1034,7 +1042,7 @@
       "_enrichedFromDetail": true,
       "sourceLang": "de",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:47:52.880Z",
+      "validThrough": "2027-01-31T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salarySource": "estimated",
       "baseSalary": {
@@ -1092,7 +1100,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-30T21:42:55.265Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -1148,7 +1156,7 @@
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-winterthur"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:47:52.880Z",
+      "validThrough": "2026-12-14T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -1179,7 +1187,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-30T21:42:55.265Z",
       "titleByLocale": {
         "it": "Tecnico/a di assistenza per il servizio a domicilio",
@@ -1233,7 +1241,7 @@
         "servicetechniker-in-heimservice-fust-region-bern"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:47:52.880Z",
+      "validThrough": "2027-01-28T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -1264,7 +1272,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-08T22:37:34.966Z",
       "titleByLocale": {
         "it": "Addetto/a alla pianificazione di cucine e bagni 80% - 100%",
@@ -1322,7 +1330,7 @@
         ]
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:47:52.880Z",
+      "validThrough": "2026-12-12T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -1353,7 +1361,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-07T15:24:19.786Z",
       "titleByLocale": {
         "it": "Addetto/a al servizio clienti per cucine e bagni",
@@ -1407,7 +1415,7 @@
         "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:47:52.880Z",
+      "validThrough": "2027-01-26T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -1438,7 +1446,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "titleByLocale": {
         "it": "Addetto/a al servizio clienti per cucine e bagni",
         "en": "Customer service administrator, kitchens & bathrooms",
@@ -1491,7 +1499,7 @@
         "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:47:52.880Z",
+      "validThrough": "2027-01-26T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -1522,7 +1530,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-28T20:17:50.742Z",
       "titleByLocale": {
         "it": "Addetto/a all'intralogistica - reparto ricevimento merci",
@@ -1582,7 +1590,7 @@
         ]
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:47:52.880Z",
+      "validThrough": "2027-01-26T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -1613,7 +1621,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-28T20:17:50.742Z",
       "titleByLocale": {
         "it": "Assistente al montaggio per la consegna a domicilio di elettrodomestici",
@@ -1671,7 +1679,7 @@
         ]
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:47:52.880Z",
+      "validThrough": "2027-01-26T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -1702,7 +1710,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-07T15:24:19.786Z",
       "titleByLocale": {
         "it": "Capo della ricevuta aggiunto",
@@ -1756,7 +1764,7 @@
         "stellvertretung-leitung-wareneingang-fust-oberburen"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:47:52.880Z",
+      "validThrough": "2027-01-24T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -1787,7 +1795,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-03T13:51:17.068Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -1827,7 +1835,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:47:52.880Z",
+      "validThrough": "2027-01-24T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 101500,
       "salaryMax": 154000
@@ -1858,7 +1866,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-03T13:51:17.068Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -1898,7 +1906,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:47:52.880Z",
+      "validThrough": "2027-01-24T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 101500,
       "salaryMax": 154000
@@ -1929,7 +1937,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-24T09:33:44.874Z",
       "titleByLocale": {
         "it": "Montatore/trice di falegnameria, cucine e bagni",
@@ -1983,7 +1991,7 @@
         "schreinermonteur-in-kuchen-bader-fust-steg-hohtenn"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T21:47:52.880Z",
+      "validThrough": "2027-01-22T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -2014,7 +2022,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-14T21:44:44.981Z",
       "titleByLocale": {
         "it": "Risorse Umane Recruiting Specialista",
@@ -2054,7 +2062,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:47:52.880Z",
+      "validThrough": "2027-01-21T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -2085,7 +2093,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-23T11:59:30.089Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2143,7 +2151,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-basel"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 107000,
       "salaryMax": 187500
@@ -2174,7 +2182,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -2234,7 +2242,7 @@
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-thun"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:47:52.880Z",
+      "validThrough": "2027-01-20T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -2265,7 +2273,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Tecnico/a del servizio a domicilio",
@@ -2321,7 +2329,7 @@
         "servicetechniker-in-heimservice-fust-region-fribourg"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:47:52.880Z",
+      "validThrough": "2027-01-20T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -2352,7 +2360,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a / responsabile della qualità delle consegne a domicilio",
@@ -2412,7 +2420,7 @@
         "sachbearbeiter-in-qualitatsverantwortliche-r-heimlieferung-fust-niederwangen-be"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:47:52.880Z",
+      "validThrough": "2027-01-20T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -2443,7 +2451,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2501,7 +2509,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-chur"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -2532,7 +2540,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "Tecnico/a del servizio a domicilio",
@@ -2588,7 +2596,7 @@
         "servicetechniker-in-heimservice-fust-oberburen"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:47:52.880Z",
+      "validThrough": "2027-01-20T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -2619,7 +2627,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "titleByLocale": {
         "it": "Montatore/trice per la consegna a domicilio di elettrodomestici",
@@ -2677,7 +2685,7 @@
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:47:52.880Z",
+      "validThrough": "2027-01-20T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -2708,7 +2716,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2766,7 +2774,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-rickenbach"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -2797,7 +2805,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Assistente al montaggio per la consegna a domicilio di elettrodomestici",
@@ -2859,7 +2867,7 @@
         "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:47:52.880Z",
+      "validThrough": "2027-01-20T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -2890,7 +2898,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "Montatore/trice per la consegna a domicilio di elettrodomestici",
@@ -2948,7 +2956,7 @@
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:47:52.880Z",
+      "validThrough": "2027-01-20T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -2979,7 +2987,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3037,7 +3045,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-emmen-center"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 107500,
       "salaryMax": 188500
@@ -3068,7 +3076,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3126,7 +3134,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-bulach"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 113000,
       "salaryMax": 198500
@@ -3159,7 +3167,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Application Sviluppatore Java 80 - 100%",
@@ -3214,7 +3222,7 @@
         ]
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60000,
       "salaryMax": 102000
@@ -3245,7 +3253,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-23T11:59:30.089Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3303,7 +3311,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zurich-sihlcity"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 113000,
       "salaryMax": 198500
@@ -3334,7 +3342,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3392,7 +3400,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-bulach-aojrop"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 113000,
       "salaryMax": 198500
@@ -3423,7 +3431,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3481,7 +3489,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 107500,
       "salaryMax": 188500
@@ -3512,7 +3520,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3570,7 +3578,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-affoltern-am-albis"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 113000,
       "salaryMax": 198500
@@ -3601,7 +3609,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3659,7 +3667,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zug"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 107500,
       "salaryMax": 188500
@@ -3690,7 +3698,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-23T11:59:30.089Z",
       "titleByLocale": {
         "it": "Outsystems Sviluppatore",
@@ -3752,7 +3760,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:47:52.880Z",
+      "validThrough": "2027-01-19T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60000,
       "salaryMax": 102000
@@ -3783,7 +3791,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -3843,7 +3851,7 @@
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:47:52.880Z",
+      "validThrough": "2027-01-19T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -3874,7 +3882,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3932,7 +3940,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zurich-shopville"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 113000,
       "salaryMax": 198500
@@ -3963,7 +3971,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4021,7 +4029,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-meilen"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 113000,
       "salaryMax": 198500
@@ -4052,7 +4060,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4110,7 +4118,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz-y1pus4"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 107500,
       "salaryMax": 188500
@@ -4141,7 +4149,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4199,7 +4207,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-1i8zxi"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -4230,7 +4238,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4288,7 +4296,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -4319,7 +4327,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4377,7 +4385,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zug-j114dg"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 107500,
       "salaryMax": 188500
@@ -4408,7 +4416,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4466,7 +4474,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schanis"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -4497,7 +4505,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "Montatore/trice falegname per cucine e bagni",
@@ -4551,7 +4559,7 @@
         "schreinermonteur-in-kuchen-bader-fust-burgdorf"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T21:47:52.880Z",
+      "validThrough": "2027-01-18T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -4582,7 +4590,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "Montatore/trice falegname per cucine e bagni",
@@ -4636,7 +4644,7 @@
         "schreinermonteur-in-kuchen-bader-fust-oberburen"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T21:47:52.880Z",
+      "validThrough": "2027-01-18T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -4667,7 +4675,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-05T09:35:03.545Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -4707,7 +4715,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 46500,
       "salaryMax": 71500
@@ -4738,7 +4746,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "SWC Retail Manager \"Progettazione e realizzazione di esperienze di approvvigionamento\"",
@@ -4792,7 +4800,7 @@
         "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-fust-romanel-sur-lausanne"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -4823,7 +4831,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-23T11:59:30.089Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4879,7 +4887,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zuchwil"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 105500,
       "salaryMax": 185000
@@ -4910,7 +4918,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia 80% - 100%",
@@ -4966,7 +4974,7 @@
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -4997,7 +5005,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Montatore per la sostituzione di elettrodomestici da incasso per cucina",
@@ -5053,7 +5061,7 @@
         "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:47:52.880Z",
+      "validThrough": "2027-01-17T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -5084,7 +5092,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-25T15:10:02.746Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -5140,7 +5148,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-visp"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 104500,
       "salaryMax": 183500
@@ -5171,7 +5179,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "SWC Retail Manager \"Progettazione e realizzazione di esperienze di approvvigionamento\"",
@@ -5225,7 +5233,7 @@
         "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-geneve-balexert"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -5256,7 +5264,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "titleByLocale": {
         "it": "SWC Retail Manager \"Progettazione e realizzazione di esperienze di approvvigionamento\"",
         "en": "SWC Retail Manager \"Designation and realization of procurement experiences\"",
@@ -5310,7 +5318,7 @@
       ],
       "firstSeenAt": "2026-10-20T09:38:50.193Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -5341,7 +5349,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "SWC Retail Manager \"Progettazione e realizzazione di esperienze di approvvigionamento\"",
@@ -5395,7 +5403,7 @@
         "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-villeneuve"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -5426,7 +5434,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-16T21:35:36.082Z",
       "titleByLocale": {
         "it": "SWC Retail Manager's Learning \"Design e realizzazione delle esperienze di acquisto\"",
@@ -5480,7 +5488,7 @@
         "apprentissage-de-gestionnaire-du-commerce-de-detail-cfc-conception-et-fust-meyrin"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -5511,7 +5519,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -5567,7 +5575,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberwil"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 107000,
       "salaryMax": 187500
@@ -5598,7 +5606,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -5654,7 +5662,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnisse-fust-niederwangen-bei-bern"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 105500,
       "salaryMax": 185000
@@ -5685,7 +5693,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -5741,7 +5749,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-egerkingen"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 105500,
       "salaryMax": 185000
@@ -5774,7 +5782,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-16T09:39:18.410Z",
       "titleByLocale": {
         "it": "Designer grafico/a",
@@ -5837,7 +5845,7 @@
         "grafikdesigner-in-fust-oberburen-sankt-gallen"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T21:47:52.880Z",
+      "validThrough": "2027-01-14T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60000,
       "salaryMax": 102000
@@ -5868,7 +5876,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-14T21:44:44.981Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -5908,7 +5916,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:47:52.880Z",
+      "validThrough": "2027-01-12T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 94500,
       "salaryMax": 143000
@@ -5939,7 +5947,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-10-14T21:44:44.981Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite / Progettista di cucine e bagni",
@@ -5993,7 +6001,7 @@
         "verkaufer-in-planer-in-kuchen-bader-fust-biel"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:47:52.880Z",
+      "validThrough": "2027-01-12T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -6024,7 +6032,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -6064,7 +6072,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 46500,
       "salaryMax": 71500
@@ -6095,7 +6103,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6143,7 +6151,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-weinfelden"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -6174,7 +6182,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6222,7 +6230,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-widnau"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -6253,7 +6261,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -6293,7 +6301,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 46500,
       "salaryMax": 71500
@@ -6324,7 +6332,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "Tecnico di Elettronica Multimediale EFZ",
@@ -6372,7 +6380,7 @@
         "multimediaelektroniker-in-efz-fust-oberburen"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -6403,7 +6411,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica CFC",
@@ -6451,7 +6459,7 @@
         "logistiker-in-efz-fust-oberburen"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -6482,7 +6490,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6530,7 +6538,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 113000,
       "salaryMax": 198500
@@ -6561,7 +6569,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6609,7 +6617,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-frauenfeld"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -6640,7 +6648,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6688,7 +6696,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 113000,
       "salaryMax": 198500
@@ -6719,7 +6727,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6767,7 +6775,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-arbon"
       ],
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -6798,7 +6806,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-mvdbaz",
@@ -6846,7 +6854,7 @@
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
@@ -6877,7 +6885,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-11-05T21:47:52.880Z",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica AFP",
@@ -6925,10 +6933,82 @@
         "logistiker-in-eba-fust-oberburen"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:47:52.880Z",
+      "validThrough": "2026-12-06T09:39:42.216Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000
+    },
+    {
+      "id": "company-94aota",
+      "slug": "servicetechniker-in-heimservice-fust-oberburen",
+      "company": "Fust",
+      "title": "Servicetechniker:in Heimservice",
+      "location": "Oberbüren",
+      "canton": "SG",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "- Stellenantritt: per sofort oder nach Vereinbarung\n- Fachrichtung: Produktion / Technik\n- Arbeitsort: Fust, Zürcher Oberland / Obersee\n\n## Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\n## Aufgaben\n- Diagnose und Reparatur von Haushaltsgeräten\n- Effizientes, kundenorientiertes Arbeiten\n- Freundliches, professionelles Auftreten bei unserer Privatkundschaft\n\n## Anforderungen\n- Abgeschlossene Berufsausbildung als Elektriker:in, Mechaniker:in oder ähnliches\n- Gute Deutschkenntnisse mind. B2\n- Mehrjährige Erfahrung in ähnlichem Bereich\n- Führerschein Kategorie B\n\n## Was wir bieten\n- Anstellungsbedingungen: Flexible Arbeitszeiten, attraktives Fixgehalt mit zusätzlicher, Leistungsprämien, Pauschale Spesenvergütung, Firmenfahrzeug zur privaten Nutzung\n- Vergünstigungen: Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n- Weiterbildung: Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Versicherungen: Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n- Ferien: Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n- Gesundheit: Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\nDeine Ansprechpersonen bei Fust\nSteven Wohnlich\nRecruiting Specialist\nTanja Voser\nLeiterin Business Partnering",
+      "requirements": [],
+      "featured": false,
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "url": "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/3db3fe32-09e9-4939-a5a5-c80f982ad6a8",
+      "applyUrl": "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/3db3fe32-09e9-4939-a5a5-c80f982ad6a8",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
+      },
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-11-06T09:39:42.216Z",
+      "firstSeenAt": "2026-09-11T13:54:23.138Z",
+      "titleByLocale": {
+        "de": "Servicetechniker:in Heimservice",
+        "it": "Servicetechniker:in Heimservice",
+        "en": "Servicetechniker:in Heimservice",
+        "fr": "Servicetechniker:in Heimservice"
+      },
+      "descriptionByLocale": {
+        "de": "- Stellenantritt: per sofort oder nach Vereinbarung\n- Fachrichtung: Produktion / Technik\n- Arbeitsort: Fust, Zürcher Oberland / Obersee\n\n## Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\n## Aufgaben\n- Diagnose und Reparatur von Haushaltsgeräten\n- Effizientes, kundenorientiertes Arbeiten\n- Freundliches, professionelles Auftreten bei unserer Privatkundschaft\n\n## Anforderungen\n- Abgeschlossene Berufsausbildung als Elektriker:in, Mechaniker:in oder ähnliches\n- Gute Deutschkenntnisse mind. B2\n- Mehrjährige Erfahrung in ähnlichem Bereich\n- Führerschein Kategorie B\n\n## Was wir bieten\n- Anstellungsbedingungen: Flexible Arbeitszeiten, attraktives Fixgehalt mit zusätzlicher, Leistungsprämien, Pauschale Spesenvergütung, Firmenfahrzeug zur privaten Nutzung\n- Vergünstigungen: Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n- Weiterbildung: Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Versicherungen: Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n- Ferien: Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n- Gesundheit: Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\nDeine Ansprechpersonen bei Fust\nSteven Wohnlich\nRecruiting Specialist\nTanja Voser\nLeiterin Business Partnering",
+        "it": "- Stellenantritt: per sofort oder nach Vereinbarung\n- Fachrichtung: Produktion / Technik\n- Arbeitsort: Fust, Zürcher Oberland / Obersee\n\n## Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\n## Aufgaben\n- Diagnose und Reparatur von Haushaltsgeräten\n- Effizientes, kundenorientiertes Arbeiten\n- Freundliches, professionelles Auftreten bei unserer Privatkundschaft\n\n## Anforderungen\n- Abgeschlossene Berufsausbildung als Elektriker:in, Mechaniker:in oder ähnliches\n- Gute Deutschkenntnisse mind. B2\n- Mehrjährige Erfahrung in ähnlichem Bereich\n- Führerschein Kategorie B\n\n## Was wir bieten\n- Anstellungsbedingungen: Flexible Arbeitszeiten, attraktives Fixgehalt mit zusätzlicher, Leistungsprämien, Pauschale Spesenvergütung, Firmenfahrzeug zur privaten Nutzung\n- Vergünstigungen: Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n- Weiterbildung: Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Versicherungen: Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n- Ferien: Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n- Gesundheit: Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\nDeine Ansprechpersonen bei Fust\nSteven Wohnlich\nRecruiting Specialist\nTanja Voser\nLeiterin Business Partnering",
+        "en": "- Stellenantritt: per sofort oder nach Vereinbarung\n- Fachrichtung: Produktion / Technik\n- Arbeitsort: Fust, Zürcher Oberland / Obersee\n\n## Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\n## Aufgaben\n- Diagnose und Reparatur von Haushaltsgeräten\n- Effizientes, kundenorientiertes Arbeiten\n- Freundliches, professionelles Auftreten bei unserer Privatkundschaft\n\n## Anforderungen\n- Abgeschlossene Berufsausbildung als Elektriker:in, Mechaniker:in oder ähnliches\n- Gute Deutschkenntnisse mind. B2\n- Mehrjährige Erfahrung in ähnlichem Bereich\n- Führerschein Kategorie B\n\n## Was wir bieten\n- Anstellungsbedingungen: Flexible Arbeitszeiten, attraktives Fixgehalt mit zusätzlicher, Leistungsprämien, Pauschale Spesenvergütung, Firmenfahrzeug zur privaten Nutzung\n- Vergünstigungen: Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n- Weiterbildung: Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Versicherungen: Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n- Ferien: Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n- Gesundheit: Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\nDeine Ansprechpersonen bei Fust\nSteven Wohnlich\nRecruiting Specialist\nTanja Voser\nLeiterin Business Partnering",
+        "fr": "- Stellenantritt: per sofort oder nach Vereinbarung\n- Fachrichtung: Produktion / Technik\n- Arbeitsort: Fust, Zürcher Oberland / Obersee\n\n## Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\n## Aufgaben\n- Diagnose und Reparatur von Haushaltsgeräten\n- Effizientes, kundenorientiertes Arbeiten\n- Freundliches, professionelles Auftreten bei unserer Privatkundschaft\n\n## Anforderungen\n- Abgeschlossene Berufsausbildung als Elektriker:in, Mechaniker:in oder ähnliches\n- Gute Deutschkenntnisse mind. B2\n- Mehrjährige Erfahrung in ähnlichem Bereich\n- Führerschein Kategorie B\n\n## Was wir bieten\n- Anstellungsbedingungen: Flexible Arbeitszeiten, attraktives Fixgehalt mit zusätzlicher, Leistungsprämien, Pauschale Spesenvergütung, Firmenfahrzeug zur privaten Nutzung\n- Vergünstigungen: Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n- Weiterbildung: Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Versicherungen: Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n- Ferien: Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n- Gesundheit: Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\nDeine Ansprechpersonen bei Fust\nSteven Wohnlich\nRecruiting Specialist\nTanja Voser\nLeiterin Business Partnering"
+      },
+      "needsRetranslation": true,
+      "slugByLocale": {
+        "it": "servicetechniker-in-heimservice-fust-oberburen",
+        "en": "servicetechniker-in-heimservice-fust-oberburen",
+        "de": "servicetechniker-in-heimservice-fust-oberburen-94aota",
+        "fr": "servicetechniker-in-heimservice-fust-oberburen"
+      },
+      "requirementsByLocale": {},
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "CH",
+      "_enrichedFromDetail": true,
+      "sourceLang": "de",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-04T09:39:42.216Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

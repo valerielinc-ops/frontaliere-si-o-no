@@ -1,7 +1,7 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-11-05T21:50:03.729Z",
-  "runId": "42112380936",
+  "assembledAt": "2026-11-06T09:44:49.149Z",
+  "runId": "42194867609",
   "jobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/72476-de_DE",
@@ -84,7 +84,8 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Cyber-Security-%28wmd%29/74946-de_DE",
@@ -125,8 +126,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:57.144Z",
-      "validThrough": "2027-01-11T21:49:57.144Z",
+      "crawledAt": "2026-11-06T09:44:40.864Z",
+      "validThrough": "2027-01-11T09:44:40.864Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -210,8 +211,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:56.271Z",
-      "validThrough": "2027-01-11T21:49:56.271Z",
+      "crawledAt": "2026-11-06T09:44:40.196Z",
+      "validThrough": "2027-01-11T09:44:40.196Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -295,8 +296,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:55.431Z",
-      "validThrough": "2027-01-11T21:49:55.431Z",
+      "crawledAt": "2026-11-06T09:44:39.538Z",
+      "validThrough": "2027-01-11T09:44:39.538Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -380,7 +381,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:54.670Z",
+      "crawledAt": "2026-11-06T09:44:38.860Z",
       "validThrough": "2026-12-11T00:00:00.000Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -462,7 +463,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:53.855Z",
+      "crawledAt": "2026-11-06T09:44:38.204Z",
       "validThrough": "2026-12-11T00:00:00.000Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -549,8 +550,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:53.119Z",
-      "validThrough": "2027-01-11T21:49:53.119Z",
+      "crawledAt": "2026-11-06T09:44:37.533Z",
+      "validThrough": "2027-01-12T09:44:37.533Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -636,8 +637,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:52.362Z",
-      "validThrough": "2027-01-11T21:49:52.362Z",
+      "crawledAt": "2026-11-06T09:44:36.865Z",
+      "validThrough": "2027-01-12T09:44:36.865Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -727,8 +728,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:51.627Z",
-      "validThrough": "2026-12-22T21:49:51.627Z",
+      "crawledAt": "2026-11-06T09:44:36.191Z",
+      "validThrough": "2026-12-23T09:44:36.191Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -811,8 +812,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:50.891Z",
-      "validThrough": "2027-01-14T21:49:50.891Z",
+      "crawledAt": "2026-11-06T09:44:35.481Z",
+      "validThrough": "2027-01-14T09:44:35.481Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -898,8 +899,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:50.038Z",
-      "validThrough": "2027-01-18T21:49:50.038Z",
+      "crawledAt": "2026-11-06T09:44:34.802Z",
+      "validThrough": "2027-01-18T09:44:34.802Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -985,8 +986,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:49.311Z",
-      "validThrough": "2027-01-20T21:49:49.311Z",
+      "crawledAt": "2026-11-06T09:44:34.123Z",
+      "validThrough": "2027-01-20T09:44:34.123Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1074,8 +1075,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:48.456Z",
-      "validThrough": "2027-01-21T21:49:48.456Z",
+      "crawledAt": "2026-11-06T09:44:33.444Z",
+      "validThrough": "2027-01-22T09:44:33.444Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1161,8 +1162,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:47.716Z",
-      "validThrough": "2027-01-27T21:49:47.716Z",
+      "crawledAt": "2026-11-06T09:44:32.771Z",
+      "validThrough": "2027-01-28T09:44:32.771Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1248,8 +1249,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:46.973Z",
-      "validThrough": "2026-12-29T21:49:46.973Z",
+      "crawledAt": "2026-11-06T09:44:32.187Z",
+      "validThrough": "2026-12-30T09:44:32.187Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1329,8 +1330,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:46.220Z",
-      "validThrough": "2026-12-30T21:49:46.220Z",
+      "crawledAt": "2026-11-06T09:44:31.535Z",
+      "validThrough": "2026-12-30T09:44:31.535Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1410,8 +1411,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:45.483Z",
-      "validThrough": "2027-01-28T21:49:45.483Z",
+      "crawledAt": "2026-11-06T09:44:30.871Z",
+      "validThrough": "2027-01-29T09:44:30.871Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1499,8 +1500,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:44.733Z",
-      "validThrough": "2027-01-31T21:49:44.733Z",
+      "crawledAt": "2026-11-06T09:44:30.201Z",
+      "validThrough": "2027-02-01T09:44:30.201Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1584,8 +1585,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:43.982Z",
-      "validThrough": "2027-02-03T21:49:43.982Z",
+      "crawledAt": "2026-11-06T09:44:29.514Z",
+      "validThrough": "2027-02-04T09:44:29.514Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1657,8 +1658,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:43.241Z",
-      "validThrough": "2027-02-03T21:49:43.241Z",
+      "crawledAt": "2026-11-06T09:44:28.819Z",
+      "validThrough": "2027-02-04T09:44:28.819Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1714,12 +1715,12 @@
         "en": "Learning Specialist (m/f/d)",
         "fr": "Learning Spécialiste (w/m/d)"
       },
-      "slug": "learning-specialist-w-m-d-postfinance",
+      "slug": "learning-specialista-w-m-d-postfinance-bern",
       "slugByLocale": {
-        "de": "learning-specialist-w-m-d-postfinance",
-        "it": "learning-specialist-w-m-d-postfinance",
+        "it": "learning-specialista-w-m-d-postfinance-bern",
         "en": "learning-specialist-w-m-d-postfinance",
-        "fr": "learning-specialist-w-m-d-postfinance"
+        "de": "learning-specialist-w-m-d-postfinance",
+        "fr": "learning-specialiste-w-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1731,8 +1732,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:42.489Z",
-      "validThrough": "2027-02-03T21:49:42.489Z",
+      "crawledAt": "2026-11-06T09:44:28.106Z",
+      "validThrough": "2027-02-04T09:44:28.106Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1763,7 +1764,18 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:49:42.489Z"
+      "firstSeenAt": "2026-11-05T21:49:42.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-specialist-w-m-d-postfinance"
+        ],
+        "fr": [
+          "learning-specialist-w-m-d-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "learning-specialist-w-m-d-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75011-de_DE",
@@ -1804,8 +1816,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:41.747Z",
-      "validThrough": "2027-02-03T21:49:41.747Z",
+      "crawledAt": "2026-11-06T09:44:27.388Z",
+      "validThrough": "2027-02-04T09:44:27.388Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1886,8 +1898,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:41.018Z",
-      "validThrough": "2027-02-03T21:49:41.018Z",
+      "crawledAt": "2026-11-06T09:44:26.720Z",
+      "validThrough": "2027-02-04T09:44:26.720Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1901,10 +1913,12 @@
       "id": "postfinance-bc3a8a4704a5",
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-postfinance-corner-postfinance",
           "kundenberater-in-postfinance-corner-postfinance-2"
         ]
       },
       "previousSlugs": [
+        "kundenberater-in-postfinance-corner-postfinance",
         "kundenberater-in-postfinance-corner-postfinance-2"
       ],
       "salaryMin": 68500,
@@ -1968,8 +1982,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:40.279Z",
-      "validThrough": "2027-02-03T21:49:40.279Z",
+      "crawledAt": "2026-11-06T09:44:26.015Z",
+      "validThrough": "2027-02-04T09:44:26.015Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1983,10 +1997,12 @@
       "id": "postfinance-d841c1ee9f37",
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-postfinance-corner-postfinance",
           "kundenberater-in-postfinance-corner-postfinance-3"
         ]
       },
       "previousSlugs": [
+        "kundenberater-in-postfinance-corner-postfinance",
         "kundenberater-in-postfinance-corner-postfinance-3"
       ],
       "salaryMin": 68500,
@@ -2050,8 +2066,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:39.508Z",
-      "validThrough": "2027-02-03T21:49:39.508Z",
+      "crawledAt": "2026-11-06T09:44:25.324Z",
+      "validThrough": "2027-02-04T09:44:25.324Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -2065,10 +2081,12 @@
       "id": "postfinance-17af298a97c7",
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-postfinance-corner-postfinance",
           "kundenberater-in-postfinance-corner-postfinance-4"
         ]
       },
       "previousSlugs": [
+        "kundenberater-in-postfinance-corner-postfinance",
         "kundenberater-in-postfinance-corner-postfinance-4"
       ],
       "salaryMin": 68500,
@@ -2132,8 +2150,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:38.778Z",
-      "validThrough": "2027-02-03T21:49:38.778Z",
+      "crawledAt": "2026-11-06T09:44:24.671Z",
+      "validThrough": "2027-02-04T09:44:24.671Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -2147,10 +2165,12 @@
       "id": "postfinance-60ad4709042e",
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-postfinance-corner-postfinance",
           "kundenberater-in-postfinance-corner-postfinance-5"
         ]
       },
       "previousSlugs": [
+        "kundenberater-in-postfinance-corner-postfinance",
         "kundenberater-in-postfinance-corner-postfinance-5"
       ],
       "salaryMin": 83000,
@@ -2214,8 +2234,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:38.040Z",
-      "validThrough": "2027-02-03T21:49:38.040Z",
+      "crawledAt": "2026-11-06T09:44:23.895Z",
+      "validThrough": "2027-02-04T09:44:23.895Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -2229,10 +2249,12 @@
       "id": "postfinance-4e1d32cfd4a9",
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-postfinance-corner-postfinance",
           "kundenberater-in-postfinance-corner-postfinance-6"
         ]
       },
       "previousSlugs": [
+        "kundenberater-in-postfinance-corner-postfinance",
         "kundenberater-in-postfinance-corner-postfinance-6"
       ],
       "salaryMin": 83000,
@@ -2296,8 +2318,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:37.304Z",
-      "validThrough": "2027-02-03T21:49:37.304Z",
+      "crawledAt": "2026-11-06T09:44:23.215Z",
+      "validThrough": "2027-02-04T09:44:23.215Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -2311,10 +2333,12 @@
       "id": "postfinance-6b31ad1e65a4",
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-postfinance-corner-postfinance",
           "kundenberater-in-postfinance-corner-postfinance-7"
         ]
       },
       "previousSlugs": [
+        "kundenberater-in-postfinance-corner-postfinance",
         "kundenberater-in-postfinance-corner-postfinance-7"
       ],
       "salaryMin": 83000,
@@ -2378,8 +2402,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-05T21:49:36.513Z",
-      "validThrough": "2027-02-03T21:49:36.513Z",
+      "crawledAt": "2026-11-06T09:44:22.545Z",
+      "validThrough": "2027-02-04T09:44:22.545Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -2393,10 +2417,12 @@
       "id": "postfinance-6936e17e1849",
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-postfinance-corner-postfinance",
           "kundenberater-in-postfinance-corner-postfinance-8"
         ]
       },
       "previousSlugs": [
+        "kundenberater-in-postfinance-corner-postfinance",
         "kundenberater-in-postfinance-corner-postfinance-8"
       ],
       "salaryMin": 77500,
