@@ -1,7 +1,7 @@
 {
   "crawlerKey": "la-fonte",
-  "assembledAt": "2026-11-05T21:25:27.653Z",
-  "runId": "42110581961",
+  "assembledAt": "2026-11-06T09:29:19.559Z",
+  "runId": "42193356249",
   "jobs": [
     {
       "title": "Gerente snack bar-panetteria 100%",
@@ -45,7 +45,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-05T21:25:22.860Z",
+      "crawledAt": "2026-11-06T09:29:15.469Z",
       "id": "fondazione-la-fonte-319213f47039",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -67,7 +67,7 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-10-17T21:20:49.576Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-15T21:25:22.860Z",
+      "validThrough": "2027-01-16T09:29:15.469Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -103,16 +103,16 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
-        "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
-        "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
+        "en": "staying-down-fondazione-la-fonte-luganese-malcantone",
+        "de": "bleib-unten-fondazione-la-fonte-luganese-malcantone",
+        "fr": "rester-baisse-fondazione-la-fonte-luganese-malcantone"
       },
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-05T21:25:22.860Z",
+      "crawledAt": "2026-11-06T09:29:15.469Z",
       "id": "fondazione-la-fonte-8ea3b422c946",
       "previousSlugsByLocale": {
         "it": [
@@ -120,21 +120,19 @@
         ],
         "en": [
           "stagiaire-la-fonte-luganese-malcantone",
-          "staying-down-fondazione-la-fonte-luganese-malcantone"
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ],
         "de": [
           "stagiaire-la-fonte-luganese-malcantone",
-          "bleib-unten-fondazione-la-fonte-luganese-malcantone"
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ],
         "fr": [
-          "rester-baisse-fondazione-la-fonte-luganese-malcantone"
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ]
       },
       "previousSlugs": [
         "stagiaire-la-fonte-luganese-malcantone",
-        "staying-down-fondazione-la-fonte-luganese-malcantone",
-        "bleib-unten-fondazione-la-fonte-luganese-malcantone",
-        "rester-baisse-fondazione-la-fonte-luganese-malcantone"
+        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -156,7 +154,7 @@
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "streetAddress": "Luganese, Malcantone",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:25:22.860Z",
+      "validThrough": "2026-12-06T09:29:15.469Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -201,7 +199,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-05T21:25:22.860Z",
+      "crawledAt": "2026-11-06T09:29:15.469Z",
       "id": "fondazione-la-fonte-485211a481ee",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -223,8 +221,144 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:25:22.860Z",
+      "validThrough": "2026-12-06T09:29:15.469Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "title": "Operatrice/tore socioassistenziale 50%-70% presso Fonte 3",
+      "slug": "operatrice-tore-socioassistenziale-50-70-presso-fonte-3-la-fonte-neggio",
+      "company": "Fondazione La Fonte",
+      "companyKey": "la-fonte",
+      "location": "Neggio",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://www.lafonte.ch/inizia-con-noi?role=operatrice-tore-socioassistenziale-50-70-presso-fonte-3-la-fonte-neggio#:~:text=Operatrice%2Ftore%20socioassistenziale%2050%25%2D70%25%20presso%20Fonte%203",
+      "applyUrl": "https://www.lafonte.ch/inizia-con-noi?role=operatrice-tore-socioassistenziale-50-70-presso-fonte-3-la-fonte-neggio#:~:text=Operatrice%2Ftore%20socioassistenziale%2050%25%2D70%25%20presso%20Fonte%203",
+      "description": "Obiettivo della funzione è assicurare l'accompagnamento dei residenti nelle attività della vita quotidiana, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- rispetto a candidati/e con formazione a livello secondario II in ambito sociale, titolo preferenziale verrà dato a candidature con una formazione OSA\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità, autonomia e capacità di cooperare costruttivamente con diverse figure professionali all’interno del team\n- disponibilità a lavorare a turni\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)",
+      "category": "social-services",
+      "sector": "Servizi sociali / Non-profit",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "ENTRY",
+      "source": "la-fonte-crawler",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "titleByLocale": {
+        "it": "Operatrice/tore socioassistenziale 50%-70% presso Fonte 3",
+        "en": "Operatrice/tore socioassistenziale 50%-70% presso Fonte 3",
+        "de": "Operatrice/tore socioassistenziale 50%-70% presso Fonte 3",
+        "fr": "Operatrice/tore socioassistenziale 50%-70% presso Fonte 3"
+      },
+      "descriptionByLocale": {
+        "it": "Obiettivo della funzione è assicurare l'accompagnamento dei residenti nelle attività della vita quotidiana, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- rispetto a candidati/e con formazione a livello secondario II in ambito sociale, titolo preferenziale verrà dato a candidature con una formazione OSA\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità, autonomia e capacità di cooperare costruttivamente con diverse figure professionali all’interno del team\n- disponibilità a lavorare a turni\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)",
+        "en": "Obiettivo della funzione è assicurare l'accompagnamento dei residenti nelle attività della vita quotidiana, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- rispetto a candidati/e con formazione a livello secondario II in ambito sociale, titolo preferenziale verrà dato a candidature con una formazione OSA\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità, autonomia e capacità di cooperare costruttivamente con diverse figure professionali all’interno del team\n- disponibilità a lavorare a turni\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)",
+        "de": "Obiettivo della funzione è assicurare l'accompagnamento dei residenti nelle attività della vita quotidiana, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- rispetto a candidati/e con formazione a livello secondario II in ambito sociale, titolo preferenziale verrà dato a candidature con una formazione OSA\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità, autonomia e capacità di cooperare costruttivamente con diverse figure professionali all’interno del team\n- disponibilità a lavorare a turni\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)",
+        "fr": "Obiettivo della funzione è assicurare l'accompagnamento dei residenti nelle attività della vita quotidiana, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- rispetto a candidati/e con formazione a livello secondario II in ambito sociale, titolo preferenziale verrà dato a candidature con una formazione OSA\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità, autonomia e capacità di cooperare costruttivamente con diverse figure professionali all’interno del team\n- disponibilità a lavorare a turni\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)"
+      },
+      "slugByLocale": {
+        "it": "operatrice-tore-socioassistenziale-50-70-presso-fonte-3-la-fonte-neggio",
+        "en": "operatrice-tore-socioassistenziale-50-70-presso-fonte-3-la-fonte-neggio",
+        "de": "operatrice-tore-socioassistenziale-50-70-presso-fonte-3-la-fonte-neggio",
+        "fr": "operatrice-tore-socioassistenziale-50-70-presso-fonte-3-la-fonte-neggio"
+      },
+      "sourceLang": "it",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "2026-11-06T09:29:15.469Z",
+      "id": "fondazione-la-fonte-c3f68b4580e1",
+      "needsRetranslation": true,
+      "salaryMin": 34700,
+      "salaryMax": 52500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 34700,
+          "maxValue": 52500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Neggio",
+      "addressRegion": "TI",
+      "postalCode": "6991",
+      "streetAddress": "Neggio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T09:29:15.469Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T09:29:15.469Z"
+    },
+    {
+      "title": "Vegliatrice/tore 50%-60% presso Fonte 3",
+      "slug": "vegliatrice-tore-50-60-presso-fonte-3-la-fonte-neggio",
+      "company": "Fondazione La Fonte",
+      "companyKey": "la-fonte",
+      "location": "Neggio",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://www.lafonte.ch/inizia-con-noi?role=vegliatrice-tore-50-60-presso-fonte-3-la-fonte-neggio#:~:text=Vegliatrice%2Ftore%2050%25%2D60%25%20presso%20Fonte%203",
+      "applyUrl": "https://www.lafonte.ch/inizia-con-noi?role=vegliatrice-tore-50-60-presso-fonte-3-la-fonte-neggio#:~:text=Vegliatrice%2Ftore%2050%25%2D60%25%20presso%20Fonte%203",
+      "description": "L’obiettivo della funzione è quello di garantire la sorveglianza e sicurezza dei residenti durante la notte, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- titolo preferenziale verrà dato a candidature con una formazione di base nel campo socio-sanitario, quale OSA, OSS o Assistente di cura.\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità e autonomia\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)",
+      "category": "general",
+      "sector": "Servizi sociali / Non-profit",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "ENTRY",
+      "source": "la-fonte-crawler",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "titleByLocale": {
+        "it": "Vegliatrice/tore 50%-60% presso Fonte 3",
+        "en": "Vegliatrice/tore 50%-60% presso Fonte 3",
+        "de": "Vegliatrice/tore 50%-60% presso Fonte 3",
+        "fr": "Vegliatrice/tore 50%-60% presso Fonte 3"
+      },
+      "descriptionByLocale": {
+        "it": "L’obiettivo della funzione è quello di garantire la sorveglianza e sicurezza dei residenti durante la notte, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- titolo preferenziale verrà dato a candidature con una formazione di base nel campo socio-sanitario, quale OSA, OSS o Assistente di cura.\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità e autonomia\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)",
+        "en": "L’obiettivo della funzione è quello di garantire la sorveglianza e sicurezza dei residenti durante la notte, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- titolo preferenziale verrà dato a candidature con una formazione di base nel campo socio-sanitario, quale OSA, OSS o Assistente di cura.\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità e autonomia\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)",
+        "de": "L’obiettivo della funzione è quello di garantire la sorveglianza e sicurezza dei residenti durante la notte, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- titolo preferenziale verrà dato a candidature con una formazione di base nel campo socio-sanitario, quale OSA, OSS o Assistente di cura.\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità e autonomia\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)",
+        "fr": "L’obiettivo della funzione è quello di garantire la sorveglianza e sicurezza dei residenti durante la notte, curando con loro una relazione rispettosa, professionale, di fiducia e seguendo gli obiettivi e le modalità di intervento definiti nei rispettivi Piani di sviluppo individuale.\n\nRequisiti:\n\n- titolo preferenziale verrà dato a candidature con una formazione di base nel campo socio-sanitario, quale OSA, OSS o Assistente di cura.\n- capacità di accompagnare autonomamente persone con disabilità\n- senso di responsabilità e autonomia\n- sarà data la preferenza alle persone residenti\n\nL'inizio attività è prevista per **gennaio 2027**. La Direzione della Fonte attende con interesse entro il **30 novembre 2026** le candidature corredate da una lettera di motivazione, curriculum vitae, certificati di formazione e lavoro, referenze in formato pdf a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)"
+      },
+      "slugByLocale": {
+        "it": "vegliatrice-tore-50-60-presso-fonte-3-la-fonte-neggio",
+        "en": "vegliatrice-tore-50-60-presso-fonte-3-la-fonte-neggio",
+        "de": "vegliatrice-tore-50-60-presso-fonte-3-la-fonte-neggio",
+        "fr": "vegliatrice-tore-50-60-presso-fonte-3-la-fonte-neggio"
+      },
+      "sourceLang": "it",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "2026-11-06T09:29:15.469Z",
+      "id": "fondazione-la-fonte-d63b378e7e86",
+      "needsRetranslation": true,
+      "salaryMin": 29700,
+      "salaryMax": 45000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 29700,
+          "maxValue": 45000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Neggio",
+      "addressRegion": "TI",
+      "postalCode": "6991",
+      "streetAddress": "Neggio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T09:29:15.469Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T09:29:15.469Z"
     }
   ]
 }
