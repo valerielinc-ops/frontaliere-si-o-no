@@ -121,7 +121,7 @@ describe('Ticino pharmacy PDF source fallback', () => {
       TICINO_PHARMACY_PDF_MIRROR_URL,
       TICINO_PHARMACY_PDF_CURRENT_URL,
     ]);
-    expect(fetchRangeSource).toHaveBeenCalledTimes(2);
+    expect(fetchRangeSource).toHaveBeenCalledOnce();
     expect(fetchDirectory).not.toHaveBeenCalled();
   });
 
@@ -190,7 +190,7 @@ describe('Ticino pharmacy PDF source fallback', () => {
       .then(() => null, (caught) => caught);
     expect(error).toBeInstanceOf(Error);
     expect(error.retryBudgetExhausted).not.toBe(true);
-    expect(fetchRangeSource).toHaveBeenCalledOnce();
+    expect(fetchRangeSource).toHaveBeenCalledTimes(2);
   });
 
   it('uses the derived official mirror when a newly dated PDF link fails on www4', async () => {
