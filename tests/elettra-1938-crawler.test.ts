@@ -38,6 +38,15 @@ const NON_STABIO_CARD = `
   </div>
 `;
 
+const FZSONICK_STABIO_SCOPE = `
+  <section>
+    <h3>Privacy - FZSonick SA</h3>
+    <p>FZSONICK SA</p>
+    <p>Ufficio HR, Via Laveggio 15</p>
+    <p>6855 Stabio</p>
+  </section>
+`;
+
 const DETAIL_HTML = readFileSync(path.join(__dirname, 'fixtures', 'elettra-1938-detail.html'), 'utf8');
 
 const STABIO_DETAIL_CARD = `
@@ -197,12 +206,33 @@ describe('Elettra 1938 crawler parser', () => {
       expect(fetchJson).not.toHaveBeenCalled();
     });
 
-    it('returns an empty array when the portal has cards but none in Stabio (genuine zero)', async () => {
+    it('keeps a non-Stabio-only page fail-closed when the target recruiting scope is absent', async () => {
       fetchHtml.mockResolvedValueOnce(`<html><body>${NON_STABIO_CARD}</body></html>`);
       const jobs = await fetchAllElettra1938Jobs();
       expect(jobs).toEqual([]);
       // A shared portal with non-target cards is not independently proving
       // that Elettra's own inventory is empty; keep this path fail-closed.
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    });
+
+    it('marks a complete shared inventory as authoritatively empty for the declared Stabio scope', async () => {
+      fetchHtml.mockResolvedValueOnce(`<html><body>${NON_STABIO_CARD}${FZSONICK_STABIO_SCOPE}</body></html>`);
+      const jobs = await fetchAllElettra1938Jobs();
+      expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+      expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toMatch(/complete single-page.*6855 Stabio/i);
+    });
+
+    it('keeps a paginated non-Stabio inventory fail-closed even when the target scope is declared', async () => {
+      fetchHtml.mockResolvedValueOnce(`
+        <html><body>
+          ${NON_STABIO_CARD}
+          ${FZSONICK_STABIO_SCOPE}
+          <div class="container-pagination">Pagina 1 di 2</div>
+        </body></html>
+      `);
+      const jobs = await fetchAllElettra1938Jobs();
+      expect(jobs).toEqual([]);
       expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
     });
 
