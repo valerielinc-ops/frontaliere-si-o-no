@@ -442,7 +442,7 @@ const identityText = (value = '') => textOf(value).toLowerCase()
  * Compare a stored/listing title with the visible detail-page heading.
  * One-letter gender markers are presentation metadata, not vacancy identity.
  */
-function vacancyTitleIdentity(value = '') {
+export function vacancyTitleIdentity(value = '') {
   return identityText(value)
     .split(' ')
     .filter((token) => token && !['m', 'w', 'f', 'd'].includes(token))
