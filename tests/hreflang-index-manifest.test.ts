@@ -10,7 +10,11 @@ import {
   parseHreflangManifest,
   serializeHreflangManifest,
 } from '../scripts/lib/hreflang-index-manifest.mjs';
-import { runHreflangIndexManifest, ownedLocalesFromEnv } from '../scripts/ci/hreflang-index-manifest.mjs';
+import {
+  benchmarkHreflangStaging,
+  runHreflangIndexManifest,
+  ownedLocalesFromEnv,
+} from '../scripts/ci/hreflang-index-manifest.mjs';
 import { extractHreflangAlternates } from '../scripts/lib/hreflang-alternates.mjs';
 import { findHreflangReciprocityFailures } from '../scripts/lib/hreflang-reciprocity.mjs';
 import { buildCanonicalBridgePage } from '../build-plugins/constants';
@@ -443,6 +447,20 @@ describe('runHreflangIndexManifest on a dist', () => {
       batchSize: 64,
     });
     expect(summary.stagingBenchmark.peakStagingBytes).toBeLessThan(summary.stagingBenchmark.preBatchPeakBytes);
+  });
+
+  it('keeps fractional positive batch sizes from rounding down to a zero-sized batch', () => {
+    const summary = benchmarkHreflangStaging([
+      { originalBytes: 10, stagedBytes: 2 },
+      { originalBytes: 20, stagedBytes: 3 },
+    ], 0.5);
+
+    expect(summary).toMatchObject({
+      batchSize: 1,
+      preBatchPeakBytes: 35,
+      peakStagingBytes: 23,
+      reductionBytes: 12,
+    });
   });
 
   it('fails before writing a complete manifest when a dist directory cannot be read', async () => {

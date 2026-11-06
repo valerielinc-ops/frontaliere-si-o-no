@@ -108,7 +108,7 @@ function normaliseRewriteBatchSize(value) {
   if (value === Number.POSITIVE_INFINITY) return value;
   const number = Number(value);
   return Number.isFinite(number) && number > 0
-    ? Math.floor(number)
+    ? Math.max(1, Math.floor(number))
     : HREFLANG_REWRITE_BATCH_SIZE;
 }
 
