@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { createExpiredArchivePublicationEvidence } from '../build-plugins/shared/expiredArchivePublicationEvidence.mjs';
+import { minifyHtml } from '../build-plugins/shared/htmlMinify';
 
 const roots: string[] = [];
 const SOURCE_SHA = 'a'.repeat(40);
@@ -23,7 +24,7 @@ function fixture() {
     expiredAt: '2026-10-01T00:00:00.000Z',
   });
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, `<title>${titleHtml}</title><meta name="description" content="${metaDescriptionHtml}"><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}"><script>window.__EXPIRED_JOB_DATA__=${payload};</script><main data-expired-static-body="true"></main>`);
+  fs.writeFileSync(file, minifyHtml(`<title>${titleHtml}</title><meta name="description" content="${metaDescriptionHtml}"><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}"><script>window.__EXPIRED_JOB_DATA__=${payload};</script><main data-expired-static-body="true"></main>`));
   return { root, route, file, url, payload, titleHtml, metaDescriptionHtml };
 }
 
@@ -43,6 +44,7 @@ describe('expired archive publication evidence', () => {
   it('attests a disk-backed alias from source owner through the emitted HTML', () => {
     const values = fixture();
     const { root, route, url } = values;
+    expect(fs.readFileSync(values.file, 'utf8')).toContain('data-expired-static-body=true');
     const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
     recordFixture(evidence, values);
 
@@ -70,6 +72,18 @@ describe('expired archive publication evidence', () => {
     expect(() => evidence.write({
       distDir: root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
     })).toThrow('payload differs from its source owner');
+  });
+
+  it('rejects a prefixed attribute that only resembles the static body marker', () => {
+    const values = fixture();
+    const html = fs.readFileSync(values.file, 'utf8');
+    fs.writeFileSync(values.file, html.replace('data-expired-static-body=true', 'x-data-expired-static-body=true'));
+    const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
+    recordFixture(evidence, values);
+
+    expect(() => evidence.write({
+      distDir: values.root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
+    })).toThrow('lost its static body marker');
   });
 
   it('fails closed when the sampled archive page is indexable', () => {

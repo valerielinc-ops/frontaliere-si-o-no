@@ -8,6 +8,7 @@ export const EXPIRED_ARCHIVE_EVIDENCE_VALIDATOR = 'expired-archive-publication-v
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const DEFAULT_CANARIES_PER_LOCALE = 4;
 const NOINDEX_ROBOTS_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots(?![a-z0-9_-])["']?)(?=[^>]*\bcontent\s*=\s*["']?[^"'>]*\bnoindex\b)[^>]*>/iu;
+const EXPIRED_STATIC_BODY_MARKER_RE = /<main\b(?=[^>]*\sdata-expired-static-body\s*=\s*(?:"true"|'true'|true)(?=[\s/>]))[^>]*>/iu;
 const TITLE_RE = /<title(?:\s[^>]*)?>([\s\S]*?)<\/title\s*>/iu;
 const SECTION_SLUGS = JSON.parse(fs.readFileSync(
   path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../scripts/lib/section-shard-slugs.json'),
@@ -94,7 +95,7 @@ export function createExpiredArchivePublicationEvidence({
             throw new Error(`expired archive canary path escapes dist: ${candidate.path}`);
           }
           const html = fs.readFileSync(file, 'utf8');
-          if (!html.includes('data-expired-static-body="true"')) {
+          if (!EXPIRED_STATIC_BODY_MARKER_RE.test(html)) {
             throw new Error(`expired archive canary lost its static body marker: ${candidate.path}`);
           }
           if (!html.includes(`<link rel="canonical" href="${candidate.url}">`)) {
