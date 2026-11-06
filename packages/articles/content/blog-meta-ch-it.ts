@@ -8681,6 +8681,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.riforma-assicurazione-invalidita-ai.title': 'Riforma AI: rischio esaurimento patrimonio nel 2031',
     'blog.article.riforma-assicurazione-invalidita-ai.excerpt': 'Il Consiglio federale ha posto in consultazione mercoledì la prossima riforma dell\'assicurazione invalidità (AI).',
     'blog.article.riforma-assicurazione-invalidita-ai.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.previdenza-lpp-tasso-2-percento.title': 'Previdenza LPP: tasso d’interesse al 2% dal 1° gen. 2027',
+    'blog.article.previdenza-lpp-tasso-2-percento.excerpt': 'Dal gennaio 2027, il tasso d\'interesse minimo del secondo pilastro salirà dall\'1,25% al 2%, secondo quanto deciso dal Consiglio federale.',
+    'blog.article.previdenza-lpp-tasso-2-percento.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

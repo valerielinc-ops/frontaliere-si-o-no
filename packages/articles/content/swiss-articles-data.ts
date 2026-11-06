@@ -30195,6 +30195,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'previdenza-lpp-tasso-2-percento',
+    category: 'pensione',
+    date: '2026-11-06T18:35:05.831Z',
+    image: '/images/blog/article-previdenza-lpp-tasso-2-percento.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

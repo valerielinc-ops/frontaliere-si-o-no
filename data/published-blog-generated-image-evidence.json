@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "9b60de32b4a2b4f7f4e6a811132b46fec5b3fc6a",
+  "commit": "fad38db33267e8b50cf62811bd274073bdd849d2",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -47488,6 +47488,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of an electric vehicle charging station."
+      }
+    },
+    "/images/blog/article-previdenza-lpp-tasso-2-percento.webp": {
+      "schema": 1,
+      "assetId": "article-previdenza-lpp-tasso-2-percento",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "00d21d55062bdb34db78462d18d7f513a9d8884018a7d34e6a77ad043991ac4b",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "6c6869c18f624ddfa0f385a2391cce3c7036aa7a93eb8e4c10d216590e81c980",
+      "bytes": 155396,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-06T18:34:51.877Z",
+      "verifiedAt": "2026-11-06T18:35:05.045Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-previdenza-lpp-tasso-2-percento.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic illustration of a modern Swiss-style financial district; no readable text, logos, identifiable faces, or foreground people."
       }
     },
     "/images/places/lugano-view.webp": {

@@ -8681,6 +8681,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.riforma-assicurazione-invalidita-ai.title': 'AI reform: risk of asset depletion in 2031',
     'blog.article.riforma-assicurazione-invalidita-ai.excerpt': 'The Federal Council put the next reform of disability insurance (DI) out for consultation on Wednesday.',
     'blog.article.riforma-assicurazione-invalidita-ai.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.previdenza-lpp-tasso-2-percento.title': 'LPP pension provision: interest rate of 2% from Jan. 1, 2027',
+    'blog.article.previdenza-lpp-tasso-2-percento.excerpt': 'From January 2027, the minimum interest rate for the second pillar will rise from 1,25% to 2%, according to the decision of the Federal Council.',
+    'blog.article.previdenza-lpp-tasso-2-percento.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

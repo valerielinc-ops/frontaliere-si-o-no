@@ -2916,6 +2916,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'voto-iva-13esima-avs-novembre': { it: 'voto-iva-13esima-avs-novembre', en: 'vote-vat-13th-avs-november', de: 'abstimmung-mwst-13-ahv-november', fr: 'vote-tva-13eme-avs-novembre' },
  'cdf-critica-armasuisse-immobili': { it: 'cdf-critica-armasuisse-immobili', en: 'cdf-criticizes-armasuisse-real-estate', de: 'cdf-kritisiert-armasuisse-immobilien', fr: 'cdf-critique-armasuisse-immobilier' },
  'riforma-assicurazione-invalidita-ai': { it: 'riforma-assicurazione-invalidita-ai', en: 'ai-insurance-reform', de: 'ai-versicherungsreform', fr: 'reforme-assurance-invalidite' },
+ 'previdenza-lpp-tasso-2-percento': { it: 'previdenza-lpp-tasso-2-percento', en: 'pension-lpp-interest-rate-2-percent', de: 'rente-lpp-zins-2-prozent', fr: 'retraite-lpp-taux-2-pourcent' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

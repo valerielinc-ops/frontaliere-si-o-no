@@ -109739,6 +109739,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-previdenza-lpp-tasso-2-percento': {
+    title: 'Previdenza LPP: tasso d’interesse al 2% dal 1° gen. 2027',
+    description: 'Dal 1° gennaio 2027 il tasso minimo LPP sale al 2%; rendimenti medi: 6,1% nel 2025 e 5,4% fino a fine agosto 2026; copertura media: 122,5% a fine agosto 2026.',
+    keywords: 'previdenza, LPP, tasso minimo, secondo pilastro, rendimento, copertura, UFAS, Svizzera',
+    ogTitle: 'Previdenza LPP: tasso minimo al 2% dal 2027',
+    ogDescription: 'Il Consiglio federale ha fissato al 2% il tasso minimo LPP dal 1° gennaio 2027. L’UFAS stima rendimenti medi del 6,1% nel 2025 e del 5,4% fino a fine agosto 2026; copertura media: 122,5% a fine agosto 2026.',
+    canonicalPath: '/articoli-svizzera/previdenza-lpp-tasso-2-percento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Previdenza LPP: tasso d’interesse al 2% dal 1° gen. 2027",
+      "description": "Dal 1° gennaio 2027 il tasso minimo LPP sale al 2%; rendimenti medi: 6,1% nel 2025 e 5,4% fino a fine agosto 2026; copertura media: 122,5% a fine agosto 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-previdenza-lpp-tasso-2-percento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-06T18:35:06+00:00",
+      "dateModified": "2026-11-06T18:35:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/previdenza-lpp-tasso-2-percento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

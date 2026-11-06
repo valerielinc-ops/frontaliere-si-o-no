@@ -8681,6 +8681,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.riforma-assicurazione-invalidita-ai.title': 'IV-Reform: Risiko einer Vermögenserschöpfung im Jahr 2031',
     'blog.article.riforma-assicurazione-invalidita-ai.excerpt': 'Der Bundesrat hat am Mittwoch die nächste Reform der Invalidenversicherung (IV) in die Vernehmlassung geschickt.',
     'blog.article.riforma-assicurazione-invalidita-ai.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.previdenza-lpp-tasso-2-percento.title': 'BVG-Pensionsvorsorge: Zinssatz mit 2 % ab dem 1. Januar. 2027',
+    'blog.article.previdenza-lpp-tasso-2-percento.excerpt': 'Ab Januar 2027 wird der Mindestzinssatz für die zweite Säule von 1,25 % auf 2 % ansteigen, wie vom Bundesrat beschlossen.',
+    'blog.article.previdenza-lpp-tasso-2-percento.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

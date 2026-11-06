@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1072,
+      "5": 1073,
       "6": 5061
     },
-    "publishedCovers": 7815,
+    "publishedCovers": 7816,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -214085,6 +214085,39 @@
         "provider": "openai-codex",
         "assetId": "article-premi-mercato-idroelettrico-2026",
         "imageUrl": "/images/blog/article-premi-mercato-idroelettrico-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-previdenza-lpp-tasso-2-percento": {
+      "cover": "/images/blog/article-previdenza-lpp-tasso-2-percento.webp",
+      "hash": "6c6869c18f624ddfa0f385a2391cce3c7036aa7a93eb8e4c10d216590e81c980",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "previdenza-lpp-tasso-2-percento",
+          "category": "pensione",
+          "date": "2026-11-06T18:35:05.831Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-previdenza-lpp-tasso-2-percento.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-previdenza-lpp-tasso-2-percento",
+        "imageUrl": "/images/blog/article-previdenza-lpp-tasso-2-percento.webp",
         "evidence": "generated-engine-record"
       }
     },

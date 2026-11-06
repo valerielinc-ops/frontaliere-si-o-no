@@ -8681,6 +8681,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.riforma-assicurazione-invalidita-ai.title': 'Réforme de l\'AI : risque d\'épuisement du patrimoine en 2031',
     'blog.article.riforma-assicurazione-invalidita-ai.excerpt': 'Le Conseil fédéral a mis en consultation mercredi la prochaine réforme de l\'assurance-invalidité (AI).',
     'blog.article.riforma-assicurazione-invalidita-ai.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.previdenza-lpp-tasso-2-percento.title': 'Prévoyance LPP : taux d’intérêt à 2 % dès le 1er janvier 2027',
+    'blog.article.previdenza-lpp-tasso-2-percento.excerpt': 'À partir de janvier 2027, le taux d’intérêt minimal du deuxième pilier passera de 1,25 % à 2 %, conformément à la décision du Conseil fédéral.',
+    'blog.article.previdenza-lpp-tasso-2-percento.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
