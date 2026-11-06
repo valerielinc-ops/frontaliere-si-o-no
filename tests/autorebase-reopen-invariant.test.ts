@@ -150,6 +150,26 @@ describe('branch janitor: davanti a quell\'etichetta non cancella', () => {
     expect(body).toContain('>"$branch_prefetch_dir/head/$index"');
   });
 
+  it('rivalida tip corrente e predicato prima di ogni delete dello sweep', () => {
+    const start = janitor.indexOf('  sweep:');
+    const body = janitor.slice(start, janitor.indexOf('  delete-closed-unmerged:'));
+    const currentTip = body.indexOf('current_tip=$(gh api "repos/$REPO/git/ref/heads/$NAME"');
+    const mergedPredicate = body.indexOf('compare/$current_tip...$MERGED_PR_HEAD');
+    const aheadPredicate = body.indexOf('compare/$DEFAULT_BRANCH...$current_tip');
+    const finalTip = body.indexOf('final_tip=$(gh api "repos/$REPO/git/ref/heads/$NAME"');
+    const deleteIdx = body.indexOf('-X DELETE');
+
+    expect(currentTip).toBeGreaterThan(-1);
+    expect(mergedPredicate).toBeGreaterThan(currentTip);
+    expect(aheadPredicate).toBeGreaterThan(currentTip);
+    expect(finalTip).toBeGreaterThan(aheadPredicate);
+    expect(finalTip).toBeLessThan(deleteIdx);
+    expect(body).toContain('if [ "$current_tip" != "$TIP" ]; then');
+    expect(body).toContain('REVALIDATION_KIND="merged"');
+    expect(body).toContain('REVALIDATION_KIND="zero-ahead"');
+    expect(body).toContain('REVALIDATION_KIND="stale-age"');
+  });
+
   it('il sweep non tratta MERGED come prova senza base e ancestry del tip', () => {
     const start = janitor.indexOf('  sweep:');
     const body = janitor.slice(start, janitor.indexOf('  delete-closed-unmerged:'));
@@ -173,5 +193,12 @@ describe('branch janitor: davanti a quell\'etichetta non cancella', () => {
     expect(deleteIdx).toBeGreaterThan(compare);
     expect(body).toContain('if [ "$AHEAD" != "0" ]; then');
     expect(body).toContain('if [ "$STATE" != "CLOSED" ]; then');
+    const currentTip = body.indexOf('CURRENT_TIP=$(gh api "repos/$REPO/git/ref/heads/$HEAD_REF"');
+    const currentAhead = body.indexOf('CURRENT_AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$CURRENT_TIP"');
+    const finalTip = body.indexOf('FINAL_TIP=$(gh api "repos/$REPO/git/ref/heads/$HEAD_REF"');
+    expect(currentTip).toBeGreaterThan(compare);
+    expect(currentAhead).toBeGreaterThan(currentTip);
+    expect(finalTip).toBeGreaterThan(currentAhead);
+    expect(finalTip).toBeLessThan(deleteIdx);
   });
 });

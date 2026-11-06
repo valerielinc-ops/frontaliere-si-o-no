@@ -159,6 +159,99 @@ jobs:
           wait
 
           deleted=0; flagged=0
+
+          # The branch list and the prefetch are snapshots. A candidate can be
+          # pushed after either snapshot, so every destructive decision gets a
+          # final ref/predicate check immediately before DELETE. The last ref
+          # read closes the gap between that predicate and the DELETE itself;
+          # any missing/changed response stays report-only.
+          revalidate_sweep_candidate() {
+            local current_tip current_ahead current_behind current_last current_last_s
+            local current_age final_tip current_open_prs open_count
+
+            current_tip=$(gh api "repos/$REPO/git/ref/heads/$NAME" --jq '.object.sha' 2>/dev/null || true)
+            if ! [[ "$current_tip" =~ ^[0-9a-fA-F]{40}$ ]]; then
+              echo "::warning::origin/$NAME — current tip non determinabile prima di delete: REPORT-only (non cancello)"
+              return 1
+            fi
+
+            # A new OPEN PR is a live-use signal even when the prefetch saw no
+            # PR (or only a historical one). An API failure must not authorize
+            # deletion.
+            current_open_prs=$(gh pr list --repo "$REPO" --head "$NAME" --state open --limit 10 \
+              --json number 2>/dev/null || printf '%s\n' '__JANITOR_API_ERROR__')
+            if [ "$current_open_prs" = "__JANITOR_API_ERROR__" ]; then
+              echo "::warning::origin/$NAME — query PR OPEN finale non riuscita: REPORT-only (non cancello)"
+              return 1
+            fi
+            open_count=$(echo "$current_open_prs" | jq 'length' 2>/dev/null || true)
+            if ! [[ "$open_count" =~ ^[0-9]+$ ]]; then
+              echo "::warning::origin/$NAME — risposta PR OPEN finale non valida: REPORT-only (non cancello)"
+              return 1
+            fi
+            if [ "$open_count" -gt 0 ]; then
+              echo "::warning::origin/$NAME — PR OPEN rilevata durante la rivalidazione: REPORT-only (non cancello)"
+              return 1
+            fi
+
+            case "$REVALIDATION_KIND" in
+              merged)
+                current_behind=$(gh api "repos/$REPO/compare/$current_tip...$MERGED_PR_HEAD" \
+                  --jq '.behind_by' 2>/dev/null || true)
+                if [ "$current_behind" != "0" ]; then
+                  echo "::warning::origin/$NAME — current tip non verificato come merged (behind=$current_behind): REPORT-only (non cancello)"
+                  return 1
+                fi
+                ;;
+              zero-ahead)
+                current_ahead=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$current_tip" \
+                  --jq '.ahead_by' 2>/dev/null || true)
+                if [ "$current_ahead" != "0" ]; then
+                  echo "::warning::origin/$NAME — current tip ahead=$current_ahead: REPORT-only (non cancello)"
+                  return 1
+                fi
+                ;;
+              stale-age)
+                current_ahead=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$current_tip" \
+                  --jq '.ahead_by' 2>/dev/null || true)
+                if ! [[ "$current_ahead" =~ ^[1-9][0-9]*$ ]]; then
+                  echo "::warning::origin/$NAME — current tip ahead non valido ($current_ahead): REPORT-only (non cancello)"
+                  return 1
+                fi
+                current_last=$(gh api "repos/$REPO/commits/$current_tip" \
+                  --jq '.commit.committer.date' 2>/dev/null || true)
+                current_last_s=$(date -u -d "$current_last" +%s 2>/dev/null || echo 0)
+                if [ "$current_last_s" -le 0 ]; then
+                  echo "::warning::origin/$NAME — data current tip non determinabile: REPORT-only (non cancello)"
+                  return 1
+                fi
+                current_age=$(( (NOW - current_last_s) / 86400 ))
+                if [ "$current_age" -lt "$STALE_DAYS" ]; then
+                  echo "::warning::origin/$NAME — current tip inattivo ${current_age}d (<${STALE_DAYS}d): REPORT-only (non cancello)"
+                  return 1
+                fi
+                ;;
+              *)
+                echo "::warning::origin/$NAME — deletion predicate sconosciuto: REPORT-only (non cancello)"
+                return 1
+                ;;
+            esac
+
+            if [ "$current_tip" != "$TIP" ]; then
+              echo "::warning::origin/$NAME — tip cambiato dopo il prefetch (prefetched=$TIP current=$current_tip): REPORT-only (non cancello)"
+              return 1
+            fi
+
+            # The predicate above used current_tip. Read the ref once more so a
+            # push during the final compare cannot immediately authorize DELETE.
+            final_tip=$(gh api "repos/$REPO/git/ref/heads/$NAME" --jq '.object.sha' 2>/dev/null || true)
+            if [ "$final_tip" != "$current_tip" ]; then
+              echo "::warning::origin/$NAME — tip cambiato durante la rivalidazione (current=$current_tip final=$final_tip): REPORT-only (non cancello)"
+              return 1
+            fi
+            return 0
+          }
+
           for row in "${branches[@]}"; do
             NAME="${row%%$'\t'*}"
             BRANCH_FIELDS="${row#*$'\t'}"
@@ -241,6 +334,7 @@ jobs:
                 echo "::warning::origin/$NAME — PR MERGED ma base/ancestry non verificabili (tip=$TIP): REPORT-only (non cancello)"
                 flagged=$((flagged+1)); continue
               fi
+              REVALIDATION_KIND="merged"
               REASON="PR #$MERGED_PR_NUMBER MERGED su $DEFAULT_BRANCH, tip $TIP antenato dell'HEAD PR ${MERGED_PR_HEAD:0:12} (behind=0)"
             fi
 
@@ -256,6 +350,7 @@ jobs:
                 flagged=$((flagged+1)); continue
               fi
               if [ "$AHEAD" = "0" ]; then
+                REVALIDATION_KIND="zero-ahead"
                 REASON="PR CLOSED non mergiata ma 0-ahead su $DEFAULT_BRANCH (nessun commit locale unico)"
               else
                 echo "::warning::origin/$NAME — PR CLOSED non mergiata, ahead=$AHEAD: REPORT-only (lavoro non confluito)"
@@ -280,6 +375,7 @@ jobs:
                 flagged=$((flagged+1)); continue
               fi
               if [ "$AHEAD" = "0" ]; then
+                REVALIDATION_KIND="zero-ahead"
                 if [ "$ISTATE" = "closed" ] && [ "$IREASON" != "not_planned" ]; then
                   REASON="fix/issue-$ISSUE_N, issue #$ISSUE_N CLOSED (${IREASON:-completed}), 0-ahead (nessun commit locale unico)"
                 else
@@ -298,6 +394,7 @@ jobs:
                   [ "$LAST_S" -gt 0 ] && AGE_D=$(( (NOW - LAST_S) / 86400 ))
                 fi
                 if [ "$AGE_D" -ge "$STALE_DAYS" ]; then
+                  REVALIDATION_KIND="stale-age"
                   REASON="no-PR, ahead=$AHEAD, inattivo ${AGE_D}d ≥ ${STALE_DAYS}d (abbandonato)"
                 else
                   echo "::warning::origin/$NAME — no-PR, ahead=$AHEAD, inattivo ${AGE_D}d (<${STALE_DAYS}d o ignota): REPORT-only (WIP recente, non cancello)"
@@ -308,6 +405,9 @@ jobs:
 
             echo "::warning::origin/$NAME STALE — $REASON → delete"
             if [ "${DRY_RUN:-false}" = "true" ]; then echo "(dry-run) skip delete $NAME"; continue; fi
+            if ! revalidate_sweep_candidate; then
+              flagged=$((flagged+1)); continue
+            fi
             if gh api -X DELETE "repos/$REPO/git/refs/heads/$NAME" 2>/dev/null; then
               echo "deleted origin/$NAME"; deleted=$((deleted+1))
             else
@@ -382,6 +482,25 @@ jobs:
           fi
           if [ "$AHEAD" != "0" ]; then
             echo "::warning::PR #$PR_NUM closed-unmerged, ahead=$AHEAD — lavoro non confluito, head ref $HEAD_REF KEPT"
+            exit 0
+          fi
+
+          # A push can land after the first compare and before DELETE. Re-run
+          # the 0-ahead predicate against the current tip and require the ref
+          # to remain stable through the final check; failures stay report-only.
+          CURRENT_TIP=$(gh api "repos/$REPO/git/ref/heads/$HEAD_REF" --jq '.object.sha' 2>/dev/null || true)
+          if ! [[ "$CURRENT_TIP" =~ ^[0-9a-fA-F]{40}$ ]]; then
+            echo "::warning::PR #$PR_NUM current tip non determinabile prima di delete — head ref $HEAD_REF KEPT"
+            exit 0
+          fi
+          CURRENT_AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$CURRENT_TIP" --jq '.ahead_by' 2>/dev/null || true)
+          if [ "$CURRENT_AHEAD" != "0" ]; then
+            echo "::warning::PR #$PR_NUM current tip ahead=$CURRENT_AHEAD — lavoro non confluito, head ref $HEAD_REF KEPT"
+            exit 0
+          fi
+          FINAL_TIP=$(gh api "repos/$REPO/git/ref/heads/$HEAD_REF" --jq '.object.sha' 2>/dev/null || true)
+          if [ "$FINAL_TIP" != "$CURRENT_TIP" ]; then
+            echo "::warning::PR #$PR_NUM tip cambiato durante la rivalidazione — head ref $HEAD_REF KEPT"
             exit 0
           fi
           if gh api -X DELETE "repos/$REPO/git/refs/heads/$HEAD_REF" 2>/dev/null; then
