@@ -706,6 +706,15 @@ describe('run() — DRY_RUN mode', () => {
         slugByLocale: { it: 'verkaeufer-doettingen' },
         firstSeenAt: '2026-05-05T00:00:00Z',
       },
+      {
+        id: 'job-publisher-source-title',
+        source: 'publisher-submitted',
+        sourceLang: 'it',
+        title: 'Project Manager',
+        titleByLocale: { it: 'Project Manager' },
+        slugByLocale: { it: 'project-manager-lugano' },
+        firstSeenAt: '2026-05-06T00:00:00Z',
+      },
     ]);
     const result = await run({
       env: { DRY_RUN: '1', FB_JOB_VOLUME: '24', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },

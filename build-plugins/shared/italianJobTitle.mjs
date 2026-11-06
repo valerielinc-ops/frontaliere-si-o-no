@@ -11,6 +11,8 @@ import {
 /**
  * Return a usable Italian title, without falling back to source text.
  * Known source-language residue is treated the same as a missing translation.
+ * Publisher source-language pins protect crawler normalization, but they do
+ * not permit a foreign application title to appear in Italian social cards.
  */
 export function getItalianJobTitle(job) {
   const title = job?.titleByLocale?.it;
@@ -20,24 +22,24 @@ export function getItalianJobTitle(job) {
   const pinnedSourceLang = pinnedTitleSourceLang(job);
   const declaredSourceLang = normalizeJobLocale(job?.sourceLang);
   const sourceEvidence = jobTitleSourceLangEvidence(job, 'it');
-  let sourceLang = pinnedSourceLang
+  const sourceLang = pinnedSourceLang
     || (declaredSourceLang && declaredSourceLang !== 'it' && isTitleSourceCopy(cleanTitle, job?.title)
       ? declaredSourceLang
       : sourceEvidence || declaredSourceLang)
     || 'it';
 
-  // Some crawled records are mislabeled as Italian and copy the raw title into
-  // titleByLocale.it. A decisive dictionary hint can catch that case, but never
-  // overrides an explicitly pinned publisher-authored title.
+  // Some crawled and publisher-submitted records copy the raw application title
+  // into titleByLocale.it while the job is marked as Italian. A decisive
+  // foreign-language dictionary hint means the candidate is not Italian, even
+  // when a publisher source-language pin would otherwise bypass this check.
   const titleLanguage = detectJobTitleLocaleDetails(cleanTitle, sourceLang);
   if (
-    !pinnedSourceLang
-    && sourceLang === 'it'
+    sourceLang === 'it'
     && titleLanguage.lang !== 'it'
     && titleLanguage.confidence >= TITLE_LANG_DECISION_CONFIDENCE
     && titleLanguage.method.startsWith('title-hints')
   ) {
-    sourceLang = titleLanguage.lang;
+    return '';
   }
 
   const sourceTitle = String(
@@ -55,7 +57,7 @@ export function getItalianJobTitle(job) {
     company,
     location,
   });
-  const crossLocaleMarkerVerdict = !pinnedSourceLang && sourceLang === 'it'
+  const crossLocaleMarkerVerdict = sourceLang === 'it'
     ? titleLooksUntranslated({
       title: cleanTitle,
       sourceLang: 'en',

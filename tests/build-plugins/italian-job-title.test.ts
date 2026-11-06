@@ -60,12 +60,23 @@ describe('getItalianJobTitle', () => {
     expect(getItalianJobTitle({ title: 'Verkäufer / Verkäuferin' })).toBe('');
   });
 
-  it('honors an explicit publisher source-language pin', () => {
+  it('does not preserve a foreign application title for a publisher-pinned Italian slot', () => {
     const title = 'Project Manager';
+    const job = {
+      source: 'publisher-submitted',
+      sourceLang: 'it',
+      titleByLocale: { it: title },
+    };
+    expect(getItalianJobTitle({ ...job, title })).toBe('');
+    expect(getItalianJobTitle(job)).toBe('');
+  });
+
+  it('keeps a publisher-pinned title when its Italian text is already translated', () => {
+    const title = 'Responsabile di progetto';
     expect(getItalianJobTitle({
       source: 'publisher-submitted',
       sourceLang: 'it',
-      title,
+      title: 'Project Manager',
       titleByLocale: { it: title },
     })).toBe(title);
   });
