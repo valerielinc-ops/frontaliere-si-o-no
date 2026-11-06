@@ -9,6 +9,7 @@ import { listStaticScriptFiles } from '../build-plugins/staticScriptsPlugin';
 import { main as ensureMain } from '../scripts/ci/ensure-cdn-shell-assets.mjs';
 import {
   SHELL_ASSET_CACHE_CONTROL,
+  SHELL_ASSET_IMMUTABLE_CACHE_CONTROL,
   shellAssetCacheControl,
   SHELL_ASSET_CDN_ORIGIN,
   SHELL_ASSET_PAGE_ORIGIN,
@@ -19,6 +20,7 @@ import {
   ensureCdnShellAssets,
   probeCdnAsset,
   purgeCdnAssets,
+  refreshShellAssetCacheControl,
   r2UploadDeadline,
   shellAssetsFromStaticScripts,
   uploadShellAsset,
@@ -49,7 +51,7 @@ const PINNED_TSX_RUNNER = 'scripts/ci/run-pinned-tsx.sh';
 const INCREMENTAL_PUSH = 'scripts/lib/push-article-shard-incremental.sh';
 
 type Outcome = { key: string; outcome: string };
-type Probed = 'present' | 'absent' | 'unknown';
+type Probed = 'present' | 'stale' | 'absent' | 'unknown';
 type Stored = 'exists' | 'missing' | 'indeterminate';
 
 /**
@@ -200,6 +202,25 @@ describe('ensureCdnShellAssets', () => {
       { key: 'assets/two.js', outcome: 'uploaded' },
     ]);
     expect(cdn.calls.upload).toEqual([['assets/two.js', 'two()']]);
+  });
+
+  it('refreshes immutable metadata on a stored hashed asset after a stale CDN probe', async () => {
+    const key = 'assets/gtag-init-012345abcdef.js';
+    const cdn = fakeCdn([key], { probeAnswer: () => 'stale' });
+    const refreshed: Array<[string, string]> = [];
+
+    const results: Outcome[] = await ensureCdnShellAssets({
+      assets: [{ key, content: 'gtag()' }],
+      ...cdn,
+      refreshCacheControl: (assetKey: string, content: string) => {
+        refreshed.push([assetKey, content]);
+        return true;
+      },
+    });
+
+    expect(results).toEqual([{ key, outcome: 'stored' }]);
+    expect(refreshed).toEqual([[key, 'gtag()']]);
+    expect(cdn.calls.purge).toEqual([[key]]);
   });
 
   it('stops when the missing file cannot be uploaded', async () => {
@@ -477,6 +498,22 @@ describe('probeCdnAsset', () => {
     expect(await probeCdnAsset('assets/a.js', { fetchImpl: answer(status, contentType) })).toBe(expected);
   });
 
+  it('marks an existing hashed asset stale when its response still has the short TTL', async () => {
+    const fetchImpl = (async () => ({
+      ok: true,
+      status: 200,
+      headers: new Headers({
+        'content-type': 'application/javascript',
+        'cache-control': SHELL_ASSET_CACHE_CONTROL,
+      }),
+    })) as unknown as typeof fetch;
+
+    await expect(probeCdnAsset('assets/gtag-init-012345abcdef.js', {
+      fetchImpl,
+      expectedCacheControl: SHELL_ASSET_IMMUTABLE_CACHE_CONTROL,
+    })).resolves.toBe('stale');
+  });
+
   it('reads a request that does not complete as unknown', async () => {
     const fetchImpl = (async () => {
       throw new Error('timeout');
@@ -728,6 +765,19 @@ describe('upload-cdn-file.sh adapters', () => {
     const helper = helperSays('::warning::[cdn-upload] upload failed for assets/a.js after 2 attempts\n');
     expect(uploadShellAsset('assets/a.js', 'content()', { spawn: helper.spawn, env: {} })).toBe(false);
   });
+
+  it('refreshShellAssetCacheControl re-puts only content-addressed assets with immutable metadata', () => {
+    const calls: string[][] = [];
+    const spawn = (_command: string, args: string[]) => {
+      calls.push(args);
+      return { stdout: '✅ uploaded hashed -> assets/gtag-init-012345abcdef.js\n', stderr: '' };
+    };
+
+    expect(refreshShellAssetCacheControl('assets/gtag-init-012345abcdef.js', 'content()', { spawn, env: {} })).toBe(true);
+    expect(refreshShellAssetCacheControl('assets/gtag-init.js', 'content()', { spawn, env: {} })).toBe(true);
+    expect(calls).toHaveLength(1);
+    expect(calls[0].slice(2)).toEqual(['assets/gtag-init-012345abcdef.js', SHELL_ASSET_IMMUTABLE_CACHE_CONTROL]);
+  });
 });
 
 describe('lockstep with the full deploy', () => {
@@ -921,7 +971,7 @@ describe('fast emitters run the ensure step before they publish', () => {
 
 describe('content-addressed shell cache headers', () => {
   it.each(['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support', 'meta-pixel-base-code'])('caches immutable %s bytes for a year', (name) => {
-    expect(shellAssetCacheControl(`assets/${name}-012345abcdef.js`)).toBe('public,max-age=31536000,immutable');
+    expect(shellAssetCacheControl(`assets/${name}-012345abcdef.js`)).toBe(SHELL_ASSET_IMMUTABLE_CACHE_CONTROL);
     expect(shellAssetCacheControl(`assets/${name}.js`)).toBe(SHELL_ASSET_CACHE_CONTROL);
     expect(shellAssetCacheControl(`assets/${name}-not-a-digest.js`)).toBe(SHELL_ASSET_CACHE_CONTROL);
   });

@@ -311,6 +311,7 @@ _publish_cdn_r2() {
     local -a copy_flags=()
     case "${6:-}" in
       no-traverse) copy_flags+=(--no-traverse) ;;
+      force-no-traverse) copy_flags+=(--no-traverse --ignore-times) ;;
       "") ;;
       *) echo "::error::[r2] unsupported copy option for $3/: ${6}"; return 1 ;;
     esac
@@ -610,15 +611,16 @@ _publish_cdn_r2() {
   # are the same class as a release, so they get the same immutable header; the
   # zone rule cdn-assets-revalidate excludes these prefixes (infra/cloudflare/rules.md)
   # and the file goes back into the stage so the purge fingerprints still see it.
-  # rclone skips an object it already holds, so a key uploaded before this change
-  # keeps its old 600 s header until the content (and so the name) changes.
+  # A prior rclone copy can leave the same key with the old 600 s metadata:
+  # force this tiny content-addressed batch so the header is repaired even when
+  # the producer bytes and filename have not changed.
   local _hashed_assets_stage="$stage/.assets-content-addressed"
   local _hashed_assets_log="$stage/.assets-content-addressed.jsonl"
   rm -rf "$_hashed_assets_stage" "$_hashed_assets_log"
   mkdir -p "$_hashed_assets_stage"
   if [ -d "$stage/assets" ]; then
     find "$stage/assets" -maxdepth 1 -type f \
-      \( -name 'gtag-init-*.js' -o -name 'adsense-loader-*.js' -o -name 'partnerize-tag-*.js' -o -name 'site-support-*.js' \) \
+      \( -name 'gtag-init-*.js' -o -name 'adsense-loader-*.js' -o -name 'partnerize-tag-*.js' -o -name 'site-support-*.js' -o -name 'meta-pixel-base-code-*.js' \) \
       -exec mv {} "$_hashed_assets_stage/" \;
   fi
   _r2_sync 420 "$stage/assets" assets "public,max-age=600,must-revalidate" "$_assets_log"
@@ -628,7 +630,7 @@ _publish_cdn_r2() {
     # recursively list that archive to compare a handful of exact keys: run
     # 41628599322 exhausted 120s on this small copy. Keep checksum comparison
     # and additive retries, looking up only the staged destination objects.
-    if ! _r2_sync 120 "$_hashed_assets_stage" assets "public,max-age=31536000,immutable" "$_hashed_assets_log" no-traverse; then
+    if ! _r2_sync 120 "$_hashed_assets_stage" assets "public,max-age=31536000,immutable" "$_hashed_assets_log" force-no-traverse; then
       assets_sync_status=1
     fi
     mkdir -p "$stage/assets"
