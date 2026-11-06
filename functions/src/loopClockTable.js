@@ -31,6 +31,10 @@ const entries = [
     introducedAt: '2026-10-31T12:00:00Z',
   },
   { id: 'site-event-description-rewrite', repo: 'site', workflow: 'event-description-rewrite.yml', everyMinutes: 60 },
+  // Verify the published candidate projection, not just the source JSON. A
+  // stale source is re-mined; a healthy source with a missing/stale CDN feed
+  // is rebuilt and republished. A fresh empty feed remains valid.
+  { id: 'site-candidate-feed-health', repo: 'site', workflow: 'topic-candidate-feed-health.yml', everyMinutes: 360 },
   // GitHub's native cron has left this daily workflow dormant despite a green
   // scheduled run. Keep it on the external clock, with the native schedule as
   // an independent safety net; the explicit input preserves autonomous apply.

@@ -6237,6 +6237,8 @@
       "employes-entretien-et-flotte-h-f-d-planzer-kallnach-68c4304c",
       "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-a0bd099e",
       "employes-entretien-et-flotte-h-f-d-planzer-kallnach-b05a303d",
+      "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-4c8ec210",
+      "employes-entretien-et-flotte-h-f-d-planzer-kallnach-6930368b",
       "employees-maintenance-and-fleet-m-f-d-planzer-kallnach",
       "employes-entretien-et-flotte-h-f-d-planzer-kallnach"
     ],
@@ -6248,11 +6250,13 @@
       "en": [
         "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-8d546a78",
         "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-a0bd099e",
+        "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-4c8ec210",
         "employees-maintenance-and-fleet-m-f-d-planzer-kallnach"
       ],
       "fr": [
         "employes-entretien-et-flotte-h-f-d-planzer-kallnach-68c4304c",
         "employes-entretien-et-flotte-h-f-d-planzer-kallnach-b05a303d",
+        "employes-entretien-et-flotte-h-f-d-planzer-kallnach-6930368b",
         "employes-entretien-et-flotte-h-f-d-planzer-kallnach"
       ]
     },
@@ -6640,9 +6644,9 @@
     },
     "slugByLocale": {
       "it": "personale-picking-m-f-d-planzer-harkingen",
-      "en": "employee-picking-m-f-d-planzer-harkingen",
+      "en": "employee-picking-m-f-d-planzer-harkingen-2c784739",
       "de": "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-ee1d71f3",
-      "fr": "selection-des-employes-h-f-d-planzer-harkingen"
+      "fr": "selection-des-employes-h-f-d-planzer-harkingen-face0070"
     },
     "sector": "Trasporti / Logistica",
     "expiredAt": "2026-10-08T09:15:43.297Z",
@@ -6651,8 +6655,12 @@
       "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen-3143b563",
       "selezione-dei-dipendenti-m-f-d-planzer-harkingen",
       "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-b1586369",
+      "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen-fc4ddb3c",
+      "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-e3dead85",
       "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
-      "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+      "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
+      "employee-picking-m-f-d-planzer-harkingen",
+      "selection-des-employes-h-f-d-planzer-harkingen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6660,18 +6668,24 @@
         "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen-3143b563",
         "selezione-dei-dipendenti-m-f-d-planzer-harkingen",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-b1586369",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen-fc4ddb3c",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-e3dead85",
         "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
       ],
       "en": [
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-ee1d71f3",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-b1586369",
-        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-e3dead85",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
+        "employee-picking-m-f-d-planzer-harkingen"
       ],
       "fr": [
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-ee1d71f3",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-b1586369",
-        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-e3dead85",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
+        "selection-des-employes-h-f-d-planzer-harkingen"
       ]
     },
     "postalCode": "4624",

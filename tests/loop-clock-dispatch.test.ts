@@ -12,6 +12,7 @@ import {
   dueLoopClockEntries,
   loopClockSlot,
 } from '../functions/src/loopClockDispatch.js';
+import { dueGenerationSlotEntries } from '../functions/src/generationSlotSchedule.js';
 import {
   LOOP_CLOCK_CORPUS_REPOSITORY,
   LOOP_CLOCK_INPUT,
@@ -92,6 +93,17 @@ describe('loop clock table and cadence', () => {
       workflow: 'event-description-rewrite.yml',
       everyMinutes: 60,
     });
+  });
+
+  it('owns the two generator slots by nominal UTC time with a bounded late-recovery window', () => {
+    const frontaliere = dueGenerationSlotEntries('2026-11-06T10:10:00Z')[0];
+    const svizzera = dueGenerationSlotEntries('2026-11-06T10:40:00Z')[0];
+    expect(frontaliere).toMatchObject({ workflow: 'generate-article.yml', everyMinutes: 60 });
+    expect(svizzera).toMatchObject({ workflow: 'generate-article.yml', everyMinutes: 60 });
+    expect(dueGenerationSlotEntries('2026-11-06T10:10:00Z').map((entry) => entry.generationSlot)).toEqual(['frontaliere']);
+    expect(dueGenerationSlotEntries('2026-11-06T10:20:00Z').map((entry) => entry.generationSlot)).toEqual(['frontaliere']);
+    expect(dueGenerationSlotEntries('2026-11-06T10:25:00Z')).toEqual([]);
+    expect(dueGenerationSlotEntries('2026-11-06T10:40:00Z').map((entry) => entry.generationSlot)).toEqual(['svizzera']);
   });
 
   it('keeps Instagram Insights autonomy on the daily external clock with apply enabled', () => {

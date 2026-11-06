@@ -124,6 +124,30 @@ describe('sitemap family URL coverage ratchet', () => {
     ]);
   });
 
+  it('declares the observed profession-canton inventory rotation with exact counts', () => {
+    const declarations = JSON.parse(readFileSync(
+      resolve(import.meta.dirname, '../data/sitemap-family-coverage-declarations.json'),
+      'utf8',
+    ));
+    const professionUrls = (count: number) => Array.from(
+      { length: count },
+      (_, index) => `https://frontaliereticino.ch/lavoro-ticino-${index}/`,
+    );
+    const result = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-profession-cantons.xml': professionUrls(1244) }),
+      snapshot({ 'sitemap-profession-cantons.xml': professionUrls(1240) }),
+      declarations,
+    );
+
+    expect(result.regressions).toEqual([]);
+    expect(result.allowedDecreases).toMatchObject([{
+      family: 'profession-cantons',
+      previousCount: 1244,
+      currentCount: 1240,
+      delta: -4,
+    }]);
+  });
+
   it('rejects broad, stale, malformed, and legacy flat declarations/snapshots', () => {
     const previous = snapshot({ 'sitemap-job-market.xml': ['a', 'b'] });
     const current = snapshot({ 'sitemap-job-market.xml': ['a'] });

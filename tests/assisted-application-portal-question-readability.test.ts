@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, namesAnotherEmployer, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -799,6 +799,46 @@ it('requires vacancy evidence beyond a company match before trusting one externa
   expect(hasVacancySpecificPostingEvidence('Andere GmbH — Bewerbung', job, {
     pageUrl: postingUrl, pageTitle: 'Andere GmbH — Bewerbung', postingUrl,
   })).toBe(false);
+});
+
+it('keeps proven posting location metadata out of the employer conflict guard', () => {
+  const job = {
+    company: 'Coop Genossenschaft',
+    title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)',
+    location: 'Rickenbach',
+  };
+  const postingUrl = 'https://jobs.example.test/coop-job';
+  const vacancyContext = `${job.title} Coop Genossenschaft Standort Rickenbach Jetzt bewerben`;
+  const apply = {
+    id: 'apply',
+    text: 'Jetzt bewerben',
+    href: 'https://ats.example.test/apply',
+    vacancyContext,
+  };
+
+  expect(hasVacancySpecificPostingEvidence(vacancyContext, job, {
+    pageUrl: postingUrl,
+    pageTitle: `Coop: ${job.title}`,
+    postingUrl,
+    vacancyIdentityContexts: [vacancyContext],
+  })).toBe(true);
+  expect(applicationEntryControls({ links: [apply] }, {
+    postingUrl,
+    job,
+    allowSingleExternalApplicationEntry: true,
+  })).toEqual([apply]);
+  expect(applicationEntryControls({
+    links: [{ ...apply, vacancyContext: `${job.title} Andere GmbH Standort Rickenbach Jetzt bewerben` }],
+  }, {
+    postingUrl,
+    job,
+    allowSingleExternalApplicationEntry: true,
+  })).toEqual([]);
+  expect(namesAnotherEmployer('Kassierer — Coop One Rickenbach', {
+    company: 'Coop Genossenschaft',
+    title: 'Kassierer',
+    location: 'Rickenbach',
+  }, { allowPostingLocation: true })).toBe(true);
 });
 
 it('binds an unproved external Apply link to its own vacancy card', () => {

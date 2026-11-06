@@ -35,11 +35,13 @@ import { realpathSync } from 'node:fs';
  *   - Every event detail page (e.g.
  *     `https://www.guidle.com/it/eventi/party/ascona/floating-notes…_AS26x6V`)
  *     is plain server-rendered HTML (no JS needed, no bot UA needed) and
- *     embeds schema.org Event JSON-LD (a single object, an ARRAY of objects,
- *     or an `@graph` containing event nodes — one per occurrence for recurring
- *     events), the primary data
- *     source here (title, description, startDate/endDate/time, venue,
- *     address, image, organizer and performer). `<meta name="geo.position" content="lat;lng">` gives
+ *     usually embeds schema.org Event JSON-LD (a single object, an ARRAY of
+ *     objects, or an `@graph` containing event nodes — one per occurrence for
+ *     recurring events). Some real details omit JSON-LD but retain the same
+ *     server-rendered detail boundary and a semantic `<time datetime>`; that
+ *     narrow DOM form is the fallback for title, description and start date.
+ *     JSON-LD remains the primary source for venue, address, image, organizer
+ *     and performer. `<meta name="geo.position" content="lat;lng">` gives
  *     geo coordinates and `<meta name="geo.region" content="CH-ZG">` gives the
  *     canton directly (stripped of the `CH-` prefix) — a strong `cantonHint`
  *     for `resolveComuneNationwide`, which most sources don't have. Category
@@ -69,10 +71,11 @@ import { realpathSync } from 'node:fs';
  * scripts/lib/detail-failure-reuse-policy.mjs): an event whose every locale
  * answered 404/410 is a confirmed source disappearance, not a parse failure —
  * it goes to `goneIds` and leaves both numerator and denominator of the ratio.
- * Likewise an `undated` listing — a catalog entry whose page declares an EMPTY
- * microdata startDate and carries no Event JSON-LD (the film catalog under
- * `kino-nach-film/ohne-ortsangabe/…`, sampled 2026-10-04): the source
- * publishes no schedule, so there is nothing for the parser to read. Real
+ * Likewise an `undated` listing — a verified detail page that carries neither
+ * Event JSON-LD nor a machine-readable or absolute textual calendar date: the
+ * source publishes no usable schedule, so there is nothing for the parser to
+ * read. The older film catalog's explicit empty microdata date is retained as
+ * another positive undated signal. Real
  * HTML that did not parse (`drift`) and a detail that never answered
  * (`unreachable`: network error, WAF, 5xx, rate limit) stay failures.
  *
@@ -169,6 +172,28 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 // `sans-indication-de-lieu` and `senza-posizione`), sampled pages carry an
 // empty microdata startDate and no Event JSON-LD.
 const UNDATED_FILM_CATALOG_PATH_RE = /^\/(?:kino-nach-film|cinema-by-movie)\/(?:ohne-ortsangabe|sans-indication-de-lieu|senza-posizione)\//i;
+const GUIDLE_DOM_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const GUIDLE_ABSOLUTE_DATE_TEXT_RE = /(?:\b\d{4}-\d{2}-\d{2}\b|\b\d{1,2}[./-]\d{1,2}[./-]\d{4}\b|\b\d{1,2}\D{1,24}(?:19|20)\d{2}\b)/;
+const GUIDLE_MONTH_NUMBER = new Map([
+  [['januar', 'january', 'janvier', 'gennaio'], 1],
+  [['februar', 'february', 'fevrier', 'febbraio'], 2],
+  [['marz', 'maerz', 'march', 'mars', 'marzo'], 3],
+  [['april', 'avril', 'aprile'], 4],
+  [['mai', 'may', 'maggio'], 5],
+  [['juni', 'june', 'juin', 'giugno'], 6],
+  [['juli', 'july', 'juillet', 'luglio'], 7],
+  [['august', 'aout', 'agosto'], 8],
+  [['september', 'septembre', 'settembre'], 9],
+  [['oktober', 'october', 'octobre', 'ottobre'], 10],
+  [['november', 'novembre'], 11],
+  [['dezember', 'december', 'decembre', 'dicembre'], 12],
+].flatMap(([names, month]) => names.map((name) => [name, month])));
+const GUIDLE_MONTH_PATTERN = [...GUIDLE_MONTH_NUMBER.keys()].sort((a, b) => b.length - a.length).join('|');
+const GUIDLE_TEXT_DATE_RE = new RegExp(`\\b(\\d{1,2})\\.\\s*(${GUIDLE_MONTH_PATTERN})(?:\\s+((?:19|20)\\d{2}))?\\b`, 'giu');
+const GUIDLE_SHARED_MONTH_RANGE_RE = new RegExp(
+  `\\b(\\d{1,2})\\.\\s*[–—-]\\s*(\\d{1,2})\\.\\s*(${GUIDLE_MONTH_PATTERN})\\s+((?:19|20)\\d{2})\\b`,
+  'iu',
+);
 
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const FETCH_TIMEOUT_MS = 20000;
@@ -402,6 +427,87 @@ export function extractGeoAndCanton(doc) {
 }
 
 /**
+ * Locate the source-native boundary of a real Guidle event detail. Requiring
+ * the offer component plus both event microdata labels keeps generic portal
+ * pages and other offer types out of the DOM fallback.
+ */
+function guidleDomDetailRoot(doc) {
+  const root = doc?.querySelector('main.content section.section-detailpage');
+  if (!root?.querySelector('offer-details-app[offer-id]')) return null;
+  if (!text(root.querySelector('[itemprop="eventType"]'))) return null;
+  if (!text(root.querySelector('[itemprop="summary"]'))) return null;
+  return root;
+}
+
+function guidleIsoDate(year, month, day) {
+  if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day)) return null;
+  if (month < 1 || month > 12 || day < 1 || day > new Date(Date.UTC(year, month, 0)).getUTCDate()) return null;
+  return `${String(year).padStart(4, '0')}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
+function extractGuidleTextDateRange(value) {
+  const normalized = String(value || '').normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+  const sharedMonthRange = GUIDLE_SHARED_MONTH_RANGE_RE.exec(normalized);
+  if (sharedMonthRange) {
+    const month = GUIDLE_MONTH_NUMBER.get(sharedMonthRange[3]);
+    const year = Number(sharedMonthRange[4]);
+    const startDate = guidleIsoDate(year, month, Number(sharedMonthRange[1]));
+    const endDate = guidleIsoDate(year, month, Number(sharedMonthRange[2]));
+    return startDate && endDate && startDate <= endDate ? { startDate, endDate } : null;
+  }
+  const dates = [];
+  GUIDLE_TEXT_DATE_RE.lastIndex = 0;
+  let match;
+  while ((match = GUIDLE_TEXT_DATE_RE.exec(normalized))) {
+    dates.push({ day: Number(match[1]), month: GUIDLE_MONTH_NUMBER.get(match[2]), year: Number(match[3]) || null });
+  }
+  const declaredYear = dates.findLast((date) => date.year)?.year;
+  if (!dates.length || !declaredYear) return null;
+  const last = dates.at(-1);
+  const resolved = dates.map((date, index) => ({
+    ...date,
+    year: date.year || (index === 0 && date.month > last.month ? declaredYear - 1 : declaredYear),
+  }));
+  const startDate = guidleIsoDate(resolved[0].year, resolved[0].month, resolved[0].day);
+  const endDate = guidleIsoDate(resolved.at(-1).year, resolved.at(-1).month, resolved.at(-1).day);
+  return startDate && endDate ? { startDate, endDate } : null;
+}
+
+/** Event-shaped occurrence from Guidle's semantic server-rendered fallback. */
+function extractGuidleDomEventOccurrence(doc) {
+  const root = guidleDomDetailRoot(doc);
+  if (!root) return null;
+  const date = root.querySelector('time[datetime]')?.getAttribute('datetime')?.trim();
+  const semanticDate = GUIDLE_DOM_DATE_RE.test(date || '')
+    ? guidleIsoDate(...date.split('-').map(Number))
+    : null;
+  const nativeDate = guidleNativeDateDeclaration(root);
+  const textDateRange = nativeDate ? extractGuidleTextDateRange(text(nativeDate.wrap)) : null;
+  if (!semanticDate && !textDateRange) return null;
+  const timeMatch = /(?:^|\D)((?:[01]\d|2[0-3]):[0-5]\d)(?!\d)/.exec(text(root.querySelector('.time-label')));
+  const addressLocality = text(root.querySelector('header > h3')) || undefined;
+  return {
+    '@type': 'Event',
+    name: text(root.querySelector('[itemprop="summary"]')),
+    description: text(root.querySelector('[itemprop="description"]')) || undefined,
+    startDate: semanticDate ? `${semanticDate}${timeMatch ? `T${timeMatch[1]}` : ''}` : textDateRange.startDate,
+    endDate: semanticDate ? undefined : textDateRange.endDate,
+    location: addressLocality ? { address: { addressLocality } } : undefined,
+    image: doc.querySelector('meta[property="og:image"]')?.getAttribute('content') || undefined,
+  };
+}
+
+function guidleNativeDateDeclaration(root) {
+  for (const wrap of root.querySelectorAll('.accordion-wrap')) {
+    const label = text(wrap.querySelector('h3')).toLowerCase();
+    if (label !== 'datum' && label !== 'date' && label !== 'data') continue;
+    const declaration = wrap.querySelector('.accordion');
+    if (declaration) return { wrap, declaration };
+  }
+  return null;
+}
+
+/**
  * True when the verified film-catalog path declares that it has no schedule:
  * no readable Event JSON-LD, and every microdata `startDate` present is empty.
  * A page outside that catalog, with no `startDate` declaration at all, or
@@ -412,12 +518,22 @@ export function extractGeoAndCanton(doc) {
  */
 export function isUndatedGuidleListing(html, pathSuffix) {
   if (typeof html !== 'string' || !html) return false;
-  if (typeof pathSuffix !== 'string' || !UNDATED_FILM_CATALOG_PATH_RE.test(pathSuffix)) return false;
   if (extractEventJsonLdOccurrences(html).length) return false;
-  if (!/itemprop=["']startDate["']/.test(html)) return false;
-  const declarations = [...new JSDOM(html).window.document.querySelectorAll('[itemprop="startDate"]')];
-  return declarations.length > 0
-    && declarations.every((el) => !String(el.getAttribute('content') ?? el.getAttribute('datetime') ?? el.textContent ?? '').trim());
+  const doc = new JSDOM(html).window.document;
+  const declarations = [...doc.querySelectorAll('time[datetime], [itemprop="startDate"]')];
+  const declarationValues = declarations.map((el) => String(
+    el.getAttribute('datetime') ?? el.getAttribute('content') ?? el.textContent ?? '',
+  ).trim());
+  if (declarationValues.some(Boolean)) return false;
+  if (typeof pathSuffix === 'string' && UNDATED_FILM_CATALOG_PATH_RE.test(pathSuffix)) {
+    return declarations.length > 0;
+  }
+  const root = guidleDomDetailRoot(doc);
+  if (!root) return false;
+  const nativeDate = guidleNativeDateDeclaration(root);
+  return Boolean(nativeDate)
+    && !text(nativeDate.declaration)
+    && !GUIDLE_ABSOLUTE_DATE_TEXT_RE.test(text(nativeDate.wrap));
 }
 
 /**
@@ -436,14 +552,16 @@ export function guidleEmptyRunOutcome({ mappedCount, goneCount, undatedCount, su
  * when the page has no usable Event JSON-LD (missing/expired/wrong page).
  */
 export function mapDetailPageToLocaleData(html, locale, baseUrl) {
-  const occurrences = extractEventJsonLdOccurrences(html);
+  const doc = new JSDOM(html).window.document;
+  const jsonLdOccurrences = extractEventJsonLdOccurrences(html);
+  const domOccurrence = jsonLdOccurrences.length ? null : extractGuidleDomEventOccurrence(doc);
+  const occurrences = jsonLdOccurrences.length ? jsonLdOccurrences : domOccurrence ? [domOccurrence] : [];
   const summary = summarizeOccurrences(occurrences);
   if (!summary) return null;
   const first = occurrences[0];
   const title = cleanText(first.name);
   if (!title) return null;
   const description = cleanText(first.description) || undefined;
-  const doc = new JSDOM(html).window.document;
   const category = extractCategory(doc, locale);
   const sourceDescription = cleanText(doc.querySelector('[itemprop="description"]')?.textContent) || undefined;
   const textPeople = extractEventPeopleFromText([sourceDescription, description].filter(Boolean).join('. '));

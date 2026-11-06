@@ -167,7 +167,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/pwc.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -184,7 +183,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- pwc: run crawler (verbatim from original workflow) ----
           node scripts/update-pwc-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -198,19 +196,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- pwc: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- pwc: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "Auto-update PwC jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
-          # ---- pwc: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run pwc" \
@@ -260,6 +255,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/pwc.worker.sh"
@@ -274,24 +271,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 180)"
             worker_watchdog_minutes=180
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -333,10 +334,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -369,7 +366,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ubp.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -386,7 +382,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- ubp: run crawler (verbatim from original workflow) ----
           node scripts/update-ubp-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -400,19 +395,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- ubp: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- ubp: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Union Bancaire Privée jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- ubp: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run ubp" \
@@ -462,6 +454,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/ubp.worker.sh"
@@ -476,24 +470,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 153)"
             worker_watchdog_minutes=153
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -535,10 +533,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -571,7 +565,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/on-running.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -588,7 +581,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- on-running: run crawler (verbatim from original workflow) ----
           node scripts/update-on-running-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -602,19 +594,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- on-running: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- on-running: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update On Running jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- on-running: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run on-running" \
@@ -664,6 +653,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/on-running.worker.sh"
@@ -678,24 +669,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 142)"
             worker_watchdog_minutes=142
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -737,10 +732,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -773,7 +764,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/uroviva.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -790,7 +780,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- uroviva: run crawler (verbatim from original workflow) ----
           node scripts/update-uroviva-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -804,19 +793,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- uroviva: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- uroviva: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update UROVIVA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- uroviva: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run uroviva" \
@@ -866,6 +852,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/uroviva.worker.sh"
@@ -880,24 +868,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 132)"
             worker_watchdog_minutes=132
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -939,10 +931,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -975,7 +963,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/staubli.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -992,7 +979,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- staubli: run crawler (verbatim from original workflow) ----
           node scripts/update-staubli-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1006,19 +992,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- staubli: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- staubli: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Stäubli jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- staubli: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run staubli" \
@@ -1068,6 +1051,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/staubli.worker.sh"
@@ -1082,24 +1067,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 125)"
             worker_watchdog_minutes=125
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -1141,10 +1130,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1177,7 +1162,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/reboot-monkey.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -1194,7 +1178,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- reboot-monkey: run crawler (verbatim from original workflow) ----
           node scripts/update-reboot-monkey-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1208,19 +1191,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- reboot-monkey: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- reboot-monkey: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Reboot Monkey jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- reboot-monkey: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run reboot-monkey" \
@@ -1270,6 +1250,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/reboot-monkey.worker.sh"
@@ -1284,24 +1266,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 109)"
             worker_watchdog_minutes=109
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -1343,10 +1329,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1379,7 +1361,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/novartis.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -1396,7 +1377,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- novartis: run crawler (verbatim from original workflow) ----
           node scripts/update-novartis-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1410,19 +1390,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- novartis: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- novartis: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Novartis jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- novartis: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run novartis" \
@@ -1472,6 +1449,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/novartis.worker.sh"
@@ -1486,24 +1465,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 103)"
             worker_watchdog_minutes=103
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -1545,10 +1528,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1581,7 +1560,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/zfv-unternehmungen.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -1598,7 +1576,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- zfv-unternehmungen: run crawler (verbatim from original workflow) ----
           node scripts/update-zfv-unternehmungen-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1612,19 +1589,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- zfv-unternehmungen: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- zfv-unternehmungen: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ZFV-Unternehmungen jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- zfv-unternehmungen: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run zfv-unternehmungen" \
@@ -1674,6 +1648,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/zfv-unternehmungen.worker.sh"
@@ -1688,24 +1664,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 98)"
             worker_watchdog_minutes=98
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -1747,10 +1727,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1783,7 +1759,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/sophia-genetics.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -1800,7 +1775,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- sophia-genetics: run crawler (verbatim from original workflow) ----
           node scripts/update-sophia-genetics-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1814,19 +1788,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- sophia-genetics: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- sophia-genetics: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SOPHiA GENETICS jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- sophia-genetics: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run sophia-genetics" \
@@ -1876,6 +1847,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/sophia-genetics.worker.sh"
@@ -1890,24 +1863,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 91)"
             worker_watchdog_minutes=91
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -1949,10 +1926,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1985,7 +1958,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/idorsia.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -2002,7 +1974,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- idorsia: run crawler (verbatim from original workflow) ----
           node scripts/update-idorsia-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2016,19 +1987,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- idorsia: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- idorsia: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Idorsia Pharmaceuticals jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- idorsia: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run idorsia" \
@@ -2078,6 +2046,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/idorsia.worker.sh"
@@ -2092,24 +2062,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 86)"
             worker_watchdog_minutes=86
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -2151,10 +2125,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2187,7 +2157,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/nsn-medical.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -2204,7 +2173,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- nsn-medical: run crawler (verbatim from original workflow) ----
           node scripts/update-nsn-medical-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2218,19 +2186,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- nsn-medical: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- nsn-medical: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update NSN Medical jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- nsn-medical: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run nsn-medical" \
@@ -2280,6 +2245,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/nsn-medical.worker.sh"
@@ -2294,24 +2261,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 83)"
             worker_watchdog_minutes=83
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -2353,10 +2324,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2389,7 +2356,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/prada.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -2406,7 +2372,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- prada: run crawler (verbatim from original workflow) ----
           npm run jobs:update:prada
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2420,19 +2385,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- prada: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- prada: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "👜 Auto-update Prada Group jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- prada: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run prada" \
@@ -2482,6 +2444,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/prada.worker.sh"
@@ -2496,24 +2460,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 77)"
             worker_watchdog_minutes=77
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -2555,10 +2523,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2591,7 +2555,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/careers.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -2608,7 +2571,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- careers: run crawler (verbatim from original workflow) ----
           node scripts/update-careers-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2622,19 +2584,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- careers: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- careers: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update lepatron jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- careers: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run careers" \
@@ -2684,6 +2643,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/careers.worker.sh"
@@ -2698,24 +2659,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
             worker_watchdog_minutes=74
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -2757,10 +2722,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2793,7 +2754,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/recruitingapp-2677.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -2810,7 +2770,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- recruitingapp-2677: run crawler (verbatim from original workflow) ----
           node scripts/update-recruitingapp-2677-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2824,19 +2783,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- recruitingapp-2677: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- recruitingapp-2677: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update E-Recruiting LLB-Gruppe Stellen jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- recruitingapp-2677: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run recruitingapp-2677" \
@@ -2886,6 +2842,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/recruitingapp-2677.worker.sh"
@@ -2900,24 +2858,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
             worker_watchdog_minutes=74
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -2959,10 +2921,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2995,7 +2953,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/pbl.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -3012,7 +2969,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- pbl: run crawler (verbatim from original workflow) ----
           node scripts/update-pbl-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3026,19 +2982,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- pbl: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- pbl: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update PBL jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- pbl: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run pbl" \
@@ -3088,6 +3041,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/pbl.worker.sh"
@@ -3102,24 +3057,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 67)"
             worker_watchdog_minutes=67
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -3161,10 +3120,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -3197,7 +3152,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/riri.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -3214,7 +3168,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- riri: run crawler (verbatim from original workflow) ----
           node scripts/update-riri-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3228,19 +3181,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- riri: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- riri: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Riri Group jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- riri: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run riri" \
@@ -3290,6 +3240,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/riri.worker.sh"
@@ -3304,24 +3256,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 60)"
             worker_watchdog_minutes=60
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -3363,10 +3319,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -3399,7 +3351,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/helsana.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -3416,7 +3367,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- helsana: run crawler (verbatim from original workflow) ----
           node scripts/update-helsana-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3430,19 +3380,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- helsana: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- helsana: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Helsana jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- helsana: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run helsana" \
@@ -3492,6 +3439,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/helsana.worker.sh"
@@ -3506,24 +3455,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 51)"
             worker_watchdog_minutes=51
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -3565,10 +3518,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -3601,7 +3550,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/lombardi-group.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -3618,7 +3566,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- lombardi: run crawler (verbatim from original workflow) ----
           npm run jobs:update:lombardi
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3632,19 +3579,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- lombardi: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- lombardi: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update Lombardi Group jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
-          # ---- lombardi: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run lombardi" \
@@ -3694,6 +3638,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/lombardi.worker.sh"
@@ -3708,24 +3654,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 45)"
             worker_watchdog_minutes=45
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -3767,10 +3717,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -3803,7 +3749,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/kuhn-rikon.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -3820,7 +3765,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- kuhn-rikon: run crawler (verbatim from original workflow) ----
           node scripts/update-kuhn-rikon-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3834,19 +3778,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- kuhn-rikon: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- kuhn-rikon: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kuhn Rikon jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- kuhn-rikon: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run kuhn-rikon" \
@@ -3896,6 +3837,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/kuhn-rikon.worker.sh"
@@ -3910,24 +3853,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 32)"
             worker_watchdog_minutes=32
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -3969,10 +3916,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4005,7 +3948,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/cern.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -4022,7 +3964,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- cern: run crawler (verbatim from original workflow) ----
           node scripts/update-cern-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4036,19 +3977,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- cern: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- cern: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update CERN jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- cern: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run cern" \
@@ -4098,6 +4036,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/cern.worker.sh"
@@ -4112,24 +4052,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -4171,10 +4115,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4207,7 +4147,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/groupe-e.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -4224,7 +4163,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- groupe-e: run crawler (verbatim from original workflow) ----
           node scripts/update-groupe-e-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4238,19 +4176,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- groupe-e: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- groupe-e: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Groupe E jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- groupe-e: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run groupe-e" \
@@ -4300,6 +4235,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/groupe-e.worker.sh"
@@ -4314,24 +4251,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -4373,10 +4314,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4409,7 +4346,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/banca-sempione.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -4426,7 +4362,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- banca-sempione: run crawler (verbatim from original workflow) ----
           npm run jobs:update:banca-sempione
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4440,19 +4375,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- banca-sempione: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- banca-sempione: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏦 Auto-update Banca del Sempione jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- banca-sempione: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run banca-sempione" \
@@ -4502,6 +4434,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/banca-sempione.worker.sh"
@@ -4516,24 +4450,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -4575,10 +4513,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4611,7 +4545,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/edmond-de-rothschild.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -4628,7 +4561,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- edmond-de-rothschild: run crawler (verbatim from original workflow) ----
           node scripts/update-edmond-de-rothschild-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4642,19 +4574,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- edmond-de-rothschild: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- edmond-de-rothschild: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Edmond de Rothschild jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- edmond-de-rothschild: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run edmond-de-rothschild" \
@@ -4704,6 +4633,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/edmond-de-rothschild.worker.sh"
@@ -4718,24 +4649,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -4777,10 +4712,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4813,7 +4744,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/csvp-poschiavo.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -4830,7 +4760,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- csvp-poschiavo: run crawler (verbatim from original workflow) ----
           node scripts/update-csvp-poschiavo-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4844,19 +4773,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- csvp-poschiavo: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- csvp-poschiavo: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update CSVP_POSCHIAVO jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- csvp-poschiavo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run csvp-poschiavo" \
@@ -4906,6 +4832,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/csvp-poschiavo.worker.sh"
@@ -4920,24 +4848,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -4979,10 +4911,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5015,7 +4943,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/answerconsulting.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -5032,7 +4959,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- answerconsulting: run crawler (verbatim from original workflow) ----
           node scripts/update-answerconsulting-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5046,19 +4972,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- answerconsulting: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- answerconsulting: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update AnswerConsulting jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- answerconsulting: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run answerconsulting" \
@@ -5108,6 +5031,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/answerconsulting.worker.sh"
@@ -5122,24 +5047,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -5181,10 +5110,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5217,7 +5142,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/1a-hunkeler.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -5234,7 +5158,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- 1a-hunkeler: run crawler (verbatim from original workflow) ----
           node scripts/update-1a-hunkeler-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5248,19 +5171,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- 1a-hunkeler: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- 1a-hunkeler: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update 1a-hunkeler jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- 1a-hunkeler: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run 1a-hunkeler" \
@@ -5310,6 +5230,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/1a-hunkeler.worker.sh"
@@ -5324,24 +5246,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
             worker_watchdog_minutes=74
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -5383,10 +5309,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5418,7 +5340,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/abraxas.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -5435,7 +5356,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- abraxas: run crawler (verbatim from original workflow) ----
           node scripts/update-abraxas-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5449,19 +5369,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- abraxas: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- abraxas: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Abraxas Informatik AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- abraxas: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run abraxas" \
@@ -5511,6 +5428,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/abraxas.worker.sh"
@@ -5525,24 +5444,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -5584,10 +5507,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5617,7 +5536,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/afry.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -5634,7 +5552,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- afry: run crawler (verbatim from original workflow) ----
           node scripts/update-afry-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5648,19 +5565,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- afry: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- afry: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update AFRY jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
-          # ---- afry: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run afry" \
@@ -5710,6 +5624,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/afry.worker.sh"
@@ -5724,24 +5640,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -5783,10 +5703,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5819,7 +5735,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/buehler.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -5836,7 +5751,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- buehler: run crawler (verbatim from original workflow) ----
           node scripts/update-buehler-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5850,19 +5764,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- buehler: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- buehler: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Bühler Group jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- buehler: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run buehler" \
@@ -5912,6 +5823,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/buehler.worker.sh"
@@ -5926,24 +5839,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 39)"
             worker_watchdog_minutes=39
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -5985,10 +5902,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -6021,7 +5934,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/alfa-personal-ch.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           mkdir -p "$state_dir/slots"
@@ -6038,7 +5950,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- alfa-personal-ch: run crawler (verbatim from original workflow) ----
           node scripts/update-alfa-personal-ch-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -6052,19 +5963,16 @@ jobs:
           housekeeping_exit=0
           report_exit=0
 
-          # ---- alfa-personal-ch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
 
-          # ---- alfa-personal-ch: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Alfa Personal GmbH jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- alfa-personal-ch: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run alfa-personal-ch" \
@@ -6114,6 +6022,8 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
+          validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
+          validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-13"
           worker_path="$RUNNER_TEMP/crawler-generation/group-13/alfa-personal-ch.worker.sh"
@@ -6128,24 +6038,28 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
             worker_watchdog_minutes=74
           fi
+          classifyCrawlerTimeoutRace() {
+            if [ "$1" = 124 ] || [ "$1" = 137 ]; then
+              printf '\''%s\n'\'' "$1"
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$worker_status"; else printf '\''%s\n'\'' 1; fi
+            elif [ -e "$started_file" ]; then
+              printf '\''%s\n'\'' 143
+            elif [ "$1" = 0 ]; then
+              printf '\''%s\n'\'' 1
+            else
+              if [[ "$1" =~ ^[0-9]+$ ]]; then printf '\''%s\n'\'' "$1"; else printf '\''%s\n'\'' 143; fi
+            fi
+          }
           resolveCrawlerTerminalStatus() {
             local wrapper_exit="$1"
             local worker_status=""
-            local terminal_exit="$wrapper_exit"
+            local terminal_exit=""
             local watchdog_marker=1
-            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
-              terminal_exit="$wrapper_exit"
-              if [ -s "$worker_status_file" ]; then
-                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
-              fi
-            elif [ -s "$worker_status_file" ]; then
-              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
-              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
-            else
-              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
-            fi
+            [ -s "$worker_status_file" ] && worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+            terminal_exit="$(classifyCrawlerTimeoutRace "$wrapper_exit")"
+            if { [ "$wrapper_exit" = 124 ] || [ "$wrapper_exit" = 137 ]; } && { [ "$worker_status" = 1 ] || [ "$worker_status" = 124 ]; }; then watchdog_marker=0; fi
             if [ "$watchdog_marker" -eq 1 ]; then
               if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             fi
@@ -6187,10 +6101,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
