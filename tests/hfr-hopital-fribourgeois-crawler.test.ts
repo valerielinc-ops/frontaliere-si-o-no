@@ -155,6 +155,41 @@ describe('HFR Oracle HCM crawler parser', () => {
     expect(requestedUrls).toContain(`${HFR_ORACLE_BASE}/hcmUI/CandidateExperience/fr/sites/${HFR_ORACLE_SITE}/job/2001`);
   });
 
+  it('combines Oracle responsibility and qualification fields before using the page fallback', async () => {
+    const requestedUrls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = String(input);
+      requestedUrls.push(url);
+
+      if (url.includes('/recruitingCEJobRequisitionDetails/3001')) {
+        return new Response(JSON.stringify({
+          ExternalDescriptionStr: '',
+          ExternalResponsibilitiesStr: `<div>${SOURCE_DESCRIPTION}</div>`,
+          ExternalQualificationsStr: '<p>Une qualification complémentaire.</p>',
+        }), { status: 200 });
+      }
+      if (url.includes('/recruitingCEJobRequisitions?')) {
+        return new Response(JSON.stringify({
+          items: [{
+            TotalJobsCount: 1,
+            requisitionList: [{
+              ...oracleRequisition(3001),
+              ShortDescriptionStr: 'Résumé court.',
+              PostedDate: daysAgo(1),
+            }],
+          }],
+        }), { status: 200 });
+      }
+      return new Response('', { status: 404 });
+    }));
+
+    const result = await fetchAllHfrJobs();
+
+    expect(result.jobs).toHaveLength(1);
+    expect(result.jobs[0].description).toContain(SOURCE_DESCRIPTION);
+    expect(requestedUrls.some((url) => url.includes('/hcmUI/CandidateExperience/'))).toBe(false);
+  });
+
   it('fails closed when every discovered requisition is filtered as foreign', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
       const url = String(input);

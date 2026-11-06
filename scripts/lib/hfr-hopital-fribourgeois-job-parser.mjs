@@ -290,6 +290,17 @@ async function fetchOraclePageDescription(requisitionId) {
   }
 }
 
+function extractOracleDetailDescription(detail) {
+  return [
+    detail?.ExternalDescriptionStr,
+    detail?.ExternalResponsibilitiesStr,
+    detail?.ExternalQualificationsStr,
+  ]
+    .map((part) => htmlToText(part || ''))
+    .filter(Boolean)
+    .join('\n\n');
+}
+
 function extractCity(rawLocation = '') {
   const parts = normalizeSpace(rawLocation)
     .split(',')
@@ -354,7 +365,7 @@ function buildJob(requisition, detail, pageDescription = '') {
   const title = normalizeSpace(requisition.Title || '');
   if (!reqId || title.length < 3) return null;
 
-  const detailDescription = htmlToText(detail?.ExternalDescriptionStr || '');
+  const detailDescription = extractOracleDetailDescription(detail);
   const listingDescription = htmlToText(requisition.ShortDescriptionStr || '');
   const description = [detailDescription, pageDescription, listingDescription]
     .find((candidate) => meetsSourceBodyFloor(candidate)) || '';
@@ -449,7 +460,7 @@ export async function fetchAllHfrJobs() {
       continue;
     }
     const detail = await fetchRequisitionDetails(requisition.Id);
-    const detailDescription = htmlToText(detail?.ExternalDescriptionStr || '');
+    const detailDescription = extractOracleDetailDescription(detail);
     const listingDescription = htmlToText(requisition.ShortDescriptionStr || '');
     const pageDescription = meetsSourceBodyFloor(detailDescription)
       || meetsSourceBodyFloor(listingDescription)
