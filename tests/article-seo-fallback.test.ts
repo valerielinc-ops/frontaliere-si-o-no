@@ -233,6 +233,16 @@ describe('article SEO fallback builder', () => {
     expect(section.html).not.toContain('javascript:');
   });
 
+  it('keeps article email contacts visible without a crawlable mailto target', () => {
+    const html = renderArticleInlineMarkup(
+      '[redazione@example.test](mailto:redazione@example.test) oppure <a href="mailto:help@example.test">help@example.test</a>',
+    );
+
+    expect(html).toBe('redazione@example.test oppure help@example.test');
+    expect(html).not.toContain('mailto:');
+    expect(html).not.toContain('/cdn-cgi/l/email-protection');
+  });
+
   it.each([
     'alertswiss.ch', 'www.chiasso.ch/missione-emergenza-chiasso-2026', 'calculator',
     'https:example.test', 'https://', '//example.test/', '/\\example.test/',
@@ -243,7 +253,7 @@ describe('article SEO fallback builder', () => {
 
   it.each([
     'https://example.test/source/?id=1', 'http://example.test/source/',
-    '/cambio-chf-eur/', '#fonti', '../other-article/', './document.pdf', 'mailto:help@example.test',
+    '/cambio-chf-eur/', '#fonti', '../other-article/', './document.pdf',
     'foo/bar', '?section', 'other-article', 'report.pdf', './alertswiss.ch', 'calculator/help',
   ])('preserves resolved and standard relative article links (%s)', (href) => {
     expect(renderArticleInlineMarkup(`[Fonte](${href})`)).toBe(`<a href="${href}">Fonte</a>`);
