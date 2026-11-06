@@ -167,6 +167,7 @@ const EMPTY_POSTAL_SUBMISSION: PostalSubmissionView = {
 
 // Keep aligned with MAX_REQUIRED_DOCUMENTS in functions/src/assistedApplicationExtraDocuments.js.
 const MAX_REQUESTED_DOCUMENTS = 16;
+const EMPTY_REQUESTED_DOCUMENTS: AutomationRequestedDocumentView[] = [];
 
 export function heldLabel(reason: string): string {
   if (reason.startsWith('question:')) return `domanda aperta: ${reason.slice(9)}`;
@@ -189,6 +190,9 @@ export default function AssistedApplicationAutomationPanel({
   const automation = order.automation || null;
   const flow = automation?.flow || null;
   const draft = automation?.draft || null;
+  const requestedDocumentsSource = flow?.requestedDocumentsOverride === true
+    ? flow.requestedDocuments || EMPTY_REQUESTED_DOCUMENTS
+    : draft?.requiredDocuments || EMPTY_REQUESTED_DOCUMENTS;
   const [busy, setBusy] = useState<string | null>(null);
   const [letter, setLetter] = useState(draft?.coverLetter?.text || '');
   const [emailTo, setEmailTo] = useState(draft?.applicationEmail?.to || '');
@@ -196,7 +200,7 @@ export default function AssistedApplicationAutomationPanel({
   const [emailBody, setEmailBody] = useState(draft?.applicationEmail?.body || '');
   const [answers, setAnswers] = useState<Record<string, string>>(flow?.answers || {});
   const [ackFlags, setAckFlags] = useState<Record<string, boolean>>({});
-  const [requestedDocuments, setRequestedDocuments] = useState<AutomationRequestedDocumentView[]>(draft?.requiredDocuments || []);
+  const [requestedDocuments, setRequestedDocuments] = useState<AutomationRequestedDocumentView[]>(requestedDocumentsSource);
   const [postalSubmission, setPostalSubmission] = useState<PostalSubmissionView>(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
   const [requestedDocumentsDirty, setRequestedDocumentsDirty] = useState(false);
   const [postalSubmissionDirty, setPostalSubmissionDirty] = useState(false);
@@ -210,8 +214,8 @@ export default function AssistedApplicationAutomationPanel({
   }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, draft?.questionSnapshots, flow?.answers]);
 
   useEffect(() => {
-    if (!requestedDocumentsDirty) setRequestedDocuments(draft?.requiredDocuments || []);
-  }, [draft?.requiredDocuments, requestedDocumentsDirty]);
+    if (!requestedDocumentsDirty) setRequestedDocuments(requestedDocumentsSource);
+  }, [requestedDocumentsSource, requestedDocumentsDirty]);
 
   useEffect(() => {
     if (!postalSubmissionDirty) setPostalSubmission(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
@@ -269,7 +273,7 @@ export default function AssistedApplicationAutomationPanel({
     if (!confirmed) return false;
     const saved = await act(
       'automationConfigurePostalPackage',
-      { documents: requestedDocuments, postalSubmission },
+      { documents: requestedDocumentsDirty ? requestedDocuments : requestedDocumentsSource, postalSubmission },
       'Checklist e istruzioni postali aggiornate; email con il link accettata per l’invio.',
     );
     if (saved) {

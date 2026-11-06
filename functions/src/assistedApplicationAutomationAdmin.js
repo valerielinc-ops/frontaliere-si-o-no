@@ -184,6 +184,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       heldBy: flow.heldBy || [],
       feedback: flow.feedback || [],
       answers: candidateState.answers,
+      requestedDocumentsOverride: flow.requestedDocumentsOverride === true,
+      requestedDocuments: flow.requestedDocumentsOverride === true ? requiredDocumentsFor(draft, flow) : [],
       postalSubmission: flow.postalSubmission || null,
       // The fields the candidate corrected on the review page.
       formOverrides: flow.formOverrides || {},
