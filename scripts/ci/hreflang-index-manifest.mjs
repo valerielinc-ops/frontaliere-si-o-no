@@ -51,7 +51,7 @@ import {
 } from '../lib/hreflang-index-manifest.mjs';
 
 const SKIP_DIRS = new Set(['assets', 'data', 'images']);
-const REWRITE_BATCH_SIZE = 64;
+export const HREFLANG_REWRITE_BATCH_SIZE = 64;
 
 export function ownedLocalesFromEnv(raw = process.env.BUILD_LOCALE) {
   const wanted = String(raw || '')
@@ -104,6 +104,45 @@ function bump(map, key, by = 1) {
   map[key] = (map[key] ?? 0) + by;
 }
 
+function normaliseRewriteBatchSize(value) {
+  if (value === Number.POSITIVE_INFINITY) return value;
+  const number = Number(value);
+  return Number.isFinite(number) && number > 0
+    ? Math.floor(number)
+    : HREFLANG_REWRITE_BATCH_SIZE;
+}
+
+/**
+ * Compare the logical bytes duplicated by the old single-transaction rewrite
+ * with the bytes duplicated by bounded batches, on the exact same files.
+ * The old implementation staged every changed HTML file before its first
+ * rename, so its peak is the sum of original + staged bytes for all records.
+ */
+export function benchmarkHreflangStaging(records, batchSize = HREFLANG_REWRITE_BATCH_SIZE) {
+  const size = normaliseRewriteBatchSize(batchSize);
+  const preBatchPeakBytes = records.reduce(
+    (total, record) => total + record.originalBytes + record.stagedBytes,
+    0,
+  );
+  let peakStagingBytes = 0;
+  for (let offset = 0; offset < records.length; offset += size) {
+    const batch = records.slice(offset, offset + size);
+    const batchBytes = batch.reduce(
+      (total, record) => total + record.originalBytes + record.stagedBytes,
+      0,
+    );
+    peakStagingBytes = Math.max(peakStagingBytes, batchBytes);
+  }
+  return {
+    phase: 'build-locale:hreflang-index-manifest',
+    inputFiles: records.length,
+    batchSize: Number.isFinite(size) ? size : 'unbounded',
+    preBatchPeakBytes,
+    peakStagingBytes,
+    reductionBytes: preBatchPeakBytes - peakStagingBytes,
+  };
+}
+
 /**
  * Run the manifest pass. Exported for tests; the CLI below wraps it.
  */
@@ -116,8 +155,10 @@ export async function runHreflangIndexManifest({
   requireForeignManifests = false,
   concurrency = 64,
   runId = process.env.GITHUB_RUN_ID || '',
+  rewriteBatchSize = HREFLANG_REWRITE_BATCH_SIZE,
   log = (line) => console.log(line),
 }) {
+  const batchSize = normaliseRewriteBatchSize(rewriteBatchSize);
   const owned = new Set(ownedLocales);
   const files = [];
   for (const file of walkHtml(distDir)) {
@@ -222,32 +263,32 @@ export async function runHreflangIndexManifest({
 
   // ── Pass 3: write ──────────────────────────────────────────────────────
   let filesRewritten = 0;
-  let allAtOnceStagingBytes = 0;
-  let peakBatchStagingBytes = 0;
+  const stagingRecords = [];
   if (!dryRun) {
     // Keep at most one bounded batch of duplicate HTML on disk. The temp dir
     // lives under `dist/` so staged files and page files share a filesystem;
     // the commit phase keeps backups and can roll back every rename in its
     // current batch. A later batch failure fails this workflow step, so the
     // partially rewritten local dist is never packed or uploaded.
-    for (let offset = 0; offset < changes.length; offset += REWRITE_BATCH_SIZE) {
-      const batch = changes.slice(offset, offset + REWRITE_BATCH_SIZE);
+    for (let offset = 0; offset < changes.length; offset += batchSize) {
+      const batch = changes.slice(offset, offset + batchSize);
       const transactionDir = await fs.promises.mkdtemp(path.join(distDir, '.hreflang-index-'));
       const staged = [];
-      let batchStagingBytes = 0;
       try {
         await mapPool(batch, concurrency, async ({ file, decision }, index) => {
           const html = await fs.promises.readFile(file, 'utf-8');
           const next = applyHreflangDecision(html, decision);
           if (next === null) return;
           const stagedFile = path.join(transactionDir, String(index));
+          const originalBytes = (await fs.promises.stat(file)).size;
           await fs.promises.writeFile(stagedFile, next, 'utf-8');
-          batchStagingBytes += Buffer.byteLength(next, 'utf-8');
-          staged.push({ file, stagedFile });
+          staged.push({ file, stagedFile, index, originalBytes, stagedBytes: Buffer.byteLength(next, 'utf-8') });
         });
 
-        allAtOnceStagingBytes += batchStagingBytes;
-        peakBatchStagingBytes = Math.max(peakBatchStagingBytes, batchStagingBytes);
+        // mapPool completes writes out of order; restore the production batch
+        // order so the same-input benchmark measures the same groups that
+        // were actually present on disk together.
+        staged.sort((a, b) => a.index - b.index);
         const transactionId = path.basename(transactionDir);
         const moved = [];
         try {
@@ -271,6 +312,7 @@ export async function runHreflangIndexManifest({
           throw error;
         }
         for (const item of moved) await fs.promises.rm(item.backup, { force: true });
+        stagingRecords.push(...staged);
         filesRewritten += moved.length;
       } finally {
         await fs.promises.rm(transactionDir, { recursive: true, force: true });
@@ -289,6 +331,7 @@ export async function runHreflangIndexManifest({
     fs.renameSync(tmp, target);
   }
 
+  const stagingBenchmark = dryRun ? null : benchmarkHreflangStaging(stagingRecords, batchSize);
   const summary = {
     owned: [...owned],
     dryRun,
@@ -301,9 +344,10 @@ export async function runHreflangIndexManifest({
     manifestCounts,
     filesToRewrite: changes.length,
     filesRewritten,
-    stagingBytes: dryRun ? null : {
-      allAtOnceEquivalent: allAtOnceStagingBytes,
-      boundedBatchPeak: peakBatchStagingBytes,
+    stagingBenchmark,
+    stagingBytes: stagingBenchmark === null ? null : {
+      allAtOnceEquivalent: stagingBenchmark.preBatchPeakBytes,
+      boundedBatchPeak: stagingBenchmark.peakStagingBytes,
     },
   };
   log(`[hreflang-index-manifest] ${JSON.stringify(summary)}`);
