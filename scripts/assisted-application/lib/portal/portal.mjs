@@ -1161,7 +1161,8 @@ function controlPostingIdentity(control) {
     return explicit ? [explicit] : postingIdentityMarkers(value);
   });
   const context = [control?.section, control?.context].flatMap(postingIdentityMarkers);
-  return uniquePostingIdentity([...direct, ...context]);
+  const markers = [...new Set([...direct, ...context].map(normalizedPostingIdentity).filter(Boolean))];
+  return markers.length > 1 ? null : markers[0] || '';
 }
 
 function applicationEntryBelongsToPosting(control, {

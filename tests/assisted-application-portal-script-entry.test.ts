@@ -33,4 +33,16 @@ describe('verified posting script entry (#17253)', () => {
   ])('keeps %s unresolved', (_name, page, entryContext) => {
     expect(applicationEntryControls(page, entryContext)).toEqual([]);
   });
+
+  it('rejects a fieldless script CTA when posting identity markers conflict', () => {
+    const postingUrl = 'https://portal.test/job/current/role/';
+    expect(applicationEntryControls({
+      url: postingUrl,
+      fields: [],
+      buttons: [{ text: 'Apply', frame: 0, postingId: 'other', context: 'postingId current' }],
+    }, {
+      postingUrl,
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
+  });
 });
