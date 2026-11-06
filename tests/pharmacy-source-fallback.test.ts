@@ -180,6 +180,19 @@ describe('Ticino pharmacy PDF source fallback', () => {
     )).rejects.toThrow('changed while the ranged fallback was downloading it');
   });
 
+  it('does not preserve a stale catalogue after a ranged representation changes', async () => {
+    const exhausted = () => Object.assign(new Error('source timeout'), { retryBudgetExhausted: true });
+    const fetchSource = vi.fn(async () => { throw exhausted(); });
+    const changed = new Error('Ticino PDF changed while the ranged fallback was downloading it');
+    const fetchRangeSource = vi.fn(async () => { throw changed; });
+
+    const error = await fetchTicinoPdfDocument(fetchSource, vi.fn(), fetchRangeSource)
+      .then(() => null, (caught) => caught);
+    expect(error).toBeInstanceOf(Error);
+    expect(error.retryBudgetExhausted).not.toBe(true);
+    expect(fetchRangeSource).toHaveBeenCalledOnce();
+  });
+
   it('uses the derived official mirror when a newly dated PDF link fails on www4', async () => {
     const discoveredUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261026.pdf';
     const mirrorUrl = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261026.pdf';

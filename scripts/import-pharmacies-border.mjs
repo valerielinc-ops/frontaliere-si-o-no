@@ -446,10 +446,12 @@ export async function fetchTicinoPdfDocument(
           console.warn(`[import-pharmacies-border] ${sourceUrl} recovered through bounded HTTP ranges`);
           return { buffer, sourceUrl };
         } catch (rangeError) {
+          const rangeCanTryAnotherOfficialSource = isRetryBudgetExhausted(rangeError)
+            || isConnectionLevelFetchError(rangeError);
           failures.push({
             sourceUrl,
             error: rangeError,
-            canTryAnotherOfficialSource: true,
+            canTryAnotherOfficialSource: rangeCanTryAnotherOfficialSource,
             transport: 'range',
           });
         }
