@@ -20,6 +20,7 @@ import {
 } from './sources/googleNewsRssSource.mjs';
 import { fetchTrendsDiscoveryCandidates } from './sources/googleTrendsSource.mjs';
 import { discoveryScore } from './discoveryScore.mjs';
+import { newsUrlKey } from '../news-url-key.mjs';
 import { isNearDuplicate, SLUG_SIMILARITY_THRESHOLD } from '../scheduler/slugSimilarity.mjs';
 
 const ENV_TRUE = (val) => val === '1' || val === 'true';
@@ -34,6 +35,10 @@ function normalizeDeadlineMs(value) {
   return Number.isFinite(number) ? number : null;
 }
 
+function resolveDiscoveryNowMs(value) {
+  return Number.isFinite(value) ? Number(value) : Date.now();
+}
+
 function effectiveDeadlineMs(value, reserveValue = 0) {
   const deadlineMs = normalizeDeadlineMs(value);
   if (deadlineMs === null) return null;
@@ -42,12 +47,12 @@ function effectiveDeadlineMs(value, reserveValue = 0) {
   return Math.max(0, deadlineMs - safeReserveMs);
 }
 
-function hasDeadlineWindow(value, minimumMs = 0) {
+function hasDeadlineWindow(value, minimumMs = 0, nowMs = Date.now()) {
   const deadlineMs = normalizeDeadlineMs(value);
   if (deadlineMs === null) return true;
   const minimum = Number(minimumMs);
   const safeMinimumMs = Number.isFinite(minimum) && minimum > 0 ? minimum : 0;
-  return deadlineMs - Date.now() >= safeMinimumMs;
+  return deadlineMs - nowMs >= safeMinimumMs;
 }
 
 export function safeDiscoveryErrorType(err) {
@@ -67,9 +72,14 @@ function isTrendsDisabled() {
   return ENV_TRUE(process.env.DISABLE_DISCOVERY_TRENDS);
 }
 
-function evidenceAgeHours(pubDate, nowMs) {
+export function parseEvidencePubDate(pubDate) {
   if (typeof pubDate !== 'string' || !pubDate.trim()) return null;
-  const publishedAtMs = Date.parse(pubDate);
+  const publishedAtMs = Date.parse(pubDate.trim());
+  return Number.isFinite(publishedAtMs) ? publishedAtMs : null;
+}
+
+function evidenceAgeHours(pubDate, nowMs) {
+  const publishedAtMs = parseEvidencePubDate(pubDate);
   if (!Number.isFinite(publishedAtMs)) return null;
   const ageHours = (nowMs - publishedAtMs) / (60 * 60 * 1000);
   if (ageHours > MAX_TREND_EVIDENCE_AGE_HOURS) return null;
@@ -87,17 +97,23 @@ function isSecureHttpUrl(value) {
   }
 }
 
+export function canonicalizeEvidenceUrl(value) {
+  if (!isSecureHttpUrl(value)) return null;
+  return newsUrlKey(value);
+}
+
 function buildTrendEvidenceCandidates(trendSignals, newsEvidence, nowMs) {
   if (!Array.isArray(trendSignals) || !Array.isArray(newsEvidence)) return [];
 
   const newsBySeed = new Map();
   for (const item of newsEvidence) {
     const seed = String(item?.meta?.seed || '').trim();
-    if (!seed || !isSecureHttpUrl(item?.url)) continue;
+    const canonicalUrl = canonicalizeEvidenceUrl(item?.url);
+    if (!seed || !canonicalUrl) continue;
     const ageHours = evidenceAgeHours(item?.meta?.pubDate, nowMs);
     if (ageHours === null) continue;
     if (!newsBySeed.has(seed)) newsBySeed.set(seed, []);
-    newsBySeed.get(seed).push({ item, ageHours });
+    newsBySeed.get(seed).push({ item, ageHours, canonicalUrl });
   }
   for (const matches of newsBySeed.values()) {
     matches.sort((a, b) => a.ageHours - b.ageHours);
@@ -111,12 +127,12 @@ function buildTrendEvidenceCandidates(trendSignals, newsEvidence, nowMs) {
     if (!signalHeadline) continue;
     const matches = newsBySeed.get(signalHeadline) || [];
     let keptForSignal = 0;
-    for (const { item, ageHours } of matches) {
+    for (const { item, ageHours, canonicalUrl } of matches) {
       const evidenceHeadline = String(item?.headline || '').trim();
       if (!evidenceHeadline) continue;
       const headlineKey = evidenceHeadline.toLowerCase().replace(/\s+/g, ' ');
-      if (seenUrls.has(item.url) || seenHeadlines.has(headlineKey)) continue;
-      seenUrls.add(item.url);
+      if (seenUrls.has(canonicalUrl) || seenHeadlines.has(headlineKey)) continue;
+      seenUrls.add(canonicalUrl);
       seenHeadlines.add(headlineKey);
       keptForSignal += 1;
       out.push({
@@ -179,6 +195,7 @@ export async function fetchAll(evidence, opts = {}) {
   const suggestFn = opts.suggestFn || fetchSuggestDiscoveryCandidates;
   const newsFn = opts.newsFn || fetchNewsRssDiscoveryCandidates;
   const trendsFn = opts.trendsFn || fetchTrendsDiscoveryCandidates;
+  const nowMs = resolveDiscoveryNowMs(opts.nowMs);
   const sourceDeadlineMs = effectiveDeadlineMs(opts.deadlineMs, opts.deadlineReserveMs);
   const perSource = { orphan: 0, suggest: 0, news: 0, trends: 0, trendSignals: 0 };
   const merged = [];
@@ -198,10 +215,11 @@ export async function fetchAll(evidence, opts = {}) {
   // A caller with a run-wide deadline passes the effective cutoff through to
   // every remote source so none can consume the reserved article time.
   const remoteJobs = [];
-  if (hasDeadlineWindow(sourceDeadlineMs) && !isSuggestDisabled()) {
+  if (hasDeadlineWindow(sourceDeadlineMs, 0, nowMs) && !isSuggestDisabled()) {
     remoteJobs.push(
       suggestFn(evidence, {
         fetchImpl: opts.fetchImpl,
+        nowMs,
         ...(sourceDeadlineMs !== null ? { deadlineMs: sourceDeadlineMs } : {}),
       })
         .then((arr) => ({ kind: 'suggest', arr: Array.isArray(arr) ? arr : [] }))
@@ -211,8 +229,8 @@ export async function fetchAll(evidence, opts = {}) {
         }),
     );
   }
-  if (hasDeadlineWindow(sourceDeadlineMs) && !isNewsDisabled()) {
-    const newsOptions = { fetchImpl: opts.fetchImpl };
+  if (hasDeadlineWindow(sourceDeadlineMs, 0, nowMs) && !isNewsDisabled()) {
+    const newsOptions = { fetchImpl: opts.fetchImpl, nowMs };
     if (sourceDeadlineMs !== null) newsOptions.deadlineMs = sourceDeadlineMs;
     remoteJobs.push(
       newsFn(evidence, newsOptions)
@@ -223,10 +241,11 @@ export async function fetchAll(evidence, opts = {}) {
         }),
     );
   }
-  if (hasDeadlineWindow(sourceDeadlineMs) && !isTrendsDisabled()) {
+  if (hasDeadlineWindow(sourceDeadlineMs, 0, nowMs) && !isTrendsDisabled()) {
     remoteJobs.push(
       trendsFn(evidence, {
         fetchImpl: opts.fetchImpl,
+        nowMs,
         ...(sourceDeadlineMs !== null ? { deadlineMs: sourceDeadlineMs } : {}),
       })
         .then((arr) => ({ kind: 'trends', arr: Array.isArray(arr) ? arr : [] }))
@@ -259,7 +278,7 @@ export async function fetchAll(evidence, opts = {}) {
     !isNewsDisabled()
     && !isTrendsDisabled()
     && trendSignals.length > 0
-    && hasDeadlineWindow(sourceDeadlineMs, MIN_TREND_EVIDENCE_WINDOW_MS)
+    && hasDeadlineWindow(sourceDeadlineMs, MIN_TREND_EVIDENCE_WINDOW_MS, nowMs)
   ) {
     const seenSignalHeadlines = new Set();
     const topTrendSignals = trendSignals
@@ -284,7 +303,7 @@ export async function fetchAll(evidence, opts = {}) {
       trendBackedCandidates = buildTrendEvidenceCandidates(
         topTrendSignals,
         newsEvidence,
-        Number.isFinite(opts.nowMs) ? Number(opts.nowMs) : Date.now(),
+        nowMs,
       );
     } catch (err) {
       console.warn(`[discovery/trends] evidence search failed error_type=${safeDiscoveryErrorType(err)}`);
@@ -301,8 +320,15 @@ export async function fetchAll(evidence, opts = {}) {
   // When the same Google News item appears in both the regular news pool and
   // the trend-seeded search, retain the trend-backed row so the article keeps
   // its originating signal in the report and sidecar.
-  const trendUrls = new Set(trendBackedCandidates.map((candidate) => candidate.url));
-  const uniqueNews = news.filter((candidate) => !trendUrls.has(candidate?.url));
+  const trendUrls = new Set(
+    trendBackedCandidates
+      .map((candidate) => canonicalizeEvidenceUrl(candidate?.url))
+      .filter(Boolean),
+  );
+  const uniqueNews = news.filter((candidate) => {
+    const canonicalUrl = canonicalizeEvidenceUrl(candidate?.url);
+    return !canonicalUrl || !trendUrls.has(canonicalUrl);
+  });
   perSource.news = uniqueNews.length;
   perSource.trends = trendBackedCandidates.length;
 
