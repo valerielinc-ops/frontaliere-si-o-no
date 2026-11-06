@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AlertTriangle, CheckCircle2, FileText, Loader2, Pause, Play, Plus, RefreshCw, Save, Send, Trash2, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
 import {
   runAutomationAdminAction,
@@ -190,9 +190,15 @@ export default function AssistedApplicationAutomationPanel({
   const automation = order.automation || null;
   const flow = automation?.flow || null;
   const draft = automation?.draft || null;
-  const requestedDocumentsSource = flow?.requestedDocumentsOverride === true
-    ? flow.requestedDocuments || EMPTY_REQUESTED_DOCUMENTS
-    : draft?.requiredDocuments || EMPTY_REQUESTED_DOCUMENTS;
+  const requestedDocumentsSource = useMemo(() => {
+    const documents = flow?.requestedDocumentsOverride === true
+      ? flow.requestedDocuments || EMPTY_REQUESTED_DOCUMENTS
+      : draft?.requiredDocuments || EMPTY_REQUESTED_DOCUMENTS;
+    return documents.map((document) => ({
+      ...document,
+      exemptions: Array.isArray(document.exemptions) ? document.exemptions : [],
+    }));
+  }, [flow?.requestedDocumentsOverride, flow?.requestedDocuments, draft?.requiredDocuments]);
   const [busy, setBusy] = useState<string | null>(null);
   const [letter, setLetter] = useState(draft?.coverLetter?.text || '');
   const [emailTo, setEmailTo] = useState(draft?.applicationEmail?.to || '');
