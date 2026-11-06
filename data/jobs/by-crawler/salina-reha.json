@@ -1,7 +1,7 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-11-06T09:30:45.775Z",
-  "runId": "42192806851",
+  "assembledAt": "2026-11-06T21:29:47.126Z",
+  "runId": "42294224400",
   "jobs": [
     {
       "id": "salina-reha-cc6535b31b6f",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-stationaer/g6wckeprdbkl28epaic6dqysaunbxphfh42npqi06nubiz36a5o3eru4h40nujkj",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:30:17.920Z",
+      "crawledAt": "2026-11-06T21:29:34.961Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:30:17.920Z",
+      "validThrough": "2027-01-13T21:29:34.961Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:30:14.842Z",
+      "crawledAt": "2026-11-06T21:29:32.394Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -202,16 +202,16 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:30:14.842Z",
+      "validThrough": "2026-12-22T21:29:32.394Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-faa86d7f81ae",
       "slug": "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden-099657b134",
       "slugByLocale": {
-        "de": "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
         "it": "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden-099657b134",
         "en": "technical-services-employee-salina-rehaklinik-rheinfelden-rheinfelden",
+        "de": "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
         "fr": "collaborateur-rice-du-service-technique-salina-rehaklinik-rheinfelden-rheinfelden"
       },
       "company": "Salina Rehaklinik Rheinfelden",
@@ -236,7 +236,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/msbpp6odv00cqa9il39bv6b9i306zzmlwnkyj4rqrizm0jisf2qded5yco2kcsb8",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:30:12.034Z",
+      "crawledAt": "2026-11-06T21:29:30.224Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -255,16 +255,17 @@
       "applyUrl": "https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/msbpp6odv00cqa9il39bv6b9i306zzmlwnkyj4rqrizm0jisf2qded5yco2kcsb8",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
+        "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
           "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
-        "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden"
-      ],
+      "firstSeenAt": "2026-11-05T21:14:07.686Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -280,9 +281,8 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:30:12.034Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:14:07.686Z"
+      "validThrough": "2027-02-04T21:29:30.224Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-6224691450f6",
@@ -373,93 +373,6 @@
       "validThrough": "2027-02-03T21:14:07.686Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:14:07.686Z",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "salina-reha-f32acf6d6bc9",
-      "slug": "addetto-al-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden",
-      "slugByLocale": {
-        "it": "addetto-al-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden",
-        "en": "technical-service-staff-salina-rehaklinik-rheinfelden-rheinfelden",
-        "de": "mitarbeiter-technischer-dienst-salina-rheinfelden",
-        "fr": "personnel-technique-salina-rehaklinik-rheinfelden-rheinfelden"
-      },
-      "company": "Salina Rehaklinik Rheinfelden",
-      "companyKey": "salina-reha",
-      "companyDomain": "salina-reha.ch",
-      "title": "Mitarbeiter Technischer Dienst",
-      "titleByLocale": {
-        "it": "Addetto al servizio tecnico",
-        "en": "Technical service staff",
-        "de": "Mitarbeiter Technischer Dienst",
-        "fr": "Personnel technique"
-      },
-      "description": "Reha Rheinfelden\n\nMitarbeiter Technischer Dienst\n100%\n per 1. Dezember 2026 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, Salina Rehaklinik und Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt.\n Ihr Team\n Der technische Dienst betreut Gebäude und modernste Anlagen der Medizin- und Haustechnik. Fachleute unterschiedlicher Berufsrichtungen arbeiten eng an unseren beiden Standorten zusammen und sorgen für die Durchführung von Instandstandhaltungsarbeiten an technischen Anlagen, Mobiliar, Einrichtungen, Geräten, Hilfsmitteln sowie in den öffentlichen Räumen und Patientenzimmern. Die Beschaffung und Verwaltung der benötigten Materialien sind ebenfalls Bestandteil des Aufgabengebietes. Als Unterstützung für die Instandhaltung dient uns unser CAFM System. Die Bereitschaft zu turnusmässigem Pikettdienst am Abend und an Wochenenden (innert 45 Min. vor Ort) wird ebenfalls vorausgesetzt. Piketteinsätze erfordert selbstständiges Handeln, Flexibilität und technisches Verständnis auch Fachübergreifend.\n\nWas Sie erwartet\n\n• Moderne Infrastruktur, zeitgemässer Arbeitsplatz\n\n• Eine offene und moderne Arbeitskultur mit kollegialem Klima in einem dynamischen Umfeld\n\n• Fachgerechte Einarbeitung im Arbeitsgebiet\n\n• Grosszügige Unterstützung bei Fort- und Weiterbildungen\n\n• Attraktive Anstellungsbedingungen und vielfältige Mitarbeiterangebote: Weitere Informationen finden Sie hier\n\nWas Sie mitbringen\n\n• Abgeschlossene technische Grundausbildung EFZ mit elektrischem Hintergrund oder eine Ausbildung zur Fachperson Betriebsunterhalt EFZ\n\n• Fundierte Kenntnisse und mehrjährige Erfahrung im Haustechnikbereich und Gebäudeinfrastruktur eines grösseren Betriebes, vorzugsweise aus dem Gesundheitsbereich\n\n• Fahrausweis Kat. B\n\n• Sicherer Umgang und gute Anwenderkenntnisse in MS Office 365\n\n• Teamfähige und kommunikative Persönlichkeit\n\n• Strukturierte und lösungsorientierte Vorgehensweise bei Problemstellungen\n Selbständige, effiziente und exakte Arbeitsweise und ein guter Organisations- und Ordnungssinn\n Dynamische und engagierte Persönlichkeit, Belastbarkeit, Flexibilität sowie vernetztes Denken runden Dein Profil ab\n\nInteressiert?\n Jetzt bewerben Reto Hürbin freut sich auf Ihre Online-Bewerbung.\n\nReto Hürbin\n Leiter Technischer Dienst\n+41 61 836 55 01\n\nReha Rheinfelden, Salinenstrasse 98, CH-4310 Rheinfelden",
-      "descriptionByLocale": {
-        "it": "Reha Rheinfelden\n\nServizio tecnico\n100%\nal 1° dicembre 2026 o d'accordo\n• Occupazione permanente\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik e Park-Hotel am Rhein AG impiegano circa 1.000 persone. Per ottenere la migliore riabilitazione possibile, i team interdisciplinari lavorano insieme, con le competenze e l'esperienza di ogni individuo che contribuiscono al successo.\nLa tua squadra\nIl servizio tecnico supervisiona gli edifici e le strutture all'avanguardia nella tecnologia medica e costruttiva. I professionisti di diverse professioni lavorano a stretto contatto nelle nostre due sedi e assicurano l'implementazione di lavori di manutenzione su attrezzature tecniche, mobili, strutture, attrezzature, aiuti, così come nelle sale pubbliche e nelle stanze dei pazienti. Anche l'approvvigionamento e la gestione dei materiali richiesti fanno parte dell'area di attività. Come supporto per la manutenzione, il nostro sistema CAFM ci serve. La disponibilità per pikettdienst regolare la sera e nei fine settimana (entro 45 minuti in loco) è anche necessaria. Piketteineinsatz richiede azione indipendente, flessibilità e comprensione tecnica, anche attraverso le discipline.\n\nCosa aspettarsi\n\n• Infrastrutture moderne, luogo di lavoro contemporaneo\n\n• Una cultura di lavoro aperta e moderna con un clima collegiale in un ambiente dinamico\n\n• Induzione professionale nel campo del lavoro\n\n• Sostegno generoso all'ulteriore istruzione e formazione\n\n• Condizioni di lavoro attraenti e diverse offerte di dipendenti: Ulteriori informazioni possono essere trovate qui\n\nCosa porti\n\n• Formazione tecnica di base completa EFZ con background elettrico o formazione come specialista per la manutenzione EFZ\n\n• Conoscenza approfondita e diversi anni di esperienza nel settore della tecnologia dell'edilizia e delle infrastrutture di costruzione di una società più grande, preferibilmente dal settore sanitario\n\n• Biglietto Cat. B\n\n• Gestione sicura e buona conoscenza degli utenti in MS Office 365\n\n• Personalità trasmissibile e comunicativa\n\n• Approccio strutturato e orientato alla soluzione ai problemi\nMetodi di lavoro indipendenti, efficienti ed esatti e un buon senso di organizzazione e ordine\npersonalità dinamica e impegnata, resilienza, flessibilità e pensiero in rete completano il tuo profilo\n\nInteressante?\nApplica ora Reto Hürbin non vede l'ora della tua applicazione online.\n\nReto Hürbin\nResponsabile del servizio tecnico\n+41 61 836 55 01\n\nReha Rheinfelden, Saline Road 98, CH-4310 Rheinfelden",
-        "en": "Reha Rheinfelden\n\nTechnical service staff\n100%\nper 1 December 2026 or by agreement\n• Permanent employment\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik and Park-Hotel am Rhein AG employ around 1,000 people. To achieve the best possible rehabilitation, interdisciplinary teams work together, with each individual’s expertise and experience contributing to success.\nYour team\nThe technical service supervises buildings and state-of-the-art facilities in medical and building technology. Professionals from different professions work closely together at our two locations and ensure the implementation of maintenance work on technical equipment, furniture, facilities, equipment, aids as well as in public rooms and patient rooms. The procurement and management of the required materials are also part of the task area. As a support for maintenance, our CAFM system serves us. The readiness for regular pikettdienst in the evening and on weekends (within 45 minutes on site) is also required. Piketteineinsatz requires independent action, flexibility and technical understanding, even across disciplines.\n\nWhat to expect\n\n• Modern infrastructure, contemporary workplace\n\n• An open and modern working culture with a collegial climate in a dynamic environment\n\n• Professional induction in the field of work\n\n• Generous support for further education and training\n\n• Attractive employment conditions and diverse employee offers: More information can be found here\n\nWhat you bring\n\n• Completed basic technical training EFZ with an electrical background or training as a specialist for maintenance EFZ\n\n• In-depth knowledge and several years of experience in the building technology sector and building infrastructure of a larger company, preferably from the health sector\n\n• Ticket Cat. B\n\n• Safe handling and good user knowledge in MS Office 365\n\n• Team-capable and communicative personality\n\n• Structured and solution-oriented approach to problems\nIndependent, efficient and exact working methods and a good sense of organization and order\nDynamic and committed personality, resilience, flexibility and networked thinking round off your profile\n\nInterested?\nApply now Reto Hürbin is looking forward to your online application.\n\nReto Hürbin\nHead of Technical Service\n+41 61 836 55 01\n\nReha Rheinfelden, Saline Road 98, CH-4310 Rheinfelden",
-        "de": "Reha Rheinfelden\n\nMitarbeiter Technischer Dienst\n100%\nper 1. Dezember 2026 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, Salina Rehaklinik und Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt.\nIhr Team\nDer technische Dienst betreut Gebäude und modernste Anlagen der Medizin- und Haustechnik. Fachleute unterschiedlicher Berufsrichtungen arbeiten eng an unseren beiden Standorten zusammen und sorgen für die Durchführung von Instandstandhaltungsarbeiten an technischen Anlagen, Mobiliar, Einrichtungen, Geräten, Hilfsmitteln sowie in den öffentlichen Räumen und Patientenzimmern. Die Beschaffung und Verwaltung der benötigten Materialien sind ebenfalls Bestandteil des Aufgabengebietes. Als Unterstützung für die Instandhaltung dient uns unser CAFM System. Die Bereitschaft zu turnusmässigem Pikettdienst am Abend und an Wochenenden (innert 45 Min. vor Ort) wird ebenfalls vorausgesetzt. Piketteinsätze erfordert selbstständiges Handeln, Flexibilität und technisches Verständnis auch Fachübergreifend.\n\nWas Sie erwartet\n\n• Moderne Infrastruktur, zeitgemässer Arbeitsplatz\n\n• Eine offene und moderne Arbeitskultur mit kollegialem Klima in einem dynamischen Umfeld\n\n• Fachgerechte Einarbeitung im Arbeitsgebiet\n\n• Grosszügige Unterstützung bei Fort- und Weiterbildungen\n\n• Attraktive Anstellungsbedingungen und vielfältige Mitarbeiterangebote: Weitere Informationen finden Sie hier\n\nWas Sie mitbringen\n\n• Abgeschlossene technische Grundausbildung EFZ mit elektrischem Hintergrund oder eine Ausbildung zur Fachperson Betriebsunterhalt EFZ\n\n• Fundierte Kenntnisse und mehrjährige Erfahrung im Haustechnikbereich und Gebäudeinfrastruktur eines grösseren Betriebes, vorzugsweise aus dem Gesundheitsbereich\n\n• Fahrausweis Kat. B\n\n• Sicherer Umgang und gute Anwenderkenntnisse in MS Office 365\n\n• Teamfähige und kommunikative Persönlichkeit\n\n• Strukturierte und lösungsorientierte Vorgehensweise bei Problemstellungen\nSelbständige, effiziente und exakte Arbeitsweise und ein guter Organisations- und Ordnungssinn\nDynamische und engagierte Persönlichkeit, Belastbarkeit, Flexibilität sowie vernetztes Denken runden Dein Profil ab\n\nInteressiert?\nJetzt bewerben Reto Hürbin freut sich auf Ihre Online-Bewerbung.\n\nReto Hürbin\nLeiter Technischer Dienst\n+41 61 836 55 01\n\nReha Rheinfelden, Salinenstrasse 98, CH-4310 Rheinfelden",
-        "fr": "Reha Rheinfelden\n\nPersonnel technique\n100%\npar 1er décembre 2026 ou par accord\n• Emploi permanent\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik et Park-Hotel am Rhein AG emploient environ 1000 personnes. Pour réaliser la meilleure réhabilitation possible, les équipes interdisciplinaires travaillent ensemble, avec l'expertise et l'expérience de chaque individu contribuant au succès.\nVotre équipe\nLe service technique supervise les bâtiments et les installations les plus modernes en matière de technologie médicale et de construction. Des professionnels de différentes professions travaillent en étroite collaboration sur nos deux sites et assurent la mise en œuvre de travaux d'entretien sur l'équipement technique, le mobilier, les installations, l'équipement, les aides ainsi que dans les salles publiques et les salles des patients. L ' achat et la gestion des matériaux nécessaires font également partie du domaine d ' activité. Pour soutenir la maintenance, notre système CAFM nous sert. Il est également nécessaire de se préparer à la pikettdienst régulière le soir et le week-end (dans les 45 minutes sur place). Piketteineinsatz exige une action indépendante, une flexibilité et une compréhension technique, même dans toutes les disciplines.\n\nÀ quoi s'attendre\n\n• Infrastructure moderne, milieu de travail contemporain\n\n• Une culture de travail ouverte et moderne avec un climat collégial dans un environnement dynamique\n\n• Induction professionnelle dans le domaine du travail\n\n• Soutien généreux à la formation continue\n\n• Conditions d'emploi attrayantes et offres diversifiées des employés: Plus d'informations ici\n\nCe que vous apportez\n\n• Formation technique de base terminée EFZ avec un bagage électrique ou une formation en tant que spécialiste de la maintenance EFZ\n\n• Connaissances approfondies et plusieurs années d'expérience dans le secteur de la technologie du bâtiment et construction d'infrastructures d'une entreprise plus grande, de préférence du secteur de la santé\n\n• Billet Cat. B\n\n• Gestion sécuritaire et bonne connaissance des utilisateurs dans MS Office 365\n\n• Personnalité capable d'équipe et communicative\n\n• Approche structurée et axée sur la solution des problèmes\nMéthodes de travail indépendantes, efficaces et exactes et bon sens de l ' organisation et de l ' ordre\nPersonnalité dynamique et engagée, résilience, flexibilité et pensée en réseau complètent votre profil\n\nIntéressé ?\nPostulez maintenant Reto Hürbin attend avec impatience votre candidature en ligne.\n\nReto Hürbin\nChef du service technique\n+41 61 836 55 01\n\nReha Rheinfelden, Saline Road 98, CH-4310 Rheinfelden"
-      },
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://link.ostendis.com/publication/mitarbeiter-technischer-dienst/xd3eodbxyi2rvy274uzib5fhttsijaxiqvoq3ylfgl0hq260qp7soazjoqlpbv6e",
-      "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:19:37.442Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2025-11-27",
-      "postedDate": "2025-11-27",
-      "postingDateSource": "reported",
-      "applyUrl": "https://link.ostendis.com/publication/mitarbeiter-technischer-dienst/xd3eodbxyi2rvy274uzib5fhttsijaxiqvoq3ylfgl0hq260qp7soazjoqlpbv6e",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "mitarbeiter-technischer-dienst-salina-rheinfelden",
-        "collaboratore-trice-technischer-dienst-salina-rehaklinik-rheinfelden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-technischer-dienst-salina-rheinfelden",
-          "collaboratore-trice-technischer-dienst-salina-rehaklinik-rheinfelden"
-        ],
-        "en": [
-          "mitarbeiter-technischer-dienst-salina-rheinfelden"
-        ],
-        "fr": [
-          "mitarbeiter-technischer-dienst-salina-rheinfelden"
-        ]
-      },
-      "firstSeenAt": "2026-11-04T21:25:15.585Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rheinfelden",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:19:37.442Z",
-      "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2
     }
   ]
