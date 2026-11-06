@@ -8,8 +8,12 @@ import {
 const NOW = Date.parse('2026-11-06T12:00:00.000Z');
 const freshAt = (ageMs = 60_000) => new Date(NOW - ageMs).toISOString();
 
-function sourceFeed({ generatedAt = freshAt(), candidates = [] } = {}) {
-  return JSON.stringify({ generatedAt, sources: {}, candidates });
+function sourceFeed({
+  generatedAt = freshAt(),
+  candidates = [],
+  sources = { googleNewsRss: { ok: true, candidates: 0 } },
+} = {}) {
+  return JSON.stringify({ generatedAt, sources, candidates });
 }
 
 function publicFeed({ generatedAt = freshAt(), candidates = [] } = {}) {
@@ -28,6 +32,60 @@ test('a fresh empty public feed is healthy and does not trigger mining or deploy
     sourceCandidateCount: 0,
     recoveryTarget: 'none',
   });
+});
+
+test('a fresh source with every provider failed or missing is re-mined', () => {
+  for (const sources of [
+    {},
+    {
+      redditTicino: { ok: false, candidates: 0 },
+      googleNewsRss: { ok: false, candidates: 0 },
+    },
+  ]) {
+    const result = assessCandidateFeedHealth({
+      publishedRaw: publicFeed(),
+      sourceRaw: sourceFeed({ sources }),
+      now: NOW,
+    });
+    expectHealthUnhealthySource(result);
+  }
+});
+
+function expectHealthUnhealthySource(result) {
+  assert.equal(result.sourceState, 'unhealthy');
+  assert.equal(result.recoveryTarget, 'mine');
+}
+
+test('a fresh public projection from another source snapshot triggers only a deploy', () => {
+  const result = assessCandidateFeedHealth({
+    publishedRaw: publicFeed({ generatedAt: freshAt(2 * 60_000) }),
+    sourceRaw: sourceFeed({ generatedAt: freshAt(60_000) }),
+    now: NOW,
+  });
+  assert.equal(result.publishedState, 'out_of_sync');
+  assert.equal(result.sourceState, 'fresh');
+  assert.equal(result.recoveryTarget, 'deploy');
+});
+
+test('a projection with the right timestamp but missing candidate identities is rebuilt', () => {
+  const generatedAt = freshAt();
+  const result = assessCandidateFeedHealth({
+    publishedRaw: publicFeed({ generatedAt, candidates: [] }),
+    sourceRaw: sourceFeed({
+      generatedAt,
+      candidates: [{
+        id: 'a1b2c3d4',
+        keyword: 'Permesso G',
+        angle: null,
+        locale: 'it',
+        sources: ['redditTicino'],
+        totalScore: 0.5,
+      }],
+    }),
+    now: NOW,
+  });
+  assert.equal(result.publishedState, 'out_of_sync');
+  assert.equal(result.recoveryTarget, 'deploy');
 });
 
 test('a fresh source with a missing or stale CDN projection triggers only a deploy', () => {
@@ -103,9 +161,18 @@ test('Reddit links must match the normalized public post URL shape', () => {
     totalScore: 0.5,
     redditPermalink: 'https://www.reddit.com/r/ticino/comments/abc123/',
   };
+  const sourceRaw = sourceFeed({ candidates: [{
+    id: candidate.id,
+    keyword: candidate.keyword,
+    angle: candidate.angle,
+    locale: candidate.locale,
+    sources: ['redditTicino'],
+    totalScore: candidate.totalScore,
+    demandSignals: { redditUrl: candidate.redditPermalink },
+  }] });
   const valid = assessCandidateFeedHealth({
     publishedRaw: publicFeed({ candidates: [candidate] }),
-    sourceRaw: sourceFeed(),
+    sourceRaw,
     now: NOW,
   });
   assert.equal(valid.publishedState, 'fresh');
@@ -115,7 +182,7 @@ test('Reddit links must match the normalized public post URL shape', () => {
       ...candidate,
       redditPermalink: 'https://www.reddit.com/r/ticino/redirect?target=https://example.test',
     }] }),
-    sourceRaw: sourceFeed(),
+    sourceRaw,
     now: NOW,
   });
   assert.equal(invalid.publishedState, 'invalid');

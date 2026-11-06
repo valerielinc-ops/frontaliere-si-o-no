@@ -11,53 +11,14 @@ import {
 } from './generationSlotLedger.js';
 import { generationSlotDateForEntry } from './generationSlotSchedule.js';
 import { LOOP_CLOCK_INPUT, loopClockInputValue } from './loopClockTable.js';
+import { GENERATION_WORKFLOW_CONTRACT_MARKER, inspectGenerationWorkflowContract } from './generationWorkflowContract.js';
 
-export const GENERATION_WORKFLOW_CONTRACT_MARKER = '# generation-cloud-clock-contract: v1';
+export { GENERATION_WORKFLOW_CONTRACT_MARKER, inspectGenerationWorkflowContract };
 export const GENERATION_WORKFLOW_PATH = '.github/workflows/generate-article.yml';
 const GENERATION_WORKFLOW_ID = 'generate-article.yml';
 const GENERATION_RUN_MARKER = '[generation-slot ';
 const DISPATCH_TIMEOUT_MS = 20_000;
 const ACTIVE_RUN_STATUSES = new Set(['queued', 'in_progress', 'waiting', 'requested']);
-
-function rootSection(source, name) {
-  const lines = String(source ?? '').split(/\r?\n/u);
-  const start = lines.findIndex((line) => line === `${name}:` || line.startsWith(`${name}: #`));
-  if (start < 0) return [];
-  const section = [];
-  for (let index = start + 1; index < lines.length; index += 1) {
-    if (/^[A-Za-z][A-Za-z0-9_-]*:\s*(?:#.*)?$/u.test(lines[index])) break;
-    section.push(lines[index]);
-  }
-  return section;
-}
-
-export function inspectGenerationWorkflowContract(source) {
-  const text = String(source ?? '');
-  const onLines = rootSection(text, 'on');
-  const dispatchStart = onLines.findIndex((line) => /^  workflow_dispatch:\s*$/u.test(line));
-  const dispatchLines = dispatchStart < 0 ? [] : onLines.slice(dispatchStart + 1).filter((line) => !/^  [A-Za-z_][A-Za-z0-9_-]*:\s*$/u.test(line));
-  const hasInput = (name) => dispatchLines.some((line) => new RegExp(`^      ${name}:\\s*$`, 'u').test(line));
-  const hasNativeSchedule = onLines.some((line) => /^  schedule:\s*$/u.test(line));
-  const markerPresent = text.split(/\r?\n/u).includes(GENERATION_WORKFLOW_CONTRACT_MARKER);
-  const missingInputs = ['section', 'dry_run', 'loop_clock', 'recovery_slot', 'recovery_claim']
-    .filter((name) => !hasInput(name));
-  const runNameReady = text.split(/\r?\n/u).some((line) => (
-    /^run-name:\s*/u.test(line)
-    && line.includes('inputs.loop_clock')
-    && line.includes('inputs.recovery_slot')
-    && line.includes('[loop-clock ')
-    && line.includes('[generation-slot ')
-  ));
-  const ready = markerPresent && dispatchStart >= 0 && !hasNativeSchedule
-    && missingInputs.length === 0 && runNameReady;
-  let reason = 'ready';
-  if (!markerPresent) reason = 'contract_marker_missing';
-  else if (hasNativeSchedule) reason = 'native_schedule_still_present';
-  else if (dispatchStart < 0) reason = 'workflow_dispatch_missing';
-  else if (missingInputs.length > 0) reason = 'recovery_inputs_missing';
-  else if (!runNameReady) reason = 'run_name_contract_missing';
-  return { ready, reason, hasNativeSchedule, missingInputs };
-}
 
 async function readGenerationWorkflow({ owner, repo, token, fetchImpl }) {
   const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${GENERATION_WORKFLOW_PATH}?ref=main`;
@@ -74,8 +35,9 @@ async function readGenerationWorkflow({ owner, repo, token, fetchImpl }) {
   return Buffer.from(payload.content.replace(/\s+/gu, ''), 'base64').toString('utf8');
 }
 
-async function listMatchingRuns({ owner, repo, token, slotKey, fetchImpl }) {
-  const url = `${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/${GENERATION_WORKFLOW_ID}/runs?branch=main&per_page=100`;
+async function listMatchingRuns({ owner, repo, token, slotKey, nominalSlot, fetchImpl }) {
+  const createdSince = `>=${new Date(nominalSlot).toISOString().slice(0, 10)}`;
+  const url = `${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/${GENERATION_WORKFLOW_ID}/runs?branch=main&per_page=100&created=${encodeURIComponent(createdSince)}`;
   const response = await fetchImpl(url, {
     method: 'GET',
     headers: githubApiHeaders(token),
@@ -102,7 +64,18 @@ function result(entry, fields = {}) {
   };
 }
 
-/** Dispatch one recovery slot after the corpus workflow has explicitly opted in. */
+/**
+ * Dispatch one recovery slot after the corpus workflow has explicitly opted in.
+ *
+ * @param {{
+ *   entry: { id: string, repo: string, workflow: string, generationSlot: string },
+ *   scheduledAt?: string | Date,
+ *   context?: { pat?: string, owner?: string, repo?: string } | undefined,
+ *   fetchImpl?: typeof fetch,
+ *   getAdminDbImpl?: () => object,
+ *   now?: number | Date
+ * }} options
+ */
 export async function dispatchGenerationSlot({
   entry,
   scheduledAt,
@@ -164,7 +137,7 @@ export async function dispatchGenerationSlot({
   if (previous?.status === 'claimed') {
     let matchingRuns;
     try {
-      matchingRuns = await listMatchingRuns({ owner, repo, token, slotKey, fetchImpl });
+      matchingRuns = await listMatchingRuns({ owner, repo, token, slotKey, nominalSlot, fetchImpl });
     } catch (error) {
       const reason = error instanceof Error && /^generation_run_lookup_/u.test(error.message)
         ? error.message
@@ -210,6 +183,7 @@ export async function dispatchGenerationSlot({
   const inputs = {
     section: entry.generationSlot,
     dry_run: 'false',
+    dispatch_origin: 'cloud_scheduler',
     recovery_slot: slotKey,
     recovery_claim: claim.claimToken,
     [LOOP_CLOCK_INPUT]: loopClockInputValue(entry, nominalSlot),

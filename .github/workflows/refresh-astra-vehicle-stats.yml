@@ -67,6 +67,30 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=2048
         run: node scripts/refresh-astra-vehicle-stats.mjs
 
+      - name: Read corpus dispatch origin contract
+        id: corpus_origin
+        if: >-
+          steps.refresh.outputs.pending_week != '' ||
+          steps.refresh.outputs.pending_month_ch != '' ||
+          steps.refresh.outputs.pending_month_ti != ''
+        env:
+          CORPUS_TOKEN: ${{ env.GITHUB_PAT_NANAKO }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CORPUS_TOKEN:-}" ]; then
+            echo "::error::GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
+            exit 1
+          fi
+          workflow_yaml=$(GH_TOKEN="$CORPUS_TOKEN" gh workflow view generate-article.yml \
+            --repo nanakokyobashi-rgb/frontaliere-articles --ref main --yaml)
+          origin_contract=$(printf '%s' "$workflow_yaml" | node functions/src/generationWorkflowContract.js)
+          case "$origin_contract" in
+            supported) echo "dispatch_origin_supported=true" >> "$GITHUB_OUTPUT" ;;
+            legacy) echo "dispatch_origin_supported=false" >> "$GITHUB_OUTPUT" ;;
+            *) echo "::error::Stato inatteso del contratto corpus: $origin_contract"; exit 1 ;;
+          esac
+          echo "Contratto dispatch corpus: $origin_contract"
+
       - name: Job summary
         if: always()
         env:
@@ -112,17 +136,25 @@ jobs:
         continue-on-error: true
         env:
           PENDING_WEEK: ${{ steps.refresh.outputs.pending_week }}
+          DISPATCH_ORIGIN_SUPPORTED: ${{ steps.corpus_origin.outputs.dispatch_origin_supported }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
+          dispatch_article() {
+            if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
+              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+                --repo nanakokyobashi-rgb/frontaliere-articles \
+                -f dispatch_origin=editorial_signal "$@"
+            else
+              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+            fi
+          }
           failed=0
           for url in $PENDING_WEEK; do
-            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-              --repo nanakokyobashi-rgb/frontaliere-articles \
-              -f url="$url" \
-              -f section=frontaliere; then
+            if dispatch_article -f url="$url" -f section=frontaliere; then
               if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
                 failed=1
               fi
@@ -138,17 +170,25 @@ jobs:
         continue-on-error: true
         env:
           PENDING_MONTH_CH: ${{ steps.refresh.outputs.pending_month_ch }}
+          DISPATCH_ORIGIN_SUPPORTED: ${{ steps.corpus_origin.outputs.dispatch_origin_supported }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
+          dispatch_article() {
+            if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
+              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+                --repo nanakokyobashi-rgb/frontaliere-articles \
+                -f dispatch_origin=editorial_signal "$@"
+            else
+              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+            fi
+          }
           failed=0
           for url in $PENDING_MONTH_CH; do
-            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-              --repo nanakokyobashi-rgb/frontaliere-articles \
-              -f url="$url" \
-              -f section=svizzera; then
+            if dispatch_article -f url="$url" -f section=svizzera; then
               if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
                 failed=1
               fi
@@ -164,17 +204,25 @@ jobs:
         continue-on-error: true
         env:
           PENDING_MONTH_TI: ${{ steps.refresh.outputs.pending_month_ti }}
+          DISPATCH_ORIGIN_SUPPORTED: ${{ steps.corpus_origin.outputs.dispatch_origin_supported }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
+          dispatch_article() {
+            if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
+              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+                --repo nanakokyobashi-rgb/frontaliere-articles \
+                -f dispatch_origin=editorial_signal "$@"
+            else
+              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+            fi
+          }
           failed=0
           for url in $PENDING_MONTH_TI; do
-            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-              --repo nanakokyobashi-rgb/frontaliere-articles \
-              -f url="$url" \
-              -f section=frontaliere; then
+            if dispatch_article -f url="$url" -f section=frontaliere; then
               if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
                 failed=1
               fi

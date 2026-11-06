@@ -32,9 +32,8 @@ name: Refresh BFS Stats
 #     Firebase Remote Config, NOT from Actions secrets.
 #   - A non-destructive probe against a non-existent ref returned 422 "No ref
 #     found", not 403: the PAT is authorized to dispatch, and nothing ran.
-#   - The receiver exists: nanakokyobashi-rgb/frontaliere-articles'
-#     generate-article.yml declares `workflow_dispatch` with `url` and `section`,
-#     exactly the `url=stats-bfs://<quarter>` shape used below.
+#   - The sender reads the receiver workflow contract first. It passes
+#     `editorial_signal` only after the corpus declares the new origin input.
 #
 # This does NOT re-light this repo's own generate-article.yml — the #5289 loop was
 # a LOCAL dispatch into a retired producer whose last step re-dispatches itself.
@@ -189,16 +188,41 @@ jobs:
             echo "Il loader esce 0 anche quando non carica niente, quindi questo è l'unico punto in cui la sua assenza diventa visibile."
             exit 1
           fi
+          if ! corpus_workflow_yaml=$(GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow view generate-article.yml \
+            --repo nanakokyobashi-rgb/frontaliere-articles --ref main --yaml); then
+            echo "::error::Impossibile leggere il contratto generate-article.yml del corpus."
+            exit 1
+          fi
+          if ! origin_contract=$(printf '%s' "$corpus_workflow_yaml" | node functions/src/generationWorkflowContract.js); then
+            echo "::error::Contratto workflow corpus non valido; dispatch non eseguito."
+            exit 1
+          fi
+          if [ "$origin_contract" = "supported" ]; then
+            dispatch_origin_note="con origine editorial_signal"
+          elif [ "$origin_contract" != "legacy" ]; then
+            echo "::error::Stato contratto workflow corpus inatteso: $origin_contract"
+            exit 1
+          else
+            dispatch_origin_note="senza dispatch_origin (receiver legacy)"
+          fi
+          echo "Contratto dispatch corpus: $origin_contract"
           echo "Dispatch generate-article.yml → nanakokyobashi-rgb/frontaliere-articles (url=stats-bfs://${NEW_QUARTER})"
-          GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-            --repo nanakokyobashi-rgb/frontaliere-articles \
-            -f url="stats-bfs://${NEW_QUARTER}" \
-            -f section=frontaliere
+          dispatch_corpus_article() {
+            if [ "$origin_contract" = "supported" ]; then
+              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+                --repo nanakokyobashi-rgb/frontaliere-articles \
+                -f dispatch_origin=editorial_signal "$@"
+            else
+              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+            fi
+          }
+          dispatch_corpus_article -f url="stats-bfs://${NEW_QUARTER}" -f section=frontaliere
           {
             echo "## 🚀 Articolo di annuncio dispacciato"
             echo ""
             echo "\`generate-article.yml\` avviato su \`nanakokyobashi-rgb/frontaliere-articles\`"
-            echo "con \`url=stats-bfs://${NEW_QUARTER}\`."
+            echo "$dispatch_origin_note e \`url=stats-bfs://${NEW_QUARTER}\`."
           } >> "$GITHUB_STEP_SUMMARY"
 
       # Il PAT è personale: se ruota o viene revocato, il dispatch fallisce. Senza
@@ -222,14 +246,16 @@ jobs:
 
           Causa più probabile: \`GITHUB_PAT_NANAKO\` ruotata, scaduta o revocata. Vive in **Firebase Remote Config** (progetto \`frontaliere-ticino\`), non negli Actions secrets — cercarla lì è la diagnosi sbagliata che ha già bloccato #5341 due volte.
 
-          Verifica senza eseguire nulla (un ref inesistente risponde 422 se il PAT è autorizzato, 403 se non lo è):
+          Verifica il receiver e i suoi input (il ref di prova è inesistente, quindi non avvia una run):
           \`\`\`
+          gh workflow view generate-article.yml --repo nanakokyobashi-rgb/frontaliere-articles --ref main --yaml
           gh api -X POST repos/nanakokyobashi-rgb/frontaliere-articles/actions/workflows/generate-article.yml/dispatches -f ref=__probe__
           \`\`\`
 
-          Ripiego manuale:
+          Ripiego manuale: controlla prima il receiver con `gh workflow view`. Se dichiara l’input `dispatch_origin`, usa la seconda forma; sul receiver legacy usa la prima.
           \`\`\`
           gh workflow run generate-article.yml --repo nanakokyobashi-rgb/frontaliere-articles -f url=stats-bfs://${NEW_QUARTER}
+          gh workflow run generate-article.yml --repo nanakokyobashi-rgb/frontaliere-articles -f dispatch_origin=manual -f url=stats-bfs://${NEW_QUARTER}
           \`\`\`
 
           Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
@@ -294,11 +320,11 @@ jobs:
 
           Il dataset BFS dei frontalieri e' passato a \`${NEW_QUARTER}\` — i valori su \`/statistiche/\` sono gia' aggiornati (Firestore riscritto da questo run).
 
-          Serve l'articolo che lo annuncia agli iscritti. **La generazione e' gia' stata avviata automaticamente** (#5341): questo run ha dispacciato \`generate-article.yml\` su \`nanakokyobashi-rgb/frontaliere-articles\` con \`url=stats-bfs://${NEW_QUARTER}\`. Esito del dispatch in questo run: \`${DISPATCH_OUTCOME}\`. Questa issue resta come traccia editoriale — verifica che l'articolo sia effettivamente uscito e chiudila.
+          Serve l'articolo che lo annuncia agli iscritti. **La generazione e' gia' stata avviata automaticamente** (#5341): questo run ha dispacciato \`generate-article.yml\` su \`nanakokyobashi-rgb/frontaliere-articles\` con origine \`editorial_signal\` e \`url=stats-bfs://${NEW_QUARTER}\`. Esito del dispatch in questo run: \`${DISPATCH_OUTCOME}\`. Questa issue resta come traccia editoriale — verifica che l'articolo sia effettivamente uscito e chiudila.
 
           **Si genera in \`nanakokyobashi-rgb/frontaliere-articles\`, mai qui**: dal cutover del 2026-08-02 (#4974 item 3) questo repo e' un consumatore puro e \`packages/articles/content/\` viene rifatto da \`scripts/pull-articles-corpus.mjs\` a ogni sync. Un articolo creato qui blocca il sync e viene poi cancellato — e' successo con cinque articoli il 2026-08-06/07 (#5289).
 
-          Per rilanciare la generazione a mano: \`gh workflow run generate-article.yml --repo nanakokyobashi-rgb/frontaliere-articles -f url=stats-bfs://${NEW_QUARTER}\`.
+          Per rilanciare la generazione a mano, controlla prima \`gh workflow view generate-article.yml --repo nanakokyobashi-rgb/frontaliere-articles --ref main --yaml\`: se dichiara \`dispatch_origin\`, aggiungi \`-f dispatch_origin=manual\` al comando; sul receiver legacy ometti quel campo.
 
           Il titolo e' volutamente privo del trimestre (#5121): e' il corpo a portarlo. Se questa issue e' ancora aperta quando arriva il trimestre successivo, il segnale atterra come commento \`🔁 Recurrence\` qui sotto — **leggi l'ultimo commento per sapere quale trimestre e' in attesa di articolo**, non solo il testo di apertura.
 

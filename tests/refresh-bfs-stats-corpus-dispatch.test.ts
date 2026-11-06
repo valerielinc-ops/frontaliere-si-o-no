@@ -22,10 +22,53 @@
  */
 import { describe, it, expect, beforeAll } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { parse } from 'yaml';
+import {
+  GENERATION_WORKFLOW_CONTRACT_MARKER,
+  generationWorkflowSupportsOrigin,
+} from '../functions/src/generationWorkflowContract.js';
 
 const WORKFLOW = new URL('../.github/workflows/refresh-bfs-stats.yml', import.meta.url);
+const ASTRA_WORKFLOW = new URL('../.github/workflows/refresh-astra-vehicle-stats.yml', import.meta.url);
+const ORIGIN_CONTRACT_HELPER = new URL('../functions/src/generationWorkflowContract.js', import.meta.url);
 const CORPUS = 'nanakokyobashi-rgb/frontaliere-articles';
+const GENERATION_WORKFLOW = `name: Generate Blog Article
+run-name: \${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Generate Blog Article [loop-clock {0}] [generation-slot {1}]', inputs.loop_clock, inputs.recovery_slot) || 'Generate Blog Article' }}
+# generation-cloud-clock-contract: v1
+on:
+  workflow_dispatch:
+    inputs:
+      section:
+        required: false
+        type: string
+      url:
+        required: false
+        type: string
+      dry_run:
+        required: false
+        type: boolean
+      dispatch_origin:
+        required: true
+        type: choice
+        options:
+          - manual
+          - cloud_scheduler
+          - chain
+          - editorial_signal
+      loop_clock:
+        required: false
+        type: string
+      recovery_slot:
+        required: false
+        type: string
+      recovery_claim:
+        required: false
+        type: string
+permissions:
+  contents: read
+`;
 
 type Step = { name?: string; id?: string; if?: string; env?: Record<string, string>; run?: string };
 let raw: string;
@@ -78,6 +121,90 @@ describe('il dispatch scatta SOLO sulla transizione di trimestre', () => {
   it('passa il trimestre nella forma attesa dal ricevente (`url=stats-bfs://<quarter>`)', () => {
     expect(dispatch.run).toContain('-f url="stats-bfs://${NEW_QUARTER}"');
     expect(dispatch.env?.NEW_QUARTER).toContain('steps.refresh.outputs.new_quarter');
+  });
+
+  it('rileva il contratto sul branch main e non invia input sconosciuti', () => {
+    expect(dispatch.run).toContain('gh workflow view generate-article.yml');
+    expect(dispatch.run).toContain('node functions/src/generationWorkflowContract.js');
+    expect(dispatch.run).toContain('dispatch_corpus_article() {');
+    expect(dispatch.run).toContain('-f dispatch_origin=editorial_signal "$@"');
+    expect(dispatch.run).toContain('dispatch_corpus_article -f url=');
+    expect(dispatch.run).not.toContain('origin_args[@]');
+    expect(dispatch.run.indexOf('gh workflow view')).toBeLessThan(dispatch.run.indexOf('gh workflow run'));
+  });
+});
+
+describe('gli altri segnali editoriali dichiarano la propria origine', () => {
+  it('i tre dispatch Astra rilevano il contratto prima di passare l’origine', () => {
+    const astra = readFileSync(ASTRA_WORKFLOW, 'utf8');
+    const dispatches = astra.match(/gh workflow run generate-article\.yml/g) || [];
+    const origins = astra.match(/-f dispatch_origin=editorial_signal "\$@"/g) || [];
+    const dispatchFunctions = astra.match(/dispatch_article\(\) \{/g) || [];
+    const calls = astra.match(/if dispatch_article -f url=/g) || [];
+    expect(dispatches).toHaveLength(6);
+    expect(origins).toHaveLength(3);
+    expect(dispatchFunctions).toHaveLength(3);
+    expect(calls).toHaveLength(3);
+    expect(dispatches).toHaveLength(dispatchFunctions.length * 2);
+    expect(astra).not.toContain('origin_args[@]');
+    expect(astra).toContain('node functions/src/generationWorkflowContract.js');
+  });
+});
+
+describe('contratto di origine sender/receiver', () => {
+  it('supporta il receiver aggiornato e distingue il receiver legacy', () => {
+    const legacy = GENERATION_WORKFLOW.replace(/      dispatch_origin:\n[\s\S]*?(?=      loop_clock:)/u, '');
+    const incomplete = GENERATION_WORKFLOW.replace(`${GENERATION_WORKFLOW_CONTRACT_MARKER}\n`, '');
+    expect(generationWorkflowSupportsOrigin(legacy)).toBe(false);
+    expect(generationWorkflowSupportsOrigin(GENERATION_WORKFLOW, 'editorial_signal')).toBe(true);
+    expect(generationWorkflowSupportsOrigin(GENERATION_WORKFLOW, 'cloud_scheduler')).toBe(true);
+    expect(generationWorkflowSupportsOrigin(incomplete)).toBe(true);
+  });
+
+  it('rende visibile un YAML non valido invece di permettere un dispatch o un ack', () => {
+    const result = spawnSync(process.execPath, [fileURLToPath(ORIGIN_CONTRACT_HELPER)], {
+      input: 'on: [\n',
+      encoding: 'utf8',
+    });
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('generation_workflow_yaml_read_or_parse_failed');
+  });
+
+  it('non classifica un workflow vuoto o senza input di base come receiver legacy', () => {
+    const result = spawnSync(process.execPath, [fileURLToPath(ORIGIN_CONTRACT_HELPER)], {
+      input: 'name: incomplete\n',
+      encoding: 'utf8',
+    });
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('generation_workflow_dispatch_inputs_invalid');
+  });
+
+  it('distingue il receiver legacy dal receiver che accetta l’origine ma ha ancora un contratto slot incompleto', () => {
+    const incomplete = GENERATION_WORKFLOW.replace(`${GENERATION_WORKFLOW_CONTRACT_MARKER}\n`, '');
+    const incompleteResult = spawnSync(process.execPath, [fileURLToPath(ORIGIN_CONTRACT_HELPER)], {
+      input: incomplete,
+      encoding: 'utf8',
+    });
+    expect(incompleteResult.status).toBe(0);
+    expect(incompleteResult.stdout.trim()).toBe('supported');
+
+    const legacy = GENERATION_WORKFLOW.replace(/      dispatch_origin:\n[\s\S]*?(?=      loop_clock:)/u, '');
+    const legacyResult = spawnSync(process.execPath, [fileURLToPath(ORIGIN_CONTRACT_HELPER)], {
+      input: legacy,
+      encoding: 'utf8',
+    });
+    expect(legacyResult.status).toBe(0);
+    expect(legacyResult.stdout.trim()).toBe('legacy');
+  });
+
+  it('fallisce se il receiver dichiara dispatch_origin ma non accetta l’origine editoriale', () => {
+    const workflow = GENERATION_WORKFLOW.replace('          - editorial_signal', '          - unsupported_origin');
+    const result = spawnSync(process.execPath, [fileURLToPath(ORIGIN_CONTRACT_HELPER)], {
+      input: workflow,
+      encoding: 'utf8',
+    });
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('generation_workflow_dispatch_origin_invalid');
   });
 });
 

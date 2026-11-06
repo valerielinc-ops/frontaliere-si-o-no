@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { generateKeyPairSync, sign as signJwt } from 'node:crypto';
 import { dispatchGenerationSlot, inspectGenerationWorkflowContract } from '../functions/src/generationSlotDispatch.js';
-import { admitGenerationSlotClaim, handleGenerationSlotClaimRequest } from '../functions/src/generationSlotLedger.js';
+import { admitGenerationSlotClaim, claimGenerationSlot, handleGenerationSlotClaimRequest } from '../functions/src/generationSlotLedger.js';
 import { GENERATION_SLOT_ENTRIES } from '../functions/src/generationSlotSchedule.js';
 import {
   allowGenerationClaimRequest,
@@ -24,6 +24,14 @@ on:
       dry_run:
         required: false
         type: boolean
+      dispatch_origin:
+        required: true
+        type: choice
+        options:
+          - manual
+          - cloud_scheduler
+          - chain
+          - editorial_signal
       loop_clock:
         required: false
         type: string
@@ -69,8 +77,14 @@ function responseForWorkflow() {
 }
 
 describe('generation workflow readiness contract', () => {
-  it('requires the readiness marker, recovery inputs and the removal of native cron', () => {
+  it('requires the readiness marker, explicit origin contract, recovery inputs and removal of native cron', () => {
     expect(inspectGenerationWorkflowContract(workflow)).toMatchObject({ ready: true, reason: 'ready' });
+    expect(inspectGenerationWorkflowContract(workflow.replace('      dispatch_origin:\n        required: true', '      dispatch_origin:\n        required: false')))
+      .toMatchObject({ ready: false, reason: 'dispatch_origin_invalid' });
+    expect(inspectGenerationWorkflowContract(workflow.replace('      dispatch_origin:\n        required: true\n        type:', '      dispatch_origin:\n        required: true\n        default: manual\n        type:')))
+      .toMatchObject({ ready: false, reason: 'dispatch_origin_invalid' });
+    expect(inspectGenerationWorkflowContract(workflow.replace('      dispatch_origin:\n', '      other_input:\n')))
+      .toMatchObject({ ready: false, reason: 'dispatch_origin_missing' });
     expect(inspectGenerationWorkflowContract(workflow.replace('recovery_claim:', 'other_input:')))
       .toMatchObject({ ready: false, reason: 'recovery_inputs_missing' });
     expect(inspectGenerationWorkflowContract(workflow.replace('  workflow_dispatch:', "  schedule:\n    - cron: '7 * * * *'\n  workflow_dispatch:")))
@@ -89,7 +103,7 @@ describe('generation claim endpoint authentication', () => {
   it('verifies the signed GitHub Actions OIDC token and binds it to the corpus workflow run', async () => {
     resetGithubActionsOidcStateForTests();
     const { privateKey, publicKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
-    const jwk = { ...publicKey.export({ format: 'jwk' }), kid: 'test-key', alg: 'RS256' };
+    const jwk = { ...publicKey.export({ format: 'jwk' }), kid: 'test-key', alg: 'RS256', use: 'sig' };
     const now = Date.parse('2026-11-06T10:10:00Z');
     const claims = {
       iss: GITHUB_ACTIONS_OIDC_ISSUER,
@@ -136,7 +150,7 @@ describe('generation claim endpoint authentication', () => {
 
 describe('generation slot dispatch', () => {
   it('dispatches a nominal UTC slot once and fences the slot after workflow admission', async () => {
-    const entry = GENERATION_SLOT_ENTRIES.find((candidate) => candidate.generationSlot === 'frontaliere');
+    const entry = GENERATION_SLOT_ENTRIES.find((candidate) => candidate.generationSlot === 'frontaliere')!;
     const db = memoryDb();
     const fetchImpl = vi.fn(async (url: string, init?: RequestInit) => (
       url.includes('/contents/')
@@ -162,6 +176,7 @@ describe('generation slot dispatch', () => {
     expect(inputs).toMatchObject({
       section: 'frontaliere',
       dry_run: 'false',
+      dispatch_origin: 'cloud_scheduler',
       recovery_slot: first.slotKey,
       loop_clock: 'corpus-generation-slot-frontaliere@2026-11-06T10:07Z',
     });
@@ -184,8 +199,42 @@ describe('generation slot dispatch', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(3);
   });
 
+  it('bounds expired-claim reconciliation to runs created on the nominal slot day', async () => {
+    const entry = GENERATION_SLOT_ENTRIES.find((candidate) => candidate.generationSlot === 'frontaliere')!;
+    const db = memoryDb();
+    const slotKey = 'generate-article/frontaliere/2026-11-06T10:07Z';
+    await claimGenerationSlot(db, slotKey, {
+      now: Date.parse('2026-11-06T10:09:00Z'),
+      claimTokenFactory: () => '11111111-1111-4111-8111-111111111111',
+    });
+    const fetchImpl = vi.fn(async (url: string, init?: RequestInit) => (
+      url.includes('/contents/')
+        ? responseForWorkflow()
+        : url.includes('/runs?')
+          ? new Response(JSON.stringify({ workflow_runs: [] }), { status: 200 })
+          : url.endsWith('/dispatches') && init?.method === 'POST'
+            ? new Response(null, { status: 204 })
+            : new Response('{}', { status: 404 })
+    ));
+
+    const result = await dispatchGenerationSlot({
+      entry,
+      scheduledAt: '2026-11-06T10:15:00Z',
+      now: Date.parse('2026-11-06T10:15:00Z'),
+      context: { pat: 'test-token', owner: 'nanakokyobashi-rgb', repo: 'frontaliere-articles' },
+      fetchImpl,
+      getAdminDbImpl: () => db,
+    });
+
+    expect(result).toMatchObject({ dispatched: true, slotKey });
+    const lookup = (fetchImpl.mock.calls as unknown as Array<[string, RequestInit?]>)
+      .find(([url]) => url.includes('/runs?'));
+    expect(lookup?.[0]).toContain('created=%3E%3D2026-11-06');
+    expect(lookup?.[0]).toContain('branch=main');
+  });
+
   it('stays in shadow when the corpus workflow has not opted into cloud-clock ownership', async () => {
-    const entry = GENERATION_SLOT_ENTRIES.find((candidate) => candidate.generationSlot === 'svizzera');
+    const entry = GENERATION_SLOT_ENTRIES.find((candidate) => candidate.generationSlot === 'svizzera')!;
     const fetchImpl = vi.fn(async () => new Response(JSON.stringify({
       encoding: 'base64',
       content: Buffer.from(workflow.replace('# generation-cloud-clock-contract: v1\n', '')).toString('base64'),

@@ -2,7 +2,8 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { projectExperimentalCandidateFeed } from '../lib/experimentalCandidateFeedProjection.mjs';
 
 export const CANDIDATE_FEED_URL = 'https://cdn.frontaliereticino.ch/data/experimental-candidate-feed.json';
 export const CANDIDATE_FEED_MAX_AGE_MS = 6 * 24 * 60 * 60 * 1000;
@@ -77,6 +78,12 @@ function classifySource(raw, nowMs) {
     return { state: 'invalid', candidateCount: null };
   }
   const freshness = validGeneratedAt(source.generatedAt, nowMs);
+  const hasSuccessfulProvider = Object.values(source.sources).some((provider) => (
+    isRecord(provider) && provider.ok === true
+  ));
+  if (freshness === 'fresh' && !hasSuccessfulProvider) {
+    return { state: 'unhealthy', candidateCount: source.candidates.length };
+  }
   return {
     state: freshness === 'fresh' ? 'fresh' : freshness === 'stale' ? 'stale' : 'invalid',
     candidateCount: source.candidates.length,
@@ -104,7 +111,30 @@ function classifyPublished(raw, httpStatus, nowMs) {
   return {
     state: freshness === 'fresh' ? 'fresh' : freshness === 'stale' ? 'stale' : 'invalid',
     candidateCount: feed.candidates.length,
+    feed,
   };
+}
+
+function samePublicCandidate(left, right) {
+  return left.id === right.id
+    && left.keyword === right.keyword
+    && left.angle === right.angle
+    && left.locale === right.locale
+    && left.totalScore === right.totalScore
+    && Array.isArray(left.sources)
+    && Array.isArray(right.sources)
+    && left.sources.length === right.sources.length
+    && left.sources.every((source, index) => source === right.sources[index])
+    && (left.redditPermalink ?? null) === (right.redditPermalink ?? null);
+}
+
+function samePublicProjection(expected, published) {
+  return expected.schemaVersion === published.schemaVersion
+    && expected.generatedAt === published.generatedAt
+    && expected.candidates.length === published.candidates.length
+    && expected.candidates.every((candidate, index) => (
+      samePublicCandidate(candidate, published.candidates[index])
+    ));
 }
 
 /**
@@ -122,11 +152,19 @@ export function assessCandidateFeedHealth({
   if (!Number.isFinite(nowMs)) throw new TypeError('now must be a valid date or epoch time');
   const published = classifyPublished(publishedRaw, publishedStatus, nowMs);
   const source = classifySource(sourceRaw, nowMs);
+  const projectionInSync = source.state === 'fresh'
+    && published.state === 'fresh'
+    && samePublicProjection(projectExperimentalCandidateFeed(sourceRaw), published.feed);
+  const publishedState = published.state === 'fresh'
+    && source.state === 'fresh'
+    && !projectionInSync
+    ? 'out_of_sync'
+    : published.state;
   const recoveryTarget = source.state === 'fresh'
-    ? published.state === 'fresh' ? 'none' : 'deploy'
+    ? publishedState === 'fresh' ? 'none' : 'deploy'
     : 'mine';
   return {
-    publishedState: published.state,
+    publishedState,
     sourceState: source.state,
     publishedCandidateCount: published.candidateCount,
     sourceCandidateCount: source.candidateCount,
@@ -181,6 +219,6 @@ export async function runCandidateFeedHealth({
   return assessment;
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href) {
   await runCandidateFeedHealth();
 }
