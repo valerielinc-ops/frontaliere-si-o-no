@@ -527,12 +527,10 @@ describe('employerProfilePagesLinksPlugin is not duplicated by any of this', () 
     // Different problem, different mechanism: that plugin makes the hubs
     // REACHABLE (depth ≤ 3 from `/`), this change makes them AUTHORITATIVE.
     // If it ever grew a per-job injector too, 36k HTML files would be rewritten
-    // post-hoc for links the jobs producer can emit for free at render time.
+    // post-hoc for links jobsSeoPagesPlugin can emit for free at render time.
     const links = readRepoFile('build-plugins/employerProfilePagesLinksPlugin.ts');
     expect(links).toContain('data-employer-profiles-links');
     expect(links).toContain('SITEMAP_PAGE_DIR[locale]');
-    expect(links).toContain('filterEmployerProfileJobLinks(html, jobSitemapAllowlist)');
-    expect(links).toContain('jobsSeoPagesFlushed');
-    expect(links).not.toContain("from './jobsSeoPagesPlugin'");
+    expect(links).not.toContain('jobsSeoPages');
   });
 });
