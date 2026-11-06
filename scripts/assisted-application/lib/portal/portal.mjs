@@ -2912,17 +2912,50 @@ function regionCodeForOption(option, sourceLanguages = REGION_OPTION_LANGUAGES) 
   return '';
 }
 
+function localizedRegionOption(option, language, sourceLanguages = REGION_OPTION_LANGUAGES) {
+  const text = String(option || '').trim();
+  if (!text) return '';
+  const target = regionNameCatalogue(language);
+  if (!target) return '';
+  const code = regionCodeForOption(text, sourceLanguages);
+  if (code) return target.byCode.get(code) || '';
+
+  // Some ICU aliases have the same source label (for example UK and GB both
+  // display as «Regno Unito»). They are safe only when every matching source
+  // code has the same localized target label; otherwise leave them unknown.
+  const key = normalizedQuestionText(text);
+  for (const sourceLanguage of sourceLanguages) {
+    const source = regionNameCatalogue(sourceLanguage);
+    if (!source) continue;
+    const matchingCodes = [...source.byCode]
+      .filter(([, label]) => normalizedQuestionText(label) === key)
+      .map(([regionCode]) => regionCode);
+    if (!matchingCodes.length) continue;
+    const localized = matchingCodes.map((regionCode) => target.byCode.get(regionCode)).filter(Boolean);
+    const unique = new Map(localized.map((label) => [normalizedQuestionText(label), label]));
+    return unique.size === 1 ? unique.values().next().value : '';
+  }
+  return '';
+}
+
 function deterministicItalianCountryOption(option, key) {
   const text = String(option || '').trim();
   if (!text) return null;
-  const regionCode = regionCodeForOption(text);
-  if (regionCode) {
-    const italianRegion = regionNameCatalogue('it')?.byCode.get(regionCode);
-    if (italianRegion) return italianRegion;
+  const normalized = normalizedQuestionText(text);
+  if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)
+    && OPTION_LANGUAGE_MARKERS.it.includes(normalized)) return text;
+  const italianRegion = localizedRegionOption(text, 'it');
+  if (italianRegion) {
+    return normalizedQuestionText(italianRegion) === normalized ? text : italianRegion;
   }
   if (key === 'nationality') {
     const nationality = nationalityOf(text);
-    if (nationality) return nationalityLabelOf(nationality.code, 'it') || null;
+    if (nationality) {
+      const italianNationality = nationalityLabelOf(nationality.code, 'it');
+      const withoutGroup = text.replace(/\s*\(\s*(?:eu|ue|efta|aele|aels)\s*\)\s*$/i, '');
+      if (!italianNationality) return null;
+      return normalizedQuestionText(withoutGroup) === normalizedQuestionText(italianNationality) ? text : italianNationality;
+    }
   }
   if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalizedQuestionText(text))) {
     return fallbackOption(text, 'it');
