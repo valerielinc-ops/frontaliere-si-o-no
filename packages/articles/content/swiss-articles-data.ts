@@ -30205,6 +30205,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'riserva-elettrica-risparmio-cdf',
+    category: 'novita',
+    date: '2026-11-06T22:13:49.752Z',
+    image: '/images/blog/article-riserva-elettrica-risparmio-cdf.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -8684,6 +8684,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.previdenza-lpp-tasso-2-percento.title': 'Previdenza LPP: tasso d’interesse al 2% dal 1° gen. 2027',
     'blog.article.previdenza-lpp-tasso-2-percento.excerpt': 'Dal gennaio 2027, il tasso d\'interesse minimo del secondo pilastro salirà dall\'1,25% al 2%, secondo quanto deciso dal Consiglio federale.',
     'blog.article.previdenza-lpp-tasso-2-percento.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.riserva-elettrica-risparmio-cdf.title': 'Riserva elettrica: CDF individua risparmio di 220 milioni',
+    'blog.article.riserva-elettrica-risparmio-cdf.excerpt': 'Il CDF quantifica in 220 milioni di franchi il margine di risparmio ancora inutilizzato nella costituzione della riserva di energia elettrica per l\'inverno.',
+    'blog.article.riserva-elettrica-risparmio-cdf.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

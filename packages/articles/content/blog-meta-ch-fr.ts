@@ -8684,6 +8684,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.previdenza-lpp-tasso-2-percento.title': 'Prévoyance LPP : taux d’intérêt à 2 % dès le 1er janvier 2027',
     'blog.article.previdenza-lpp-tasso-2-percento.excerpt': 'À partir de janvier 2027, le taux d’intérêt minimal du deuxième pilier passera de 1,25 % à 2 %, conformément à la décision du Conseil fédéral.',
     'blog.article.previdenza-lpp-tasso-2-percento.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.riserva-elettrica-risparmio-cdf.title': 'Réserve d’électricité : le CDF identifie une économie de 220 millions',
+    'blog.article.riserva-elettrica-risparmio-cdf.excerpt': 'Le CDF chiffre à 220 millions de francs le potentiel d’économies encore inexploité dans la constitution de la réserve d’énergie électrique pour l’hiver.',
+    'blog.article.riserva-elettrica-risparmio-cdf.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

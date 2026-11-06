@@ -2917,6 +2917,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cdf-critica-armasuisse-immobili': { it: 'cdf-critica-armasuisse-immobili', en: 'cdf-criticizes-armasuisse-real-estate', de: 'cdf-kritisiert-armasuisse-immobilien', fr: 'cdf-critique-armasuisse-immobilier' },
  'riforma-assicurazione-invalidita-ai': { it: 'riforma-assicurazione-invalidita-ai', en: 'ai-insurance-reform', de: 'ai-versicherungsreform', fr: 'reforme-assurance-invalidite' },
  'previdenza-lpp-tasso-2-percento': { it: 'previdenza-lpp-tasso-2-percento', en: 'pension-lpp-interest-rate-2-percent', de: 'rente-lpp-zins-2-prozent', fr: 'retraite-lpp-taux-2-pourcent' },
+ 'riserva-elettrica-risparmio-cdf': { it: 'riserva-elettrica-risparmio-cdf', en: 'swiss-electricity-reserve-savings', de: 'stromreserve-sparpotenzial-cdf', fr: 'reserve-electrique-economies-cdf' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

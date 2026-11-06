@@ -109778,6 +109778,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riserva-elettrica-risparmio-cdf': {
+    title: 'Riserva elettrica: CDF individua risparmio di 220 milioni',
+    description: 'Il CDF individua 220 milioni di franchi di risparmio potenziale per la riserva elettrica invernale. Progetto da 2,18 miliardi pendente in Parlamento.',
+    keywords: 'riserva elettrica, CDF, Consiglio federale, risparmio energetico, ElCom, costi elettricità, Svizzera, approvvigionamento elettrico',
+    ogTitle: 'Riserva elettrica: CDF individua risparmio di 220 milioni',
+    ogDescription: 'Il Controllo federale delle finanze segnala un potenziale di risparmio di 220 milioni di franchi nella riserva elettrica. Il piano del Governo prevede 2,18 miliardi per quattro centrali dal 2030.',
+    canonicalPath: '/articoli-svizzera/riserva-elettrica-risparmio-cdf/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riserva elettrica: CDF individua risparmio di 220 milioni",
+      "description": "Il CDF individua 220 milioni di franchi di risparmio potenziale per la riserva elettrica invernale. Progetto da 2,18 miliardi pendente in Parlamento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-riserva-elettrica-risparmio-cdf.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-06T22:13:49+00:00",
+      "dateModified": "2026-11-06T22:13:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/riserva-elettrica-risparmio-cdf/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

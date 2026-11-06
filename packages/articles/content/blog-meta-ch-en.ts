@@ -8684,6 +8684,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.previdenza-lpp-tasso-2-percento.title': 'LPP pension provision: interest rate of 2% from Jan. 1, 2027',
     'blog.article.previdenza-lpp-tasso-2-percento.excerpt': 'From January 2027, the minimum interest rate for the second pillar will rise from 1,25% to 2%, according to the decision of the Federal Council.',
     'blog.article.previdenza-lpp-tasso-2-percento.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.riserva-elettrica-risparmio-cdf.title': 'Electricity reserve: CDF identifies savings of 220 million',
+    'blog.article.riserva-elettrica-risparmio-cdf.excerpt': 'The CDF puts the untapped savings potential in establishing the electricity reserve for the winter at 220 million francs.',
+    'blog.article.riserva-elettrica-risparmio-cdf.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
