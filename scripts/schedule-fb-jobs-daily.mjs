@@ -86,6 +86,7 @@ const FB_MESSAGE_HARD_LIMIT = 5000;
 const FACEBOOK_JOB_IMAGE_WIDTH = 1080;
 const FACEBOOK_JOB_IMAGE_HEIGHT = 1350;
 const FACEBOOK_JOB_IMAGE_MAX_BYTES = 12 * 1024 * 1024;
+const FACEBOOK_JOB_IMAGE_MAX_UPLOAD_BYTES = 8 * 1024 * 1024;
 
 // Posted-jobs ledger trim cap.
 const POSTED_TRIM_LIMIT = 1000;
@@ -760,7 +761,11 @@ async function facebookJobImageAsJpeg(fetchImpl, imageUrl, requiredImagePath) {
     || metadata.height !== FACEBOOK_JOB_IMAGE_HEIGHT) {
     throw new Error('job image is not the expected 1080×1350 WebP card');
   }
-  return sharp(source, { failOn: 'error' }).jpeg({ quality: 90 }).toBuffer();
+  const jpeg = await sharp(source, { failOn: 'error' }).jpeg({ quality: 90 }).toBuffer();
+  if (jpeg.length === 0 || jpeg.length > FACEBOOK_JOB_IMAGE_MAX_UPLOAD_BYTES) {
+    throw new Error(`converted Facebook job image size is invalid (${jpeg.length} bytes)`);
+  }
+  return jpeg;
 }
 
 async function uploadUnpublishedFacebookPhoto({ fetchImpl, pageId, token, imageUrl, requiredImagePath }) {
@@ -1012,9 +1017,10 @@ export async function run(opts = {}) {
           key: publishReservationKeys.get(p.jobId),
           publishAt: new Date(p.scheduled_publish_time * 1000),
           reserveNextDay: true,
+          // Match exact-post reconciliation, which hashes message/link fields;
+          // the tracked offer URL is already part of this message.
           nativeContentFingerprint: socialPublishContentFingerprint('facebook', {
             message: buildFacebookJobPhotoMessage(p.message, link),
-            photo: expectedJobOgImagePath(p.url),
           }),
         };
       }),
@@ -1141,6 +1147,9 @@ export async function run(opts = {}) {
         warn('⚠️', `POST failed for ${p.jobId} (attempt ${attempt}): ${err.message}`);
         data = null;
       }
+      // A 2xx without an ID is ambiguous: Meta may have accepted the scheduled
+      // post. Keep its unpublished photo and reservation so reconciliation can
+      // resolve it without deleting media that the accepted post may use.
       if (isAmbiguousSocialPublishResponse(res) || (res?.ok && !data?.id)) deliveryUncertain = true;
       if (res?.ok && data?.id) break;
       const code = data?.error?.code;
