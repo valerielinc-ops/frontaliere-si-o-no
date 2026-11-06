@@ -1,20 +1,21 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-11-06T09:22:25.950Z",
+  "generatedAt": "2026-11-06T21:36:11.100Z",
   "total": 2,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3913,
-  "avgDurationMs": 3913,
+  "durationMs": 4219,
+  "avgDurationMs": 4219,
   "durationHistory": [
-    3913
+    4219
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "citta-di-locarno-assistente-di-sicurezza-pubblica-della-polizia-citta-di-locarno-100-locarno",
       "slug": "assistente-di-sicurezza-pubblica-della-polizia-citta-di-locarno-100-locarno",
@@ -42,25 +43,23 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=ab51cfb8-b7ee-4213-9907-7006885ec07c,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-06T09:22:11.397Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-11-06T21:35:53.638Z",
+      "firstSeenAt": "2026-11-06T09:22:11.397Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:22:11.397Z",
+      "validThrough": "2027-02-04T21:35:53.638Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-11-06T09:22:11.397Z",
-      "_qualityScore": 74,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -95,7 +94,7 @@
       "salaryMin": 34700,
       "salaryMax": 52500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-31T21:18:19.581Z",
       "validThroughSource": "last-observed-window",
@@ -108,5 +107,5 @@
       }
     }
   ],
-  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
+  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
 }
