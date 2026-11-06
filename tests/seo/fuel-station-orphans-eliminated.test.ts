@@ -59,6 +59,7 @@ import {
   type FuelDailyLocale,
   type FuelType,
 } from '../../build-plugins/fuelDailyData';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { generateFuelStationPages } from '../../build-plugins/fuelDailyPagesPlugin';
 import { hasSelfCanonical } from '../../build-plugins/shared/sitemapCanonicalContract';
 import { extractFuelBreadcrumbTargets } from '../utils/fuelBreadcrumbs';
@@ -628,6 +629,30 @@ describe('fuel-station index pagination — Italian station pages stay within th
     expect(pages[middlePath]).toMatch(/rel(?:="prev"|=prev)/);
     expect(pages[middlePath]).toMatch(/rel(?:="next"|=next)/);
     expect(pages[middlePath]).toContain('Stazioni benzina Italia confine — indice completo — pagina 2');
+  });
+
+  it('marks only deep fuel pagination pages as intentional noindex targets', () => {
+    const deepLeaves: ItalianStationLeaf[] = Array.from({
+      length: ITALIAN_STATIONS_INDEX_PAGE_SIZE * 10 + 1,
+    }, (_, index) => ({
+      citySlug: 'deep-city',
+      cityDisplay: 'Deep City',
+      stationSlug: `station-${index}`,
+      name: `Deep station ${index}`,
+      brand: 'Provider',
+      address: `Via Roma ${index}, Deep City`,
+    }));
+    const deepPages = generateFuelIndexPages({
+      today: TODAY,
+      swissStations: [],
+      italianStations: deepLeaves,
+    });
+    const page10Path = buildFuelIndexPaginationPath('it', 'benzina', 'italianStations', 10);
+    const page11Path = buildFuelIndexPaginationPath('it', 'benzina', 'italianStations', 11);
+
+    expect(deepPages[page10Path]).not.toContain(PAGINATION_NOINDEX_TARGET_MARKER);
+    expect(deepPages[page11Path]).toContain(PAGINATION_NOINDEX_TARGET_MARKER);
+    expect(deepPages[page11Path]!.split(PAGINATION_NOINDEX_TARGET_MARKER).length - 1).toBe(1);
   });
 });
 
