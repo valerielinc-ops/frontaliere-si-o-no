@@ -82,6 +82,7 @@ import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/pagin
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
+import { createExpiredArchivePublicationEvidence } from './shared/expiredArchivePublicationEvidence.mjs';
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
@@ -13332,6 +13333,8 @@ ${staticAnalyticsHtml}
  );
  if (sliceAugmented > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Augmented expiredBySlug with ${sliceAugmented} in-memory per-crawler aliases and ${expiredSliceOverflow.size} disk-backed aliases for complete requested archive coverage`);
+ const expiredArchiveOverflowPopulation = expiredSliceOverflow.size;
+ const expiredArchivePublicationEvidence = createExpiredArchivePublicationEvidence();
  }
  }
 
@@ -14212,6 +14215,7 @@ ${staticAnalyticsHtml}
  for (let expiredSlugIndex = 0; expiredSlugIndex < expiredSlugs.length; expiredSlugIndex++) {
  const slug = expiredSlugs[expiredSlugIndex];
  const paths = tracking[slug];
+ const expiredArchiveOverflowOwned = !expiredBySlug.has(slug) && expiredSliceOverflow.has(slug);
  const ejData = expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug);
 
  // For orphan slugs with no ejData, extract info from the slug itself
@@ -14984,6 +14988,21 @@ ${staticAnalyticsHtml}
  const __tEjpWrite = phaseTimer();
  const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml);
  if (wroteSoftLanding) {
+  if (expiredArchiveOverflowOwned) {
+   expiredArchivePublicationEvidence.record({
+    locale,
+    path: `${relPath.replace(/^\/+|\/+$/g, '')}/index.html`,
+    url: selfUrl,
+    payloadJson: expiredWindowData,
+    owner: {
+     slug: ejData?.slug || '',
+     sourceIdentity: ejData?.sourceIdentity || '',
+     title: jobDisplayTitle(ejData) || '',
+     company: ejData?.company || '',
+     expiredAt: ejData?.expiredAt || '',
+    },
+   });
+  }
   if (incrementalManifests) {
    registerIncrementalPage(locale, relPath, 'expired-soft-landing', softLandingManifestInput);
   }
@@ -15104,6 +15123,12 @@ ${staticAnalyticsHtml}
  // cross-locale pass below will read these pages from disk as needed.
  await releaseExpiredHtmlCacheChunk();
  maybeForceJobsSeoHtmlGc();
+ expiredArchivePublicationEvidence.write({
+  distDir,
+  indexedOverflowAliases: expiredArchiveOverflowPopulation,
+  sourceRunId: process.env.GITHUB_RUN_ID || '',
+  sourceSha: process.env.GITHUB_SHA || '',
+ });
 
  jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
  logJobsSeoMem('after-expired-cache-population', {

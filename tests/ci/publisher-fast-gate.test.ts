@@ -188,8 +188,108 @@ describe('publisher fast provenance gate', () => {
     }
   });
 
+  it('adds non-sitemap archive evidence to the section receipt with source and final digests', () => {
+    const root = tempRoot();
+    const pageRoot = path.join(root, 'cerca-lavoro-ticino');
+    const pagePath = path.join(pageRoot, 'late-alias', 'index.html');
+    const html = '<html><main data-expired-static-body="true">archive</main></html>';
+    fs.mkdirSync(path.dirname(pagePath), { recursive: true });
+    fs.writeFileSync(pagePath, html);
+    const sourceDigest = crypto.createHash('sha256').update(html).digest('hex');
+    const evidencePath = path.join(root, 'evidence.json');
+    fs.writeFileSync(evidencePath, JSON.stringify({
+      schemaVersion: 1,
+      kind: 'expired-archive-publication-evidence',
+      validatorVersion: 'expired-archive-publication-v1',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      locale: 'it',
+      entries: [{
+        evidenceKind: 'expired-archive', locale: 'it', section: 'ticino',
+        url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/late-alias/',
+        path: 'cerca-lavoro-ticino/late-alias/index.html', sha256: sourceDigest,
+      }],
+    }));
+
+    const manifest = createSectionManifest({
+      root: pageRoot,
+      prefix: 'cerca-lavoro-ticino',
+      locale: 'it',
+      section: 'ticino',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      artifactRunId: SOURCE_RUN_ID,
+      evidenceManifestPath: evidencePath,
+    });
+
+    expect(manifest.pages).toEqual([expect.objectContaining({
+      evidenceKind: 'expired-archive', sourceSha256: sourceDigest, sha256: sourceDigest,
+    })]);
+  });
+
   it('accepts complete sitemap, path, digest, and Ticino shard evidence', () => {
     expect(fixture().result).toMatchObject({ passed: true, errorCount: 0, sampleRate: 1 });
+  });
+
+  it('binds a non-sitemap expired archive canary to its final shard bytes', () => {
+    const base = fixture();
+    const archiveUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/late-overflow-alias/';
+    const archivePath = 'cerca-lavoro-ticino/late-overflow-alias/index.html';
+    const archiveDigest = '7'.repeat(64);
+    const archiveEvidenceManifests = ['it', 'en', 'de', 'fr'].map((locale) => {
+      const entries = locale === 'it' ? [{
+        evidenceKind: 'expired-archive', locale, section: 'ticino', url: archiveUrl,
+        path: archivePath, sha256: archiveDigest, payloadSha256: '1'.repeat(64),
+        descriptionSha256: '2'.repeat(64), expiredAtSha256: '3'.repeat(64), ownerSha256: '4'.repeat(64),
+      }] : [];
+      base.sourceArtifacts.push(artifact(`expired-archive-evidence-${locale}-${SOURCE_RUN_ID}`, '5'.repeat(64)));
+      return {
+        schemaVersion: 1,
+        kind: 'expired-archive-publication-evidence',
+        validatorVersion: 'expired-archive-publication-v1',
+        sourceRunId: SOURCE_RUN_ID,
+        sourceSha: SOURCE_SHA,
+        locale,
+        indexedOverflowAliases: 201_656,
+        renderedOverflowPages: locale === 'it' ? 1 : 0,
+        sampleSize: entries.length,
+        entries,
+      };
+    });
+    base.sectionPage.shards[0].pages.push({
+      evidenceKind: 'expired-archive', locale: 'it', section: 'ticino', url: archiveUrl,
+      path: archivePath, sourceSha256: archiveDigest, sha256: '8'.repeat(64),
+    });
+
+    const result = validatePublisherFastGate({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      publisherRunId: PUBLISHER_RUN_ID,
+      sitemapDir: base.sitemapDir,
+      previousSitemapSnapshot: base.previousSitemapSnapshot,
+      sitemapCoverageDeclarations: { version: 1, decreases: [] },
+      pageManifests: base.pageManifests,
+      sectionManifests: base.sectionManifests,
+      archiveEvidenceManifests,
+      sourceArtifacts: { artifacts: base.sourceArtifacts },
+      publisherArtifacts: { artifacts: base.publisherArtifacts },
+      manifestArtifactNames: [
+        ...base.pageManifests.map((manifest) => manifest.manifestArtifactName),
+        ...base.sectionManifests.map((manifest) => manifest.manifestArtifactName),
+      ],
+    });
+
+    expect(result).toMatchObject({ passed: true, expiredArchiveEvidencePopulation: 1 });
+
+    archiveEvidenceManifests.pop();
+    const missingLocale = validatePublisherFastGate({
+      sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA, publisherRunId: PUBLISHER_RUN_ID,
+      sitemapDir: base.sitemapDir, previousSitemapSnapshot: base.previousSitemapSnapshot,
+      sitemapCoverageDeclarations: { version: 1, decreases: [] }, pageManifests: base.pageManifests,
+      sectionManifests: base.sectionManifests, archiveEvidenceManifests,
+      sourceArtifacts: { artifacts: base.sourceArtifacts }, publisherArtifacts: { artifacts: base.publisherArtifacts },
+    });
+    expect(missingLocale.errors.join('\n')).toContain('expired archive evidence missing for locale fr');
   });
 
   it('fails closed when a sitemap URL is absent from its required shard manifest', () => {
