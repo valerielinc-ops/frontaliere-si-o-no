@@ -1958,6 +1958,16 @@ async function main() {
     await rm(dir, { recursive: true, force: true });
   }
   const failed = checks.filter((item) => !item.ok).length;
+  if (process.env.AA_PORTAL_E2E_REPORT) {
+    const report = {
+      schemaVersion: 1,
+      focus: process.env.AA_PORTAL_E2E_FOCUS || 'all',
+      totalChecks: checks.length,
+      passedChecks: checks.length - failed,
+      failedChecks: checks.filter((item) => !item.ok).map((item) => item.name),
+    };
+    await writeFile(process.env.AA_PORTAL_E2E_REPORT, `${JSON.stringify(report, null, 2)}\n`);
+  }
   console.log(failed ? `${failed} check(s) failed` : 'portal e2e ok');
   process.exitCode = failed ? 1 : 0;
 }
