@@ -2,9 +2,10 @@
 import { execFileSync, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
+import NodeModule, { createRequire } from 'node:module';
 import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { afterAll, describe, expect, it, vi } from 'vitest';
 import YAML from 'yaml';
 
@@ -61,7 +62,7 @@ import { buildIssueDescription, displayPath, downloadEntryFiles, downloadImages,
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { diagnosticsDir, downloadsDir, pruneRobotState, resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
 import { filterAutomatedDeliveryPlatforms, runHasErrors } from '../scripts/social-robot/run.mjs';
-import { SOCIAL_ROBOT_RUNTIME_SHIMS } from '../scripts/social-robot/lib/runtime.mjs';
+import { configureSocialRobotRuntime, SOCIAL_ROBOT_RUNTIME_SHIMS } from '../scripts/social-robot/lib/runtime.mjs';
 
 describe('Instagram image upload accept guard', () => {
   it('accepts standard image MIME tokens and rejects a non-image field', () => {
@@ -1312,27 +1313,26 @@ describe('Mac host launch agent', () => {
   const script = path.join(ROOT, 'scripts', 'social-robot', 'launchd.sh');
 
   it('registers the snapshot-local abort-controller before a stale launcher imports Firestore', () => {
-    const probe = path.join(tempDir(), 'runtime-probe.mjs');
-    const runtimeModule = path.join(ROOT, 'scripts', 'social-robot', 'lib', 'runtime.mjs');
-    fs.writeFileSync(probe, [
-      `import { createRequire } from 'node:module';`,
-      `import { configureSocialRobotRuntime } from ${JSON.stringify(pathToFileURL(runtimeModule).href)};`,
-      'configureSocialRobotRuntime();',
-      'const require = createRequire(import.meta.url);',
-      "const AbortController = require('abort-controller');",
-      'const controller = new AbortController();',
-      'const namedExportMatches = AbortController.AbortController === AbortController;',
-      'controller.abort();',
-      'console.log(`${controller.signal.aborted}:${namedExportMatches}:${process.env.NODE_PATH.includes(' + JSON.stringify(SOCIAL_ROBOT_RUNTIME_SHIMS) + ')}`);',
-    ].join('\n'));
+    const originalNodePath = process.env.NODE_PATH;
+    try {
+      process.env.NODE_PATH = '';
+      configureSocialRobotRuntime();
+      const isolatedRequire = createRequire(pathToFileURL(path.join(tempDir(), 'runtime-probe.mjs')));
+      const AbortController = isolatedRequire('abort-controller');
+      const controller = new AbortController();
 
-    const output = execFileSync(process.execPath, [probe], {
-      cwd: path.dirname(probe),
-      encoding: 'utf8',
-      env: { ...process.env, NODE_PATH: '' },
-    }).trim();
-
-    expect(output).toBe('true:true:true');
+      expect(controller.signal.aborted).toBe(false);
+      expect(AbortController.AbortController).toBe(AbortController);
+      controller.abort();
+      expect(controller.signal.aborted).toBe(true);
+      expect(isolatedRequire.resolve('abort-controller')).toBe(
+        path.join(SOCIAL_ROBOT_RUNTIME_SHIMS, 'abort-controller', 'index.cjs'),
+      );
+    } finally {
+      if (originalNodePath === undefined) delete process.env.NODE_PATH;
+      else process.env.NODE_PATH = originalNodePath;
+      (NodeModule as typeof NodeModule & { _initPaths: () => void })._initPaths();
+    }
   });
 
   it('declares the Firestore fallback dependency as a runtime package', () => {
