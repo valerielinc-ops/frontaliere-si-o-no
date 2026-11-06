@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nord-anglia",
-  "assembledAt": "2026-11-05T09:17:03.240Z",
-  "runId": "42000387234",
+  "assembledAt": "2026-11-05T21:28:06.730Z",
+  "runId": "42110416358",
   "jobs": [
     {
       "id": "nord-anglia-f941b7ebe925",
@@ -34,7 +34,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-EHL-Administrative-Intern/1450843433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:56.477Z",
+      "crawledAt": "2026-11-05T21:27:59.776Z",
       "addressLocality": "Villars sur Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars sur Ollon",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:16:56.477Z",
+      "validThrough": "2027-01-21T21:27:59.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-IB-Teachers/1142314801/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:55.633Z",
+      "crawledAt": "2026-11-05T21:27:58.876Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -162,7 +162,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:16:55.633Z",
+      "validThrough": "2026-12-16T21:27:58.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -196,7 +196,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:54.921Z",
+      "crawledAt": "2026-11-05T21:27:58.177Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -240,7 +240,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:16:54.921Z",
+      "validThrough": "2026-12-10T21:27:58.177Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -274,7 +274,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Enseignants-es-Primaire/1145233801/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:54.186Z",
+      "crawledAt": "2026-11-05T21:27:57.484Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -322,7 +322,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:16:54.186Z",
+      "validThrough": "2026-12-10T21:27:57.484Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -356,7 +356,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Professeur_e-de-Fran%C3%A7ais-Cours-de-soutien/1452003333/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:53.241Z",
+      "crawledAt": "2026-11-05T21:27:56.811Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -377,23 +377,23 @@
       "jobReqId": "1452003333",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "professeur-e-de-francais-cours-de-soutien-nord-anglia-education-switzerland-geneve"
-        ],
-        "it": [
-          "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
-          "insegnante-di-francese-lezioni-di-supporto-nord-anglia-education-switzerland-geneva"
-        ],
-        "de": [
-          "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva"
-        ]
-      },
       "previousSlugs": [
         "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
         "insegnante-di-francese-lezioni-di-supporto-nord-anglia-education-switzerland-geneva",
         "professeur-e-de-francais-cours-de-soutien-nord-anglia-education-switzerland-geneve"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
+          "insegnante-di-francese-lezioni-di-supporto-nord-anglia-education-switzerland-geneva"
+        ],
+        "en": [
+          "professeur-e-de-francais-cours-de-soutien-nord-anglia-education-switzerland-geneve"
+        ],
+        "de": [
+          "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-28T09:30:06.863Z",
       "salaryMin": 51100,
@@ -410,7 +410,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:16:53.241Z",
+      "validThrough": "2027-01-26T21:27:56.811Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -444,7 +444,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Boarding-Assistant-2027_2028/1452579533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:52.423Z",
+      "crawledAt": "2026-11-05T21:27:56.099Z",
       "addressLocality": "Villars sur Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars sur Ollon",
@@ -494,7 +494,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:16:52.423Z",
+      "validThrough": "2027-01-27T21:27:56.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -528,7 +528,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Stagiaire-MPC/1453008433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:51.604Z",
+      "crawledAt": "2026-11-05T21:27:55.200Z",
       "addressLocality": "Villars sur Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars sur Ollon",
@@ -578,7 +578,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:16:51.604Z",
+      "validThrough": "2027-01-28T21:27:55.200Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -612,7 +612,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Employ%C3%A9%28e%29-de-nettoyage-et-de-support-logistique-80/1446108133/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:50.392Z",
+      "crawledAt": "2026-11-05T21:27:54.314Z",
       "addressLocality": "Villars sur Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars sur Ollon",
@@ -656,7 +656,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:16:50.392Z",
+      "validThrough": "2027-01-07T21:27:54.314Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -690,7 +690,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:49.477Z",
+      "crawledAt": "2026-11-05T21:27:53.470Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -734,7 +734,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:16:49.477Z",
+      "validThrough": "2026-12-10T21:27:53.470Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -768,7 +768,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:48.739Z",
+      "crawledAt": "2026-11-05T21:27:51.569Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -812,7 +812,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-02T09:16:48.739Z",
+      "validThrough": "2027-01-02T21:27:51.569Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -846,7 +846,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Choir-teacher-After-school-tutoring/1451993333/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:48.017Z",
+      "crawledAt": "2026-11-05T21:27:50.901Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -867,12 +867,16 @@
       "jobReqId": "1451993333",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "choir-teacher-after-school-tutoring-nord-anglia-geneva",
+        "choir-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "choir-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
-        ],
         "it": [
           "choir-teacher-after-school-tutoring-nord-anglia-geneva"
+        ],
+        "en": [
+          "choir-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
         ],
         "de": [
           "choir-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
@@ -881,10 +885,6 @@
           "choir-teacher-after-school-tutoring-nord-anglia-geneva"
         ]
       },
-      "previousSlugs": [
-        "choir-teacher-after-school-tutoring-nord-anglia-geneva",
-        "choir-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
-      ],
       "firstSeenAt": "2026-10-28T09:30:08.597Z",
       "salaryMin": 51100,
       "salaryMax": 94500,
@@ -900,7 +900,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:16:48.017Z",
+      "validThrough": "2027-01-26T21:27:50.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -934,7 +934,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Activity-Leader/1446011433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:47.073Z",
+      "crawledAt": "2026-11-05T21:27:50.122Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -978,7 +978,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:16:47.073Z",
+      "validThrough": "2027-01-07T21:27:50.122Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1012,7 +1012,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-EYFS-Teacher-80/1446865533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:46.354Z",
+      "crawledAt": "2026-11-05T21:27:49.425Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -1062,7 +1062,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:16:46.354Z",
+      "validThrough": "2027-01-11T21:27:49.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1096,7 +1096,7 @@
       "url": "https://careers.nordanglia.com/job/Lausanne-Regional-People-&-Culture-Director-Europe/1452003933/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:45.641Z",
+      "crawledAt": "2026-11-05T21:27:48.721Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -1143,7 +1143,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:16:45.641Z",
+      "validThrough": "2027-01-26T21:27:48.721Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1177,7 +1177,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Spanish-Teacher-%28After-School-Tutoring%29/1451830433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:44.692Z",
+      "crawledAt": "2026-11-05T21:27:47.884Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -1198,12 +1198,16 @@
       "jobReqId": "1451830433",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "spanish-teacher-after-school-tutoring-nord-anglia-geneva",
+        "spanish-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "spanish-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
-        ],
         "it": [
           "spanish-teacher-after-school-tutoring-nord-anglia-geneva"
+        ],
+        "en": [
+          "spanish-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
         ],
         "de": [
           "spanish-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
@@ -1212,10 +1216,6 @@
           "spanish-teacher-after-school-tutoring-nord-anglia-geneva"
         ]
       },
-      "previousSlugs": [
-        "spanish-teacher-after-school-tutoring-nord-anglia-geneva",
-        "spanish-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
-      ],
       "firstSeenAt": "2026-10-27T21:26:54.831Z",
       "salaryMin": 51100,
       "salaryMax": 94500,
@@ -1231,7 +1231,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:16:44.692Z",
+      "validThrough": "2027-01-25T21:27:47.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1265,7 +1265,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Enseignant-e-en-philosophie-%C3%A0-30/1444672633/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:43.824Z",
+      "crawledAt": "2026-11-05T21:27:47.027Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -1309,7 +1309,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:16:43.824Z",
+      "validThrough": "2027-01-04T21:27:47.027Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1343,7 +1343,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Study-Coaches/1414160233/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:42.929Z",
+      "crawledAt": "2026-11-05T21:27:46.129Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -1387,7 +1387,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:16:42.929Z",
+      "validThrough": "2026-12-08T21:27:46.129Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1421,7 +1421,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-MoniteursMonitrices-SkiSnowboard/1443646733/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:16:42.028Z",
+      "crawledAt": "2026-11-05T21:27:45.244Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -1465,7 +1465,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:16:42.028Z",
+      "validThrough": "2026-12-31T21:27:45.244Z",
       "validThroughSource": "last-observed-window"
     }
   ]

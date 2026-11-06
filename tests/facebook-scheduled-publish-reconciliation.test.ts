@@ -1,6 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { reconcileFacebookScheduledPosts } from '../scripts/lib/facebook-scheduled-publish-reconciliation.mjs';
-import { SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING } from '../scripts/lib/social-publish-reservations.mjs';
+import {
+  SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING,
+  SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING,
+} from '../scripts/lib/social-publish-reservations.mjs';
 
 const makeResponse = (data: unknown, ok = true, status = ok ? 200 : 500) => ({
   ok,
@@ -84,8 +87,52 @@ describe('Facebook scheduled-post reconciliation', () => {
     expect(rows[0].actualPublishedAt).toBe('2026-11-02T23:04:12.000Z');
     expect(log).toHaveBeenCalledWith(
       'ℹ️',
-      '1 confirmed Facebook scheduled post(s) predate the shared reservation ledger',
+      '1 confirmed Facebook scheduled post(s) predate or fall outside shared reservation retention',
     );
+  });
+
+  it('keeps confirmed rows outside reservation retention successful when their entry was pruned', async () => {
+    const scheduledFor = new Date(now.getTime() - (4 * 24 * 60 * 60 * 1000)).toISOString();
+    const publishedAt = new Date(Date.parse(scheduledFor) + 9 * 60 * 1000).toISOString();
+    const markPublished = vi.fn(async () => {
+      throw Object.assign(new Error('social publish reservation is missing'), {
+        code: SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING,
+      });
+    });
+    const result = await reconcileFacebookScheduledPosts({
+      rows: [makeRow({ scheduledFor })],
+      pageId: 'page-1',
+      token: 'test-token',
+      fetchImpl: async () => makeResponse({ id: '123_456', is_published: true, created_time: publishedAt }),
+      now,
+      saveRows: vi.fn(async () => {}),
+      markPublished,
+    });
+
+    expect(result).toEqual({ checked: 1, reconciled: 1, pending: 0, uncertain: 0 });
+  });
+
+  it('keeps a missing reservation entry inside retention fail-closed', async () => {
+    const markPublished = vi.fn(async () => {
+      throw Object.assign(new Error('social publish reservation is missing'), {
+        code: SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING,
+      });
+    });
+    const result = await reconcileFacebookScheduledPosts({
+      rows: [makeRow()],
+      pageId: 'page-1',
+      token: 'test-token',
+      fetchImpl: async () => makeResponse({
+        id: '123_456',
+        is_published: true,
+        created_time: '2026-11-02T23:04:12+0000',
+      }),
+      now,
+      saveRows: vi.fn(async () => {}),
+      markPublished,
+    });
+
+    expect(result).toEqual({ checked: 1, reconciled: 1, pending: 0, uncertain: 1 });
   });
 
   it('keeps an unpublished schedule reserved through today and tomorrow', async () => {

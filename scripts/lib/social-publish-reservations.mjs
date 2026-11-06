@@ -6,6 +6,7 @@ import { getFirestoreDb } from './firestore-admin.mjs';
 
 export const SOCIAL_PUBLISH_RESERVATION_COLLECTION = 'social_publish_reservations';
 export const SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING = 'SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING';
+export const SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING = 'SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING';
 export const SOCIAL_PUBLISH_RESERVATION_SCHEMA_VERSION = 1;
 export const SOCIAL_PUBLISH_TIME_ZONE = 'Europe/Zurich';
 export const SOCIAL_PUBLISH_RESERVATION_RETENTION_DAYS = 3;
@@ -44,6 +45,15 @@ export function isMissingSocialPublishReservationDocumentError(error) {
   return error?.code === SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING;
 }
 
+export function isMissingSocialPublishReservationEntryError(error) {
+  return error?.code === SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING;
+}
+
+export function isMissingSocialPublishReservationError(error) {
+  return isMissingSocialPublishReservationDocumentError(error)
+    || error?.code === SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING;
+}
+
 function digest(value) {
   return createHash('sha256').update(String(value)).digest('hex');
 }
@@ -74,6 +84,14 @@ function dayKey(value, timeZone = SOCIAL_PUBLISH_TIME_ZONE) {
 
 export function socialPublishLocalDay(value) {
   return dayKey(value);
+}
+
+export function isSocialPublishReservationOutsideRetention(value, now = new Date()) {
+  const firstRetainedDay = dayOffset(
+    dayKey(now),
+    -SOCIAL_PUBLISH_RESERVATION_RETENTION_DAYS,
+  );
+  return dayKey(value) < firstRetainedDay;
 }
 
 function dayOffset(key, offset) {
@@ -725,7 +743,11 @@ async function updateSocialPublishReservation({
       if (unpublishedConfirmed && identitySnapshot.exists) transaction.delete(identityRef);
       return true;
     }
-    if (!existing && !identity) throw new Error('social publish reservation is missing');
+    if (!existing && !identity) {
+      const error = new Error('social publish reservation is missing');
+      error.code = SOCIAL_PUBLISH_RESERVATION_ENTRY_MISSING;
+      throw error;
+    }
     const confirmedAt = iso(publishedAt ?? existing?.publishAt ?? identity?.publishedAt ?? at, 'publishedAt');
     if (existing?.status === 'published' && existing.publishAt === confirmedAt) return true;
     if (release) {

@@ -18,6 +18,7 @@ import {
   type JobInput,
   type JobPostingSchema,
 } from '../../build-plugins/shared/jobPostingSchema';
+import { buildArchivedJobPosting } from '../../build-plugins/shared/archivedJobPosting';
 import { SLIM_INDEX_FIELDS } from '../../build-plugins/shared/slimJobIndex';
 
 const OPTS = {
@@ -398,6 +399,27 @@ describe('buildJobPostingSchema — empty-minimum input', () => {
     expect(schema.jobLocation.address.addressCountry).toBe('CH');
     // Hiring org falls back to a localised "azienda riservata"
     expect(schema.hiringOrganization.name.length).toBeGreaterThan(0);
+  });
+
+  it('keeps unknown expired pages schema-complete without inventing an active offer', () => {
+    const now = new Date('2026-11-05T00:00:00.000Z');
+    const schema = buildArchivedJobPosting(
+      { postingDateSource: 'unknown' },
+      'Dieses Stellenangebot ist archiviert und nicht mehr verfügbar.',
+      {
+        locale: 'de',
+        url: 'https://frontaliereticino.ch/de/jobs-in-genf/unknown/',
+        now,
+      },
+    );
+
+    expect(schema).toBeTruthy();
+    assertComplete(schema!);
+    expect(schema?.title).toBe('Offene Stelle');
+    expect(schema?.hiringOrganization.name).toBe('Vertrauliches Unternehmen');
+    expect(schema?.description).toContain('archiviert');
+    expect(Date.parse(schema?.validThrough || '')).toBeLessThan(now.getTime());
+    expect(Date.parse(schema?.datePosted || '')).toBeLessThan(Date.parse(schema?.validThrough || ''));
   });
 
   it.each(['it', 'en', 'de', 'fr'] as const)(

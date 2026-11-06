@@ -99,9 +99,9 @@ const SECTOR = 'Amministrazione Pubblica';
 // ("Arbeiten für Zürich", www.stadt-zuerich.ch), one page per posting,
 // carrying the same Referenz-Nr. as the jobs2web tile's `adcode`. The
 // portal's own search component lists every page in one JSON call. The index
-// is a convenience, not the identity source: the current site also exposes a
-// deterministic detail URL by Referenz-Nr., which is used when the old index
-// route is unavailable during a portal migration.
+// is a convenience, not the identity source. During the 2026 migration the
+// old index and `/job-detailseite.{ref}.html` routes were retired; the current
+// official portal exposes the same ads below `/jobs/de/{unit}-{ref}.html`.
 const OFFICIAL_HOST = 'https://www.stadt-zuerich.ch';
 const OFFICIAL_JOBSEARCH_URL = `${OFFICIAL_HOST}/stzh/jobsearch`;
 const OFFICIAL_JOBSEARCH_COMPONENT =
@@ -109,6 +109,8 @@ const OFFICIAL_JOBSEARCH_COMPONENT =
 const OFFICIAL_JOBSEARCH_LIMIT = 2000;
 const OFFICIAL_JOB_DETAIL_PATH =
   '/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/job-detailseite.';
+const CURRENT_OFFICIAL_JOBPORTAL_URL = `${OFFICIAL_HOST}/jobportal`;
+const CURRENT_OFFICIAL_INDEX_WAIT_MS = 15_000;
 // A Swiss phone number: the recruiter contact block of each ad.
 const CONTACT_PHONE_RE = /(?:\+41|\b0)\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}\b/;
 
@@ -321,6 +323,11 @@ function officialBlockText(blockHtml = '') {
     .replace(/<a\b[^>]*href="tel:[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '')));
 }
 
+function extractReferenceNumber(html = '') {
+  const renderedText = normalizeSpace(stripHtml(html));
+  return (renderedText.match(/Referenz-Nr\.?\s*:?\s*(\d{3,})/i) || [])[1] || '';
+}
+
 /**
  * Parse one official ad page (`/…/jobs/job-detailseite.{id}.html`): the
  * Referenz-Nr. and the vacancy body — every `<stzh-richtext>` section of the
@@ -334,8 +341,8 @@ function officialBlockText(blockHtml = '') {
  */
 export function parseOfficialAdPage(html = '') {
   if (!html || typeof html !== 'string') return null;
-  const ref = (html.match(/Referenz-Nr\.?:?\s*(\d{3,})/i) || [])[1] || '';
   const content = (html.match(/<stzh-pagecontent\b[\s\S]*?<\/stzh-pagecontent>/i) || [html])[0];
+  const ref = extractReferenceNumber(content);
   const sections = [];
   const re = /<stzh-richtext\b[^>]*>([\s\S]*?)<\/stzh-richtext>/gi;
   let m;
@@ -347,6 +354,79 @@ export function parseOfficialAdPage(html = '') {
   const description = normalizeDescriptionBullets(sections.join('\n\n'));
   if (!ref || !description) return null;
   return { ref, description };
+}
+
+/**
+ * Parse the current official ad markup (`/jobs/de/{unit}-{ref}.html`). The
+ * current template no longer uses `<stzh-richtext>`; its vacancy sections
+ * are ordinary headings and lists inside the page's main content. Keep the
+ * section allow-list narrow so navigation, recruiter contacts and footer
+ * copy cannot become indexed vacancy text.
+ *
+ * @param {string} html
+ * @returns {{ ref: string, description: string } | null}
+ */
+export function parseCurrentOfficialAdPage(html = '') {
+  if (!html || typeof html !== 'string') return null;
+  const content = (html.match(/<main\b[\s\S]*?<\/main>/i)
+    || html.match(/<article\b[\s\S]*?<\/article>/i)
+    || [html])[0];
+  const ref = extractReferenceNumber(content);
+  const headings = [];
+  const headingRe = /<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi;
+  let match;
+  while ((match = headingRe.exec(content)) !== null) {
+    const heading = normalizeSpace(stripHtml(match[1])).replace(/\s+/g, ' ');
+    if (heading) headings.push({ heading, start: match.index, end: headingRe.lastIndex });
+  }
+
+  const sections = [];
+  for (let index = 0; index < headings.length; index += 1) {
+    const current = headings[index];
+    if (!/^(Aufgaben|Profil|Wir bieten|Über uns)$/iu.test(current.heading)) continue;
+    const next = headings[index + 1];
+    const block = content.slice(current.end, next?.start ?? content.length);
+    const text = normalizeDescriptionBullets(officialBlockText(block));
+    if (text) sections.push(`${current.heading}\n${text}`);
+  }
+
+  const description = normalizeDescriptionBullets(sections.join('\n\n'));
+  if (!ref || !description) return null;
+  return { ref, description };
+}
+
+/**
+ * Extract current official detail links and bind them to their explicit
+ * Referenz-Nr. The unit slug is opaque and must be discovered from the
+ * official index; deriving it from a tile's department would be an unsafe
+ * first-match fallback.
+ *
+ * @param {string} html
+ * @param {Set<string>} wantedRefs
+ * @returns {Map<string, string>}
+ */
+export function parseCurrentOfficialJobLinks(html = '', wantedRefs = new Set()) {
+  const byRef = new Map();
+  const officialHostname = new URL(OFFICIAL_HOST).hostname;
+  for (const match of String(html || '').matchAll(/<a\b[^>]*>/gi)) {
+    const href = htmlAttribute(match[0], 'href').replace(/&amp;/gi, '&');
+    if (!href) continue;
+    let url;
+    try {
+      url = new URL(href, OFFICIAL_HOST);
+    } catch {
+      continue;
+    }
+    if (url.hostname !== officialHostname) continue;
+    const pathMatch = url.pathname.match(/^\/jobs\/de\/[^/]+-(\d+)\.html$/i);
+    if (!pathMatch) continue;
+    const ref = pathMatch[1];
+    if (wantedRefs.size && !wantedRefs.has(ref)) continue;
+    url.hash = '';
+    url.search = '';
+    if (!byRef.has(ref)) byRef.set(ref, url.href);
+  }
+  return byRef;
 }
 
 /** Only a unique posting explicitly identifying this fetched ad may date it. */
@@ -650,14 +730,118 @@ async function fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, public
   return byRef;
 }
 
+async function readCurrentOfficialIndexHtml(wantedRefs, delayMs, fetchCurrentOfficialIndexPage) {
+  if (fetchCurrentOfficialIndexPage) {
+    return String(await fetchCurrentOfficialIndexPage([...wantedRefs]) || '');
+  }
+
+  let browser;
+  let page;
+  try {
+    browser = await createBrowser({ userAgent: USER_AGENT });
+    const context = await createPoliteContext(browser, { userAgent: USER_AGENT });
+    page = await fetchWithRateLimit(context, CURRENT_OFFICIAL_JOBPORTAL_URL, {
+      minDelayMs: Math.max(delayMs, CURRENT_DETAIL_MIN_DELAY_MS),
+    });
+    // `/jobportal` is a search form, not a static listing. Submit its empty
+    // search once so the current result cards (and their opaque unit slugs)
+    // are rendered before we inspect the links.
+    const searchControls = page.locator('button, input[type="submit"], a');
+    for (let index = 0; index < await searchControls.count(); index += 1) {
+      const control = searchControls.nth(index);
+      const label = await control.evaluate((node) => (
+        node.textContent || node.getAttribute('value') || ''
+      ).trim()).catch(() => '');
+      if (!/^suche$/i.test(label) || !(await control.isVisible().catch(() => false))) continue;
+      await control.click().catch(() => null);
+      break;
+    }
+    await page.waitForFunction(() => [...document.querySelectorAll('a[href]')].some((anchor) => {
+      try {
+        return /^\/jobs\/de\/[^/]+-\d+\.html$/i.test(new URL(anchor.href, window.location.href).pathname);
+      } catch {
+        return false;
+      }
+    }), {}, { timeout: CURRENT_OFFICIAL_INDEX_WAIT_MS }).catch(() => {
+      // The page content is still inspected below. A future template may
+      // render links server-side or expose them only after a search action.
+    });
+
+    // The official portal may initially render only a page of cards. Expand
+    // the bounded "more jobs" control while it adds new current-detail
+    // links; never fabricate a unit slug from the jobs2web tile.
+    for (let attempt = 0; attempt < 50; attempt += 1) {
+      const currentHtml = await page.content();
+      const links = parseCurrentOfficialJobLinks(currentHtml, wantedRefs);
+      if ([...wantedRefs].every((ref) => links.has(ref))) break;
+      const more = page.locator('button, a')
+        .filter({ hasText: /mehr anzeigen|weitere stellen|mehr stellen/i })
+        .first();
+      if (!(await more.isVisible().catch(() => false))) break;
+      const before = await page.locator('a[href*="/jobs/de/"]').count().catch(() => 0);
+      await more.click().catch(() => null);
+      await page.waitForFunction((count) => document.querySelectorAll('a[href*="/jobs/de/"]').length > count, before, { timeout: 5_000 }).catch(() => {});
+    }
+    return await page.content();
+  } finally {
+    if (page) await page.close().catch(() => {});
+    await closeAll(browser);
+  }
+}
+
+/**
+ * Read current official detail pages discovered from the migrated jobportal.
+ * Each page is accepted only when its embedded Referenz-Nr. equals the
+ * jobs2web tile reference, and only the source-backed section body is kept.
+ */
+async function fetchCurrentOfficialAdTexts(wantedRefs, delayMs, publicationByRef, {
+  fetchCurrentOfficialIndexPage,
+} = {}) {
+  if (!wantedRefs.size) return new Map();
+
+  let indexHtml;
+  try {
+    indexHtml = await readCurrentOfficialIndexHtml(
+      wantedRefs,
+      delayMs,
+      fetchCurrentOfficialIndexPage,
+    );
+  } catch (err) {
+    console.warn(`  ⚠️ Current official ad index unavailable — ${err?.message || err}`);
+    return new Map();
+  }
+
+  const links = parseCurrentOfficialJobLinks(indexHtml, wantedRefs);
+  if (links.size === 0) return new Map();
+  console.log(`  📰 Current official ad pages listed: ${links.size}`);
+
+  const byRef = new Map();
+  for (const [ref, pageUrl] of links) {
+    try {
+      const html = await fetchPage(pageUrl);
+      const parsed = parseCurrentOfficialAdPage(html) || parseOfficialAdPage(html);
+      if (!parsed || parsed.ref !== ref) {
+        console.warn(`  ⚠️ Current official ad reference mismatch: expected ${ref}, got ${parsed?.ref || 'none'} — ${pageUrl}`);
+      } else {
+        byRef.set(ref, parsed.description);
+        publicationByRef?.set(ref, officialAdPublication(html, pageUrl));
+      }
+    } catch (err) {
+      console.warn(`  ⚠️ Current official ad page failed: ${pageUrl} — ${err?.message || err}`);
+    }
+    await new Promise((resolve) => setTimeout(resolve, delayMs));
+  }
+  return byRef;
+}
+
 /**
  * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
- * Prefer the portal index, then fetch each listed page politely. If the index
- * route is unavailable, read the server-rendered SuccessFactors detail by the
- * tile's exact reference, then probe the deterministic official detail URL and
- * finally the current hydrated portal detail page. Each fallback is tied to
- * the tile's exact reference or validated detail URL, so a portal migration
- * cannot empty the board or attribute a neighbouring page to a tile.
+ * Prefer the legacy portal index, then use reference-bound current sources
+ * (the migrated official jobportal and SuccessFactors), the retired
+ * deterministic official detail URL, and finally the hydrated jobs2web detail
+ * page. Each fallback is tied to the tile's exact reference or validated
+ * detail URL, so a portal migration cannot empty the board or attribute a
+ * neighbouring page to a tile.
  *
  * Exported for `stadtspital-zuerich-job-parser.mjs`, whose tiles live on the
  * same portal: `unit` keeps only the ad pages whose Dienstabteilung (the
@@ -666,7 +850,7 @@ async function fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, public
  *
  * @param {Set<string>} wantedRefs Referenz-Nr. of the tiles to fill
  * @param {number} delayMs pause between two ad pages
- * @param {{ unit?: RegExp, publicationByRef?: Map<string, ReturnType<typeof sourcePostingDateFields>>, detailRows?: Array<{ ref?: string, path?: string }>, fetchCurrentDetailPage?: (url: string, row: object) => Promise<string|{url?: string, finalUrl?: string, html?: string, descriptionHtml?: string}> }} [options]
+ * @param {{ unit?: RegExp, publicationByRef?: Map<string, ReturnType<typeof sourcePostingDateFields>>, detailRows?: Array<{ ref?: string, path?: string }>, fetchCurrentDetailPage?: (url: string, row: object) => Promise<string|{url?: string, finalUrl?: string, html?: string, descriptionHtml?: string}>, fetchCurrentOfficialIndexPage?: (wantedRefs: string[]) => Promise<string> }} [options]
  * @returns {Promise<Map<string, string>>}
  */
 export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
@@ -674,6 +858,7 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
   publicationByRef,
   detailRows,
   fetchCurrentDetailPage,
+  fetchCurrentOfficialIndexPage,
 } = {}) {
   const byRef = new Map();
   const mergeByRef = (source) => {
@@ -687,10 +872,23 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
       .map((ref) => String(ref))
       .filter((ref) => !byRef.has(ref)),
   );
-  const recoverReferenceBoundFallbacks = async () => {
-    const successFactors = await fetchSuccessFactorsAdTextsByReference(wantedRefs, delayMs, publicationByRef);
-    mergeByRef(successFactors);
+  const recoverReferenceBoundFallbacks = async ({ includeSuccessFactors = true } = {}) => {
     let refsToFill = missingRefs();
+    if (includeSuccessFactors) {
+      const successFactors = await fetchSuccessFactorsAdTextsByReference(refsToFill, delayMs, publicationByRef);
+      mergeByRef(successFactors);
+      refsToFill = missingRefs();
+    }
+    if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
+
+    const currentOfficial = await fetchCurrentOfficialAdTexts(
+      refsToFill,
+      delayMs,
+      publicationByRef,
+      { fetchCurrentOfficialIndexPage },
+    );
+    mergeByRef(currentOfficial);
+    refsToFill = missingRefs();
     if (wantedRefs.size > 0 && refsToFill.size === 0) return byRef;
 
     const direct = await fetchOfficialAdTextsByReference(refsToFill, delayMs, publicationByRef);
@@ -759,6 +957,21 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, {
     }
     await new Promise((r) => setTimeout(r, delayMs));
   }
+
+  // A partial legacy index can remain usable during a portal migration. Keep
+  // explicit legacy matches and continue the reference-bound fallback chain
+  // for every wanted reference it did not identify.
+  if (byRef.size > 0 && missingRefs().size > 0) {
+    const recovered = await recoverReferenceBoundFallbacks({ includeSuccessFactors: false });
+    if (recovered) return recovered;
+  }
+
+  // A stale legacy index can still return links while every old detail page
+  // is gone. Only then use the complete reference-bound fallback chain.
+  if (byRef.size === 0) {
+    const recovered = await recoverReferenceBoundFallbacks();
+    if (recovered) return recovered;
+  }
   return byRef;
 }
 
@@ -791,7 +1004,7 @@ async function fetchOfficialAdTextsByReference(wantedRefs, delayMs, publicationB
  * Fetch all Stadt Zürich jobs from the public jobs2web listing.
  * Returns an array of ParsedJob objects (source-locale only, German).
  */
-export async function fetchAllStadtZuerichJobs({ fetchCurrentDetailPage } = {}) {
+export async function fetchAllStadtZuerichJobs({ fetchCurrentDetailPage, fetchCurrentOfficialIndexPage } = {}) {
   console.log('🔍 Fetching Stadt Zürich (municipal administration) jobs');
   console.log(`   Source: ${SEARCH_BASE}\n`);
 
@@ -842,7 +1055,12 @@ export async function fetchAllStadtZuerichJobs({ fetchCurrentDetailPage } = {}) 
   const officialTexts = await fetchOfficialAdTexts(
     new Set(rows.map((r) => r.ref).filter(Boolean)),
     Math.min(delayMs, 300),
-    { publicationByRef, detailRows: rows, fetchCurrentDetailPage },
+    {
+      publicationByRef,
+      detailRows: rows,
+      fetchCurrentDetailPage,
+      fetchCurrentOfficialIndexPage,
+    },
   );
   let withoutText = 0;
 

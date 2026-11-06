@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ameos-ch",
-  "assembledAt": "2026-11-05T09:18:31.306Z",
-  "runId": "41999370126",
+  "assembledAt": "2026-11-05T21:31:42.937Z",
+  "runId": "42109233596",
   "jobs": [
     {
       "id": "ameos-ch-65c6d66d688e",
@@ -35,7 +35,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14192-assistenz-sachbearbeitung-in-der-administration-100%25-in-z%C3%BCrich",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:12.121Z",
+      "crawledAt": "2026-11-05T21:31:36.749Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:18:12.121Z",
+      "validThrough": "2027-01-11T21:31:36.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9270-unterassistent-pj-innere-medizin-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:11.068Z",
+      "crawledAt": "2026-11-05T21:31:35.554Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:11.068Z",
+      "validThrough": "2026-12-05T21:31:35.554Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:09.996Z",
+      "crawledAt": "2026-11-05T21:31:34.419Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -246,7 +246,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:09.996Z",
+      "validThrough": "2026-12-05T21:31:34.419Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -281,7 +281,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11782-mitarbeiter-case-management-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:08.899Z",
+      "crawledAt": "2026-11-05T21:31:33.132Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -349,7 +349,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-senior-m-w-d-ameos-schweiz-einsiedeln-983cf9",
           "senior-consultant-m-w-d-ameos-schweiz-einsiedeln",
           "consultant-principal-m-m-j-ameos-schweiz-einsiedeln-983cf9",
           "senior-consultant-m-w-d-ameos-schweiz-einsiedeln-bb5bb7",
@@ -368,7 +367,8 @@
           "dipl-senior-consultant-m-w-d-ameos-schweiz-einsiedeln",
           "dipl-consultant-principal-m-m-j-ameos-schweiz-einsiedeln",
           "consulente-senior-m-w-d-ameos-schweiz-einsiedeln",
-          "consultant-principal-m-m-j-ameos-schweiz-einsiedeln"
+          "consultant-principal-m-m-j-ameos-schweiz-einsiedeln",
+          "consulente-senior-m-w-d-ameos-schweiz-einsiedeln-983cf9"
         ],
         "fr": [
           "mitarbeiter-m-w-d-case-management-ameos-schweiz-einsiedeln"
@@ -390,7 +390,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:18:08.899Z",
+      "validThrough": "2026-12-06T21:31:33.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -425,7 +425,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14119-dipl-pflegefachperson-interdisziplin%C3%A4re-bettenstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:07.822Z",
+      "crawledAt": "2026-11-05T21:31:31.893Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -474,7 +474,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:18:07.822Z",
+      "validThrough": "2027-01-10T21:31:31.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -508,7 +508,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14240-dipl-rettungssanit%C3%A4ter-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:06.748Z",
+      "crawledAt": "2026-11-05T21:31:30.731Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -557,7 +557,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:18:06.748Z",
+      "validThrough": "2027-01-12T21:31:30.731Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -592,7 +592,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14237-fachperson-gesundheit-interdisziplin%C3%A4re-privatstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:05.380Z",
+      "crawledAt": "2026-11-05T21:31:29.499Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -641,7 +641,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:18:05.380Z",
+      "validThrough": "2027-01-12T21:31:29.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -676,7 +676,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14871-operativen-eink%C3%A4ufer-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:04.283Z",
+      "crawledAt": "2026-11-05T21:31:28.317Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -725,7 +725,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:18:04.283Z",
+      "validThrough": "2027-01-20T21:31:28.317Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -760,7 +760,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14868-sachbearbeiter-finanzbuchhaltung-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:03.192Z",
+      "crawledAt": "2026-11-05T21:31:27.095Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -809,8 +809,93 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:18:03.192Z",
+      "validThrough": "2027-01-21T21:31:27.095Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ameos-ch-5f6a47dcf645",
+      "slug": "dipl-specialista-di-radiologia-m-f-d-ameos-schweiz-einsiedeln",
+      "slugByLocale": {
+        "de": "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln",
+        "it": "dipl-specialista-di-radiologia-m-f-d-ameos-schweiz-einsiedeln",
+        "en": "dipl-radiology-specialist-m-f-d-ameos-schweiz-einsiedeln",
+        "fr": "dipl-specialiste-en-radiologie-h-f-d-ameos-schweiz-einsiedeln"
+      },
+      "company": "AMEOS Schweiz",
+      "companyKey": "ameos-ch",
+      "companyDomain": "karriere.ameos.eu",
+      "title": "Dipl. Radiologiefachperson (m/w/d)",
+      "titleByLocale": {
+        "de": "Dipl. Radiologiefachperson (m/w/d)",
+        "it": "Dipl. Specialista di radiologia (m/f/d)",
+        "en": "Dipl. Radiology specialist (m/f/d)",
+        "fr": "Dipl. Spécialiste en radiologie (h/f/d)"
+      },
+      "description": "Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir eine\n\nDipl. Radiologiefachperson (m/w/d) — 20–40 %\n\nIhre Vorteile\n• 20–40 % Pensum ohne Nachtdienste – mit vielseitigen und anspruchsvollen Aufgaben\n• Moderne Geräte für Ihre tägliche Arbeit in der Radiologie\n• Ein aufgestelltes, motiviertes Team und ein familiäres Arbeitsklima\n• Zeitgemässe Anstellungsbedingungen mit zahlreichen Benefits\n• Attraktive Fort- und Weiterbildungsmöglichkeiten\n\nIhre Aufgaben\n• Selbstständige Planung und Durchführung unseres radiologischen Untersuchungsspektrums\n• Konventionelles Röntgen, Durchleuchtung und Computertomografie, Einsatz im MRI optional\n• Terminvergabe, Empfang und Administration\n• Betreuung der Patienten vor, während und nach der Untersuchung\n• Assistenz bei minimal-invasiven Eingriffen\n• Mitarbeit im Schichtbetrieb, sowie an Wochenenden und Feiertagen. Kein Nachtdienst\n\nIhr Profil\nEine abgeschlossene Ausbildung zur dipl. Radiologiefachperson HF, gern auch Berufs- oder Wiedereinsteiger. Sie begegnen Patienten empathisch und freundlich, arbeiten gern interdisziplinär und sind serviceorientiert im Kontakt mit unseren Zuweisern. Sie bringen Teamgeist, Motivation und Verantwortungsbewusstsein mit und haben Freude an der Arbeit mit moderner Technik. Sie verfügen über technisches Verständnis und versierte PC-Anwendungskenntnisse.",
+      "descriptionByLocale": {
+        "de": "Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir eine\n\nDipl. Radiologiefachperson (m/w/d) — 20–40 %\n\nIhre Vorteile\n• 20–40 % Pensum ohne Nachtdienste – mit vielseitigen und anspruchsvollen Aufgaben\n• Moderne Geräte für Ihre tägliche Arbeit in der Radiologie\n• Ein aufgestelltes, motiviertes Team und ein familiäres Arbeitsklima\n• Zeitgemässe Anstellungsbedingungen mit zahlreichen Benefits\n• Attraktive Fort- und Weiterbildungsmöglichkeiten\n\nIhre Aufgaben\n• Selbstständige Planung und Durchführung unseres radiologischen Untersuchungsspektrums\n• Konventionelles Röntgen, Durchleuchtung und Computertomografie, Einsatz im MRI optional\n• Terminvergabe, Empfang und Administration\n• Betreuung der Patienten vor, während und nach der Untersuchung\n• Assistenz bei minimal-invasiven Eingriffen\n• Mitarbeit im Schichtbetrieb, sowie an Wochenenden und Feiertagen. Kein Nachtdienst\n\nIhr Profil\nEine abgeschlossene Ausbildung zur dipl. Radiologiefachperson HF, gern auch Berufs- oder Wiedereinsteiger. Sie begegnen Patienten empathisch und freundlich, arbeiten gern interdisziplinär und sind serviceorientiert im Kontakt mit unseren Zuweisern. Sie bringen Teamgeist, Motivation und Verantwortungsbewusstsein mit und haben Freude an der Arbeit mit moderner Technik. Sie verfügen über technisches Verständnis und versierte PC-Anwendungskenntnisse.",
+        "it": "Per rafforzare il nostro team di AMEOS Spital Einsiedeln stiamo cercando un\n\nDipl. Specialista di radiologia (m/f/d) – 20–40 %\n\nI loro vantaggi\n• carico di lavoro 20-40% senza servizi notturni – con compiti versatili e impegnativi\n• Dispositivi moderni per il vostro lavoro quotidiano in radiologia\n• Un team consolidato e motivato e un'atmosfera familiare\n• Condizioni di lavoro contemporanee con numerosi vantaggi\n• Opportunità di formazione interessanti\n\nI loro compiti\n• Pianificazione e attuazione indipendenti del nostro spettro di indagine radiologica\n• Radiografia convenzionale, fluoroscopia e tomografia computerizzata, uso in MRI opzionale\n• Appuntamento, accoglienza e amministrazione\n• Cura dei pazienti prima, durante e dopo l'esame\n• Assistenza nelle procedure minimamente invasive\n• Collaborazione nelle operazioni a turni, così come nei fine settimana e nei giorni festivi. Nessun servizio notturno\n\nIl tuo profilo\nAllenamento completo per il dipl. Specialista di radiologia HF, anche professionale o rientro. Si incontrano pazienti empatici e amichevoli, come lavorare interdisciplinari e sono orientati al servizio a contatto con i nostri referral. Portano spirito di squadra, motivazione e un senso di responsabilità e godono di lavorare con la tecnologia moderna. Essi hanno la comprensione tecnica e conoscenze di applicazione del PC esperto.",
+        "en": "To strengthen our team at AMEOS Spital Einsiedeln we are looking for a\n\nDipl. Radiology specialist (m/f/d) – 20–40 %\n\nTheir advantages\n• 20-40% workload without night services – with versatile and demanding tasks\n• Modern devices for your daily work in radiology\n• An established, motivated team and a family working atmosphere\n• Contemporary employment conditions with numerous benefits\n• Attractive training opportunities\n\nTheir tasks\n• Independent planning and implementation of our radiological investigation spectrum\n• Conventional X-ray, fluoroscopy and computed tomography, use in MRI optional\n• Appointment, reception and administration\n• Care of patients before, during and after the examination\n• Assistance in minimally invasive procedures\n• Collaboration in shift operations, as well as on weekends and public holidays. No night service\n\nYour profile\nCompleted training for the dipl. Radiology specialist HF, also professional or re-entry. They meet patients empathetically and friendly, like to work interdisciplinary and are service-oriented in contact with our referrals. They bring team spirit, motivation and a sense of responsibility and enjoy working with modern technology. They have technical understanding and savvy PC application knowledge.",
+        "fr": "Pour renforcer notre équipe chez AMEOS Spital Einsiedeln, nous recherchons\n\nDipl. Spécialiste en radiologie (h/f/d) – 20–40 %\n\nLeurs avantages\n• 20-40% de travail sans services de nuit – avec des tâches polyvalentes et exigeantes\n• Appareils modernes pour votre travail quotidien en radiologie\n• Une équipe établie et motivée et une atmosphère de travail familiale\n• Conditions d'emploi contemporaines avec de nombreux avantages\n• Possibilités de formation attrayantes\n\nLeurs tâches\n• Planification et mise en oeuvre indépendantes de notre spectre d'enquêtes radiologiques\n• Rayon X classique, fluoroscopie et tomographie calculée, utilisation en IRM en option\n• Nomination, réception et administration\n• Prise en charge des patients avant, pendant et après l'examen\n• Assistance dans les procédures peu invasives\n• Collaboration dans les opérations par équipes, ainsi que les week-ends et jours fériés. Pas de service de nuit\n\nVotre profil\nFormation complète pour le dipl. Spécialiste de radiologie HF, également professionnel ou de rentrée. Ils rencontrent les patients avec empathie et convivialité, comme travailler interdisciplinaire et sont orientés vers le service en contact avec nos références. Ils apportent l'esprit d'équipe, la motivation et un sens des responsabilités et aiment travailler avec la technologie moderne. Ils ont une compréhension technique et une connaissance approfondie des applications PC."
+      },
+      "location": "Einsiedeln",
+      "canton": "SZ",
+      "url": "https://karriere.ameos.eu/offene-stellen/stelle/15746-dipl-radiologiefachperson-in-einsiedeln",
+      "source": "AMEOS Schweiz Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-05T21:31:25.849Z",
+      "addressLocality": "Einsiedeln",
+      "addressRegion": "SZ",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8840",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-05",
+      "postedDate": "2026-11-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/15746-dipl-radiologiefachperson-in-einsiedeln",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-03T21:31:25.849Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:31:25.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln"
+        ],
+        "en": [
+          "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln"
+        ],
+        "fr": [
+          "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-f86b92c39e71",
@@ -844,7 +929,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14934-mitarbeiter-integrales-kapazit%C3%A4tsmanagement-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:02.139Z",
+      "crawledAt": "2026-11-05T21:31:24.291Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -893,7 +978,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:18:02.139Z",
+      "validThrough": "2027-01-24T21:31:24.291Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -928,7 +1013,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10368-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:01.025Z",
+      "crawledAt": "2026-11-05T21:31:22.662Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -973,7 +1058,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:01.025Z",
+      "validThrough": "2026-12-05T21:31:22.662Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1007,7 +1092,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12839-diplomierte-pflegefachperson-hf-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:17:59.968Z",
+      "crawledAt": "2026-11-05T21:31:21.330Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1050,7 +1135,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:17:59.968Z",
+      "validThrough": "2026-12-22T21:31:21.330Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1084,7 +1169,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13903-dipl-pflegefachperson-hf-nachtdienst-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:17:58.909Z",
+      "crawledAt": "2026-11-05T21:31:20.124Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1133,7 +1218,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:17:58.909Z",
+      "validThrough": "2027-01-10T21:31:20.124Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1168,7 +1253,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14390-stationsleitung-und-stellvertretende-leitung-pflege-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:17:57.854Z",
+      "crawledAt": "2026-11-05T21:31:18.957Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1211,7 +1296,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:17:57.854Z",
+      "validThrough": "2027-01-10T21:31:18.957Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1246,7 +1331,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14339-assistenzarzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:17:56.706Z",
+      "crawledAt": "2026-11-05T21:31:17.745Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1289,7 +1374,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:17:56.706Z",
+      "validThrough": "2027-01-10T21:31:17.745Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1324,7 +1409,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/15504-oberarzt-undoder-leitender-facharzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:17:55.574Z",
+      "crawledAt": "2026-11-05T21:31:16.572Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1375,7 +1460,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:17:55.574Z",
+      "validThrough": "2027-02-01T21:31:16.572Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1410,7 +1495,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/15540-eidgen%C3%B6ssisch-anerkannter-psychotherapeut-undoder-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:17:54.409Z",
+      "crawledAt": "2026-11-05T21:31:15.380Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1461,7 +1546,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:17:54.409Z",
+      "validThrough": "2027-02-01T21:31:15.380Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1496,7 +1581,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:17:52.994Z",
+      "crawledAt": "2026-11-05T21:31:14.166Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1539,7 +1624,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:17:52.994Z",
+      "validThrough": "2026-12-23T21:31:14.166Z",
       "validThroughSource": "last-observed-window"
     }
   ]

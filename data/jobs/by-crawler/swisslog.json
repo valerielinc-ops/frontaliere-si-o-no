@@ -1,7 +1,7 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-11-05T09:16:53.761Z",
-  "runId": "41999801789",
+  "assembledAt": "2026-11-05T21:14:17.095Z",
+  "runId": "42109747428",
   "jobs": [
     {
       "id": "swisslog-34572dec2de5",
@@ -34,7 +34,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:16:47.321Z",
+      "crawledAt": "2026-11-05T21:14:08.538Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T09:16:47.321Z",
+      "validThrough": "2026-12-05T21:14:08.538Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:16:47.319Z",
+      "crawledAt": "2026-11-05T21:14:08.536Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -167,7 +167,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:16:47.319Z",
+      "validThrough": "2027-01-03T21:14:08.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -201,7 +201,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-project-manager-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:16:47.318Z",
+      "crawledAt": "2026-11-05T21:14:08.535Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -222,16 +222,16 @@
       "jobReqId": "3751",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-04T21:17:11.061Z",
+      "previousSlugs": [
+        "controls-project-manager-swisslog-buchs-switzerland"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "controls-project-manager-swisslog-buchs-switzerland"
         ]
       },
-      "previousSlugs": [
-        "controls-project-manager-swisslog-buchs-switzerland"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T21:17:11.061Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -246,7 +246,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:16:47.318Z",
+      "validThrough": "2027-02-02T21:14:08.535Z",
       "validThroughSource": "last-observed-window"
     }
   ]

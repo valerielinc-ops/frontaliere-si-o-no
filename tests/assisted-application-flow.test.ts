@@ -67,7 +67,7 @@ describe('draft failures', () => {
     expect(last.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'Timeout 30000ms exceeded', stage: 'submit', attempts: MAX_RUN_ATTEMPTS }]);
 
     // The application may have reached the employer: the owner checks first.
-    for (const error of ['email_ambiguous', 'portal_ambiguous', 'email_failed', 'portal_validation', 'runner_timeout']) {
+    for (const error of ['email_ambiguous', 'portal_ambiguous', 'submission_receipt_invalid', 'email_failed', 'portal_validation', 'runner_timeout']) {
       const step = transition(submitting, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 });
       expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: [error] });
     }
@@ -719,6 +719,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
       // JOIN 2026-10-01: the same unknown outcome behind an invisible reCAPTCHA.
       { state: 'owner_takeover', round: 1, heldBy: ['portal_antibot_ambiguous'] },
       { state: 'owner_takeover', round: 1, heldBy: ['email_ambiguous'] },
+      { state: 'owner_takeover', round: 1, heldBy: ['submission_receipt_invalid'] },
     ]) {
       const step = transition(flow, { type: 'submit_acknowledged' }, { draft: cleanDraft, nowMs: T0 });
       expect(step.flow).toMatchObject({ state: 'submitted', heldBy: [], deadlineAt: null, reminderAt: null });

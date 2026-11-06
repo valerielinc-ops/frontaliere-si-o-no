@@ -176,6 +176,7 @@ const NARRATIVE_TITLE_INTRODUCERS: readonly RegExp[] = [
   /(?:^|[^\p{L}\p{N}_])based on(?=$|[^\p{L}\p{N}_])[^.!?\n]*(?:^|[^\p{L}\p{N}_])context(?=$|[^\p{L}\p{N}_])[^.!?\n]*$/iu,
   /(?:^|[^\p{L}\p{N}_])(?:i need to|let me|looking at|reading (?:the )?job files?|if you(?:'d| would) like me)(?=$|[^\p{L}\p{N}_])[^.!?\n]*$/iu,
 ];
+const GENERIC_NARRATIVE_TITLE_RANK = NARRATIVE_TITLE_INTRODUCERS.length - 1;
 
 function narrativeTitleRank(prefix: string): number {
   return NARRATIVE_TITLE_INTRODUCERS.findIndex((introducer) => introducer.test(prefix));
@@ -187,9 +188,9 @@ export function sanitizeBrowserJobTitle(value: string): string {
   const whole = stripWholeMarkdownBoldWrapper(source);
   const segments = [...source.matchAll(/(^|[^*])\*\*([^*\n]{1,240})\*\*(?!\*)/g)];
   let narrative = '';
-  let narrativeRank = Number.POSITIVE_INFINITY;
-  // Prefer the strongest semantic introducer and keep the first segment when
-  // two introducers have the same strength, in lockstep with build-time.
+  // Keep the first title-specific introduction. A generic conversational
+  // preamble is only a fallback: a later title introduction can replace it,
+  // but a later bold note must never replace an earlier title.
   for (let index = 0; index < segments.length; index += 1) {
     const match = segments[index];
     const candidate = String(match[2] || '').trim();
@@ -197,10 +198,13 @@ export function sanitizeBrowserJobTitle(value: string): string {
     if (!candidate || start < 0) continue;
     const prefix = source.slice(0, start);
     const rank = narrativeTitleRank(prefix);
-    if (rank >= 0 && rank < narrativeRank) {
-      narrative = candidate;
-      narrativeRank = rank;
+    if (rank < 0) continue;
+    if (rank === GENERIC_NARRATIVE_TITLE_RANK) {
+      if (!narrative) narrative = candidate;
+      continue;
     }
+    narrative = candidate;
+    break;
   }
   return stripJobTitleMarkdown(narrative || (whole !== source ? whole : source));
 }

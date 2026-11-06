@@ -16,6 +16,8 @@ describe('isBenignErrorMessage()', () => {
       'TypeError: Importing a module script failed.',
       'Object Not Found Matching Id:3, MethodName:update, ParamCount:4',
       'Installations: Application offline (installations/app-offline).',
+      'Installations: Create Installation request failed with error "400 INVALID_ARGUMENT: invalid client configuration"',
+      '[firebase.initRemoteConfig] Installations: Create Installation request failed with error "400 INVALI',
       'Connection to Indexed Database server lost. Refresh the page to try again',
       "Failed to execute 'transaction' on 'IDBDatabase': The database connection is closing.",
       'InvalidStateError: Object store cannot be found in the database',

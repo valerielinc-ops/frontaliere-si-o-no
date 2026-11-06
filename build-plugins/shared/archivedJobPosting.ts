@@ -2,24 +2,46 @@ import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.m
 import { buildJobPostingSchema, type BuildJobPostingOptions, type JobInput } from './jobPostingSchema';
 import { jobDescriptionPlainText } from '../../services/jobs/descriptionPreview';
 
+const ARCHIVE_FALLBACK_DAYS = 1;
+
 /** Historical metadata must never turn a closed vacancy into a live offer. */
 export function buildArchivedJobPosting(job: JobInput, notice: string, options: BuildJobPostingOptions) {
-  if (!job.title?.trim() || !job.company?.trim()) return null;
-  const now = (options.now || new Date()).getTime();
-  const validThrough = [job.expiredAt, job.crawledAt, job.datePosted, job.postedDate]
-    .map((value) => value ? Date.parse(value) : NaN)
-    .find((date) => Number.isFinite(date) && date < now);
-  const datePosted = resolveReportedPostingDate(job);
-  if (!datePosted || validThrough === undefined || Date.parse(datePosted) >= validThrough) return null;
+  const clock = options.now || new Date();
+  const now = clock.getTime();
+  const archiveDates = [job.expiredAt, job.crawledAt, job.datePosted, job.postedDate]
+    .map((value) => value ? Date.parse(value) : NaN);
+  if (archiveDates.some((date) => Number.isFinite(date) && date >= now)) return null;
+  const validThrough = archiveDates.find((date) => Number.isFinite(date) && date < now);
+  const archiveValidThrough = validThrough ?? now - ARCHIVE_FALLBACK_DAYS * 24 * 60 * 60 * 1000;
+  const datePosted = resolveReportedPostingDate(job, clock);
+  if (datePosted && Date.parse(datePosted) >= archiveValidThrough) return null;
+
+  const title = String(job.title || '').trim();
+  const company = String(job.company || '').trim();
   const description = jobDescriptionPlainText(job.description || '');
+  const identity = [title, company].filter(Boolean).join(' — ');
+  const archiveNotice = String(notice || '').trim();
+  const safeNotice = archiveNotice.length >= 50
+    ? archiveNotice
+    : `${archiveNotice} This archived vacancy is no longer available.`.trim();
   const archivedDescription = description.length >= 50
     ? description
-    : `${description} ${notice} ${job.title} — ${job.company}${job.addressLocality ? `, ${job.addressLocality}` : ''}`.trim();
+    : [description, safeNotice, identity ? `${identity}${job.addressLocality ? `, ${job.addressLocality}` : ''}` : '']
+      .filter(Boolean)
+      .join(' ')
+      .trim();
+
+  // With no reported date, keep the schema fallback before the archive cutoff.
+  // This is an archive boundary, not a fabricated posting date or expiry claim.
+  const schemaNow = datePosted
+    ? clock
+    : new Date(Math.min(now - 1, archiveValidThrough - 1));
+
   return buildJobPostingSchema({
     ...job,
     description: archivedDescription,
-    datePosted,
-    validThrough: new Date(validThrough).toISOString(),
+    datePosted: datePosted || undefined,
+    validThrough: new Date(archiveValidThrough).toISOString(),
     validThroughSource: 'archive-evidence',
-  }, options);
+  }, { ...options, now: schemaNow });
 }

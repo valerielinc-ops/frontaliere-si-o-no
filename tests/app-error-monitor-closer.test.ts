@@ -30,7 +30,7 @@ const appErrorSync = await import('../scripts/app-error-issue-sync.mjs');
 const { reconcileMonitorIssues } = await import('../scripts/lib/monitor-issue-reconcile.mjs');
 const {
   appErrorReconcile, buildIssueBody, signatureFromIssueBody, signatureOf, titleFor,
-  CLIENT_APP_ERROR_DROP_PATTERNS, CLIENT_APP_ERROR_PARTIAL_DROP_PATTERNS,
+  CLIENT_APP_ERROR_DROP_PATTERNS, CLIENT_APP_ERROR_PARTIAL_DROP_PATTERNS, isClientDropped,
 } = appErrorSync;
 const {
   UNIVERSAL_BENIGN_PATTERNS, APP_ERROR_ONLY_PATTERNS, STACK_OVERFLOW_MESSAGE_PATTERN,
@@ -189,9 +189,12 @@ describe('firme scartate dal CLIENT prima di GA4 → non misurate', () => {
 
   const other = entry({ errorMessage: 'altro errore', count: 50, last7d: 1 });
   it.each([
+    ['Firebase Installations completo (#16807)', 'Installations: Create Installation request failed with error "400 INVALID_ARGUMENT: invalid client configuration"'],
+    ['Firebase Installations troncato da GA4 (#16807)', '[firebase.initRemoteConfig] Installations: Create Installation request failed with error "400 INVALI'],
     ['filtro totale (ResizeObserver)', 'ResizeObserver loop completed with undelivered notifications.'],
     ['filtro per UA/stack (stack overflow delle app Google iOS)', 'RangeError: Maximum call stack size exceeded.'],
-  ])('%s: assente da un elenco completo → zero scritture, evidenza «scartata dal client»', async (_label, message) => {
+  ])('%s: assente da un elenco completo → zero scritture, evidenza «non misurata»', async (_label, message) => {
+    expect(isClientDropped(message)).toBe(true);
     const sig = entry({ errorType: 'unhandled_error', errorMessage: message, count: 30 });
     const issue = { number: 51, title: titleFor(sig), body: buildIssueBody(sig, { errorRate: 0.3, healthStatus: 'ok' }) };
     const gh = fakeGithub([issue]);
@@ -199,7 +202,7 @@ describe('firme scartate dal CLIENT prima di GA4 → non misurate', () => {
     await gh.run(reportOf(daysAgo(-7), [other]));
     expect(gh.writes).toEqual([]);
     expect(out.decisions[0].action).toBe('keep');
-    expect(out.decisions[0].reason).toContain('scartata dal client');
+    expect(out.decisions[0].reason).toContain('non misurata');
   });
 });
 

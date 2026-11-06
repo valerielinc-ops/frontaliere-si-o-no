@@ -1,7 +1,7 @@
 {
   "key": "spital-oberengadin",
   "label": "Spital Oberengadin",
-  "generatedAt": "2026-11-05T09:18:59.220Z",
+  "generatedAt": "2026-11-05T21:32:18.606Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 12006,
-  "avgDurationMs": 12006,
+  "durationMs": 12781,
+  "avgDurationMs": 12781,
   "durationHistory": [
-    12006
+    12781
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spital-oberengadin-f4d47414a8f2",
-      "slug": "logistiker-in-cfc-im-ops-spital-oberengadin-samedan",
+      "slug": "logista-efz-nell-ops-spital-oberengadin-samedan",
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
       "companyDomain": "spital-oberengadin.ch",
@@ -35,7 +36,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4096536",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:27.346Z",
+      "crawledAt": "2026-11-05T21:31:44.716Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -56,24 +57,23 @@
       "pensumMin": 40,
       "pensumMax": 60,
       "pensum": "40 - 60%",
+      "firstSeenAt": "2026-11-05T09:18:27.346Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:18:27.346Z",
+      "validThrough": "2027-02-01T21:31:44.716Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:18:27.346Z",
-      "_qualityScore": 89,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -88,7 +88,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4076262",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:33.447Z",
+      "crawledAt": "2026-11-05T21:31:50.507Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "salarySource": "estimated",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:18:33.447Z",
+      "validThrough": "2026-12-28T21:31:50.507Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -138,7 +138,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4076992",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:32.697Z",
+      "crawledAt": "2026-11-05T21:31:49.804Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "salarySource": "estimated",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:18:32.697Z",
+      "validThrough": "2026-12-29T21:31:49.804Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -188,7 +188,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084342",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:31.890Z",
+      "crawledAt": "2026-11-05T21:31:49.124Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -215,7 +215,7 @@
       "salarySource": "estimated",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:18:31.890Z",
+      "validThrough": "2027-01-11T21:31:49.124Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -238,7 +238,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084397",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:31.206Z",
+      "crawledAt": "2026-11-05T21:31:48.362Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       "salarySource": "estimated",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:18:31.206Z",
+      "validThrough": "2027-01-11T21:31:48.362Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -286,7 +286,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084910",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:30.428Z",
+      "crawledAt": "2026-11-05T21:31:47.683Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -312,7 +312,7 @@
       "salarySource": "estimated",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:18:30.428Z",
+      "validThrough": "2027-01-12T21:31:47.683Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -335,7 +335,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4089847",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:29.674Z",
+      "crawledAt": "2026-11-05T21:31:47.006Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -362,7 +362,7 @@
       "salarySource": "estimated",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:18:29.674Z",
+      "validThrough": "2027-01-19T21:31:47.006Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -385,7 +385,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4088639",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:28.970Z",
+      "crawledAt": "2026-11-05T21:31:46.277Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -412,7 +412,7 @@
       "salarySource": "estimated",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:18:28.970Z",
+      "validThrough": "2027-01-18T21:31:46.277Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -435,7 +435,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4092861",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:18:28.278Z",
+      "crawledAt": "2026-11-05T21:31:45.575Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -462,7 +462,7 @@
       "salarySource": "estimated",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:18:28.278Z",
+      "validThrough": "2027-01-26T21:31:45.575Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -473,5 +473,5 @@
       }
     }
   ],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }

@@ -343,7 +343,10 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * Jina always returns HTML, which would corrupt every retry of a JSON
  * response too, so a plain same-URL retry is the only safe rescue here.
  * @param {string} url
- * @param {Object} [options] — { method, headers, body, timeoutMs }
+ * @param {Object} [options] — { method, headers, body, timeoutMs, returnResponse }
+ *   When `returnResponse` is true, resolve with `{ data, response }` so a
+ *   caller can inspect response headers without changing the default JSON-only
+ *   contract.
  */
 export async function fetchJson(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
@@ -372,6 +375,9 @@ export async function fetchJson(url, options = {}) {
       }
       const text = await res.text();
       try {
+        if (options.returnResponse) {
+          return { data: JSON.parse(text), response: res };
+        }
         return JSON.parse(text);
       } catch (parseErr) {
         const err = new Error(`Invalid JSON from ${url}: ${parseErr?.message || parseErr}`);

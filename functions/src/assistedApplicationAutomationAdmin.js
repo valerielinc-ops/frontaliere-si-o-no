@@ -43,6 +43,7 @@ import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, documentFilesOf, extraD
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
+import { portalApplicationContractView } from './lib/portalApplicationContract.js';
 
 export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationStart',
@@ -56,6 +57,7 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationSetAnswers',
   'automationSetRequiredDocuments',
   'automationSetPostalSubmission',
+  'automationConfigurePostalPackage',
   'automationRevealAccount',
   'automationFillKit',
   'automationMarkClicked',
@@ -182,6 +184,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       heldBy: flow.heldBy || [],
       feedback: flow.feedback || [],
       answers: candidateState.answers,
+      requestedDocumentsOverride: flow.requestedDocumentsOverride === true,
+      requestedDocuments: flow.requestedDocumentsOverride === true ? requiredDocumentsFor(draft, flow) : [],
       postalSubmission: flow.postalSubmission || null,
       // The fields the candidate corrected on the review page.
       formOverrides: flow.formOverrides || {},
@@ -198,6 +202,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       job: draft.job || null,
       liveness: draft.liveness || null,
       channel: draft.channel || null,
+      portalContract: portalApplicationContractView(draft.portalContract, { includeEndpoints: true }),
       verdict: draft.verdict || null,
       summaryIt: draft.summaryIt || '',
       checksIt: draft.checksIt || [],
@@ -259,7 +264,7 @@ function normalizedRequestedDocuments(raw) {
     if (!labelKey || usedLabels.has(labelKey)) throw new AutomationAdminError('invalid_documents', 400);
     usedLabels.add(labelKey);
     const proposed = String(item?.id || label).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
-      .replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 32) || `requested_${index + 1}`;
+      .replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 40) || `requested_${index + 1}`;
     if (item?.localOnly === true && item?.delivery === 'service') throw new AutomationAdminError('invalid_documents', 400);
     let id = proposed;
     let suffix = 2;
@@ -310,6 +315,71 @@ function normalizedPostalSubmission(raw) {
   return { enabled: true, recipient, address, deadline, envelopeMarking, instructions, officialFormUrl };
 }
 
+function postalPackageTransitionPatch({ requestedDocuments, postalSubmission }) {
+  return ({ flow, draft }) => {
+    const retainedDocuments = requestedDocuments.map((document) => ({ ...document }));
+    const requestedIndexes = new Map(retainedDocuments.map((document, index) => [document.id, index]));
+    if (!draft || draft.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
+    if (flow.state !== 'candidate_review') throw new AutomationAdminError('postal_submission_closed', 409);
+    const previous = requiredDocumentsFor(draft, flow);
+    const previousById = new Map(previous.map((document) => [document.id, document]));
+    // An active candidate may already have uploaded files. The paper packet
+    // setup must keep every such slot and its delivery mode so the files stay
+    // visible in the protected page and available to the PDF builder.
+    for (const [id, given] of Object.entries(flow.documents || {})) {
+      if (!Array.isArray(given?.files) || given.files.length === 0) continue;
+      const index = requestedIndexes.get(id);
+      if (index === undefined) throw new AutomationAdminError('postal_uploaded_document_must_be_preserved', 409, { documentId: id });
+      const next = retainedDocuments[index];
+      const prior = previousById.get(id);
+      retainedDocuments[index] = {
+        ...next,
+        delivery: prior?.delivery === 'offline' ? 'offline' : prior?.delivery === 'service' ? 'service' : 'upload',
+        ...(prior?.localOnly === true ? { localOnly: true } : { localOnly: false }),
+      };
+    }
+    return {
+      requestedDocumentsOverride: true,
+      requestedDocuments: retainedDocuments,
+      postalSubmission,
+    };
+  };
+}
+
+async function ensurePostalSourceSizes(db, orderId, bucket) {
+  if (!bucket) throw new AutomationAdminError('storage_unavailable', 503);
+  const [orderSnapshot, draftSnapshot] = await Promise.all([
+    orderRefFor(db, orderId).get(),
+    draftRefFor(db, orderId).get(),
+  ]);
+  const order = orderSnapshot.data() || {};
+  const draft = draftSnapshot.data() || {};
+  const sourceSizes = [];
+  if (isAssistedApplicationCvKey(orderId, order.cvStorageKey) && order.cvFileCheck?.key === order.cvStorageKey
+    && (!Number.isSafeInteger(Number(order.cvFileCheck.size)) || Number(order.cvFileCheck.size) <= 0)) {
+    sourceSizes.push({ key: order.cvStorageKey, target: 'order', data: order });
+  }
+  if (isAssistedApplicationCvKey(orderId, draft.tailoredCv?.pdfKey)
+    && (!Number.isSafeInteger(Number(draft.tailoredCv.size)) || Number(draft.tailoredCv.size) <= 0)) {
+    sourceSizes.push({ key: draft.tailoredCv.pdfKey, target: 'draft', data: draft });
+  }
+  for (const source of sourceSizes) {
+    let metadata;
+    try {
+      [metadata] = await bucket.file(source.key).getMetadata();
+    } catch {
+      throw new AutomationAdminError('postal_packet_file_unavailable', 409);
+    }
+    const size = Number(metadata?.size);
+    if (!Number.isSafeInteger(size) || size <= 0) throw new AutomationAdminError('postal_packet_file_unavailable', 409);
+    if (source.target === 'order') {
+      await orderRefFor(db, orderId).set({ cvFileCheck: { ...source.data.cvFileCheck, size } }, { merge: true });
+    } else {
+      await draftRefFor(db, orderId).set({ tailoredCv: { ...source.data.tailoredCv, size } }, { merge: true });
+    }
+  }
+}
+
 async function saveCandidateRequests(db, orderId, raw, { nowMs }) {
   const [draftSnapshot, flowSnapshot] = await Promise.all([
     draftRefFor(db, orderId).get(),
@@ -344,13 +414,11 @@ async function saveCandidateRequests(db, orderId, raw, { nowMs }) {
 }
 
 async function savePostalSubmission(db, orderId, raw, { bucket, nowMs }) {
-  const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
-    orderRefFor(db, orderId).get(),
+  const [draftSnapshot, flowSnapshot] = await Promise.all([
     draftRefFor(db, orderId).get(),
     flowRefFor(db, orderId).get(),
   ]);
   if (!draftSnapshot.exists || draftSnapshot.data()?.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
-  const order = orderSnapshot.data() || {};
   const draft = draftSnapshot.data() || {};
   const flow = flowSnapshot.data() || {};
   if (flow.state !== 'owner_review') throw new AutomationAdminError('postal_submission_closed', 409);
@@ -358,33 +426,7 @@ async function savePostalSubmission(db, orderId, raw, { bucket, nowMs }) {
   if (postalSubmission.enabled && (!flow.requestedDocumentsOverride || !requiredDocumentsFor(draft, flow).length)) {
     throw new AutomationAdminError('postal_submission_documents_missing', 409);
   }
-  if (postalSubmission.enabled) {
-    if (!bucket) throw new AutomationAdminError('storage_unavailable', 503);
-    const sourceSizes = [];
-    if (isAssistedApplicationCvKey(orderId, order.cvStorageKey) && order.cvFileCheck?.key === order.cvStorageKey
-      && (!Number.isSafeInteger(Number(order.cvFileCheck.size)) || Number(order.cvFileCheck.size) <= 0)) {
-      sourceSizes.push({ key: order.cvStorageKey, target: 'order', data: order });
-    }
-    if (isAssistedApplicationCvKey(orderId, draft.tailoredCv?.pdfKey)
-      && (!Number.isSafeInteger(Number(draft.tailoredCv.size)) || Number(draft.tailoredCv.size) <= 0)) {
-      sourceSizes.push({ key: draft.tailoredCv.pdfKey, target: 'draft', data: draft });
-    }
-    for (const source of sourceSizes) {
-      let metadata;
-      try {
-        [metadata] = await bucket.file(source.key).getMetadata();
-      } catch {
-        throw new AutomationAdminError('postal_packet_file_unavailable', 409);
-      }
-      const size = Number(metadata?.size);
-      if (!Number.isSafeInteger(size) || size <= 0) throw new AutomationAdminError('postal_packet_file_unavailable', 409);
-      if (source.target === 'order') {
-        await orderRefFor(db, orderId).set({ cvFileCheck: { ...source.data.cvFileCheck, size } }, { merge: true });
-      } else {
-        await draftRefFor(db, orderId).set({ tailoredCv: { ...source.data.tailoredCv, size } }, { merge: true });
-      }
-    }
-  }
+  if (postalSubmission.enabled) await ensurePostalSourceSizes(db, orderId, bucket);
   await flowRefFor(db, orderId).set({ postalSubmission, updatedAt: nowMs }, { merge: true });
   return { ok: true, state: flow.state, enabled: postalSubmission.enabled };
 }
@@ -600,6 +642,29 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     }
     case 'automationSetPostalSubmission':
       return savePostalSubmission(db, orderId, raw, { bucket: deps.bucket, nowMs });
+    case 'automationConfigurePostalPackage': {
+      const requestedDocuments = normalizedRequestedDocuments(raw.documents);
+      if (!requestedDocuments.length) throw new AutomationAdminError('invalid_documents', 400);
+      const postalSubmission = normalizedPostalSubmission(raw.postalSubmission);
+      if (!postalSubmission.enabled) throw new AutomationAdminError('postal_submission_incomplete', 400);
+      await ensurePostalSourceSizes(db, orderId, deps.bucket);
+      const result = await applyAutomationEvent({
+        db,
+        orderId,
+        event: { type: 'owner_update_candidate_requests' },
+        actor,
+        runEffect: deps.runEffect,
+        nowMs,
+        transitionFlowPatch: postalPackageTransitionPatch({ requestedDocuments, postalSubmission }),
+      });
+      if (!result.ok) throw new AutomationAdminError(result.ignored || 'not_allowed', 409);
+      return {
+        ok: true,
+        state: result.flow.state,
+        count: requestedDocuments.length,
+        notificationSent: result.effectResults?.[0]?.ok === true,
+      };
+    }
     case 'automationRevealAccount': {
       // Owner takeover of a portal application: the account the runner
       // created on the alias. Who looked and when is recorded; the password

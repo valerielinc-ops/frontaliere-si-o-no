@@ -35,6 +35,23 @@ import { registerCookieSessionRecovery } from './lib/portal/cookie-session.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
+// Synthetic candidate facts keep the fake planner's identity, contact, birth
+// date, and permit answers grounded. Pass null to omit a fact under test.
+const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' } = {}) => ({
+  identity: { email: ALIAS, firstName: 'Luca', lastName: 'Bianchi', phone: '+41 79 000 00 00' },
+  profile: {
+    location: 'Lugano',
+    address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' },
+    ...(dateOfBirth ? { dateOfBirth } : {}),
+  },
+  answers: {
+    salutation: 'Mr',
+    ...(permitAnswer ? { work_permit: permitAnswer, valid_work_permit: permitAnswer } : {}),
+  },
+  portalQuestionsAnswered: permitAnswer
+    ? [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: permitAnswer }]
+    : [],
+});
 // Synthetic-portal diagnostics only: never serialize values, credentials or
 // arbitrary evidence when a checked lifecycle stops before its expected phase.
 const stopContext = ({ event = {}, evidence = {} }) => ({
@@ -426,7 +443,7 @@ function fakePortal() {
     if (route === 'GET /job/Zurich-Senior-IT-Manager/1448418433/') {
       state.sixPostingViews += 1;
       res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'set-cookie': 'sixPostingSeen=1; Path=/' });
-      return res.end(bindLocalReceiptTargets(page('Senior IT Manager - CIO Office | SIX', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>')));
+      return res.end(bindLocalReceiptTargets(page('Senior IT Manager - CIO Office | SIX Group', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>')));
     }
     if (route === 'GET /talentcommunity/apply/1448418433/') {
       if (!/sixPostingSeen=1/.test(req.headers.cookie || '')) return redirect('/careers.html');
@@ -454,12 +471,14 @@ function fakePortal() {
     // page, «Jetzt bewerben» opens the ATS redirect in a new tab.
     if (route === 'GET /coop-job') {
       return send(page('Coop: Bäcker:in - Konditor:in', `<header><a role="button" tabindex="0" href="/coop-later">Später bewerben</a></header>
+        <section class="job-detail">
         <h1>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h1><p>Coop Genossenschaft, Rickenbach</p>
         <a class="main-btn apply" target="_blank" href="/ohws/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/">Jetzt bewerben</a>
+        </section>
         <div id="usercentrics-root"></div><script>
           const host = document.getElementById('usercentrics-root');
           const root = host.attachShadow({ mode: 'open' });
-          root.innerHTML = '<div style="position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.3)"><div role="dialog" aria-label="Privatsphäre"><button type="button">Einstellungen verwalten</button><button type="button" id="all">Alle akzeptieren</button></div></div>';
+          root.innerHTML = '<div style="position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.3)"><div role="dialog" aria-label="Privatsphäre"><p>Diese Website verwendet Cookies.</p><button type="button">Einstellungen verwalten</button><button type="button" id="all">Alle akzeptieren</button></div></div>';
           root.getElementById('all').addEventListener('click', () => host.remove());
         </script>`));
     }
@@ -1018,18 +1037,18 @@ async function fakeCodex({ prompt }) {
     if (/address line 1/i.test(field.label)) return act('fill', 'Via Esempio 1');
     if (/street name/i.test(field.label)) return act('fill', 'Via Esempio');
     if (/postcode|postal code/i.test(field.label)) return act('fill', '6830');
-    if (/phone code/i.test(field.label)) return act('fill', '+41');
+    if (/phone code/i.test(field.label)) return act('fill', candidate?.identity?.phone ? '+41' : '');
     if (/land\/region/i.test(field.label)) return act('select', 'Italien', { source: 'profile' });
     if (/nachname|last name/i.test(field.label)) return act('fill', 'Bianchi');
     // umantis' form: no photo and no other document to give, the letter in its own field.
     if (/photo|other documents/i.test(field.label)) return act('skip', '', { source: 'rule' });
     if (/cover letter/i.test(field.label)) return act('upload', '', { document: 'cover_letter', source: 'documents' });
-    if (/cell phone/i.test(field.label)) return act('fill', '+41 79 000 00 00');
+    if (/cell phone/i.test(field.label)) return act('fill', candidate?.identity?.phone || '');
     // A honeypot must never reach the planner (fields.mjs): one that did would be filled.
     if (/website/i.test(field.label)) return act('fill', 'https://example.com');
     if (/how did you hear/i.test(field.label)) return act('select', 'Online job board', { source: 'rule' });
     if (/valid work permit/i.test(field.label)) {
-      const answer = candidate?.portalQuestionsAnswered?.find((item) => /valid work permit/i.test(item.question || ''))?.answer || 'Yes';
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /valid work permit/i.test(item.question || ''))?.answer || '';
       return act('select', answer, { source: 'answers' });
     }
     if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
@@ -1057,7 +1076,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   };
   // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
   const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
-  const run = (order = job, candidate = { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }) => {
+  const run = (order = job, candidate = portalTestCandidate({ permitAnswer: 'Yes' })) => {
     const applyUrl = bindReceiptJobId(`${base}/wd/job`);
     return submitViaPortal({
       applyUrl, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
@@ -1171,21 +1190,16 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
     failedUpload.event.type === 'submit_handoff' && failedUpload.event.reason === 'upload_failed'
     && state.applications.length === beforeFailedUpload && workday.deletedFiles === 2);
 
-  const profileCandidate = {
-    identity: { email: ALIAS },
-    profile: {
-      location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' },
-      experience: [
+  const profileCandidate = portalTestCandidate({ permitAnswer: 'Yes' });
+  profileCandidate.profile.experience = [
         { role: 'Retail Assistant', employer: 'Mendrisio Market', start: '2020-03', end: '2022-04' },
         { role: 'Cashier', employer: 'Lugano Foods', start: '2022-05', end: '2024-10' },
         { role: 'Temporary Helper', employer: 'Seasonal Shop', start: '2021', end: '' },
-      ],
-      education: [
+      ];
+  profileCandidate.profile.education = [
         { degree: 'Vocational Diploma', institution: 'Scuola Cantonale', start: '2015-09', end: '2018-06' },
         { degree: 'Secondary School', institution: 'Liceo Lugano', start: '2012-09', end: '2015-06' },
-      ],
-    },
-  };
+      ];
   state.sessions.clear();
   const profileResult = await run(job, profileCandidate);
   const profileForm = workday.forms.at(-1) || {};
@@ -1310,7 +1324,7 @@ async function main() {
       language: 'de',
       candidateLocale: 'it',
       ...(fixtureJob ? { job: fixtureJob } : {}),
-      candidate: { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } },
+      candidate: portalTestCandidate(),
       files,
       codex: fakeCodex,
       accounts,
@@ -1465,7 +1479,7 @@ async function main() {
     } else if (focusCoop) {
       await runCoopChecks();
     } else if (focusAgentBirthDate) {
-      const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
+      const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: portalTestCandidate({ dateOfBirth: null }) });
       const asked = unknown.event.questions || [];
       check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
         && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum *' && asked[0].question === 'Qual è la tua data di nascita?'
@@ -1494,12 +1508,16 @@ async function main() {
     const refused = await run();
     check('a refused registration hands off and keeps no account', refused.event.type === 'submit_handoff' && refused.event.reason === 'account_create_refused' && !saved.has(accountHost) && state.accounts.size === 0);
     const first = await run();
-    check('the first run creates the account on the alias, verifies it and applies', first.event.type === 'submit_succeeded' && state.accounts.has(ALIAS) && state.verified.has(ALIAS));
+    check('the first run creates the account on the alias, verifies it and applies', first.event.type === 'submit_succeeded' && state.accounts.has(ALIAS) && state.verified.has(ALIAS), stopContext(first));
     check('the password is stored and the account marked verified', Boolean(saved.get(accountHost)?.password) && Boolean(saved.get(accountHost)?.verifiedAt));
     const again = await run();
     const auth = again.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
-    check('a later run signs in with the stored account', again.event.type === 'submit_succeeded' && auth.join(',') === 'sign_in' && state.accounts.size === 1);
-    check('both applications carry the CV and the name', state.applications.length === 2 && state.applications.every((item) => item.hasCv && item.first === 'Luca'));
+    check('a later run signs in with the stored account', again.event.type === 'submit_succeeded' && auth.join(',') === 'sign_in' && state.accounts.size === 1, stopContext(again));
+    check('both applications carry the CV and the name', state.applications.length === 2 && state.applications.every((item) => item.hasCv && item.first === 'Luca'), {
+      applicationCount: state.applications.length,
+      applications: state.applications.map((item) => ({ hasCv: item.hasCv, hasName: Boolean(item.first) })),
+      run: stopContext(again),
+    });
     // OTP-based SuccessFactors only creates the external account after code
     // verification. Reproduce a run that saved its password but lost the OTP
     // page: login stays on the generic sign-in error, so the runner must
@@ -1513,9 +1531,11 @@ async function main() {
     check('a missing retry button hands off without discarding the saved credential', missingRetryButton.event.type === 'submit_handoff'
       && missingRetryButton.event.reason === 'account' && Boolean(saved.get(otpAccountHost)?.password) && saved.get(otpAccountHost)?.verifiedAt === null);
     const recovered = await run({ applyUrl: `${otpBase}/job` });
-    check('an unverified saved account restarts registration and verifies before applying', recovered.event.type === 'submit_succeeded' && state.verified.has(ALIAS) && Boolean(saved.get(otpAccountHost)?.verifiedAt) && state.applications.length === 3);
+    check('an unverified saved account restarts registration and verifies before applying', recovered.event.type === 'submit_succeeded' && state.verified.has(ALIAS) && Boolean(saved.get(otpAccountHost)?.verifiedAt) && state.applications.length === 3, stopContext(recovered));
     state.unverifiedLoginStaysOnSignIn = false;
-    check('the evidence names the files the form received', first.evidence.uploads?.some((item) => item.document === 'cv'));
+    check('the evidence names the files the form received', first.evidence.uploads?.some((item) => item.document === 'cv'), {
+      documents: (first.evidence.uploads || []).map((item) => item.document),
+    });
     check('the newsletter box is left alone', !state.newsletter);
     const rhb = await run({ applyUrl: `${base}/rhb-form`, codex: async (request) => {
       if (request.prompt.includes('{"agentPage"')) throw new Error('standard_send_button_must_not_need_agent');
@@ -1612,19 +1632,19 @@ async function main() {
       stopReport: six.evidence.stopReport,
     });
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
-    const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
+    const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: portalTestCandidate({ dateOfBirth: null }) });
     const asked = unknown.event.questions || [];
     check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
-      && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum *' && Boolean(asked[0].question) && asked[0].type === 'date' && state.widgetApplications.length === 0);
+      && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum *' && Boolean(asked[0].question) && asked[0].type === 'date' && state.widgetApplications.length === 0, stopContext(unknown));
     // Review of #10707: Codex failing inside the fallback ends in the owner's handoff, not a failed run.
     const failing = async (request) => {
       if (request.prompt.includes('{"agentPage"')) throw new Error('timeout');
       return fakeCodex(request);
     };
-    const broken = await run({ applyUrl: `${base}/widget`, codex: failing, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    const broken = await run({ applyUrl: `${base}/widget`, codex: failing, candidate: portalTestCandidate() });
     check('a Codex failure in the fallback hands the order to the owner', broken.event.type === 'submit_handoff'
       && broken.event.reason === 'portal_needs_candidate' && state.widgetApplications.length === 0);
-    const widget = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    const widget = await run({ applyUrl: `${base}/widget-job`, candidate: portalTestCandidate() });
     const agentSteps = widget.evidence.steps.filter((step) => step.agent);
     // Second review of #10707: a select picks only the exact option ("1990" is not "1990s").
     const listPage = await (await launchChromium({ headless: true, executablePath })).newPage();
@@ -1772,8 +1792,8 @@ async function main() {
     check('an unowned JOIN popup fails closed without clicking an unrelated list', unownedResult[0]?.ok === false && unrelatedClicks === 0);
     await unownedBrowser.close();
     // career-ops apply.md: company and role on the form match the posting, or stop.
-    const elsewhere = await run({ applyUrl: `${base}/widget-job`, job: { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' }, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
-    check('a form for another job is never filled', elsewhere.event.type === 'submit_handoff' && elsewhere.event.reason === 'posting_mismatch' && state.widgetApplications.length === 1);
+    const elsewhere = await run({ applyUrl: `${base}/widget-job`, job: { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' }, candidate: portalTestCandidate() });
+    check('a form for another job is never filled', elsewhere.event.type === 'submit_handoff' && elsewhere.event.reason === 'posting_mismatch' && state.widgetApplications.length === 1, stopContext(elsewhere));
     // career-ops "verify each selection": a click that does not take is a failure, not an answer.
     const comboPage = await (await launchChromium({ headless: true, executablePath })).newPage();
     await comboPage.setContent(`<label for="good">Land</label><div><input id="good" role="combobox" aria-controls="gl"><span id="gv"></span><div role="listbox" id="gl"><div role="option" onclick="document.getElementById('gv').textContent='Schweiz'; this.parentElement.remove()">Schweiz</div></div></div>
@@ -1865,7 +1885,7 @@ async function main() {
     await runUmantisChecks();
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
-      && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
+      && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done', stopContext(widget));
     await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId });
     }
 
@@ -1886,17 +1906,12 @@ async function main() {
       const applicationsBeforeRepair = state.applications.length;
       state.registrationValidationOnce = true;
       state.registrationNeedsAnswerAfterValidation = true;
-      const candidateWithPermit = {
-        identity: { email: ALIAS },
-        profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
-        answers: { valid_work_permit: 'Yes' },
-        portalQuestionsAnswered: [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: 'Yes' }],
-      };
+      const candidateWithPermit = portalTestCandidate({ permitAnswer: 'Yes' });
       const repairedRegistration = await run({ candidate: candidateWithPermit });
       check('a registration validation response replans a newly required known answer and retries automatically',
         repairedRegistration.event.type === 'submit_succeeded' && state.registrationRequests === registrationsBeforeRepair + 2
         && state.registeredPermit === 'Yes' && state.applications.length === applicationsBeforeRepair + 1
-        && Boolean(saved.get(accountHost)?.verifiedAt));
+        && Boolean(saved.get(accountHost)?.verifiedAt), stopContext(repairedRegistration));
 
       resetRegistration();
       const registrationsBeforeInvalidOnly = state.registrationRequests;
@@ -1907,14 +1922,14 @@ async function main() {
         invalidOnlyRegistration.event.type === 'submit_succeeded'
         && state.registrationRequests === registrationsBeforeInvalidOnly + 2
         && state.applications.length === applicationsBeforeInvalidOnly + 1
-        && Boolean(saved.get(accountHost)?.verifiedAt));
+        && Boolean(saved.get(accountHost)?.verifiedAt), stopContext(invalidOnlyRegistration));
 
       resetRegistration();
       const registrationsBeforeQuestion = state.registrationRequests;
       const applicationsBeforeQuestion = state.applications.length;
       state.registrationValidationOnce = true;
       state.registrationNeedsAnswerAfterValidation = true;
-      const registrationQuestion = await run();
+      const registrationQuestion = await run({ candidate: portalTestCandidate({ permitAnswer: null }) });
       const permitQuestion = registrationQuestion.event.questions?.find((question) => /valid work permit/i.test(question.applicationQuestion || question.question || ''));
       check('a newly exposed registration fact becomes a candidate question and keeps the credential for resume',
         registrationQuestion.event.type === 'submit_needs_candidate' && Boolean(permitQuestion)
@@ -1922,17 +1937,15 @@ async function main() {
         && state.registrationRequests === registrationsBeforeQuestion + 1 && state.accounts.size === 0
         && state.applications.length === applicationsBeforeQuestion);
       if (permitQuestion) {
-        const candidate = {
-          identity: { email: ALIAS },
-          profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
-          answers: { [permitQuestion.id]: 'Yes' },
-          portalQuestionsAnswered: [{ id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes' }],
-        };
+        const candidate = portalTestCandidate();
+        candidate.answers.work_permit = 'Yes';
+        candidate.answers[permitQuestion.id] = 'Yes';
+        candidate.portalQuestionsAnswered = [{ id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes' }];
         const resumedApplication = await run({ candidate });
         check('an answered registration question resumes account creation and submits the application',
           resumedApplication.event.type === 'submit_succeeded' && state.registeredPermit === 'Yes'
           && state.accounts.has(ALIAS) && state.verified.has(ALIAS)
-          && state.applications.length === applicationsBeforeQuestion + 1);
+          && state.applications.length === applicationsBeforeQuestion + 1, stopContext(resumedApplication));
       }
     }
   } finally {

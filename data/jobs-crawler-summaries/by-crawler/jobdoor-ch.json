@@ -1,7 +1,7 @@
 {
   "key": "jobdoor-ch",
   "label": "Jobdoor AG",
-  "generatedAt": "2026-11-05T09:36:15.932Z",
+  "generatedAt": "2026-11-05T21:52:38.028Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4166,
-  "avgDurationMs": 4166,
+  "unchangedCount": 1,
+  "durationMs": 4944,
+  "avgDurationMs": 4944,
   "durationHistory": [
-    4166
+    4944
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "jobdoor-ch-7bc38f16351f",
       "slug": "fage-cfc-100-jobdoor-ag-bern",
@@ -35,7 +37,7 @@
       "url": "https://jobdoor.ch/job/fage-efz-100/",
       "source": "Jobdoor AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:36:00.384Z",
+      "crawledAt": "2026-11-05T21:52:13.741Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -59,7 +61,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:36:00.384Z",
+      "validThrough": "2027-02-02T21:52:13.741Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -70,7 +72,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }

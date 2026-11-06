@@ -64,10 +64,12 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     }),
   };
   const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
+  const codex = vi.fn();
   const run = () => submitViaPortal({ applyUrl: source?.url || options.applyUrl || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
+    postingRouteProof: options.postingRouteProof,
     job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
-    codex: vi.fn(), launch: async () => browser, onBeforeSubmit: guard });
-  return { run, guard, click, openClick, page };
+    codex, launch: async () => browser, onBeforeSubmit: guard });
+  return { run, guard, click, openClick, page, codex };
 }
 
 beforeEach(() => vi.clearAllMocks());
@@ -125,6 +127,89 @@ describe('runner final guard across three application stages', () => {
     expect(result.event).toMatchObject({ type: 'submit_handoff' });
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('opens a source-proven SuccessFactors module from a language-only posting shell', async () => {
+    const postingUrl = 'https://careers.helsana.ch/job/it-management-assistenz/1426391333/';
+    const moduleUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
+    const postingRouteProof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
+    const shell = snapshot(postingUrl, 'Helsana careers', [{ id: 'language', text: 'Sprache', chrome: true }]);
+    const registration = {
+      ...snapshot(moduleUrl, 'Create your account for Infrastructure Strategy Manager', [{ id: 'create', text: 'Bewerbungskonto erstellen' }]),
+      fields: [
+        { id: 'email', label: 'E-Mail-Adresse', kind: 'text', inputType: 'email', required: true },
+        { id: 'first-name', label: 'Vorname', kind: 'text', required: true },
+        { id: 'last-name', label: 'Nachname', kind: 'text', required: true },
+      ],
+    };
+    const f = fixture(shell, null, review, null, {
+      applyUrl: moduleUrl,
+      postingUrl,
+      postingRouteProof,
+      applySnapshot: registration,
+      channelType: 'successfactors',
+      job: { company: 'Helsana', title },
+    });
+
+    const result = await f.run();
+
+    expect(f.page.goto).toHaveBeenCalledWith(postingUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    expect(f.page.goto).toHaveBeenCalledWith(moduleUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    expect(result.event).toMatchObject({ type: 'submit_handoff' });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+    expect(f.openClick).not.toHaveBeenCalled();
+  });
+
+  it('rejects a unique external Apply control that conflicts with the posting proof', async () => {
+    const postingUrl = 'https://careers.helsana.ch/job/it-management-assistenz/1426391333/';
+    const moduleUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
+    const otherModuleUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34526&lang=de_DE&career_ns=job_application';
+    const postingRouteProof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
+    const shell = snapshot(postingUrl, 'Helsana careers', [{ id: 'wrong-apply', text: 'Jetzt bewerben', href: otherModuleUrl }]);
+    const registration = {
+      ...snapshot(moduleUrl, 'Create your account for Infrastructure Strategy Manager', [{ id: 'create', text: 'Bewerbungskonto erstellen' }]),
+      fields: [
+        { id: 'email', label: 'E-Mail-Adresse', kind: 'text', inputType: 'email', required: true },
+        { id: 'first-name', label: 'Vorname', kind: 'text', required: true },
+        { id: 'last-name', label: 'Nachname', kind: 'text', required: true },
+      ],
+    };
+    const f = fixture(shell, null, review, null, {
+      applyUrl: moduleUrl,
+      postingUrl,
+      postingRouteProof,
+      applySnapshot: registration,
+      channelType: 'successfactors',
+      job: { company: 'Helsana', title },
+    });
+
+    const result = await f.run();
+
+    expect(f.page.goto).toHaveBeenCalledWith(moduleUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    expect(f.page.goto).not.toHaveBeenCalledWith(otherModuleUrl, expect.anything());
+    expect(result.event).toMatchObject({ type: 'submit_handoff' });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+    expect(f.openClick).not.toHaveBeenCalled();
+  });
+
+  it('hands off the issue 17251 language-only shell without asking the candidate or guessing an apply URL', async () => {
+    // Synthetic route; the issue preserves only /job/*/* and Sprache.
+    const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Synthetic-Role/42/';
+    const shell = snapshot(postingUrl, 'Sprache', [{ id: 'language', text: 'Sprache', chrome: true }]);
+    const f = fixture(shell, null, review, null, {
+      applyUrl: postingUrl, postingUrl, channelType: 'successfactors',
+      job: { title },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+    expect(f.page.goto.mock.calls.every(([url]: [string]) => url === postingUrl)).toBe(true);
   });
 
   it('stops if the verified SuccessFactors apply route redirects away from the posting ID', async () => {

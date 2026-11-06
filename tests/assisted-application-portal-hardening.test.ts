@@ -23,6 +23,8 @@ import {
   portalRequirementsFromMissingRequired,
   portalRequiredDocumentFromField,
   portalEntryUrl,
+  postingAddressForPortal,
+  verifiedUmantisPostingAddress,
   localizePortalQuestions,
   isPostingRouteBound,
   isVerifiedPostingEntry,
@@ -310,6 +312,81 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('recruitingapp-2761', 'other') })).toBe(postingUrl);
   });
 
+  it('retains the Umantis posting route only when it binds the current application to the same vacancy', () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+    const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+    const otherVacancy = 'https://recruitingapp-2761.umantis.com/Vacancies/1154/Description/4';
+    const publishedUrl = 'https://frontaliereticino.ch/it/lavoro/impiegato-amministrativo-eoc/';
+
+    expect(verifiedUmantisPostingAddress({ applyUrl: postingUrl, postingUrls: [
+      publishedUrl, postingUrl,
+    ] })).toBe(postingUrl);
+    expect(verifiedUmantisPostingAddress({ applyUrl: postingUrl, postingUrls: [otherVacancy] })).toBe('');
+    expect(postingAddressForPortal({ applyUrl, postingUrls: [postingUrl], fallback: publishedUrl })).toBe(postingUrl);
+    expect(postingAddressForPortal({ applyUrl, postingUrls: [otherVacancy], fallback: publishedUrl })).toBe('');
+    expect(postingAddressForPortal({ applyUrl, postingUrls: null as any, fallback: publishedUrl })).toBe('');
+    expect(postingAddressForPortal({ applyUrl: 'https://jobs.lever.co/example/1/apply', fallback: publishedUrl })).toBe(publishedUrl);
+  });
+
+  it('uses a bound Umantis vacancy route when EOC application questions mention the employer', () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+    const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+    const job = { company: 'EOC – Ente Ospedaliero Cantonale', title: 'Impiegato/a amministrativo' };
+    const form = [
+      'Impiegato/a amministrativo - Candidatura | EOC candiDati',
+      'Application Tracking System',
+      'Selezionare collaboratori dell’EOC amici e conoscenti',
+    ].join('\n');
+    const verified = isVerifiedPostingEntry({ applyUrl, postingUrl });
+
+    expect(verified).toBe(true);
+    expect(namesAnotherEmployer(form, job)).toBe(true);
+    expect(formPostingMatch(form, job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applyUrl,
+      postingUrl,
+    })).toBe('match');
+    expect(formPostingMatch('Other Employer — Impiegato/a amministrativo', job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applyUrl,
+      postingUrl,
+    })).toBe('mismatch');
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: applyUrl,
+      postingUrl: postingUrl.replace('/1153/', '/1154/'),
+    })).toBe('mismatch');
+  });
+
+  it('accepts a bound Umantis form with a generic heading and employer-owned fields', () => {
+    const applicationUrl = umantisAccountStepFixture.url;
+    const postingUrl = applicationUrl.replace('/Application/New/4', '/Description/4');
+    const job = { company: 'EOC – Ente Ospedaliero Cantonale', title: 'Impiegato/a amministrativo' };
+    const form = [
+      'Application Tracking System',
+      ...umantisAccountStepFixture.fields.map(field => field.label),
+      'Avanti',
+    ].join('\n');
+    const verified = isVerifiedPostingEntry({ applyUrl: applicationUrl, postingUrl });
+
+    expect(namesAnotherEmployer(form, job)).toBe(true);
+    expect(formPostingMatch(form, job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applicationUrl,
+      postingUrl,
+    })).toBe('match');
+    expect(formPostingMatch(`Other Employer — Application Tracking System\n${form}`, job, {
+      postingMatched: verified,
+      postingEntry: verified,
+      pageUrl: applicationUrl,
+      postingUrl,
+    })).toBe('mismatch');
+  });
+
   it('accepts ALTEN’s generic form only when the matching posting route was the entry', () => {
     const job = { company: 'ALTEN Switzerland', title: 'Project Manager – IT & Banking' };
     const genericForm = [
@@ -589,6 +666,37 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       ...snapshot,
       fields: snapshot.fields.filter(field => field.id !== 'cover-letter'),
     }, 'umantis')).toBe(false);
+  });
+
+  it('recognizes the live EOC Umantis profile step without street or country fields', () => {
+    const snapshot = {
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4',
+      text: 'Impiegato/a amministrativo - Candidatura | EOC candiDati',
+      passwordVisible: true,
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', form: 0 },
+        { id: 'first-name', kind: 'text', inputType: 'text', label: 'Nome', form: 0 },
+        { id: 'last-name', kind: 'text', inputType: 'text', label: 'Cognome', form: 0 },
+        { id: 'birth-date', kind: 'text', inputType: 'text', label: 'Data di nascita', form: 0 },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Password', form: 0 },
+        { id: 'postal-code', kind: 'text', inputType: 'text', label: 'NAP', form: 0 },
+        { id: 'city', kind: 'text', inputType: 'text', label: 'Località', form: 0 },
+        { id: 'phone', kind: 'text', inputType: 'tel', label: 'Telefono', form: 0 },
+        { id: 'cv', kind: 'file', inputType: 'file', label: 'Curriculum', form: 0 },
+        { id: 'cover-letter', kind: 'file', inputType: 'file', label: 'Lettera di presentazione', form: 0 },
+      ],
+      buttons: [{ text: 'Avanti' }],
+      links: [{ text: 'Login' }],
+    };
+
+    expect(authPageKind(snapshot)).toBe('sign_in');
+    expect(ownAccountForm(snapshot, 'umantis')).toBe(true);
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.filter(field => !['birth-date', 'postal-code', 'city', 'phone'].includes(field.id)),
+    }, 'umantis')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, buttons: [{ text: 'Login' }] }, 'umantis')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('/Application/New/4', '/Application/Login/4') }, 'umantis')).toBe(false);
   });
 
   it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {

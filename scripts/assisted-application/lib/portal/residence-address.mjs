@@ -64,6 +64,59 @@ function cityWithoutProvince(value) {
     .replace(/(?:,|[-–—])\s*[A-Za-z]{2}\s*$/, ''));
 }
 
+const LOCALITY_LABEL_RE = /^\s*(?:localit(?:à|a|é|e|y)?\w*|locality|citt[aà]|city|town|ville|lieu|commune|wohn(?:ort|sitz|adresse)\w*|ort)(?=\s|:|-|$)(?:\s+(?:(?:de|of)\s+(?:(?:la|le|les|l[’'])\s+)?|(?:du|des|la|le|in|im|am|von|zu)\s+))?\s*(?::|-)?\s*/i;
+const POSTAL_LABEL_RE = /^\s*(?:postcode|post\s*code|postal\s+code|code\s+postal|zip(?:\s+code)?|plz|npa|cap|codice\s+postale)(?=\s|:|-|$)\s*(?::|-)?\s*/i;
+const GENERAL_ADDRESS_LABEL_RE = /^\s*(?:domicilio|residen\w*|indirizzo(?:\s+di\s+residen\w*)?|address|residence)(?=\s|:|-|$)\s*(?::|-)?\s*/i;
+const STREET_TYPE_RE = /\b(?:via|viale|piazza|piazzale|corso|strada|largo|vicolo|contrada|avenue|rue|chemin|route|place|boulevard|quai|gasse|strasse|straße|weg|platz|allee|street|st\.?|road|rd\.?|lane|ln\.?|drive|dr\.?|[\p{L}]*strasse|[\p{L}]*straße)\b/iu;
+
+function postalCodeDigits(value) {
+  const unlabelled = compact(value, 20).replace(POSTAL_LABEL_RE, '').trim();
+  return /^\d{4,5}$/.test(unlabelled) ? unlabelled : '';
+}
+
+function addressTextVariants(value) {
+  const raw = compact(value);
+  const labelled = raw.replace(GENERAL_ADDRESS_LABEL_RE, '').replace(LOCALITY_LABEL_RE, '').replace(POSTAL_LABEL_RE, '');
+  if (!labelled) return [];
+  const countryless = removeKnownCountry(labelled)
+    .replace(/\s+(?:italia|italy|italie|italien|svizzera|switzerland|suisse|schweiz)\s*$/i, '')
+    .trim();
+  const withoutPostal = countryless.replace(/\b\d{4,5}\b/g, ' ').replace(/\s+/g, ' ').trim();
+  return [raw, labelled, countryless, cityWithoutProvince(countryless), withoutPostal, cityWithoutProvince(withoutPostal)]
+    .map(key)
+    .filter(Boolean);
+}
+
+function localityOnlyStreet(street, { city, location, postalCode, country, province } = {}) {
+  const streetText = compact(street);
+  if (POSTAL_LABEL_RE.test(streetText)) return true;
+  if (LOCALITY_LABEL_RE.test(streetText)) {
+    const localityValue = streetText.replace(LOCALITY_LABEL_RE, '').trim();
+    if (!STREET_TYPE_RE.test(localityValue)) return true;
+  }
+  const numericOnly = compact(street);
+  if (/^\d{4,5}$/.test(numericOnly)) {
+    const knownPostalCode = compact(postalCode);
+    if (!/^\d{4,5}$/.test(knownPostalCode)) return true;
+    return numericOnly === knownPostalCode;
+  }
+  const knownLocalities = new Set([
+    ...addressTextVariants(city),
+    ...addressTextVariants(location),
+    ...addressTextVariants(country),
+    ...addressTextVariants(province),
+    ...addressTextVariants(postalCode),
+  ]);
+  if (!knownLocalities.size) return false;
+  const streetVariants = addressTextVariants(street);
+  if (!streetVariants.length) return true;
+  return streetVariants.some((variant) => {
+    if (knownLocalities.has(variant)) return true;
+    const withoutNumericSuffix = variant.replace(/\s+\d{1,5}[a-z]?$/i, '').trim();
+    return withoutNumericSuffix !== variant && knownLocalities.has(withoutNumericSuffix);
+  });
+}
+
 const entries = (Array.isArray(ITALY_POSTAL_DIRECTORY.entries) ? ITALY_POSTAL_DIRECTORY.entries : [])
   .map(([name, province, postalCode]) => ({ name: String(name), province: String(province).toUpperCase(), postalCode: String(postalCode) }))
   .filter((entry) => entry.name && /^[A-Z]{2}$/.test(entry.province) && /^\d{5}$/.test(entry.postalCode));
@@ -117,15 +170,37 @@ export function resolveResidenceAddress(rawAddress = {}, location = '', cvText =
   const explicit = explicitCountry(address.country) || explicitCountry(rawCity) || explicitCountry(location);
   const city = cityWithoutProvince(rawCity);
   const knownItalianPostal = resolveItalianPostalCode(city, province);
-  const statedPostal = compact(address.postalCode, 20);
+  const rawStatedPostal = compact(address.postalCode, 20);
+  const statedPostal = postalCodeDigits(rawStatedPostal) || rawStatedPostal;
   const postalCode = knownItalianPostal
     || explicitPostalCode(cvText, city, province)
     || statedPostal;
   const country = (knownItalianPostal ? 'Italia' : '')
     || explicit
     || (SWISS_CANTONS.has(province) && /^\d{4}$/.test(statedPostal) ? 'Svizzera' : '');
+  // Remove a known postal code copied into the street field. A bare
+  // four/five-digit value is rejected below as an ambiguous postal code, while
+  // longer numbers with a street remain eligible as explicit civic numbers.
+  const street = compact(address.street);
+  const knownPostalDigits = postalCodeDigits(postalCode);
+  const streetWithoutKnownPostal = knownPostalDigits
+    ? street.replace(new RegExp(`\\b${knownPostalDigits}\\b`, 'g'), ' ')
+    : street;
+  const cleanStreet = streetWithoutKnownPostal
+    .replace(/\s+/g, ' ')
+    .replace(/(?:,\s*)+$/, '')
+    .trim();
   return {
-    street: compact(address.street),
+    // A locality, postal code or country is not a street address. Keep it in
+    // its own field and let the required street/house-number question reach
+    // the candidate instead of synthesising a civic address.
+    street: localityOnlyStreet(cleanStreet, {
+      city: compact(address.city) || city,
+      location,
+      postalCode,
+      country: compact(address.country) || country,
+      province,
+    }) ? '' : cleanStreet,
     postalCode,
     city: compact(address.city) || city,
     country,
@@ -172,7 +247,21 @@ export function residenceCountryCode(value) {
   return '';
 }
 
-export function addressQuestionAnswer(candidate, topic) {
+function houseNumberFromAddress(street, postalCode) {
+  const knownPostalDigits = postalCodeDigits(postalCode);
+  const withoutPostal = knownPostalDigits
+    ? street.replace(new RegExp(`\\b${knownPostalDigits}\\b`, 'g'), ' ').replace(/\s+/g, ' ').trim()
+    : street;
+  const marked = withoutPostal.match(/\b(?:n[°ºo]?|no\.?|numero|numéro|civico|house\s*(?:number|no)|street\s*(?:number|no))\s*([0-9]{1,5}[A-Za-z]?)/i)?.[1];
+  const leadingMatch = withoutPostal.match(/^\s*([0-9]{1,5}[A-Za-z]?)\s+(.+)$/u);
+  const leading = leadingMatch && STREET_TYPE_RE.test(leadingMatch[2]) ? leadingMatch[1] : '';
+  const trailingMatch = withoutPostal.match(/\b([0-9]{1,5}[A-Za-z]?)\s*$/);
+  const trailingPrefix = trailingMatch ? withoutPostal.slice(0, trailingMatch.index).trim().replace(/[,.]+$/, '').trim() : '';
+  const roadTypeOnly = /^(?:via|viale|piazza|piazzale|corso|strada(?:\s+(?:statale|provinciale|regionale|nazionale))?|largo|vicolo|contrada|avenue|rue|chemin|route(?:\s+nationale)?|place|boulevard|quai|gasse|strasse|straße|weg|platz|allee|street|st\.?|road|rd\.?|lane|ln\.?|drive|dr\.?)$/i.test(trailingPrefix);
+  return marked || leading || (!roadTypeOnly && trailingMatch?.[1]) || '';
+}
+
+export function addressQuestionAnswer(candidate, topic, streetOverride = null) {
   // The normal browser path supplies candidateForForm(), where the residence
   // is under identity.address. Keep the planner safe for older/raw callers as
   // well: draft data historically kept the same address under profile.address.
@@ -186,12 +275,15 @@ export function addressQuestionAnswer(candidate, topic) {
     // corresponding explicit value retained in the legacy profile.
     if (value !== null && value !== undefined && String(value).trim()) rawAddress[key] = value;
   }
+  if (streetOverride !== null && ['address', 'address_street', 'address_house_number'].includes(topic)) rawAddress.street = streetOverride;
   const address = resolveResidenceAddress(rawAddress, identity.location || profile.location);
-  if (topic === 'address' || topic === 'address_street') return address.street;
-  if (topic === 'address_house_number') {
-    const marked = address.street.match(/\b(?:n[°ºo]?|no\.?|numero|numéro|civico|house\s*(?:number|no)|street\s*(?:number|no))\s*([0-9]{1,5}[A-Za-z]?)/i)?.[1];
-    return marked || address.street.match(/\b([0-9]{1,5}[A-Za-z]?)\b/)?.[1] || '';
+  if (topic === 'address_street') return /\p{L}/u.test(address.street) ? address.street : '';
+  if (topic === 'address') {
+    return /\p{L}/u.test(address.street) && houseNumberFromAddress(address.street, address.postalCode)
+      ? address.street
+      : '';
   }
+  if (topic === 'address_house_number') return houseNumberFromAddress(address.street, address.postalCode);
   if (topic === 'residence_postal_code') return address.postalCode;
   if (topic === 'residence_city') return address.city || compact(identity.location || profile.location);
   if (topic === 'residence_country') return address.country;

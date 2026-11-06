@@ -167,6 +167,41 @@ export interface ReviewKeptDocuments {
   files: ReviewKeptDocument[];
 }
 
+/** Candidate-safe summary of the portal form and its background traffic. */
+export interface ReviewPortalContract {
+  version: number;
+  phase: string;
+  channel: string;
+  status: string;
+  postingMatch: string;
+  observedAt: number | null;
+  handoff?: string;
+  form?: {
+    observed: boolean;
+    stable: boolean;
+    fieldCount: number;
+    requiredFieldCount: number;
+    requiredFileCount: number;
+  };
+  missing?: {
+    questionCount: number;
+    documentCount: number;
+    requiredQuestionCount: number;
+    requiredDocumentCount: number;
+  };
+  background?: {
+    status: string;
+    readOnly: boolean;
+    requestCount: number;
+    mutatingRequestCount: number;
+  };
+  submit?: {
+    capability: 'native_form' | 'server_action' | 'xhr_fetch' | 'candidate_handoff' | 'unknown';
+    status: string;
+    outcome?: string;
+  };
+}
+
 export interface ReviewPayload {
   ok: true;
   employerResponse?: EmployerResponse | null;
@@ -187,6 +222,7 @@ export interface ReviewPayload {
     channel: string | null;
     channelLabel: string | null;
   };
+  portalContract?: ReviewPortalContract | null;
   /** Postal submission details, visible only on this signed candidate page. */
   postalSubmission?: {
     recipient: string;

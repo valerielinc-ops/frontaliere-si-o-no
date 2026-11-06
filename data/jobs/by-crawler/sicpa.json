@@ -1,8 +1,90 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-11-05T09:39:16.170Z",
-  "runId": "42001402344",
+  "assembledAt": "2026-11-05T21:49:39.265Z",
+  "runId": "42111558527",
   "jobs": [
+    {
+      "id": "sicpa-10acf27c763d",
+      "slug": "esperto-della-soluzione-dati-sicpa-sa-prilly",
+      "slugByLocale": {
+        "en": "ai-data-solution-expert-sicpa-prilly",
+        "it": "esperto-della-soluzione-dati-sicpa-sa-prilly",
+        "de": "ai-data-solution-expert-sicpa-prilly",
+        "fr": "expert-en-solutions-de-donnees-et-d-ia-sicpa-sa-prilly"
+      },
+      "company": "SICPA SA",
+      "companyKey": "sicpa",
+      "companyDomain": "sicpa.com",
+      "title": "AI & Data Solution Expert",
+      "titleByLocale": {
+        "en": "AI & Data Solution Expert",
+        "it": "Esperto della soluzione dati",
+        "de": "AI & Data Solution Experte",
+        "fr": "Expert en solutions de données et d'IA"
+      },
+      "description": "To strengthen our GLOBAL INFORMATION SERVICES department, we are looking for a:\n\nAI & DATA SOLUTION EXPERT\n\nABOUT THE ROLE:\n\nWe are looking for a Data & AI Solution Expert to shape the technical direction of our enterprise Data & AI ecosystem and turn advanced data and Generative AI capabilities into secure, scalable and production-ready solutions.\n\nThis senior individual-contributor role combines architecture with hands-on delivery across Microsoft Fabric, SQL Server, Power BI and enterprise AI. Working with engineering, architecture, security and business teams, you will define reusable standards, guide strategic designs and help move critical data and AI solutions from concept to operation in a regulated environment.\n\nKEY RESPONSABILITIES:\n\n• Contribute to defining the Data & AI solution architecture, reference patterns and technical standards aligned with business priorities, enterprise architecture, security and governance requirements.\n\n• Design and evolve the enterprise data platform on Microsoft Fabric and SQL Server, covering ingestion, Lakehouse and Warehouse layers, data modeling, performance,  resilience and lifecycle management.\n\n• Scale trusted analytics through reusable Power BI semantic models, shared KPIs, certified  datasets and governed self-service reporting.\n\n• Design and deliver Generative AI applications, RAG solutions and governed data agents using Azure OpenAI and the Microsoft AI ecosystem, from  prototype through secure production deployment.\n\n• Contribute to defining and implementing engineering, DevOps,  MLOps and LLMOps practices, including Git, CI/CD, automated testing, deployment, monitoring, observability and rollback.\n\n• Embed data governance,  security and Responsible AI into solutions through metadata, lineage, data quality, access controls, traceability, evaluation and human oversight.\n\n• Contribute senior technical  expertise , mentor engineers, review strategic designs and explain technical options and trade-offs clearly to business and technology stakeholders.\n\nYOUR PROFILE:\n\n• Strong experience designing and delivering enterprise data, analytics or AI solutions, supported by a relevant degree or equivalent professional experience.\n\n• Advanced SQL and Microsoft SQL Server knowledge, with experience in data modeling, query optimization, Data Warehouse,  Lakehouse and ETL/ELT architectures.\n\n• Hands-on Power BI  expertise , particularly semantic modeling, shared datasets, security and enterprise deployment.\n\n• Practical experience with a modern cloud Data & AI platform; Microsoft Fabric is strongly preferred.\n\n• Experience delivering Generative AI solutions using Azure OpenAI or comparable enterprise LLM technologies, with knowledge of RAG, semantic or vector search, grounding,  agents and tool calling.\n\n• Experience with Git, CI/CD, automated testing, deployment  automation and the operational requirements of MLOps or LLMOps .\n\n• Good understanding of enterprise security, identity, access management, data  governance and Responsible AI.\n\n• Ability to collaborate across engineering, architecture,  governance and business teams, with professional proficiency in English.\n\nJOIN US !\n\n• Our success comes from our highly skilled and talented employees.\n\n• Respectful entrepreneurship and long-term vision are key for success.\n\n• Our people contribute to a more secure world.\n\n• Diversity at all levels of an organisation is a strength.\n\nWe offer an exciting and challenging role, with great potential for personal development within a unique organization in a fascinating and fast-growing industry. Your file will be handled with upmost confidentiality and discretion.",
+      "descriptionByLocale": {
+        "en": "To strengthen our GLOBAL INFORMATION SERVICES department, we are looking for a:\n\nAI & DATA SOLUTION EXPERT\n\nABOUT THE ROLE:\n\nWe are looking for a Data & AI Solution Expert to shape the technical direction of our enterprise Data & AI ecosystem and turn advanced data and Generative AI capabilities into secure, scalable and production-ready solutions.\n\nThis senior individual-contributor role combines architecture with hands-on delivery across Microsoft Fabric, SQL Server, Power BI and enterprise AI. Working with engineering, architecture, security and business teams, you will define reusable standards, guide strategic designs and help move critical data and AI solutions from concept to operation in a regulated environment.\n\nKEY RESPONSABILITIES:\n\n• Contribute to defining the Data & AI solution architecture, reference patterns and technical standards aligned with business priorities, enterprise architecture, security and governance requirements.\n\n• Design and evolve the enterprise data platform on Microsoft Fabric and SQL Server, covering ingestion, Lakehouse and Warehouse layers, data modeling, performance,  resilience and lifecycle management.\n\n• Scale trusted analytics through reusable Power BI semantic models, shared KPIs, certified  datasets and governed self-service reporting.\n\n• Design and deliver Generative AI applications, RAG solutions and governed data agents using Azure OpenAI and the Microsoft AI ecosystem, from  prototype through secure production deployment.\n\n• Contribute to defining and implementing engineering, DevOps,  MLOps and LLMOps practices, including Git, CI/CD, automated testing, deployment, monitoring, observability and rollback.\n\n• Embed data governance,  security and Responsible AI into solutions through metadata, lineage, data quality, access controls, traceability, evaluation and human oversight.\n\n• Contribute senior technical  expertise , mentor engineers, review strategic designs and explain technical options and trade-offs clearly to business and technology stakeholders.\n\nYOUR PROFILE:\n\n• Strong experience designing and delivering enterprise data, analytics or AI solutions, supported by a relevant degree or equivalent professional experience.\n\n• Advanced SQL and Microsoft SQL Server knowledge, with experience in data modeling, query optimization, Data Warehouse,  Lakehouse and ETL/ELT architectures.\n\n• Hands-on Power BI  expertise , particularly semantic modeling, shared datasets, security and enterprise deployment.\n\n• Practical experience with a modern cloud Data & AI platform; Microsoft Fabric is strongly preferred.\n\n• Experience delivering Generative AI solutions using Azure OpenAI or comparable enterprise LLM technologies, with knowledge of RAG, semantic or vector search, grounding,  agents and tool calling.\n\n• Experience with Git, CI/CD, automated testing, deployment  automation and the operational requirements of MLOps or LLMOps .\n\n• Good understanding of enterprise security, identity, access management, data  governance and Responsible AI.\n\n• Ability to collaborate across engineering, architecture,  governance and business teams, with professional proficiency in English.\n\nJOIN US !\n\n• Our success comes from our highly skilled and talented employees.\n\n• Respectful entrepreneurship and long-term vision are key for success.\n\n• Our people contribute to a more secure world.\n\n• Diversity at all levels of an organisation is a strength.\n\nWe offer an exciting and challenging role, with great potential for personal development within a unique organization in a fascinating and fast-growing industry. Your file will be handled with upmost confidentiality and discretion.",
+        "it": "Per rafforzare il nostro dipartimento di SERVIZI DI INFORMAZIONE GLOBALE, stiamo cercando un:\n\nESPERTO DI SOLUZIONE AI & D\n\nRiguardo al RUOLO:\n\nStiamo cercando un Data & AI Solution Expert per modellare la direzione tecnica dell'ecosistema aziendale Data & AI e trasformare i dati avanzati e le capacità AI Generative in soluzioni sicure, scalabili e pronte alla produzione.\n\nQuesto ruolo individuale-contributor senior combina l'architettura con consegna hands-on in Microsoft Fabric, SQL Server, Power BI e enterprise AI. Lavorando con team di ingegneria, architettura, sicurezza e business, definirete standard riutilizzabili, guidare progetti strategici e contribuire a spostare i dati critici e soluzioni AI dal concetto al funzionamento in un ambiente regolamentato.\n\nRISPOSTE DI KEY:\n\n• Contribuisci a definire l'architettura della soluzione Data & AI, i modelli di riferimento e gli standard tecnici allineati alle priorità aziendali, all'architettura aziendale, ai requisiti di sicurezza e governance.\n\n• Progettare ed evolvere la piattaforma di dati enterprise su Microsoft Fabric e SQL Server, coprendo strati di ingestione, Lakehouse e Warehouse, modellazione dati, prestazioni, resilienza e gestione del ciclo di vita.\n\n• Scala analisi attendibile attraverso modelli semantici Power BI riutilizzabili, KPI condivisi, dataset certificati e report self-service regolati.\n\n• Progettare e fornire applicazioni Generative AI, soluzioni RAG e agenti di dati regolati utilizzando Azure OpenAI e l'ecosistema Microsoft AI, dal prototipo attraverso la distribuzione sicura della produzione.\n\n• Contribuire a definire e implementare le pratiche di ingegneria, DevOps, MLOps e LLMOps, tra cui Git, CI/CD, test automatizzati, distribuzione, monitoraggio, osservanza e rollback.\n\n• Incorpora la governance dei dati, la sicurezza e l'IA responsabile in soluzioni attraverso metadati, lignaggio, qualità dei dati, controlli di accesso, tracciabilità, valutazione e supervisione umana.\n\n• Contribuire competenze tecniche senior, ingegneri mentore, rivedere progetti strategici e spiegare opzioni tecniche e trade-off chiaramente agli stakeholder aziendali e tecnologici.\n\nIl tuo problema.\n\n• Forte esperienza nella progettazione e fornitura di dati aziendali, analisi o soluzioni AI, supportate da un'esperienza professionale rilevante o equivalente.\n\n• Conoscenza avanzata di SQL e Microsoft SQL Server, con esperienza nella modellazione dei dati, ottimizzazione delle query, Data Warehouse, Lakehouse e ETL/ELT architetture.\n\n• Competenza BI di Hands-on Power, modellazione particolarmente semantica, dataset condivisi, sicurezza e distribuzione aziendale.\n\n• Esperienza pratica con una moderna piattaforma cloud Data & AI; Microsoft Fabric è fortemente preferito.\n\n• Esperienza di fornitura di soluzioni AI Generative utilizzando Azure OpenAI o tecnologie LLM aziendali paragonabili, con la conoscenza di RAG, ricerca semantica o vettoriale, messa a terra, agenti e chiamata degli strumenti.\n\n• Esperienza con Git, CI/CD, test automatizzati, automazione di distribuzione e i requisiti operativi di MLOps o LLMOps .\n\n• Buona comprensione della sicurezza aziendale, identità, gestione degli accessi, governance dei dati e AI responsabile.\n\n• Capacità di collaborare tra team di ingegneria, architettura, governance e business, con competenza professionale in inglese.\n\nJOIN US!\n\n• Il nostro successo deriva dai nostri dipendenti altamente qualificati e di talento.\n\n• L'imprenditorialità rispettosa e la visione a lungo termine sono fondamentali per il successo.\n\n• La nostra gente contribuisce a un mondo più sicuro.\n\n• La diversità a tutti i livelli di un'organizzazione è una forza.\n\nOffriamo un ruolo emozionante e stimolante, con grande potenziale per lo sviluppo personale all'interno di un'organizzazione unica in un settore affascinante e in rapida crescita. Il tuo file verrà gestito con la massima riservatezza e discrezione.",
+        "de": "Zur Stärkung unserer GLOBAL INFORMATION SERVICES Abteilung suchen wir:\n\nAI- UND DATENLÖSUNGSEXPERT\n\nÜBER DIE ROLLE:\n\nWir suchen einen Data & AI Solution Expert, um die technische Ausrichtung unseres Enterprise Data & AI-Ökosystems zu gestalten und fortschrittliche Daten und Generative AI-Fähigkeiten in sichere, skalierbare und produktionsfähige Lösungen umzuwandeln.\n\nDiese Rolle als Senior Individual Contributor kombiniert Architektur mit praktischer Bereitstellung über Microsoft Fabric, SQL Server, Power BI und Enterprise AI. In Zusammenarbeit mit Engineering-, Architektur-, Sicherheits- und Geschäftsteams definieren Sie wiederverwendbare Standards, leiten strategische Designs und helfen, kritische Daten und KI-Lösungen vom Konzept zum Betrieb in einer regulierten Umgebung zu bewegen.\n\nWICHTIGE VERANTWORTUNGEN:\n\n• Beitrag zur Definition der Data & AI-Lösungsarchitektur, Referenzmuster und technischen Standards, die auf Geschäftsprioritäten, Unternehmensarchitektur, Sicherheits- und Governance-Anforderungen ausgerichtet sind.\n\n• Entwerfen und Entwickeln der Unternehmensdatenplattform auf Microsoft Fabric und SQL Server, die die Bereiche Ingestion, Lakehouse und Warehouse, Datenmodellierung, Performance, Resilience und Lifecycle Management umfasst.\n\n• Skalieren Sie vertrauenswürdige Analysen durch wiederverwendbare semantische Power BI-Modelle, gemeinsame KPIs, zertifizierte Datensätze und geregeltes Self-Service-Reporting.\n\n• Entwerfen und liefern Sie Generative AI-Anwendungen, RAG-Lösungen und verwaltete Datenagenten mit Azure OpenAI und dem Microsoft AI-Ökosystem, vom Prototyp bis zur sicheren Produktionsbereitstellung.\n\n• Beitrag zur Definition und Implementierung von Engineering-, DevOps-, MLOps- und LLMOps-Praktiken, einschließlich Git, CI/CD, automatisiertem Testen, Deployment, Monitoring, Observability und Rollback.\n\n• Einbetten von Data Governance, Sicherheit und verantwortungsvoller KI in Lösungen durch Metadaten, Abstammung, Datenqualität, Zugriffskontrollen, Rückverfolgbarkeit, Bewertung und menschliche Aufsicht.\n\n• Bringen Sie leitendes technisches Know-how ein, betreuen Sie Ingenieure, überprüfen Sie strategische Designs und erklären Sie technische Optionen und Kompromisse klar für Geschäfts- und Technologieakteure.\n\nIHR PROFIL:\n\n• Starke Erfahrung in der Entwicklung und Bereitstellung von Unternehmensdaten, Analysen oder KI-Lösungen, unterstützt durch einen entsprechenden Abschluss oder eine gleichwertige Berufserfahrung.\n\n• Erweiterte SQL- und Microsoft SQL Server-Kenntnisse mit Erfahrung in Datenmodellierung, Abfrageoptimierung, Data Warehouse, Lakehouse und ETL/ELT-Architekturen.\n\n• Hands-on Power BI-Expertise, insbesondere semantische Modellierung, gemeinsame Datensätze, Sicherheit und Unternehmensbereitstellung.\n\n• Praktische Erfahrung mit einer modernen Cloud Data & AI Plattform; Microsoft Fabric wird stark bevorzugt.\n\n• Erfahrung in der Bereitstellung von Generative AI-Lösungen mit Azure OpenAI oder vergleichbaren LLM-Technologien für Unternehmen mit Kenntnissen in den Bereichen RAG, Semantik oder Vektorsuche, Erdung, Agenten und Tool Calling.\n\n• Erfahrung mit Git, CI/CD, automatisiertem Testen, Deployment Automation und den operativen Anforderungen von MLOps oder LLMOps.\n\n• Gutes Verständnis für Unternehmenssicherheit, Identität, Zugriffsmanagement, Data Governance und verantwortungsvolle KI.\n\n• Fähigkeit zur Zusammenarbeit zwischen Ingenieur-, Architektur-, Governance- und Geschäftsteams mit professionellen Englischkenntnissen.\n\nJOIN UNS!\n\n• Unser Erfolg kommt von unseren hochqualifizierten und talentierten Mitarbeitern.\n\n• Respektvolles Unternehmertum und langfristige Visionen sind der Schlüssel zum Erfolg.\n\n• Unsere Menschen tragen zu einer sichereren Welt bei.\n\n• Vielfalt auf allen Ebenen einer Organisation ist eine Stärke.\n\nWir bieten eine spannende und herausfordernde Rolle, mit großem Potenzial für die persönliche Entwicklung innerhalb einer einzigartigen Organisation in einer faszinierenden und schnell wachsenden Branche. Ihre Datei wird mit höchster Vertraulichkeit und Diskretion behandelt.",
+        "fr": "Pour renforcer notre service des services d'information mondiale, nous cherchons à :\n\nEXPERT DE SOLUTION DES DONNÉES\n\nÀ propos du rôle :\n\nNous sommes à la recherche d'un expert en solutions Data & AI pour façonner la direction technique de notre écosystème Data & AI et transformer les capacités de données avancées et d'IA Generative en solutions sûres, évolutives et prêtes à la production.\n\nCe rôle de contributeur individuel senior combine l'architecture avec la livraison pratique dans Microsoft Fabric, SQL Server, Power BI et l'IA d'entreprise. En collaboration avec des équipes d'ingénierie, d'architecture, de sécurité et d'affaires, vous définirez des normes réutilisables, guiderez les conceptions stratégiques et aiderez à déplacer les solutions de données et d'IA critiques du concept à l'exploitation dans un environnement réglementé.\n\nPRINCIPALES RESPONSABILITÉS:\n\n• Contribuer à définir l'architecture de la solution Data & AI, les modèles de référence et les normes techniques alignés sur les priorités opérationnelles, l'architecture d'entreprise, les exigences de sécurité et de gouvernance.\n\n• Conception et évolution de la plate-forme de données d'entreprise sur Microsoft Fabric et SQL Server, couvrant l'ingestion, les couches Lakehouse et Warehouse, la modélisation de données, les performances, la résilience et la gestion du cycle de vie.\n\n• Analyse fiable à l'échelle grâce à des modèles sémantiques Power BI réutilisables, des KPI partagés, des ensembles de données certifiés et des rapports en libre-service régis.\n\n• Conception et livraison d'applications d'IA Generative, de solutions RAG et d'agents de données réglementés utilisant Azure OpenAI et l'écosystème Microsoft AI, du prototype au déploiement sécurisé de la production.\n\n• Contribuer à la définition et à la mise en oeuvre des pratiques d'ingénierie DevOps, MLOps et LLMOps, y compris Git, CI/CD, tests automatisés, déploiement, surveillance, observation et retour en arrière.\n\n• Intégrer la gouvernance des données, la sécurité et l'IA responsable aux solutions par le biais de métadonnées, de lignées, de qualité des données, de contrôles d'accès, de traçabilité, d'évaluation et de surveillance humaine.\n\n• Contribuez à l'expertise technique supérieure, mentorez les ingénieurs, examinez les conceptions stratégiques et expliquez clairement les options techniques et les compromis aux intervenants commerciaux et technologiques.\n\nVotre profil :\n\n• Forte expérience de conception et de livraison de données d'entreprise, d'analyse ou de solutions d'IA, soutenue par un diplôme ou une expérience professionnelle équivalente.\n\n• Connaissances avancées SQL et Microsoft SQL Server, avec une expérience dans la modélisation de données, l'optimisation des requêtes, Data Warehouse, Lakehouse et ETL/ELT architectures.\n\n• Expertise pratique Power BI , particulièrement la modélisation sémantique, les ensembles de données partagés, la sécurité et le déploiement d'entreprise.\n\n• Expérience pratique avec un cloud moderne Data & AI plate-forme; Microsoft Fabric est fortement préféré.\n\n• Expérience de livraison de solutions d'IA Generative utilisant Azure OpenAI ou des technologies LLM d'entreprise comparables, avec connaissance de RAG, sémantique ou vectoriel, mise à la terre, agents et appels d'outils.\n\n• Expérience avec Git, CI/CD, tests automatisés, l'automatisation du déploiement et les exigences opérationnelles de MLOps ou LLMOp.\n\n• Bonne compréhension de la sécurité de l'entreprise, de l'identité, de la gestion de l'accès, de la gouvernance des données et de l'IA responsable.\n\n• Capacité de collaborer entre les équipes d'ingénierie, d'architecture, de gouvernance et d'affaires, avec compétence professionnelle en anglais.\n\nRejoignez-nous !\n\n• Notre succès vient de nos employés hautement qualifiés et talentueux.\n\n• Un esprit d'entreprise respectueux et une vision à long terme sont essentiels au succès.\n\n• Notre peuple contribue à un monde plus sûr.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\nNous offrons un rôle passionnant et stimulant, avec un grand potentiel de développement personnel au sein d'une organisation unique dans une industrie fascinante et en croissance rapide. Votre dossier sera traité avec la plus grande confidentialité et discrétion."
+      },
+      "location": "Prilly",
+      "canton": "VD",
+      "url": "https://jobs.sicpa.com/job/Prilly-AI-&-Data-Solution-Expert/1454766333/",
+      "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-05T21:49:32.369Z",
+      "addressLocality": "Prilly",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1008",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-05T00:00:00Z",
+      "postedDate": "2026-11-05T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1454766333/?locale=en_GB",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "salaryMin": 68000,
+      "salaryMax": 92000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 92000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Prilly",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-03T21:49:32.369Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:49:32.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-data-solution-expert-sicpa-prilly"
+        ],
+        "fr": [
+          "ai-data-solution-expert-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "ai-data-solution-expert-sicpa-prilly"
+      ]
+    },
     {
       "id": "sicpa-4e6bbdb0ff65",
       "slug": "events-coordinatore-sicpa-sa-prilly",
@@ -35,7 +117,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Events-Coordinator/1453799033/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:39:07.290Z",
+      "crawledAt": "2026-11-05T21:49:31.753Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +166,7 @@
       },
       "streetAddress": "Prilly",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:39:07.290Z",
+      "validThrough": "2027-02-01T21:49:31.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +200,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:39:06.012Z",
+      "crawledAt": "2026-11-05T21:49:30.584Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -161,7 +243,7 @@
       },
       "streetAddress": "Prilly",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-02T09:39:06.012Z",
+      "validThrough": "2027-01-02T21:49:30.584Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -196,7 +278,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Business-Architect/1436219133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:39:05.354Z",
+      "crawledAt": "2026-11-05T21:49:29.989Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -239,7 +321,7 @@
       },
       "streetAddress": "Prilly",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:39:05.354Z",
+      "validThrough": "2026-12-10T21:49:29.989Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -273,7 +355,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1448503333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:39:04.697Z",
+      "crawledAt": "2026-11-05T21:49:29.396Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -326,7 +408,7 @@
       },
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:39:04.697Z",
+      "validThrough": "2027-01-14T21:49:29.396Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -361,7 +443,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Patent-Counsel/1448011633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:39:04.041Z",
+      "crawledAt": "2026-11-05T21:49:28.811Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -412,7 +494,7 @@
       },
       "streetAddress": "Prilly",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:39:04.041Z",
+      "validThrough": "2027-01-13T21:49:28.811Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -446,7 +528,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1409947133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:39:03.396Z",
+      "crawledAt": "2026-11-05T21:49:28.212Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -495,7 +577,7 @@
       },
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:39:03.396Z",
+      "validThrough": "2026-12-24T21:49:28.212Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -529,7 +611,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T09:39:02.737Z",
+      "crawledAt": "2026-11-05T21:49:27.621Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -572,7 +654,7 @@
       },
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:39:02.737Z",
+      "validThrough": "2026-12-26T21:49:27.621Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -607,7 +689,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Coordinator/1404844633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:39:02.091Z",
+      "crawledAt": "2026-11-05T21:49:27.041Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -671,86 +753,8 @@
       },
       "streetAddress": "Prilly",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:39:02.091Z",
+      "validThrough": "2026-12-10T21:49:27.041Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "sicpa-a2dcc505f2a7",
-      "slug": "embedded-software-ingegnere-sicpa-sa-prilly",
-      "slugByLocale": {
-        "it": "embedded-software-ingegnere-sicpa-sa-prilly",
-        "en": "embedded-software-engineer-sicpa-prilly",
-        "de": "embedded-software-ingenieur-sicpa-sa-prilly",
-        "fr": "embedded-software-ingenieur-sicpa-sa-prilly"
-      },
-      "company": "SICPA SA",
-      "companyKey": "sicpa",
-      "companyDomain": "sicpa.com",
-      "title": "Embedded Software Engineer",
-      "titleByLocale": {
-        "it": "Embedded Software Ingegnere",
-        "en": "Embedded Software Engineer",
-        "de": "Embedded Software Ingenieur",
-        "fr": "Embedded Software Ingénieur"
-      },
-      "description": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including  real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French  (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
-      "descriptionByLocale": {
-        "it": "L'Ingegnere software Embedded è un contributore tecnico all'interno del Laboratorio di Caratteristiche leggibili dalla macchina, supportando lo sviluppo, l'integrazione, la validazione e la manutenzione di soluzioni software integrate utilizzate nei sistemi avanzati di autenticazione e tracciabilità leggibili dalla macchina.\n\nIl ruolo copre una vasta gamma di tecnologie tra cui sistemi operativi in tempo reale (RTOS), piattaforme Linux integrate, sistemi di sensori ad alta velocità, elaborazione dei segnali, architetture System-on-Chip (SoC) e framework di sviluppo software industriale. La posizione combina l'architettura del software e lo sviluppo , l'integrazione del sistema, il test, la risoluzione dei problemi e le attività di distribuzione all'interno di un ambiente multidisciplinare che coinvolge elettronica, ottica, chimica, scienza dei dati e ingegneria del software.\n\nQuesta posizione è ben adatta per un ingegnere che cerca di costruire una forte esperienza nei sistemi integrati, nelle tecnologie di rilevamento industriale e nella gestione del ciclo di vita del software, con opportunità di contribuire dal concetto alla distribuzione in soluzioni di sicurezza all'avanguardia.\n\nRUOLO\n\n• Sviluppare, mantenere e ottimizzare le applicazioni software embedded in C/C++ per piattaforme basate su Linux e in tempo reale.\n\n• Progettare, sviluppare e mantenere il software in esecuzione su RTOS, Linux incorporato, microcontroller, microprocessori, DSP e piattaforme System-on-Chip (SoC).\n\n• Supporta l'integrazione di software incorporato con sistemi elettronici, ottici e sensori.\n\n• Progettare ed eseguire le attività di test, validazione e risoluzione dei problemi per garantire prestazioni, affidabilità e manutenbilità.\n\n• Indagare e risolvere difetti software, problemi di campo e sfide di integrazione di sistema.\n\n• Contribuire alla documentazione del software, compresi i requisiti, le specifiche di progettazione, i rapporti di prova, la documentazione dell'utente e le procedure di manutenzione.\n\n• Partecipa a revisioni tecniche, discussioni di progettazione e iniziative di miglioramento continuo.\n\n• Collabora attivamente all'interno di team di progetto multidisciplinari tra cui ingegneri elettronici, ingegneri software, fisici, chimici e scienziati.\n\nPROFESSIONALE\n\nIstruzione e esperienza\n\n• Laurea o master in ingegneria del software, ingegneria informatica, sistemi incorporati, o equivalente.\n\nCompetenze tecniche\n\n• Forte competenza nella programmazione C/C++ per applicazioni integrate.\n\n• Esperienza con sistemi operativi in tempo reale (RTOS) e ambienti Linux incorporati.\n\n• Conoscenza delle metodologie di test software , tecniche di debugging e sistemi di controllo delle versioni.\n\n• Familiarità con le architetture System-on-Chip (SoC), compresi microprocessori, microcontroller e DSP.\n\n• Conoscenza delle interfacce di comunicazione e integrazione dei sistemi incorporati industriali.\n\n• Confortevole utilizzando strumenti di ingegneria standard per lo sviluppo del software, la versione, il monitoraggio dei problemi e la documentazione tecnica.\n\nCompetenze personali\n\n• Curioso, motivato, e desideroso di sviluppare profonda competenza tecnica.\n\n• Forte mentalità analitica e problem-solving.\n\n• Sempre più autonoma, con la capacità di gestire i compiti di laboratorio con supervisione limitata.\n\n• Affidabile, strutturato e orientato alla qualità.\n\n• Giocatore di squadra in un ambiente multiculturale e interdisciplinare.\n\nLingue\n\n• Buona conoscenza del lavoro di inglese e francese (spoken e scritto).\n\nPerche'?\n\n• Unisciti a un leader globale nelle tecnologie di fiducia con una missione che conta.\n\n• Essere al centro strategico di un'azienda finanziariamente solida e innovativa.\n\n• Collabora con esperti di alto livello e lavori su progetti internazionali d'impatto.\n\n• Operare in un ambiente multi-culturale e ad alta intensità in cui l'autonomia e la proprietà sono incoraggiati.\n\n• Monitorare gli effetti del progetto contro i bilanci pianificati e i rischi di escalation, se del caso.",
-        "en": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
-        "de": "Der Embedded Software Engineer ist ein technischer Mitarbeiter im Machine-Readable Features Laboratory und unterstützt die Entwicklung, Integration, Validierung und Wartung eingebetteter Softwarelösungen, die in fortschrittlichen maschinenlesbaren Authentifizierungs- und Rückverfolgbarkeitssystemen verwendet werden.\n\nDie Rolle umfasst eine breite Palette von Technologien, darunter Echtzeit-Betriebssysteme (RTOS), eingebettete Linux-Plattformen, Hochgeschwindigkeitssensorsysteme, Signalverarbeitung, System-on-Chip-Architekturen (SoC) und industrielle Softwareentwicklungs-Frameworks. Die Position kombiniert Softwarearchitektur und -entwicklung, Systemintegration, Testen, Fehlersuche und Bereitstellungsaktivitäten in einem multidisziplinären Umfeld mit Elektronik, Optik, Chemie, Data Science und Software Engineering.\n\nDiese Position eignet sich gut für einen Ingenieur, der starkes Know-how in eingebetteten Systemen, industriellen Sensortechnologien und Software-Lifecycle-Management aufbauen möchte, mit Möglichkeiten, vom Konzept bis zum Einsatz in innovativen Sicherheitslösungen beizutragen.\n\nROLLE\n\n• Entwicklung, Wartung und Optimierung eingebetteter Softwareanwendungen in C/C++ für Echtzeit- und Linux-basierte Plattformen.\n\n• Design, Entwicklung und Wartung von Software, die auf RTOS, Embedded Linux, Mikrocontrollern, Mikroprozessoren, DSPs und SoC-Plattformen (System-on-Chip) läuft.\n\n• Unterstützung der Integration eingebetteter Software mit Elektronik, Optik und Sensor-Subsystemen.\n\n• Entwerfen und Ausführen von Softwaretests, -validierung und Fehlerbehebung, um Leistung, Zuverlässigkeit und Wartbarkeit zu gewährleisten.\n\n• Untersuchen und beheben Sie Softwarefehler, Feldprobleme und Herausforderungen bei der Systemintegration.\n\n• Tragen Sie zur Softwaredokumentation bei, einschließlich Anforderungen, Designspezifikationen, Testberichte, Benutzerdokumentation und Wartungsverfahren.\n\n• Nehmen Sie an technischen Überprüfungen, Designdiskussionen und kontinuierlichen Verbesserungsinitiativen teil.\n\n• Arbeiten Sie aktiv in multidisziplinären Projektteams zusammen, darunter Elektronikingenieure, Softwareingenieure, Physiker, Chemiker und Wissenschaftler.\n\nPROFIL\n\nBildung & Erfahrung\n\n• Bachelor- oder Master-Abschluss in Software Engineering, Computer Engineering, Embedded Systems oder gleichwertig.\n\nTechnische Fähigkeiten\n\n• Starke Kenntnisse in der C/C++-Programmierung für eingebettete Anwendungen.\n\n• Erfahrung mit Echtzeit-Betriebssystemen (RTOS) und eingebetteten Linux-Umgebungen.\n\n• Kenntnisse über Softwaretestmethoden, Debugging-Techniken und Versionskontrollsysteme.\n\n• Vertrautheit mit System-on-Chip (SoC)-Architekturen, einschließlich Mikroprozessoren, Mikrocontrollern und DSPs.\n\n• Wissen über Kommunikationsschnittstellen und Integration von eingebetteten industriellen Systemen.\n\n• Komfortabel mit Standard-Engineering-Tools für Softwareentwicklung, Versionierung, Problemverfolgung und technische Dokumentation.\n\nPersönliche Fähigkeiten\n\n• Neugierig, motiviert und eifrig, tiefe technische Expertise zu entwickeln.\n\n• Starke analytische und problemlösende Denkweise.\n\n• Zunehmend autonom, mit der Fähigkeit, Laboraufgaben mit begrenzter Aufsicht zu verwalten.\n\n• Zuverlässig, strukturiert und qualitätsorientiert.\n\n• Teamplayer in einem multikulturellen und interdisziplinären Umfeld.\n\nSprachen\n\n• Gute Kenntnisse in Englisch und Französisch (gesprochen und geschrieben).\n\nWARUM UNS JOIN?\n\n• Schließen Sie sich einem globalen Marktführer für Vertrauenstechnologien mit einer Mission an, die wichtig ist.\n\n• Seien Sie im strategischen Herzen eines finanziell soliden und innovationsgetriebenen Unternehmens.\n\n• Arbeiten Sie mit hochrangigen Experten zusammen und arbeiten Sie an wirkungsvollen internationalen Projekten.\n\n• Arbeiten Sie in einem multikulturellen, hochintegrierten Umfeld, in dem Autonomie und Besitz gefördert werden.\n\n• Überwachen Sie die Istwerte des Projekts im Vergleich zu geplanten Budgets und eskalieren Sie gegebenenfalls Risiken.",
-        "fr": "L'ingénieur logiciel embarqué est un contributeur technique au sein du Laboratoire de fonctionnalités lisibles par machine , soutenant le développement, l'intégration, la validation et la maintenance de solutions logicielles embarquées utilisées dans les systèmes d'authentification et de traçabilité lisibles par machine avancés.\n\nCe rôle couvre un large éventail de technologies, notamment les systèmes d'exploitation en temps réel (RTOS), les plates-formes Linux embarquées, les systèmes de capteurs à grande vitesse, le traitement des signaux, les architectures système-on-Chip (SoC) et les cadres de développement de logiciels industriels. Le poste combine l'architecture logicielle et le développement, l'intégration du système, les essais, le dépannage et les activités de déploiement dans un environnement multidisciplinaire impliquant l'électronique, l'optique, la chimie, la science des données et l'ingénierie logicielle.\n\nCe poste est bien adapté à un ingénieur qui cherche à développer une solide expertise dans les systèmes embarqués, les technologies de détection industrielle et la gestion du cycle de vie des logiciels, avec des possibilités de contribuer du concept au déploiement dans des solutions de sécurité de pointe.\n\nRÔLE\n\n• Développez, maintenez et optimisez les applications logicielles intégrées en C/C++ pour les plateformes en temps réel et Linux.\n\n• Concevoir, développer et entretenir des logiciels fonctionnant sur les plateformes RTOS, Linux embarqué, microcontrôleurs, microprocesseurs, DSP et System-on-Chip (SoC).\n\n• Soutenir l'intégration de logiciels intégrés avec l'électronique, l'optique et les sous-systèmes de capteurs.\n\n• Concevoir et exécuter des tests logiciels, des validations et des activités de dépannage pour assurer la performance, la fiabilité et la maintenance.\n\n• Étudier et résoudre les défauts du logiciel, les problèmes de terrain et les défis d'intégration du système.\n\n• Contribuer à la documentation du logiciel, y compris les exigences, les spécifications de conception, les rapports d'essai, la documentation de l'utilisateur et les procédures de maintenance.\n\n• Participer aux examens techniques, aux discussions sur la conception et aux initiatives d'amélioration continue.\n\n• Collaborer activement au sein d'équipes de projets multidisciplinaires comprenant des ingénieurs en électronique, des ingénieurs en logiciels, des physiciens, des chimistes et des scientifiques.\n\nPROFIL\n\nÉducation et expérience\n\n• Baccalauréat ou maîtrise en génie logiciel, génie informatique, systèmes embarqués ou équivalent.\n\nCompétences techniques\n\n• Bonne maîtrise de la programmation C/C++ pour les applications intégrées.\n\n• Expérience avec les systèmes d'exploitation en temps réel (RTOS) et les environnements Linux intégrés.\n\n• Connaissance des méthodes d'essai des logiciels, des techniques de débogage et des systèmes de contrôle des versions.\n\n• Familiarité avec les architectures système-on-Chip (SoC), y compris les microprocesseurs, les microcontrôleurs et les DSP.\n\n• Connaissance des interfaces de communication et intégration des systèmes intégrés industriels.\n\n• Confortable en utilisant des outils d'ingénierie standard pour le développement de logiciels, la version, le suivi des problèmes et la documentation technique.\n\nCompétences personnelles\n\n• Curieux, motivé et désireux de développer une expertise technique approfondie.\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• De plus en plus autonome, avec la capacité de gérer les tâches de laboratoire avec une supervision limitée.\n\n• Fiable, structurée et axée sur la qualité.\n\n• Joueur d'équipe dans un environnement multiculturel et interdisciplinaire .\n\nLangues\n\n• Bonne connaissance pratique de l'anglais et du français (parlé et écrit).\n\nPourquoi nous rejoindre ?\n\n• Rejoignez un leader mondial des technologies de confiance avec une mission qui compte.\n\n• Soyez au cœur stratégique d'une entreprise financièrement saine et axée sur l'innovation.\n\n• Collaborer avec des experts de haut niveau et travailler sur des projets internationaux ayant un impact.\n\n• Fonctionnement dans un environnement multiculturel et à haute intégrité où l'autonomie et la propriété sont encouragées.\n\n• Surveiller les résultats réels du projet par rapport aux budgets prévus et augmenter les risques, le cas échéant."
-      },
-      "needsRetranslation": false,
-      "location": "Prilly",
-      "canton": "VD",
-      "url": "https://jobs.sicpa.com/job/Prilly-Embedded-Software-Engineer/1433097433/",
-      "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:36:09.907Z",
-      "addressLocality": "Prilly",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1008",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-22",
-      "postedDate": "2026-10-22",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1433097433/?locale=en_GB",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "embedded-software-engineer-sicpa-prilly"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "embedded-software-engineer-sicpa-prilly"
-        ]
-      },
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Prilly",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:36:09.907Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

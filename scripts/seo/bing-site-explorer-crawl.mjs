@@ -53,7 +53,11 @@ import {
   BING_META_DESCRIPTION_TOO_SHORT,
   BING_TITLE_TOO_LONG,
 } from './bing-finding-codes.mjs';
-import { BING_TEMPLATE_TABLE, templateIndexFor } from './bing-template-inventory.mjs';
+import {
+  BING_TEMPLATE_TABLE,
+  isValidReferrerPair,
+  templateIndexFor,
+} from './bing-template-inventory.mjs';
 
 // v5 keeps the sitemap producer references aligned with every manifest URL,
 // so a persistent finding can be traced back to the sitemap file(s) that
@@ -557,11 +561,9 @@ export function scopeForManifest(manifest) {
   return manifest?.kind === FRONTIER_SCOPE ? FRONTIER_SCOPE : SITEMAP_SCOPE;
 }
 
-export function rememberReferrerPair(refs, pair) {
-  if (!Array.isArray(pair) || pair.length < 2) return;
-  const sourceIndex = Number(pair[0]);
-  const templateIndex = Number(pair[1]);
-  if (!Number.isInteger(sourceIndex) || !Number.isInteger(templateIndex)) return;
+export function rememberReferrerPair(refs, pair, limits = {}) {
+  if (!isValidReferrerPair(pair, limits)) return;
+  const [sourceIndex, templateIndex] = pair;
   refs.set(`${sourceIndex}:${templateIndex}`, [sourceIndex, templateIndex]);
   const compact = [...refs.values()]
     .sort((a, b) => a[0] - b[0] || a[1] - b[1])
@@ -884,7 +886,9 @@ export function collectDiscoveredInventory({
   const discovered = new Map();
   const rememberReferrers = (target, refs) => {
     const current = discovered.get(target) || new Map();
-    for (const pair of refs || []) rememberReferrerPair(current, pair);
+    for (const pair of refs || []) {
+      rememberReferrerPair(current, pair, { sourceCount: manifest.urls.length });
+    }
     discovered.set(target, current);
   };
   for (const report of reports) {
@@ -1535,7 +1539,7 @@ export async function crawlPartition({
         if (manifestSet.has(link)) continue;
         const refs = discovered.get(link) || new Map();
         if (Number.isInteger(sourceIndex) && Number.isInteger(templateIndex)) {
-          rememberReferrerPair(refs, [sourceIndex, templateIndex]);
+          rememberReferrerPair(refs, [sourceIndex, templateIndex], { sourceCount: manifest.urls.length });
         }
         discovered.set(link, refs);
       }
