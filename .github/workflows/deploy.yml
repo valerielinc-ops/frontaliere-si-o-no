@@ -1383,9 +1383,9 @@ jobs:
           HREFLANG_QUOTA_REMAINING_FLOOR_PERCENT: '10'
         run: node scripts/ci/exchange-hreflang-manifests.mjs --manifest-dir .cache/hreflang-index-manifest
 
-      # Every decision is taken before the first rename. A read, write or
-      # rename failure aborts this leg before packing/publishing and the script
-      # restores any files moved before the failure.
+      # Every decision is taken before the first rename. Writes are staged in
+      # bounded batches; a failed batch rolls itself back, and any later failure
+      # aborts this leg before packing or publishing its partially changed dist.
       - name: Hreflang index manifest (keep only reciprocal indexable clusters)
         if: matrix.locale == 'it'
         id: hreflang-index-manifest
@@ -2933,12 +2933,22 @@ jobs:
           key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
 
       # Small, immutable receipt consumed by deploy-publish.yml. It is written
-      # after every leg (including failed legs) and uploaded independently of
-      # the large payload artifacts. A missing/invalid receipt is fail-closed
-      # in the admission plan, while a failed non-IT leg remains on its
-      # last-known-good shard and is explicitly reported as stale.
+      # when the owned-page validation and required source artifact succeeded,
+      # then uploaded independently of the large payload artifacts. A
+      # missing/invalid receipt is fail-closed in the admission plan, while a
+      # failed non-IT leg remains on its last-known-good shard and is explicitly
+      # reported as stale.
       - name: Bind sitemap page manifest to uploaded artifact digests
-        if: always() && steps.validate-owned-sitemap-pages.outcome == 'success'
+        if: >-
+          always() &&
+          steps.validate-owned-sitemap-pages.outcome == 'success' &&
+          (
+            matrix.locale != 'it' ||
+            (
+              steps.hreflang-index-manifest.outcome == 'success' &&
+              steps.upload-pages-artifact.outcome == 'success'
+            )
+          )
         id: bind-sitemap-page-manifest
         env:
           SOURCE_RUN_ID: ${{ github.run_id }}

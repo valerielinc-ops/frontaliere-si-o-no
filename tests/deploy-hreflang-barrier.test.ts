@@ -48,6 +48,16 @@ describe('deferred same-run hreflang exchange', () => {
     expect(retryPublish.with['retention-days']).toBe(3);
   });
 
+  it('binds the IT sitemap receipt only after its rewritten Pages artifact exists', () => {
+    const bind = step(buildSteps, 'Bind sitemap page manifest to uploaded artifact digests');
+
+    expect(bind).toBeDefined();
+    expect(bind.if).toContain("steps.validate-owned-sitemap-pages.outcome == 'success'");
+    expect(bind.if).toContain("matrix.locale != 'it'");
+    expect(bind.if).toContain("steps.hreflang-index-manifest.outcome == 'success'");
+    expect(bind.if).toContain("steps.upload-pages-artifact.outcome == 'success'");
+  });
+
   it('finalizes pending source tarballs in the deferred publisher with the exact source attempt', () => {
     const sourceValidator = step(publish.jobs['validate-source-build'].steps, 'Validate source build identity and inputs');
     const sourceAttempt = publish.jobs['validate-source-build'].outputs.source_run_attempt;

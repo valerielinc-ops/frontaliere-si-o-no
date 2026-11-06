@@ -385,6 +385,38 @@ describe('runHreflangIndexManifest on a dist', () => {
     expect(fs.readdirSync(path.join(dist, 'en', 'rollback-en')).some((name) => name.endsWith('.bak'))).toBe(false);
   });
 
+  it('bounds staged HTML and fails before writing the manifest when a later batch fails', async () => {
+    const dist = path.join(tmp, 'dist');
+    const manifestDir = path.join(tmp, 'm');
+    const paths = Array.from({ length: 65 }, (_, index) => `/batch-${String(index).padStart(3, '0')}/`);
+    for (const [index, urlPath] of paths.entries()) {
+      const slug = `batch-${String(index).padStart(3, '0')}`;
+      const cluster = clusterFor({ it: slug, en: `${slug}-en` });
+      write(dist, urlPath, page(urlPath, cluster, { robots: 'noindex,follow' }));
+    }
+
+    const originalWriteFile = fs.promises.writeFile.bind(fs.promises);
+    let stagedWrites = 0;
+    const writeFile = vi.spyOn(fs.promises, 'writeFile').mockImplementation(async (...args) => {
+      if (String(args[0]).includes('.hreflang-index-')) {
+        stagedWrites += 1;
+        if (stagedWrites === 65) throw new Error('forced hreflang staging failure');
+      }
+      return originalWriteFile(...args);
+    });
+    try {
+      await expect(runHreflangIndexManifest({ distDir: dist, manifestDir, log: quiet }))
+        .rejects.toThrow('forced hreflang staging failure');
+    } finally {
+      writeFile.mockRestore();
+    }
+
+    const rewritten = paths.filter((urlPath) => extractHreflangAlternates(read(dist, urlPath)).size === 0);
+    expect(rewritten).toHaveLength(64);
+    expect(fs.existsSync(path.join(manifestDir, 'it.json'))).toBe(false);
+    expect(fs.readdirSync(dist).some((name) => name.startsWith('.hreflang-index-'))).toBe(false);
+  });
+
   it('fails before writing a complete manifest when a dist directory cannot be read', async () => {
     const dist = path.join(tmp, 'missing-dist');
     const manifestDir = path.join(tmp, 'm');
