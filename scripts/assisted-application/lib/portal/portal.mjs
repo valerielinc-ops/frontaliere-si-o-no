@@ -1164,10 +1164,16 @@ function controlPostingIdentity(control) {
   return uniquePostingIdentity([...direct, ...context]);
 }
 
-function applicationEntryBelongsToPosting(control, { applyUrl = '', postingUrl = '', sourceProtocol = null, job = {} } = {}) {
+function applicationEntryBelongsToPosting(control, {
+  applyUrl = '',
+  postingUrl = '',
+  postingRouteProof = null,
+  sourceProtocol = null,
+  job = {},
+} = {}) {
   const href = String(control?.href || '').trim();
   if (href && [applyUrl, postingUrl].some((route) => samePortalRoute(href, route, postingUrl))) return true;
-  if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl })) return true;
+  if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl, postingRouteProof })) return true;
 
   // A posting can use a button with no URL (Yellowshark). Its nearest heading
   // or explicit section must contain the selected role and a unique posting
@@ -1200,7 +1206,17 @@ function applicationEntryControls(snapshot = {}, context = {}) {
     return Boolean(target && posting
       && (target.origin !== posting.origin || target.pathname !== posting.pathname || target.search !== posting.search));
   });
-  return unbound.length === 1 ? unbound : [];
+  // A single external Apply link can identify an ATS handoff only when no
+  // source proof exists. Once the resolver has bound a SuccessFactors module
+  // to this posting, uniqueness alone cannot authorize a different module.
+  const proofBound = context.postingRouteProof
+    ? unbound.filter((control) => isVerifiedPostingEntry({
+      applyUrl: control?.href,
+      postingUrl: context.postingUrl,
+      postingRouteProof: context.postingRouteProof,
+    }))
+    : unbound;
+  return proofBound.length === 1 ? proofBound : [];
 }
 
 // A posting may show an informational region notice and still expose its own
@@ -2031,14 +2047,22 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       // first, then open that exact verified endpoint; a redirect or mismatched
       // form is still checked below and handed off without a final click.
       if (hop === 0 && stageContext?.postingEntry
-        && isSuccessFactorsPostingEntry({ applyUrl: stageContext.applyUrl, postingUrl: page.url() })) {
+        && isSuccessFactorsPostingEntry({
+          applyUrl: stageContext.applyUrl,
+          postingUrl: page.url(),
+          postingRouteProof: stageContext.postingRouteProof,
+        })) {
         const applicationUrl = new URL(stageContext.applyUrl).toString();
         if (applicationUrl !== page.url()) {
           await page.goto(applicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           await page.waitForTimeout(1200);
           snapshot = await extractFields(page, NAVIGATION);
-          if (!isSuccessFactorsPostingEntry({ applyUrl: page.url(), postingUrl: stageContext.postingUrl })) {
+          if (!isSuccessFactorsPostingEntry({
+            applyUrl: page.url(),
+            postingUrl: stageContext.postingUrl,
+            postingRouteProof: stageContext.postingRouteProof,
+          })) {
             return { page, snapshot, handoff: 'posting_mismatch' };
           }
           continue;
@@ -2076,7 +2100,11 @@ function verifiedDirectApplicationUrl(stageContext, currentUrl) {
     if (current.protocol !== 'https:' || application.protocol !== 'https:'
       || current.username || current.password || application.username || application.password
       || current.href === application.href
-      || !isVerifiedPostingEntry({ applyUrl: application.href, postingUrl: current.href })) return '';
+      || !isVerifiedPostingEntry({
+        applyUrl: application.href,
+        postingUrl: current.href,
+        postingRouteProof: stageContext.postingRouteProof,
+      })) return '';
     return application.href;
   } catch {
     return '';
@@ -6041,6 +6069,7 @@ export async function readPortalRequirements(ctx) {
       sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
       job: ctx.job,
       postingEntry: verifiedPostingEntry,
+      postingRouteProof: ctx.postingRouteProof,
       allowSingleExternalApplicationEntry: true,
     });
     ({ page, snapshot } = opened);
@@ -6330,13 +6359,14 @@ export async function submitViaPortal(ctx) {
     if (postingNamed && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job,
+        postingRouteProof: ctx.postingRouteProof,
         allowSingleExternalApplicationEntry: true,
       })) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
-      postingEntry: enteredFromMatchingPosting, job: ctx.job,
+      postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       allowSingleExternalApplicationEntry: postingNamed,
     });
     ({ page, snapshot } = opened);
@@ -6643,7 +6673,7 @@ export async function submitViaPortal(ctx) {
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
             applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
-            postingEntry: enteredFromMatchingPosting, job: ctx.job,
+            postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingNamed,
           });
           ({ page, snapshot } = reopened);
@@ -6752,7 +6782,7 @@ export async function submitViaPortal(ctx) {
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
             applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
-            postingEntry: enteredFromMatchingPosting, job: ctx.job,
+            postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingNamed,
           });
           ({ page, snapshot } = reopened);
