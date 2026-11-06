@@ -12,12 +12,14 @@ import { createHash } from 'node:crypto';
 import { sourcePostingDateCandidatesFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { readMetaContent } from './html-attr.mjs';
 import { slugify } from './slugify.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   detectHealthcareCategory,
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
+  fetchHtml,
   htmlToText,
 } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -270,6 +272,24 @@ async function fetchRequisitionDetails(requisitionId) {
   }
 }
 
+/**
+ * Oracle sometimes serves an empty detail-API description while the public
+ * candidate page still exposes the posting body in its Open Graph metadata.
+ * Read only the job-specific `og:description` from the URL built from the
+ * listing's requisition ID; a generic site description is never a fallback.
+ */
+async function fetchOraclePageDescription(requisitionId) {
+  const id = String(requisitionId || '').trim();
+  if (!id) return '';
+  try {
+    const html = await fetchHtml(buildOracleDetailUrl(id));
+    return htmlToText(readMetaContent(html, 'og:description'));
+  } catch (error) {
+    console.warn(`⚠️ HFR Oracle public detail fetch failed for ${id}: ${error?.message || error}`);
+    return '';
+  }
+}
+
 function extractCity(rawLocation = '') {
   const parts = normalizeSpace(rawLocation)
     .split(',')
@@ -329,14 +349,14 @@ function isForeignRequisition(requisition) {
   return false;
 }
 
-function buildJob(requisition, detail) {
+function buildJob(requisition, detail, pageDescription = '') {
   const reqId = String(requisition.Id || '').trim();
   const title = normalizeSpace(requisition.Title || '');
   if (!reqId || title.length < 3) return null;
 
   const detailDescription = htmlToText(detail?.ExternalDescriptionStr || '');
   const listingDescription = htmlToText(requisition.ShortDescriptionStr || '');
-  const description = [detailDescription, listingDescription]
+  const description = [detailDescription, pageDescription, listingDescription]
     .find((candidate) => meetsSourceBodyFloor(candidate)) || '';
   if (!description) return null;
 
@@ -429,7 +449,13 @@ export async function fetchAllHfrJobs() {
       continue;
     }
     const detail = await fetchRequisitionDetails(requisition.Id);
-    const job = buildJob(requisition, detail);
+    const detailDescription = htmlToText(detail?.ExternalDescriptionStr || '');
+    const listingDescription = htmlToText(requisition.ShortDescriptionStr || '');
+    const pageDescription = meetsSourceBodyFloor(detailDescription)
+      || meetsSourceBodyFloor(listingDescription)
+      ? ''
+      : await fetchOraclePageDescription(requisition.Id);
+    const job = buildJob(requisition, detail, pageDescription);
     if (!job) {
       skippedThin += 1;
       continue;
