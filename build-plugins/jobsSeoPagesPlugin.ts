@@ -88,6 +88,7 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { archivedJobOgImageUrl, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
+import { getItalianJobTitle } from './shared/italianJobTitle.mjs';
 import {
  buildActiveJobPageInput,
  buildActiveJobPageReuseInput,
@@ -3889,6 +3890,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  de: localizedSlug(job, 'de'),
  fr: localizedSlug(job, 'fr'),
  };
+ const italianJobImageUrl = getItalianJobTitle(job)
+  ? versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it)
+  : null;
+ const socialImage = italianJobImageUrl || `${BASE_URL}/og-image.png`;
  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
  const perLocaleCanonicalPath = {
  it: buildCanonicalJobDetailPath('it', job, perLocaleSlug.it, jobCanton),
@@ -4033,7 +4038,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const employerHubSlug = companyHubSlugBuild(job.company, job.companyKey);
  const employerHubPath = emittedEmployerHubs.get(`${locale}|${employerHubSlug}`) || '';
  const activeJobManifestInput = incrementalManifests
-  ? buildActiveJobPageInput({
+  ? {
+   ...buildActiveJobPageInput({
    job,
    locale,
    slug: perLocaleSlug[locale],
@@ -4047,7 +4053,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    employerHubPath,
    titleLocaleQualifier: titleLocaleQualifierForJob(job, locale),
    renderDateBucket: jobsSeoReuseBuildDay,
-  })
+   }),
+   socialImage,
+  }
  : null;
  const activeJobReuseInput = activeJobManifestInput
   ? buildActiveJobPageReuseInput(activeJobManifestInput)
@@ -4645,12 +4653,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:title" content="${esc(ogTitle)}">
  <meta property="og:description" content="${esc(clampMetaDescription(description, undefined, locale))}">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
- <meta property="og:image" content="${versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it) ?? `${BASE_URL}/og-image.png`}">
- <meta property="og:image:width" content="${perLocaleSlug.it ? '1080' : '1200'}">
- <meta property="og:image:height" content="${perLocaleSlug.it ? '1350' : '630'}">
- <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
+ <meta property="og:image" content="${socialImage}">
+ <meta property="og:image:width" content="${italianJobImageUrl ? '1080' : '1200'}">
+ <meta property="og:image:height" content="${italianJobImageUrl ? '1350' : '630'}">
+ <meta property="og:image:type" content="${italianJobImageUrl ? 'image/webp' : 'image/png'}">
  <meta property="og:image:alt" content="${esc(ogTitle)}">
- ${buildTwitterCardMetaTags({ title: ogTitle, description, locale, image: versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it) ?? `${BASE_URL}/og-image.png` })}
+ ${buildTwitterCardMetaTags({ title: ogTitle, description, locale, image: socialImage })}
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
  <!-- jobs-seo-reuse:job-posting:start --><script type="application/ld+json">${jobLd}</script><!-- jobs-seo-reuse:job-posting:end -->
