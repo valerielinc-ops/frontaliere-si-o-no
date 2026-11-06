@@ -2374,6 +2374,11 @@ const FIELD_LABEL_WORDS = new Set([
   'prefisso', 'address', 'adresse', 'indirizzo', 'city', 'ort', 'citta', 'ville', 'canton', 'kanton', 'cantone', 'province', 'provincia',
   'select', 'selected', 'one',
 ]);
+const POSTING_LOCATION_LABEL_WORDS = new Set([
+  'region', 'regione', 'location', 'standort', 'sede', 'lieu',
+  'address', 'adresse', 'indirizzo', 'city', 'ort', 'citta', 'ville',
+  'canton', 'kanton', 'cantone', 'province', 'provincia',
+]);
 
 /**
  * Two names of one employer: the same words once the legal form and the country of the branch are left out,
@@ -2444,13 +2449,18 @@ function postingLocationSuffixWords(formText, ours, locationWords) {
   const employerLines = lines.map((words) => words.some((word) => ours.has(word)));
   const neutral = new Set();
   for (const [lineIndex, words] of lines.entries()) {
-    const locations = words.filter((word) => locationWords.has(word));
-    if (!locations.length) continue;
+    const locationIndexes = words.flatMap((word, index) => locationWords.has(word) ? [index] : []);
+    if (!locationIndexes.length) continue;
     const employerBefore = employerLines.slice(Math.max(0, lineIndex - 2), lineIndex + 1).some(Boolean);
     if (!employerBefore) continue;
     const lastEmployer = Math.max(-1, ...words.map((word, index) => ours.has(word) ? index : -1));
-    if (lastEmployer >= 0 && words.findIndex((word) => locationWords.has(word)) < lastEmployer) continue;
-    locations.forEach((word) => neutral.add(word));
+    const locationIndex = locationIndexes.find((index) => lastEmployer < 0 || index > lastEmployer);
+    if (locationIndex === undefined) continue;
+    locationIndexes.forEach((index) => neutral.add(words[index]));
+    const labelStart = lastEmployer >= 0 ? lastEmployer + 1 : Math.max(0, locationIndex - 1);
+    words.slice(labelStart, locationIndex)
+      .filter((word) => POSTING_LOCATION_LABEL_WORDS.has(word))
+      .forEach((word) => neutral.add(word));
   }
   return neutral;
 }
@@ -3389,6 +3399,27 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
   const countryKey = label === 'paese' ? 'country' : label === 'nazionalita' ? 'nationality' : '';
   if (countryKey && applicationOptions.length) {
     if (countryKey === 'nationality') {
+      const candidateOptions = applicationOptions.map((option) => deterministicItalianCountryOption(option, countryKey));
+      if (candidateOptions.every(Boolean)) {
+        const optionMap = portalOptionMap({
+          options: candidateOptions,
+          applicationOptions,
+          optionMap: applicationOptions.map((application, index) => ({ candidate: candidateOptions[index], application })),
+        });
+        if (optionMap.length === applicationOptions.length) {
+          const sameLanguage = candidateOptions.every((option, index) => option === applicationOptions[index]);
+          return {
+            ...item,
+            question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+            applicationQuestion: nativePortalQuestion(item),
+            applicationOptions,
+            options: optionMap.map((pair) => pair.candidate),
+            optionMap,
+            ...(sameLanguage ? { applicationQuestionLocale: candidateLanguage } : { applicationQuestionLocale: null }),
+            localizationStatus: sameLanguage ? 'same_language' : 'translated',
+          };
+        }
+      }
       if (!verifiedItalianNationalityOptions(applicationOptions)) return null;
       // EOC's Italian nationality catalogue contains duplicate visible labels
       // (for example «Dominicano»). Keep the portal's Italian labels verbatim
