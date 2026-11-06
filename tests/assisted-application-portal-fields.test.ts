@@ -1407,12 +1407,25 @@ describe('portal field extraction', () => {
 
   it('keeps the target of a plain application link for posting ownership checks', () => {
     const page = extract(
-      '<main><h1>Acme Careers</h1><a href="https://apply.example.test/jobs/42">Apply</a></main>'
+      '<main><h1>Acme Careers</h1><article><h2>Application Manager</h2><p>Acme AG</p>'
+      + '<a href="https://apply.example.test/jobs/42">Apply</a></article></main>'
     );
     expect(page.links).toContainEqual(expect.objectContaining({
       text: 'Apply',
       href: 'https://apply.example.test/jobs/42',
+      vacancyContext: expect.stringMatching(/Application Manager.*Acme AG/),
     }));
+  });
+
+  it('does not collect card context from an ancestor that contains an application form', () => {
+    const page = extract(
+      '<article><h2>Application Manager</h2><p>Acme AG</p>'
+      + '<a href="https://apply.example.test/jobs/42">Apply</a>'
+      + '<form><label>Candidate email</label><input value="private@example.test"></form></article>'
+    );
+    const apply = page.links.find((link: any) => link.text === 'Apply');
+    expect(apply).toBeDefined();
+    expect(apply).not.toHaveProperty('vacancyContext');
   });
 
   it('does not let a same-label content link hide a real submit control', () => {

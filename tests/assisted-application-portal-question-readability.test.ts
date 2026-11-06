@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { formPostingMatch, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, formPostingMatch, hasVacancySpecificPostingEvidence, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -713,6 +713,60 @@ it('accepts a generic ATS form only after a matched posting Apply control was fo
   })).toBe('mismatch');
 });
 
+it('requires vacancy evidence beyond a company match before trusting one external Apply control', () => {
+  const job = { company: 'Muster AG', title: 'Application Manager' };
+  const listingUrl = 'https://careers.example.ch/jobs';
+  const postingUrl = 'https://careers.example.ch/jobs/application-manager-42';
+
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
+    pageUrl: listingUrl, postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Muster AG — Application Manager', job, {
+    pageUrl: listingUrl, pageTitle: 'Muster AG Karriere', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
+    pageUrl: listingUrl, pageTitle: 'Muster AG — Application Manager', postingUrl,
+  })).toBe(true);
+  expect(hasVacancySpecificPostingEvidence('Application Manager', { ...job, organization: 'Muster AG' }, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Application Manager', { ...job, organization: 'Andere GmbH' }, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Application Manager', { ...job, organization: 'Muster AG' }, {
+    pageUrl: listingUrl, postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH', { ...job, organization: 'Muster AG' }, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
+    pageUrl: postingUrl, postingUrl,
+  })).toBe(true);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Bewerbung', job, {
+    pageUrl: postingUrl, pageTitle: 'Andere GmbH — Bewerbung', postingUrl,
+  })).toBe(false);
+});
+
+it('binds an unproved external Apply link to its own vacancy card', () => {
+  const postingUrl = 'https://careers.example.ch/jobs/application-manager-42';
+  const apply = { id: 'apply', text: 'Apply', href: 'https://ats.example.test/apply', vacancyContext: 'Application Manager — Muster AG' };
+  const context = {
+    postingUrl,
+    job: { title: 'Application Manager', company: 'Muster AG' },
+    allowSingleExternalApplicationEntry: true,
+  };
+
+  expect(applicationEntryControls({ links: [apply] }, context)).toEqual([apply]);
+  expect(applicationEntryControls({ links: [{ ...apply, vacancyContext: 'Application Manager — Andere GmbH' }] }, context)).toEqual([]);
+  expect(applicationEntryControls({ links: [{ ...apply, vacancyContext: '' }] }, context)).toEqual([]);
+  // A company match elsewhere in the page cannot lend its identity to this
+  // CTA; the control must carry the role and employer in its own card.
+  expect(applicationEntryControls({
+    text: 'Application Manager · Andere GmbH Apply · Footer Muster AG',
+    links: [{ ...apply, vacancyContext: 'Application Manager — Andere GmbH' }],
+  }, context)).toEqual([]);
+});
+
 it('does not launch a generic preflight when the public route cannot be resolved safely', async () => {
   const launch = vi.fn();
   const result = await readPortalRequirements({
@@ -866,7 +920,7 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
     url: postingUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
     text: 'Social worker at Acme AG',
     fields: [],
-    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, frame: 0, chrome: false }],
+    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, vacancyContext: 'Social worker — Acme AG', frame: 0, chrome: false }],
   };
   const state = { url: postingUrl, snapshot: postingSnapshot };
   const applyLink = {
@@ -881,7 +935,7 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
   };
   const page = {
     frames: () => [frame], url: () => state.url,
-    title: vi.fn(async () => state.url === postingUrl ? 'Acme Careers' : 'Social worker application | Acme AG'),
+    title: vi.fn(async () => state.url === postingUrl ? 'Social worker | Acme AG' : 'Social worker application | Acme AG'),
     goto: vi.fn(async (url: string) => {
       state.url = url;
       state.snapshot = url === postingUrl ? postingSnapshot : formSnapshot;
