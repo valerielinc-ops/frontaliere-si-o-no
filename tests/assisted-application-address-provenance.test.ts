@@ -330,7 +330,7 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField(candidate, field)).toBeNull();
   });
 
-  it.each(['Email address/login *', 'E-Mail-Adresse erneut eingeben: *', 'Verify Email Address', 'Please enter your email address', 'Adresse e-mail / identifiant'])('does not reinterpret the registration contact %s as postal evidence', label => {
+  it.each(['Email address/login *', 'E-Mail-Adresse erneut eingeben: *', 'E-Mail-Adresse wiederholen: *', 'Verify Email Address', 'Please enter your email address', 'Adresse e-mail / identifiant'])('does not reinterpret the registration contact %s as postal evidence', label => {
     const field = nativeField(`<form><label for="city">${label}</label><input id="city" name="city" type="text" autocomplete="email"></form>`, reader);
     const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: 'alias@example.test', source: 'identity' }], missingRequired: [] }, [field], { ...candidate, identity: { email: 'alias@example.test' } });
     expect(guarded.actions[0]?.value).toBe('alias@example.test');

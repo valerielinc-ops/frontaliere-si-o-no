@@ -1114,6 +1114,49 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     });
   });
 
+  it('preserves EOC nationality options verbatim when duplicate labels prevent a complete map', async () => {
+    const options = [
+      'Selezionare', '-----------------------------------------', 'Svizzera', 'Tedesca', 'Italiana',
+      'Afgano', 'Aland', 'Dominicano', 'Dominicano', 'Honduregno', 'Honduregno',
+    ];
+    const localized = await localizePortalQuestions([{
+      id: 'nationality',
+      question: 'Nazionalità',
+      applicationQuestion: 'Nazionalità',
+      options,
+      applicationOptions: options,
+    }], {
+      candidateLocale: 'it',
+      applicationLocale: 'it',
+      codex: async () => { throw new Error('same-language nationality must not need translation'); },
+    });
+
+    expect(localized[0]).toMatchObject({
+      question: 'Nazionalità',
+      applicationQuestion: 'Nazionalità',
+      options,
+      applicationOptions: options,
+      applicationQuestionLocale: 'it',
+      localizationStatus: 'same_language',
+    });
+    expect(portalAnswerForApplication(localized[0], 'Italiana')).toBe('Italiana');
+    expect(portalAnswerForApplication(localized[0], 'Dominicano')).toBe('');
+  });
+
+  it('does not treat foreign nationality options as Italian from the question label alone', async () => {
+    const options = ['Nationality', 'Nationalité'];
+    const localized = await localizePortalQuestions([{
+      id: 'nationality',
+      question: 'Nazionalità',
+      applicationQuestion: 'Nazionalità',
+      options,
+      applicationOptions: options,
+    }], { candidateLocale: 'it', applicationLocale: 'it' });
+
+    expect(localized[0].localizationStatus).not.toBe('same_language');
+    expect(localized[0].options).toEqual(options);
+  });
+
   it('recognizes Unicode CV labels and keeps same-prefix portal file fields distinct', () => {
     expect(portalRequiredDocumentFromField({ kind: 'file', required: true, label: 'Résumé' })).toBeNull();
     const first = portalRequiredDocumentFromField({ id: 'field_same_prefix_alpha', kind: 'file', required: true, label: 'Same label with a long normalized prefix 1234567890' });
@@ -1177,6 +1220,12 @@ describe('portal: one employer under two names', () => {
     // words the employer's («Rituals Retail» stays someone else when the data says «Lush Retail GmbH»).
     expect(namesAnotherEmployer(`${form}\nRituals Franchise Partner AG`, job)).toBe(true);
     expect(namesAnotherEmployer(`${form}\nRituals Retail`, { ...job, organization: 'Lush Retail GmbH' })).toBe(true);
+    expect(namesAnotherEmployer('Zurich AG', {
+      company: 'Coop Genossenschaft', title: 'Bäckerin', location: 'Zurich',
+    })).toBe(true);
+    expect(namesAnotherEmployer('Coop Genossenschaft\nStandort Rickenbach', {
+      company: 'Coop Genossenschaft', title: 'Bäckerin', location: 'Rickenbach',
+    }, { allowPostingLocation: true })).toBe(false);
   });
 });
 
@@ -1206,6 +1255,24 @@ describe('portal: an application in progress from an earlier run', () => {
     expect(removalsOf(buttons, ['Anschreiben_Luca_Bianchi.pdf'])).toEqual([]);
     expect(removalsOf(buttons, [''])).toEqual([]);
     expect(removalsOf(undefined as any, ['CV_Luca_Bianchi.pdf'])).toEqual([]);
+  });
+});
+
+describe('phone-country search contracts', () => {
+  const candidate = candidateForForm({
+    identity: { phone: '+41 79 123 45 67' }, profile: {}, answers: {},
+  });
+
+  it('does not send a dial code to a generic searchable Country field', () => {
+    expect(candidateAnswerForField(candidate, {
+      label: 'Country', context: 'Phone', kind: 'text', inputType: 'text', search: true, options: [],
+    })).toBeNull();
+  });
+
+  it('uses a dial code only for an explicit phone-country-code search', () => {
+    expect(candidateAnswerForField(candidate, {
+      label: 'Country Phone Code', kind: 'text', inputType: 'text', search: true, options: [],
+    })).toEqual({ value: '+41', source: 'identity' });
   });
 });
 

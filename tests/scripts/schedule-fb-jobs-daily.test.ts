@@ -17,6 +17,7 @@ import * as scheduler from '../../scripts/schedule-fb-jobs-daily.mjs';
 interface JobLike {
   id: string;
   title?: string;
+  titleByLocale?: Record<string, string>;
   slug?: string;
   slugByLocale?: Record<string, string>;
   hiringOrganization?: { name?: string };
@@ -99,6 +100,13 @@ const {
     now?: Date;
     repoRoot?: string;
     fetchImpl?: typeof fetch;
+    uploadFacebookPhotoImpl?: (options: {
+      imageUrl: string;
+      requiredImagePath: string;
+      fetchImpl: typeof fetch;
+      pageId: string;
+      token: string;
+    }) => Promise<string>;
     selectSocialCopyForPublishImpl?: (options: object) => Promise<Record<string, unknown> | null>;
     releaseSocialCopyAssignmentImpl?: (copy: object) => Promise<boolean>;
     socialPublishReservations?: {
@@ -262,6 +270,7 @@ describe('buildJobCaption', () => {
   const fullJob: JobLike = {
     id: 'job-1',
     title: 'Sviluppatore Senior Java',
+    titleByLocale: { it: 'Sviluppatore Senior Java' },
     hiringOrganization: { name: 'Acme SA' },
     jobLocation: { address: { addressLocality: 'Lugano' } },
     baseSalary: { currency: 'CHF', value: { minValue: 90000, maxValue: 110000 } },
@@ -398,6 +407,7 @@ describe('buildJobHashtags', () => {
     const job: JobLike = {
       id: 'x',
       title: 'Sviluppatore Java',
+      titleByLocale: { it: 'Sviluppatore Java' },
       jobLocation: { address: { addressLocality: 'Lugano' } },
       sector: 'IT',
     };
@@ -414,6 +424,7 @@ describe('buildJobHashtags', () => {
     const job: JobLike = {
       id: 'x',
       title: 'Operaio',
+      titleByLocale: { it: 'Operaio' },
       jobLocation: { address: { addressLocality: 'Mendrisio Distretto' } },
       sector: 'Cantieristica & Edilizia',
     };
@@ -587,7 +598,12 @@ describe('run() — DRY_RUN mode', () => {
   function setupTmp(jobs: JobLike[]): string {
     const tmp = mkdtempSync(join(tmpdir(), 'fb-jobs-run-'));
     mkdirSync(join(tmp, 'data'), { recursive: true });
-    writeFileSync(join(tmp, 'data', 'jobs.json'), JSON.stringify(jobs));
+    // Runtime scheduler fixtures use Italian titles, so mirror them into the
+    // localized field that production now requires before publishing.
+    writeFileSync(join(tmp, 'data', 'jobs.json'), JSON.stringify(jobs.map((job) => ({
+      ...job,
+      titleByLocale: job.titleByLocale ?? { it: job.title ?? '' },
+    }))));
     writeFileSync(
       join(tmp, 'data', 'fb-posted-jobs.json'),
       JSON.stringify({ schemaVersion: 1, posted: [] }),
@@ -676,7 +692,7 @@ describe('run() — DRY_RUN mode', () => {
       // OG rescrape verify GET call (checks og_object.image resolved).
       if (u.includes('graph.facebook.com') && !init?.method) {
         return new Response(
-          JSON.stringify({ og_object: { image: [{ url: `https://example.com/og/jobs/operaio-mendrisio.webp?v=${JOB_OG_IMAGE_VERSION}` }] } }),
+          JSON.stringify({ og_object: { image: [{ url: `https://cdn.frontaliereticino.ch/og/jobs/operaio-mendrisio.webp?v=${JOB_OG_IMAGE_VERSION}` }] } }),
           { status: 200 },
         );
       }
@@ -690,6 +706,7 @@ describe('run() — DRY_RUN mode', () => {
       now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
       repoRoot: tmp,
       fetchImpl: fetchSpy as unknown as typeof fetch,
+      uploadFacebookPhotoImpl: async () => 'pid_photo_1',
       log: () => {},
       warn: () => {},
     });
@@ -698,6 +715,12 @@ describe('run() — DRY_RUN mode', () => {
     expect(result.ok).toBe(true);
     // Pre-flight + OG rescrape POST + OG rescrape verify GET + /feed POST = 4 fetch calls.
     expect(fetchSpy).toHaveBeenCalledTimes(4);
+    const feedCall = fetchSpy.mock.calls.find(([url]) => String(url).endsWith('/feed'));
+    const feedBody = feedCall?.[1]?.body as URLSearchParams;
+    expect(feedBody.get('link')).toBeNull();
+    expect(feedBody.get('message')).toContain('🔗 Scopri l’offerta: https://frontaliereticino.ch/social/r/');
+    expect(feedBody.get('attached_media[0]')).toBe(JSON.stringify({ media_fbid: 'pid_photo_1' }));
+    expect(feedBody.get('unpublished_content_type')).toBe('SCHEDULED');
 
     // Ledger has the entry now.
     const ledger = loadPosted(tmp);
@@ -827,7 +850,7 @@ describe('run() — DRY_RUN mode', () => {
           ? new URL(destination, 'https://frontaliereticino.ch').pathname.split('/').filter(Boolean).at(-1)
           : '';
         return new Response(
-          JSON.stringify({ og_object: { image: [{ url: `https://example.com/og/jobs/${linkedSlug}.webp?v=${JOB_OG_IMAGE_VERSION}` }] } }),
+          JSON.stringify({ og_object: { image: [{ url: `https://cdn.frontaliereticino.ch/og/jobs/${linkedSlug}.webp?v=${JOB_OG_IMAGE_VERSION}` }] } }),
           { status: 200 },
         );
       }
@@ -840,6 +863,10 @@ describe('run() — DRY_RUN mode', () => {
       now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
       repoRoot: tmp,
       fetchImpl: fetchSpy as unknown as typeof fetch,
+      uploadFacebookPhotoImpl: async ({ imageUrl }: { imageUrl: string }) => {
+        expect(imageUrl).toContain('https://cdn.frontaliereticino.ch/og/jobs/');
+        return `pid_photo_${feedCall + 1}`;
+      },
       log: () => {},
       warn: () => {},
     });

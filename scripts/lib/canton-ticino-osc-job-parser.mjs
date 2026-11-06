@@ -48,6 +48,10 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { isCantonTicinoOscPosting } from './crawler-company-ownership.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
+  fetchTichDetailViaMorss,
+  fetchTichPortalListingViaMorss,
+} from './tich-morss-transport.mjs';
+import {
   SOURCE_URL as OFFICIAL_LISTING_URL,
   OFFICIAL_LISTING_URLS,
   fetchTichOfficialListingViaTranslate,
@@ -175,6 +179,118 @@ export function parseOfficialConcorsiListing(html = '') {
   return out;
 }
 
+export async function discoverCantonTicinoOscCandidates({
+  timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
+  fetchSourceHtml = fetchHtml,
+  fetchTranslatedListing = fetchTichOfficialListingViaTranslate,
+  fetchMorssListing = fetchTichPortalListingViaMorss,
+} = {}) {
+  let candidates = [];
+  let indexError;
+  const discoveryFailure = { transport: false, fatal: false };
+  try {
+    const indexHtml = await fetchSourceHtml(LISTING_URL, { timeoutMs });
+    candidates = parseConcorsiListingIndex(indexHtml);
+  } catch (err) {
+    indexError = err;
+    if (isTichDiscoveryTransportFailure(err)) discoveryFailure.transport = true;
+    else discoveryFailure.fatal = true;
+    console.warn(`  ⚠️  ${LISTING_URL} unavailable: ${err?.message || err}`);
+  }
+
+  if (candidates.length === 0) {
+    let officialError;
+    for (const officialUrl of OFFICIAL_LISTING_URLS) {
+      if (candidates.length > 0) break;
+      try {
+        const officialHtml = await fetchSourceHtml(officialUrl, { timeoutMs });
+        candidates = parseOfficialConcorsiListing(officialHtml);
+        if (candidates.length === 0) {
+          throw new Error('Official Canton Ticino listing response was not a verified non-empty listing');
+        }
+        console.warn(
+          `  ↪️  Using official Canton Ticino listing fallback: ${officialUrl}`,
+        );
+      } catch (err) {
+        officialError = err;
+        if (isTichDiscoveryTransportFailure(err)) discoveryFailure.transport = true;
+        else discoveryFailure.fatal = true;
+        console.warn(`  ⚠️  ${officialUrl} unavailable: ${err?.message || err}`);
+      }
+    }
+
+    if (candidates.length === 0) {
+      const translatedHtml = await fetchTranslatedListing(OFFICIAL_LISTING_URL, {
+        timeoutMs,
+        onExhausted: ({ transport, fatal } = {}) => {
+          if (transport) discoveryFailure.transport = true;
+          if (fatal) discoveryFailure.fatal = true;
+        },
+      });
+      if (translatedHtml) {
+        candidates = parseOfficialConcorsiListing(translatedHtml);
+        if (candidates.length > 0) {
+          console.warn(
+            `  ↪️  Using official Canton Ticino listing via Google Translate fallback: ${OFFICIAL_LISTING_URL}`,
+          );
+        }
+      }
+    }
+
+    if (candidates.length === 0) {
+      const morssHtml = await fetchMorssListing(LISTING_URL, {
+        timeoutMs: Math.max(timeoutMs, 30_000),
+      });
+      if (morssHtml) {
+        candidates = parseConcorsiListingIndex(morssHtml);
+        if (candidates.length > 0) {
+          console.warn(`  ↪️  Using Canton Ticino listing via Morss fallback: ${LISTING_URL}`);
+          return { candidates, preferMorss: true };
+        }
+      }
+
+      const message = indexError
+        ? `Failed to fetch concorsi.ti.ch index and official Canton Ticino listing: ${indexError?.message || indexError}; ${officialError?.message || officialError}`
+        : `Failed to parse or fetch official Canton Ticino listing: ${officialError?.message || officialError}`;
+      if (discoveryFailure.transport && !discoveryFailure.fatal) {
+        throw createTichDiscoveryUnavailableError(message, officialError || indexError);
+      }
+      throw new Error(message, { cause: officialError || indexError });
+    }
+  }
+
+  return { candidates, preferMorss: false };
+}
+
+export async function fetchCantonTicinoOscDetail(
+  detailUrl,
+  {
+    timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
+    preferMorss = false,
+    fetchSourceHtml = fetchHtml,
+    fetchMorssDetail = fetchTichDetailViaMorss,
+  } = {},
+) {
+  if (preferMorss) {
+    const morssHtml = await fetchMorssDetail(detailUrl, {
+      timeoutMs: Math.max(timeoutMs, 30_000),
+    });
+    if (morssHtml) return morssHtml;
+  }
+
+  try {
+    return await fetchSourceHtml(detailUrl, { timeoutMs });
+  } catch (error) {
+    if (!preferMorss) {
+      const morssHtml = await fetchMorssDetail(detailUrl, {
+        timeoutMs: Math.max(timeoutMs, 30_000),
+      });
+      if (morssHtml) return morssHtml;
+    }
+    throw error;
+  }
+}
+
 /* ── Detail parser ─────────────────────────────────────────── */
 
 /**
@@ -247,67 +363,7 @@ export async function fetchAllCantonTicinoOscJobs() {
   console.log(`🏥 Fetching ${CANTON_TICINO_OSC_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL} (TI cantonal jobportal — filtered to DSS / OSC)\n`);
 
-  let candidates = [];
-  let indexError;
-  const discoveryFailure = { transport: false, fatal: false };
-  try {
-    const indexHtml = await fetchHtml(LISTING_URL, { timeoutMs });
-    candidates = parseConcorsiListingIndex(indexHtml);
-  } catch (err) {
-    indexError = err;
-    if (isTichDiscoveryTransportFailure(err)) discoveryFailure.transport = true;
-    else discoveryFailure.fatal = true;
-    console.warn(`  ⚠️  ${LISTING_URL} unavailable: ${err?.message || err}`);
-  }
-
-  if (candidates.length === 0) {
-    let officialError;
-    for (const officialUrl of OFFICIAL_LISTING_URLS) {
-      if (candidates.length > 0) break;
-      try {
-        const officialHtml = await fetchHtml(officialUrl, { timeoutMs });
-        candidates = parseOfficialConcorsiListing(officialHtml);
-        if (candidates.length === 0) {
-          throw new Error('Official Canton Ticino listing response was not a verified non-empty listing');
-        }
-        console.warn(
-          `  ↪️  Using official Canton Ticino listing fallback: ${officialUrl}`,
-        );
-      } catch (err) {
-        officialError = err;
-        if (isTichDiscoveryTransportFailure(err)) discoveryFailure.transport = true;
-        else discoveryFailure.fatal = true;
-        console.warn(`  ⚠️  ${officialUrl} unavailable: ${err?.message || err}`);
-      }
-    }
-
-    if (candidates.length === 0) {
-      const translatedHtml = await fetchTichOfficialListingViaTranslate(OFFICIAL_LISTING_URL, {
-        timeoutMs,
-        onExhausted: ({ transport, fatal } = {}) => {
-          if (transport) discoveryFailure.transport = true;
-          if (fatal) discoveryFailure.fatal = true;
-        },
-      });
-      if (translatedHtml) {
-        candidates = parseOfficialConcorsiListing(translatedHtml);
-        if (candidates.length > 0) {
-          console.warn(
-            `  ↪️  Using official Canton Ticino listing via Google Translate fallback: ${OFFICIAL_LISTING_URL}`,
-          );
-        }
-      }
-      if (candidates.length === 0) {
-        const message = indexError
-          ? `Failed to fetch concorsi.ti.ch index and official Canton Ticino listing: ${indexError?.message || indexError}; ${officialError?.message || officialError}`
-          : `Failed to parse or fetch official Canton Ticino listing: ${officialError?.message || officialError}`;
-        if (discoveryFailure.transport && !discoveryFailure.fatal) {
-          throw createTichDiscoveryUnavailableError(message, officialError || indexError);
-        }
-        throw new Error(message, { cause: officialError || indexError });
-      }
-    }
-  }
+  const { candidates, preferMorss } = await discoverCantonTicinoOscCandidates({ timeoutMs });
 
   console.log(`  📋 Found ${candidates.length} active concorsi on index\n`);
   if (candidates.length === 0) return [];
@@ -323,7 +379,7 @@ export async function fetchAllCantonTicinoOscJobs() {
     const detailUrl = `${BASE_URL}/offerte-d'impieghi.html?yid=${cand.yid}`;
     let detailHtml;
     try {
-      detailHtml = await fetchHtml(detailUrl, { timeoutMs });
+      detailHtml = await fetchCantonTicinoOscDetail(detailUrl, { timeoutMs, preferMorss });
     } catch (err) {
       console.warn(`  ⚠️  yid=${cand.yid} detail fetch failed: ${err?.message || err}`);
       if (requestDelayMs > 0) {

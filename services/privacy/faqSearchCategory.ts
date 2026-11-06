@@ -15,7 +15,7 @@ export type FaqSearchCategory = (typeof FAQ_SEARCH_CATEGORIES)[number];
 /** Return only a closed FAQ category so user search text never enters demand telemetry. */
 export function classifyFaqSearchCategory(query: string): FaqSearchCategory {
   const topic = classifyQuestionTopic(query);
-  return Object.hasOwn(FAQ_SEARCH_CATEGORY_BY_TOPIC, topic)
+  return Object.prototype.hasOwnProperty.call(FAQ_SEARCH_CATEGORY_BY_TOPIC, topic)
     ? FAQ_SEARCH_CATEGORY_BY_TOPIC[topic as keyof typeof FAQ_SEARCH_CATEGORY_BY_TOPIC]
     : 'other';
 }

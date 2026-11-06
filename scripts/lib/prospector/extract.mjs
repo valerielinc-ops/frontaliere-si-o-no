@@ -440,10 +440,16 @@ const identityText = (value = '') => textOf(value).toLowerCase()
 
 /**
  * Compare a stored/listing title with the visible detail-page heading.
- * One-letter gender markers are presentation metadata, not vacancy identity.
+ * One-letter gender markers and workload percentages are presentation
+ * metadata, not vacancy identity. ATS pages commonly keep the workload in the
+ * card/H1 while omitting it from the same vacancy's JobPosting title.
  */
 export function vacancyTitleIdentity(value = '') {
-  return identityText(value)
+  const withoutWorkload = String(value).replace(
+    /\(?\b\d{1,3}\s*(?:[-–—]\s*\d{1,3}\s*)?%\)?/gu,
+    ' ',
+  );
+  return identityText(withoutWorkload)
     .split(' ')
     .filter((token) => token && !['m', 'w', 'f', 'd'].includes(token))
     .join(' ');

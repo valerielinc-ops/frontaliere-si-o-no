@@ -1192,7 +1192,7 @@ function applicationEntryContextMatchesPosting(control, context = {}) {
   return Boolean(localContext && job.title
     && titleMatches(localContext, job.title)
     && postingMatch(localContext, job, context.postingUrl) === 'match'
-    && !namesAnotherEmployer(localContext, job));
+    && !namesAnotherEmployer(localContext, job, { allowPostingLocation: true }));
 }
 
 function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
@@ -2278,7 +2278,7 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
 
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
 const FORM_VOCABULARY = new Set([
-  'application', 'applications', 'apply', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
+  'application', 'applications', 'apply', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
   'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
@@ -2373,12 +2373,47 @@ const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
  * Case and separators do not matter. The order's own whole name never gets
  * here: it is postingMatch's direct match.
  */
-export function namesAnotherEmployer(formText, job = {}) {
+function postingLocationSuffixWords(formText, ours, locationWords) {
+  if (!locationWords.size) return new Set();
+  const lines = String(formText || '').split(/\r?\n/).map((line) => normalizeWords(line).split(' ').filter(Boolean));
+  const employerLines = lines.map((words) => words.some((word) => ours.has(word)));
+  const neutral = new Set();
+  for (const [lineIndex, words] of lines.entries()) {
+    const locations = words.filter((word) => locationWords.has(word));
+    if (!locations.length) continue;
+    const employerBefore = employerLines.slice(Math.max(0, lineIndex - 2), lineIndex + 1).some(Boolean);
+    if (!employerBefore) continue;
+    const lastEmployer = Math.max(-1, ...words.map((word, index) => ours.has(word) ? index : -1));
+    if (lastEmployer >= 0 && words.findIndex((word) => locationWords.has(word)) < lastEmployer) continue;
+    locations.forEach((word) => neutral.add(word));
+  }
+  return neutral;
+}
+
+export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false } = {}) {
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
   const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
   if (!ours.size) return false;
-  const neutral = new Set([...ours, ...nameWords(job.title), ...FORM_VOCABULARY]);
   const text = String(formText || '');
+  const postingLocationWords = allowPostingLocation
+    ? new Set([
+      ...nameWords(job.location),
+      ...nameWords(job.addressLocality),
+      ...nameWords(job.city),
+      ...nameWords(job.workplace),
+    ])
+    : new Set();
+  // A bounded posting card can put its own place after the employer (for
+  // example «Coop Genossenschaft, Rickenbach»). Neutralize only that
+  // employer-bound suffix; an unbound employer named like the place remains a
+  // mismatch («Zurich AG» is not Coop's posting).
+  const neutral = new Set([
+    ...ours,
+    ...nameWords(job.title),
+    ...postingLocationSuffixWords(text, ours, postingLocationWords),
+    ...NOT_A_NAME,
+    ...FORM_VOCABULARY,
+  ]);
   const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
   if (title.some((word) => !filler(word) && !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word))) return true;
   for (const phrase of text.split(PHRASE_END_RE)) {
@@ -2434,10 +2469,15 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   if (company && !hasDistinctiveCompanyIdentity(company)) return false;
   const organizationCompatible = !job?.company || !job?.organization
     || sameEmployerFamily(job.organization, job.company);
-  if (!organizationCompatible || namesAnotherEmployer(sourceText, job)) return false;
   const routeBound = samePostingAddress(pageUrl, postingUrl)
     || isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
-  if (routeBound) return !namesAnotherEmployer(pageText, job);
+  // On an exact selected-posting route, the body also contains navigation and
+  // Apply labels (for example «Später bewerben»). Keep the conflict guard on
+  // rendered page text: a generic document title must not hide an unrelated
+  // role in the selected route, while a proven employer/location suffix in
+  // the posting body may be ignored.
+  if (!organizationCompatible || namesAnotherEmployer(routeBound ? pageText : sourceText, job, { allowPostingLocation: routeBound })) return false;
+  if (routeBound) return true;
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
   // The source page must identify the role in its title. Its employer may be
   // in the Apply control's bounded vacancy card. Arbitrary page text can also
@@ -2509,7 +2549,7 @@ export function formPostingMatch(formText, job = {}, {
   // Do not apply this to another page on the same host: route identity must be
   // exact, and an apply route still goes through the employer-conflict guard.
   if (bound && samePostingAddress(pageUrl, postingUrl)) {
-    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl }), job)) return 'mismatch';
+    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
   if (direct !== 'mismatch' || !postingMatched) return direct;
@@ -2918,6 +2958,32 @@ function optionsMatchCandidateLanguage(options, candidateLanguage) {
   });
 }
 
+function verifiedItalianNationalityOptions(options) {
+  if (!Array.isArray(options) || !options.length) return false;
+  const normalizedOptions = options.map(normalizedQuestionText);
+  const hasItalianSelectLabel = normalizedOptions.some((option) => ['seleziona', 'selezionare'].includes(option));
+  if (!hasItalianSelectLabel) return false;
+  const hasCanonicalItalianNationality = options.some((option) => {
+    const normalized = normalizedQuestionText(option);
+    const nationality = nationalityOf(option);
+    return Boolean(nationality
+      && normalizedQuestionText(nationalityLabelOf(nationality.code, 'it')) === normalized);
+  });
+  if (!hasCanonicalItalianNationality) return false;
+  const foreignNationalityLabels = new Set([
+    'citizenship', 'nationality', 'nationalite', 'nationalitat', 'staatsangehorigkeit', 'staatsburgerschaft',
+  ]);
+  const hasKnownForeignMarker = options.some((option) => {
+    const normalized = normalizedQuestionText(option);
+    return foreignNationalityLabels.has(normalized)
+      || Object.entries(OPTION_LANGUAGE_MARKERS)
+        .some(([language, markers]) => language !== 'it' && markers.includes(normalized));
+  });
+  if (hasKnownForeignMarker) return false;
+  const detected = detectLanguageWithConfidence(options.join(' '), 'it');
+  return detected.lang === 'it' && detected.confidence >= SAME_LANGUAGE_ITEM_MIN_CONFIDENCE;
+}
+
 // A provider outage must not strand a standard ATS form whose labels are
 // already part of the portal contract. These are exact German field captions
 // observed on employer-site forms; arbitrary questions still require the
@@ -3254,6 +3320,24 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
   const label = normalizedQuestionText(nativePortalQuestion(item));
   const countryKey = label === 'paese' ? 'country' : label === 'nazionalita' ? 'nationality' : '';
   if (countryKey && applicationOptions.length) {
+    if (countryKey === 'nationality') {
+      if (!verifiedItalianNationalityOptions(applicationOptions)) return null;
+      // EOC's Italian nationality catalogue contains duplicate visible labels
+      // (for example «Dominicano»). Keep the portal's Italian labels verbatim
+      // so the candidate can answer; the downstream exact-match guard still
+      // refuses an answer whose label is ambiguous in that catalogue.
+      const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+      return {
+        ...item,
+        question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+        applicationQuestion: nativePortalQuestion(item),
+        applicationOptions,
+        options: applicationOptions,
+        optionMap,
+        applicationQuestionLocale: candidateLanguage,
+        localizationStatus: 'same_language',
+      };
+    }
     const candidateOptions = applicationOptions.map((option) => deterministicItalianCountryOption(option, countryKey));
     if (candidateOptions.every(Boolean)) {
       const optionMap = portalOptionMap({
@@ -5947,8 +6031,12 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
     const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
     const role = residenceFieldRole(field.label);
+    const candidateAnswer = candidateAnswerForField(candidate, field, {
+      includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
+    });
     if (isPermitField(field.label) && asksHeldStatus(field.label)
-      && !isPermitHistoricalQuestion(field.label) && !permitStatusPresent) {
+      && !isPermitHistoricalQuestion(field.label) && !permitStatusPresent
+      && !String(candidateAnswer?.value ?? '').trim()) {
       const question = permitStatusQuestion(candidateLocale);
       add(field, 'work_permit', question,
         permitStatusQuestionWhy(candidateLocale),
@@ -6677,6 +6765,12 @@ export async function submitViaPortal(ctx) {
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
       });
+    // When the selected posting URL is the page currently open, a failed
+    // vacancy-identity check is terminal. Do not let a company-only match on
+    // the same page turn a stale role into an application form.
+    if (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl) && !postingVacancyMatched) {
+      return await handoff('posting_mismatch');
+    }
     if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job,

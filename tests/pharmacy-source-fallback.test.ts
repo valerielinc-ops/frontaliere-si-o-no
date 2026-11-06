@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   buildTicinoCatalogueSnapshot,
   fetchTicinoPdfBuffer,
+  fetchTicinoPdfByRanges,
   fetchTicinoPdfDocument,
   fetchTicinoOfctCatalogue,
 } from '../scripts/import-pharmacies-border.mjs';
@@ -100,6 +101,96 @@ describe('Ticino pharmacy PDF source fallback', () => {
       TICINO_PHARMACY_PDF_MIRROR_URL,
       TICINO_PHARMACY_PDF_CURRENT_URL,
     ]);
+  });
+
+  it('recovers a dated official PDF through bounded ranges after the normal transport fails', async () => {
+    const exhausted = () => Object.assign(new Error('source timeout'), { retryBudgetExhausted: true });
+    const fetchSource = vi.fn(async () => { throw exhausted(); });
+    const fetchDirectory = vi.fn();
+    const fetchRangeSource = vi.fn(async (url: string) => {
+      expect(url).toBe(TICINO_PHARMACY_PDF_CURRENT_URL);
+      return Buffer.from('%PDF ranged %%EOF');
+    });
+
+    await expect(fetchTicinoPdfDocument(fetchSource, fetchDirectory, fetchRangeSource)).resolves.toEqual({
+      buffer: Buffer.from('%PDF ranged %%EOF'),
+      sourceUrl: TICINO_PHARMACY_PDF_CURRENT_URL,
+    });
+    expect(fetchSource.mock.calls.map(([url]) => url)).toEqual([
+      TICINO_PHARMACY_PDF_URL,
+      TICINO_PHARMACY_PDF_MIRROR_URL,
+      TICINO_PHARMACY_PDF_CURRENT_URL,
+    ]);
+    expect(fetchRangeSource).toHaveBeenCalledOnce();
+    expect(fetchDirectory).not.toHaveBeenCalled();
+  });
+
+  it('reassembles one immutable PDF representation from validated HTTP ranges', async () => {
+    const payload = Buffer.from('%PDF-1.7\n0123456789abcdefghijklmnopqrstuvwxyz\n%%EOF\n');
+    const calls: Array<{ range: string | null; ifRange: string | null }> = [];
+    const lastModified = 'Thu, 09 Jul 2026 09:00:06 GMT';
+    const fetchImpl = vi.fn(async (_url: string | URL | Request, init?: RequestInit) => {
+      const headers = new Headers(init?.headers);
+      const rangeHeader = headers.get('range');
+      const match = /^bytes=(\d+)-(\d+)$/.exec(rangeHeader || '');
+      if (!match) return new Response('missing range', { status: 400 });
+      const start = Number(match[1]);
+      const end = Math.min(Number(match[2]), payload.length - 1);
+      calls.push({ range: rangeHeader, ifRange: headers.get('if-range') });
+      return new Response(payload.subarray(start, end + 1), {
+        status: 206,
+        headers: {
+          'Content-Range': `bytes ${start}-${end}/${payload.length}`,
+          'Last-Modified': lastModified,
+        },
+      });
+    });
+
+    await expect(fetchTicinoPdfByRanges(
+      TICINO_PHARMACY_PDF_CURRENT_URL,
+      fetchImpl,
+      { chunkBytes: 16, maxBytes: 1024 },
+    )).resolves.toEqual(payload);
+    expect(calls).toHaveLength(Math.ceil(payload.length / 16));
+    expect(calls[0]).toEqual({ range: 'bytes=0-15', ifRange: null });
+    expect(calls.slice(1).every((call) => call.ifRange === lastModified)).toBe(true);
+  });
+
+  it('rejects ranged chunks when the official PDF changes mid-download', async () => {
+    const payload = Buffer.from('%PDF-1.7\n0123456789abcdefghijklmnopqrstuvwxyz\n%%EOF\n');
+    let call = 0;
+    const fetchImpl = vi.fn(async (_url: string | URL | Request, init?: RequestInit) => {
+      call += 1;
+      const match = /^bytes=(\d+)-(\d+)$/.exec(new Headers(init?.headers).get('range') || '');
+      const start = Number(match?.[1]);
+      const end = Math.min(Number(match?.[2]), payload.length - 1);
+      return new Response(payload.subarray(start, end + 1), {
+        status: 206,
+        headers: {
+          'Content-Range': `bytes ${start}-${end}/${payload.length}`,
+          'Last-Modified': call === 1 ? 'Thu, 09 Jul 2026 09:00:06 GMT' : 'Fri, 10 Jul 2026 09:00:06 GMT',
+        },
+      });
+    });
+
+    await expect(fetchTicinoPdfByRanges(
+      TICINO_PHARMACY_PDF_CURRENT_URL,
+      fetchImpl,
+      { chunkBytes: 16, maxBytes: 1024 },
+    )).rejects.toThrow('changed while the ranged fallback was downloading it');
+  });
+
+  it('does not preserve a stale catalogue after a ranged representation changes', async () => {
+    const exhausted = () => Object.assign(new Error('source timeout'), { retryBudgetExhausted: true });
+    const fetchSource = vi.fn(async () => { throw exhausted(); });
+    const changed = new Error('Ticino PDF changed while the ranged fallback was downloading it');
+    const fetchRangeSource = vi.fn(async () => { throw changed; });
+
+    const error = await fetchTicinoPdfDocument(fetchSource, vi.fn(), fetchRangeSource)
+      .then(() => null, (caught) => caught);
+    expect(error).toBeInstanceOf(Error);
+    expect(error.retryBudgetExhausted).not.toBe(true);
+    expect(fetchRangeSource).toHaveBeenCalledTimes(2);
   });
 
   it('uses the derived official mirror when a newly dated PDF link fails on www4', async () => {

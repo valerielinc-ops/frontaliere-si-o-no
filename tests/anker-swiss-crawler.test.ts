@@ -13,6 +13,7 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { buildSlug as buildCanonicalSlug } from '../scripts/lib/regenerate-slugs-helpers.mjs';
 import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { resolveDetailOrListingSwissGeography } from '../scripts/lib/prospector/location-evidence.mjs';
 import { lookupSwissPostalCode } from '../scripts/lib/swiss-postal-code.mjs';
 
 describe('Anker Swiss Ticino AG crawler parser', () => {
@@ -50,6 +51,62 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
       addressLocality: 'Lyss',
       addressRegion: '',
       addressCountry: 'CH',
+    });
+  });
+
+  it('promotes a unique official Swiss locality from addressRegion', () => {
+    const url = 'https://anker-swiss.ch/stellen/produktionsmechaniker-1586374/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Produktionsmechaniker 100%',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Grafstal',
+        },
+      },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+    const decision = resolveDetailOrListingSwissGeography(detail);
+
+    expect(detail.locationCandidates[0]).toMatchObject({
+      location: 'Grafstal',
+      addressLocality: 'Grafstal',
+      addressRegion: 'ZH',
+      addressCountry: 'CH',
+    });
+    expect(decision).toMatchObject({
+      geography: { location: 'Grafstal', canton: 'ZH' },
+      explicitlyForeign: false,
+    });
+  });
+
+  it('does not promote an official locality shared by multiple cantons', () => {
+    const url = 'https://anker-swiss.ch/stellen/ambiguous-locality/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Ambiguous locality role',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Nussbaumen',
+        },
+      },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+
+    expect(detail.locationCandidates[0]).toMatchObject({
+      addressLocality: '',
+      addressRegion: 'Nussbaumen',
+      addressCountry: '',
     });
   });
 

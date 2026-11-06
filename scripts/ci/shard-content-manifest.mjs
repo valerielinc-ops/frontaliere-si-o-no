@@ -79,6 +79,7 @@ export function createSectionManifest({
   artifactRunId,
   tarPath = '',
   pageManifestPath = '',
+  evidenceManifestPath = '',
   sourcePathLayout = section === 'ticino' ? 'ticino-hash-v1' : 'canonical',
 }) {
   if (!LOCALES.has(locale)) throw new Error(`unsupported locale ${JSON.stringify(locale)}`);
@@ -127,6 +128,59 @@ export function createSectionManifest({
         section,
       };
     }).sort((a, b) => a.url.localeCompare(b.url));
+  }
+
+  if (evidenceManifestPath) {
+    const evidence = JSON.parse(fs.readFileSync(evidenceManifestPath, 'utf8'));
+    if (evidence?.schemaVersion !== 1
+      || evidence?.kind !== 'expired-archive-publication-evidence'
+      || evidence?.validatorVersion !== 'expired-archive-publication-v1'
+      || evidence?.locale !== locale
+      || String(evidence?.sourceRunId) !== String(sourceRunId)
+      || String(evidence?.sourceSha).toLowerCase() !== String(sourceSha).toLowerCase()
+      || !Array.isArray(evidence?.entries)) {
+      throw new Error(`invalid expired archive publication evidence for ${locale}`);
+    }
+    const byUrl = new Map(pages.map((page) => [page.url, page]));
+    for (const entry of evidence.entries.filter((candidate) => candidate.section === section)) {
+      const webPath = String(entry.path ?? '');
+      const prefixWithSlash = `${normalizedPrefix}/`;
+      if (!webPath.startsWith(prefixWithSlash)) throw new Error(`${section} evidence path escapes its shard prefix: ${webPath}`);
+      const rel = webPath.slice(prefixWithSlash.length);
+      const file = path.resolve(root, rel);
+      const relative = path.relative(root, file);
+      if (!relative || relative.startsWith('..') || path.isAbsolute(relative) || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
+        throw new Error(`${section} expired archive canary is absent from its shard source: ${entry.url} (${webPath})`);
+      }
+      const sourceSha256 = String(entry.sha256 ?? '').toLowerCase();
+      if (!/^[0-9a-f]{64}$/u.test(sourceSha256)) throw new Error(`${section} expired archive canary has no source digest: ${entry.url}`);
+      const finalSha256 = digestFile(file);
+      if (finalSha256 !== sourceSha256) {
+        throw new Error(`${section} expired archive canary digest differs from its shard source: ${entry.url}`);
+      }
+      const existing = byUrl.get(String(entry.url));
+      if (existing) {
+        const existingSourceSha256 = existing.sourceSha256 || existing.sha256;
+        if (existing.path !== webPath || existingSourceSha256 !== sourceSha256) {
+          throw new Error(`${section} expired archive canary differs from its sitemap page: ${entry.url}`);
+        }
+        existing.sourceSha256 = sourceSha256;
+        existing.evidenceKind = 'expired-archive';
+        continue;
+      }
+      const page = {
+        path: webPath,
+        url: String(entry.url),
+        sourceSha256,
+        sha256: finalSha256,
+        locale,
+        section,
+        evidenceKind: 'expired-archive',
+      };
+      pages.push(page);
+      byUrl.set(page.url, page);
+    }
+    pages.sort((a, b) => a.url.localeCompare(b.url));
   }
 
   return {
@@ -311,6 +365,7 @@ async function main() {
       artifactRunId: args['artifact-run-id'],
       tarPath: args.tar,
       pageManifestPath: args['page-manifest'],
+      evidenceManifestPath: args['evidence-manifest'],
       sourcePathLayout: args['source-path-layout'] || undefined,
     });
     fs.mkdirSync(path.dirname(args.out), { recursive: true });

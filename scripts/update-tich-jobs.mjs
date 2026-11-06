@@ -62,8 +62,11 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isCantonTicinoOscPosting } from './lib/crawler-company-ownership.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry } from './lib/jina-proxy.mjs';
-import { fetchHtmlViaMorssWithRetry } from './lib/morss-proxy.mjs';
-import { isTichDetailHtmlForUrl } from './lib/tich-detail-identity.mjs';
+import {
+  fetchTichDetailViaMorss,
+  fetchTichPortalListingViaMorss,
+  isTichDetailHtmlForUrl,
+} from './lib/tich-morss-transport.mjs';
 
 export { isTichDetailHtmlForUrl };
 import {
@@ -725,7 +728,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
   if (!listingSucceeded && !rssSucceeded && !officialSucceeded) {
     console.log('🔍 Retrying Ti.CH listing through the bounded Morss egress fallback');
     try {
-      const html = await fetchHtmlViaMorssWithRetry(LISTING_URL, {
+      const html = await fetchTichPortalListingViaMorss(LISTING_URL, {
         timeoutMs: Math.max(timeoutMs, 30_000),
         attempts: options.morssAttempts,
         retryDelayMs: options.morssRetryDelayMs,
@@ -953,14 +956,14 @@ export async function fetchTichHtml(
   let morssAttempted = false;
   const fetchViaMorss = async () => {
     morssAttempted = true;
-    const proxied = await fetchHtmlViaMorssWithRetry(url, {
+    const proxied = await fetchTichDetailViaMorss(url, {
       timeoutMs: Math.max(timeoutMs, 30_000),
       attempts: 2,
       retryDelayMs: 500,
       fetchImpl,
     });
-    if (proxied && isTichDetailHtmlForUrl(proxied, url)) return proxied;
-    if (proxied) console.warn(`  ⚠️ Morss Ti.CH detail response failed the identity check for ${url}`);
+    if (proxied) return proxied;
+    console.warn(`  ⚠️ Morss Ti.CH detail response failed the identity check for ${url}`);
     return null;
   };
 
