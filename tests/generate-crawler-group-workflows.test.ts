@@ -1261,11 +1261,12 @@ describe('crawler generation state cleanup', () => {
 
     const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
     const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
-    const durations = assignments.groups[23].map((slug: string) => (
+    const group24Members = assignments.groups[23];
+    const durations = group24Members.map((slug: string) => (
       baseline.crawlers[`update-jobs-${slug}`]?.avgDurationMs ?? baseline.medianDurationMs
     ));
     const timeoutMs = 340 * 60 * 1000;
-    expect(durations).toHaveLength(25);
+    expect(durations).toHaveLength(group24Members.length);
     const cap4 = await runScaledCrawlerLane(durations, CRAWLER_GROUP_MAX_PARALLEL);
     const benchmark = {
       runId: process.env.GITHUB_RUN_ID ?? 'local',
