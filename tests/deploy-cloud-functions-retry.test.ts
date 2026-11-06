@@ -20,7 +20,7 @@ describe('deploy-cloud-functions-with-retry', () => {
     expect(FUNCTION_NAMES).toContain('jobsSourceRelay');
     expect(FUNCTION_NAMES).toContain('purgeExpiredApplicationConciergeMetaAttribution');
     expect(new Set(FUNCTION_NAMES).size).toBe(FUNCTION_NAMES.length);
-    expect(() => parseFunctionNames('export const helper = helper();')).toThrow(/partial deploy/u);
+    expect(() => parseFunctionNames('export const helper = onHelper();')).toThrow(/partial deploy/u);
   });
 
   it('builds scoped Firebase targets without changing the deploy project or force mode', () => {

@@ -29,7 +29,7 @@ export const FIREBASE_RETRY_DELAY_MS = 30_000;
 
 const FUNCTION_EXPORT_RE = /^export\s+const\s+([A-Za-z_$][\w$]*)\s*=\s*(.+)$/gmu;
 const TOP_LEVEL_EXPORT_RE = /^export\b/gmu;
-const TRIGGER_INITIALIZER_RE = /^(?:on[A-Z][A-Za-z0-9]*|functionsV1\.runWith)\b/u;
+const TRIGGER_INITIALIZER_RE = /^(?:onCall|onRequest|onDocumentCreated|onDocumentWritten|onSchedule|functionsV1\.runWith)\(/u;
 const FUNCTION_TARGET_NAME_RE = /^[A-Za-z][A-Za-z0-9_]*$/u;
 
 /**
