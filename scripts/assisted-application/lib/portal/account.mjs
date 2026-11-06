@@ -200,7 +200,7 @@ export function verifiedSignInTarget(href, currentUrl, portalHost) {
 }
 
 const SUCCESSFACTORS_AUTH_ROUTE_PARAMS = new Set([
-  'company', 'career_ns', 'career_job_req_id', 'job', 'jobid', 'login_ns', 'jobPipeline', 'lang', 'site',
+  'company', 'career_ns', 'career_job_req_id', 'job', 'jobid', 'login_ns', 'jobpipeline', 'lang', 'site',
 ]);
 const SUCCESSFACTORS_LEGACY_JOB_HOST_RE = /^career5\.successfactors\.eu$/i;
 
@@ -212,10 +212,20 @@ function singleQueryParam(params, name) {
 }
 
 function setSingleQueryParam(url, name, value) {
-  for (const key of [...url.searchParams.keys()]) {
-    if (key.toLowerCase() === name) url.searchParams.delete(key);
+  const entries = [...url.searchParams.entries()];
+  let replaced = false;
+  url.search = '';
+  for (const [key, currentValue] of entries) {
+    if (key.toLowerCase() === name) {
+      if (!replaced) {
+        url.searchParams.append(name, value);
+        replaced = true;
+      }
+      continue;
+    }
+    url.searchParams.append(key, currentValue);
   }
-  url.searchParams.set(name, value);
+  if (!replaced) url.searchParams.append(name, value);
 }
 
 /**
@@ -267,7 +277,7 @@ function successFactorsJobApplicationRoute(currentUrl) {
     if (legacyJobId && !/^\d{1,20}$/.test(legacyJobId)) return null;
     if ((legacyJob || legacyJobId) && !SUCCESSFACTORS_LEGACY_JOB_HOST_RE.test(current.hostname)) return null;
     // Two different vacancy identifiers are ambiguous: do not choose a first match.
-    if (requisition && (legacyJob || legacyJobId) || legacyJob && legacyJobId) return null;
+    if ((requisition && (legacyJob || legacyJobId)) || (legacyJob && legacyJobId)) return null;
     if (!requisition && !legacyJob && !legacyJobId) return null;
     return current;
   } catch {

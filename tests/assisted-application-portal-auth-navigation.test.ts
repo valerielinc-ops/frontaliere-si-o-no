@@ -226,6 +226,13 @@ describe('assisted portal account navigation', () => {
       mainFrame: () => frame,
       waitForLoadState: vi.fn(async () => {}),
       waitForTimeout: vi.fn(async () => {}),
+      getByRole: vi.fn(() => ({
+        filter: () => ({
+          first: () => ({
+            waitFor: vi.fn(async () => { throw new Error('late registration control not found'); }),
+          }),
+        }),
+      })),
     };
 
     const result = await handleAuth({
