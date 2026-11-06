@@ -2010,6 +2010,7 @@ async function sendBatch(emails) {
   }
   const confirmed = result.accepted || [];
   const skippedCount = Math.max(0, cascadeEmails.length - result.sent.length - result.failed.length);
+  const unidentifiedDiscoveryCount = discoveryOutcomes.unidentified.length;
 
   // Per-user send-time observability (#3798 follow-up): the cascade returns
   // the authoritative scheduledFor per item (sent[i] === { ...cascadeEmail,
@@ -2036,18 +2037,20 @@ async function sendBatch(emails) {
   }
 
   return {
-    // `sent` is provider-accepted, including a 2xx response whose message ID
-    // was unusable. Only confirmed IDs authorize sentJobIds/cadence writeback.
-    sent: result.sent.length,
+    // Count discovery only when the provider returned a durable message ID.
+    // Its accepted-but-unidentifiable 2xx remains quarantined in `failed` and
+    // `discoveryUnknown`, while its delivery key still prevents a duplicate.
+    // Targeted sends keep the legacy accepted/ambiguous accounting.
+    sent: result.sent.length - unidentifiedDiscoveryCount,
     sentDeliveryKeys: new Set(result.sent.map(jobAlertDeliveryKey)),
     confirmedDeliveryKeys: new Set(confirmed.map(jobAlertDeliveryKey)),
     persistFailedItems: confirmed.filter((item) => item.persistFailed),
     // The funnel's failure row includes transport-ambiguous and ledger-blocked
     // items too; `failedItems` remains the stricter, retryable subset.
-    failed: result.failed.length + skippedCount,
+    failed: result.failed.length + skippedCount + unidentifiedDiscoveryCount,
     failedItems,
     scheduleOutcomes,
-    ambiguous: (result.ambiguous || []).length,
+    ambiguous: discoveryOutcomes.ambiguous,
     discoveryUnknown: discoveryOutcomes.discoveryUnknown,
     providerBreakdown: result.providerBreakdown ?? {},
   };
@@ -3535,7 +3538,9 @@ async function main() {
     const providerAcceptedKeys = result.sentDeliveryKeys || confirmedKeys;
     const providerAcceptedEmails = batchEmails.filter((email) => providerAcceptedKeys.has(jobAlertDeliveryKey(email)));
     const successfulEmails = batchEmails.filter((email) => confirmedKeys.has(jobAlertDeliveryKey(email)));
-    runStats.sent += providerAcceptedEmails.length;
+    // Keep provider-accepted keys for dedup, but count discovery acknowledgments
+    // without a durable message ID as unknown/failed in the balanced funnel.
+    runStats.sent += result.sent ?? providerAcceptedEmails.length;
     runStats.failed += result.failed ?? result.failedItems.length;
     runStats.ambiguous += result.ambiguous ?? 0;
     runStats.discoveryUnknown += result.discoveryUnknown ?? 0;

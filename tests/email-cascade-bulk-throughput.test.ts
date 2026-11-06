@@ -163,8 +163,8 @@ describe('sendEmailCascade bulk throughput', () => {
     try {
       globalThis.fetch = vi.fn(async (url: string, opts: any) => {
         if (url === SEND_URL) {
-          // maileroo down: a definite 503 (no adaptive opt-in) falls through to resend
-          return { ok: false, status: 503, text: async () => 'Service Unavailable' } as any;
+          // Maileroo explicitly rejects the request, so the cascade can safely try Resend.
+          return { ok: false, status: 400, text: async () => 'Invalid request' } as any;
         }
         if (url === 'https://api.resend.com/emails' && opts?.method === 'POST') {
           resendAt.push(Date.now() - t0);

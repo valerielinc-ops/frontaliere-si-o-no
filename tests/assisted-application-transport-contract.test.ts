@@ -70,7 +70,7 @@ describe('application transport contracts', () => {
       posts.push({ url: String(url), body: JSON.parse(String(options.body)) });
       if (String(url).includes('smtp.maileroo.com')) {
         if (ambiguous) throw new TypeError('fetch failed');
-        return new Response('Temporarily unavailable', { status: 503 });
+        return new Response('Invalid request', { status: 400 });
       }
       if (String(url).includes('api.resend.com/emails')) return Response.json({ id: 'resend-accepted-id' });
       throw new Error('An adapter that does not preserve the dossier must not be used');
