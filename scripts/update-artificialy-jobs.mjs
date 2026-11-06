@@ -242,14 +242,7 @@ async function enrichArtificialyListings(listings) {
   return { listings: enriched, stats };
 }
 
-export async function fetchArtificialyCareerPage({
-  urls = CAREER_URLS,
-  fetchImpl = fetchText,
-  enrichImpl = enrichArtificialyListings,
-  maxRetries = MAX_RETRIES,
-  retryDelayMs = RETRY_DELAY_MS,
-  sleepImpl = sleep,
-} = {}) {
+export async function fetchArtificialyCareerPage(fetchImpl = fetchText) {
   let fetchedPage = false;
   let blockedPage = false;
   let discoveredCount = 0;
@@ -257,8 +250,8 @@ export async function fetchArtificialyCareerPage({
   let detailFetchFailures = 0;
   let detailSelectorMisses = 0;
 
-  for (const url of urls) {
-    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+  for (const url of CAREER_URLS) {
+    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
       try {
         console.log(`  Fetching ${url} (attempt ${attempt + 1})...`);
         const html = await fetchImpl(url);
@@ -268,16 +261,16 @@ export async function fetchArtificialyCareerPage({
         if (blocked) {
           blockedPage = true;
           console.log(`  Cloudflare challenge detected on ${url}`);
-          if (attempt < maxRetries) {
-            console.log(`  Retrying in ${retryDelayMs / 1000}s...`);
-            await sleepImpl(retryDelayMs);
+          if (attempt < MAX_RETRIES) {
+            console.log(`  Retrying in ${RETRY_DELAY_MS / 1000}s...`);
+            await sleep(RETRY_DELAY_MS);
             continue;
           }
           break;
         }
 
         discoveredCount = Math.max(discoveredCount, parsedItems.length);
-        const enriched = await enrichImpl(parsedItems);
+        const enriched = await enrichArtificialyListings(parsedItems);
         detailAttempts += enriched.stats.attempted;
         detailFetchFailures += enriched.stats.fetchFailures;
         detailSelectorMisses += enriched.stats.selectorMisses;
@@ -301,8 +294,8 @@ export async function fetchArtificialyCareerPage({
         break;
       } catch (err) {
         console.log(`  Fetch failed for ${url}: ${err.message}`);
-        if (attempt < maxRetries) {
-          await sleepImpl(retryDelayMs);
+        if (attempt < MAX_RETRIES) {
+          await sleep(RETRY_DELAY_MS);
           continue;
         }
       }

@@ -162,31 +162,20 @@ describe('Artificialy career parser', () => {
 describe('Artificialy career discovery transport', () => {
   it('uses the reachable official company careers section before the blocked legacy routes', async () => {
     const companyHtml = `
-      <html><body>
-        <section id="careers">
-          <h3>AI Engineer</h3>
-          <p>Lugano · Full-time</p>
-          <p>Build production AI systems for Swiss clients.</p>
-          <a href="https://www.linkedin.com/jobs/view/4462149285/">View on LinkedIn</a>
-        </section>
-        <footer>${'Official Artificialy company information. '.repeat(8)}</footer>
-      </body></html>`;
+      <html><head>
+        <script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title: 'AI Engineer',
+          jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI' } },
+          description: SOURCE_BODY,
+          url: 'https://www.linkedin.com/jobs/view/4462149285/',
+        })}</script>
+      </head><body>Official Artificialy company careers.</body></html>`;
     const fetchImpl = vi.fn(async (url: string) => {
       if (url === 'https://www.artificialy.com/company') return companyHtml;
       throw Object.assign(new Error(`HTTP 403 from ${url}`), { status: 403 });
     });
-    const enrichImpl = vi.fn(async (listings: any[]) => ({
-      listings: listings.map((listing) => ({ ...listing, description: SOURCE_BODY })),
-      stats: { attempted: listings.length, fetchFailures: 0, selectorMisses: 0 },
-    }));
-
-    const result = await fetchArtificialyCareerPage({
-      fetchImpl,
-      enrichImpl,
-      maxRetries: 0,
-      retryDelayMs: 0,
-      sleepImpl: vi.fn(),
-    });
+    const result = await fetchArtificialyCareerPage(fetchImpl);
 
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(fetchImpl).toHaveBeenCalledWith('https://www.artificialy.com/company');
