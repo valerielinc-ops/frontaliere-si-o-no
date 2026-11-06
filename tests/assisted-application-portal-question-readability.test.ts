@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, namesAnotherEmployer, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -834,6 +834,11 @@ it('keeps proven posting location metadata out of the employer conflict guard', 
     job,
     allowSingleExternalApplicationEntry: true,
   })).toEqual([]);
+  expect(namesAnotherEmployer('Kassierer — Coop One Rickenbach', {
+    company: 'Coop Genossenschaft',
+    title: 'Kassierer',
+    location: 'Rickenbach',
+  }, { allowPostingLocation: true })).toBe(true);
 });
 
 it('binds an unproved external Apply link to its own vacancy card', () => {
