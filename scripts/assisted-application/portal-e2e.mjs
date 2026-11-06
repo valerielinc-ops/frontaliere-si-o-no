@@ -467,7 +467,7 @@ function fakePortal() {
       return redirect(receiptQuery('/rhb-offer'));
     }
     if (route === 'GET /rhb-offer') return send(page('Pflegefachperson', '<p role="status">Ihre persönlichen Angaben wurden gespeichert. Ihre Bewerbung auf das Stellenangebot TEST-42 – Pflegefachperson (80%) wurde erfolgreich gesendet.</p><h1>Pflegefachperson 80%</h1><a href="/rhb-form">Auf diese Stelle bewerben</a>'));
-    if (route === 'GET /job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a>'));
+    if (route === 'GET /job') return send(page('Pflegefachperson', '<section class="job-detail"><h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a></section>'));
     // jobs.coopjobs.ch as seen on 2026-10-02: «Später bewerben» (a bookmark by
     // e-mail) comes first, a Usercentrics banner in a shadow root covers the
     // page, «Jetzt bewerben» opens the ATS redirect in a new tab.
@@ -843,7 +843,7 @@ function fakePortal() {
     }
     // A form with a custom calendar the filler cannot read (JOIN's "Quando sei
     // nato?"): the send button stays disabled until a day is chosen.
-    if (route === 'GET /widget-job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 60%</h1><a href="/widget">Jetzt bewerben</a>'));
+    if (route === 'GET /widget-job') return send(page('Pflegefachperson', '<section class="job-detail"><h1>Pflegefachperson 60%</h1><a href="/widget">Jetzt bewerben</a></section>'));
     if (route === 'GET /widget') {
       const days = ['11', '12'].map((day) => `<div role="button" tabindex="0" aria-label="Choose ${day} May 1990" data-d="1990-05-${day}">${day}</div>`).join('');
       return send(page('Bewerbung', `${form('/widget', `<label for="v">Vorname *</label><input id="v" name="first" required><label for="m">E-Mail *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><h2>Geburtsdatum *</h2><input type="hidden" id="dob" name="dob"><div role="group" aria-label="Mai 1990">${days}</div><button type="submit" id="send" disabled>Bewerbung absenden</button>`, true)}
