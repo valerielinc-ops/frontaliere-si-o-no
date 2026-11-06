@@ -174,6 +174,22 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const UNDATED_FILM_CATALOG_PATH_RE = /^\/(?:kino-nach-film|cinema-by-movie)\/(?:ohne-ortsangabe|sans-indication-de-lieu|senza-posizione)\//i;
 const GUIDLE_DOM_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const GUIDLE_ABSOLUTE_DATE_TEXT_RE = /(?:\b\d{4}-\d{2}-\d{2}\b|\b\d{1,2}[./-]\d{1,2}[./-]\d{4}\b|\b\d{1,2}\D{1,24}(?:19|20)\d{2}\b)/;
+const GUIDLE_MONTH_NUMBER = new Map([
+  [['januar', 'january', 'janvier', 'gennaio'], 1],
+  [['februar', 'february', 'fevrier', 'febbraio'], 2],
+  [['marz', 'maerz', 'march', 'mars', 'marzo'], 3],
+  [['april', 'avril', 'aprile'], 4],
+  [['mai', 'may', 'maggio'], 5],
+  [['juni', 'june', 'juin', 'giugno'], 6],
+  [['juli', 'july', 'juillet', 'luglio'], 7],
+  [['august', 'aout', 'agosto'], 8],
+  [['september', 'septembre', 'settembre'], 9],
+  [['oktober', 'october', 'octobre', 'ottobre'], 10],
+  [['november', 'novembre'], 11],
+  [['dezember', 'december', 'decembre', 'dicembre'], 12],
+].flatMap(([names, month]) => names.map((name) => [name, month])));
+const GUIDLE_MONTH_PATTERN = [...GUIDLE_MONTH_NUMBER.keys()].sort((a, b) => b.length - a.length).join('|');
+const GUIDLE_TEXT_DATE_RE = new RegExp(`\\b(\\d{1,2})\\.\\s*(${GUIDLE_MONTH_PATTERN})(?:\\s+((?:19|20)\\d{2}))?\\b`, 'giu');
 
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const FETCH_TIMEOUT_MS = 20000;
@@ -419,31 +435,61 @@ function guidleDomDetailRoot(doc) {
   return root;
 }
 
+function guidleIsoDate(year, month, day) {
+  if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day)) return null;
+  if (month < 1 || month > 12 || day < 1 || day > new Date(Date.UTC(year, month, 0)).getUTCDate()) return null;
+  return `${String(year).padStart(4, '0')}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
+function extractGuidleTextDateRange(value) {
+  const normalized = String(value || '').normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+  const dates = [];
+  GUIDLE_TEXT_DATE_RE.lastIndex = 0;
+  let match;
+  while ((match = GUIDLE_TEXT_DATE_RE.exec(normalized))) {
+    dates.push({ day: Number(match[1]), month: GUIDLE_MONTH_NUMBER.get(match[2]), year: Number(match[3]) || null });
+  }
+  const declaredYear = dates.findLast((date) => date.year)?.year;
+  if (!dates.length || !declaredYear) return null;
+  const last = dates.at(-1);
+  const resolved = dates.map((date, index) => ({
+    ...date,
+    year: date.year || (index === 0 && date.month > last.month ? declaredYear - 1 : declaredYear),
+  }));
+  const startDate = guidleIsoDate(resolved[0].year, resolved[0].month, resolved[0].day);
+  const endDate = guidleIsoDate(resolved.at(-1).year, resolved.at(-1).month, resolved.at(-1).day);
+  return startDate && endDate ? { startDate, endDate } : null;
+}
+
 /** Event-shaped occurrence from Guidle's semantic server-rendered fallback. */
 function extractGuidleDomEventOccurrence(doc) {
   const root = guidleDomDetailRoot(doc);
   if (!root) return null;
   const date = root.querySelector('time.bigdate[datetime]')?.getAttribute('datetime')?.trim();
-  if (!GUIDLE_DOM_DATE_RE.test(date || '')) return null;
+  const nativeDate = guidleNativeDateDeclaration(root);
+  const textDateRange = nativeDate ? extractGuidleTextDateRange(text(nativeDate.wrap)) : null;
+  if (!GUIDLE_DOM_DATE_RE.test(date || '') && !textDateRange) return null;
   const timeMatch = /(?:^|\D)((?:[01]\d|2[0-3]):[0-5]\d)(?!\d)/.exec(text(root.querySelector('.time-label')));
   const addressLocality = text(root.querySelector('header > h3')) || undefined;
   return {
     '@type': 'Event',
     name: text(root.querySelector('[itemprop="summary"]')),
     description: text(root.querySelector('[itemprop="description"]')) || undefined,
-    startDate: `${date}${timeMatch ? `T${timeMatch[1]}` : ''}`,
+    startDate: date ? `${date}${timeMatch ? `T${timeMatch[1]}` : ''}` : textDateRange.startDate,
+    endDate: date ? undefined : textDateRange.endDate,
     location: addressLocality ? { address: { addressLocality } } : undefined,
     image: doc.querySelector('meta[property="og:image"]')?.getAttribute('content') || undefined,
   };
 }
 
-function guidleDateText(root) {
-  const parts = [...root.querySelectorAll('.date-label')].map((el) => text(el));
+function guidleNativeDateDeclaration(root) {
   for (const wrap of root.querySelectorAll('.accordion-wrap')) {
     const label = text(wrap.querySelector('h3')).toLowerCase();
-    if (label === 'datum' || label === 'date' || label === 'data') parts.push(text(wrap.querySelector('.accordion')));
+    if (label !== 'datum' && label !== 'date' && label !== 'data') continue;
+    const declaration = wrap.querySelector('.accordion');
+    if (declaration) return { wrap, declaration };
   }
-  return parts.filter(Boolean).join(' ');
+  return null;
 }
 
 /**
@@ -468,7 +514,11 @@ export function isUndatedGuidleListing(html, pathSuffix) {
     return declarations.length > 0;
   }
   const root = guidleDomDetailRoot(doc);
-  return Boolean(root) && !GUIDLE_ABSOLUTE_DATE_TEXT_RE.test(guidleDateText(root));
+  if (!root) return false;
+  const nativeDate = guidleNativeDateDeclaration(root);
+  return Boolean(nativeDate)
+    && !text(nativeDate.declaration)
+    && !GUIDLE_ABSOLUTE_DATE_TEXT_RE.test(text(nativeDate.wrap));
 }
 
 /**
