@@ -257,12 +257,17 @@ function minimumDataRetentionOption(options, question = '') {
     // Never bridge an independent, conditional, or uncertain clause when filtering negated refusals.
     const refusalBridgeBoundaryWords = String.raw`(?:and|or|but|however|although|though|whereas|while|yet|instead|otherwise|because|since|therefore|so|ma|pero|bensi|mais|cependant|pourtant|toutefois|neanmoins|et|ou|aber|sondern|jedoch|hingegen|und|oder|e|ed|o|oppure|mas|sino|if|whether|ob|se|si|qualora|falls|wenn|sure|sur|certain\w*|uncertain|unsure|maybe|perhaps|probably|possibly|likely|think|believe|know|suppose|guess|doubt|credo|penso|pensare|forse|magari|incerto|incerta|certo|certa|sicur\w*|crois|pense|sais|savoir|doute|vielleicht|glaube|denke|weiss|wissen|unsicher|i|we|our|you|he|she|they|their|candidate|applicant|employer|company|recruiter\w*|hiring|team|organization|organisation|firm|management|hr|human|resources|board|committee|azienda|datore|societa|impresa|selezionator\w*|responsabile|commissione|employeur|entreprise|recruteur\w*|equipe|arbeitgeber|unternehmen|firma|personalabteilung|empresa|equipo|je|tu|il|elle|nous|notre|leur|vous|ils|elles|io|lui|lei|noi|voi|loro|ich|du|er|sie|wir|ihr|unser\w*|bewerber\w*|kandidat\w*|candidat\w*|candidato\w*|candidata\w*)`;
     const refusalBridge = String.raw`(?:${commaBoundary} )*(?:(?!\b${refusalBridgeBoundaryWords}\b)[a-z0-9]+ (?:${commaBoundary} )*){0,3}`;
-    const startsWithNegativeAnswerAndFirstPersonRefusal = new RegExp(
-      `^(?:no|non|nein) (?:i|we|io|ich|je|nous|noi|loro)\\b(?: [a-z0-9]+){0,3} ${refusalWords.source}`,
-    );
-    const removeNegatedRefusal = clauseText => startsWithNegativeAnswerAndFirstPersonRefusal.test(
-      clauseText.split(commaBoundary).join(' ').replace(/\s+/g, ' ').trim(),
-    ) ? clauseText : clauseText.replace(
+    // Preserve an active answer such as “No, I refuse”, but do not bypass
+    // negation filtering for “No, I did not refuse”.
+    const startsWithNegativeAnswerAndFirstPersonRefusal = clauseText => {
+      const normalized = clauseText.split(commaBoundary).join(' ').replace(/\s+/g, ' ').trim();
+      const match = new RegExp(
+        `^(?:no|non|nein) (?:i|we|io|ich|je|nous|noi|loro)\\b((?: [a-z0-9]+){0,3}) ${refusalWords.source}`,
+      ).exec(normalized);
+      return Boolean(match && !negationWords.test(match[1]));
+    };
+    const removeNegatedRefusal = clauseText => startsWithNegativeAnswerAndFirstPersonRefusal(clauseText)
+      ? clauseText : clauseText.replace(
         new RegExp(`(?:${negationWords.source} ${refusalBridge}${refusalWords.source}|${refusalWords.source} ${refusalBridge}(?:pas|plus|jamais|nicht)\\b)`, 'g'),
         match => /\bnot only\b/.test(match) ? match : ' ',
       );
