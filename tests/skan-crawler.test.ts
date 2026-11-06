@@ -20,11 +20,11 @@ describe('Skan AG crawler parser', () => {
       expect(isSkanJob({ companyKey: 'skan' })).toBe(true);
     });
 
-    it('rejects the legacy skan-com source', () => {
+    it('rejects the legacy skan-com source even on the shared trusted host', () => {
       expect(isSkanJob({
         companyKey: 'skan-com',
         company: 'Skan AG',
-        url: 'https://skan.com/job/',
+        url: 'https://jobs.skan.com/job/',
       })).toBe(false);
     });
 
