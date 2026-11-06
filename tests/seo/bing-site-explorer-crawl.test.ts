@@ -486,6 +486,50 @@ describe('Bing-compatible full-tree crawler', () => {
     })).toBe(false);
   });
 
+  it('keeps canonical Ticino pharmacy article links on the T0→T9 frontier', async () => {
+    const articleUrl = `${BASE}/articoli-frontaliere/farmacie-turno-ticino-guida/`;
+    const pharmacyUrl = `${BASE}/de/apotheken/ticino/`;
+    const articleTemplate = BING_TEMPLATE_TABLE.findIndex(({ id }) => id === 'article-pages');
+    const pharmacyTemplate = BING_TEMPLATE_TABLE.findIndex(({ id }) => id === 'pharmacy-pages');
+    const articleHtml = `<title>Farmacie del Ticino</title><link rel="canonical" href="${articleUrl}"><meta name="description" content="Una guida aggiornata alle farmacie del Ticino e ai percorsi ufficiali per consultare indirizzi e servizi."><a href="${pharmacyUrl}">Directory del Ticino</a>`;
+    const frontierHtml = `<title>Apotheken im Tessin</title><link rel="canonical" href="${pharmacyUrl}"><meta name="description" content="Das offizielle Verzeichnis der Apotheken im Tessin mit dem kanonischen Weg für die weitere Suche.">`;
+
+    const articleReport = await crawlPartition({
+      manifest: { kind: 'sitemap', baseUrl: BASE, urls: [articleUrl] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async (url) => new Response(
+        String(url) === articleUrl ? articleHtml : '',
+        { status: String(url) === articleUrl ? 200 : 404, headers: { 'content-type': 'text/html' } },
+      ),
+    });
+
+    expect(articleTemplate).toBeGreaterThanOrEqual(0);
+    expect(pharmacyTemplate).toBeGreaterThanOrEqual(0);
+    expect(templateIndexFor(articleUrl)).toBe(articleTemplate);
+    expect(templateIndexFor(pharmacyUrl)).toBe(pharmacyTemplate);
+    expect(articleReport.discoveredOutOfSitemap).toEqual([pharmacyUrl]);
+    expect(articleReport.discoveredReferrers).toEqual([[[0, articleTemplate]]]);
+
+    const frontierReport = await crawlPartition({
+      manifest: { kind: 'discovered-frontier', baseUrl: BASE, urls: [pharmacyUrl] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async (url) => new Response(
+        String(url) === pharmacyUrl ? frontierHtml : '',
+        { status: String(url) === pharmacyUrl ? 200 : 404, headers: { 'content-type': 'text/html' } },
+      ),
+    });
+
+    expect(frontierReport.codeCounts[BING_FRONTIER_HTTP_ERROR] ?? 0).toBe(0);
+  });
+
   it('recognizes only marked event-detail noindex targets on strict event routes', () => {
     const detailUrl = `${BASE}/en/events/ticino/lugano/event-slug-2026-10-01/`;
     const markerHtml = `${EVENT_DETAIL_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`;
