@@ -2015,7 +2015,11 @@ async function sendBatch(emails) {
   // sendEmailCascade always supplies `accepted`; the fallback keeps this
   // boundary compatible with older callers and deterministic test doubles that
   // expose only `sent`/`failed`/`ambiguous`.
-  const confirmed = Array.isArray(result.accepted) ? result.accepted : providerAccepted;
+  const confirmed = (Array.isArray(result.accepted) ? result.accepted : providerAccepted)
+    .filter((item) => item?.ack !== 'unidentifiable'
+      && item?.ambiguousDelivery !== true
+      && typeof item?.provider === 'string' && item.provider.trim().length > 0
+      && typeof item?.messageId === 'string' && item.messageId.trim().length > 0);
   const skippedCount = Math.max(0, cascadeEmails.length - result.sent.length - result.failed.length);
   // Per-user send-time observability (#3798 follow-up): the cascade returns
   // the authoritative scheduledFor per item (sent[i] === { ...cascadeEmail,
@@ -2042,10 +2046,10 @@ async function sendBatch(emails) {
   }
 
   return {
-    // `sent` is provider-accepted, including a 2xx response whose message ID
-    // was unusable. Only confirmed IDs authorize sentJobIds/cadence writeback.
+    // Discovery acknowledgements without a durable ID are counted as unknown;
+    // raw accepted keys below still protect their jobs from being recommended again.
     sent: providerAccepted.length,
-    sentDeliveryKeys: new Set(providerAccepted.map(jobAlertDeliveryKey)),
+    sentDeliveryKeys: new Set(result.sent.map(jobAlertDeliveryKey)),
     confirmedDeliveryKeys: new Set(confirmed.map(jobAlertDeliveryKey)),
     persistFailedItems: confirmed.filter((item) => item.persistFailed),
     // The funnel's failure row includes transport-ambiguous and ledger-blocked

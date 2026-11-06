@@ -39,12 +39,14 @@ describe('discovery provider outcomes', () => {
     const ref = { set, collection: () => ({ doc: () => ref }) };
     __setFirestoreAdminForTest({ collection: () => ({ doc: () => ref }), runTransaction: async () => {} });
     send.mockImplementation(async (items) => {
-      const unknown = { ...items[0], provider: 'resend' };
-      return { sent: [unknown], failed: [], ambiguous: [unknown] };
+      const unknown = { ...items[0], provider: 'resend', ack: 'unidentifiable', messageId: null };
+      return { sent: [unknown], accepted: [unknown], failed: [], ambiguous: [unknown] };
     });
     const result = await sendBatch([{ to: 'discovery@example.test', alertId: 'empty', subject: 'Popular', html: '<p>Popular</p>',
       discoveryMode: true, discoveryClaim: { attemptId: 'claim', deliveryId: 'stable' } }]);
     expect(result).toMatchObject({ sent: 0, failed: 1, discoveryUnknown: 1, ambiguous: 0 });
+    expect(result.sentDeliveryKeys.has('discovery@example.test\0empty')).toBe(true);
+    expect(result.confirmedDeliveryKeys.has('discovery@example.test\0empty')).toBe(false);
     const db = { collection: vi.fn(() => { throw new Error('must not enqueue'); }) };
     await enqueueFailedEmails(db, result.failedItems);
     expect(db.collection).not.toHaveBeenCalled();
