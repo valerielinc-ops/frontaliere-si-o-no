@@ -3,12 +3,14 @@ import {
   OPACC_SOFTWARE_AG_KEY,
   OPACC_SOFTWARE_AG_COMPANY_NAME,
   OPACC_SOFTWARE_AG_COMPANY_DOMAIN,
+  extractOpaccSoftwareAgDetailFields,
+  fetchAllOpaccSoftwareAgJobs,
   isOpaccSoftwareAgJob,
   isTrustedDomain,
 } from '../scripts/lib/opacc-software-ag-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
-import { loadSpec, runSpecInProduction, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { loadSpec, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 function response(url: string, body: string) {
   return {
@@ -23,25 +25,26 @@ function response(url: string, body: string) {
 }
 
 function detailPage(url: string, title: string, locality: string, postalCode: string) {
-  return `<script type="application/ld+json">${JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'JobPosting',
-    url,
-    title,
-    description: `${title}: Eine source-backed Beschreibung dieser offenen Stelle mit Aufgaben, Anforderungen und Arbeitsort bei Opacc Software AG.`,
-    hiringOrganization: { '@type': 'Organization', name: 'Opacc Software AG' },
-    jobLocation: {
-      '@type': 'Place',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Wahligenpark 1',
-        postalCode,
-        addressLocality: locality,
-        addressRegion: locality === 'Münchenstein' ? 'BL' : 'LU',
-        addressCountry: 'CH',
-      },
-    },
-  })}</script>`;
+  return `<div id="main">
+    <div class="container step1">
+      <a href="https://jobs.opacc.ch/">Startseite</a>
+      <h1>${title}</h1>
+      <h2>${locality}, Schweiz</h2>
+      <p>Du möchtest in dieser Funktion Verantwortung übernehmen und gemeinsam mit Opacc nachhaltige Lösungen für unsere Kunden entwickeln?</p>
+      <h3>Dein Alltag</h3>
+      <ul>
+        <li>Du betreust anspruchsvolle Aufgaben im Team und koordinierst die Umsetzung.</li>
+        <li>Du verbesserst Prozesse und stellst eine verlässliche Zusammenarbeit sicher.</li>
+      </ul>
+      <h3>Dein Background</h3>
+      <p>Du bringst passende Berufserfahrung, Eigeninitiative und Freude an Schweizer Softwarelösungen mit.</p>
+      <div class="row links"><a href="${url}#application">Jetzt bewerben</a></div>
+    </div>
+    <div id="step2" class="container step2" style="display:none">
+      <h1>Bewerben</h1><h3>Unterlagen</h3><p>Online Bewerbung mit Lebenslauf und Zeugnissen.</p>
+    </div>
+    <footer><p>Opacc Software AG, Wahligenpark 1, ${postalCode} ${locality}</p></footer>
+  </div>`;
 }
 
 describe('Opacc Software AG crawler parser', () => {
@@ -105,16 +108,16 @@ describe('Opacc Software AG crawler parser', () => {
   });
 
   describe('official source spec', () => {
-    it('extracts vacancies from both official job sections', async () => {
+    it('publishes vacancies from both official sections through the final parser', async () => {
       const spec = loadSpec(OPACC_SOFTWARE_AG_KEY);
       const currentUrls = [
         'https://jobs.opacc.ch/kunden-bedienen/teamleiterin-support-128.html',
         'https://jobs.opacc.ch/kunden-bedienen/projektleiterin-erp-junior-senior.html',
         'https://jobs.opacc.ch/fundament-ausbauen/system-engineer-junior-professional.html',
       ];
-      const homepage = `<a href="${currentUrls[0]}">TeamleiterIn Support</a>
-        <a href="${currentUrls[1]}">ProjektleiterIn ERP Junior / Senior</a>
-        <a href="${currentUrls[2]}">Cloud Engineer (Betrieb)</a>`;
+      const homepage = `<a href="${currentUrls[0]}">TeamleiterIn Support Du möchtest ein engagiertes Support-Team leiten?</a>
+        <a href="${currentUrls[1]}">ProjektleiterIn ERP Junior / Senior Du möchtest vielfältige Projekte begleiten?</a>
+        <a href="${currentUrls[2]}">Cloud Engineer (Betrieb) Du automatisierst unsere Auslieferung?</a>`;
       const pages = new Map([
         [currentUrls[0], detailPage(currentUrls[0], 'TeamleiterIn Support', 'Rothenburg', '6023')],
         [currentUrls[1], detailPage(currentUrls[1], 'ProjektleiterIn ERP Junior / Senior', 'Rothenburg', '6023')],
@@ -134,7 +137,7 @@ describe('Opacc Software AG crawler parser', () => {
       expect(template.test('/fundament-ausbauen/system-engineer-junior-professional.html')).toBe(true);
       expect(template.test('/de/jobpreview/3197')).toBe(false);
 
-      const rows = await runSpecInProduction(spec, {
+      const rows = await fetchAllOpaccSoftwareAgJobs({
         fetchImpl,
         lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
         sleepImpl: async () => {},
@@ -144,6 +147,20 @@ describe('Opacc Software AG crawler parser', () => {
       expect(rows).toHaveLength(3);
       expect(rows.map((row) => row.url)).toEqual(currentUrls);
       expect(rows.every((row) => row.company === 'Opacc Software AG')).toBe(true);
+      expect(rows.every((row) => row.description.includes('Dein Alltag'))).toBe(true);
+      expect(rows.every((row) => !row.description.includes('Online Bewerbung'))).toBe(true);
+      expect(rows.every((row) => row.location === 'Rothenburg')).toBe(true);
+    });
+
+    it('fails closed when the visible detail step belongs to another vacancy', () => {
+      const url = 'https://jobs.opacc.ch/kunden-bedienen/teamleiterin-support-128.html';
+      const detail = extractOpaccSoftwareAgDetailFields(
+        detailPage(url, 'Andere Stelle', 'Rothenburg', '6023'),
+        url,
+        { recordUrl: url, recordTitle: 'TeamleiterIn Support' },
+      );
+
+      expect(detail.description).toBe('');
     });
   });
 

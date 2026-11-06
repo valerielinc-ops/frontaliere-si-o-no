@@ -13,9 +13,17 @@
 import { createHash } from 'node:crypto';
 import { canonicalizeJobUrl, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { extractBalancedTagBlockWithStatus } from './hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from './html-attr.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  bodyTextOf,
+  extractDetailFields,
+  isSufficientVacancyDescription,
+  textOf,
+} from './prospector/extract.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissJobAddressFields,
@@ -38,6 +46,78 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function identity(value = '') {
+  return normalizeSpace(value)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function hasClasses(opening = '', ...wanted) {
+  const classes = new Set(readAttr(opening, 'class').split(/\s+/).filter(Boolean));
+  return wanted.every((className) => classes.has(className));
+}
+
+/**
+ * Opacc renders the vacancy and the application form as adjacent wizard
+ * steps. The generic detail extractor deliberately refuses the page-wide
+ * `#main` wrapper because it is a div with no vacancy semantics; reading that
+ * wrapper would also mix the hidden application form into every description.
+ * Select the visible step only when its H1 proves that it owns the requested
+ * listing. A missing/renamed boundary therefore remains fail-closed.
+ */
+export function extractOpaccSoftwareAgDetailFields(html = '', pageUrl = '', opts = {}) {
+  const source = String(html || '');
+  const generic = extractDetailFields(source, pageUrl, opts);
+  const opening = scanStartTags(source, 'div')
+    .find((tag) => hasClasses(tag.raw, 'container', 'step1'));
+  if (!opening) return generic;
+
+  const block = extractBalancedTagBlockWithStatus(
+    source.slice(opening.end),
+    'div',
+    source.length - opening.end,
+  );
+  if (!block.complete) return generic;
+
+  const title = textOf(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(block.html)?.[1] || '');
+  const titleIdentity = identity(title);
+  const recordTitleIdentity = identity(opts.recordTitle);
+  const titleMatchesListing = !recordTitleIdentity
+    || recordTitleIdentity === titleIdentity
+    || recordTitleIdentity.startsWith(`${titleIdentity} `);
+  if (!title || !titleMatchesListing) return generic;
+
+  const description = bodyTextOf(block.html);
+  if (!isSufficientVacancyDescription(description)) return generic;
+
+  const locationLabel = textOf(
+    /<h2\b[^>]*>([\s\S]{0,1000}?)<\/h2>/i.exec(block.html)?.[1] || '',
+  ).replace(/,?\s*Schweiz\s*$/i, '').trim();
+  const resolved = resolveSourceBackedSwissGeography({
+    location: locationLabel,
+    addressCountry: 'CH',
+  });
+  const sourceLocation = resolved ? {
+    location: resolved.location,
+    addressLocality: resolved.location,
+    addressRegion: resolved.canton,
+    addressCountry: 'CH',
+  } : null;
+
+  return {
+    ...generic,
+    title,
+    description,
+    ...(sourceLocation ? {
+      ...sourceLocation,
+      locationCandidates: [sourceLocation, ...(generic.locationCandidates || [])],
+    } : {}),
+  };
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -114,9 +194,12 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+async function fetchJobListings(runtime = {}) {
   const spec = loadSpec(OPACC_SOFTWARE_AG_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    ...runtime,
+    detailExtractor: extractOpaccSoftwareAgDetailFields,
+  });
 }
 
 /**
@@ -126,11 +209,11 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllOpaccSoftwareAgJobs() {
+export async function fetchAllOpaccSoftwareAgJobs(runtime = {}) {
   console.log(`🔍 Fetching Opacc Software AG jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
