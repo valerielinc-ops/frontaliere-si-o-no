@@ -3026,8 +3026,13 @@ function optionsMatchCandidateLanguage(options, candidateLanguage) {
   });
 }
 
+const EOC_ITALIAN_NATIONALITY_OPTIONS = Object.freeze({
+  count: 202,
+  normalizedSha256: '937001c2e87f103468ffa2e9b834b4264d36811f159ab10cf357ecc70ae2cb21',
+});
+
 function verifiedItalianNationalityOptions(options) {
-  if (!Array.isArray(options) || !options.length) return false;
+  if (!Array.isArray(options) || options.length !== EOC_ITALIAN_NATIONALITY_OPTIONS.count) return false;
   const normalizedOptions = options.map(normalizedQuestionText);
   const hasItalianSelectLabel = normalizedOptions.some((option) => ['seleziona', 'selezionare'].includes(option));
   if (!hasItalianSelectLabel) return false;
@@ -3053,7 +3058,11 @@ function verifiedItalianNationalityOptions(options) {
         .some(([language, markers]) => language !== 'it' && markers.includes(normalized));
   });
   if (hasKnownForeignMarker) return false;
-  return true;
+  // Most entries are proper demonyms that the generic detector and the small
+  // answer dictionary cannot classify. Accept only the complete, verified EOC
+  // catalogue; an added or foreign option keeps the form fail-closed.
+  const fingerprint = createHash('sha256').update([...normalizedOptions].sort().join('\n')).digest('hex');
+  return fingerprint === EOC_ITALIAN_NATIONALITY_OPTIONS.normalizedSha256;
 }
 
 // A provider outage must not strand a standard ATS form whose labels are
