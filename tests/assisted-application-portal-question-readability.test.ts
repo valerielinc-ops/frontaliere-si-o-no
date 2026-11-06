@@ -801,6 +801,41 @@ it('requires vacancy evidence beyond a company match before trusting one externa
   })).toBe(false);
 });
 
+it('keeps proven posting location metadata out of the employer conflict guard', () => {
+  const job = {
+    company: 'Coop Genossenschaft',
+    title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)',
+    location: 'Rickenbach',
+  };
+  const postingUrl = 'https://jobs.example.test/coop-job';
+  const vacancyContext = `${job.title} Coop Genossenschaft Standort Rickenbach Jetzt bewerben`;
+  const apply = {
+    id: 'apply',
+    text: 'Jetzt bewerben',
+    href: 'https://ats.example.test/apply',
+    vacancyContext,
+  };
+
+  expect(hasVacancySpecificPostingEvidence(vacancyContext, job, {
+    pageUrl: postingUrl,
+    pageTitle: `Coop: ${job.title}`,
+    postingUrl,
+    vacancyIdentityContexts: [vacancyContext],
+  })).toBe(true);
+  expect(applicationEntryControls({ links: [apply] }, {
+    postingUrl,
+    job,
+    allowSingleExternalApplicationEntry: true,
+  })).toEqual([apply]);
+  expect(applicationEntryControls({
+    links: [{ ...apply, vacancyContext: `${job.title} Andere GmbH Standort Rickenbach Jetzt bewerben` }],
+  }, {
+    postingUrl,
+    job,
+    allowSingleExternalApplicationEntry: true,
+  })).toEqual([]);
+});
+
 it('binds an unproved external Apply link to its own vacancy card', () => {
   const postingUrl = 'https://careers.example.ch/jobs/application-manager-42';
   const apply = { id: 'apply', text: 'Apply', href: 'https://ats.example.test/apply', vacancyContext: 'Application Manager — Muster AG' };

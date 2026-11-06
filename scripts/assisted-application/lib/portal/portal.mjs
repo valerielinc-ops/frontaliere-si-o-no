@@ -2381,6 +2381,9 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...ours,
     ...nameWords(job.title),
     ...postingLocationSuffixWords(text, ours, postingLocationWords),
+    // A proven posting context can flatten a metadata label between the
+    // employer and its location (for example «Coop … Standort Rickenbach»).
+    ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...NOT_A_NAME,
     ...FORM_VOCABULARY,
   ]);
