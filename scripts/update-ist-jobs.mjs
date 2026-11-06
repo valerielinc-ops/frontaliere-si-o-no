@@ -180,9 +180,18 @@ const IST_SHARED_PORTAL_COMPANIES = new Set([
 ]);
 const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s+internazionale\s+(?:di|del)\s+ticino|école\s+internationale\s+du\s+tessin|internationale\s+schule\s+des\s+tessins)\b/i;
 const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s+ticino\s+(?:\([^)]*\)\s+)?(?:is\s+(?:seeking|looking\s+for|recruiting|hiring))\b|\bscuola\s+internazionale\s+(?:di|del)\s+ticino\s+(?:cerca|sta\s+cercando)\b|\bécole\s+internationale\s+du\s+tessin\s+(?:recherche|cherche)\b|\binternationale\s+schule\s+des\s+tessins\s+sucht\b)/i;
+const INSPIRED_ROLE_SUMMARY_SCHOOL_RE = /\brole\s+summary\s*:\s*(.{2,160}?\bschool)\b(?=\s*(?:,|\bin\b|\bis\b|\bseeks?\b))/i;
+const INSPIRED_GENERIC_SCHOOL_IDENTITIES = new Set([
+  'inspired education school',
+  'inspired education group school',
+  'an inspired education school',
+  'an inspired education group school',
+  'the inspired education group school',
+]);
 const IST_GENERIC_SWISS_LOCATION_RE = /^(?:lugano|cadempino),\s*ch$/i;
 const IST_GENERIC_GROUP_ROLE_RE = /\binspired\s+education\s+group\s+school\b/i;
 const IST_GENERIC_IB_SCHOOL_RE = /\bib\s+world\s+school\b/i;
+const IST_GENERIC_ROLE_SUMMARY_SCHOOL_RE = /\brole\s+summary\s*:\s*(?:(?:(?:this|that)\s+is|our)\s+)?(?:an?\s+)?inspired\s+education(?:\s+group)?\s+school\b/i;
 const IST_CAMPUS_IDENTITY_FIELDS = [
   'tenant',
   'tenantName',
@@ -224,29 +233,49 @@ function hasVerifiedIstRoleTenantSignal(detail = {}) {
   return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
 }
 
+function readInspiredRoleSummarySchoolIdentity(detail = {}) {
+  const match = normalizeSpace(detail.description).match(INSPIRED_ROLE_SUMMARY_SCHOOL_RE);
+  const identity = normalizeSpace(match?.[1]);
+  if (!identity || INSPIRED_GENERIC_SCHOOL_IDENTITIES.has(normalize(identity))) return '';
+  if (/^(?:(?:(?:this|that)\s+is|our)\s+)?(?:an?\s+)?inspired\s+education(?:\s+group)?\s+school$/i.test(identity)) return '';
+
+  const properNameTokens = identity.split(/\s+/).filter((token) => (
+    /^[A-ZÀ-ÖØ-Þ][\p{L}\p{M}'’.-]*$/u.test(token)
+  ));
+  return properNameTokens.length >= 2 ? identity : '';
+}
+
+function hasVerifiedConflictingRoleSummarySchool(detail = {}) {
+  const identity = readInspiredRoleSummarySchoolIdentity(detail);
+  return Boolean(identity && !IST_DETAIL_TENANT_RE.test(identity));
+}
+
 function hasConflictingCampusIdentity(detail = {}) {
-  return IST_CAMPUS_IDENTITY_FIELDS
+  const hasStructuredConflict = IST_CAMPUS_IDENTITY_FIELDS
     .map((field) => normalize(detail[field]))
     .filter(Boolean)
     .some((value) => (
       !IST_SHARED_PORTAL_COMPANIES.has(value)
       && !IST_DETAIL_TENANT_RE.test(value)
     ));
+  return hasStructuredConflict || hasVerifiedConflictingRoleSummarySchool(detail);
 }
 
 /**
  * The current portal has one Swiss vacancy whose native detail omits both
  * `facility` and `tenant`: it exposes only the shared organization, the
  * native `Lugano, CH` location, and a role body explicitly scoped to an
- * Inspired IB World School. Keep this fallback narrower than a city allowlist
+ * Inspired school. Keep this fallback narrower than a city allowlist
  * so a generic Swiss row without the source's role-context proof remains
  * incomplete and cannot certify an empty IST source.
  */
 function hasVerifiedGenericSwissIstSignal(detail = {}, sourceUrl = detail.sourceUrl) {
   if (hasConflictingCampusIdentity(detail)) return false;
   if (!IST_GENERIC_SWISS_LOCATION_RE.test(normalizeSpace(detail.location))) return false;
-  if (!IST_GENERIC_GROUP_ROLE_RE.test(normalizeSpace(detail.description))) return false;
-  if (!IST_GENERIC_IB_SCHOOL_RE.test(normalizeSpace(detail.description))) return false;
+  const description = normalizeSpace(detail.description);
+  if (!IST_GENERIC_GROUP_ROLE_RE.test(description)) return false;
+  if (!IST_GENERIC_IB_SCHOOL_RE.test(description)
+    && !IST_GENERIC_ROLE_SUMMARY_SCHOOL_RE.test(description)) return false;
 
   try {
     const parsed = new URL(String(sourceUrl || ''));
@@ -1167,6 +1196,7 @@ export function hasCompleteIstDetailEvidence(detail = {}, sourceUrl = detail.sou
   // that a page was classifiable.
   if (!resolvedCanton || !locationFieldHasSwissSignal(location)) return false;
   if (hasIstTenantEvidence) return true;
+  if (hasVerifiedConflictingRoleSummarySchool(detail)) return true;
 
   // `Inspired Education` is the shared portal owner, not a tenant identity.
   // Any other populated identity field is enough to prove that a Swiss row

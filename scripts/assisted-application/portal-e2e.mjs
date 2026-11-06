@@ -56,6 +56,14 @@ const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' 
 });
 // Synthetic-portal diagnostics only: never serialize values, credentials or
 // arbitrary evidence when a checked lifecycle stops before its expected phase.
+const safeLocation = (value) => {
+  try {
+    const url = new URL(value);
+    return { host: url.hostname, path: url.pathname };
+  } catch {
+    return null;
+  }
+};
 const stopContext = ({ event = {}, evidence = {} }) => ({
   type: event.type, reason: event.reason, error: event.error, stage: event.stage,
   ...(evidence.finalFormGuardFailure ? { finalFormGuardFailure: evidence.finalFormGuardFailure } : {}),
@@ -71,8 +79,10 @@ const stopContext = ({ event = {}, evidence = {} }) => ({
   questions: (Array.isArray(event.questions) ? event.questions : []).map(question =>
     typeof question === 'string' ? question : question.question || question.label || question.fieldId || question.id),
   steps: (evidence.steps || []).slice(-2).map(step => ({
-    step: step.step, fields: step.fields, requiredFieldsUnfilled: step.requiredFieldsUnfilled,
+    step: step.step, ...(step.url ? { location: safeLocation(step.url) } : {}),
+    fields: step.fields, requiredFieldsUnfilled: step.requiredFieldsUnfilled,
     failures: (step.failures || []).length,
+    failureErrors: (step.failures || []).map((failure) => failure?.error).filter((error) => /^[a-z_]{1,80}$/.test(String(error || ''))).slice(0, 5),
     actionDocuments: (step.actions || []).map(action => action.document).filter(Boolean),
     ...(step.auth ? { auth: { kind: step.auth.kind, outcome: step.auth.outcome, privacy: step.auth.privacy } } : {}),
   })),
@@ -467,13 +477,13 @@ function fakePortal() {
       return redirect(receiptQuery('/rhb-offer'));
     }
     if (route === 'GET /rhb-offer') return send(page('Pflegefachperson', '<p role="status">Ihre persönlichen Angaben wurden gespeichert. Ihre Bewerbung auf das Stellenangebot TEST-42 – Pflegefachperson (80%) wurde erfolgreich gesendet.</p><h1>Pflegefachperson 80%</h1><a href="/rhb-form">Auf diese Stelle bewerben</a>'));
-    if (route === 'GET /job') return send(page('Pflegefachperson', '<section class="job-detail"><h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a></section>'));
+    if (route === 'GET /job') return send(page('Pflegefachperson', '<section class="job-detail" data-job-id="fixture-80"><h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a></section>'));
     // jobs.coopjobs.ch as seen on 2026-10-02: «Später bewerben» (a bookmark by
     // e-mail) comes first, a Usercentrics banner in a shadow root covers the
     // page, «Jetzt bewerben» opens the ATS redirect in a new tab.
     if (route === 'GET /coop-job') {
       return send(page('Coop: Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)', `<header><a role="button" tabindex="0" href="/coop-later">Später bewerben</a></header>
-        <section class="job-detail">
+        <section class="job-detail" data-job-id="coop-baecker">
         <h1>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h1><p>Coop Genossenschaft</p><p>Standort Rickenbach</p>
         <a class="main-btn apply" target="_blank" href="/ohws/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/">Jetzt bewerben</a>
         </section>
@@ -600,7 +610,7 @@ function fakePortal() {
     if (route === 'GET /wd/job') {
       return send(page(
         'Verkaufsberater/in | Acme Retail Switzerland',
-        '<section class="job-detail"><p>Acme Careers</p><h1>Verkaufsberater/in</h1><p>Acme Retail Switzerland</p><a href="/wd/apply">Apply</a></section>',
+        '<section class="job-detail" data-job-id="wd-verkaeufer"><p>Acme Careers</p><h1>Verkaufsberater/in</h1><p>Acme Retail Switzerland</p><a href="/wd/apply">Apply</a></section>',
       ));
     }
     if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage());
@@ -843,7 +853,7 @@ function fakePortal() {
     }
     // A form with a custom calendar the filler cannot read (JOIN's "Quando sei
     // nato?"): the send button stays disabled until a day is chosen.
-    if (route === 'GET /widget-job') return send(page('Pflegefachperson', '<section class="job-detail"><h1>Pflegefachperson 60%</h1><a href="/widget">Jetzt bewerben</a></section>'));
+    if (route === 'GET /widget-job') return send(page('Pflegefachperson', '<section class="job-detail" data-job-id="fixture-60"><h1>Pflegefachperson 60%</h1><a href="/widget">Jetzt bewerben</a></section>'));
     if (route === 'GET /widget') {
       const days = ['11', '12'].map((day) => `<div role="button" tabindex="0" aria-label="Choose ${day} May 1990" data-d="1990-05-${day}">${day}</div>`).join('');
       return send(page('Bewerbung', `${form('/widget', `<label for="v">Vorname *</label><input id="v" name="first" required><label for="m">E-Mail *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><h2>Geburtsdatum *</h2><input type="hidden" id="dob" name="dob"><div role="group" aria-label="Mai 1990">${days}</div><button type="submit" id="send" disabled>Bewerbung absenden</button>`, true)}
@@ -913,13 +923,17 @@ function fakePortal() {
     }
     // A hotel's own career page: «Apply» opens umantis, on another host, in a new tab.
     if (route === 'GET /hotel-job') {
-      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<section class="job-detail"><h1>Concierge Host (m/w/d)</h1>
+      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<section class="job-detail" data-job-id="hotel-concierge"><h1>Concierge Host (m/w/d)</h1>
         <p>Grand Hotel Esempio</p><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a></section>
         <p>Pontresina</p><button type="button">ACCEPT COOKIES</button>`));
     }
+    if (route === 'GET /hotel-job-other-role') {
+      return send(page('Chef de Rang | Grand Hotel Esempio', `<section class="job-detail" data-job-id="hotel-chef-de-rang"><h1>Chef de Rang</h1>
+        <p>Grand Hotel Esempio</p><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a></section>`));
+    }
     if (route === `GET ${UMANTIS_FORM}`) return send(umantisForm());
     if (route === 'GET /hotel-job-closed') {
-      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<section class="job-detail"><h1>Concierge Host (m/w/d)</h1>
+      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<section class="job-detail" data-job-id="hotel-concierge-closed"><h1>Concierge Host (m/w/d)</h1>
         <p>Grand Hotel Esempio</p><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_CLOSED_FORM}">Apply</a></section>
         <p>Pontresina</p>`));
     }
@@ -1088,7 +1102,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   const run = (order = job, candidate = portalTestCandidate({ permitAnswer: 'Yes' })) => {
     const applyUrl = bindReceiptJobId(`${base}/wd/job`);
     return submitViaPortal({
-      applyUrl, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
+      applyUrl, postingUrl: applyUrl, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
       launch: () => launchChromium({
         headless: true,
         executablePath,
@@ -1329,10 +1343,12 @@ async function main() {
     const fixtureJob = fixturePath === '/job' ? { title: 'Pflegefachperson 80%' }
       : fixturePath === '/widget-job' ? { title: 'Pflegefachperson 60%' }
         : undefined;
+    const postingUrl = extra.postingUrl || (['/job', '/widget-job', '/coop-job', '/wd/job', '/hotel-job', '/hotel-job-closed'].includes(fixturePath) ? applyUrl : '');
     return submitViaPortal({
       language: 'de',
       candidateLocale: 'it',
       ...(fixtureJob ? { job: fixtureJob } : {}),
+      ...(postingUrl ? { postingUrl } : {}),
       candidate: portalTestCandidate(),
       files,
       codex: fakeCodex,
@@ -1395,7 +1411,7 @@ async function main() {
       async discard(host) { hotelSaved.delete(host); },
       async waitForVerification() { return null; },
     };
-    const hotelJob = { company: 'Grand Hotel Esempio', title: 'Concierge Host (m/w/d)' };
+    const hotelJob = { company: 'Grand Hotel Esempio', title: 'Concierge Host (m/w/d)', location: 'Pontresina' };
     const hotelHost = new URL(umantisOrigin(server)).hostname;
     const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
     check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
@@ -1415,9 +1431,9 @@ async function main() {
     { ...stopContext(hotel), accountCreated: hotelSaved.get(hotelHost)?.status === 'created', accountPasswordPresent: Boolean(hotelPassword) });
     check('the password is in no evidence, and no password field ever reached the planner', Boolean(hotelPassword)
       && !JSON.stringify(hotel.evidence).includes(hotelPassword) && !plannerSawPassword);
-    const otherRole = await run({ applyUrl: `${base}/hotel-job`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
+    const otherRole = await run({ applyUrl: `${base}/hotel-job-other-role`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
     check('umantis: the form of another role of the same employer is never filled', otherRole.event.type === 'submit_handoff'
-      && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1);
+      && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1, stopContext(otherRole));
     // Review of #11033: a password and «Submit final application» in sight, the CV field in a section still closed.
     const closedSections = await run({ applyUrl: `${base}/hotel-job-closed`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
     const closedAuth = closedSections.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
@@ -1435,8 +1451,8 @@ async function main() {
       async discard(host) { coopSaved.delete(host); },
       async waitForVerification() { return null; },
     };
-    const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
-    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
+    const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)', location: 'Rickenbach' };
+    const coopCandidate = { identity: { email: ALIAS, firstName: 'Luca', lastName: 'Bianchi', phone: '+41 79 000 00 00' }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
     const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
     check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
       && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0,

@@ -2,7 +2,7 @@
 
 ## Contratto corrente — bucket giornaliero
 
-La forma canonica è:
+Forma canonica:
 
 ```text
 follow-up(daily:YYYY-MM-DD): N item — owner/repo
@@ -136,7 +136,7 @@ Token già vero non conferma: `FU_ITEM_BORN_SATISFIED`→non `done`, bucket `bor
 
 ## Dedup
 
-Tre livelli:
+Livelli:
 - **PR-level**: commento `## Post-merge follow-up triage` → salta PR (idempotenza).
 - **Bucket-level**: `(daily key, target repository)` riusa `follow-up(daily:<key>)`; item nuovi a `collecting`.
 - **Item-level**: fingerprint `target repository + target file + token/azione normalizzata`; match→`Sources`, non duplicare.
@@ -221,7 +221,7 @@ Created/updated: daily bucket #<id-sito> `follow-up(daily:<YYYY-MM-DD>)` (sito) 
 
 Zero item/live-verify → `## Post-merge follow-up triage: zero outstanding items.`; solo live→`Created: 0 issue (solo live-verification batchata)`.
 
-Tutti `Dropped`/`Skipped` da QUESTA PR → `Created/updated: 0 item.` con **0**; senza cifra è rosso (35904571443, 35933207218).
+Tutti `Dropped`/`Skipped` da QUESTA PR → `Created/updated: 0 item.` con **0**; senza cifra è rosso.
 
 ## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-agente)
 

@@ -45,7 +45,7 @@ import {
 } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel, phoneDialCode } from '../../../../functions/src/lib/phoneNormalization.js';
 export { BIRTH_FIELD_RE };
 
 const LIST = (items) => ({ type: 'array', items });
@@ -1623,6 +1623,17 @@ function isInferredProfileLanguageAnswer(candidate, field, answer) {
     && comparableAnswer(inferred.value) === comparableAnswer(answer));
 }
 
+const PHONE_DIAL_CODE_SEARCH_RE = /(?:country\s+(?:phone|calling)\s+code|phone\s+country\s+code|phone\s+prefix|calling\s+code|landesvorwahl|telefonvorwahl|vorwahl|prefisso\s+(?:telefonico|telefono)|indicatif\s+telephonique|code\s+(?:pays|country)\s+(?:telephone|phone))/i;
+
+function isPhoneDialCodeSearchField(field) {
+  const label = String(field?.label || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return Boolean(field?.search && PHONE_DIAL_CODE_SEARCH_RE.test(label));
+}
+
 function phoneCountryOption(candidate, field) {
   const phone = formatInternationalPhone(candidate?.identity?.phone);
   const code = phoneCountryCode(phone);
@@ -1631,6 +1642,14 @@ function phoneCountryOption(candidate, field) {
   const selected = options
     .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
     .find((label) => countryCodeOfLabel(label) === code) || '';
+  // Search controls (Workday's «Country Phone Code») expect a dial-code query
+  // such as «+41», then expose their own localized option label. A candidate
+  // locale label like «Svizzera» is not a safe query on an English portal.
+  if (!options.length && field?.search) {
+    if (!isPhoneDialCodeSearchField(field)) return '';
+    const dial = phoneDialCode(phone);
+    return dial ? `+${dial}` : '';
+  }
   return selected || (!options.length ? phoneCountryLabel(phone) : '');
 }
 

@@ -251,6 +251,11 @@ cmd_run() {
   ref=${SR_REF:-origin/main} # SR_REF: another commit, only to try a branch by hand
   sha=$(g rev-parse --verify -q "$ref^{commit}") || { log "$ref unknown in $site: nothing run"; return 0; }
   runner=$(snapshot "$sha") || { log "snapshot of ${sha:0:8} failed: nothing run"; alarm_issue; trim_log; return 0; }
+  # A snapshot can advance while the checkout's shared node_modules remains on
+  # an older package-lock. Normal package resolution still wins; NODE_PATH only
+  # supplies narrow native shims for dependencies missing from that stale tree.
+  NODE_PATH="$runner/scripts/social-robot/runtime-shims${NODE_PATH:+:$NODE_PATH}"
+  export NODE_PATH
   load_rc_environment "$runner"
   mode=${SOCIAL_ROBOT_MODE:-}
   log "run ${sha:0:8} SOCIAL_ROBOT_MODE=${mode:-<absent>}"

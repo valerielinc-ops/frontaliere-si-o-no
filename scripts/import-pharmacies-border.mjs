@@ -23,6 +23,7 @@ import { fileURLToPath } from 'node:url';
 import { PHARMACY_TIME_ZONE } from '../services/pharmacies/time.mjs';
 import { validatePharmacyReleaseContract } from '../services/pharmacies/release-contract-validator.mjs';
 import {
+  httpFetchAndReadWithRetry,
   httpFetchWithRetry,
   isConnectionLevelFetchError,
   isRetryBudgetExhausted,
@@ -88,6 +89,8 @@ const USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot
 const DAY_MS = 24 * 60 * 60 * 1000;
 const CATALOGUE_MAX_AGE_MS = 35 * DAY_MS;
 const DUTIES_MAX_AGE_MS = 2 * DAY_MS;
+const TICINO_PDF_RANGE_CHUNK_BYTES = 64 * 1024;
+const TICINO_PDF_MAX_BYTES = 10 * 1024 * 1024;
 
 export { BORDER_MINIMUMS, pharmacySnapshotSha256, verifyPharmacyReleaseContract };
 
@@ -333,12 +336,97 @@ async function fetchBuffer(url) {
   return Buffer.from(await response.arrayBuffer());
 }
 
+function isDatedTicinoPdfUrl(url) {
+  try {
+    return /[_-]\d{8}\.pdf$/i.test(new URL(url).pathname);
+  } catch {
+    return false;
+  }
+}
+
+function parseContentRange(value) {
+  const match = /^bytes (\d+)-(\d+)\/(\d+)$/.exec(String(value || ''));
+  if (!match) return null;
+  return { start: Number(match[1]), end: Number(match[2]), total: Number(match[3]) };
+}
+
+/**
+ * Download a dated official Ticino PDF in bounded ranges when a runner cannot
+ * complete a normal GET to the canton host. `If-Range` binds every chunk to
+ * the same representation; an object changed mid-download is rejected rather
+ * than producing a mixed catalogue.
+ */
+export async function fetchTicinoPdfByRanges(
+  url,
+  fetchImpl = globalThis.fetch,
+  { chunkBytes = TICINO_PDF_RANGE_CHUNK_BYTES, maxBytes = TICINO_PDF_MAX_BYTES } = {},
+) {
+  if (!isDatedTicinoPdfUrl(url)) throw new Error(`Range fallback requires a dated Ticino PDF URL: ${url}`);
+  if (!Number.isInteger(chunkBytes) || chunkBytes <= 0) throw new Error('Range chunk size must be a positive integer');
+  if (!Number.isInteger(maxBytes) || maxBytes <= 0) throw new Error('Range maximum size must be a positive integer');
+
+  const readRange = async (start, end, validator = null) => httpFetchAndReadWithRetry(url, {
+    headers: {
+      'User-Agent': USER_AGENT,
+      Accept: 'application/pdf,*/*',
+      Range: `bytes=${start}-${end}`,
+      ...(validator ? { 'If-Range': validator } : {}),
+    },
+    redirect: 'follow',
+  }, {
+    timeout: 30_000,
+    label: 'Ticino pharmacy PDF range',
+    fetchImpl,
+    readResponse: async (response) => ({
+      status: response.status,
+      contentRange: response.headers.get('content-range'),
+      validator: response.headers.get('etag') || response.headers.get('last-modified'),
+      buffer: Buffer.from(await response.arrayBuffer()),
+    }),
+  });
+
+  const first = await readRange(0, chunkBytes - 1);
+  const firstRange = parseContentRange(first.contentRange);
+  if (first.status !== 206 || !firstRange || firstRange.start !== 0
+    || firstRange.end + 1 !== first.buffer.length || firstRange.total < first.buffer.length) {
+    throw new Error(`Ticino PDF range response is invalid: ${first.status} ${first.contentRange || '<missing>'}`);
+  }
+  if (!first.validator) throw new Error('Ticino PDF range response has no ETag or Last-Modified validator');
+  if (firstRange.total > maxBytes) throw new Error(`Ticino PDF exceeds the ${maxBytes}-byte range fallback cap`);
+
+  const chunks = [first.buffer];
+  for (let start = firstRange.end + 1; start < firstRange.total; start += chunkBytes) {
+    const end = Math.min(firstRange.total - 1, start + chunkBytes - 1);
+    const chunk = await readRange(start, end, first.validator);
+    const range = parseContentRange(chunk.contentRange);
+    if (chunk.status !== 206 || !range || range.start !== start || range.end !== end
+      || range.total !== firstRange.total || chunk.buffer.length !== end - start + 1) {
+      throw new Error(`Ticino PDF range response is invalid: ${chunk.status} ${chunk.contentRange || '<missing>'}`);
+    }
+    if (chunk.validator !== first.validator) {
+      throw new Error('Ticino PDF changed while the ranged fallback was downloading it');
+    }
+    chunks.push(chunk.buffer);
+  }
+
+  const buffer = Buffer.concat(chunks);
+  if (buffer.length !== firstRange.total || !buffer.subarray(0, 4).equals(Buffer.from('%PDF'))
+    || !buffer.subarray(-1024).includes(Buffer.from('%%EOF'))) {
+    throw new Error('Ticino PDF ranged fallback did not produce a complete PDF document');
+  }
+  return buffer;
+}
+
 /**
  * Fetch the official Ticino catalogue through the canonical host first, then
  * retry the same published PDF through the canton mirror when the primary
  * transport budget is exhausted. Persistent HTTP errors still fail closed.
  */
-export async function fetchTicinoPdfDocument(fetchSource = fetchBuffer, fetchDirectory = fetchText) {
+export async function fetchTicinoPdfDocument(
+  fetchSource = fetchBuffer,
+  fetchDirectory = fetchText,
+  fetchRangeSource = fetchSource === fetchBuffer ? fetchTicinoPdfByRanges : null,
+) {
   const failures = [];
   let lastError;
   for (const [index, sourceUrl] of TICINO_PHARMACY_PDF_URLS.entries()) {
@@ -352,6 +440,22 @@ export async function fetchTicinoPdfDocument(fetchSource = fetchBuffer, fetchDir
         || isConnectionLevelFetchError(error);
       failures.push({ sourceUrl, error, canTryAnotherOfficialSource });
       if (!canTryAnotherOfficialSource) throw error;
+      if (fetchRangeSource && isDatedTicinoPdfUrl(sourceUrl)) {
+        try {
+          const buffer = await fetchRangeSource(sourceUrl);
+          console.warn(`[import-pharmacies-border] ${sourceUrl} recovered through bounded HTTP ranges`);
+          return { buffer, sourceUrl };
+        } catch (rangeError) {
+          const rangeCanTryAnotherOfficialSource = isRetryBudgetExhausted(rangeError)
+            || isConnectionLevelFetchError(rangeError);
+          failures.push({
+            sourceUrl,
+            error: rangeError,
+            canTryAnotherOfficialSource: rangeCanTryAnotherOfficialSource,
+            transport: 'range',
+          });
+        }
+      }
       if (index === TICINO_PHARMACY_PDF_URLS.length - 1) break;
       const reason = isLegacyPdfMissing
         ? 'is no longer published'
@@ -410,8 +514,9 @@ function aggregateTicinoSourceFailure(failures, lastError = failures.at(-1)?.err
     .map(({ sourceUrl, error }) => `${sourceUrl}: ${transportErrorKind(error)}`)
     .join('; ');
   const aggregate = new Error(`All official Ticino pharmacy sources failed: ${summary}`, { cause: lastError });
-  aggregate.sourceFailures = failures.map(({ sourceUrl, error, canTryAnotherOfficialSource }) => ({
+  aggregate.sourceFailures = failures.map(({ sourceUrl, error, canTryAnotherOfficialSource, transport = 'get' }) => ({
     sourceUrl,
+    transport,
     kind: transportErrorKind(error),
     message: error instanceof Error ? error.message : String(error),
     canTryAnotherSource: canTryAnotherOfficialSource,

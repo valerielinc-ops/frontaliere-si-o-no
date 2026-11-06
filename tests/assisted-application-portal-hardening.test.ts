@@ -1177,6 +1177,12 @@ describe('portal: one employer under two names', () => {
     // words the employer's («Rituals Retail» stays someone else when the data says «Lush Retail GmbH»).
     expect(namesAnotherEmployer(`${form}\nRituals Franchise Partner AG`, job)).toBe(true);
     expect(namesAnotherEmployer(`${form}\nRituals Retail`, { ...job, organization: 'Lush Retail GmbH' })).toBe(true);
+    expect(namesAnotherEmployer('Zurich AG', {
+      company: 'Coop Genossenschaft', title: 'Bäckerin', location: 'Zurich',
+    })).toBe(true);
+    expect(namesAnotherEmployer('Coop Genossenschaft\nStandort Rickenbach', {
+      company: 'Coop Genossenschaft', title: 'Bäckerin', location: 'Rickenbach',
+    }, { allowPostingLocation: true })).toBe(false);
   });
 });
 
@@ -1206,6 +1212,24 @@ describe('portal: an application in progress from an earlier run', () => {
     expect(removalsOf(buttons, ['Anschreiben_Luca_Bianchi.pdf'])).toEqual([]);
     expect(removalsOf(buttons, [''])).toEqual([]);
     expect(removalsOf(undefined as any, ['CV_Luca_Bianchi.pdf'])).toEqual([]);
+  });
+});
+
+describe('phone-country search contracts', () => {
+  const candidate = candidateForForm({
+    identity: { phone: '+41 79 123 45 67' }, profile: {}, answers: {},
+  });
+
+  it('does not send a dial code to a generic searchable Country field', () => {
+    expect(candidateAnswerForField(candidate, {
+      label: 'Country', context: 'Phone', kind: 'text', inputType: 'text', search: true, options: [],
+    })).toBeNull();
+  });
+
+  it('uses a dial code only for an explicit phone-country-code search', () => {
+    expect(candidateAnswerForField(candidate, {
+      label: 'Country Phone Code', kind: 'text', inputType: 'text', search: true, options: [],
+    })).toEqual({ value: '+41', source: 'identity' });
   });
 });
 

@@ -22,7 +22,10 @@ import { resolveSourceBackedSwissGeography } from './prospector/location-evidenc
 import { classifyCountryValue } from './prospector/country-inventory.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
-import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import {
+  isKnownSwissMunicipality,
+  swissMunicipalityCantons,
+} from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -208,9 +211,9 @@ function detectEmploymentType(text = '') {
  * not a complete street/locality address. The shared extractor correctly
  * preserves the source evidence, but the generic geography guard interprets
  * a non-canton region as an explicit foreign signal and drops the row.
- * Promote the value only when it is a catalogue-backed Swiss municipality and
- * the country is Swiss or absent; foreign and unknown values stay untouched
- * and therefore remain fail-closed.
+ * Promote the value only when it is a catalogue-backed Swiss municipality or
+ * an official locality that belongs to exactly one canton, and the country is
+ * Swiss or absent; foreign, ambiguous and unknown values stay fail-closed.
  */
 export function extractAnkerSwissDetailFields(html = '', pageUrl = '', opts = {}) {
   const detail = extractDetailFields(html, pageUrl, opts);
@@ -229,18 +232,25 @@ export function extractAnkerSwissDetailFields(html = '', pageUrl = '', opts = {}
       || candidate?.streetAddress,
     );
     const countryIsSwissOrMissing = !country || classifyCountryValue(country) === 'CH';
+    const isKnownMunicipality = isKnownSwissMunicipality(region);
+    const officialLocalityCantons = isKnownMunicipality
+      ? []
+      : swissMunicipalityCantons(region, { includeOfficialLocalities: true });
+    const uniqueOfficialLocalityCanton = officialLocalityCantons.length === 1
+      ? officialLocalityCantons[0]
+      : '';
     if (
       !region
       || hasExplicitAddress
       || !countryIsSwissOrMissing
-      || !isKnownSwissMunicipality(region)
+      || (!isKnownMunicipality && !uniqueOfficialLocalityCanton)
     ) return candidate;
     promoted = true;
     return {
       ...candidate,
       location: candidate.location || region,
       addressLocality: region,
-      addressRegion: '',
+      addressRegion: uniqueOfficialLocalityCanton,
       addressCountry: 'CH',
       country: 'CH',
     };
