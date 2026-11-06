@@ -2087,7 +2087,6 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       }
       const directApplicationUrl = verifiedDirectApplicationUrl(stageContext, page.url());
       if (directApplicationUrl) {
-        enteredThroughApplicationEntry = true;
         await page.goto(directApplicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await settle(page);
         await page.waitForTimeout(1200);
