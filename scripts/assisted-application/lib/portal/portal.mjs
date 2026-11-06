@@ -2478,6 +2478,10 @@ const FILLER_WORDS = new Set([
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
 // What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
 const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
+// `one` is neutral only as the second token of the UI placeholder «Select one».
+// Keep it significant elsewhere because it can be part of an employer name («Coop One»).
+const isSelectOneLabelToken = (words, index) => (words[index] === 'select' && words[index + 1] === 'one')
+  || (words[index] === 'one' && words[index - 1] === 'select');
 
 /**
  * The form names an employer that is not the order's (reviews of #11033).
@@ -2550,7 +2554,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...FORM_VOCABULARY,
   ]);
   const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
-  if (title.some((word) => !filler(word) && !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word))) return true;
+  if (title.some((word, index) => !filler(word) && !neutral.has(word)
+    && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   for (const phrase of text.split(PHRASE_END_RE)) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     for (const [index, word] of words.entries()) {
@@ -2562,7 +2567,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         let at = index + step;
         // A legal form is skipped like filler: «Rituals Cosmetics Germany GmbH» ends in no one's name.
         while (words[at] !== undefined && (filler(words[at]) || NOT_A_NAME.has(words[at]))) at += step;
-        if (words[at] !== undefined && !neutral.has(words[at]) && !labels?.has(words[at])) return true;
+        if (words[at] !== undefined && !neutral.has(words[at]) && !labels?.has(words[at])
+          && !isSelectOneLabelToken(words, at)) return true;
       }
     }
   }
