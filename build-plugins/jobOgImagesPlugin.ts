@@ -30,8 +30,8 @@ import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { JOB_OG_PHOTO_FILES, getJobOgPhotoKey } from './shared/jobOgImageCatalog.mjs';
-import { ITALIAN_EMPLOYMENT_LABELS } from './shared/italianEmploymentLabels.mjs';
 import { getItalianJobTitle } from './shared/italianJobTitle.mjs';
+import { JOB_EMPLOYMENT_LABELS_BY_LOCALE } from '../scripts/lib/job-employment-type.mjs';
 import {
   ARCHIVED_JOB_OG_IMAGE_VERSION,
   JOB_OG_IMAGE_VERSION,
@@ -244,7 +244,7 @@ function deriveSlug(job: JobMinimal): string | null {
   );
 }
 
-const EMPLOYMENT_LABEL_IT: Record<string, string> = ITALIAN_EMPLOYMENT_LABELS;
+const EMPLOYMENT_LABEL_IT: Record<string, string> = JOB_EMPLOYMENT_LABELS_BY_LOCALE.it;
 
 function truncateText(s: string, maxChars: number): string {
   if (!s) return '';

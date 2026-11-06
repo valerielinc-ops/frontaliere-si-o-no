@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { ITALIAN_EMPLOYMENT_LABELS } from '../../build-plugins/shared/italianEmploymentLabels.mjs';
+import { JOB_EMPLOYMENT_LABELS_BY_LOCALE } from '../../scripts/lib/job-employment-type.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SOURCE = fs.readFileSync(path.join(ROOT, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');
@@ -29,9 +29,9 @@ describe('active job social image metadata', () => {
   });
 
   it('renders the card with Italian employment labels', () => {
-    expect(CARD_SOURCE).toContain('const EMPLOYMENT_LABEL_IT: Record<string, string> = ITALIAN_EMPLOYMENT_LABELS');
-    expect(ITALIAN_EMPLOYMENT_LABELS.PART_TIME).toBe('Tempo parziale');
-    expect(ITALIAN_EMPLOYMENT_LABELS.INTERN).toBe('Tirocinio');
-    expect(Object.values(ITALIAN_EMPLOYMENT_LABELS)).not.toContain('Part-time');
+    expect(CARD_SOURCE).toContain('const EMPLOYMENT_LABEL_IT: Record<string, string> = JOB_EMPLOYMENT_LABELS_BY_LOCALE.it');
+    expect(JOB_EMPLOYMENT_LABELS_BY_LOCALE.it.PART_TIME).toBe('Tempo parziale');
+    expect(JOB_EMPLOYMENT_LABELS_BY_LOCALE.it.INTERN).toBe('Tirocinio');
+    expect(Object.values(JOB_EMPLOYMENT_LABELS_BY_LOCALE.it)).not.toContain('Part-time');
   });
 });
