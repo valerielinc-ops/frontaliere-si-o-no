@@ -20,6 +20,10 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import { ADMIN_SECTION_SLUGS } from '../components/admin/adminSections';
 import { buildAdminWorkflowSchedulePayload } from './adminWorkflowSchedules';
+import {
+ emptyExperimentalCandidateFeed as emptyExperimentalCandidateFeedProjection,
+ projectExperimentalCandidateFeed as projectExperimentalCandidateFeedProjection,
+} from '../scripts/lib/experimentalCandidateFeedProjection.mjs';
 import { projectPermanentEmployerFeed } from '../scripts/lib/permanentEmployerProjection.mjs';
 import { isDirectEmployerBuildEnabled } from '../services/directEmployerFeature';
 
@@ -61,18 +65,6 @@ export const EXPERIMENTAL_CANDIDATES_SOURCE_PATH = 'data/experimental-candidates
 export const EXPERIMENTAL_CANDIDATE_FEED_FILE_PATH = 'data/experimental-candidate-feed.json';
 export const EXPERIMENTAL_CANDIDATE_FEED_PATH = '/data/experimental-candidate-feed.json';
 const GENERATED_RUNTIME_DATA_FILES = [EXPERIMENTAL_CANDIDATE_FEED_FILE_PATH];
-const EXPERIMENTAL_CANDIDATE_KEYWORD_MAX_LENGTH = 180;
-const EXPERIMENTAL_CANDIDATE_ANGLE_MAX_LENGTH = 180;
-const EXPERIMENTAL_CANDIDATE_FEED_MAX_COUNT = 100;
-const EXPERIMENTAL_SOURCE_LABELS = new Map([
- ['redditTicino', 'reddit'],
- ['redditItaly', 'reddit'],
- ['redditLugano', 'reddit'],
- ['redditSwitzerland', 'reddit'],
- ['googleNewsRss', 'google-news-rss'],
-]);
-const EXPERIMENTAL_LOCALES = new Set(['it', 'en', 'de', 'fr']);
-
 type ExperimentalCandidateFeedItem = {
  id: string;
  keyword: string;
@@ -89,95 +81,13 @@ export type ExperimentalCandidateFeed = {
  candidates: ExperimentalCandidateFeedItem[];
 };
 
-function emptyExperimentalCandidateFeed(): ExperimentalCandidateFeed {
- return { schemaVersion: 1, generatedAt: null, candidates: [] };
-}
-
-function isRecord(value: unknown): value is Record<string, unknown> {
- return Boolean(value && typeof value === 'object' && !Array.isArray(value));
-}
-
-function boundedFeedText(value: unknown, maxLength: number): string | null {
- if (typeof value !== 'string') return null;
- const cleaned = value.replace(/[\u0000-\u001f\u007f]/gu, ' ').replace(/\s+/gu, ' ').trim();
- const bounded = Array.from(cleaned).slice(0, maxLength).join('').trim();
- return bounded || null;
-}
-
-function normalizeRedditPermalink(value: unknown): string | null {
- if (typeof value !== 'string' || value.length > 2048) return null;
- try {
-  const rawAuthority = value.match(/^https:\/\/([^/?#]+)/iu)?.[1];
-  const url = new URL(value);
-  if (url.protocol !== 'https:' || url.hostname !== 'www.reddit.com'
-   || url.username || url.password || url.port
-   || rawAuthority?.toLowerCase() !== 'www.reddit.com') return null;
-  const match = url.pathname.match(/^\/r\/([a-z0-9_]+)\/comments\/([a-z0-9]+)(?:\/[^/]*)?\/?$/iu);
-  if (!match) return null;
-  // Preserve only the public post identity, not Reddit's title-derived slug.
-  return `https://www.reddit.com/r/${match[1]}/comments/${match[2]}/`;
- } catch {
-  return null;
- }
+export function emptyExperimentalCandidateFeed(): ExperimentalCandidateFeed {
+ return emptyExperimentalCandidateFeedProjection() as ExperimentalCandidateFeed;
 }
 
 /** Project the miner's private working file onto the versioned public feed. */
 export function projectExperimentalCandidateFeed(source: string | null | undefined): ExperimentalCandidateFeed {
- if (typeof source !== 'string') return emptyExperimentalCandidateFeed();
-
- let parsed: unknown;
- try {
-  parsed = JSON.parse(source);
- } catch {
-  return emptyExperimentalCandidateFeed();
- }
- if (!isRecord(parsed) || !Array.isArray(parsed.candidates) || typeof parsed.generatedAt !== 'string') {
-  return emptyExperimentalCandidateFeed();
- }
- const generatedAtMs = Date.parse(parsed.generatedAt);
- if (!Number.isFinite(generatedAtMs)) return emptyExperimentalCandidateFeed();
-
- const candidates: ExperimentalCandidateFeedItem[] = [];
- for (const candidate of parsed.candidates) {
-  if (!isRecord(candidate)
-   || typeof candidate.id !== 'string'
-   || !/^[a-f0-9]{8}$/iu.test(candidate.id)) continue;
-
-  const keyword = boundedFeedText(candidate.keyword, EXPERIMENTAL_CANDIDATE_KEYWORD_MAX_LENGTH);
-  const locale = typeof candidate.locale === 'string' ? candidate.locale.toLowerCase() : '';
-  const totalScore = candidate.totalScore;
-  const sources = Array.isArray(candidate.sources)
-   ? [...new Set(candidate.sources.flatMap((sourceLabel) => {
-    const normalized = typeof sourceLabel === 'string' ? EXPERIMENTAL_SOURCE_LABELS.get(sourceLabel) : undefined;
-    return normalized ? [normalized] : [];
-   }))]
-   : [];
-  if (!keyword || !EXPERIMENTAL_LOCALES.has(locale) || sources.length === 0
-   || typeof totalScore !== 'number' || !Number.isFinite(totalScore) || totalScore < 0 || totalScore > 1) continue;
-
-  const projected: ExperimentalCandidateFeedItem = {
-   id: candidate.id.toLowerCase(),
-   keyword,
-   angle: boundedFeedText(candidate.angle, EXPERIMENTAL_CANDIDATE_ANGLE_MAX_LENGTH),
-   locale,
-   sources,
-   totalScore,
-  };
-  const redditPermalink = isRecord(candidate.demandSignals)
-   ? normalizeRedditPermalink(candidate.demandSignals.redditUrl)
-   : null;
-  if (redditPermalink && sources.includes('reddit')) {
-   projected.redditPermalink = redditPermalink;
-  }
-  candidates.push(projected);
-  if (candidates.length >= EXPERIMENTAL_CANDIDATE_FEED_MAX_COUNT) break;
- }
-
- return {
-  schemaVersion: 1,
-  generatedAt: new Date(generatedAtMs).toISOString(),
-  candidates,
- };
+ return projectExperimentalCandidateFeedProjection(source) as ExperimentalCandidateFeed;
 }
 
 function buildExperimentalCandidateFeed(root: string): string {

@@ -204,6 +204,12 @@ import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 import { GCP_COST_MONITOR_CLOUD_SCHEDULE, dispatchGcpCostMonitorWorkflow } from './src/gcpCostMonitorDispatch.js';
 import { LOOP_CLOCK_CLOUD_SCHEDULE, dispatchLoopClock as runLoopClock } from './src/loopClockDispatch.js';
+import { handleGenerationSlotClaimRequest } from './src/generationSlotLedger.js';
+import {
+ allowGenerationClaimRequest,
+ GENERATION_SLOT_CLAIM_AUDIENCE,
+ verifyGithubActionsIdToken,
+} from './src/githubActionsOidc.js';
 
 ensureAdminApp();
 
@@ -3729,11 +3735,41 @@ export const dispatchGcpCostMonitor = onSchedule(
 );
 
 // GitHub's scheduled-dispatch queue is best-effort (4-5 ticks/day on these
-// accounts). Cloud Scheduler owns one five-minute clock for the idempotent
-// loop table; every native workflow cron remains in place as an independent
-// safety net. The dispatcher has no Firestore claim and no Scheduler retry:
-// duplicated workflow_dispatch runs are safe by construction, while a failed
-// entry is reported after the other due entries have been attempted.
+// accounts). Cloud Scheduler owns one five-minute clock for the loop table.
+// Most entries remain duplicate-safe dispatches; generator recovery slots use
+// a Firestore claim shared with the corpus workflow's admission endpoint.
+export const claimGenerationSlot = onRequest(
+ {
+  region: 'europe-west6',
+  timeoutSeconds: 10,
+  maxInstances: 2,
+  concurrency: 2,
+ },
+ async (req, res) => {
+  try {
+   if (req.method !== 'POST') {
+    res.status(405).json({ ok: false, reason: 'method_not_allowed' });
+    return;
+   }
+   if (!allowGenerationClaimRequest(req)) {
+    res.status(429).json({ ok: false, reason: 'rate_limited' });
+    return;
+   }
+   const authorization = typeof req.get === 'function' ? req.get('authorization') : req.headers?.authorization;
+   const token = typeof authorization === 'string' ? authorization.match(/^Bearer (.+)$/u)?.[1] : null;
+   const claims = await verifyGithubActionsIdToken(token, { audience: GENERATION_SLOT_CLAIM_AUDIENCE });
+   if (!claims) {
+    res.status(401).json({ ok: false, reason: 'unauthorized' });
+    return;
+   }
+   const result = await handleGenerationSlotClaimRequest(req, getAdminDb(), { claims });
+   res.status(result.status).json(result.body);
+  } catch {
+   res.status(500).json({ ok: false, reason: 'claim_service_unavailable' });
+  }
+ },
+);
+
 export const dispatchLoopClock = onSchedule(
  {
   region: 'europe-west6',
@@ -3743,7 +3779,11 @@ export const dispatchLoopClock = onSchedule(
  },
  async (event) => {
   try {
-   const result = await runLoopClock({ scheduledAt: event.scheduleTime });
+   const result = await runLoopClock({
+    scheduledAt: event.scheduleTime,
+    getAdminDbImpl: getAdminDb,
+    includeGenerationSlots: true,
+   });
    console.log('[dispatchLoopClock]', JSON.stringify(result));
   } catch (error) {
    const message = error instanceof Error ? error.message : 'loop_clock_dispatch_failed';

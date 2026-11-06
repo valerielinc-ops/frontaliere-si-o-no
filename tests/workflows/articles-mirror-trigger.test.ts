@@ -232,7 +232,7 @@ describe('the article producer cannot fire on its own (#5289)', () => {
 
     // Cross-repo to the corpus: the post-cutover architecture (#5341), not the incident.
     expect(
-      dispatchesLocalProducer(`gh workflow run generate-article.yml --repo ${CORPUS_REPO} -f url=stats-bfs://2026-Q2`),
+      dispatchesLocalProducer(`gh workflow run generate-article.yml --repo ${CORPUS_REPO} -f dispatch_origin=editorial_signal -f url=stats-bfs://2026-Q2`),
     ).toBe(false);
     expect(
       dispatchesLocalProducer(`gh api -X POST repos/${CORPUS_REPO}/actions/workflows/generate-article.yml/dispatches`),

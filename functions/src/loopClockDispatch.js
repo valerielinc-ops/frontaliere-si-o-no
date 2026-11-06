@@ -1,6 +1,8 @@
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { dispatchGenerationSlot } from './generationSlotDispatch.js';
+import { dueGenerationSlotEntries } from './generationSlotSchedule.js';
 import {
   LOOP_CLOCK_CORPUS_REPOSITORY,
   LOOP_CLOCK_ENTRIES,
@@ -222,12 +224,15 @@ export async function dispatchLoopClock({
   fetchImpl = fetch,
   getRepoConfigImpl = getRepoConfig,
   getRemoteConfigValueImpl = getRemoteConfigValue,
+  getAdminDbImpl,
+  includeGenerationSlots = false,
   entries = LOOP_CLOCK_ENTRIES,
 } = {}) {
   const tick = validDate(scheduledAt);
   validateEntries(entries);
   const slot = loopClockSlot(tick);
   const due = dueLoopClockEntries(tick, entries);
+  if (includeGenerationSlots) due.push(...dueGenerationSlotEntries(tick));
   const warnings = [];
   const disabledRaw = await readRemoteConfig('LOOP_CLOCK_DISABLED', getRemoteConfigValueImpl, warnings);
   const disabled = parseLoopClockDisabled(disabledRaw);
@@ -267,6 +272,15 @@ export async function dispatchLoopClock({
         : corpusToken
           ? { pat: corpusToken, owner: CORPUS_OWNER, repo: CORPUS_REPO }
           : { failureReason: 'corpus_token_missing' };
+      if (entry.generationSlot !== undefined) {
+        return await dispatchGenerationSlot({
+          entry,
+          scheduledAt: tick,
+          context,
+          fetchImpl,
+          getAdminDbImpl,
+        });
+      }
       return await dispatchEntry({ entry, slot, context, fetchImpl, conditionLookup });
     } catch {
       return makeResult(entry, {
