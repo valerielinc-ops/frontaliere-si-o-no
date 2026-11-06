@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { buildBorderWaitTodayPath } from '../scripts/lib/borderWaitSections.mjs';
 
 const SOURCE = readFileSync(resolve(__dirname, '../scripts/pull-articles-corpus.mjs'), 'utf8');
 const PHARMACY_ARTICLE_IDS = [
@@ -18,6 +19,12 @@ const CANONICAL_TICINO_PATHS = {
   fr: '/fr/pharmacies/ticino/',
 } as const;
 const LEGACY_TICINO_PATHS = ['/de/apotheken/Tessin/', '/fr/pharmacies/Tessin/'] as const;
+const BORDER_WAIT_ARTICLE_BODIES = {
+  it: resolve(__dirname, '../packages/articles/content/blog-body/it/dosso-dogana-stabio-gaggiolo-traffico-frontalieri.ts'),
+  en: resolve(__dirname, '../packages/articles/content/blog-body/en/dosso-dogana-stabio-gaggiolo-traffico-frontalieri.ts'),
+  de: resolve(__dirname, '../packages/articles/content/blog-body/de/dosso-dogana-stabio-gaggiolo-traffico-frontalieri.ts'),
+  fr: resolve(__dirname, '../packages/articles/content/blog-body/fr/dosso-dogana-stabio-gaggiolo-traffico-frontalieri.ts'),
+};
 
 describe('article corpus sync site-owned contract', () => {
   it('rethrows unreadable snapshots while allowing only a missing first-sync file', () => {
@@ -45,6 +52,16 @@ describe('article corpus sync site-owned contract', () => {
           expect(source, label).not.toContain(legacyPath);
         }
       }
+    }
+  });
+
+  it('keeps the localized Gaggiolo article links on the canonical today routes', () => {
+    for (const [locale, path] of Object.entries(BORDER_WAIT_ARTICLE_BODIES)) {
+      const source = readFileSync(path, 'utf8');
+      const localLinks = [...source.matchAll(/\]\((\/[^)]+)\)/gu)].map((match) => match[1]);
+      const borderLinks = localLinks.filter((link) => link.includes('gaggiolo'));
+
+      expect(borderLinks, locale).toEqual([buildBorderWaitTodayPath(locale, 'gaggiolo')]);
     }
   });
 });
