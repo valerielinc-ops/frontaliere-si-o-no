@@ -123,6 +123,98 @@ describe('dedup: una gemella CHIUSA di recente viene RIAPERTA, non riaperta ex-n
     expect((res as any)?.reopened).toBe(true);
   });
 
+  it('ritenta una riapertura GraphQL transitoria prima di aprire una issue nuova', async () => {
+    let reopenAttempts = 0;
+    let state = 'CLOSED';
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        return args[3] === 'closed' ? JSON.stringify([twin()]) : '[]';
+      }
+      if (args[0] === 'issue' && args[1] === 'reopen') {
+        reopenAttempts += 1;
+        if (reopenAttempts === 1) {
+          throw Object.assign(new Error('Command failed'), {
+            stderr: 'GraphQL: Something went wrong while executing your query',
+          });
+        }
+        state = 'OPEN';
+        return '';
+      }
+      if (args[0] === 'issue' && args[1] === 'view' && args.includes('state')) {
+        return JSON.stringify({ state });
+      }
+      if (args[0] === 'issue' && args[1] === 'create') {
+        throw new Error('create must not be reached after a recovered reopen');
+      }
+      return '';
+    });
+
+    const warningSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const res = await createGithubIssue({ title: TITLE_NOW, description: 'misura', priority: 2 } as any);
+
+    expect(reopenAttempts).toBe(2);
+    expect(callsTo('create')).toHaveLength(0);
+    expect(res).toMatchObject({ number: 5039, reopened: true, persisted: true });
+    warningSpy.mockRestore();
+  });
+
+  it('riusa la issue se la risposta di create arriva dopo che GitHub l’ha già persistita', async () => {
+    let createdIssue: Twin | null = null;
+    let createAttempts = 0;
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        if (args[3] === 'closed') return '[]';
+        return createdIssue ? JSON.stringify([createdIssue]) : '[]';
+      }
+      if (args[0] === 'issue' && args[1] === 'create') {
+        createAttempts += 1;
+        createdIssue = {
+          number: 999,
+          title: TITLE_NOW,
+          url: 'https://github.com/o/r/issues/999',
+          closedAt: '',
+          state: 'OPEN',
+        };
+        throw Object.assign(new Error('Command failed'), {
+          stderr: 'GraphQL: Something went wrong while executing your query',
+        });
+      }
+      return '';
+    });
+
+    const warningSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const res = await createGithubIssue({ title: TITLE_NOW, description: 'misura', priority: 2 } as any);
+
+    expect(createAttempts).toBe(1);
+    expect(callsTo('create')).toHaveLength(1);
+    expect(res).toMatchObject({ number: 999, persisted: true });
+    warningSpy.mockRestore();
+  });
+
+  it('ritenta la creazione dopo un errore GraphQL transitorio', async () => {
+    let createAttempts = 0;
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') {
+        createAttempts += 1;
+        if (createAttempts === 1) {
+          throw Object.assign(new Error('Command failed'), {
+            stderr: 'GraphQL: Something went wrong while executing your query',
+          });
+        }
+        return 'https://github.com/o/r/issues/1000';
+      }
+      return '';
+    });
+
+    const warningSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const res = await createGithubIssue({ title: TITLE_NOW, description: 'misura', priority: 2 } as any);
+
+    expect(createAttempts).toBe(2);
+    expect(res).toMatchObject({ number: 1000, persisted: true });
+    warningSpy.mockRestore();
+  });
+
   it('riconcilia ricerca e listing sulle chiuse, con una pagina piu\' larga di 10', async () => {
     // A 244 issue/settimana aperte da monitor sui due repo, il costo per
     // tentativo e' load-bearing: la ricerca fra le chiuse non deve paginare.
