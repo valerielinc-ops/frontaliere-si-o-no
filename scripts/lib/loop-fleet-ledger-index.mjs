@@ -20,6 +20,10 @@ const MANIFEST_SCHEMA_VERSION = 1;
 const DIGEST_RE = /^sha256:[0-9a-f]{64}$/u;
 const GIT_OID_RE = /^[0-9a-f]{40,64}$/iu;
 const RECORD_TYPES = new Set(['observation', 'decision', 'health', 'lifecycle']);
+// The durable branch has already crossed Node's 1 MiB child-process default
+// for the tracked-path listing. Keep both bulk Git reads bounded, but above
+// the current ledger size, so growth still fails closed instead of truncating.
+const GIT_LEDGER_MAX_BUFFER = 64 * 1024 * 1024;
 
 function text(value) {
   return typeof value === 'string' && value.trim() ? value.trim() : null;
@@ -402,6 +406,7 @@ export function trackedLedgerFileOids(ledgerDir) {
       '-C', root, 'ls-files', '-z', '--full-name', '--', relativeLedgerDir || '.',
     ], {
       encoding: 'utf8',
+      maxBuffer: GIT_LEDGER_MAX_BUFFER,
       stdio: ['ignore', 'pipe', 'ignore'],
     });
     const result = new Map();
@@ -422,6 +427,7 @@ export function trackedLedgerFileOids(ledgerDir) {
       oidOutput = execFileSync('git', ['-C', root, 'hash-object', '--stdin-paths'], {
         encoding: 'utf8',
         input: `${trackedPaths.join('\n')}\n`,
+        maxBuffer: GIT_LEDGER_MAX_BUFFER,
         stdio: ['pipe', 'pipe', 'ignore'],
       });
     } catch {
