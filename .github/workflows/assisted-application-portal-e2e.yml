@@ -84,17 +84,19 @@ jobs:
           retention-days: 7
 
       - name: Install official NopeCHA extension
+        if: github.event_name != 'workflow_dispatch' || inputs.portal_focus == 'all'
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/assisted-application/install-nopecha.sh "${{ runner.temp }}/nopecha"
 
       - name: NopeCHA browser integration
+        if: github.event_name != 'workflow_dispatch' || inputs.portal_focus == 'all'
         env:
           NOPECHA_EXTENSION_PATH: ${{ runner.temp }}/nopecha/extension
         run: node scripts/assisted-application/nopecha-e2e.mjs
 
       - name: Verify the free Token API on GitHub Actions
-        if: inputs.probe_nopecha_free
+        if: inputs.probe_nopecha_free && (github.event_name != 'workflow_dispatch' || inputs.portal_focus == 'all')
         env:
           NOPECHA_EXTENSION_PATH: ${{ runner.temp }}/nopecha/extension
         run: node scripts/assisted-application/nopecha-e2e.mjs --probe-free

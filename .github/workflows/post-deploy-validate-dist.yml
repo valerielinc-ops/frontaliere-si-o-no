@@ -142,7 +142,7 @@ jobs:
           node-version: '22'
 
       - name: Create receipt workspace
-        run: mkdir -p ${{ runner.temp }}/publisher-fast-gate/{sitemaps,page-manifests,section-manifests}
+        run: mkdir -p ${{ runner.temp }}/publisher-fast-gate/{sitemaps,page-manifests,section-manifests,archive-evidence}
 
       - name: Download source sitemap bundle
         uses: actions/download-artifact@v8
@@ -158,6 +158,16 @@ jobs:
         with:
           pattern: sitemap-page-manifest-*
           path: ${{ runner.temp }}/publisher-fast-gate/page-manifests
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.deploy_run_id }}
+
+      - name: Download expired archive publication evidence
+        uses: actions/download-artifact@v8
+        with:
+          pattern: expired-archive-evidence-*-${{ inputs.deploy_run_id }}
+          path: ${{ runner.temp }}/publisher-fast-gate/archive-evidence
           merge-multiple: true
           github-token: ${{ github.token }}
           repository: ${{ github.repository }}
@@ -216,6 +226,7 @@ jobs:
             --sitemaps-dir "$RUNNER_TEMP/publisher-fast-gate/sitemaps" \
             --page-manifests-dir "$RUNNER_TEMP/publisher-fast-gate/page-manifests" \
             --section-manifests-dir "$RUNNER_TEMP/publisher-fast-gate/section-manifests" \
+            --archive-evidence-dir "$RUNNER_TEMP/publisher-fast-gate/archive-evidence" \
             --source-artifacts "$RUNNER_TEMP/publisher-fast-gate/source-artifacts.json" \
             --publisher-artifacts "$RUNNER_TEMP/publisher-fast-gate/publisher-artifacts.json" \
             --out "$REPORT_OUT"

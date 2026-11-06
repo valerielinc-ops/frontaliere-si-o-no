@@ -858,7 +858,13 @@ function attachListingTenantMarkers(spec, html, effectiveUrl, candidates) {
  * @returns {Promise<{ links: Array<{ url: string, text: string }>, candidates: any[], sourceFetchMetadata?: any }>}
  */
 async function extractListingCandidates(html, effectiveUrl, templateRx, spec, runtime = {}) {
-  const links = extractLinks(html, effectiveUrl);
+  // Cross-origin ATS links are source candidates only when the spec names the
+  // detail origin explicitly. `matchKnownTemplate()` and the URL policy below
+  // still enforce that allowlist before any detail page is fetched.
+  const links = extractLinks(html, effectiveUrl, {
+    sameOriginOnly: !Array.isArray(spec?.allowedDetailOrigins)
+      || spec.allowedDetailOrigins.length === 0,
+  });
   if (isFreeTextSpec(spec)) {
     // Free-text specs have no detail URL to follow. The shared extractor is
     // also used by SYNTHESIZE, and its homepage signal guard runs before the
@@ -883,7 +889,20 @@ async function extractListingCandidates(html, effectiveUrl, templateRx, spec, ru
       },
     };
   }
-  const { vacancies } = extractVacancies(html, effectiveUrl, links);
+  const listingOrigin = new URL(effectiveUrl).origin;
+  const allowedOrigins = new Set((spec?.allowedDetailOrigins || []).flatMap((rawOrigin) => {
+    try { return [new URL(rawOrigin).origin]; } catch { return []; }
+  }));
+  const vacancyLinks = links.filter((link) => {
+    try {
+      const url = new URL(link.url);
+      return url.origin === listingOrigin
+        || (templateRx && allowedOrigins.has(url.origin) && matchesDetailTemplate(link.url, templateRx));
+    } catch {
+      return false;
+    }
+  });
+  const { vacancies } = extractVacancies(html, effectiveUrl, vacancyLinks);
   const runtimeListingExtractor = typeof runtime.listingExtractor === 'function'
     ? runtime.listingExtractor
     : null;

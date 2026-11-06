@@ -39,6 +39,7 @@ import { fileURLToPath } from 'node:url';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
 import { SOCIAL_REDIRECT_ORIGIN, socialRedirectKey } from './lib/social-redirect-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { getItalianJobTitle } from '../build-plugins/shared/italianJobTitle.mjs';
 import { JOB_OG_IMAGE_VERSION } from '../build-plugins/shared/jobOgImageVersion.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -82,6 +83,10 @@ const MIN_LEAD_SECONDS = 600;
 
 // Hard FB limit on /feed `message` field. We aim much lower (~280 char).
 const FB_MESSAGE_HARD_LIMIT = 5000;
+const FACEBOOK_JOB_IMAGE_WIDTH = 1080;
+const FACEBOOK_JOB_IMAGE_HEIGHT = 1350;
+const FACEBOOK_JOB_IMAGE_MAX_BYTES = 12 * 1024 * 1024;
+const FACEBOOK_JOB_IMAGE_MAX_UPLOAD_BYTES = 8 * 1024 * 1024;
 
 // Posted-jobs ledger trim cap.
 const POSTED_TRIM_LIMIT = 1000;
@@ -212,10 +217,10 @@ export function pickNextSlots(volume, occupied, now) {
  *   #tag1 #tag2 ...
  */
 export function buildJobCaption(job, { socialCopy } = {}) {
-  // Prefer the Italian-translated title (the audience reads Italian, the
-  // landing page's og:title is also IT). Fall back to the raw `job.title`
-  // for jobs that haven't been translated yet.
-  const title = (job?.titleByLocale?.it || job?.title || '').trim();
+  // Never publish the source application title when its Italian translation
+  // is missing. The scheduler filters those offers before allocating slots.
+  const title = getItalianJobTitle(job);
+  if (!title) throw new Error('Facebook job posts require an Italian title');
   const company = (job?.hiringOrganization?.name || job?.company || '').trim();
   const city = (job?.jobLocation?.address?.addressLocality
     || job?.location
@@ -236,7 +241,9 @@ export function buildJobCaption(job, { socialCopy } = {}) {
   const headerMeta = chunks.join('  ');
 
   // Body
-  const rawBody = job?.descriptionByLocale?.it || job?.description || '';
+  // Keep source-language application descriptions out of Italian audience
+  // posts when the Italian localization is unavailable.
+  const rawBody = job?.descriptionByLocale?.it || '';
   const body = truncateBody(stripLeadingSectionLabel(stripHtml(rawBody)), 140);
 
   // Hashtags
@@ -286,7 +293,7 @@ export function buildJobHashtags(job) {
   const tags = [];
 
   // Role
-  const title = job?.title || '';
+  const title = getItalianJobTitle(job);
   for (const kw of ROLE_KEYWORDS) {
     const re = new RegExp(`\\b${kw}\\b`, 'i');
     if (re.test(title)) {
@@ -485,9 +492,9 @@ function savePosted(repoRoot, posted) {
 async function fetchScheduledPosts({ pageId, token, fetchImpl, log }) {
   // Meta limits each page to 100 rows. Recovery needs every accepted post,
   // including entries past the first page when a 144-post batch was queued.
-  // Attachments retain the tracked link needed to rebuild those ledger rows.
+  // Photo attachments hold Facebook media; the tracked URL remains in message.
   const endpoint = new URL(`${GRAPH_BASE}/${pageId}/scheduled_posts`);
-  endpoint.searchParams.set('fields', 'id,scheduled_publish_time,attachments');
+  endpoint.searchParams.set('fields', 'id,scheduled_publish_time,attachments,message');
   endpoint.searchParams.set('limit', '100');
   endpoint.searchParams.set('access_token', token);
   const expectedPath = endpoint.pathname;
@@ -556,8 +563,13 @@ function unwrapFacebookLink(value) {
 
 function scheduledFacebookJobLink(post) {
   const attachments = Array.isArray(post?.attachments?.data) ? post.attachments.data : [];
-  for (const attachment of attachments) {
-    const link = unwrapFacebookLink(attachment?.target?.url || attachment?.url);
+  const captionLinks = String(post?.message || '').match(/https?:\/\/[^\s<>"']+/giu) || [];
+  const linkCandidates = [
+    ...attachments.map((attachment) => attachment?.target?.url || attachment?.url),
+    ...captionLinks.map((candidate) => candidate.replace(/[),.;!?]+$/u, '')),
+  ];
+  for (const candidate of linkCandidates) {
+    const link = unwrapFacebookLink(candidate);
     if (!link || link.origin !== SOCIAL_REDIRECT_ORIGIN) continue;
     const routeMatch = /^\/social\/r\/([a-f0-9]{20})\/$/u.exec(link.pathname);
     if (!routeMatch || link.searchParams.size !== 5) continue;
@@ -674,26 +686,116 @@ export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}
       const data = await res.json();
       const image = data?.og_object?.image;
       const images = Array.isArray(image) ? image : image ? [image] : [];
-      const hasExpectedImage = !options.requiredImagePath || images.some((candidate) => {
-        const imageUrl = typeof candidate === 'string' ? candidate : candidate?.url;
-        if (!imageUrl) return false;
-        try {
-          const parsedImageUrl = new URL(imageUrl);
-          return parsedImageUrl.pathname === options.requiredImagePath
-            && (!options.requiredImageVersion || parsedImageUrl.searchParams.get('v') === options.requiredImageVersion);
-        } catch {
-          return false;
-        }
-      });
+      const matchingImageUrl = images
+        .map((candidate) => typeof candidate === 'string' ? candidate : candidate?.url)
+        .find((imageUrl) => {
+          if (!imageUrl) return false;
+          try {
+            const parsedImageUrl = new URL(imageUrl);
+            if (options.requiredImagePath && parsedImageUrl.pathname !== options.requiredImagePath) return false;
+            if (options.requiredImageVersion
+              && parsedImageUrl.searchParams.get('v') !== options.requiredImageVersion) return false;
+            if (options.requireTrustedImageHost
+              && !isTrustedFacebookJobImageUrl(imageUrl, options.requiredImagePath, options.requiredImageVersion)) return false;
+            return true;
+          } catch {
+            return false;
+          }
+        });
+      const hasExpectedImage = options.requiredImagePath ? Boolean(matchingImageUrl) : images.length > 0;
       const title = String(data?.og_object?.title || '');
       const isFallbackOffer = options.rejectFallbackTitle && fallbackTitlePattern.test(title);
-      if (images.length > 0 && hasExpectedImage && !isFallbackOffer) return true;
+      if (images.length > 0 && hasExpectedImage && !isFallbackOffer) {
+        return options.returnImageUrl ? matchingImageUrl : true;
+      }
     } catch {
       /* transient — retried by the loop, best-effort overall */
     }
   }
   warn('⚠️', `OG rescrape unverified for ${url}`);
   return false;
+}
+
+function isTrustedFacebookJobImageUrl(value, requiredImagePath, requiredImageVersion = JOB_OG_IMAGE_VERSION) {
+  try {
+    const imageUrl = new URL(value);
+    return imageUrl.protocol === 'https:'
+      && imageUrl.hostname === 'cdn.frontaliereticino.ch'
+      && imageUrl.pathname === requiredImagePath
+      && imageUrl.searchParams.get('v') === requiredImageVersion;
+  } catch {
+    return false;
+  }
+}
+
+function buildFacebookJobPhotoMessage(message, link) {
+  const linkLine = `🔗 Scopri l’offerta: ${link}`;
+  const availableBodyLength = Math.max(0, FB_MESSAGE_HARD_LIMIT - linkLine.length - 2);
+  const body = String(message || '').slice(0, availableBodyLength).trimEnd();
+  return body ? `${body}\n\n${linkLine}` : linkLine;
+}
+
+async function facebookJobImageAsJpeg(fetchImpl, imageUrl, requiredImagePath) {
+  if (!isTrustedFacebookJobImageUrl(imageUrl, requiredImagePath)) {
+    throw new Error('Facebook job image URL did not match the verified Italian offer image');
+  }
+  const response = await fetchImpl(imageUrl);
+  if (!response.ok) throw new Error(`job image fetch returned HTTP ${response.status}`);
+  const contentType = String(response.headers?.get?.('content-type') || '')
+    .split(';', 1)[0]
+    .trim()
+    .toLowerCase();
+  if (contentType && contentType !== 'image/webp') {
+    throw new Error(`job image has unsupported content type ${contentType}`);
+  }
+  const source = Buffer.from(await response.arrayBuffer());
+  if (source.length === 0 || source.length > FACEBOOK_JOB_IMAGE_MAX_BYTES) {
+    throw new Error(`job image size is invalid (${source.length} bytes)`);
+  }
+
+  const sharpModule = await import('sharp');
+  const sharp = sharpModule.default;
+  const metadata = await sharp(source, { failOn: 'error' }).metadata();
+  if (metadata.format !== 'webp'
+    || metadata.width !== FACEBOOK_JOB_IMAGE_WIDTH
+    || metadata.height !== FACEBOOK_JOB_IMAGE_HEIGHT) {
+    throw new Error('job image is not the expected 1080×1350 WebP card');
+  }
+  const jpeg = await sharp(source, { failOn: 'error' }).jpeg({ quality: 90 }).toBuffer();
+  if (jpeg.length === 0 || jpeg.length > FACEBOOK_JOB_IMAGE_MAX_UPLOAD_BYTES) {
+    throw new Error(`converted Facebook job image size is invalid (${jpeg.length} bytes)`);
+  }
+  return jpeg;
+}
+
+async function uploadUnpublishedFacebookPhoto({ fetchImpl, pageId, token, imageUrl, requiredImagePath }) {
+  const jpeg = await facebookJobImageAsJpeg(fetchImpl, imageUrl, requiredImagePath);
+  const form = new FormData();
+  form.append('source', new Blob([jpeg], { type: 'image/jpeg' }), 'offerta-lavoro.jpg');
+  form.append('published', 'false');
+  form.append('access_token', token);
+  const response = await fetchImpl(`${GRAPH_BASE}/${pageId}/photos`, { method: 'POST', body: form });
+  let data = null;
+  try {
+    data = await response.json();
+  } catch {
+    /* handled as a failed photo upload below */
+  }
+  if (!response.ok || !data?.id) {
+    throw new Error(`Facebook photo upload failed (HTTP ${response.status}): ${JSON.stringify(data).slice(0, 300)}`);
+  }
+  return String(data.id);
+}
+
+async function deleteUnpublishedFacebookPhoto(fetchImpl, photoId, token, warn) {
+  const url = new URL(`${GRAPH_BASE}/${encodeURIComponent(photoId)}`);
+  url.searchParams.set('access_token', token);
+  try {
+    const response = await fetchImpl(url.toString(), { method: 'DELETE' });
+    if (!response.ok) warn(`⚠️ could not remove unpublished Facebook photo ${photoId} (HTTP ${response.status})`);
+  } catch (error) {
+    warn(`⚠️ could not remove unpublished Facebook photo ${photoId}: ${error.message}`);
+  }
 }
 
 // ── Main entry ──────────────────────────────────────────────
@@ -703,6 +805,7 @@ export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}
  * @param {Record<string, string|undefined>} [opts.env]
  * @param {Date} [opts.now]
  * @param {typeof fetch} [opts.fetchImpl]
+ * @param {(options: object) => Promise<string>} [opts.uploadFacebookPhotoImpl]
  * @param {string} [opts.repoRoot]
  * @param {(...a: unknown[]) => void} [opts.log]
  * @param {(...a: unknown[]) => void} [opts.warn]
@@ -714,6 +817,7 @@ export async function run(opts = {}) {
   const env = opts.env || process.env;
   const now = opts.now || new Date();
   const fetchImpl = opts.fetchImpl || globalThis.fetch;
+  const uploadFacebookPhotoImpl = opts.uploadFacebookPhotoImpl || uploadUnpublishedFacebookPhoto;
   const repoRoot = opts.repoRoot || defaultRepoRoot();
   const log = opts.log || console.log;
   const warn = opts.warn || console.warn;
@@ -778,8 +882,14 @@ export async function run(opts = {}) {
   }
   const postedSet = new Set(ledger.posted.map((e) => e?.id).filter(Boolean));
 
-  // 2. Pick top-N never-posted jobs
-  const candidates = selectUnpostedJobs(jobs, postedSet, volume);
+  // 2. Pick top-N never-posted jobs with a verified Italian title. Offers
+  // without titleByLocale.it stay unpublished until localization is ready.
+  const italianJobs = jobs.filter((job) => Boolean(getItalianJobTitle(job)));
+  const missingItalianTitles = jobs.length - italianJobs.length;
+  if (missingItalianTitles > 0) {
+    log('⚠️', `excluding ${missingItalianTitles} offer(s) from Facebook: Italian title is missing`);
+  }
+  const candidates = selectUnpostedJobs(italianJobs, postedSet, volume);
   if (candidates.length === 0) {
     log('ℹ️', 'no unposted jobs eligible, exiting');
     return { ok: reconciliation.uncertain === 0, scheduled: 0, uncertain: reconciliation.uncertain, dryRun, payloads: [] };
@@ -869,7 +979,7 @@ export async function run(opts = {}) {
     log('🏃', `DRY_RUN=1 — would schedule ${payloads.length} posts`);
     for (const p of payloads) {
       const placeTag = p.placeId ? ` [place=${p.placeId}]` : '';
-      log('  •', `${new Date(p.scheduled_publish_time * 1000).toISOString()} → ${p.url}${placeTag}`);
+      log('  •', `${new Date(p.scheduled_publish_time * 1000).toISOString()} → immagine verticale + link ${p.url}${placeTag}`);
     }
     return { ok: reconciliation.uncertain === 0, scheduled: 0, uncertain: reconciliation.uncertain, dryRun: true, payloads };
   }
@@ -897,15 +1007,23 @@ export async function run(opts = {}) {
       accountId: pageId,
       repoRoot,
       now,
-      reservations: payloads.map((p) => ({
-        key: publishReservationKeys.get(p.jobId),
-        publishAt: new Date(p.scheduled_publish_time * 1000),
-        reserveNextDay: true,
-        nativeContentFingerprint: socialPublishContentFingerprint('facebook', {
-          message: p.message,
-          link: facebookUrl(p.url, FACEBOOK_CAMPAIGN_JOB, socialCopyTrackingContent(p.jobId, p.copyFields)),
-        }),
-      })),
+      reservations: payloads.map((p) => {
+        const link = facebookUrl(
+          p.url,
+          FACEBOOK_CAMPAIGN_JOB,
+          socialCopyTrackingContent(p.jobId, p.copyFields),
+        );
+        return {
+          key: publishReservationKeys.get(p.jobId),
+          publishAt: new Date(p.scheduled_publish_time * 1000),
+          reserveNextDay: true,
+          // Match exact-post reconciliation, which hashes message/link fields;
+          // the tracked offer URL is already part of this message.
+          nativeContentFingerprint: socialPublishContentFingerprint('facebook', {
+            message: buildFacebookJobPhotoMessage(p.message, link),
+          }),
+        };
+      }),
     });
   } catch (error) {
     const fatal = new Error(`Facebook shared publication gate failed: ${error.message}`, { cause: error });
@@ -956,6 +1074,13 @@ export async function run(opts = {}) {
   const scheduleOne = async (p) => {
     let accepted = false;
     let deliveryUncertain = false;
+    let unpublishedPhotoId = null;
+    const discardUnpublishedPhoto = async () => {
+      if (!unpublishedPhotoId) return;
+      const photoId = unpublishedPhotoId;
+      unpublishedPhotoId = null;
+      await deleteUnpublishedFacebookPhoto(fetchImpl, photoId, token, warn);
+    };
     try {
     // See the articles scheduler: tag before the rescrape, keep `p.url` bare
     // because it is the ledger's dedup key.
@@ -964,6 +1089,7 @@ export async function run(opts = {}) {
       FACEBOOK_CAMPAIGN_JOB,
       socialCopyTrackingContent(p.jobId, p.copyFields),
     );
+    const postMessage = buildFacebookJobPhotoMessage(p.message, link);
     const requiredImagePath = expectedJobOgImagePath(p.url);
     if (!requiredImagePath) {
       warn('⚠️', `skipping ${p.jobId} — invalid job URL for OG image verification`);
@@ -971,26 +1097,37 @@ export async function run(opts = {}) {
       await releasePublishReservation(p, 'URL preflight failure');
       return false;
     }
-    const ogReady = await rescrapeOgAndVerify(fetchImpl, link, token, warn, {
+    const imageUrl = await rescrapeOgAndVerify(fetchImpl, link, token, warn, {
       requiredImagePath,
       requiredImageVersion: JOB_OG_IMAGE_VERSION,
       rejectFallbackTitle: true,
+      requireTrustedImageHost: true,
+      returnImageUrl: true,
     });
-    if (!ogReady) {
+    if (!imageUrl) {
       warn('⚠️', `skipping ${p.jobId} — Facebook did not resolve a verified job image`);
       await releaseReservation(p.jobId, 'Facebook job image did not pass OG verification');
       await releasePublishReservation(p, 'image preflight failure');
       return false;
     }
+    unpublishedPhotoId = await uploadFacebookPhotoImpl({
+      fetchImpl,
+      pageId,
+      token,
+      imageUrl,
+      requiredImagePath,
+    });
+    if (!unpublishedPhotoId) throw new Error('Facebook photo upload returned no media ID');
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => {
       const b = new URLSearchParams({
-        message: p.message,
-        link,
+        message: postMessage,
         published: 'false',
         scheduled_publish_time: String(p.scheduled_publish_time),
+        unpublished_content_type: 'SCHEDULED',
         access_token: token,
       });
+      b.append('attached_media[0]', JSON.stringify({ media_fbid: unpublishedPhotoId }));
       if (p.placeId) b.append('place', p.placeId);
       return b;
     };
@@ -1010,6 +1147,9 @@ export async function run(opts = {}) {
         warn('⚠️', `POST failed for ${p.jobId} (attempt ${attempt}): ${err.message}`);
         data = null;
       }
+      // A 2xx without an ID is ambiguous: Meta may have accepted the scheduled
+      // post. Keep its unpublished photo and reservation so reconciliation can
+      // resolve it without deleting media that the accepted post may use.
       if (isAmbiguousSocialPublishResponse(res) || (res?.ok && !data?.id)) deliveryUncertain = true;
       if (res?.ok && data?.id) break;
       const code = data?.error?.code;
@@ -1023,6 +1163,7 @@ export async function run(opts = {}) {
 
     if (res?.ok && data?.id) {
       accepted = true;
+      unpublishedPhotoId = null;
       copyReservations.delete(p.jobId);
       appendPosted(repoRoot, [{
         id: p.jobId,
@@ -1037,6 +1178,7 @@ export async function run(opts = {}) {
     } else {
       warn('⚠️', `FB API error for ${p.jobId}: ${JSON.stringify(data).slice(0, 300)}`);
       if (!deliveryUncertain && res && !res.ok) {
+        await discardUnpublishedPhoto();
         await releaseReservation(p.jobId, 'Facebook explicitly rejected the scheduled job post');
         await releasePublishReservation(p, 'explicit API rejection');
       }
@@ -1046,6 +1188,7 @@ export async function run(opts = {}) {
     } catch (err) {
       warn('⚠️', `FB scheduler failed for ${p.jobId}: ${err.message}`);
       if (!accepted && !deliveryUncertain) {
+        await discardUnpublishedPhoto();
         await releaseReservation(p.jobId, 'Facebook job failed before delivery attempt');
         await releasePublishReservation(p, 'failure before delivery');
       }
