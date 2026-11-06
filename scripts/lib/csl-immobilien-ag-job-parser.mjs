@@ -2,7 +2,7 @@
 /**
  * CSL Immobilien AG job parser — Fetcher and job builder.
  *
- * Source: https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22?jp=ABACUS
+ * Source: https://csl-immobilien.ch/karriere/
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllCslImmobilienAgJobs()  — Fetch and parse all jobs
@@ -27,7 +27,7 @@ export const CSL_IMMOBILIEN_AG_KEY = 'csl-immobilien-ag';
 export const CSL_IMMOBILIEN_AG_COMPANY_NAME = 'CSL Immobilien AG';
 export const CSL_IMMOBILIEN_AG_COMPANY_DOMAIN = 'app.jobportal.abaservices.ch';
 
-const CAREER_URL = 'https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22?jp=ABACUS';
+const CAREER_URL = 'https://csl-immobilien.ch/karriere/';
 const CSL_IMMOBILIEN_AG_JOB_PATH_RE = /^\/job-advertisement\/cslimmobilien\/[a-z0-9-]+\/?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
