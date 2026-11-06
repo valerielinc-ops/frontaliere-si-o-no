@@ -2821,6 +2821,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [fullLoadPending, setFullLoadPending] = useState(true);
  const [jobBoardInteractionObserved, setJobBoardInteractionObserved] = useState(false);
  const jobBoardInteractionSeenRef = useRef(false);
+ const catalogInteractionGestureRef = useRef(false);
  const catalogInteractionWaitersRef = useRef(new Set<() => void>());
  const catalogInteractionReadyRef = useRef(false);
  const catalogInteractionReleaseCancelRef = useRef<(() => void) | null>(null);
@@ -2849,14 +2850,34 @@ const JobBoard: React.FC<JobBoardProps> = ({
    const activeBoardControl = activeElement instanceof Element
     && activeElement.closest(interactionSurface)
     && activeElement.closest(interactionControl);
+   if (event.type === 'pointerdown' || event.type === 'touchstart') {
+    if (targetElement?.closest(interactionSurface)) {
+     catalogInteractionGestureRef.current = true;
+     noteJobBoardInteraction();
+    }
+    return;
+   }
    if (event.type === 'scroll') {
     const pageScroll = (target === document || target === document.documentElement)
      && document.querySelector(interactionSurface);
-    if (targetElement?.closest(interactionSurface) || pageScroll) noteJobBoardInteraction();
+    // Lighthouse and programmatic scroll restoration can emit trusted document
+    // scroll events. They are not proof that a reader asked for the full
+    // catalog, so only a preceding user gesture may release it through scroll.
+    if (catalogInteractionGestureRef.current
+     && (targetElement?.closest(interactionSurface) || pageScroll)) noteJobBoardInteraction();
     return;
    }
-   if (event.type === 'wheel' || event.type === 'touchmove') {
-    if (targetElement?.closest(interactionSurface)) noteJobBoardInteraction();
+   if (event.type === 'wheel') {
+    if (targetElement?.closest(interactionSurface)) {
+     catalogInteractionGestureRef.current = true;
+     noteJobBoardInteraction();
+    }
+    return;
+   }
+   if (event.type === 'touchmove') {
+    if (catalogInteractionGestureRef.current && targetElement?.closest(interactionSurface)) {
+     noteJobBoardInteraction();
+    }
     return;
    }
    if (targetElement?.closest(interactionSurface)
@@ -2867,7 +2888,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    if (event.type === 'keydown' && activeBoardControl) noteJobBoardInteraction();
   };
   if (navigator.userActivation?.hasBeenActive) noteJobBoardInteraction();
-  const eventTypes = ['pointerdown', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'] as const;
+  const eventTypes = ['pointerdown', 'touchstart', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'] as const;
   for (const type of eventTypes) document.addEventListener(type, onIntent, { capture: true, passive: true });
   return () => {
    for (const type of eventTypes) document.removeEventListener(type, onIntent, { capture: true });
