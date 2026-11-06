@@ -18,8 +18,11 @@ export const DISCOVERY_ARTICLES_MAX_AGE_MS = 14 * 24 * 60 * 60 * 1000;
 export const DISCOVERY_ARTICLES_FUTURE_SKEW_MS = 5 * 60 * 1000;
 
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
-const NEWSLETTER_PROVIDERS = new Set(['google_trends', 'google_news', 'other']);
-const KNOWN_INDEX_PROVIDERS = new Set([...NEWSLETTER_PROVIDERS, 'reddit']);
+const NEWSLETTER_PROVIDERS = new Set(['google_trends', 'google_news']);
+// `other` remains parseable so a manifest-pinned legacy index can be read, but
+// it is deliberately never newsletter-eligible: old publisher versions also
+// collapsed Reddit attribution into this value.
+const KNOWN_INDEX_PROVIDERS = new Set([...NEWSLETTER_PROVIDERS, 'reddit', 'other']);
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const MAX_RECENT_ARTICLE_AGE_MS = 60 * 24 * 60 * 60 * 1000;
 const MAX_ROTATION_POOL = 12;
@@ -386,9 +389,9 @@ export function chooseDiscoveryArticle(index, campaignId, locale, { now = Date.n
   const nowMs = now instanceof Date ? now.getTime() : Number(now);
   const candidates = index.articles
     .filter((article) => {
-      // Reddit rows can be valid in the public feed, but newsletter eligibility
-      // is a separate editorial policy. Filter per row so one disallowed record
-      // cannot discard eligible Google Trends or other discoveries.
+      // Reddit and legacy `other` rows can be valid in the public feed, but
+      // newsletter eligibility is a separate editorial policy. Filter per row
+      // so one disallowed record cannot discard eligible Google discoveries.
       if (!NEWSLETTER_PROVIDERS.has(article?.provider)) return false;
       const publishedAt = Date.parse(article?.publishedAt || '');
       return Number.isFinite(publishedAt)

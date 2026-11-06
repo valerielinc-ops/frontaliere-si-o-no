@@ -30,7 +30,7 @@ import { realpathSync } from 'node:fs';
  *   NEWSLETTER_EXPERIMENTAL_MODE=false, NEWSLETTER_ENABLE_SEND=true
  */
 
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -1771,6 +1771,7 @@ function buildEmailHeaders(email, campaign) {
  * whatever campaign is in flight when this ships.
  */
 const RESUME_LOG_FIELD = 'sentEmails';
+const STALE_DELIVERY_INTENT_MS = 60 * 60 * 1000;
 const resumeLogOpts = (campaignId) => ({
   campaignId,
   field: RESUME_LOG_FIELD,
@@ -1778,31 +1779,132 @@ const resumeLogOpts = (campaignId) => ({
   extraFields: { lastRunAt: new Date(), updatedAt: new Date() },
 });
 
+function timestampMillis(value) {
+  if (typeof value?.toMillis === 'function') return value.toMillis();
+  if (value instanceof Date) return value.getTime();
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  if (typeof value !== 'string') return null;
+  const parsed = Date.parse(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 let campaignResumeLookupKnown = true;
 async function fetchAlreadySent(campaignId) {
   if (!db) {
     campaignResumeLookupKnown = false;
-    return { sent: new Set(), ambiguous: new Set(), attempted: new Set() };
+    return {
+      sent: new Set(),
+      ambiguous: new Set(),
+      attempted: new Set(),
+      staleIntentSummary: { count: 0, oldestAgeHours: 0, providers: {} },
+    };
   }
   try {
-    const { sent, ambiguous, attempted } = await fetchCampaignAlreadySent(db, resumeLogOpts(campaignId));
+    const resume = await fetchCampaignAlreadySent(db, resumeLogOpts(campaignId));
+    const receiptSnapshot = await db.collectionGroup('campaign_deliveries')
+      .where('campaign_id', '==', campaignId)
+      .get();
+    const receiptSent = new Set();
+    const receiptAmbiguous = new Set();
+    const legacyOperatorEmails = new Set();
+    const staleIntentSummary = { count: 0, oldestAgeHours: 0, providers: {} };
+    const nowMs = Date.now();
+    for (const doc of receiptSnapshot.docs) {
+      let data = doc.data() || {};
+      const email = normalizeEmail(data.email || doc.ref.parent.parent?.id);
+      if (!email) continue;
+      let status = typeof data.delivery_status === 'string' ? data.delivery_status : '';
+      if (status === 'retryable_failed' && data.is_operator_verification !== true) continue;
+      let attemptedAtMs = timestampMillis(data.attempted_at);
+      const staleInFlight = status === 'in_flight'
+        && attemptedAtMs !== null
+        && nowMs - attemptedAtMs >= STALE_DELIVERY_INTENT_MS;
+      if (staleInFlight) {
+        const attemptId = data.delivery_attempt_id || null;
+        const reaperResult = await db.runTransaction(async (transaction) => {
+          const latestSnapshot = await transaction.get(doc.ref);
+          const latest = latestSnapshot.data() || {};
+          if (!latestSnapshot.exists
+            || latest.delivery_status !== 'in_flight'
+            || (latest.delivery_attempt_id || null) !== attemptId
+            || timestampMillis(latest.attempted_at) !== attemptedAtMs
+            || nowMs - attemptedAtMs < STALE_DELIVERY_INTENT_MS) {
+            return { quarantined: false, data: latestSnapshot.exists ? latest : {} };
+          }
+          transaction.set(doc.ref, {
+            delivery_status: 'unknown',
+            quarantine_reason: 'stale_in_flight',
+            quarantined_at: new Date(nowMs),
+            updated_at: new Date(nowMs),
+          }, { merge: true });
+          return {
+            quarantined: true,
+            data: { ...latest, delivery_status: 'unknown', quarantine_reason: 'stale_in_flight' },
+          };
+        });
+        // Classify the transaction's fresh snapshot when another sender or
+        // webhook changed the receipt. Skipping it could omit an accepted send
+        // from this resume and allow a duplicate.
+        data = reaperResult.data;
+        status = typeof data.delivery_status === 'string' ? data.delivery_status : '';
+        attemptedAtMs = timestampMillis(data.attempted_at);
+      }
+      const staleAgeMs = data.quarantine_reason === 'stale_in_flight'
+        && status === 'unknown'
+        && attemptedAtMs !== null
+        ? Math.max(0, nowMs - attemptedAtMs)
+        : 0;
+      if (staleAgeMs >= STALE_DELIVERY_INTENT_MS) {
+        staleIntentSummary.count += 1;
+        staleIntentSummary.oldestAgeHours = Math.max(
+          staleIntentSummary.oldestAgeHours,
+          Math.floor(staleAgeMs / (60 * 60 * 1000)),
+        );
+        const provider = data.attempted_provider || data.provider || 'unknown';
+        staleIntentSummary.providers[provider] = (staleIntentSummary.providers[provider] || 0) + 1;
+      }
+      if (data.is_operator_verification === true) {
+        // Legacy QA and production sends shared one campaign/recipient receipt.
+        // A QA write could overwrite the flag on a real production receipt, so
+        // treat the entire record as ambiguous until reconciled. New QA sends
+        // use a separate campaign id. Keep the resume and receipt counts disjoint.
+        legacyOperatorEmails.add(email);
+        receiptAmbiguous.add(email);
+        continue;
+      }
+      if (status === 'retryable_failed') continue;
+      if (['pending', 'in_flight', 'unknown'].includes(status)) {
+        receiptAmbiguous.add(email);
+      } else if (status === 'accepted' || status === 'delivered'
+        || data.message_id || data.sent_at || data.delivered_at) {
+        receiptSent.add(email);
+      } else if (status) {
+        // Legacy provider statuses such as bounce/failed are still evidence
+        // that this campaign reached the provider; never blindly resend them.
+        receiptAmbiguous.add(email);
+      }
+    }
+    const sent = new Set([
+      ...[...resume.sent].map(normalizeEmail).filter((email) => email && !legacyOperatorEmails.has(email)),
+      ...[...receiptSent].filter((email) => !legacyOperatorEmails.has(email)),
+    ]);
+    const ambiguous = new Set([
+      ...[...resume.ambiguous].map(normalizeEmail).filter(Boolean),
+      ...receiptAmbiguous,
+    ]);
+    const attempted = new Set([...sent, ...ambiguous]);
     campaignResumeLookupKnown = true;
-    return { sent, ambiguous, attempted };
+    return { sent, ambiguous, attempted, chunkSizes: resume.chunkSizes, staleIntentSummary };
   } catch (e) {
     campaignResumeLookupKnown = false;
     console.warn('\u26a0\ufe0f Campaign resume fetch failed:', e?.message);
-    return { sent: new Set(), ambiguous: new Set(), attempted: new Set() };
-  }
-}
-
-/** Chunk sizes for this campaign, so a rerun appends where the last run stopped. */
-async function fetchResumeChunkSizes(campaignId) {
-  if (!db) return [];
-  try {
-    const { chunkSizes } = await fetchCampaignAlreadySent(db, resumeLogOpts(campaignId));
-    return chunkSizes;
-  } catch {
-    return [];
+    return {
+      sent: new Set(),
+      ambiguous: new Set(),
+      attempted: new Set(),
+      chunkSizes: [],
+      staleIntentSummary: { count: 0, oldestAgeHours: 0, providers: {} },
+    };
   }
 }
 
@@ -1889,19 +1991,77 @@ async function resolveWinnersForCampaign(database, campaignId, { persist = false
 
 // ─── Resend API ─────────────────────────────────────────────
 
+async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
+  if (!db) throw new Error('Firestore is required to claim a newsletter delivery.');
+  const email = normalizeEmail(item?.recipient?.email);
+  const campaignId = item?.meta?.campaignId;
+  if (!email || typeof campaignId !== 'string' || !campaignId) {
+    throw new Error('Newsletter delivery intent is missing its stable recipient or campaign id.');
+  }
+  const deliveryRef = db.collection('newsletter_subscribers').doc(email)
+    .collection('campaign_deliveries').doc(buildDeliveryDocId(campaignId, email));
+  try {
+    return await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(deliveryRef);
+      const previous = snapshot.data() || {};
+      const status = typeof previous.delivery_status === 'string' ? previous.delivery_status : '';
+      const alreadyAttempted = snapshot.exists
+        && status !== 'retryable_failed'
+        && (status || previous.message_id || previous.sent_at || previous.delivered_at || previous.attempted_at);
+      if (alreadyAttempted) {
+        // A provider fallback within this same cascade reuses its durable intent.
+        if (previous.delivery_attempt_id === attemptId && ['pending', 'in_flight'].includes(status)) {
+          transaction.set(deliveryRef, {
+            provider,
+            attempted_provider: provider,
+            updated_at: new Date(),
+          }, { merge: true });
+          return true;
+        }
+        return false;
+      }
+      transaction.set(deliveryRef, {
+        email,
+        campaign_id: campaignId,
+        locale: nlNormLocale(item.recipient.locale),
+        source_channel: item.recipient.sourceChannel || null,
+        provider,
+        attempted_provider: provider,
+        delivery_status: 'in_flight',
+        delivery_attempt_id: attemptId,
+        discovery_article_id: item.meta.discoveryArticleId || null,
+        discovery_provider: item.meta.discoveryProvider || null,
+        is_operator_verification: item.meta.isOperatorVerification ?? false,
+        attempted_at: new Date(),
+        updated_at: new Date(),
+      }, { merge: true });
+      return true;
+    });
+  } catch (error) {
+    throw new Error('Could not persist newsletter delivery intent before provider send.', { cause: error });
+  }
+}
+
 async function persistDelivery(recipient, messageId, meta) {
   if (!db) return;
   const FieldValue = firestoreFieldValue;
-  try {
-    const email = normalizeEmail(recipient.email);
-    const locale = nlNormLocale(recipient.locale);
-    const subRef = db.collection('newsletter_subscribers').doc(email);
-    const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
-    // Store delivery as a subcollection under the subscriber doc
-    await subRef.collection('campaign_deliveries').doc(deliveryDocId).set({
+  const email = normalizeEmail(recipient.email);
+  const locale = nlNormLocale(recipient.locale);
+  const subRef = db.collection('newsletter_subscribers').doc(email);
+  const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
+  const deliveryRef = subRef.collection('campaign_deliveries').doc(deliveryDocId);
+  // This is the per-recipient receipt and dedupe authority. Failure must bubble
+  // to the cascade; the preceding in_flight intent remains a retry blocker.
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(deliveryRef);
+    const previous = snapshot.data() || {};
+    transaction.set(deliveryRef, {
       email,
       campaign_id: meta.campaignId,
-      message_id: messageId || null,
+      message_id: messageId || previous.message_id || null,
+      delivery_status: previous.delivery_status === 'delivered' ? 'delivered' : 'accepted',
+      delivery_attempt_id: meta.deliveryAttemptId || previous.delivery_attempt_id || null,
+      accepted_at: new Date(),
       locale,
       source_channel: recipient.sourceChannel || null,
       location_interest: recipient.locationInterest || null,
@@ -1909,9 +2069,9 @@ async function persistDelivery(recipient, messageId, meta) {
       // A/B subject test attribution — provider is authoritative here (every
       // cascade provider), variant/subject mirror the sent email so the
       // open-rate-by-provider×variant report has a self-contained send record.
-      provider: meta.provider || null,
-      discovery_article_id: meta.discoveryArticleId || null,
-      discovery_provider: meta.discoveryProvider || null,
+      provider: meta.provider || previous.provider || null,
+      discovery_article_id: meta.discoveryArticleId || previous.discovery_article_id || null,
+      discovery_provider: meta.discoveryProvider || previous.discovery_provider || null,
       variant: meta.variant || null,
       subject: meta.subject || null,
       // Content segment (#4299) — engagement level x inferred interest, e.g.
@@ -1935,6 +2095,8 @@ async function persistDelivery(recipient, messageId, meta) {
       ranking_jobs: buildRankingJobsManifest(meta.rankingJobs),
       sent_at: new Date(),
     }, { merge: true });
+  });
+  try {
     // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
     // no tags), so the webhook can attribute them only through this lookup. The
     // write itself lives in functions/src/lib/mailerooRef.js — one writer for
@@ -1966,31 +2128,79 @@ async function persistDelivery(recipient, messageId, meta) {
       await refreshEngagementScore(subRef, FieldValue);
     }
   } catch (e) {
-    console.warn('\u26a0\ufe0f Delivery persist failed:', e?.message);
+    // These secondary analytics/ref writes do not determine whether a delivery
+    // was accepted. The durable receipt above already protects resume and keeps
+    // article attribution available.
+    console.warn('\u26a0\ufe0f Secondary delivery bookkeeping failed:', e?.message);
   }
 }
 
-async function persistAmbiguousDelivery(recipient, meta, provider) {
+async function persistAmbiguousDelivery(recipient, meta, provider, attemptId) {
   if (!db) return;
-  try {
-    const email = normalizeEmail(recipient.email);
-    const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
-    await db.collection('newsletter_subscribers').doc(email)
-      .collection('campaign_deliveries').doc(deliveryDocId).set({
+  const email = normalizeEmail(recipient.email);
+  const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
+  const deliveryRef = db.collection('newsletter_subscribers').doc(email)
+    .collection('campaign_deliveries').doc(deliveryDocId);
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(deliveryRef);
+    const previous = snapshot.data() || {};
+    const previousStatus = previous.delivery_status;
+    const providerConfirmed = previous.message_id || previous.sent_at || previous.delivered_at;
+    const deliveryStatus = previousStatus === 'delivered'
+      ? 'delivered'
+      : previousStatus === 'accepted' || providerConfirmed
+        ? 'accepted'
+        : 'unknown';
+    transaction.set(deliveryRef, {
         email,
         campaign_id: meta.campaignId,
-        message_id: null,
         locale: nlNormLocale(recipient.locale),
         source_channel: recipient.sourceChannel || null,
-        provider: provider || null,
-        discovery_article_id: meta.discoveryArticleId || null,
-        discovery_provider: meta.discoveryProvider || null,
-        delivery_status: 'unknown',
-        attempted_at: new Date(),
+        provider: provider || previous.provider || null,
+        discovery_article_id: previous.discovery_article_id || meta.discoveryArticleId || null,
+        discovery_provider: previous.discovery_provider || meta.discoveryProvider || null,
+        delivery_status: deliveryStatus,
+        delivery_attempt_id: previous.delivery_attempt_id || attemptId || null,
+        attempted_at: previous.attempted_at || new Date(),
+        updated_at: new Date(),
+    }, { merge: true });
+  });
+}
+
+async function markRetryableDeliveryFailures(failures, attemptId) {
+  if (!db) return;
+  for (const failure of failures) {
+    if (failure.ambiguousDelivery) continue;
+    const email = normalizeEmail(failure.recipient?.email);
+    const campaignId = failure.meta?.campaignId;
+    if (!email || typeof campaignId !== 'string' || !campaignId) continue;
+    const deliveryRef = db.collection('newsletter_subscribers').doc(email)
+      .collection('campaign_deliveries').doc(buildDeliveryDocId(campaignId, email));
+    await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(deliveryRef);
+      const previous = snapshot.data() || {};
+      if (!snapshot.exists || previous.delivery_attempt_id !== attemptId
+        || previous.delivery_status !== 'in_flight') return;
+      transaction.set(deliveryRef, {
+        delivery_status: 'retryable_failed',
+        failed_provider: failure.provider || null,
+        failed_at: new Date(),
+        updated_at: new Date(),
       }, { merge: true });
-  } catch (e) {
-    console.warn('⚠️ Ambiguous newsletter delivery detail persist failed:', e?.message);
+    });
   }
+}
+
+async function runNewsletterCascade(send, attemptId) {
+  let result;
+  try {
+    result = await send();
+  } catch (error) {
+    await markRetryableDeliveryFailures(error?.partialResult?.failed || [], attemptId);
+    throw error;
+  }
+  await markRetryableDeliveryFailures(result.failed, attemptId);
+  return result;
 }
 
 const NEWSLETTER_SEND_THROTTLE = Object.freeze({
@@ -2009,7 +2219,7 @@ const NEWSLETTER_SEND_THROTTLE = Object.freeze({
 // for cloudflare/resend, passed at the call sites below.
 const NEWSLETTER_SEND_CONCURRENCY = 4;
 
-async function sendEmailBatch(emails, finalizeForProvider, onDelivered, onQuarantined) {
+async function sendEmailBatch(emails, finalizeForProvider, onDelivered, onQuarantined, beforeProviderAttempt, deliveryAttemptId) {
   // After a per-provider subject swap, the final variant/subject live on the
   // payload (the source of truth for what was actually sent) — read them there
   // so the delivery record reflects the provider's variant.
@@ -2022,6 +2232,7 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered, onQuaran
     await persistDelivery(item.recipient, res.messageId, {
       ...item.meta,
       provider: res.provider,
+      deliveryAttemptId,
       variant,
       subject,
       scheduledFor: res.scheduledFor ?? null,
@@ -2035,17 +2246,18 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered, onQuaran
   if (IS_SINGLE_PROVIDER) {
     console.log(`📧 Sending via ${EMAIL_PROVIDER} only (${emails.length} emails)`);
     const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
-    const result = await sendEmailCascade(emails, {
+    const result = await runNewsletterCascade(() => sendEmailCascade(emails, {
       concurrency: NEWSLETTER_SEND_CONCURRENCY,
       ...NEWSLETTER_SEND_THROTTLE,
       providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
       forceProvider: EMAIL_PROVIDER,
       finalizeForProvider,
+      beforeProviderAttempt,
       onSent: persistSent,
       onAmbiguous: onQuarantined
         ? (item, error) => onQuarantined(normalizeEmail(item.recipient.email), item, error)
         : undefined,
-    });
+    }), deliveryAttemptId);
     logProviderSummary();
     return result;
   }
@@ -2053,16 +2265,17 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered, onQuaran
   if (EMAIL_PROVIDER === 'cascade') {
     console.log(`📧 Sending via email cascade (${emails.length} emails)`);
     const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
-    const result = await sendEmailCascade(emails, {
+    const result = await runNewsletterCascade(() => sendEmailCascade(emails, {
       concurrency: NEWSLETTER_SEND_CONCURRENCY,
       ...NEWSLETTER_SEND_THROTTLE,
       providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
       finalizeForProvider,
+      beforeProviderAttempt,
       onSent: persistSent,
       onAmbiguous: onQuarantined
         ? (item, error) => onQuarantined(normalizeEmail(item.recipient.email), item, error)
         : undefined,
-    });
+    }), deliveryAttemptId);
     logProviderSummary();
     return result;
   }
@@ -2359,10 +2572,27 @@ async function main() {
   // Campaign ID anchored to the week's Monday (UTC, like the id's own format —
   // see weeklyCampaignId) so multi-day sends share the same ID and the resume
   // below finds what the previous run already delivered.
-  const campaignId = weeklyCampaignId();
+  const campaignId = mode === 'test' ? `test_${weeklyCampaignId()}` : weeklyCampaignId();
   const resumeState = mode === 'send'
     ? await fetchAlreadySent(campaignId)
-    : { sent: new Set(), ambiguous: new Set(), attempted: new Set() };
+    : {
+      sent: new Set(),
+      ambiguous: new Set(),
+      attempted: new Set(),
+      chunkSizes: [],
+      staleIntentSummary: { count: 0, oldestAgeHours: 0, providers: {} },
+    };
+  if (mode === 'send' && (!db || !campaignResumeLookupKnown)) {
+    throw new Error('Campaign resume and delivery receipts are unavailable; refusing to send without deduplication state.');
+  }
+  if (mode === 'send' && resumeState.staleIntentSummary.count > 0) {
+    const providers = Object.entries(resumeState.staleIntentSummary.providers)
+      .map(([provider, count]) => `${provider}:${count}`)
+      .join(', ');
+    console.warn(
+      `⚠️ ${resumeState.staleIntentSummary.count} newsletter delivery intent(s) have been quarantined as unknown for over 1h; no automatic retry. Oldest age: ${resumeState.staleIntentSummary.oldestAgeHours}h${providers ? `; provider counts: ${providers}` : ''}.`,
+    );
+  }
   const alreadySentForCampaign = resumeState.sent;
   const ambiguousForCampaign = resumeState.ambiguous;
   const attemptedForCampaign = resumeState.attempted;
@@ -3075,8 +3305,9 @@ async function main() {
   // ── Track provider-accepted emails for resume ──
   // `db` is optional in this script (fixture runs have none) — without it there
   // is nothing to resume from and nothing to record.
-  const resume = db
-    ? createResumeWriter(db, resumeLogOpts(campaignId), resumeChunkState(await fetchResumeChunkSizes(campaignId)))
+  const deliveryAttemptId = randomUUID();
+  const resume = mode === 'send' && db
+    ? createResumeWriter(db, resumeLogOpts(campaignId), resumeChunkState(resumeState.chunkSizes || []))
     : null;
   let sendResult;
   try {
@@ -3085,12 +3316,15 @@ async function main() {
       finalizeForProvider,
       resume ? (email) => resume.record(email) : null,
       resume ? async (email, item, error) => {
-        // Persist the resume quarantine first; if this write fails the cascade
-        // stops and fails the workflow instead of continuing with an incomplete
-        // campaign ledger.
+        // The per-recipient receipt is the dedupe authority. Write its frozen
+        // article attribution before the aggregate resume marker.
+        await persistAmbiguousDelivery(item.recipient, item.meta, error.provider, deliveryAttemptId);
         await resume.recordAmbiguous(email);
-        await persistAmbiguousDelivery(item.recipient, item.meta, error.provider);
       } : null,
+      mode === 'send' && db
+        ? (item, provider) => claimNewsletterDeliveryIntent(item, provider, deliveryAttemptId)
+        : null,
+      deliveryAttemptId,
     );
   } finally {
     // Preserve checkpoints from confirmed in-flight sends even if a quarantine
