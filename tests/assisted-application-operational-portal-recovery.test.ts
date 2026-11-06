@@ -31,6 +31,17 @@ describe('source-version recovery of positively identified operational portal qu
     expect(store.list(`${base}/events/`)).toHaveLength(1);
   });
 
+  it('queues a portal recovery when a required match question is already answered', async () => {
+    const store = fixture();
+    const availability = { id: 'availability', source: 'match', required: true,
+      question: 'Disponibilità', applicationQuestion: 'Disponibilità', type: 'date', options: [] };
+    store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions: [availability] });
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), answers: { availability: '2026-11-20' } });
+    expect(await reconcilePortalCode({ ...context(store), apply: false })).toMatchObject({ eligible: 1, queued: 0 });
+    expect(await reconcilePortalCode({ ...context(store), apply: true })).toMatchObject({ eligible: 1, queued: 1 });
+    expect(store.read(base).automationDueAt).toBe(now);
+  });
+
   it('resumes the complete legacy draft only after referral metadata has native optional proof', async () => {
     const store = fixture();
     const referral = { id: 'source', source: 'portal', question: 'Come sono venuto a conoscenza del lavoro?', applicationQuestion: 'Come sono venuto a conoscenza del lavoro?', type: 'text', required: true, options: [], applicationOptions: Array.from({ length: 20 }, (_, index) => `Source ${index}`) };
