@@ -1250,7 +1250,7 @@ describe('crawler generation state cleanup', () => {
     expect(group15Body).not.toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
   });
 
-  it('keeps group 24 on the four-body resource lane with its 25-member baseline roster', async () => {
+  it('keeps group 24 on the four-body resource lane with its committed roster', async () => {
     expect(crawlerGroupMaxParallel(24)).toBe(CRAWLER_GROUP_MAX_PARALLEL);
     const group24Body = buildCrawlerLaunchShellBody({
       slug: 'group-24-member',
