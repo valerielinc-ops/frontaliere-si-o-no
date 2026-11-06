@@ -589,6 +589,14 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(topicCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
     expect(topicCodes).not.toContain(BING_FRONTIER_NOINDEX);
 
+    const fuelUrl = `${BASE}/prezzi-benzina/stazioni-italia/page-11/`;
+    const fuelMarked = `${PAGINATION_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow"><link rel="canonical" href="${fuelUrl}">`;
+    expect(isDeclaredPaginationTarget({ url: fuelUrl, html: fuelMarked })).toBe(true);
+    expect(isDeclaredPaginationTarget({
+      url: fuelUrl.replace('/page-11/', '/page-10/'),
+      html: fuelMarked,
+    })).toBe(false);
+
     const redirectCodes = classifyDocument({
       url,
       status: 301,
