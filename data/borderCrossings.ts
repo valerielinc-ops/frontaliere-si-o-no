@@ -595,13 +595,15 @@ export const borderCrossings: BorderCrossing[] = [
  webcams: [
  {
  label: 'Arzo – Cappella San Carlo (webcam meteo)',
- imageUrl: 'https://www.webcam-4insiders.com/current/thumbnail/10557.jpg',
+ // The stable thumbnail now returns a 160×120 error placeholder. The provider
+ // page still receives current frames, but their paths rotate per capture, so
+ // keep the live page as an external link instead (verified 2026-11-06,
+ // issue #13621).
+ imageUrl: 'https://www.4insiders.webcam/webcam/arzo/10557',
  sourceName: '4Insiders Weather Webcam',
  sourceUrl: 'https://www.4insiders.webcam/webcam/arzo/10557',
  refreshIntervalMs: 300000,
- // Vendor serves a real ~2.6-3.7KB JPEG thumbnail (verified 2026-07-05,
- // issue #3438) — below the ~10KB Ticino-GIF default floor.
- minBytes: 1500,
+ embedAllowed: false,
  },
  ],
  },

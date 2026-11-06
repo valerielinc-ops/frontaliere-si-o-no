@@ -318,7 +318,7 @@ const loadProfileFromFirestore = async (uid: string, email: string): Promise<Par
  PROFILE_STRING_FIELDS.forEach((field) => {
   const privateValue = privateProfile?.[field];
   const legacyValue = legacyProfile?.[field];
-  if (privateProfile && Object.hasOwn(privateProfile, field) && typeof privateValue === 'string') {
+  if (privateProfile && Object.prototype.hasOwnProperty.call(privateProfile, field) && typeof privateValue === 'string') {
    // Preserve explicit private blanks so the owner can clear a CV-derived value.
    merged[field] = privateValue;
   } else if (typeof legacyValue === 'string' && legacyValue.trim()) {
@@ -855,14 +855,14 @@ const UserProfile: React.FC = () => {
  // Private cloud values, including explicit blanks, are authoritative unless
  // the user has edited that field while the async profile load was in flight.
  PROFILE_STRING_FIELDS.forEach(k => {
- if (Object.hasOwn(cloudProfile, k) && !userEditedProfileFieldsRef.current.has(k)) merged[k] = cloudProfile[k]!;
+ if (Object.prototype.hasOwnProperty.call(cloudProfile, k) && !userEditedProfileFieldsRef.current.has(k)) merged[k] = cloudProfile[k]!;
  });
  PRIVATE_PROFILE_STRING_FIELDS.forEach((field) => {
-  if (Object.hasOwn(cloudProfile, field) && !userEditedProfileFieldsRef.current.has(field)) {
+  if (Object.prototype.hasOwnProperty.call(cloudProfile, field) && !userEditedProfileFieldsRef.current.has(field)) {
    merged[field] = cloudProfile[field] as string;
   }
  });
- if (Object.hasOwn(cloudProfile, 'familyMembersList') && !userEditedProfileFieldsRef.current.has('familyMembersList')) {
+ if (Object.prototype.hasOwnProperty.call(cloudProfile, 'familyMembersList') && !userEditedProfileFieldsRef.current.has('familyMembersList')) {
  merged.familyMembersList = cloudProfile.familyMembersList || [];
  }
  saveStoredUserProfile(user?.uid, merged as unknown as Record<string, unknown>);
