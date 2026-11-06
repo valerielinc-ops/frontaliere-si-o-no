@@ -84,14 +84,87 @@ jobs:
             --json state,headRefName,baseRefName,headRefOid,number,mergedAt 2>/dev/null || echo '[]')
           prs=$(jq -s 'add' <(echo "$prs_open") <(echo "$prs_all") 2>/dev/null || echo '[]')
 
-          # Branch remoti via API (paginata).
+          # Branch remoti via API (paginata). La risposta contiene già il tip,
+          # quindi il worker non deve rifarlo con una GET per ogni branch MERGED.
           mapfile -t branches < <(gh api --paginate "repos/$REPO/branches?per_page=100" \
-            --jq '.[] | "\(.name)\t\(.protected)"' 2>/dev/null)
+            --jq '.[] | "\(.name)\t\(.protected)\t\(.commit.sha // "")"' 2>/dev/null)
+
+          # Le letture per branch sono indipendenti. Il run #42210336128 ha
+          # impiegato 8m13s per 254 esiti report-only perché il vecchio loop le
+          # eseguiva tutte in serie. Prefetch bounded, con una sliding window,
+          # mantiene il carico API finito e conserva il fail-closed delle
+          # risposte mancanti.
+          MAX_PARALLEL=8
+          branch_prefetch_dir="$(mktemp -d "${RUNNER_TEMP:-.}/worktree-branch-janitor.XXXXXX")"
+          trap 'rm -rf "$branch_prefetch_dir"' EXIT
+          mkdir -p "$branch_prefetch_dir/head" "$branch_prefetch_dir/ahead" \
+            "$branch_prefetch_dir/last" "$branch_prefetch_dir/issue"
+          declare -A branch_indexes=()
+
+          for index in "${!branches[@]}"; do
+            row="${branches[$index]}"
+            branch_name="${row%%$'\t'*}"
+            branch_fields="${row#*$'\t'}"
+            branch_protected="${branch_fields%%$'\t'*}"
+            branch_indexes["$branch_name"]="$index"
+            if grep -qE "$KEEP_RE" <<<"$branch_name" || [ "$branch_protected" = "true" ]; then
+              continue
+            fi
+            while [ "$(jobs -rp | wc -l)" -ge "$MAX_PARALLEL" ]; do
+              wait -n 2>/dev/null || true
+            done
+            (
+              set +e
+              prefetch_state=$(echo "$prs" | jq -r --arg n "$branch_name" '
+                [ .[] | select(.headRefName==$n) | .state ]
+                | (if index("OPEN") then "OPEN"
+                   elif index("MERGED") then "MERGED"
+                   elif index("CLOSED") then "CLOSED"
+                   else "NONE" end)' 2>/dev/null || true)
+
+              if [ "$prefetch_state" = "NONE" ]; then
+                if ! gh pr list --repo "$REPO" --head "$branch_name" --state all --limit 10 \
+                  --json state,headRefName,baseRefName,headRefOid,number,mergedAt \
+                  >"$branch_prefetch_dir/head/$index" 2>/dev/null; then
+                  printf '%s\n' '__JANITOR_API_ERROR__' > "$branch_prefetch_dir/head/$index"
+                  exit 0
+                fi
+                prefetch_state=$(cat "$branch_prefetch_dir/head/$index" | jq -r '[.[].state]
+                    | (if index("OPEN") then "OPEN"
+                       elif index("MERGED") then "MERGED"
+                       elif index("CLOSED") then "CLOSED"
+                       else "NONE" end)' 2>/dev/null || true)
+                if [ -z "$prefetch_state" ]; then
+                  printf '%s\n' '__JANITOR_API_ERROR__' > "$branch_prefetch_dir/head/$index"
+                  exit 0
+                fi
+              fi
+
+              if [ "$prefetch_state" = "CLOSED" ] || [ "$prefetch_state" = "NONE" ]; then
+                gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$branch_name" \
+                  --jq '.ahead_by' >"$branch_prefetch_dir/ahead/$index" 2>/dev/null || : > "$branch_prefetch_dir/ahead/$index"
+              fi
+              if [ "$prefetch_state" = "NONE" ]; then
+                gh api "repos/$REPO/commits/$branch_name" \
+                  --jq '.commit.committer.date' >"$branch_prefetch_dir/last/$index" 2>/dev/null || : > "$branch_prefetch_dir/last/$index"
+                issue_number=$(echo "$branch_name" | sed -nE 's#^fix/issue-([0-9]+)$#\1#p')
+                if [ -n "$issue_number" ]; then
+                  gh api "repos/$REPO/issues/$issue_number" \
+                    --jq '.state + " " + (.state_reason // "")' >"$branch_prefetch_dir/issue/$index" 2>/dev/null || : > "$branch_prefetch_dir/issue/$index"
+                fi
+              fi
+              exit 0
+            ) &
+          done
+          wait
 
           deleted=0; flagged=0
           for row in "${branches[@]}"; do
             NAME="${row%%$'\t'*}"
-            PROT="${row##*$'\t'}"
+            BRANCH_FIELDS="${row#*$'\t'}"
+            PROT="${BRANCH_FIELDS%%$'\t'*}"
+            TIP="${BRANCH_FIELDS#*$'\t'}"
+            BRANCH_INDEX="${branch_indexes[$NAME]}"
 
             if grep -qE "$KEEP_RE" <<<"$NAME"; then continue; fi
             if [ "$PROT" = "true" ]; then echo "skip protected $NAME"; continue; fi
@@ -114,8 +187,11 @@ jobs:
             # La query mirata --head non ha finestra e si paga solo sui residui.
             VIA_HEAD=false
             if [ "$STATE" = "NONE" ]; then
-              HEAD_PRS=$(gh pr list --repo "$REPO" --head "$NAME" --state all --limit 10 \
-                --json state,headRefName,baseRefName,headRefOid,number,mergedAt 2>/dev/null || echo '[]')
+              HEAD_PRS=$(cat "$branch_prefetch_dir/head/$BRANCH_INDEX" 2>/dev/null || printf '%s\n' '__JANITOR_API_ERROR__')
+              if [ "$HEAD_PRS" = "__JANITOR_API_ERROR__" ]; then
+                echo "::warning::origin/$NAME — query PR --head non riuscita: REPORT-only (non cancello)"
+                flagged=$((flagged+1)); continue
+              fi
               STATE=$(echo "$HEAD_PRS" | jq -r '[.[].state]
                   | (if index("OPEN") then "OPEN"
                      elif index("MERGED") then "MERGED"
@@ -144,7 +220,6 @@ jobs:
             # Il secondo controllo protegge dal caso branch avanzato dopo il
             # merge e dai falsi positivi di una PR mergiata verso staging.
             if [ "$STATE" = "MERGED" ]; then
-              TIP=$(gh api "repos/$REPO/branches/$NAME" --jq '.commit.sha' 2>/dev/null || true)
               MERGED_PROVEN=false
               MERGED_PR_NUMBER=""
               MERGED_PR_HEAD=""
@@ -175,7 +250,7 @@ jobs:
             if [ "$STATE" = "MERGED" ]; then
               : # REASON assegnato dalla prova base/ancestry sopra
             elif [ "$STATE" = "CLOSED" ]; then
-              AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME" --jq '.ahead_by' 2>/dev/null || true)
+              AHEAD=$(cat "$branch_prefetch_dir/ahead/$BRANCH_INDEX" 2>/dev/null || true)
               if ! [[ "$AHEAD" =~ ^[0-9]+$ ]]; then
                 echo "::warning::origin/$NAME — PR CLOSED non mergiata, ahead non determinabile: REPORT-only (non cancello)"
                 flagged=$((flagged+1)); continue
@@ -193,13 +268,13 @@ jobs:
               ISSUE_N=$(echo "$NAME" | sed -nE 's#^fix/issue-([0-9]+)$#\1#p')
               ISTATE=""; IREASON=""
               if [ -n "$ISSUE_N" ]; then
-                IJSON=$(gh api "repos/$REPO/issues/$ISSUE_N" --jq '.state + " " + (.state_reason // "")' 2>/dev/null || true)
+                IJSON=$(cat "$branch_prefetch_dir/issue/$BRANCH_INDEX" 2>/dev/null || true)
                 ISTATE=${IJSON%% *}; IREASON=${IJSON#* }
               fi
 
               # ahead via API compare (.ahead_by). Un branch orfano o una
               # risposta API non intera resta sempre report-only.
-              AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME" --jq '.ahead_by' 2>/dev/null || true)
+              AHEAD=$(cat "$branch_prefetch_dir/ahead/$BRANCH_INDEX" 2>/dev/null || true)
               if ! [[ "$AHEAD" =~ ^[0-9]+$ ]]; then
                 echo "::warning::origin/$NAME — no-PR, ahead non determinabile (branch orfano / API error): REPORT-only (non cancello)"
                 flagged=$((flagged+1)); continue
@@ -216,7 +291,7 @@ jobs:
               else
                 # EC2: no-PR con commit unici e issue non conclusiva. Age-gate
                 # sull'ultimo commit: inattivo ≥ STALE_DAYS = abbandonato.
-                LAST=$(gh api "repos/$REPO/commits/$NAME" --jq '.commit.committer.date' 2>/dev/null || true)
+                LAST=$(cat "$branch_prefetch_dir/last/$BRANCH_INDEX" 2>/dev/null || true)
                 AGE_D=-1
                 if [ -n "$LAST" ]; then
                   LAST_S=$(date -u -d "$LAST" +%s 2>/dev/null || echo 0)
