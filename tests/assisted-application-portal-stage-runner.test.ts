@@ -322,6 +322,41 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).toHaveBeenCalledOnce();
   });
 
+  it('resolves the explicit cookie choice before checking the Yellowshark posting identity', async () => {
+    const postingUrl = 'https://jobs.yellowshark.com/job/example/';
+    const cookieDialog = snapshot(postingUrl,
+      'Dialog schliessen Alle akzeptieren Ablehnen Einstellungen anzeigen JETZT BEWERBEN',
+      [
+        { id: 'close', text: 'Dialog schliessen', chrome: true, cookieSurface: 'banner', cookieContextId: 'yellowshark', disabled: false },
+        { id: 'accept', text: 'Alle akzeptieren', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'reject', text: 'Ablehnen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'settings', text: 'Einstellungen anzeigen', cookieSurface: 'banner', cookieContextId: 'yellowshark', context: 'Cookie consent', disabled: false },
+        { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Job ID: 42', disabled: false },
+      ]);
+    cookieDialog.title = 'Dialog schliessen';
+    cookieDialog.dialogs = [{ dialogId: 'yellowshark' }];
+    cookieDialog.buttons.slice(0, 4).forEach((button: any) => { button.dialog = true; button.dialogId = 'yellowshark'; });
+    const visiblePosting = snapshot(postingUrl, 'Yellowshark AG · Infrastructure Strategy Manager', [
+      { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Yellowshark AG — Infrastructure Strategy Manager', disabled: false },
+    ]);
+    visiblePosting.title = 'Yellowshark AG — Infrastructure Strategy Manager';
+    const f = fixture(cookieDialog, null, review, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      job: { company: 'Yellowshark AG', title },
+      buttonTransitions: {
+        '[data-aa-id="reject"]': async () => { state.snapshot = visiblePosting; },
+        '[data-aa-id="apply"]': async () => { state.snapshot = profile; },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+  });
+
   it('keeps a regional notice terminal for an unrelated job-card application CTA', async () => {
     const unrelatedCta = snapshot(applyUrl,
       'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',

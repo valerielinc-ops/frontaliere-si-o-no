@@ -6820,7 +6820,16 @@ export async function submitViaPortal(ctx) {
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
     sourceProtocol = snapshot.protocol || null;
+    // Consent dialogs can put their own heading before a vacancy in the
+    // rendered text. Resolve the explicit cookie choice before checking that
+    // the selected posting is the page the browser actually opened; the
+    // vacancy and employer checks below remain unchanged after the overlay is
+    // gone.
+    const initialCookieState = await dismissCookieBanner(page, snapshot);
+    snapshot = initialCookieState.snapshot || snapshot;
+    sourceProtocol = snapshot.protocol || sourceProtocol;
     if (sourceProtocol) evidence.sourceProtocol = sourceProtocol;
+    if (initialCookieState.status === 'unresolved') return await handoff('cookie_preferences_unresolved');
     const initialPageText = await pageText(page);
     // The posting as a browser renders it (career-ops liveness-browser): the
     // fetch before the run sees only the empty shell of a JavaScript portal.
