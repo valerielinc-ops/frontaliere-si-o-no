@@ -45,7 +45,7 @@ import {
 } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel, phoneDialCode } from '../../../../functions/src/lib/phoneNormalization.js';
 export { BIRTH_FIELD_RE };
 
 const LIST = (items) => ({ type: 'array', items });
@@ -1631,6 +1631,13 @@ function phoneCountryOption(candidate, field) {
   const selected = options
     .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
     .find((label) => countryCodeOfLabel(label) === code) || '';
+  // Search controls (Workday's «Country Phone Code») expect a dial-code query
+  // such as «+41», then expose their own localized option label. A candidate
+  // locale label like «Svizzera» is not a safe query on an English portal.
+  if (!options.length && field?.search) {
+    const dial = phoneDialCode(phone);
+    return dial ? `+${dial}` : '';
+  }
   return selected || (!options.length ? phoneCountryLabel(phone) : '');
 }
 

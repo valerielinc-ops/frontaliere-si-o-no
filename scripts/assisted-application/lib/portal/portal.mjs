@@ -2248,7 +2248,7 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
 
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
 const FORM_VOCABULARY = new Set([
-  'application', 'applications', 'apply', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
+  'application', 'applications', 'apply', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
   'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
@@ -2347,7 +2347,20 @@ export function namesAnotherEmployer(formText, job = {}) {
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
   const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
   if (!ours.size) return false;
-  const neutral = new Set([...ours, ...nameWords(job.title), ...FORM_VOCABULARY]);
+  // A posting card commonly puts its own place after the employer (for
+  // example «Coop Genossenschaft, Rickenbach»). A known posting location is
+  // metadata, not a second employer; keep it neutral in the identity guard
+  // while leaving unknown places fail-closed.
+  const neutral = new Set([
+    ...ours,
+    ...nameWords(job.title),
+    ...nameWords(job.location),
+    ...nameWords(job.addressLocality),
+    ...nameWords(job.city),
+    ...nameWords(job.workplace),
+    ...NOT_A_NAME,
+    ...FORM_VOCABULARY,
+  ]);
   const text = String(formText || '');
   const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
   if (title.some((word) => !filler(word) && !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word))) return true;
@@ -2404,10 +2417,14 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   if (company && !hasDistinctiveCompanyIdentity(company)) return false;
   const organizationCompatible = !job?.company || !job?.organization
     || sameEmployerFamily(job.organization, job.company);
-  if (!organizationCompatible || namesAnotherEmployer(sourceText, job)) return false;
   const routeBound = samePostingAddress(pageUrl, postingUrl)
     || isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
-  if (routeBound) return !namesAnotherEmployer(pageText, job);
+  // On an exact selected-posting route, the body also contains navigation and
+  // Apply labels (for example «Später bewerben»). Use the document title for
+  // the employer-conflict guard when available; page chrome must not turn a
+  // verified vacancy into a false mismatch.
+  if (!organizationCompatible || namesAnotherEmployer(routeBound ? (pageTitle || pageText) : sourceText, job)) return false;
+  if (routeBound) return true;
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
   // The source page must identify the role in its title. Its employer may be
   // in the Apply control's bounded vacancy card. Arbitrary page text can also
@@ -5917,8 +5934,12 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
     const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
     const role = residenceFieldRole(field.label);
+    const candidateAnswer = candidateAnswerForField(candidate, field, {
+      includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
+    });
     if (isPermitField(field.label) && asksHeldStatus(field.label)
-      && !isPermitHistoricalQuestion(field.label) && !permitStatusPresent) {
+      && !isPermitHistoricalQuestion(field.label) && !permitStatusPresent
+      && !String(candidateAnswer?.value ?? '').trim()) {
       const question = permitStatusQuestion(candidateLocale);
       add(field, 'work_permit', question,
         permitStatusQuestionWhy(candidateLocale),
@@ -6644,6 +6665,12 @@ export async function submitViaPortal(ctx) {
       postingRouteProof: ctx.postingRouteProof,
       vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
     });
+    // When the selected posting URL is the page currently open, a failed
+    // vacancy-identity check is terminal. Do not let a company-only match on
+    // the same page turn a stale role into an application form.
+    if (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl) && !postingVacancyMatched) {
+      return await handoff('posting_mismatch');
+    }
     if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job,
